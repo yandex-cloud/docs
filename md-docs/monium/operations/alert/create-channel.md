@@ -1,48 +1,48 @@
 # Создание канала уведомлений с получателями
 
-1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}**.
+1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите раздел **Способы уведомления**.
 1. Вверху справа нажмите **Создать** → **Канал уведомления**.
 1. Укажите параметры канала:
-    * **{{ ui-key.yacloud_monitoring.channel.field_name }}**. Задайте имя канала.
+    * **Имя**. Задайте имя канала.
     * **ID**. Задайте уникальный идентификатор канала.
     * Выберите уровни критичности алертов, для которых будут отправляться уведомления.
-    * **{{ ui-key.yacloud_monitoring.channel.field_method }}**. Укажите метод уведомлений.
-    * **{{ ui-key.yacloud_monitoring.channel.field_recipients }}**. Перечислите получателей уведомлений.
+    * **Метод**. Укажите метод уведомлений.
+    * **Получатели**. Перечислите получателей уведомлений.
 
         {% note info %}
 
         Чтобы получать уведомления, пользователь должен:
         
         * иметь роль [monium.viewer](../../security/index.md#monium-viewer) на каталог, в котором настроен алерт.
-        * в [настройках]({{ link-console-main }}/settings) консоли управления:
-            * включить опцию **{{ ui-key.yacloud_components.settings.label_monitoring-name }}**;
-            * в зависимости от метода уведомления указать адрес электронной почты, номер телефона, добавить аккаунт Telegram или {{ messenger-full-name }}.
+        * в [настройках](https://console.yandex.cloud/settings) консоли управления:
+            * включить опцию **Мониторинг**;
+            * в зависимости от метода уведомления указать адрес электронной почты, номер телефона, добавить аккаунт Telegram или Яндекс Мессенджер.
 
         {% endnote %}
 
         Чтобы указать Telegram-аккаунт или группу:
 
-        1. Добавьте Telegram-бота [@{{ cloud-notify-bot }}](https://t.me/{{ cloud-notify-bot }}):
+        1. Добавьте Telegram-бота [@YandexCloudNotify_bot](https://t.me/YandexCloudNotify_bot):
 
             * в контакты, чтобы отправлять уведомления в личные сообщения;
             * в группу, чтобы отправлять уведомления в группу.
 
         1. Выполните команду `/start` и скопируйте код авторизации, сгенерированный ботом в ответ.
-        1. В [настройках]({{ link-console-main }}/settings) консоли управления, в поле **{{ ui-key.yacloud_components.settings.label_telegram }}**, нажмите **{{ ui-key.yacloud_components.settings.button_add-empty-telegram }}**.
-        1. Вставьте код авторизации и нажмите **{{ ui-key.yacloud_components.settings.button_submit }}**.
+        1. В [настройках](https://console.yandex.cloud/settings) консоли управления, в поле **Telegram**, нажмите **Настроить**.
+        1. Вставьте код авторизации и нажмите **Подтвердить**.
 
             При отправке уведомления через Telegram статусы алерта дополнительно [обозначаются цветом](../../concepts/alerting/alert.md#alert-statuses).
 
-        Чтобы указать [{{ messenger-full-name }}](https://360.yandex.ru/business/messenger/):
+        Чтобы указать [Яндекс Мессенджер](https://360.yandex.ru/business/messenger/):
 
-        1. В [настройках]({{ link-console-main }}/settings) консоли управления, напротив **{{ ui-key.yacloud_monitoring.monitoring-alerts-channels.method.ya-chats }}** нажмите **Настроить**.
-        1. Нажмите **{{ ui-key.yacloud_components.settings.label_yandexMessenger-link }}**.
+        1. В [настройках](https://console.yandex.cloud/settings) консоли управления, напротив **Яндекс Мессенджер** нажмите **Настроить**.
+        1. Нажмите **Перейти к боту в Яндекс Мессенджере**.
         1. Добавьте бота **Yandex Cloud Notify**:
 
             * в контакты, чтобы отправлять уведомления в личные сообщения;
             * в чат, чтобы отправлять уведомления в чаты.
 
         1. Выполните команду `/start` и скопируйте код авторизации, сгенерированный ботом в ответ.
-        1. В настройках консоли управления вставьте код авторизации и нажмите **{{ ui-key.yacloud_components.settings.button_submit }}**.
+        1. В настройках консоли управления вставьте код авторизации и нажмите **Подтвердить**.
 
-1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**. Канал появится в списке.
+1. Нажмите **Создать**. Канал появится в списке.

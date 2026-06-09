@@ -4,7 +4,7 @@
 
 * для всех проектов, выполните команду:
 
-    `npm config set registry https://{{ cloud-registry }}/npm/<идентификатор_реестра>`
+    `npm config set registry https://registry.yandexcloud.net/npm/<идентификатор_реестра>`
 
 * для одного проекта:
 
@@ -27,8 +27,8 @@
           1. Добавьте в созданный ранее файл `.npmrc` следующие строки:
 
               ```text
-              registry=https://{{ cloud-registry }}/npm/<идентификатор_реестра>
-              //{{ cloud-registry }}/npm/:_auth=${NPM_AUTH}
+              registry=https://registry.yandexcloud.net/npm/<идентификатор_реестра>
+              //registry.yandexcloud.net/npm/:_auth=${NPM_AUTH}
               always-auth=true
               ```
 
@@ -46,8 +46,8 @@
           1. Добавьте в созданный ранее файл `.npmrc` следующие строки:
 
               ```text
-              registry=https://{{ cloud-registry }}/npm/<идентификатор_реестра>
-              //{{ cloud-registry }}/npm/:_authToken=${NPM_AUTH}
+              registry=https://registry.yandexcloud.net/npm/<идентификатор_реестра>
+              //registry.yandexcloud.net/npm/:_authToken=${NPM_AUTH}
               always-auth=true
               ```
 
@@ -65,8 +65,8 @@
           1. Добавьте в созданный ранее файл `.npmrc` следующие строки:
 
               ```text
-              registry=https://{{ cloud-registry }}/npm/<идентификатор_реестра>
-              //{{ cloud-registry }}/npm/:_auth=${NPM_AUTH}
+              registry=https://registry.yandexcloud.net/npm/<идентификатор_реестра>
+              //registry.yandexcloud.net/npm/:_auth=${NPM_AUTH}
               always-auth=true
               ```
 

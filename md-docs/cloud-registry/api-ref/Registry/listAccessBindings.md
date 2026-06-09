@@ -5,7 +5,7 @@ Lists access bindings for the specified registry.
 ## HTTP request
 
 ```
-GET https://registry.{{ api-host }}/cloud-registry/v1/registries/{resourceId}:listAccessBindings
+GET https://registry.api.cloud.yandex.net/cloud-registry/v1/registries/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

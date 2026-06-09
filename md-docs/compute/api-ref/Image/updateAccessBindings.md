@@ -5,7 +5,7 @@ Updates access bindings for the image.
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/images/{resourceId}:updateAccessBindings
+POST https://compute.api.cloud.yandex.net/compute/v1/images/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

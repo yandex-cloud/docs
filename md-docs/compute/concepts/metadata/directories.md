@@ -13,15 +13,15 @@
 
 #|
 || **Название ключа (путь)** | **Описание** | **Пример значения** ||
-|| instance/attributes/enable-oslogin | Ключ, отвечающий за доступ к ВМ через [{{ oslogin }}](../../../organization/concepts/os-login.md). Возможные значения:</br>- `true` — доступ включен;</br>- `false` — доступ выключен. | `true` ||
-|| instance/attributes/install-unified-agent | Ключ, отвечающий за установку на ВМ агента [{{ unified-agent-short-name }}](../../../monitoring/concepts/data-collection/unified-agent/index.md). Возможные значения:</br>- `1` — агент установлен;</br>- `0` — агент не установлен. | `0` ||
+|| instance/attributes/enable-oslogin | Ключ, отвечающий за доступ к ВМ через [OS Login](../../../organization/concepts/os-login.md). Возможные значения:</br>- `true` — доступ включен;</br>- `false` — доступ выключен. | `true` ||
+|| instance/attributes/install-unified-agent | Ключ, отвечающий за установку на ВМ агента [Unified Agent](../../../monitoring/concepts/data-collection/unified-agent/index.md). Возможные значения:</br>- `1` — агент установлен;</br>- `0` — агент не установлен. | `0` ||
 || instance/attributes/serial-port-enable | Ключ, отвечающий за доступ к ВМ через [серийную консоль](../serial-console.md). Возможные значения:</br>- `1` — доступ включен;</br>- `0` — доступ выключен. | `0` ||
 || instance/description | Описание ВМ. | `VM description` ||
-|| instance/hostname | Полное внутренне имя ВМ ([FQDN](../network.md#hostname)). | `my-vm.{{ region-id }}.internal` ||
+|| instance/hostname | Полное внутренне имя ВМ ([FQDN](../network.md#hostname)). | `my-vm.ru-central1.internal` ||
 || instance/id | Идентификатор ВМ. | `epdhfouo8bgq********` ||
 || instance/maintenance-event | Ключ, указывающий, наступило ли событие по [обслуживанию ВМ](../maintenance-policies.md). | `NONE` ||
 || instance/name | Имя ВМ. | `my-vm-name` ||
-|| instance/zone | Идентификатор [зоны доступности](../../../overview/concepts/geo-scope.md) в формате `projects/<cloud-id>/zones/<zone-id>`. | `projects/b1g3o1qx3ra2********/zones/{{ region-id }}-d` ||
+|| instance/zone | Идентификатор [зоны доступности](../../../overview/concepts/geo-scope.md) в формате `projects/<cloud-id>/zones/<zone-id>`. | `projects/b1g3o1qx3ra2********/zones/ru-central1-d` ||
 || instance/disks/ | Список индексов [дисков](../disk.md) ВМ. | `0/` ||
 || instance/disks/<индекс_диска>/device-name | Идентификатор диска. | `epds95ahfikq********` ||
 || instance/disks/<индекс_диска>/mode | Режим работы диска. | `READ_WRITE` ||
@@ -59,7 +59,7 @@
 ||
 || instance/vendor/labels | Список ключей [меток](../../../resource-manager/concepts/labels.md), которые привязаны к ВМ. | `env` ||
 || instance/vendor/labels/<ключ_метки> | Значение для выбранного ключа метки из списка. | `prod` ||
-|| instance/vendor/environment | Облачный [регион](../../../overview/concepts/region.md). | `{{ region-id }}` ||
+|| instance/vendor/environment | Облачный [регион](../../../overview/concepts/region.md). | `ru-central1` ||
 || yandex/folder-id | Идентификатор каталога, в котором создана ВМ. | `b1gt6g8ht345********` ||
 |#
 
@@ -80,16 +80,16 @@
 
 ## Примеры использования {#examples}
 
-* [{#T}](../../tutorials/secure-password-script/index.md)
-* [{#T}](../../tutorials/rds-gw.md)
-* [{#T}](../../../tutorials/security/gitlab-lockbox-integration.md)
-* [{#T}](../../../tutorials/archive/vm-with-backup-policy/index.md)
-* [{#T}](../../../tutorials/routing/multi-folder-vpc.md)
+* [Безопасная передача пароля в скрипт инициализации](../../tutorials/secure-password-script/index.md)
+* [Развертывание Remote Desktop Gateway](../../tutorials/rds-gw.md)
+* [Безопасное хранение паролей для GitLab CI в виде секретов Yandex Lockbox](../../../tutorials/security/gitlab-lockbox-integration.md)
+* [Автоматическая привязка политики резервного копирования Yandex Cloud Backup к ВМ](../../../tutorials/archive/vm-with-backup-policy/index.md)
+* [Настройка сетевого взаимодействия ресурсов из разных каталогов](../../../tutorials/routing/multi-folder-vpc.md)
 
 #### См. также {#see-also}
 
-* [{#T}](../vm-metadata.md)
-* [{#T}](public-image-keys.md)
-* [{#T}](sending-metadata.md)
-* [{#T}](accessing-metadata.md)
-* [{#T}](identity-document.md)
+* [Метаданные виртуальной машины](../vm-metadata.md)
+* [Ключи, обрабатываемые в публичных образах Yandex Cloud](public-image-keys.md)
+* [Передача метаданных в виртуальные машины](sending-metadata.md)
+* [Доступ к метаданным виртуальных машин](accessing-metadata.md)
+* [Идентификационный документ](identity-document.md)

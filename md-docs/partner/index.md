@@ -18,7 +18,7 @@
 
  - [Инструменты](program/var-tools.md)
 
-#### Партнерские статусы {{ yandex-cloud }}
+#### Партнерские статусы Yandex Cloud
 
  - [Обзор](specializations/index.md)
 

@@ -12,14 +12,14 @@
 
 {% list tabs group=instructions %}
 
-- {{ billing-interface }} {#billing}
+- Интерфейс Yandex Cloud Billing {#billing}
   
-  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
   1. Выберите платежный аккаунт.
-  1. На странице ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.button_billing-payment-action }}**.
-  1. Подтвердите переход, для этого еще раз нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.button_billing-payment-action }}**.
+  1. На странице ![image](../../_assets/console-icons/flag.svg) **Аккаунт** нажмите кнопку **Перейти на платную версию**.
+  1. Подтвердите переход, для этого еще раз нажмите кнопку **Перейти на платную версию**.
 
 {% endlist %}
 
 После активации платной версии [баланс лицевого счета](../concepts/personal-account.md#balance) по умолчанию равен нулю. Мы рекомендуем следить за балансом и [пополнять](pay-the-bill.md) его до положительного значения.
-<br/>Если вы вовремя не пополните баланс и у вас появится задолженность, то использование сервисов {{ yandex-cloud }} может быть приостановлено. Дополнительную информацию см. в разделе [Цикл оплаты для организаций и ИП](../payment/billing-cycle-business.md)
+<br/>Если вы вовремя не пополните баланс и у вас появится задолженность, то использование сервисов Yandex Cloud может быть приостановлено. Дополнительную информацию см. в разделе [Цикл оплаты для организаций и ИП](../payment/billing-cycle-business.md)

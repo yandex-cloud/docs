@@ -5,7 +5,7 @@ Updates the specified reserved instance pool.
 ## HTTP request
 
 ```
-PATCH https://compute.{{ api-host }}/compute/v1/reservedInstancePools/{reservedInstancePoolId}
+PATCH https://compute.api.cloud.yandex.net/compute/v1/reservedInstancePools/{reservedInstancePoolId}
 ```
 
 ## Path parameters

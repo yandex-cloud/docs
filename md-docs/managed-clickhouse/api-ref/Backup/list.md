@@ -5,7 +5,7 @@ Retrieves the list of Backup resources available for the specified folder.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-clickhouse/v1/backups
+GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/backups
 ```
 
 ## Query parameters {#yandex.cloud.mdb.clickhouse.v1.ListBackupsRequest}

@@ -1,5 +1,5 @@
-# Пошаговые инструкции для {{ quota-manager-full-name }}
+# Пошаговые инструкции для Yandex Cloud Quota Manager
 
-- [{#T}](read-quotas.md)
-- [{#T}](list-quotas.md)
-- [{#T}](set-quotas.md)
+- [Посмотреть значение квоты](read-quotas.md)
+- [Посмотреть список сервисов и квот](list-quotas.md)
+- [Изменить квоты](set-quotas.md)

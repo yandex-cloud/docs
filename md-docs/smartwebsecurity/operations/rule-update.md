@@ -6,11 +6,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный профиль безопасности.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный профиль безопасности.
+  1. Перейдите в сервис **Smart Web Security**.
+  1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
   1. Выберите профиль, в котором вы хотите изменить правило.
-  1. На вкладке **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}** в строке с нужным правилом нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. На вкладке **Правила безопасности** в строке с нужным правилом нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
   1. В открывшемся окне задайте новые параметры правила:
   
       1. Введите имя правила.
@@ -25,52 +25,52 @@
           
           {% endnote %}
       
-          Подробнее о приоритете правил см. в разделе [{#T}](../concepts/rules.md#rules-order).
+          Подробнее о приоритете правил см. в разделе [Общие принципы работы правил](../concepts/rules.md#rules-order).
       
-      1. (опционально) Включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)**, если вы хотите только фиксировать информацию о трафике, который соответствует заданным условиям, но не применять к нему никаких действий.
+      1. (опционально) Включите опцию **Только логирование (dry run)**, если вы хотите только фиксировать информацию о трафике, который соответствует заданным условиям, но не применять к нему никаких действий.
       1. Выберите тип правила:
-          * [**{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}**](../concepts/rules.md#base-rules) — правило, которое по заданным условиям разрешает, запрещает или отправляет трафик в [{{ captcha-full-name }}](../../smartcaptcha/index.md).
-          * [**{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}**](../concepts/rules.md#smart-protection-rules) — правило, которое отправляет трафик на автоматический анализ с помощью алгоритмов машинного обучения и поведенческого анализа. Подозрительные запросы отправляются в {{ captcha-full-name }} для дополнительной верификации.
-          * [**{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}**](../concepts/rules.md#waf-rules) — правило, которое подключает набор правил из профиля WAF. Подозрительные запросы отправляются в {{ captcha-full-name }}.
+          * [**Базовое**](../concepts/rules.md#base-rules) — правило, которое по заданным условиям разрешает, запрещает или отправляет трафик в [Yandex SmartCaptcha](../../smartcaptcha/index.md).
+          * [**Smart Protection**](../concepts/rules.md#smart-protection-rules) — правило, которое отправляет трафик на автоматический анализ с помощью алгоритмов машинного обучения и поведенческого анализа. Подозрительные запросы отправляются в Yandex SmartCaptcha для дополнительной верификации.
+          * [**Web Application Firewall**](../concepts/rules.md#waf-rules) — правило, которое подключает набор правил из профиля WAF. Подозрительные запросы отправляются в Yandex SmartCaptcha.
       
               Для правила WAF выберите или [создайте профиль WAF](waf-profile-create.md).
       1. Выберите [действие](../concepts/rules.md#rule-action):
           * Для базового правила: 
-            * `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}`;
-            * `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-allow }}`;
+            * `Запретить`;
+            * `Разрешить`;
             * `Показать капчу` — будет показана капча, выбранная в профиле безопасности.
           * Для правила Smart Protection или WAF:
       
-            * `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}` — после проверки подозрительные запросы отправляются в {{ captcha-name }}.
-            * `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-api }}` — после проверки подозрительные запросы блокируются.
+            * `Полная защита` — после проверки подозрительные запросы отправляются в SmartCaptcha.
+            * `Защита API` — после проверки подозрительные запросы блокируются.
       
-      1. (Опционально) Выберите или [создайте](template-create.md) шаблон ответа, который будет возвращаться клиенту при срабатывании правила. По умолчанию используется стандартный шаблон {{ yandex-cloud }}.
-      1. В блоке **{{ ui-key.yacloud.smart-web-security.arl.column_rule-conditions }}** определите трафик, для анализа которого будет использоваться правило:
-         * `{{ ui-key.yacloud.component.condition-column.condition_full-trafic }}` — правило будет использоваться для анализа всего трафика.
-         * `При условии` — правило будет использоваться для анализа трафика, заданного в поле **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**:
-             * `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}` — IP-адрес, диапазон адресов, регион адресов или [список адресов](../concepts/lists.md);
-             * `{{ ui-key.yacloud.component.condition-column.condition_name-header }}` — строка в заголовке HTTP;
-             * `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}` — путь запроса;
-             * `{{ ui-key.yacloud.component.condition-column.condition_name-host }}` — домен, на который пришел запрос;
-             * `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}` — метод запроса;
-             * `{{ ui-key.yacloud.component.condition-column.condition_name-cookie }}` — строка в заголовке cookie.
+      1. (Опционально) Выберите или [создайте](template-create.md) шаблон ответа, который будет возвращаться клиенту при срабатывании правила. По умолчанию используется стандартный шаблон Yandex Cloud.
+      1. В блоке **Условия на трафик** определите трафик, для анализа которого будет использоваться правило:
+         * `Весь трафик` — правило будет использоваться для анализа всего трафика.
+         * `При условии` — правило будет использоваться для анализа трафика, заданного в поле **Условия**:
+             * `IP` — IP-адрес, диапазон адресов, регион адресов или [список адресов](../concepts/lists.md);
+             * `HTTP header` — строка в заголовке HTTP;
+             * `Request URI` — путь запроса;
+             * `Host` — домен, на который пришел запрос;
+             * `HTTP method` — метод запроса;
+             * `Cookie` — строка в заголовке cookie.
              * `Bot name` — имена легитимных ботов, принадлежащих различным компаниям и сервисам.
              * `Bot category` — категории верифицированных ботов по их назначению или характеру действий.
              * `Verified bot` — фильтрация по признаку верификации бота (`да` или `нет`).
              * `Bot score` — фильтрация по уровню роботизированности запроса: от `0` (самый низкий уровень, человек) до `100` (самый высокий уровень, бот).
              * `FingerPrint` — [отпечаток](../concepts/botes.md#fingerprint) SSL/TLS‑соединения.
          
-             Вы можете задать несколько условий. Для этого в поле **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** выберите все необходимые типы условий.
+             Вы можете задать несколько условий. Для этого в поле **Условия** выберите все необходимые типы условий.
          
-             Вы также можете задать несколько условий одного типа. Для этого в секции с нужным условием нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.condition-column.condition_and }}** или ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.condition-column.condition_or }}**.
+             Вы также можете задать несколько условий одного типа. Для этого в секции с нужным условием нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **и** или ![plus-sign](../../_assets/console-icons/plus.svg) **или**.
          
              Чтобы удалить условие, нажмите ![options](../../_assets/console-icons/trash-bin.svg).
       
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+      1. Нажмите кнопку **Добавить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -311,20 +311,20 @@
 
   Подробнее о команде `yc smartwebsecurity security-profile update` читайте в [справочнике CLI](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/update.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-  1. Откройте файл конфигурации {{ TF }} и в описании профиля безопасности `yandex_sws_security_profile` измените нужный блок `security_rule` с правилом безопасности :
+  1. Откройте файл конфигурации Terraform и в описании профиля безопасности `yandex_sws_security_profile` измените нужный блок `security_rule` с правилом безопасности :
 
       ```hcl
       resource "yandex_sws_security_profile" "demo-profile-simple" {
@@ -372,7 +372,7 @@
       }
       ```
 
-      Более подробную информацию о параметрах ресурса `yandex_sws_security_profile` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/sws_security_profile).
+      Более подробную информацию о параметрах ресурса `yandex_sws_security_profile` в Terraform, см. в [документации провайдера](../../terraform/resources/sws_security_profile.md).
 
   1. Создайте ресурсы:
 
@@ -395,7 +395,7 @@
           terraform plan
           ```
        
-          В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+          В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
        1. Примените изменения конфигурации:
        
           ```bash
@@ -404,7 +404,7 @@
        
        1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-  Проверить изменение ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/index.md):
+  Проверить изменение ресурсов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/index.md):
 
   ```bash
   yc smartwebsecurity security-profile get <идентификатор_профиля_безопасности>
@@ -418,4 +418,4 @@
 
 ### См. также {#see-also}
 
-* [{#T}](rule-delete.md)
+* [Удалить правило из профиля безопасности](rule-delete.md)

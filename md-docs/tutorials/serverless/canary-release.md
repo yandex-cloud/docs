@@ -1,12 +1,12 @@
-# Канареечный релиз функции {{ sf-name }}
+# Канареечный релиз функции Cloud Functions
 
 
-Создайте канареечный релиз функции {{ sf-name }} с помощью {{ api-gw-short-name }}.
+Создайте канареечный релиз функции Cloud Functions с помощью API Gateway.
 
 Чтобы создать канареечный релиз:
 1. [Подготовьте облако к работе](#before-begin).
 1. [Создайте сервисный аккаунт](#create-account).
-1. [Создайте функцию {{ sf-name }}](#create-functions).
+1. [Создайте функцию Cloud Functions](#create-functions).
 1. [Добавьте теги](#add-tag).
 1. [Создайте API-шлюз](#create-api-gw).
 1. [Протестируйте приложение](#test).
@@ -15,19 +15,19 @@
 
 ## Перед началом работы {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость ресурсов поддержки веб-приложения входят:
-* Плата за количество запросов к API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md)).
-* Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md)).
+* Плата за количество запросов к API-шлюзу и исходящий трафик (см. [тарифы Yandex API Gateway](../../api-gateway/pricing.md)).
+* Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы Yandex Cloud Functions](../../functions/pricing.md)).
 
 ## Создайте сервисный аккаунт {#create-account}
 
@@ -35,16 +35,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать сервисный аккаунт.
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта: `canary-sa`.
-  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `editor`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `editor`.
+  1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -79,10 +79,10 @@
       done (1s)
       ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
   1. Опишите в конфигурационном файле параметры сервисного аккаунта:
@@ -106,7 +106,7 @@
       * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md). Необязательный параметр. По умолчанию будет использовано значение, указанное в настройках провайдера.
       * `role` — назначаемая роль.
 
-      Более подробную информацию о параметрах ресурса `yandex_iam_service_account` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account).
+      Более подробную информацию о параметрах ресурса `yandex_iam_service_account` в Terraform, см. в [документации провайдера](../../terraform/resources/iam_service_account.md).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -117,7 +117,7 @@
          terraform plan
          ```
 
-      Если конфигурация описана верно, в терминале отобразится информация о сервисном аккаунте. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+      Если конфигурация описана верно, в терминале отобразится информация о сервисном аккаунте. Если в конфигурации есть ошибки, Terraform на них укажет.
 
   1. Разверните облачные ресурсы.
 
@@ -129,7 +129,7 @@
 
       1. Подтвердите создание сервисного аккаунта: введите в терминал слово `yes` и нажмите **Enter**.
 
-           После этого будет создан сервисный аккаунт. Проверить появление сервисного аккаунта можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+           После этого будет создан сервисный аккаунт. Проверить появление сервисного аккаунта можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/quickstart.md):
 
            ```bash
            yc iam service-account list
@@ -143,7 +143,7 @@
 
 {% endlist %}
 
-## Создайте функцию {{ sf-name }} {#create-functions}
+## Создайте функцию Cloud Functions {#create-functions}
 
 [Создайте две версии функции](../../functions/operations/index.md#create-function):
 * версию для текущего релиза;
@@ -183,13 +183,13 @@
       - stable
     ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Чтобы добавить тег версии:
 
     1. В конфигурационном файле добавьте блок `tags` для ресурса `yandex_function` и укажите список тегов формате `tags = ["<имя_тега>"]`.
 
-       Пример описания функции в конфигурации {{ TF }}:
+       Пример описания функции в конфигурации Terraform:
       
         ```
         resource "yandex_function" "test-function" {
@@ -207,7 +207,7 @@
         }
         ``` 
 
-        Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-resources-link }}/function).
+        Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера](../../terraform/resources/function.md).
 
     1. Проверьте конфигурацию командой:
         
@@ -227,7 +227,7 @@
        terraform plan
        ```
         
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет. 
          
     1. Примените изменения конфигурации:
 
@@ -236,7 +236,7 @@
        ```
     1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
       
-    Проверить, что теги появились, можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+    Проверить, что теги появились, можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/quickstart.md):
 
     ```
     yc serverless function version list --function-name <имя_функции>
@@ -254,11 +254,11 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать API-шлюз.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
-    1. В поле **{{ ui-key.yacloud.common.name }}** введите `canary`.
-    1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте спецификацию:
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать API-шлюз.
+    1. Перейдите в сервис **API Gateway**.
+    1. Нажмите кнопку **Создать API-шлюз**.
+    1. В поле **Имя** введите `canary`.
+    1. В блок **Спецификация** добавьте спецификацию:
     
         ```yaml
         openapi: 3.0.0
@@ -283,10 +283,10 @@
                 tag: "${var.function.tag}"
                 service_account_id: <идентификатор_сервисного_аккаунта>
         ```
-    1. В разделе **{{ ui-key.yacloud.serverless-functions.gateways.form.label_section-variables }}** активируйте переключатель **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-release }}**.
-    1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-share }}** укажите `50`.
-    1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-variables }}** укажите `function.tag`=`canary`.
-    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
+    1. В разделе **Управление переменными** активируйте переключатель **Канареечный релиз**.
+    1. В поле **Доля запросов в канареечном релизе** укажите `50`.
+    1. В поле **Переменные для канареечного релиза** укажите `function.tag`=`canary`.
+    1. Нажмите кнопку **Создать**.
     
 - CLI {#cli}
 
@@ -337,7 +337,7 @@
         created_at: "2023-09-25T16:01:48.926Z"
         name: canary
         status: ACTIVE
-        domain: {{ api-host-apigw }}
+        domain: d5dm1lba80md********.i9******.apigw.yandexcloud.net
         log_group_id: ckgefpleo5eg********
         connectivity: {}
         log_options:
@@ -349,7 +349,7 @@
               string_value: canary
         ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   Чтобы создать API-шлюз:
 
@@ -401,7 +401,7 @@
      * `canary.0.variables` — переменные для канареечного релиза.
      * `spec` — спецификация API-шлюза.
 
-     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/api_gateway).
+     Более подробную информацию о параметрах ресурсов в Terraform см. в [документации провайдера](../../terraform/resources/api_gateway.md).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -412,7 +412,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
 
   1. Разверните облачные ресурсы.
 
@@ -424,7 +424,7 @@
 
      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../cli/quickstart.md):
+        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud) или с помощью команд [CLI](../../cli/quickstart.md):
 
         ```
         yc serverless api-gateway get <имя_API-шлюза>

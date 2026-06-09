@@ -5,7 +5,7 @@ Deletes the specified group.
 ## HTTP request
 
 ```
-DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/groups/{groupId}
+DELETE https://organization-manager.api.cloud.yandex.net/organization-manager/v1/groups/{groupId}
 ```
 
 ## Path parameters

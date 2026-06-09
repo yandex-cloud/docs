@@ -1,12 +1,12 @@
-# {{ stackland-full-name }}
+# Yandex Cloud Stackland
 
-Платформа контейнеризации с интегрированными PaaS‑сервисами {{ yandex-cloud }}. Объединяет все необходимые компоненты для централизованного управления микросервисными и ИИ‑приложениями.
+Платформа контейнеризации с интегрированными PaaS‑сервисами Yandex Cloud. Объединяет все необходимые компоненты для централизованного управления микросервисными и ИИ‑приложениями.
 
-Stackland базируется на Kubernetes®, что позволяет работать с привычными инструментами для управления микросервисными приложениями, а также управлять платформенными сервисами {{ yandex-cloud }} через Kubernetes API.
+Stackland базируется на Kubernetes®, что позволяет работать с привычными инструментами для управления микросервисными приложениями, а также управлять платформенными сервисами Yandex Cloud через Kubernetes API.
 
-В платформу интегрированы объектное хранилище, {{ mpg-name }}, {{ mch-name }}, {{ mkf-name }}, а также готовый инструментарий для обеспечения приложений доступом к графическим ускорителям и высокопроизводительным сетям для задач распределенного инференса. Запланирована интеграция баз данных с поддержкой векторного поиска для RAG-сценариев.
+В платформу интегрированы объектное хранилище, Managed Service for PostgreSQL, Managed Service for ClickHouse®, Managed Service for Apache Kafka®, а также готовый инструментарий для обеспечения приложений доступом к графическим ускорителям и высокопроизводительным сетям для задач распределенного инференса. Запланирована интеграция баз данных с поддержкой векторного поиска для RAG-сценариев.
 
-Платформа позволит быстро развернуть в закрытом контуре {{ foundation-models-name }} для разработки AI-приложений и агентов, а также {{ speechsense-name }} для речевой аналитики и BI-систему {{ datalens-name }}.
+Платформа позволит быстро развернуть в закрытом контуре AI Studio для разработки AI-приложений и агентов, а также SpeechSense для речевой аналитики и BI-систему DataLens.
 
 # Yandex Cloud Stackland
 
@@ -20,9 +20,9 @@ Stackland базируется на Kubernetes®, что позволяет ра
 
  - [Установить Stackland на Yandex BareMetal](tutorials/install-on-yc-bms.md)
 
- - [Установка {{ stackland-name }} на {{ baremetal-full-name }} через PXE](tutorials/install-on-yc-bms-pxe.md)
+ - [Установка Stackland на Yandex BareMetal через PXE](tutorials/install-on-yc-bms-pxe.md)
 
- - [Установка {{ stackland-name }} на виртуальные машины в {{ yandex-cloud }}](tutorials/install-on-yc-vm.md)
+ - [Установка Stackland на виртуальные машины в Yandex Cloud](tutorials/install-on-yc-vm.md)
 
  - [Настройка внешнего доступа к поду в кластере](tutorials/expose-app-domain.md)
 
@@ -44,7 +44,7 @@ Stackland базируется на Kubernetes®, что позволяет ра
 
 #### Managed Service for PostgreSQL
 
- - [Создать кластер {{ PG }}](operations/postgresql/create-cluster.md)
+ - [Создать кластер PostgreSQL](operations/postgresql/create-cluster.md)
 
  - [Изменить настройки кластера](operations/postgresql/edit-cluster.md)
 
@@ -58,7 +58,7 @@ Stackland базируется на Kubernetes®, что позволяет ра
 
 #### Managed Service for ClickHouse®
 
- - [Создать кластер {{ CH }}](operations/clickhouse/create-cluster.md)
+ - [Создать кластер ClickHouse®](operations/clickhouse/create-cluster.md)
 
  - [Изменить настройки кластера](operations/clickhouse/edit-cluster.md)
 
@@ -192,7 +192,7 @@ Stackland базируется на Kubernetes®, что позволяет ра
 
  - [Managed Service for ClickHouse®](concepts/components/clickhouse.md)
 
- - [{{ datalens-name }}](concepts/components/datalens.md)
+ - [DataLens](concepts/components/datalens.md)
 
  - [Monitoring](concepts/components/monitoring.md)
 

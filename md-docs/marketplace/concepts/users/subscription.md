@@ -7,7 +7,7 @@
 
 Чтобы использовать подписку, пользователь должен [привязать](../../operations/users/lock-subscription.md) ее к ресурсу, приложению или сервису.
 
-Чтобы найти продукты, доступные по подписке, можно использовать фильтр **Тип тарификации** → **Subscription** на сайте [{{ marketplace-short-name }}](https://yandex.cloud/ru/marketplace). Условия покупки подписки описаны на карточке продукта. Для покупки подписки необходима [роль](../../security/index.md) `license-manager.user`. Купленная подписка активна, даже если не привязана к ресурсу, приложению или сервису.
+Чтобы найти продукты, доступные по подписке, можно использовать фильтр **Тип тарификации** → **Subscription** на сайте [Marketplace](https://yandex.cloud/ru/marketplace). Условия покупки подписки описаны на карточке продукта. Для покупки подписки необходима [роль](../../security/index.md) `license-manager.user`. Купленная подписка активна, даже если не привязана к ресурсу, приложению или сервису.
 
 Пользователь может [перемещать](../../operations/users/move-subscription.md) купленные подписки между каталогами, на которые у него есть права.
 
@@ -15,5 +15,5 @@
 
 ## См. также {#see-also}
 
-* [{#T}](../../operations/users/buy-subscription.md)
-* [{#T}](../../operations/users/cancel-subscription.md)
+* [Покупка подписки](../../operations/users/buy-subscription.md)
+* [Отключение автопродления подписки в Cloud Marketplace](../../operations/users/cancel-subscription.md)

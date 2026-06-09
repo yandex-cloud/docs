@@ -5,7 +5,7 @@ Retrieves the list of Disk resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/disks
+GET https://compute.api.cloud.yandex.net/compute/v1/disks
 ```
 
 ## Query parameters {#yandex.cloud.compute.v1.ListDisksRequest}

@@ -5,7 +5,7 @@ Retrieves a list of external dictionaries that belong to specified cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/externalDictionaries
+GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/externalDictionaries
 ```
 
 ## Path parameters

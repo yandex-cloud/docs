@@ -3,7 +3,7 @@
 {% note info %}
 
 Для данной инструкции необходимо использовать [CLI](../../cli/index.md), если выполнено одно или более из следующих условий:
-* в настройках организации [включена](hide-user-info.md) опция **{{ ui-key.yacloud_org.organization.security-settings.OtherSecuritySettingsForm.title_hide-users-list_9eW2W }}**;
+* в настройках организации [включена](hide-user-info.md) опция **Запретить пользователям просматривать список членов организации и информацию о них**;
 * применяется [политика авторизации](../../iam/concepts/access-control/access-policies.md) `organization.denyUserListing`, которая запрещает просматривать список пользователей организации.
 
 {% endnote %}
@@ -12,17 +12,17 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. На панели слева выберите ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}** и в открывшемся списке выберите нужного пользователя.
+  1. Перейдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. На панели слева выберите ![icon-users](../../_assets/console-icons/person.svg) **Пользователи** и в открывшемся списке выберите нужного пользователя.
 
       При необходимости воспользуйтесь строкой поиска или фильтром вверху страницы.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_org.user.title_groups }}**.
+  1. Перейдите на вкладку **Группы**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 

@@ -1,10 +1,10 @@
 # Поставка системных метрик Linux
 
-Общие метрики виртуальной машины сервис {{ monitoring-full-name }} получает от сервиса {{ compute-full-name }}. Например, количество оперативной памяти, выделенной ВМ в момент запуска. Но как ВМ использует память, можно измерить только собирая данные внутри ВМ. Для сбора и передачи [системных метрик Linux](../../metrics-ref/unifiedagent-ref.md) предназначена утилита {{ unified-agent-full-name }}.
+Общие метрики виртуальной машины сервис Monium Metrics получает от сервиса Yandex Compute Cloud. Например, количество оперативной памяти, выделенной ВМ в момент запуска. Но как ВМ использует память, можно измерить только собирая данные внутри ВМ. Для сбора и передачи [системных метрик Linux](../../metrics-ref/unifiedagent-ref.md) предназначена утилита Unified Agent.
 
 {% note warning %}
 
-Поставка системных метрик виртуальных машин, работающих на Windows и macOS, запланирована в будущих релизах {{ unified-agent-full-name }}.
+Поставка системных метрик виртуальных машин, работающих на Windows и macOS, запланирована в будущих релизах Unified Agent.
 
 {% endnote %}
 
@@ -15,15 +15,15 @@
 
 
 
-Чтобы настроить {{ unified-agent-full-name }} для сбора системных метрик с виртуальной машины {{ yandex-cloud }}, выполните следующие шаги:
+Чтобы настроить Unified Agent для сбора системных метрик с виртуальной машины Yandex Cloud, выполните следующие шаги:
 
-1. Настройте сервисный аккаунт, от имени которого будут записываться метрики в {{ monitoring-full-name }}.
+1. Настройте сервисный аккаунт, от имени которого будут записываться метрики в Monium Metrics.
 
-   1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) в каталоге, куда будут записываться метрики и [назначьте ему роль](../../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-monitoring-editor }}`.
+   1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) в каталоге, куда будут записываться метрики и [назначьте ему роль](../../../iam/operations/sa/assign-role-for-sa.md) `monitoring.editor`.
 
-   1. [Привяжите сервисный аккаунт](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине, на которой установлен {{ unified-agent-short-name }}.
+   1. [Привяжите сервисный аккаунт](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине, на которой установлен Unified Agent.
 
-1. Установите и настройте {{ unified-agent-full-name }}:
+1. Установите и настройте Unified Agent:
 
    1. Создайте в домашнем каталоге файл **config.yml**.
 
@@ -79,7 +79,7 @@
           - /etc/yandex/unified_agent/conf.d/*.yml
        ```
 
-   1. Установите {{ unified-agent-short-name }} на свою виртуальную машину, выполнив в домашнем каталоге следующую команду:
+   1. Установите Unified Agent на свою виртуальную машину, выполнив в домашнем каталоге следующую команду:
 
       ```bash
       docker run \
@@ -89,16 +89,16 @@
       -v /proc:/ua_proc \
       -e PROC_DIRECTORY=/ua_proc \
       -e FOLDER_ID=<идентификатор_каталога> \
-      {{ registry }}/yc/unified-agent
+      cr.yandex/yc/unified-agent
       ```
 
        Где `<идентификатор_каталога>` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в который будут записываться метрики.
        
-       Другие способы установки агента описаны в разделе [{#T}](../../concepts/data-collection/unified-agent/installation.md).
+       Другие способы установки агента описаны в разделе [Установка и обновление Unified Agent](../../concepts/data-collection/unified-agent/installation.md).
 
-1. Убедитесь, что метрики поступают в {{ monitoring-full-name }}:
+1. Убедитесь, что метрики поступают в Monium Metrics:
 
-    1. На [главной странице]({{ link-monitoring }}) сервиса {{ monitoring-full-name }} перейдите в раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
+    1. На [главной странице](https://monium.yandex.cloud) сервиса Monium Metrics перейдите в раздел **Метрики**.
 
     1. В строке запроса выберите:
       - каталог, в который собираются метрики;
@@ -108,6 +108,6 @@
 
 #### Что дальше {#what-is-next}
 
-- [Изучите концепции {{ unified-agent-short-name }}](../../concepts/data-collection/unified-agent/index.md)
-- [Узнайте подробнее о конфигурировании {{ unified-agent-short-name }}](../../concepts/data-collection/unified-agent/configuration.md)
-- [Ознакомьтесь с рекомендациями по эксплуатации {{ unified-agent-short-name }}](../../concepts/data-collection/unified-agent/best-practices.md)
+- [Изучите концепции Unified Agent](../../concepts/data-collection/unified-agent/index.md)
+- [Узнайте подробнее о конфигурировании Unified Agent](../../concepts/data-collection/unified-agent/configuration.md)
+- [Ознакомьтесь с рекомендациями по эксплуатации Unified Agent](../../concepts/data-collection/unified-agent/best-practices.md)

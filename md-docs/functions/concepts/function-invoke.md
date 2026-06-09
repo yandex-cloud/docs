@@ -1,11 +1,11 @@
-# Вызов функции в {{ sf-name }}
+# Вызов функции в Cloud Functions
 
 Функцию можно вызвать: 
 * [с помощью HTTPS-запроса](#http);
 * [с помощью CLI](#cli);
 * [с помощью триггера](#trigger);
-* [с помощью расширения {{ api-gw-full-name }}](#extension);
-* [с помощью событий в {{ monitoring-short-name }}](#monitoring).
+* [с помощью расширения Yandex API Gateway](#extension);
+* [с помощью событий в Monitoring](#monitoring).
 
 Для каждого способа есть своя структура данных запроса к функции и ответа функции. Вызвать определенную [версию](function.md#version) функции можно, используя [тег](function.md#tag). Подробнее о том, как [вызвать функцию](../operations/function/function-invoke.md).
 
@@ -19,7 +19,7 @@
 
 Если функция вызывается для обработки HTTPS-запроса, то она получает первым аргументом данные о запросе в формате JSON: название HTTP-метода, заголовки, аргументы и другие параметры запроса.
 
-Результат, который возвращает функция, также должен представлять из себя JSON-документ, содержащий код ответа HTTP, заголовки ответа и содержимое ответа. {{ sf-name }} автоматически обработает этот JSON, и пользователь получит данные в виде стандартного HTTPS-ответа.
+Результат, который возвращает функция, также должен представлять из себя JSON-документ, содержащий код ответа HTTP, заголовки ответа и содержимое ответа. Cloud Functions автоматически обработает этот JSON, и пользователь получит данные в виде стандартного HTTPS-ответа.
 
 {% note info %}
 
@@ -99,7 +99,7 @@ JSON-структура запроса:
     }
     ```
 
-- `body` — содержимое запроса в виде строки. Данные могут быть закодированы в формат Base64 (в этом случае {{ sf-name }} установит параметр `isBase64Encoded: true`).
+- `body` — содержимое запроса в виде строки. Данные могут быть закодированы в формат Base64 (в этом случае Cloud Functions установит параметр `isBase64Encoded: true`).
 
     {% note info %}
     
@@ -107,7 +107,7 @@ JSON-структура запроса:
     
     {% endnote %}
     
-- `isBase64Encoded` — если `body` содержит данные закодированные в Base64, то {{ sf-name }} установит значение параметра в `true`. 
+- `isBase64Encoded` — если `body` содержит данные закодированные в Base64, то Cloud Functions установит значение параметра в `true`. 
 
 #### Отладка функции {#example}
 
@@ -127,7 +127,7 @@ module.exports.handler = async (event) => {
 curl \
   --request POST \
   --data "hello, world!" \
-  "https://{{ sf-url }}/<ID функции>?a=1&a=2&b=1"
+  "https://functions.yandexcloud.net/<ID функции>?a=1&a=2&b=1"
 ```
 
 Результат будет выглядеть следующим образом: 
@@ -197,7 +197,7 @@ curl \
 - `functionName` — идентификатор функции.
 - `functionVersion` — идентификатор версии функции.
 - `memoryLimitInMB` — объем памяти, указанный для версии функции, МБ.
-- `token` — [IAM-токен](../../iam/concepts/authorization/iam-token.md) сервисного аккаунта, указанного для версии функции. Актуальное значение генерируется автоматически. Используется для работы с [API {{ yandex-cloud }}](../../api-design-guide/index.md). Поле присутствует, только если для версии функции указан корректный сервисный аккаунт.
+- `token` — [IAM-токен](../../iam/concepts/authorization/iam-token.md) сервисного аккаунта, указанного для версии функции. Актуальное значение генерируется автоматически. Используется для работы с [API Yandex Cloud](../../api-design-guide/index.md). Поле присутствует, только если для версии функции указан корректный сервисный аккаунт.
 
 Пример использования служебных данных в функции:
 
@@ -213,7 +213,7 @@ module.exports.handler = async (event, context) => {
 
 ### Структура ответа {#response}
 
-{{ sf-name }} интерпретирует результат выполнения функции для того, чтобы заполнить содержимое HTTPS-ответа, его заголовки и код состояния. Для этого функция должна возвращать ответ следующей структуры:
+Cloud Functions интерпретирует результат выполнения функции для того, чтобы заполнить содержимое HTTPS-ответа, его заголовки и код состояния. Для этого функция должна возвращать ответ следующей структуры:
 
 ``` 
 {
@@ -235,7 +235,7 @@ module.exports.handler = async (event, context) => {
 
 ### Обработка ошибок в коде пользовательской функции {#error}
 
-В случае возникновения необработанной ошибки в пользовательском коде, {{ sf-name }} вернет результат с кодом ошибки 502 и подробным описанием ошибки в виде следующей JSON-структуры: 
+В случае возникновения необработанной ошибки в пользовательском коде, Cloud Functions вернет результат с кодом ошибки 502 и подробным описанием ошибки в виде следующей JSON-структуры: 
 
 ```
 {
@@ -255,7 +255,7 @@ module.exports.handler = async (event, context) => {
 
 #### Ошибка в случае некорректной JSON-структуры ответа {#uncorrect-json}
 
-Если структура ответа вашей функции не соответствует тому, что описано в разделе [Структура данных ответа](#response), то {{ sf-name }} вернет результат с кодом ошибки 502 и следующий ответ:
+Если структура ответа вашей функции не соответствует тому, что описано в разделе [Структура данных ответа](#response), то Cloud Functions вернет результат с кодом ошибки 502 и следующий ответ:
 
 ```
 {
@@ -265,11 +265,11 @@ module.exports.handler = async (event, context) => {
 }
 ```
 
-### Возможные коды ответа {{ sf-name }} {#http-state}
+### Возможные коды ответа Cloud Functions {#http-state}
 
 В случае ошибки в пользовательской функции к ответу добавляется заголовок `X-Function-Error: true`.
 
-{{ sf-name }} может возвращать результат со следующими HTTP-кодами: 
+Cloud Functions может возвращать результат со следующими HTTP-кодами: 
 
 - `200 OK` — функция успешно выполнена.
 - `400 BadRequest` — ошибка в параметрах HTTPS-запроса.
@@ -281,7 +281,7 @@ module.exports.handler = async (event, context) => {
     - Текущий запрос не был выполнен, так как все исполнители уже перегружены существующими запросами к данной функции.
 - `500 Internal Server Error` — внутренняя ошибка сервера.
 - `502 BadGateway` — ошибка в коде функции или в формате возвращаемого JSON-ответа.
-- `503 Service Unavailable` — недоступность сервиса {{ sf-name }}. 
+- `503 Service Unavailable` — недоступность сервиса Cloud Functions. 
 - `504 Gateway Timeout` — превышено максимальное время выполнения функции до таймаута.
 
 ### Фильтрация заголовков сообщений {#headers}
@@ -342,9 +342,9 @@ module.exports.handler = async (event, context) => {
 
 ### Примеры использования {#examples-https}
 
-* [{#T}](../tutorials/connect-to-ydb-nodejs.md)
+* [Подключение к базе данных Yandex Managed Service for YDB из функции Cloud Functions на Node.js](../tutorials/connect-to-ydb-nodejs.md)
 
-## Вызов функции с помощью CLI {{ yandex-cloud }} {#cli}
+## Вызов функции с помощью CLI Yandex Cloud {#cli}
 
 Вызов функции с помощью CLI — это HTTPS-запрос с методом POST и параметром `?integration=raw` (без преобразования запроса в JSON-структуру и без проверки ответа).
 
@@ -402,31 +402,31 @@ Flags:
 
 ### Примеры использования {#examples-trigger}
 
-* [{#T}](../tutorials/data-recording.md)
-* [{#T}](../tutorials/events-from-postbox-to-yds.md)
-* [{#T}](../tutorials/logging-functions.md)
-* [{#T}](../tutorials/logging.md)
-* [{#T}](../tutorials/regular-launch-datasphere.md)
-* [{#T}](../tutorials/serverless-trigger-budget-vm.md)
-* [{#T}](../tutorials/video-converting-queue/index.md)
+* [Запись данных с устройства в базу данных](../tutorials/data-recording.md)
+* [Передача событий Yandex Cloud Postbox в Yandex Data Streams и их анализ с помощью Yandex DataLens](../tutorials/events-from-postbox-to-yds.md)
+* [Настройка реагирования в Yandex Cloud Logging и Cloud Functions](../tutorials/logging-functions.md)
+* [Запись логов балансировщика в PostgreSQL](../tutorials/logging.md)
+* [Запуск вычислений по расписанию в DataSphere](../tutorials/regular-launch-datasphere.md)
+* [Создание триггера для бюджетов, который вызывает функцию Cloud Functions для остановки ВМ](../tutorials/serverless-trigger-budget-vm.md)
+* [Конвертация видео в GIF на Python](../tutorials/video-converting-queue/index.md)
 
-## Вызов функции с помощью расширения {{ api-gw-full-name }} {#extension}
+## Вызов функции с помощью расширения Yandex API Gateway {#extension}
 
-При вызове функции с помощью расширения {{ api-gw-name }} функция получает HTTP-запрос, адресованный к API-шлюзу. В заголовке `Host` при этом указывается хост, по которому пользователь обратился к API-шлюзу, а не хост функции. IP-адрес источника запроса передается так же, как и при [вызове функции через HTTPS](#ip). Подробнее о расширении в [документации {{ api-gw-full-name }}](../../api-gateway/concepts/extensions/cloud-functions.md).
+При вызове функции с помощью расширения API Gateway функция получает HTTP-запрос, адресованный к API-шлюзу. В заголовке `Host` при этом указывается хост, по которому пользователь обратился к API-шлюзу, а не хост функции. IP-адрес источника запроса передается так же, как и при [вызове функции через HTTPS](#ip). Подробнее о расширении в [документации Yandex API Gateway](../../api-gateway/concepts/extensions/cloud-functions.md).
 
 ### Примеры использования {#examples-api-gw}
 
-* [{#T}](../tutorials/canary-release.md)
-* [{#T}](../tutorials/java-servlet-todo-list.md)
-* [{#T}](../tutorials/serverless-url-shortener/index.md)
-* [{#T}](../tutorials/slack-bot-serverless.md)
-* [{#T}](../tutorials/telegram-bot-serverless/index.md)
-* [{#T}](../tutorials/websocket-app.md)
+* [Канареечный релиз функции Cloud Functions](../tutorials/canary-release.md)
+* [Развертывание веб-приложения с использованием Java Servlet API](../tutorials/java-servlet-todo-list.md)
+* [Сокращатель ссылок](../tutorials/serverless-url-shortener/index.md)
+* [Как создать чат-бот для Slack](../tutorials/slack-bot-serverless.md)
+* [Как создать бота в Telegram](../tutorials/telegram-bot-serverless/index.md)
+* [Создание интерактивного serverless-приложения с использованием WebSocket](../tutorials/websocket-app.md)
 
-## Вызов функции с помощью событий в {{ monitoring-short-name }} {#monitoring}
+## Вызов функции с помощью событий в Monitoring {#monitoring}
 
-Для автоматической обработки инцидентов и других событий можно интегрировать функции {{ sf-name }} в сервис {{ monitoring-full-name }}. Для этого потребуется добавить функцию в [канал уведомлений](../../monitoring/operations/alert/create-channel-function.md). Вызывать функцию {{ sf-name }} можно при срабатывании [алерта](../../monitoring/concepts/alerting/alert.md) или в [эскалации](../../monitoring/concepts/alerting/escalations.md) {{ monitoring-short-name }}.
+Для автоматической обработки инцидентов и других событий можно интегрировать функции Cloud Functions в сервис Yandex Monitoring. Для этого потребуется добавить функцию в [канал уведомлений](../../monitoring/operations/alert/create-channel-function.md). Вызывать функцию Cloud Functions можно при срабатывании [алерта](../../monitoring/concepts/alerting/alert.md) или в [эскалации](../../monitoring/concepts/alerting/escalations.md) Monitoring.
 
 Вызов функции должен выполняться в [асинхронном режиме](function-invoke-async.md).
 
-Пример функции для вызова внешнего API при срабатывании алерта см. в разделе [{#T}](../../monitoring/operations/alert/create-channel-function.md).
+Пример функции для вызова внешнего API при срабатывании алерта см. в разделе [Создание канала уведомлений с вызовом функции](../../monitoring/operations/alert/create-channel-function.md).

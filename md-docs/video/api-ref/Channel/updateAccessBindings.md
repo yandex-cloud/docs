@@ -6,7 +6,7 @@ This operation modifies existing access bindings without replacing them complete
 ## HTTP request
 
 ```
-PATCH https://video.{{ api-host }}/video/v1/channels/{resourceId}:updateAccessBindings
+PATCH https://video.api.cloud.yandex.net/video/v1/channels/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

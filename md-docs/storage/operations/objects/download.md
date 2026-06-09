@@ -7,7 +7,7 @@
 * `kms.keys.decrypter` — для чтения ключа, [расшифровки](../../../kms/security/index.md#kms-keys-decrypter) и скачивания объектов;
 * `kms.keys.encrypterDecrypter` — включает [разрешения](../../../kms/security/index.md#kms-keys-encrypterDecrypter), предоставляемые ролями `kms.keys.encrypter` и `kms.keys.decrypter`.
 
-Подробнее см. [Сервисные роли {{ kms-name }}](../../../kms/security/index.md#service-roles).
+Подробнее см. [Сервисные роли Key Management Service](../../../kms/security/index.md#service-roles).
 
 
 {% note info %}
@@ -20,11 +20,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Object Storage**.
   1. Выберите бакет, из которого вы хотите скачать объект.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**, найдите в списке нужный объект.
-  1. Напротив объекта, который вы хотите скачать, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.bucket.button_download }}** или откройте объект и на панели сверху нажмите ![image](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.storage.bucket.button_download }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **Объекты**, найдите в списке нужный объект.
+  1. Напротив объекта, который вы хотите скачать, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **Скачать** или откройте объект и на панели сверху нажмите ![image](../../../_assets/console-icons/arrow-down-to-line.svg) **Скачать**.
 
   {% note info %}
 
@@ -32,9 +32,9 @@
 
   {% endnote %}
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -121,25 +121,25 @@
 
   ```bash
   aws s3 cp \
-    --endpoint-url=https://{{ s3-storage-host }} \
+    --endpoint-url=https://storage.yandexcloud.net \
     s3://<имя_бакета>/<ключ_объекта> \
     <локальный_путь>
   ```
 
   Где:
 
-  * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
+  * `--endpoint-url` — эндпоинт Object Storage.
   * `<имя_бакета>` — имя бакета, из которого вы хотите скачать объект.
   * `<ключ_объекта>` — [ключ](../../concepts/object.md#key) объекта, который вы хотите скачать.
   * `<локальный_путь>` — путь к папке, в которую будет сохранен скачанный объект. Например, `~/downloads/`.
 
   **Скачать папку (все объекты с определенным префиксом)**
 
-  Подробнее о папках в {{ objstorage-name }} см. в разделе [{#T}](../../concepts/object.md#folder).
+  Подробнее о папках в Object Storage см. в разделе [Папка](../../concepts/object.md#folder).
 
   ```bash
   aws s3 cp \
-    --endpoint-url=https://{{ s3-storage-host }} \
+    --endpoint-url=https://storage.yandexcloud.net \
     --recursive \
     s3://<имя_бакета>/<префикс>/ \
     <локальный_путь>
@@ -147,7 +147,7 @@
 
   Где:
 
-  * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
+  * `--endpoint-url` — эндпоинт Object Storage.
   * `--recursive` — параметр для скачивания всех объектов с указанным префиксом.
   * `<имя_бакета>` — имя бакета, из которого вы хотите скачать объекты.
   * `<префикс>` — префикс (папка) объектов, которые вы хотите скачать, например `test/folder`.
@@ -157,7 +157,7 @@
 
   ```bash
   aws s3 cp \
-    --endpoint-url=https://{{ s3-storage-host }} \
+    --endpoint-url=https://storage.yandexcloud.net \
     --recursive \
     s3://<имя_бакета> \
     <локальный_путь>
@@ -165,7 +165,7 @@
 
   Где:
 
-  * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
+  * `--endpoint-url` — эндпоинт Object Storage.
   * `--recursive` — параметр для скачивания всех объектов бакета в локальную папку.
   * `<имя_бакета>` — имя бакета, из которого вы хотите скачать объекты.
   * `<локальный_путь>` — путь к папке, в которую будут сохранены скачанные объекты. Например, `~/downloads/`.
@@ -178,15 +178,15 @@
 
       ```bash
       aws s3api list-objects \
-          --endpoint-url https://{{ s3-storage-host }} \
+          --endpoint-url https://storage.yandexcloud.net \
           --bucket <имя_бакета> \
           --query '<запрос>' \
-          --output text | xargs -I {} aws s3api get-object --endpoint-url https://{{ s3-storage-host }} --bucket <имя_бакета> --key {} <локальный_путь>{}
+          --output text | xargs -I {} aws s3api get-object --endpoint-url https://storage.yandexcloud.net --bucket <имя_бакета> --key {} <локальный_путь>{}
       ```
 
       Где:
 
-      * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
+      * `--endpoint-url` — эндпоинт Object Storage.
       * `--bucket` — имя бакета, из которого вы хотите скачать объекты.
       * `--query` — запрос в формате [JMESPath](https://jmespath.org/).
       * `<локальный_путь>` — путь к папке, в которую будут сохранены скачанные объекты. Например, `~/downloads/`.
@@ -195,26 +195,26 @@
 
       ```bash
       aws s3api list-objects \
-        --endpoint-url https://{{ s3-storage-host }} \
+        --endpoint-url https://storage.yandexcloud.net \
         --bucket sample-bucket \
         --query 'Contents[?starts_with(Key, `date-20231002`) == `true`].[Key]' \
-        --output text | xargs -I {} aws s3api get-object --endpoint-url https://{{ s3-storage-host }} --bucket sample-bucket --key {} ~/downloads/{}
+        --output text | xargs -I {} aws s3api get-object --endpoint-url https://storage.yandexcloud.net --bucket sample-bucket --key {} ~/downloads/{}
       ```
 
   * **PowerShell**:
 
       ```powershell
       Foreach($x in (aws s3api list-objects `
-        --endpoint-url https://{{ s3-storage-host }} `
+        --endpoint-url https://storage.yandexcloud.net `
         --bucket <имя_бакета> `
         --query '<запрос>' `
         --output text)) `
-        {aws s3api get-object --endpoint-url https://{{ s3-storage-host }} --bucket <имя_бакета> --key $x <локальный_путь>$x}
+        {aws s3api get-object --endpoint-url https://storage.yandexcloud.net --bucket <имя_бакета> --key $x <локальный_путь>$x}
       ```
 
       Где:
 
-      * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
+      * `--endpoint-url` — эндпоинт Object Storage.
       * `--bucket` — имя бакета, из которого вы хотите скачать объекты.
       * `--query` — запрос в формате [JMESPath](https://jmespath.org/).
       * `<локальный_путь>` — путь к папке, в которую будут сохранены скачанные объекты. Например, `d:\downloads\`.
@@ -223,11 +223,11 @@
 
       ```powershell
       Foreach($x in (aws s3api list-objects `
-        --endpoint-url https://{{ s3-storage-host }} `
+        --endpoint-url https://storage.yandexcloud.net `
         --bucket sample-bucket `
         --query 'Contents[?starts_with(Key, `date-20231002`) == `true`].[Key]' `
         --output text)) `
-        {aws s3api get-object --endpoint-url https://{{ s3-storage-host }} --bucket sample-bucket --key $x d:\downloads\$x}
+        {aws s3api get-object --endpoint-url https://storage.yandexcloud.net --bucket sample-bucket --key $x d:\downloads\$x}
       ```
 
 - API {#api}
@@ -239,5 +239,5 @@
 #### См. также {#see-also}
 
 
-* [{#T}](link-for-download.md)
-* [{#T}](../../security/overview.md)
+* [Получение подписанной ссылки (pre-signed URL) на скачивание объекта](link-for-download.md)
+* [Обзор способов управления доступом в Object Storage](../../security/overview.md)

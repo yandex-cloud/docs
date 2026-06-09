@@ -5,7 +5,7 @@ Deactivates shared dataset for project
 ## HTTP request
 
 ```
-POST https://datasphere.{{ api-host }}/datasphere/v2/dataset/deactivate
+POST https://datasphere.api.cloud.yandex.net/datasphere/v2/dataset/deactivate
 ```
 
 ## Body parameters {#yandex.cloud.datasphere.v2.DeactivateDatasetRequest}

@@ -5,7 +5,7 @@ Retrieves the list of trails in the specified folder.
 ## HTTP request
 
 ```
-GET https://audittrails.{{ api-host }}/audit-trails/v1/trails
+GET https://audittrails.api.cloud.yandex.net/audit-trails/v1/trails
 ```
 
 ## Query parameters {#yandex.cloud.audittrails.v1.ListTrailsRequest}

@@ -1,6 +1,6 @@
 # Создать канал SMS-уведомлений
 
-В {{ cns-name }} сообщения конечным пользователям отправляются через [каналы уведомлений](../../concepts/index.md#channels) с [общим](../../concepts/sms.md#common-sender) или [индивидуальным](../../concepts/sms.md#individual-sender) отправителем.
+В Cloud Notification Service сообщения конечным пользователям отправляются через [каналы уведомлений](../../concepts/index.md#channels) с [общим](../../concepts/sms.md#common-sender) или [индивидуальным](../../concepts/sms.md#individual-sender) отправителем.
 
 
 ## Создать канал SMS-уведомлений с общим отправителем {#create-common-channel}
@@ -9,10 +9,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать канал уведомлений.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
-  1. Нажмите **{{ ui-key.yacloud.cns.action_create-channel }}**.
-  1. На вкладке **{{ ui-key.yacloud.cns.type_sms }}** выберите [тип отправителя](../../concepts/sms.md#senders) **{{ ui-key.yacloud.cns.sender_sms-common }}** и нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать канал уведомлений.
+  1. Перейдите в сервис **Cloud Notification Service**.
+  1. Нажмите **Создать канал уведомлений**.
+  1. На вкладке **SMS-сообщения** выберите [тип отправителя](../../concepts/sms.md#senders) **Общий отправитель** и нажмите **Создать**.
 
 {% endlist %}
 
@@ -29,11 +29,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать канал уведомлений.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
-  1. Нажмите **{{ ui-key.yacloud.cns.action_create-channel }}**.
-  1. На вкладке **{{ ui-key.yacloud.cns.type_sms }}** выберите тип отправителя **{{ ui-key.yacloud.cns.sender_sms-individual }}**.
-  1. Укажите желаемое текстовое имя отправителя и нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать канал уведомлений.
+  1. Перейдите в сервис **Cloud Notification Service**.
+  1. Нажмите **Создать канал уведомлений**.
+  1. На вкладке **SMS-сообщения** выберите тип отправителя **Индивидуальный отправитель**.
+  1. Укажите желаемое текстовое имя отправителя и нажмите **Создать**.
 
 {% endlist %}
 
@@ -49,4 +49,4 @@
 
 #### См. также {#see-also}
 
-* [{#T}](manage-templates.md)
+* [Управлять шаблонами SMS](manage-templates.md)

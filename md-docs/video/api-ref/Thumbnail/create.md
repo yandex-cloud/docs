@@ -7,7 +7,7 @@ using the URL obtained from the GenerateUploadURL method.
 ## HTTP request
 
 ```
-POST https://video.{{ api-host }}/video/v1/thumbnails
+POST https://video.api.cloud.yandex.net/video/v1/thumbnails
 ```
 
 ## Body parameters {#yandex.cloud.video.v1.CreateThumbnailRequest}

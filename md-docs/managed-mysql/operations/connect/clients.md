@@ -1,10 +1,10 @@
-# Подключение к кластеру {{ MY }} из приложений
+# Подключение к кластеру MySQL® из приложений
 
-В этом разделе представлены настройки для подключения к хостам кластера {{ mmy-name }} с помощью [инструментов командной строки](#command-line-tools), из [графических IDE](#connection-ide), из [{{ websql-full-name }}](#websql) и [Docker-контейнера](#connection-docker). О подключении из кода вашего приложения см. [Примеры кода](code-examples.md).
+В этом разделе представлены настройки для подключения к хостам кластера Managed Service for MySQL® с помощью [инструментов командной строки](#command-line-tools), из [графических IDE](#connection-ide), из [Yandex WebSQL](#websql) и [Docker-контейнера](#connection-docker). О подключении из кода вашего приложения см. [Примеры кода](code-examples.md).
 
 ## Инструменты командной строки {#command-line-tools}
 
-Примеры кода с заполненным FQDN хоста доступны в [консоли управления]({{ link-console-main }}) по нажатию кнопки **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}** на странице кластера.
+Примеры кода с заполненным FQDN хоста доступны в [консоли управления](https://console.yandex.cloud) по нажатию кнопки **Подключиться** на странице кластера.
 
 ### Linux (Bash)/macOS (Zsh) {#bash-zsh}
 
@@ -19,8 +19,8 @@ sudo apt update && sudo apt install --yes mysql-client
 - Подключение с SSL {#with-ssl}
 
   ```bash
-  mysql --host=<имя_хоста_{{ MY }}>.{{ dns-zone }} \
-        --port={{ port-mmy }} \
+  mysql --host=<имя_хоста_MySQL®>.mdb.yandexcloud.net \
+        --port=3306 \
         --ssl-ca=~/.mysql/root.crt \
         --ssl-mode=VERIFY_IDENTITY \
         --user=<имя_пользователя> \
@@ -31,8 +31,8 @@ sudo apt update && sudo apt install --yes mysql-client
 - Подключение без SSL {#without-ssl}
 
   ```bash
-  mysql --host=<FQDN_любого_хоста_{{ MY }}> \
-        --port={{ port-mmy }} \
+  mysql --host=<FQDN_любого_хоста_MySQL®> \
+        --port=3306 \
         --ssl-mode=DISABLED \
         --user=<имя_пользователя> \
         --password \
@@ -47,7 +47,7 @@ sudo apt update && sudo apt install --yes mysql-client
 
 После подключения к СУБД выполните команду `SELECT version();`.
 
-При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия {{ MY }}.
+При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия MySQL®.
 
 ### Windows (PowerShell) {#powershell}
 
@@ -58,8 +58,8 @@ sudo apt update && sudo apt install --yes mysql-client
 - Подключение с SSL {#with-ssl}
 
   ```PowerShell
-  mysqlsh --host=<FQDN_любого_хоста_{{ MY }}> `
-          --port={{ port-mmy }} `
+  mysqlsh --host=<FQDN_любого_хоста_MySQL®> `
+          --port=3306 `
           --ssl-ca=<абсолютный_путь_к_файлу_сертификата> `
           --ssl-mode=VERIFY_IDENTITY `
           --user=<имя_пользователя> `
@@ -71,8 +71,8 @@ sudo apt update && sudo apt install --yes mysql-client
 - Подключение без SSL {#without-ssl}
 
   ```PowerShell
-  mysqlsh --host=<FQDN_любого_хоста_{{ MY }}> `
-          --port={{ port-mmy }} `
+  mysqlsh --host=<FQDN_любого_хоста_MySQL®> `
+          --port=3306 `
           --ssl-mode=DISABLED `
           --user=<имя_пользователя> `
           --password `
@@ -87,58 +87,58 @@ sudo apt update && sudo apt install --yes mysql-client
 
 После подключения к СУБД выполните команду `SELECT version();`.
 
-При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия {{ MY }}.
+При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия MySQL®.
 
 
 ### Подключение с аутентификацией через IAM {#iam}
 
-К базе данных {{ mmy-name }} можно подключиться с помощью [интерфейса командной строки {{ yandex-cloud }} (CLI)](../../../cli/quickstart.md#install), используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation) и [локальных пользователей](../../../iam/concepts/users/accounts.md#local). Подключение с аутентификацией через IAM не требует получения SSL-сертификата или указания FQDN хостов кластера.
+К базе данных Managed Service for MySQL® можно подключиться с помощью [интерфейса командной строки Yandex Cloud (CLI)](../../../cli/quickstart.md#install), используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation) и [локальных пользователей](../../../iam/concepts/users/accounts.md#local). Подключение с аутентификацией через IAM не требует получения SSL-сертификата или указания FQDN хостов кластера.
 
 Перед подключением:
 
-1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-1. Установите клиент {{ MY }}:
+1. Установите клиент MySQL®:
 
     ```bash
     sudo apt update && sudo apt install --yes mysql-client
     ```
 
-Подготовьте кластер {{ mmy-name }} к подключению:
+Подготовьте кластер Managed Service for MySQL® к подключению:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
   1. Нажмите на имя нужного кластера.
   1. Включите публичный доступ для хостов кластера:
-     1. Выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
-     1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке первого хоста и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
-     1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+     1. Выберите вкладку **Хосты**.
+     1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке первого хоста и выберите пункт **Редактировать**.
+     1. Включите опцию **Публичный доступ**.
      1. Повторите операцию для остальных хостов кластера.
   1. Назначьте роль `managed-mysql.clusters.connector` аккаунту пользователя, который будет подключаться к БД:
-     1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+     1. Выберите вкладку **Права доступа** и нажмите кнопку **Назначить роли**.
      1. Введите электронную почту пользователя, к которой привязан аккаунт.
-     1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `managed-mysql.clusters.connector`.
-     1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
-  1. Создайте пользователя {{ MY }}:
-     1. Выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
-     1. Выберите способ аутентификации **{{ ui-key.yacloud.mysql.cluster.label_iam_dgBhy }}**.
+     1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `managed-mysql.clusters.connector`.
+     1. Нажмите кнопку **Сохранить**.
+  1. Создайте пользователя MySQL®:
+     1. Выберите вкладку **Пользователи**.
+     1. Нажмите кнопку **Создать пользователя**.
+     1. Выберите способ аутентификации **IAM**.
      1. Выберите аккаунт, которому была назначена роль `managed-mysql.clusters.connector`.
-     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** и выберите нужную базу данных из выпадающего списка.
-     1. Нажмите значок ![image](../../../_assets/console-icons/plus.svg) в столбце **{{ ui-key.yacloud.mdb.dialogs.popup_field_roles }}** и выберите необходимые привилегии из выпадающего списка.
-     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
+     1. Нажмите кнопку **Добавить базу данных** и выберите нужную базу данных из выпадающего списка.
+     1. Нажмите значок ![image](../../../_assets/console-icons/plus.svg) в столбце **Роли** и выберите необходимые привилегии из выпадающего списка.
+     1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
-Чтобы подключиться к БД {{ mmy-name }}, выполните команду:
+Чтобы подключиться к БД Managed Service for MySQL®, выполните команду:
 
 ```bash
-{{ yc-mdb-my }} connect <имя_или_идентификатор_кластера> --db <имя_БД>
+yc managed-mysql connect <имя_или_идентификатор_кластера> --db <имя_БД>
 ```
 
 Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
@@ -157,18 +157,18 @@ sudo apt update && sudo apt install --yes mysql-client
 Подключаться из графических IDE можно только к хостам кластера в публичном доступе с использованием SSL-сертификата.
 
 
-Чтобы избежать ошибок при подключении, [сохраните сертификат]({{ crt-web-path-root }}) в локальную папку, для доступа к которой не требуются права администратора.
+Чтобы избежать ошибок при подключении, [сохраните сертификат](https://storage.yandexcloud.net/cloud-certs/RootCA.pem) в локальную папку, для доступа к которой не требуются права администратора.
 
 {% list tabs group=ide %}
 
 - DataGrip {#datagrip}
 
   1. Создайте источник данных:
-     1. Выберите в меню **File** → **New** → **Data Source** → **{{ MY }}**.
+     1. Выберите в меню **File** → **New** → **Data Source** → **MySQL®**.
      1. На вкладке **General**:
         1. Укажите параметры подключения:
-           * **Host** — [FQDN любого хоста {{ MY }}](fqdn.md) или один из [особых FQDN](fqdn.md#fqdn-master);
-           * **Port** — `{{ port-mmy }}`;
+           * **Host** — [FQDN любого хоста MySQL®](fqdn.md) или один из [особых FQDN](fqdn.md#fqdn-master);
+           * **Port** — `3306`;
            * **User**, **Password** — имя и пароль пользователя БД;
            * **Database** — имя БД для подключения.
         1. Нажмите ссылку **Download**, чтобы загрузить драйвер соединения.
@@ -182,11 +182,11 @@ sudo apt update && sudo apt install --yes mysql-client
 
   1. Создайте новое соединение с БД:
      1. Выберите в меню **База данных** пункт **Новое соединение**.
-     1. Выберите из списка БД **{{ MY }}**.
+     1. Выберите из списка БД **MySQL®**.
      1. Нажмите кнопку **Далее**.
      1. Укажите параметры подключения на вкладке **Главное**:
-        * **Сервер** — [FQDN любого хоста {{ MY }}](fqdn.md#fqdn) или один из [особых FQDN](fqdn.md#fqdn-master);
-        * **Порт** — `{{ port-mmy }}`;
+        * **Сервер** — [FQDN любого хоста MySQL®](fqdn.md#fqdn) или один из [особых FQDN](fqdn.md#fqdn-master);
+        * **Порт** — `3306`;
         * **База данных** — имя БД для подключения;
         * **Пользователь**, **Пароль** — имя и пароль пользователя БД.
      1. На вкладке **SSL**:
@@ -202,50 +202,50 @@ sudo apt update && sudo apt install --yes mysql-client
 
 ### Подключение с аутентификацией через IAM {#ide-iam}
 
-Для подключения к базе данных {{ mmy-name }} из графических IDE с аутентификацией через [{{ iam-full-name }}](../../../iam/index.md) необходимо запустить утилиту [CLI {{ yandex-cloud }}](../../../cli/index.md) в режиме слушающего прокси-сервера.
+Для подключения к базе данных Managed Service for MySQL® из графических IDE с аутентификацией через [Yandex Identity and Access Management](../../../iam/index.md) необходимо запустить утилиту [CLI Yandex Cloud](../../../cli/index.md) в режиме слушающего прокси-сервера.
 
 Подключение доступно для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation) и [локальных пользователей](../../../iam/concepts/users/accounts.md#local). Оно не требует получения SSL-сертификата или указания FQDN хостов кластера.
 
 Подключаться из графических IDE можно только к хостам кластера в публичном доступе.
 
-Чтобы подключиться к БД {{ mmy-name }}:
+Чтобы подключиться к БД Managed Service for MySQL®:
 
 1. Назначьте роль `managed-mysql.clusters.connector` аккаунту пользователя, который будет подключаться к БД:
 
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+    1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
     1. Нажмите на имя нужного кластера.
-    1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+    1. Выберите вкладку **Права доступа** и нажмите кнопку **Назначить роли**.
     1. Введите электронную почту пользователя, к которой привязан аккаунт.
-    1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role}}** и выберите роль `managed-mysql.clusters.connector`.
-    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+    1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `managed-mysql.clusters.connector`.
+    1. Нажмите кнопку **Сохранить**.
 
-1. Создайте пользователя {{ MY }}:
+1. Создайте пользователя MySQL®:
 
-    1. Выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
-    1. Выберите способ аутентификации **{{ ui-key.yacloud.mysql.cluster.label_iam_dgBhy }}**.
+    1. Выберите вкладку **Пользователи**.
+    1. Нажмите кнопку **Создать пользователя**.
+    1. Выберите способ аутентификации **IAM**.
     1. Выберите аккаунт, которому была назначена роль `managed-mysql.clusters.connector`.
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** и выберите нужную базу данных из выпадающего списка.
-    1. Нажмите значок ![image](../../../_assets/console-icons/plus.svg) в столбце **{{ ui-key.yacloud.mdb.dialogs.popup_field_roles }}** и выберите необходимые привилегии из выпадающего списка.
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
+    1. Нажмите кнопку **Добавить базу данных** и выберите нужную базу данных из выпадающего списка.
+    1. Нажмите значок ![image](../../../_assets/console-icons/plus.svg) в столбце **Роли** и выберите необходимые привилегии из выпадающего списка.
+    1. Нажмите кнопку **Создать**.
 
-1. Запустите CLI {{ yandex-cloud }} в режиме прокси-сервера:
+1. Запустите CLI Yandex Cloud в режиме прокси-сервера:
 
-    1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+    1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
         По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     1. Выполните команду:
 
         ```bash
-        {{ yc-mdb-my }} connect <имя_или_идентификатор_кластера> --db <имя_БД> --daemon
+        yc managed-mysql connect <имя_или_идентификатор_кластера> --db <имя_БД> --daemon
         ```
 
         Будет запущен прокси-сервер на порте `3306`. Чтобы выбрать другой порт, укажите в команде параметр `--port <номер_порта>`.
 
         Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
 
-1. Подключитесь к кластеру {{ mmy-name }}:
+1. Подключитесь к кластеру Managed Service for MySQL®:
 
     {% list tabs group=ide %}
 
@@ -253,7 +253,7 @@ sudo apt update && sudo apt install --yes mysql-client
 
         1. Создайте новое соединение с БД:
             1. Выберите в меню **База данных** пункт **Новое соединение**.
-            1. Выберите из списка БД **{{ MY }}**.
+            1. Выберите из списка БД **MySQL®**.
             1. Нажмите кнопку **Далее**.
             1. Укажите параметры подключения на вкладке **Главное**:
                 * **Сервер** — `localhost`;
@@ -264,7 +264,7 @@ sudo apt update && sudo apt install --yes mysql-client
         1. Нажмите кнопку **Тест соединения ...** для проверки подключения. При успешном подключении будет выведен статус подключения, информация о СУБД и драйвере.
         1. Нажмите кнопку **Готово**, чтобы сохранить настройки соединения с БД.
 
-    - {{ MY }} Workbench {#mysql-workbench}
+    - MySQL® Workbench {#mysql-workbench}
 
         1. Создайте новое соединение с БД:
             1. Выберите в меню **Database** пункт **Manage connections...**
@@ -280,40 +280,40 @@ sudo apt update && sudo apt install --yes mysql-client
     {% endlist %}
 
 
-## Подключение из {{ websql-full-name }} {#websql}
+## Подключение из Yandex WebSQL {#websql}
 
-Вы можете отправлять SQL-запросы к базам данных в кластере {{ mmy-name }} с помощью сервиса [{{ websql-full-name }}](../../../websql/index.md).
+Вы можете отправлять SQL-запросы к базам данных в кластере Managed Service for MySQL® с помощью сервиса [Yandex WebSQL](../../../websql/index.md).
 
-{{ websql-name }} — это сервис {{ yandex-cloud }}, который позволяет подключаться к кластерам управляемых баз данных, работать с БД, таблицами и схемами и выполнять запросы. Сервис работает в браузере, не требует дополнительной авторизации и предлагает удобные подсказки для работы с SQL-командами.
+WebSQL — это сервис Yandex Cloud, который позволяет подключаться к кластерам управляемых баз данных, работать с БД, таблицами и схемами и выполнять запросы. Сервис работает в браузере, не требует дополнительной авторизации и предлагает удобные подсказки для работы с SQL-командами.
 
-Для подключения из {{ websql-name }} в настройках кластера должна быть включена опция **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}**. Опцию можно включить при [создании](../cluster-create.md) или [изменении](../update.md#change-additional-settings) кластера.
+Для подключения из WebSQL в настройках кластера должна быть включена опция **Доступ из WebSQL**. Опцию можно включить при [создании](../cluster-create.md) или [изменении](../update.md#change-additional-settings) кластера.
 
-В кластере {{ mmy-name }} для каждого пользователя БД автоматически создается [подключение {{ connection-manager-name }}](../../../metadata-hub/concepts/connection-manager.md), которое можно использовать для подключения к БД из {{ websql-name }}. При необходимости вы также можете [создать новое подключение](../../../websql/operations/create-connection.md#connect-cluster).
+В кластере Managed Service for MySQL® для каждого пользователя БД автоматически создается [подключение Connection Manager](../../../metadata-hub/concepts/connection-manager.md), которое можно использовать для подключения к БД из WebSQL. При необходимости вы также можете [создать новое подключение](../../../websql/operations/create-connection.md#connect-cluster).
 
-Чтобы подключиться к БД из {{ websql-name }}:
+Чтобы подключиться к БД из WebSQL:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
+  1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+  1. Нажмите на имя нужного кластера и перейдите на вкладку **WebSQL**.
   1. Выберите нужное подключение.
 
-      Откроется подключение в сервисе {{ websql-name }}. Чтобы перейти в редактор запросов, выберите нужную БД.
+      Откроется подключение в сервисе WebSQL. Чтобы перейти в редактор запросов, выберите нужную БД.
 
-      Справочник по поддерживаемым запросам можно найти в [документации {{ MY }}](https://dev.mysql.com/doc/refman/9.0/en/sql-statements.html).
+      Справочник по поддерживаемым запросам можно найти в [документации MySQL®](https://dev.mysql.com/doc/refman/9.0/en/sql-statements.html).
     
 {% endlist %}
 
-Подробнее о работе с {{ websql-name }} см. в [документации сервиса](../../../websql/operations/index.md).
+Подробнее о работе с WebSQL см. в [документации сервиса](../../../websql/operations/index.md).
 
 
 
 ## Подготовка к подключению из Docker-контейнера {#connection-docker}
 
-Чтобы подключаться к кластеру {{ mmy-name }} из Docker-контейнера, добавьте в Dockerfile строки:
+Чтобы подключаться к кластеру Managed Service for MySQL® из Docker-контейнера, добавьте в Dockerfile строки:
 
 {% list tabs group=connection %}
 
@@ -332,7 +332,7 @@ sudo apt update && sudo apt install --yes mysql-client
   RUN apt-get update && \
       apt-get install wget mysql-client --yes && \
       mkdir --parents ~/.mysql && \
-      wget "{{ crt-web-path }}" \
+      wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
            --output-document ~/.mysql/root.crt && \
       chmod 0600 ~/.mysql/root.crt
   ```

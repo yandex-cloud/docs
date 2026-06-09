@@ -1,15 +1,15 @@
-# Использование данных из {{ objstorage-full-name }} для обучения модели в {{ ml-platform-full-name }}
+# Использование данных из Yandex Object Storage для обучения модели в Yandex DataSphere
 
-# Использование данных из {{ objstorage-full-name }} для обучения модели в {{ ml-platform-name }}
+# Использование данных из Yandex Object Storage для обучения модели в DataSphere
 
 
-Вы создадите [бакет](../../storage/concepts/bucket.md) в [{{ objstorage-name }}](../../storage/index.md), смонтируете его к файловой системе Windows с помощью [rclone](https://rclone.org) и загрузите туда данные для обучения [модели](../../datasphere/concepts/models/index.md) в [{{ ml-platform-full-name }}]({{ link-datasphere-main }}).
+Вы создадите [бакет](../../storage/concepts/bucket.md) в [Object Storage](../../storage/index.md), смонтируете его к файловой системе Windows с помощью [rclone](https://rclone.org) и загрузите туда данные для обучения [модели](../../datasphere/concepts/models/index.md) в [Yandex DataSphere](https://datasphere.yandex.cloud).
 
-Чтобы использовать данные из {{ objstorage-name }} для обучения модели в {{ ml-platform-name }}:
+Чтобы использовать данные из Object Storage для обучения модели в DataSphere:
 1. [Подготовьте инфраструктуру](#infra).
 1. [Создайте статический ключ доступа](#create-static-key).
 1. [Создайте бакет](#bucket-create).
-1. [Настройте подключение к {{ objstorage-name }}](#rclone-config).
+1. [Настройте подключение к Object Storage](#rclone-config).
 1. [Смонтируйте бакет](#bucket-mount).
 1. [Подготовьте данные для обучения](#prepare-data).
 1. [Создайте коннектор S3](#create-s3).
@@ -20,28 +20,28 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Перед началом работы нужно зарегистрироваться в {{ yandex-cloud }}, настроить [сообщество](../../datasphere/concepts/community.md) и привязать к нему [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. [На главной странице {{ ml-platform-name }}]({{ link-datasphere-main }}) нажмите **Попробовать бесплатно** и выберите аккаунт для входа — Яндекс ID или рабочий аккаунт в федерации (SSO).
-1. Выберите [организацию {{ org-full-name }}](../../organization/index.md), в которой вы будете работать в {{ yandex-cloud }}.
+Перед началом работы нужно зарегистрироваться в Yandex Cloud, настроить [сообщество](../../datasphere/concepts/community.md) и привязать к нему [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. [На главной странице DataSphere](https://datasphere.yandex.cloud) нажмите **Попробовать бесплатно** и выберите аккаунт для входа — Яндекс ID или рабочий аккаунт в федерации (SSO).
+1. Выберите [организацию Yandex Identity Hub](../../organization/index.md), в которой вы будете работать в Yandex Cloud.
 1. [Создайте сообщество](../../datasphere/operations/community/create.md).
-1. [Привяжите платежный аккаунт](../../datasphere/operations/community/link-ba.md) к сообществу {{ ml-platform-name }}, в котором вы будете работать. Убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, создайте его в интерфейсе {{ ml-platform-name }}.
+1. [Привяжите платежный аккаунт](../../datasphere/operations/community/link-ba.md) к сообществу DataSphere, в котором вы будете работать. Убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, создайте его в интерфейсе DataSphere.
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость реализации обучения модели с помощью данных из {{ objstorage-name }} входят:
-* Плата за использование [вычислительных ресурсов {{ ml-platform-name }}](../../datasphere/pricing.md).
-* Плата за хранение данных в бакете (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-storage)).
-* Плата за операции с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-operations)).
+В стоимость реализации обучения модели с помощью данных из Object Storage входят:
+* Плата за использование [вычислительных ресурсов DataSphere](../../datasphere/pricing.md).
+* Плата за хранение данных в бакете (см. [тарифы Object Storage](../../storage/pricing.md#prices-storage)).
+* Плата за операции с данными (см. [тарифы Object Storage](../../storage/pricing.md#prices-operations)).
 
 ## Подготовьте инфраструктуру {#infra}
 
-Войдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите организацию, в которой вы работаете с {{ ml-platform-name }}. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен платежный аккаунт.
+Войдите в [консоль управления](https://console.yandex.cloud) Yandex Cloud и выберите организацию, в которой вы работаете с DataSphere. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен платежный аккаунт.
 
-Если у вас есть активный платежный аккаунт, на [странице облака]({{ link-console-cloud }}) вы можете создать или выбрать каталог, в котором будет работать ваша инфраструктура.
+Если у вас есть активный платежный аккаунт, на [странице облака](https://console.yandex.cloud/cloud) вы можете создать или выбрать каталог, в котором будет работать ваша инфраструктура.
 
 {% note info %}
 
-Если вы работаете с {{ yandex-cloud }} через [федерацию удостоверений](../../organization/concepts/add-federation.md), вам может быть недоступна платежная информация. В этом случае обратитесь к администратору вашей организации в {{ yandex-cloud }}.
+Если вы работаете с Yandex Cloud через [федерацию удостоверений](../../organization/concepts/add-federation.md), вам может быть недоступна платежная информация. В этом случае обратитесь к администратору вашей организации в Yandex Cloud.
 
 {% endnote %}
 
@@ -66,47 +66,47 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) и нажмите кнопку ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) и нажмите кнопку ![create](../../_assets/console-icons/plus.svg) **Создать каталог**.
   1. Введите имя [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), например, `data-folder`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
-### Создайте сервисный аккаунт для {{ objstorage-name }} {#create-sa}
+### Создайте сервисный аккаунт для Object Storage {#create-sa}
 
-Для доступа к бакету в {{ objstorage-name }} вам понадобится [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с [ролью](../../iam/concepts/access-control/roles.md) `storage.editor`.
+Для доступа к бакету в Object Storage вам понадобится [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с [ролью](../../iam/concepts/access-control/roles.md) `storage.editor`.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `data-folder`.
+  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+  1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта, например, `datasphere-sa`.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту роль `storage.editor`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  1. Нажмите **Добавить роль** и назначьте сервисному аккаунту роль `storage.editor`.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
 ## Создайте статический ключ доступа {#create-static-key}
 
-Чтобы получить доступ к {{ objstorage-name }} из {{ ml-platform-name }}, вам понадобится [статический ключ](../../iam/concepts/authorization/access-key.md).
+Чтобы получить доступ к Object Storage из DataSphere, вам понадобится [статический ключ](../../iam/concepts/authorization/access-key.md).
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, которому принадлежит сервисный аккаунт.
+  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
   1. В открывшемся списке выберите сервисный аккаунт `datasphere-sa`.
-  1. На верхней панели нажмите кнопку ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
-  1. Выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
-  1. Задайте описание статического ключа и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
+  1. На верхней панели нажмите кнопку ![](../../_assets/console-icons/plus.svg) **Создать новый ключ**.
+  1. Выберите **Создать статический ключ доступа**.
+  1. Задайте описание статического ключа и нажмите кнопку **Создать**.
   1. Сохраните идентификатор и секретный ключ. После закрытия диалога значение ключа будет недоступно.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
   1. Создайте статический ключ доступа для сервисного аккаунта `datasphere-sa`:
 
@@ -140,12 +140,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
-  1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать бакет.
+  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+  1. Справа сверху нажмите кнопку **Создать бакет**.
+  1. В поле **Имя** укажите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
+  1. В полях **Чтение объектов**, **Чтение списка объектов** и **Чтение настроек** выберите **С авторизацией**.
+  1. Нажмите кнопку **Создать бакет**.
 
 - AWS CLI {#cli}
   
@@ -153,7 +153,7 @@
   1. Создайте бакет, указав имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming):
 
      ```bash
-     aws --endpoint-url https://{{ s3-storage-host }} \
+     aws --endpoint-url https://storage.yandexcloud.net \
        s3 mb s3://<имя_бакета>
      ```
 
@@ -163,18 +163,18 @@
      make_bucket: <имя_бакета>
      ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   {% note info %}
   
-  Если вы работаете с {{ objstorage-name }} через {{ TF }} от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../storage/security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
+  Если вы работаете с Object Storage через Terraform от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../storage/security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
   
   {% endnote %}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
   1. Опишите в конфигурационном файле параметры для создания сервисного аккаунта и ключа доступа:
 
@@ -209,7 +209,7 @@
      }
      ```
 
-     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации]({{ tf-provider-resources-link }}/storage_bucket) провайдера {{ TF }}.
+     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации](../../terraform/resources/storage_bucket.md) провайдера Terraform.
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -231,7 +231,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -240,7 +240,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+     Terraform создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
 - API {#api}
 
@@ -248,9 +248,9 @@
 
 {% endlist %}
 
-## Настройте подключение к {{ objstorage-name }} {#rclone-config}
+## Настройте подключение к Object Storage {#rclone-config}
 
-Чтобы перенести данные с локального диска в {{ objstorage-name }}, вам нужно настроить утилиту `rclone`.
+Чтобы перенести данные с локального диска в Object Storage, вам нужно настроить утилиту `rclone`.
 1. В рабочей директории запустите командную строку от имени администратора и выполните команду:
 
    ```powershell
@@ -272,8 +272,8 @@
    1. Выберите ручной способ ввода учетных данных: введите в терминал значение `1`.
    1. Введите в терминале идентификатор секретного ключа.
    1. Введите в терминале значение секретного ключа.
-   1. Укажите регион: введите в терминал значение `{{ region-id }}`.
-   1. Укажите эндпоинт: введите в терминал значение `{{ s3-storage-host }}`.
+   1. Укажите регион: введите в терминал значение `ru-central1`.
+   1. Укажите эндпоинт: введите в терминал значение `storage.yandexcloud.net`.
    1. Остальные настройки можно оставить по умолчанию — нажимайте **Enter**, чтобы их пропустить.
 
 {% note info %}
@@ -306,26 +306,26 @@
 
 ## Подключите бакет к проекту {#create-s3}
 
-Чтобы подключиться к бакету из {{ ml-platform-name }}, вам понадобится [коннектор S3](../../datasphere/concepts/s3-connector.md):
-1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-1. В правом верхнем углу нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create-resource }}**. Во всплывающем окне выберите **{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
+Чтобы подключиться к бакету из DataSphere, вам понадобится [коннектор S3](../../datasphere/concepts/s3-connector.md):
+1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+1. В правом верхнем углу нажмите кнопку **Создать ресурс**. Во всплывающем окне выберите **Коннектор S3**.
 1. Заполните поля:
-   * **{{ ui-key.yc-ui-datasphere.common.name }}** — имя создаваемого коннектора, например `s3-datasphere-connect`.
-   * **{{ ui-key.yc-ui-datasphere.common.endpoint }}** — хост {{ objstorage-name }} — `https://{{ s3-storage-host }}/`.
-   * **{{ ui-key.yc-ui-datasphere.common.bucket }}** — имя вашего бакета.
-   * **{{ ui-key.yc-ui-datasphere.new-s3-page.mount-name }}** — название тома при монтировании бакета в файловую систему проекта.
-   * **{{ ui-key.yc-ui-datasphere.new-s3-page.access-key-id }}**, который используется для подключения к хранилищу.
-   * В поле **{{ ui-key.yc-ui-datasphere.new-s3-page.static-access-key }}** нажмите **{{ ui-key.yc-ui-datasphere.common.create }}**. В открывшемся окне введите имя секрета и секретный ключ, который используется для подключения к хранилищу.
-1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
-1. Перейдите на страницу коннектора S3 и нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.activate }}**. После активации бакет будет доступен в интерфейсе {{ jlab }}Lab в списке на вкладке **S3 Mounts** ![S3 Mounts](../../_assets/console-icons/bucket.svg), и его можно будет просматривать как файловую систему.
+   * **Имя** — имя создаваемого коннектора, например `s3-datasphere-connect`.
+   * **Эндпоинт** — хост Object Storage — `https://storage.yandexcloud.net/`.
+   * **Бакет** — имя вашего бакета.
+   * **Имя раздела при подключении** — название тома при монтировании бакета в файловую систему проекта.
+   * **Идентификатор статического ключа доступа**, который используется для подключения к хранилищу.
+   * В поле **Статический ключ доступа** нажмите **Создать**. В открывшемся окне введите имя секрета и секретный ключ, который используется для подключения к хранилищу.
+1. Нажмите кнопку **Создать**.
+1. Перейдите на страницу коннектора S3 и нажмите кнопку **Активировать**. После активации бакет будет доступен в интерфейсе JupyterLab в списке на вкладке **S3 Mounts** ![S3 Mounts](../../_assets/console-icons/bucket.svg), и его можно будет просматривать как файловую систему.
 
 ## Обучите модель {#train-model}
 
 Склонируйте Git-репозиторий, в котором находится ноутбук `diabetes_catboost.ipynb` с примером обучения модели [CatBoost](https://catboost.ai/):
-1. Откройте проект {{ ml-platform-name }}:
+1. Откройте проект DataSphere:
    
-   1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-   1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}** и дождитесь окончания загрузки.
+   1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+   1. Нажмите кнопку **Открыть проект в JupyterLab** и дождитесь окончания загрузки.
    1. Откройте вкладку с ноутбуком.
 1. В верхнем меню нажмите **Git** и выберите **Clone**.
 1. В открывшемся окне введите URI репозитория `https://github.com/yandex-cloud-examples/yc-datasphere-s3-mount.git` и нажмите кнопку **Clone**.

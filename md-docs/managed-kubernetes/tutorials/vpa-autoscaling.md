@@ -1,9 +1,9 @@
 # Вертикальное масштабирование приложения в кластере
 
-{{ managed-k8s-name }} поддерживает несколько видов автоматического масштабирования. Из этой статьи вы узнаете, как настроить автоматическое управление ресурсами [пода](../concepts/index.md#pod) с помощью [{{ k8s-vpa }}](../concepts/autoscale.md#vpa):
+Managed Service for Kubernetes поддерживает несколько видов автоматического масштабирования. Из этой статьи вы узнаете, как настроить автоматическое управление ресурсами [пода](../concepts/index.md#pod) с помощью [Vertical Pod Autoscaler](../concepts/autoscale.md#vpa):
 
-* [Создайте {{ k8s-vpa }} и тестовое приложение](#create-vpa-workload).
-* [Проверьте работу {{ k8s-vpa }}](#test-vpa).
+* [Создайте Vertical Pod Autoscaler и тестовое приложение](#create-vpa-workload).
+* [Проверьте работу Vertical Pod Autoscaler](#test-vpa).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -12,18 +12,18 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за публичный IP-адрес для узлов кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
+* Плата за публичный IP-адрес для узлов кластера (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Перед началом работы {#before-you-begin}
 
-1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-1. [Создайте группы безопасности](../operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
+1. [Создайте группы безопасности](../operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 
     {% note warning %}
     
@@ -31,21 +31,21 @@
     
     {% endnote %}
 
-1. [Создайте кластер](../operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) {{ managed-k8s-name }}. При создании задайте настройки:
+1. [Создайте кластер](../operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) Managed Service for Kubernetes. При создании задайте настройки:
 
    * Используйте созданные ранее группы безопасности.
-   * Если вы планируете работать с кластером в пределах сети {{ yandex-cloud }}, выделять кластеру публичный IP-адрес не нужно. Для подключений извне предоставьте кластеру публичный адрес.
+   * Если вы планируете работать с кластером в пределах сети Yandex Cloud, выделять кластеру публичный IP-адрес не нужно. Для подключений извне предоставьте кластеру публичный адрес.
 
 1. [Создайте группу узлов](../operations/node-group/node-group-create.md). При создании задайте настройки:
 
    * Используйте созданные ранее группы безопасности.
    * Выделите публичный IP-адрес, чтобы предоставить группе узлов доступ в интернет и возможность скачивать Docker-образы и компоненты.
 
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
+1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
 
-   Если для кластера не предоставлен публичный адрес и `kubectl` настроен через внутренний адрес кластера, выполняйте команды `kubectl` на ВМ {{ yandex-cloud }}, находящейся в одной сети с кластером.
+   Если для кластера не предоставлен публичный адрес и `kubectl` настроен через внутренний адрес кластера, выполняйте команды `kubectl` на ВМ Yandex Cloud, находящейся в одной сети с кластером.
 
-1. Установите {{ k8s-vpa }} из [репозитория](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler):
+1. Установите Vertical Pod Autoscaler из [репозитория](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler):
 
      ```bash
      cd /tmp && \
@@ -54,7 +54,7 @@
        ./vpa-up.sh
      ```
 
-## Создайте {{ k8s-vpa }} и тестовое приложение {#create-vpa-workload}
+## Создайте Vertical Pod Autoscaler и тестовое приложение {#create-vpa-workload}
 
 1. Создайте файл `app.yaml`, содержащий настройки тестового приложения `nginx` и балансировщика нагрузки:
 
@@ -108,7 +108,7 @@
 
    {% endcut %}
 
-1. Создайте файл `vpa.yaml`, содержащий настройки {{ k8s-vpa }}:
+1. Создайте файл `vpa.yaml`, содержащий настройки Vertical Pod Autoscaler:
 
    {% cut "vpa.yaml" %}
 
@@ -137,7 +137,7 @@
    kubectl apply -f vpa.yaml
    ```
 
-1. Убедитесь, что поды {{ k8s-vpa }} и `nginx` перешли в состояние `Running`:
+1. Убедитесь, что поды Vertical Pod Autoscaler и `nginx` перешли в состояние `Running`:
 
    ```bash
    kubectl get pods -n kube-system | grep vpa && \
@@ -153,10 +153,10 @@
    nginx-6c********-62j7w                     1/1  Running  0  42h
    ```
 
-## Проверьте работу {{ k8s-vpa }} {#test-vpa}
+## Проверьте работу Vertical Pod Autoscaler {#test-vpa}
 
-Для проверки работы {{ k8s-vpa }} будет создана имитация рабочей нагрузки на приложение `nginx`.
-1. Изучите рекомендации, которые предоставляет {{ k8s-vpa }} до создания нагрузки:
+Для проверки работы Vertical Pod Autoscaler будет создана имитация рабочей нагрузки на приложение `nginx`.
+1. Изучите рекомендации, которые предоставляет Vertical Pod Autoscaler до создания нагрузки:
 
    ```bash
    kubectl describe vpa nginx
@@ -194,7 +194,7 @@
            Memory:  262144k
    ```
 
-1. Убедитесь, что {{ k8s-vpa }} управляет ресурсами подов приложения `nginx`:
+1. Убедитесь, что Vertical Pod Autoscaler управляет ресурсами подов приложения `nginx`:
 
    ```bash
    kubectl get pod <имя_пода_nginx> --output yaml
@@ -240,17 +240,17 @@
 
     {% note info %}
     
-    Если ресурс недоступен по указанному URL, то [убедитесь](../operations/connect/security-groups.md), что группы безопасности для кластера {{ managed-k8s-name }} и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../vpc/operations/security-group-add-rule.md).
+    Если ресурс недоступен по указанному URL, то [убедитесь](../operations/connect/security-groups.md), что группы безопасности для кластера Managed Service for Kubernetes и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../vpc/operations/security-group-add-rule.md).
     
     {% endnote %}
 
-1. Через несколько минут изучите рекомендации, которые предоставляет {{ k8s-vpa }} после создания нагрузки:
+1. Через несколько минут изучите рекомендации, которые предоставляет Vertical Pod Autoscaler после создания нагрузки:
 
    ```bash
    kubectl describe vpa nginx
    ```
 
-   {{ k8s-vpa }} выделил дополнительные ресурсы подам при повышении нагрузки. Обратите внимание на повышение значений `Cpu` в метриках `Status.Recommendation.Container Recommendations`:
+   Vertical Pod Autoscaler выделил дополнительные ресурсы подам при повышении нагрузки. Обратите внимание на повышение значений `Cpu` в метриках `Status.Recommendation.Container Recommendations`:
 
    ```yaml
    Name:         nginx
@@ -288,5 +288,5 @@
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
-1. [Удалите кластер {{ k8s }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+1. [Удалите кластер Kubernetes](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. Если для доступа к кластеру или узлам использовались статические публичные IP-адреса, освободите и [удалите](../../vpc/operations/address-delete.md) их.

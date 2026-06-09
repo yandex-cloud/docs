@@ -1,4 +1,4 @@
-# История изменений в {{ cloud-logging-full-name }}
+# История изменений в Yandex Cloud Logging
 
 ## Май 2025 {#may-2025}
 

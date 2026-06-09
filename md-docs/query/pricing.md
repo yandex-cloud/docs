@@ -1,4 +1,4 @@
-# Правила тарификации для {{ yq-full-name }}
+# Правила тарификации для Yandex Query
 
 
 
@@ -9,21 +9,23 @@
 
 Все цены в рублях и тенге указаны с НДС, все цены в долларах — без НДС.
 
-В {{ yq-full-name }} тарифицируется объем считанных из источников данных при исполнении запросов. Если данные считываются из нескольких источников, их объем суммируется.
+В Yandex Query тарифицируется объем считанных из источников данных при исполнении запросов. Если данные считываются из нескольких источников, их объем суммируется.
 
 ## Цены для региона Россия {#prices}
 
 {% note info %}
 
-Цены на ресурсы {{ yandex-cloud }} в разных регионах различаются. Подробнее о доступных регионах см. [{#T}](../overview/concepts/region.md).
+Цены на ресурсы Yandex Cloud в разных регионах различаются. Подробнее о доступных регионах см. [Регионы](../overview/concepts/region.md).
 
-Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [{#T}](../billing/quickstart/index.md).
+Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [Регистрация аккаунта в Yandex Cloud](../billing/quickstart/index.md).
 
 {% endnote %}
 
 
-| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
-| ------ | ---- | --------------- | ----------- | ------------ |
+| Услуга                                                                      | Цена              | Ед. тарификации | Действует с | Действует до |
+| --------------------------------------------------------------------------- | ----------------- | --------------- | ----------- | ------------ |
+| Yandex Query. Объём входящих данных, от 0 до 10 единицы тарификации в месяц | Не тарифицируется | ГБ              | 1 мая 2026  | —            |
+| Yandex Query. Объём входящих данных, от 10 единицы тарификации в месяц      | 0,71 ₽            | ГБ              | 1 мая 2026  | —            |
 
 
 
@@ -45,59 +47,59 @@
 
   #### Пример 1 {#example-1}
   
-  Запрос вычитал 250 ГБ данных из {{ objstorage-full-name }}.
+  Запрос вычитал 250 ГБ данных из Yandex Object Storage.
   
   В этом случае стоимость запроса составит:
-  > (250 × {{ sku|RUB|yq.network.ingress.v1|pricingRate.10|string }}) = {% calc [currency=RUB] 250 × {{ sku|RUB|yq.network.ingress.v1|pricingRate.10|number }} %}
+  > (250 × 0,71 ₽) = {% calc [currency=RUB] 250 × 0.71 %}
   
   #### Пример 2 {#example-2}
   
-  Запрос считал 100 ГБ данных из {{ objstorage-full-name }}, 10 ГБ данных из {{ mch-name }}, 20 ГБ данных из {{ mpg-name }}.
+  Запрос считал 100 ГБ данных из Yandex Object Storage, 10 ГБ данных из Managed Service for ClickHouse®, 20 ГБ данных из Managed Service for PostgreSQL.
   
   Общий объем считанных данных составит:
   > (100 + 10 + 20) = 130 ГБ
   
   Стоимость запроса в этом случае составит:
-  > (130 × {{ sku|RUB|yq.network.ingress.v1|pricingRate.10|string }}) = {% calc [currency=RUB] 130 × {{ sku|RUB|yq.network.ingress.v1|pricingRate.10|number }} %}
+  > (130 × 0,71 ₽) = {% calc [currency=RUB] 130 × 0.71 %}
   
   #### Пример 3 {#example-3}
   
-  Запрос считал 1 МБ данных из {{ objstorage-full-name }}.
+  Запрос считал 1 МБ данных из Yandex Object Storage.
   
   Общий объем считанных данных составит:
   > (max(1 МБ, 10 МБ)) = 10 МБ = 0,01 ГБ
   
   Стоимость запроса в этом случае составит:
-  > (0,01 × {{ sku|RUB|yq.network.ingress.v1|pricingRate.10|string }}) = {% calc [currency=RUB] 0,01 × {{ sku|RUB|yq.network.ingress.v1|pricingRate.10|number }} %}
+  > (0,01 × 0,71 ₽) = {% calc [currency=RUB] 0,01 × 0.71 %}
 
 - Расчет в тенге {#prices-kzt}
 
   #### Пример 1 {#example-1}
   
-  Запрос вычитал 250 ГБ данных из {{ objstorage-full-name }}.
+  Запрос вычитал 250 ГБ данных из Yandex Object Storage.
   
   В этом случае стоимость запроса составит:
-  > (250 × {{ sku|KZT|yq.network.ingress.v1|pricingRate.10|string }}) = {% calc [currency=KZT] 250 × {{ sku|KZT|yq.network.ingress.v1|pricingRate.10|number }} %}
+  > (250 × 3,55 ₸) = {% calc [currency=KZT] 250 × 3.55 %}
   
   #### Пример 2 {#example-2}
   
-  Запрос считал 100 ГБ данных из {{ objstorage-full-name }}, 10 ГБ данных из {{ mch-name }}, 20 ГБ данных из {{ mpg-name }}.
+  Запрос считал 100 ГБ данных из Yandex Object Storage, 10 ГБ данных из Managed Service for ClickHouse®, 20 ГБ данных из Managed Service for PostgreSQL.
   
   Общий объем считанных данных составит:
   > (100 + 10 + 20) = 130 ГБ
   
   Стоимость запроса в этом случае составит:
-  > (130 × {{ sku|KZT|yq.network.ingress.v1|pricingRate.10|string }}) = {% calc [currency=KZT] 130 × {{ sku|KZT|yq.network.ingress.v1|pricingRate.10|number }} %}
+  > (130 × 3,55 ₸) = {% calc [currency=KZT] 130 × 3.55 %}
   
   #### Пример 3 {#example-3}
   
-  Запрос считал 1 МБ данных из {{ objstorage-full-name }}.
+  Запрос считал 1 МБ данных из Yandex Object Storage.
   
   Общий объем считанных данных составит:
   > (max(1 МБ, 10 МБ)) = 10 МБ = 0,01 ГБ
   
   Стоимость запроса в этом случае составит:
-  > (0,01 × {{ sku|KZT|yq.network.ingress.v1|pricingRate.10|string }}) = {% calc [currency=KZT] 0,01 × {{ sku|KZT|yq.network.ingress.v1|pricingRate.10|number }} %}
+  > (0,01 × 3,55 ₸) = {% calc [currency=KZT] 0,01 × 3.55 %}
 
 {% endlist %}
 
@@ -105,9 +107,9 @@
 
 ## Оплата за использованные ресурсы смежных систем {#cloud-systems}
 
-Использованные ресурсы смежных систем хранения и передачи данных, используемые в запросах {{ yq-full-name }}, оплачиваются отдельно.
+Использованные ресурсы смежных систем хранения и передачи данных, используемые в запросах Yandex Query, оплачиваются отдельно.
 
 |Ресурс|Описание|
 |---|---|
-|Чтение и запись данных в {{ objstorage-full-name }}|[Тарифы](../storage/pricing.md)|
-|Чтение и запись данных в {{ yds-full-name }}|[Тарифы](../data-streams/pricing.md)|
+|Чтение и запись данных в Yandex Object Storage|[Тарифы](../storage/pricing.md)|
+|Чтение и запись данных в Yandex Data Streams|[Тарифы](../data-streams/pricing.md)|

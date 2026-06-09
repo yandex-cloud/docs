@@ -5,7 +5,7 @@ Update specified by id resource rule.
 ## HTTP request
 
 ```
-PATCH https://cdn.{{ api-host }}/cdn/v1/rules/{ruleId}
+PATCH https://cdn.api.cloud.yandex.net/cdn/v1/rules/{ruleId}
 ```
 
 ## Path parameters

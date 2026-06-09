@@ -5,7 +5,7 @@ Retrieves the list of Cloud resources.
 ## HTTP request
 
 ```
-GET https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
+GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds
 ```
 
 ## Query parameters {#yandex.cloud.resourcemanager.v1.ListCloudsRequest}

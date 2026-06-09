@@ -3,14 +3,14 @@
 
 [AWS CLI](https://aws.amazon.com/ru/cli/) — это интерфейс командной строки для работы с сервисами AWS. Общий [порядок вызова команд](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html) смотрите в официальной документации Amazon.
 
-Для работы с {{ objstorage-name }} с помощью AWS CLI вы можете использовать следующие наборы команд:
+Для работы с Object Storage с помощью AWS CLI вы можете использовать следующие наборы команд:
 * [s3api](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/index.html) — команды, соответствующие операциям в [REST API](../../glossary/rest-api.md). Перед использованием ознакомьтесь с [перечнем поддерживаемых операций](../s3/api-ref/index.md).
 * [s3](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/index.html) — дополнительные команды, упрощающие работу с большим количеством объектов.
 
 ## Подготовка к работе {#before-you-begin}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md).
-1. [Назначьте сервисному аккаунту роли](../../iam/operations/sa/assign-role-for-sa.md), которые нужны для вашего проекта, например [storage.editor](../security/index.md#storage-editor) на бакет — для работы с конкретным бакетом, или на каталог — для работы со всеми бакетами в каталоге. Подробнее о ролях см. на странице [Управление доступом с помощью {{ iam-full-name }}](../security/index.md).
+1. [Назначьте сервисному аккаунту роли](../../iam/operations/sa/assign-role-for-sa.md), которые нужны для вашего проекта, например [storage.editor](../security/index.md#storage-editor) на бакет — для работы с конкретным бакетом, или на каталог — для работы со всеми бакетами в каталоге. Подробнее о ролях см. на странице [Управление доступом с помощью Yandex Identity and Access Management](../security/index.md).
 
           
     Чтобы работать с объектами в [зашифрованном](../concepts/encryption.md) бакете, у пользователя или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) вместе с [ролью](../security/index.md#storage-configurer) `storage.configurer` должны быть следующие [роли на ключ шифрования](../../kms/operations/key-access.md):
@@ -19,13 +19,13 @@
     * `kms.keys.decrypter` — для чтения ключа, [расшифровки](../../kms/security/index.md#kms-keys-decrypter) и скачивания объектов;
     * `kms.keys.encrypterDecrypter` — включает [разрешения](../../kms/security/index.md#kms-keys-encrypterDecrypter), предоставляемые ролями `kms.keys.encrypter` и `kms.keys.decrypter`.
     
-    Подробнее см. [Сервисные роли {{ kms-name }}](../../kms/security/index.md#service-roles).
+    Подробнее см. [Сервисные роли Key Management Service](../../kms/security/index.md#service-roles).
 
 
 1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
     
-    В результате вы получите данные статического ключа доступа. Для аутентификации в {{ objstorage-name }} вам понадобятся:
+    В результате вы получите данные статического ключа доступа. Для аутентификации в Object Storage вам понадобятся:
     
     * `key_id` — идентификатор статического ключа доступа;
     * `secret` — секретный ключ.
@@ -34,7 +34,7 @@
 
 
 
-Авторизация статическими ключами необходима для обращения напрямую к HTTP API и поддерживается инструментами, перечисленными в разделе [{#T}](index.md).
+Авторизация статическими ключами необходима для обращения напрямую к HTTP API и поддерживается инструментами, перечисленными в разделе [Поддерживаемые инструменты](index.md).
   
 {% note info %}
 
@@ -43,7 +43,7 @@
 {% endnote %}
 
 
-Статический ключ для доступа к {{ objstorage-name }} можно безопасно хранить в сервисе {{ lockbox-full-name }}. Подробнее см. [{#T}](../tutorials/static-key-in-lockbox/index.md).
+Статический ключ для доступа к Object Storage можно безопасно хранить в сервисе Yandex Lockbox. Подробнее см. [Использование секрета Yandex Lockbox для хранения статического ключа доступа](../tutorials/static-key-in-lockbox/index.md).
 
 {% note info %}
 
@@ -62,9 +62,9 @@
 Для настройки AWS CLI в терминале введите команду `aws configure`. Команда запросит значения для следующих параметров:
 1. `AWS Access Key ID` — идентификатор статического ключа, [полученный ранее](#before-you-begin).
 1. `AWS Secret Access Key` — содержимое статического ключа, [полученное ранее](#before-you-begin).
-1. `Default region name` — регион `{{ region-id }}`.
+1. `Default region name` — регион `ru-central1`.
 
-    Для работы с {{ objstorage-name }} всегда указывайте регион — `{{ region-id }}`. Другие значения региона могут привести к ошибке авторизации.
+    Для работы с Object Storage всегда указывайте регион — `ru-central1`. Другие значения региона могут привести к ошибке авторизации.
 
 1. Значения остальных параметров оставьте без изменений.
 
@@ -83,11 +83,11 @@
 
   ```ini
   [default]
-  region = {{ region-id }}
+  region = ru-central1
   ```
 
 
-Статический ключ для доступа к {{ objstorage-name }} можно безопасно хранить в сервисе {{ lockbox-full-name }}. Подробнее см. [{#T}](../tutorials/static-key-in-lockbox/index.md).
+Статический ключ для доступа к Object Storage можно безопасно хранить в сервисе Yandex Lockbox. Подробнее см. [Использование секрета Yandex Lockbox для хранения статического ключа доступа](../tutorials/static-key-in-lockbox/index.md).
 
 
 ### Настройка дополнительного профиля {#additional-profile}
@@ -118,12 +118,12 @@
 
   ```ini
   [default]
-  region = {{ region-id }}
+  region = ru-central1
   [profile <имя_профиля_2>]
-  region = {{ region-id }}
+  region = ru-central1
   ...
   [profile <имя_профиля_n>]
-  region = {{ region-id }}
+  region = ru-central1
   ```
 
   Где `default` — профиль по умолчанию.
@@ -131,29 +131,29 @@
 Чтобы переключаться между разными профилями в командах AWS CLI используется опция `--profile`, например:
 
   ```bash
-  aws --endpoint-url=https://{{ s3-storage-host }}/ \
+  aws --endpoint-url=https://storage.yandexcloud.net/ \
     --profile <имя_профиля_2> \
     s3 mb s3://<имя_бакета>
   ```
 
 ## Особенности {#specifics}
 
-Учитывайте особенности AWS CLI при работе с {{ objstorage-name }}:
+Учитывайте особенности AWS CLI при работе с Object Storage:
 
-* AWS CLI работает с {{ objstorage-name }} как с иерархической файловой системой и ключи объектов имеют вид пути к файлу.
-* По умолчанию клиент настроен на работу с серверами Amazon. Поэтому при запуске команды `aws` для работы с {{ objstorage-name }} обязательно используйте параметр `--endpoint-url`. Чтобы при каждом запуске не указывать параметр вручную, вы можете использовать файл конфигурации или псевдоним.
+* AWS CLI работает с Object Storage как с иерархической файловой системой и ключи объектов имеют вид пути к файлу.
+* По умолчанию клиент настроен на работу с серверами Amazon. Поэтому при запуске команды `aws` для работы с Object Storage обязательно используйте параметр `--endpoint-url`. Чтобы при каждом запуске не указывать параметр вручную, вы можете использовать файл конфигурации или псевдоним.
     * (поддерживается в AWS CLI версий 1.29.0, 2.13.0 и выше) В файле конфигурации `.aws/config` добавьте параметр `endpoint_url`:
 
        ```text
-       endpoint_url = https://{{ s3-storage-host }}
+       endpoint_url = https://storage.yandexcloud.net
        ```
 
-       После этого вы сможете вызывать команды без явного указания эндпоинта. Например, вместо `aws --endpoint-url=https://{{ s3-storage-host }} s3 ls` можно указывать `aws s3 ls`. Подробнее смотрите в документации [AWS CLI](https://docs.aws.amazon.com/sdkref/latest/guide/feature-ss-endpoints.html).
+       После этого вы сможете вызывать команды без явного указания эндпоинта. Например, вместо `aws --endpoint-url=https://storage.yandexcloud.net s3 ls` можно указывать `aws s3 ls`. Подробнее смотрите в документации [AWS CLI](https://docs.aws.amazon.com/sdkref/latest/guide/feature-ss-endpoints.html).
 
     * Создайте псевдоним (alias) с помощью команды:
 
       ```bash
-      alias {{ storage-aws-cli-alias }}='aws s3 --endpoint-url=https://{{ s3-storage-host }}'
+      alias ycs3='aws s3 --endpoint-url=https://storage.yandexcloud.net'
       ```
 
       Для создания псевдонима при каждом запуске терминала, добавьте команду `alias` в конфигурационный файл `~/.bashrc` или `~/.zshrc`, в зависимости от типа оболочки.
@@ -161,11 +161,11 @@
       С таким псевдонимом будут равносильны команды:
 
       ```bash
-      aws s3 --endpoint-url=https://{{ s3-storage-host }} ls
+      aws s3 --endpoint-url=https://storage.yandexcloud.net ls
       ```
 
       ```bash
-      {{ storage-aws-cli-alias }} ls
+      ycs3 ls
       ```
 
 ## Примеры операций {#aws-cli-examples}
@@ -306,4 +306,4 @@ download: s3://bucket-name/path_style_prefix/textfile.txt to ./textfile.txt
 
 ## См. также {#see-also}
 
-* [{#T}](../quickstart/quickstart-aws-cli.md).
+* [Как начать работать с AWS CLI в Yandex Object Storage](../quickstart/quickstart-aws-cli.md).

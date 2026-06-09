@@ -1,30 +1,30 @@
-# Пошаговые инструкции для {{ dns-name }}
+# Пошаговые инструкции для Cloud DNS
 
 ## Зоны DNS {#dns-zones}
 
-- [{#T}](zone-create-private.md)
-- [{#T}](zone-create-public.md)
-- [{#T}](zone-update.md)
-- [{#T}](zone-access.md)
-- [{#T}](zone-move-folder.md)
-- [{#T}](operation-logs.md)
-- [{#T}](zone-delete.md)
+- [Создать внутреннюю зону DNS](zone-create-private.md)
+- [Создать публичную зону DNS](zone-create-public.md)
+- [Изменить зону DNS](zone-update.md)
+- [Настроить права доступа к зоне DNS](zone-access.md)
+- [Перенести зону DNS в другой каталог](zone-move-folder.md)
+- [Посмотреть операции с зонами](operation-logs.md)
+- [Удалить зону](zone-delete.md)
 
 ## Получение информации о зоне DNS {#zone-info}
 
-- [{#T}](zone-list.md)
-- [{#T}](zone-get-info.md)
+- [Получить список зон DNS](zone-list.md)
+- [Получить информацию о зоне DNS](zone-get-info.md)
 
 ## Ресурсные записи {#resource-records}
 
-- [{#T}](resource-record-create.md)
-- [{#T}](resource-record-update.md)
-- [{#T}](resource-record-delete.md)
+- [Создать ресурсную запись](resource-record-create.md)
+- [Изменить ресурсную запись](resource-record-update.md)
+- [Удалить ресурсную запись](resource-record-delete.md)
 
 ## Фильтры DNS {#dns-filter}
 
-- [{#T}](filter-create.md)
+- [Создать фильтр DNS](filter-create.md)
 
 ## DNS-подключения {#dns-connection}
 
-- [{#T}](connection-inbound-create.md)
+- [Создать входящее DNS-подключение](connection-inbound-create.md)

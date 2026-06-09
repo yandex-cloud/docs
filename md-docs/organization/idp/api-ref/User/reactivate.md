@@ -5,7 +5,7 @@ Reactivates a previously suspended user.
 ## HTTP request
 
 ```
-POST https://organization-manager.{{ api-host }}/organization-manager/v1/idp/users/{userId}:reactivate
+POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/users/{userId}:reactivate
 ```
 
 ## Path parameters

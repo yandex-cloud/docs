@@ -6,7 +6,7 @@ This removes both the metadata record and the associated subtitle file.
 ## HTTP request
 
 ```
-DELETE https://video.{{ api-host }}/video/v1/subtitles/{subtitleId}
+DELETE https://video.api.cloud.yandex.net/video/v1/subtitles/{subtitleId}
 ```
 
 ## Path parameters

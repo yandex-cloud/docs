@@ -1,8 +1,8 @@
-# Высокая доступность кластера {{ mrd-name }}
+# Высокая доступность кластера Yandex Managed Service for Valkey™
 
 [Высокая доступность](../../architecture/fault-tolerance.md#mdb-ha) — это способность системы быстро восстанавливать работоспособность при отказах, обеспечивая непрерывность сервиса для клиентов.
 
-На высокую доступность кластера {{ mrd-name }} влияют параметры, относящиеся к [SLA](https://yandex.ru/legal/cloud_sla_mdb/), а также некоторые другие настройки.
+На высокую доступность кластера Yandex Managed Service for Valkey™ влияют параметры, относящиеся к [SLA](https://yandex.ru/legal/cloud_sla_mdb/), а также некоторые другие настройки.
 
 ## Количество и расположение хостов кластера {#host-configuration}
 
@@ -20,18 +20,18 @@
 
 Высокая доступность обеспечивается механизмами [репликации и переключения мастера](replication.md), которые имеют следующие особенности:
 
-* В архитектуру {{ mrd-name }} интегрирован агент управления состоянием хоста [rdsync](https://github.com/yandex/rdsync), который в случае отказа мастера автоматически выбирает новый мастер и переключается на него. Для оптимальной работы `rdsync` число хостов в кластере должно быть четным.
-* Повлиять на выбор нового мастера в кластере {{ mrd-name }} можно с помощью [настройки приоритетов](replication.md#master-failover) для хостов кластера.
+* В архитектуру Yandex Managed Service for Valkey™ интегрирован агент управления состоянием хоста [rdsync](https://github.com/yandex/rdsync), который в случае отказа мастера автоматически выбирает новый мастер и переключается на него. Для оптимальной работы `rdsync` число хостов в кластере должно быть четным.
+* Повлиять на выбор нового мастера в кластере Yandex Managed Service for Valkey™ можно с помощью [настройки приоритетов](replication.md#master-failover) для хостов кластера.
 * Выбор нового мастера и переключение на него можно [произвести вручную](../operations/failover.md).
 * Если для хоста используется публичный доступ, то для реплик он также должен быть включен, иначе при переключении мастера кластер станет недоступен.
-* В кластерах {{ mrd-name }} используется [асинхронная репликация](replication.md#replication): результат запроса на запись отражается на хосте-мастере, который после этого отправляет данные на реплики кластера.
+* В кластерах Yandex Managed Service for Valkey™ используется [асинхронная репликация](replication.md#replication): результат запроса на запись отражается на хосте-мастере, который после этого отправляет данные на реплики кластера.
 
 ## Подключение к БД {#connect}
 
 На доступность кластера влияют способ и настройки подключения:
 * Используйте для подключения только [рекомендованные клиенты](supported-clients.md).
 * [Настройте группы безопасности](../operations/connect/index.md#configuring-security-groups).
-* Задайте значения настроек {{ VLK }} [Timeout](settings-list.md#settings-timeout), [Maxmemory policy](settings-list.md#settings-maxmemory-policy), [Maxmemory percent](settings-list.md#settings-maxmemory-percent), [Client output buffer limit normal](settings-list.md#settings-limit-normal) и [Client output buffer limit pubsub](settings-list.md#settings-limit-pubsub) таким образом, чтобы в штатных режимах работы не наблюдались отказы операций записи и массовые разрывы соединений.
+* Задайте значения настроек Valkey™ [Timeout](settings-list.md#settings-timeout), [Maxmemory policy](settings-list.md#settings-maxmemory-policy), [Maxmemory percent](settings-list.md#settings-maxmemory-percent), [Client output buffer limit normal](settings-list.md#settings-limit-normal) и [Client output buffer limit pubsub](settings-list.md#settings-limit-pubsub) таким образом, чтобы в штатных режимах работы не наблюдались отказы операций записи и массовые разрывы соединений.
 
 ## Настройки хранилища {#storage-settings}
 
@@ -62,8 +62,8 @@
 
 Следующие операции могут привести к разрыву соединений, временному снижению производительности или временной недоступности кластера:
 * Запуск [операций технического обслуживания](maintenance.md) (момент их запуска задается с помощью выбора [окна обслуживания](maintenance.md#maintenance-window)) — может приводить к разрыву соединений и временной недоступности кластера на запись.
-* [Обновление версии {{ VLK }}](../operations/cluster-version-update.md), [изменение класса хостов](../operations/update.md#change-resource-preset), [изменение типа диска или увеличение размера хранилища](../operations/update.md#change-disk-size) — приводит к разрыву соединений, временному снижению производительности или временной недоступности кластера на запись.
-* Изменение [настройки {{ VLK }} Databases](settings-list.md#settings-databases) — приводит к разрыву соединений и временной недоступности кластера на запись.
+* [Обновление версии Valkey™](../operations/cluster-version-update.md), [изменение класса хостов](../operations/update.md#change-resource-preset), [изменение типа диска или увеличение размера хранилища](../operations/update.md#change-disk-size) — приводит к разрыву соединений, временному снижению производительности или временной недоступности кластера на запись.
+* Изменение [настройки Valkey™ Databases](settings-list.md#settings-databases) — приводит к разрыву соединений и временной недоступности кластера на запись.
 * Автоматическое и ручное [резервное копирование](backup.md) баз данных — может приводить к временному снижению производительности кластера.
 
 Проводите эти операции в моменты минимальной нагрузки на кластер.

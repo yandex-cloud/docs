@@ -1,4 +1,4 @@
-# Правила тарификации для {{ cos-name }}
+# Правила тарификации для Container Solution
 
 
-Тарификация виртуальных машин с образом {{ coi }} осуществляется по [правилам тарификации сервиса {{ compute-name }}](../compute/pricing.md). Использование Docker-образов из {{ container-registry-name }} тарифицируется по [правилам тарификации сервиса {{ container-registry-name }}](../container-registry/pricing.md).
+Тарификация виртуальных машин с образом Container Optimized Image осуществляется по [правилам тарификации сервиса Compute Cloud](../compute/pricing.md). Использование Docker-образов из Container Registry тарифицируется по [правилам тарификации сервиса Container Registry](../container-registry/pricing.md).

@@ -1,6 +1,6 @@
 
 
-# {{ msp-full-name }}
+# Yandex Managed Service for Apache Spark™
 
  - [Начало работы](quickstart.md)
 
@@ -18,7 +18,7 @@
 
  - [Изменение кластера](operations/cluster-update.md)
 
- - [Обновление версии {{ SPRK }}](operations/cluster-version-update.md)
+ - [Обновление версии Apache Spark™](operations/cluster-version-update.md)
 
  - [Техническое обслуживание](operations/cluster-maintenance.md)
 
@@ -50,19 +50,19 @@
 
  - [Все руководства](tutorials/index.md)
 
- - [Работа с {{ objstorage-full-name }} с использованием локального каталога Hive](tutorials/spark-objstorage-integration.md)
+ - [Работа с Yandex Object Storage с использованием локального каталога Hive](tutorials/spark-objstorage-integration.md)
 
- - [Работа с {{ objstorage-full-name }} с использованием кластера {{ metastore-full-name }}](tutorials/metastore-and-spark.md)
+ - [Работа с Yandex Object Storage с использованием кластера Apache Hive™ Metastore](tutorials/metastore-and-spark.md)
 
- - [Работа с таблицей формата {{ IBRG }} из PySpark-задания](tutorials/spark-simple-rw-job.md)
+ - [Работа с таблицей формата Apache Iceberg™ из PySpark-задания](tutorials/spark-simple-rw-job.md)
 
- - [Запуск PySpark-задания с помощью {{ maf-full-name }}](tutorials/airflow-spark-min.md)
+ - [Запуск PySpark-задания с помощью Yandex Managed Service for Apache Airflow™](tutorials/airflow-spark-min.md)
 
- - [Использование секрета {{ lockbox-name }} в PySpark-задании для подключения к {{ mpg-full-name }}](tutorials/job-pyspark-secret-access.md)
+ - [Использование секрета Yandex Lockbox в PySpark-задании для подключения к Yandex Managed Service for PostgreSQL](tutorials/job-pyspark-secret-access.md)
 
- - [Автоматизация работы с помощью {{ maf-full-name }}](tutorials/airflow-automation.md)
+ - [Автоматизация работы с помощью Yandex Managed Service for Apache Airflow™](tutorials/airflow-automation.md)
 
- - [Интеграция с {{ ml-platform-name }}](tutorials/spark-and-datasphere.md)
+ - [Интеграция с DataSphere](tutorials/spark-and-datasphere.md)
 
 ## Концепции
 
@@ -76,15 +76,15 @@
 
  - [Автоматическое масштабирование](concepts/autoscaling.md)
 
- - [Свойства {{ SPRK }}](concepts/spark-properties.md)
+ - [Свойства Apache Spark™](concepts/spark-properties.md)
 
  - [Управление доступом](security.md)
 
  - [Правила тарификации](pricing.md)
 
- - [Метрики {{ monitoring-full-name }}](metrics.md)
+ - [Метрики Yandex Monitoring](metrics.md)
 
- - [Аудитные логи {{ at-name }}](at-ref.md)
+ - [Аудитные логи Audit Trails](at-ref.md)
 
 ## Справочник CLI (англ.)
 
@@ -186,7 +186,7 @@
 
  - [log](cli-ref/v0/job/log.md)
 
- - [Справочник {{ TF }}](tf-ref.md)
+ - [Справочник Terraform](tf-ref.md)
 
 ## Справочник API
 

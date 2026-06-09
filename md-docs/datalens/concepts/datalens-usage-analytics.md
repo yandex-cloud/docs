@@ -1,13 +1,13 @@
-# Статистика использования сервиса {{ datalens-short-name }}
+# Статистика использования сервиса DataLens
 
 
-Подключение к [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md) позволит вам анализировать поведение пользователей {{ datalens-short-name }}: просматривать статистику по использованию экземпляра сервиса.
+Подключение к [DataLens Usage Analytics](../operations/connection/create-usage-tracking.md) позволит вам анализировать поведение пользователей DataLens: просматривать статистику по использованию экземпляра сервиса.
 
 Доступны следующие подключения **Usage Analytics**:
 
-* **Light** — предоставляет агрегированную статистику по использованию экземпляра {{ datalens-short-name }} за ограниченный период времени (60 суток).
+* **Light** — предоставляет агрегированную статистику по использованию экземпляра DataLens за ограниченный период времени (60 суток).
 
-* **Detailed** — предоставляет как детальную, так и агрегированную статистику по использованию экземпляра {{ datalens-short-name }} за длительный период времени (360 суток). Позволяет просматривать детальную статистику по запросам в датасеты и просмотрам дашбордов.
+* **Detailed** — предоставляет как детальную, так и агрегированную статистику по использованию экземпляра DataLens за длительный период времени (360 суток). Позволяет просматривать детальную статистику по запросам в датасеты и просмотрам дашбордов.
 
 {% note info %}
 
@@ -31,11 +31,11 @@
   * [Файлы](../operations/connection/create-file.md)
   * [Google Sheets](../operations/connection/create-google-sheets.md)
   * [Яндекс Документы](../operations/connection/create-yadocs.md)
-  * [{{ yq-full-name }}](../operations/connection/create-yandex-query.md)
+  * [Yandex Query](../operations/connection/create-yandex-query.md)
   * [Metrica](../operations/connection/create-metrica-api.md)
   * [AppMetrica](../operations/connection/create-appmetrica.md)
-  * [{{ billing-name }}](../operations/connection/create-cloud-billing.md)
-  * [{{ monitoring-full-name }}](../operations/connection/create-monitoring.md)
+  * [Yandex Cloud Billing](../operations/connection/create-cloud-billing.md)
+  * [Yandex Monitoring](../operations/connection/create-monitoring.md)
 
 * При создании нового объекта (подключение, датасет, чарт, дашборд) в статистике некоторое время, но не более суток, вместо названия будет отображаться `__unknown__`. При переименовании объекта некоторое время, но не более суток, будет видно его старое название.
 * Агрегированные данные обновляются один раз в день.

@@ -5,7 +5,7 @@ Deletes the specified shard.
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/shards/{shardName}
+DELETE https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/shards/{shardName}
 ```
 
 ## Path parameters

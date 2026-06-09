@@ -1,10 +1,10 @@
-# Запуск языковой модели DeepSeek-R1 в кластере GPU {{ compute-full-name }}
+# Запуск языковой модели DeepSeek-R1 в кластере GPU Yandex Compute Cloud
 
 
 
 {% note info %}
 
-Кластеры GPU сейчас доступны только в [зонах доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a` и `{{ region-id }}-d`. Добавить виртуальную машину (ВМ) в кластер GPU можно только из той же зоны доступности.
+Кластеры GPU сейчас доступны только в [зонах доступности](../../overview/concepts/geo-scope.md) `ru-central1-a` и `ru-central1-d`. Добавить виртуальную машину (ВМ) в кластер GPU можно только из той же зоны доступности.
 
 {% endnote %}
 
@@ -23,19 +23,19 @@
 
 ## Подготовьте облако к работе {#prepare-cloud}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
-Убедитесь, что в облаке достаточно [квот](../../compute/concepts/limits.md#compute-quotas) на суммарное количество кластеров GPU, GPU на платформе `Gen2`, объем RAM, vCPU и объем SSD-дисков для создания ВМ. Для проверки используйте [{{ quota-manager-full-name }}](../../quota-manager/index.md).
+Убедитесь, что в облаке достаточно [квот](../../compute/concepts/limits.md#compute-quotas) на суммарное количество кластеров GPU, GPU на платформе `Gen2`, объем RAM, vCPU и объем SSD-дисков для создания ВМ. Для проверки используйте [Yandex Cloud Quota Manager](../../quota-manager/index.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит плата за вычислительные ресурсы ВМ и диски, а также кластер GPU (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+В стоимость поддержки инфраструктуры входит плата за вычислительные ресурсы ВМ и диски, а также кластер GPU (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 
 ## Создайте кластер GPU из двух ВМ {#create-gpu-cluster}
 
@@ -45,13 +45,13 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder)для создания кластера.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. На панели слева выберите ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.gpu-cluster.action_create-cluster }}**.
-   1. В поле **{{ ui-key.yacloud.gpu-cluster.field_name }}** укажите `test-gpu-cluster`.
-   1. В поле **{{ ui-key.yacloud.gpu-cluster.label_zone }}** выберите `{{ region-id }}-d`.
-   1. Нажмите **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder)для создания кластера.
+   1. Перейдите в сервис **Compute Cloud**.
+   1. На панели слева выберите ![image](../../_assets/console-icons/cpus.svg) **Кластеры GPU**.
+   1. Нажмите кнопку **Создать кластер GPU**.
+   1. В поле **Имя** укажите `test-gpu-cluster`.
+   1. В поле **Зона доступности** выберите `ru-central1-d`.
+   1. Нажмите **Сохранить**.
 
 {% endlist %}
 
@@ -63,37 +63,37 @@
 
    - Консоль управления {#console}
 
-      1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** и нажмите **{{ ui-key.yacloud.compute.instances.button_create }}**.
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите публичный образ [Ubuntu 20.04 LTS Secure Boot CUDA 12.2](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2004-lts-secureboot-cuda-12-2).
-      1. В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите `{{ region-id }}-d`.
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** выберите [тип диска](../../compute/concepts/disk.md#disks_types) `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}` и задайте размер `800 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите:
+      1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины** и нажмите **Создать виртуальную машину**.
+      1. В блоке **Образ загрузочного диска** выберите публичный образ [Ubuntu 20.04 LTS Secure Boot CUDA 12.2](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2004-lts-secureboot-cuda-12-2).
+      1. В поле **Зона доступности** выберите `ru-central1-d`.
+      1. В блоке **Диски и файловые хранилища** выберите [тип диска](../../compute/concepts/disk.md#disks_types) `SSD` и задайте размер `800 ГБ`.
+      1. В блоке **Вычислительные ресурсы** перейдите на вкладку `Своя конфигурация` и укажите:
 
-            * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Gen2`.
-            * **{{ ui-key.yacloud.component.compute.resources.field_gpus }}** — `8`.
-            * **{{ ui-key.yacloud.component.compute.resources.field_gpu-cluster }}** — выберите ранее созданный кластер `test-gpu-cluster`.
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа:
+            * **Платформа** — `Gen2`.
+            * **GPU** — `8`.
+            * **Кластер GPU** — выберите ранее созданный кластер `test-gpu-cluster`.
+      1. В блоке **Доступ** выберите **SSH-ключ** и укажите данные для доступа:
 
-            * **{{ ui-key.yacloud.compute.instances.create.field_user }}**: `ubuntu`.
-            * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+            * **Логин**: `ubuntu`.
+            * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
               
               Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
               
-              1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+              1. Нажмите кнопку **Добавить ключ**.
               1. Задайте имя SSH-ключа.
               1. Выберите вариант:
               
-                  * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-                  * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-                  * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+                  * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+                  * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+                  * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
                   
                     При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
               
-              1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+              1. Нажмите кнопку **Добавить**.
               
               SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-      1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+      1. Нажмите **Создать ВМ**.
 
    {% endlist %}
 
@@ -237,7 +237,7 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за созданные ресурсы, в сервисе {{ compute-name }}:
+Чтобы перестать платить за созданные ресурсы, в сервисе Compute Cloud:
 1. [Удалите](../../compute/operations/vm-control/vm-delete.md) созданные виртуальные машины.
 1. [Удалите](../../compute/operations/gpu-cluster/gpu-cluster-delete.md) созданный кластер GPU.
 

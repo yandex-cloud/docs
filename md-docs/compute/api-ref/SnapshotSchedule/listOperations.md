@@ -5,7 +5,7 @@ Lists operations for the specified snapshot schedule.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotScheduleId}/operations
+GET https://compute.api.cloud.yandex.net/compute/v1/snapshotSchedules/{snapshotScheduleId}/operations
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Creates a request of a dry run of the lifecycle policy.
 ## HTTP request
 
 ```
-POST https://registry.{{ api-host }}/cloud-registry/v1/lifecyclePolicies/{policyId}:dryRun
+POST https://registry.api.cloud.yandex.net/cloud-registry/v1/lifecyclePolicies/{policyId}:dryRun
 ```
 
 ## Path parameters

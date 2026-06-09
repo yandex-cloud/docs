@@ -6,7 +6,7 @@ To get the list of available Services, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://iam.{{ api-host }}/iam/v1/services/{serviceId}
+GET https://iam.api.cloud.yandex.net/iam/v1/services/{serviceId}
 ```
 
 ## Path parameters

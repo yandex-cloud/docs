@@ -1,9 +1,9 @@
-# Реестр в {{ container-registry-name }}
+# Реестр в Container Registry
 
 _Реестр_ — хранилище Docker-образов.
 
-С помощью реестра вы можете разграничивать права доступа к Docker-образам, используя роли [{{ iam-full-name }}](../../iam/index.md).
+С помощью реестра вы можете разграничивать права доступа к Docker-образам, используя роли [Yandex Identity and Access Management](../../iam/index.md).
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/run-docker-on-vm/index.md)
+* [Запуск Docker-образа на виртуальной машине](../tutorials/run-docker-on-vm/index.md)

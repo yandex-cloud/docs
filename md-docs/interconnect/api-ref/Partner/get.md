@@ -6,7 +6,7 @@ To get the list of available Partner resources, make a [List](list.md#List) requ
 ## HTTP request
 
 ```
-GET https://cic.{{ api-host }}/cic/v1/partners/{partnerId}
+GET https://cic.api.cloud.yandex.net/cic/v1/partners/{partnerId}
 ```
 
 ## Path parameters

@@ -1,23 +1,23 @@
-# Триггер для {{ cloud-logging-name }}, который отправляет сообщения в WebSocket-соединения
+# Триггер для Cloud Logging, который отправляет сообщения в WebSocket-соединения
 
-[Триггер](index.md) для {{ cloud-logging-name }} отправляет сообщения в [WebSocket-соединения](../extensions/websocket.md), когда в [лог-группу](../../../logging/concepts/log-group.md) добавляют записи.
+[Триггер](index.md) для Cloud Logging отправляет сообщения в [WebSocket-соединения](../extensions/websocket.md), когда в [лог-группу](../../../logging/concepts/log-group.md) добавляют записи.
 
-Триггеру для {{ cloud-logging-name }} необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для чтения из лог-группы и отправки сообщений в WebSocket-соединения.
+Триггеру для Cloud Logging необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для чтения из лог-группы и отправки сообщений в WebSocket-соединения.
 
-О том, как создать триггер для {{ cloud-logging-name }}, читайте в инструкции [{#T}](../../operations/trigger/cloud-logging-trigger-create.md).
+О том, как создать триггер для Cloud Logging, читайте в инструкции [Создать триггер для Cloud Logging, который отправляет сообщения в WebSocket-соединения](../../operations/trigger/cloud-logging-trigger-create.md).
 
 ## Группирование сообщений {#batching}
 
 Настройки группирования позволяют передавать в WebSocket-соединения сразу несколько сообщений. Эти настройки задают ограничение сверху по размеру группы сообщений и по времени ее накопления. Например, если размер группы сообщений равен 3, то в WebSocket-соединения могут поступать группы, в которых содержится от 1 до 3 сообщений.
 
-## Роли, необходимые для корректной работы триггера для {{ cloud-logging-name }} {#roles}
+## Роли, необходимые для корректной работы триггера для Cloud Logging {#roles}
 
 * Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor) и выше.
 * Для работы триггера сервисному аккаунту необходимы роли:
     * `api-gateway.websocketBroadcaster` на каталог, в котором находится API-шлюз.
     * `logging.reader` на лог-группу, при добавлении записей в которую вызывается триггер.
 
-## Формат сообщения от триггера для {{ cloud-logging-name }} {#format}
+## Формат сообщения от триггера для Cloud Logging {#format}
 
 После того как триггер сработает, он отправит в WebSocket-соединения следующее сообщение:
 
@@ -57,5 +57,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ cloud-logging-name }}, который запускает контейнер {{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/cloud-logging-trigger.md)
-* [Триггер для {{ cloud-logging-name }}, который запускает функцию {{ sf-name }}](../../../functions/concepts/trigger/cloud-logging-trigger.md)
+* [Триггер для Cloud Logging, который запускает контейнер Serverless Containers](../../../serverless-containers/concepts/trigger/cloud-logging-trigger.md)
+* [Триггер для Cloud Logging, который запускает функцию Cloud Functions](../../../functions/concepts/trigger/cloud-logging-trigger.md)

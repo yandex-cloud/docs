@@ -1,61 +1,61 @@
-# Практические руководства {{ sf-name }}
+# Практические руководства Cloud Functions
 
 ## Бэкенд на Serverless {#backend}
 
-* [{#T}](java-servlet-todo-list.md)
-* [{#T}](video-converting-queue/index.md)
-* [{#T}](api-gw-integration.md)
-* [{#T}](serverless-url-shortener/index.md)
-* [{#T}](websocket-app.md)
-* [{#T}](nodejs-typescript.md)
-* [{#T}](connect-to-ydb.md)
-* [{#T}](connect-to-ydb-nodejs.md)
-* [{#T}](canary-release.md)
-* [{#T}](serverless-live-debug.md)
+* [Развертывание веб-приложения с использованием Java Servlet API](java-servlet-todo-list.md)
+* [Конвертация видео в GIF на Python](video-converting-queue/index.md)
+* [Разработка пользовательской интеграции в API Gateway](api-gw-integration.md)
+* [Сокращатель ссылок](serverless-url-shortener/index.md)
+* [Создание интерактивного serverless-приложения с использованием WebSocket](websocket-app.md)
+* [Создание функции Node.js с помощью TypeScript](nodejs-typescript.md)
+* [Подключение к базе данных Yandex Managed Service for YDB из функции Cloud Functions на Python](connect-to-ydb.md)
+* [Подключение к базе данных Yandex Managed Service for YDB из функции Cloud Functions на Node.js](connect-to-ydb-nodejs.md)
+* [Канареечный релиз функции Cloud Functions](canary-release.md)
+* [Интерактивная отладка функций Cloud Functions](serverless-live-debug.md)
 
 ## Боты на Serverless {#bots}
 
-* [{#T}](slack-bot-serverless.md)
-* [{#T}](telegram-bot-serverless/index.md)
-* [{#T}](recognizer-bot.md)
+* [Как создать чат-бот для Slack](slack-bot-serverless.md)
+* [Как создать бота в Telegram](telegram-bot-serverless/index.md)
+* [Разработка Telegram-бота для распознавания текста на изображениях, синтеза и распознавания аудио](recognizer-bot.md)
 
 ## ETL на Serverless {#etl}
 
-* [{#T}](data-recording.md)
-* [{#T}](logging.md)
-* [{#T}](data-transfer-direct-to-mch.md)
-* [{#T}](events-from-postbox-to-yds.md)
-* [{#T}](data-from-tracker.md)
-* [{#T}](forms-and-datalens-integration/index.md)
-* [{#T}](postbox-webhook.md)
+* [Запись данных с устройства в базу данных](data-recording.md)
+* [Запись логов балансировщика в PostgreSQL](logging.md)
+* [Загрузка данных из Яндекс Директ в витрину Yandex Managed Service for ClickHouse® с использованием Yandex Cloud Functions, Yandex Object Storage и Yandex Data Transfer](data-transfer-direct-to-mch.md)
+* [Передача событий Yandex Cloud Postbox в Yandex Data Streams и их анализ с помощью Yandex DataLens](events-from-postbox-to-yds.md)
+* [Яндекс Трекер: экспорт и визуализация данных](data-from-tracker.md)
+* [Поставка данных из Яндекс Формы в Yandex DataLens с использованием Yandex Cloud Functions и Yandex Query](forms-and-datalens-integration/index.md)
+* [Интеграция Yandex Cloud Postbox с внешними системами с помощью вебхуков](postbox-webhook.md)
 
 ## Рабочие процессы и автоматизация на Serverless {#automation}
 
-* [{#T}](serverless-trigger-budget-vm.md)
-* [{#T}](bucket-to-bucket.md)
-* [{#T}](regular-launch-datasphere.md)
-* [{#T}](batch-recognition-stt.md)
-* [{#T}](nodejs-cron-restart-vm.md)
-* [{#T}](serverless-trigger-budget-queue-vm-tg.md)
-* [{#T}](vm-scale-scheduled/index.md)
-* [{#T}](batch-code-execution.md)
-* [{#T}](ci-cd-sourcecraft-functions.md)
-* [{#T}](ci-cd-github-functions.md)
-* [{#T}](logging-functions.md)
-* [{#T}](functions-framework-to-container.md)
+* [Создание триггера для бюджетов, который вызывает функцию Cloud Functions для остановки ВМ](serverless-trigger-budget-vm.md)
+* [Автоматическое копирование объектов из одного бакета Yandex Object Storage в другой](bucket-to-bucket.md)
+* [Запуск вычислений по расписанию в DataSphere](regular-launch-datasphere.md)
+* [Регулярное распознавание аудиофайлов из Yandex Object Storage](batch-recognition-stt.md)
+* [Развертывание отказоустойчивой архитектуры с прерываемыми виртуальными машинами](nodejs-cron-restart-vm.md)
+* [Создание триггеров, которые вызывают функции Cloud Functions для остановки ВМ и отправки уведомлений в Telegram](serverless-trigger-budget-queue-vm-tg.md)
+* [Масштабирование группы виртуальных машин по расписанию](vm-scale-scheduled/index.md)
+* [Запуск вычислений в Yandex DataSphere с помощью API](batch-code-execution.md)
+* [Настройка CI/CD с SourceCraft](ci-cd-sourcecraft-functions.md)
+* [Настройка CI/CD с GitHub](ci-cd-github-functions.md)
+* [Настройка реагирования в Yandex Cloud Logging и Cloud Functions](logging-functions.md)
+* [Разработка функций в Functions Framework и их развертывание в Yandex Serverless Containers](functions-framework-to-container.md)
 
 ## Интернет вещей {#iot}
 
-* [{#T}](datalens.md)
-* [{#T}](monitoring.md)
-* [{#T}](iot-emulation.md)
+* [Мониторинг состояния географически распределенных устройств](datalens.md)
+* [Мониторинг показаний датчиков и уведомления о событиях](monitoring.md)
+* [Эмуляция множества IoT-устройств](iot-emulation.md)
 
 ## Интеграция с сервисами Яндекса и Yandex Cloud {#integrations}
 
-* [{#T}](alice-shareable-todolist.md)
-* [{#T}](alice-skill.md)
+* [Разработка навыка Алисы и сайта с авторизацией](alice-shareable-todolist.md)
+* [Создание навыка Алисы](alice-skill.md)
 
 ## Искусственный интеллект {#ai}
 
-* [{#T}](create-ai-agent-function.md)
-* [{#T}](streaming-openai-agent.md)
+* [Создание AI-агента с помощью функции Cloud Functions](create-ai-agent-function.md)
+* [Создание агента на OpenAI Agents SDK со стримингом ответа через веб-сокеты на Cloud Functions и Yandex API Gateway](streaming-openai-agent.md)

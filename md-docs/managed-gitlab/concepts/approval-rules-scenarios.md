@@ -1,21 +1,21 @@
-# Рекомендации по использованию правил ревью кода в {{ mgl-full-name }}
+# Рекомендации по использованию правил ревью кода в Yandex Managed Service for GitLab
 
-{{ mgl-name }} позволяет гибко настраивать обязательные _правила ревью кода_, прежде чем код может быть добавлен в целевую [ветку проекта](../../glossary/vcs.md#branch). Функциональность является альтернативой встроенному в {{ GL }} Enterprise Edition инструменту [Approval Rules](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/rules.html) и доступна вне зависимости от [версии](https://about.gitlab.com/pricing) {{ GL }}.
+Managed Service for GitLab позволяет гибко настраивать обязательные _правила ревью кода_, прежде чем код может быть добавлен в целевую [ветку проекта](../../glossary/vcs.md#branch). Функциональность является альтернативой встроенному в GitLab Enterprise Edition инструменту [Approval Rules](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/rules.html) и доступна вне зависимости от [версии](https://about.gitlab.com/pricing) GitLab.
 
-Конфигурация правил ревью в {{ mgl-name }} настраиваются только в виде кода (Configuration as Code) в файлах `APPROVALRULES` и (опционально) `CODEOWNERS`.
+Конфигурация правил ревью в Managed Service for GitLab настраиваются только в виде кода (Configuration as Code) в файлах `APPROVALRULES` и (опционально) `CODEOWNERS`.
 
-Подробнее читайте на странице [{#T}](approval-rules.md).
+Подробнее читайте на странице [Правила ревью кода в Yandex Managed Service for GitLab](approval-rules.md).
 
 {% note warning %}
 
-За использование правил ревью кода в {{ mgl-name }} взимается плата в зависимости от используемой [конфигурации](approval-rules.md#packages). Подробнее читайте на странице [{#T}](../pricing.md).
+За использование правил ревью кода в Managed Service for GitLab взимается плата в зависимости от используемой [конфигурации](approval-rules.md#packages). Подробнее читайте на странице [Правила тарификации для Yandex Managed Service for GitLab](../pricing.md).
 
 {% endnote %}
 
 В разделе приведены примеры файлов `APPROVALRULES` и (опционально) `CODEOWNERS` для следующих типовых сценариев:
-* [{#T}](#role-based-review)
-* [{#T}](#two-stage-review)
-* [{#T}](#cicd-review)
+* [Пример настройки правил для ревью от конкретных пользователей](#role-based-review)
+* [Пример настройки правил для двухэтапного ревью](#two-stage-review)
+* [Пример настройки правил для ревью изменений в CI/CD](#cicd-review)
 
 Помимо правил ревью кода в репозитории может быть настроена [защита веток](https://docs.gitlab.com/user/project/repository/branches/protected/). Это два параллельных механизма, поэтому выполнения правил ревью кода может быть недостаточно для слияния мерж-реквеста с целевой веткой. Для упрощения считается, что приведенные в примерах ветки не являются основными в репозитории, например `main`, и защищены только от прямых внесений изменений (direct push).
 
@@ -27,12 +27,12 @@
 
 {% endnote %}
 
-У пользователей, выполняющих ревью мерж-реквестов, должна быть минимальная роль `Reporter` в проекте {{ GL }}, в большинстве случаев используется более привилегированная роль `Developer`.
+У пользователей, выполняющих ревью мерж-реквестов, должна быть минимальная роль `Reporter` в проекте GitLab, в большинстве случаев используется более привилегированная роль `Developer`.
 
 ## Предварительные действия {#preparations}
 
-1. Если у вас еще нет инстанса {{ GL }}, [создайте и активируйте](../operations/instance/instance-create.md) его.
-1. Если у вас еще не сконфигурированы правила ревью кода в инстансе и проекте {{ GL }}, [настройте](../operations/approval-rules.md) их.
+1. Если у вас еще нет инстанса GitLab, [создайте и активируйте](../operations/instance/instance-create.md) его.
+1. Если у вас еще не сконфигурированы правила ревью кода в инстансе и проекте GitLab, [настройте](../operations/approval-rules.md) их.
 
     {% note info %}
 
@@ -250,11 +250,11 @@ BranchGroups:
 
 ### См. также {#see-also}
 
-* [{#T}](approval-rules.md)
-* [{#T}](../operations/approval-rules.md)
-* [{#T}](../operations/instance/instance-create.md)
+* [Правила ревью кода в Yandex Managed Service for GitLab](approval-rules.md)
+* [Настройка правил ревью кода в Yandex Managed Service for GitLab](../operations/approval-rules.md)
+* [Создание и активация инстанса Yandex Managed Service for GitLab](../operations/instance/instance-create.md)
 
-### Документация {{ GL }} {#gl-docs}
+### Документация GitLab {#gl-docs}
 
 * [Merge request approval rules](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/rules.html)
 * [Syntax of CODEOWNERS file](https://docs.gitlab.com/user/project/codeowners/reference/)

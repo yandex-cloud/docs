@@ -6,7 +6,7 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
 ## HTTP request
 
 ```
-POST https://cloudrouter.{{ api-host }}/cloudrouter/v1/routingInstances/{routingInstanceId}:removePrefixes
+POST https://cloudrouter.api.cloud.yandex.net/cloudrouter/v1/routingInstances/{routingInstanceId}:removePrefixes
 ```
 
 ## Path parameters

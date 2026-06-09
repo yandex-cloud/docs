@@ -5,7 +5,7 @@ Deletes the specified route table.
 ## HTTP request
 
 ```
-DELETE https://vpc.{{ api-host }}/vpc/v1/routeTables/{routeTableId}
+DELETE https://vpc.api.cloud.yandex.net/vpc/v1/routeTables/{routeTableId}
 ```
 
 ## Path parameters

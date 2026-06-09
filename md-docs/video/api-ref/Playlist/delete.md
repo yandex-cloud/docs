@@ -6,7 +6,7 @@ This removes the playlist but does not affect the videos or episodes it contains
 ## HTTP request
 
 ```
-DELETE https://video.{{ api-host }}/video/v1/playlists/{playlistId}
+DELETE https://video.api.cloud.yandex.net/video/v1/playlists/{playlistId}
 ```
 
 ## Path parameters

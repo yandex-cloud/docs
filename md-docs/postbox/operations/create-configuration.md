@@ -6,19 +6,19 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится адрес.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/list-ul.svg) **{{ ui-key.yacloud.postbox.label_configuration-sets }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-configuration-set }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится адрес.
+    1. Перейдите в сервис **Cloud Postbox**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/list-ul.svg) **Конфигурации**.
+    1. Нажмите кнопку **Создать конфигурацию**.
     1. Введите имя и (опционально) описание конфигурации.
-    1. В блоке **{{ ui-key.yacloud.postbox.label_event-destinations }}** нажмите **{{ ui-key.yacloud.common.add }}**:
+    1. В блоке **Подписки** нажмите **Добавить**:
         1. Введите название [подписки](../concepts/glossary.md#subscription).
-        1. Выберите [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }}, в который будут отправляться уведомления об операциях с письмами. Если у вас нет потока данных, [создайте его](../../data-streams/operations/manage-streams.md#create-data-stream).
+        1. Выберите [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) Yandex Data Streams, в который будут отправляться уведомления об операциях с письмами. Если у вас нет потока данных, [создайте его](../../data-streams/operations/manage-streams.md#create-data-stream).
         1. Выберите типы уведомлений, которые хотите получать.
-        1. Выберите опцию **{{ ui-key.yacloud.common.enabled }}**, чтобы активировать подписку.
+        1. Выберите опцию **Включено**, чтобы активировать подписку.
 
         Можно добавить несколько подписок.
-    1. В блоке **{{ ui-key.yacloud.postbox.label_delivery-options }}** включите опцию **{{ ui-key.yacloud.postbox.field_secure-connection }}** и укажите минимальную версию TLS, чтобы отправлять письма от {{ postbox-name }} до серверов получателя только с использованием TLS-шифрования.
+    1. В блоке **Настройки доставки** включите опцию **Доставлять письмо только по защищённому соединению** и укажите минимальную версию TLS, чтобы отправлять письма от Yandex Cloud Postbox до серверов получателя только с использованием TLS-шифрования.
 
         {% note warning %}
 
@@ -30,11 +30,11 @@
 
         {% note info %}
 
-        Включение опции **Статистика вовлечённости** приведет к модификации тела письма. Подробнее см. в разделах [{#T}](../concepts/mail-opened.md) и [{#T}](../concepts/click-tracking.md).
+        Включение опции **Статистика вовлечённости** приведет к модификации тела письма. Подробнее см. в разделах [Отслеживание открытия писем](../concepts/mail-opened.md) и [Отслеживание переходов по ссылкам](../concepts/click-tracking.md).
 
         {% endnote %}
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-configuration-set }}**.
+    1. Нажмите кнопку **Создать конфигурацию**.
 
 - AWS CLI {#aws-cli}
 
@@ -45,11 +45,11 @@
     1. В терминале определите переменные:
 
         ```bash
-        ENDPOINT={{ postbox-endpoint }}
+        ENDPOINT=https://postbox.cloud.yandex.net
         PROFILE=<имя_профиля>
         CONFIGSET_NAME=<имя_конфигурации>
         IDENTITY=<домен>
-        KINESIS_ENDPOINT=https://yds.serverless.yandexcloud.net/{{ region-id }}/<идентификатор_каталога>/<идентификатор_базы_данных_{{ ydb-short-name }}>
+        KINESIS_ENDPOINT=https://yds.serverless.yandexcloud.net/ru-central1/<идентификатор_каталога>/<идентификатор_базы_данных_YDB>
         TOPIC=<имя_потока_данных>
         ```
 

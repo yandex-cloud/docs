@@ -1,4 +1,4 @@
-# История изменений в {{ compute-full-name }}
+# История изменений в Yandex Compute Cloud
 
 ## I квартал 2026 {#q1-2026}
 
@@ -9,8 +9,8 @@
 * [CLI](../cli/quickstart.md):
   * В команду [yc compute image create](cli-ref/image/create.md) добавлен параметр `--os-nvidia-driver` для указания версии драйвера Nvidia в образе.
   * В команды [yc compute instance create](cli-ref/instance/create.md) и [yc compute instance create-with-container](cli-ref/instance/create-with-container.md) для параметра `--attach-local-disk` добавлены опции `kms-key-id` и `kms-key-name` для подключения к создаваемой на выделенном хосте ВМ зашифрованных локальных дисков.
-* [{{ TF }}](../terraform/quickstart.md): для ресурса [yandex_compute_instance](../terraform/resources/compute_instance.md) в блоке `local_disks` добавлена опция `kms_key_id` для подключения к создаваемой на выделенном хосте ВМ зашифрованных локальных дисков.
-* Добавлены [события {{ at-name }} уровня конфигурации](at-ref.md#control-plane-events):
+* [Terraform](../terraform/quickstart.md): для ресурса [yandex_compute_instance](../terraform/resources/compute_instance.md) в блоке `local_disks` добавлена опция `kms_key_id` для подключения к создаваемой на выделенном хосте ВМ зашифрованных локальных дисков.
+* Добавлены [события Audit Trails уровня конфигурации](at-ref.md#control-plane-events):
   * `CreateDiskPlacementGroup` — создание [группы размещения дисков](concepts/disk-placement-group.md);
   * `CreatePlacementGroup` — создание [группы размещения ВМ](concepts/placement-groups.md);
   * `DeleteDiskPlacementGroup` — удаление группы размещения дисков;
@@ -29,23 +29,23 @@
   * `Gen 2` (загрузчик — [UEFI](https://ru.wikipedia.org/wiki/Extensible_Firmware_Interface)).
 * Изменена логика работы [групп ВМ при зональном инциденте](concepts/instance-groups/zonal-inc/overview.md#multi-zone-in) для уменьшения последствий инцидента и повышения управляемости.
 * Добавлена возможность [временного отключения зон доступности для групп ВМ](concepts/instance-groups/disable-enable-zone.md).
-* Обновлена логика работы [пулов резервов ВМ](concepts/reserved-pools.md), управление пулами теперь также доступно в [консоли управления]({{ link-console-main }}/link/compute).
-* Поддержана функциональность [генерации SSH-ключей](operations/vm-connect/ssh.md#creating-ssh-keys) в [консоли управления]({{ link-console-main }}/link/compute).
-* Реализована группа команд [yc compute maintenance](cli-ref/maintenance/index.md) в {{ yandex-cloud }} CLI для управления обслуживанием ВМ.
-* Добавлены [события {{ at-name }} уровня конфигурации](at-ref.md#control-plane-events):
+* Обновлена логика работы [пулов резервов ВМ](concepts/reserved-pools.md), управление пулами теперь также доступно в [консоли управления](https://console.yandex.cloud/link/compute).
+* Поддержана функциональность [генерации SSH-ключей](operations/vm-connect/ssh.md#creating-ssh-keys) в [консоли управления](https://console.yandex.cloud/link/compute).
+* Реализована группа команд [yc compute maintenance](cli-ref/maintenance/index.md) в Yandex Cloud CLI для управления обслуживанием ВМ.
+* Добавлены [события Audit Trails уровня конфигурации](at-ref.md#control-plane-events):
   * `instancegroup.DisableZones` — временное отключение зон доступности;
   * `instancegroup.EnableZones` — включение зон доступности.
-* Поддержаны новые [метрики {{ monitoring-name }}](metrics.md#fs-metrics):
+* Поддержаны новые [метрики Monitoring](metrics.md#fs-metrics):
   * `filestore.index_cumulative_time` — совокупное время выполнения операций индексации в файловом хранилище;
   * `filestore.index_latency` — задержка выполнения операций индексации в файловом хранилище. 
 * Обновлен механизм удаления группы ВМ — теперь нельзя приостановить процессы в удаляемой группе. Также нельзя запускать любые операции для групп с приостановленными процессами.
-* Убрана простая форма создания ВМ в [консоли управления]({{ link-console-main }}/link/compute).
+* Убрана простая форма создания ВМ в [консоли управления](https://console.yandex.cloud/link/compute).
 
 ## II квартал 2025 {#q2-2025}
 
 * Запущена функциональность [пулов резервов виртуальных машин](concepts/reserved-pools.md) на [стадии Preview](../overview/concepts/launch-stages.md). Доступ предоставляется по запросу.
-* Реализована простая форма создания ВМ в [консоли управления]({{ link-console-main }}).
-* Добавлена передача в {{ at-full-name }} [события уровня сервисов](at-ref.md#data-plane-events) `MigrateInstance` при [динамической миграции](concepts/live-migration.md) ВМ с настроенной [политикой обслуживания](concepts/maintenance-policies.md).
+* Реализована простая форма создания ВМ в [консоли управления](https://console.yandex.cloud).
+* Добавлена передача в Yandex Audit Trails [события уровня сервисов](at-ref.md#data-plane-events) `MigrateInstance` при [динамической миграции](concepts/live-migration.md) ВМ с настроенной [политикой обслуживания](concepts/maintenance-policies.md).
 
 ## I квартал 2025 {#q1-2025}
 
@@ -73,5 +73,5 @@
 
 * Появилась возможность добавлять и удалять сетевые интерфейсы без пересоздания ВМ.
 * Добавлена поддержка формата виртуального диска VHD.
-* Исправлена ошибка в {{ TF }}-провайдере, которая возникала при создании ВМ с несколькими дисками через мета-аргумент `Count`.
-* В документацию провайдера добавлено [описание ресурсов gpus]({{ tf-provider-resources-link }}/compute_instance).
+* Исправлена ошибка в Terraform-провайдере, которая возникала при создании ВМ с несколькими дисками через мета-аргумент `Count`.
+* В документацию провайдера добавлено [описание ресурсов gpus](../terraform/resources/compute_instance.md).

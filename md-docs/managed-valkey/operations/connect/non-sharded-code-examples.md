@@ -1,4 +1,4 @@
-# Примеры кода для подключения к нешардированному кластеру {{ VLK }}
+# Примеры кода для подключения к нешардированному кластеру Valkey™
 
 ## C# {#csharp}
 
@@ -66,9 +66,9 @@
                     var sentinelOptions = new ConfigurationOptions
                     {
                         EndPoints = {
-                            "<FQDN_хоста_1_{{ VLK }}>:{{ port-mrd-sentinel }}",
+                            "<FQDN_хоста_1_Valkey™>:26379",
                             ...
-                            "<FQDN_хоста_N_{{ VLK }}>:{{ port-mrd-sentinel }}"
+                            "<FQDN_хоста_N_Valkey™>:26379"
                         },
                         CommandMap = CommandMap.Sentinel
                     };
@@ -152,7 +152,7 @@
                 {
                     var masterOptions = new ConfigurationOptions
                     {
-                        EndPoints = { "<FQDN_хоста-мастера_{{ VLK }}>:{{ port-mrd }}" },
+                        EndPoints = { "<FQDN_хоста-мастера_Valkey™>:6379" },
                         User = USERNAME,
                         Password = PASSWORD
                     };
@@ -217,7 +217,7 @@
             private const string TEST_VALUE = "test-value";
             private const string USERNAME = "default";
             private const string PASSWORD = "<пароль>";
-            private const string CERT = "/home/<домашняя_директория>/.redis/{{ crt-local-file }}"
+            private const string CERT = "/home/<домашняя_директория>/.redis/YandexInternalRootCA.crt"
 
             static async Task<int> Main(string[] args)
             {
@@ -225,7 +225,7 @@
                 {
                     var masterOptions = new ConfigurationOptions
                     {
-                        EndPoints = { "<FQDN_хоста-мастера_{{ VLK }}>:{{ port-mrd-tls }}" },
+                        EndPoints = { "<FQDN_хоста-мастера_Valkey™>:6380" },
                         User = USERNAME,
                         Password = PASSWORD,
                         Ssl = true,
@@ -338,10 +338,10 @@ go get github.com/go-redis/redis/v7
     	conn := redis.NewUniversalClient(
     		&redis.UniversalOptions{
     			Addrs: []string{
-    				"<FQDN_хоста_1_{{ VLK }}>:{{ port-mrd-sentinel }}",
+    				"<FQDN_хоста_1_Valkey™>:26379",
     				...
-    				"<FQDN_хоста_N_{{ VLK }}>:{{ port-mrd-sentinel }}"},
-    			MasterName: "<имя_кластера_{{ VLK }}>",
+    				"<FQDN_хоста_N_Valkey™>:26379"},
+    			MasterName: "<имя_кластера_Valkey™>",
     			Password:   "<пароль>",
     			ReadOnly:   false,
     		},
@@ -376,7 +376,7 @@ go get github.com/go-redis/redis/v7
     func main() {
     	conn := redis.NewUniversalClient(
     		&redis.UniversalOptions{
-    			Addrs:    []string{"c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mrd }}"},
+    			Addrs:    []string{"c-<идентификатор_кластера>.rw.mdb.yandexcloud.net:6379"},
     			Password: "<пароль>",
     			ReadOnly: false,
     		},
@@ -412,7 +412,7 @@ go get github.com/go-redis/redis/v7
     )
 
     const (
-    	cert = "/home/<домашняя_директория>/.redis/{{ crt-local-file }}"
+    	cert = "/home/<домашняя_директория>/.redis/YandexInternalRootCA.crt"
     )
 
     func main() {
@@ -428,7 +428,7 @@ go get github.com/go-redis/redis/v7
 
     	conn := redis.NewUniversalClient(
     		&redis.UniversalOptions{
-    			Addrs:    []string{"c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mrd-tls }}"},
+    			Addrs:    []string{"c-<идентификатор_кластера>.rw.mdb.yandexcloud.net:6380"},
     			Password: "<пароль>",
     			ReadOnly: false,
     			TLSConfig: &tls.Config{
@@ -574,7 +574,7 @@ go run connect.go
         ```bash
         keytool -importcert \
                 -alias YARootCrt \
-                -file ~/.redis/{{ crt-local-file }} \
+                -file ~/.redis/YandexInternalRootCA.crt \
                 -keystore ~/.redis/YATrustStore \
                 -storepass <пароль_защищенного_хранилища> \
                 --noprompt && chmod 0655 ~/.redis/YATrustStore
@@ -597,13 +597,13 @@ go run connect.go
 
     public class App {
       public static void main(String[] args) {
-        String redisName = "<имя_кластера_{{ VLK }}>";
+        String redisName = "<имя_кластера_Valkey™>";
         String redisPass = "<пароль>";
 
         HashSet sentinels = new HashSet();
-        sentinels.add("<FQDN_хоста_1_{{ VLK }}>:{{ port-mrd-sentinel }}");
+        sentinels.add("<FQDN_хоста_1_Valkey™>:26379");
         ...
-        sentinels.add("<FQDN_хоста_N_{{ VLK }}>:{{ port-mrd-sentinel }}");
+        sentinels.add("<FQDN_хоста_N_Valkey™>:26379");
 
         try {
           JedisSentinelPool pool = new JedisSentinelPool(redisName, sentinels);
@@ -632,7 +632,7 @@ go run connect.go
 
     public class App {
       public static void main(String[] args) {
-        String redisHost = "c-<идентификатор_кластера>.rw.{{ dns-zone }}";
+        String redisHost = "c-<идентификатор_кластера>.rw.mdb.yandexcloud.net";
         String redisPass = "<пароль>";
 
         try {
@@ -665,7 +665,7 @@ go run connect.go
 
     public class App {
       public static void main(String[] args) {
-        String redisHost = "c-<идентификатор_кластера>.rw.{{ dns-zone }}";
+        String redisHost = "c-<идентификатор_кластера>.rw.mdb.yandexcloud.net";
         String redisPass = "<пароль_кластера>";
 
         System.setProperty("javax.net.ssl.trustStore", "/home/<домашняя_директория>/.redis/YATrustStore");
@@ -679,7 +679,7 @@ go run connect.go
                 build();
 
         try {
-          Jedis conn = new Jedis(new HostAndPort(redisHost, {{ port-mrd-tls }}), jedisClientConfig);
+          Jedis conn = new Jedis(new HostAndPort(redisHost, 6380), jedisClientConfig);
 
           conn.set("foo", "bar");
           System.out.println(conn.get("foo"));
@@ -727,11 +727,11 @@ npm install ioredis
 
     const conn = new Redis({
         sentinels: [
-            { host: "<FQDN_хоста_1_{{ VLK }}>", port: {{ port-mrd-sentinel }} },
+            { host: "<FQDN_хоста_1_Valkey™>", port: 26379 },
             ...
-            { host: "<FQDN_хоста_N_{{ VLK }}>", port: {{ port-mrd-sentinel }} },
+            { host: "<FQDN_хоста_N_Valkey™>", port: 26379 },
         ],
-        name: "<имя_кластера_{{ VLK }}>",
+        name: "<имя_кластера_Valkey™>",
         password: "<пароль>"
     });
 
@@ -763,8 +763,8 @@ npm install ioredis
     const Redis = require("ioredis");
 
     const conn = new Redis({
-        host: "c-<идентификатор_кластера>.rw.{{ dns-zone }}",
-        port: {{ port-mrd }},
+        host: "c-<идентификатор_кластера>.rw.mdb.yandexcloud.net",
+        port: 6379,
         password: "<пароль>"
     });
 
@@ -797,11 +797,11 @@ npm install ioredis
     const Redis = require("ioredis");
 
     const conn = new Redis({
-        host: "c-<идентификатор_кластера>.rw.{{ dns-zone }}",
-        port: {{ port-mrd-tls }},
+        host: "c-<идентификатор_кластера>.rw.mdb.yandexcloud.net",
+        port: 6380,
         password: "<пароль>",
         tls: {
-            ca: fs.readFileSync("/home/<домашняя_директория>/.redis/{{ crt-local-file }}"),
+            ca: fs.readFileSync("/home/<домашняя_директория>/.redis/YandexInternalRootCA.crt"),
         }
     });
 
@@ -859,13 +859,13 @@ sudo pear install nrk/Predis
     Predis\Autoloader::register();
 
     $sentinels = [
-        "<FQDN_хоста_1_{{ VLK }}>:{{ port-mrd-sentinel }}",
+        "<FQDN_хоста_1_Valkey™>:26379",
         ...
-        "<FQDN_хоста_N_{{ VLK }}>:{{ port-mrd-sentinel }}",
+        "<FQDN_хоста_N_Valkey™>:26379",
     ];
     $options = [
         "replication" => "sentinel",
-        "service" => "<имя_кластера_{{ VLK }}>",
+        "service" => "<имя_кластера_Valkey™>",
         "parameters" => [
             "password" => "<пароль>",
         ],
@@ -889,7 +889,7 @@ sudo pear install nrk/Predis
     require "Predis/Autoloader.php";
     Predis\Autoloader::register();
 
-    $host = ["c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mrd }}"];
+    $host = ["c-<идентификатор_кластера>.rw.mdb.yandexcloud.net:6379"];
     $options = [
         "parameters" => [
             "password" => "<пароль>",
@@ -914,12 +914,12 @@ sudo pear install nrk/Predis
     require "Predis/Autoloader.php";
     Predis\Autoloader::register();
 
-    $host = ["c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mrd-tls }}"];
+    $host = ["c-<идентификатор_кластера>.rw.mdb.yandexcloud.net:6380"];
     $options = [
         "parameters" => [
             "scheme" => "tls",
             "ssl" => [
-                "cafile" => "/home/<домашняя_директория>/.redis/{{ crt-local-file }}",
+                "cafile" => "/home/<домашняя_директория>/.redis/YandexInternalRootCA.crt",
                 "verify_peer" => true,
                 "verify_peer_name" => false,
             ],
@@ -969,14 +969,14 @@ pip3 install redis
     from redis.sentinel import Sentinel
 
     sentinels = [
-        "<FQDN_хоста_1_{{ VLK }}>",
+        "<FQDN_хоста_1_Valkey™>",
         ...
-        "<FQDN_хоста_N_{{ VLK }}>"
+        "<FQDN_хоста_N_Valkey™>"
     ]
-    name = "<имя_кластера_{{ VLK }}>"
+    name = "<имя_кластера_Valkey™>"
     pwd = "<пароль>"
 
-    sentinel = Sentinel([(h, {{ port-mrd-sentinel }}) for h in sentinels], socket_timeout=0.1)
+    sentinel = Sentinel([(h, 26379) for h in sentinels], socket_timeout=0.1)
     master = sentinel.master_for(name, password=pwd)
     slave = sentinel.slave_for(name, password=pwd)
 
@@ -992,8 +992,8 @@ pip3 install redis
     import redis
 
     r = redis.StrictRedis(
-        host="c-<идентификатор_кластера>.rw.{{ dns-zone }}",
-        port={{ port-mrd }},
+        host="c-<идентификатор_кластера>.rw.mdb.yandexcloud.net",
+        port=6379,
         password="<пароль>",
     )
 
@@ -1009,11 +1009,11 @@ pip3 install redis
     import redis
 
     r = redis.StrictRedis(
-        host="c-<идентификатор_кластера>.rw.{{ dns-zone }}",
-        port={{ port-mrd-tls }},
+        host="c-<идентификатор_кластера>.rw.mdb.yandexcloud.net",
+        port=6380,
         password="<пароль>",
         ssl=True,
-        ssl_ca_certs="/home/<домашняя_директория>/.redis/{{ crt-local-file }}",
+        ssl_ca_certs="/home/<домашняя_директория>/.redis/YandexInternalRootCA.crt",
     )
 
     r.set("foo", "bar")
@@ -1055,13 +1055,13 @@ sudo gem install redis
     require 'redis'
 
     SENTINELS = [
-      { host: '<FQDN_хоста_1_{{ VLK }}>', port: {{ port-mrd-sentinel }} },
+      { host: '<FQDN_хоста_1_Valkey™>', port: 26379 },
       ...
-      { host: '<FQDN_хоста_N_{{ VLK }}>', port: {{ port-mrd-sentinel }} }
+      { host: '<FQDN_хоста_N_Valkey™>', port: 26379 }
     ]
 
     conn = Redis.new(
-      host: '<имя_кластера_{{ VLK }}>',
+      host: '<имя_кластера_Valkey™>',
       sentinels: SENTINELS,
       role: 'master',
       password: '<пароль>'
@@ -1083,8 +1083,8 @@ sudo gem install redis
     require 'redis'
 
     conn = Redis.new(
-      host: 'c-<идентификатор_кластера>.rw.{{ dns-zone }}',
-      port: {{ port-mrd }},
+      host: 'c-<идентификатор_кластера>.rw.mdb.yandexcloud.net',
+      port: 6379,
       password: '<пароль>'
     )
 
@@ -1104,11 +1104,11 @@ sudo gem install redis
     require 'redis'
 
     conn = Redis.new(
-      host: 'c-<идентификатор_кластера>.rw.{{ dns-zone }}',
-      port: {{ port-mrd-tls }},
+      host: 'c-<идентификатор_кластера>.rw.mdb.yandexcloud.net',
+      port: 6380,
       password: '<пароль>',
       ssl: true,
-      ssl_params: { ca_file: '/home/<домашняя_директория>/.redis/{{ crt-local-file }}' },
+      ssl_params: { ca_file: '/home/<домашняя_директория>/.redis/YandexInternalRootCA.crt' },
     )
 
     conn.set('foo', 'bar')

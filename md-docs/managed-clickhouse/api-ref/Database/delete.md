@@ -5,7 +5,7 @@ Deletes the specified ClickHouse database.
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/databases/{databaseName}
+DELETE https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/databases/{databaseName}
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Retrieves the list of NetworkLoadBalancer resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers
+GET https://load-balancer.api.cloud.yandex.net/load-balancer/v1/networkLoadBalancers
 ```
 
 ## Query parameters {#yandex.cloud.loadbalancer.v1.ListNetworkLoadBalancersRequest}

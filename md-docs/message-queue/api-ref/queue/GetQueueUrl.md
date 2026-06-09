@@ -21,7 +21,7 @@
 
 ### Ошибки GetQueueUrl {#errors}
 
-Перечень общих для всех методов ошибок смотрите в разделе [{#T}](../common-errors.md).
+Перечень общих для всех методов ошибок смотрите в разделе [Стандартные ошибки](../common-errors.md).
 
 Код HTTP | Идентификатор ошибки | Описание
 ----- | ----- | -----
@@ -43,7 +43,7 @@ Action=GetQueueUrl
 <GetQueueUrlResponse>
     <GetQueueUrlResult>
         <QueueUrl>
-            https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue
+            https://message-queue.api.cloud.yandex.net/b1g8ad42m6he********/dj6000000000********/sample-queue
         </QueueUrl>
     </GetQueueUrlResult>
     <ResponseMetadata>

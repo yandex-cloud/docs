@@ -5,7 +5,7 @@ Enable Sharding on non sharded cluster
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}:enable_sharding
+POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}:enable_sharding
 ```
 
 ## Path parameters

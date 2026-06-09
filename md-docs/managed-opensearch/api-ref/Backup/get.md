@@ -5,7 +5,7 @@ Returns the specified backup of an OpenSearch cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-opensearch/v1/backups/{backupId}
+GET https://mdb.api.cloud.yandex.net/managed-opensearch/v1/backups/{backupId}
 ```
 
 ## Path parameters

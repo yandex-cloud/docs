@@ -1,8 +1,8 @@
-# Управление доступом к {{ datalens-full-name }}
+# Управление доступом к Yandex DataLens
 
 
 
-Доступ к сервису {{ datalens-full-name }} регулируется путем назначения прав через сервис [организации](../concepts/organizations.md).
+Доступ к сервису Yandex DataLens регулируется путем назначения прав через сервис [организации](../concepts/organizations.md).
 
 При использовании файрвола разрешите доступ к внешним ресурсам, которые необходимы для работы сервиса:
 
@@ -21,21 +21,21 @@
 
 
 
-Об управлении доступом к {{ datalens-name }} смотрите:
+Об управлении доступом к DataLens смотрите:
 
 
-* [{#T}](roles.md)
-* Организации в {{ datalens-name }}:
+* [Роли в Yandex DataLens](roles.md)
+* Организации в DataLens:
 
   * [Обзор](../concepts/organizations.md)
-  * [{#T}](../operations/organizations/change-organization.md)
+  * [Переключение между экземплярами DataLens](../operations/organizations/change-organization.md)
 
 
 * Доступ к объектам:
 
-  * [{#T}](manage-access.md)
-  * [{#T}](../operations/permission/grant.md)
-  * [{#T}](../operations/permission/revoke.md)
-  * [{#T}](../operations/permission/request.md)
+  * [Права доступа к объектам](manage-access.md)
+  * [Назначение и изменение прав доступа](../operations/permission/grant.md)
+  * [Удаление прав доступа](../operations/permission/revoke.md)
+  * [Запрос прав доступа](../operations/permission/request.md)
 
 * [Доступ к строкам данных](row-level-security.md)

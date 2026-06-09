@@ -1,4 +1,4 @@
-# Диагностика ошибок в {{ sd-full-name }}
+# Диагностика ошибок в Yandex Security Deck
 
-* [{#T}](kspm-diagnostics.md).
-* [{#T}](dspm-diagnostics.md).
+* [Диагностика ошибок в работе модуля Контроль Kubernetes (KSPM)](kspm-diagnostics.md).
+* [Диагностика ошибок в работе модуля контроля данных (DSPM)](dspm-diagnostics.md).

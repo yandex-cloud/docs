@@ -5,7 +5,7 @@ Lists operations for the specified OAuth application.
 ## HTTP request
 
 ```
-GET https://organization-manager.{{ api-host }}/organization-manager/v1/idp/application/oauth/applications/{applicationId}/operations
+GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/application/oauth/applications/{applicationId}/operations
 ```
 
 ## Path parameters

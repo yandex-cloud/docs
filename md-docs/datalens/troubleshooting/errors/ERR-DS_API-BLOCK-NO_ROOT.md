@@ -1,8 +1,8 @@
-# [{{ datalens-full-name }}] Got no blocks with root placement
+# [Yandex DataLens] Got no blocks with root placement
 
 `ERR.DS_API.BLOCK.NO_ROOT`
 
 Произошла внутренняя ошибка. 
 
 
-Обратитесь в [техническую поддержку]({{ link-console-support }}) {{ yandex-cloud }}. В сообщении опишите, когда возникает ошибка.
+Обратитесь в [техническую поддержку](https://center.yandex.cloud/support) Yandex Cloud. В сообщении опишите, когда возникает ошибка.

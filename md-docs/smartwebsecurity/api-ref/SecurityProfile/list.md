@@ -5,7 +5,7 @@ Retrieves the list of SecurityProfile resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/securityProfiles
+GET https://smartwebsecurity.api.cloud.yandex.net/smartwebsecurity/v1/securityProfiles
 ```
 
 ## Query parameters {#yandex.cloud.smartwebsecurity.v1.ListSecurityProfilesRequest}

@@ -5,7 +5,7 @@ Sets access bindings for a specified certificate.
 ## HTTP request
 
 ```
-POST https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/privateCertificates/{resourceId}:setAccessBindings
+POST https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/privateCertificates/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

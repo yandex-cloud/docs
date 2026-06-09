@@ -5,7 +5,7 @@ Retrieves a list of HBA rules for Greenplum clusters for particular revision.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/hbaRules/atRevision
+GET https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}/hbaRules/atRevision
 ```
 
 ## Path parameters

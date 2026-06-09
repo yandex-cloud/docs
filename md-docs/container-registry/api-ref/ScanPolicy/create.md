@@ -5,7 +5,7 @@ Creates a scan policy for the specified registry.
 ## HTTP request
 
 ```
-POST https://container-registry.{{ api-host }}/container-registry/v1/scanPolicies
+POST https://container-registry.api.cloud.yandex.net/container-registry/v1/scanPolicies
 ```
 
 ## Body parameters {#yandex.cloud.containerregistry.v1.CreateScanPolicyRequest}

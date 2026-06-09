@@ -5,7 +5,7 @@ Retrieves the list of Service in the specified resource container.
 ## HTTP request
 
 ```
-GET https://iam.{{ api-host }}/iam/v1/services
+GET https://iam.api.cloud.yandex.net/iam/v1/services
 ```
 
 ## Query parameters {#yandex.cloud.iam.v1.ListServicesRequest}

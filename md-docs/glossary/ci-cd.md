@@ -54,7 +54,7 @@ _Непрерывная интеграция (CI)_ — частое объеди
 1. CD-система собирает артефакт и развертывает его в тестовую среду.
 1. В тестовой среде выполняются дополнительные проверки: [smoke-тесты](https://ru.wikipedia.org/wiki/Smoke_test), ручное тестирование и другое.
 1. После успешной проверки в тестовой среде код развертывается в среду эксплуатации — либо автоматически (непрерывное развертывание), либо после ручного одобрения (непрерывная доставка).
-1. После развертывания в среду эксплуатации система мониторинга (например, [{{ monitoring-full-name }}](https://yandex.cloud/ru/services/monitoring/) и [{{ monium-full-name }}](https://yandex.cloud/ru/services/monium)) отслеживает метрики производительности, ошибки и поведение пользователей. При возникновении аномалий можно быстро вернуться на предыдущую стабильную версию.
+1. После развертывания в среду эксплуатации система мониторинга (например, [Yandex Monitoring](https://yandex.cloud/ru/services/monitoring/) и [Yandex Monium](https://yandex.cloud/ru/services/monium)) отслеживает метрики производительности, ошибки и поведение пользователей. При возникновении аномалий можно быстро вернуться на предыдущую стабильную версию.
 
 Также код и в процессе CI, и в процессе CD должен проверяться на безопасность: статистический анализ (SAST), поиск секретов в коде, поиск уязвимостей в зависимостях, контроль используемых лицензий.
 
@@ -84,37 +84,37 @@ CI/CD можно смело рекомендовать любой команде
 * **Риски Continuous Deployment** — полная автоматизация развертывания требует зрелой тестовой базы. Без нее баги могут попасть в среду эксплуатации незамеченными.
 * **Зависимость от инфраструктуры** — нестабильная CI/CD-система может замедлить разработку сильнее, чем ее отсутствие.
 
-## CI/CD в {{ yandex-cloud }} {#ci-cd-yc}
+## CI/CD в Yandex Cloud {#ci-cd-yc}
 
-{{ yandex-cloud }} предоставляет следующие инструменты для построения CI/CD-пайплайнов любой сложности:
+Yandex Cloud предоставляет следующие инструменты для построения CI/CD-пайплайнов любой сложности:
 
-* [{{ src-full-name }}]({{ link-src-main }}) — платформа для совместной разработки со встроенными инструментами CI/CD, управлением репозиториями, код-ревью и сканерами безопасности. Подробнее в [документации]({{ link-src-docs }}).
-* [{{ mgl-full-name }}](https://yandex.cloud/ru/services/managed-gitlab/) — управляемый сервис на базе {{ GL }}, позволяющий настроить полный CI/CD-пайплайн. Подробнее в [документации](../managed-gitlab/index.md).
+* [SourceCraft](https://sourcecraft.dev) — платформа для совместной разработки со встроенными инструментами CI/CD, управлением репозиториями, код-ревью и сканерами безопасности. Подробнее в [документации](https://sourcecraft.dev/portal/docs/ru).
+* [Yandex Managed Service for GitLab](https://yandex.cloud/ru/services/managed-gitlab/) — управляемый сервис на базе GitLab, позволяющий настроить полный CI/CD-пайплайн. Подробнее в [документации](../managed-gitlab/index.md).
 * Хранилища артефактов сборки:
 
-  * [{{ cloud-registry-full-name }}](https://yandex.cloud/ru/services/cloud-registry/) — универсальное хранилище артефактов разработки: Docker-образы, Helm-чарты, Node.js, Python, Java, бинарные файлы и другие типы. Подробнее в [документации](../cloud-registry/index.md).
-  * [{{ container-registry-full-name }}](https://yandex.cloud/ru/services/container-registry/) — хранилище Docker-образов и Helm-чартов. Включает встроенный сканер уязвимостей для образов. Подробнее в [документации](../container-registry/index.md).
-  * [{{ objstorage-full-name }}](https://yandex.cloud/ru/services/storage/) — объектное хранилище для артефактов произвольного формата: архивов сборок, бинарных файлов, отчетов тестов и других файлов. Подробнее в [документации](../storage/index.md).
+  * [Yandex Cloud Registry](https://yandex.cloud/ru/services/cloud-registry/) — универсальное хранилище артефактов разработки: Docker-образы, Helm-чарты, Node.js, Python, Java, бинарные файлы и другие типы. Подробнее в [документации](../cloud-registry/index.md).
+  * [Yandex Container Registry](https://yandex.cloud/ru/services/container-registry/) — хранилище Docker-образов и Helm-чартов. Включает встроенный сканер уязвимостей для образов. Подробнее в [документации](../container-registry/index.md).
+  * [Yandex Object Storage](https://yandex.cloud/ru/services/storage/) — объектное хранилище для артефактов произвольного формата: архивов сборок, бинарных файлов, отчетов тестов и других файлов. Подробнее в [документации](../storage/index.md).
 
 * Системы мониторинга:
 
-  * [{{ monium-full-name }}](https://yandex.cloud/ru/services/monium/) — платформа для сбора, хранения и анализа телеметрии: метрик, логов и трейсов. Позволяет отслеживать состояние сервисов после развертывания, настраивать алерты и расследовать инциденты. Подробнее в [документации](../monium/index.md).
-  * [{{ monitoring-full-name }}](https://yandex.cloud/ru/services/monitoring/) — сервис позволяет собирать и хранить метрики, а также отображать их в виде графиков на дашбордах. Подробнее в [документации](../monitoring/index.md).
+  * [Yandex Monium](https://yandex.cloud/ru/services/monium/) — платформа для сбора, хранения и анализа телеметрии: метрик, логов и трейсов. Позволяет отслеживать состояние сервисов после развертывания, настраивать алерты и расследовать инциденты. Подробнее в [документации](../monium/index.md).
+  * [Yandex Monitoring](https://yandex.cloud/ru/services/monitoring/) — сервис позволяет собирать и хранить метрики, а также отображать их в виде графиков на дашбордах. Подробнее в [документации](../monitoring/index.md).
 
 * Безопасность CI/CD:
 
-  * [{{ sd-full-name }}](https://yandex.cloud/ru/services/security-deck/) — комплексный CNAPP-сервис. В контексте CI/CD полезны следующие модули:
-    * [{{ kspm-full-name }} ({{ kspm-name }})](../security-deck/concepts/kspm.md) — контроль безопасности конфигурации кластеров {{ k8s }}.
-    * [{{ vuln-man-name }}](../security-deck/concepts/vulnerability-management.md) — обнаружение уязвимостей в облачной инфраструктуре.
-  * Сканирование образов в [{{ container-registry-full-name }}](../container-registry/concepts/vulnerability-scanner.md) — автоматическая проверка Docker-образов на уязвимости при загрузке или по расписанию.
-  * Встроенные [сканеры безопасности]({{ link-src-docs }}/sourcecraft/security/security-overview) в {{ src-full-name }}: сканирование секретов, анализ зависимостей, статический анализ кода, анализ уязвимостей с помощью ИИ и история сканирований.
+  * [Yandex Security Deck](https://yandex.cloud/ru/services/security-deck/) — комплексный CNAPP-сервис. В контексте CI/CD полезны следующие модули:
+    * [Kubernetes® Security Posture Management (KSPM)](../security-deck/concepts/kspm.md) — контроль безопасности конфигурации кластеров Kubernetes.
+    * [Управление уязвимостями](../security-deck/concepts/vulnerability-management.md) — обнаружение уязвимостей в облачной инфраструктуре.
+  * Сканирование образов в [Yandex Container Registry](../container-registry/concepts/vulnerability-scanner.md) — автоматическая проверка Docker-образов на уязвимости при загрузке или по расписанию.
+  * Встроенные [сканеры безопасности](https://sourcecraft.dev/portal/docs/ru/sourcecraft/security/security-overview) в SourceCraft: сканирование секретов, анализ зависимостей, статический анализ кода, анализ уязвимостей с помощью ИИ и история сканирований.
 
 #### Полезные материалы {#see-also}
 
-* [Вебинар «CI/CD в Облаке с помощью {{ GL }}»](https://www.youtube.com/watch?v=Ngadh9T2dOI)
-* [Курс DevSecOps от {{ yandex-cloud }}](https://yandex.cloud/ru/training/devsecops)
-* [Руководство по настройке CI/CD между {{ sf-full-name }} и GitHub](../tutorials/serverless/ci-cd-github-functions.md)
-* [Руководство по построению пайплайна CI/CD в {{ GL }} с использованием serverless-продуктов](../security/tutorials/app-security/ci-cd-serverless.md)
+* [Вебинар «CI/CD в Облаке с помощью GitLab»](https://www.youtube.com/watch?v=Ngadh9T2dOI)
+* [Курс DevSecOps от Yandex Cloud](https://yandex.cloud/ru/training/devsecops)
+* [Руководство по настройке CI/CD между Yandex Cloud Functions и GitHub](../tutorials/serverless/ci-cd-github-functions.md)
+* [Руководство по построению пайплайна CI/CD в GitLab с использованием serverless-продуктов](../security/tutorials/app-security/ci-cd-serverless.md)
 
 [*popup-1]: [_DevOps_](https://ru.wikipedia.org/wiki/DevOps) — совокупность методов, процедур и инструментов, которые помогают командам быстро и качественно разрабатывать, тестировать и развертывать приложения.
 

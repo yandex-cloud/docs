@@ -5,7 +5,7 @@ Stops the specified application load balancer.
 ## HTTP request
 
 ```
-POST https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId}:stop
+POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBalancerId}:stop
 ```
 
 ## Path parameters

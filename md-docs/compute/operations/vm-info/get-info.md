@@ -1,7 +1,7 @@
 # Получить информацию о виртуальной машине
 
 
-Вы можете получить основную информацию о каждой созданной вами [виртуальной машине](../../concepts/vm.md) на странице ВМ в [консоли управления]({{ link-console-main }}). Чтобы получить детальную информацию вместе с пользовательскими [метаданными](../../concepts/vm-metadata.md), воспользуйтесь [CLI](../../../cli/cli-ref/compute/cli-ref/instance/get.md) или [API](../../api-ref/Instance/get.md).
+Вы можете получить основную информацию о каждой созданной вами [виртуальной машине](../../concepts/vm.md) на странице ВМ в [консоли управления](https://console.yandex.cloud). Чтобы получить детальную информацию вместе с пользовательскими [метаданными](../../concepts/vm-metadata.md), воспользуйтесь [CLI](../../../cli/cli-ref/compute/cli-ref/instance/get.md) или [API](../../api-ref/Instance/get.md).
 
 Также основную информацию и метаданные можно получить [изнутри ВМ](#inside-instance).
 
@@ -16,19 +16,19 @@
 
 - Консоль управления {#console}
 
-  В сервисе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**, на странице **{{ ui-key.yacloud.compute.instances.label_title }}**, приводится список ВМ в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) с краткой информацией о них.
+  В сервисе **Compute Cloud**, на странице **Виртуальные машины**, приводится список ВМ в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) с краткой информацией о них.
 
   Для получения подробной информации о ВМ нажмите на строку с ее именем.
 
   На вкладке:
-  * **{{ ui-key.yacloud.common.overview }}** приводится общая информация о ВМ, в том числе [IP-адреса](../../../vpc/concepts/address.md), присвоенные ВМ.
-  * **{{ ui-key.yacloud.compute.storage_uisyT }}** приводится информация о [дисках](../../concepts/disk.md) и [файловых хранилищах](../../concepts/filesystem.md), подключенных к ВМ.
-  * **{{ ui-key.yacloud.compute.instance.switch_backups }}** приводится информация о [резервных копиях](../../../backup/concepts/index.md) ВМ.
-  * **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** приводится информация о [правах доступа](../../../iam/concepts/access-control/index.md) к ВМ.
-  * **{{ ui-key.yacloud.common.operations-key-value }}** приводится список операций с ВМ и подключенными к ней ресурсами, например дисками.
-  * **{{ ui-key.yacloud.common.monitoring }}** приводится информация о потреблении ресурсов на ВМ. Эту информацию можно получить только в консоли управления или изнутри ВМ.
-  * **{{ ui-key.yacloud.compute.instance.switch_console }}** предоставлен доступ к [серийной консоли](../../concepts/serial-console.md), если при [создании](../index.md#vm-create) ВМ вы разрешили к ней доступ.
-  * **{{ ui-key.yacloud.compute.instance.switch_service-console }}** приводится информация, которую ВМ выводит в последовательный порт. Чтобы получить эту информацию через API или CLI, воспользуйтесь инструкцией [{#T}](get-serial-port-output.md).
+  * **Обзор** приводится общая информация о ВМ, в том числе [IP-адреса](../../../vpc/concepts/address.md), присвоенные ВМ.
+  * **Диски и хранилища** приводится информация о [дисках](../../concepts/disk.md) и [файловых хранилищах](../../concepts/filesystem.md), подключенных к ВМ.
+  * **Резервные копии** приводится информация о [резервных копиях](../../../backup/concepts/index.md) ВМ.
+  * **Права доступа** приводится информация о [правах доступа](../../../iam/concepts/access-control/index.md) к ВМ.
+  * **Операции** приводится список операций с ВМ и подключенными к ней ресурсами, например дисками.
+  * **Мониторинг** приводится информация о потреблении ресурсов на ВМ. Эту информацию можно получить только в консоли управления или изнутри ВМ.
+  * **Серийная консоль** предоставлен доступ к [серийной консоли](../../concepts/serial-console.md), если при [создании](../index.md#vm-create) ВМ вы разрешили к ней доступ.
+  * **Последовательный порт** приводится информация, которую ВМ выводит в последовательный порт. Чтобы получить эту информацию через API или CLI, воспользуйтесь инструкцией [Получить вывод последовательного порта](get-serial-port-output.md).
 
 - CLI {#cli}
 
@@ -51,8 +51,8 @@
      +----------------------+-----------------+---------------+---------+----------------------+
      |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
      +----------------------+-----------------+---------------+---------+----------------------+
-     | fhm0b28lgfp4******** | first-instance  | {{ region-id }}-a | RUNNING | my first vm via CLI  |
-     | fhm9gk85nj7g******** | second-instance | {{ region-id }}-a | RUNNING | my second vm via CLI |
+     | fhm0b28lgfp4******** | first-instance  | ru-central1-a | RUNNING | my first vm via CLI  |
+     | fhm9gk85nj7g******** | second-instance | ru-central1-a | RUNNING | my second vm via CLI |
      +----------------------+-----------------+---------------+---------+----------------------+
      ```
 
@@ -68,20 +68,20 @@
      yc compute instance get --full first-instance
      ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
+  1. Опишите в конфигурационном файле Terraform параметры ресурсов, которые необходимо создать:
 
      ```hcl
      data "yandex_compute_instance" "my_instance" {
@@ -99,7 +99,7 @@
      * `output "instance_external_ip"` — [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) ВМ, который будет выводиться в результате:
        * `value` — возвращаемое значение.
 
-     Более подробную информацию о параметрах источника данных `yandex_compute_instance` см. в [документации провайдера]({{ tf-provider-datasources-link }}/compute_instance).
+     Более подробную информацию о параметрах источника данных `yandex_compute_instance` см. в [документации провайдера](../../../terraform/data-sources/compute_instance.md).
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -121,7 +121,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -130,7 +130,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     {{ TF }} создаст все требуемые ресурсы и отобразит значения выходных переменных в терминале. Чтобы проверить результат, выполните команду:
+     Terraform создаст все требуемые ресурсы и отобразит значения выходных переменных в терминале. Чтобы проверить результат, выполните команду:
 
      ```bash
      terraform output instance_external_ip
@@ -273,7 +273,7 @@ curl \
 
 #### Получение IAM-токена сервисного аккаунта {#example5}
 
-При выполнении запросов к [API {{ yandex-cloud }}](../../../api-design-guide/index.md) необходим [IAM-токен](../../../iam/concepts/authorization/iam-token.md), выданный [сервисному аккаунту](../../../iam/concepts/users/service-accounts.md). Такой IAM-токен может быть получен через сервис метаданных изнутри ВМ. Для этого к виртуальной машине должен быть [привязан](../vm-connect/auth-inside-vm.md#link-sa-with-instance) сервисный аккаунт.
+При выполнении запросов к [API Yandex Cloud](../../../api-design-guide/index.md) необходим [IAM-токен](../../../iam/concepts/authorization/iam-token.md), выданный [сервисному аккаунту](../../../iam/concepts/users/service-accounts.md). Такой IAM-токен может быть получен через сервис метаданных изнутри ВМ. Для этого к виртуальной машине должен быть [привязан](../vm-connect/auth-inside-vm.md#link-sa-with-instance) сервисный аккаунт.
 
 Чтобы получить IAM-токен из каталога [computeMetadata](../../concepts/metadata/directories.md#dir-compute), [подключитесь](../vm-connect/ssh.md) к ВМ и выполните запрос:
 
@@ -288,7 +288,7 @@ curl \
 
 #### Получение данных из каталога user-data снаружи ВМ {#example6}
 
-Чтобы получить метаданные снаружи ВМ, воспользуйтесь инструментом [{{ yandex-cloud }} CLI](../../../cli/cli-ref/compute/cli-ref/instance/get.md):
+Чтобы получить метаданные снаружи ВМ, воспользуйтесь инструментом [Yandex Cloud CLI](../../../cli/cli-ref/compute/cli-ref/instance/get.md):
 
 ```bash
 yc compute instance get my-vm --full --jq .metadata
@@ -305,4 +305,4 @@ yc compute instance get my-vm --full --jq .metadata
 }
 ```
 
-Информацию о способах получить переданные через метаданные значения переменных и [секретов {{ lockbox-full-name }}](../../../lockbox/concepts/secret.md) см. в инструкциях [{#T}](../vm-create/create-with-env-variables.md) и [{#T}](../vm-create/create-with-lockbox-secret.md).
+Информацию о способах получить переданные через метаданные значения переменных и [секретов Yandex Lockbox](../../../lockbox/concepts/secret.md) см. в инструкциях [Создать виртуальную машину с метаданными из переменных окружения](../vm-create/create-with-env-variables.md) и [Создать ВМ с доступом к секрету Yandex Lockbox](../vm-create/create-with-lockbox-secret.md).

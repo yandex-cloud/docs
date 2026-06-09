@@ -5,7 +5,7 @@ Retrieves the list of Image resources in the specified folder. Pass the "baremet
 ## HTTP request
 
 ```
-GET https://baremetal.{{ api-host }}/baremetal/v1alpha/standardImages
+GET https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/standardImages
 ```
 
 ## Query parameters {#yandex.cloud.baremetal.v1alpha.ListStandardImagesRequest}

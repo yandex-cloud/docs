@@ -6,7 +6,7 @@ Deprecated. Use **DeleteShards** instead.
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/shards/{shardName}
+DELETE https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/shards/{shardName}
 ```
 
 ## Path parameters

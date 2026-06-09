@@ -5,7 +5,7 @@ Creates a transfer in the specified folder.
 ## HTTP request
 
 ```
-POST https://{{ api-host-data-transfer }}/v1/transfer
+POST https://datatransfer.api.cloud.yandex.net/v1/transfer
 ```
 
 ## Body parameters {#yandex.cloud.datatransfer.v1.CreateTransferRequest}

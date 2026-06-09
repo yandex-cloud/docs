@@ -5,7 +5,7 @@ List instances created in this GPU cluster.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/gpuClusters/{gpuClusterId}/instances
+GET https://compute.api.cloud.yandex.net/compute/v1/gpuClusters/{gpuClusterId}/instances
 ```
 
 ## Path parameters

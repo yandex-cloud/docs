@@ -5,7 +5,7 @@ Returns the specified AdvancedRateLimiterProfile resource.
 ## HTTP request
 
 ```
-GET https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/advancedRateLimiterProfiles/{advancedRateLimiterProfileId}
+GET https://smartwebsecurity.api.cloud.yandex.net/smartwebsecurity/v1/advancedRateLimiterProfiles/{advancedRateLimiterProfileId}
 ```
 
 ## Path parameters

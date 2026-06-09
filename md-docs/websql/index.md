@@ -42,7 +42,7 @@ Yandex WebSQL поддерживает работу со следующими в
 
 ## Концепции
 
- - [О сервисе {{ websql-full-name }}](concepts/index.md)
+ - [О сервисе Yandex WebSQL](concepts/index.md)
 
  - [Квоты и лимиты](concepts/limits.md)
 
@@ -50,7 +50,7 @@ Yandex WebSQL поддерживает работу со следующими в
 
  - [Правила тарификации](pricing.md)
 
- - [Аудитные логи {{ at-name }}](at-ref.md)
+ - [Аудитные логи Audit Trails](at-ref.md)
 
 ## История изменений
 

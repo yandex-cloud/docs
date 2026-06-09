@@ -1,14 +1,14 @@
-# Подключение к кластеру {{ ytsaurus-name }}
+# Подключение к кластеру YTsaurus
 
-К кластеру {{ ytsaurus-name }} можно подключиться:
+К кластеру YTsaurus можно подключиться:
 
-* С виртуальных машин {{ yandex-cloud }}.
+* С виртуальных машин Yandex Cloud.
 * Через интернет по HTTPS.
 
 ## Примеры строк подключения {#connection-string}
 
 **Примеры для Linux проверялись в следующем окружении:**
-* Виртуальная машина в {{ yandex-cloud }} с Ubuntu 20.04 LTS.
+* Виртуальная машина в Yandex Cloud с Ubuntu 20.04 LTS.
 * Bash: `5.0.16`.
 * Python: `3.8.2`; pip3: `20.0.2`.
 * Go: `1.24.8`.
@@ -17,7 +17,7 @@
 
 Перед подключением:
 
-1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 1. Установите YTsaurus CLI по [инструкции](https://ytsaurus.tech/docs/ru/api/cli/install).
 1. Установите зависимости:
 
@@ -33,7 +33,7 @@
   1. Получите конфигурационный файл доступа с помощью команды YC CLI:
 
      ```bash
-     {{ yc-ytsaurus }} cluster get-configuration <имя_или_идентификатор_кластера> --private
+     yc managed-ytsaurus cluster get-configuration <имя_или_идентификатор_кластера> --private
      ```
 
      {% cut "Пример конфигурационного файла" %}
@@ -45,7 +45,7 @@
          class_name = "IamTokenAuth";
        };
        proxy = {
-         url = "http://hp.<идентификатор_кластера_{{ ytsaurus-name }}>.ytsaurus.mdb.yandexcloud.net:32100";
+         url = "http://hp.<идентификатор_кластера_YTsaurus>.ytsaurus.mdb.yandexcloud.net:32100";
          network_name = "external";
          http_proxy_role = "default";
        }
@@ -69,7 +69,7 @@
   1. Получите конфигурационный файл доступа с помощью команды YC CLI:
 
      ```bash
-     {{ yc-ytsaurus }} cluster get-configuration <имя_или_идентификатор_кластера>
+     yc managed-ytsaurus cluster get-configuration <имя_или_идентификатор_кластера>
      ```
 
      {% cut "Пример конфигурационного файла" %}
@@ -81,7 +81,7 @@
          class_name = "IamTokenAuth";
        };
        proxy = {
-         url = "https://proxy.<идентификатор_кластера_{{ ytsaurus-name }}>.ytsaurus.yandexcloud.net";
+         url = "https://proxy.<идентификатор_кластера_YTsaurus>.ytsaurus.yandexcloud.net";
          enable_proxy_discovery = %false;
        }
      }
@@ -189,7 +189,7 @@
 1. Выполните команду:
 
     ```bash
-    go run connect.go -id <идентификатор_кластера_{{ ytsaurus-name }}> -token <OAuth_токен_пользователя>
+    go run connect.go -id <идентификатор_кластера_YTsaurus> -token <OAuth_токен_пользователя>
     ```
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -198,7 +198,7 @@
 
 Перед подключением:
 
-1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 1. Установите YTsaurus CLI по [инструкции](https://ytsaurus.tech/docs/ru/api/cli/install).
 1. Установите зависимости:
 
@@ -220,7 +220,7 @@
       from yc_managed_ytsaurus_auth import with_iam_token_auth
 
       client = yt.YtClient(
-          proxy="http://hp.<идентификатор_кластера_{{ ytsaurus-name }}>.ytsaurus.mdb.yandexcloud.net:32100",
+          proxy="http://hp.<идентификатор_кластера_YTsaurus>.ytsaurus.mdb.yandexcloud.net:32100",
           config=with_iam_token_auth(
               config={"proxy": {"network_name": "external", "http_proxy_role": "default"}}
           ),
@@ -246,7 +246,7 @@
       from yc_managed_ytsaurus_auth import with_iam_token_auth
 
       client = yt.YtClient(
-          proxy="https://proxy.<идентификатор_кластера_{{ ytsaurus-name }}>.ytsaurus.yandexcloud.net",
+          proxy="https://proxy.<идентификатор_кластера_YTsaurus>.ytsaurus.yandexcloud.net",
           config=with_iam_token_auth(config={"proxy": {"enable_proxy_discovery": False}}),
       )
 

@@ -3,7 +3,7 @@
 ## HTTP request
 
 ```
-PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/userSshKeys/{userSshKeyId}
+PATCH https://organization-manager.api.cloud.yandex.net/organization-manager/v1/userSshKeys/{userSshKeyId}
 ```
 
 ## Path parameters

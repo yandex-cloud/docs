@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-Сервис {{ iot-full-name }} больше не доступен для новых пользователей. 
+Сервис Yandex IoT Core больше не доступен для новых пользователей. 
 
 Текущие пользователи могут создавать ресурсы до 1 ноября 2026 года. После сервис перейдет в режим read-only, а 1 декабря 2026 года — прекратит работу. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса](../../sunset.md).
 
@@ -58,8 +58,8 @@
 
 ## Примеры использования {#examples}
 
-* [{#T}](../../tutorials/data-recording.md)
-* [{#T}](../../tutorials/datalens.md)
-* [{#T}](../../tutorials/message-delivery-check.md)
-* [{#T}](../../tutorials/monitoring.md)
-* [{#T}](../../tutorials/mosquitto/mosquitto-publish.md)
+* [Запись данных с устройства в базу данных](../../tutorials/data-recording.md)
+* [Мониторинг состояния географически распределенных устройств](../../tutorials/datalens.md)
+* [Тестирование доставки сообщения](../../tutorials/message-delivery-check.md)
+* [Мониторинг показаний датчиков и уведомления о событиях](../../tutorials/monitoring.md)
+* [Отправить сообщение с использованием Mosquitto](../../tutorials/mosquitto/mosquitto-publish.md)

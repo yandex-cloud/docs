@@ -8,11 +8,11 @@
 1. [Запросите увеличение размера тома](#volume-expansion).
 1. [Проверьте под с томом](#checking-pod).
 
-Перед началом работы [установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/) и [настройте его на работу с созданным кластером {{ managed-k8s-name }}](../connect/index.md#kubectl-connect).
+Перед началом работы [установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/) и [настройте его на работу с созданным кластером Managed Service for Kubernetes](../connect/index.md#kubectl-connect).
 
 ## Включите механизм увеличения размера тома {#enabling-expansion}
 
-Чтобы включить механизм увеличения размера тома, в описании [класса хранилища](manage-storage-class.md) (`StorageClass`) должен быть указан параметр `allowVolumeExpansion: true`. В хранилищах сервиса {{ managed-k8s-name }} этот механизм включен по умолчанию:
+Чтобы включить механизм увеличения размера тома, в описании [класса хранилища](manage-storage-class.md) (`StorageClass`) должен быть указан параметр `allowVolumeExpansion: true`. В хранилищах сервиса Managed Service for Kubernetes этот механизм включен по умолчанию:
 
 ```yaml
 kind: StorageClass
@@ -32,7 +32,7 @@ reclaimPolicy: Delete
 
 1. Сохраните следующую спецификацию для [создания объекта PersistentVolumeClaim](dynamic-create-pv.md) в YAML-файл с названием `pvc-expansion.yaml`.
 
-   Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
+   Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
    ```yaml
    apiVersion: v1
@@ -64,7 +64,7 @@ reclaimPolicy: Delete
 
 1. Сохраните следующую спецификацию для создания [пода](../../concepts/index.md#pod) в YAML-файл с названием `pod.yaml`.
 
-   Подробнее о спецификации для создания пода читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#pod-v1-core).
+   Подробнее о спецификации для создания пода читайте в [документации Kubernetes](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#pod-v1-core).
 
    ```yaml
    apiVersion: v1

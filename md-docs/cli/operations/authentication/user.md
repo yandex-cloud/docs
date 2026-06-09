@@ -1,6 +1,6 @@
 # Аутентификация с аккаунтом на Яндексе
 
-Для работы с {{ yandex-cloud }} необходим аккаунт на Яндексе. Вы можете аутентифицироваться в процессе интерактивного создания профиля с помощью команды `yc init`.
+Для работы с Yandex Cloud необходим аккаунт на Яндексе. Вы можете аутентифицироваться в процессе интерактивного создания профиля с помощью команды `yc init`.
 
 Чтобы аутентифицироваться с помощью [аккаунта на Яндексе](../../../iam/concepts/users/accounts.md#passport):
 
@@ -32,7 +32,7 @@
    ```text
    You are going to be authenticated via username '<электронная_почта>'.
    Authentication web site will be opened.
-   After your successful authentication, you will be redirected to '{{ link-console-main }}'.
+   After your successful authentication, you will be redirected to 'https://console.yandex.cloud'.
 
    Press 'enter' to continue...
    ```
@@ -64,10 +64,10 @@
       Please enter your numeric choice: 1
       ```
 
-1. Чтобы выбрать [зону доступности](../../../overview/concepts/geo-scope.md) по умолчанию для сервиса [{{ compute-name }}](../../../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
+1. Чтобы выбрать [зону доступности](../../../overview/concepts/geo-scope.md) по умолчанию для сервиса [Compute Cloud](../../../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
 
    ```bash
-   Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
+   Do you want to configure a default Yandex Compute Cloud availability zone? [Y/n] Y
    ```
 
    Если вы ввели `Y`, выберите зону доступности:
@@ -75,9 +75,9 @@
    
    ```text
    Which zone do you want to use as a profile default?
-    [1] {{ region-id }}-a
-    [2] {{ region-id }}-b
-    [3] {{ region-id }}-d
+    [1] ru-central1-a
+    [2] ru-central1-b
+    [3] ru-central1-d
     [4] Do not set default zone
    Please enter your numeric choice: 2
    ```
@@ -97,5 +97,5 @@
    subject-id: b1g159pa15cd********
    username: <электронная_почта>
    folder-id: b1g8o9jbt58********
-   compute-default-zone: {{ region-id }}-b
+   compute-default-zone: ru-central1-b
    ```

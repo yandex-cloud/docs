@@ -16,7 +16,7 @@ _Обработчик запросов_ — это метод, который и
 При вызове обработчика среда выполнения может передавать следующие аргументы:
 1. Контекст вызова (параметр `context`). 
 
-    Контекст содержит необходимую информацию о версии функции. Структура этого объекта описана в разделе [{#T}](context.md).
+    Контекст содержит необходимую информацию о версии функции. Структура этого объекта описана в разделе [Контекст вызова функции на Go](context.md).
     В случае присутствия второго аргумента (тела HTTP-запроса), контекст вызова должен быть первым в списке аргументов.
 1. Тело HTTP-запроса (параметр `request`). 
 
@@ -37,13 +37,13 @@ _Обработчик запросов_ — это метод, который и
     
 ## Стандартная сигнатура Go {#go}
 
-{{ sf-name }} поддерживает в качестве обработчика:
+Cloud Functions поддерживает в качестве обработчика:
 * функции с сигнатурой `func (http.ResponseWriter, *http.Request)`;
 * объекты, которые удовлетворяют интерфейсу [http.Handler](https://pkg.go.dev/net/http#Handler).
 
 Функция может брать значения, которые передаются в запросе, из структуры [http.Request](https://pkg.go.dev/net/http#Request), и передавать ответ на запрос через интерфейс [http.ResponseWriter](https://pkg.go.dev/net/http#ResponseWriter).
 
-{{ sf-name }} не поддерживает пути в запросах. Для корректной работы [http.ServeMux](https://pkg.go.dev/net/http#ServeMux) функцию нужно [вызывать через API-шлюз](../../../api-gateway/quickstart/index.md#function).
+Cloud Functions не поддерживает пути в запросах. Для корректной работы [http.ServeMux](https://pkg.go.dev/net/http#ServeMux) функцию нужно [вызывать через API-шлюз](../../../api-gateway/quickstart/index.md#function).
 
 Пример функции:
 
@@ -72,7 +72,7 @@ func Handler(rw http.ResponseWriter, req *http.Request) {
 
 {% note warning %}
 
-Функцию необходимо вызывать с помощью [{{ yandex-cloud }} CLI](../../concepts/function-invoke.md) или с помощью HTTP-запроса с параметром `?integration=raw`.
+Функцию необходимо вызывать с помощью [Yandex Cloud CLI](../../concepts/function-invoke.md) или с помощью HTTP-запроса с параметром `?integration=raw`.
 
 {% endnote %}
 
@@ -249,7 +249,7 @@ func Greet(ctx context.Context, request []byte) (*Response, error) {
 }
 ```
 
-Подробнее о структуре тела запроса (`type RequestBody struct`) см. в разделе [{#T}](../../concepts/function-invoke.md#request).
+Подробнее о структуре тела запроса (`type RequestBody struct`) см. в разделе [Структура запроса](../../concepts/function-invoke.md#request).
 
 Пример входных данных (метод POST):
 
@@ -269,9 +269,9 @@ POST { "name": "Anonymous" }
 Hello, Anonymous
 ```
 
-### Разбор HTTP-запроса за {{ api-gw-name }}
+### Разбор HTTP-запроса за API Gateway
 
-Функция вызывается сервисом {{ api-gw-full-name }} с сервисным аккаунтом, записывает в журнал метод и тело запроса и возвращает приветствие.
+Функция вызывается сервисом Yandex API Gateway с сервисным аккаунтом, записывает в журнал метод и тело запроса и возвращает приветствие.
 
 Функция декодирует тело входящего запроса при помощи `json.Unmarshal()`.
 

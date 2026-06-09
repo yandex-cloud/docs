@@ -1,6 +1,6 @@
 # Yandex BareMetal
 
-{{ baremetal-full-name }} предоставляет возможность арендовать физические серверы на срок от одного дня и более, где все вычислительные ресурсы находятся полностью в вашем распоряжении.
+Yandex BareMetal предоставляет возможность арендовать физические серверы на срок от одного дня и более, где все вычислительные ресурсы находятся полностью в вашем распоряжении.
 
 Для создания единой инфраструктуры все арендованные физические серверы можно связывать по сети между собой, с облачной или on-premises инфраструктурой, а также с другими сервисами Yandex Cloud с помощью сервиса Cloud Interconnect.
 
@@ -14,7 +14,7 @@
 
 Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение об уровне обслуживания</a>. 
 
-Уровень обслуживания сервиса определен в документе <a href="https://yandex.ru/legal/cloud_sla_baremetal/ru/">Уровень обслуживания {{ baremetal-full-name }}</a>.
+Уровень обслуживания сервиса определен в документе <a href="https://yandex.ru/legal/cloud_sla_baremetal/ru/">Уровень обслуживания Yandex BareMetal</a>.
 
 # Yandex BareMetal
 
@@ -48,13 +48,13 @@
 
  - [Загрузить свой образ ОС](operations/image-upload.md)
 
- - [Подключить существующий сервер {{ baremetal-name }} к {{ backup-name }}](operations/backup-baremetal.md)
+ - [Подключить существующий сервер BareMetal к Cloud Backup](operations/backup-baremetal.md)
 
  - [Воспользоваться Rescue-CD](operations/servers/rescue-boot.md)
 
 #### Переустановить ОС сервера
 
- - [Переустановить ОС из образа {{ marketplace-short-name }}](operations/servers/reinstall-os-from-marketplace.md)
+ - [Переустановить ОС из образа Marketplace](operations/servers/reinstall-os-from-marketplace.md)
 
  - [Переустановить ОС из своего ISO-образа](operations/servers/reinstall-os-from-own-image.md)
 
@@ -122,7 +122,7 @@
 
  - [MC-LAG](concepts/mc-lag.md)
 
- - [Ограничения в сетях {{ baremetal-name }}](concepts/network-restrictions.md)
+ - [Ограничения в сетях BareMetal](concepts/network-restrictions.md)
 
 ### Настройка и управление
 
@@ -130,7 +130,7 @@
 
  - [Образы](concepts/images.md)
 
-#### Аудитные логи {{ at-name }}
+#### Аудитные логи Audit Trails
 
  - [Обзор](at-ref.md)
 
@@ -896,7 +896,7 @@
 
  - [List](api-ref/Zone/list.md)
 
- - [Метрики {{ monitoring-name }}](metrics.md)
+ - [Метрики Monitoring](metrics.md)
 
  - [Квоты и лимиты](concepts/limits.md)
 
@@ -904,25 +904,25 @@
 
  - [Все руководства](tutorials/index.md)
 
- - [Подключение существующего сервера {{ baremetal-name }} к {{ backup-name }}](tutorials/backup-baremetal.md)
+ - [Подключение существующего сервера BareMetal к Cloud Backup](tutorials/backup-baremetal.md)
 
- - [Настройка VRRP для кластера серверов {{ baremetal-name }}](tutorials/bms-vrf-routing.md)
+ - [Настройка VRRP для кластера серверов BareMetal](tutorials/bms-vrf-routing.md)
 
- - [Организация сетевой связности в приватной подсети {{ baremetal-name }}](tutorials/bms-simple-subnet.md)
+ - [Организация сетевой связности в приватной подсети BareMetal](tutorials/bms-simple-subnet.md)
 
- - [Организация сетевой связности между приватными подсетями {{ baremetal-name }} и {{ vpc-name }}](tutorials/bm-vrf-and-vpc-interconnect.md)
+ - [Организация сетевой связности между приватными подсетями BareMetal и Virtual Private Cloud](tutorials/bm-vrf-and-vpc-interconnect.md)
 
- - [Организация сетевой связности между приватной подсетью {{ baremetal-name }} и on-premise-ресурсами](tutorials/bms-cic-onprem.md)
+ - [Организация сетевой связности между приватной подсетью BareMetal и on-premise-ресурсами](tutorials/bms-cic-onprem.md)
 
- - [Доставка USB-устройств на сервер {{ baremetal-name }} или виртуальную машину](tutorials/usb-over-ip.md)
+ - [Доставка USB-устройств на сервер BareMetal или виртуальную машину](tutorials/usb-over-ip.md)
 
  - [Настройка межсетевого экрана OPNsense в режиме кластера высокой доступности](tutorials/opnsense-failover-cluster.md)
 
- - [Развертывание веб-приложения на серверах {{ baremetal-name }} с L7-балансировщиком и защитой {{ sws-name }}](tutorials/webapp-on-bms-behind-sws.md)
+ - [Развертывание веб-приложения на серверах BareMetal с L7-балансировщиком и защитой Smart Web Security](tutorials/webapp-on-bms-behind-sws.md)
 
- - [Подключение сервера {{ baremetal-name }} как внешнего узла к кластеру {{ managed-k8s-name }}](tutorials/k8s-connect-bms-as-node.md)
+ - [Подключение сервера BareMetal как внешнего узла к кластеру Managed Service for Kubernetes](tutorials/k8s-connect-bms-as-node.md)
 
- - [Настройка DNS-связности между сегментами {{ baremetal-full-name }} и {{ vpc-full-name }} для доступа к {{ mpg-name }} по FQDN](tutorials/bm-vpc-dns-forwarder.md)
+ - [Настройка DNS-связности между сегментами Yandex BareMetal и Yandex Virtual Private Cloud для доступа к Managed Service for PostgreSQL по FQDN](tutorials/bm-vpc-dns-forwarder.md)
 
  - [Правила тарификации](pricing.md)
 

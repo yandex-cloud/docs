@@ -5,7 +5,7 @@ Updates the specified secret.
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}
+PATCH https://lockbox.api.cloud.yandex.net/lockbox/v1/secrets/{secretId}
 ```
 
 ## Path parameters

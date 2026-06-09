@@ -5,7 +5,7 @@ Retrieves the list of ServiceAccount resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://iam.{{ api-host }}/iam/v1/serviceAccounts
+GET https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts
 ```
 
 ## Query parameters {#yandex.cloud.iam.v1.ListServiceAccountsRequest}

@@ -5,7 +5,7 @@ Updates the specified OIDC workload identity federation.
 ## HTTP request
 
 ```
-PATCH https://iam.{{ api-host }}/iam/v1/workload/oidc/federations/{federationId}
+PATCH https://iam.api.cloud.yandex.net/iam/v1/workload/oidc/federations/{federationId}
 ```
 
 ## Path parameters

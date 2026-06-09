@@ -17,11 +17,11 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -47,48 +47,48 @@
 
 После создания функция будет содержать только информацию о себе: имя, описание, уникальный идентификатор и т. д. Непосредственно код навыка будет добавлен в версию функции.
 
-1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана функция.
-1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![curly-brackets-function](../../_assets/console-icons/curly-brackets-function.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_serverless-functions }}**.
+1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана функция.
+1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **Создать ресурс** и выберите ![curly-brackets-function](../../_assets/console-icons/curly-brackets-function.svg) **Функция**.
 1. Введите имя функции. Требования к имени:
 
     * длина — от 3 до 63 символов;
     * может содержать строчные буквы латинского алфавита, цифры и дефисы;
     * первый символ — буква, последний — не дефис.
 
-1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+1. Нажмите кнопку **Создать**.
 1. Создайте [версию функции](../concepts/function.md#version):
 
     {% list tabs group=programming_language %}
 
     - Python {#python}
 
-      1. В списке языков программирования выберите `{{ python-full-ver }}`.
-      1. Отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+      1. В списке языков программирования выберите `Python 3.12`.
+      1. Отключите опцию **Добавить файлы с примерами кода** и нажмите **Продолжить**.
       1. Подготовьте код функции:
 
-          * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` и прикрепите созданный ранее архив `parrot-py.zip`.
-          * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** укажите `parrot.handler`.
+          * В поле **Источник кода** выберите `ZIP-архив` и прикрепите созданный ранее архив `parrot-py.zip`.
+          * В поле **Точка входа** укажите `parrot.handler`.
       1. Задайте параметры версии:
 
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `2`.
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud_portal.common.units.label_megabyte }}`.
+          * **Таймаут**: `2`.
+          * **Память**: `128 МБ`.
           * Значение остальных параметров оставьте по умолчанию.
-      1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+      1. Нажмите кнопку **Сохранить изменения**.
 
     - Node.js {#node}
 
-      1. В списке языков программирования выберите `{{ nodejs-full-ver }}`.
-      1. Отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+      1. В списке языков программирования выберите `Node.js 22`.
+      1. Отключите опцию **Добавить файлы с примерами кода** и нажмите **Продолжить**.
       1. Подготовьте код функции:
 
-          * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` и прикрепите созданный ранее архив `parrot-js.zip`.
-          * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** укажите `index.handler`.
+          * В поле **Источник кода** выберите `ZIP-архив` и прикрепите созданный ранее архив `parrot-js.zip`.
+          * В поле **Точка входа** укажите `index.handler`.
       1. Задайте параметры версии:
 
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `2`.
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud_portal.common.units.label_megabyte }}`.
+          * **Таймаут**: `2`.
+          * **Память**: `128 МБ`.
           * Значение остальных параметров оставьте по умолчанию.
-      1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+      1. Нажмите кнопку **Сохранить изменения**.
 
     {% endlist %}
 
@@ -99,11 +99,11 @@
 1. На вкладке **Настройки**:
 
     1. В поле **Имя навыка** задайте уникальное имя создаваемого навыка.
-    1. В поле **Backend** выберите вариант **Функция в {{ yandex-cloud }}**. В выпадающем списке выберите созданную ранее функцию.
+    1. В поле **Backend** выберите вариант **Функция в Yandex Cloud**. В выпадающем списке выберите созданную ранее функцию.
 
     {% note warning %}
     
-    В списке отображаются функции, которые вы имеете право просматривать. Чтобы прикрепить функцию к навыку, вам необходимо разрешение на запуск функции. Это разрешение входит в роли [{{ roles-functions-invoker }}](../security/index.md#serverless-functions-invoker), [{{ roles-editor }}](../security/index.md#functions-editor) и выше.
+    В списке отображаются функции, которые вы имеете право просматривать. Чтобы прикрепить функцию к навыку, вам необходимо разрешение на запуск функции. Это разрешение входит в роли [functions.functionInvoker](../security/index.md#serverless-functions-invoker), [editor](../security/index.md#functions-editor) и выше.
     
     {% endnote %}
 

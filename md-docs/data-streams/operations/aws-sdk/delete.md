@@ -7,7 +7,7 @@
   Для удаления [потока данных](../../concepts/glossary.md#stream-concepts) используется метод `delete_stream`. При вызове этого метода необходимо указать следующие параметры:
   * Имя удаляемого потока данных, например `example-stream`.
   * [Идентификатор облака](../../../resource-manager/operations/cloud/get-id.md), в котором будет удален поток, например `b1gi1kuj2dht********`.
-  * Идентификатор базы данных {{ ydb-short-name }} с потоком, например `cc8028jgtuab********`.
+  * Идентификатор базы данных YDB с потоком, например `cc8028jgtuab********`.
 
   Вам также потребуется [настроить](prepare.md) AWS SDK и [назначить](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль `yds.editor`.
 
@@ -22,7 +22,7 @@
      def delete_stream(cloud, database, stream_name):
        client = boto3.client('kinesis', endpoint_url="https://yds.serverless.yandexcloud.net")
        response = client.delete_stream(
-         StreamName="/{{ region-id }}/{cloud}/{database}/{stream}".format(cloud=cloud,
+         StreamName="/ru-central1/{cloud}/{database}/{stream}".format(cloud=cloud,
                                                                        database=database,
                                                                        stream=stream_name)
        )

@@ -6,7 +6,7 @@ To get the list of available RoutingInstance resources, make a [List](list.md#Li
 ## HTTP request
 
 ```
-GET https://cloudrouter.{{ api-host }}/cloudrouter/v1/routingInstances/{routingInstanceId}
+GET https://cloudrouter.api.cloud.yandex.net/cloudrouter/v1/routingInstances/{routingInstanceId}
 ```
 
 ## Path parameters

@@ -6,7 +6,7 @@ Returns all subtitle metadata and related information.
 ## HTTP request
 
 ```
-GET https://video.{{ api-host }}/video/v1/subtitles/{subtitleId}
+GET https://video.api.cloud.yandex.net/video/v1/subtitles/{subtitleId}
 ```
 
 ## Path parameters

@@ -6,7 +6,7 @@ This endpoint creates a new CA with given properties and cryptographic settings.
 ## HTTP request
 
 ```
-POST https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certificateAuthorities:generate
+POST https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/certificateAuthorities:generate
 ```
 
 ## Body parameters {#yandex.cloud.certificatemanager.v1.privateca.GenerateCertificateAuthorityRequest}

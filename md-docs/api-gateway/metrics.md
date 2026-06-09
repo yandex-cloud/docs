@@ -1,6 +1,6 @@
-# Справочник метрик {{ monitoring-full-name }}
+# Справочник метрик Yandex Monitoring
 
-В этом разделе описаны метрики сервиса {{ api-gw-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/index.md).
+В этом разделе описаны метрики сервиса API Gateway, поставляемые в [Monitoring](../monitoring/index.md).
 
 Имя метрики пишется в метку `name`.
 
@@ -53,13 +53,13 @@ service | Метка сервиса, значение всегда `serverless-f
 
 Имя метрики<br/>Тип, единицы измерения | Тип сущности | Описание<br/>Метки
 --- | --- | ---
-`serverless.triggers.access_error_per_second`<br/>`DGAUGE`, ошибки/с | <ul><li>`request` — рассылка сообщений.</li><li>`message_queue` — обращения к {{ message-queue-full-name }}.</li></ul> | Частота возникновения ошибок доступа при рассылке сообщений.
-`serverless.triggers.error_per_second`<br/>`DGAUGE`, ошибки/с | <ul><li>`request` — рассылка сообщений.</li><li>`message_queue` — обращения к {{ message-queue-full-name }}.</li></ul> | Частота возникновения ошибок при рассылке сообщений.
+`serverless.triggers.access_error_per_second`<br/>`DGAUGE`, ошибки/с | <ul><li>`request` — рассылка сообщений.</li><li>`message_queue` — обращения к Yandex Message Queue.</li></ul> | Частота возникновения ошибок доступа при рассылке сообщений.
+`serverless.triggers.error_per_second`<br/>`DGAUGE`, ошибки/с | <ul><li>`request` — рассылка сообщений.</li><li>`message_queue` — обращения к Yandex Message Queue.</li></ul> | Частота возникновения ошибок при рассылке сообщений.
 `serverless.triggers.execution_time_milliseconds`<br/>`IGAUGE`, вызовы/мс | <ul><li>`request` — рассылка сообщений.</li></ul> | Гистограмма распределения частоты рассылки сообщений по времени обработки запроса.<br/>Интервалы времени обработки запроса представлены в метке `bin`.
 `serverless.triggers.inflight`<br/>`DGAUGE`, вызовы | <ul><li>`request` — рассылка сообщений.</li></ul> | Количество одновременно выполняющихся рассылок сообщений.
-`serverless.triggers.read_events_per_second`<br/>`DGAUGE`, штуки/с | <ul><li>`incoming` — события, после которых сработал любой триггер, кроме триггера для {{ message-queue-full-name }}.</li><li>`message_queue` — события, после которых сработал триггер для {{ message-queue-full-name }}.</li></ul> | Частота возникновения событий, после которых срабатывает триггер.
+`serverless.triggers.read_events_per_second`<br/>`DGAUGE`, штуки/с | <ul><li>`incoming` — события, после которых сработал любой триггер, кроме триггера для Yandex Message Queue.</li><li>`message_queue` — события, после которых сработал триггер для Yandex Message Queue.</li></ul> | Частота возникновения событий, после которых срабатывает триггер.
 
 #### См. также {#see-also}
 
-* [{#T}](operations/trigger/trigger-monitoring.md)
-* [{#T}](operations/api-gw-monitoring.md)
+* [Посмотреть графики мониторинга триггера в Yandex API Gateway](operations/trigger/trigger-monitoring.md)
+* [Посмотреть графики мониторинга в API Gateway](operations/api-gw-monitoring.md)

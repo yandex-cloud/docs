@@ -5,7 +5,7 @@ Updates the specified group.
 ## HTTP request
 
 ```
-PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/groups/{groupId}
+PATCH https://organization-manager.api.cloud.yandex.net/organization-manager/v1/groups/{groupId}
 ```
 
 ## Path parameters

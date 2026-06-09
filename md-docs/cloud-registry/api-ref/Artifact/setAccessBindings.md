@@ -5,7 +5,7 @@ Sets access bindings for the specified artifact (folder, package, artifact, etc)
 ## HTTP request
 
 ```
-POST https://registry.{{ api-host }}/cloud-registry/v1/artifacts/{resourceId}:setAccessBindings
+POST https://registry.api.cloud.yandex.net/cloud-registry/v1/artifacts/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

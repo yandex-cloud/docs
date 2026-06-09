@@ -5,7 +5,7 @@ Creates a new Apache Kafka® connector in a cluster.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/connectors
+POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/connectors
 ```
 
 ## Path parameters

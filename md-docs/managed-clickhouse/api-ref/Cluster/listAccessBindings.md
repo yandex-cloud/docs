@@ -5,7 +5,7 @@ Retrieves a list of access bindings for the specified ClickHouse cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{resourceId}:listAccessBindings
+GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

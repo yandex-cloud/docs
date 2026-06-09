@@ -2,7 +2,7 @@
 
 С помощью _политики доступа по IP-адресам_ можно ограничить доступ к контенту, распространяемому через CDN, задавая для [CDN-ресурсов](resource.md) _разрешающую_ или _блокирующую_ политику.
 
-Вы можете настроить политику доступа при [создании](../operations/resources/create-resource.md) или [изменении](../operations/resources/configure-basics.md) CDN-ресурса с помощью [консоли управления]({{ link-console-main }}), [CLI](../../cli/quickstart.md), [{{ TF }}]({{ tf-provider-resources-link }}/cdn_resource) и [API](../../api-design-guide/concepts/general.md).
+Вы можете настроить политику доступа при [создании](../operations/resources/create-resource.md) или [изменении](../operations/resources/configure-basics.md) CDN-ресурса с помощью [консоли управления](https://console.yandex.cloud), [CLI](../../cli/quickstart.md), [Terraform](../../terraform/resources/cdn_resource.md) и [API](../../api-design-guide/concepts/general.md).
 
 Политика доступа по IP-адресам определяется [типом политики](#policy-type) и [списком IP-адресов](#ip-list), которые будут исключены из политики.
 
@@ -28,5 +28,5 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../operations/resources/create-resource.md)
-* [{#T}](../operations/resources/configure-basics.md)
+* [Создание ресурса](../operations/resources/create-resource.md)
+* [Изменение основных настроек ресурса](../operations/resources/configure-basics.md)

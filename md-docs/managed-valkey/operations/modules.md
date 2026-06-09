@@ -1,6 +1,6 @@
-# Работа с модулями {{ VLK }}
+# Работа с модулями Valkey™
 
-В {{ mrd-name }} доступно подключение [модулей](../concepts/modules.md) — расширений ядра {{ VLK }}. Модули предоставляют функциональность для решения современных задач с помощью высоконагруженных сервисов и AI-платформ — векторный поиск, эффективное хранение JSON-структур данных и масштабируемые вероятностные фильтры.
+В Yandex Managed Service for Valkey™ доступно подключение [модулей](../concepts/modules.md) — расширений ядра Valkey™. Модули предоставляют функциональность для решения современных задач с помощью высоконагруженных сервисов и AI-платформ — векторный поиск, эффективное хранение JSON-структур данных и масштабируемые вероятностные фильтры.
 
 Вы можете подключить модули к [новому](cluster-create.md) или [существующему](#enable-modules) кластеру, а также [изменить настройки модуля](#change-modules).
 
@@ -16,19 +16,19 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
+    1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
     1. Выберите нужный кластер.
-    1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-    1. В блоке **{{ ui-key.yacloud.redis.local.valkey_modules_aQacT }}** подключите необходимые модули {{ VLK }}.
+    1. В верхней части страницы нажмите кнопку **Редактировать**.
+    1. В блоке **Модули** подключите необходимые модули Valkey™.
 
-        Для модуля **{{ ui-key.yacloud.redis.local.valkey_search_vfqdy }}** настройте параметры **{{ ui-key.yacloud.redis.ModulesFormCard.valkey_search_reader_threads_fNBHR }}** и **{{ ui-key.yacloud.redis.ModulesFormCard.valkey_search_writer_threads_6HRjb }}**.
+        Для модуля **Search** настройте параметры **Количество потоков чтения** и **Количество потоков записи**.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+    1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -37,13 +37,13 @@
   1. Посмотрите описание команды CLI для обновления кластера:
 
      ```bash
-     {{ yc-mdb-rd }} cluster update --help
+     yc managed-redis cluster update --help
      ```
 
   1. Выполните команду подключения модулей:
 
      ```bash
-     {{ yc-mdb-rd }} cluster update \
+     yc managed-redis cluster update \
        --cluster-name=<имя_кластера> \
        --valkey-modules enable-valkey-search=<включить_модуль_Valkey-Search>,`
                         `valkey-search-reader-threads=<количество_потоков_обработки_запросов>,`
@@ -53,21 +53,21 @@
      ```
 
      Где:
-     * `--cluster-name` — имя кластера {{ mrd-name }}. Его можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-     * `--valkey-modules` — параметры [модулей {{ VLK }}](../concepts/modules.md):
+     * `--cluster-name` — имя кластера Yandex Managed Service for Valkey™. Его можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     * `--valkey-modules` — параметры [модулей Valkey™](../concepts/modules.md):
         * `enable-valkey-search` — подключить модуль `Valkey-Search`: `true` или `false`.
         * `valkey-search-reader-threads` — количество потоков обработки запросов в модуле `Valkey-Search`.
         * `valkey-search-writer-threads` — количество потоков индексации в модуле `Valkey-Search`.
         * `enable-valkey-json` — подключить модуль `Valkey-JSON`: `true` или `false`.
         * `enable-valkey-bloom` — подключить модуль `Valkey-Bloom`: `true` или `false`.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Добавьте в описание кластера {{ mrd-name }} блок `modules`:
+    1. Добавьте в описание кластера Yandex Managed Service for Valkey™ блок `modules`:
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
@@ -98,14 +98,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -127,11 +127,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_redis_cluster_v2.md).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
+    Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
     * изменение — 60 минут;
@@ -166,7 +166,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -179,7 +179,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "configSpec.modules.valkeySearch.enabled,configSpec.modules.valkeySearch.readerThreads,configSpec.modules.valkeySearch.writerThreads,configSpec.valkeyJson.enabled,configSpec.valkeyBloom.enabled",
                       "configSpec": {
@@ -204,7 +204,7 @@
 
         * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
-        * `configSpec.modules` — параметры модулей {{ VLK }}:
+        * `configSpec.modules` — параметры модулей Valkey™:
 
             * `valkeySearch.enabled` — подключить модуль `Valkey-Search`: `true` или `false`. Для модуля доступна настройка параметров:
                 * `valkeySearch.readerThreads` — количество потоков обработки запросов.
@@ -232,7 +232,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -289,7 +289,7 @@
                     }
                   }
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.redis.v1.ClusterService.Update
         ```
 
@@ -297,7 +297,7 @@
 
         * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
-        * `config_spec.modules` — параметры модулей {{ VLK }}:
+        * `config_spec.modules` — параметры модулей Valkey™:
 
             * `valkey_search.enabled` — подключить модуль `Valkey-Search`: `true` или `false`. Для модуля доступна настройка параметров:
                 * `valkey_search.reader_threads` — количество потоков обработки запросов.
@@ -317,22 +317,22 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
+    1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
     1. Выберите нужный кластер.
-    1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-    1. В блоке **{{ ui-key.yacloud.redis.local.valkey_modules_aQacT }}** измените необходимые настройки модулей {{ VLK }}.
+    1. В верхней части страницы нажмите кнопку **Редактировать**.
+    1. В блоке **Модули** измените необходимые настройки модулей Valkey™.
 
-        Для модуля **{{ ui-key.yacloud.redis.local.valkey_search_vfqdy }}** доступна настройка параметров:
+        Для модуля **Search** доступна настройка параметров:
 
-        * **{{ ui-key.yacloud.redis.ModulesFormCard.valkey_search_reader_threads_fNBHR }}**.
-        * **{{ ui-key.yacloud.redis.ModulesFormCard.valkey_search_writer_threads_6HRjb }}**.
+        * **Количество потоков чтения**.
+        * **Количество потоков записи**.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+    1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -341,31 +341,31 @@
   1. Посмотрите описание команды CLI для обновления кластера:
 
      ```bash
-     {{ yc-mdb-rd }} cluster update --help
+     yc managed-redis cluster update --help
      ```
 
   1. Выполните команду изменения настроек модулей:
 
      ```bash
-     {{ yc-mdb-rd }} cluster update \
+     yc managed-redis cluster update \
        --cluster-name=<имя_кластера> \
        --valkey-modules valkey-search-reader-threads=<количество_потоков_обработки_запросов>,`
                         `valkey-search-writer-threads=<количество_потоков_индексации>
      ```
 
      Где:
-     * `--cluster-name` — имя кластера {{ mrd-name }}. Его можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-     * `--valkey-modules` — параметры [модулей {{ VLK }}](../concepts/modules.md):
+     * `--cluster-name` — имя кластера Yandex Managed Service for Valkey™. Его можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     * `--valkey-modules` — параметры [модулей Valkey™](../concepts/modules.md):
         * `valkey-search-reader-threads` — количество потоков обработки запросов в модуле `Valkey-Search`.
         * `valkey-search-writer-threads` — количество потоков индексации в модуле `Valkey-Search`.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Измените в описании кластера {{ mrd-name }} значение нужной настройки в блоке `modules.valkey_search`:
+    1. Измените в описании кластера Yandex Managed Service for Valkey™ значение нужной настройки в блоке `modules.valkey_search`:
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
@@ -388,14 +388,14 @@
 
     1. Проверьте корректность настроек.
 
-       1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+       1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
        1. Выполните команду:
        
           ```bash
           terraform validate
           ```
        
-          Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+          Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -417,11 +417,11 @@
           1. Подтвердите изменение ресурсов.
           1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_redis_cluster_v2.md).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
+    Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
     * изменение — 60 минут;
@@ -456,7 +456,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -469,7 +469,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "configSpec.modules.valkeySearch.readerThreads,configSpec.modules.valkeySearch.writerThreads",
                       "configSpec": {
@@ -487,7 +487,7 @@
 
         * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
-        * `configSpec.modules` — параметры модулей {{ VLK }}:
+        * `configSpec.modules` — параметры модулей Valkey™:
 
             * `valkeySearch.readerThreads` — количество потоков обработки запросов в модуле `Valkey-Search`.
             * `valkeySearch.writerThreads` — количество потоков индексации в модуле `Valkey-Search`.
@@ -512,7 +512,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -557,7 +557,7 @@
                     }
                   }
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.redis.v1.ClusterService.Update
         ```
 
@@ -565,7 +565,7 @@
 
         * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
-        * `config_spec.modules` — параметры модулей {{ VLK }}:
+        * `config_spec.modules` — параметры модулей Valkey™:
 
             * `valkey_search.reader_threads` — количество потоков обработки запросов в модуле `Valkey-Search`.
             * `valkey_search.writer_threads` — количество потоков индексации в модуле `Valkey-Search`.

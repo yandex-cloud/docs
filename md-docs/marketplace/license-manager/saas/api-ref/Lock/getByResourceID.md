@@ -5,7 +5,7 @@ Returns the subscription lock for given resource and subscription.
 ## HTTP request
 
 ```
-GET https://marketplace.{{ api-host }}/marketplace/license-manager/saas/v1/locks:getByResourceID
+GET https://marketplace.api.cloud.yandex.net/marketplace/license-manager/saas/v1/locks:getByResourceID
 ```
 
 ## Query parameters {#yandex.cloud.marketplace.licensemanager.saas.v1.GetLockByResourceIDRequest}

@@ -5,7 +5,7 @@ Updates the specified transfer.
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-data-transfer }}/v1/transfer/{transferId}
+PATCH https://datatransfer.api.cloud.yandex.net/v1/transfer/{transferId}
 ```
 
 ## Path parameters

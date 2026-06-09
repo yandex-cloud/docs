@@ -1,19 +1,19 @@
-# Пошаговые инструкции для {{ mch-name }}
+# Пошаговые инструкции для Managed Service for ClickHouse®
 
 ## Кластеры {#clusters}
 
 * [Информация об имеющихся кластерах](cluster-list.md)
 * [Создание кластера](cluster-create.md)
 * [Изменение настроек кластера](update.md)
-* [{#T}](change-server-level-settings.md)
-* [{#T}](change-query-level-settings.md)
+* [Изменение настроек ClickHouse® на уровне сервера](change-server-level-settings.md)
+* [Изменение настроек ClickHouse® на уровне запроса](change-query-level-settings.md)
 * [Техническое обслуживание](cluster-maintenance.md)
-* [{#T}](cluster-patch-version.md)
-* [{#T}](cluster-version-update.md)
+* [Получение патч-версии ClickHouse®](cluster-patch-version.md)
+* [Обновление версии ClickHouse®](cluster-version-update.md)
 * [Остановка и запуск кластера](cluster-stop.md)
-* [Управление хостами {{ CH }}](hosts.md)
-* [Управление хостами {{ ZK }}](zk-hosts.md)
-* [Управление хостами {{ CK }}](ck-hosts.md)
+* [Управление хостами ClickHouse®](hosts.md)
+* [Управление хостами ZooKeeper](zk-hosts.md)
+* [Управление хостами ClickHouse® Keeper](ck-hosts.md)
 * [Миграция хостов кластера в другую зону доступности](host-migration.md)
 * [Управление резервными копиями](cluster-backups.md)
 * [Управление доступом к кластеру](cluster-access.md)
@@ -22,13 +22,13 @@
 ## Подключение к кластеру {#connect}
 
 * [Предварительная настройка](connect/index.md)
-* [FQDN хостов {{ CH }}](connect/fqdn.md)
+* [FQDN хостов ClickHouse®](connect/fqdn.md)
 * [Подключение к кластеру из приложений](connect/clients.md)
 * [Примеры кода для подключения к кластеру](connect/code-examples.md)
 
 ## Базы данных {#databases}
 
-* [{#T}](web-sql-query.md)
+* [SQL-запросы в Yandex WebSQL](web-sql-query.md)
 * [Управление базами данных](databases.md)
 * [Управление пользователями](cluster-users.md)
 
@@ -40,7 +40,7 @@
 * [Управление моделями машинного обучения](ml-models.md)
 
 
-* [Настройка доступа к {{ objstorage-name }}](s3-access.md)
+* [Настройка доступа к Object Storage](s3-access.md)
 
 
 ## Шардирование {#sharding}
@@ -53,7 +53,7 @@
 * [Просмотр логов кластера](cluster-logs.md)
 * [Диагностика производительности](performance-diagnostics.md)
 * [Мониторинг состояния кластера и хостов](monitoring.md)
-* [Подключение к кластеру из {{ datalens-name }}](datalens-connect.md)
+* [Подключение к кластеру из DataLens](datalens-connect.md)
 
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

@@ -7,7 +7,7 @@ To get the list of available revisions, make a [ListRevisions](listRevisions.md#
 ## HTTP request
 
 ```
-GET https://serverless-containers.{{ api-host }}/containers/v1/revisions/{containerRevisionId}
+GET https://serverless-containers.api.cloud.yandex.net/containers/v1/revisions/{containerRevisionId}
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ List tasks of resources.
 ## HTTP request
 
 ```
-GET https://backup.{{ api-host }}/backup/v1/resources/{computeInstanceId}/tasks
+GET https://backup.api.cloud.yandex.net/backup/v1/resources/{computeInstanceId}/tasks
 ```
 
 ## Path parameters

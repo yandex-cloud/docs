@@ -134,7 +134,7 @@
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_эндпоинт>", "{{ region-id }}"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_эндпоинт>", "ru-central1"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -338,7 +338,7 @@
 
       $sdk = new Aws\Sdk([
           'endpoint' => '<Document_API_эндпоинт>',
-          'region'   => '{{ region-id }}',
+          'region'   => 'ru-central1',
           'version'  => 'latest'
       ]);
 
@@ -440,7 +440,7 @@
 
       // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
       const dynamodb = new AWS.DynamoDBClient({
-          region: "{{ region-id }}",
+          region: "ru-central1",
           endpoint: "<Document_API_эндпоинт>",
       });
 
@@ -543,7 +543,7 @@
       end
 
       def run_me
-        region = '{{ region-id }}'
+        region = 'ru-central1'
         table_name = 'Series'
         title = 'Supernatural'
         series_id = 3

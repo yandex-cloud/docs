@@ -5,7 +5,7 @@ Update specific policy.
 ## HTTP request
 
 ```
-PATCH https://backup.{{ api-host }}/backup/v1/policies/{policyId}
+PATCH https://backup.api.cloud.yandex.net/backup/v1/policies/{policyId}
 ```
 
 ## Path parameters

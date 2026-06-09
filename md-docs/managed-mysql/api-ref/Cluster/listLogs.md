@@ -6,7 +6,7 @@ Alternatively, logs can be streamed using [StreamLogs](streamLogs.md#StreamLogs)
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}:logs
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}:logs
 ```
 
 ## Path parameters

@@ -1,10 +1,10 @@
-# Метрики {{ kms-full-name }}
+# Метрики Yandex Key Management Service
 
-В этом разделе описаны метрики сервиса [{{ kms-name }}](../../kms/index.md), поставляемые в {{ monitoring-name }}.
+В этом разделе описаны метрики сервиса [Key Management Service](../../kms/index.md), поставляемые в Monium Metrics.
 
 Имя метрики пишется в метку `name`.
 
-Все метрики сервиса {{ kms-name }} имеют общую метку `kms`.
+Все метрики сервиса Key Management Service имеют общую метку `kms`.
 
 Метрики сервиса:
 

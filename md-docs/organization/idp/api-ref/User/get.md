@@ -6,7 +6,7 @@ To get the list of available users, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://organization-manager.{{ api-host }}/organization-manager/v1/idp/users/{userId}
+GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/users/{userId}
 ```
 
 ## Path parameters

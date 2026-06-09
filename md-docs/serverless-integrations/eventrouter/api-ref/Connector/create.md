@@ -5,7 +5,7 @@ Creates a connector in the specified folder.
 ## HTTP request
 
 ```
-POST https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/connectors
+POST https://serverless-eventrouter.api.cloud.yandex.net/eventrouter/v1/connectors
 ```
 
 ## Body parameters {#yandex.cloud.serverless.eventrouter.v1.CreateConnectorRequest}

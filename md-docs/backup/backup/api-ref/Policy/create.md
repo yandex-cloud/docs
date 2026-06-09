@@ -7,7 +7,7 @@ For detailed information, please see [Creating a backup policy](../../../operati
 ## HTTP request
 
 ```
-POST https://backup.{{ api-host }}/backup/v1/policies
+POST https://backup.api.cloud.yandex.net/backup/v1/policies
 ```
 
 ## Body parameters {#yandex.cloud.backup.v1.CreatePolicyRequest}

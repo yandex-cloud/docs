@@ -6,7 +6,7 @@ Deleting a public subnet removes its data permanently and is irreversible.
 ## HTTP request
 
 ```
-DELETE https://baremetal.{{ api-host }}/baremetal/v1alpha/publicSubnets/{publicSubnetId}
+DELETE https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/publicSubnets/{publicSubnetId}
 ```
 
 ## Path parameters

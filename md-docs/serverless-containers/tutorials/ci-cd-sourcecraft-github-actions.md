@@ -1,17 +1,17 @@
-# Настройка CI/CD в {{ src-full-name }} для развертывания приложения в {{ serverless-containers-full-name }} с помощью GitHub Actions
+# Настройка CI/CD в SourceCraft для развертывания приложения в Yandex Serverless Containers с помощью GitHub Actions
 
-# Настройка CI/CD для развертывания приложения в {{ serverless-containers-full-name }} с помощью GitHub Actions
+# Настройка CI/CD для развертывания приложения в Yandex Serverless Containers с помощью GitHub Actions
 
 
-В этом практическом руководстве вы настроите [CI/CD-процесс]({{ link-src-docs }}/sourcecraft/concepts/ci-cd) для развертывания контейнеризированного приложения в [{{ serverless-containers-name }}](../concepts/index.md) из [репозитория]({{ link-src-docs }}/sourcecraft/concepts/#repos) {{ src-name }} с помощью [GitHub Actions]({{ link-src-docs }}/sourcecraft/concepts/gh-actions). Интеграция между {{ src-name }} и {{ yandex-cloud }} будет выполнена с помощью [сервисного подключения]({{ link-src-docs }}/sourcecraft/concepts/service-connections).
+В этом практическом руководстве вы настроите [CI/CD-процесс](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/ci-cd) для развертывания контейнеризированного приложения в [Serverless Containers](../concepts/index.md) из [репозитория](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/#repos) SourceCraft с помощью [GitHub Actions](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/gh-actions). Интеграция между SourceCraft и Yandex Cloud будет выполнена с помощью [сервисного подключения](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/service-connections).
 
 {% note warning %}
 
-Для создания сервисного подключения у вас должна быть [роль]({{ link-src-docs }}/sourcecraft/security/#organization-manager-organizations-owner) `{{ ui-key.sourcecraft.lib.value_role-org-owner_f9UaR }}` (`organization-manager.organizations.owner`).
+Для создания сервисного подключения у вас должна быть [роль](https://sourcecraft.dev/portal/docs/ru/sourcecraft/security/#organization-manager-organizations-owner) `Владелец организации` (`organization-manager.organizations.owner`).
 
 {% endnote %}
 
-Чтобы настроить CI/CD для развертывания приложения в {{ serverless-containers-name }} из репозитория {{ src-name }} с помощью GitHub Actions:
+Чтобы настроить CI/CD для развертывания приложения в Serverless Containers из репозитория SourceCraft с помощью GitHub Actions:
 1. [Создайте сервисный аккаунт](#create-sa).
 1. [Создайте реестр](#create-registry).
 1. [Создайте репозиторий](#create-repository-sc).
@@ -25,29 +25,29 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
-* Плата за хранение созданных Docker-образов (см. [тарифы {{ container-registry-name }}](../../container-registry/pricing.md).
-* Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик (см. [тарифы {{ serverless-containers-name }}](../pricing.md).
+* Плата за хранение созданных Docker-образов (см. [тарифы Container Registry](../../container-registry/pricing.md).
+* Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик (см. [тарифы Serverless Containers](../pricing.md).
 
 ## Создайте сервисный аккаунт {#create-sa}
 
-От имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) будут загружаться Docker-образы в [реестры](../../container-registry/concepts/registry.md) {{ container-registry-full-name }} и развертываться [контейнеры](../concepts/container.md) в {{ serverless-containers-name }}.
+От имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) будут загружаться Docker-образы в [реестры](../../container-registry/concepts/registry.md) Yandex Container Registry и развертываться [контейнеры](../concepts/container.md) в Serverless Containers.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Войдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
+  1. Войдите в [консоль управления](https://console.yandex.cloud) Yandex Cloud.
   1. В левой части экрана нажмите на строку с именем каталога, в котором вы хотите развернуть контейнер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `github-action`.
-  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роли:
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+  1. Нажмите **Создать сервисный аккаунт**.
+  1. В поле **Имя** укажите `github-action`.
+  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роли:
 
-      * `{{ roles-cr-pusher }}` — для работы с Docker-образами в реестре;
+      * `container-registry.images.pusher` — для работы с Docker-образами в реестре;
       * `serverless-containers.editor` — для управления контейнером;
       * `iam.serviceAccounts.user` — для возможности при создании ревизии контейнера указать сервисный аккаунт, от имени которого Docker-образ будет загружен из реестра.
 
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  1. Нажмите **Создать**.
 
 - CLI {#cli}
 
@@ -88,12 +88,12 @@
           --folder-name <имя_каталога>
         ```
 
-      * `{{ roles-cr-pusher }}` — для работы с Docker-образами в реестре:
+      * `container-registry.images.pusher` — для работы с Docker-образами в реестре:
 
         ```bash
         yc resource-manager folder add-access-binding <имя_каталога> \
           --service-account-name github-action \
-          --role {{ roles-cr-pusher }} \
+          --role container-registry.images.pusher \
           --folder-name <имя_каталога>
         ```
 
@@ -104,7 +104,7 @@
 
       * `iam.serviceAccounts.user` — для возможности при создании ревизии контейнера указать сервисный аккаунт, от имени которого Docker-образ будет загружен из реестра;
       * `serverless-containers.editor` — для управления контейнером;
-      * `{{ roles-cr-pusher }}` — для работы с Docker-образами в реестре.
+      * `container-registry.images.pusher` — для работы с Docker-образами в реестре.
 
       Для этого воспользуйтесь методом REST API [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/Folder/setAccessBindings.md).
 
@@ -112,16 +112,16 @@
 
 ## Создайте реестр {#create-registry}
 
-В реестре {{ container-registry-name }} будет храниться Docker-образ приложения.
+В реестре Container Registry будет храниться Docker-образ приложения.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
-  1. Нажмите **{{ ui-key.yacloud.cr.overview.button_create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите **Container Registry**.
+  1. Нажмите **Создать реестр**.
   1. Задайте имя реестра `github-action`.
-  1. Нажмите **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
+  1. Нажмите **Создать реестр**.
   1. Сохраните идентификатор созданного реестра, он понадобится в дальнейшем.
 
 - CLI {#cli}
@@ -154,39 +154,39 @@
 
 ## Создайте репозиторий {#create-repository-sc}
 
-Репозиторий будет создан из шаблона [yc-ci-cd-serverless]({{ link-src-main }}/sourcecraft/yc-ci-cd-serverless). В репозитории будут храниться `Dockerfile` и вспомогательные файлы для создания Docker-образа, а также настройки CI/CD-процесса.
+Репозиторий будет создан из шаблона [yc-ci-cd-serverless](https://sourcecraft.dev/sourcecraft/yc-ci-cd-serverless). В репозитории будут храниться `Dockerfile` и вспомогательные файлы для создания Docker-образа, а также настройки CI/CD-процесса.
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ src-name }} {#src}
+- Интерфейс SourceCraft {#src}
 
-  1. Откройте [главную страницу сервиса]({{ link-src-main }}).
-  1. На панели слева нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.sourcecraft.mainApp.route_create-repository_4e8Ef }}**.
-  1. В открывшемся окне выберите **{{ ui-key.sourcecraft.repoCreate.title_create-blank_2CxnQ }}**.
-  1. В блоке **{{ ui-key.sourcecraft.repoCreate.title_new-repo-details_riAaE }}**:
-      * В поле **{{ ui-key.sourcecraft.repoCreate.title_owner-field_7gbCn }}** выберите [организацию]({{ link-src-docs }}/sourcecraft/concepts/#org), в которой вы создали сервисный аккаунт в {{ yandex-cloud }}.
-      * В поле **{{ ui-key.sourcecraft.repoCreate.title_repo-field_p5MD3 }}** укажите название репозитория. 
+  1. Откройте [главную страницу сервиса](https://sourcecraft.dev).
+  1. На панели слева нажмите ![image](../../_assets/console-icons/plus.svg) **Создать репозиторий**.
+  1. В открывшемся окне выберите **Пустой репозиторий**.
+  1. В блоке **Сведения о новом репозитории**:
+      * В поле **Владелец** выберите [организацию](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/#org), в которой вы создали сервисный аккаунт в Yandex Cloud.
+      * В поле **Название** укажите название репозитория. 
 
         Название должно быть уникальным в пределах организации и может содержать следующие [ASCII-символы](https://ru.wikipedia.org/wiki/ASCII): строчные и заглавные буквы латинского алфавита, цифры, запятые, дефисы и подчеркивания.
 
         Под названием отображается адрес, по которому репозиторий будет доступен.
 
-      * (опционально) В поле **{{ ui-key.sourcecraft.repoSettings.field_description_1274t }}** укажите описание репозитория.
+      * (опционально) В поле **Описание** укажите описание репозитория.
 
-  1. В блоке **{{ ui-key.sourcecraft.repoCreate.section_template_vc5Jc }}** нажмите **{{ ui-key.sourcecraft.repoCreate.button_browse-templates_bP3xB }}**, выберите шаблон [yc-ci-cd-serverless]({{ link-src-main }}/sourcecraft/yc-ci-cd-serverless) и нажмите **{{ ui-key.sourcecraft.repo.button_use-template_ttBnP }}**.
+  1. В блоке **Шаблон репозитория** нажмите **Просмотр шаблонов**, выберите шаблон [yc-ci-cd-serverless](https://sourcecraft.dev/sourcecraft/yc-ci-cd-serverless) и нажмите **Использовать шаблон**.
 
-      Чтобы посмотреть содержимое шаблона, нажмите **{{ ui-key.sourcecraft.repoCreate.button_preview-template_2WJAq }}**.
+      Чтобы посмотреть содержимое шаблона, нажмите **Предварительный просмотр**.
 
       В шаблоне содержатся:
-      * файл [.sourcecraft/ci.yaml]({{ link-src-main }}/sourcecraft/yc-ci-cd-serverless/browse/.sourcecraft/ci.yaml) с предустановленной конфигурацией CI/CD-процесса, который запускается при создании коммита и выполняет следующее:
-        * Получает IAM-токен {{ yandex-cloud }} с помощью сервисного подключения с именем `default-service-connection`.
-        * Устанавливает в окружение [воркера]({{ link-src-docs }}/sourcecraft/concepts/ci-cd#workers) утилиту [Docker Buildx](https://github.com/docker/buildx) с помощью GitHub Action [Docker Setup Buildx](https://github.com/marketplace/actions/docker-setup-buildx).
-        * Аутентифицируется в {{ container-registry-name }} с помощью GitHub Action [Docker Login](https://github.com/marketplace/actions/docker-login) и IAM-токена {{ yandex-cloud }}.
-        * Собирает Docker-образ из `Dockerfile`, размещенного в корне репозитория, и отправляет образ в {{ container-registry-name }} с помощью GitHub Action [Build and push Docker images](https://github.com/marketplace/actions/build-and-push-docker-images).
-        * Разворачивает контейнер в {{ serverless-containers-name }} из собранного Docker-образа.
-      * файлы [Dockerfile]({{ link-src-main }}/sourcecraft/yc-ci-cd-serverless/browse/Dockerfile), [index.html]({{ link-src-main }}/sourcecraft/yc-ci-cd-serverless/browse/index.html) и [docker/nginx/conf.d/default.conf]({{ link-src-main }}/sourcecraft/yc-ci-cd-serverless/browse/docker/nginx/conf.d/default.conf) с конфигурацией контейнера со статическим веб‑приложением на базе [Nginx](https://nginx.org/{{ lang }}/).
+      * файл [.sourcecraft/ci.yaml](https://sourcecraft.dev/sourcecraft/yc-ci-cd-serverless/browse/.sourcecraft/ci.yaml) с предустановленной конфигурацией CI/CD-процесса, который запускается при создании коммита и выполняет следующее:
+        * Получает IAM-токен Yandex Cloud с помощью сервисного подключения с именем `default-service-connection`.
+        * Устанавливает в окружение [воркера](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/ci-cd#workers) утилиту [Docker Buildx](https://github.com/docker/buildx) с помощью GitHub Action [Docker Setup Buildx](https://github.com/marketplace/actions/docker-setup-buildx).
+        * Аутентифицируется в Container Registry с помощью GitHub Action [Docker Login](https://github.com/marketplace/actions/docker-login) и IAM-токена Yandex Cloud.
+        * Собирает Docker-образ из `Dockerfile`, размещенного в корне репозитория, и отправляет образ в Container Registry с помощью GitHub Action [Build and push Docker images](https://github.com/marketplace/actions/build-and-push-docker-images).
+        * Разворачивает контейнер в Serverless Containers из собранного Docker-образа.
+      * файлы [Dockerfile](https://sourcecraft.dev/sourcecraft/yc-ci-cd-serverless/browse/Dockerfile), [index.html](https://sourcecraft.dev/sourcecraft/yc-ci-cd-serverless/browse/index.html) и [docker/nginx/conf.d/default.conf](https://sourcecraft.dev/sourcecraft/yc-ci-cd-serverless/browse/docker/nginx/conf.d/default.conf) с конфигурацией контейнера со статическим веб‑приложением на базе [Nginx](https://nginx.org/ru/).
 
-  1. Нажмите **{{ ui-key.sourcecraft.repoCreate.button_create-repo_nMrwv }}**.
+  1. Нажмите **Создать репозиторий**.
 
 {% endlist %}
 
@@ -194,39 +194,39 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ src-name }} {#src}
+- Интерфейс SourceCraft {#src}
 
-  1. Откройте [главную страницу]({{ link-src-main }}) {{ src-name }}.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/briefcase.svg) **{{ ui-key.sourcecraft.lib.organizations_5CjkW }}**.
-  1. Выберите организацию, в которой вы создали сервисный аккаунт в {{ yandex-cloud }}.
-  1. На странице организации в разделе ![image](../../_assets/console-icons/gear.svg) **{{ ui-key.sourcecraft.lib.settings_cwUYS }}** перейдите в секцию ![image](../../_assets/console-icons/cloud-nut-hex.svg) **{{ ui-key.sourcecraft.mainApp.route_service-connections_2PPgz }}**.
-  1. Нажмите **{{ ui-key.sourcecraft.serviceConnections.button_add-connection_6Bj7i }}**.
-  1. В блоке **{{ ui-key.sourcecraft.serviceConnections.section_basic_wmaiy }}** укажите имя сервисного подключения `default-service-connection`.
-  1. В блоке **{{ ui-key.sourcecraft.serviceConnections.section_scope_9gXcu }}** выберите созданный ранее репозиторий.
-  1. В блоке **{{ ui-key.sourcecraft.serviceConnections.section_cloud-settings_tDMfn }}** выберите:
+  1. Откройте [главную страницу](https://sourcecraft.dev) SourceCraft.
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/briefcase.svg) **Организации**.
+  1. Выберите организацию, в которой вы создали сервисный аккаунт в Yandex Cloud.
+  1. На странице организации в разделе ![image](../../_assets/console-icons/gear.svg) **Настройки** перейдите в секцию ![image](../../_assets/console-icons/cloud-nut-hex.svg) **Сервисные подключения**.
+  1. Нажмите **Новое сервисное подключение**.
+  1. В блоке **Базовая информация** укажите имя сервисного подключения `default-service-connection`.
+  1. В блоке **Область применения** выберите созданный ранее репозиторий.
+  1. В блоке **Настройки Yandex Cloud** выберите:
 
       * Каталог, в котором ранее вы развернули облачную инфраструктуру и назначили роль сервисному аккаунту.
       * Сервисный аккаунт `github-action`.
 
         {% note tip %}
         
-        Чтобы повторно запросить список облаков, каталогов и сервисных аккаунтов из {{ yandex-cloud }}, нажмите ![image](../../_assets/console-icons/arrow-rotate-right.svg) **Синхронизировать**. Это может быть полезно, если параллельно с созданием сервисного подключения вы создали каталог или сервисный аккаунт.
+        Чтобы повторно запросить список облаков, каталогов и сервисных аккаунтов из Yandex Cloud, нажмите ![image](../../_assets/console-icons/arrow-rotate-right.svg) **Синхронизировать**. Это может быть полезно, если параллельно с созданием сервисного подключения вы создали каталог или сервисный аккаунт.
         
         {% endnote %}
 
-  1. Нажмите **{{ ui-key.sourcecraft.serviceConnections.button_create-connection_uyK29 }}**.
+  1. Нажмите **Создать сервисное подключение**.
 
 {% endlist %}
 
 Дождитесь окончания операции. На открывшейся странице будут представлены детали сервисного подключения.
 
-В {{ yandex-cloud }} будет автоматически создана [федерация сервисных аккаунтов](../../iam/concepts/workload-identity.md) {{ iam-full-name }}.
+В Yandex Cloud будет автоматически создана [федерация сервисных аккаунтов](../../iam/concepts/workload-identity.md) Yandex Identity and Access Management.
 
-Чтобы посмотреть параметры созданного OIDC-провайдера, в блоке ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.sourcecraft.serviceConnections.title_oidc-federation_eC6Jw }}** нажмите на имя федерации.
+Чтобы посмотреть параметры созданного OIDC-провайдера, в блоке ![image](../../_assets/console-icons/cpus.svg) **Федерация cервисных аккаунтов** нажмите на имя федерации.
 
 {% note info %}
 
-Вы также можете создать сервисное подключение на уровне репозитория. В этом случае оно будет доступно только для этого репозитория. Подробнее см. в разделе [{#T}]({{ link-src-docs }}/sourcecraft/operations/service-connections#create-service-connection).
+Вы также можете создать сервисное подключение на уровне репозитория. В этом случае оно будет доступно только для этого репозитория. Подробнее см. в разделе [{#T}](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/service-connections#create-service-connection).
 
 {% endnote %}
 
@@ -234,26 +234,26 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ src-name }} {#src}
+- Интерфейс SourceCraft {#src}
 
-  1. Откройте [главную страницу]({{ link-src-main }}) {{ src-name }}.
-  1. На вкладке ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.lib.home_t2KmK }}** в секции ![image](../../_assets/console-icons/layout-tabs.svg) **{{ ui-key.sourcecraft.orgCommon.link_your-craftspace_bHYz8 }}** перейдите в раздел ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.lib.repositories_vLJYc }}**.
+  1. Откройте [главную страницу](https://sourcecraft.dev) SourceCraft.
+  1. На вкладке ![image](../../_assets/console-icons/house.svg) **Домой** в секции ![image](../../_assets/console-icons/layout-tabs.svg) **Ваша мастерская** перейдите в раздел ![image](../../_assets/console-icons/archive.svg) **Репозитории**.
   1. Выберите созданный ранее репозиторий.
   1. Выберите файл `.sourcecraft/ci.yaml`.
   1. В правом верхнем углу нажмите ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. В параметре `YC_DOCKER_REGISTRY_URI` укажите идентификатор созданного [ранее](#create-registry) реестра:
 
       ```yaml
-      YC_DOCKER_REGISTRY_URI: {{ registry }}/<идентификатор_реестра>
+      YC_DOCKER_REGISTRY_URI: cr.yandex/<идентификатор_реестра>
       ```
 
-  1. В правом верхнем углу нажмите **{{ ui-key.sourcecraft.repo.action_commit_brj4B }}**.
+  1. В правом верхнем углу нажмите **Сохранить изменения**.
   1. Сделайте коммит:
 
       1. Введите сообщение об изменениях.
-      1. В блоке **{{ ui-key.sourcecraft.repo.field_commit-branch_d1Mzi }}** выберите **{{ ui-key.sourcecraft.repo.field_text_commit-directly-to-the-branch_mBfk8 }} main**.
-      1. В блоке **{{ ui-key.sourcecraft.repo.field_after-commit-action_mKjo4 }}** выберите **{{ ui-key.sourcecraft.repo.option_just-commit_to5sC }}**.
-      1. Нажмите **{{ ui-key.sourcecraft.repo.button_commit_si86H }}**.
+      1. В блоке **Ветка изменений** выберите **Сохранить непосредственно в ветку: main**.
+      1. В блоке **Действие после сохранения изменений** выберите **Просто сохранить**.
+      1. Нажмите **Сохранить изменения**.
 
 {% endlist %}
 
@@ -263,13 +263,13 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ src-name }} {#src}
+- Интерфейс SourceCraft {#src}
 
-  1. Откройте [главную страницу]({{ link-src-main }}) {{ src-name }}.
-  1. На вкладке ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.lib.home_t2KmK }}** в секции ![image](../../_assets/console-icons/layout-tabs.svg) **{{ ui-key.sourcecraft.orgCommon.link_your-craftspace_bHYz8 }}** перейдите в раздел ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.lib.repositories_vLJYc }}**.
+  1. Откройте [главную страницу](https://sourcecraft.dev) SourceCraft.
+  1. На вкладке ![image](../../_assets/console-icons/house.svg) **Домой** в секции ![image](../../_assets/console-icons/layout-tabs.svg) **Ваша мастерская** перейдите в раздел ![image](../../_assets/console-icons/archive.svg) **Репозитории**.
   1. Выберите созданный ранее репозиторий.
-  1. На странице репозитория в разделе ![image](../../_assets/console-icons/code.svg) **{{ ui-key.sourcecraft.repo.title_navigation-code_8bgjg }}** перейдите в секцию ![image](../../_assets/console-icons/arrows-3-rotate-right.svg) **{{ ui-key.sourcecraft.repo.action_cicd_4jypo }}**.
-  1. В списке запусков автоматизаций вы увидите новый запуск. Дождитесь, когда статус изменится на ![image](../../_assets/console-icons/circle-check.svg) **{{ ui-key.sourcecraft.cicd.value_succeeded_3Dd8C }}**.
+  1. На странице репозитория в разделе ![image](../../_assets/console-icons/code.svg) **Код** перейдите в секцию ![image](../../_assets/console-icons/arrows-3-rotate-right.svg) **CI/CD**.
+  1. В списке запусков автоматизаций вы увидите новый запуск. Дождитесь, когда статус изменится на ![image](../../_assets/console-icons/circle-check.svg) **Успех**.
 
 {% endlist %}
 
@@ -279,11 +279,11 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Serverless Containers**.
   1. В списке должен появиться контейнер `demo-serverless-container1`, выберите его.
 
-      В блоке **{{ ui-key.yacloud.serverless-containers.section-revisions }}** должна появиться ревизия контейнера, по времени создания соответствующая времени [запуска CI/CD-процесса](#check-ci-cd).
+      В блоке **Ревизии** должна появиться ревизия контейнера, по времени создания соответствующая времени [запуска CI/CD-процесса](#check-ci-cd).
 
 - CLI {#cli}
 
@@ -302,7 +302,7 @@
   +----------------------+----------------------+--------------------------------------------------------+---------------------+
   |          ID          |     CONTAINER ID     |                 IMAGE                                  |     CREATED AT      |
   +----------------------+----------------------+--------------------------------------------------------+---------------------+
-  | bba27hejd69a******** | bba83i1mrb5s******** | {{ registry }}/yc/serverless/demo-serverless-container1     | 2025-10-04 09:38:14 |
+  | bba27hejd69a******** | bba83i1mrb5s******** | cr.yandex/yc/serverless/demo-serverless-container1     | 2025-10-04 09:38:14 |
   +----------------------+----------------------+--------------------------------------------------------+---------------------+
   ```
 
@@ -321,12 +321,12 @@
 
 ## См. также {#see-also}
 
-* [Настроить CI/CD между {{ src-name }} и {{ sf-full-name }}](../../tutorials/serverless/ci-cd-sourcecraft-functions.md)
-* [Сервисные подключения]({{ link-src-docs }}/sourcecraft/concepts/service-connections)
-* [Настроить в {{ src-name }} сервисное подключение к {{ yandex-cloud }}]({{ link-src-docs }}/sourcecraft/operations/service-connections)
-* [Интеграция с GitHub Actions в {{ src-name }}]({{ link-src-docs }}/sourcecraft/concepts/gh-actions)
-* [Использовать GitHub Actions в CI/CD {{ src-full-name }}]({{ link-src-docs }}/sourcecraft/operations/gh-actions)
-* [Пайплайны {{ GL }} в CI/CD {{ src-name }}]({{ link-src-docs }}/sourcecraft/concepts/gl-pipelines)
-* [Использовать пайплайн {{ GL }} в CI/CD {{ src-name }}]({{ link-src-docs }}/sourcecraft/operations/gl-pipelines)
-* [Репозиторий serverless-functions в {{ src-name }}]({{ link-src-main }}/yandex-cloud-examples/serverless-functions)
-* [Репозиторий yc-ci-cd-serverless в {{ src-name }}]({{ link-src-main }}/sourcecraft/yc-ci-cd-serverless)
+* [Настроить CI/CD между SourceCraft и Yandex Cloud Functions](../../tutorials/serverless/ci-cd-sourcecraft-functions.md)
+* [Сервисные подключения](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/service-connections)
+* [Настроить в SourceCraft сервисное подключение к Yandex Cloud](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/service-connections)
+* [Интеграция с GitHub Actions в SourceCraft](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/gh-actions)
+* [Использовать GitHub Actions в CI/CD SourceCraft](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/gh-actions)
+* [Пайплайны GitLab в CI/CD SourceCraft](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/gl-pipelines)
+* [Использовать пайплайн GitLab в CI/CD SourceCraft](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/gl-pipelines)
+* [Репозиторий serverless-functions в SourceCraft](https://sourcecraft.dev/yandex-cloud-examples/serverless-functions)
+* [Репозиторий yc-ci-cd-serverless в SourceCraft](https://sourcecraft.dev/sourcecraft/yc-ci-cd-serverless)

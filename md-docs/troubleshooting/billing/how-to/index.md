@@ -1,6 +1,6 @@
-## Примеры конфигураций и сценариев {{ billing-name }} {#configuration-examples}
+## Примеры конфигураций и сценариев Yandex Cloud Billing {#configuration-examples}
 
-* [Как работают гранты и промокоды в {{ billing-name }}](promocodes-and-grants-features-in-billing.md)
+* [Как работают гранты и промокоды в Yandex Cloud Billing](promocodes-and-grants-features-in-billing.md)
 * [Как изменить информацию, указанную в свойствах платежного аккаунта](change-payer-info-or-requisites.md)
 * [Как сменить тип платежного аккаунта](changing-billing-account-type.md)
 * [Как изменить форму и данные в выставляемых счетах на оплату](edit-invoice-template-or-content.md)

@@ -5,7 +5,7 @@ Retrieves the list of the affected images.
 ## HTTP request
 
 ```
-GET https://container-registry.{{ api-host }}/container-registry/v1/dryRunLifecyclePolicyResults/{dryRunLifecyclePolicyResultId}:affectedImages
+GET https://container-registry.api.cloud.yandex.net/container-registry/v1/dryRunLifecyclePolicyResults/{dryRunLifecyclePolicyResultId}:affectedImages
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Creates a bucket in the specified folder.
 ## HTTP request
 
 ```
-POST https://storage.{{ api-host }}/storage/v1/buckets
+POST https://storage.api.cloud.yandex.net/storage/v1/buckets
 ```
 
 ## Body parameters {#yandex.cloud.storage.v1.CreateBucketRequest}

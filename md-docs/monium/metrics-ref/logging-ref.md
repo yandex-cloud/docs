@@ -1,10 +1,10 @@
-# Метрики {{ cloud-logging-full-name }}
+# Метрики Monium Logs
 
-В этом разделе описаны метрики сервиса [{{ cloud-logging-name }}](../../logging/index.md), поставляемые в {{ monitoring-name }}.
+В этом разделе описаны метрики сервиса [Monium Logs](../../logging/index.md), поставляемые в Monium Metrics.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса {{ cloud-logging-name }}:
+Общие метки для всех метрик сервиса Monium Logs:
 
 Метка | Значение
 ----|----

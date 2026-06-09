@@ -5,7 +5,7 @@ Deletes the specified lifecycle policy.
 ## HTTP request
 
 ```
-DELETE https://container-registry.{{ api-host }}/container-registry/v1/lifecyclePolicies/{lifecyclePolicyId}
+DELETE https://container-registry.api.cloud.yandex.net/container-registry/v1/lifecyclePolicies/{lifecyclePolicyId}
 ```
 
 ## Path parameters

@@ -3,7 +3,7 @@
 ## HTTP request
 
 ```
-GET https://cic.{{ api-host }}/cic/v1/publicConnections/{publicConnectionId}/operations
+GET https://cic.api.cloud.yandex.net/cic/v1/publicConnections/{publicConnectionId}/operations
 ```
 
 ## Path parameters

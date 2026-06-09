@@ -6,7 +6,7 @@ To get the list of available MongoDB Cluster resources, make a [List](../../../m
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}
+GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}
 ```
 
 ## Path parameters

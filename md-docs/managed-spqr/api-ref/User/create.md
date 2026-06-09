@@ -5,7 +5,7 @@ Creates a SPQR user in the specified cluster.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}/users
+POST https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/{clusterId}/users
 ```
 
 ## Path parameters

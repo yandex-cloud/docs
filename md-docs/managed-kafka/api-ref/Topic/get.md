@@ -7,7 +7,7 @@ To get the list of available Kafka topics, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/topics/{topicName}
+GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/topics/{topicName}
 ```
 
 ## Path parameters

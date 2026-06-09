@@ -2,7 +2,7 @@
 
 # Обзор платформы
 
-## Платформа {{ yandex-cloud }}
+## Платформа Yandex Cloud
 
  - [Архитектура платформы](architecture.md)
 
@@ -24,15 +24,15 @@
 
  - [Разграничение зон контроля в MDB](concepts/mdb-responsibilities.md)
 
- - [Разграничение зон контроля в {{ managed-k8s-name }}](concepts/kubernetes-responsibilities.md)
+ - [Разграничение зон контроля в Managed Service for Kubernetes](concepts/kubernetes-responsibilities.md)
 
- - [Разграничение зон контроля в {{ dataproc-name }}](concepts/data-processing-responsibilities.md)
+ - [Разграничение зон контроля в Yandex Data Processing](concepts/data-processing-responsibilities.md)
 
  - [Удаление данных пользователей](concepts/data-deletion.md)
 
  - [Получение сведений для запроса на включение ресурса в белый список Минцифры](concepts/info-for-federal-ip-whitelist.md)
 
-## Сервисы {{ yandex-cloud }}
+## Сервисы Yandex Cloud
 
  - [Список сервисов](concepts/services.md)
 
@@ -62,7 +62,7 @@
 
  - [Начало работы](sdk/quickstart.md)
 
- - [Работа с {{ yandex-cloud }} CLI и API в Microsoft Windows](concepts/console-syntax-guide.md)
+ - [Работа с Yandex Cloud CLI и API в Microsoft Windows](concepts/console-syntax-guide.md)
 
 ## Сопоставление с другими платформами
 

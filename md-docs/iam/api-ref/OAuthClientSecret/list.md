@@ -5,7 +5,7 @@ Retrieves the list of OAuthClientSecret resources of the specified OAuthClient.
 ## HTTP request
 
 ```
-GET https://iam.{{ api-host }}/iam/v1/oauthClientSecrets
+GET https://iam.api.cloud.yandex.net/iam/v1/oauthClientSecrets
 ```
 
 ## Query parameters {#yandex.cloud.iam.v1.ListOAuthClientSecretsRequest}

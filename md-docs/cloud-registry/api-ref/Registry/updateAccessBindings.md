@@ -5,7 +5,7 @@ Updates access bindings for the specified registry.
 ## HTTP request
 
 ```
-POST https://registry.{{ api-host }}/cloud-registry/v1/registries/{resourceId}:updateAccessBindings
+POST https://registry.api.cloud.yandex.net/cloud-registry/v1/registries/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

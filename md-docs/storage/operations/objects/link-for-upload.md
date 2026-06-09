@@ -2,7 +2,7 @@
 
 Если у вас публичный бакет, загрузка объектов доступна всегда, даже если для бакета не настроен [хостинг сайта](../../concepts/hosting.md). Ссылку можно получить по этой инструкции либо сформировать самостоятельно. [Подробнее про формат ссылки](../../concepts/object.md#object-url).
 
-Если у вас бакет с ограниченным доступом, то {{ objstorage-name }} позволяет сгенерировать подписанную ссылку на загрузку объекта. Любой человек, получивший эту ссылку, сможет загрузить объект даже в бакет с ограниченным доступом. [Подробнее про подписанные ссылки, их генерацию и использование](../../concepts/pre-signed-urls.md).
+Если у вас бакет с ограниченным доступом, то Object Storage позволяет сгенерировать подписанную ссылку на загрузку объекта. Любой человек, получивший эту ссылку, сможет загрузить объект даже в бакет с ограниченным доступом. [Подробнее про подписанные ссылки, их генерацию и использование](../../concepts/pre-signed-urls.md).
 
 {% note info %}
 
@@ -12,9 +12,9 @@
 
 {% list tabs group=instructions %}
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
   
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   
@@ -40,13 +40,13 @@
      +------------------+----------------------+-------------+-----------------------+---------------------+
      ```
   
-  1. Сгенерируйте подписанную ссылку. Вы можете сделать это либо с помощью API {{ yandex-cloud }} от имени [аккаунта](../../../iam/concepts/users/accounts.md), аутентифицированного в текущий момент в профиле {{ yandex-cloud }} CLI, либо локально от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), передав в команде данные его [статического ключа доступа](../../../iam/concepts/authorization/access-key.md).
+  1. Сгенерируйте подписанную ссылку. Вы можете сделать это либо с помощью API Yandex Cloud от имени [аккаунта](../../../iam/concepts/users/accounts.md), аутентифицированного в текущий момент в профиле Yandex Cloud CLI, либо локально от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), передав в команде данные его [статического ключа доступа](../../../iam/concepts/authorization/access-key.md).
   
       {% list tabs %}
   
-      - С помощью API {{ yandex-cloud }}
+      - С помощью API Yandex Cloud
   
-        Чтобы сгенерировать подписанную ссылку на загрузку объекта от имени аккаунта, аутентифицированного в текущий момент в профиле {{ yandex-cloud }} CLI, выполните команду:
+        Чтобы сгенерировать подписанную ссылку на загрузку объекта от имени аккаунта, аутентифицированного в текущий момент в профиле Yandex Cloud CLI, выполните команду:
   
         ```bash
         yc storage s3 presign \
@@ -65,7 +65,7 @@
         Результат:
   
         ```text
-        https://{{ s3-storage-host }}/first-bucket/sample.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEwkbVN5BKvE2wqYiZCzlQ%2F20260205%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20260205T131200Z&X-Amz-Expires=3600&X-Amz-Signature=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&X-Amz-SignedHeaders=host
+        https://storage.yandexcloud.net/first-bucket/sample.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEwkbVN5BKvE2wqYiZCzlQ%2F20260205%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20260205T131200Z&X-Amz-Expires=3600&X-Amz-Signature=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&X-Amz-SignedHeaders=host
         ```
   
       - Локально
@@ -95,7 +95,7 @@
         Результат:
   
         ```text
-        https://{{ s3-storage-host }}/first-bucket/sample.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJE98uTrKJwAtqwrHJXNh5L%2F20250904%2Fdefault%2Fs3%2Faws4_request&X-Amz-Date=20250904T072650Z&X-Amz-Expires=36000&X-Amz-SignedHeaders=host&x-id=PutObject&X-Amz-Signature=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        https://storage.yandexcloud.net/first-bucket/sample.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJE98uTrKJwAtqwrHJXNh5L%2F20250904%2Fdefault%2Fs3%2Faws4_request&X-Amz-Date=20250904T072650Z&X-Amz-Expires=36000&X-Amz-SignedHeaders=host&x-id=PutObject&X-Amz-Signature=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
         ```
   
       {% endlist %}
@@ -117,7 +117,7 @@
      ```bash
      curl --request PUT \
        --upload-file ~/sample.txt \
-       "https://{{ s3-storage-host }}/first-bucket/sample.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEwkbVN5BKvE2wqYiZCzlQ%2F20260205%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20260205T131200Z&X-Amz-Expires=3600&X-Amz-Signature=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&X-Amz-SignedHeaders=host"
+       "https://storage.yandexcloud.net/first-bucket/sample.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEwkbVN5BKvE2wqYiZCzlQ%2F20260205%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20260205T131200Z&X-Amz-Expires=3600&X-Amz-Signature=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&X-Amz-SignedHeaders=host"
      ```
   
      Если файл успешно загружен, команда не выведет никакого сообщения. Чтобы увидеть детали запроса, добавьте флаг `--verbose`.
@@ -129,9 +129,9 @@
   ```bash
   export AWS_ACCESS_KEY_ID="<идентификатор_статического_ключа>"
   export AWS_SECRET_ACCESS_KEY="<секретный_ключ>"
-  export AWS_DEFAULT_REGION="{{ region-id }}"
-  export AWS_REGION="{{ region-id }}"
-  export AWS_ENDPOINT_URL="https://{{ s3-storage-host }}"
+  export AWS_DEFAULT_REGION="ru-central1"
+  export AWS_REGION="ru-central1"
+  export AWS_ENDPOINT_URL="https://storage.yandexcloud.net"
   ```
   
   Где:
@@ -198,11 +198,11 @@
   ```json
   Подписанная ссылка и данные для загрузки созданы успешно:
   {
-      "url": "https://{{ s3-storage-host }}/my-sample-bucket",
+      "url": "https://storage.yandexcloud.net/my-sample-bucket",
       "fields": {
           "key": "new-prefix/sample-object.txt",
           "x-amz-algorithm": "AWS4-HMAC-SHA256",
-          "x-amz-credential": "YCAJE98uTrKJwAtqw********/20250516/{{ region-id }}/s3/aws4_request",
+          "x-amz-credential": "YCAJE98uTrKJwAtqw********/20250516/ru-central1/s3/aws4_request",
           "x-amz-date": "20250516T145901Z",
           "policy": "eyJleHBpcmF0aW9uIjogIjIwMjUtMDUtMTZUMTU6NTk6MDFaIiwgImNvbmRpdGlvbnMiOiBbWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsIDEsIDUyNDI4ODBdLCB7ImJ1Y2tldCI6ICJhbHRhcmFza2luLXRlc3Rlci1idWNrZXQifSwgeyJrZXkiOiAiZmlsZS50eHQifSwgeyJ4LWFtei1hbGdvcml0aG0iOiAiQVdTNC1ITUFDLVNIQTI1NiJ9LCB7IngtYW16LWNyZWRlbnRpYWwiOiAiWUNBSkU5OHVUcktKd0F0cXdySEpYTmg1TC8yMDI1MDUxNi9ydS1jZW50cmFsMS9zMy9hd3M0X3JlcXVlc3QifSwgeyJ4LWFtei1kYXRlIjogIjIwMjUwNTE2VDE0NTkw********",
           "x-amz-signature": "c2e1783095d20d89a7683fc582527740541de16156569d9950cfb1b7********"
@@ -217,12 +217,12 @@
     --request POST \
     --form "key=new-prefix/sample-object.txt" \
     --form "x-amz-algorithm=AWS4-HMAC-SHA256" \
-    --form "x-amz-credential=YCAJE98uTrKJwAtqw********/20250516/{{ region-id }}/s3/aws4_request" \
+    --form "x-amz-credential=YCAJE98uTrKJwAtqw********/20250516/ru-central1/s3/aws4_request" \
     --form "x-amz-date=20250516T145901Z" \
     --form "policy=eyJleHBpcmF0aW9uIjogIjIwMjUtMDUtMTZUMTU6NTk6MDFaIiwgImNvbmRpdGlvbnMiOiBbWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsIDEsIDUyNDI4ODBdLCB7ImJ1Y2tldCI6ICJhbHRhcmFza2luLXRlc3Rlci1idWNrZXQifSwgeyJrZXkiOiAiZmlsZS50eHQifSwgeyJ4LWFtei1hbGdvcml0aG0iOiAiQVdTNC1ITUFDLVNIQTI1NiJ9LCB7IngtYW16LWNyZWRlbnRpYWwiOiAiWUNBSkU5OHVUcktKd0F0cXdySEpYTmg1TC8yMDI1MDUxNi9ydS1jZW50cmFsMS9zMy9hd3M0X3JlcXVlc3QifSwgeyJ4LWFtei1kYXRlIjogIjIwMjUwNTE2VDE0NTkw********" \
     --form "x-amz-signature=c2e1783095d20d89a7683fc582527740541de16156569d9950cfb1b7********" \
     --form "file=@sample-object.txt" \
-    https://{{ s3-storage-host }}/my-sample-bucket
+    https://storage.yandexcloud.net/my-sample-bucket
   ```
   
   Где `@sample-object.txt` — путь к файлу, который нужно загрузить.
@@ -248,9 +248,9 @@
   ```bash
   export AWS_ACCESS_KEY_ID="<идентификатор_статического_ключа>"
   export AWS_SECRET_ACCESS_KEY="<секретный_ключ>"
-  export AWS_DEFAULT_REGION="{{ region-id }}"
-  export AWS_REGION="{{ region-id }}"
-  export AWS_ENDPOINT_URL="https://{{ s3-storage-host }}"
+  export AWS_DEFAULT_REGION="ru-central1"
+  export AWS_REGION="ru-central1"
+  export AWS_ENDPOINT_URL="https://storage.yandexcloud.net"
   ```
   
   Где:
@@ -295,11 +295,11 @@
   
   ```txt
   {
-    url: 'https://my-sample-bucket.{{ s3-storage-host }}/',
+    url: 'https://my-sample-bucket.storage.yandexcloud.net/',
     fields: {
       bucket: 'my-sample-bucket',
       'X-Amz-Algorithm': 'AWS4-HMAC-SHA256',
-      'X-Amz-Credential': 'YCAJE98uTrKJwAtqw********/20250516/{{ region-id }}/s3/aws4_request',
+      'X-Amz-Credential': 'YCAJE98uTrKJwAtqw********/20250516/ru-central1/s3/aws4_request',
       'X-Amz-Date': '20250516T210215Z',
       key: 'new-prefix/sample-object.txt',
       Policy: 'eyJleHBpcmF0aW9uIjoiMjAyNS0wNS0xNlQyMjowMjoxNVoiLCJjb25kaXRpb25zIjpbWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMSw1MjQyODgwXSx7ImJ1Y2tldCI6ImFsdGFyYXNraW4tdGVzdGVyLWJ1Y2tldCJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IllDQUpFOTh1VHJLSndBdHF3ckhKWE5oNUwvMjAyNTA1MTYvcnUtY2VudHJhbDEvczMvYXdzNF9yZXF1ZXN0In0seyJYLUFtei1EYXRlIjoiMjAyNTA1MTZUMjEwMjE1WiJ9LHsia2V5IjoiZmlsZS50********',
@@ -315,12 +315,12 @@
     --request POST \
     --form "key=new-prefix/sample-object.txt" \
     --form "x-amz-algorithm=AWS4-HMAC-SHA256" \
-    --form "x-amz-credential=YCAJE98uTrKJwAtqw********/20250516/{{ region-id }}/s3/aws4_request" \
+    --form "x-amz-credential=YCAJE98uTrKJwAtqw********/20250516/ru-central1/s3/aws4_request" \
     --form "x-amz-date=20250516T145901Z" \
     --form "policy=eyJleHBpcmF0aW9uIjogIjIwMjUtMDUtMTZUMTU6NTk6MDFaIiwgImNvbmRpdGlvbnMiOiBbWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsIDEsIDUyNDI4ODBdLCB7ImJ1Y2tldCI6ICJhbHRhcmFza2luLXRlc3Rlci1idWNrZXQifSwgeyJrZXkiOiAiZmlsZS50eHQifSwgeyJ4LWFtei1hbGdvcml0aG0iOiAiQVdTNC1ITUFDLVNIQTI1NiJ9LCB7IngtYW16LWNyZWRlbnRpYWwiOiAiWUNBSkU5OHVUcktKd0F0cXdySEpYTmg1TC8yMDI1MDUxNi9ydS1jZW50cmFsMS9zMy9hd3M0X3JlcXVlc3QifSwgeyJ4LWFtei1kYXRlIjogIjIwMjUwNTE2VDE0NTkw********" \
     --form "x-amz-signature=c2e1783095d20d89a7683fc582527740541de16156569d9950cfb1b7********" \
     --form "file=@sample-object.txt" \
-    https://{{ s3-storage-host }}/my-sample-bucket
+    https://storage.yandexcloud.net/my-sample-bucket
   ```
   
   Где `@sample-object.txt` — путь к файлу, который нужно загрузить.
@@ -346,9 +346,9 @@
   ```bash
   export AWS_ACCESS_KEY_ID="<идентификатор_статического_ключа>"
   export AWS_SECRET_ACCESS_KEY="<секретный_ключ>"
-  export AWS_DEFAULT_REGION="{{ region-id }}"
-  export AWS_REGION="{{ region-id }}"
-  export AWS_ENDPOINT_URL="https://{{ s3-storage-host }}"
+  export AWS_DEFAULT_REGION="ru-central1"
+  export AWS_REGION="ru-central1"
+  export AWS_ENDPOINT_URL="https://storage.yandexcloud.net"
   ```
   
   Где:
@@ -421,11 +421,11 @@
   Результат:
   
   ```text
-  url: https://my-sample-bucket.{{ s3-storage-host }}
+  url: https://my-sample-bucket.storage.yandexcloud.net
   values:
   X-Amz-Algorithm=AWS4-HMAC-SHA256
   X-Amz-Date=20250516T152552Z
-  X-Amz-Credential=YCAJE98uTrKJwAtqw********/20250516/{{ region-id }}/s3/aws4_request
+  X-Amz-Credential=YCAJE98uTrKJwAtqw********/20250516/ru-central1/s3/aws4_request
   X-Amz-Signature=9371b1924dd468a9be6b57868565ad5f99cdc7edc3b56589bea3dbfa********
   key=new-prefix/sample-object.txt
   policy=eyJjb25kaXRpb25zIjpbeyJYLUFtei1BbGdvcml0aG0iOiJBV1M0LUhNQUMtU0hBMjU2In0seyJidWNrZXQiOiJhbHRhcmFza2luLXRlc3Rlci1idWNrZXQifSx7IlgtQW16LUNyZWRlbnRpYWwiOiJZQ0FKRTk4dVRyS0p3QXRxd3JISlhOaDVMLzIwMjUwNTE2L3J1LWNlbnRyYWwxL3MzL2F3czRfcmVxdWVzdCJ9LHsiWC1BbXotRGF0ZSI6IjIwMjUwNTE2VDE1MjU1MloifSxbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwxLDUyNDI4ODBdLHsia2V5IjoiZmlsZS50eHQifV0sImV4cGlyYXRpb24iOiIyMDI1LTA1LTE2VDE2OjI1********
@@ -438,12 +438,12 @@
     --request POST \
     --form "key=new-prefix/sample-object.txt" \
     --form "x-amz-algorithm=AWS4-HMAC-SHA256" \
-    --form "x-amz-credential=YCAJE98uTrKJwAtqw********/20250516/{{ region-id }}/s3/aws4_request" \
+    --form "x-amz-credential=YCAJE98uTrKJwAtqw********/20250516/ru-central1/s3/aws4_request" \
     --form "x-amz-date=20250516T145901Z" \
     --form "policy=eyJleHBpcmF0aW9uIjogIjIwMjUtMDUtMTZUMTU6NTk6MDFaIiwgImNvbmRpdGlvbnMiOiBbWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsIDEsIDUyNDI4ODBdLCB7ImJ1Y2tldCI6ICJhbHRhcmFza2luLXRlc3Rlci1idWNrZXQifSwgeyJrZXkiOiAiZmlsZS50eHQifSwgeyJ4LWFtei1hbGdvcml0aG0iOiAiQVdTNC1ITUFDLVNIQTI1NiJ9LCB7IngtYW16LWNyZWRlbnRpYWwiOiAiWUNBSkU5OHVUcktKd0F0cXdySEpYTmg1TC8yMDI1MDUxNi9ydS1jZW50cmFsMS9zMy9hd3M0X3JlcXVlc3QifSwgeyJ4LWFtei1kYXRlIjogIjIwMjUwNTE2VDE0NTkw********" \
     --form "x-amz-signature=c2e1783095d20d89a7683fc582527740541de16156569d9950cfb1b7********" \
     --form "file=@sample-object.txt" \
-    https://{{ s3-storage-host }}/my-sample-bucket
+    https://storage.yandexcloud.net/my-sample-bucket
   ```
   
   Где `@sample-object.txt` — путь к файлу, который нужно загрузить.
@@ -472,4 +472,4 @@
 
 #### См. также {#see-also}
 
-* [{#T}](link-for-download.md)
+* [Получение подписанной ссылки (pre-signed URL) на скачивание объекта](link-for-download.md)

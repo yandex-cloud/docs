@@ -1,57 +1,57 @@
-# Подключение виртуальных машин {{ compute-name }} и серверов {{ baremetal-full-name }} к {{ backup-name }}
+# Подключение виртуальных машин Compute Cloud и серверов Yandex BareMetal к Cloud Backup
 
 
-Если вы хотите создавать резервные копии [виртуальных машин](../../compute/concepts/vm.md) [{{ compute-full-name }}](../../compute/index.md) или [серверов {{ baremetal-name }}](../../baremetal/concepts/servers.md) в сервисе {{ backup-name }}, эти ВМ и сервера нужно подключить к сервису и корректно настроить.
+Если вы хотите создавать резервные копии [виртуальных машин](../../compute/concepts/vm.md) [Yandex Compute Cloud](../../compute/index.md) или [серверов BareMetal](../../baremetal/concepts/servers.md) в сервисе Cloud Backup, эти ВМ и сервера нужно подключить к сервису и корректно настроить.
 
-К {{ backup-name }} можно подключить:
-* Виртуальные машины, созданные из [поддерживаемых образов {{ marketplace-full-name }}](#os). Агент {{ backup-name }} на таких ВМ устанавливается автоматически.
-* Виртуальные машины, созданные из других образов, если эти образы поддерживаются [провайдером](index.md#providers) резервного копирования Киберпротект. Агента {{ backup-name }} на такие ВМ необходимо [устанавливать вручную](#self-install).
-* Серверы {{ baremetal-name }} с [поддерживаемой](#self-install) операционной системой. Агента {{ backup-name }} на серверы {{ baremetal-name }} можно установить [вручную](#self-install) или автоматически при [заказе](../../baremetal/operations/servers/server-lease.md) сервера.
+К Cloud Backup можно подключить:
+* Виртуальные машины, созданные из [поддерживаемых образов Yandex Cloud Marketplace](#os). Агент Cloud Backup на таких ВМ устанавливается автоматически.
+* Виртуальные машины, созданные из других образов, если эти образы поддерживаются [провайдером](index.md#providers) резервного копирования Киберпротект. Агента Cloud Backup на такие ВМ необходимо [устанавливать вручную](#self-install).
+* Серверы BareMetal с [поддерживаемой](#self-install) операционной системой. Агента Cloud Backup на серверы BareMetal можно установить [вручную](#self-install) или автоматически при [заказе](../../baremetal/operations/servers/server-lease.md) сервера.
 
-Подробнее о подключении к {{ backup-name }} см. в [инструкциях](../operations/index.md).
+Подробнее о подключении к Cloud Backup см. в [инструкциях](../operations/index.md).
 
-Чтобы подключение к {{ backup-name }} работало корректно, привяжите к защищаемому ресурсу [сервисный аккаунт](#sa) (с ролью `backup.user` или выше для ВМ или ролями `baremetal.editor` и `backup.user` или выше для сервера {{ baremetal-name }}) и настройте [сетевой доступ](#vm-network-access).
+Чтобы подключение к Cloud Backup работало корректно, привяжите к защищаемому ресурсу [сервисный аккаунт](#sa) (с ролью `backup.user` или выше для ВМ или ролями `baremetal.editor` и `backup.user` или выше для сервера BareMetal) и настройте [сетевой доступ](#vm-network-access).
 
 {% note tip %}
 
-При создании ВМ с помощью [консоли управления]({{ link-console-main }}) использовать сервисный аккаунт не обязательно. При этом пользователю, создающему ВМ, должна быть назначена [роль](../security/index.md#backup-user) `backup.user` или выше на каталог, в котором создается ВМ.
+При создании ВМ с помощью [консоли управления](https://console.yandex.cloud) использовать сервисный аккаунт не обязательно. При этом пользователю, создающему ВМ, должна быть назначена [роль](../security/index.md#backup-user) `backup.user` или выше на каталог, в котором создается ВМ.
 
 {% endnote %}
 
-После подключения к {{ backup-name }} [добавьте](../operations/policy-vm/attach-and-detach-vm.md#attach-vm) ВМ или сервер {{ baremetal-name }} в [политику резервного копирования](policy.md).
+После подключения к Cloud Backup [добавьте](../operations/policy-vm/attach-and-detach-vm.md#attach-vm) ВМ или сервер BareMetal в [политику резервного копирования](policy.md).
 
 {% note info %}
 
-В момент создания резервной копии виртуальная машина или сервер {{ baremetal-name }} должны быть запущены.
+В момент создания резервной копии виртуальная машина или сервер BareMetal должны быть запущены.
 
 {% endnote %}
 
-Привязать политику к виртуальной машине или серверу {{ baremetal-name }} также можно во время создания ВМ / заказа сервера. Привязка политики выполняется асинхронно после создания и инициализации ВМ / сервера, а также установки и настройки агента {{ backup-name }}. Это может занимать до 10–15 минут. Подробнее об автоматической привязке политик к виртуальным машинам см. в разделе [{#T}](../tutorials/vm-with-backup-policy/index.md).
+Привязать политику к виртуальной машине или серверу BareMetal также можно во время создания ВМ / заказа сервера. Привязка политики выполняется асинхронно после создания и инициализации ВМ / сервера, а также установки и настройки агента Cloud Backup. Это может занимать до 10–15 минут. Подробнее об автоматической привязке политик к виртуальным машинам см. в разделе [Автоматическая привязка политики резервного копирования Yandex Cloud Backup к ВМ](../tutorials/vm-with-backup-policy/index.md).
 
-## Требования к характеристикам ВМ и серверов {{ baremetal-name }} {#requirements}
+## Требования к характеристикам ВМ и серверов BareMetal {#requirements}
 
-Минимальные характеристики ВМ и серверов {{ baremetal-name }} для установки и корректной работы агента {{ backup-name }}:
+Минимальные характеристики ВМ и серверов BareMetal для установки и корректной работы агента Cloud Backup:
 
 * Объем свободного места на диске:
 
   * Для ВМ с ОС Linux — 2 ГБ.
   * Для ВМ с ОС Windows — 1,2 ГБ.
 
-* Объем памяти (RAM) — при резервном копировании требуется 1 ГБ RAM на каждый ТБ резервной копии. Объем используемой памяти зависит от объема и типа данных, обрабатываемых [агентом {{ backup-name }}](agent.md).
+* Объем памяти (RAM) — при резервном копировании требуется 1 ГБ RAM на каждый ТБ резервной копии. Объем используемой памяти зависит от объема и типа данных, обрабатываемых [агентом Cloud Backup](agent.md).
 
 {% note tip %}
 
-Установка агента {{ backup-name }} является ресурсоемкой операцией. Если вы хотите использовать ВМ в минимально возможной конфигурации или, например, ВМ с [уровнем производительности vCPU](../../compute/concepts/performance-levels.md) ниже 100%, рекомендуем на время установки агента {{ backup-name }} увеличить ресурсы ВМ.
+Установка агента Cloud Backup является ресурсоемкой операцией. Если вы хотите использовать ВМ в минимально возможной конфигурации или, например, ВМ с [уровнем производительности vCPU](../../compute/concepts/performance-levels.md) ниже 100%, рекомендуем на время установки агента Cloud Backup увеличить ресурсы ВМ.
 
 {% endnote %}
 
-Для ускорения [резервного копирования](../operations/backup-vm/create.md) данных и их [восстановления](../operations/backup-vm/recover.md) из резервных копий [агент {{ backup-name }}](agent.md) может потреблять значительные объемы оперативной памяти (RAM) защищаемого ресурса — [виртуальной машины](../../compute/concepts/vm.md) или [сервера {{ baremetal-name }}](../../baremetal/concepts/servers.md). При этом агент может использовать всю доступную память, что в некоторых случаях приводит к сбоям в работе других служб защищаемого ресурса и невозможности завершить процесс резервного копирования или восстановления данных.
+Для ускорения [резервного копирования](../operations/backup-vm/create.md) данных и их [восстановления](../operations/backup-vm/recover.md) из резервных копий [агент Cloud Backup](agent.md) может потреблять значительные объемы оперативной памяти (RAM) защищаемого ресурса — [виртуальной машины](../../compute/concepts/vm.md) или [сервера BareMetal](../../baremetal/concepts/servers.md). При этом агент может использовать всю доступную память, что в некоторых случаях приводит к сбоям в работе других служб защищаемого ресурса и невозможности завершить процесс резервного копирования или восстановления данных.
 
 Чтобы предотвратить возникновение таких сбоев, [ограничьте](../operations/limit-agent-memory-usage.md) объем данных, кешируемых агентом в оперативной памяти.
 
 {% note info %}
 
-Ограничение использования оперативной памяти агентом {{ backup-name }} может привести к снижению скорости выполнения операций резервного копирования и восстановления данных.
+Ограничение использования оперативной памяти агентом Cloud Backup может привести к снижению скорости выполнения операций резервного копирования и восстановления данных.
 
 {% endnote %}
 
@@ -97,10 +97,10 @@
 ||
 |# {wide-content}
 
-## Поддерживаемые образы {{ marketplace-name }} с автоматической установкой агента {{ backup-name }} {#os}
+## Поддерживаемые образы Cloud Marketplace с автоматической установкой агента Cloud Backup {#os}
 
 
-На виртуальных машинах и серверах {{ baremetal-name }} агент {{ backup-name }} доступен для автоматической установки при создании ВМ / заказе сервера с использованием следующих образов {{ marketplace-name }}:
+На виртуальных машинах и серверах BareMetal агент Cloud Backup доступен для автоматической установки при создании ВМ / заказе сервера с использованием следующих образов Cloud Marketplace:
 
 ### Образы на базе Linux {#linux}
 
@@ -121,7 +121,7 @@
   * [Ubuntu 22.04 LTS OS Login](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2204-lts-oslogin)
   * [Ubuntu 24.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2404-lts-oslogin)
 
-- Сервер {{ baremetal-name }} {#baremetal-server}
+- Сервер BareMetal {#baremetal-server}
 
   * CentOS 7
   * Debian 11
@@ -150,7 +150,7 @@
 
   {% note info %}
 
-  Операционная система должна быть установлена из публичного образа (продукта {{ marketplace-full-name }}). При создании ВМ можно выбрать ОС напрямую либо использовать [образ](../../compute/concepts/image.md) или [снимок диска](../../compute/concepts/snapshot.md) с другой ВМ, если ОС на нее тоже устанавливалась из публичного образа.
+  Операционная система должна быть установлена из публичного образа (продукта Yandex Cloud Marketplace). При создании ВМ можно выбрать ОС напрямую либо использовать [образ](../../compute/concepts/image.md) или [снимок диска](../../compute/concepts/snapshot.md) с другой ВМ, если ОС на нее тоже устанавливалась из публичного образа.
 
   {% endnote %}
 
@@ -158,7 +158,7 @@
 
 ### Самостоятельная установка в поддерживаемой операционной системе {#self-install}
 
-Вы можете самостоятельно установить агента {{ backup-name }} на виртуальную машину или сервер {{ baremetal-name }}:
+Вы можете самостоятельно установить агента Cloud Backup на виртуальную машину или сервер BareMetal:
 
 {% list tabs group=backup_resource_type %}
 
@@ -169,9 +169,9 @@
 
   С полным списком поддерживаемых ОС можно ознакомиться в [документации провайдера резервного копирования](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/21.06/user/#supported-operating-systems-and-environments.html).
 
-- Сервер {{ baremetal-name }} {#baremetal-server}
+- Сервер BareMetal {#baremetal-server}
 
-  Установить агента {{ backup-name }} можно на сервер с одной из операционных систем:
+  Установить агента Cloud Backup можно на сервер с одной из операционных систем:
 
   * CentOS 7;
   * Debian 11;
@@ -181,75 +181,75 @@
   * Ubuntu 22.04 LTS;
   * Ubuntu 24.04 LTS.
 
-  Чтобы установить агента на сервер, воспользуйтесь [инструкцией по подключению сервера {{ baremetal-name }} к {{ backup-name }}](../operations/backup-baremetal/backup-baremetal.md).
+  Чтобы установить агента на сервер, воспользуйтесь [инструкцией по подключению сервера BareMetal к Cloud Backup](../operations/backup-baremetal/backup-baremetal.md).
 
 {% endlist %}
 
-При возникновении проблем с установкой агента {{ backup-name }} [обратитесь]({{ link-console-support }}) в техническую поддержку.
+При возникновении проблем с установкой агента Cloud Backup [обратитесь](https://center.yandex.cloud/support) в техническую поддержку.
 
 ### Обновление ядра операционной системы {#os-kernel-update}
 
-При обновлении [ядра](https://ru.wikipedia.org/wiki/Ядро_Linux) операционной системы Linux виртуальной машины или сервера {{ baremetal-name }}, подключенных к {{ backup-name }}, работоспособность агента {{ backup-name }} может оказаться нарушена: будет невозможно создать резервную копию ВМ/сервера или восстановить ВМ/сервер из резервной копии.
+При обновлении [ядра](https://ru.wikipedia.org/wiki/Ядро_Linux) операционной системы Linux виртуальной машины или сервера BareMetal, подключенных к Cloud Backup, работоспособность агента Cloud Backup может оказаться нарушена: будет невозможно создать резервную копию ВМ/сервера или восстановить ВМ/сервер из резервной копии.
 
 Функционирование агента может нарушиться, потому что модуль SnapAPI, разработанный [провайдером резервного копирования](index.md#providers) для работы агента с дисками и собираемый [фреймворком DKMS](https://ru.wikipedia.org/wiki/Dynamic_Kernel_Module_Support) под конкретное ядро Linux, после обновления ядра может не обновиться и перестать соответствовать версии ядра. 
 
-Чтобы восстановить работоспособность агента {{ backup-name }}, нарушенную после обновления ядра ОС, необходимо обновить версию заголовков ядра Linux, на которую ориентируется DKMS при сборке модуля SnapAPI. Как только версия заголовков ядра станет соответствовать версии ядра, DKMS пересоберет модуль SnapAPI под нужную версию ядра Linux при следующем запуске ВМ или сервера {{ baremetal-name }}.
+Чтобы восстановить работоспособность агента Cloud Backup, нарушенную после обновления ядра ОС, необходимо обновить версию заголовков ядра Linux, на которую ориентируется DKMS при сборке модуля SnapAPI. Как только версия заголовков ядра станет соответствовать версии ядра, DKMS пересоберет модуль SnapAPI под нужную версию ядра Linux при следующем запуске ВМ или сервера BareMetal.
 
-Чтобы обновить версии заголовков ядра Linux, воспользуйтесь инструкциями [Восстановить работоспособность агента {{ backup-name }} на ВМ](../operations/update-backup-agent.md#restore-agent) и [Восстановить работоспособность агента {{ backup-name }} на сервере {{ baremetal-name }}](../operations/backup-baremetal/restore-agent.md).
+Чтобы обновить версии заголовков ядра Linux, воспользуйтесь инструкциями [Восстановить работоспособность агента Cloud Backup на ВМ](../operations/update-backup-agent.md#restore-agent) и [Восстановить работоспособность агента Cloud Backup на сервере BareMetal](../operations/backup-baremetal/restore-agent.md).
 
 ## Сервисный аккаунт {#sa}
 
 {% note info %}
 
-При создании ВМ с помощью [консоли управления]({{ link-console-main }}) использовать сервисный аккаунт не обязательно. При этом пользователю, создающему ВМ, должна быть назначена [роль](../security/index.md#backup-user) `backup.user` или выше на каталог, в котором создается ВМ.
+При создании ВМ с помощью [консоли управления](https://console.yandex.cloud) использовать сервисный аккаунт не обязательно. При этом пользователю, создающему ВМ, должна быть назначена [роль](../security/index.md#backup-user) `backup.user` или выше на каталог, в котором создается ВМ.
 
 {% endnote %}
 
-[Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) — специальный аккаунт, от имени которого агент {{ backup-name }} регистрируется у провайдера Киберпротект.
+[Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) — специальный аккаунт, от имени которого агент Cloud Backup регистрируется у провайдера Киберпротект.
 
-Когда вы создаете ВМ, для которой хотите настроить резервное копирование в {{ backup-name }}, к ВМ нужно привязать сервисный аккаунт с ролью [`backup.user`](../security/index.md#backup-user) или выше.
+Когда вы создаете ВМ, для которой хотите настроить резервное копирование в Cloud Backup, к ВМ нужно привязать сервисный аккаунт с ролью [`backup.user`](../security/index.md#backup-user) или выше.
 
-Когда вы заказываете сервер {{ baremetal-name }}, для которого хотите настроить резервное копирование в {{ backup-name }}, к серверу нужно привязать сервисный аккаунт с ролями [`baremetal.editor`](../../baremetal/security/index.md#baremetal-editor) и [`backup.user`](../security/index.md#backup-user) или выше.
+Когда вы заказываете сервер BareMetal, для которого хотите настроить резервное копирование в Cloud Backup, к серверу нужно привязать сервисный аккаунт с ролями [`baremetal.editor`](../../baremetal/security/index.md#baremetal-editor) и [`backup.user`](../security/index.md#backup-user) или выше.
 
 Вы можете [назначить роль](../../iam/operations/sa/assign-role-for-sa.md) существующему сервисному аккаунту или [создать](../../iam/operations/sa/create.md) новый сервисный аккаунт с нужными ролями.
 
 ## Разрешения сетевого доступа {#vm-network-access}
 
-Чтобы агент {{ backup-name }} мог обмениваться данными с серверами [провайдера резервного копирования](index.md#providers), для ВМ или сервера {{ baremetal-name }} должен быть обеспечен сетевой доступ к IP-адресам ресурсов сервиса {{ backup-name }} согласно таблице:
+Чтобы агент Cloud Backup мог обмениваться данными с серверами [провайдера резервного копирования](index.md#providers), для ВМ или сервера BareMetal должен быть обеспечен сетевой доступ к IP-адресам ресурсов сервиса Cloud Backup согласно таблице:
 
 {% list tabs group=traffic %}
 
 - Исходящий трафик {#outgoing}
 
-  {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
+  Диапазон портов | Протокол | Назначение | CIDR блоки
   --- | --- | --- | ---
-  `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `213.180.193.0/24`
-  `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `213.180.204.0/24`
-  `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `84.47.172.0/24`
-  `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `84.201.181.0/24`
-  `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `178.176.128.0/24`
-  `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `213.180.193.0/24`
-  `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `213.180.204.0/24`
-  `7770-7800` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `84.47.172.0/24`
-  `8443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `84.47.172.0/24`
-  `44445` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `51.250.1.0/24`
+  `80` | `TCP` | `CIDR` | `213.180.193.0/24`
+  `80` | `TCP` | `CIDR` | `213.180.204.0/24`
+  `443` | `TCP` | `CIDR` | `84.47.172.0/24`
+  `443` | `TCP` | `CIDR` | `84.201.181.0/24`
+  `443` | `TCP` | `CIDR` | `178.176.128.0/24`
+  `443` | `TCP` | `CIDR` | `213.180.193.0/24`
+  `443` | `TCP` | `CIDR` | `213.180.204.0/24`
+  `7770-7800` | `TCP` | `CIDR` | `84.47.172.0/24`
+  `8443` | `TCP` | `CIDR` | `84.47.172.0/24`
+  `44445` | `TCP` | `CIDR` | `51.250.1.0/24`
   
   
   
   {% note tip %}
   
-  При установке [агента {{ backup-name }}](agent.md) на ВМ или сервер {{ baremetal-name }} может понадобиться доустановить отсутствующие компоненты ПО из интернета. Для этого добавьте в [группу безопасности](../../vpc/concepts/security-groups.md) следующее правило для исходящего трафика:
-  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
-  После установки агента {{ backup-name }} вы можете удалить это правило.
+  При установке [агента Cloud Backup](agent.md) на ВМ или сервер BareMetal может понадобиться доустановить отсутствующие компоненты ПО из интернета. Для этого добавьте в [группу безопасности](../../vpc/concepts/security-groups.md) следующее правило для исходящего трафика:
+  * **Диапазон портов** — `0-65535`.
+  * **Протокол** — `Любой` (`Any`).
+  * **Назначение** — `CIDR`.
+  * **CIDR блоки** — `0.0.0.0/0`.
+  После установки агента Cloud Backup вы можете удалить это правило.
   
   Для доступа к ВМ по протоколу [SSH](../../compute/operations/vm-connect/ssh.md) добавьте следующее правило для входящего трафика:
-  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `22`.
-  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+  * **Диапазон портов** — `22`.
+  * **Протокол** — `Любой` (`Any`).
+  * **Назначение** — `CIDR`.
+  * **CIDR блоки** — `0.0.0.0/0`.
   
   {% endnote %}
 
@@ -266,9 +266,9 @@
 
   Правила [группы безопасности](../../vpc/concepts/security-groups.md) ВМ должны разрешать доступ к указанным ресурсам. Вы можете [добавить правила](../../vpc/operations/security-group-add-rule.md) в существующую группу безопасности или [создать](../../vpc/operations/security-group-create.md) новую группу с нужными правилами.
 
-- Сервер {{ baremetal-name }} {#baremetal-server}
+- Сервер BareMetal {#baremetal-server}
 
-  При [заказе сервера](../../baremetal/operations/servers/server-lease.md) в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` или `{{ ui-key.yacloud.baremetal.label_public-ip-from-dedicated-subnet }}`, чтобы назначить серверу публичный IP-адрес.
+  При [заказе сервера](../../baremetal/operations/servers/server-lease.md) в поле **Публичный адрес** выберите `Из эфемерной подсети` или `Из выделенной подсети`, чтобы назначить серверу публичный IP-адрес.
 
   Убедитесь, что сетевые настройки сервера не блокируют исходящий трафик на указанные ресурсы.
 
@@ -280,27 +280,27 @@
 
 - Виртуальная машина {#vm}
 
-  Информация о статусе подключения ВМ к {{ backup-name }} отображается в [консоли управления]({{ link-console-main }}) в сервисе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** на странице со списком ВМ. Доступны следующие статусы:
+  Информация о статусе подключения ВМ к Cloud Backup отображается в [консоли управления](https://console.yandex.cloud) в сервисе **Compute Cloud** на странице со списком ВМ. Доступны следующие статусы:
   
-  * `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-ok }}` — сервис {{ backup-name }} подключен к ВМ, резервные копии создаются в рамках указанных политик, агент {{ backup-name }} онлайн.
-  * `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-no-applications }}` — сервис подключен, но не привязана ни одна политика, резервные копии не создаются.
-  * `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-failed }}` — агент не онлайн или произошла ошибка регистрации агента.
-  * `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-not-connected }}` — сервис не подключен к ВМ.
+  * `Подключён` — сервис Cloud Backup подключен к ВМ, резервные копии создаются в рамках указанных политик, агент Cloud Backup онлайн.
+  * `Нет политики` — сервис подключен, но не привязана ни одна политика, резервные копии не создаются.
+  * `Ошибка` — агент не онлайн или произошла ошибка регистрации агента.
+  * `Не подключён` — сервис не подключен к ВМ.
   
   Вы можете [посмотреть](../operations/get-connection-status.md) статус подключения ВМ и [узнать](../operations/get-journal.md) подробности о резервном копировании ВМ в журнале резервирования.
 
-- Сервер {{ baremetal-name }} {#baremetal-server}
+- Сервер BareMetal {#baremetal-server}
 
-  Информация о статусе подключения сервера к {{ backup-name }} отображается в [консоли управления]({{ link-console-main }}) в сервисе **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** на странице со списком серверов. Доступны следующие статусы:
+  Информация о статусе подключения сервера к Cloud Backup отображается в [консоли управления](https://console.yandex.cloud) в сервисе **BareMetal** на странице со списком серверов. Доступны следующие статусы:
 
-  * `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-ok }}` — сервис {{ backup-name }} подключен к серверу, резервные копии создаются в рамках указанных политик, агент {{ backup-name }} онлайн.
-  * `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-no-applications }}` — сервис подключен, но не привязана ни одна политика, резервные копии не создаются.
-  * `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-failed }}` — агент не онлайн или произошла ошибка регистрации агента.
-  * `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-not-connected }}` — сервис не подключен к серверу.
+  * `Подключён` — сервис Cloud Backup подключен к серверу, резервные копии создаются в рамках указанных политик, агент Cloud Backup онлайн.
+  * `Нет политики` — сервис подключен, но не привязана ни одна политика, резервные копии не создаются.
+  * `Ошибка` — агент не онлайн или произошла ошибка регистрации агента.
+  * `Не подключён` — сервис не подключен к серверу.
 
 {% endlist %}
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/backup-baremetal.md)
-* [{#T}](../tutorials/vm-with-backup-policy/index.md)
+* [Подключить сервер Yandex BareMetal к Cloud Backup](../tutorials/backup-baremetal.md)
+* [Автоматическая привязка политики резервного копирования Yandex Cloud Backup к ВМ](../tutorials/vm-with-backup-policy/index.md)

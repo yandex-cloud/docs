@@ -5,7 +5,7 @@ Creates a new ClickHouse database in the specified cluster.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/databases
+POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/databases
 ```
 
 ## Path parameters

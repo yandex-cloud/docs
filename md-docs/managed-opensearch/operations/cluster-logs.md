@@ -1,6 +1,6 @@
-# Просмотр логов кластера {{ OS }}
+# Просмотр логов кластера OpenSearch
 
-{{ mos-name }} позволяет [получить фрагмент логов кластера](#list-logs) за выбранный период и [просматривать логи в реальном времени](#stream-logs).
+Managed Service for OpenSearch позволяет [получить фрагмент логов кластера](#list-logs) за выбранный период и [просматривать логи в реальном времени](#stream-logs).
 
 ## Получить лог кластера {#list-logs}
 
@@ -14,13 +14,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>:logs' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>:logs' \
             --url-query serviceType=<тип_группы_хостов> \
             --url-query columnFilter=<список_колонок> \
             --url-query fromTime=<левая_граница_временного_диапазона> \
@@ -32,7 +32,7 @@
         * `serviceType` — тип хостов, для которых нужно получить записи: `OPENSEARCH` или `DASHBOARDS`.
         * `columnFilter` — список колонок для вывода информации. Список выводимых колонок зависит от выбранного типа хостов `serviceType`:
 
-            * Для хостов `{{ OS }}`:
+            * Для хостов `OpenSearch`:
 
                 * `component` — компонент кластера, к которому относится запись в логах;
                 * `hostname` — [имя хоста](host-groups.md#list-hosts);
@@ -66,7 +66,7 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -84,7 +84,7 @@
                   "from_time": "<левая_граница_временного_диапазона>",
                   "to_time": "<правая_граница_временного_диапазона>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.opensearch.v1.ClusterService.ListLogs
         ```
 
@@ -93,7 +93,7 @@
         * `service_type` — тип хостов, для которых нужно получить записи: `OPENSEARCH` или `DASHBOARDS`.
         * `column_filter` — список колонок для вывода информации. Список выводимых колонок зависит от выбранного типа хостов `service_type`:
 
-            * Для хостов `{{ OS }}`:
+            * Для хостов `OpenSearch`:
 
                 * `component` — компонент кластера, к которому относится запись в логах;
                 * `hostname` — [имя хоста](host-groups.md#list-hosts);
@@ -128,13 +128,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.StreamLogs](../api-ref/Cluster/streamLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.StreamLogs](../api-ref/Cluster/streamLogs.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>:stream_logs' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>:stream_logs' \
             --url-query serviceType=<тип_группы_хостов> \
             --url-query columnFilter=<список_колонок>
         ```
@@ -144,7 +144,7 @@
         * `serviceType` — тип хостов, для которых нужно получить записи: `OPENSEARCH` или `DASHBOARDS`.
         * `columnFilter` — список колонок для вывода информации. Список выводимых колонок зависит от выбранного типа хостов `serviceType`:
 
-            * Для хостов `{{ OS }}`:
+            * Для хостов `OpenSearch`:
 
                 * `component` — компонент кластера, к которому относится запись в логах;
                 * `hostname` — [имя хоста](host-groups.md#list-hosts);
@@ -177,7 +177,7 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [ClusterService.StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -193,7 +193,7 @@
                     "<колонка_1>", "<колонка_2>", ..., "<колонка_N>"
                   ]
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.opensearch.v1.ClusterService.StreamLogs
         ```
 
@@ -202,7 +202,7 @@
         * `service_type` — тип хостов, для которых нужно получить записи: `OPENSEARCH` или `DASHBOARDS`.
         * `column_filter` — список колонок для вывода информации. Список выводимых колонок зависит от выбранного типа хостов `service_type`:
 
-            * Для хостов `{{ OS }}`:
+            * Для хостов `OpenSearch`:
 
                 * `component` — компонент кластера, к которому относится запись в логах;
                 * `hostname` — [имя хоста](host-groups.md#list-hosts);

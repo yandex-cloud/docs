@@ -8,7 +8,7 @@ To get the list of all available API gateways, make a [List](list.md#List) reque
 ## HTTP request
 
 ```
-GET https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{apiGatewayId}
+GET https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateways/{apiGatewayId}
 ```
 
 ## Path parameters

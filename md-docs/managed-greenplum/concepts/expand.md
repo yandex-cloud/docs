@@ -1,4 +1,4 @@
-# Расширение кластера {{ mgp-name }}
+# Расширение кластера Yandex MPP Analytics for PostgreSQL
 
 Кластер можно [расширить](../operations/cluster-expand.md), чтобы добавить в него дополнительные хосты-сегменты.
 
@@ -11,7 +11,7 @@
 На этом этапе происходят следующие процессы:
 
 1. В кластер добавляются новые хосты-сегменты.
-1. Утилита [gpexpand]({{ gp.docs.broadcom }}/7/greenplum-database/utility_guide-ref-gpexpand.html) производит подготовку к перераспределению таблиц:
+1. Утилита [gpexpand](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/utility_guide-ref-gpexpand.html) производит подготовку к перераспределению таблиц:
 
     1. Создает служебную схему данных `gpexpand` в базе данных `postgres`.
 
@@ -21,7 +21,7 @@
 
         [Приоритетом можно управлять](../operations/cluster-expand.md#table-priority), если перераспределение данных для конкретной таблицы [еще не началось](../operations/cluster-expand.md#redistribute-monitoring) и кластер не [закрыт от нагрузки](#setting-close-cluster).
 
-    1. Подготавливает [партиционированные таблицы]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-ddl-ddl-partition.html#about-the-table-partitioning-methods) к перераспределению данных.
+    1. Подготавливает [партиционированные таблицы](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/admin_guide-ddl-ddl-partition.html#about-the-table-partitioning-methods) к перераспределению данных.
 
 Ориентировочная длительность этапа — несколько часов, повлиять на нее нельзя. Подробнее о длительности этапов см. [ниже](#duration).
 
@@ -35,7 +35,7 @@
 
 На этом этапе происходят следующие процессы:
 
-1. Данные таблиц в кластере перераспределяются с помощью утилиты [gpexpand]({{ gp.docs.broadcom }}/7/greenplum-database/utility_guide-ref-gpexpand.html) таким образом, чтобы эти данные были равномерно распределены по всем хостам-сегментам.
+1. Данные таблиц в кластере перераспределяются с помощью утилиты [gpexpand](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/utility_guide-ref-gpexpand.html) таким образом, чтобы эти данные были равномерно распределены по всем хостам-сегментам.
 
 1. Служебная схема данных `gpexpand` удаляется.
 
@@ -50,17 +50,17 @@
 
 Реальная длительность каждого этапа зависит не только от объема баз данных в кластере и общего количества таблиц, но также от уровня и характера нагрузки на кластер.
 
-Это связано с тем, что на каждом этапе расширения кластера работает утилита [gpexpand]({{ gp.docs.broadcom }}/7/greenplum-database/utility_guide-ref-gpexpand.html), которая в ходе своей работы захватывает эксклюзивные [блокировки]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-LOCK.html) на уровне отдельных таблиц. Пользовательские запросы в процессе выполнения тоже могут захватывать блокировки. Поэтому может существенно замедляться как работа `gpexpand`, так и обработка пользовательских запросов: это зависит от того, какой процесс первым захватил блокировку, а какой — ожидает особождения этой блокировки. Оба этих процесса могут создавать повышенную нагрузку на кластер.
+Это связано с тем, что на каждом этапе расширения кластера работает утилита [gpexpand](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/utility_guide-ref-gpexpand.html), которая в ходе своей работы захватывает эксклюзивные [блокировки](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-sql_commands-LOCK.html) на уровне отдельных таблиц. Пользовательские запросы в процессе выполнения тоже могут захватывать блокировки. Поэтому может существенно замедляться как работа `gpexpand`, так и обработка пользовательских запросов: это зависит от того, какой процесс первым захватил блокировку, а какой — ожидает особождения этой блокировки. Оба этих процесса могут создавать повышенную нагрузку на кластер.
 
 Этап подготовки сократить нельзя, но можно повлиять на длительность этапа перераспределения данных. Для этого перед запуском процедуры [укажите](../operations/cluster-expand.md) необходимые [настройки](#settings), которые определяют поведение кластера на этом этапе. Комбинируя настройки, можно найти нужный баланс между скоростью перераспределения данных и скоростью обработки пользовательских запросов.
 
-Поскольку этап перераспределения данных может длиться достаточно долго, для кластеров {{ mgp-name }} предоставляются [инструменты для мониторинга](../operations/cluster-expand.md#redistribute-monitoring) процесса перераспределения данных. Используйте эти инструменты, когда запущено расширение кластера, чтобы получить более точную информацию о ходе процесса и оценить время до его завершения.
+Поскольку этап перераспределения данных может длиться достаточно долго, для кластеров Yandex MPP Analytics for PostgreSQL предоставляются [инструменты для мониторинга](../operations/cluster-expand.md#redistribute-monitoring) процесса перераспределения данных. Используйте эти инструменты, когда запущено расширение кластера, чтобы получить более точную информацию о ходе процесса и оценить время до его завершения.
 
 ## Настройки, влияющие на процесс перераспределения данных {#settings}
 
 Доступны следующие настройки:
 
-* **{{ ui-key.yacloud.greenplum.field_expand-close-cluster }}**{#setting-close-cluster} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Закрыть кластер от нагрузки**{#setting-close-cluster} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
     Если настройка включена (`true`), то к кластеру нельзя подключиться и в него не поступают новые пользовательские запросы. В результате расширение кластера будет выполняться быстрее, потому что не нужно ожидать освобождения блокировок, которые бы захватывались при выполнении поступающих пользовательских запросов.
 
@@ -72,7 +72,7 @@
     
     {% endnote %}
 
-* **{{ ui-key.yacloud.greenplum.field_expand-delay-redistribution }}**{#setting-delay-redistribution} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Фоновое перераспределение данных**{#setting-delay-redistribution} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
     Эта настройка влияет на стратегию перераспределения данных:
 
@@ -101,7 +101,7 @@
 
         1. Выполняется [сбор статистики](maintenance.md#get-statistics) (`ANALYZE`).
 
-* **{{ ui-key.yacloud.greenplum.field_expand-duration }}**{#setting-duration} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Таймаут редистрибуции**{#setting-duration} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
     Таймаут (в секундах), после истечения которого процесс перераспределения данных будет прерван.
 
@@ -114,7 +114,7 @@
     * `28800` (8 часов) — если включено.
     * Не ограничено — если выключено.
 
-* **{{ ui-key.yacloud.greenplum.field_expand-parallel }}**{#setting-parallel} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Количество потоков редистрибуции**{#setting-parallel} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
     Количество потоков, которые будут запущены в ходе процесса перераспределения данных.
 

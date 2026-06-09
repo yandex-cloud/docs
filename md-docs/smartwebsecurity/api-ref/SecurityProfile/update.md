@@ -5,7 +5,7 @@ Updates the specified security profile.
 ## HTTP request
 
 ```
-PATCH https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/securityProfiles/{securityProfileId}
+PATCH https://smartwebsecurity.api.cloud.yandex.net/smartwebsecurity/v1/securityProfiles/{securityProfileId}
 ```
 
 ## Path parameters

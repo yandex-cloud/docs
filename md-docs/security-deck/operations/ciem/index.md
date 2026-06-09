@@ -1,4 +1,4 @@
-# Диагностика доступов ({{ ciem-name }})
+# Диагностика доступов (CIEM)
 
-* [{#T}](view-permissions.md).
-* [{#T}](revoke-permissions.md).
+* [Просмотреть список доступов субъекта](view-permissions.md).
+* [Отозвать доступ у субъекта](revoke-permissions.md).

@@ -5,7 +5,7 @@ Deletes the specified signature certificate.
 ## HTTP request
 
 ```
-DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/idp/application/saml/signature-certificates/{signatureCertificateId}
+DELETE https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/application/saml/signature-certificates/{signatureCertificateId}
 ```
 
 ## Path parameters

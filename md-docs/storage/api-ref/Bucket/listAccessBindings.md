@@ -5,7 +5,7 @@ Lists access bindings for the specified bucket.
 ## HTTP request
 
 ```
-GET https://storage.{{ api-host }}/storage/v1/buckets/{resourceId}:listAccessBindings
+GET https://storage.api.cloud.yandex.net/storage/v1/buckets/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

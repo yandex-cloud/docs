@@ -5,7 +5,7 @@ Updates the specified instance.
 ## HTTP request
 
 ```
-PATCH https://compute.{{ api-host }}/compute/v1/instances/{instanceId}
+PATCH https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}
 ```
 
 ## Path parameters

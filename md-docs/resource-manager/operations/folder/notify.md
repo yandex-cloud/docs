@@ -8,10 +8,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный каталог. Если необходимо, [переключитесь на другое облако](../cloud/switch-cloud.md).
-  1. Перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-notifications }}**.
-  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.cloud.incident-notifications.button_open-add-notification-dialog }}**.
-  1. В открывшемся окне **{{ ui-key.yacloud_components.notify-subs.label_subscribers-dialog-header }}** выберите:
+  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный каталог. Если необходимо, [переключитесь на другое облако](../cloud/switch-cloud.md).
+  1. Перейдите на вкладку **Уведомления сервисов**.
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить уведомление**.
+  1. В открывшемся окне **Добавление пользователей** выберите:
 
      1. Пользователей, которых хотите подписать на уведомления.
 
@@ -26,13 +26,13 @@
 
         {% note warning %}
 
-        Адрес почты, номер телефона и канал Telegram для получения сообщений указываются в [настройках уведомлений]({{ link-cloud-communications }}).
+        Адрес почты, номер телефона и канал Telegram для получения сообщений указываются в [настройках уведомлений](https://console.yandex.cloud/folders?openSettings=communications).
 
         {% endnote %}
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+  1. Нажмите кнопку **Добавить**.
 
-  В разделе **{{ ui-key.yacloud.iam.folder.switch_service-notifications }}** каталога вы можете увидеть пользователей, которые были подписаны на уведомления каталога по умолчанию, поскольку они подписаны на уведомления родительского облака. Для этого включите опцию **{{ ui-key.yacloud_components.notify-subs.label_inherited-subscribers }}**.
+  В разделе **Уведомления сервисов** каталога вы можете увидеть пользователей, которые были подписаны на уведомления каталога по умолчанию, поскольку они подписаны на уведомления родительского облака. Для этого включите опцию **Подписчики по умолчанию**.
 
 - API {#api}
 

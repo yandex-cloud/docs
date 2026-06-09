@@ -1,6 +1,6 @@
 
 
-# {{ mtr-full-name }}
+# Yandex Managed Service for Trino
 
  - [Начало работы](quickstart.md)
 
@@ -16,7 +16,7 @@
 
  - [Изменение кластера](operations/cluster-update.md)
 
- - [Обновление версии {{ TR }}](operations/cluster-version-update.md)
+ - [Обновление версии Trino](operations/cluster-version-update.md)
 
  - [Остановка и запуск кластера](operations/cluster-stop.md)
 
@@ -74,7 +74,7 @@
 
  - [Взаимосвязь ресурсов сервиса](concepts/index.md)
 
- - [Сеть в {{ mtr-name }}](concepts/network.md)
+ - [Сеть в Managed Service for Trino](concepts/network.md)
 
  - [Имперсонация](concepts/impersonation.md)
 
@@ -88,7 +88,7 @@
 
  - [Техническое обслуживание](concepts/maintenance.md)
 
- - [Коннектор {{ GP }}](concepts/greenplum-connector.md)
+ - [Коннектор Greenplum®](concepts/greenplum-connector.md)
 
 ## Справочник CLI (англ.)
 
@@ -310,7 +310,7 @@
 
  - [update](cli-ref/v0/cluster/update.md)
 
- - [Справочник {{ TF }}](tf-ref.md)
+ - [Справочник Terraform](tf-ref.md)
 
 ## Справочник API
 
@@ -426,8 +426,8 @@
 
  - [Правила тарификации](pricing.md)
 
- - [Метрики {{ monitoring-full-name }}](metrics.md)
+ - [Метрики Yandex Monitoring](metrics.md)
 
- - [Аудитные логи {{ at-name }}](at-ref.md)
+ - [Аудитные логи Audit Trails](at-ref.md)
 
  - [История изменений](release-notes.md)

@@ -5,7 +5,7 @@ Deletes the specified scan policy.
 ## HTTP request
 
 ```
-DELETE https://container-registry.{{ api-host }}/container-registry/v1/scanPolicies/{scanPolicyId}
+DELETE https://container-registry.api.cloud.yandex.net/container-registry/v1/scanPolicies/{scanPolicyId}
 ```
 
 ## Path parameters

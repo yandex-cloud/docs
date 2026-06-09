@@ -6,7 +6,7 @@ This URL is time-limited and provides direct access to the source video.
 ## HTTP request
 
 ```
-POST https://video.{{ api-host }}/video/v1/videos/{videoId}:generateDownloadURL
+POST https://video.api.cloud.yandex.net/video/v1/videos/{videoId}:generateDownloadURL
 ```
 
 ## Path parameters

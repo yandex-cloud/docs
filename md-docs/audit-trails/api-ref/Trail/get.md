@@ -6,7 +6,7 @@ To get the list of all available trails, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://audittrails.{{ api-host }}/audit-trails/v1/trails/{trailId}
+GET https://audittrails.api.cloud.yandex.net/audit-trails/v1/trails/{trailId}
 ```
 
 ## Path parameters

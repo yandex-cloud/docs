@@ -5,7 +5,7 @@ Creates a MongoDB user in the specified cluster.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/users
+POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/users
 ```
 
 ## Path parameters

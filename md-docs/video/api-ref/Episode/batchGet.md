@@ -6,7 +6,7 @@ This is more efficient than making multiple Get requests when retrieving several
 ## HTTP request
 
 ```
-POST https://video.{{ api-host }}/video/v1/episodes:batchGet
+POST https://video.api.cloud.yandex.net/video/v1/episodes:batchGet
 ```
 
 ## Body parameters {#yandex.cloud.video.v1.BatchGetEpisodesRequest}

@@ -1,20 +1,20 @@
-# Управление пользователями {{ CH }}
+# Управление пользователями ClickHouse®
 
-{{ mch-name }} позволяет управлять пользователями и их индивидуальными настройками двумя способами:
+Managed Service for ClickHouse® позволяет управлять пользователями и их индивидуальными настройками двумя способами:
 
-* через интерфейсы {{ yandex-cloud }} ([консоль управления]({{ link-console-main }}), [CLI](../../cli/index.md), {{ TF }} и [API](../../glossary/rest-api.md));
+* через интерфейсы Yandex Cloud ([консоль управления](https://console.yandex.cloud), [CLI](../../cli/index.md), Terraform и [API](../../glossary/rest-api.md));
 * через SQL.
 
 
-Одновременное управление через интерфейсы {{ yandex-cloud }} и через SQL не поддерживается.
+Одновременное управление через интерфейсы Yandex Cloud и через SQL не поддерживается.
 
 Выбрать способ управления можно:
 
-* через интерфейсы {{ yandex-cloud }} — только при [создании кластера](cluster-create.md);
+* через интерфейсы Yandex Cloud — только при [создании кластера](cluster-create.md);
 * через SQL — при [создании кластера](cluster-create.md) или [изменении его настроек](update.md#SQL-management).
 
 
-[Подробнее об управлении пользователями и правами доступа в {{ mch-name }}](../concepts/user-access-rights.md).
+[Подробнее об управлении пользователями и правами доступа в Managed Service for ClickHouse®](../concepts/user-access-rights.md).
 
 При управлении пользователями доступны следующие действия:
 
@@ -32,20 +32,20 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **Пользователи**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить список пользователей кластера, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} user list
+  yc managed-clickhouse user list
      --cluster-name=<имя_кластера>
   ```
 
@@ -59,13 +59,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [User.List](../api-ref/User/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [User.List](../api-ref/User/list.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/users'
+            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/users'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -88,7 +88,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [UserService.List](../api-ref/grpc/User/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [UserService.List](../api-ref/grpc/User/list.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -100,7 +100,7 @@
             -d '{
                     "cluster_id": "<идентификатор_кластера>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.clickhouse.v1.UserService.List
         ```
 
@@ -125,10 +125,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
+  1. Нажмите кнопку **Создать пользователя**.
   1. Введите имя пользователя базы данных.
 
       Имя пользователя может содержать латинские буквы, цифры, дефис и подчеркивание, но должно начинаться с буквы или подчеркивания. Максимальная длина имени — 32 символа.
@@ -136,11 +136,11 @@
   
   1. Выберите, как задать пароль:
 
-      * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}** — ввести свой пароль. Длина пароля — от 8 до 128 символов.
+      * **Ввести вручную** — ввести свой пароль. Длина пароля — от 8 до 128 символов.
 
-      * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — сгенерировать пароль с помощью сервиса {{ connection-manager-name }}.
+      * **Сгенерировать** — сгенерировать пароль с помощью сервиса Connection Manager.
 
-      Чтобы увидеть пароль, на странице кластера выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+      Чтобы увидеть пароль, на странице кластера выберите вкладку **Пользователи** и нажмите **Посмотреть пароль** в строке нового пользователя. Откроется страница секрета Yandex Lockbox, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
 
   1. Выберите одну или несколько баз данных, к которым должен иметь доступ пользователь:
@@ -148,30 +148,30 @@
      1. Повторите предыдущий шаг, пока не будут выбраны все требуемые базы данных.
      1. Чтобы удалить базу, добавленную по ошибке, нажмите на значок ![image](../../_assets/console-icons/xmark.svg) справа от имени базы.
   1. Задайте [дополнительные настройки](../concepts/settings-list.md) для пользователя:
-     1. Настройте [квоты](../concepts/settings-list.md#quota-settings) в разделе **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }} → Quotas**:
+     1. Настройте [квоты](../concepts/settings-list.md#quota-settings) в разделе **Дополнительные настройки → Quotas**:
         1. Чтобы добавить квоту, нажмите на значок ![image](../../_assets/console-icons/plus.svg). Вы можете добавить несколько квот, которые будут действовать одновременно.
-        1. Чтобы удалить квоту, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа от имени квоты и выберите пункт **{{ ui-key.yacloud.component.mdb.settings.label_delete }}**.
+        1. Чтобы удалить квоту, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа от имени квоты и выберите пункт **Удалить**.
         1. Чтобы изменить квоту, задайте требуемые значения настроек для нее.
-     1. Настройте [{{ CH }}](../concepts/settings-list.md#user-level-settings) в разделе **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }} → Settings**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-button_add }}**.
+     1. Настройте [ClickHouse®](../concepts/settings-list.md#user-level-settings) в разделе **Дополнительные настройки → Settings**.
+  1. Нажмите кнопку **Создать**.
 
   См. также: [пример создания пользователя с правами «только чтение»](#example-create-readonly-user).
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы создать пользователя в кластере, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} user create <имя_пользователя> \
+  yc managed-clickhouse user create <имя_пользователя> \
      --cluster-name=<имя_кластера> \
      --password=<пароль_пользователя> \
      --permissions=<список_БД> \
      --quota=<список_настроек_одной_квоты_для_пользователя> \
-     --settings=<список_настроек_{{ CH }}_для_пользователя>
+     --settings=<список_настроек_ClickHouse®_для_пользователя>
   ```
 
   Где:
@@ -180,19 +180,19 @@
   * `--password` — пароль для пользователя. Длина пароля — от 8 до 128 символов.
 
       
-      Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `--password=<пароль>` укажите `--generate-password`.
+      Пароль также можно сгенерировать с помощью сервиса Connection Manager. Для этого вместо `--password=<пароль>` укажите `--generate-password`.
 
-      Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите нужный кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+      Чтобы увидеть пароль, в [консоли управления](https://console.yandex.cloud) выберите нужный кластер, перейдите на вкладку **Пользователи** и нажмите **Посмотреть пароль** в строке нового пользователя. Откроется страница секрета Yandex Lockbox, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
 
   * `--permissions` — список БД, к которым пользователь должен иметь доступ.
 
-  Подробнее о [квотах](../concepts/settings-list.md#quota-settings) и [настройках на уровне запроса](../concepts/settings-list.md#user-level-settings) читайте в разделе [{#T}](../concepts/settings-list.md).
+  Подробнее о [квотах](../concepts/settings-list.md#quota-settings) и [настройках на уровне запроса](../concepts/settings-list.md#user-level-settings) читайте в разделе [Настройки ClickHouse®](../concepts/settings-list.md).
 
   Чтобы задать несколько квот, перечислите их, используя требуемое количество параметров `--quota` в команде:
 
   ```bash
-  {{ yc-mdb-ch }} user create <имя_пользователя> \
+  yc managed-clickhouse user create <имя_пользователя> \
      ...
      --quota="<настройки_квоты_0>" \
      --quota="<настройки_квоты_1>" \
@@ -204,9 +204,9 @@
   См. также: [пример создания пользователя с правами «только чтение»](#example-create-readonly-user).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -233,12 +233,12 @@
         Длина пароля — от 8 до 128 символов.
 
         
-        Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `password = "<пароль>"` укажите `generate_password = true`.
+        Пароль также можно сгенерировать с помощью сервиса Connection Manager. Для этого вместо `password = "<пароль>"` укажите `generate_password = true`.
 
-        Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите нужный кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+        Чтобы увидеть пароль, в [консоли управления](https://console.yandex.cloud) выберите нужный кластер, перейдите на вкладку **Пользователи** и нажмите **Посмотреть пароль** в строке нового пользователя. Откроется страница секрета Yandex Lockbox, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
 
-        Если кластер создается с помощью {{ TF }} одновременно с созданием пользователя, то в ресурсе `yandex_mdb_clickhouse_user` вместо идентификатора кластера укажите ссылку на имя создаваемого кластера:
+        Если кластер создается с помощью Terraform одновременно с созданием пользователя, то в ресурсе `yandex_mdb_clickhouse_user` вместо идентификатора кластера укажите ссылку на имя создаваемого кластера:
 
         ```hcl
 
@@ -256,14 +256,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -285,7 +285,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_user.md).
 
 
 - REST API {#api}
@@ -296,7 +296,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [User.Create](../api-ref/User/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [User.Create](../api-ref/User/create.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
@@ -310,7 +310,7 @@
                     "databaseName": "<имя_БД>"
                   }
                 ],
-                "settings": {<настройки_{{ CH }}>},
+                "settings": {<настройки_ClickHouse®>},
                 "quotas": [
                   {
                     "intervalDuration": "<интервал_для_квоты>",
@@ -337,16 +337,16 @@
             * `password` — пароль пользователя. Длина пароля — от 8 до 128 символов.
             
                 
-                Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `"password": "<пароль_пользователя>"` укажите `"generatePassword": true`.
+                Пароль также можно сгенерировать с помощью сервиса Connection Manager. Для этого вместо `"password": "<пароль_пользователя>"` укажите `"generatePassword": true`.
             
-                Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+                Чтобы увидеть пароль, в [консоли управления](https://console.yandex.cloud) выберите созданный кластер, перейдите на вкладку **Пользователи** и нажмите **Посмотреть пароль** в строке нужного пользователя. Откроется страница секрета Yandex Lockbox, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
             
             
             * `permissions` — список БД, к которым пользователь должен иметь доступ.
             
                 Список организован в виде массива параметров `databaseName`. Один параметр содержит имя отдельной БД.
 
-            * `settings` — список [настроек {{ CH }}](../concepts/settings-list.md#user-level-settings) для пользователя.
+            * `settings` — список [настроек ClickHouse®](../concepts/settings-list.md#user-level-settings) для пользователя.
 
                 Настройки задаются в виде пар `ключ: значение`, разделенных запятыми.
 
@@ -359,7 +359,7 @@
               --request POST \
               --header "Authorization: Bearer $IAM_TOKEN" \
               --header "Content-Type: application/json" \
-              --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/users' \
+              --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/users' \
               --data '@body.json'
             ```
 
@@ -385,7 +385,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [UserService.Create](../api-ref/grpc/User/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [UserService.Create](../api-ref/grpc/User/create.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
@@ -400,7 +400,7 @@
                     "database_name": "<имя_БД>"
                   }
                 ],
-                "settings": {<настройки_{{ CH }}>},
+                "settings": {<настройки_ClickHouse®>},
                 "quotas": [
                   {
                     "interval_duration": "<интервал_для_квоты>",
@@ -427,16 +427,16 @@
             * `password` — пароль пользователя. Длина пароля — от 8 до 128 символов.
             
               
-              Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `"password": "<пароль_пользователя>"` укажите `"generate_password": true`.
+              Пароль также можно сгенерировать с помощью сервиса Connection Manager. Для этого вместо `"password": "<пароль_пользователя>"` укажите `"generate_password": true`.
             
-              Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+              Чтобы увидеть пароль, в [консоли управления](https://console.yandex.cloud) выберите созданный кластер, перейдите на вкладку **Пользователи** и нажмите **Посмотреть пароль** в строке нужного пользователя. Откроется страница секрета Yandex Lockbox, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
             
             
             * `permissions` — список БД, к которым пользователь должен иметь доступ.
             
                 Список организован в виде массива параметров `database_name`. Один параметр содержит имя отдельной БД.
 
-            * `settings` — список [настроек {{ CH }}](../concepts/settings-list.md#user-level-settings) для пользователя.
+            * `settings` — список [настроек ClickHouse®](../concepts/settings-list.md#user-level-settings) для пользователя.
 
                 Настройки задаются в виде пар `ключ: значение`, разделенных запятыми.
 
@@ -454,7 +454,7 @@
               -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/user_service.proto \
               -rpc-header "Authorization: Bearer $IAM_TOKEN" \
               -d @ \
-              {{ api-host-mdb }}:{{ port-https }} \
+              mdb.api.cloud.yandex.net:443 \
               yandex.cloud.mdb.clickhouse.v1.UserService.Create \
               < body.json
             ```
@@ -480,49 +480,49 @@
       
       {% endnote %}
 
-  Подробнее о создании пользователей см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/user).
+  Подробнее о создании пользователей см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/user).
 
 {% endlist %}
 
 ## Изменить пароль {#updateuser}
 
-Рекомендуется использовать интерфейсы {{ yandex-cloud }}, перечисленные ниже. Не используйте SQL для смены пароля, иначе после [технического обслуживания](../concepts/maintenance.md) пароль может измениться на прежний.
+Рекомендуется использовать интерфейсы Yandex Cloud, перечисленные ниже. Не используйте SQL для смены пароля, иначе после [технического обслуживания](../concepts/maintenance.md) пароль может измениться на прежний.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Изменить пароль**.
 
   
   1. Выберите, как задать новый пароль:
 
-      * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}** — ввести свой пароль. Длина пароля — от 8 до 128 символов.
+      * **Ввести вручную** — ввести свой пароль. Длина пароля — от 8 до 128 символов.
 
-      * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — сгенерировать пароль с помощью сервиса {{ connection-manager-name }}.
+      * **Сгенерировать** — сгенерировать пароль с помощью сервиса Connection Manager.
 
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
+  1. Нажмите кнопку **Изменить**.
 
   
-  Чтобы увидеть новый пароль, на странице кластера выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
+  Чтобы увидеть новый пароль, на странице кластера выберите вкладку **Пользователи** и нажмите **Посмотреть пароль** в строке нужного пользователя. Откроется страница секрета Yandex Lockbox, в котором хранится пароль. Новая версия пароля отмечается как **Текущая**.
 
   Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы изменить пароль пользователя, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} user update <имя_пользователя> \
+  yc managed-clickhouse user update <имя_пользователя> \
      --cluster-name=<имя_кластера> \
      --password=<новый_пароль>
   ```
@@ -530,9 +530,9 @@
   Длина пароля — от 8 до 128 символов.
 
   
-  Новый пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `--password=<новый_пароль>` укажите `--generate-password`.
+  Новый пароль также можно сгенерировать с помощью сервиса Connection Manager. Для этого вместо `--password=<новый_пароль>` укажите `--generate-password`.
 
-  Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
+  Чтобы увидеть новый пароль, в [консоли управления](https://console.yandex.cloud) выберите кластер, перейдите на вкладку **Пользователи** и нажмите **Посмотреть пароль** в строке нужного пользователя. Откроется страница секрета Yandex Lockbox, в котором хранится пароль. Новая версия пароля отмечается как **Текущая**.
 
   Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
@@ -540,9 +540,9 @@
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -562,27 +562,27 @@
         Длина пароля — от 8 до 128 символов.
 
         
-        Новый пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `password = "<новый_пароль>"` укажите `generate_password = true`.
+        Новый пароль также можно сгенерировать с помощью сервиса Connection Manager. Для этого вместо `password = "<новый_пароль>"` укажите `generate_password = true`.
 
-        Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
+        Чтобы увидеть новый пароль, в [консоли управления](https://console.yandex.cloud) выберите кластер, перейдите на вкладку **Пользователи** и нажмите **Посмотреть пароль** в строке нужного пользователя. Откроется страница секрета Yandex Lockbox, в котором хранится пароль. Новая версия пароля отмечается как **Текущая**.
 
         {% note info %}
 
-        Если старый пароль был сгенерирован, его нельзя перегенерировать с помощью {{ TF }} из-за ограничений провайдера.
+        Если старый пароль был сгенерирован, его нельзя перегенерировать с помощью Terraform из-за ограничений провайдера.
 
         {% endnote %}
 
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -604,7 +604,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_user.md).
 
 
 - REST API {#api}
@@ -615,7 +615,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -628,7 +628,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
             --data '{
                       "updateMask": "password",
                       "password": "<новый_пароль>"
@@ -644,7 +644,7 @@
         * `password` — новый пароль. Длина пароля — от 8 до 128 символов.
 
            
-           Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого измените содержимое поля `data`:
+           Пароль также можно сгенерировать с помощью сервиса Connection Manager. Для этого измените содержимое поля `data`:
 
            ```bash
            {
@@ -653,7 +653,7 @@
            }
            ```
 
-           Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
+           Чтобы увидеть новый пароль, в [консоли управления](https://console.yandex.cloud) выберите кластер, перейдите на вкладку **Пользователи** и нажмите **Посмотреть пароль** в строке нужного пользователя. Откроется страница секрета Yandex Lockbox, в котором хранится пароль. Новая версия пароля отмечается как **Текущая**.
 
            Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
@@ -678,7 +678,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -718,7 +718,7 @@
                   },
                   "password": "<новый_пароль>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.clickhouse.v1.UserService.Update
         ```
 
@@ -731,7 +731,7 @@
         * `password` — новый пароль. Длина пароля — от 8 до 128 символов.
 
            
-           Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого измените содержимое параметра `d`:
+           Пароль также можно сгенерировать с помощью сервиса Connection Manager. Для этого измените содержимое параметра `d`:
 
            ```bash
            {
@@ -746,7 +746,7 @@
            }
            ```
 
-           Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
+           Чтобы увидеть новый пароль, в [консоли управления](https://console.yandex.cloud) выберите кластер, перейдите на вкладку **Пользователи** и нажмите **Посмотреть пароль** в строке нужного пользователя. Откроется страница секрета Yandex Lockbox, в котором хранится пароль. Новая версия пароля отмечается как **Текущая**.
 
            Для просмотра паролей требуется роль `lockbox.payloadViewer`
 
@@ -759,20 +759,20 @@
 
 ## Изменить пароль пользователя admin {#admin-password-change}
 
-Рекомендуется использовать интерфейсы {{ yandex-cloud }}, перечисленные ниже. Не используйте SQL для смены пароля, иначе после [технического обслуживания](../concepts/maintenance.md) пароль может измениться на прежний.
+Рекомендуется использовать интерфейсы Yandex Cloud, перечисленные ниже. Не используйте SQL для смены пароля, иначе после [технического обслуживания](../concepts/maintenance.md) пароль может измениться на прежний.
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы изменить пароль пользователя `admin`, выполните команду:
 
     ```bash
-    {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
+    yc managed-clickhouse cluster update <имя_или_идентификатор_кластера> \
       --admin-password <новый_пароль_пользователя_admin>
     ```
 
@@ -794,9 +794,9 @@
     {% endnote %}
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -820,14 +820,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -849,7 +849,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
 
 - REST API {#api}
@@ -860,7 +860,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -873,7 +873,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "configSpec.adminPassword",
                       "configSpec": {
@@ -912,7 +912,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -953,7 +953,7 @@
                     "admin_password": "<новый_пароль>"
                   }
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
         ```
 
@@ -979,25 +979,25 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Настроить**.
   1. Настройте права пользователя на доступ к определенным базам данных:
      1. Чтобы предоставить доступ к требуемым базам данных:
         1. Нажмите на значок ![image](../../_assets/console-icons/plus.svg) и выберите базу данных из выпадающего списка.
         1. Повторите предыдущий шаг, пока не будут выбраны все требуемые базы данных.
      1. Чтобы удалить базу, нажмите на значок ![image](../../_assets/console-icons/xmark.svg) справа от имени базы.
-  1. Настройте [квоты](../concepts/settings-list.md#quota-settings) для пользователя в разделе **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }} → Quotas**:
+  1. Настройте [квоты](../concepts/settings-list.md#quota-settings) для пользователя в разделе **Дополнительные настройки → Quotas**:
      1. Чтобы добавить квоту, нажмите на значок ![image](../../_assets/console-icons/plus.svg). Вы можете добавить несколько квот, которые будут действовать одновременно.
-     1. Чтобы удалить квоту, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа от имени квоты и выберите пункт **{{ ui-key.yacloud.component.mdb.settings.label_delete }}**.
+     1. Чтобы удалить квоту, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа от имени квоты и выберите пункт **Удалить**.
      1. Чтобы изменить квоту, задайте требуемые значения настроек для нее.
-  1. Измените [настройки {{ CH }}](../concepts/settings-list.md#dbms-user-settings) для пользователя в разделе **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }} → Settings**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
+  1. Измените [настройки ClickHouse®](../concepts/settings-list.md#dbms-user-settings) для пользователя в разделе **Дополнительные настройки → Settings**.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -1005,7 +1005,7 @@
   1. Чтобы настроить права пользователя на доступ к определенным базам данных, выполните команду, перечислив список имен баз данных с помощью параметра `--permissions`:
 
      ```bash
-     {{ yc-mdb-ch }} user update <имя_пользователя> \
+     yc managed-clickhouse user update <имя_пользователя> \
         --cluster-name=<имя_кластера> \
         --permissions=<список_БД>
      ```
@@ -1019,7 +1019,7 @@
   1. Чтобы изменить [настройки квот](../concepts/settings-list.md#quota-settings) для пользователя, выполните команду, перечислив список всех квот, с помощью параметров `--quota` (один параметр на каждую квоту):
 
      ```bash
-     {{ yc-mdb-ch }} user update <имя_пользователя> \
+     yc managed-clickhouse user update <имя_пользователя> \
         --cluster-name=<имя_кластера> \
         --quota=<настройки_квоты_0_(без_изменений)> \
         --quota=<настройки_квоты_1_(без_изменений)> \
@@ -1039,24 +1039,24 @@
 
      При задании интервала для квоты допустимо использовать запись с указанием единиц измерения: часов (`h`), минут (`m`), секунд (`s`) и миллисекунд (`ms`). Пример такой записи: `3h20m10s7000ms` (итоговое значение представляется по-прежнему в миллисекундах: `12017000`). Значение интервала должно быть кратно 1000 миллисекунд (значение вида `1s500ms` является некорректным).
 
-  1. Чтобы изменить [настройки {{ CH }}](../concepts/settings-list.md#dbms-user-settings) для пользователя, выполните команду, перечислив измененные настройки с помощью параметра `--settings`:
+  1. Чтобы изменить [настройки ClickHouse®](../concepts/settings-list.md#dbms-user-settings) для пользователя, выполните команду, перечислив измененные настройки с помощью параметра `--settings`:
 
      ```bash
-     {{ yc-mdb-ch }} user update <имя_пользователя> \
+     yc managed-clickhouse user update <имя_пользователя> \
         --cluster-name=<имя_кластера> \
-        --settings=<список_настроек_{{ CH }}>
+        --settings=<список_настроек_ClickHouse®>
      ```
 
      Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-     Команда изменит только те настройки, которые явно указаны в параметре `--settings`. Например, команда с параметром `--settings="readonly=1"` изменит только настройку `readonly` и не сбросит значения остальных. Этим изменение настроек {{ CH }} отличается от изменения настроек квот.
+     Команда изменит только те настройки, которые явно указаны в параметре `--settings`. Например, команда с параметром `--settings="readonly=1"` изменит только настройку `readonly` и не сбросит значения остальных. Этим изменение настроек ClickHouse® отличается от изменения настроек квот.
 
      С помощью этой команды невозможно удалить сделанную настройку, допустимо только явно присвоить ей значение по умолчанию (оно указано для [каждой настройки](#clickhouse-settings)).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -1099,7 +1099,7 @@
         }
         ```
 
-    1. Чтобы изменить [настройки {{ CH }}](../concepts/settings-list.md#dbms-user-settings) для пользователя, добавьте блок `settings` к его описанию.
+    1. Чтобы изменить [настройки ClickHouse®](../concepts/settings-list.md#dbms-user-settings) для пользователя, добавьте блок `settings` к его описанию.
 
         ```hcl
         resource "yandex_mdb_clickhouse_user" "<имя_пользователя>" {
@@ -1117,14 +1117,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -1146,7 +1146,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_user.md).
 
 
 - REST API {#api}
@@ -1157,7 +1157,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -1170,11 +1170,11 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
             --data '{
                       "updateMask": "<перечень_изменяемых_настроек>",
                       "permissions": [ <обновленный_список_БД> ],
-                      "settings": { <настройки_{{ CH }}> },
+                      "settings": { <настройки_ClickHouse®> },
                       "quotas": [ <обновленный_список_настроек_квот> ]
                     }'
         ```
@@ -1195,7 +1195,7 @@
 
             {% endnote %}
 
-        * Чтобы изменить [настройки {{ CH }}](../concepts/settings-list.md#user-level-settings) для пользователя, передайте в параметре `settings` нужные настройки с новыми значениями.
+        * Чтобы изменить [настройки ClickHouse®](../concepts/settings-list.md#user-level-settings) для пользователя, передайте в параметре `settings` нужные настройки с новыми значениями.
 
         * Чтобы изменить [настройки квот](../concepts/settings-list.md#quota-settings), передайте в параметре `quotas` обновленный список с настройками квот.
 
@@ -1229,7 +1229,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -1268,10 +1268,10 @@
                     ]
                   },
                   "permissions": [ <обновленный_список_БД> ],
-                  "settings": { <настройки_{{ CH }}> },
+                  "settings": { <настройки_ClickHouse®> },
                   "quotas": [ <обновленный_список_настроек_квот> ]
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.clickhouse.v1.UserService.Update
         ```
 
@@ -1291,7 +1291,7 @@
 
             {% endnote %}
 
-        * Чтобы изменить [настройки {{ CH }}](../concepts/settings-list.md#user-level-settings) для пользователя, передайте в параметре `settings` нужные настройки с новыми значениями.
+        * Чтобы изменить [настройки ClickHouse®](../concepts/settings-list.md#user-level-settings) для пользователя, передайте в параметре `settings` нужные настройки с новыми значениями.
 
         * Чтобы изменить [настройки квот](../concepts/settings-list.md#quota-settings), передайте в параметре `quotas` обновленный список с настройками квот.
 
@@ -1312,22 +1312,22 @@
 - SQL {#sql}
 
   1. [Подключитесь](connect/clients.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
-  1. Чтобы изменить набор привилегий и ролей пользователя, используйте запросы [GRANT]({{ ch.docs }}{{ lang }}/sql-reference/statements/grant) и [REVOKE]({{ ch.docs }}{{ lang }}/sql-reference/statements/revoke). Например, выдайте пользователю права на чтение всех объектов в определенной базе данных:
+  1. Чтобы изменить набор привилегий и ролей пользователя, используйте запросы [GRANT](https://clickhouse.com/docs/ru/sql-reference/statements/grant) и [REVOKE](https://clickhouse.com/docs/ru/sql-reference/statements/revoke). Например, выдайте пользователю права на чтение всех объектов в определенной базе данных:
 
       ```sql
       GRANT SELECT ON <имя_базы_данных>.* TO <имя_пользователя>;
       ```
 
-  1. Чтобы изменить [настройки квот](../concepts/settings-list.md#quota-settings) для пользователя, используйте запросы [CREATE QUOTA]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/quota#create-quota-statement), [ALTER QUOTA]({{ ch.docs }}{{ lang }}/sql-reference/statements/alter/quota#alter-quota-statement) и [DROP QUOTA]({{ ch.docs }}{{ lang }}/sql-reference/statements/drop#drop-quota-statement). Например, ограничьте суммарное количество запросов пользователя за период 15 месяцев:
+  1. Чтобы изменить [настройки квот](../concepts/settings-list.md#quota-settings) для пользователя, используйте запросы [CREATE QUOTA](https://clickhouse.com/docs/ru/sql-reference/statements/create/quota#create-quota-statement), [ALTER QUOTA](https://clickhouse.com/docs/ru/sql-reference/statements/alter/quota#alter-quota-statement) и [DROP QUOTA](https://clickhouse.com/docs/ru/sql-reference/statements/drop#drop-quota-statement). Например, ограничьте суммарное количество запросов пользователя за период 15 месяцев:
 
       ```sql
       CREATE QUOTA <название_квоты> FOR INTERVAL 15 MONTH MAX QUERIES 100 TO <имя_пользователя>;
       ```
 
-  1. Чтобы изменить учетную запись пользователя, используйте запрос [ALTER USER]({{ ch.docs }}{{ lang }}/sql-reference/statements/alter/user). Например для изменения [настроек {{ CH }}](../concepts/settings-list.md#dbms-user-settings) выполните следующую команду, перечислив настройки подлежащие изменению:
+  1. Чтобы изменить учетную запись пользователя, используйте запрос [ALTER USER](https://clickhouse.com/docs/ru/sql-reference/statements/alter/user). Например для изменения [настроек ClickHouse®](../concepts/settings-list.md#dbms-user-settings) выполните следующую команду, перечислив настройки подлежащие изменению:
 
       ```sql
-      ALTER USER <имя_пользователя> SETTINGS <список_настроек_{{ CH }}>;
+      ALTER USER <имя_пользователя> SETTINGS <список_настроек_ClickHouse®>;
       ```
 
 {% endlist %}
@@ -1338,30 +1338,30 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Удалить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы удалить пользователя, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} user delete <имя_пользователя> \
+  yc managed-clickhouse user delete <имя_пользователя> \
      --cluster-name=<имя_кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -1369,14 +1369,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -1398,7 +1398,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_user.md).
 
 
 - REST API {#api}
@@ -1409,13 +1409,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [User.Delete](../api-ref/User/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [User.Delete](../api-ref/User/delete.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request DELETE \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>'
+            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters). Имя пользователя можно запросить со [списком пользователей в кластере](#list-users).
@@ -1438,7 +1438,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [UserService.Delete](../api-ref/grpc/User/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [UserService.Delete](../api-ref/grpc/User/delete.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -1451,7 +1451,7 @@
                     "cluster_id": "<идентификатор_кластера>",
                     "user_name": "<имя_пользователя>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.clickhouse.v1.UserService.Delete
         ```
 
@@ -1468,7 +1468,7 @@
       DROP USER <имя_пользователя>;
       ```
 
-  Подробнее об удалении объектов см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/drop).
+  Подробнее об удалении объектов см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/drop).
 
 {% endlist %}
 
@@ -1476,7 +1476,7 @@
 
 ### Создание пользователя с настройкой «только чтение» {#example-create-readonly-user}
 
-Допустим, нужно добавить в существующий кластер с именем `mych` и идентификатором `{{ cluster-id }}` нового пользователя `ro-user` с паролем `Passw0rd`, причем:
+Допустим, нужно добавить в существующий кластер с именем `mych` и идентификатором `cat0adul1fj0********` нового пользователя `ro-user` с паролем `Passw0rd`, причем:
 * пользователь должен иметь доступ к базе данных `db1` кластера;
 * доступ должен осуществляться в режиме «только чтение» (readonly), без возможности изменения настроек.
 
@@ -1484,22 +1484,22 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на кластер с именем `mych` и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на кластер с именем `mych` и выберите вкладку **Пользователи**.
+  1. Нажмите кнопку **Создать пользователя**.
   1. Введите имя пользователя базы данных `ro-user` и пароль `Passw0rd`.
   1. Нажмите на значок ![image](../../_assets/console-icons/plus.svg) и выберите базу данных `db1` из выпадающего списка.
-  1. Выберите **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }} → Settings → Readonly**.
+  1. Выберите **Дополнительные настройки → Settings → Readonly**.
   1. В поле **Readonly** укажите значение `1`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-button_add }}**.
+  1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
 
   Запустите следующую команду:
 
   ```bash
-  {{ yc-mdb-ch }} user create "ro-user" \
+  yc managed-clickhouse user create "ro-user" \
      --cluster-name="mych" \
      --password="Passw0rd" \
      --permissions="db1" \
@@ -1521,9 +1521,9 @@
        ```
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -1545,14 +1545,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -1583,14 +1583,14 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Выполните запрос c помощью {{ api-examples.rest.tool }}:
+    1. Выполните запрос c помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{{ cluster-id }}/users' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/cat0adul1fj0********/users' \
             --data '{
                       "userSpec": {
                         "name": "ro-user",
@@ -1623,7 +1623,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Выполните запрос с помощью {{ api-examples.grpc.tool }}:
+    1. Выполните запрос с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -1633,7 +1633,7 @@
             -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/user_service.proto \
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d '{
-                  "cluster_id": "{{ cluster-id }}",
+                  "cluster_id": "cat0adul1fj0********",
                   "user_spec": {
                     "name": "ro-user",
                     "password": "Passw0rd",
@@ -1647,7 +1647,7 @@
                     }
                   }
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.clickhouse.v1.UserService.Create
         ```
 
@@ -1668,4 +1668,4 @@
 
 {% endlist %}
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

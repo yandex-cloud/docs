@@ -5,7 +5,7 @@ Creates an address in the specified folder and network.
 ## HTTP request
 
 ```
-POST https://vpc.{{ api-host }}/vpc/v1/addresses
+POST https://vpc.api.cloud.yandex.net/vpc/v1/addresses
 ```
 
 ## Body parameters {#yandex.cloud.vpc.v1.CreateAddressRequest}

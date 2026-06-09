@@ -1,6 +1,6 @@
 # Редактирование ACL бакета
 
-В {{ objstorage-name }} реализовано несколько механизмов для управления доступом к ресурсам. Алгоритм взаимодействия этих механизмов см. в [{#T}](../../security/overview.md).
+В Object Storage реализовано несколько механизмов для управления доступом к ресурсам. Алгоритм взаимодействия этих механизмов см. в [Обзор способов управления доступом в Object Storage](../../security/overview.md).
 
 {% note info %}
 
@@ -12,40 +12,40 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. В строке с нужным бакетом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Object Storage**.
+  1. В строке с нужным бакетом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Настроить ACL**.
 
-      Также можно нажать на имя бакета, на открывшейся странице справа сверху нажать ![image](../../../_assets/console-icons/ellipsis.svg) и выбрать **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
+      Также можно нажать на имя бакета, на открывшейся странице справа сверху нажать ![image](../../../_assets/console-icons/ellipsis.svg) и выбрать **Настроить ACL**.
 
-      В открывшемся окне **{{ ui-key.yacloud.component.acl-dialog.label_title }}** выдайте или отзовите необходимые разрешения:
+      В открывшемся окне **Редактирование ACL** выдайте или отзовите необходимые разрешения:
       
       1. Выберите нужных [субъектов](../../../iam/concepts/access-control/index.md#subject) из списка. Для этого поместите курсор в поле для ввода данных субъекта и в появившейся форме выберите нужного [пользователя](../../../overview/roles-and-resources.md#users), [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), [группу пользователей](../../../organization/concepts/groups.md), [системную группу](../../../iam/concepts/access-control/system-group.md) или [публичную группу](../../../iam/concepts/access-control/public-group.md). При необходимости воспользуйтесь соответствующими вкладками формы или строкой поиска по имени или электронному адресу субъекта.
       
           Задать разрешение вы можете одновременно для нескольких субъектов, для этого выбирайте их поочередно.
       
-      1. Задайте для выбранных субъектов необходимый [вид разрешений](../../concepts/acl.md#permissions-types) и нажмите **{{ ui-key.yacloud.common.add }}**.
+      1. Задайте для выбранных субъектов необходимый [вид разрешений](../../concepts/acl.md#permissions-types) и нажмите **Добавить**.
       
       1. Если требуется задать субъектам другие виды разрешений, повторите два предыдущих шага.
       
-      1. Чтобы отозвать выданное субъекту разрешение, нажмите **{{ ui-key.yacloud.component.acl-dialog.button_remove-new }}** в строке с этим разрешением.
+      1. Чтобы отозвать выданное субъекту разрешение, нажмите **Отменить** в строке с этим разрешением.
       
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+      1. Нажмите кнопку **Сохранить**.
 
       {% note info %}
   
-      В консоли управления разрешения можно выдать только тем сервисным аккаунтам, которые созданы в том же каталоге, что и сам бакет. Выдать разрешения для сервисных аккаунтов, относящихся к другим каталогам, можно с помощью {{ yandex-cloud }} CLI (только для ACL бакета), AWS CLI, {{ TF }} или API.
+      В консоли управления разрешения можно выдать только тем сервисным аккаунтам, которые созданы в том же каталоге, что и сам бакет. Выдать разрешения для сервисных аккаунтов, относящихся к другим каталогам, можно с помощью Yandex Cloud CLI (только для ACL бакета), AWS CLI, Terraform или API.
   
       {% endnote %}
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
 
-  К бакету можно применить [предопределенный ACL](../../concepts/acl.md#predefined-acls) или настроить разрешения для отдельных пользователей, [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md), [групп пользователей](../../../organization/concepts/groups.md) и [публичных групп](../../concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей {{ yandex-cloud }}). Эти настройки несовместимы: у бакета должен быть либо предопределенный ACL, либо набор отдельных разрешений.
+  К бакету можно применить [предопределенный ACL](../../concepts/acl.md#predefined-acls) или настроить разрешения для отдельных пользователей, [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md), [групп пользователей](../../../organization/concepts/groups.md) и [публичных групп](../../concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей Yandex Cloud). Эти настройки несовместимы: у бакета должен быть либо предопределенный ACL, либо набор отдельных разрешений.
 
   Вы можете редактировать ACL бакета с помощью следующих команд:
   * [yc storage bucket update](#yc-storage-bucket-update)
@@ -77,7 +77,7 @@
 
   Где:
   * `--name` — имя бакета.
-  * `--acl` — предопределенный ACL. Список значений см. в разделе [{#T}](../../concepts/acl.md#predefined-acls).
+  * `--acl` — предопределенный ACL. Список значений см. в разделе [Предопределенные ACL](../../concepts/acl.md#predefined-acls).
 
   Результат:
 
@@ -96,11 +96,11 @@
 
   _Настройка отдельных разрешений_
 
-  1. Чтобы выдать разрешения ACL для пользователя {{ yandex-cloud }}, сервисного аккаунта или группы пользователей, получите их идентификатор:
+  1. Чтобы выдать разрешения ACL для пользователя Yandex Cloud, сервисного аккаунта или группы пользователей, получите их идентификатор:
 
       * [Пользователь](../../../organization/operations/users-get.md).
       * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-      * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
+      * Группа пользователей — перейдите на вкладку [**Группы**](https://center.yandex.cloud/organization/groups) в интерфейсе Cloud Center.
 
   1. Выполните команду:
 
@@ -112,7 +112,7 @@
       Где:
       * `grant-type` — тип получателя разрешения. Возможные значения:
         * `grant-type-account` — пользователь, [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) или [группа пользователей](../../../organization/concepts/groups.md);
-        * `grant-type-all-authenticated-users` — [публичная группа](../../concepts/acl.md#public-groups) всех аутентифицированных пользователей {{ yandex-cloud }};
+        * `grant-type-all-authenticated-users` — [публичная группа](../../concepts/acl.md#public-groups) всех аутентифицированных пользователей Yandex Cloud;
         * `grant-type-all-users` — публичная группа всех пользователей интернета.
       * `grantee-id` — идентификатор пользователя, сервисного аккаунта или группы пользователей, которым нужно дать разрешение. Указывается, только если `grant-type=grant-type-account`.
       * `permission` — тип разрешения ACL. Возможные значения:
@@ -120,7 +120,7 @@
         * `permission-write` — доступ к записи, перезаписи и удалению объектов в бакете. Используется только совместно с `permission-read`.
         * `permission-full-control` — полный доступ к бакету и объектам в нем.
       
-        Подробнее о разрешениях см. в разделе [{#T}](../../concepts/acl.md#permissions-types).
+        Подробнее о разрешениях см. в разделе [Виды разрешений](../../concepts/acl.md#permissions-types).
 
       Чтобы настроить несколько разрешений, укажите параметр `--grants` несколько раз. Например, чтобы выдать разрешение на запись в бакет, выполните команду:
 
@@ -153,15 +153,15 @@
 
   Где:
   * `--name` — имя бакета.
-  * `--acl` — предопределенный ACL. Список значений см. в разделе [{#T}](../../concepts/acl.md#predefined-acls).
+  * `--acl` — предопределенный ACL. Список значений см. в разделе [Предопределенные ACL](../../concepts/acl.md#predefined-acls).
 
   _Настройка отдельных разрешений_
 
-  1. Чтобы выдать разрешения ACL для пользователя {{ yandex-cloud }}, сервисного аккаунта или группы пользователей, получите их идентификатор:
+  1. Чтобы выдать разрешения ACL для пользователя Yandex Cloud, сервисного аккаунта или группы пользователей, получите их идентификатор:
 
       * [Пользователь](../../../organization/operations/users-get.md).
       * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-      * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
+      * Группа пользователей — перейдите на вкладку [**Группы**](https://center.yandex.cloud/organization/groups) в интерфейсе Cloud Center.
 
   1. Выполните команду:
 
@@ -179,12 +179,12 @@
         * `--grant-write` — доступ к записи, перезаписи и удалению объектов в бакете. Используется только совместно с `--grant-read`.
         * `--grant-full-control` — полный доступ к бакету и объектам в нем.
 
-        Подробнее о разрешениях см. в разделе [{#T}](../../concepts/acl.md#permissions-types).
+        Подробнее о разрешениях см. в разделе [Виды разрешений](../../concepts/acl.md#permissions-types).
 
       * Возможные получатели разрешений:
 
         * `id=<идентификатор_получателя>` — идентификатор пользователя, сервисного аккаунта или группы пользователей, которым нужно дать разрешение.
-        * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — [публичная группа](../../concepts/acl.md#public-groups) всех аутентифицированных пользователей {{ yandex-cloud }}.
+        * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — [публичная группа](../../concepts/acl.md#public-groups) всех аутентифицированных пользователей Yandex Cloud.
         * `uri=http://acs.amazonaws.com/groups/global/AllUsers` — публичная группа всех пользователей интернета.
 
       Чтобы настроить несколько разрешений, укажите параметры, тип разрешения и получателя разрешения несколько раз. Например, чтобы выдать разрешение на запись в бакет, выполните команду:
@@ -211,15 +211,15 @@
 
   ```bash
   aws s3api get-bucket-acl \
-    --endpoint https://{{ s3-storage-host }} \
+    --endpoint https://storage.yandexcloud.net \
     --bucket <имя_бакета>
   ```
 
   Где:
   * `--bucket` — имя бакета.
-  * `--endpoint` — эндпоинт {{ objstorage-name }}.
+  * `--endpoint` — эндпоинт Object Storage.
 
-  К бакету можно применить [предопределенный ACL](../../concepts/acl.md#predefined-acls) или настроить разрешения для отдельных пользователей, [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md), [групп пользователей](../../../organization/concepts/groups.md) и [публичных групп](../../concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей {{ yandex-cloud }}). Эти настройки несовместимы: у бакета должен быть либо предопределенный ACL, либо набор отдельных разрешений.
+  К бакету можно применить [предопределенный ACL](../../concepts/acl.md#predefined-acls) или настроить разрешения для отдельных пользователей, [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md), [групп пользователей](../../../organization/concepts/groups.md) и [публичных групп](../../concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей Yandex Cloud). Эти настройки несовместимы: у бакета должен быть либо предопределенный ACL, либо набор отдельных разрешений.
 
   Предопределенный ACL
 
@@ -227,47 +227,47 @@
 
     ```bash
       aws s3api put-bucket-acl \
-        --endpoint https://{{ s3-storage-host }} \
+        --endpoint https://storage.yandexcloud.net \
         --bucket <имя_бакета> \
         --acl <предопределенный_ACL>
     ```
 
     Где:
 
-    * `--endpoint` — эндпоинт {{ objstorage-name }}.
+    * `--endpoint` — эндпоинт Object Storage.
     * `--bucket` — имя бакета.
-    * `--acl` — предопределенный ACL. Список значений см. в разделе [{#T}](../../concepts/acl.md#predefined-acls).
+    * `--acl` — предопределенный ACL. Список значений см. в разделе [Предопределенные ACL](../../concepts/acl.md#predefined-acls).
 
   Настройка отдельных разрешений
 
-  : 1. Чтобы выдать разрешения ACL для пользователя {{ yandex-cloud }}, сервисного аккаунта или группы пользователей, получите их идентификатор:
+  : 1. Чтобы выдать разрешения ACL для пользователя Yandex Cloud, сервисного аккаунта или группы пользователей, получите их идентификатор:
 
         * [Пользователь](../../../organization/operations/users-get.md).
         * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-        * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
+        * Группа пользователей — перейдите на вкладку [**Группы**](https://center.yandex.cloud/organization/groups) в интерфейсе Cloud Center.
 
     1. Выполните команду:
 
         ```bash
         aws s3api put-bucket-acl \
-          --endpoint https://{{ s3-storage-host }} \
+          --endpoint https://storage.yandexcloud.net \
           --bucket <имя_бакета> \
           <тип_разрешения> <получатель_разрешения>
         ```
 
         Где:
         * `--bucket` — имя бакета.
-        * `--endpoint` — эндпоинт {{ objstorage-name }}.
+        * `--endpoint` — эндпоинт Object Storage.
         * Возможные типы разрешений ACL:
           * `--grant-read` — доступ к списку объектов в бакете, чтению различных настроек бакета (жизненный цикл, CORS, статический хостинг), чтению всех объектов в бакете.
           * `--grant-write` — доступ к записи, перезаписи и удалению объектов в бакете. Используется только совместно с `--grant-read`.
           * `--grant-full-control` — полный доступ к бакету и объектам в нем.
 
-          Подробнее о разрешениях см. в разделе [{#T}](../../concepts/acl.md#permissions-types).
+          Подробнее о разрешениях см. в разделе [Виды разрешений](../../concepts/acl.md#permissions-types).
 
         * Возможные получатели разрешений:
           * `id=<идентификатор_получателя>` — идентификатор пользователя, сервисного аккаунта или группы пользователей, которым нужно дать разрешение.
-          * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — [публичная группа](../../concepts/acl.md#public-groups) всех аутентифицированных пользователей {{ yandex-cloud }}.
+          * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — [публичная группа](../../concepts/acl.md#public-groups) всех аутентифицированных пользователей Yandex Cloud.
           * `uri=http://acs.amazonaws.com/groups/global/AllUsers` — публичная группа всех пользователей интернета.
 
         Чтобы настроить несколько разрешений, укажите параметры, тип разрешения и получателя разрешения несколько раз. Например, чтобы выдать разрешение на запись в бакет, выполните команду:
@@ -280,26 +280,26 @@
           --grant-write id=<идентификатор_получателя>
         ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   {% note info %}
   
-  Если вы работаете с {{ objstorage-name }} через {{ TF }} от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
+  Если вы работаете с Object Storage через Terraform от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
   
   {% endnote %}
 
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
 
-  Перед началом работы, получите [статические ключи доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
+  Перед началом работы, получите [статические ключи доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) — секретный ключ и идентификатор ключа, используемые для аутентификации в Object Storage.
 
   {% note info %}
   
-  Кроме статических ключей доступа для аутентификации в {{ objstorage-name }} можно использовать IAM-токен. Подробнее смотрите в разделе [{#T}](create.md) и в [документации провайдера]({{ tf-provider-resources-link }}/storage_object). 
+  Кроме статических ключей доступа для аутентификации в Object Storage можно использовать IAM-токен. Подробнее смотрите в разделе [Создание бакета](create.md) и в [документации провайдера](../../../terraform/resources/storage_object.md). 
   
   {% endnote %}
 
@@ -309,7 +309,7 @@
 
   {% note warning %}
   
-  Ресурс [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/storage_bucket_grant) нельзя использовать, если одновременно используется ресурс [yandex_storage_bucket_iam_binding]({{ tf-provider-resources-link }}/storage_bucket_iam_binding) для назначения [примитивных ролей](../../security/index.md#primitive-roles) (`viewer`, `editor` и `admin`) на бакет, или если одновременно используются параметры `acl` или `grant` ресурса [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket).
+  Ресурс [yandex_storage_bucket_grant](../../../terraform/resources/storage_bucket_grant.md) нельзя использовать, если одновременно используется ресурс [yandex_storage_bucket_iam_binding](../../../terraform/resources/storage_bucket_iam_binding.md) для назначения [примитивных ролей](../../security/index.md#primitive-roles) (`viewer`, `editor` и `admin`) на бакет, или если одновременно используются параметры `acl` или `grant` ресурса [yandex_storage_bucket](../../../terraform/resources/storage_bucket.md).
   
   {% endnote %}
 
@@ -352,25 +352,25 @@
          * `WRITE` — доступ к записи, перезаписи и удалению объектов в бакете. Используется только совместно с `READ`, например `permissions = ["READ", "WRITE"]`.
          * `FULL_CONTROL` — полный доступ к бакету и объектам в нем.
 
-         Подробнее о разрешениях см. в разделе [{#T}](../../concepts/acl.md#permissions-types).
+         Подробнее о разрешениях см. в разделе [Виды разрешений](../../concepts/acl.md#permissions-types).
 
        * `id` — идентификатор пользователя, сервисного аккаунта или группы пользователей:
 
          * [Пользователь](../../../organization/operations/users-get.md).
          * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-         * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
+         * Группа пользователей — перейдите на вкладку [**Группы**](https://center.yandex.cloud/organization/groups) в интерфейсе Cloud Center.
 
          Используется с типом получателя разрешений `CanonicalUser`.
 
        * `uri` — идентификатор публичной группы. Используется с типом получателя разрешений `Group`. Возможные значения:
          * `http://acs.amazonaws.com/groups/global/AllUsers` — все пользователи интернета.
-         * `http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — все аутентифицированные пользователи {{ yandex-cloud }}.
+         * `http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — все аутентифицированные пользователи Yandex Cloud.
 
-     Вместо параметра `grant` вы можете указать параметр `acl` — [предопределенный ACL](../../concepts/acl.md#predefined-acls) бакета. Значение по умолчанию — `private`: пользователи {{ yandex-cloud }} получают разрешения в соответствии со своими ролями в {{ iam-short-name }}.
+     Вместо параметра `grant` вы можете указать параметр `acl` — [предопределенный ACL](../../concepts/acl.md#predefined-acls) бакета. Значение по умолчанию — `private`: пользователи Yandex Cloud получают разрешения в соответствии со своими ролями в IAM.
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket_grant` см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket_grant).
+     Более подробную информацию о параметрах ресурса `yandex_storage_bucket_grant` см. в [документации провайдера](../../../terraform/resources/storage_bucket_grant.md).
 
-  1. Если вы совместно с ресурсом [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/storage_bucket_grant) планируете использовать ресурс [yandex_storage_bucket_iam_binding]({{ tf-provider-resources-link }}/storage_bucket_iam_binding) для одного и того же бакета, рекомендуем выполнять создание ресурсов последовательно. Для этого добавьте в блок `yandex_storage_bucket_iam_binding` зависимость от наличия ресурса `yandex_storage_bucket_grant`:
+  1. Если вы совместно с ресурсом [yandex_storage_bucket_grant](../../../terraform/resources/storage_bucket_grant.md) планируете использовать ресурс [yandex_storage_bucket_iam_binding](../../../terraform/resources/storage_bucket_iam_binding.md) для одного и того же бакета, рекомендуем выполнять создание ресурсов последовательно. Для этого добавьте в блок `yandex_storage_bucket_iam_binding` зависимость от наличия ресурса `yandex_storage_bucket_grant`:
 
       ```hcl
       resource "yandex_storage_bucket_iam_binding" "mybucket-viewers" {
@@ -403,7 +403,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -412,7 +412,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Проверить изменения ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/index.md):
+     Проверить изменения ресурсов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/index.md):
 
      ```bash
      yc storage bucket get <имя_бакета> --full
@@ -455,23 +455,23 @@
          * `WRITE` — доступ к записи, перезаписи и удалению объектов в бакете. Используется только совместно с `READ`, например `permissions = ["READ", "WRITE"]`.
          * `FULL_CONTROL` — полный доступ к бакету и объектам в нем.
 
-         Подробнее о разрешениях см. в разделе [{#T}](../../concepts/acl.md#permissions-types).
+         Подробнее о разрешениях см. в разделе [Виды разрешений](../../concepts/acl.md#permissions-types).
 
        * `id` — идентификатор пользователя, сервисного аккаунта или группы пользователей:
 
          * [Пользователь](../../../organization/operations/users-get.md).
          * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-         * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
+         * Группа пользователей — перейдите на вкладку [**Группы**](https://center.yandex.cloud/organization/groups) в интерфейсе Cloud Center.
 
          Используется с типом получателя разрешений `CanonicalUser`.
 
        * `uri` — идентификатор публичной группы. Используется с типом получателя разрешений `Group`. Возможные значения:
          * `http://acs.amazonaws.com/groups/global/AllUsers` — все пользователи интернета.
-         * `http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — все аутентифицированные пользователи {{ yandex-cloud }}.
+         * `http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — все аутентифицированные пользователи Yandex Cloud.
 
-     Вместо параметра `grant` вы можете указать параметр `acl` — [предопределенный ACL](../../concepts/acl.md#predefined-acls) бакета. Значение по умолчанию — `private`: пользователи {{ yandex-cloud }} получают разрешения в соответствии со своими ролями в {{ iam-short-name }}.
+     Вместо параметра `grant` вы можете указать параметр `acl` — [предопределенный ACL](../../concepts/acl.md#predefined-acls) бакета. Значение по умолчанию — `private`: пользователи Yandex Cloud получают разрешения в соответствии со своими ролями в IAM.
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
+     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` см. в [документации провайдера](../../../terraform/resources/storage_bucket.md).
 
   1. Примените конфигурацию:
 
@@ -494,7 +494,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -503,7 +503,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Проверить изменения ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/index.md):
+     Проверить изменения ресурсов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/index.md):
 
      ```bash
      yc storage bucket get <имя_бакета> --full

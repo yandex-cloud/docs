@@ -5,7 +5,7 @@ Retrieves the list of Zone resources.
 ## HTTP request
 
 ```
-GET https://baremetal.{{ api-host }}/baremetal/v1alpha/zones
+GET https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/zones
 ```
 
 ## Query parameters {#yandex.cloud.baremetal.v1alpha.ListZonesRequest}

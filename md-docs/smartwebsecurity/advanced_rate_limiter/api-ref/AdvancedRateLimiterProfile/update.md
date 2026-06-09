@@ -5,7 +5,7 @@ Updates the specified ARL profile.
 ## HTTP request
 
 ```
-PATCH https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/advancedRateLimiterProfiles/{advancedRateLimiterProfileId}
+PATCH https://smartwebsecurity.api.cloud.yandex.net/smartwebsecurity/v1/advancedRateLimiterProfiles/{advancedRateLimiterProfileId}
 ```
 
 ## Path parameters

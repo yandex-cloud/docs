@@ -5,7 +5,7 @@ Rebalances the cluster. Evenly distributes all the hash slots between the shards
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}:rebalance
+POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}:rebalance
 ```
 
 ## Path parameters

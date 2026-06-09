@@ -6,7 +6,7 @@ Currently only name, description and labels can be updated.
 ## HTTP request
 
 ```
-PATCH https://compute.{{ api-host }}/compute/v1/gpuClusters/{gpuClusterId}
+PATCH https://compute.api.cloud.yandex.net/compute/v1/gpuClusters/{gpuClusterId}
 ```
 
 ## Path parameters

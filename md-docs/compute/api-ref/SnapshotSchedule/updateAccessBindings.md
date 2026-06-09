@@ -5,7 +5,7 @@ Updates access bindings for the snapshot schedule.
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{resourceId}:updateAccessBindings
+POST https://compute.api.cloud.yandex.net/compute/v1/snapshotSchedules/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

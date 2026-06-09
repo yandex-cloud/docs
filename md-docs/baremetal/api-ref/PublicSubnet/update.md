@@ -5,7 +5,7 @@ Updates the specified public subnet.
 ## HTTP request
 
 ```
-PATCH https://baremetal.{{ api-host }}/baremetal/v1alpha/publicSubnets/{publicSubnetId}
+PATCH https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/publicSubnets/{publicSubnetId}
 ```
 
 ## Path parameters

@@ -1,26 +1,26 @@
-# Публичные материалы о {{ mrd-full-name }}
+# Публичные материалы о Yandex Managed Service for Valkey™
 
 ## Конференции и вебинары {#conf-and-webinars}
 
 
 ### 2025: Статьи {#article-2025}
 
-* Прирост производительности управляемых сервисов по работе с данными {{ yandex-cloud }}. 
+* Прирост производительности управляемых сервисов по работе с данными Yandex Cloud. 
 
   * [Текст статьи](https://yandex.cloud/ru/blog/performance-gains).
 
-* {{ VLK }} против {{ RD }}®: будущее in‑memory СУБД.
+* Valkey™ против Redis®: будущее in‑memory СУБД.
 
   * [Текст статьи](https://yandex.cloud/ru/blog/valkey-overview).
 
 
 ### 2022: HighLoad++ {#highload-2022}
 
-* Как мы делали отказоустойчивый {{ RD }} в {{ yandex-cloud }}.
+* Как мы делали отказоустойчивый Redis в Yandex Cloud.
 
   * [Запись трансляции](https://highload.ru/moscow/2022/abstracts/9667).
 
-### 2022: {{ yandex-cloud }} {#yc-2022}
+### 2022: Yandex Cloud {#yc-2022}
 
 * Про людей. Жизнь SRE в облаке.
 
@@ -44,19 +44,19 @@
 
   * [Запись трансляции](https://highload.ru/moscow/2019/abstracts/5981).
 
-### 2019: {{ yandex-cloud }} {#yc-2019}
+### 2019: Yandex Cloud {#yc-2019}
 
-* Что нового в платформе баз данных {{ yandex-cloud }}.
+* Что нового в платформе баз данных Yandex Cloud.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=5OcUo3J4Wdc).
 
-* Внутреннее устройство платформы баз данных в {{ yandex-cloud }}.
+* Внутреннее устройство платформы баз данных в Yandex Cloud.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=Cwdg425a_cw).
 
 ### 2019: Статьи {#article-2019}
 
-* Как устроены сервисы управляемых баз данных в {{ yandex-cloud }}.
+* Как устроены сервисы управляемых баз данных в Yandex Cloud.
 
   * [Текст статьи](https://habr.com/ru/companies/yandex/articles/477860/).
 

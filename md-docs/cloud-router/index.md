@@ -2,7 +2,7 @@
 
 <em>Сервис Yandex Cloud Router находится на <a href="../overview/concepts/launch-stages.md">стадии Preview</a></em>.
 
-{{ cr-full-name }} — сервис для управления сетевыми топологиями гибридного облака в {{ yandex-cloud }}. 
+Yandex Cloud Router — сервис для управления сетевыми топологиями гибридного облака в Yandex Cloud. 
 
 Инфраструктура Yandex Cloud <a href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a> в соответствии с ФЗ-152.
 
@@ -78,9 +78,9 @@
 
 ## Практические руководства
 
- - [Организация сетевой связности между приватной подсетью {{ baremetal-name }} и сетью {{ vpc-name }}](tutorials/bm-vrf-and-vpc-interconnect.md)
+ - [Организация сетевой связности между приватной подсетью BareMetal и сетью Virtual Private Cloud](tutorials/bm-vrf-and-vpc-interconnect.md)
 
- - [Организация сетевой связности между приватной подсетью {{ baremetal-name }} и on-premise-ресурсами](tutorials/bms-cic-onprem.md)
+ - [Организация сетевой связности между приватной подсетью BareMetal и on-premise-ресурсами](tutorials/bms-cic-onprem.md)
 
  - [Изменение набора IP-префиксов VPC в Routing Instance](tutorials/ri-prefixes-upsert.md)
 

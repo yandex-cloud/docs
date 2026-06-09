@@ -5,7 +5,7 @@ Deletes the specified external dictionary.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}:deleteExternalDictionary
+POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}:deleteExternalDictionary
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Creates a federation in the specified organization.
 ## HTTP request
 
 ```
-POST https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations
+POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations
 ```
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.saml.CreateFederationRequest}

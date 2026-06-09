@@ -1,6 +1,6 @@
 # Миграция приложений с Ingress NGINX на Gwin
 
-{{ alb-full-name }} позволяет создавать балансировщики нагрузки и управлять ими в [кластерах {{ managed-k8s-full-name }}](../concepts/index.md#kubernetes-cluster) с помощью контроллера [Gwin](gwin-index.md). Контроллер Gwin, установленный в кластере, автоматически разворачивает [L7-балансировщики](../../application-load-balancer/concepts/application-load-balancer.md) на основе конфигурации ваших ресурсов {{ k8s }}.
+Yandex Application Load Balancer позволяет создавать балансировщики нагрузки и управлять ими в [кластерах Yandex Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster) с помощью контроллера [Gwin](gwin-index.md). Контроллер Gwin, установленный в кластере, автоматически разворачивает [L7-балансировщики](../../application-load-balancer/concepts/application-load-balancer.md) на основе конфигурации ваших ресурсов Kubernetes.
 
 Чтобы перенести приложения с контроллера Ingress NGINX на Gwin, выполните следующие шаги:
 
@@ -157,10 +157,10 @@
 
 1. Получите IP-адрес нового балансировщика нагрузки:
     * Запросите статус ресурса `Ingress` командой `kubectl get Ingress`.
-    * В [консоли управления]({{ link-console-main }}):
-      * Перейдите на страницу кластера {{ managed-k8s-name }}.
-      * На панели слева выберите ![image](../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.k8s.cluster.switch_network }}**.
-      * Перейдите на вкладку **{{ ui-key.yacloud.k8s.network.label_ingress }}**.
+    * В [консоли управления](https://console.yandex.cloud):
+      * Перейдите на страницу кластера Managed Service for Kubernetes.
+      * На панели слева выберите ![image](../../_assets/console-icons/timestamps.svg) **Сеть**.
+      * Перейдите на вкладку **Ingress**.
 1. Убедитесь, что маршрутизация работает, как ожидается. Для этого протестируйте доступность HTTP/HTTPS-эндпоинтов вашего приложения.
 1. Убедитесь, что проверки статуса бэкендов показывают их работоспособность.
 1. Проверьте наличие ошибок в [логах](../../application-load-balancer/operations/application-load-balancer-get-logs.md) и наличие признаков проблем с производительностью в [метриках балансировщика](../../application-load-balancer/metrics.md).

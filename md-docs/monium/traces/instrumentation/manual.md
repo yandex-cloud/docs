@@ -47,7 +47,7 @@ def handle_order(order_id):
             update(order_id)
 ```
 
-В интерфейсе {{ traces-name }} этот код создаст три спана: `handle_order` с двумя дочерними — `validate_payment` и `update_inventory`.
+В интерфейсе Monium Traces этот код создаст три спана: `handle_order` с двумя дочерними — `validate_payment` и `update_inventory`.
 
 ### Именование спанов {#naming}
 
@@ -80,7 +80,7 @@ with tracer.start_as_current_span("GET /api/orders", kind=SpanKind.SERVER):
 
 ## Атрибуты {#attributes}
 
-Атрибуты — пары «ключ — значение», которые добавляют контекст к спану. Они используются для поиска и фильтрации в интерфейсе {{ traces-name }}.
+Атрибуты — пары «ключ — значение», которые добавляют контекст к спану. Они используются для поиска и фильтрации в интерфейсе Monium Traces.
 
 ```python
 with tracer.start_as_current_span("handle_order") as span:
@@ -137,7 +137,7 @@ with tracer.start_as_current_span("handle_order") as span:
         span.set_status(Status(StatusCode.ERROR, str(e)))
 ```
 
-Спаны со статусом `ERROR` выделяются в интерфейсе {{ traces-name }}.
+Спаны со статусом `ERROR` выделяются в интерфейсе Monium Traces.
 
 ## Propagation контекста {#context}
 
@@ -273,7 +273,7 @@ export OTEL_SERVICE_NAME=my-service
 ```
 
 ```bash
-export OTEL_EXPORTER_OTLP_ENDPOINT="{{ api-host-monium }}:443"
+export OTEL_EXPORTER_OTLP_ENDPOINT="ingest.monium.yandex.cloud:443"
 ```
 
 ```bash

@@ -5,7 +5,7 @@ Deletes the specified Redis cluster.
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}
+DELETE https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}
 ```
 
 ## Path parameters

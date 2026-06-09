@@ -5,7 +5,7 @@ Updates the specified trail.
 ## HTTP request
 
 ```
-PATCH https://audittrails.{{ api-host }}/audit-trails/v1/trails/{trailId}
+PATCH https://audittrails.api.cloud.yandex.net/audit-trails/v1/trails/{trailId}
 ```
 
 ## Path parameters

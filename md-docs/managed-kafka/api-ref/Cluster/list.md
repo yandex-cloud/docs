@@ -5,7 +5,7 @@ Retrieves the list of Apache Kafka® clusters that belong to the specified folde
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-kafka/v1/clusters
+GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters
 ```
 
 ## Query parameters {#yandex.cloud.mdb.kafka.v1.ListClustersRequest}

@@ -5,7 +5,7 @@ Performs a specific action on an episode, such as publishing or unpublishing.
 ## HTTP request
 
 ```
-POST https://video.{{ api-host }}/video/v1/episodes/{episodeId}:performAction
+POST https://video.api.cloud.yandex.net/video/v1/episodes/{episodeId}:performAction
 ```
 
 ## Path parameters

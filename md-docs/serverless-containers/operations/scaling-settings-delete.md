@@ -4,19 +4,19 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится контейнер.
+    1. Перейдите в сервис **Serverless Containers**.
     1. Выберите контейнер.
-    1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
-    1. В блоке **{{ ui-key.yacloud.serverless-containers.section_parameters }}** укажите:
-       * **{{ ui-key.yacloud.serverless-containers.label_min-instances }}** — `0`.
-       * **{{ ui-key.yacloud.serverless-containers.label_zone-instances-limit }}** — `0`.
-       * **{{ ui-key.yacloud.serverless-containers.label_zone-requests-limit }}** — `0`.
-    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
+    1. Перейдите на вкладку **Редактор**.
+    1. В блоке **Настройки** укажите:
+       * **Количество подготовленных экземпляров** — `0`.
+       * **Количество экземпляров контейнера в зоне доступности** — `0`.
+       * **Количество одновременно выполняемых вызовов контейнера в зоне доступности** — `0`.
+    1. Нажмите кнопку **Создать ревизию**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -69,4 +69,4 @@
 
 ## См. также
 
-* [{#T}](../concepts/container.md#scaling)
+* [Масштабирование контейнера](../concepts/container.md#scaling)

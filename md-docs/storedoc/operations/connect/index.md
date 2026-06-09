@@ -1,15 +1,15 @@
-# Предварительная настройка для подключения к кластеру {{ SD }}
+# Предварительная настройка для подключения к кластеру Yandex StoreDoc
 
-К хостам кластера {{ mmg-short-name }} можно подключиться:
+К хостам кластера Yandex StoreDoc можно подключиться:
 
 * Через интернет, если вы настроили публичный доступ для нужного хоста. Это можно сделать при [создании кластера](../cluster-create.md) или при [редактировании настроек хоста](../hosts.md#update). К таким хостам подключиться можно только используя SSL-соединение.
 
-* С виртуальных машин {{ yandex-cloud }}, расположенных в той же [облачной сети](../../../vpc/concepts/network.md). Если к хосту нет публичного доступа, для подключения с таких виртуальных машин необязательно использовать SSL-соединение.
+* С виртуальных машин Yandex Cloud, расположенных в той же [облачной сети](../../../vpc/concepts/network.md). Если к хосту нет публичного доступа, для подключения с таких виртуальных машин необязательно использовать SSL-соединение.
 
 Для подключения к хостам кластера используйте порт:
 
-* `{{ port-mmg }}` — если кластер нешардированный;
-* `{{ port-mmg-sharded }}` — если кластер [шардированный](../../concepts/sharding.md).
+* `27018` — если кластер нешардированный;
+* `27017` — если кластер [шардированный](../../concepts/sharding.md).
 
 Запросы на запись будут автоматически направлены к первичной реплике кластера.
 
@@ -34,25 +34,25 @@
 
 - Через интернет {#internet}
 
-    [Настройте все группы безопасности](../../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик с любых IP-адресов на порт `{{ port-mmg }}` для нешардированного кластера или на порт `{{ port-mmg-sharded }}` для [шардированного](../shards.md). Для этого создайте следующее правило для входящего трафика:
+    [Настройте все группы безопасности](../../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик с любых IP-адресов на порт `27018` для нешардированного кластера или на порт `27017` для [шардированного](../shards.md). Для этого создайте следующее правило для входящего трафика:
 
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**:
-        * `{{ port-mmg }}` — для нешардированного кластера;
-        * `{{ port-mmg-sharded }}` — для шардированного кластера.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+    * **Диапазон портов**:
+        * `27018` — для нешардированного кластера;
+        * `27017` — для шардированного кластера.
+    * **Протокол** — `TCP`.
+    * **Источник** — `CIDR`.
+    * **CIDR блоки** — `0.0.0.0/0`.
 
-- С ВМ в {{ yandex-cloud }} {#cloud}
+- С ВМ в Yandex Cloud {#cloud}
 
-    1. [Настройте все группы безопасности](../../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик из группы безопасности, в которой находится ВМ, на порт `{{ port-mmg }}` для нешардированного кластера или на порт `{{ port-mmg-sharded }}` для [шардированного](../shards.md). Для этого в этих группах создайте следующее правило для входящего трафика:
+    1. [Настройте все группы безопасности](../../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик из группы безопасности, в которой находится ВМ, на порт `27018` для нешардированного кластера или на порт `27017` для [шардированного](../shards.md). Для этого в этих группах создайте следующее правило для входящего трафика:
 
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**:
-            * `{{ port-mmg }}` — для нешардированного кластера;
-            * `{{ port-mmg-sharded }}` — для шардированного кластера.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — группа безопасности, в которой находится ВМ. Если она совпадает с настраиваемой группой, то укажите `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
+        * **Диапазон портов**:
+            * `27018` — для нешардированного кластера;
+            * `27017` — для шардированного кластера.
+        * **Протокол** — `TCP`.
+        * **Источник** — `Группа безопасности`.
+        * **Группа безопасности** — группа безопасности, в которой находится ВМ. Если она совпадает с настраиваемой группой, то укажите `Текущая` (`Self`).
         
     1. [Настройте группу безопасности](../../../vpc/operations/security-group-add-rule.md), в которой находится ВМ, так, чтобы можно было подключаться к ВМ и был разрешен трафик между ВМ и хостами кластера.
 
@@ -60,19 +60,19 @@
 
         * Для входящего трафика:
 
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-ssh }}`;
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`;
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`;
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+            * **Диапазон портов** — `22`;
+            * **Протокол** — `TCP`;
+            * **Источник** — `CIDR`;
+            * **CIDR блоки** — `0.0.0.0/0`.
 
             Это правило позволяет подключаться к ВМ по протоколу [SSH](../../../glossary/ssh-keygen.md).
 
         * Для исходящего трафика:
 
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`;
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`);
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`;
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+            * **Диапазон портов** — `0-65535`;
+            * **Протокол** — `Любой` (`Any`);
+            * **Источник** — `CIDR`;
+            * **CIDR блоки** — `0.0.0.0/0`.
 
             Это правило разрешает любой исходящий трафик, что позволяет не только подключаться к кластеру, но и устанавливать на ВМ необходимые для этого сертификаты и утилиты.
 
@@ -86,12 +86,12 @@
 
 {% endnote %}
 
-Подробнее см. в разделе [{#T}](../../concepts/network.md#security-groups).
+Подробнее см. в разделе [Группы безопасности](../../concepts/network.md#security-groups).
 
 
 ## Получение SSL-сертификата {#get-ssl-cert}
 
-Чтобы подключиться к хостам {{ SD }} с публичным доступом, получите SSL-сертификат:
+Чтобы подключиться к хостам Yandex StoreDoc с публичным доступом, получите SSL-сертификат:
 
 {% list tabs group=operating_system %}
 
@@ -99,7 +99,7 @@
 
    ```bash
    mkdir -p ~/.mongodb && \
-   wget "{{ crt-web-path }}" \
+   wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
         --output-document ~/.mongodb/root.crt && \
    chmod 0644 ~/.mongodb/root.crt
    ```
@@ -109,7 +109,7 @@
 - Windows (PowerShell) {#windows}
 
    ```powershell
-   mkdir $HOME\.mongodb; curl.exe -o $HOME\.mongodb\root.crt {{ crt-web-path }}
+   mkdir $HOME\.mongodb; curl.exe -o $HOME\.mongodb\root.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
    ```
 
    Сертификат будет сохранен в файле `$HOME\.mongodb\root.crt`.
@@ -118,14 +118,14 @@
 
 {% endlist %}
 
-Для использования графических IDE [сохраните сертификат]({{ crt-web-path-root }}) в локальную папку и укажите путь к нему в настройках подключения.
+Для использования графических IDE [сохраните сертификат](https://storage.yandexcloud.net/cloud-certs/RootCA.pem) в локальную папку и укажите путь к нему в настройках подключения.
 
-## Получение FQDN хостов {{ SD }} {#get-fqdn}
+## Получение FQDN хостов Yandex StoreDoc {#get-fqdn}
 
-Для подключения к хосту потребуется его [FQDN](../../concepts/network.md#hostname) — доменное имя. Пример FQDN хоста {{ SD }}:
+Для подключения к хосту потребуется его [FQDN](../../concepts/network.md#hostname) — доменное имя. Пример FQDN хоста Yandex StoreDoc:
 
 ```text
-{{ host-name }}.{{ dns-zone }}
+rc1a-goh2a9tr********.mdb.yandexcloud.net
 ```
 
 FQDN можно получить несколькими способами:
@@ -133,16 +133,16 @@ FQDN можно получить несколькими способами:
 * Посмотрите FQDN в консоли управления:
 
     1. Перейдите на страницу кластера.
-    1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-    1. Скопируйте значение в столбце **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}**.
+    1. Перейдите в раздел **Хосты**.
+    1. Скопируйте значение в столбце **FQDN хоста**.
 
-* Скопируйте команду для подключения к кластеру в [консоли управления]({{ link-console-main }}). Команда содержит заполненный FQDN хоста. Чтобы получить команду, перейдите на страницу кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+* Скопируйте команду для подключения к кластеру в [консоли управления](https://console.yandex.cloud). Команда содержит заполненный FQDN хоста. Чтобы получить команду, перейдите на страницу кластера и нажмите кнопку **Подключиться**.
 
 * [Запросите список хостов в кластере](../hosts.md#list-hosts) с помощью CLI или API.
 
 ## Ограничения на количество подключений {#connection-limits}
 
-Максимальное доступное количество одновременных подключений к отдельному хосту кластера {{ mmg-name }} зависит от объема оперативной памяти этого хоста:
+Максимальное доступное количество одновременных подключений к отдельному хосту кластера Yandex StoreDoc зависит от объема оперативной памяти этого хоста:
 
 | Объем оперативной памяти | Максимальное количество подключений |
 | ------------------------:| -----------------------------------:|
@@ -155,7 +155,7 @@ FQDN можно получить несколькими способами:
 
 ## Установка MongoDB Shell {#mongosh-install}
 
-Для подключения к кластеру {{ mmg-name }} из Linux (Bash) и Windows (PowerShell) установите утилиту MongoDB Shell:
+Для подключения к кластеру Yandex StoreDoc из Linux (Bash) и Windows (PowerShell) установите утилиту MongoDB Shell:
 
 {% list tabs group=connection %}
 

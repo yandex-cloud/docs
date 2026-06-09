@@ -62,7 +62,7 @@ blocks:
         отраслевых стандартов.
     size: l
   - type: icons-block
-    size: l
+    size: m
     items:
       - src: _assets/image/cspm-base-yc.svg
         text: "Базовые правила безопасности Yandex\_Cloud"

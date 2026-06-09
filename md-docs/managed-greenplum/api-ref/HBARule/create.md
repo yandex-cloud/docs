@@ -5,7 +5,7 @@ Create single HBA rule for the specified Greenplum cluster to the end of HBA rul
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/hbaRules
+POST https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}/hbaRules
 ```
 
 ## Path parameters

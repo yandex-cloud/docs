@@ -6,15 +6,15 @@
 
 {% endnote %}
 
-Чтобы включить {{ cns-name }}, запросите доступ к сервису у вашего аккаунт-менеджера или в [технической поддержке]({{ link-console-support }}).
+Чтобы включить Cloud Notification Service, запросите доступ к сервису у вашего аккаунт-менеджера или в [технической поддержке](https://center.yandex.cloud/support).
 
-{{ cns-name }} ({{ cns-short-name }}) — сервис для мультиканальной отправки уведомлений пользователям. HTTP API сервиса совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
+Cloud Notification Service (CNS) — сервис для мультиканальной отправки уведомлений пользователям. HTTP API сервиса совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
 
 На стадии Preview доступна отправка [push-уведомлений](../concepts/push.md) на устройства с iOS и Android, в браузеры и [SMS](../concepts/sms.md). Уведомления можно отправлять как в отдельные эндпоинты, так и в группы эндпоинтов через [топики](../concepts/topics.md).
 
 Позднее будет реализована отправка уведомлений в мессенджеры.
 
-С помощью {{ cns-name }} вы можете отправлять уведомления в приложения, зарегистрированные в следующих сервисах:
+С помощью Cloud Notification Service вы можете отправлять уведомления в приложения, зарегистрированные в следующих сервисах:
 
 * [Apple Push Notification service](https://developer.apple.com/notifications/) (APNs).
 * [Firebase Cloud Messaging](https://firebase.google.com/) (FCM).
@@ -23,7 +23,7 @@
 
 А также в браузеры пользователей на любом устройстве.
 
-Вы можете использовать при работе с {{ cns-name }} не только инструменты {{ yandex-cloud }}, но и инструменты для работы с Amazon S3:
+Вы можете использовать при работе с Cloud Notification Service не только инструменты Yandex Cloud, но и инструменты для работы с Amazon S3:
 
 * [AWS CLI](aws-cli.md)
 * [AWS SDK для C++](sdk-cpp.md)

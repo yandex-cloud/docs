@@ -5,7 +5,7 @@ Retrieves the list of Operation resources for the specified cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/operations
+GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/operations
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Updates the specified oauth client.
 ## HTTP request
 
 ```
-PATCH https://iam.{{ api-host }}/iam/v1/oauthClients/{oauthClientId}
+PATCH https://iam.api.cloud.yandex.net/iam/v1/oauthClients/{oauthClientId}
 ```
 
 ## Path parameters

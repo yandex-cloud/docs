@@ -5,7 +5,7 @@ Deletes synchronization settings for a subject container.
 ## HTTP request
 
 ```
-DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/idp/synchronization-settings/{subjectContainerId}
+DELETE https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/synchronization-settings/{subjectContainerId}
 ```
 
 ## Path parameters

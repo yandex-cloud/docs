@@ -7,7 +7,7 @@ To get the list of all available regression dashboards, make a [List](list.md#Li
 ## HTTP request
 
 ```
-GET https://loadtesting.{{ api-host }}/loadtesting/api/v1/regressionDashboards/{dashboardId}
+GET https://loadtesting.api.cloud.yandex.net/loadtesting/api/v1/regressionDashboards/{dashboardId}
 ```
 
 ## Path parameters

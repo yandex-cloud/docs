@@ -1,17 +1,17 @@
-# Обзор сервиса {{ at-full-name }}
+# Обзор сервиса Yandex Audit Trails
 
-{{ at-full-name }} позволяет собирать [аудитные логи уровня конфигурации](events.md) и [аудитные логи уровня сервисов](events-data-plane.md) ресурсов {{ yandex-cloud }} и загружать их в [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}, [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }} или [шину](../../serverless-integrations/concepts/eventrouter/bus.md) {{ er-full-name }}:
+Yandex Audit Trails позволяет собирать [аудитные логи уровня конфигурации](events.md) и [аудитные логи уровня сервисов](events-data-plane.md) ресурсов Yandex Cloud и загружать их в [бакет](../../storage/concepts/bucket.md) Object Storage, [лог-группу](../../logging/concepts/log-group.md) Cloud Logging, [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) Data Streams или [шину](../../serverless-integrations/concepts/eventrouter/bus.md) Yandex EventRouter:
 
 * [Загрузка аудитных логов в бакет](../operations/create-trail.md#bucket_1).
 * [Загрузка аудитных логов в Cloud Logging](../operations/create-trail.md#logging_1).
 * [Загрузка аудитных логов в поток данных](../operations/create-trail.md#data-streams_1).
 * [Загрузка аудитных логов в шину](../operations/create-trail.md#eventrouter_1).
 
-Сбор аудитных логов позволяет применять инструменты анализа и оперативного реагирования на события {{ yandex-cloud }}:
+Сбор аудитных логов позволяет применять инструменты анализа и оперативного реагирования на события Yandex Cloud:
 
 * [Поиск событий в аудитных логах](../tutorials/search-events-audit-logs/index.md).
 * [Загрузка аудитных логов в SIEM](export-siem.md).
-* [Настройка алертов в {{ monitoring-full-name }}](../tutorials/alerts-monitoring.md).
+* [Настройка алертов в Yandex Monitoring](../tutorials/alerts-monitoring.md).
 
 Логируются следующие [события уровня конфигурации](events.md):
 
@@ -34,11 +34,11 @@
 
 В сервисе действуют [квоты и лимиты](limits.md).
 
-Если вы загружаете аудитные логи в лог-группу или поток данных, то их размер не должен превышать как лимиты {{ at-name }}, так и лимиты сервисов [{{ cloud-logging-full-name }}](../../logging/concepts/limits.md) и [{{ yds-full-name }}](../../data-streams/concepts/limits.md). При превышении лимитов информация в аудитных логах событий большого размера будет неполной.
+Если вы загружаете аудитные логи в лог-группу или поток данных, то их размер не должен превышать как лимиты Audit Trails, так и лимиты сервисов [Yandex Cloud Logging](../../logging/concepts/limits.md) и [Yandex Data Streams](../../data-streams/concepts/limits.md). При превышении лимитов информация в аудитных логах событий большого размера будет неполной.
 
-При загрузке в {{ cloud-logging-name }} события в [лог-группе](../../logging/concepts/log-group.md) могут дублироваться. Чтобы найти дубли, ориентируйтесь на уникальный идентификатор записи `json_payload.event_id`.
+При загрузке в Cloud Logging события в [лог-группе](../../logging/concepts/log-group.md) могут дублироваться. Чтобы найти дубли, ориентируйтесь на уникальный идентификатор записи `json_payload.event_id`.
 
-Рекомендуем также загружать аудитные логи в бакет {{ objstorage-name }}.
+Рекомендуем также загружать аудитные логи в бакет Object Storage.
 
 {% note info %}
 

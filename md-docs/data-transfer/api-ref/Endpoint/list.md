@@ -5,7 +5,7 @@ Lists endpoints in the specified folder.
 ## HTTP request
 
 ```
-GET https://{{ api-host-data-transfer }}/v1/endpoints/list/{folderId}
+GET https://datatransfer.api.cloud.yandex.net/v1/endpoints/list/{folderId}
 ```
 
 ## Path parameters

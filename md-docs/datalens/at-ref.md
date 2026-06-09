@@ -1,11 +1,11 @@
-# Справочник аудитных логов {{ at-full-name }}
+# Справочник аудитных логов Yandex Audit Trails
 
-В {{ at-name }} для {{ datalens-full-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane).
+В Audit Trails для Yandex DataLens поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane).
 
 Общий вид значения поля `event_type` (_тип события_):
 
 ```text
-{{ at-event-prefix }}.audit.datalens.<имя_события>
+yandex.cloud.audit.datalens.<имя_события>
 ```
 
 ## Справочник событий уровня конфигурации {#control-plane-events}
@@ -31,10 +31,10 @@
 `DeleteEntry` | Удаление объекта
 `DeleteSharedEntry` | Удаление общего объекта
 `DeleteWorkbooks` | Удаление одного или нескольких воркбуков
-`DisableBillingInstanceService` | Получение сигнала от {{ billing-name }} о неактивности привязанного к {{ datalens-name }} платежного аккаунта
+`DisableBillingInstanceService` | Получение сигнала от Yandex Cloud Billing о неактивности привязанного к DataLens платежного аккаунта
 `DisableFolders` | [Отключение](settings/navigation.md#disable-folder-navigation) навигации по папкам
 `DisableTenantBilling` | Планирование отключения тарифа Business пользователем в начале следующего месяца ^1^
-`EnableBillingInstanceService` | Получение сигнала от {{ billing-name }} об активности привязанного к {{ datalens-name }} [платежного аккаунта](../billing/concepts/billing-account.md)
+`EnableBillingInstanceService` | Получение сигнала от Yandex Cloud Billing об активности привязанного к DataLens [платежного аккаунта](../billing/concepts/billing-account.md)
 `EnableTenantBilling` | Включение пользователем тарифа Business ^1^
 `FolderEntryBatchModifyPermissions` | Массовое изменение настроек доступа к папочным объектам
 `FolderEntryModifyPermissions` | Изменение настроек доступа к папочным объектам

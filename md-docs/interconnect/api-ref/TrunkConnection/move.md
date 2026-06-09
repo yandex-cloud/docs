@@ -5,7 +5,7 @@ Moves the specified TrunkConnection to another folder.
 ## HTTP request
 
 ```
-POST https://cic.{{ api-host }}/cic/v1/trunkConnections/{trunkConnectionId}:move
+POST https://cic.api.cloud.yandex.net/cic/v1/trunkConnections/{trunkConnectionId}:move
 ```
 
 ## Path parameters

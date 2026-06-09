@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Got an unexpected response from an external API
+# [Yandex DataLens] Got an unexpected response from an external API
 
 `ERR.AUTH_API.UNEXPECTED_RESPONSE`
 
@@ -7,4 +7,4 @@
 Чтобы исправить ошибку, повторите авторизацию спустя некоторое время.
 
 
-Если ошибка сохраняется, обратитесь в [техническую поддержку]({{ link-console-support }}) {{ yandex-cloud }}. В сообщении опишите, когда возникает ошибка.
+Если ошибка сохраняется, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) Yandex Cloud. В сообщении опишите, когда возникает ошибка.

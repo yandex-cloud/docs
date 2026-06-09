@@ -5,7 +5,7 @@ Sends a heartbeat for a synchronization session.
 ## HTTP request
 
 ```
-POST https://organization-manager.{{ api-host }}/organization-manager/v1/idp/synchronization-sessions/{sessionId}:heartbeat
+POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/synchronization-sessions/{sessionId}:heartbeat
 ```
 
 ## Path parameters

@@ -1,10 +1,10 @@
-# Триггер для {{ container-registry-name }}, который вызывает контейнер {{ serverless-containers-name }}
+# Триггер для Container Registry, который вызывает контейнер Serverless Containers
 
-[Триггер](index.md) для {{ container-registry-name }} запускает [контейнер](../container.md) {{ serverless-containers-name }}, когда с [Docker-образом](../../../container-registry/concepts/docker-image.md) {{ container-registry-name }} происходят определенные события. Триггер должен находиться в одном облаке с [реестром](../../../container-registry/concepts/registry.md), на события которого он подписан.
+[Триггер](index.md) для Container Registry запускает [контейнер](../container.md) Serverless Containers, когда с [Docker-образом](../../../container-registry/concepts/docker-image.md) Container Registry происходят определенные события. Триггер должен находиться в одном облаке с [реестром](../../../container-registry/concepts/registry.md), на события которого он подписан.
 
-Триггеру для {{ container-registry-name }} необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для вызова контейнера.
+Триггеру для Container Registry необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для вызова контейнера.
 
-О том, как создать триггер для {{ container-registry-name }}, читайте в инструкции [{#T}](../../operations/cr-trigger-create.md).
+О том, как создать триггер для Container Registry, читайте в инструкции [Создать триггер для Container Registry, который вызывает контейнер Serverless Containers](../../operations/cr-trigger-create.md).
 
 ## События для настройки триггера {#event}
 
@@ -28,16 +28,16 @@ Docker-образ всегда загружается с тегом (если т
 
 Настройки группирования позволяют передавать в контейнер сразу несколько событий. Эти настройки задают ограничение сверху по размеру группы событий и по времени ее накопления. Например, если размер группы событий равен 3, то в контейнер могут поступать группы, в которых содержится от 1 до 3 событий.
 
-## Роли, необходимые для корректной работы триггера для {{ container-registry-name }} {#roles}
+## Роли, необходимые для корректной работы триггера для Container Registry {#roles}
 
 * Для создания триггера вам необходимы:
     * Разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user), [editor](../../../iam/roles-reference.md#editor) и выше.
-    * Роль `{{ roles-cr-puller }}` на реестр, события которого триггер обрабатывает.
+    * Роль `container-registry.images.puller` на реестр, события которого триггер обрабатывает.
 * Для работы триггера сервисному аккаунту необходима роль `serverless.containers.invoker` на каталог с контейнером, который вызывает триггер.
 
 Подробнее об [управлении доступом](../../security/index.md).
 
-## Формат сообщения от триггера {{ container-registry-name }} {#format}
+## Формат сообщения от триггера Container Registry {#format}
 
 После того как триггер сработает, он отправит в контейнер сообщение следующего вида:
 
@@ -70,5 +70,5 @@ Docker-образ всегда загружается с тегом (если т
 
 ## См. также {#see-also}
 
-* [{#T}](../../../functions/concepts/trigger/cr-trigger.md)
-* [{#T}](../../../api-gateway/concepts/trigger/cr-trigger.md)
+* [Триггер для Container Registry, который вызывает функцию Cloud Functions](../../../functions/concepts/trigger/cr-trigger.md)
+* [Триггер для Container Registry, который отправляет сообщения в WebSocket-соединения](../../../api-gateway/concepts/trigger/cr-trigger.md)

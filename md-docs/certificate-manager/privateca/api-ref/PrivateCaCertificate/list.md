@@ -5,7 +5,7 @@ Lists the certificates issued by a given Certificate Authority (CA).
 ## HTTP request
 
 ```
-GET https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/privateCertificates
+GET https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/privateCertificates
 ```
 
 ## Query parameters {#yandex.cloud.certificatemanager.v1.privateca.ListCertificatesRequest}

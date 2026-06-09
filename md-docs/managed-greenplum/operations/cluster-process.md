@@ -1,6 +1,6 @@
 # Управление клиентскими процессами и сессиями пользователей
 
-{{ mgp-name }} запускает новый внутренний процесс для каждого клиентского подключения. Пользователь-администратор или другой пользователь с [ролью](../concepts/cluster-users.md#mdb_admin) `mdb_admin` может:
+Yandex MPP Analytics for PostgreSQL запускает новый внутренний процесс для каждого клиентского подключения. Пользователь-администратор или другой пользователь с [ролью](../concepts/cluster-users.md#mdb_admin) `mdb_admin` может:
 
 * [Получить список процессов](#list).
 * [Управлять нагрузкой](#load-management).
@@ -8,13 +8,13 @@
 
 ## Получить список процессов {#list}
 
-Запросы для получения списка процессов различаются для {{ GP }} и {{ CB }}. В {{ GP }} используется поле `waiting`, а в {{ CB }} — поля `wait_event_type` и `wait_event`.
+Запросы для получения списка процессов различаются для Greenplum® и Apache Cloudberry™. В Greenplum® используется поле `waiting`, а в Apache Cloudberry™ — поля `wait_event_type` и `wait_event`.
 
-Подробнее о [доступных СУБД в {{ mgp-name }}](../concepts/overview.md).
+Подробнее о [доступных СУБД в Yandex MPP Analytics for PostgreSQL](../concepts/overview.md).
 
 {% list tabs group=instructions %}
 
-- {{ GP }} {#gp}
+- Greenplum® {#gp}
 
   Чтобы получить список процессов, включая пользовательские запросы, выполните запрос к функции `mdb_toolkit.pg_stat_activity()`:
 
@@ -49,7 +49,7 @@
   * `query` — запрос.
   * `datname` — имя базы данных.
 
-- {{ CB }} {#cb}
+- Apache Cloudberry™ {#cb}
 
   Чтобы получить список процессов, включая пользовательские запросы, выполните запрос к функции `mdb_toolkit.pg_stat_activity()`:
 
@@ -81,7 +81,7 @@
   * `query` — запрос.
   * `datname` — имя базы данных.
 
-  Подробнее о полях представления `pg_stat_activity` читайте в [документации {{ CB }}](https://cloudberry.apache.org/docs/sys-catalogs/sys-views/gp-stat-activity).
+  Подробнее о полях представления `pg_stat_activity` читайте в [документации Apache Cloudberry™](https://cloudberry.apache.org/docs/sys-catalogs/sys-views/gp-stat-activity).
 
 {% endlist %}
 

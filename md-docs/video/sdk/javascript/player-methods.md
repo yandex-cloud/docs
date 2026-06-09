@@ -1,6 +1,6 @@
 # Методы плеера
 
-Вы можете управлять [видеоплеером](../../concepts/player.md) {{ video-player-name }} с использованием методов SDK для JavaScript:
+Вы можете управлять [видеоплеером](../../concepts/player.md) Cloud Video Player с использованием методов SDK для JavaScript:
 
 #### setSource {#setsource}
 
@@ -106,7 +106,7 @@ player.preloadSource(
 
 #### getState {#getstate}
 
-Возвращает состояние плеера в виде объекта, формат которого описан в разделе [{#T}](player-state.md).
+Возвращает состояние плеера в виде объекта, формат которого описан в разделе [Состояние плеера](player-state.md).
 
 Пример использования:
 

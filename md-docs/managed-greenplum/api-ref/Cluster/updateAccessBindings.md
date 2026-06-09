@@ -5,7 +5,7 @@ Updates access bindings for the specified Greenplum® cluster.
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{resourceId}:updateAccessBindings
+PATCH https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

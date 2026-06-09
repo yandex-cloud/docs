@@ -5,7 +5,7 @@ Lists transfers in the specified folder.
 ## HTTP request
 
 ```
-GET https://{{ api-host-data-transfer }}/v1/transfers/list/{folderId}
+GET https://datatransfer.api.cloud.yandex.net/v1/transfers/list/{folderId}
 ```
 
 ## Path parameters

@@ -1,8 +1,8 @@
 # Настройка AWS CLI
 
-Для управления очередями и сообщениями в {{ message-queue-name }} можно использовать [AWS CLI](https://aws.amazon.com/ru/cli/).
+Для управления очередями и сообщениями в Message Queue можно использовать [AWS CLI](https://aws.amazon.com/ru/cli/).
 
-Чтобы настроить AWS CLI для работы с {{ message-queue-name }}:
+Чтобы настроить AWS CLI для работы с Message Queue:
 
 1. [Установите](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) утилиту командной строки AWS CLI.
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт с ролью `editor`.
@@ -27,10 +27,10 @@
       AWS Secret Access Key [****************w5lb]: <секретный_ключ_сервисного_аккаунта>
       ```
    
-   1. Укажите имя региона по умолчанию `{{ region-id }}`:
+   1. Укажите имя региона по умолчанию `ru-central1`:
    
       ```bash
-      Default region name [{{ region-id }}]: {{ region-id }}
+      Default region name [ru-central1]: ru-central1
       ```
    
    1. Укажите формат выходных данных по умолчанию `json`:
@@ -53,5 +53,5 @@
          profile                <not set>             None    None
       access_key     ****************aBc1 shared-credentials-file
       secret_key     ****************DeF2 shared-credentials-file
-          region              {{ region-id }}      config-file    ~/.aws/config
+          region              ru-central1      config-file    ~/.aws/config
       ```

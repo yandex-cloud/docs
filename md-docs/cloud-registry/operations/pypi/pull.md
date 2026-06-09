@@ -1,4 +1,4 @@
-# Скачать Python-пакет из реестра {{ cloud-registry-name }}
+# Скачать Python-пакет из реестра Cloud Registry
 
 Для скачивания [Python-пакета](../../concepts/artifacts/python.md) необходима [роль](../../security/index.md#cloud-registry-artifacts-puller) `cloud-registry.artifacts.puller` или выше.
 
@@ -19,7 +19,7 @@
 
       ```bash
       pip install <имя_пакета> \
-        --index-url https://iam:$IAM_TOKEN@{{ cloud-registry }}/pypi/$LOCAL_REG_ID/simple/
+        --index-url https://iam:$IAM_TOKEN@registry.yandexcloud.net/pypi/$LOCAL_REG_ID/simple/
       ```
 
       Где:
@@ -31,7 +31,7 @@
 
       ```text
       Collecting my_package
-        Downloading https://{{ cloud-registry }}/pypi/e5o6a2blpkb6********/simple/my-package/my_package-0.0.1-py3-none-any.whl (4.5 kB)
+        Downloading https://registry.yandexcloud.net/pypi/e5o6a2blpkb6********/simple/my-package/my_package-0.0.1-py3-none-any.whl (4.5 kB)
       Installing collected packages: my_package
       Successfully installed my_package-0.0.1
       ```
@@ -64,7 +64,7 @@
       ```bash
       poetry config http-basic.cloud-registry iam $IAM_TOKEN
       poetry init  # жми Enter на все вопросы
-      poetry source add cloud-registry https://iam:$IAM_TOKEN@{{ cloud-registry }}/pypi/$LOCAL_REG_ID/simple/
+      poetry source add cloud-registry https://iam:$IAM_TOKEN@registry.yandexcloud.net/pypi/$LOCAL_REG_ID/simple/
       ```
 
   1. Скачайте пакет:
@@ -103,7 +103,7 @@
 
       ```bash
       uv pip install <имя_пакета> \
-        --index-url https://iam:$IAM_TOKEN@{{ cloud-registry }}/pypi/$LOCAL_REG_ID/simple/ 
+        --index-url https://iam:$IAM_TOKEN@registry.yandexcloud.net/pypi/$LOCAL_REG_ID/simple/ 
       ```
 
       Результат:
@@ -144,7 +144,7 @@
    
      {% note info %}
    
-     [Время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше {{ iam-token-lifetime }}.
+     [Время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше 12 часов.
    
      {% endnote %}
    
@@ -179,7 +179,7 @@
 
       ```bash
       pip install <имя_пакета> \
-        --index-url https://$REGISTRY_USERNAME:$REGISTRY_PASSWORD@{{ cloud-registry }}/pypi/<идентификатор_реестра>/simple/ \
+        --index-url https://$REGISTRY_USERNAME:$REGISTRY_PASSWORD@registry.yandexcloud.net/pypi/<идентификатор_реестра>/simple/ \
         --no-cache
       ```
 
@@ -192,7 +192,7 @@
 
       ```bash
       pip install <имя_пакета> \
-        --index-url https://$REGISTRY_USERNAME:$REGISTRY_PASSWORD@{{ cloud-registry }}/pypi/<идентификатор_реестра>/simple/ \
+        --index-url https://$REGISTRY_USERNAME:$REGISTRY_PASSWORD@registry.yandexcloud.net/pypi/<идентификатор_реестра>/simple/ \
         --no-cache
       ```
 
@@ -207,7 +207,7 @@
 
 ```bash
 pip install <имя_пакета> \
-  --index-url https://iam:$(yc iam create-token)@{{ cloud-registry }}/pypi/e5o6a2blpkb6********/simple/
+  --index-url https://iam:$(yc iam create-token)@registry.yandexcloud.net/pypi/e5o6a2blpkb6********/simple/
 ```
 
 ### Удаленный реестр {#remote-registry}
@@ -235,7 +235,7 @@ pip install <имя_пакета> \
    
      {% note info %}
    
-     [Время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше {{ iam-token-lifetime }}.
+     [Время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше 12 часов.
    
      {% endnote %}
    
@@ -270,7 +270,7 @@ pip install <имя_пакета> \
 
       ```bash
       pip install <имя_пакета> \
-        --index-url https://$REGISTRY_USERNAME:$REGISTRY_PASSWORD@{{ cloud-registry }}/pypi/<идентификатор_реестра>/simple/ \
+        --index-url https://$REGISTRY_USERNAME:$REGISTRY_PASSWORD@registry.yandexcloud.net/pypi/<идентификатор_реестра>/simple/ \
         --no-cache
       ```
 
@@ -283,7 +283,7 @@ pip install <имя_пакета> \
 
       ```bash
       pip install <имя_пакета> \
-        --index-url https://$REGISTRY_USERNAME:$REGISTRY_PASSWORD@{{ cloud-registry }}/pypi/<идентификатор_реестра>/simple/ \
+        --index-url https://$REGISTRY_USERNAME:$REGISTRY_PASSWORD@registry.yandexcloud.net/pypi/<идентификатор_реестра>/simple/ \
         --no-cache
       ```
 
@@ -298,7 +298,7 @@ pip install <имя_пакета> \
 
 ```bash
 pip install pytest==9.0.1 \
-  --index-url https://iam:$(yc iam create-token)@{{ cloud-registry }}/pypi/e5o6a2blpkb6********/simple/
+  --index-url https://iam:$(yc iam create-token)@registry.yandexcloud.net/pypi/e5o6a2blpkb6********/simple/
 ```
 
 При первом обращении пакет будет загружен из публичного PyPI и сохранен в кеш. При последующих установках пакет будет загружаться из кеша.
@@ -328,7 +328,7 @@ pip install pytest==9.0.1 \
    
      {% note info %}
    
-     [Время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше {{ iam-token-lifetime }}.
+     [Время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше 12 часов.
    
      {% endnote %}
    
@@ -363,7 +363,7 @@ pip install pytest==9.0.1 \
 
       ```bash
       pip install <имя_пакета> \
-        --index-url https://$REGISTRY_USERNAME:$REGISTRY_PASSWORD@{{ cloud-registry }}/pypi/<идентификатор_реестра>/simple/ \
+        --index-url https://$REGISTRY_USERNAME:$REGISTRY_PASSWORD@registry.yandexcloud.net/pypi/<идентификатор_реестра>/simple/ \
         --no-cache
       ```
 
@@ -376,7 +376,7 @@ pip install pytest==9.0.1 \
 
       ```bash
       pip install <имя_пакета> \
-        --index-url https://$REGISTRY_USERNAME:$REGISTRY_PASSWORD@{{ cloud-registry }}/pypi/<идентификатор_реестра>/simple/ \
+        --index-url https://$REGISTRY_USERNAME:$REGISTRY_PASSWORD@registry.yandexcloud.net/pypi/<идентификатор_реестра>/simple/ \
         --no-cache
       ```
 
@@ -391,7 +391,7 @@ pip install pytest==9.0.1 \
 
 ```bash
 pip install <имя_пакета> \
-  --index-url https://iam:$(yc iam create-token)@{{ cloud-registry }}/pypi/e5o6a2blpkb6********/simple/
+  --index-url https://iam:$(yc iam create-token)@registry.yandexcloud.net/pypi/e5o6a2blpkb6********/simple/
 ```
 
 Виртуальный реестр автоматически выполнит поиск пакета во всех подключенных локальных и удаленных реестрах в порядке их приоритета.
@@ -402,7 +402,7 @@ pip install <имя_пакета> \
 
 ```bash
 pip install <имя_пакета> \
-  --index-url https://iam:$(yc iam create-token)@{{ cloud-registry }}/pypi/<идентификатор_реестра>/simple/ \
+  --index-url https://iam:$(yc iam create-token)@registry.yandexcloud.net/pypi/<идентификатор_реестра>/simple/ \
   --extra-index-url https://pypi.org/simple/ 
 ```
 
@@ -412,6 +412,6 @@ pip install <имя_пакета> \
 
 #### См. также {#see-also}
 
-* [{#T}](installation.md)
-* [{#T}](push.md)
-* [{#T}](examples.md)
+* [Настроить PyPI](installation.md)
+* [Загрузить Python-пакет в локальный реестр Cloud Registry](push.md)
+* [Примеры работы с PyPI-реестрами](examples.md)

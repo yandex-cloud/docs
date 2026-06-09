@@ -2,113 +2,113 @@
 
 ## Техническая поддержка {#support}
 
-В {{ yandex-cloud }} 24 часа в сутки, 7 дней в неделю работает служба технической поддержки. В зависимости от [тарифного плана](../support/overview.md) вы можете обратиться за помощью с различными вопросами в разделе [Поддержка]({{ link-console-support }}) в консоли управления. Подробное описание службы технической поддержки смотрите в [документации](../support/index.md).
+В Yandex Cloud 24 часа в сутки, 7 дней в неделю работает служба технической поддержки. В зависимости от [тарифного плана](../support/overview.md) вы можете обратиться за помощью с различными вопросами в разделе [Поддержка](https://center.yandex.cloud/support) в консоли управления. Подробное описание службы технической поддержки смотрите в [документации](../support/index.md).
 
-Если вы не нашли ответ на вопрос по работе с {{ yandex-cloud }} в документации, обратитесь в техническую поддержку.
+Если вы не нашли ответ на вопрос по работе с Yandex Cloud в документации, обратитесь в техническую поддержку.
 
 
-## Про {{ yandex-cloud }} {#about-platform}
+## Про Yandex Cloud {#about-platform}
 
 * [Billing](../billing/qa/all.md)
 * [Technical support](../support/qa.md)
 
 
-## Сервисы {{ yandex-cloud }} {#services}
+## Сервисы Yandex Cloud {#services}
 
 
 ### Инфраструктура и сеть {#infra}
 
-* [{{ api-gw-full-name }}](../api-gateway/qa/index.md)
-* [{{ backup-full-name }}](../backup/qa/troubleshooting.md)
-* [{{ cdn-full-name }}](../cdn/troubleshooting.md)
-* [{{ dns-full-name }}](../dns/qa/index.md)
-* [{{ cloud-logging-full-name }}](../logging/qa/index.md)
-* [{{ compute-full-name }}](../compute/qa/all.md)
-* [{{ monitoring-full-name }}](../monitoring/qa/all.md)
-* [{{ network-load-balancer-full-name }}](../network-load-balancer/qa/index.md)
-* [{{ objstorage-full-name }}](../storage/qa.md)
-* [{{ vpc-full-name }}](../vpc/qa/index.md)
+* [Yandex API Gateway](../api-gateway/qa/index.md)
+* [Yandex Cloud Backup](../backup/qa/troubleshooting.md)
+* [Yandex Cloud CDN](../cdn/troubleshooting.md)
+* [Yandex Cloud DNS](../dns/qa/index.md)
+* [Yandex Cloud Logging](../logging/qa/index.md)
+* [Yandex Compute Cloud](../compute/qa/all.md)
+* [Yandex Monitoring](../monitoring/qa/all.md)
+* [Yandex Network Load Balancer](../network-load-balancer/qa/index.md)
+* [Yandex Object Storage](../storage/qa.md)
+* [Yandex Virtual Private Cloud](../vpc/qa/index.md)
 
 
 ### Платформа данных {#data-platform}
 
-* [{{ dataproc-full-name }}](../data-proc/qa/index.md)
-* [{{ yds-full-name }}](../data-streams/qa/index.md)
-* [{{ data-transfer-full-name }}](../data-transfer/troubleshooting/index.md)
-* [{{ datalens-full-name }}](../datalens/qa/index.md)
-* [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
-* [{{ yq-full-name }}](../query/qa/index.md)
-* [{{ maf-full-name }}](../managed-airflow/qa/index.md)
-* [{{ mkf-full-name }}](../managed-kafka/qa/index.md)
-* [{{ mch-full-name }}](../managed-clickhouse/qa/all.md)
-* [{{ mgp-full-name }}](../managed-greenplum/qa/all.md)
-* [{{ mmg-full-name }}](../storedoc/qa/all.md)
-* [{{ mmy-full-name }}](../managed-mysql/qa/all.md)
-* [{{ mos-full-name }}](../managed-opensearch/qa/index.md)
-* [{{ mpg-full-name }}](../managed-postgresql/qa/all.md)
-* [{{ mrd-full-name }}](../managed-valkey/qa/general.md)
-* [{{ ydb-full-name }}](../ydb/faq.md)
-* [{{ message-queue-full-name }}](../message-queue/qa/index.md)
-* [{{ metadata-hub-full-name }}](../metadata-hub/qa/index.md)
-* [{{ monitoring-full-name }}](../monitoring/qa/all.md)
-* [{{ objstorage-full-name }}](../storage/qa.md)
+* [Yandex Data Processing](../data-proc/qa/index.md)
+* [Yandex Data Streams](../data-streams/qa/index.md)
+* [Yandex Data Transfer](../data-transfer/troubleshooting/index.md)
+* [Yandex DataLens](../datalens/qa/index.md)
+* [Yandex DataSphere](../datasphere/qa/index.md)
+* [Yandex Query](../query/qa/index.md)
+* [Yandex Managed Service for Apache Airflow™](../managed-airflow/qa/index.md)
+* [Yandex Managed Service for Apache Kafka®](../managed-kafka/qa/index.md)
+* [Yandex Managed Service for ClickHouse®](../managed-clickhouse/qa/all.md)
+* [Yandex MPP Analytics for PostgreSQL](../managed-greenplum/qa/all.md)
+* [Yandex StoreDoc](../storedoc/qa/all.md)
+* [Yandex Managed Service for MySQL®](../managed-mysql/qa/all.md)
+* [Yandex Managed Service for OpenSearch](../managed-opensearch/qa/index.md)
+* [Yandex Managed Service for PostgreSQL](../managed-postgresql/qa/all.md)
+* [Yandex Managed Service for Valkey™](../managed-valkey/qa/general.md)
+* [Yandex Managed Service for YDB](../ydb/faq.md)
+* [Yandex Message Queue](../message-queue/qa/index.md)
+* [Yandex MetaData Hub](../metadata-hub/qa/index.md)
+* [Yandex Monitoring](../monitoring/qa/all.md)
+* [Yandex Object Storage](../storage/qa.md)
 
 
 ### Контейнерная разработка {#containers}
 
-* [{{ container-registry-full-name }}](../container-registry/qa/index.md)
-* [{{ managed-k8s-full-name }}<sup>®</sup>](../managed-kubernetes/qa/all.md)
-* [{{ serverless-containers-full-name }}](../serverless-containers/qa/index.md)
+* [Yandex Container Registry](../container-registry/qa/index.md)
+* [Yandex Managed Service for Kubernetes<sup>®</sup>](../managed-kubernetes/qa/all.md)
+* [Yandex Serverless Containers](../serverless-containers/qa/index.md)
   
 
 ### Бессерверные вычисления {#serverless}
 
-* [{{ api-gw-full-name }}](../api-gateway/qa/index.md)
-* [{{ sf-full-name }}](../functions/qa/index.md)
-* [{{ yds-full-name }}](../data-streams/qa/index.md)
-* [{{ iot-full-name }}](../iot-core/qa/index.md)
-* [{{ ydb-full-name }}](../ydb/faq.md)
-* [{{ message-queue-full-name }}](../message-queue/qa/index.md)
-* [{{ objstorage-full-name }}](../storage/qa.md)
-* [{{ serverless-containers-full-name }}](../serverless-containers/qa/index.md)
+* [Yandex API Gateway](../api-gateway/qa/index.md)
+* [Yandex Cloud Functions](../functions/qa/index.md)
+* [Yandex Data Streams](../data-streams/qa/index.md)
+* [Yandex IoT Core](../iot-core/qa/index.md)
+* [Yandex Managed Service for YDB](../ydb/faq.md)
+* [Yandex Message Queue](../message-queue/qa/index.md)
+* [Yandex Object Storage](../storage/qa.md)
+* [Yandex Serverless Containers](../serverless-containers/qa/index.md)
 
 
 ### Безопасность {#security}
 
-* [{{ iam-full-name }}](../iam/qa/index.md)
-* [{{ kms-full-name }}](../kms/qa/index.md)
-* [{{ lockbox-full-name }}](../lockbox/qa/index.md)
-* [{{ certificate-manager-full-name }}](../certificate-manager/qa/index.md)
+* [Yandex Identity and Access Management](../iam/qa/index.md)
+* [Yandex Key Management Service](../kms/qa/index.md)
+* [Yandex Lockbox](../lockbox/qa/index.md)
+* [Yandex Certificate Manager](../certificate-manager/qa/index.md)
 
 ### Инструменты разработчика {#developer-tools}
 
-* [{{ ca-full-name }}]({{ link-src-docs }}/code-assistant/qa)
-* [{{ cos-full-name }}](../cos/qa/index.md)
-* [{{ mgl-full-name }}](../managed-gitlab/qa/index.md)
+* [SourceCraft Code Assistant](https://sourcecraft.dev/portal/docs/ru/code-assistant/qa)
+* [Yandex Container Solution](../cos/qa/index.md)
+* [Yandex Managed Service for GitLab](../managed-gitlab/qa/index.md)
 
 ### Ресурсы и управление {#resources-operations}
 
-* [{{ cloud-logging-full-name }}](../logging/qa/index.md)
-* [{{ iam-full-name }}](../iam/qa/index.md)
-* [{{ monitoring-full-name }}](../monitoring/qa/all.md)
-* [{{ resmgr-full-name }}](../resource-manager/qa/index.md)
+* [Yandex Cloud Logging](../logging/qa/index.md)
+* [Yandex Identity and Access Management](../iam/qa/index.md)
+* [Yandex Monitoring](../monitoring/qa/all.md)
+* [Yandex Resource Manager](../resource-manager/qa/index.md)
 
 
 ### Машинное обучение {#ml-ai}
 
-* [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
-* [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/qa/index)
-* [{{ speechkit-full-name }}]({{ link-docs-ai }}{{ speechkit-slug }}/qa/all)
-* [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/qa/)
-* [{{ translate-full-name }}]({{ link-docs-ai }}translate/qa/index)
-* [{{ vision-full-name }}]({{ link-docs-ai }}vision/qa/index)
+* [Yandex DataSphere](../datasphere/qa/index.md)
+* [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/qa/index)
+* [Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/qa/all)
+* [Yandex SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/qa/)
+* [Yandex Translate](https://aistudio.yandex.ru/docs/ru/translate/qa/index)
+* [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/qa/index)
 
 
 ### Бизнес-инструменты {#business-tools}
 
-* [{{ datalens-full-name }}](../datalens/qa/index.md)
-* [{{ video-full-name }}](../video/troubleshooting/index.md)
+* [Yandex DataLens](../datalens/qa/index.md)
+* [Yandex Cloud Video](../video/troubleshooting/index.md)
 
 _Greenplum® и Greenplum Database® являются зарегистрированными товарными знаками или товарными знаками Broadcom Inc в США и/или других странах._
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

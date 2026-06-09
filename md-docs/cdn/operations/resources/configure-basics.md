@@ -6,13 +6,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором расположен ресурс.
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Перейдите в сервис **Cloud CDN**.
 
   1. Нажмите на имя необходимого ресурса.
 
-  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
 
   1. Измените настройки ресурса.
 
@@ -24,27 +24,27 @@
 
       * Чтобы добавить [метки](../../concepts/labels.md):
 
-          * Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+          * Нажмите кнопку **Добавить метку**.
           * Введите метку в формате `ключ: значение`.
           * Нажмите **Enter**.
 
-      * Чтобы настроить [TLS-сертификат](../../concepts/clients-to-servers-tls.md) для CDN-ресурса, в поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите одну из опций:
+      * Чтобы настроить [TLS-сертификат](../../concepts/clients-to-servers-tls.md) для CDN-ресурса, в поле **Тип сертификата** выберите одну из опций:
 
-          * `{{ ui-key.yacloud.cdn.value_certificate-no }}` — ресурс будет доступен только по протоколу HTTP.
+          * `Не использовать` — ресурс будет доступен только по протоколу HTTP.
 
 
-          * `{{ ui-key.yacloud.cdn.value_certificate-custom }}` — выберите сертификат. Ресурс будет доступен по протоколам HTTP и HTTPS.
+          * `Сертификат из Certificate Manager` — выберите сертификат. Ресурс будет доступен по протоколам HTTP и HTTPS.
 
-              Поддерживаются сертификаты из [{{ certificate-manager-full-name }}](../../../certificate-manager/index.md). Вы можете [выпустить новый сертификат Let's Encrypt®](../../../certificate-manager/operations/managed/cert-create.md) или [загрузить собственный](../../../certificate-manager/operations/import/cert-create.md).
+              Поддерживаются сертификаты из [Yandex Certificate Manager](../../../certificate-manager/index.md). Вы можете [выпустить новый сертификат Let's Encrypt®](../../../certificate-manager/operations/managed/cert-create.md) или [загрузить собственный](../../../certificate-manager/operations/import/cert-create.md).
               
               Сертификат должен находиться в том же [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен ваш CDN-ресурс.
 
-          Подробнее см. в разделе [{#T}](../../concepts/clients-to-servers-tls.md).
+          Подробнее см. в разделе [Настройка TLS-сертификатов для HTTPS-соединений между клиентами и CDN](../../concepts/clients-to-servers-tls.md).
 
       * Чтобы включить [перенаправление запросов](../../concepts/http-rewrite.md) на CDN-ресурсе:
 
-          1. Включите опцию **{{ ui-key.yacloud.cdn.field_rewrite-rule-redirect }}**.
-          1. В поле **{{ ui-key.yacloud.cdn.field_rewrite-rule-body }}** задайте правило. Например: `/(.*) /new-folder/$1`.
+          1. Включите опцию **Перенаправление запросов**.
+          1. В поле **Правило Rewrite** задайте правило. Например: `/(.*) /new-folder/$1`.
 
               Правило Rewrite должно содержать две разделенные пробелом директивы: исходный путь, который требуется заменить, и измененный путь — то, на что меняется исходный путь.
               
@@ -52,41 +52,41 @@
               
               Подробнее см. в разделе [Правило Rewrite](../../concepts/http-rewrite.md#rewrite-rule).
 
-          1. В поле **{{ ui-key.yacloud.cdn.field_rewrite-rule-flag }}** задайте нужный [флаг](../../concepts/http-rewrite.md#flag):
+          1. В поле **Флаг** задайте нужный [флаг](../../concepts/http-rewrite.md#flag):
 
               * `break` — завершает обработку текущего набора директив.
               * `last` — завершает обработку текущего набора директив и начинает поиск нового CDN-сервера, соответствующего новому URI.
               * `redirect` — возвращает пользователю временный `redirect` с кодом `302`. Флаг используется, если заменяющая строка не начинается с `http://`, `https://` или `$scheme`.
               * `permanent` — возвращает пользователю постоянный `redirect` с кодом `301`.
 
-      * Чтобы ограничить доступ к контенту ресурса с помощью [защищенных токенов](../../concepts/secure-tokens.md), включите опцию **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**:
+      * Чтобы ограничить доступ к контенту ресурса с помощью [защищенных токенов](../../concepts/secure-tokens.md), включите опцию **Доступ по защищённому токену**:
 
-          * Укажите **{{ ui-key.yacloud.cdn.field_secure-key }}** — произвольную строку длиной от 6 до 32 символов. Секретный ключ потребуется для генерации [подписанных ссылок](../../concepts/secure-tokens.md#protected-link).
+          * Укажите **Секретный ключ** — произвольную строку длиной от 6 до 32 символов. Секретный ключ потребуется для генерации [подписанных ссылок](../../concepts/secure-tokens.md#protected-link).
           
               Сохраненный секретный ключ вы всегда сможете посмотреть в консоли управления или с помощью команды [CLI](../../../cli/index.md) `yc cdn resource list`.
-          * В поле **{{ ui-key.yacloud.cdn.field_secure-key-type }}** задайте ограничение на доступ к контенту по IP-адресу:
+          * В поле **Ограничение доступа по IP-адресу** задайте ограничение на доступ к контенту по IP-адресу:
           
-             * `{{ ui-key.yacloud.cdn.value_secure-key-type-enable }}` — доступ к файлам будет разрешен только с определенного IP-адреса получателя контента. IP-адрес задается вне CDN-ресурса и указывается в качестве параметра при формировании [MD5](https://ru.wikipedia.org/wiki/MD5)-хэша для подписанной ссылки.
-             * `{{ ui-key.yacloud.cdn.value_secure-key-type-disable }}` — доступ к файлам будет разрешен с любых IP-адресов.
+             * `Только доверенные IP-адреса` — доступ к файлам будет разрешен только с определенного IP-адреса получателя контента. IP-адрес задается вне CDN-ресурса и указывается в качестве параметра при формировании [MD5](https://ru.wikipedia.org/wiki/MD5)-хэша для подписанной ссылки.
+             * `Без ограничений` — доступ к файлам будет разрешен с любых IP-адресов.
 
-          (Опционально) Чтобы ограничить доступ к контенту ресурса с помощью [политики доступа по IP-адресам](../../concepts/ip-address-acl.md), включите опцию **{{ ui-key.yacloud.cdn.field_address-acl }}**:
+          (Опционально) Чтобы ограничить доступ к контенту ресурса с помощью [политики доступа по IP-адресам](../../concepts/ip-address-acl.md), включите опцию **Доступ по IP-адресам**:
           
           * Выберите тип политики доступа:
           
-              * `{{ ui-key.yacloud.cdn.field_address-acl_policy-type_deny }}` — разрешающая политика. Доступ к контенту ресурса будет разрешен для любых IP-адресов, кроме адресов, заданных ниже.
-              * `{{ ui-key.yacloud.cdn.field_address-acl_policy-type_allow }}` — блокирующая политика. Доступ к контенту ресурса будет запрещен для любых IP-адресов, кроме адресов, заданных ниже.
+              * `Запретить для всех, кроме` — разрешающая политика. Доступ к контенту ресурса будет разрешен для любых IP-адресов, кроме адресов, заданных ниже.
+              * `Разрешить для всех, кроме` — блокирующая политика. Доступ к контенту ресурса будет запрещен для любых IP-адресов, кроме адресов, заданных ниже.
           
-          * В поле **{{ ui-key.yacloud.cdn.field_address-acl_excepted-values }}** укажите список IP-адресов, [исключенных](../../concepts/ip-address-acl.md#ip-list) из заданной выше политики доступа.
+          * В поле **Список IP-адресов** укажите список IP-адресов, [исключенных](../../concepts/ip-address-acl.md#ip-list) из заданной выше политики доступа.
           
               IP-адреса должны быть указаны с префиксом подсети в [нотации CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация) через запятую. Например: `192.168.3.2/32, 192.168.17.0/24`.
 
-          Подробнее см. в разделе [{#T}](enable-secure-token.md).
+          Подробнее см. в разделе [Настройка доступа по защищенному токену](enable-secure-token.md).
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -154,7 +154,7 @@
       * `--dont-use-ssl-cert` — не использовать сертификат. Ресурс будет доступен только по протоколу HTTP.
       * `--cert-manager-ssl-cert-id` — идентификатор сертификата. Ресурс будет доступен по протоколам HTTP и HTTPS.
       
-        Поддерживаются сертификаты из [{{ certificate-manager-full-name }}](../../../certificate-manager/index.md). Вы можете [выпустить новый сертификат Let's Encrypt®](../../../certificate-manager/operations/managed/cert-create.md) или [загрузить собственный](../../../certificate-manager/operations/import/cert-create.md).
+        Поддерживаются сертификаты из [Yandex Certificate Manager](../../../certificate-manager/index.md). Вы можете [выпустить новый сертификат Let's Encrypt®](../../../certificate-manager/operations/managed/cert-create.md) или [загрузить собственный](../../../certificate-manager/operations/import/cert-create.md).
         
         Сертификат должен находиться в том же [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен ваш CDN-ресурс.
 
@@ -181,7 +181,7 @@
       * `--secure-key` — секретный ключ — произвольная строка длиной от 6 до 32 символов.
       * `--enable-ip-url-signing` — (опционально) параметр, который включает ограничение доступа к CDN-ресурсу по IP-адресу. Сам доверенный IP-адрес задается вне CDN-ресурса и указывается в качестве параметра при формировании [MD5](https://ru.wikipedia.org/wiki/MD5)-хэша для [подписанной ссылки](../../concepts/secure-tokens.md#protected-link). Если параметр не задан, доступ к файлам будет разрешен с любых IP-адресов.
       
-      См. также [{#T}](enable-secure-token.md).
+      См. также [Настройка доступа по защищенному токену](enable-secure-token.md).
       
       Если вы хотите ограничить доступ к контенту ресурса с помощью [политики доступа по IP-адресам](../../concepts/ip-address-acl.md), используйте параметры:
       
@@ -200,16 +200,16 @@
 
       Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  Чтобы изменить параметры CDN-ресурса, созданного с помощью {{ TF }}:
+  Чтобы изменить параметры CDN-ресурса, созданного с помощью Terraform:
 
-  1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием ресурса:
+  1. Откройте файл конфигурации Terraform и измените фрагмент с описанием ресурса:
 
       ```hcl
       resource "yandex_cdn_resource" "my_resource" {
@@ -241,7 +241,7 @@
       * `origin_protocol` — протокол для источников. Значение по умолчанию: `http`. Необязательный параметр.
       * `origin_group_id` — идентификатор [группы источников](../../concepts/origins.md). Обязательный параметр. Используйте идентификатор из описания группы источников в ресурсе `yandex_cdn_origin_group`.
       * `secondary_hostnames` — дополнительные доменные имена. Необязательный параметр.
-      * `provider_type` — провайдер CDN. Необязательный параметр. Единственное возможное значение: `ourcdn` — провайдер {{ cdn-full-name }}.
+      * `provider_type` — провайдер CDN. Необязательный параметр. Единственное возможное значение: `ourcdn` — провайдер Yandex Cloud CDN.
       * `ssl_certificate` — параметры SSL-сертификата. Необязательный параметр. Возможные значения:
       
           * `type` — тип сертификата:
@@ -249,11 +249,11 @@
               * `not_used` — без сертификата. Значение по умолчанию.
               * `certificate_manager` — пользовательский сертификат. Укажите идентификатор сертификата в параметре `certificate_manager_id`.
       
-                Поддерживаются сертификаты из [{{ certificate-manager-full-name }}](../../../certificate-manager/index.md). Вы можете [выпустить новый сертификат Let's Encrypt®](../../../certificate-manager/operations/managed/cert-create.md) или [загрузить собственный](../../../certificate-manager/operations/import/cert-create.md).
+                Поддерживаются сертификаты из [Yandex Certificate Manager](../../../certificate-manager/index.md). Вы можете [выпустить новый сертификат Let's Encrypt®](../../../certificate-manager/operations/managed/cert-create.md) или [загрузить собственный](../../../certificate-manager/operations/import/cert-create.md).
                 
                 Сертификат должен находиться в том же [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен ваш CDN-ресурс.
       
-          * `certificate_manager_id` — идентификатор пользовательского сертификата в {{ certificate-manager-name }}.
+          * `certificate_manager_id` — идентификатор пользовательского сертификата в Certificate Manager.
       
       * `options` — дополнительные параметры CDN-ресурса. Необязательный параметр. Возможные значения:
       
@@ -275,9 +275,9 @@
       
           {% endnote %}
       
-      Более подробную информацию о параметрах `yandex_cdn_resource` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/cdn_resource).
+      Более подробную информацию о параметрах `yandex_cdn_resource` в Terraform см. в [документации провайдера](../../../terraform/resources/cdn_resource.md).
 
-  1. В командной строке перейдите в папку, где расположен конфигурационный файл {{ TF }}.
+  1. В командной строке перейдите в папку, где расположен конфигурационный файл Terraform.
 
   1. Проверьте конфигурацию командой:
      ```bash
@@ -295,7 +295,7 @@
      terraform plan
      ```
 
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
 
   1. Примените изменения конфигурации:
      ```bash
@@ -304,7 +304,7 @@
 
   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
-     Проверить изменение CDN-ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+     Проверить изменение CDN-ресурса можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
 
      ```bash
      yc cdn resource list
@@ -326,7 +326,7 @@
 
 - CLI {#cli}
 
-  Измените протокол для источников с HTTP на HTTPS и выберите сертификат Let's Encrypt®, [добавленный](../../../certificate-manager/operations/managed/cert-create.md) в {{ certificate-manager-name }}, или [загруженный](../../../certificate-manager/operations/import/cert-create.md) собственный сертификат:
+  Измените протокол для источников с HTTP на HTTPS и выберите сертификат Let's Encrypt®, [добавленный](../../../certificate-manager/operations/managed/cert-create.md) в Certificate Manager, или [загруженный](../../../certificate-manager/operations/import/cert-create.md) собственный сертификат:
 
     ```bash
     yc cdn resource update s0me1dkfjq******** \

@@ -1,6 +1,6 @@
-# Перемещение и восстановление кластера {{ PG }}
+# Перемещение и восстановление кластера PostgreSQL
 
-* [Можно ли восстановить резервную копию кластера в работающий экземпляр {{ mpg-short-name }} в другой облачной сети?](#diff-network)
+* [Можно ли восстановить резервную копию кластера в работающий экземпляр Managed Service for PostgreSQL в другой облачной сети?](#diff-network)
 
 * [Можно ли изменить срок хранения автоматических резервных копий?](#backup-retain-days)
 
@@ -8,7 +8,7 @@
 
 * [Можно ли локально выгрузить резервную копию базы данных?](#backup-local-dump)
 
-* [Как перенести локальный дамп базы данных {{ PG }} в {{ yandex-cloud }}?](#dump-to-yc)
+* [Как перенести локальный дамп базы данных PostgreSQL в Yandex Cloud?](#dump-to-yc)
 
 * [Как перенести БД или таблицу из одного кластера в другой?](#transfer-db-table)
 
@@ -22,7 +22,7 @@
 
 * [Можно ли восстановить из резервной копии одну базу данных?](#restore-one-database)
 
-#### Можно ли восстановить резервную копию кластера в работающий экземпляр {{ mpg-short-name }} в другой облачной сети? {#diff-network}
+#### Можно ли восстановить резервную копию кластера в работающий экземпляр Managed Service for PostgreSQL в другой облачной сети? {#diff-network}
 
 Да, при восстановлении кластера из резервной копии вы можете выбрать другую облачную сеть.
 
@@ -40,29 +40,29 @@
 
 #### Можно ли локально выгрузить резервную копию базы данных? {#backup-local-dump}
 
-Локально выгрузить резервную копию из {{ yandex-cloud }} средствами сервиса нельзя, но вы можете воспользоваться [утилитой pg_dump]({{ pg.docs.org }}/current/app-pgdump.html).
+Локально выгрузить резервную копию из Yandex Cloud средствами сервиса нельзя, но вы можете воспользоваться [утилитой pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html).
 
-#### Как перенести локальный дамп базы данных {{ PG }} в {{ yandex-cloud }}? {#dump-to-yc}
+#### Как перенести локальный дамп базы данных PostgreSQL в Yandex Cloud? {#dump-to-yc}
 
 Воспользуйтесь инструкцией в разделе [Миграция базы данных](../tutorials/data-migration.md).
 
 #### Как перенести БД или таблицу из одного кластера в другой? {#transfer-db-table}
 
-Перенести БД или таблицу можно с помощью сервиса {{ data-transfer-name }} или утилиты [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html).
+Перенести БД или таблицу можно с помощью сервиса Data Transfer или утилиты [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html).
 
-Подробнее о миграции с помощью {{ data-transfer-name }} см. в руководстве [Миграция базы данных](../tutorials/outbound-replication.md).
+Подробнее о миграции с помощью Data Transfer см. в руководстве [Миграция базы данных](../tutorials/outbound-replication.md).
 
 #### Как перенести данные между кластерами в разных каталогах или облаках? {#transfer-data}
 
-Перенести данные можно с помощью сервиса {{ data-transfer-name }} или утилиты [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html).
+Перенести данные можно с помощью сервиса Data Transfer или утилиты [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html).
 
-Подробнее о миграции с помощью {{ data-transfer-name }} см. в руководстве [Миграция базы данных](../tutorials/outbound-replication.md).
+Подробнее о миграции с помощью Data Transfer см. в руководстве [Миграция базы данных](../tutorials/outbound-replication.md).
 
 #### Как перенести кластер в другое облако? {#transfer-cluster}
 
-Перенести кластер можно с помощью сервиса {{ data-transfer-name }} или утилиты [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html).
+Перенести кластер можно с помощью сервиса Data Transfer или утилиты [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html).
 
-Подробнее о миграции с помощью {{ data-transfer-name }} см. в руководстве [Миграция базы данных](../tutorials/outbound-replication.md).
+Подробнее о миграции с помощью Data Transfer см. в руководстве [Миграция базы данных](../tutorials/outbound-replication.md).
 
 #### Как восстановить резервную копию в существующий кластер? {#restore-existing-cluster}
 

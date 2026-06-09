@@ -7,7 +7,7 @@ To get the list of all available transfers, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://{{ api-host-data-transfer }}/v1/transfer/{transferId}
+GET https://datatransfer.api.cloud.yandex.net/v1/transfer/{transferId}
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ List all rules for specified resource.
 ## HTTP request
 
 ```
-GET https://cdn.{{ api-host }}/cdn/v1/rules
+GET https://cdn.api.cloud.yandex.net/cdn/v1/rules
 ```
 
 ## Query parameters {#yandex.cloud.cdn.v1.ListResourceRulesRequest}

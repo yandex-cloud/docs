@@ -1,10 +1,10 @@
-# Метрики {{ data-transfer-full-name }}
+# Метрики Yandex Data Transfer
 
-В этом разделе описаны метрики сервиса [{{ data-transfer-name }}](../../data-transfer/index.md), поставляемые в {{ monitoring-name }}.
+В этом разделе описаны метрики сервиса [Data Transfer](../../data-transfer/index.md), поставляемые в Monitoring.
 
 Имя метрики пишется в метку `name`.
 
-Все метрики сервиса {{ data-transfer-name }} имеют общие метки:
+Все метрики сервиса Data Transfer имеют общие метки:
 
 Метка | Значение
 --- | ---

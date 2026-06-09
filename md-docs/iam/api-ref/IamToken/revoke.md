@@ -5,7 +5,7 @@ Revoke the IAM token.
 ## HTTP request
 
 ```
-POST https://iam.{{ api-host }}/iam/v1/tokens:revoke
+POST https://iam.api.cloud.yandex.net/iam/v1/tokens:revoke
 ```
 
 ## Body parameters {#yandex.cloud.iam.v1.RevokeIamTokenRequest}

@@ -10,10 +10,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
-  1. На панели слева выберите ![nodes-left](../../_assets/console-icons/nodes-left.svg) **{{ ui-key.yacloud.interconnect.private-connection.private-connections_daeaR }}** и в открывшемся списке приватных соединений нажмите на нужное соединение.
-  1. В открывшемся окне с информацией о соединении в меню слева выберите ![list-check](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**, чтобы посмотреть список [операций](../../api-design-guide/concepts/about-async.md) с выбранным приватным соединением.
+  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Interconnect**.
+  1. На панели слева выберите ![nodes-left](../../_assets/console-icons/nodes-left.svg) **Приватные соединения** и в открывшемся списке приватных соединений нажмите на нужное соединение.
+  1. В открывшемся окне с информацией о соединении в меню слева выберите ![list-check](../../_assets/console-icons/list-check.svg) **Операции**, чтобы посмотреть список [операций](../../api-design-guide/concepts/about-async.md) с выбранным приватным соединением.
 
 - CLI {#cli}
 

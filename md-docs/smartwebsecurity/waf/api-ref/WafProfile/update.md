@@ -5,7 +5,7 @@ Updates the specified WAF profile.
 ## HTTP request
 
 ```
-PATCH https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/wafProfiles/{wafProfileId}
+PATCH https://smartwebsecurity.api.cloud.yandex.net/smartwebsecurity/v1/wafProfiles/{wafProfileId}
 ```
 
 ## Path parameters

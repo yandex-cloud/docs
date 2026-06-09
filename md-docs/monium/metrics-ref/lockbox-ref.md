@@ -1,10 +1,10 @@
-# Метрики {{ lockbox-full-name }}
+# Метрики Yandex Lockbox
 
-В этом разделе описаны метрики сервиса [{{ lockbox-name }}](../../lockbox/index.md), поставляемые в {{ monitoring-name }}.
+В этом разделе описаны метрики сервиса [Yandex Lockbox](../../lockbox/index.md), поставляемые в Monium Metrics.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик {{ lockbox-name }}:
+Общие метки для всех метрик Yandex Lockbox:
 
 | Метка | Значение |
 | --- | --- |

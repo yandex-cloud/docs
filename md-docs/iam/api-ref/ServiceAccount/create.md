@@ -5,7 +5,7 @@ Creates a service account in the specified folder.
 ## HTTP request
 
 ```
-POST https://iam.{{ api-host }}/iam/v1/serviceAccounts
+POST https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts
 ```
 
 ## Body parameters {#yandex.cloud.iam.v1.CreateServiceAccountRequest}

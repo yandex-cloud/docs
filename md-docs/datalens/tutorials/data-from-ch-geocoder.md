@@ -1,14 +1,14 @@
-# Геокодинг с помощью API Яндекс Карт для визуализации в {{ datalens-short-name }}
+# Геокодинг с помощью API Яндекс Карт для визуализации в DataLens
 
 
-В этом практическом руководстве вы научитесь преобразовывать адреса в геокоординаты с помощью API [Геокодера](https://yandex.ru/maps-api/products/geocoder-api) и визуализируете данные в {{ datalens-short-name }}. Обработка данных выполняется с помощью скриптов на языке Python, описанных в Jupyter ноутбуках в [{{ ml-platform-full-name }}](../../datasphere/index.md).
+В этом практическом руководстве вы научитесь преобразовывать адреса в геокоординаты с помощью API [Геокодера](https://yandex.ru/maps-api/products/geocoder-api) и визуализируете данные в DataLens. Обработка данных выполняется с помощью скриптов на языке Python, описанных в Jupyter ноутбуках в [Yandex DataSphere](../../datasphere/index.md).
 
-В качестве источника данных будут использованы данные из [демонстрационной БД {{ CH }}](../quickstart.md#create-connection).
+В качестве источника данных будут использованы данные из [демонстрационной БД ClickHouse®](../quickstart.md#create-connection).
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Получите ключ API Геокодера](#get-key).
-1. [Преобразуйте данные в {{ ml-platform-short-name }}](#datasphere).
-1. [Создайте подключение к файлу в {{ datalens-short-name }}](#create-connection).
+1. [Преобразуйте данные в DataSphere](#datasphere).
+1. [Создайте подключение к файлу в DataLens](#create-connection).
 1. [Создайте датасет на базе подключения](#create-dataset).
 1. [Создайте чарт](#create-chart).
 
@@ -16,21 +16,21 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Перед началом работы нужно зарегистрироваться в {{ yandex-cloud }}, настроить [сообщество](../../datasphere/concepts/community.md) и привязать к нему [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. [На главной странице {{ ml-platform-name }}]({{ link-datasphere-main }}) нажмите **Попробовать бесплатно** и выберите аккаунт для входа — Яндекс ID или рабочий аккаунт в федерации (SSO).
-1. Выберите [организацию {{ org-full-name }}](../../organization/index.md), в которой вы будете работать в {{ yandex-cloud }}.
+Перед началом работы нужно зарегистрироваться в Yandex Cloud, настроить [сообщество](../../datasphere/concepts/community.md) и привязать к нему [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. [На главной странице DataSphere](https://datasphere.yandex.cloud) нажмите **Попробовать бесплатно** и выберите аккаунт для входа — Яндекс ID или рабочий аккаунт в федерации (SSO).
+1. Выберите [организацию Yandex Identity Hub](../../organization/index.md), в которой вы будете работать в Yandex Cloud.
 1. [Создайте сообщество](../../datasphere/operations/community/create.md).
-1. [Привяжите платежный аккаунт](../../datasphere/operations/community/link-ba.md) к сообществу {{ ml-platform-name }}, в котором вы будете работать. Убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, создайте его в интерфейсе {{ ml-platform-name }}.
+1. [Привяжите платежный аккаунт](../../datasphere/operations/community/link-ba.md) к сообществу DataSphere, в котором вы будете работать. Убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, создайте его в интерфейсе DataSphere.
 
 {% note tip %}
 
-Чтобы {{ datalens-full-name }} и {{ ml-platform-full-name }} могли работать внутри сети {{ yandex-cloud }}, создавайте их экземпляры в рамках одной организации.
+Чтобы Yandex DataLens и Yandex DataSphere могли работать внутри сети Yandex Cloud, создавайте их экземпляры в рамках одной организации.
 
 {% endnote %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость развертывания инфраструктуры входит плата за использование [вычислительных ресурсов {{ ml-platform-name }}](../../datasphere/pricing.md).
+В стоимость развертывания инфраструктуры входит плата за использование [вычислительных ресурсов DataSphere](../../datasphere/pricing.md).
 
 ## Получите ключ API Геокодера {#get-key}
 
@@ -47,33 +47,33 @@
 
    ![image](../../_assets/datalens/solution-geocoder/developer-key.png)
 
-## Преобразуйте данные в {{ ml-platform-short-name }} {#datasphere}
+## Преобразуйте данные в DataSphere {#datasphere}
 
 ### Создайте проект {#create-project}
 
-1. Откройте [главную страницу]({{ link-datasphere-main }}) {{ ml-platform-name }}.
-1. На панели слева выберите ![image](../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
+1. Откройте [главную страницу](https://datasphere.yandex.cloud) DataSphere.
+1. На панели слева выберите ![image](../../_assets/console-icons/circles-concentric.svg) **Сообщества**.
 1. Выберите сообщество, в котором вы хотите создать проект.
-1. На странице сообщества нажмите кнопку ![image](../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-datasphere.projects.create-project }}**.
+1. На странице сообщества нажмите кнопку ![image](../../_assets/console-icons/folder-plus.svg) **Создать проект**.
 1. В открывшемся окне укажите имя и (опционально) описание проекта.
-1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
+1. Нажмите кнопку **Создать**.
 
 ### Создайте секрет {#create-secret}
 
 Создайте [секрет](../../datasphere/concepts/secrets.md) для хранения [ключа API Геокодера](#get-key):
 
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** на странице проекта нажмите ![secret](../../_assets/datasphere/jupyterlab/secret.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
-1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
-1. В поле **{{ ui-key.yc-ui-datasphere.secret.name }}** задайте имя секрета — `API_KEY`.
-1. В поле **{{ ui-key.yc-ui-datasphere.secret.content }}** введите значение ключа.
-1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**. Откроется страница с информацией о созданном секрете.
+1. В блоке **Ресурсы проекта** на странице проекта нажмите ![secret](../../_assets/datasphere/jupyterlab/secret.svg)**Секрет**.
+1. Нажмите кнопку **Создать**.
+1. В поле **Имя** задайте имя секрета — `API_KEY`.
+1. В поле **Значение** введите значение ключа.
+1. Нажмите кнопку **Создать**. Откроется страница с информацией о созданном секрете.
 
 ### Создайте ноутбук {#create-notebook}
 
-1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}** и дождитесь окончания загрузки.
+1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+1. Нажмите кнопку **Открыть проект в JupyterLab** и дождитесь окончания загрузки.
 1. На верхней панели в окне проекта нажмите **File** и выберите **New** → **Notebook**.
-1. Выберите ядро **{{ ml-platform-name }} Kernel** и нажмите **Select**.
+1. Выберите ядро **DataSphere Kernel** и нажмите **Select**.
 
    ![image](../../_assets/datalens/solution-geocoder/new-notebook.png)
 
@@ -96,10 +96,10 @@
 #!:bash
 mkdir --parents /home/jupyter/datasphere/project/Yandex/
 
-wget "{{ crt-web-path-root }}" \
+wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
      --output-document /home/jupyter/datasphere/project/Yandex/RootCA.crt
 
-wget "{{ crt-web-path-int }}" \
+wget "https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem" \
      --output-document /home/jupyter/datasphere/project/Yandex/IntermediateCA.crt
 ```
 
@@ -138,7 +138,7 @@ wget "{{ crt-web-path-int }}" \
            return f'[{lon},{lat}]'
     ```
 
-1. Подключитесь к демонстрационной БД {{ CH }}:
+1. Подключитесь к демонстрационной БД ClickHouse®:
 
    ```py
    from clickhouse_driver import Client
@@ -161,7 +161,7 @@ wget "{{ crt-web-path-int }}" \
    print(ch_client.execute('SELECT version()'))
    ```
 
-   Если подключение установлено успешно, в терминале отобразится номер версии {{ CH }}.
+   Если подключение установлено успешно, в терминале отобразится номер версии ClickHouse®.
 
 1. Выгрузите данные из таблицы с адресами магазинов в переменную `ch_data`:
 
@@ -214,9 +214,9 @@ wget "{{ crt-web-path-int }}" \
 
 1. Скачайте полученный файл — нажмите правой кнопкой мыши и выберите `Download`.
 
-## Создайте подключение к файлу в {{ datalens-short-name }} {#create-connection}
+## Создайте подключение к файлу в DataLens {#create-connection}
 
-1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
+1. Перейдите на [главную страницу](https://datalens.ru/?skipPromo=true) DataLens.
 1. На панели слева выберите ![image](../../_assets/console-icons/thunderbolt.svg) **Подключения** и нажмите кнопку **Создать подключение**.
 1. В разделе **Файлы и сервисы** выберите подключение **Файлы**.
 1. Нажмите кнопку **Загрузить файлы** и укажите файл `encoded_data.csv`.
@@ -256,6 +256,6 @@ wget "{{ crt-web-path-int }}" \
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Если вы больше не планируете работать с проектом в {{ ml-platform-short-name }}, [удалите его](../../datasphere/operations/projects/delete.md#delete-project).
+Если вы больше не планируете работать с проектом в DataSphere, [удалите его](../../datasphere/operations/projects/delete.md#delete-project).
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

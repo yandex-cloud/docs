@@ -5,7 +5,7 @@ Set scaling policy for specified function and tag
 ## HTTP request
 
 ```
-POST https://serverless-functions.{{ api-host }}/functions/v1/functions/{functionId}:setScalingPolicy
+POST https://serverless-functions.api.cloud.yandex.net/functions/v1/functions/{functionId}:setScalingPolicy
 ```
 
 ## Path parameters

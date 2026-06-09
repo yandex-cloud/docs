@@ -5,7 +5,7 @@ Allows user to reschedule Maintenance to another date and time.
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/maintenances/{maintenanceId}:reschedule
+POST https://compute.api.cloud.yandex.net/compute/v1/maintenances/{maintenanceId}:reschedule
 ```
 
 ## Path parameters

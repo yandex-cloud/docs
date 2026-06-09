@@ -5,7 +5,7 @@ Retrieves the list of desktop group resources.
 ## HTTP request
 
 ```
-GET https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktopGroups
+GET https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/desktopGroups
 ```
 
 ## Query parameters {#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupsRequest}

@@ -3,7 +3,7 @@
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/extensions/{extension_spec.name}
+PATCH https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/extensions/{extension_spec.name}
 ```
 
 ## Path parameters

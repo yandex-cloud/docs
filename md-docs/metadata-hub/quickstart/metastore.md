@@ -1,16 +1,16 @@
-# Начало работы с {{ metastore-full-name }}
+# Начало работы с Apache Hive™ Metastore
 
-В сервисе {{ metadata-hub-name }} вы можете [создавать кластеры {{ metastore-full-name }}](#create-metastore-cluster) и [использовать их](#connect-metastore-to-dataproc) для работы с кластерами {{ dataproc-full-name }}.
+В сервисе Yandex MetaData Hub вы можете [создавать кластеры Apache Hive™ Metastore](#create-metastore-cluster) и [использовать их](#connect-metastore-to-dataproc) для работы с кластерами Yandex Data Processing.
 
 ## Перед началом работы {#before-you-begin}
 
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь, если вы еще не зарегистрированы.
 
 1. Если у вас еще нет каталога, создайте его:
 
-   1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud).
+   1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud).
    1. Справа от названия облака нажмите ![image](../../_assets/console-icons/ellipsis.svg).
-   1. Выберите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. Выберите ![image](../../_assets/console-icons/plus.svg) **Создать каталог**.
    
       ![create-folder1](../../_assets/resource-manager/create-folder-1.png)
    
@@ -21,12 +21,12 @@
        * первый символ — буква, последний — не дефис.
    
    1. (Опционально) Введите описание каталога.
-   1. Выберите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. Будет создана [сеть](../../vpc/concepts/network.md#network) с подсетями в каждой зоне доступности. Также в этой сети будет создана [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
-   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
+   1. Выберите опцию **Создать сеть по умолчанию**. Будет создана [сеть](../../vpc/concepts/network.md#network) с подсетями в каждой зоне доступности. Также в этой сети будет создана [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
+   1. Нажмите кнопку **Создать**.
    
       ![create-folder2](../../_assets/resource-manager/create-folder-2.png)
 
-1. Для привязки [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) к кластеру {{ metastore-name }} [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+1. Для привязки [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) к кластеру Apache Hive™ Metastore [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 
     {% note info %}
     
@@ -34,109 +34,109 @@
     
     {% endnote %}
 
-1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) в подсети, в которой будут размещены кластеры {{ metastore-name }} и {{ dataproc-name }}.
+1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) в подсети, в которой будут размещены кластеры Apache Hive™ Metastore и Yandex Data Processing.
 
-1. [Создайте группу безопасности](../../vpc/operations/security-group-create.md) для кластеров {{ metastore-name }} и {{ dataproc-name }}.
+1. [Создайте группу безопасности](../../vpc/operations/security-group-create.md) для кластеров Apache Hive™ Metastore и Yandex Data Processing.
 
-1. [Добавьте](../../vpc/operations/security-group-add-rule.md) в группу безопасности правила для кластера {{ metastore-name }}:
+1. [Добавьте](../../vpc/operations/security-group-add-rule.md) в группу безопасности правила для кластера Apache Hive™ Metastore:
 
    * Для входящего трафика от клиентов:
 
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `30000-32767`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+       * **Диапазон портов** — `30000-32767`.
+       * **Протокол** — `Любой` (`Any`).
+       * **Источник** — `CIDR`.
+       * **CIDR блоки** — `0.0.0.0/0`.
 
    * Для входящего трафика от балансировщика:
 
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `10256`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`.
+       * **Диапазон портов** — `10256`.
+       * **Протокол** — `Любой` (`Any`).
+       * **Источник** — `Проверки состояния балансировщика`.
 
-1. Добавьте в группу безопасности правила для кластера {{ dataproc-name }}:
+1. Добавьте в группу безопасности правила для кластера Yandex Data Processing:
 
    * По одному правилу для входящего и исходящего служебного трафика:
 
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`.
+       * **Диапазон портов** — `0-65535`.
+       * **Протокол** — `Любой`.
+       * **Источник**/**Назначение** — `Группа безопасности`.
+       * **Группа безопасности** — `Текущая`.
 
-   * Отдельное правило для исходящего HTTPS-трафика на все адреса. Это позволит использовать [бакеты](../../storage/concepts/bucket.md) {{ objstorage-full-name }}, [UI Proxy](../../data-proc/concepts/interfaces.md) и [автоматическое масштабирование](../../data-proc/concepts/autoscaling.md) подкластеров {{ dataproc-name }}.
+   * Отдельное правило для исходящего HTTPS-трафика на все адреса. Это позволит использовать [бакеты](../../storage/concepts/bucket.md) Yandex Object Storage, [UI Proxy](../../data-proc/concepts/interfaces.md) и [автоматическое масштабирование](../../data-proc/concepts/autoscaling.md) подкластеров Yandex Data Processing.
 
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+       * **Диапазон портов** — `443`.
+       * **Протокол** — `TCP`.
+       * **Назначение** — `CIDR`.
+       * **CIDR блоки** — `0.0.0.0/0`.
 
    * Правило, разрешающее доступ к NTP-серверам для синхронизации времени:
 
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `123`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_udp }}`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+       * **Диапазон портов** — `123`.
+       * **Протокол** — `UDP`.
+       * **Назначение** — `CIDR`.
+       * **CIDR блоки** — `0.0.0.0/0`.
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с ролями `dataproc.agent`, `dataproc.provisioner` и `{{ roles.metastore.integrationProvider }}`.
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с ролями `dataproc.agent`, `dataproc.provisioner` и `managed-metastore.integrationProvider`.
 
-1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) для работы с кластером {{ dataproc-name }}.
+1. [Создайте бакет Object Storage](../../storage/operations/buckets/create.md) для работы с кластером Yandex Data Processing.
 
-1. В созданной ранее сети [создайте кластер {{ dataproc-name }}](../../data-proc/operations/cluster-create.md#create-cluster). В настройках задайте:
+1. В созданной ранее сети [создайте кластер Yandex Data Processing](../../data-proc/operations/cluster-create.md#create-cluster). В настройках задайте:
 
    * Сервисы `SPARK` и `YARN`.
    * Сервисный аккаунт, созданный ранее.
-   * Свойство `spark:spark.sql.hive.metastore.sharedPrefixes` со значением `com.amazonaws,ru.yandex.cloud`. Нужно для выполнения заданий PySpark и для интеграции с {{ metastore-name }}.
+   * Свойство `spark:spark.sql.hive.metastore.sharedPrefixes` со значением `com.amazonaws,ru.yandex.cloud`. Нужно для выполнения заданий PySpark и для интеграции с Apache Hive™ Metastore.
    * Бакет, созданный ранее.
    * Группу безопасности, настроенную ранее.
 
-## Создайте кластер {{ metastore-name }} {#create-metastore-cluster}
+## Создайте кластер Apache Hive™ Metastore {#create-metastore-cluster}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
     1. В консоли управления перейдите в ранее созданный каталог.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+    1. Нажмите кнопку **Создать кластер**.
     1. Введите имя кластера. Оно должно быть уникальным в рамках каталога.
-    1. Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого кластер {{ metastore-name }} будет взаимодействовать с другими сервисами {{ yandex-cloud }}, или [создайте](../../iam/operations/sa/create.md) новый.
-    1. Выберите версию {{ metastore-name }} 3.1.
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите созданную ранее сеть и подсеть. Укажите заранее настроенную группу безопасности.
-    1. В блоке **{{ ui-key.yacloud.metastore.label_resource-preset }}** выберите [конфигурацию кластера](../concepts/metastore.md#presets).
-    1. (Опционально) В блоке **{{ ui-key.yacloud.logging.label_title }}** включите запись логов, выберите минимальный уровень логирования и укажите каталог или [лог-группу](../../logging/concepts/log-group.md).
+    1. Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого кластер Apache Hive™ Metastore будет взаимодействовать с другими сервисами Yandex Cloud, или [создайте](../../iam/operations/sa/create.md) новый.
+    1. Выберите версию Apache Hive™ Metastore 3.1.
+    1. В блоке **Сетевые настройки** выберите созданную ранее сеть и подсеть. Укажите заранее настроенную группу безопасности.
+    1. В блоке **Metastore** выберите [конфигурацию кластера](../concepts/metastore.md#presets).
+    1. (Опционально) В блоке **Логирование** включите запись логов, выберите минимальный уровень логирования и укажите каталог или [лог-группу](../../logging/concepts/log-group.md).
     1. При необходимости включите защиту кластера от непреднамеренного удаления пользователем.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
-## Подключите кластер {{ metastore-name }} к кластеру {{ dataproc-name }} {#connect-metastore-to-dataproc}
+## Подключите кластер Apache Hive™ Metastore к кластеру Yandex Data Processing {#connect-metastore-to-dataproc}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В созданном ранее кластере {{ dataproc-name }} задайте следующее [свойство](../../data-proc/concepts/settings-list.md):
+    1. В созданном ранее кластере Yandex Data Processing задайте следующее [свойство](../../data-proc/concepts/settings-list.md):
 
         ```text
-        spark:spark.hive.metastore.uris : thrift://<IP-адрес_кластера_{{ metastore-name }}>:{{ port-metastore }}
+        spark:spark.hive.metastore.uris : thrift://<IP-адрес_кластера_Apache Hive™ Metastore>:9083
         ```
 
-        Чтобы узнать IP-адрес кластера {{ metastore-name }}, в консоли управления выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**. Для нужного кластера скопируйте значение из колонки **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в консоли управления выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**. Для нужного кластера скопируйте значение из колонки **IP-адрес**.
 
     1. Добавьте в группу безопасности следующее правило для исходящего трафика:
 
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-metastore }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+        * **Диапазон портов** — `9083`.
+        * **Протокол** — `Любой` (`Any`).
+        * **Источник** — `CIDR`.
+        * **CIDR блоки** — `0.0.0.0/0`.
 
 {% endlist %}
 
 ## Что дальше {#what-is-next}
 
-* [Работайте с таблицами при помощи {{ metastore-name }}](../tutorials/sharing-tables.md).
-* [Используйте {{ metastore-name }} для переноса данных между кластерами {{ dataproc-name }}](../tutorials/metastore-import.md).
-* [Храните в {{ metastore-name }} табличные данные при работе с {{ AF }}](../../data-proc/tutorials/airflow-automation.md).
-* [Экспортируйте или импортируйте метаданные Hive в кластере {{ metastore-name }}](../operations/metastore/export-and-import.md).
+* [Работайте с таблицами при помощи Apache Hive™ Metastore](../tutorials/sharing-tables.md).
+* [Используйте Apache Hive™ Metastore для переноса данных между кластерами Yandex Data Processing](../tutorials/metastore-import.md).
+* [Храните в Apache Hive™ Metastore табличные данные при работе с Apache Airflow™](../../data-proc/tutorials/airflow-automation.md).
+* [Экспортируйте или импортируйте метаданные Hive в кластере Apache Hive™ Metastore](../operations/metastore/export-and-import.md).
 
 _Apache® и [Apache Hive™](https://hive.apache.org/) являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах._

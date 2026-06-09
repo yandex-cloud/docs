@@ -1,4 +1,4 @@
-## Примеры конфигураций и сценариев {{ vpc-short-name }} {#configuration-examples}
+## Примеры конфигураций и сценариев VPC {#configuration-examples}
 
 * [Как отключить защиту от DDoS](disable-ddos-protection-on-external-ip.md)
 * [Как перенести внешний статический IP-адрес в другое облако](move-external-ip-between-cloud.md)

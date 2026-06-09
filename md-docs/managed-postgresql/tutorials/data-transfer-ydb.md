@@ -1,9 +1,9 @@
-# Поставка данных в {{ ydb-full-name }} с помощью {{ data-transfer-full-name }}
+# Поставка данных в Yandex Managed Service for YDB с помощью Yandex Data Transfer
 
-# Поставка данных из {{ mpg-full-name }} в {{ ydb-full-name }}
+# Поставка данных из Yandex Managed Service for PostgreSQL в Yandex Managed Service for YDB
 
 
-В кластер {{ ydb-name }} можно в реальном времени поставлять данные из базы данных {{ PG }}. Эти данные будут автоматически добавлены в таблицы {{ ydb-short-name }} с именами исходных схем и таблиц.
+В кластер Managed Service for YDB можно в реальном времени поставлять данные из базы данных PostgreSQL. Эти данные будут автоматически добавлены в таблицы YDB с именами исходных схем и таблиц.
 
 Чтобы запустить поставку данных:
 
@@ -16,9 +16,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
-* База данных {{ ydb-name }} (см. [тарифы {{ ydb-name }}](../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
+* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for PostgreSQL](../pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* База данных Managed Service for YDB (см. [тарифы Managed Service for YDB](../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
 
     * Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
     * Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервных копий.
@@ -32,21 +32,21 @@
 
 - Вручную {#manual}
 
-    1. [Создайте кластер-источник {{ mpg-name }}](../operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
+    1. [Создайте кластер-источник Managed Service for PostgreSQL](../operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
 
         {% note info %}
         
-        Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
+        Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
         
         {% endnote %}
 
-    1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
+    1. [Создайте базу данных Managed Service for YDB](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
     1. [Создайте в кластере-источнике пользователя](../operations/cluster-users.md#adduser) и [назначьте ему](../operations/grant.md) роль `mdb_replication`.
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -57,30 +57,30 @@
 
         * [сеть](../../vpc/concepts/network.md#network);
         * [подсеть](../../vpc/concepts/network.md#subnet);
-        * [группа безопасности](../../vpc/concepts/security-groups.md) и правило, необходимое для подключения к кластеру {{ mpg-name }};
-        * кластер-источник {{ mpg-name }};
-        * база данных {{ PG }};
-        * пользователь {{ mpg-name }};
-        * база данных {{ ydb-name }};
+        * [группа безопасности](../../vpc/concepts/security-groups.md) и правило, необходимое для подключения к кластеру Managed Service for PostgreSQL;
+        * кластер-источник Managed Service for PostgreSQL;
+        * база данных PostgreSQL;
+        * пользователь Managed Service for PostgreSQL;
+        * база данных Managed Service for YDB;
         * эндпоинт-источник;
         * трансфер.
 
     1. Укажите в файле `data-transfer-mpg-ydb.tf` значения параметров:
 
-        * `source_pg_version` – версия {{ PG }} в кластере-источнике;
+        * `source_pg_version` – версия PostgreSQL в кластере-источнике;
         * `source_db_name` – имя БД в кластере-источнике;
         * `source_user_name` – имя пользователя для подключения к кластеру-источнику;
         * `source_user_password` – пароль пользователя;
-        * `target_db_name` — имя базы данных {{ ydb-name }};
+        * `target_db_name` — имя базы данных Managed Service for YDB;
         * `transfer_enabled` – значение `0`, чтобы не создавать эндпоинт-источник и трансфер до [создания эндпоинта-приемника вручную](#prepare-transfer).
 
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -102,7 +102,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
 {% endlist %}
 
@@ -142,15 +142,15 @@
 
 1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `YDB`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.title }}**:
+    * **Тип базы данных** — `YDB`.
+    * **Параметры эндпоинта**:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}**:
-           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
+        * **Настройки подключения**:
+           * **База данных** — выберите базу данных Managed Service for YDB из списка.
 
             
 
-           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `ydb.editor`.
+           * **Идентификатор сервисного аккаунта** — выберите или создайте сервисный аккаунт с ролью `ydb.editor`.
 
 
 1. Создайте эндпоинт для источника и трансфер:
@@ -159,34 +159,34 @@
 
     - Вручную {#manual}
 
-        1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [созданного ранее](#before-you-begin) источника {{ PG }} с [настройками](../../data-transfer/operations/endpoint/source/postgresql.md):
+        1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [созданного ранее](#before-you-begin) источника PostgreSQL с [настройками](../../data-transfer/operations/endpoint/source/postgresql.md):
 
-            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `PostgreSQL`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.title }}**:
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}** — созданный кластер {{ mpg-name }}.
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — имя созданной БД в кластере {{ mpg-name }}.
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}** — имя созданного пользователя в кластере {{ mpg-name }}.
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}** — пароль пользователя.
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}** — `<имя_БД>.sensors`.
+            * **Тип базы данных** — `PostgreSQL`.
+            * **Параметры эндпоинта**:
+                * **Тип инсталляции** — `Кластер Managed Service for PostgreSQL`.
+                * **Кластер Managed Service for PostgreSQL** — созданный кластер Managed Service for PostgreSQL.
+                * **База данных** — имя созданной БД в кластере Managed Service for PostgreSQL.
+                * **Пользователь** — имя созданного пользователя в кластере Managed Service for PostgreSQL.
+                * **Пароль** — пароль пользователя.
+                * **Список включённых таблиц** — `<имя_БД>.sensors`.
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}**, использующий созданные эндпоинты.
+        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **Копирование и репликация**, использующий созданные эндпоинты.
         1. [Активируйте](../../data-transfer/operations/transfer.md#activate) трансфер.
 
-    - {{ TF }} {#tf}
+    - Terraform {#tf}
 
         1. Укажите в файле `data-transfer-mpg-ydb.tf` значения параметров:
 
             * `target_endpoint_id` — значение идентификатора эндпоинта для приемника;
             * `transfer_enabled` – значение `1` для создания эндпоинта-источника и трансфера.
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -214,22 +214,22 @@
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
-1. Убедитесь, что в базу данных {{ ydb-name }} перенеслись данные из кластера-источника {{ mpg-name }}:
+1. Дождитесь перехода трансфера в статус **Реплицируется**.
+1. Убедитесь, что в базу данных Managed Service for YDB перенеслись данные из кластера-источника Managed Service for PostgreSQL:
 
     {% list tabs group=instructions %}
 
     - Консоль управления {#console}
 
-        1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужная база данных.
-        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится нужная база данных.
+        1. Перейдите в сервис **Managed Service for&nbsp;YDB**.
         1. Выберите базу из списка.
-        1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
-        1. Проверьте, что база данных {{ ydb-name }} содержит таблицу `public_sensors` с тестовыми данными.
+        1. Перейдите на вкладку **Навигация**.
+        1. Проверьте, что база данных Managed Service for YDB содержит таблицу `public_sensors` с тестовыми данными.
 
-    * {{ ydb-short-name }} CLI
+    * YDB CLI
 
-        1. [Подключитесь к базе данных {{ ydb-name }}](../../ydb/operations/connection.md).
+        1. [Подключитесь к базе данных Managed Service for YDB](../../ydb/operations/connection.md).
         1. Проверьте, что база данных содержит таблицу `public_sensors` с тестовыми данными:
 
             ```bash
@@ -240,28 +240,28 @@
 
     {% endlist %}
 
-1. [Подключитесь к кластеру-источнику {{ mpg-name }}](../operations/connect/index.md) и добавьте данные в таблицу `sensors`:
+1. [Подключитесь к кластеру-источнику Managed Service for PostgreSQL](../operations/connect/index.md) и добавьте данные в таблицу `sensors`:
 
     ```sql
     INSERT INTO public.sensors VALUES
         ('iv7b74th678t********', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
     ```
 
-1. Убедитесь, что в базе данных {{ ydb-name }} отобразились сведения о добавленной строке:
+1. Убедитесь, что в базе данных Managed Service for YDB отобразились сведения о добавленной строке:
 
     {% list tabs group=instructions %}
 
     - Консоль управления {#console}
 
-        1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужная база данных.
-        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится нужная база данных.
+        1. Перейдите в сервис **Managed Service for&nbsp;YDB**.
         1. Выберите базу из списка.
-        1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
+        1. Перейдите на вкладку **Навигация**.
         1. Проверьте, что в таблицу `public_sensors` добавились новые данные.
 
-    - {{ ydb-short-name }} CLI {#cli}
+    - YDB CLI {#cli}
 
-        1. [Подключитесь к базе данных {{ ydb-name }}](../../ydb/operations/connection.md).
+        1. [Подключитесь к базе данных Managed Service for YDB](../../ydb/operations/connection.md).
         1. Проверьте, что в таблицу `public_sensors` добавились новые данные:
 
             ```bash
@@ -287,16 +287,16 @@
     1. Если при создании эндпоинта для приемника вы создавали сервисный аккаунт, [удалите его](../../iam/operations/sa/delete.md).
 
 
-    1. [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
-    1. [Удалите кластер {{ mpg-name }}](../operations/cluster-delete.md).
+    1. [Удалите базу данных Managed Service for YDB](../../ydb/operations/manage-databases.md#delete-db).
+    1. [Удалите кластер Managed Service for PostgreSQL](../operations/cluster-delete.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     
         {% note warning %}
     
-        Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
     
         {% endnote %}
     
@@ -310,6 +310,6 @@
     
         1. Подтвердите удаление ресурсов и дождитесь завершения операции.
     
-        Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
 {% endlist %}

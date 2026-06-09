@@ -5,7 +5,7 @@ Lists operations for the specified secret.
 ## HTTP request
 
 ```
-GET https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}/operations
+GET https://lockbox.api.cloud.yandex.net/lockbox/v1/secrets/{secretId}/operations
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Retrieves a list of shards that belong to the specified cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/shards
+GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/shards
 ```
 
 ## Path parameters

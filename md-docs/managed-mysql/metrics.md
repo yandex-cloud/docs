@@ -1,10 +1,10 @@
-# Справочник метрик {{ monitoring-full-name }}
+# Справочник метрик Yandex Monitoring
 
-В этом разделе описаны метрики сервиса {{ mmy-name }}, поставляемые в [{{ monitoring-name }}]({{ monitoring-doc-links }}).
+В этом разделе описаны метрики сервиса Managed Service for MySQL®, поставляемые в [Monitoring](../monitoring/concepts/index.md).
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса {{ mmy-name }}: 
+Общие метки для всех метрик сервиса Managed Service for MySQL®: 
 
 Метка | Значение
 ----|----
@@ -141,7 +141,7 @@ subcluster_name | Имя субкластера
 ## Метрики сети {#managed-mysql-net-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
-| `dmesg_events.mysql.oom`<br/>`DGAUGE`, события | Количество случаев нехватки памяти (Out of Memory) {{ MY }}. |
+| `dmesg_events.mysql.oom`<br/>`DGAUGE`, события | Количество случаев нехватки памяти (Out of Memory) MySQL®. |
 | `dmesg_events.system.oom`<br/>`DGAUGE`, события | Количество случаев нехватки памяти (Out of Memory) в системе. |
 | `net.bytes_recv`<br/>`DGAUGE`, байт/с | Скорость получения данных по сети. | 
 | `net.bytes_sent`<br/>`DGAUGE`, байт/с | Скорость отправки данных по сети. | 
@@ -171,18 +171,18 @@ subcluster_name | Имя субкластера
 | `dbaas_conf.hosts.subcluster.source.total`<br/>`DGAUGE`, хосты | Количество хостов в субкластере-источнике. |
 | `dbaas_conf.hosts.subcluster.target.total`<br/>`DGAUGE`, хосты | Количество хостов в субкластере-приемнике. |
 | `dbaas_conf.hosts.total`<br/>`DGAUGE`, хосты | Общее количество хостов, используемых сервисом. |
-| `disk.mysql.binlogs_bytes`<br/>`DGAUGE`, байты | Объем, занятый служебными логами {{ MY }}. | 
+| `disk.mysql.binlogs_bytes`<br/>`DGAUGE`, байты | Объем, занятый служебными логами MySQL®. | 
 | `disk.mysql.data_bytes`<br/>`DGAUGE`, байты | Объем, занятый данными. | 
 | `disk.mysql.default_tablespace_bytes`<br/>`DGAUGE`, байты | Объем, занятый данными в табличном пространстве по умолчанию. | 
 | `disk.mysql.innodb_logs_bytes`<br/>`DGAUGE`, байты | Объем, занятый логами InnoDB. | 
-| `disk.mysql.relaylogs_bytes`<br/>`DGAUGE`, байты | Объем, занятый служебными логами {{ MY }}. | 
+| `disk.mysql.relaylogs_bytes`<br/>`DGAUGE`, байты | Объем, занятый служебными логами MySQL®. | 
 | `disk.mysql.temp_tablespace_bytes`<br/>`DGAUGE`, байты | Объем, занятый данными во временном табличном пространстве. | 
 | `disk.mysql.undo_tablespace_bytes`<br/>`DGAUGE`, байты | Объем, занятый данными в [табличном пространстве InnoDB отката](https://dev.mysql.com/doc/refman/8.0/en/innodb-undo-tablespaces.html). | 
 | `mysql.fileio.read_bytes`<br/>`DGAUGE`, байт/с | Скорость чтения данных.<br/>Дополнительная метка: `filetype`. | 
 | `mysql.fileio.reads`<br/>`DGAUGE`, операций/с | Средняя скорость файловых операций чтения (в секунду).<br/>Дополнительная метка: `filetype`. | 
 | `mysql.fileio.write_bytes`<br/>`DGAUGE`, байт/с | Скорость записи данных.<br/>Дополнительная метка: `filetype`. | 
 | `mysql.fileio.writes`<br/>`DGAUGE`, операций/с | Средняя скорость файловых операций записи (в секунду).<br/>Дополнительная метка: `filetype`. | 
-| `mysql.handler`<br/>`DGAUGE`, штуки | Количество обработчиков различных операций. Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html). <br/>Дополнительная метка: `handler`. | 
+| `mysql.handler`<br/>`DGAUGE`, штуки | Количество обработчиков различных операций. Подробнее см. в [документации MySQL®](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html). <br/>Дополнительная метка: `handler`. | 
 | `mysql.session`<br/>`DGAUGE`, штуки | Количество сессий на определенной стадии. <br/>Дополнительная метка: `stage`. | 
 | `mysql_Aborted_connects_rate`<br/>`DGAUGE`, соединений/с | Количество неуспешных попыток соединения с БД. | 
 | `mysql_Binlog_cache_disk_use_rate`<br/>`DGAUGE`, транзакций/с | Количество транзакций, которые использовали кеш бинлога, но превысили его размер и задействовали временный файл на диске. | 
@@ -262,9 +262,9 @@ subcluster_name | Имя субкластера
 | `mysql_latency_trx_avg`<br/>`DGAUGE`, миллисекунды | Среднее время выполнения транзакций. | 
 | `mysql_latency_trx_oldest`<br/>`DGAUGE`, миллисекунды | Время выполнения самой старой транзакции. | 
 | `mysql_replication_lag`<br/>`DGAUGE`, секунды | Отставание реплики от мастера. | 
-| `mysql_replication.io_thread_running`<br/>`DGAUGE`, 0/1 | Состояние IO-потока репликации {{ MY }}.</br>Принимает значение `1`, если поток работает, `0`, если поток остановлен.</li></ul> |
-| `mysql_replication.sql_thread_running`<br/>`DGAUGE`, 0/1 | Состояние SQL-потока репликации {{ MY }}.</br>Принимает значение `1`, если поток работает, `0`, если поток остановлен.</li></ul> |
-| `mysql_role`<br/>`DGAUGE`, 1/2 | Текущая роль {{ MY }}-сервера в репликации.<br/>Принимает значение `2`, если сервер является репликой (второстепенным сервером), `1`, если мастером (основным сервером). | 
+| `mysql_replication.io_thread_running`<br/>`DGAUGE`, 0/1 | Состояние IO-потока репликации MySQL®.</br>Принимает значение `1`, если поток работает, `0`, если поток остановлен.</li></ul> |
+| `mysql_replication.sql_thread_running`<br/>`DGAUGE`, 0/1 | Состояние SQL-потока репликации MySQL®.</br>Принимает значение `1`, если поток работает, `0`, если поток остановлен.</li></ul> |
+| `mysql_role`<br/>`DGAUGE`, 1/2 | Текущая роль MySQL®-сервера в репликации.<br/>Принимает значение `2`, если сервер является репликой (второстепенным сервером), `1`, если мастером (основным сервером). | 
 | `mysql_writable`<br/>`DGAUGE`, 0/1 | Доступность сервера для записи.<br/>Принимает значение `1`, если сервер доступен для записи, `0`, если нет. | 
 | `oom_count`<br/>`DGAUGE`, штуки | Количество случаев нехватки памяти (Out of Memory). |
 
@@ -279,4 +279,4 @@ subcluster_name | Имя субкластера
 
 #### См. также {#see-also}
 
-[{#T}](operations/monitoring.md)
+[Мониторинг состояния кластера MySQL® и хостов](operations/monitoring.md)

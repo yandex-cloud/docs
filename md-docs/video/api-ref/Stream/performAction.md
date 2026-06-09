@@ -6,7 +6,7 @@ Actions change the stream's state without modifying its content or metadata.
 ## HTTP request
 
 ```
-POST https://video.{{ api-host }}/video/v1/streams/{streamId}:performAction
+POST https://video.api.cloud.yandex.net/video/v1/streams/{streamId}:performAction
 ```
 
 ## Path parameters

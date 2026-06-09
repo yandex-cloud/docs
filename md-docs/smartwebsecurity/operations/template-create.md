@@ -4,8 +4,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать шаблон.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать шаблон.
+  1. Перейдите в сервис **Smart Web Security**.
   1. На панели слева выберите **Шаблоны ответов** и нажмите кнопку **Создать шаблон**.
   1. Введите **Имя страницы** — имя файла, который будет возвращаться в ответ на запрос клиента.
 
@@ -84,11 +84,11 @@
      ```
 
   1. Чтобы увидеть итоговую страницу на стороне клиента, вверху справа нажмите **Предпросмотр**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
 #### См. также {#see-also}
 
-* [{#T}](template-attach.md)
-* [{#T}](../concepts/response-templates.md)
+* [Добавить шаблон страницы ответа к профилю или правилу](template-attach.md)
+* [Шаблоны страниц ответов](../concepts/response-templates.md)

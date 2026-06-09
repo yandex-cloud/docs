@@ -1,38 +1,38 @@
 # Создать сервисного агента
 
-С помощью [сервисного агента](../../../iam/concepts/service-control.md#service-agent) вы сможете работать с другими сервисами, например обновлять токены для авторизации из ноутбуков {{ ml-platform-name }}.
+С помощью [сервисного агента](../../../iam/concepts/service-control.md#service-agent) вы сможете работать с другими сервисами, например обновлять токены для авторизации из ноутбуков DataSphere.
 
-Сервисный агент — это специальный сервисный аккаунт, от имени которого проекты {{ ml-platform-name }} будут выполнять действия в других сервисах {{ yandex-cloud }}. Если сервисный агент включен в сообществе, он будет доступен для всех его проектов.
+Сервисный агент — это специальный сервисный аккаунт, от имени которого проекты DataSphere будут выполнять действия в других сервисах Yandex Cloud. Если сервисный агент включен в сообществе, он будет доступен для всех его проектов.
 
-Работа с сервисным агентом также [доступна](../projects/jobs-with-ssa.md) из [{{ ds-jobs }}](../../concepts/jobs/index.md).
+Работа с сервисным агентом также [доступна](../projects/jobs-with-ssa.md) из [DataSphere Jobs](../../concepts/jobs/index.md).
 
 {% note info %}
 
-Чтобы включить сервисного агента в сообществе {{ ml-platform-name }}, понадобится [роль](../../security/index.md) `{{ roles-datasphere-communities-editor }}` или выше.
+Чтобы включить сервисного агента в сообществе DataSphere, понадобится [роль](../../security/index.md) `datasphere.communities.editor` или выше.
 
 Для управления доступом сервисов к ресурсам необходима роль [администратора](../../../resource-manager/security/index.md#resource-manager-admin) или [владельца](../../../resource-manager/security/index.md#resource-manager-clouds-owner) облака.
 
 {% endnote %}
 
-Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
-1. Чтобы разрешить сервисному агенту работать в {{ ml-platform-name }}, попросите администратора или владельца вашего облака выполнить команду в {{ yandex-cloud }} CLI:
+1. Чтобы разрешить сервисному агенту работать в DataSphere, попросите администратора или владельца вашего облака выполнить команду в Yandex Cloud CLI:
 
    ```bash
    yc iam service-control enable datasphere --cloud-id <идентификатор_облака>
    ```
 
-   Где `--cloud-id` — [идентификатор облака](../../../resource-manager/operations/cloud/get-id.md), с которым вы будете работать в сообществе {{ ml-platform-name }}.
+   Где `--cloud-id` — [идентификатор облака](../../../resource-manager/operations/cloud/get-id.md), с которым вы будете работать в сообществе DataSphere.
 
 1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему роли, необходимые для работы с выбранным сервисом. Подробнее о необходимых ролях см. в разделе Управление доступом соответствующего сервиса.
 
-    Чтобы отправлять запросы в ноды из ноутбука, назначьте сервисному аккаунту роль `{{ roles-datasphere-user }}`.       
+    Чтобы отправлять запросы в ноды из ноутбука, назначьте сервисному аккаунту роль `datasphere.user`.       
 
-1. Откройте [главную страницу]({{ link-datasphere-main }}) {{ ml-platform-name }}. На панели слева выберите ![community-panel](../../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
+1. Откройте [главную страницу](https://datasphere.yandex.cloud) DataSphere. На панели слева выберите ![community-panel](../../../_assets/console-icons/circles-concentric.svg) **Сообщества**.
 1. Выберите сообщество, для которого вы хотите создать сервисного агента.
-1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.settings-key-value }}**.
-1. В блоке **{{ ui-key.yc-ui-datasphere.spaces-page.ssa.settings.title }}** нажмите **{{ ui-key.yc-ui-datasphere.spaces-page.ssa.add-service-account.button }}**.
-1. В открывшемся окне выберите сервисный аккаунт и нажмите **{{ ui-key.yc-ui-datasphere.common.add }}**.
+1. Перейдите на вкладку **Настройки**.
+1. В блоке **Сервисный агент** нажмите **Добавить сервисный аккаунт**.
+1. В открывшемся окне выберите сервисный аккаунт и нажмите **Добавить**.
 
 {% note info %}
 

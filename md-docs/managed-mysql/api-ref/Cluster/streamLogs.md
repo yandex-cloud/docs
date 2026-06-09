@@ -6,7 +6,7 @@ This method is similar to [ListLogs](listLogs.md#ListLogs), but uses server-side
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}:stream_logs
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}:stream_logs
 ```
 
 ## Path parameters

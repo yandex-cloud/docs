@@ -5,7 +5,7 @@ Lists access bindings for the host group.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/hostGroups/{resourceId}:listAccessBindings
+GET https://compute.api.cloud.yandex.net/compute/v1/hostGroups/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

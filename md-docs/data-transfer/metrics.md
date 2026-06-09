@@ -1,10 +1,10 @@
-# Справочник метрик {{ monitoring-full-name }}
+# Справочник метрик Yandex Monitoring
 
-В этом разделе описаны метрики сервиса {{ data-transfer-name }}, поставляемые в [{{ monitoring-name }}]({{ monitoring-doc-links }}).
+В этом разделе описаны метрики сервиса Data Transfer, поставляемые в [Monitoring](../monitoring/concepts/index.md).
 
 Имя метрики пишется в метку `name`.
 
-Все метрики сервиса {{ data-transfer-name }} имеют общие метки:
+Все метрики сервиса Data Transfer имеют общие метки:
 
 Метка | Значение
 --- | ---
@@ -119,4 +119,4 @@ component | Компонент системы, например `psutil`.
 
 #### См. также {#see-also}
 
-[{#T}](operations/monitoring.md)
+[Мониторинг состояния трансфера](operations/monitoring.md)

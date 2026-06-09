@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Нарушена конфигурация таблицы
+# [Yandex DataLens] Нарушена конфигурация таблицы
 
 `ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED`
 

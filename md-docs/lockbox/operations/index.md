@@ -1,13 +1,13 @@
-# Пошаговые инструкции для {{ lockbox-name }}
+# Пошаговые инструкции для Yandex Lockbox
 
-* [{#T}](secret-create.md)
-* [{#T}](secret-update.md)
-* [{#T}](secret-access.md)
-* [{#T}](secret-get-info.md)
-* [{#T}](secret-delete.md)
-* [{#T}](secret-activation-manage.md)
-* [{#T}](secret-version-manage.md)
+* [Создать секрет](secret-create.md)
+* [Изменить секрет](secret-update.md)
+* [Настроить права доступа к секрету](secret-access.md)
+* [Получить информацию о секрете, его содержимом и правах доступа](secret-get-info.md)
+* [Удалить секрет](secret-delete.md)
+* [Деактивировать и активировать секрет](secret-activation-manage.md)
+* [Управление версиями секрета](secret-version-manage.md)
 
 ## Получение дополнительной информации {#get-additional-info}
 
-* [{#T}](operation-logs.md)
+* [Посмотреть операции с секретом](operation-logs.md)

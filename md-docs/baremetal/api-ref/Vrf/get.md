@@ -6,7 +6,7 @@ To get the list of available VRFs, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://baremetal.{{ api-host }}/baremetal/v1alpha/vrfs/{vrfId}
+GET https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/vrfs/{vrfId}
 ```
 
 ## Path parameters

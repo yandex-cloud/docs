@@ -5,7 +5,7 @@ List all resource group
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/resource_groups
+GET https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}/resource_groups
 ```
 
 ## Path parameters

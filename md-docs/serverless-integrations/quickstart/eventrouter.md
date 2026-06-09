@@ -1,20 +1,20 @@
-# Начало работы с {{ er-name }}
+# Начало работы с EventRouter
 
 {% note info %}
 
-{{ er-name }} находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+EventRouter находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
 {% endnote %}
 
-С помощью этой инструкции вы, используя [шину](../concepts/eventrouter/bus.md) {{ er-name }}, перенаправите сообщение из очереди [{{ message-queue-name }}](../../message-queue/index.md) в [рабочий процесс](../concepts/workflows/workflow.md) {{ sw-name }}.
+С помощью этой инструкции вы, используя [шину](../concepts/eventrouter/bus.md) EventRouter, перенаправите сообщение из очереди [Message Queue](../../message-queue/index.md) в [рабочий процесс](../concepts/workflows/workflow.md) Workflows.
 
 Сообщение, которое поступает в очередь, будет перенаправляться в рабочий процесс, если соответствует фильтру, заданному в правиле внутри шины. Рабочий процесс при этом будет автоматически запускаться. Перед отправкой в него сообщение будет преобразовываться по шаблону, заданному в том же правиле, что и фильтр.
 
 ## Перед началом работы {#before-you-begin}
 
-Чтобы начать работать в {{ yandex-cloud }}:
-1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
+Чтобы начать работать в Yandex Cloud:
+1. Войдите в [консоль управления](https://console.yandex.cloud). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
+1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../../resource-manager/operations/folder/create.md).
 
 ## Создайте сервисный аккаунт {#create-sa}
@@ -23,12 +23,12 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
+    1. Перейдите в сервис **Identity and Access Management**.
+    1. Нажмите кнопку **Создать сервисный аккаунт**.
     1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md): `sa-for-eventrouter`.
-    1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роли `serverless.workflows.executor`, [ymq.reader](../../iam/roles-reference.md#ymq-reader) и [ymq.writer](../../iam/roles-reference.md#ymq-writer).
-    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**. 
+    1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роли `serverless.workflows.executor`, [ymq.reader](../../iam/roles-reference.md#ymq-reader) и [ymq.writer](../../iam/roles-reference.md#ymq-writer).
+    1. Нажмите кнопку **Создать**. 
 
 {% endlist %}
 
@@ -38,13 +38,13 @@
 
 - Консоль управления {#console}
 
-    1. Откройте [консоль управления]({{ link-console-main }}) и Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.ymq.queues.button_create }}**.
+    1. Откройте [консоль управления](https://console.yandex.cloud) и Перейдите в сервис **Message Queue**.
+    1. Нажмите кнопку **Создать очередь**.
     1. Введите имя очереди: `sample-queue`.
-    1. Выберите тип `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}`. Не изменяйте другие настройки.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    1. Выберите тип `Стандартная`. Не изменяйте другие настройки.
+    1. Нажмите кнопку **Создать**.
     1. Откройте созданную очередь.
-    1. На вкладке **{{ ui-key.yacloud.common.overview }}** в блоке **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** скопируйте URL очереди, он понадобится позднее.
+    1. На вкладке **Обзор** в блоке **Общая информация** скопируйте URL очереди, он понадобится позднее.
 
 {% endlist %}
 
@@ -52,7 +52,7 @@
 
 {% note info %}
 
-{{ sw-name }} находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+Workflows находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
 {% endnote %}
 
@@ -60,10 +60,10 @@
 
 - Консоль управления {#console}
 
-    1. Откройте [консоль управления]({{ link-console-main }}) и Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
-    1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
-    1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
-    1. В поле **{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}** добавьте следующую спецификацию:
+    1. Откройте [консоль управления](https://console.yandex.cloud) и Перейдите в сервис **Serverless Integrations**.
+    1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **Workflows**.
+    1. В правом верхнем углу нажмите кнопку **Создать рабочий процесс**.
+    1. В поле **YaML-спецификация** добавьте следующую спецификацию:
         ```
         yawl: "0.1"
         start: noopstep
@@ -73,10 +73,10 @@
               output: |-
                 \(.)
         ```
-    1. Разверните блок **{{ ui-key.yacloud.serverless-workflows.label_additional-parameters }}**.
-    1. В поле **{{ ui-key.yacloud.common.name }}** введите имя рабочего процесса: `sample-workflow`.
-    1. В поле **{{ ui-key.yacloud.serverless-workflows.label_service-account }}** выберите сервисный аккаунт `sa-for-eventrouter`.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    1. Разверните блок **Дополнительные параметры**.
+    1. В поле **Имя** введите имя рабочего процесса: `sample-workflow`.
+    1. В поле **Сервисный аккаунт** выберите сервисный аккаунт `sa-for-eventrouter`.
+    1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -86,11 +86,11 @@
 
 - Консоль управления {#console}
 
-    1. Откройте [консоль управления]({{ link-console-main }}) и Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
-    1. На панели слева выберите ![ObjectAlignCenterVertical](../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
-    1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.serverless-event-router.button_create-bus }}**.
+    1. Откройте [консоль управления](https://console.yandex.cloud) и Перейдите в сервис **Serverless Integrations**.
+    1. На панели слева выберите ![ObjectAlignCenterVertical](../../_assets/console-icons/object-align-center-vertical.svg) **EventRouter**.
+    1. В правом верхнем углу нажмите кнопку **Создать шину**.
     1. Введите имя шины: `sample-bus`.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -101,12 +101,12 @@
 - Консоль управления {#console}
 
     1. Выберите шину `sample-bus`.
-    1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-event-router.label_connectors }}**.
-    1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.serverless-event-router.button_create-connector }}**.
-    1. В поле **{{ ui-key.yacloud.serverless-event-router.label_connector-source }}** выберите `{{ message-queue-full-name }}`.
+    1. Перейдите на вкладку **Коннекторы**.
+    1. В правом верхнем углу нажмите кнопку **Создать коннектор**.
+    1. В поле **Источник** выберите `Yandex Message Queue`.
     1. В поле **Очередь сообщений** укажите очередь `sample-queue`.
     1. В поле **Сервисный аккаунт** укажите `sa-for-eventrouter`.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -117,23 +117,23 @@
 - Консоль управления {#console}
 
     1. Выберите шину `sample-bus`.
-    1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-event-router.label_rules }}**.
-    1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.serverless-event-router.button_create-rule }}**.
-    1. Разверните блок **{{ ui-key.yacloud.serverless-event-router.label_filter }}** и укажите следующий jq-шаблон для фильтрации сообщений:
+    1. Перейдите на вкладку **Правила**.
+    1. В правом верхнем углу нажмите кнопку **Создать правило**.
+    1. Разверните блок **Фильтр** и укажите следующий jq-шаблон для фильтрации сообщений:
         ```
         .httpMethod == "GET" and (.headers.Host | test("^d5dm"))
         ```
-    1. В блоке **{{ ui-key.yacloud.serverless-event-router.label_targets }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
-    1. В поле **{{ ui-key.yacloud.serverless-event-router.label_target-type }}** выберите `{{ sw-full-name }}`.
+    1. В блоке **Приёмники** нажмите кнопку **Добавить**.
+    1. В поле **Тип** выберите `Yandex Workflows`.
     1. В поле **Рабочий процесс** укажите `sample-workflow`.
     1. В поле **Сервисный аккаунт** укажите `sa-for-eventrouter`.
-    1. Разверните блок **{{ ui-key.yacloud.serverless-event-router.label_target-transformer }}** и укажите jq-шаблон для преобразования сообщений:
+    1. Разверните блок **Шаблон** и укажите jq-шаблон для преобразования сообщений:
         ```
         {
            "message": "API gateway host is \(.headers.Host)."
         }
         ```
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -167,10 +167,10 @@
           AWS Secret Access Key [****************w5lb]: <секретный_ключ_сервисного_аккаунта>
           ```
        
-       1. Укажите имя региона по умолчанию `{{ region-id }}`:
+       1. Укажите имя региона по умолчанию `ru-central1`:
        
           ```bash
-          Default region name [{{ region-id }}]: {{ region-id }}
+          Default region name [ru-central1]: ru-central1
           ```
        
        1. Укажите формат выходных данных по умолчанию `json`:
@@ -193,7 +193,7 @@
              profile                <not set>             None    None
           access_key     ****************aBc1 shared-credentials-file
           secret_key     ****************DeF2 shared-credentials-file
-              region              {{ region-id }}      config-file    ~/.aws/config
+              region              ru-central1      config-file    ~/.aws/config
           ```
 
     1. Отправьте первое сообщение в очередь `sample-queue`, используя сохраненный ранее URL очереди:
@@ -201,7 +201,7 @@
         ```bash
         aws sqs send-message \
           --message-body '{"httpMethod":"GET","headers":{"Host":"h6ds1lb3s0df********.k7******.apigw.yandexcloud.net"}}' \
-          --endpoint {{ ymq-endpoint }} \
+          --endpoint https://message-queue.api.cloud.yandex.net/ \
           --queue-url <URL_очереди>
         ```
 
@@ -216,16 +216,16 @@
          ```
     1. Убедитесь, что фильтр, который вы указали в правиле, не пропустил сообщение через шину:
 
-        1. Откройте [консоль управления]({{ link-console-main }}) и Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
-        1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
-        1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-workflows.label_workflow-executions }}**. На странице не должно быть выполненных запусков.
+        1. Откройте [консоль управления](https://console.yandex.cloud) и Перейдите в сервис **Serverless Integrations**.
+        1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **Workflows**.
+        1. Перейдите на вкладку **Запуски**. На странице не должно быть выполненных запусков.
 
     1. Отправьте второе сообщение в очередь `sample-queue`, используя сохраненный ранее URL очереди:
 
         ```bash
         aws sqs send-message \
-          --message-body '{"httpMethod":"GET","headers":{"Host":"{{ api-host-apigw }}"}}' \
-          --endpoint {{ ymq-endpoint }} \
+          --message-body '{"httpMethod":"GET","headers":{"Host":"d5dm1lba80md********.i9******.apigw.yandexcloud.net"}}' \
+          --endpoint https://message-queue.api.cloud.yandex.net/ \
           --queue-url <URL_очереди>
         ```
 
@@ -240,14 +240,14 @@
          ```
     1. Убедитесь, что фильтр, который вы указали в правиле, пропустил сообщение через шину, оно преобразовалось по шаблону и перенаправилось в рабочий процесс:
 
-        1. Откройте [консоль управления]({{ link-console-main }}) и Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
-        1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
-        1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-workflows.label_workflow-executions }}**. На странице должен отобразиться выполненный запуск.
+        1. Откройте [консоль управления](https://console.yandex.cloud) и Перейдите в сервис **Serverless Integrations**.
+        1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **Workflows**.
+        1. Перейдите на вкладку **Запуски**. На странице должен отобразиться выполненный запуск.
         1. Выберите выполненный запуск.
-        1. Убедитесь, что в блоке **{{ ui-key.yacloud.serverless-workflows.label_input_data }}** отображается преобразованное сообщение:
+        1. Убедитесь, что в блоке **Данные на входе** отображается преобразованное сообщение:
             ```
             {
-               "message": "API gateway host is {{ api-host-apigw }}."
+               "message": "API gateway host is d5dm1lba80md********.i9******.apigw.yandexcloud.net."
             }
             ```
 
@@ -255,4 +255,4 @@
 
 ## Что дальше {#what-is-next}
 
-* [Ознакомьтесь с концепциями {{ er-name }}](../concepts/eventrouter/bus.md)
+* [Ознакомьтесь с концепциями EventRouter](../concepts/eventrouter/bus.md)

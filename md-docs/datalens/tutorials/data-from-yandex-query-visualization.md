@@ -1,17 +1,17 @@
-# Визуализация данных из {{ objstorage-full-name }} в {{ datalens-full-name }}
+# Визуализация данных из Yandex Object Storage в Yandex DataLens
 
 
-С помощью интеграции {{ yq-full-name }} и {{ datalens-full-name }} можно визуализировать данные, хранимые в {{ objstorage-full-name }}. {{ datalens-short-name }} формирует запрос на языке YQL, {{ yq-full-name }} исполняет запрос и возвращает результаты, которые визуализируются с помощью чартов.
+С помощью интеграции Yandex Query и Yandex DataLens можно визуализировать данные, хранимые в Yandex Object Storage. DataLens формирует запрос на языке YQL, Yandex Query исполняет запрос и возвращает результаты, которые визуализируются с помощью чартов.
 
 Ниже приведена архитектура решения.
 
 ![datalens-architecture](../../_assets/datalens/data-lens-architecture.png)
 
-Рассмотрим визуализацию зависимости количества и средней стоимости поездок Нью-Йоркского желтого такси от времени суток. Данные заранее размещены в {{ objstorage-full-name }} в общедоступном бакете `yq-sample-data` в каталоге `nyc_taxi_csv`.
+Рассмотрим визуализацию зависимости количества и средней стоимости поездок Нью-Йоркского желтого такси от времени суток. Данные заранее размещены в Yandex Object Storage в общедоступном бакете `yq-sample-data` в каталоге `nyc_taxi_csv`.
 
 {% note info %}
 
-{{ yandex-cloud }} предоставляет набор данных — **поездки Нью-Йоркского такси** — на условиях “как есть” (as is). {{ yandex-cloud }} не дает никаких заверений, явных или подразумеваемых, гарантий или условий в отношении использования вами указанного датасета (набора данных). В пределах, разрешенных вашим местным законодательством, {{ yandex-cloud }} не несет никакой ответственности за любые убытки или ущерб, включая прямые, побочные, специальные, косвенные, случайные или штрафные, возникшие в результате использования вами датасета.
+Yandex Cloud предоставляет набор данных — **поездки Нью-Йоркского такси** — на условиях “как есть” (as is). Yandex Cloud не дает никаких заверений, явных или подразумеваемых, гарантий или условий в отношении использования вами указанного датасета (набора данных). В пределах, разрешенных вашим местным законодательством, Yandex Cloud не несет никакой ответственности за любые убытки или ущерб, включая прямые, побочные, специальные, косвенные, случайные или штрафные, возникшие в результате использования вами датасета.
 
 NYC Taxi and Limousine Commission (TLC):
 
@@ -23,48 +23,48 @@ NYC Taxi and Limousine Commission (TLC):
 
 Для визуализации и исследования данных [подготовьте облако к работе](#before-you-begin), затем выполните следующие шаги:
 
-1. [Подключитесь к данным в {{ objstorage-name }}](#create_connection).
-1. [Создайте подключение в {{ datalens-full-name }}](#create_connection_lens).
+1. [Подключитесь к данным в Object Storage](#create_connection).
+1. [Создайте подключение в Yandex DataLens](#create_connection_lens).
 1. [Настройте поля датасета](#create_dataset).
 1. [Настройте визуализацию](#create_comdo_chart).
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 {% note info %}
 
-Для создания в {{ datalens-short-name }} подключения к {{ yq-full-name }} требуется [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с [ролью](../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-editor }}` на каталог, в котором будет [создано соединение](#create_connection) с [бакетом](../../storage/concepts/bucket.md) {{ objstorage-short-name }}.
+Для создания в DataLens подключения к Yandex Query требуется [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с [ролью](../../iam/operations/sa/assign-role-for-sa.md) `editor` на каталог, в котором будет [создано соединение](#create_connection) с [бакетом](../../storage/concepts/bucket.md) Object Storage.
 
 {% endnote %}
 
-## Подключитесь к данным в {{ objstorage-name }} {#create_connection}
+## Подключитесь к данным в Object Storage {#create_connection}
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать [соединение](../../query/concepts/glossary.md#connection).
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать [соединение](../../query/concepts/glossary.md#connection).
 
    ![select-catalog](../../_assets/datalens/yandex-query-visualization/select-catalog.png)
 
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. Перейдите в сервис **Yandex Query**.
 
    ![select-yq](../../_assets/datalens/yandex-query-visualization/select-yq.png)
 
-1. На панели слева выберите ![study](../../_assets/console-icons/graduation-cap.svg) **{{ ui-key.yql.yq-navigation.tutorial.menu-text }}**.
-1. Нажмите кнопку **{{ ui-key.yql.yq-tutorial.create-connection.button-label }}**. В блоке создания соединения все поля ввода параметров уже заполнены — введите описание (опционально) и нажмите кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**. Вы перейдете на экран создания [привязки](../../query/concepts/glossary.md#binding) к данным.
-1. Введите описание привязки к данным (опционально) и нажмите кнопку **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**. Будут созданы нужные для обучения ресурсы.
+1. На панели слева выберите ![study](../../_assets/console-icons/graduation-cap.svg) **Учебник**.
+1. Нажмите кнопку **Создать соединение**. В блоке создания соединения все поля ввода параметров уже заполнены — введите описание (опционально) и нажмите кнопку **Создать**. Вы перейдете на экран создания [привязки](../../query/concepts/glossary.md#binding) к данным.
+1. Введите описание привязки к данным (опционально) и нажмите кнопку **Создать**. Будут созданы нужные для обучения ресурсы.
 
-## Создайте подключение в {{ datalens-full-name }} {#create_connection_lens}
+## Создайте подключение в Yandex DataLens {#create_connection_lens}
 
-Чтобы создать подключение к {{ yq-full-name }}:
+Чтобы создать подключение к Yandex Query:
 
-1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
+1. Перейдите на [главную страницу](https://datalens.ru/?skipPromo=true) DataLens.
 1. На панели слева выберите ![image](../../_assets/console-icons/thunderbolt.svg) **Подключения** и нажмите кнопку **Создать подключение**.
-1. Выберите подключение **{{ yq-full-name }}**.
+1. Выберите подключение **Yandex Query**.
 1. Укажите параметры подключения:
 
    * **Облако и каталог**. Выберите каталог, в котором находится ваш сервисный аккаунт.

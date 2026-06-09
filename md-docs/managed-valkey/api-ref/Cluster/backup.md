@@ -5,7 +5,7 @@ Creates a backup for the specified Redis cluster.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}:backup
+POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}:backup
 ```
 
 ## Path parameters

@@ -1,12 +1,12 @@
-# Управление федерациями удостоверений в {{ org-full-name }}
+# Управление федерациями удостоверений в Yandex Identity Hub
 
-* [{#T}](integration-adfs.md)
-* [{#T}](integration-gworkspace.md)
-* [{#T}](integration-azure.md)
-* [{#T}](integration-keycloak.md)
+* [Аутентификация с помощью Active Directory](integration-adfs.md)
+* [Аутентификация с помощью Google Workspace](integration-gworkspace.md)
+* [Аутентификация с помощью Microsoft Entra ID](integration-azure.md)
+* [Аутентификация с помощью Keycloak](integration-keycloak.md)
 
 ## Сопоставление групп пользователей
 
-* [{#T}](group-mapping/adfs.md)
-* [{#T}](group-mapping/entra-id.md)
-* [{#T}](group-mapping/keycloak.md)
+* [Сопоставление групп пользователей в Microsoft Active Directory Federation Services](group-mapping/adfs.md)
+* [Сопоставление групп пользователей в Microsoft Entra ID](group-mapping/entra-id.md)
+* [Сопоставление групп пользователей в Keycloak](group-mapping/keycloak.md)

@@ -1,9 +1,9 @@
-# Управление резервными копиями в {{ mch-name }}
+# Управление резервными копиями в Managed Service for ClickHouse®
 
 
 Вы можете создавать [резервные копии](../concepts/backup.md) и восстанавливать кластеры из имеющихся резервных копий.
 
-Также {{ mch-name }} ежедневно создает автоматическую резервную копию. Вы можете [задать время начала резервного копирования](#set-backup-window) и [срок хранения](#set-backup-retain) для нее.
+Также Managed Service for ClickHouse® ежедневно создает автоматическую резервную копию. Вы можете [задать время начала резервного копирования](#set-backup-window) и [срок хранения](#set-backup-retain) для нее.
 
 ## Создать резервную копию {#create-backup}
 
@@ -17,31 +17,31 @@
 
 - Консоль управления {#console}
   
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
+  1. Нажмите кнопку **Создать резервную копию**.
 
   Сервис начнет создавать резервную копию без дополнительного подтверждения.
 
 - CLI {#cli}
   
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
   
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   
   Чтобы создать резервную копию кластера:
   
-  1. Посмотрите описание команды CLI для создания резервной копии {{ CH }}:
+  1. Посмотрите описание команды CLI для создания резервной копии ClickHouse®:
   
       ```bash
-      {{ yc-mdb-ch }} cluster backup --help
+      yc managed-clickhouse cluster backup --help
       ```
   
   1. Запросите создание резервной копии, указав имя или идентификатор кластера:
   
       ```bash
-      {{ yc-mdb-ch }} cluster backup <имя_или_идентификатор_кластера>
+      yc managed-clickhouse cluster backup <имя_или_идентификатор_кластера>
       ```
   
       Имя и идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -54,14 +54,14 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Backup](../api-ref/Cluster/backup.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Backup](../api-ref/Cluster/backup.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>:backup'
+            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>:backup'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -84,7 +84,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -96,7 +96,7 @@
             -d '{
                   "cluster_id": "<идентификатор_кластера>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.Backup
         ```
 
@@ -125,7 +125,7 @@
 Из резервной копии вы можете восстановить как отдельный [шард](../concepts/sharding.md), так и весь кластер целиком.
 
 
-Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли:
+Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роли:
 
 * [managed-clickhouse.restorer](../../iam/roles-reference.md#managed-clickhouse-restorer) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
 * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше, если вы восстанавливаете из резервной копии кластер с привязкой к [сервисному аккаунту](../../iam/concepts/users/service-accounts.md).
@@ -133,7 +133,7 @@
 
 {% note alert "Важно" %}
 
-При восстановлении резервной копии в кластер без хостов {{ ZK }}, все таблицы на движке семейства ReplicatedMergeTree будут преобразованы в простые MergeTree-таблицы. Данные в преобразованных таблицах сохраняются. Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication).
+При восстановлении резервной копии в кластер без хостов ZooKeeper, все таблицы на движке семейства ReplicatedMergeTree будут преобразованы в простые MergeTree-таблицы. Данные в преобразованных таблицах сохраняются. Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/replication).
 
 {% endnote %}
 
@@ -142,77 +142,77 @@
 - Консоль управления {#console}
 
   Чтобы восстановить из резервной копии существующий кластер:
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно восстановить кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
-  1. Если необходимо, измените настройки нового кластера. В списке **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** можно выбрать каталог для нового кластера.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно восстановить кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **Восстановить кластер**.
+  1. Если необходимо, измените настройки нового кластера. В списке **Каталог** можно выбрать каталог для нового кластера.
 
   1. (Опционально) Чтобы восстановить отдельные базы данных или таблицы:
 
-      1. Включите в блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** опцию **Частичное восстановление**.
+      1. Включите в блоке **Базовые параметры** опцию **Частичное восстановление**.
       1. Сформируйте список для восстановления: введите имя базы данных, название таблицы или маску (например, `table*`).
 
           Если вы хотите восстановить базу данных полностью, укажите в качестве маски `*`.
 
-      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.clickhouse.RestoreCluster.RestorePatternsField.action_add-pattern_o12PG }}**.
+      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить**.
       1. Повторите действия для каждой восстанавливаемой базы данных или таблицы.
 
   1. (Опционально) Если резервная копия создана для шардированного кластера, вы можете выбрать шарды для восстановления:
 
-      * Чтобы восстановить отдельный шард кластера, в блоке **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** оставьте отмеченным только тот шард, который нужно восстановить. С остальных шардов снимите отметки.
-      * Чтобы восстановить кластер целиком, в блоке **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** оставьте отмеченными все шарды.
+      * Чтобы восстановить отдельный шард кластера, в блоке **Шарды** оставьте отмеченным только тот шард, который нужно восстановить. С остальных шардов снимите отметки.
+      * Чтобы восстановить кластер целиком, в блоке **Шарды** оставьте отмеченными все шарды.
 
       Для каждого восстанавливаемого шарда можно задать свою конфигурацию.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
+  1. Нажмите кнопку **Восстановить кластер**.
 
   Чтобы восстановить из резервной копии удаленный ранее кластер:
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно восстановить кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
-  1. Если необходимо, измените настройки нового кластера. В списке **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** можно выбрать каталог для нового кластера.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно восстановить кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **Восстановить кластер**.
+  1. Если необходимо, измените настройки нового кластера. В списке **Каталог** можно выбрать каталог для нового кластера.
 
   1. (Опционально) Чтобы восстановить отдельные базы данных или таблицы:
 
-      1. Включите в блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** опцию **Частичное восстановление**.
+      1. Включите в блоке **Базовые параметры** опцию **Частичное восстановление**.
       1. Сформируйте список для восстановления: введите имя базы данных, название таблицы или маску (например, `table*`).
 
           Если вы хотите восстановить базу данных полностью, укажите в качестве маски `*`.
 
-      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.clickhouse.RestoreCluster.RestorePatternsField.action_add-pattern_o12PG }}**.
+      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить**.
       1. Повторите действия для каждой восстанавливаемой базы данных или таблицы.
 
   1. (Опционально) Если резервная копия создана для шардированного кластера, вы можете выбрать шарды для восстановления:
 
-      * Чтобы восстановить отдельный шард кластера, в блоке **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** оставьте отмеченным только тот шард, который нужно восстановить. С остальных шардов снимите отметки.
-      * Чтобы восстановить кластер целиком, в блоке **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** оставьте отмеченными все шарды.
+      * Чтобы восстановить отдельный шард кластера, в блоке **Шарды** оставьте отмеченным только тот шард, который нужно восстановить. С остальных шардов снимите отметки.
+      * Чтобы восстановить кластер целиком, в блоке **Шарды** оставьте отмеченными все шарды.
 
       Для каждого восстанавливаемого шарда можно задать свою конфигурацию.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
+  1. Нажмите кнопку **Восстановить кластер**.
 
-  {{ mch-name }} запустит операцию создания кластера из резервной копии.
+  Managed Service for ClickHouse® запустит операцию создания кластера из резервной копии.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы восстановить кластер из резервной копии:
 
-  1. Посмотрите описание команды CLI для восстановления кластера {{ CH }}:
+  1. Посмотрите описание команды CLI для восстановления кластера ClickHouse®:
 
       ```bash
-      {{ yc-mdb-ch }} cluster restore --help
+      yc managed-clickhouse cluster restore --help
       ```
 
-  1. Получите список доступных резервных копий кластеров {{ CH }}:
+  1. Получите список доступных резервных копий кластеров ClickHouse®:
 
       ```bash
-      {{ yc-mdb-ch }} backup list
+      yc managed-clickhouse backup list
       ```
 
       ```text
@@ -230,7 +230,7 @@
 
           
           ```bash
-          {{ yc-mdb-ch }} cluster restore \
+          yc managed-clickhouse cluster restore \
              --backup-id=<идентификатор_кластера>:<идентификатор_резервной_копии> \
              --name=<имя_кластера> \
              --environment=<окружение> \
@@ -294,7 +294,7 @@
       * Если резервные копии создавались отдельно на каждый шард кластера ([устаревший вариант создания резервных копий](../concepts/backup.md#size)), чтобы восстановить весь кластер целиком, передайте идентификаторы резервных копий всех шардов кластера:
 
           ```bash
-          {{ yc-mdb-ch }} cluster restore \
+          yc managed-clickhouse cluster restore \
              --backup-id=<список_идентификаторов_резервных_копий_всех_шардов> \
              ...
           ```
@@ -307,7 +307,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
@@ -371,7 +371,7 @@
                 * `PRODUCTION` — для стабильных версий ваших приложений.
                 * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
 
-            * `configSpec` — конфигурация кластера {{ CH }}. Подробное описание параметров см. в описании метода [Cluster.restore](../api-ref/Cluster/restore.md).
+            * `configSpec` — конфигурация кластера ClickHouse®. Подробное описание параметров см. в описании метода [Cluster.restore](../api-ref/Cluster/restore.md).
             * `hostSpecs` — массив, содержащий настройки создаваемых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
 
                 * `type` — тип хоста.
@@ -415,7 +415,7 @@
                 --request POST \
                 --header "Authorization: Bearer $IAM_TOKEN" \
                 --header "Content-Type: application/json" \
-                --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters:restore' \
+                --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters:restore' \
                 --data "@body.json"
             ```
 
@@ -437,7 +437,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
@@ -501,7 +501,7 @@
                 * `PRODUCTION` — для стабильных версий ваших приложений.
                 * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
 
-            * `config_spec` — конфигурация кластера {{ CH }}. Подробное описание параметров см. в описании вызова [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md).
+            * `config_spec` — конфигурация кластера ClickHouse®. Подробное описание параметров см. в описании вызова [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md).
             * `host_specs` — массив, содержащий настройки создаваемых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
 
                 * `type` — тип хоста.
@@ -548,7 +548,7 @@
                 -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
                 -rpc-header "Authorization: Bearer $IAM_TOKEN" \
                 -d @ \
-                {{ api-host-mdb }}:{{ port-https }} \
+                mdb.api.cloud.yandex.net:443 \
                 yandex.cloud.mdb.clickhouse.v1.ClusterService.Restore \
                 < body.json
             ```
@@ -564,14 +564,14 @@
 - Консоль управления {#console}
 
   Чтобы получить список резервных копий кластера:
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
 
   Чтобы получить список всех резервных копий в каталоге:
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
 
   В этих списках содержится следующая информация:
 
@@ -584,14 +584,14 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы получить список резервных копий кластеров {{ CH }}, доступных в каталоге по умолчанию, выполните команду:
+  Чтобы получить список резервных копий кластеров ClickHouse®, доступных в каталоге по умолчанию, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} backup list
+  yc managed-clickhouse backup list
   ```
 
   ```text
@@ -621,30 +621,30 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Чтобы получить список резервных копий кластера {{ CH }}:
+    1. Чтобы получить список резервных копий кластера ClickHouse®:
 
-        1. Воспользуйтесь методом [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+        1. Воспользуйтесь методом [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
             ```bash
             curl \
                 --request GET \
                 --header "Authorization: Bearer $IAM_TOKEN" \
-                --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/backups'
+                --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/backups'
             ```
 
             Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
         1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listBackups.md#responses).
 
-    1. Чтобы получить список резервных копий всех кластеров {{ CH }} в каталоге:
+    1. Чтобы получить список резервных копий всех кластеров ClickHouse® в каталоге:
 
-        1. Воспользуйтесь методом [Backup.List](../api-ref/Backup/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+        1. Воспользуйтесь методом [Backup.List](../api-ref/Backup/list.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
             ```bash
             curl \
                 --request GET \
                 --header "Authorization: Bearer $IAM_TOKEN" \
-                --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/backups' \
+                --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/backups' \
                 --url-query folderId=<идентификатор_каталога>
             ```
 
@@ -670,9 +670,9 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Чтобы получить список резервных копий кластера {{ CH }}:
+    1. Чтобы получить список резервных копий кластера ClickHouse®:
 
-        1. Воспользуйтесь вызовом [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+        1. Воспользуйтесь вызовом [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
             ```bash
             grpcurl \
@@ -684,7 +684,7 @@
                 -d '{
                         "cluster_id": "<идентификатор_кластера>"
                     }' \
-                {{ api-host-mdb }}:{{ port-https }} \
+                mdb.api.cloud.yandex.net:443 \
                 yandex.cloud.mdb.clickhouse.v1.ClusterService.ListBackups
             ```
 
@@ -692,9 +692,9 @@
 
         1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.clickhouse.v1.ListClusterBackupsResponse).
 
-    1. Чтобы получить список резервных копий всех кластеров {{ CH }} в каталоге:
+    1. Чтобы получить список резервных копий всех кластеров ClickHouse® в каталоге:
 
-        1. Воспользуйтесь вызовом [BackupService.List](../api-ref/grpc/Backup/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+        1. Воспользуйтесь вызовом [BackupService.List](../api-ref/grpc/Backup/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
             ```bash
             grpcurl \
@@ -706,7 +706,7 @@
                 -d '{
                         "folder_id": "<идентификатор_каталога>"
                     }' \
-                {{ api-host-mdb }}:{{ port-https }} \
+                mdb.api.cloud.yandex.net:443 \
                 yandex.cloud.mdb.clickhouse.v1.BackupService.List
             ```
 
@@ -725,25 +725,25 @@
 - Консоль управления {#console}
 
   Чтобы получить информацию о резервной копии существующего кластера:
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
 
   Чтобы получить информацию о резервной копии удаленного ранее кластера:
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находился кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находился кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы получить данные о резервной копии кластера {{ CH }}, выполните команду:
+  Чтобы получить данные о резервной копии кластера ClickHouse®, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} backup get <идентификатор_кластера>:<идентификатор_резервной_копии>
+  yc managed-clickhouse backup get <идентификатор_кластера>:<идентификатор_резервной_копии>
   ```
 
   Идентификатор кластера и идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
@@ -756,13 +756,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Backup.Get](../api-ref/Backup/get.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Backup.Get](../api-ref/Backup/get.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/backups/<идентификатор_кластера>:<идентификатор_резервной_копии>'
+            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/backups/<идентификатор_кластера>:<идентификатор_резервной_копии>'
         ```
 
         Идентификатор кластера и идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
@@ -785,7 +785,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [BackupService.Get](../api-ref/grpc/Backup/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [BackupService.Get](../api-ref/grpc/Backup/get.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -797,7 +797,7 @@
             -d '{
                     "backup_id": "<идентификатор_кластера>:<идентификатор_резервной_копии>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.clickhouse.v1.BackupService.Get
         ```
 
@@ -813,18 +813,18 @@
 
 - Консоль управления {#console}
 
-  В [консоли управления]({{ link-console-main }}) задать время начала резервного копирования можно при [создании](cluster-create.md) или [изменении кластера](update.md).
+  В [консоли управления](https://console.yandex.cloud) задать время начала резервного копирования можно при [создании](cluster-create.md) или [изменении кластера](update.md).
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы задать время начала резервного копирования, передайте нужное значение в формате `HH:MM:SS` в аргументе `--backup-window-start` команды изменения кластера:
 
   ```bash
-  {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
+  yc managed-clickhouse cluster update <имя_или_идентификатор_кластера> \
      --backup-window-start=<время_начала_резервного_копирования>
   ```
 
@@ -838,7 +838,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -851,7 +851,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "configSpec.backupWindowStart",
                       "configSpec": {
@@ -898,7 +898,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -944,7 +944,7 @@
                     }
                   }
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
         ```
 
@@ -973,18 +973,18 @@
 
 - Консоль управления {#console}
   
-  В [консоли управления]({{ link-console-main }}) задать срок хранения автоматических резервных копий можно при [создании](cluster-create.md) или [изменении кластера](update.md).
+  В [консоли управления](https://console.yandex.cloud) задать срок хранения автоматических резервных копий можно при [создании](cluster-create.md) или [изменении кластера](update.md).
   
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы задать срок хранения автоматических резервных копий, передайте нужное значение в формате `HH:MM:SS` в аргументе `--backup-retain-period-days` команды изменения кластера:
 
   ```bash
-  {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
+  yc managed-clickhouse cluster update <имя_или_идентификатор_кластера> \
      --backup-retain-period-days=<срок_хранения_автоматических_резервных_копий_в_днях>
   ```
   
@@ -998,7 +998,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
       {% note warning %}
       
@@ -1011,7 +1011,7 @@
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
           --header "Content-Type: application/json" \
-          --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
+          --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
           --data '{
                     "updateMask": "configSpec.backupRetainPeriodDays",
                     "configSpec": {
@@ -1047,7 +1047,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       {% note warning %}
       
@@ -1088,7 +1088,7 @@
                     "backup_retain_period_days": <количество_дней>
                   }
                 }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
       ```
 
@@ -1118,29 +1118,29 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии и нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_delete }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии и нажмите **Удалить резервную копию**.
 
 - CLI {#cli}
   
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
   
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   
   Чтобы удалить резервную копию кластера:
   
-  1. Посмотрите описание команды CLI для удаления резервной копии {{ CH }}:
+  1. Посмотрите описание команды CLI для удаления резервной копии ClickHouse®:
   
       ```bash
-      {{ yc-mdb-ch }} backup delete --help
+      yc managed-clickhouse backup delete --help
       ```
   
   1. Запросите удаление резервной копии, указав ее идентификатор:
   
       ```bash
-      {{ yc-mdb-ch }} backup delete <идентификатор_кластера>:<идентификатор_резервной_копии>
+      yc managed-clickhouse backup delete <идентификатор_кластера>:<идентификатор_резервной_копии>
       ```
 
       Идентификатор кластера и идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
@@ -1153,13 +1153,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Backup.Delete](../api-ref/Backup/delete.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Backup.Delete](../api-ref/Backup/delete.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request DELETE \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/backups/<идентификатор_кластера>:<идентификатор_резервной_копии>'
+       --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/backups/<идентификатор_кластера>:<идентификатор_резервной_копии>'
      ```
 
      Идентификатор кластера и идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
@@ -1181,7 +1181,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [BackupService.Delete](../api-ref/grpc/Backup/delete.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [BackupService.Delete](../api-ref/grpc/Backup/delete.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -1193,7 +1193,7 @@
        -d '{
              "backup_id": "<идентификатор_кластера>:<идентификатор_резервной_копии>"
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.clickhouse.v1.BackupService.Delete
      ```
 
@@ -1203,4 +1203,4 @@
 
 {% endlist %}  
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

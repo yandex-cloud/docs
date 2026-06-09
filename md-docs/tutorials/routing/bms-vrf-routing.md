@@ -1,22 +1,22 @@
-# Настройка VRRP для кластера серверов {{ baremetal-name }} с использованием Keepalived 
+# Настройка VRRP для кластера серверов BareMetal с использованием Keepalived 
 
 [VRRP](https://ru.wikipedia.org/wiki/VRRP) (Virtual Router Redundancy Protocol) — это сетевой протокол, предназначенный для повышения отказоустойчивости маршрутизаторов, выполняющих роль шлюза по умолчанию. 
 
 Отказоустойчивость достигается за счет объединения в группу двух и более маршрутизаторов в один виртуальный маршрутизатор, который выступает шлюзом по умолчанию для обслуживаемых сегментов сети. Протокол VRRP позволяет создать виртуальный IP-адрес и передавать его между участниками группы, за счет чего повышается доступность шлюза.
 
-В данном руководстве приводится пример организации на [серверах](../../baremetal/concepts/servers.md) {{ baremetal-name }} высокодоступной конфигурации прокси-сервера, в которой функции проксирования симметрично настроены на двух и более узлах [HAProxy](https://ru.wikipedia.org/wiki/HAProxy), а за формирование и передачу виртуального IP-адреса между этими узлами отвечает сервис [Keepalived](https://keepalived.org/).
+В данном руководстве приводится пример организации на [серверах](../../baremetal/concepts/servers.md) BareMetal высокодоступной конфигурации прокси-сервера, в которой функции проксирования симметрично настроены на двух и более узлах [HAProxy](https://ru.wikipedia.org/wiki/HAProxy), а за формирование и передачу виртуального IP-адреса между этими узлами отвечает сервис [Keepalived](https://keepalived.org/).
 
 ## Схема решения {#solution-overview}
 
 ![bms-vrf-routing-scheme](../../_assets/baremetal/bms-vrf-routing-scheme.svg)
 
-В зоне доступности `{{ region-id }}-m` вы настроите окружение из двух [приватных подсетей](../../baremetal/concepts/private-network.md#private-subnet) `subnet-m3` и `subnet-m4`, созданных соответственно в [пулах серверов](../../baremetal/concepts/servers.md#server-pools) `{{ region-id }}-m3` и `{{ region-id }}-m4`. Эти подсети вы объедините в [виртуальный фрагмент сети](../../baremetal/concepts/private-network.md#vrf-segment) (VRF) `vrrp-vrf`.
+В зоне доступности `ru-central1-m` вы настроите окружение из двух [приватных подсетей](../../baremetal/concepts/private-network.md#private-subnet) `subnet-m3` и `subnet-m4`, созданных соответственно в [пулах серверов](../../baremetal/concepts/servers.md#server-pools) `ru-central1-m3` и `ru-central1-m4`. Эти подсети вы объедините в [виртуальный фрагмент сети](../../baremetal/concepts/private-network.md#vrf-segment) (VRF) `vrrp-vrf`.
 
-В подсети `subnet-m3` вы создадите два сервера {{ baremetal-name }} — `master-server-m3` и `backup-server-m3`, которые соответственно будут выполнять роли `MASTER` и `BACKUP` в VRRP-группе. На двух этих серверах вы запустите сервис Keepalived и настроите с его помощью виртуальный IP-адрес для  группы серверов в пуле `{{ region-id }}-m3`.
+В подсети `subnet-m3` вы создадите два сервера BareMetal — `master-server-m3` и `backup-server-m3`, которые соответственно будут выполнять роли `MASTER` и `BACKUP` в VRRP-группе. На двух этих серверах вы запустите сервис Keepalived и настроите с его помощью виртуальный IP-адрес для  группы серверов в пуле `ru-central1-m3`.
 
-В подсети `subnet-m4` в пуле серверов `{{ region-id }}-m4` вы создадите сервер {{ baremetal-name }} `client-server-m4`, который будет выступать в качестве клиента при использовании виртуального IP-адреса, созданного в пуле `{{ region-id }}-m3`.
+В подсети `subnet-m4` в пуле серверов `ru-central1-m4` вы создадите сервер BareMetal `client-server-m4`, который будет выступать в качестве клиента при использовании виртуального IP-адреса, созданного в пуле `ru-central1-m3`.
 
-Данное решение позволяет продемонстрировать комплексную работу клиентского изолированного VRF с маршрутизацией уровня L3 [сетевой модели OSI](https://ru.wikipedia.org/wiki/Сетевая_модель_OSI) между пулами серверов `{{ region-id }}-m3` и `{{ region-id }}-m4`, а также работу широковещательного протокола VRRP на уровне L2 в пуле серверов `{{ region-id }}-m3`.
+Данное решение позволяет продемонстрировать комплексную работу клиентского изолированного VRF с маршрутизацией уровня L3 [сетевой модели OSI](https://ru.wikipedia.org/wiki/Сетевая_модель_OSI) между пулами серверов `ru-central1-m3` и `ru-central1-m4`, а также работу широковещательного протокола VRRP на уровне L2 в пуле серверов `ru-central1-m3`.
 
 {% note info %}
 
@@ -24,30 +24,30 @@
 
 {% endnote %}
 
-Чтобы настроить отказоустойчивый кластер серверов {{ baremetal-name }} с использованием VRRP:
+Чтобы настроить отказоустойчивый кластер серверов BareMetal с использованием VRRP:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте виртуальный сетевой сегмент](#create-vrf).
 1. [Создайте приватные подсети](#create-subnetworks).
-1. [Арендуйте серверы {{ baremetal-name }}](#rent-servers).
-1. [Настройте Keepalived на серверах пула {{ region-id }}-m3](#setup-keepalived).
+1. [Арендуйте серверы BareMetal](#rent-servers).
+1. [Настройте Keepalived на серверах пула ru-central1-m3](#setup-keepalived).
 1. [Убедитесь в работоспособности решения](#test-solution).
 
 См. также [Как отказаться от аренды серверов](#clear-out).
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость предлагаемого решения входит плата за аренду серверов {{ baremetal-name }} (см. [тарифы {{ baremetal-full-name }}](../../baremetal/pricing.md)).
+В стоимость предлагаемого решения входит плата за аренду серверов BareMetal (см. [тарифы Yandex BareMetal](../../baremetal/pricing.md)).
 
 ## Создайте виртуальный сетевой сегмент {#create-vrf}
 
@@ -59,11 +59,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-network }}**.
-  1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя VRF: `vrrp-vrf`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-network }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать инфраструктуру.
+  1. Перейдите в сервис **BareMetal**.
+  1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **VRF** и нажмите кнопку **Создать VRF**.
+  1. В поле **Имя** задайте имя VRF: `vrrp-vrf`.
+  1. Нажмите кнопку **Создать VRF**.
 
 {% endlist %}
 
@@ -75,30 +75,30 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. На панели слева выберите ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks_uU4LH }}** и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
-  1. В поле **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}** выберите пул серверов `{{ region-id }}-m3`.
-  1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя подсети: `subnet-m3`.
-  1. Включите опцию **{{ ui-key.yacloud.baremetal.title_routing-settings }}**.
-  1. В поле **{{ ui-key.yacloud.baremetal.field_network-id }}** выберите созданный ранее сегмент `vrrp-vrf`.
-  1. В поле **{{ ui-key.yacloud.baremetal.field_CIDR_rwYMi }}** укажите `172.28.1.0/24`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
-  1. Аналогичным образом создайте приватную подсеть `subnet-m4` в пуле серверов `{{ region-id }}-m4` c CIDR `172.28.2.0/24`.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
+  1. Перейдите в сервис **BareMetal**.
+  1. На панели слева выберите ![icon](../../_assets/console-icons/nodes-right.svg) **Приватные подсети** и нажмите кнопку **Создать подсеть**.
+  1. В поле **Пул** выберите пул серверов `ru-central1-m3`.
+  1. В поле **Имя** задайте имя подсети: `subnet-m3`.
+  1. Включите опцию **IP-адресация и маршрутизация**.
+  1. В поле **Виртуальный сетевой сегмент (VRF)** выберите созданный ранее сегмент `vrrp-vrf`.
+  1. В поле **CIDR** укажите `172.28.1.0/24`.
+  1. Нажмите кнопку **Создать подсеть**.
+  1. Аналогичным образом создайте приватную подсеть `subnet-m4` в пуле серверов `ru-central1-m4` c CIDR `172.28.2.0/24`.
 
 {% endlist %}
 
-## Арендуйте серверы {{ baremetal-name }} {#rent-servers}
+## Арендуйте серверы BareMetal {#rent-servers}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}** и в открывшемся окне выберите вариант `{{ ui-key.yacloud_components.baremetal.StockConfigurations }}` и подходящую [конфигурацию](../../baremetal/concepts/server-configurations.md) сервера {{ baremetal-name }} в пуле серверов `{{ region-id }}-m3`.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
+  1. Перейдите в сервис **BareMetal**.
+  1. Нажмите кнопку **Заказать сервер** и в открывшемся окне выберите вариант `Готовые конфигурации` и подходящую [конфигурацию](../../baremetal/concepts/server-configurations.md) сервера BareMetal в пуле серверов `ru-central1-m3`.
 
-      Для этого в фильтре в правой части окна в блоке **{{ ui-key.yacloud_components.baremetal.poolFilter }}** выберите пул серверов `{{ region-id }}-m3`.
+      Для этого в фильтре в правой части окна в блоке **Пул** выберите пул серверов `ru-central1-m3`.
 
       Чтобы выбрать подходящую вам конфигурацию сервера, нажмите на блок с именем этой конфигурации в центральной части экрана.
 
@@ -106,7 +106,7 @@
       
       Вы можете снизить стоимость аренды сервера в некоторых конфигурациях, заказав его [сборку](../../baremetal/concepts/server-custom-configurations.md#assembly).
       
-      Чтобы воспользоваться скидкой, в блоке с нужной конфигурацией наведите курсор на **{{ ui-key.yacloud_components.baremetal.assemblyDiscountLabel }}** ![circle-info.svg](../../_assets/console-icons/circle-info.svg) и во всплывающем окне нажмите ![person-nut-hex.svg](../../_assets/console-icons/person-nut-hex.svg) **{{ ui-key.yacloud_components.baremetal.goToAssembly }}**.
+      Чтобы воспользоваться скидкой, в блоке с нужной конфигурацией наведите курсор на **Дешевле со сборкой** ![circle-info.svg](../../_assets/console-icons/circle-info.svg) и во всплывающем окне нажмите ![person-nut-hex.svg](../../_assets/console-icons/person-nut-hex.svg) **Перейти к сборке**.
       
       При заказе сервера со сборкой воспользуйтесь приведенной ниже инструкцией, чтобы задать необходимые параметры сервера. При этом сервер станет доступен вам не сразу, а после завершения сборки (в течение четырех календарных дней) и по более низкой цене.
       
@@ -114,66 +114,66 @@
 
   1. В открывшемся окне с настройками конфигурации сервера:
 
-      1. В поле **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}** выберите [период](../../baremetal/concepts/servers.md#server-lease), на который вы хотите арендовать сервер: `1 день`, `1 месяц`, `3 месяца`, `6 месяцев` или `1 год`.
+      1. В поле **Период аренды** выберите [период](../../baremetal/concepts/servers.md#server-lease), на который вы хотите арендовать сервер: `1 день`, `1 месяц`, `3 месяца`, `6 месяцев` или `1 год`.
          
          По окончании указанного периода аренда сервера будет автоматически продлена на такой же период. Прервать аренду в течение указанного периода аренды нельзя, но можно [отказаться](../../baremetal/operations/servers/server-lease-cancel.md) от дальнейшего продления аренды сервера.
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите образ `Ubuntu 24.04`.
-      1. (Опционально) В блоке **{{ ui-key.yacloud.baremetal.title_section-disk }}** настройте разметку [дисков](../../baremetal/concepts/disks/disk-types.md):
+      1. В блоке **Образ** выберите образ `Ubuntu 24.04`.
+      1. (Опционально) В блоке **Диск** настройте разметку [дисков](../../baremetal/concepts/disks/disk-types.md):
          
-         1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
-         1. Укажите параметры разделов. Чтобы создать новый раздел, нажмите кнопку ![icon](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.actions_add-partition }}**.
+         1. Нажмите кнопку **Настроить разделы диска**.
+         1. Укажите параметры разделов. Чтобы создать новый раздел, нажмите кнопку ![icon](../../_assets/console-icons/plus.svg) **Добавить раздел**.
          
-             Чтобы самостоятельно собрать [RAID](../../baremetal/concepts/disks/raid.md)-массивы и настроить разделы дисков, нажмите кнопку **{{ ui-key.yacloud.baremetal.action_destroy-raid }}**.
-         1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**:
-          1. В поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** выберите созданную ранее подсеть `subnet-m3`.
-          1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
+             Чтобы самостоятельно собрать [RAID](../../baremetal/concepts/disks/raid.md)-массивы и настроить разделы дисков, нажмите кнопку **Разобрать RAID**.
+         1. Нажмите кнопку **Сохранить**.
+      1. В блоке **Сетевые интерфейсы**:
+          1. В поле **Приватная подсеть** выберите созданную ранее подсеть `subnet-m3`.
+          1. В поле **Публичный адрес** выберите `Из эфемерной подсети`.
 
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_server-access }}**:
+      1. В блоке **Доступ**:
       
-          1. В поле **{{ ui-key.yacloud.baremetal.field_password }}** воспользуйтесь одним из вариантов создания пароля для root-пользователя:
+          1. В поле **Пароль** воспользуйтесь одним из вариантов создания пароля для root-пользователя:
           
-              * Чтобы сгенерировать пароль для root-пользователя, выберите опцию `{{ ui-key.yacloud.baremetal.label_password-plain }}` и нажмите кнопку **{{ ui-key.yacloud.component.password-input.label_button-generate }}**.
+              * Чтобы сгенерировать пароль для root-пользователя, выберите опцию `Новый пароль` и нажмите кнопку **Сгенерировать**.
           
                   {% note warning %}
                   
-                  Этот вариант предусматривает ответственность пользователя за безопасность пароля. Сохраните сгенерированный пароль в надежном месте: он не сохраняется в {{ yandex-cloud }}, и после заказа сервера вы не сможете посмотреть его.
+                  Этот вариант предусматривает ответственность пользователя за безопасность пароля. Сохраните сгенерированный пароль в надежном месте: он не сохраняется в Yandex Cloud, и после заказа сервера вы не сможете посмотреть его.
                   
                   {% endnote %}
           
-              * Чтобы использовать пароль root-пользователя, сохраненный в [секрете](../../lockbox/concepts/secret.md) {{ lockbox-full-name }}, выберите опцию `{{ ui-key.yacloud.baremetal.label_password-lockbox }}`:
+              * Чтобы использовать пароль root-пользователя, сохраненный в [секрете](../../lockbox/concepts/secret.md) Yandex Lockbox, выберите опцию `Секрет Lockbox`:
           
-                  В полях **{{ ui-key.yacloud.baremetal.label_lockbox-name }}**, **{{ ui-key.yacloud.baremetal.label_lockbox-version }}** и **{{ ui-key.yacloud.baremetal.label_lockbox-key }}** выберите соответственно секрет, его версию и ключ, в которых сохранен ваш пароль.
+                  В полях **Имя**, **Версия** и **Ключ** выберите соответственно секрет, его версию и ключ, в которых сохранен ваш пароль.
                   
-                  Если у вас еще нет секрета {{ lockbox-name }}, нажмите кнопку **{{ ui-key.yacloud.common.create }}**, чтобы создать его.
+                  Если у вас еще нет секрета Yandex Lockbox, нажмите кнопку **Создать**, чтобы создать его.
           
-                  Этот вариант позволяет вам как задать собственный пароль (тип секрета `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`), так и использовать пароль, сгенерированный автоматически (тип секрета `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-generated }}`).
+                  Этот вариант позволяет вам как задать собственный пароль (тип секрета `Пользовательский`), так и использовать пароль, сгенерированный автоматически (тип секрета `Генерируемый`).
           
-          1. В поле **{{ ui-key.yacloud.baremetal.field_ssh-public-key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+          1. В поле **Открытый SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
           
               Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
               
-              1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+              1. Нажмите кнопку **Добавить ключ**.
               1. Задайте имя SSH-ключа.
               1. Выберите вариант:
               
-                  * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-                  * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-                  * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+                  * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+                  * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+                  * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
                   
                     При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
               
-              1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+              1. Нажмите кнопку **Добавить**.
               
               SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}** в поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя сервера: `master-server-m3`.
-      1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
-  1. Аналогичным способом арендуйте еще два сервера: с именем `backup-server-m3` в пуле серверов `{{ region-id }}-m3` и с именем `client-server-m4` и подсетью `subnet-m4` в пуле серверов `{{ region-id }}-m4`.
+      1. В блоке **Информация о сервере** в поле **Имя** задайте имя сервера: `master-server-m3`.
+      1. Нажмите кнопку **Заказать сервер**.
+  1. Аналогичным способом арендуйте еще два сервера: с именем `backup-server-m3` в пуле серверов `ru-central1-m3` и с именем `client-server-m4` и подсетью `subnet-m4` в пуле серверов `ru-central1-m4`.
 
 {% endlist %}
 
-На открывшейся странице со списком серверов {{ baremetal-name }} отобразится информация обо всех созданных серверах. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** таблицы скопируйте публичные IP-адреса серверов — они понадобятся для подключения к серверам по SSH.
+На открывшейся странице со списком серверов BareMetal отобразится информация обо всех созданных серверах. В поле **Публичный адрес** таблицы скопируйте публичные IP-адреса серверов — они понадобятся для подключения к серверам по SSH.
 
 {% note info %}
 
@@ -181,9 +181,9 @@
 
 {% endnote %}
 
-## Настройте Keepalived на серверах пула {{ region-id }}-m3 {#setup-keepalived}
+## Настройте Keepalived на серверах пула ru-central1-m3 {#setup-keepalived}
 
-На этом этапе вы установите, настроите и запустите сервис [Keepalived](https://keepalived.org/) на серверах, созданных в пуле `{{ region-id }}-m3`.
+На этом этапе вы установите, настроите и запустите сервис [Keepalived](https://keepalived.org/) на серверах, созданных в пуле `ru-central1-m3`.
 
 Используйте приведенную ниже инструкцию, чтобы настроить оба сервера — `master-server-m3` и `backup-server-m3`.
 
@@ -463,6 +463,6 @@
 
 ## Как отказаться от аренды серверов {#clear-out}
 
-Удалить серверы {{ baremetal-name }} нельзя. Вместо этого можно отказаться от продления их аренды.
+Удалить серверы BareMetal нельзя. Вместо этого можно отказаться от продления их аренды.
 
-Чтобы перестать платить за созданные ресурсы, [откажитесь](../../baremetal/operations/servers/server-lease-cancel.md) от продления аренды созданных ранее серверов {{ baremetal-name }}.
+Чтобы перестать платить за созданные ресурсы, [откажитесь](../../baremetal/operations/servers/server-lease-cancel.md) от продления аренды созданных ранее серверов BareMetal.

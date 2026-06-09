@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Вы можете создать триггер, который будет запускать [функцию](../../../functions/concepts/function.md) {{ sf-name }} или [контейнер](../../../serverless-containers/concepts/container.md) {{ serverless-containers-name }} при отправке данных в поток. Подробнее о [триггере для {{ yds-name }}](../../../functions/operations/trigger/data-streams-trigger-create.md).
+Вы можете создать триггер, который будет запускать [функцию](../../../functions/concepts/function.md) Cloud Functions или [контейнер](../../../serverless-containers/concepts/container.md) Serverless Containers при отправке данных в поток. Подробнее о [триггере для Data Streams](../../../functions/operations/trigger/data-streams-trigger-create.md).
 
 {% endnote %}
 
@@ -13,7 +13,7 @@
   Для отправки данных в поток данных используется метод `put_record/put_records`. При вызове этого метода необходимо указать следующие параметры:
   * Имя потока данных, например `example-stream`.
   * [Идентификатор облака](../../../resource-manager/operations/cloud/get-id.md), в котором находится поток, например `b1gi1kuj2dht********`.
-  * Идентификатор базы данных {{ ydb-short-name }} с потоком, например `cc8028jgtuab********`.
+  * Идентификатор базы данных YDB с потоком, например `cc8028jgtuab********`.
   * Отправляемые данные, например `message`.
 
   Вам также потребуется [настроить](prepare.md) AWS SDK и [назначить](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль `yds.writer`.
@@ -28,7 +28,7 @@
      def put_record(cloud, database, stream_name, message):
        client = boto3.client('kinesis', endpoint_url="https://yds.serverless.yandexcloud.net")
        response = client.put_record(
-         StreamName="/{{ region-id }}/{cloud}/{database}/{stream}".format(cloud=cloud,
+         StreamName="/ru-central1/{cloud}/{database}/{stream}".format(cloud=cloud,
                                                                        database=database,
                                                                        stream=stream_name),
          Data=message,

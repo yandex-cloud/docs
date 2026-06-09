@@ -1,8 +1,8 @@
-# Обзор API {{ ml-platform-name }}
+# Обзор API DataSphere
 
-В {{ ml-platform-name }} все основные операции по работе с ресурсами и ноутбуками доступны не только из пользовательского интерфейса, но и через API.
+В DataSphere все основные операции по работе с ресурсами и ноутбуками доступны не только из пользовательского интерфейса, но и через API.
 
-Для управления ресурсами в [API {{ yandex-cloud }}](https://github.com/yandex-cloud/cloudapi) определены наборы вызовов [gRPC](grpc/index.md) и методов [REST](index.md). Особенности их реализации и взаимодействия см. в [Документации API {{ yandex-cloud }}](../../api-design-guide/concepts/standard-methods.md).
+Для управления ресурсами в [API Yandex Cloud](https://github.com/yandex-cloud/cloudapi) определены наборы вызовов [gRPC](grpc/index.md) и методов [REST](index.md). Особенности их реализации и взаимодействия см. в [Документации API Yandex Cloud](../../api-design-guide/concepts/standard-methods.md).
 
 ## Работа с сообществом {#community}
 
@@ -26,7 +26,7 @@
     curl \
       --header "Authorization: Bearer <IAM-токен>" \
       --request POST \
-      "https://datasphere.{{ api-host }}/datasphere/v2/communities" \
+      "https://datasphere.api.cloud.yandex.net/datasphere/v2/communities" \
       --data '{ "organizationId": "<идентификатор_организации>" }'
     ```
 
@@ -36,7 +36,7 @@
     curl \
       --header "Authorization: Bearer <IAM-токен>" \
       --request GET \
-      "https://datasphere.{{ api-host }}/datasphere/v2/communities" \
+      "https://datasphere.api.cloud.yandex.net/datasphere/v2/communities" \
       --data '{ "organizationId": "<идентификатор_организации>" }'
     ```
 
@@ -50,7 +50,7 @@
     grpcurl \
       -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d '{"organization_id": "<идентификатор_организации>"}' \
-      datasphere.{{ api-host }}:443 \
+      datasphere.api.cloud.yandex.net:443 \
       yandex.cloud.datasphere.v2.CommunityService/Create
     ```
 
@@ -60,7 +60,7 @@
     grpcurl \
       -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d '{"organization_id": "<идентификатор_организации>"}' \
-      datasphere.{{ api-host }}:443 \
+      datasphere.api.cloud.yandex.net:443 \
       yandex.cloud.datasphere.v2.CommunityService/List
     ```
 
@@ -91,7 +91,7 @@
     curl \
       --header "Authorization: Bearer <IAM-токен>" \
       --request POST \
-      "https://datasphere.{{ api-host }}/datasphere/v2/projects" \
+      "https://datasphere.api.cloud.yandex.net/datasphere/v2/projects" \
       --data '{ "communityId": "<идентификатор_сообщества>" }'
     ```
 
@@ -101,7 +101,7 @@
     curl \
       --header "Authorization: Bearer <IAM-токен>" \
       --request GET \
-      "https://datasphere.{{ api-host }}/datasphere/v2/projects" \
+      "https://datasphere.api.cloud.yandex.net/datasphere/v2/projects" \
       --data '{ "communityId": "<идентификатор_сообщества>" }'
     ```
 
@@ -115,7 +115,7 @@
     grpcurl \
       -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d '{"community_id": "<идентификатор_сообщества>"}' \
-      datasphere.{{ api-host }}:443 \
+      datasphere.api.cloud.yandex.net:443 \
       yandex.cloud.datasphere.v2.ProjectService/Create
     ```
 
@@ -125,7 +125,7 @@
     grpcurl \
       -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d '{"community_id": "<идентификатор_сообщества>"}' \
-      datasphere.{{ api-host }}:443 \
+      datasphere.api.cloud.yandex.net:443 \
       yandex.cloud.datasphere.v2.ProjectService/List
     ```
 
@@ -152,11 +152,11 @@
     curl \
       --header "Authorization: Bearer <IAM-токен>" \
       --request POST \
-      "https://datasphere.{{ api-host }}/datasphere/v2/projects/<идентификатор_проекта>:execute" \
+      "https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/<идентификатор_проекта>:execute" \
       --data '{ "notebook_id": "<идентификатор_ноутбука>" }'
     ```
 
-  Чтобы получить идентификатор ноутбука, воспользуйтесь инструкцией [{#T}](../operations/projects/get-notebook-cell-ids.md).
+  Чтобы получить идентификатор ноутбука, воспользуйтесь инструкцией [Получить идентификатор ноутбука](../operations/projects/get-notebook-cell-ids.md).
 
   Подробную информацию о методах `Project` см. в [API-документации](Project/index.md).
 
@@ -168,11 +168,11 @@
     grpcurl \
       -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d '{"project_id": "<идентификатор_проекта>", "target": "notebook_id", "notebook_id": "<идентификатор_ноутбука>"}' \
-      datasphere.{{ api-host }}:443 \
+      datasphere.api.cloud.yandex.net:443 \
       yandex.cloud.datasphere.v2.ProjectService/Execute
     ```
 
-  Чтобы получить идентификатор ноутбука, воспользуйтесь инструкцией [{#T}](../operations/projects/get-notebook-cell-ids.md).
+  Чтобы получить идентификатор ноутбука, воспользуйтесь инструкцией [Получить идентификатор ноутбука](../operations/projects/get-notebook-cell-ids.md).
 
   Подробную информацию о вызовах `ProjectService` см. в [API-документации](grpc/Project/index.md).
 
@@ -182,7 +182,7 @@
 
 ### Активация и деактивация ресурсов {#activate-deactivate}
 
-В {{ ml-platform-name }} для каждого ресурса реализована своя группа методов API. С помощью вызовов методов `Activate` и `Deactivate` соответствующей группы в проекте  можно активировать и деактивировать необходимые ресурсы.
+В DataSphere для каждого ресурса реализована своя группа методов API. С помощью вызовов методов `Activate` и `Deactivate` соответствующей группы в проекте  можно активировать и деактивировать необходимые ресурсы.
 
 | Описание | gRPC | REST |
 | --- | --- | --- |
@@ -202,7 +202,7 @@
     curl \
       --header "Authorization: Bearer <IAM-токен>" \
       --request POST \
-      "https://datasphere.{{ api-host }}/datasphere/v2/dataset/activate" \
+      "https://datasphere.api.cloud.yandex.net/datasphere/v2/dataset/activate" \
       --data "{ \"datasetId\": \"<идентификатор_датасета>\", \"projectId\": \"<идентификатор_проекта>\" }"
     ```
 
@@ -212,7 +212,7 @@
     curl \
       --header "Authorization: Bearer <IAM-токен>" \
       --request POST \
-      "https://datasphere.{{ api-host }}/datasphere/v2/dataset/deactivate" \
+      "https://datasphere.api.cloud.yandex.net/datasphere/v2/dataset/deactivate" \
       --data "{ \"datasetId\": \"<идентификатор_датасета>\", \"projectId\": \"<идентификатор_проекта>\" }"
     ```
 
@@ -226,7 +226,7 @@
     grpcurl \
       -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d "{\"project_id\": \"<идентификатор_проекта>\", \"dataset_id\": \"<идентификатор_датасета>\"}" \
-      datasphere.{{ api-host }}:443 \
+      datasphere.api.cloud.yandex.net:443 \
       yandex.cloud.datasphere.v2.DatasetService/Activate
     ```
 
@@ -236,7 +236,7 @@
     grpcurl \
       -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d "{\"project_id\": \"<идентификатор_проекта>\", \"dataset_id\": \"<идентификатор_датасета>\"}" \
-      datasphere.{{ api-host }}:443 \
+      datasphere.api.cloud.yandex.net:443 \
       yandex.cloud.datasphere.v2.DatasetService/Deactivate
     ```
 
@@ -267,7 +267,7 @@
     curl \
       --header "Authorization: Bearer <IAM-токен>" \
       --request POST \
-      "https://datasphere.{{ api-host }}/datasphere/v2/projects/<идентификатор_ресурса>:addResource" \
+      "https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/<идентификатор_ресурса>:addResource" \
       --data "{ \"projectId\": \"<идентификатор_проекта>\" }"
     ```
 
@@ -277,7 +277,7 @@
     curl \
       --header "Authorization: Bearer <IAM-токен>" \
       --request POST \
-      "https://datasphere.{{ api-host }}/datasphere/v2/projects/<идентификатор_ресурса>:removeResource" \
+      "https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/<идентификатор_ресурса>:removeResource" \
       --data "{ \"projectId\": \"<идентификатор_проекта>\" }"
     ```
 
@@ -291,7 +291,7 @@
     grpcurl \
       -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d "{\"project_id\": \"<идентификатор_проекта>\", \"resource_id\": \"<идентификатор_ресурса>\"}" \
-      datasphere.{{ api-host }}:443 \
+      datasphere.api.cloud.yandex.net:443 \
       yandex.cloud.datasphere.v2.ProjectService/AddResource
     ```
 
@@ -301,7 +301,7 @@
     grpcurl \
       -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d "{\"project_id\": \"<идентификатор_проекта>\", \"resource_id\": \"<идентификатор_ресурса>\"}" \
-      datasphere.{{ api-host }}:443 \
+      datasphere.api.cloud.yandex.net:443 \
       yandex.cloud.datasphere.v2.ProjectService/RemoveResource
     ```
 
@@ -332,7 +332,7 @@
     curl \
       --header "Authorization: Bearer <IAM-токен>" \
       --request GET \
-      "https://datasphere.{{ api-host }}/datasphere/v2/projects/<идентификатор_ресурса>:accessBindings"
+      "https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/<идентификатор_ресурса>:accessBindings"
     ```
 
   **Пример**. Вывод списка доступов к сообществу:
@@ -341,7 +341,7 @@
     curl \
       --header "Authorization: Bearer <IAM-токен>" \
       --request GET \
-      "https://datasphere.{{ api-host }}/datasphere/v2/communities/<идентификатор_ресурса>:accessBindings"
+      "https://datasphere.api.cloud.yandex.net/datasphere/v2/communities/<идентификатор_ресурса>:accessBindings"
     ```
 
   Подробную информацию о методах см. в API-документации [Project](Project/index.md) и [Community](Community/index.md).
@@ -354,7 +354,7 @@
     grpcurl \
       -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d '{"resource_id": "<идентификатор_проекта>"}' \
-      datasphere.{{ api-host }}:443 \
+      datasphere.api.cloud.yandex.net:443 \
       yandex.cloud.datasphere.v2.ProjectService/ListAccessBindings
     ```
 
@@ -364,7 +364,7 @@
     grpcurl \
       -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d '{"resource_id": "<идентификатор_сообщества>"}' \
-      datasphere.{{ api-host }}:443 \
+      datasphere.api.cloud.yandex.net:443 \
       yandex.cloud.datasphere.v2.CommunityService/ListAccessBindings
     ```
 
@@ -391,7 +391,7 @@
     curl \
       --header "Authorization: Bearer <IAM-токен>" \
       --request GET \
-      "https://datasphere.{{ api-host }}/datasphere/v2/projects/<идентификатор_проекта>:unitBalance"
+      "https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/<идентификатор_проекта>:unitBalance"
     ```
 
   Подробную информацию о методах `Project` см. в [API-документации](Project/index.md).
@@ -404,7 +404,7 @@
     grpcurl \
       -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d '{"project_id": "<идентификатор_проекта>"}' \
-      datasphere.{{ api-host }}:443 \
+      datasphere.api.cloud.yandex.net:443 \
       yandex.cloud.datasphere.v2.ProjectService/GetUnitBalance
     ```
 

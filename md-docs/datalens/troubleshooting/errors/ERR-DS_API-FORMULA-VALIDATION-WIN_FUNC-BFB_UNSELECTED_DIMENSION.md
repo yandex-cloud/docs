@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Window function has unselected dimension
+# [Yandex DataLens] Window function has unselected dimension
 
 `ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.BFB_UNSELECTED_DIMENSION`
 

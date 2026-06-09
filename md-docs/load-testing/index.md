@@ -1,6 +1,6 @@
 # Yandex Load Testing
 
-С 1 июля 2026 года сервис {{ load-testing-name }} прекращает работу.
+С 1 июля 2026 года сервис Load Testing прекращает работу.
 
 Подробнее о сроках и порядке закрытия читайте на странице <a href="sunset.md">Закрытие сервиса</a>.
 
@@ -40,7 +40,7 @@
 
  - [Проверить превышение порогов метрик регрессий](operations/check-regression.md)
 
- - [Сохранить артефакты теста в {{ objstorage-name }}](operations/save-artifacts.md)
+ - [Сохранить артефакты теста в Object Storage](operations/save-artifacts.md)
 
  - [Посмотреть операции с ресурсами сервиса](operations/operation-logs.md)
 
@@ -64,7 +64,7 @@
 
  - [Запуск внешних агентов для нагрузочного тестирования](tutorials/loadtesting-external-agent.md)
 
- - [Вызов нагрузочного тестирования из {{ GL }} CI](tutorials/loadtesting-gitlab-ci.md)
+ - [Вызов нагрузочного тестирования из GitLab CI](tutorials/loadtesting-gitlab-ci.md)
 
  - [Сравнение результатов нагрузочных тестов](tutorials/loadtesting-results-compare.md)
 
@@ -214,7 +214,7 @@
 
  - [list](cli-ref/v0/test-config/list.md)
 
- - [Справочник {{ TF }}](tf-ref.md)
+ - [Справочник Terraform](tf-ref.md)
 
 ## Справочник API
 
@@ -392,7 +392,7 @@
 
  - [Cancel](agent/user/api-ref/Operation/cancel.md)
 
- - [Аудитные логи {{ at-name }}](at-ref.md)
+ - [Аудитные логи Audit Trails](at-ref.md)
 
  - [История изменений](release-notes.md)
 

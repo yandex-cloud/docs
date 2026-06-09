@@ -5,7 +5,7 @@ Deletes the specified hosts for a cluster.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/hosts:batchDelete
+POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/hosts:batchDelete
 ```
 
 ## Path parameters

@@ -1,10 +1,10 @@
-# Справочник метрик {{ monitoring-full-name }}
+# Справочник метрик Yandex Monitoring
 
-В этом разделе описаны метрики сервиса {{ maf-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/index.md).
+В этом разделе описаны метрики сервиса Managed Service for Apache Airflow™, поставляемые в [Monitoring](../monitoring/index.md).
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса {{ maf-name }}:
+Общие метки для всех метрик сервиса Managed Service for Apache Airflow™:
 
 Метка | Значение
 ----|----
@@ -82,4 +82,4 @@ cluster_id | Идентификатор [кластера](concepts/index.md#clu
 
 #### См. также {#see-also}
 
-* [{#T}](operations/monitoring.md)
+* [Мониторинг состояния кластера Managed Service for Apache Airflow™](operations/monitoring.md)

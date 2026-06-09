@@ -5,7 +5,7 @@ Sets status to ACTIVE for the specified OAuth application.
 ## HTTP request
 
 ```
-POST https://organization-manager.{{ api-host }}/organization-manager/v1/idp/application/oauth/applications/{applicationId}:reactivate
+POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/application/oauth/applications/{applicationId}:reactivate
 ```
 
 ## Path parameters

@@ -1,6 +1,6 @@
 # События плеера
 
-С помощью методов [on и once](player-methods.md#subscribe-methods) SDK для JavaScript вы можете подписаться на события [видеоплеера](../../concepts/player.md) {{ video-player-name }}:
+С помощью методов [on и once](player-methods.md#subscribe-methods) SDK для JavaScript вы можете подписаться на события [видеоплеера](../../concepts/player.md) Cloud Video Player:
 
 #### SourceChange {#sourcechange}
 

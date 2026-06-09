@@ -5,7 +5,7 @@ Lists access bindings for the specified OIDC workload identity federation.
 ## HTTP request
 
 ```
-GET https://iam.{{ api-host }}/iam/v1/workload/oidc/federations/{resourceId}:listAccessBindings
+GET https://iam.api.cloud.yandex.net/iam/v1/workload/oidc/federations/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

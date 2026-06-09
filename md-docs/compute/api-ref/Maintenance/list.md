@@ -5,7 +5,7 @@ Lists maintenances by conditions, specified in request.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/maintenances
+GET https://compute.api.cloud.yandex.net/compute/v1/maintenances
 ```
 
 ## Query parameters {#yandex.cloud.maintenance.v2.ListMaintenancesRequest}

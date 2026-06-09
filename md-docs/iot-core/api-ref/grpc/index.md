@@ -1,10 +1,10 @@
 # IoT Core Service: gRPC reference
 
-Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts]({{ api-url-prefix }}/api-design-guide/).
+Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts](../../../api-design-guide/index.md).
 
 **Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/iot/devices/v1).
 
-**Service URL**: `https://iot-devices.{{ api-host }}`
+**Service URL**: `https://iot-devices.api.cloud.yandex.net`
 
 #|
 ||Service | Description ||

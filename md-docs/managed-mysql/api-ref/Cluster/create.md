@@ -5,7 +5,7 @@ Creates a cluster in a folder.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters
+POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters
 ```
 
 ## Body parameters {#yandex.cloud.mdb.mysql.v1.CreateClusterRequest}

@@ -1,9 +1,9 @@
-# {{ captcha-full-name }} в приложении Android на Flutter
+# Yandex SmartCaptcha в приложении Android на Flutter
 
 [Flutter](https://ru.wikipedia.org/wiki/Flutter) — это фреймворк Google для разработки мобильных приложений. Он позволяет создавать приложения для Android и iOS на основе единого кода. Это упрощает процесс разработки и ускоряет выпуск продукта. Flutter использует язык программирования [Dart](https://ru.wikipedia.org/wiki/Dart), в котором есть набор готовых виджетов и инструментов для создания пользовательского интерфейса.
 
 В этом руководстве вы создадите проект, который включает серверное и мобильное приложения:
-* Серверное приложение будет предоставлять HTML-страницу для загрузки {{ captcha-name }} и проверять результат выполнения капчи пользователем мобильного приложения.
+* Серверное приложение будет предоставлять HTML-страницу для загрузки SmartCaptcha и проверять результат выполнения капчи пользователем мобильного приложения.
 * Мобильное приложение покажет страницу с капчей и отправит запрос на проверку результата.
 
 Порядок создания проекта:
@@ -11,24 +11,24 @@
 1. [Подготовьте инструменты разработки](#prepare-tools).
 1. [Создайте и запустите серверное приложение](#run-server-app).
 1. [Создайте мобильное приложение](#create-mobile-app).
-1. [Запустите мобильное приложение в эмуляторе и проверьте работу {{ captcha-name }}](#test-app).
+1. [Запустите мобильное приложение в эмуляторе и проверьте работу SmartCaptcha](#test-app).
 
 ## Перед началом работы {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../../billing/quickstart/index.md) и [привяжите](../../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../../billing/quickstart/index.md) и [привяжите](../../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../../../resource-manager/concepts/resources-hierarchy.md).
 
 ## Создайте капчу {#create-captcha}
 
 1. [Создайте капчу](../../../../smartcaptcha/operations/create-captcha.md).
-1. На вкладке **{{ ui-key.yacloud.common.overview }}** [получите ключи капчи](../../../../smartcaptcha/operations/get-keys.md):
-   * **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** — для загрузки страницы с капчей;
-   * **{{ ui-key.yacloud.smartcaptcha.label_server-key }}** — для получения результата прохождения капчи.
+1. На вкладке **Обзор** [получите ключи капчи](../../../../smartcaptcha/operations/get-keys.md):
+   * **Ключ клиента** — для загрузки страницы с капчей;
+   * **Ключ сервера** — для получения результата прохождения капчи.
 
 ## Подготовьте инструменты разработки {#prepare-tools}
 
@@ -83,7 +83,7 @@
 
        # валидация ответа
        response = requests.post(
-           "https://{{ captcha-domain }}/validate",
+           "https://smartcaptcha.cloud.yandex.ru/validate",
            data={
                "secret": SMARTCAPTCHA_SERVER_KEY,
                "token": token,
@@ -201,7 +201,7 @@
        </script>
 
        <script
-         src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=onSmartCaptchaReady"
+         src="https://smartcaptcha.cloud.yandex.ru/captcha.js?render=onload&onload=onSmartCaptchaReady"
          defer
        ></script>
      </head>
@@ -394,7 +394,7 @@
     >
     ```
 
-## Запустите приложение и проверьте работу {{ captcha-name }} {#test-app}
+## Запустите приложение и проверьте работу SmartCaptcha {#test-app}
 
 Чтобы запустить мобильное приложение на эмуляторе:
 
@@ -404,7 +404,7 @@
    * откройте меню **Run → Run 'main.dart'**.
 1. Дождитесь, когда завершится процесс компиляции и приложение загрузится в эмулятор.
 
-Чтобы проверить работу {{ captcha-name }}:
+Чтобы проверить работу SmartCaptcha:
 
 1. Выполните задание капчи.
 1. Обратите внимание, как красный статус `Not Done` в нижней части экрана приложения кратковременно изменится на статус `Checking`, а затем на зеленый статус `Passed` (если задание было выполнено верно).

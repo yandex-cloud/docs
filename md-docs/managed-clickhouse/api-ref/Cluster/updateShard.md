@@ -5,7 +5,7 @@ Modifies the specified shard.
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/shards/{shardName}
+PATCH https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/shards/{shardName}
 ```
 
 ## Path parameters

@@ -1,13 +1,13 @@
 # Настройка Gateway API
 
-# Настройка Gateway API в {{ managed-k8s-full-name }}
+# Настройка Gateway API в Yandex Managed Service for Kubernetes
 
-[Gateway API](https://github.com/kubernetes-sigs/gateway-api) — набор ресурсов [API](../../glossary/rest-api.md), моделирующих сетевое взаимодействие в [кластере {{ k8s }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
+[Gateway API](https://github.com/kubernetes-sigs/gateway-api) — набор ресурсов [API](../../glossary/rest-api.md), моделирующих сетевое взаимодействие в [кластере Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 
-Из этой статьи вы узнаете, как организовать доступ к приложениям, находящимся в двух тестовых средах `dev` и `prod`, с помощью [{{ alb-full-name }}](../../application-load-balancer/index.md) через Gateway API. Для этого потребуется создать [публичную доменную зону](../../dns/concepts/dns-zone.md#public-zones) и делегировать домен сервису [{{ dns-full-name }}](../../dns/index.md).
+Из этой статьи вы узнаете, как организовать доступ к приложениям, находящимся в двух тестовых средах `dev` и `prod`, с помощью [Yandex Application Load Balancer](../../application-load-balancer/index.md) через Gateway API. Для этого потребуется создать [публичную доменную зону](../../dns/concepts/dns-zone.md#public-zones) и делегировать домен сервису [Yandex Cloud DNS](../../dns/index.md).
 
-Чтобы интегрировать Gateway API и {{ alb-name }}:
-1. [Создайте ресурсы {{ managed-k8s-name }}](#k8s-create).
+Чтобы интегрировать Gateway API и Application Load Balancer:
+1. [Создайте ресурсы Managed Service for Kubernetes](#k8s-create).
 1. [Установите Gateway API и настройте доменные зоны](#install-gateway-api).
 1. [Подготовьте тестовые приложения](#prepare-apps).
 1. [Создайте тестовые приложения](#install-apps).
@@ -20,33 +20,33 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за DNS-зону и DNS-запросы (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
-* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы {{ alb-name }}](../../application-load-balancer/pricing.md)).
-* Плата за публичные IP-адреса (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Плата за DNS-зону и DNS-запросы (см. [тарифы Cloud DNS](../../dns/pricing.md)).
+* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
+* Плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы Application Load Balancer](../../application-load-balancer/pricing.md)).
+* Плата за публичные IP-адреса (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Перед началом работы {#before-you-begin}
 
-1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
 1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
 
-## Создайте ресурсы {{ managed-k8s-name }} {#k8s-create}
+## Создайте ресурсы Managed Service for Kubernetes {#k8s-create}
 
-1. Создайте кластер и [группу узлов](../../managed-kubernetes/concepts/index.md#node-group) {{ k8s }}.
+1. Создайте кластер и [группу узлов](../../managed-kubernetes/concepts/index.md#node-group) Kubernetes.
 
    {% list tabs group=instructions %}
 
    - Вручную {#manual}
 
      1. Если у вас еще нет [сети](../../vpc/concepts/network.md#network), [создайте ее](../../vpc/operations/network-create.md).
-     1. Если у вас еще нет [подсетей](../../vpc/concepts/network.md#subnet), [создайте их](../../vpc/operations/subnet-create.md) в [зонах доступности](../../overview/concepts/geo-scope.md), где будут созданы кластер {{ k8s }} и группа узлов.
+     1. Если у вас еще нет [подсетей](../../vpc/concepts/network.md#subnet), [создайте их](../../vpc/operations/subnet-create.md) в [зонах доступности](../../overview/concepts/geo-scope.md), где будут созданы кластер Kubernetes и группа узлов.
 
-     1. [Создайте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
+     1. [Создайте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 
         {% note warning %}
         
@@ -54,11 +54,11 @@
         
         {% endnote %}
 
-     1. [Создайте кластер {{ k8s }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации. При создании укажите группы безопасности, подготовленные ранее.
+     1. [Создайте кластер Kubernetes](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации. При создании укажите группы безопасности, подготовленные ранее.
 
-   - {{ TF }} {#tf}
+   - Terraform {#tf}
 
-     1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
      1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
      1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
      1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -66,9 +66,9 @@
      1. Скачайте в ту же рабочую директорию файл конфигурации кластера [k8s-gateway-api.tf](https://github.com/yandex-cloud-examples/yc-mk8s-gateway-api/blob/main/k8s-gateway-api.tf). В файле описаны:
         * Сеть.
         * Подсеть.
-        * Кластер {{ k8s }}.
-        * Сервисный аккаунт, необходимый для работы кластера и группы узлов {{ k8s }}.
-        * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](../../managed-kubernetes/operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
+        * Кластер Kubernetes.
+        * Сервисный аккаунт, необходимый для работы кластера и группы узлов Kubernetes.
+        * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](../../managed-kubernetes/operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 
             {% note warning %}
             
@@ -78,15 +78,15 @@
 
      1. Укажите в файле конфигурации:
         * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-        * Версию {{ k8s }} для кластера и групп узлов {{ k8s }}.
-        * CIDR кластера {{ k8s }}.
-     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+        * Версию Kubernetes для кластера и групп узлов Kubernetes.
+        * CIDR кластера Kubernetes.
+     1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
      1. Создайте необходимую инфраструктуру:
 
         1. Выполните команду для просмотра планируемых изменений:
@@ -107,23 +107,23 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
    {% endlist %}
 
    {% note warning %}
    
-   Не изменяйте и не удаляйте ресурсы {{ vpc-name }}, которые используются кластером {{ managed-k8s-name }}. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
+   Не изменяйте и не удаляйте ресурсы Virtual Private Cloud, которые используются кластером Managed Service for Kubernetes. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
    
    {% endnote %}
 
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
+1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md), необходимый для работы Gateway API.
 1. [Назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md):
    * `alb.editor` — для создания необходимых ресурсов.
-   * `certificate-manager.admin` — для работы с сертификатами, зарегистрированными в сервисе [{{ certificate-manager-full-name }}](../../certificate-manager/index.md).
-   * `compute.viewer` — для использования узлов кластера {{ managed-k8s-name }} в [целевых группах](../../application-load-balancer/concepts/target-group.md) [балансировщика нагрузки](../../application-load-balancer/concepts/application-load-balancer.md).
+   * `certificate-manager.admin` — для работы с сертификатами, зарегистрированными в сервисе [Yandex Certificate Manager](../../certificate-manager/index.md).
+   * `compute.viewer` — для использования узлов кластера Managed Service for Kubernetes в [целевых группах](../../application-load-balancer/concepts/target-group.md) [балансировщика нагрузки](../../application-load-balancer/concepts/application-load-balancer.md).
    * `vpc.publicAdmin` — для управления [внешней связностью](../../vpc/security/index.md#vpc-public-admin).
 1. Создайте для него [статический ключ](../../iam/operations/authentication/manage-access-keys.md#create-access-key) и сохраните в файл `sa-key.json`:
 
@@ -151,7 +151,7 @@
      zone=<зона_доступности>
    ```
 
-   Где `<зона_доступности>` — [зона доступности](../../overview/concepts/geo-scope.md), в которой расположен ваш кластер {{ k8s }}.
+   Где `<зона_доступности>` — [зона доступности](../../overview/concepts/geo-scope.md), в которой расположен ваш кластер Kubernetes.
 
    Сохраните публичные IP-адреса — они понадобятся для дальнейшей настройки.
 1. Создайте [ресурсные записи](../../dns/concepts/resource-record.md) для вашей публичной DNS-зоны:
@@ -210,7 +210,7 @@
    >  -subj '/CN=*.prod.my-test-domain.com'
    >```
 
-   На основании этих сертификатов в кластере {{ k8s }} будут созданы секреты для тестовых сред `prod` и `dev`.
+   На основании этих сертификатов в кластере Kubernetes будут созданы секреты для тестовых сред `prod` и `dev`.
 
 1. Создайте секреты:
 
@@ -227,7 +227,7 @@
 
 Для проверки работы Gateway API будут созданы два приложения (`tutum/hello-world` и `nginxdemos/hello`). Для каждого приложения понадобится настройка и выполнение трех YAML-файлов:
 * `dev-gw.yaml` и `prod-gw.yaml` — настройки Gateway. В этих манифестах нужно указать:
-  * [Группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md), в которых развернут кластер {{ k8s }}, в параметре `metadata.annotations.gateway.alb.yc.io/security-groups`.
+  * [Группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md), в которых развернут кластер Kubernetes, в параметре `metadata.annotations.gateway.alb.yc.io/security-groups`.
   * Доменную зону с префиксами `*.dev` и `*.prod` в параметрах `hostname`.
   * IP-адреса для сред `dev` и `prod` в параметре `spec.addresses.value`.
 * `dev-route.yaml` и `prod-route.yaml` — настройка маршрутизации для приложений. В этих манифестах нужно указать доменную зону с префиксами `app.dev` и `app.prod` в параметре `spec.hostnames`.
@@ -538,7 +538,7 @@
 
    {% note warning %}
    
-   Не изменяйте и не удаляйте балансировщик нагрузки и его дочерние ресурсы, созданные с помощью {{ managed-k8s-name }}, через интерфейсы {{ yandex-cloud }} (консоль управления, {{ TF }}, CLI и API). Это может привести к некорректной работе кластера.
+   Не изменяйте и не удаляйте балансировщик нагрузки и его дочерние ресурсы, созданные с помощью Managed Service for Kubernetes, через интерфейсы Yandex Cloud (консоль управления, Terraform, CLI и API). Это может привести к некорректной работе кластера.
    
    {% endnote %}
 
@@ -550,7 +550,7 @@
 
 {% note info %}
 
-Если ресурс недоступен по указанному URL, то [убедитесь](../../managed-kubernetes/operations/connect/security-groups.md), что группы безопасности для кластера {{ managed-k8s-name }} и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../vpc/operations/security-group-add-rule.md).
+Если ресурс недоступен по указанному URL, то [убедитесь](../../managed-kubernetes/operations/connect/security-groups.md), что группы безопасности для кластера Managed Service for Kubernetes и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../vpc/operations/security-group-add-rule.md).
 
 {% endnote %}
 
@@ -562,17 +562,17 @@
 
 - Вручную {#manual}
 
-  1. [Удалите кластер {{ k8s }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+  1. [Удалите кластер Kubernetes](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
   1. [Удалите созданные подсети](../../vpc/operations/subnet-delete.md) и [сети](../../vpc/operations/network-delete.md).
   1. [Удалите созданный сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   1. В терминале перейдите в директорию с планом инфраструктуры.
   
       {% note warning %}
   
-      Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+      Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
   
       {% endnote %}
   
@@ -586,6 +586,6 @@
   
       1. Подтвердите удаление ресурсов и дождитесь завершения операции.
   
-      Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+      Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
 {% endlist %}

@@ -6,7 +6,7 @@ To get the list of available Redis backups, make a [List](../../../managed-redis
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-redis/v1/backups/{backupId}
+GET https://mdb.api.cloud.yandex.net/managed-redis/v1/backups/{backupId}
 ```
 
 ## Path parameters

@@ -1,18 +1,18 @@
-# Управление моделями машинного обучения в {{ mch-name }}
+# Управление моделями машинного обучения в Managed Service for ClickHouse®
 
-{{ mch-short-name }} позволяет анализировать данные с помощью моделей машинного обучения [CatBoost](https://catboost.ai/) без использования дополнительных инструментов.
+Managed Service for ClickHouse® позволяет анализировать данные с помощью моделей машинного обучения [CatBoost](https://catboost.ai/) без использования дополнительных инструментов.
 
 Чтобы применить модель, подключите ее к кластеру и вызовите в SQL-запросе с помощью встроенной функции `catboostEvaluate()`. В результате выполнения такого запроса вы получите предсказания модели для каждой строки входных данных.
 
-Подробнее о функции `catboostEvaluate()` читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/functions/other-functions#catboostevaluatepath_to_model-feature_1-feature_2--feature_n).
+Подробнее о функции `catboostEvaluate()` читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/functions/other-functions#catboostevaluatepath_to_model-feature_1-feature_2--feature_n).
 
 ## Перед подключением модели {#prereq}
 
-{{ mch-short-name }} работает только с моделями, которые загружены в {{ objstorage-full-name }} и к которым предоставлен доступ на чтение:
+Managed Service for ClickHouse® работает только с моделями, которые загружены в Yandex Object Storage и к которым предоставлен доступ на чтение:
 
 
-1. Для привязки [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) к кластеру [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
-1. [Загрузите](../../storage/operations/objects/upload.md) файл обученной модели в {{ objstorage-full-name }}.
+1. Для привязки [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) к кластеру [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+1. [Загрузите](../../storage/operations/objects/upload.md) файл обученной модели в Yandex Object Storage.
 1. [Подключите сервисный аккаунт к кластеру](s3-access.md#connect-service-account). С помощью [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) вы настроите доступ к файлу модели.
 1. [Назначьте роль](s3-access.md#configure-acl) `storage.viewer` сервисному аккаунту.
 1. В ACL бакета [добавьте разрешение](../../storage/operations/buckets/edit-acl.md) `READ` сервисному аккаунту.
@@ -25,20 +25,20 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** на панели слева.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение** на панели слева.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы получить список моделей в кластере, выполните команду:
 
     ```bash
-    {{ yc-mdb-ch }} ml-model list --cluster-name=<имя_кластера>
+    yc managed-clickhouse ml-model list --cluster-name=<имя_кластера>
     ```
 
     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -51,13 +51,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [MlModel.List](../api-ref/MlModel/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [MlModel.List](../api-ref/MlModel/list.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/mlModels'
+            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/mlModels'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -79,7 +79,7 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [MlModelService.List](../api-ref/grpc/MlModel/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [MlModelService.List](../api-ref/grpc/MlModel/list.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -91,7 +91,7 @@
             -d '{
                     "cluster_id": "<идентификатор_кластера>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.clickhouse.v1.MlModelService.List
         ```
 
@@ -107,20 +107,20 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** на панели слева.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение** на панели слева.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы получить детальную информацию о модели, выполните команду:
 
     ```bash
-    {{ yc-mdb-ch }} ml-model get <имя_модели> \
+    yc managed-clickhouse ml-model get <имя_модели> \
       --cluster-name=<имя_кластера>
     ```
 
@@ -134,13 +134,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [MlModel.Get](../api-ref/MlModel/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [MlModel.Get](../api-ref/MlModel/get.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/mlModels/<название_модели>'
+            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/mlModels/<название_модели>'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), название модели — со [списком моделей](#list) в кластере.
@@ -162,7 +162,7 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [MlModelService.Get](../api-ref/grpc/MlModel/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [MlModelService.Get](../api-ref/grpc/MlModel/get.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -175,7 +175,7 @@
                     "cluster_id": "<идентификатор_кластера>",
                     "ml_model_name": "<название_модели>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.clickhouse.v1.MlModelService.Get
         ```
 
@@ -199,29 +199,29 @@
 
     1. Выберите кластер:
 
-        1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-        1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** на панели слева.
-        1. Нажмите **{{ ui-key.yacloud.clickhouse.cluster.ml-models.button-action_add-ml-model }}**.
+        1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+        1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+        1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение** на панели слева.
+        1. Нажмите **Создать модель**.
 
     1. Настройте параметры модели:
 
-        * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-type }}** — `ML_MODEL_TYPE_CATBOOST`.
-        * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-name }}** — имя модели. Имя модели — один из аргументов функции `catboostEvaluate()`, которая нужна для вызова модели в {{ CH }}.
-        * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-uri }}** — адрес модели в {{ objstorage-full-name }}.
+        * **Тип** — `ML_MODEL_TYPE_CATBOOST`.
+        * **Имя** — имя модели. Имя модели — один из аргументов функции `catboostEvaluate()`, которая нужна для вызова модели в ClickHouse®.
+        * **URL** — адрес модели в Yandex Object Storage.
 
-    1. Нажмите **{{ ui-key.yacloud.clickhouse.cluster.ml-models.label_add-ml-model }}** и дождитесь окончания создания модели.
+    1. Нажмите **Создать** и дождитесь окончания создания модели.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы создать модель, выполните команду:
 
     ```bash
-    {{ yc-mdb-ch }} ml-model create <имя_модели> \
+    yc managed-clickhouse ml-model create <имя_модели> \
       --cluster-name=<имя_кластера> \
       --type=ML_MODEL_TYPE_CATBOOST \
       --uri=<ссылка_на_файл_модели_в_Object_Storage>
@@ -230,13 +230,13 @@
     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Добавьте к описанию кластера {{ mch-name }} блок `ml_model` с описанием подключаемой модели машинного обучения:
+    1. Добавьте к описанию кластера Managed Service for ClickHouse® блок `ml_model` с описанием подключаемой модели машинного обучения:
 
         ```hcl
         resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
@@ -251,14 +251,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -280,11 +280,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mch-name }}:
+    Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for ClickHouse®:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 60 минут;
     * изменение — 90 минут;
@@ -320,7 +320,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [MlModel.Create](../api-ref/MlModel/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [MlModel.Create](../api-ref/MlModel/create.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
@@ -339,7 +339,7 @@
 
         * `mlModelName` — имя модели;
         * `type` — тип модели, всегда принимает значение `ML_MODEL_TYPE_CATBOOST`;
-        * `uri` — ссылка на файл с моделью в {{ objstorage-name }}.
+        * `uri` — ссылка на файл с моделью в Object Storage.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -360,7 +360,7 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [MlModelService.Create](../api-ref/grpc/MlModel/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [MlModelService.Create](../api-ref/grpc/MlModel/create.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -375,7 +375,7 @@
                     "type": "ML_MODEL_TYPE_CATBOOST",
                     "uri": "<ссылка_на_файл>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.clickhouse.v1.MlModelService.Create
         ```
 
@@ -383,7 +383,7 @@
 
         * `ml_model_name` — имя модели;
         * `type` — тип модели, всегда принимает значение `ML_MODEL_TYPE_CATBOOST`;
-        * `uri` — ссылка на файл с моделью в {{ objstorage-name }}.
+        * `uri` — ссылка на файл с моделью в Object Storage.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -393,7 +393,7 @@
 
 ## Применить модель {#apply}
 
-Чтобы применить модель к данным, которые хранятся в кластере {{ CH }}:
+Чтобы применить модель к данным, которые хранятся в кластере ClickHouse®:
 
 1. [Подключитесь к кластеру](connect/clients.md).
 1. Выполните SQL-запрос вида:
@@ -417,35 +417,35 @@
 
 ## Изменить модель {#update}
 
-{{ mch-name }} не отслеживает изменения в файле с моделью, который находится в бакете {{ objstorage-full-name }}.
+Managed Service for ClickHouse® не отслеживает изменения в файле с моделью, который находится в бакете Yandex Object Storage.
 
 Чтобы актуализировать содержимое модели, которая уже подключена к кластеру:
 
 
-1. [Загрузите файл](../../storage/operations/objects/upload.md) с актуальной моделью в {{ objstorage-full-name }}.
+1. [Загрузите файл](../../storage/operations/objects/upload.md) с актуальной моделью в Yandex Object Storage.
 1. [Получите ссылку](s3-access.md#get-link-to-object) на этот файл.
-1. Измените параметры модели, подключенной к {{ mch-name }}, передав новую ссылку на файл с моделью.
+1. Измените параметры модели, подключенной к Managed Service for ClickHouse®, передав новую ссылку на файл с моделью.
 
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** на панели слева.
-    1. Выберите нужную модель, нажмите на значок ![image](../../_assets/console-icons/ellipsis-vertical.svg) и выберите пункт **{{ ui-key.yacloud.clickhouse.cluster.ml-models.button_action-edit-ml-model }}**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение** на панели слева.
+    1. Выберите нужную модель, нажмите на значок ![image](../../_assets/console-icons/ellipsis-vertical.svg) и выберите пункт **Изменить**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-    Чтобы изменить ссылку на файл с моделью в бакете {{ objstorage-full-name }}, выполните команду:
+    Чтобы изменить ссылку на файл с моделью в бакете Yandex Object Storage, выполните команду:
 
     ```bash
-    {{ yc-mdb-ch }} ml-model update <имя_модели> \
+    yc managed-clickhouse ml-model update <имя_модели> \
       --cluster-name=<имя_кластера> \
       --uri=<новая_ссылка_на_файл_в_Object_Storage>
     ```
@@ -453,13 +453,13 @@
     Имя модели можно запросить со [списком моделей в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Измените в описании кластера {{ mch-name }} значение параметра `uri` в блоке `ml_model`:
+    1. Измените в описании кластера Managed Service for ClickHouse® значение параметра `uri` в блоке `ml_model`:
 
         ```hcl
         resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
@@ -474,14 +474,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -503,11 +503,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mch-name }}:
+    Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for ClickHouse®:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 60 минут;
     * изменение — 90 минут;
@@ -543,7 +543,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [MlModel.Update](../api-ref/MlModel/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [MlModel.Update](../api-ref/MlModel/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -569,7 +569,7 @@
 
             В данном случае указан только один параметр: `uri`.
 
-        * `uri` — ссылка на новый файл с моделью в {{ objstorage-name }}.
+        * `uri` — ссылка на новый файл с моделью в Object Storage.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -590,7 +590,7 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [MlModelService.Update](../api-ref/grpc/MlModel/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [MlModelService.Update](../api-ref/grpc/MlModel/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -628,7 +628,7 @@
                     },
                     "uri": "<ссылка_на_файл>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.clickhouse.v1.MlModelService.Create
         ```
 
@@ -639,7 +639,7 @@
 
             В данном случае указан только один параметр: `uri`.
 
-        * `uri` — ссылка на новый файл с моделью в {{ objstorage-name }}.
+        * `uri` — ссылка на новый файл с моделью в Object Storage.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -652,7 +652,7 @@
 {% note info %}
 
 
-После отключения модели соответствующий объект остается в бакете {{ objstorage-full-name }}. Если этот объект модели больше не нужен, его можно [удалить](../../storage/operations/objects/delete.md).
+После отключения модели соответствующий объект остается в бакете Yandex Object Storage. Если этот объект модели больше не нужен, его можно [удалить](../../storage/operations/objects/delete.md).
 
 
 {% endnote %}
@@ -661,45 +661,45 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** на панели слева.
-    1. Выберите нужную модель, нажмите на значок ![image](../../_assets/console-icons/ellipsis-vertical.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение** на панели слева.
+    1. Выберите нужную модель, нажмите на значок ![image](../../_assets/console-icons/ellipsis-vertical.svg) и выберите пункт **Удалить**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы отключить модель, выполните команду:
 
     ```bash
-    {{ yc-mdb-ch }} ml-model delete <имя_модели> \
+    yc managed-clickhouse ml-model delete <имя_модели> \
       --cluster-name=<имя_кластера>
     ```
 
     Имя модели можно запросить со [списком моделей в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Удалите из описания кластера {{ mch-name }} блок описания нужной модели `ml_model`.
+    1. Удалите из описания кластера Managed Service for ClickHouse® блок описания нужной модели `ml_model`.
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -721,11 +721,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mch-name }}:
+    Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for ClickHouse®:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 60 минут;
     * изменение — 90 минут;
@@ -761,13 +761,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [MlModel.Delete](../api-ref/MlModel/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [MlModel.Delete](../api-ref/MlModel/delete.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request DELETE \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/mlModels/<название_модели>'
+            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/mlModels/<название_модели>'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), название модели — со [списком моделей](#list) в кластере.
@@ -789,7 +789,7 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [MlModelService.Delete](../api-ref/grpc/MlModel/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [MlModelService.Delete](../api-ref/grpc/MlModel/delete.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -802,7 +802,7 @@
                     "cluster_id": "<идентификатор_кластера>",
                     "ml_model_name": "<название_схемы>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.clickhouse.v1.MlModelService.Delete
         ```
 
@@ -814,7 +814,7 @@
 
 ## Пример {#example-ml-model}
 
-Если у вас еще нет подходящего набора данных и модели для его обработки, вы можете протестировать машинное обучение в {{ mch-short-name }} на этом примере. Для него мы подготовили файл с данными и обучили модель для их [анализа](../../glossary/data-analytics.md). Вы сможете загрузить данные в {{ CH }} и посмотреть на предсказания модели для разных строк таблицы.
+Если у вас еще нет подходящего набора данных и модели для его обработки, вы можете протестировать машинное обучение в Managed Service for ClickHouse® на этом примере. Для него мы подготовили файл с данными и обучили модель для их [анализа](../../glossary/data-analytics.md). Вы сможете загрузить данные в ClickHouse® и посмотреть на предсказания модели для разных строк таблицы.
 
 {% note info %}
 
@@ -822,16 +822,16 @@
 
 {% endnote %}
 
-Чтобы загрузить данные в {{ CH }} и протестировать модель:
+Чтобы загрузить данные в ClickHouse® и протестировать модель:
 
-1. В [консоли управления]({{ link-console-main }}) подключите тестовую модель:
+1. В [консоли управления](https://console.yandex.cloud) подключите тестовую модель:
 
-    * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-type }}** — `ML_MODEL_TYPE_CATBOOST`.
-    * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-name }}** — `ml_test`.
-    * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-uri }}** — `https://{{ s3-storage-host-mch }}/catboost_model.bin`.
+    * **Тип** — `ML_MODEL_TYPE_CATBOOST`.
+    * **Имя** — `ml_test`.
+    * **URL** — `https://storage.yandexcloud.net/managed-clickhouse/catboost_model.bin`.
 
 
-1. [Скачайте файл с данными](https://{{ s3-storage-host }}/doc-files/managed-clickhouse/train.csv) для анализа.
+1. [Скачайте файл с данными](https://storage.yandexcloud.net/doc-files/managed-clickhouse/train.csv) для анализа.
 
 
 1. [Подключитесь к кластеру](connect/clients.md).
@@ -903,4 +903,4 @@
         LIMIT 10;
         ```
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

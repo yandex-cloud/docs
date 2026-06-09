@@ -5,7 +5,7 @@ Deletes the specified secret.
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}
+DELETE https://lockbox.api.cloud.yandex.net/lockbox/v1/secrets/{secretId}
 ```
 
 ## Path parameters

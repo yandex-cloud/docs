@@ -1,11 +1,11 @@
-# Пошаговые инструкции для {{ msp-full-name }}
+# Пошаговые инструкции для Yandex Managed Service for Apache Spark™
 
 ## Кластеры {#clusters}
 
 * [Информация об имеющихся кластерах](cluster-list.md)
 * [Создание кластера](cluster-create.md)
 * [Изменение кластера](cluster-update.md)
-* [Обновление версии {{ SPRK }}](cluster-version-update.md)
+* [Обновление версии Apache Spark™](cluster-version-update.md)
 * [Остановка и запуск кластера](cluster-stop.md)
 * [Подключение к кластеру](connect.md)
 * [Управление доступом к кластеру](cluster-access.md)

@@ -1,6 +1,6 @@
 # Создать Python-пакет
 
-В этой инструкции описано, как создать Python-пакет для последующей загрузки в реестр {{ cloud-registry-name }}.
+В этой инструкции описано, как создать Python-пакет для последующей загрузки в реестр Cloud Registry.
 
 ## Структура Python-пакета {#package-structure}
 
@@ -228,6 +228,6 @@ my_package/              # Корневая директория проекта
 
 ## Что дальше {#what-is-next}
 
-* [{#T}](push.md)
-* [{#T}](pull.md)
-* [{#T}](examples.md)
+* [Загрузить Python-пакет в локальный реестр Cloud Registry](push.md)
+* [Скачать Python-пакет из реестра Cloud Registry](pull.md)
+* [Примеры работы с PyPI-реестрами](examples.md)

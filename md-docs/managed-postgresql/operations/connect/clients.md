@@ -1,8 +1,8 @@
-# Подключение к кластеру {{ PG }} из приложений
+# Подключение к кластеру PostgreSQL из приложений
 
-К кластеру {{ PG }} можно подключиться с помощью [инструментов командной строки](#command-line-tools), из [графических IDE](#connection-ide), [{{ websql-full-name }}](#websql), [{{ pgadmin }}](#connection-pgadmin), [{{ google-looker }}](#connection-google-looker) и [Docker-контейнера](#connection-docker). О подключении из кода вашего приложения см. [Примеры кода](code-examples.md).
+К кластеру PostgreSQL можно подключиться с помощью [инструментов командной строки](#command-line-tools), из [графических IDE](#connection-ide), [Yandex WebSQL](#websql), [pgAdmin 4](#connection-pgadmin), [Looker Studio](#connection-google-looker) и [Docker-контейнера](#connection-docker). О подключении из кода вашего приложения см. [Примеры кода](code-examples.md).
 
-Вы можете подключаться к хостам кластера {{ PG }} с использованием SSL-сертификатов. В примерах ниже предполагается, что сертификат `root.crt` расположен в директории:
+Вы можете подключаться к хостам кластера PostgreSQL с использованием SSL-сертификатов. В примерах ниже предполагается, что сертификат `root.crt` расположен в директории:
 
 * `/home/<домашняя_директория>/.postgresql/` для Ubuntu;
 * `$HOME\AppData\Roaming\postgresql` для Windows.
@@ -11,7 +11,7 @@
 
 ## Инструменты командной строки {#command-line-tools}
 
-Примеры кода с заполненным FQDN хоста доступны в [консоли управления]({{ link-console-main }}) по нажатию кнопки **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}** на странице кластера.
+Примеры кода с заполненным FQDN хоста доступны в [консоли управления](https://console.yandex.cloud) по нажатию кнопки **Подключиться** на странице кластера.
 
 ### Linux (Bash) {#bash}
 
@@ -36,7 +36,7 @@ sudo apt update && sudo apt install --yes postgresql-client
             target_session_attrs=read-write"
       ```
  
-      В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>` (пример: `{{ host-name }}.{{ dns-zone }}`).    
+      В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>` (пример: `rc1a-goh2a9tr********.mdb.yandexcloud.net`).    
  
       После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 
@@ -52,14 +52,14 @@ sudo apt update && sudo apt install --yes postgresql-client
 
       ```bash
       psql "host=<список_хостов_кластера> \
-            port={{ port-mpg }} \
+            port=6432 \
             sslmode=verify-full \
             dbname=<имя_БД> \
             user=<имя_пользователя> \
             target_session_attrs=read-write"
       ```
   
-      В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>` (пример: `{{ host-name }}.{{ dns-zone }}`).
+      В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>` (пример: `rc1a-goh2a9tr********.mdb.yandexcloud.net`).
 
       После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 
@@ -73,7 +73,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 ### Windows (PowerShell) {#powershell}
 
-Перед подключением установите [{{ PG }} для Windows](https://www.postgresql.org/download/windows/) той же версии, которая используется в кластере. Выберите только установку *Command Line Tools*.
+Перед подключением установите [PostgreSQL для Windows](https://www.postgresql.org/download/windows/) той же версии, которая используется в кластере. Выберите только установку *Command Line Tools*.
 
 {% list tabs group=connection %}
 
@@ -90,12 +90,12 @@ sudo apt update && sudo apt install --yes postgresql-client
      ```powershell
      & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" `
            --host=<список_хостов> `
-           --port={{ port-mpg }} `
+           --port=6432 `
            --username=<имя_пользователя> `
            <имя_БД>
      ```
 
-     В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>` (пример: `{{ host-name }}.{{ dns-zone }}`).     
+     В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>` (пример: `rc1a-goh2a9tr********.mdb.yandexcloud.net`).     
 
      После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 
@@ -118,12 +118,12 @@ sudo apt update && sudo apt install --yes postgresql-client
       ```powershell
       & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" `
         --host=<список_хостов> `
-        --port={{ port-mpg }} `
+        --port=6432 `
         --username<имя_пользователя> `
         <имя_БД>
       ```
 
-      В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>` (пример: `{{ host-name }}.{{ dns-zone }}`).
+      В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>` (пример: `rc1a-goh2a9tr********.mdb.yandexcloud.net`).
 
       После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 
@@ -138,47 +138,47 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 ### Подключение с аутентификацией через IAM {#iam}
 
-К базе данных {{ PG }} можно подключиться с помощью [интерфейса командной строки {{ yandex-cloud }} (CLI)](../../../cli/quickstart.md#install), используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation) и [локальных пользователей](../../../iam/concepts/users/accounts.md#local). Подключение с аутентификацией через IAM не требует получения SSL-сертификата или указания FQDN хостов кластера.
+К базе данных PostgreSQL можно подключиться с помощью [интерфейса командной строки Yandex Cloud (CLI)](../../../cli/quickstart.md#install), используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation) и [локальных пользователей](../../../iam/concepts/users/accounts.md#local). Подключение с аутентификацией через IAM не требует получения SSL-сертификата или указания FQDN хостов кластера.
 
-Перед подключением установите клиент {{ PG }}:
+Перед подключением установите клиент PostgreSQL:
 
 ```bash
 sudo apt update && sudo apt install --yes postgresql-client
 ```
 
-Подготовьте кластер {{ PG }} к подключению:
+Подготовьте кластер PostgreSQL к подключению:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
   1. Нажмите на имя нужного кластера.
   1. Включите публичный доступ для хостов кластера:
-     1. Выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}**.
-     1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке первого хоста и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-     1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+     1. Выберите вкладку **Хосты**.
+     1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке первого хоста и выберите пункт **Редактировать**.
+     1. Включите опцию **Публичный доступ**.
      1. Повторите операцию для остальных хостов кластера.
   1. Назначьте роль аккаунту пользователя, который будет подключаться к БД:
-     1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+     1. Выберите вкладку **Права доступа** и нажмите кнопку **Назначить роли**.
      1. Введите электронную почту пользователя, к которой привязан аккаунт.
-     1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `managed-postgresql.clusters.connector`.
-     1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
-  1. Создайте пользователя {{ PG }}:
-     1. Выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
-     1. Выберите способ аутентификации **{{ ui-key.yacloud.mdb.AuthMethodColumn.value_iam_boWet }}**.
+     1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `managed-postgresql.clusters.connector`.
+     1. Нажмите кнопку **Сохранить**.
+  1. Создайте пользователя PostgreSQL:
+     1. Выберите вкладку **Пользователи**.
+     1. Нажмите кнопку **Создать пользователя**.
+     1. Выберите способ аутентификации **IAM**.
      1. Выберите аккаунт, которому была назначена роль `managed-postgresql.clusters.connector`.
-     1. В поле **{{ ui-key.yacloud.mdb.dialogs.popup_field_permissions }}** нажмите значок ![image](../../../_assets/console-icons/plus.svg).
+     1. В поле **База данных** нажмите значок ![image](../../../_assets/console-icons/plus.svg).
      1. Выберите базу данных из выпадающего списка.
-     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
+     1. Нажмите кнопку **Сохранить**.
 
 {% endlist %}
 
-Чтобы подключиться к БД {{ PG }}, выполните команду:
+Чтобы подключиться к БД PostgreSQL, выполните команду:
 
 ```bash
-{{ yc-mdb-pg }} connect <имя_или_идентификатор_кластера> --db <имя_БД>
+yc managed-postgresql connect <имя_или_идентификатор_кластера> --db <имя_БД>
 ```
 
 
@@ -194,26 +194,26 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 Подключаться из графических IDE можно только к хостам кластера в публичном доступе с использованием SSL-сертификата.
 
-Чтобы избежать ошибок при подключении, [сохраните сертификат]({{ crt-web-path-root }}) в локальную папку, для доступа к которой не требуются права администратора.
+Чтобы избежать ошибок при подключении, [сохраните сертификат](https://storage.yandexcloud.net/cloud-certs/RootCA.pem) в локальную папку, для доступа к которой не требуются права администратора.
 
 {% list tabs group=ide %}
 
 - DataGrip {#datagrip}
 
   1. Создайте источник данных:
-     1. Выберите в меню **File** → **New** → **Data Source** → **{{ PG }}**.
+     1. Выберите в меню **File** → **New** → **Data Source** → **PostgreSQL**.
      1. Укажите параметры подключения на вкладке **General**:
         * **User**, **Password** — имя и пароль пользователя БД;
         * **URL** — строка подключения:
 
           ```http
-          jdbc:postgresql://<особый_FQDN>:{{ port-mpg }}/<имя_БД>
+          jdbc:postgresql://<особый_FQDN>:6432/<имя_БД>
           ```
 
           Также в строке подключения можно использовать список [FQDN](fqdn.md) всех хостов кластера:
 
           ```http
-          jdbc:postgresql://<хост_1_{{ PG }}>:{{ port-mpg }},...,<хост_N_{{ PG }}>:{{ port-mpg }}/<имя_БД>
+          jdbc:postgresql://<хост_1_PostgreSQL>:6432,...,<хост_N_PostgreSQL>:6432/<имя_БД>
           ```
 
         * Нажмите ссылку **Download**, чтобы загрузить драйвер соединения.
@@ -227,11 +227,11 @@ sudo apt update && sudo apt install --yes postgresql-client
 
   1. Создайте новое соединение с БД:
      1. Выберите в меню **База данных** пункт **Новое соединение**.
-     1. Выберите из списка БД **{{ PG }}**.
+     1. Выберите из списка БД **PostgreSQL**.
      1. Нажмите кнопку **Далее**.
      1. Укажите параметры подключения на вкладке **Главное**:
         * **Хост** — [особый FQDN хоста-мастера](fqdn.md#fqdn-master) или [обычный FQDN хоста](fqdn.md);
-        * **Порт** — `{{ port-mpg }}`;
+        * **Порт** — `6432`;
         * **База данных** — имя БД для подключения;
         * В блоке **Аутентификация** укажите имя и пароль пользователя БД.
      1. На вкладке **SSL**:
@@ -245,30 +245,30 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 
 
-## Подключение из {{ websql-full-name }} {#websql}
+## Подключение из Yandex WebSQL {#websql}
 
-Вы можете отправлять SQL-запросы к базам данных в кластере {{ mpg-name }} с помощью сервиса [{{ websql-full-name }}](../../../websql/index.md).
+Вы можете отправлять SQL-запросы к базам данных в кластере Managed Service for PostgreSQL с помощью сервиса [Yandex WebSQL](../../../websql/index.md).
 
-{{ websql-name }} — это сервис {{ yandex-cloud }}, который позволяет подключаться к кластерам управляемых баз данных, работать с БД, таблицами и схемами и выполнять запросы. Сервис работает в браузере, не требует дополнительной авторизации и предлагает удобные подсказки для работы с SQL-командами.
+WebSQL — это сервис Yandex Cloud, который позволяет подключаться к кластерам управляемых баз данных, работать с БД, таблицами и схемами и выполнять запросы. Сервис работает в браузере, не требует дополнительной авторизации и предлагает удобные подсказки для работы с SQL-командами.
 
-Для подключения из {{ websql-name }} в настройках кластера должна быть включена опция **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}**. Опцию можно включить при [создании](../cluster-create.md) или [изменении](../update.md#change-additional-settings) кластера.
+Для подключения из WebSQL в настройках кластера должна быть включена опция **Доступ из WebSQL**. Опцию можно включить при [создании](../cluster-create.md) или [изменении](../update.md#change-additional-settings) кластера.
 
-В кластере {{ mpg-name }} для каждого пользователя БД автоматически создается [подключение {{ connection-manager-name }}](../../../metadata-hub/concepts/connection-manager.md), которое можно использовать для подключения к БД из {{ websql-name }}. При необходимости вы также можете [создать новое подключение](../../../websql/operations/create-connection.md#connect-cluster).
+В кластере Managed Service for PostgreSQL для каждого пользователя БД автоматически создается [подключение Connection Manager](../../../metadata-hub/concepts/connection-manager.md), которое можно использовать для подключения к БД из WebSQL. При необходимости вы также можете [создать новое подключение](../../../websql/operations/create-connection.md#connect-cluster).
 
-Чтобы подключиться к БД из {{ websql-name }}:
+Чтобы подключиться к БД из WebSQL:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
+  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. Нажмите на имя нужного кластера и перейдите на вкладку **WebSQL**.
   1. Выберите нужное подключение.
 
-      Откроется подключение в сервисе {{ websql-name }}. Чтобы перейти в редактор запросов, выберите нужную БД. 
+      Откроется подключение в сервисе WebSQL. Чтобы перейти в редактор запросов, выберите нужную БД. 
       
-      Справочник по поддерживаемым запросам можно найти в [документации {{ PG }}](https://www.postgresql.org/docs/current/sql.html).
+      Справочник по поддерживаемым запросам можно найти в [документации PostgreSQL](https://www.postgresql.org/docs/current/sql.html).
 
       {% note info %}
       
@@ -278,25 +278,25 @@ sudo apt update && sudo apt install --yes postgresql-client
     
 {% endlist %}
 
-Подробнее о работе с {{ websql-name }} см. в [документации сервиса](../../../websql/operations/index.md).
+Подробнее о работе с WebSQL см. в [документации сервиса](../../../websql/operations/index.md).
 
 
 
 
-## Подключение из {{ pgadmin }} {#connection-pgadmin}
+## Подключение из pgAdmin 4 {#connection-pgadmin}
 
-Подключение проверялось для [{{ pgadmin }}](https://www.pgadmin.org) версии 7.0 в Ubuntu 20.04.
+Подключение проверялось для [pgAdmin 4](https://www.pgadmin.org) версии 7.0 в Ubuntu 20.04.
 
-Подключаться из {{ pgadmin }} можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](index.md#get-ssl-cert).
+Подключаться из pgAdmin 4 можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](index.md#get-ssl-cert).
 
 Создайте новое подключение к серверу:
 
 1. Выберите в меню **Object** → **Register** → **Server...**
-1. На вкладке **General** в поле **Name** укажите имя, под которым кластер будет отображаться в интерфейсе {{ pgadmin }}. Имя может быть любым.
+1. На вкладке **General** в поле **Name** укажите имя, под которым кластер будет отображаться в интерфейсе pgAdmin 4. Имя может быть любым.
 1. На вкладке **Connection** укажите параметры подключения:
 
     * **Host name/address** — [особый FQDN хоста-мастера](fqdn.md#fqdn-master) или обычный [FQDN](../../concepts/network.md#hostname) хоста;
-    * **Port** — `{{ port-mpg }}`;
+    * **Port** — `6432`;
     * **Maintenance database** — имя БД для подключения;
     * **Username** — имя пользователя, от имени которого выполняется подключение;
     * **Password** — пароль пользователя.
@@ -311,13 +311,13 @@ sudo apt update && sudo apt install --yes postgresql-client
 Кластер появится в списке серверов в навигационном меню.
 
 
-## Подключение из {{ google-looker }} {#connection-google-looker}
+## Подключение из Looker Studio {#connection-google-looker}
 
 
-Подключаться из [{{ google-looker }}](https://lookerstudio.google.com/overview) можно только к хостам кластера в публичном доступе.
+Подключаться из [Looker Studio](https://lookerstudio.google.com/overview) можно только к хостам кластера в публичном доступе.
 
 
-1. Сохраните [сертификат сервера]({{ crt-web-path }}) `CA.pem` в локальную папку.
+1. Сохраните [сертификат сервера](https://storage.yandexcloud.net/cloud-certs/CA.pem) `CA.pem` в локальную папку.
 1. В той же папке сгенерируйте сертификат клиента с приватным ключом:
 
     ```bash
@@ -328,12 +328,12 @@ sudo apt update && sudo apt install --yes postgresql-client
 
     В локальной папке появятся два файла: `cert.pem` и `private.pem`.
 
-1. На [странице навигации {{ google-looker }}](https://lookerstudio.google.com/navigation/reporting) выберите **Создать** → **Источник данных**.
-1. Выберите {{ PG }}.
+1. На [странице навигации Looker Studio](https://lookerstudio.google.com/navigation/reporting) выберите **Создать** → **Источник данных**.
+1. Выберите PostgreSQL.
 1. Заполните поля:
 
     * **Имя хоста или IP-адрес** — [особый FQDN хоста-мастера](fqdn.md#fqdn-master) или обычный [FQDN](../../concepts/network.md#hostname) хоста;
-    * **Порт** — `{{ port-mpg }}`;
+    * **Порт** — `6432`;
     * **База данных** — имя БД для подключения;
     * **Имя пользователя** — имя пользователя, от имени которого выполняется подключение;
     * **Пароль** — пароль пользователя.
@@ -349,7 +349,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 ## Подготовка к подключению из Docker-контейнера {#connection-docker}
 
-Чтобы подключаться к кластеру {{ mpg-name }} из Docker-контейнера, добавьте в Dockerfile строки:
+Чтобы подключаться к кластеру Managed Service for PostgreSQL из Docker-контейнера, добавьте в Dockerfile строки:
 
 
 {% list tabs group=connection %}
@@ -361,7 +361,7 @@ sudo apt update && sudo apt install --yes postgresql-client
         apt-get install postgresql-client --yes
     ```
 
-    Пример подключения из {{ serverless-containers-full-name }} см. в [практическом руководстве](../../../serverless-containers/tutorials/pg-connect.md).
+    Пример подключения из Yandex Serverless Containers см. в [практическом руководстве](../../../serverless-containers/tutorials/pg-connect.md).
 
 - Подключение с SSL {#with-ssl}
 
@@ -369,7 +369,7 @@ sudo apt update && sudo apt install --yes postgresql-client
     RUN apt-get update && \
         apt-get install wget postgresql-client --yes && \
         mkdir --parents ~/.postgresql && \
-        wget "{{ crt-web-path }}" \
+        wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
              --output-document ~/.postgresql/root.crt && \
         chmod 0655 ~/.postgresql/root.crt
     ```

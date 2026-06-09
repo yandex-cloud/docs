@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-С 1 июля 2026 года сервис {{ load-testing-name }} прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../sunset.md).
+С 1 июля 2026 года сервис Load Testing прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../sunset.md).
 
 {% endnote %}
 
@@ -78,10 +78,10 @@ autostop:
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/loadtesting-https-phantom.md)
-* [{#T}](../tutorials/loadtesting-https-pandora.md)
-* [{#T}](../tutorials/loadtesting-gitlab-ci.md#add-loadtesting-ci)
-* [{#T}](../tutorials/loadtesting-multiply.md)
-* [{#T}](../tutorials/loadtesting-http-scenario-pandora.md)
-* [{#T}](../tutorials/loadtesting-grpc-autoscaling.md)
-* [{#T}](../tutorials/loadtesting-grpc.md)
+* [HTTPS-тест с постоянной нагрузкой с помощью Phantom](../tutorials/loadtesting-https-phantom.md)
+* [HTTPS-тест со ступенчатой нагрузкой с помощью Pandora](../tutorials/loadtesting-https-pandora.md)
+* [Добавьте этап нагрузочного тестирования в файл конфигурации сценария CI](../tutorials/loadtesting-gitlab-ci.md#add-loadtesting-ci)
+* [Нагрузочное тестирование с нескольких агентов](../tutorials/loadtesting-multiply.md)
+* [HTTP-тест с нагрузкой по сценарию с помощью Pandora](../tutorials/loadtesting-http-scenario-pandora.md)
+* [Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием в Yandex Managed Service for Kubernetes](../tutorials/loadtesting-grpc-autoscaling.md)
+* [Нагрузочное тестирование gRPC-сервиса](../tutorials/loadtesting-grpc.md)

@@ -33,11 +33,11 @@
 
 #### Связанные статьи {#related-articles}
 
-* [{#T}](../../../concepts/policy.md)
+* [Политика доступа (bucket policy)](../../../concepts/policy.md)
 
 #### См. также {#see-also}
 
-* [{#T}](../../s3-api-quickstart.md)
+* [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
 
 * [Отладка запросов с помощью утилиты AWS CLI](../../signing-requests.md#debugging)
 

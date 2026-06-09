@@ -30,7 +30,7 @@
       * `true` — включить опцию.
       * `false` — отключить опцию.
 
-  * `codes` — список кодов перенаправления, по которым {{ cdn-name }} будет следовать. Возможные значения:
+  * `codes` — список кодов перенаправления, по которым Cloud CDN будет следовать. Возможные значения:
       * `301` — Moved Permanently (перемещено навсегда).
       * `302` — Found (найдено).
       * `303` — See Other (смотреть другое).
@@ -61,7 +61,7 @@
       * `true` — включить опцию.
       * `false` — отключить опцию.
 
-  * `codes` — список кодов перенаправления, по которым {{ cdn-name }} будет следовать. Возможные значения:
+  * `codes` — список кодов перенаправления, по которым Cloud CDN будет следовать. Возможные значения:
       * `301` — Moved Permanently (перемещено навсегда).
       * `302` — Found (найдено).
       * `303` — See Other (смотреть другое).
@@ -96,7 +96,7 @@
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://cdn.{{ api-host }}/cdn/v1/resources' \
+        --url 'https://cdn.api.cloud.yandex.net/cdn/v1/resources' \
         --data '{
           "folderId": "b12m81qm6abc********",
           "cname": "cdn-shop.example.com",
@@ -173,7 +173,7 @@
                 }
               }
             }' \
-        cdn.{{ api-host }}:443 \
+        cdn.api.cloud.yandex.net:443 \
         yandex.cloud.cdn.v1.ResourceService/Create
       ```
 
@@ -200,13 +200,13 @@
 
     - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором расположен ресурс.
+      1. Перейдите в сервис **Cloud CDN**.
       1. Нажмите на имя необходимого ресурса.
-      1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_shielding }}**.
+      1. Перейдите на вкладку **Экранирование источников**.
       1. В правом верхнем углу включите опцию экранирования источников.
-      1. В окне **{{ ui-key.yacloud.cdn.label_shielding-settings-title }}** в поле **{{ ui-key.yacloud.cdn.label_shielding-location }}** выберите необходимую локацию.
-      1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_activate-shielding }}**.
+      1. В окне **Настройки экранирования** в поле **Локация** выберите необходимую локацию.
+      1. Нажмите кнопку **Включить**.
       
       После включения статус экранирования изменится с `Not activated` на `Active`.
 
@@ -222,7 +222,7 @@
               "resource_id": "bc8rskqqnd23********",
               "location_id": "1"
             }' \
-        cdn.{{ api-host }}:443 \
+        cdn.api.cloud.yandex.net:443 \
         yandex.cloud.cdn.v1.ShieldingService/Activate
       ```
 

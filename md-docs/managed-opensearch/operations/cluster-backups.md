@@ -1,12 +1,12 @@
-# Управление резервными копиями в {{ mos-name }}
+# Управление резервными копиями в Managed Service for OpenSearch
 
-{{ mos-short-name }} позволяет создавать резервные копии [индексов](../concepts/indexing.md) как средствами {{ yandex-cloud }}, так и с помощью механизма [снапшотов](../../glossary/snapshot.md) {{ OS }}. Подробнее о механизме снапшотов см. в [документации {{ OS }}]({{ os.docs }}/opensearch/snapshots/snapshot-restore/).
+Managed Service for OpenSearch позволяет создавать резервные копии [индексов](../concepts/indexing.md) как средствами Yandex Cloud, так и с помощью механизма [снапшотов](../../glossary/snapshot.md) OpenSearch. Подробнее о механизме снапшотов см. в [документации OpenSearch](https://opensearch.org/docs/latest/opensearch/snapshots/snapshot-restore/).
 
-## Резервное копирование средствами {{ yandex-cloud }} {#cloud-backups}
+## Резервное копирование средствами Yandex Cloud {#cloud-backups}
 
 Вы можете создавать [резервные копии](../concepts/backup.md) и восстанавливать кластеры из имеющихся резервных копий.
 
-Также {{ mos-name }} каждый час создает автоматическую резервную копию.
+Также Managed Service for OpenSearch каждый час создает автоматическую резервную копию.
 
 ### Получить список резервных копий {#list-backups}
 
@@ -18,26 +18,26 @@
 
     Чтобы получить список резервных копий кластера:
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
 
     Чтобы получить список всех резервных копий в каталоге:
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. Выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы получить список всех резервных копий в каталоге, выполните команду:
 
     ```bash
-    {{ yc-mdb-os }} backup list
+    yc managed-opensearch backup list
     ```
 
     Результат:
@@ -51,7 +51,7 @@
     +----------------------+---------------------+-------------------+---------------------+
     ```
 
-    Если вы хотите ограничить список резервных копий, который выводится после запуска команды, передайте в команду параметр `--limit <количество_записей>`. Например, если вывод команды `{{ yc-mdb-os }} backup list` занимает несколько экранов, выполните команду `{{ yc-mdb-os }} backup list --limit 5`. Тогда вывод будет содержать список из последних пяти резервных копий.
+    Если вы хотите ограничить список резервных копий, который выводится после запуска команды, передайте в команду параметр `--limit <количество_записей>`. Например, если вывод команды `yc managed-opensearch backup list` занимает несколько экранов, выполните команду `yc managed-opensearch backup list --limit 5`. Тогда вывод будет содержать список из последних пяти резервных копий.
 
 - REST API {#api}
 
@@ -63,13 +63,13 @@
 
     1. Чтобы получить список резервных копий кластера:
 
-        1. Воспользуйтесь методом [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+        1. Воспользуйтесь методом [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
             ```bash
             curl \
                 --request GET \
                 --header "Authorization: Bearer $IAM_TOKEN" \
-                --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>/backups'
+                --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>/backups'
             ```
 
             Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -78,13 +78,13 @@
 
     1. Чтобы получить список резервных копий всех кластеров в каталоге:
 
-        1. Воспользуйтесь методом [Backup.List](../api-ref/Backup/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+        1. Воспользуйтесь методом [Backup.List](../api-ref/Backup/list.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
             ```bash
             curl \
                 --request GET \
                 --header "Authorization: Bearer $IAM_TOKEN" \
-                --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/backups' \
+                --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/backups' \
                 --url-query folderId=<идентификатор_каталога>
             ```
 
@@ -111,7 +111,7 @@
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
     1. Чтобы получить список резервных копий кластера:
 
-        1. Воспользуйтесь вызовом [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+        1. Воспользуйтесь вызовом [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
             ```bash
             grpcurl \
@@ -123,7 +123,7 @@
                 -d '{
                       "cluster_id": "<идентификатор_кластера>"
                     }' \
-                {{ api-host-mdb }}:{{ port-https }} \
+                mdb.api.cloud.yandex.net:443 \
                 yandex.cloud.mdb.opensearch.v1.ClusterService.ListBackups
             ```
 
@@ -133,7 +133,7 @@
 
     1. Чтобы получить список резервных копий всех кластеров в каталоге:
 
-        1. Воспользуйтесь вызовом [BackupService.List](../api-ref/grpc/Backup/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+        1. Воспользуйтесь вызовом [BackupService.List](../api-ref/grpc/Backup/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
             ```bash
             grpcurl \
@@ -145,7 +145,7 @@
                 -d '{
                       "folder_id": "<идентификатор_каталога>"
                     }' \
-                {{ api-host-mdb }}:{{ port-https }} \
+                mdb.api.cloud.yandex.net:443 \
                 yandex.cloud.mdb.opensearch.v1.BackupService.List
             ```
 
@@ -165,19 +165,19 @@
 
     Чтобы получить информацию о резервной копии существующего кластера:
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
 
     Чтобы получить информацию о резервной копии удаленного ранее кластера:
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. Выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -186,7 +186,7 @@
     1. Получите идентификатор резервной копии вместе со списком всех резервных копий в каталоге:
 
         ```bash
-        {{ yc-mdb-os }} backup list
+        yc managed-opensearch backup list
         ```
 
         Идентификатор указан в столбце `ID` в выводе команды.
@@ -194,14 +194,14 @@
     1. Получите информацию о нужной резервной копии:
 
         ```bash
-        {{ yc-mdb-os }} backup get <идентификатор_резервной_копии>
+        yc managed-opensearch backup get <идентификатор_резервной_копии>
         ```
 
         Пример результата команды:
 
         ```text
         id: c9qlk4v13uq7********
-        folder_id: {{ folder-id-example }}
+        folder_id: b1g86q4m5vej********
         source_cluster_id: c9qpm4i********
         started_at: "2024-01-09T10:38:28.683Z"
         created_at: "2024-01-09T10:38:31.685Z"
@@ -224,13 +224,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Backup.Get](../api-ref/Backup/get.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Backup.Get](../api-ref/Backup/get.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/backups/<идентификатор_резервной_копии>'
+            --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/backups/<идентификатор_резервной_копии>'
         ```
 
         Идентификатор резервной копии можно запросить со [списком резервных копий](#list-backups).
@@ -252,7 +252,7 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [BackupService.Get](../api-ref/grpc/Backup/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [BackupService.Get](../api-ref/grpc/Backup/get.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -264,7 +264,7 @@
             -d '{
                   "backup_id": "<идентификатор_резервной_копии>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.opensearch.v1.BackupService.Get
         ```
 
@@ -280,23 +280,23 @@
 
 - Консоль управления {#console}
   
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
-    1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
+    1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Создать резервную копию**.
 
     Сервис начнет создавать резервную копию без дополнительного подтверждения.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы создать резервную копию данных кластера, выполните команду:
 
     ```bash
-    {{ yc-mdb-os }} cluster backup <имя_или_идентификатор_кластера>
+    yc managed-opensearch cluster backup <имя_или_идентификатор_кластера>
     ```
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -309,14 +309,14 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Backup](../api-ref/Cluster/backup.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Backup](../api-ref/Cluster/backup.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>:backup'
+            --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>:backup'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -338,7 +338,7 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -350,7 +350,7 @@
             -d '{
                   "cluster_id": "<идентификатор_кластера>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.opensearch.v1.ClusterService.Backup
         ```
 
@@ -379,7 +379,7 @@
 Для нового кластера необходимо задать все параметры, обязательные при его создании.
 
 
-Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли:
+Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роли:
 
 * [managed-opensearch.restorer](../../iam/roles-reference.md#managed-opensearch-restorer) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
 * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше, если вы восстанавливаете из резервной копии кластер с привязкой к [сервисному аккаунту](../../iam/concepts/users/service-accounts.md).
@@ -391,28 +391,28 @@
 
     Чтобы восстановить из резервной копии существующий кластер:
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
-    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
+    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **Восстановить кластер**.
     1. Задайте настройки нового кластера.
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
+    1. Нажмите кнопку **Восстановить кластер**.
 
     Чтобы восстановить из резервной копии удаленный ранее кластер:
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
-    1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **{{ ui-key.yacloud.common.id }}** содержатся идентификаторы в формате `<идентификатор_кластера>:<идентификатор_резервной_копии>`.
-    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. Выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
+    1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **Идентификатор** содержатся идентификаторы в формате `<идентификатор_кластера>:<идентификатор_резервной_копии>`.
+    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **Восстановить кластер**.
     1. Задайте настройки нового кластера.
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
+    1. Нажмите кнопку **Восстановить кластер**.
 
-    {{ mos-name }} запустит операцию создания кластера из резервной копии.
+    Managed Service for OpenSearch запустит операцию создания кластера из резервной копии.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -421,7 +421,7 @@
     1. Получите идентификатор резервной копии вместе со списком всех резервных копий в каталоге:
 
         ```bash
-        {{ yc-mdb-os }} backup list
+        yc managed-opensearch backup list
         ```
 
         Результат:
@@ -440,7 +440,7 @@
     1. Запросите создание кластера из резервной копии:
 
         ```bash
-        {{ yc-mdb-os }} cluster restore --backup-id <идентификатор_резервной_копии>
+        yc managed-opensearch cluster restore --backup-id <идентификатор_резервной_копии>
         ```
 
         В команде также можно передать параметры, которые задаются при создании кластера. Описание таких параметров читайте в разделе [Создание кластера](cluster-create.md).
@@ -463,12 +463,12 @@
             "environment": "<окружение>",
             "networkId": "<идентификатор_сети>",
             "configSpec": {
-                "version": "<версия_{{ OS }}>",
+                "version": "<версия_OpenSearch>",
                 "adminPassword": "<пароль_пользователя-администратора>",
                 "opensearchSpec": {
                     "nodeGroups": [
                         {
-                            "name": "<имя_группы_хостов_{{ OS }}>",
+                            "name": "<имя_группы_хостов_OpenSearch>",
                             "resources": {
                                 "resourcePresetId": "<класс_хостов>",
                                 "diskSize": "<размер_хранилища_в_байтах>",
@@ -525,7 +525,7 @@
         * `networkId` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
         * `configSpec` — настройки кластера:
 
-            * `version` — версия {{ OS }}.
+            * `version` — версия OpenSearch.
             * `adminPassword` — пароль пользователя `admin`.
 
                 Пароль должен содержать 3 из 4 групп символов:
@@ -537,7 +537,7 @@
                 
                 Длина пароля — от 10 до 72 символов.
 
-            * `opensearchSpec` — настройки групп хостов `{{ OS }}`. Содержат массив элементов `nodeGroups`. Каждый элемент соответствует отдельной группе хостов и имеет следующую структуру:
+            * `opensearchSpec` — настройки групп хостов `OpenSearch`. Содержат массив элементов `nodeGroups`. Каждый элемент соответствует отдельной группе хостов и имеет следующую структуру:
 
                 * `name` — имя группы хостов.
                 * `resources` — ресурсы кластера:
@@ -553,14 +553,14 @@
 
             * `dashboardsSpec` — настройки групп хостов `Dashboards`. Содержат массив элементов `nodeGroups`, структура которого совпадает со структурой `opensearchSpec.nodeGroups`. Исключение — параметр `roles`: у хостов `Dashboards` есть только одна роль `DASHBOARDS`, поэтому ее не нужно указывать.
 
-    1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters:restore' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters:restore' \
             --data "@body.json"
         ```
 
@@ -591,12 +591,12 @@
             "environment": "<окружение>",
             "network_id": "<идентификатор_сети>",
             "config_spec": {
-                "version": "<версия_{{ OS }}>",
+                "version": "<версия_OpenSearch>",
                 "admin_password": "<пароль_пользователя-администратора>",
                 "opensearch_spec": {
                     "node_groups": [
                         {
-                            "name": "<имя_группы_хостов_{{ OS }}>",
+                            "name": "<имя_группы_хостов_OpenSearch>",
                             "resources": {
                                 "resource_preset_id": "<класс_хостов>",
                                 "disk_size": "<размер_хранилища_в_байтах>",
@@ -653,7 +653,7 @@
         * `network_id` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
         * `config_spec` — настройки кластера:
 
-            * `version` — версия {{ OS }}.
+            * `version` — версия OpenSearch.
             * `admin_password` — пароль пользователя `admin`.
 
                 Пароль должен содержать 3 из 4 групп символов:
@@ -665,7 +665,7 @@
                 
                 Длина пароля — от 10 до 72 символов.
 
-            * `opensearch_spec` — настройки групп хостов `{{ OS }}`. Содержат массив элементов `nodeGroups`. Каждый элемент соответствует отдельной группе хостов и имеет следующую структуру:
+            * `opensearch_spec` — настройки групп хостов `OpenSearch`. Содержат массив элементов `nodeGroups`. Каждый элемент соответствует отдельной группе хостов и имеет следующую структуру:
 
                 * `name` — имя группы хостов.
                 * `resources` — ресурсы кластера:
@@ -681,7 +681,7 @@
 
             * `dashboards_spec` — настройки групп хостов `Dashboards`. Содержат массив элементов `node_groups`, структура которого совпадает со структурой `opensearch_spec.node_groups`. Исключение — параметр `roles`: у хостов `Dashboards` есть только одна роль `DASHBOARDS`, поэтому ее не нужно указывать.
 
-    1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -691,7 +691,7 @@
             -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d @ \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.opensearch.v1.ClusterService.Restore \
             < body.json
         ```
@@ -706,9 +706,9 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
-    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_delete }}**.
+    1. Перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;OpenSearch**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
+    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **Удалить резервную копию**.
 
 - REST API {#api}
 
@@ -718,14 +718,14 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.DeleteBackup](../api-ref/Cluster/deleteBackup.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.DeleteBackup](../api-ref/Cluster/deleteBackup.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request DELETE \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>/backups/<идентификатор_резервной_копии>'
+            --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>/backups/<идентификатор_резервной_копии>'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -747,7 +747,7 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [ClusterService.DeleteBackup](../api-ref/grpc/Cluster/deleteBackup.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.DeleteBackup](../api-ref/grpc/Cluster/deleteBackup.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -760,7 +760,7 @@
                   "cluster_id": "<идентификатор_кластера>",
                   "backup_id": "<идентификатор_резервной_копии>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.opensearch.v1.ClusterService.deleteBackup
         ```
 
@@ -772,31 +772,31 @@
 
 ## Резервное копирование с помощью снапшотов {#snapshot-backups}
 
-Для работы со снапшотами используется [публичный API {{ OS }}]({{ os.docs }}/api-reference/index/), а для их хранения — бакет в {{ objstorage-name }}.
+Для работы со снапшотами используется [публичный API OpenSearch](https://opensearch.org/docs/latest/api-reference/index/), а для их хранения — бакет в Object Storage.
 
 {% note info %}
 
-Снапшоты, созданные средствами {{ yandex-cloud }}, помещаются в репозиторий `yc-automatic-backups` под именами `yc-automatic-backups-******` (для автоматических резервных копий) или `manual-snapshot-******` (для резервных копий, созданных вручную).
+Снапшоты, созданные средствами Yandex Cloud, помещаются в репозиторий `yc-automatic-backups` под именами `yc-automatic-backups-******` (для автоматических резервных копий) или `manual-snapshot-******` (для резервных копий, созданных вручную).
 
 {% endnote %}
 
 ### Получить список снапшотов {#list-snapshots}
 
-##### **Для снапшотов, создаваемых средствами {{ yandex-cloud }}**
+##### **Для снапшотов, создаваемых средствами Yandex Cloud**
 
 Получите список снапшотов в репозитории `yc-automatic-backups`:
 
  ```http
- GET https://admin:<пароль>@<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя_репозитория>/_all
+ GET https://admin:<пароль>@<идентификатор_хоста_OpenSearch_с_ролью_DATA>.mdb.yandexcloud.net:9200/_snapshot/<имя_репозитория>/_all
  ```
 Каждой резервной копии соответствует один снапшот.
 
-##### **Для снапшотов, создаваемых средствами {{ OS }}**
+##### **Для снапшотов, создаваемых средствами OpenSearch**
 
-1. Получите список репозиториев {{ OS }}:
+1. Получите список репозиториев OpenSearch:
 
     ```http
-    GET https://admin:<пароль>@<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/_all
+    GET https://admin:<пароль>@<идентификатор_хоста_OpenSearch_с_ролью_DATA>.mdb.yandexcloud.net:9200/_snapshot/_all
     ```
 
    Если нужного репозитория нет в списке, [подключите его](s3-access.md).
@@ -806,7 +806,7 @@
 1. Получите список снапшотов в репозитории:
 
     ```http
-    GET https://admin:<пароль>@<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя_репозитория>/_all
+    GET https://admin:<пароль>@<идентификатор_хоста_OpenSearch_с_ролью_DATA>.mdb.yandexcloud.net:9200/_snapshot/<имя_репозитория>/_all
     ```
 
    Каждой резервной копии соответствует один снапшот.
@@ -819,18 +819,18 @@
 
 {% endnote %}
 
-1. Найдите в списке репозиториев {{ OS }} тот, в котором нужно создать резервную копию в виде снапшота:
+1. Найдите в списке репозиториев OpenSearch тот, в котором нужно создать резервную копию в виде снапшота:
 
     ```http
-    GET https://admin:<пароль>@<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/_all
+    GET https://admin:<пароль>@<идентификатор_хоста_OpenSearch_с_ролью_DATA>.mdb.yandexcloud.net:9200/_snapshot/_all
     ```
 
     Если нужного репозитория нет в списке, [подключите его](s3-access.md).
 
-1. [Создайте снапшот]({{ os.docs }}/opensearch/snapshots/snapshot-restore/#take-snapshots) нужных данных или целого кластера в выбранном репозитории:
+1. [Создайте снапшот](https://opensearch.org/docs/latest/opensearch/snapshots/snapshot-restore/#take-snapshots) нужных данных или целого кластера в выбранном репозитории:
 
     ```http
-    PUT https://admin:<пароль>@<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя_репозитория>/<имя_снапшота>
+    PUT https://admin:<пароль>@<идентификатор_хоста_OpenSearch_с_ролью_DATA>.mdb.yandexcloud.net:9200/_snapshot/<имя_репозитория>/<имя_снапшота>
     ```
 
 
@@ -841,17 +841,17 @@
 1. Закройте восстанавливаемые индексы, если они существуют:
     
     ```http
-    POST https://admin:<пароль>@<FQDN_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/<список_индексов>/_close
+    POST https://admin:<пароль>@<FQDN_хоста_OpenSearch_с_ролью_DATA>.mdb.yandexcloud.net:9200/<список_индексов>/_close
     ```
 
-    О том, как получить FQDN хоста, читайте в разделе [{#T}](connect/fqdn.md).
+    О том, как получить FQDN хоста, читайте в разделе [FQDN хостов OpenSearch](connect/fqdn.md).
 
-    Подробнее о закрытии индексов читайте в [документации {{ OS }}]({{ os.docs }}/api-reference/index-apis/close-index/).
+    Подробнее о закрытии индексов читайте в [документации OpenSearch](https://opensearch.org/docs/latest/api-reference/index-apis/close-index/).
 
 1. Восстановите нужные индексы из снапшота:
 
     ```http
-    POST https://admin:<пароль>@<FQDN_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя_репозитория>/<имя_снапшота>/_restore?wait_for_completion=true&pretty
+    POST https://admin:<пароль>@<FQDN_хоста_OpenSearch_с_ролью_DATA>.mdb.yandexcloud.net:9200/_snapshot/<имя_репозитория>/<имя_снапшота>/_restore?wait_for_completion=true&pretty
     
     {
       "indices": "<список_индексов>",
@@ -875,42 +875,42 @@
 
     Имя снапшота можно получить со [списком снапшотов](#list-snapshots).
 
-    Подробнее о восстановлении из снапшота читайте в [документации {{ OS }}]({{ os.docs }}/api-reference/snapshots/restore-snapshot/).
+    Подробнее о восстановлении из снапшота читайте в [документации OpenSearch](https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/).
 
 
 ### Восстановить кластер из снапшота {#restore-from-snapshot}
 
 {% note warning %}
 
-При восстановлении из снапшота версия {{ OS }} в кластере должна быть не ниже версии {{ OS }}, в которой был сделан снапшот.
+При восстановлении из снапшота версия OpenSearch в кластере должна быть не ниже версии OpenSearch, в которой был сделан снапшот.
 
 {% endnote %}
 
-1. [Создайте новый кластер {{ OS }}](cluster-create.md) в нужной конфигурации, но не наполняйте его данными.
+1. [Создайте новый кластер OpenSearch](cluster-create.md) в нужной конфигурации, но не наполняйте его данными.
 
     При создании кластера выберите:
 
     * Количество и класс хостов, размер и тип хранилища исходя из размера снапшота и требований к быстродействию.
 
-    * Версию {{ OS }}, в которой был создан снапшот, или более новую.
+    * Версию OpenSearch, в которой был создан снапшот, или более новую.
 
-1. Закройте открытые индексы с помощью [{{ OS }} API]({{ os.docs }}/api-reference/index-apis/close-index/):
+1. Закройте открытые индексы с помощью [OpenSearch API](https://opensearch.org/docs/latest/api-reference/index-apis/close-index/):
 
     ```http
-    POST https://admin:<пароль>@<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/<имя_индекса>/_close
+    POST https://admin:<пароль>@<идентификатор_хоста_OpenSearch_с_ролью_DATA>.mdb.yandexcloud.net:9200/<имя_индекса>/_close
     ```
 
     Для восстановления всего кластера закройте все открытые индексы. Для восстановления отдельных индексов закройте только их.
 
 1. [Получите список резервных копий](#list-snapshots) и найдите нужный снапшот.
-1. [Запустите операцию восстановления]({{ os.docs }}/opensearch/snapshots/snapshot-restore/#restore-snapshots) из нужного снапшота всего кластера или отдельных индексов и потоков данных.
+1. [Запустите операцию восстановления](https://opensearch.org/docs/latest/opensearch/snapshots/snapshot-restore/#restore-snapshots) из нужного снапшота всего кластера или отдельных индексов и потоков данных.
 
 ### Удалить снапшот {#delete-snapshot}
 
-1. Найдите в списке репозиториев {{ OS }} тот, который содержит в себе резервные копии в виде снапшотов:
+1. Найдите в списке репозиториев OpenSearch тот, который содержит в себе резервные копии в виде снапшотов:
 
     ```http
-    GET https://admin:<пароль>@<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/_all
+    GET https://admin:<пароль>@<идентификатор_хоста_OpenSearch_с_ролью_DATA>.mdb.yandexcloud.net:9200/_snapshot/_all
     ```
 
    Если нужного репозитория нет в списке, [подключите его](s3-access.md).
@@ -918,5 +918,5 @@
 1. Удалите снапшот из репозитория:
 
     ```http
-    DELETE https://admin:<пароль>@<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя_репозитория>/<имя_снапшота>
+    DELETE https://admin:<пароль>@<идентификатор_хоста_OpenSearch_с_ролью_DATA>.mdb.yandexcloud.net:9200/_snapshot/<имя_репозитория>/<имя_снапшота>
     ```

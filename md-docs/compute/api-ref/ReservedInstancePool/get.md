@@ -6,7 +6,7 @@ To get the list of available reserved instance pool resources, make a [List](lis
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/reservedInstancePools/{reservedInstancePoolId}
+GET https://compute.api.cloud.yandex.net/compute/v1/reservedInstancePools/{reservedInstancePoolId}
 ```
 
 ## Path parameters

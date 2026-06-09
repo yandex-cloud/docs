@@ -1,11 +1,11 @@
-# Организация защищенного доступа к контенту в {{ cdn-full-name }} с помощью {{ TF }}
+# Организация защищенного доступа к контенту в Yandex Cloud CDN с помощью Terraform
 
-# Организация защищенного доступа к контенту в {{ cdn-name }} с помощью {{ TF }}
+# Организация защищенного доступа к контенту в Cloud CDN с помощью Terraform
 
-Чтобы настроить защищенный доступ к контенту в {{ cdn-name }}:
+Чтобы настроить защищенный доступ к контенту в Cloud CDN:
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Делегируйте домен сервису {{ dns-name }}](#delegate-domain).
+1. [Делегируйте домен сервису Cloud DNS](#delegate-domain).
 1. [Создайте инфраструктуру](#deploy).
 1. [Опубликуйте сайт на веб-сервере](#publish-website).
 1. [Проверьте работу защищенного доступа к файлам](#check).
@@ -15,42 +15,42 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../../billing/quickstart/index.md) и [привяжите](../../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../../billing/quickstart/index.md) и [привяжите](../../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../../../resource-manager/concepts/resources-hierarchy.md).
 
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры для организации защищенного доступа к контенту в {{ cdn-name }} входят:
+В стоимость поддержки инфраструктуры для организации защищенного доступа к контенту в Cloud CDN входят:
 
-* плата за использование [публичного IP-адреса](../../../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../../../vpc/pricing.md));
-* плата за вычислительные ресурсы и диски [ВМ](../../../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../../../compute/pricing.md));
-* плата за использование [публичной DNS-зоны](../../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы (см. [тарифы {{ dns-full-name }}](../../../../dns/pricing.md));
-* плата за [хранение данных](../../../../storage/concepts/bucket.md) в {{ objstorage-name }}, [операции](../../../../storage/operations/index.md) с ними и исходящий трафик (см. [тарифы {{ objstorage-name }}](../../../../storage/pricing.md));
-* плата за исходящий трафик с [CDN-серверов](../../../../cdn/concepts/index.md) (см. [тарифы {{ cdn-name }}](../../../../cdn/pricing.md)).
+* плата за использование [публичного IP-адреса](../../../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../../../vpc/pricing.md));
+* плата за вычислительные ресурсы и диски [ВМ](../../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../../compute/pricing.md));
+* плата за использование [публичной DNS-зоны](../../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы (см. [тарифы Yandex Cloud DNS](../../../../dns/pricing.md));
+* плата за [хранение данных](../../../../storage/concepts/bucket.md) в Object Storage, [операции](../../../../storage/operations/index.md) с ними и исходящий трафик (см. [тарифы Object Storage](../../../../storage/pricing.md));
+* плата за исходящий трафик с [CDN-серверов](../../../../cdn/concepts/index.md) (см. [тарифы Cloud CDN](../../../../cdn/pricing.md)).
 
 
-## Делегируйте домен сервису {{ dns-name }} {#delegate-domain}
+## Делегируйте домен сервису Cloud DNS {#delegate-domain}
 
-Делегируйте ваш домен сервису {{ dns-name }}. Для этого в личном кабинете вашего регистратора домена укажите в настройках домена адреса DNS-серверов `ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}`.
+Делегируйте ваш домен сервису Cloud DNS. Для этого в личном кабинете вашего регистратора домена укажите в настройках домена адреса DNS-серверов `ns1.yandexcloud.net` и `ns2.yandexcloud.net`.
 
 
 ## Создайте инфраструктуру {#deploy}
 
-[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../../terraform/index.md).
 
-Для создания инфраструктуры c помощью {{ TF }}:
+Для создания инфраструктуры c помощью Terraform:
 
-1. [Установите {{ TF }}](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+1. [Установите Terraform](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
     {% list tabs group=infrastructure_description %}
@@ -127,7 +127,7 @@
               locals {
                 sa_name          = "my-service-account"
                 network_name     = "webserver-network"
-                subnet_name      = "webserver-subnet-{{ region-id }}-b"
+                subnet_name      = "webserver-subnet-ru-central1-b"
                 sg_name          = "webserver-sg"
                 vm_name          = "mywebserver"
                 domain_zone_name = "my-domain-zone"
@@ -180,7 +180,7 @@
               
               resource "yandex_vpc_subnet" "webserver-subnet-b" {
                 name           = local.subnet_name
-                zone           = "{{ region-id }}-b"
+                zone           = "ru-central1-b"
                 network_id     = "${yandex_vpc_network.webserver-network.id}"
                 v4_cidr_blocks = ["192.168.1.0/24"]
               }
@@ -225,7 +225,7 @@
               
               resource "yandex_compute_disk" "boot-disk" {
                 type     = "network-ssd"
-                zone     = "{{ region-id }}-b"
+                zone     = "ru-central1-b"
                 size     = "20"
                 image_id = "fd8jtn9i7e9ha5q25niu"
               }
@@ -235,7 +235,7 @@
               resource "yandex_compute_instance" "mywebserver" {
                 name        = local.vm_name
                 platform_id = "standard-v2"
-                zone        = "{{ region-id }}-b"
+                zone        = "ru-central1-b"
               
                 resources {
                   cores  = "2"
@@ -403,28 +403,28 @@
 
     {% endlist %}
 
-    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+    Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
 
-    * [Сервисный аккаунт](../../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
-    * [Роль](../../../../iam/concepts/access-control/roles.md) сервисному аккаунту — [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
-    * [Статический ключ доступа](../../../../iam/concepts/authorization/access-key.md) — [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
-    * [Сеть](../../../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
-    * [Подсеть](../../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
-    * [Группа безопасности](../../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group).
-    * [Диск](../../../../compute/concepts/disk.md) виртуальной машины — [yandex_compute_disk]({{ tf-provider-resources-link }}/compute_disk).
-    * [Виртуальная машина](../../../../compute/concepts/vm.md) — [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
-    * [DNS-зона](../../../../dns/concepts/dns-zone.md) — [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone).
-    * [Ресурсная запись DNS](../../../../dns/concepts/resource-record.md) — [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset).
-    * [TLS-Сертификат](../../../../certificate-manager/concepts/managed-certificate.md) — [yandex_cm_certificate]({{ tf-provider-resources-link }}/cm_certificate).
-    * [Бакет](../../../../storage/concepts/bucket.md) — [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket).
-    * [Объект](../../../../storage/concepts/object.md) — [yandex_storage_object]({{ tf-provider-resources-link }}/storage_object).
-    * [Группа источников](../../../../cdn/concepts/origins.md#groups) — [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group).
-    * [CDN-ресурс](../../../../cdn/concepts/resource.md) — [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource).
+    * [Сервисный аккаунт](../../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../../../terraform/resources/iam_service_account.md).
+    * [Роль](../../../../iam/concepts/access-control/roles.md) сервисному аккаунту — [yandex_resourcemanager_folder_iam_member](../../../../terraform/resources/resourcemanager_folder_iam_member.md).
+    * [Статический ключ доступа](../../../../iam/concepts/authorization/access-key.md) — [yandex_iam_service_account_static_access_key](../../../../terraform/resources/iam_service_account_static_access_key.md).
+    * [Сеть](../../../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../../../terraform/resources/vpc_network.md).
+    * [Подсеть](../../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet](../../../../terraform/resources/vpc_subnet.md).
+    * [Группа безопасности](../../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group](../../../../terraform/resources/vpc_security_group.md).
+    * [Диск](../../../../compute/concepts/disk.md) виртуальной машины — [yandex_compute_disk](../../../../terraform/resources/compute_disk.md).
+    * [Виртуальная машина](../../../../compute/concepts/vm.md) — [yandex_compute_instance](../../../../terraform/resources/compute_instance.md).
+    * [DNS-зона](../../../../dns/concepts/dns-zone.md) — [yandex_dns_zone](../../../../terraform/resources/dns_zone.md).
+    * [Ресурсная запись DNS](../../../../dns/concepts/resource-record.md) — [yandex_dns_recordset](../../../../terraform/resources/dns_recordset.md).
+    * [TLS-Сертификат](../../../../certificate-manager/concepts/managed-certificate.md) — [yandex_cm_certificate](../../../../terraform/resources/cm_certificate.md).
+    * [Бакет](../../../../storage/concepts/bucket.md) — [yandex_storage_bucket](../../../../terraform/resources/storage_bucket.md).
+    * [Объект](../../../../storage/concepts/object.md) — [yandex_storage_object](../../../../terraform/resources/storage_object.md).
+    * [Группа источников](../../../../cdn/concepts/origins.md#groups) — [yandex_cdn_origin_group](../../../../terraform/resources/cdn_origin_group.md).
+    * [CDN-ресурс](../../../../cdn/concepts/resource.md) — [yandex_cdn_resource](../../../../terraform/resources/cdn_resource.md).
 
 1. В файле `yc-cdn-secure-token.auto.tfvars` задайте пользовательские параметры:
 
     * `folder_id` — [идентификатор каталога](../../../../resource-manager/operations/folder/get-id.md).
-    * `ssh_key_path` — путь к файлу с открытым [SSH-ключом](../../../../glossary/ssh-keygen.md) для аутентификации пользователя на ВМ. Подробнее см. [{#T}](../../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `ssh_key_path` — путь к файлу с открытым [SSH-ключом](../../../../glossary/ssh-keygen.md) для аутентификации пользователя на ВМ. Подробнее см. [Создание пары ключей SSH](../../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
     * `index_file_path` — путь к файлу с главной страницей сайта.
     * `content_file_path` — путь к файлу с контентом для загрузки в бакет.
     * `domain_name` — имя вашего домена, например `example.com`.
@@ -453,7 +453,7 @@
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -472,13 +472,13 @@
 Далее вы создадите и опубликуете на вашем веб-сервере сайт, который будет генерировать подписанные ссылки на контент, расположенный на защищенном CDN-ресурсе. Чтобы обеспечить безопасность передаваемых данных, вы скопируете на веб-сервер созданный ранее TLS-сертификат и включите SSL-шифрование.
 
 
-### Выгрузите сертификат из {{ certificate-manager-name }} {#export-certificate}
+### Выгрузите сертификат из Certificate Manager {#export-certificate}
 
-Чтобы использовать созданный в {{ certificate-manager-name }} TLS-сертификат в конфигурации вашего веб-сервера, выгрузите цепочку сертификатов и закрытый ключ в текущую директорию:
+Чтобы использовать созданный в Certificate Manager TLS-сертификат в конфигурации вашего веб-сервера, выгрузите цепочку сертификатов и закрытый ключ в текущую директорию:
 
 {% list tabs group=instructions %}
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
   1. Узнайте идентификатор созданного ранее TLS-сертификата:
 
@@ -523,7 +523,7 @@
 
     Где `<IP-адрес_ВМ>` — публичный IP-адрес созданной ранее ВМ с веб-сервером.
 
-    Узнать IP-адрес ВМ можно в [консоли управления]({{ link-console-main }}) на странице ВМ в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** или с помощью команды CLI `yc compute instance get mywebserver`.
+    Узнать IP-адрес ВМ можно в [консоли управления](https://console.yandex.cloud) на странице ВМ в блоке **Сеть** или с помощью команды CLI `yc compute instance get mywebserver`.
 
     При первом подключении к ВМ появится предупреждение о неизвестном хосте:
 
@@ -748,7 +748,7 @@
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -759,4 +759,4 @@
 
 #### См. также {#see-also}
 
-* [{#T}](console.md)
+* [Организация защищенного доступа к контенту в Yandex Cloud CDN с помощью консоли управления, CLI или API](console.md)

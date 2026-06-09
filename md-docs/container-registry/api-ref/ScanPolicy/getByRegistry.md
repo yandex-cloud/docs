@@ -5,7 +5,7 @@ Returns scan policy for the registry if any exists.
 ## HTTP request
 
 ```
-GET https://container-registry.{{ api-host }}/container-registry/v1/scanPolicies/{registryId}:byRegistry
+GET https://container-registry.api.cloud.yandex.net/container-registry/v1/scanPolicies/{registryId}:byRegistry
 ```
 
 ## Path parameters

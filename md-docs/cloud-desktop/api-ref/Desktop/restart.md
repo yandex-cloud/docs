@@ -5,7 +5,7 @@ Restart the specified desktop.
 ## HTTP request
 
 ```
-POST https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:restart
+POST https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/desktops/{desktopId}:restart
 ```
 
 ## Path parameters

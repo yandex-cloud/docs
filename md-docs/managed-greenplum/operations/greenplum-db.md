@@ -1,14 +1,14 @@
 # Вспомогательные утилиты
 
-Пакет Greenplum Database 6 содержит ряд полезных утилит для работы с базами данных [{{ GP }} 6]({{ gp.docs.broadcom }}/6/greenplum-database/client_tool_guides-tools-ref.html) и [{{ CB }}](https://cloudberry.apache.org/docs/sys-utilities/). В частности:
+Пакет Greenplum Database 6 содержит ряд полезных утилит для работы с базами данных [Greenplum® 6](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/client_tool_guides-tools-ref.html) и [Apache Cloudberry™](https://cloudberry.apache.org/docs/sys-utilities/). В частности:
 
-* [gpfdist]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-gpfdist.html) — утилита для чтения и записи данных из файлов, расположенных на удаленных серверах. Подробную информацию см. в разделе [{#T}](gpfdist/connect.md).
-* [gpload]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-gpload.html) — утилита для запуска задач, описанных в управляющем YAML-файле.
-* [psql]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-psql.html) — интерфейс командной строки для работы с базой данных.
+* [gpfdist](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/utility_guide-ref-gpfdist.html) — утилита для чтения и записи данных из файлов, расположенных на удаленных серверах. Подробную информацию см. в разделе [Подключение к внешнему файловому серверу](gpfdist/connect.md).
+* [gpload](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/utility_guide-ref-gpload.html) — утилита для запуска задач, описанных в управляющем YAML-файле.
+* [psql](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/utility_guide-ref-psql.html) — интерфейс командной строки для работы с базой данных.
 
 Чтобы установить Greenplum Database 6 на рабочую или виртуальную машину под управлением OC Ubuntu 22.04 или Ubuntu 20.04:
 
-1. Скачайте deb-пакеты, необходимые для установки Greenplum Database 6, из бакета {{ objstorage-full-name }} при помощи скрипта:
+1. Скачайте deb-пакеты, необходимые для установки Greenplum Database 6, из бакета Yandex Object Storage при помощи скрипта:
 
     {% list tabs group=operating_system %}
 
@@ -92,12 +92,12 @@
     psql --version
     ```
 
-Инструкции по установке утилит на другие операционные системы доступны [на сайте VMware]({{ gp.docs.broadcom }}/6/greenplum-database/client_tool_guides-installing.html).
+Инструкции по установке утилит на другие операционные системы доступны [на сайте VMware](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/client_tool_guides-installing.html).
 
 
 {% note info %}
 
-Скачивание и использование продуктов с сайта VMware не входит в [условия использования {{ mgp-full-name }}]({{ link-cloud-terms-of-use }}) и является предметом отдельного регулирования между клиентом и VMware. Яндекс не несет ответственности за взаимоотношения клиента и VMware, вытекающие из использования клиентом продуктов или услуг VMware.
+Скачивание и использование продуктов с сайта VMware не входит в [условия использования Yandex MPP Analytics for PostgreSQL](https://yandex.ru/legal/cloud_termsofuse/?lang=ru) и является предметом отдельного регулирования между клиентом и VMware. Яндекс не несет ответственности за взаимоотношения клиента и VMware, вытекающие из использования клиентом продуктов или услуг VMware.
 
 {% endnote %}
 

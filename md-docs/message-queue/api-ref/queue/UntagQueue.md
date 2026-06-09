@@ -27,14 +27,14 @@ TagKey.N (ключ)
 
 ### Ошибки UntagQueue {#errors}
 
-Перечень общих для всех методов ошибок смотрите в разделе [{#T}](../common-errors.md).
+Перечень общих для всех методов ошибок смотрите в разделе [Стандартные ошибки](../common-errors.md).
 
 ## Пример запроса {#request-example}
 
 ```
 Action=UntagQueue
 &Version=2012-11-05
-&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue
+&QueueUrl=https://message-queue.api.cloud.yandex.net/b1g8ad42m6he********/dj6000000000********/sample-queue
 &TagKey.1=environment
 ```
 

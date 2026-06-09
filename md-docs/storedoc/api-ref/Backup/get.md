@@ -6,7 +6,7 @@ To get the list of available MongoDB backups, make a [List](../../../managed-mon
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-mongodb/v1/backups/{backupId}
+GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/backups/{backupId}
 ```
 
 ## Path parameters

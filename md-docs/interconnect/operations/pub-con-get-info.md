@@ -10,9 +10,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
-  1. На панели слева выберите ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.interconnect.public-connection.public-connections_7xYcV }}**. В открывшемся окне будет представлен список всех публичных соединений в выбранном каталоге.
+  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Interconnect**.
+  1. На панели слева выберите ![globe](../../_assets/console-icons/globe.svg) **Публичные соединения**. В открывшемся окне будет представлен список всех публичных соединений в выбранном каталоге.
   1. Чтобы посмотреть подробную информацию об определенном публичном соединении, нажмите на соответствующую строку в списке.
 
 - CLI {#cli}
@@ -53,7 +53,7 @@
       id: euuiog88zphg********
       name: customer-name-pub1
       folder_id: b1gt6g8ht345********
-      region_id: {{ region-id }}
+      region_id: ru-central1
       trunk_connection_id: euuqqctbrflq********
       vlan_id: "1428"
       ipv4_peering:
@@ -80,9 +80,9 @@
       * параметры IP и BGP связности для стыковой подсети данного публичного соединения:
          * `peering_subnet` — [стыковая подсеть](../concepts/pub-con.md#pub-address) для BGP-пиринга.
          * `peer_ip` — IP адрес из стыковой (пиринговой) подсети на оборудовании клиента.
-         * `cloud_ip` — IP адрес из стыковой (пиринговой) подсети на оборудовании {{ yandex-cloud }}.
+         * `cloud_ip` — IP адрес из стыковой (пиринговой) подсети на оборудовании Yandex Cloud.
          * `peer_bgp_asn` — номер [BGP ASN](../concepts/priv-con.md#bgp-asn) на оборудовании клиента.
-         * `cloud_bgp_asn` — номер BGP ASN на оборудовании {{ yandex-cloud }}.
+         * `cloud_bgp_asn` — номер BGP ASN на оборудовании Yandex Cloud.
       * `ipv4_allowed_service_types` — список идентификаторов сервисов, IP префиксы которых анонсируются в данном публичном соединении.
       * `ipv4_peer_announced_prefixes` — список клиентских IP префиксов (если они есть), от которых будет приниматься трафик в данное публичное соединение. 
 

@@ -143,7 +143,7 @@
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_эндпоинт>", "{{ region-id }}"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_эндпоинт>", "ru-central1"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -176,7 +176,7 @@
 
       Этот код использует `UpdateExpression` для описания обновлений, которые нужно выполнить для указанной записи.
 
-      Параметр `ReturnValues` предписывает {{ ydb-short-name }} возвращать только обновленные атрибуты (`UPDATED_NEW`).
+      Параметр `ReturnValues` предписывает YDB возвращать только обновленные атрибуты (`UPDATED_NEW`).
 
   1. Соберите проект:
 
@@ -255,9 +255,9 @@
 
       Для обновления записи используется метод `update_item`. С помощью него можно обновить значения атрибутов, добавить или удалить атрибуты.
 
-      В параметре `UpdateExpression` метода `update_item` передаются все обновления, которые применяются к указанной записи. Параметр `ReturnValues` указывает {{ ydb-short-name }} возвращать только обновленные атрибуты (`UPDATED_NEW`).
+      В параметре `UpdateExpression` метода `update_item` передаются все обновления, которые применяются к указанной записи. Параметр `ReturnValues` указывает YDB возвращать только обновленные атрибуты (`UPDATED_NEW`).
 
-      В SDK Boto 3 для хранения числовых значений {{ ydb-short-name }} используется класс `Decimal`.
+      В SDK Boto 3 для хранения числовых значений YDB используется класс `Decimal`.
 
   1. Запустите программу:
 
@@ -311,7 +311,7 @@
 
       $sdk = new Aws\Sdk([
           'endpoint' => '<Document_API_эндпоинт>',
-          'region'   => '{{ region-id }}',
+          'region'   => 'ru-central1',
           'version'  => 'latest'
       ]);
 
@@ -362,7 +362,7 @@
 
       Этот код использует `UpdateExpression` для описания обновлений, которые нужно выполнить для указанной записи.
 
-      Параметр `ReturnValues` предписывает {{ ydb-short-name }} возвращать только обновленные атрибуты (`UPDATED_NEW`).
+      Параметр `ReturnValues` предписывает YDB возвращать только обновленные атрибуты (`UPDATED_NEW`).
 
   1. Запустите программу:
 
@@ -413,7 +413,7 @@
 
       // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
       const dynamodb = new AWS.DynamoDBClient({
-          region: "{{ region-id }}",
+          region: "ru-central1",
           endpoint: "<Document_API_эндпоинт>",
       });
 
@@ -446,7 +446,7 @@
   
       Для обновления атрибутов существующей записи используется команду `UpdateItemCommand`. Выражением `UpdateExpression` описываются все обновления, которые вы хотите выполнить для указанного элемента.
 
-      Параметр `ReturnValues` предписывает {{ ydb-short-name }} возвращать только обновленные атрибуты `UPDATED_NEW`.
+      Параметр `ReturnValues` предписывает YDB возвращать только обновленные атрибуты `UPDATED_NEW`.
 
   1. Запустите программу:
 
@@ -505,7 +505,7 @@
       end
 
       def run_me
-        region = '{{ region-id }}'
+        region = 'ru-central1'
         table_name = 'Series'
         title = 'Supernatural'
         series_id = 3
@@ -546,7 +546,7 @@
   
       Эта программа использует выражение `update_expression` для описания всех обновлений, которые вы хотите выполнить для указанного элемента.
 
-      Параметр `return_values` предписывает {{ ydb-short-name }} возвращать только обновленные атрибуты `UPDATED_NEW`.
+      Параметр `return_values` предписывает YDB возвращать только обновленные атрибуты `UPDATED_NEW`.
   
   1. Запустите программу:
 
@@ -569,7 +569,7 @@
 
 ## Увеличение атомарного счетчика {#increment-ac}
 
-{{ ydb-short-name }} поддерживает атомарные счетчики.
+YDB поддерживает атомарные счетчики.
 
 Чтобы увеличить атомарный счетчик `rating` для сериала:
 
@@ -706,7 +706,7 @@
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_эндпоинт>", "{{ region-id }}"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_эндпоинт>", "ru-central1"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -866,7 +866,7 @@
 
       $sdk = new Aws\Sdk([
           'endpoint' => '<Document_API_эндпоинт>',
-          'region'   => '{{ region-id }}',
+          'region'   => 'ru-central1',
           'version'  => 'latest'
       ]);
 
@@ -961,7 +961,7 @@
       var AWS = require("aws-sdk");
 
       AWS.config.update({
-        region: "{{ region-id }}",
+        region: "ru-central1",
         endpoint: "<Document_API_эндпоинт>"
       });
 
@@ -1055,7 +1055,7 @@
       end
 
       def run_me
-        region = '{{ region-id }}'
+        region = 'ru-central1'
         table_name = 'Series'
         title = 'Supernatural'
         series_id = 3
@@ -1252,7 +1252,7 @@
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_эндпоинт>", "{{ region-id }}"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_эндпоинт>", "ru-central1"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -1469,7 +1469,7 @@
 
       $sdk = new Aws\Sdk([
           'endpoint' => '<Document_API_эндпоинт>',
-          'region'   => '{{ region-id }}',
+          'region'   => 'ru-central1',
           'version'  => 'latest'
       ]);
 
@@ -1588,7 +1588,7 @@
       var AWS = require("aws-sdk");
 
       AWS.config.update({
-        region: "{{ region-id }}",
+        region: "ru-central1",
         endpoint: "<Document_API_эндпоинт>"
       });
 
@@ -1709,7 +1709,7 @@
       end
 
       def run_me
-        region = '{{ region-id }}'
+        region = 'ru-central1'
         table_name = 'Series'
         title = 'Supernatural'
         series_id = 3

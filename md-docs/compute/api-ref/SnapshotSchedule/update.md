@@ -6,7 +6,7 @@ The schedule is updated only after all snapshot creations and deletions triggere
 ## HTTP request
 
 ```
-PATCH https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotScheduleId}
+PATCH https://compute.api.cloud.yandex.net/compute/v1/snapshotSchedules/{snapshotScheduleId}
 ```
 
 ## Path parameters

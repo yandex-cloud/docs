@@ -6,11 +6,11 @@
 --- | --- | ---
 [Отправка](../../operations/eventrouter/bus/data-put.md) напрямую с помощью метода API [put](../../eventrouter/api-ref/grpc/Event/put.md) | Пользователь самостоятельно подготавливает отправляемые события | Нет
 Отправка через [коннектор](connector.md) с типом источника `Таймер` | Пользователь указывает данные, которые будут передаваться в шину, в настройках коннектора | Нет
-[Отправка](../../operations/eventrouter/bus/data-send.md) через коннектор с типом источника `API {{ er-name }}` с помощью метода API [send](../../eventrouter/api-ref/grpc/Event/send.md) | Пользователь самостоятельно подготавливает отправляемые события | Да
-Отправка через коннектор с типом источника `{{ yds-full-name }}` | События поступают из [потока данных](../../../data-streams/concepts/glossary.md#stream-concepts) | Нет
-Отправка через коннектор с типом источника `{{ message-queue-full-name }}` | События поступают из [очереди сообщений](../../../message-queue/concepts/queue.md) | Да
+[Отправка](../../operations/eventrouter/bus/data-send.md) через коннектор с типом источника `API EventRouter` с помощью метода API [send](../../eventrouter/api-ref/grpc/Event/send.md) | Пользователь самостоятельно подготавливает отправляемые события | Да
+Отправка через коннектор с типом источника `Yandex Data Streams` | События поступают из [потока данных](../../../data-streams/concepts/glossary.md#stream-concepts) | Нет
+Отправка через коннектор с типом источника `Yandex Message Queue` | События поступают из [очереди сообщений](../../../message-queue/concepts/queue.md) | Да
 
 ## См. также {#see-also}
 
-* [{#T}](../../operations/eventrouter/bus/data-put.md)
-* [{#T}](../../operations/eventrouter/bus/data-send.md)
+* [Отправить события в шину напрямую](../../operations/eventrouter/bus/data-put.md)
+* [Отправить события в шину с помощью коннектора](../../operations/eventrouter/bus/data-send.md)

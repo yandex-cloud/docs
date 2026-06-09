@@ -5,7 +5,7 @@ Retrieves the list of Instance resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/instances
+GET https://compute.api.cloud.yandex.net/compute/v1/instances
 ```
 
 ## Query parameters {#yandex.cloud.compute.v1.ListInstancesRequest}

@@ -5,7 +5,7 @@ Delete resource group
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/resource_groups/{resourceGroupName}
+DELETE https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}/resource_groups/{resourceGroupName}
 ```
 
 ## Path parameters

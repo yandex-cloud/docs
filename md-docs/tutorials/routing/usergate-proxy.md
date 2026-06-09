@@ -3,9 +3,9 @@
 
 [UserGate](https://www.usergate.com/ru/products/enterprise-firewall) — это межсетевой экран нового поколения от одноименной российской компании.
 
-Вы создадите виртуальную машину UserGate в {{ yandex-cloud }} и настроите шлюз в режиме прокси-сервера. Это позволит организовать безопасный доступ в интернет для сотрудников вашей компании из любой точки мира (офис, дом, кафе и прочие публичные места). Для более расширенного изучения возможностей UserGate пройдите бесплатный курс [UserGate Getting Started](https://university.tssolution.ru/usergate-getting-started-v6).
+Вы создадите виртуальную машину UserGate в Yandex Cloud и настроите шлюз в режиме прокси-сервера. Это позволит организовать безопасный доступ в интернет для сотрудников вашей компании из любой точки мира (офис, дом, кафе и прочие публичные места). Для более расширенного изучения возможностей UserGate пройдите бесплатный курс [UserGate Getting Started](https://university.tssolution.ru/usergate-getting-started-v6).
 
-Типовая схема использования UserGate в режиме прокси-сервера в {{ yandex-cloud }} представлена на рисунке ниже.
+Типовая схема использования UserGate в режиме прокси-сервера в Yandex Cloud представлена на рисунке ниже.
 
 ![image](../../_assets/tutorials/usergate-proxy-mode.svg)
 
@@ -21,11 +21,11 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -33,9 +33,9 @@
 
 В стоимость поддержки шлюза UserGate входит:
 
-* плата за постоянно запущенную виртуальную машину (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за постоянно запущенную виртуальную машину (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
 * плата за использование [UserGate NGFW](https://yandex.cloud/ru/marketplace/products/usergate/ngfw);
-* плата за использование публичного статического IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* плата за использование публичного статического IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Создайте облачную сеть и подсеть {#create-network}
 
@@ -45,14 +45,14 @@
 
 - Консоль управления {#console}
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_vpc }}**.
+  1. На странице каталога в [консоли управления](https://console.yandex.cloud) в правом верхнем углу нажмите кнопку **Создать ресурс** и выберите пункт **Сеть**.
   1. Задайте имя сети: `usergate-network`.
-  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** включите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
+  1. В поле **Дополнительно** включите опцию **Создать подсети**.
+  1. Нажмите кнопку **Создать сеть**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -74,11 +74,11 @@
 
      Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
      
-  1. Создайте подсеть `usergate-subnet-{{ region-id }}-d` в зоне доступности `{{ region-id }}-d`:
+  1. Создайте подсеть `usergate-subnet-ru-central1-d` в зоне доступности `ru-central1-d`:
   
      ```bash
-     yc vpc subnet create usergate-subnet-{{ region-id }}-d \
-       --zone {{ region-id }}-d \
+     yc vpc subnet create usergate-subnet-ru-central1-d \
+       --zone ru-central1-d \
        --network-name usergate-network \
        --range 10.1.0.0/16
      ```
@@ -89,18 +89,18 @@
      id: e9bnnssj8sc8********
      folder_id: b1g9hv2loamq********
      created_at: "2022-06-08T09:27:00Z"
-     name: usergate-subnet-{{ region-id }}-d
+     name: usergate-subnet-ru-central1-d
      network_id: enptrcle5q3d********
-     zone_id: {{ region-id }}-d
+     zone_id: ru-central1-d
      v4_cidr_blocks:
      - 10.1.0.0/16
      ```
 
      Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Опишите в конфигурационном файле параметры сети `usergate-network` и ее подсети `usergate-subnet-{{ region-id }}-d`:
+  1. Опишите в конфигурационном файле параметры сети `usergate-network` и ее подсети `usergate-subnet-ru-central1-d`:
 
      ```hcl
      resource "yandex_vpc_network" "usergate-network" {
@@ -108,14 +108,14 @@
      }
 
      resource "yandex_vpc_subnet" "usergate-subnet" {
-       name           = "usergate-subnet-{{ region-id }}-d"
-       zone           = "{{ region-id }}-d"
+       name           = "usergate-subnet-ru-central1-d"
+       zone           = "ru-central1-d"
        network_id     = "${yandex_vpc_network.usergate-network.id}"
        v4_cidr_blocks = ["10.1.0.0/16"]
      }
      ```
 
-     Подробнее см. в описаниях ресурсов [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) и [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) в документации провайдера {{ TF }}.
+     Подробнее см. в описаниях ресурсов [yandex_vpc_network](../../terraform/resources/vpc_network.md) и [yandex_vpc_subnet](../../terraform/resources/vpc_subnet.md) в документации провайдера Terraform.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -126,7 +126,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
 
   1. Разверните облачные ресурсы.
   
@@ -141,7 +141,7 @@
 - API {#api}
 
   1. Создайте сеть `usergate-network` с помощью вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) или метода REST API [create](../../vpc/api-ref/Network/create.md) для ресурса Network.
-  1. Создайте подсеть `usergate-subnet-{{ region-id }}-d` с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) или метода REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса Subnet.
+  1. Создайте подсеть `usergate-subnet-ru-central1-d` с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) или метода REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса Subnet.
 
 {% endlist %}
 
@@ -151,34 +151,34 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога, в котором нужно создать группу.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога, в котором нужно создать группу.
+  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **Группы безопасности**.
+  1. Нажмите кнопку **Создать группу безопасности**.
   1. Введите имя группы безопасности — `usergate-sg`.
-  1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите сеть `usergate-network`.
-  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** создайте правила по инструкции под таблицей:
+  1. В поле **Сеть** выберите сеть `usergate-network`.
+  1. В блоке **Правила** создайте правила по инструкции под таблицей:
    
-     | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+     | Направление<br/>трафика | Описание | Диапазон портов | Протокол | Назначение /<br/>Источник | CIDR блоки |
      | --- | --- | --- | --- | --- | --- |
-     | Исходящий | `any` | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-     | Входящий | `icmp` | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_ipv6-icmp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-     | Входящий | `rdp` | `3389` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-     | Входящий | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-     | Входящий | `usergate 8001` | `8001` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-     | Входящий | `usergate 8090` | `8090` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+     | Исходящий | `any` | `Весь` | `Любой` | `CIDR` | `0.0.0.0/0` |
+     | Входящий | `icmp` | `Весь` | `ICMPv6` | `CIDR` | `0.0.0.0/0` |
+     | Входящий | `rdp` | `3389` | `TCP` | `CIDR` | `0.0.0.0/0` |
+     | Входящий | `ssh` | `22` | `TCP` | `CIDR` | `0.0.0.0/0` |
+     | Входящий | `usergate 8001` | `8001` | `TCP` | `CIDR` | `0.0.0.0/0` |
+     | Входящий | `usergate 8090` | `8090` | `TCP` | `CIDR` | `0.0.0.0/0` |
       
-     1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**. В открывшемся окне:
-        1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
-        1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** укажите нужный протокол или оставьте **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}**, чтобы разрешить передачу трафика по всем протоколам.
-        1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** или **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** выберите назначение правила:
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}** — правило будет применено к диапазону IP-адресов. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}** — правило будет применено к ВМ из текущей группы или из выбранной группы безопасности.
+     1. Перейдите на вкладку **Исходящий трафик** или **Входящий трафик**.
+     1. Нажмите кнопку **Добавить правило**. В открывшемся окне:
+        1. В поле **Диапазон портов** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
+        1. В поле **Протокол** укажите нужный протокол или оставьте **Любой**, чтобы разрешить передачу трафика по всем протоколам.
+        1. В поле **Назначение** или **Источник** выберите назначение правила:
+            * **CIDR** — правило будет применено к диапазону IP-адресов. В поле **CIDR блоки** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **Добавить CIDR**.
+            * **Группа безопасности** — правило будет применено к ВМ из текущей группы или из выбранной группы безопасности.
          
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+        1. Нажмите кнопку **Сохранить**.
    
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
@@ -263,7 +263,7 @@
 
   Подробнее о команде `yc vpc security-group create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   1. Добавьте в конфигурационный файл параметры группы безопасности `usergate-sg`:
   
@@ -310,7 +310,7 @@
      }
      ```
 
-     Подробнее о ресурсе `yandex_vpc_security_group` см. в [документации]({{ tf-provider-resources-link }}/vpc_security_group) провайдера {{ TF }}.
+     Подробнее о ресурсе `yandex_vpc_security_group` см. в [документации](../../terraform/resources/vpc_security_group.md) провайдера Terraform.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -321,7 +321,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
 
   1. Разверните облачные ресурсы.
   
@@ -347,19 +347,19 @@
 
 - Консоль управления {#console}
   
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога, в котором нужно зарезервировать адрес.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
-  1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога, в котором нужно зарезервировать адрес.
+  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **Публичные IP-адреса**.
+  1. Нажмите кнопку **Зарезервировать публичный IP-адрес**.
+  1. В открывшемся окне в поле **Зона доступности** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`.
+  1. Нажмите кнопку **Зарезервировать**.
   
 - CLI {#cli}
 
   Выполните команду:
 
   ```bash
-  yc vpc address create --external-ipv4 zone={{ region-id }}-d
+  yc vpc address create --external-ipv4 zone=ru-central1-d
   ```
 
   Результат:
@@ -370,7 +370,7 @@
   created_at: "2022-06-08T17:52:42Z"
   external_ipv4_address:
     address: 178.154.253.52
-    zone_id: {{ region-id }}-d
+    zone_id: ru-central1-d
     requirements: {}
   reserved: true
   ```
@@ -385,15 +385,15 @@
 
 - Консоль управления {#console}
 
-  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `UserGate NGFW` и выберите публичный образ [UserGate NGFW](https://yandex.cloud/ru/marketplace/products/usergate/ngfw).
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления](https://console.yandex.cloud) нажмите кнопку **Создать ресурс** и выберите `Виртуальная машина`.
+  1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `UserGate NGFW` и выберите публичный образ [UserGate NGFW](https://yandex.cloud/ru/marketplace/products/usergate/ngfw).
+  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`.
+  1. В блоке **Вычислительные ресурсы** перейдите на вкладку `Своя конфигурация` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `4`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      * **Платформа** — `Intel Ice Lake`.
+      * **vCPU** — `4`.
+      * **Гарантированная доля vCPU** — `100%`.
+      * **RAM** — `8 ГБ`.
 
       {% note info %}
 
@@ -401,35 +401,35 @@
 
       {% endnote %}
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  1. В блоке **Сетевые настройки**:
 
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть `usergate-network` и подсеть `usergate-subnet-{{ region-id }}-d`.
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` и в появившемся списке выберите зарезервированный ранее IP-адрес.
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите из списка группу `usergate-sg`.
+      * В поле **Подсеть** выберите сеть `usergate-network` и подсеть `usergate-subnet-ru-central1-d`.
+      * В поле **Публичный IP-адрес** выберите `Список` и в появившемся списке выберите зарезервированный ранее IP-адрес.
+      * В поле **Группы безопасности** выберите из списка группу `usergate-sg`.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
+  1. В блоке **Доступ** выберите вариант **SSH-ключ** и укажите данные для доступа на ВМ:
 
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+      * В поле **Логин** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+      * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
         
         Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+        1. Нажмите кнопку **Добавить ключ**.
         1. Задайте имя SSH-ключа.
         1. Выберите вариант:
         
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+            * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+        1. Нажмите кнопку **Добавить**.
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `usergate-proxy`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. В блоке **Общая информация** задайте имя ВМ: `usergate-proxy`.
+  1. Нажмите кнопку **Создать ВМ**.
 
 - CLI {#cli}
   
@@ -449,8 +449,8 @@
        --name usergate-proxy \
        --memory 8 \
        --cores 4 \
-       --zone {{ region-id }}-d \
-       --network-interface subnet-name=usergate-subnet-{{ region-id }}-d,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности_usergate-sg> \
+       --zone ru-central1-d \
+       --network-interface subnet-name=usergate-subnet-ru-central1-d,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности_usergate-sg> \
        --create-boot-disk image-folder-id=standard-images,image-family=usergate-ngfw \
        --ssh-key <путь_к_открытой_части_SSH-ключа> \
      ```
@@ -462,7 +462,7 @@
      folder_id: b1g86q4m5vej********
      created_at: "2022-06-09T11:15:52Z"
      name: usergate-proxy
-     zone_id: {{ region-id }}-d
+     zone_id: ru-central1-d
      platform_id: standard-v2
      resources:
        memory: "8589934592"
@@ -492,7 +492,7 @@
 
      Подробнее о команде `yc compute instance create` см. в [справочнике CLI](../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   1. [Получите](../../compute/operations/images-with-pre-installed-software/get-list.md) идентификатор последней версии образа UserGate NGFW из списка публичных образов.
   1. Опишите в конфигурационном файле параметры ВМ `usergate-proxy`:
@@ -501,7 +501,7 @@
      resource "yandex_compute_disk" "boot-disk" {
        name     = "boot-disk"
        type     = "network-hdd"
-       zone     = "{{ region-id }}-d"
+       zone     = "ru-central1-d"
        size     = "110"
        image_id = "<идентификатор_образа_UserGate_NGFW>"
      }
@@ -509,7 +509,7 @@
      resource "yandex_compute_instance" "usergate-proxy" {
        name        = "usergate-proxy"
        platform_id = "standard-v3"
-       zone        = "{{ region-id }}-d"
+       zone        = "ru-central1-d"
        hostname    = "usergate"
        resources {
          cores         = 4
@@ -529,7 +529,7 @@
      }
      ```
 
-     Подробнее см. в описании ресурса [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance) в документации провайдера {{ TF }}.
+     Подробнее см. в описании ресурса [yandex_compute_instance](../../terraform/resources/compute_instance.md) в документации провайдера Terraform.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -540,7 +540,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
 
   1. Разверните облачные ресурсы.
   

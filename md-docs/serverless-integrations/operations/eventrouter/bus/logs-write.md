@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Логирование тарифицируется. Подробнее см. в [документации {{ cloud-logging-full-name }}](../../../../logging/pricing.md).
+Логирование тарифицируется. Подробнее см. в [документации Yandex Cloud Logging](../../../../logging/pricing.md).
 
 {% endnote %}
 
@@ -10,29 +10,29 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [шина](../../../concepts/eventrouter/bus.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
-  1. На панели слева выберите ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
-  1. В строке с нужной шиной нажмите ![image](../../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. В блоке **{{ ui-key.yacloud.logging.label_title }}**:
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [шина](../../../concepts/eventrouter/bus.md).
+  1. Перейдите в сервис **Serverless Integrations**.
+  1. На панели слева выберите ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **EventRouter**.
+  1. В строке с нужной шиной нажмите ![image](../../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. В блоке **Логирование**:
 
-      1. Включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
-      1. В поле **{{ ui-key.yacloud.logging.label_destination }}** выберите:
+      1. Включите опцию **Запись логов**.
+      1. В поле **Назначение** выберите:
 
-         * `{{ ui-key.yacloud.common.folder }}` — чтобы записывать логи в лог-группу по умолчанию для каталога, в котором находится шина.
-         * `{{ ui-key.yacloud.logging.label_loggroup }}` — чтобы записывать логи в пользовательскую лог-группу.
+         * `Каталог` — чтобы записывать логи в лог-группу по умолчанию для каталога, в котором находится шина.
+         * `Лог-группа` — чтобы записывать логи в пользовательскую лог-группу.
            
            Выберите лог-группу, в которую будут записываться логи, или [создайте](../../../../logging/operations/create-group.md) новую.
 
       1. (Опционально) Выберите минимальный уровень логирования.
 
-  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите **Сохранить**.
 
   Если минимальный уровень логирования задан, в журнал выполнения записываются логи указанного уровня и выше. Если минимальный уровень логирования не задан, в журнал выполнения записываются все логи шины.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -61,7 +61,7 @@
   Чтобы записывать логи в пользовательскую лог-группу, выполните команду:
 
   ```
-  {{ yc-serverless }} eventrouter bus update <имя_или_идентификатор_шины> \
+  yc serverless eventrouter bus update <имя_или_идентификатор_шины> \
     --enable-logging \
     --log-options log-group-id=<идентификатор_лог-группы>,min-level=<минимальный_уровень_логирования>
   ```

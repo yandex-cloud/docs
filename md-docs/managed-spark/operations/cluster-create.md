@@ -1,19 +1,19 @@
-# Создание кластера {{ SPRK }}
+# Создание кластера Apache Spark™
 
-Каждый [кластер](../../glossary/cluster.md) {{ SPRK }} содержит вычислительные ресурсы, на которых запускаются Spark-приложения.
+Каждый [кластер](../../glossary/cluster.md) Apache Spark™ содержит вычислительные ресурсы, на которых запускаются Spark-приложения.
 
 ## Роли для создания кластера {#roles}
 
-Для создания кластера {{ SPRK }} вашему аккаунту в {{ yandex-cloud }} нужны роли:
+Для создания кластера Apache Spark™ вашему аккаунту в Yandex Cloud нужны роли:
 
 * [managed-spark.admin](../security.md#managed-spark-admin) — чтобы создать кластер;
-* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
+* [vpc.user](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
 * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) — чтобы привязать сервисный аккаунт к кластеру.
 
 Сервисному аккаунту кластера должны быть назначены роли `managed-spark.integrationProvider` и `storage.editor`. Это даст кластеру нужные права для работы с пользовательскими ресурсами.
 
 
-О назначении ролей читайте в [документации {{ iam-full-name }}](../../iam/operations/roles/grant.md).
+О назначении ролей читайте в [документации Yandex Identity and Access Management](../../iam/operations/roles/grant.md).
 
 
 ## Создать кластер {#create-cluster}
@@ -22,16 +22,16 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер {{ SPRK }}.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}**:
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер Apache Spark™.
+    1. Перейдите в сервис **Managed Service for Apache Spark**.
+    1. Нажмите кнопку **Создать кластер**.
+    1. В блоке **Базовые параметры**:
 
         1. Задайте имя кластера. Имя должно быть уникальным в рамках каталога.
         1. (Опционально) Введите описание кластера.
         1. (Опционально) Создайте [метки](../../resource-manager/concepts/labels.md):
 
-            1. Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+            1. Нажмите кнопку **Добавить метку**.
             1. Введите метку в формате `ключ: значение`.
             1. Нажмите **Enter**.
 
@@ -39,15 +39,15 @@
 
             Сервисному аккаунту должна быть назначена роль `managed-spark.integrationProvider`.
 
-        1. Выберите версию {{ SPRK }}.
+        1. Выберите версию Apache Spark™.
 
            {% note info  %}
                       
-           После создания кластера вы можете [изменить версию {{ SPRK }}](cluster-version-update.md). Версию можно только повысить.
+           После создания кластера вы можете [изменить версию Apache Spark™](cluster-version-update.md). Версию можно только повысить.
                       
            {% endnote %}
 
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите [сеть](../../vpc/operations/network-create.md), [подсеть](../../vpc/operations/subnet-create.md) и [группу безопасности](../../vpc/concepts/security-groups.md) для кластера.
+    1. В блоке **Сетевые настройки** выберите [сеть](../../vpc/operations/network-create.md), [подсеть](../../vpc/operations/subnet-create.md) и [группу безопасности](../../vpc/concepts/security-groups.md) для кластера.
 
     1. Задайте вычислительные ресурсы, на которых будут запускаться Spark-приложения:
 
@@ -56,40 +56,40 @@
 
     1. При необходимости задайте дополнительные настройки кластера:
         
-        1. **{{ ui-key.yacloud.mdb.forms.title_pip-packages }}** и **{{ ui-key.yacloud.mdb.forms.title_deb-packages }}** — названия pip- и deb-пакетов, чтобы установить в кластер дополнительные библиотеки и приложения.
+        1. **Pip-пакеты** и **Deb-пакеты** — названия pip- и deb-пакетов, чтобы установить в кластер дополнительные библиотеки и приложения.
            
-           Чтобы указать более одного пакета, нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+           Чтобы указать более одного пакета, нажмите кнопку **Добавить**.
 
            Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
         
-        1. **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки времени [технического обслуживания](../concepts/maintenance.md):
+        1. **Обслуживание** — настройки времени [технического обслуживания](../concepts/maintenance.md):
 
-           * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (по умолчанию).
-           * Чтобы указать предпочтительное время начала обслуживания, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** и укажите день недели и интервал времени по UTC. Например, можно выбрать время, когда кластер наименее загружен.
+           * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **В любое время** (по умолчанию).
+           * Чтобы указать предпочтительное время начала обслуживания, выберите пункт **По расписанию** и укажите день недели и интервал времени по UTC. Например, можно выбрать время, когда кластер наименее загружен.
            
            Операции по техническому обслуживанию проводятся для включенных и выключенных кластеров. Они могут включать в себя: обновление СУБД, применение патчей и так далее.
 
-        1. **{{ ui-key.yacloud.spark.label_metastore }}** — [metastore-сервер](../../metadata-hub/concepts/metastore.md), подключенный к вашему кластеру.
+        1. **Metastore-сервер** — [metastore-сервер](../../metadata-hub/concepts/metastore.md), подключенный к вашему кластеру.
 
-        1.  **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** — управляет защитой кластера от непреднамеренного удаления.
-        1. Чтобы использовать сервис для мониторинга приложений [Spark History Server](https://spark.apache.org/docs/latest/monitoring.html), включите настройку **{{ ui-key.yacloud.spark.label_history-server }}**. После создания кластера сервис будет доступен по ссылке.
+        1.  **Защита от удаления** — управляет защитой кластера от непреднамеренного удаления.
+        1. Чтобы использовать сервис для мониторинга приложений [Spark History Server](https://spark.apache.org/docs/latest/monitoring.html), включите настройку **History Server**. После создания кластера сервис будет доступен по ссылке.
         1. Настройте логирование:
 
-            1. Включите настройку **{{ ui-key.yacloud.logging.field_logging }}**.
+            1. Включите настройку **Запись логов**.
             1. Выберите место записи логов:
-                * **{{ ui-key.yacloud.common.folder }}** — выберите каталог из списка.
-                * **{{ ui-key.yacloud.logging.label_group }}** — выберите [лог-группу](../../logging/concepts/log-group.md) из списка или создайте новую.
-            1. Выберите **{{ ui-key.yacloud.logging.label_minlevel }}** из списка.
+                * **Каталог** — выберите каталог из списка.
+                * **Группа** — выберите [лог-группу](../../logging/concepts/log-group.md) из списка или создайте новую.
+            1. Выберите **Минимальный уровень логирования** из списка.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-    Чтобы создать кластер {{ SPRK }}:
+    Чтобы создать кластер Apache Spark™:
 
     1. Проверьте, есть ли в каталоге подсети для хостов кластера:
 
@@ -97,18 +97,18 @@
         yc vpc subnet list
         ```
 
-        Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
+        Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе VPC.
 
     1. Посмотрите описание команды CLI для создания кластера:
 
         ```bash
-        {{ yc-mdb-sp }} cluster create --help
+        yc managed-spark cluster create --help
         ```
 
     1. Укажите параметры кластера в команде создания (в примере приведены не все доступные параметры):
 
         ```bash
-        {{ yc-mdb-sp }} cluster create \
+        yc managed-spark cluster create \
            --name <имя_кластера> \
            --spark-version <<версия_Apache_Spark>> \
            --service-account-id <идентификатор_сервисного_аккаунта> \
@@ -129,11 +129,11 @@
         Где:
 
         * `--name` — имя кластера. Оно должно быть уникальным в рамках каталога.
-        * `--version` — версия {{ SPRK }}.
+        * `--version` — версия Apache Spark™.
 
            {% note info  %}
                       
-           После создания кластера вы можете [изменить версию {{ SPRK }}](cluster-version-update.md). Версию можно только повысить.
+           После создания кластера вы можете [изменить версию Apache Spark™](cluster-version-update.md). Версию можно только повысить.
                       
            {% endnote %}
 
@@ -164,16 +164,16 @@
 
         * `--history-server-enabled` — флаг включения сервера истории. Позволяет использовать сервис для мониторинга приложений Spark History Server.
 
-        * `--metastore-cluster-id` — идентификатор кластера [{{ metastore-name }}](../../metadata-hub/concepts/metastore.md) для использования в качестве хранилища метаданных.
+        * `--metastore-cluster-id` — идентификатор кластера [Apache Hive™ Metastore](../../metadata-hub/concepts/metastore.md) для использования в качестве хранилища метаданных.
 
         * `--deletion-protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
             Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
 
-    1. Чтобы включить отправку логов {{ SPRK }} в сервис [{{ cloud-logging-full-name }}](../../logging/index.md), задайте параметры логирования:
+    1. Чтобы включить отправку логов Apache Spark™ в сервис [Yandex Cloud Logging](../../logging/index.md), задайте параметры логирования:
 
         ```bash
-        {{ yc-mdb-sp }} cluster create <имя_кластера> \
+        yc managed-spark cluster create <имя_кластера> \
            ...
            --log-enabled \
            --log-folder-id <идентификатор_каталога>
@@ -190,7 +190,7 @@
     1. Чтобы настроить время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), передайте нужное значение в параметре `--maintenance-window`:
 
         ```bash
-        {{ yc-mdb-sp }} cluster create <имя_кластера> \
+        yc managed-spark cluster create <имя_кластера> \
            ...
            --maintenance-window type=<тип_технического_обслуживания>,`
                                `day=<день_недели>,`
@@ -206,24 +206,24 @@
         
               > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+    [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
     
-    {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+    Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
     
-    Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+    Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
-    Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     
     
-    Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+    Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-    Чтобы создать кластер {{ msp-full-name }}:
+    Чтобы создать кластер Yandex Managed Service for Apache Spark™:
 
     1. Опишите в конфигурационном файле создаваемые ресурсы:
 
-        * Кластер {{ msp-full-name }} — описание кластера.
+        * Кластер Yandex Managed Service for Apache Spark™ — описание кластера.
 
         * Сеть — описание [облачной сети](../../vpc/concepts/network.md#network), в которой будет расположен кластер. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
 
@@ -291,25 +291,25 @@
         * (Опционально) `labels` — список меток. Метки задаются в формате `<ключ> = "<значение>"`.
         * `subnet_ids` — список идентификаторов подсетей.
         * `security_group_ids` — список идентификаторов групп безопасности.
-        * `driver` — конфигурация хостов для запуска драйверов {{ SPRK }}. В этом блоке укажите:
+        * `driver` — конфигурация хостов для запуска драйверов Apache Spark™. В этом блоке укажите:
         
           * [Класс хостов](../concepts/instance-types.md) в параметре `resource_preset_id`.
           * Количество экземпляров. Укажите фиксированное количество в параметре `size` или минимальное и максимальное количество для автомасштабирования в параметрах `min_size` и `max_size`.
         
-        * `executor` — конфигурация хостов для запуска исполнителей {{ SPRK }}. В этом блоке укажите:
+        * `executor` — конфигурация хостов для запуска исполнителей Apache Spark™. В этом блоке укажите:
         
           * [Класс хостов](../concepts/instance-types.md) в параметре `resource_preset_id`.
           * Количество экземпляров. Укажите фиксированное количество в параметре `size` или минимальное и максимальное количество для автомасштабирования в параметрах `min_size` и `max_size`.
         
-        * (Опционально) `spark_version` — версия {{ SPRK }}.
+        * (Опционально) `spark_version` — версия Apache Spark™.
         
            {% note info  %}
                       
-           После создания кластера вы можете [изменить версию {{ SPRK }}](cluster-version-update.md). Версию можно только повысить.
+           После создания кластера вы можете [изменить версию Apache Spark™](cluster-version-update.md). Версию можно только повысить.
                       
            {% endnote %}
               
-        * `logging` — параметры логирования. Сгенерированные компонентами {{ SPRK }} логи будут отправляться в {{ cloud-logging-full-name }}. Для включения логирования:
+        * `logging` — параметры логирования. Сгенерированные компонентами Apache Spark™ логи будут отправляться в Yandex Cloud Logging. Для включения логирования:
         
             * Установите значение `enabled = true`.
             * Задайте одно из двух мест хранения логов:
@@ -343,7 +343,7 @@
           
             > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
         
-        * Чтобы включить сервис {{ SPRK }} History Server, добавьте в описание конфигурации кластера блок `history_server`:
+        * Чтобы включить сервис Apache Spark™ History Server, добавьте в описание конфигурации кластера блок `history_server`:
         
             ```hcl
             resource "yandex_spark_cluster" "<имя_кластера>" {
@@ -357,7 +357,7 @@
             }
             ```
         
-        * Чтобы подключить к вашему кластеру [сервер {{ metastore-name }}](../../metadata-hub/concepts/metastore.md), добавьте в описание конфигурации кластера блок `metastore`:
+        * Чтобы подключить к вашему кластеру [сервер Apache Hive™ Metastore](../../metadata-hub/concepts/metastore.md), добавьте в описание конфигурации кластера блок `metastore`:
         
             ```hcl
             resource "yandex_spark_cluster" "<имя_кластера>" {
@@ -371,7 +371,7 @@
             }
             ```
         
-        * Чтобы подключить дополнительные deb- и pip-пакеты для запуска заданий {{ SPRK }}, добавьте в описание конфигурации кластера блок `dependencies`:
+        * Чтобы подключить дополнительные deb- и pip-пакеты для запуска заданий Apache Spark™, добавьте в описание конфигурации кластера блок `dependencies`:
         
             ```hcl
             resource "yandex_spark_cluster" "<имя_кластера>" {
@@ -390,16 +390,16 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
-    1. Создайте кластер {{ msp-full-name }}.
+    1. Создайте кластер Yandex Managed Service for Apache Spark™.
 
         1. Выполните команду для просмотра планируемых изменений:
         
@@ -419,9 +419,9 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
-    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-msp }}).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/spark_cluster.md).
 
 - gRPC API {#grpc-api}
 
@@ -502,7 +502,7 @@
 
            * `resource_pools` — конфигурация пулов ресурсов:
 
-               * `driver` — конфигурация хостов для запуска драйверов {{ SPRK }}.
+               * `driver` — конфигурация хостов для запуска драйверов Apache Spark™.
 
                    * `resource_preset_id` — [класс хостов](../concepts/instance-types.md) драйвера.
                    * `scale_policy` — политика масштабирования групп хостов для драйвера:
@@ -516,7 +516,7 @@
 
                            Укажите один из двух параметров: `fixed_scale` либо `auto_scale`.
 
-               * `executor` — конфигурация хостов для запуска исполнителей {{ SPRK }}.
+               * `executor` — конфигурация хостов для запуска исполнителей Apache Spark™.
 
                    * `resource_preset_id` — [класс хостов](../concepts/instance-types.md) исполнителя.
                    * `scale_policy` — политика масштабирования групп хостов для исполнителя:
@@ -540,13 +540,13 @@
               Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
 
            * `metastore` — параметры метахранилища.
-              * `cluster_id` — идентификатор кластера [{{ metastore-name }}](../../metadata-hub/concepts/metastore.md).
+              * `cluster_id` — идентификатор кластера [Apache Hive™ Metastore](../../metadata-hub/concepts/metastore.md).
 
-           * `spark_version` — версия {{ SPRK }}.
+           * `spark_version` — версия Apache Spark™.
 
               {% note info  %}
                          
-              После создания кластера вы можете [изменить версию {{ SPRK }}](cluster-version-update.md). Версию можно только повысить.
+              После создания кластера вы можете [изменить версию Apache Spark™](cluster-version-update.md). Версию можно только повысить.
                          
               {% endnote %}
 
@@ -561,13 +561,13 @@
        * `service_account_id` — идентификатор сервисного аккаунта.
 
        * `logging` — параметры логирования:
-          * `enabled` — позволяет включить логирование. Логи, сгенерированные Spark-приложениями, будут отправляться в {{ cloud-logging-full-name }}. Возможные значения: `true` или `false`.
+          * `enabled` — позволяет включить логирование. Логи, сгенерированные Spark-приложениями, будут отправляться в Yandex Cloud Logging. Возможные значения: `true` или `false`.
           * `folder_id` — идентификатор каталога. Логи будут записываться в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для этого каталога.
           * `log_group_id` — идентификатор пользовательской лог-группы. Логи будут записываться в нее.
 
           Укажите один из двух параметров: `folder_id` либо `log_group_id`.
 
-    1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
        ```bash
        grpcurl \
@@ -577,7 +577,7 @@
            -proto ~/cloudapi/yandex/cloud/spark/v1/cluster_service.proto \
            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
            -d @ \
-           {{ api-host-spark }}:{{ port-https }} \
+           spark.api.cloud.yandex.net:443 \
            yandex.cloud.spark.v1.ClusterService.Create \
            < body.json
        ```
@@ -592,12 +592,12 @@
 
 - CLI {#cli}
 
-    Создайте кластер {{ SPRK }} с тестовыми характеристиками:
+    Создайте кластер Apache Spark™ с тестовыми характеристиками:
 
     * Имя — `myspark`.
     * Сервисный аккаунт — `ajev56jp96ji********`.
-    * Подсеть — `{{ subnet-id }}`.
-    * Группа безопасности — `{{ security-group }}`.
+    * Подсеть — `b0rcctk2rvtr********`.
+    * Группа безопасности — `enp6saqnq4ie********`.
     * 2 драйвера с [классом вычислительных ресурсов](../concepts/instance-types.md) — `c2-m16`.
     * 4 исполнителя с классом вычислительных ресурсов — `c2-m16`.
     * Включенный сервер истории.
@@ -606,11 +606,11 @@
     Выполните следующую команду:
 
     ```bash
-    {{ yc-mdb-sp }} cluster create \
+    yc managed-spark cluster create \
        --name myspark \
        --service-account-id ajev56jp96ji******** \
-       --subnet-ids {{ subnet-id }} \
-       --security-group-ids {{ security-group }} \
+       --subnet-ids b0rcctk2rvtr******** \
+       --security-group-ids enp6saqnq4ie******** \
        --driver-preset-id c2-m16 \
        --driver-fixed-size 2 \
        --executor-preset-id c2-m16 \
@@ -619,9 +619,9 @@
        --deletion-protection
     ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    Создайте кластер {{ SPRK }} и сеть для него с тестовыми характеристиками:
+    Создайте кластер Apache Spark™ и сеть для него с тестовыми характеристиками:
 
     * Имя — `myspark`.
     * Сервисный аккаунт — `ajev56jp96ji********`.

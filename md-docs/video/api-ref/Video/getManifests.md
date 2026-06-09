@@ -10,7 +10,7 @@ The player MUST request a fresh manifest every time playback starts.
 ## HTTP request
 
 ```
-GET https://video.{{ api-host }}/video/v1/videos/{videoId}:getManifests
+GET https://video.api.cloud.yandex.net/video/v1/videos/{videoId}:getManifests
 ```
 
 ## Path parameters

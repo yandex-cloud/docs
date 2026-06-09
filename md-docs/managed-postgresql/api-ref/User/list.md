@@ -5,7 +5,7 @@ Retrieves the list of PostgreSQL User resources in the specified cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/users
+GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/users
 ```
 
 ## Path parameters

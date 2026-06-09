@@ -1,6 +1,6 @@
 # Отправка письма
 
-В {{ postbox-name }} можно отправить письмо:
+В Yandex Cloud Postbox можно отправить письмо:
 * с помощью [AWS CLI](#aws-cli);
 * из почтового клиента по [протоколу SMTP](#smtp);
 * с помощью [AWS SDK](#aws-sdk);
@@ -8,7 +8,7 @@
 
 {% note info %}
 
-Для обеспечения безопасности передачи данных сервис {{ postbox-name }} поддерживает версии протокола TLS 1.2 и 1.3.
+Для обеспечения безопасности передачи данных сервис Yandex Cloud Postbox поддерживает версии протокола TLS 1.2 и 1.3.
 
 {% endnote %}
 
@@ -22,7 +22,7 @@
 
     * [Статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key). Надежно сохраните идентификатор и секретный ключ. После того как вы закроете окно, параметры секретного ключа станут недоступны.
 
-    * [IAM-токен](../../iam/operations/iam-token/create-for-sa.md). Этот способ авторизации подходит для отправки писем из [функций](../../functions/concepts/function.md) {{ sf-name }} и [контейнеров](../../serverless-containers/concepts/container.md) {{ serverless-containers-name }}, а также для [виртуальных машин](../../compute/concepts/vm.md) {{ compute-name }}, к которым привязан сервисный аккаунт. Выбирайте его, если не хотите создавать и хранить статические ключи доступа.
+    * [IAM-токен](../../iam/operations/iam-token/create-for-sa.md). Этот способ авторизации подходит для отправки писем из [функций](../../functions/concepts/function.md) Cloud Functions и [контейнеров](../../serverless-containers/concepts/container.md) Serverless Containers, а также для [виртуальных машин](../../compute/concepts/vm.md) Compute Cloud, к которым привязан сервисный аккаунт. Выбирайте его, если не хотите создавать и хранить статические ключи доступа.
 
         {% note warning %}
 
@@ -60,9 +60,9 @@
             ```
             AWS Secret Access Key [****************w5lb]: <секретный_ключ_сервисного_аккаунта>
             ```
-        1. Укажите имя региона по умолчанию {{ region-id }}:
+        1. Укажите имя региона по умолчанию ru-central1:
             ```
-            Default region name [{{ region-id }}]: {{ region-id }}
+            Default region name [ru-central1]: ru-central1
             ```
         1. Укажите формат выходных данных по умолчанию json:
             ```
@@ -105,7 +105,7 @@
           --from-email-address mail@example.com \
           --destination file://destination.json \
           --content file://message.json \
-          --endpoint-url {{ postbox-endpoint }}
+          --endpoint-url https://postbox.cloud.yandex.net
         ```
     
     1. Проверьте почтовый ящик, указанный в `destination.json`, — туда должно прийти письмо.
@@ -122,7 +122,7 @@
     
         #|
         || | **Почтовый клиент поддерживает STARTTLS** | **Почтовый клиент не поддерживает STARTTLS, но поддерживает SMTPS** ||
-        || **Имя сервера** | `{{ postbox-host }}` {align="center"} | > ||
+        || **Имя сервера** | `postbox.cloud.yandex.net` {align="center"} | > ||
         || **Порт** | `587` | `465` ||
         || **Имя пользователя** | Идентификатор созданного API-ключа {align="center"} | > ||
         || **Пароль** | Секретная часть созданного API-ключа {align="center"} | > ||
@@ -152,7 +152,7 @@
         DATE = "20230926"
         SERVICE = "postbox"
         MESSAGE = "SendRawEmail"
-        REGION = "{{ region-id }}"
+        REGION = "ru-central1"
         TERMINAL = "aws4_request"
         VERSION = 0x04
     
@@ -195,7 +195,7 @@
     
         #|
         || | **Почтовый клиент поддерживает STARTTLS** | **Почтовый клиент не поддерживает STARTTLS, но поддерживает SMTPS** ||
-        || **Имя сервера** | `{{ postbox-host }}` {align="center"} | > ||
+        || **Имя сервера** | `postbox.cloud.yandex.net` {align="center"} | > ||
         || **Порт** | `587` | `465` ||
         || **Имя пользователя** | Идентификатор созданного ранее статического ключа доступа {align="center"} | > ||
         || **Пароль** | Пароль, полученный на предыдущем шаге {align="center"} | > ||
@@ -209,7 +209,7 @@
     
         #|
         || | **Почтовый клиент поддерживает STARTTLS** | **Почтовый клиент не поддерживает STARTTLS, но поддерживает SMTPS** ||
-        || **Имя сервера** | `{{ postbox-host }}` {align="center"} | > ||
+        || **Имя сервера** | `postbox.cloud.yandex.net` {align="center"} | > ||
         || **Порт** | `587` | `465` ||
         || **Имя пользователя** | `IAM_TOKEN` {align="center"} | > ||
         || **Пароль** | IAM-токен сервисного аккаунта {align="center"} | > ||
@@ -223,10 +223,10 @@
 
 Вы можете отправить письмо с помощью AWS SDK для .NET Core, Go, JavaScript и Python. Подробнее см. в руководствах:
 
-* [{#T}](../tutorials/send-emails-aws-sdk-csharp.md)
-* [{#T}](../tutorials/send-emails-aws-sdk-go.md)
-* [{#T}](../tutorials/send-emails-aws-sdk-js.md)
-* [{#T}](../tutorials/send-emails-aws-sdk-python.md)
+* [Отправка писем с помощью AWS SDK для .NET Core](../tutorials/send-emails-aws-sdk-csharp.md)
+* [Отправка писем с помощью AWS SDK для Go](../tutorials/send-emails-aws-sdk-go.md)
+* [Отправка писем с помощью AWS SDK для JavaScript](../tutorials/send-emails-aws-sdk-js.md)
+* [Отправка писем с помощью AWS SDK для Python](../tutorials/send-emails-aws-sdk-python.md)
 
 ### cURL {#curl}
 
@@ -239,7 +239,7 @@
     ```bash
     curl \
         --request POST \
-        --url '{{ postbox-endpoint }}/v2/email/outbound-emails' \
+        --url 'https://postbox.cloud.yandex.net/v2/email/outbound-emails' \
         --header 'Content-Type: application/json' \
         --user "${KEY_ID}:${SECRET_KEY}" \
         --aws-sigv4 "aws:amz:ru-central1:ses" \
@@ -251,7 +251,7 @@
     ```bash
     curl \
         --request POST \
-        --url '{{ postbox-endpoint }}/v2/email/outbound-emails' \
+        --url 'https://postbox.cloud.yandex.net/v2/email/outbound-emails' \
         --header 'Content-Type: application/json' \
         --header 'X-YaCloud-SubjectToken: <IAM-токен>' \
         --data '{
@@ -303,4 +303,4 @@
 
 {% endcut %}
 
-Чтобы использовать [AWS Signature Version 4](https://docs.amazonaws.cn/en_us/IAM/latest/UserGuide/reference_aws-signing.html) для подписи запроса, укажите параметр `--aws-sigv4`. Как формировать подпись самостоятельно, см. в разделе [{#T}](../aws-compatible-api/signing-requests.md).
+Чтобы использовать [AWS Signature Version 4](https://docs.amazonaws.cn/en_us/IAM/latest/UserGuide/reference_aws-signing.html) для подписи запроса, укажите параметр `--aws-sigv4`. Как формировать подпись самостоятельно, см. в разделе [Подписывание запросов](../aws-compatible-api/signing-requests.md).

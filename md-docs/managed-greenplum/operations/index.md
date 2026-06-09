@@ -1,4 +1,4 @@
-# Пошаговые инструкции для {{ mgp-name }}
+# Пошаговые инструкции для Yandex MPP Analytics for PostgreSQL
 
 ## Кластеры {#clusters}
 
@@ -7,7 +7,7 @@
 * [Изменение конфигурации кластера](cluster-config.md)
 * [Изменение настроек кластера](update.md)
 * [Остановка и запуск кластера](cluster-stop.md)
-* [{#T}](cluster-expand.md)
+* [Расширение кластера](cluster-expand.md)
 * [Управление резервными копиями](cluster-backups.md)
 * [Управление доступом к кластеру](cluster-access.md)
 * [Техническое обслуживание](cluster-maintenance.md)
@@ -22,30 +22,30 @@
 
 ## Базы данных {#databases}
 
-* [{#T}](databases.md)
-* [{#T}](web-sql-query.md)
+* [Управление базами данных в Yandex MPP Analytics for PostgreSQL](databases.md)
+* [Запросы в Yandex WebSQL](web-sql-query.md)
 
 ## Пользователи и сессии {#users-and-sessions}
 
-* [{#T}](roles-and-users.md)
-* [{#T}](resource-groups.md)
-* [{#T}](user-auth-rules.md)
-* [{#T}](command-center.md)
-* [{#T}](cluster-process.md)
+* [Управление ролями и пользователями](roles-and-users.md)
+* [Управление ресурсными группами](resource-groups.md)
+* [Правила аутентификации пользователей](user-auth-rules.md)
+* [Работа с командным центром Yandex MPP Analytics for PostgreSQL](command-center.md)
+* [Управление клиентскими процессами и сессиями пользователей](cluster-process.md)
 
 ## Внешние таблицы PXF {#pxf}
 
-* [{#T}](external-tables.md)
-* [{#T}](pxf/create-s3-source.md)
-* [{#T}](pxf/create-jdbc-source.md)
-* [{#T}](pxf/create-hdfs-source.md)
-* [{#T}](pxf/create-hive-source.md)
-* [{#T}](pxf/create-table.md)
-* [{#T}](pxf/settings.md)
+* [Работа с PXF](external-tables.md)
+* [Создание внешнего источника данных S3](pxf/create-s3-source.md)
+* [Создание внешнего источника данных JDBC](pxf/create-jdbc-source.md)
+* [Создание внешнего источника данных HDFS](pxf/create-hdfs-source.md)
+* [Создание внешнего источника данных Hive](pxf/create-hive-source.md)
+* [Создание внешней таблицы по протоколу PXF](pxf/create-table.md)
+* [Изменение настроек PXF](pxf/settings.md)
 
 ## Работа с утилитой `gpfdist` {#gpfdist}
 
-* [{#T}](gpfdist/connect.md)
+* [Подключение к внешнему файловому серверу](gpfdist/connect.md)
 
 ## Расширения {#extensions}
 
@@ -60,9 +60,9 @@
 * [Просмотр логов кластера](cluster-logs.md)
 * [Просмотр операций кластера](cluster-operations.md)
 * [Мониторинг состояния кластера и хостов](monitoring.md)
-* [Передача логов кластера в {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md)
-* [Чтение логов кластера {{ mgp-full-name }} через SQL](sql-log-access.md)
+* [Передача логов кластера в Yandex Cloud Logging](mgp-to-cloud-logging.md)
+* [Чтение логов кластера Yandex MPP Analytics for PostgreSQL через SQL](sql-log-access.md)
 
 ## Вспомогательные утилиты {#tools}
 
-* [{#T}](greenplum-db.md)
+* [Вспомогательные утилиты](greenplum-db.md)

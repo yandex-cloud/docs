@@ -1,8 +1,8 @@
-# Пример использования {{ message-queue-full-name }} на Python
+# Пример использования Yandex Message Queue на Python
 
 {% note warning %}
 
-Для работы с {{ message-queue-full-name }} из Python используется [boto3](https://aws.amazon.com/ru/sdk-for-python/) — комплект средств разработки для языка Python.
+Для работы с Yandex Message Queue из Python используется [boto3](https://aws.amazon.com/ru/sdk-for-python/) — комплект средств разработки для языка Python.
 
 {% endnote %}
 
@@ -13,7 +13,7 @@
 ## Подготовка к работе {#prepare}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md).
-1. [Назначьте роль {{ roles-editor }} сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
+1. [Назначьте роль editor сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
 1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
 Задайте переменные окружения:
@@ -26,7 +26,7 @@ export AWS_SECRET_ACCESS_KEY="<секретный_ключ>"
 
 В этом примере:
 
-1. Устанавливается соединение с {{ message-queue-name }}.
+1. Устанавливается соединение с Message Queue.
 1. Создается очередь с именем `mq_example_boto3`. 
 1. В очередь передается сообщение с текстом `boto3 sample message`.
 1. Сообщение считывается из очереди и отображается в терминале.
@@ -40,8 +40,8 @@ def main():
     # Create client
     client = boto3.client(
         service_name='sqs',
-        endpoint_url='https://message-queue.{{ api-host }}',
-        region_name='{{ region-id }}'
+        endpoint_url='https://message-queue.api.cloud.yandex.net',
+        region_name='ru-central1'
     )
 
     # Create queue and get its url

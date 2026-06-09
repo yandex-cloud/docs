@@ -5,7 +5,7 @@ Creates a PostgreSQL cluster in the specified folder.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
+POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters
 ```
 
 ## Body parameters {#yandex.cloud.mdb.postgresql.v1.CreateClusterRequest}

@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
@@ -10,7 +10,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Раздел {{ yandex-siem-full-name }} появится в интерфейсе {{ cloud-center }} как модуль {{ sd-name }} после одобрения заявки на доступ.
+Раздел Yandex SIEM появится в интерфейсе Cloud Center как модуль Security Deck после одобрения заявки на доступ.
 
 Для работы с сервисом вам потребуется [роль](../../../iam/roles-reference.md#ycdr-admin) `ycem.editor`.
 
@@ -20,15 +20,15 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Перейдите в сервис [{{ sd-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите **{{ yandex-siem-full-name }}**.
-  1. Перейдите в раздел **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.correlationRules }}**.
-  1. В строке нужного правила нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.security.siem.action_create-exception_bLSu4 }}**.
-  1. В блоке **{{ ui-key.yacloud_org.security.siem.condition_title_gAfRm }}** добавьте одну или несколько пар «ключ = значение», определяющих события, которые не должны вызывать срабатывание правила.
-  1. В блоке **Параметры** заполните обязательное поле **{{ ui-key.yacloud_org.security.siem.label_name_udzhS }}**, а также при необходимости — **{{ ui-key.yacloud_org.security.siem.label_description_4xXeP }}**.
-  1. Нажмите **{{ ui-key.yacloud_org.siem.SearchActionButtonBlock.save }}**.
+  1. Перейдите в сервис [Security Deck](https://center.yandex.cloud/security/).
+  1. На панели слева выберите **Yandex SIEM**.
+  1. Перейдите в раздел **Правила корреляции**.
+  1. В строке нужного правила нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Создать исключение**.
+  1. В блоке **Условия** добавьте одну или несколько пар «ключ = значение», определяющих события, которые не должны вызывать срабатывание правила.
+  1. В блоке **Параметры** заполните обязательное поле **Имя**, а также при необходимости — **Описание**.
+  1. Нажмите **Сохранить**.
 
   Привязанное правило будет заполнено автоматически.
 
@@ -40,16 +40,16 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Перейдите в сервис [{{ sd-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите **{{ yandex-siem-full-name }}**.
-  1. Перейдите в раздел **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
-  1. Нажмите **{{ ui-key.yacloud_org.security.siem.ExceptionsPage.create-exception }}**.
+  1. Перейдите в сервис [Security Deck](https://center.yandex.cloud/security/).
+  1. На панели слева выберите **Yandex SIEM**.
+  1. Перейдите в раздел **Исключения**.
+  1. Нажмите **Новое исключение**.
   1. В открывшемся списке выберите правило корреляции, для которого создается исключение.
-  1. В блоке **{{ ui-key.yacloud_org.security.siem.condition_title_gAfRm }}** добавьте одну или несколько пар «ключ = значение», определяющих события, которые не должны вызывать срабатывание правила.
-  1. В блоке **Параметры** заполните обязательное поле **{{ ui-key.yacloud_org.security.siem.label_name_udzhS }}**, а также при необходимости — **{{ ui-key.yacloud_org.security.siem.label_description_4xXeP }}**.
-  1. Нажмите **{{ ui-key.yacloud_org.siem.SearchActionButtonBlock.save }}**.
+  1. В блоке **Условия** добавьте одну или несколько пар «ключ = значение», определяющих события, которые не должны вызывать срабатывание правила.
+  1. В блоке **Параметры** заполните обязательное поле **Имя**, а также при необходимости — **Описание**.
+  1. Нажмите **Сохранить**.
 
 {% endlist %}
 
@@ -59,14 +59,14 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Перейдите в сервис [{{ sd-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите **{{ yandex-siem-full-name }}**.
-  1. Перейдите в раздел **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
-  1. В строке нужного исключения нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.security.controls.ExceptionDrawer.header_action_edit }}**.
+  1. Перейдите в сервис [Security Deck](https://center.yandex.cloud/security/).
+  1. На панели слева выберите **Yandex SIEM**.
+  1. Перейдите в раздел **Исключения**.
+  1. В строке нужного исключения нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
   1. Измените нужные поля.
-  1. Нажмите **{{ ui-key.yacloud_org.siem.SearchActionButtonBlock.save }}**.
+  1. Нажмите **Сохранить**.
 
 {% endlist %}
 
@@ -76,12 +76,12 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Перейдите в сервис [{{ sd-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите **{{ yandex-siem-full-name }}**.
-  1. Перейдите в раздел **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
-  1. В строке нужного исключения нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.security.siem.action_switch-off_kYx8w }}**.
+  1. Перейдите в сервис [Security Deck](https://center.yandex.cloud/security/).
+  1. На панели слева выберите **Yandex SIEM**.
+  1. Перейдите в раздел **Исключения**.
+  1. В строке нужного исключения нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Выключить**.
 
   Выключенное исключение переходит в статус **Inactive** и перестает применяться при обработке событий.
 
@@ -93,12 +93,12 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Перейдите в сервис [{{ sd-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите **{{ yandex-siem-full-name }}**.
-  1. Перейдите в раздел **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
-  1. В строке нужного исключения нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.security.siem.action_reset-changes_eXJka }}**.
+  1. Перейдите в сервис [Security Deck](https://center.yandex.cloud/security/).
+  1. На панели слева выберите **Yandex SIEM**.
+  1. Перейдите в раздел **Исключения**.
+  1. В строке нужного исключения нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Сбросить изменения**.
 
   Все несохраненные изменения будут отменены. Исключение вернется к последней развернутой конфигурации.
 
@@ -110,12 +110,12 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Перейдите в сервис [{{ sd-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите **{{ yandex-siem-full-name }}**.
-  1. Перейдите в раздел **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
-  1. В строке нужного исключения нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.security.controls.ExceptionDrawer.header_action_delete }}**.
+  1. Перейдите в сервис [Security Deck](https://center.yandex.cloud/security/).
+  1. На панели слева выберите **Yandex SIEM**.
+  1. Перейдите в раздел **Исключения**.
+  1. В строке нужного исключения нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
   1. Подтвердите удаление.
 
   {% note warning %}
@@ -128,6 +128,6 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../../concepts/correlation-rules.md).
-* [{#T}](../correlation-rules/manage-rules.md).
-* [{#T}](exceptions-list.md).
+* [Правила корреляции и исключения](../../concepts/correlation-rules.md).
+* [Управление правилами корреляции](../correlation-rules/manage-rules.md).
+* [Работа со списком исключений](exceptions-list.md).

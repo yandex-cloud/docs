@@ -1,12 +1,12 @@
-# Развертывание пользовательского (self-hosted) воркера {{ src-name }} на виртуальной машине {{ compute-full-name }}
+# Развертывание пользовательского (self-hosted) воркера SourceCraft на виртуальной машине Yandex Compute Cloud
 
-[Пользовательские (self-hosted) воркеры]({{ link-src-docs }}/sourcecraft/concepts/ci-cd#self-hosted-workers) — личные серверы пользователей, как виртуальные, так и физические, на которых выполняются [CI/CD-процессы]({{ link-src-docs }}/sourcecraft/concepts/ci-cd) {{ src-name }}. В этом случае для процессов будет доступно окружение пользовательского сервера.
+[Пользовательские (self-hosted) воркеры](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/ci-cd#self-hosted-workers) — личные серверы пользователей, как виртуальные, так и физические, на которых выполняются [CI/CD-процессы](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/ci-cd) SourceCraft. В этом случае для процессов будет доступно окружение пользовательского сервера.
 
-На пользовательские воркеры не действуют ограничения на [объем вычислительных ресурсов]({{ link-src-docs }}/sourcecraft/concepts/ci-cd#cloud-worker-resources), а также не расходуется [квота на суммарное время работы CI/CD-процессов]({{ link-src-docs }}/sourcecraft/concepts/limits#ci-cd-quotas).
+На пользовательские воркеры не действуют ограничения на [объем вычислительных ресурсов](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/ci-cd#cloud-worker-resources), а также не расходуется [квота на суммарное время работы CI/CD-процессов](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/limits#ci-cd-quotas).
 
-При наличии компьютера с подходящей конфигурацией, можно самостоятельно на нем [настроить пользовательский воркер для {{ src-name }}]({{ link-src-docs }}/sourcecraft/operations/self-hosted-worker). В ином случае можно создать виртуальную машину в {{ compute-name }} и установить пользовательский воркер на ней. Более того, можно автоматизировать не только процессы создания ВМ, установки, настройки и запуска пользовательского воркера, но и процесс удаления ВМ после выполнения [рабочего процесса]({{ link-src-docs }}/sourcecraft/ci-cd-ref/workflows) CI/CD. Таким образом, можно оптимально использовать ресурсы {{ compute-name }}.
+При наличии компьютера с подходящей конфигурацией, можно самостоятельно на нем [настроить пользовательский воркер для SourceCraft](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/self-hosted-worker). В ином случае можно создать виртуальную машину в Compute Cloud и установить пользовательский воркер на ней. Более того, можно автоматизировать не только процессы создания ВМ, установки, настройки и запуска пользовательского воркера, но и процесс удаления ВМ после выполнения [рабочего процесса](https://sourcecraft.dev/portal/docs/ru/sourcecraft/ci-cd-ref/workflows) CI/CD. Таким образом, можно оптимально использовать ресурсы Compute Cloud.
 
-В руководстве рассматривается пример, как реализовать такую автоматизацию с помощью CI/CD-процессов {{ src-name }} с использованием [сервисного подключения]({{ link-src-docs }}/sourcecraft/operations/service-connections).
+В руководстве рассматривается пример, как реализовать такую автоматизацию с помощью CI/CD-процессов SourceCraft с использованием [сервисного подключения](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/service-connections).
 
 Варианты использования пользовательского воркера:
 * В том же репозитории, из которого воркер был создан. Для такого случая предусмотрено автоматическое удаление ВМ после выполнения рабочего процесса.
@@ -31,15 +31,15 @@
 
   {% note info %}
 
-  Нельзя задать четкую последовательность выполнения рабочих процессов, поэтому рабочие процессы нужно по одному [запустить вручную]({{ link-src-docs }}/sourcecraft/operations/run-workflow-manually).
+  Нельзя задать четкую последовательность выполнения рабочих процессов, поэтому рабочие процессы нужно по одному [запустить вручную](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/run-workflow-manually).
 
   {% endnote %}
 
   {% endcut %}
 
-* В любом другом репозитории [организации]({{ link-src-docs }}/sourcecraft/concepts/#org). Удалять ВМ с пользовательским воркером в таком случае нужно [вручную](#clear-out).
+* В любом другом репозитории [организации](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/#org). Удалять ВМ с пользовательским воркером в таком случае нужно [вручную](#clear-out).
 
-Чтобы развернуть пользовательский воркер {{ src-name }} на ВМ {{ compute-name }}:
+Чтобы развернуть пользовательский воркер SourceCraft на ВМ Compute Cloud:
 1. [Подготовьтесь к работе](#prepare).
 1. [Разверните инфраструктуру](#infra).
 1. [Создайте репозиторий с конфигурацией CI/CD](#clone-repo).
@@ -52,24 +52,24 @@
 
 ## Подготовьтесь к работе {#prepare}
 
-1. Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-   1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-   1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+1. Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+   1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+   1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
    
-   Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+   Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
    
    [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
-1. Аутентифицируйтесь в {{ src-name }} на [главной странице]({{ link-src-main }}) сервиса или [зарегистрируйтесь]({{ link-src-docs }}/sourcecraft/security/registration).
+1. Аутентифицируйтесь в SourceCraft на [главной странице](https://sourcecraft.dev) сервиса или [зарегистрируйтесь](https://sourcecraft.dev/portal/docs/ru/sourcecraft/security/registration).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры пользовательского воркера входят:
-* плата за диск и запущенную ВМ (см. [тарифы {{ compute-full-name }}](../pricing.md));
-* плата за использование внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* плата за диск и запущенную ВМ (см. [тарифы Yandex Compute Cloud](../pricing.md));
+* плата за использование внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Разверните инфраструктуру {#infra}
 
-1. Если у вас еще нет сетевой инфраструктуры в каталоге {{ yandex-cloud }}, в котором вы хотите разместить ВМ с пользовательским воркером, создайте облачную [сеть](../../vpc/operations/network-create.md), например `default`, и [подсеть](../../vpc/operations/subnet-create.md), например `default-ru-central1-d`.
+1. Если у вас еще нет сетевой инфраструктуры в каталоге Yandex Cloud, в котором вы хотите разместить ВМ с пользовательским воркером, создайте облачную [сеть](../../vpc/operations/network-create.md), например `default`, и [подсеть](../../vpc/operations/subnet-create.md), например `default-ru-central1-d`.
 
     {% note info %}
 
@@ -84,31 +84,31 @@
     #|
     || **Направление**
     **трафика**
-    | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}** 
-    | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**
-    | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**
-    | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** /
-    **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**
-    | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** ||
+    | **Описание** 
+    | **Диапазон портов**
+    | **Протокол**
+    | **Источник** /
+    **Назначение**
+    | **CIDR блоки** ||
     || Входящий
     | `Доступ к ВМ из`
     `интернета`
     | `0-65535`
-    | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
-    | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+    | `Любой`
+    | `CIDR`
     | `0.0.0.0/0` ||
     || Исходящий
     | `Доступ ВМ в`
     `интернет`
     | `0-65535`
-    | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
-    | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+    | `Любой`
+    | `CIDR`
     | `0.0.0.0/0` ||
     |#
 
-1. В каталоге {{ yandex-cloud }}, в котором вы хотите разместить ВМ с пользовательским воркером, [создайте](../../iam/operations/sa/create.md) сервисный аккаунт с [ролью](../security/index.md#compute-editor) `compute.editor` на каталог.
+1. В каталоге Yandex Cloud, в котором вы хотите разместить ВМ с пользовательским воркером, [создайте](../../iam/operations/sa/create.md) сервисный аккаунт с [ролью](../security/index.md#compute-editor) `compute.editor` на каталог.
 
-    От имени этого сервисного аккаунта будут создаваться ВМ в {{ compute-name }}, и осуществляться [сервисное подключение]({{ link-src-docs }}/sourcecraft/concepts/service-connections) {{ src-name }}.
+    От имени этого сервисного аккаунта будут создаваться ВМ в Compute Cloud, и осуществляться [сервисное подключение](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/service-connections) SourceCraft.
 
 ## Создайте репозиторий с конфигурацией CI/CD {#clone-repo}
 
@@ -116,21 +116,21 @@
 
 В примере показано, как создать новый репозиторий с использованием в качестве основы репозитория [self-hosted-worker](https://sourcecraft.dev/examples/self-hosted-worker). 
 
-Вместо создания нового репозитория вы также можете [сделать]({{ link-src-docs }}/sourcecraft/operations/fork-work#create-fork) ответвление (fork) от репозитория `self-hosted-worker`.
+Вместо создания нового репозитория вы также можете [сделать](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/fork-work#create-fork) ответвление (fork) от репозитория `self-hosted-worker`.
 
 {% endnote %}
 
-1. [Создайте]({{ link-src-docs }}/sourcecraft/operations/repo-create#create-empty) новый пустой репозиторий в [организации](../../organization/concepts/organization.md), чьи облако и каталог будут использоваться для ВМ пользовательского воркера.
+1. [Создайте](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/repo-create#create-empty) новый пустой репозиторий в [организации](../../organization/concepts/organization.md), чьи облако и каталог будут использоваться для ВМ пользовательского воркера.
 
     На открывшейся странице скопируйте ссылку для доступа к новому репозиторию вида: `https://git@git.sourcecraft.dev/<слаг_организации>/<слаг_нового_репозитория>.git`.
 
     {% note info %}
 
-    В примере далее для работы с `git` используется протокол [HTTPS]({{ link-src-docs }}/sourcecraft/security/pat). Также вы можете работать по протоколу [SSH]({{ link-src-docs }}/sourcecraft/security/ssh).
+    В примере далее для работы с `git` используется протокол [HTTPS](https://sourcecraft.dev/portal/docs/ru/sourcecraft/security/pat). Также вы можете работать по протоколу [SSH](https://sourcecraft.dev/portal/docs/ru/sourcecraft/security/ssh).
 
     {% endnote %}
 
-1. [Клонируйте]({{ link-src-docs }}/sourcecraft/operations/repo-clone) репозиторий [self-hosted-worker](https://sourcecraft.dev/examples/self-hosted-worker) с примером развертывания пользовательского воркера:
+1. [Клонируйте](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/repo-clone) репозиторий [self-hosted-worker](https://sourcecraft.dev/examples/self-hosted-worker) с примером развертывания пользовательского воркера:
 
     ```bash
     git clone https://git@git.sourcecraft.dev/examples/self-hosted-worker.git
@@ -141,7 +141,7 @@
 
     ```text
     ├── .sourcecraft
-    │   └── ci.yaml                      # конфигурация CI/CD {{ src-name }}
+    │   └── ci.yaml                      # конфигурация CI/CD SourceCraft
     ├── .gitignore
     ├── compute-instance-create.sh       # скрипт для создания ВМ
     ├── compute-instance-delete-async.sh # скрипт для удаления ВМ в асинхронном режиме
@@ -166,7 +166,7 @@
 
 ## Создайте секреты {#secrets}
 
-1. [Получите]({{ link-src-docs }}/sourcecraft/security/pat#create) персональный токен (PAT) с [ролью]({{ link-src-docs }}/sourcecraft/security/#src-repositories-admin) `Администратор репозитория` с доступом к репозиторию, в котором вы хотите использовать пользовательский воркер для CI/CD.
+1. [Получите](https://sourcecraft.dev/portal/docs/ru/sourcecraft/security/pat#create) персональный токен (PAT) с [ролью](https://sourcecraft.dev/portal/docs/ru/sourcecraft/security/#src-repositories-admin) `Администратор репозитория` с доступом к репозиторию, в котором вы хотите использовать пользовательский воркер для CI/CD.
 
     {% note tip %}
 
@@ -174,22 +174,22 @@
 
     {% endnote %}
 
-    С помощью этого токена воркер аутентифицируется в {{ src-name }}.
+    С помощью этого токена воркер аутентифицируется в SourceCraft.
 
 1. [Сгенерируйте SSH-ключи](../operations/vm-connect/ssh.md#creating-ssh-keys) для доступа на ВМ с воркером.
-1. [Создайте]({{ link-src-docs }}/sourcecraft/operations/secrets#create-secret) следующие секреты {{ src-name }}:
+1. [Создайте](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/secrets#create-secret) следующие секреты SourceCraft:
     * с названием `PAT` и значением токена;
     * с названием `SSH_PUB` и публичным SSH-ключом.
 
 ## Настройте сервисное подключение {#service-connection}
 
-[Сервисные подключения]({{ link-src-docs }}/sourcecraft/operations/service-connections) — это безопасный способ интеграции ваших проектов {{ src-name }} с ресурсами {{ yandex-cloud }}.
+[Сервисные подключения](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/service-connections) — это безопасный способ интеграции ваших проектов SourceCraft с ресурсами Yandex Cloud.
 
-[Создайте]({{ link-src-docs }}/sourcecraft/operations/service-connections#create-service-connection) сервисное подключение с названием `default-service-connection`, используйте для него [созданный ранее](#infra) сервисный аккаунт с [ролью](../security/index.md#compute-editor) `compute.editor` на каталог.
+[Создайте](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/service-connections#create-service-connection) сервисное подключение с названием `default-service-connection`, используйте для него [созданный ранее](#infra) сервисный аккаунт с [ролью](../security/index.md#compute-editor) `compute.editor` на каталог.
 
 {% note warning %}
 
-Действие [гранта от {{ src-name }}]({{ link-src-docs }}/sourcecraft/concepts/grant), который выдается при создании сервисного подключения в персональной организации {{ src-name }}, не распространяется на сервисы {{ compute-full-name }} и {{ vpc-full-name }}.
+Действие [гранта от SourceCraft](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/grant), который выдается при создании сервисного подключения в персональной организации SourceCraft, не распространяется на сервисы Yandex Compute Cloud и Yandex Virtual Private Cloud.
 
 {% endnote %}
 
@@ -199,16 +199,16 @@
 
 ### Сконфигурируйте базовые параметры CI/CD {#base-config}
 
-CI/CD-процесс [настраивается]({{ link-src-docs }}/sourcecraft/operations/ci-cd) в файле `.sourcecraft/ci.yaml`.
+CI/CD-процесс [настраивается](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/ci-cd) в файле `.sourcecraft/ci.yaml`.
 
-Представленная [конфигурация CI/CD]({{ link-src-docs }}/sourcecraft/ci-cd-ref/) состоит из следующих [рабочих процессов]({{ link-src-docs }}/sourcecraft/ci-cd-ref/workflows):
+Представленная [конфигурация CI/CD](https://sourcecraft.dev/portal/docs/ru/sourcecraft/ci-cd-ref/) состоит из следующих [рабочих процессов](https://sourcecraft.dev/portal/docs/ru/sourcecraft/ci-cd-ref/workflows):
 * `create-vm` — создает ВМ с пользовательским воркером.
 * `delete-vm` — удаляет ВМ с пользовательским воркером.
 * `test-task-and-delete-vm-async` — выполняет тестовую задачу на пользовательском воркере и удаляет ВМ в асинхронном режиме.
 
 {% note info %}
 
-Рабочие процессы `create-vm` и `delete-vm` выполняются на стандартных [облачных воркерах {{ src-name }}]({{ link-src-docs }}/sourcecraft/concepts/ci-cd#cloud-workers). Процесс `test-task-and-delete-vm-async` выполняется на пользовательском воркере.
+Рабочие процессы `create-vm` и `delete-vm` выполняются на стандартных [облачных воркерах SourceCraft](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/ci-cd#cloud-workers). Процесс `test-task-and-delete-vm-async` выполняется на пользовательском воркере.
 
 {% endnote %}
 
@@ -257,7 +257,7 @@ users:
         --silent \
         --show-error \
         --location \
-        https://{{ s3-storage-host }}/src-processor-downloads/self-hosted-processor-latest/linux/amd64/self-hosted-processor \
+        https://storage.yandexcloud.net/src-processor-downloads/self-hosted-processor-latest/linux/amd64/self-hosted-processor \
         --output self-hosted-processor
       chmod +x self-hosted-processor
       mv self-hosted-processor /home/builder/sourcecraft
@@ -279,7 +279,7 @@ users:
 
 ### Сконфигурируйте пользовательский воркер {#worker-config}
 
-[Конфигурационный файл воркера]({{ link-src-docs }}/sourcecraft/operations/self-hosted-worker#config-file) `config.yaml` также настраивается в файле с метаданными `metadata.yaml`:
+[Конфигурационный файл воркера](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/self-hosted-worker#config-file) `config.yaml` также настраивается в файле с метаданными `metadata.yaml`:
 
 ```yaml
 write_files:
@@ -304,28 +304,28 @@ write_files:
 
 ### Создайте ВМ с пользовательским воркером {#create-vm}
 
-[Запустите вручную]({{ link-src-docs }}/sourcecraft/operations/run-workflow-manually) рабочий процесс `create-vm`.
+[Запустите вручную](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/run-workflow-manually) рабочий процесс `create-vm`.
 
-Процесс создания можно контролировать по логам [кубиков]({{ link-src-docs }}/sourcecraft/ci-cd-ref/cubes). При успешном завершении рабочего процесса созданную ВМ можно увидеть в [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} по ссылке из лога кубика `create-vm`.
+Процесс создания можно контролировать по логам [кубиков](https://sourcecraft.dev/portal/docs/ru/sourcecraft/ci-cd-ref/cubes). При успешном завершении рабочего процесса созданную ВМ можно увидеть в [консоли управления](https://console.yandex.cloud) Yandex Cloud по ссылке из лога кубика `create-vm`.
 
 ### Запустите тестовый рабочий процесс {#run-test-workflow}
 
-1. [Запустите вручную]({{ link-src-docs }}/sourcecraft/operations/run-workflow-manually) рабочий процесс `test-task-and-delete-vm-async`.
+1. [Запустите вручную](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/run-workflow-manually) рабочий процесс `test-task-and-delete-vm-async`.
 1. В задании `test-task` проверьте логи кубиков `test-worker` и `test-docker`:
     * В логах кубика `test-worker` должны отобразиться результаты выполнения команд `uname -a` и `free -h`, запущенных непосредственно на воркере.
-    * В логах кубика `test-docker` должна отобразиться версия утилиты {{ yandex-cloud }} CLI, которая будет запущена в Docker-контейнере.
+    * В логах кубика `test-docker` должна отобразиться версия утилиты Yandex Cloud CLI, которая будет запущена в Docker-контейнере.
 
-После выполнения задания `test-task` запустится задание `delete` (`delete-vm-async`), в котором будет предпринята попытка удалить ВМ в асинхронном режиме. Результат удаления можно увидеть в [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} по ссылке из лога кубика `delete-vm`.
+После выполнения задания `test-task` запустится задание `delete` (`delete-vm-async`), в котором будет предпринята попытка удалить ВМ в асинхронном режиме. Результат удаления можно увидеть в [консоли управления](https://console.yandex.cloud) Yandex Cloud по ссылке из лога кубика `delete-vm`.
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за созданные ресурсы, [запустите вручную]({{ link-src-docs }}/sourcecraft/operations/run-workflow-manually) рабочий процесс `delete-vm` или [удалите](../operations/vm-control/vm-delete.md) ВМ с пользовательским воркером в интерфейсе {{ yandex-cloud }}.
+Чтобы перестать платить за созданные ресурсы, [запустите вручную](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/run-workflow-manually) рабочий процесс `delete-vm` или [удалите](../operations/vm-control/vm-delete.md) ВМ с пользовательским воркером в интерфейсе Yandex Cloud.
 
 При необходимости удалите [сеть](../../vpc/operations/network-delete.md) и [подсеть](../../vpc/operations/subnet-delete.md).
 
 ## См. также {#see-also}
 
-* [Настроить пользовательский воркер для {{ src-name }}]({{ link-src-docs }}/sourcecraft/operations/self-hosted-worker)
+* [Настроить пользовательский воркер для SourceCraft](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/self-hosted-worker)
 * [Создать виртуальную машину с пользовательским скриптом конфигурации](../operations/vm-create/create-with-cloud-init-scripts.md)
 * [Получить список публичных образов](../operations/images-with-pre-installed-software/get-list.md)
 * [Платформы](../concepts/vm-platforms.md)

@@ -6,7 +6,7 @@ This allows using an externally provided CSR to finalize CA creation.
 ## HTTP request
 
 ```
-POST https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certificateAuthorities:generateByCsr
+POST https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/certificateAuthorities:generateByCsr
 ```
 
 ## Body parameters {#yandex.cloud.certificatemanager.v1.privateca.GenerateCertificateAuthorityByCsrRequest}

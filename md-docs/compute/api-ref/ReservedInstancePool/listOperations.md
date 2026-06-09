@@ -5,7 +5,7 @@ Lists operations for the specified reserved instance pool.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/reservedInstancePools/{reservedInstancePoolId}/operations
+GET https://compute.api.cloud.yandex.net/compute/v1/reservedInstancePools/{reservedInstancePoolId}/operations
 ```
 
 ## Path parameters

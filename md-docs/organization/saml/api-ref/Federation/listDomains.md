@@ -5,7 +5,7 @@ Retrieves the list of domains in the specified federation.
 ## HTTP request
 
 ```
-GET https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/{federationId}/domains
+GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/{federationId}/domains
 ```
 
 ## Path parameters

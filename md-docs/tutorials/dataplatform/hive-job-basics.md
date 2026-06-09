@@ -2,26 +2,26 @@
 
 [Apache Hive](https://hive.apache.org/) — это система управления большими распределенными наборами данных на основе платформы Hadoop, использующая язык запросов SQL.
 
-В этой статье на простом примере показывается, как в {{ dataproc-name }} использовать Hive для анализа данных. При помощи Hive в приведенном примере анализируется численность населения крупнейших городов России.
+В этой статье на простом примере показывается, как в Yandex Data Processing использовать Hive для анализа данных. При помощи Hive в приведенном примере анализируется численность населения крупнейших городов России.
 
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
 
-1. В {{ objstorage-short-name }} [создайте бакеты](../../storage/operations/buckets/create.md) и [настройте доступ](../../storage/operations/buckets/edit-acl.md) к ним:
+1. В Object Storage [создайте бакеты](../../storage/operations/buckets/create.md) и [настройте доступ](../../storage/operations/buckets/edit-acl.md) к ним:
    
    1. Создайте бакет для исходных данных и предоставьте сервисному аккаунту кластера разрешение `READ` для этого бакета.
    1. Создайте бакет для результатов обработки и предоставьте сервисному аккаунту кластера разрешение `READ и WRITE` для этого бакета.
 
-1. [Создайте кластер {{ dataproc-name }}](../../data-proc/operations/cluster-create.md) со следующими настройками:
+1. [Создайте кластер Yandex Data Processing](../../data-proc/operations/cluster-create.md) со следующими настройками:
 
-    * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`.
-    * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
+    * **Окружение** — `PRODUCTION`.
+    * **Сервисы**:
         * `HDFS`
         * `SPARK`
         * `HIVE`
-    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: выберите созданный ранее сервисный аккаунт.
-    * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: выберите бакет для результатов обработки.
+    * **Сервисный аккаунт**: выберите созданный ранее сервисный аккаунт.
+    * **Имя бакета**: выберите бакет для результатов обработки.
 
 ## Создайте задание Hive {#create-job}
 
@@ -74,8 +74,8 @@
 
 1. [Создайте задание Hive](../../data-proc/operations/jobs-hive.md#create) с параметрами:
 
-    * **{{ ui-key.yacloud.dataproc.jobs.field_driver }}**: `Файл`
-    * **{{ ui-key.yacloud.dataproc.jobs.field_query-file-uri }}**: `s3a://<имя_бакета_для_исходных_данных>/cities.sql`
+    * **Драйвер**: `Файл`
+    * **Файл с запросами**: `s3a://<имя_бакета_для_исходных_данных>/cities.sql`
 
 1. Подождите, пока [статус задания](../../data-proc/operations/jobs-spark.md#get-info) изменится на `Done`.
 
@@ -98,7 +98,7 @@
 
 {% note info %}
 
-Вы можете просматривать логи выполнения заданий и искать в них информацию с помощью сервиса [{{ cloud-logging-full-name }}](../../logging/index.md). Подробнее в разделе [{#T}](../../data-proc/operations/logging.md).
+Вы можете просматривать логи выполнения заданий и искать в них информацию с помощью сервиса [Yandex Cloud Logging](../../logging/index.md). Подробнее в разделе [Работа с логами](../../data-proc/operations/logging.md).
 
 {% endnote %}
 

@@ -7,7 +7,7 @@ To get the list of all available functions, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://serverless-functions.{{ api-host }}/functions/v1/functions/{functionId}
+GET https://serverless-functions.api.cloud.yandex.net/functions/v1/functions/{functionId}
 ```
 
 ## Path parameters

@@ -1,32 +1,32 @@
-# Пошаговые инструкции для {{ resmgr-name }}
+# Пошаговые инструкции для Resource Manager
 
-* [{#T}](manage-labels.md)
+* [Управление метками](manage-labels.md)
 
 ## Облако {#cloud}
 
-* [{#T}](cloud/create.md)
-* [{#T}](cloud/create-in-another-region.md)
-* [{#T}](cloud/update.md)
-* [{#T}](cloud/delete.md)
-* [{#T}](cloud/delete-cancel.md)
-* [{#T}](cloud/manage-access-policies.md)
-* [{#T}](cloud/set-access-bindings.md)
-* [{#T}](cloud/change-organization.md)
-* [{#T}](cloud/switch-cloud.md)
-* [{#T}](cloud/get-id.md)
-* [{#T}](cloud/notify.md)
+* [Создание нового облака](cloud/create.md)
+* [Создать облако в другом регионе](cloud/create-in-another-region.md)
+* [Переименование облака](cloud/update.md)
+* [Удаление облака](cloud/delete.md)
+* [Отмена удаления облака](cloud/delete-cancel.md)
+* [Управлять политиками авторизации облака](cloud/manage-access-policies.md)
+* [Настройка прав доступа к облаку](cloud/set-access-bindings.md)
+* [Изменение организации для облака](cloud/change-organization.md)
+* [Переключение на другое облако](cloud/switch-cloud.md)
+* [Получение идентификатора облака](cloud/get-id.md)
+* [Получение уведомлений сервисов в облаке](cloud/notify.md)
 
 ## Каталог {#folder}
 
-* [{#T}](folder/create.md)
-* [{#T}](folder/update.md)
-* [{#T}](folder/delete.md)
-* [{#T}](folder/manage-access-policies.md)
-* [{#T}](folder/set-access-bindings.md)
-* [{#T}](folder/switch.md)
-* [{#T}](folder/get-id.md)
-* [{#T}](folder/notify.md)
+* [Создание каталога](folder/create.md)
+* [Изменение каталога](folder/update.md)
+* [Удаление каталога](folder/delete.md)
+* [Управлять политиками авторизации каталога](folder/manage-access-policies.md)
+* [Настройка прав доступа к каталогу](folder/set-access-bindings.md)
+* [Переключиться на другой каталог](folder/switch.md)
+* [Получение идентификатора каталога](folder/get-id.md)
+* [Получение уведомлений сервисов в каталоге](folder/notify.md)
 
 ## Получение дополнительной информации {#get-additional-info}
 
-* [{#T}](operation-logs.md)
+* [Посмотреть операции с ресурсами сервиса Resource Manager](operation-logs.md)

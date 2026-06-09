@@ -6,13 +6,13 @@
 
 ![choose-method](../../../_assets/iam/choose-method.svg)
 
-* [С помощью сервиса метаданных ВМ](../../../compute/operations/vm-connect/auth-inside-vm.md) — предпочтительный способ при работе на виртуальной машине [{{ compute-full-name }}](../../../compute/index.md).
-* [С помощью федерации сервисных аккаунтов](../../concepts/workload-identity.md) — если вы хотите аутентифицироваться в API {{ yandex-cloud }} при запросе из внешней системы, совместимой с протоколом [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC). Например, интеграция с GitHub, [{{ mgl-full-name }}](../../../managed-gitlab/index.md) или пользовательской инсталляцией {{ k8s }}.
+* [С помощью сервиса метаданных ВМ](../../../compute/operations/vm-connect/auth-inside-vm.md) — предпочтительный способ при работе на виртуальной машине [Yandex Compute Cloud](../../../compute/index.md).
+* [С помощью федерации сервисных аккаунтов](../../concepts/workload-identity.md) — если вы хотите аутентифицироваться в API Yandex Cloud при запросе из внешней системы, совместимой с протоколом [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC). Например, интеграция с GitHub, [Yandex Managed Service for GitLab](../../../managed-gitlab/index.md) или пользовательской инсталляцией Kubernetes.
 * [С помощью CLI](#via-cli) — самый простой способ, если внешняя система несовместима с протоколом OIDC, но позволяет установить CLI.
 * [С помощью JSON Web Token](#via-jwt) — если вы хотите контролировать все этапы процесса формирования IAM-токенов.
-* [С помощью функции](../../../functions/operations/function-sa.md) — для получения IAM-токена из кода функции [{{ sf-name }}](../../../functions/index.md).
+* [С помощью функции](../../../functions/operations/function-sa.md) — для получения IAM-токена из кода функции [Cloud Functions](../../../functions/index.md).
 
-[Время жизни](../../concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше {{ iam-token-lifetime }}, но рекомендуется запрашивать его чаще, например каждый час.
+[Время жизни](../../concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше 12 часов, но рекомендуется запрашивать его чаще, например каждый час.
 
 Для автоматического перевыпуска IAM-токена можно использовать скрипт `export IAM_TOKEN=$(yc iam create-token)`.
 
@@ -24,7 +24,7 @@
 
   Настройте CLI для работы от имени сервисного аккаунта:
   
-  1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
   1. По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   1. Получите список доступных сервисных аккаунтов в каталоге по умолчанию:
   
@@ -105,7 +105,7 @@
 
 {% endlist %}
 
-Полученный IAM-токен указывайте при обращении к ресурсам {{ yandex-cloud }} через API. Передайте IAM-токен в заголовке `Authorization` в следующем формате:
+Полученный IAM-токен указывайте при обращении к ресурсам Yandex Cloud через API. Передайте IAM-токен в заголовке `Authorization` в следующем формате:
 
 ```yaml
 Authorization: Bearer <IAM-токен>
@@ -180,7 +180,7 @@ Authorization: Bearer ${IAM_TOKEN}
 
   Payload JWT для сервисного аккаунта должен содержать поля:
   * `iss` — идентификатор сервисного аккаунта, чьим ключом подписывается JWT.
-  * `aud` — ссылка, по которой будет запрашиваться IAM-токен: `https://iam.{{ api-host }}/iam/v1/tokens`.
+  * `aud` — ссылка, по которой будет запрашиваться IAM-токен: `https://iam.api.cloud.yandex.net/iam/v1/tokens`.
   * `iat` — время выписки токена JWT в формате [Unix timestamp](https://en.wikipedia.org/wiki/Unix_time).
   * `exp` — время окончания действия токена JWT в формате Unix timestamp. Время окончания действия не должно превышать время выписки больше чем на час, то есть `exp - iat ≤ 3600`.
 
@@ -189,7 +189,7 @@ Authorization: Bearer ${IAM_TOKEN}
   ```
   {
     "iss": "ajepg0mjt06s********",
-    "aud": "https://iam.{{ api-host }}/iam/v1/tokens",
+    "aud": "https://iam.api.cloud.yandex.net/iam/v1/tokens",
     "iat": 1516239022,
     "exp": 1516240822
   }
@@ -215,7 +215,7 @@ Authorization: Bearer ${IAM_TOKEN}
 
   {% note info %}
   
-  Данный код приведен в качестве примера и использует сторонние библиотеки. {{ yandex-cloud }} гарантирует актуальность и работоспособность приведенного кода только с указанными версиями библиотек. Вы также можете использовать любые библиотеки для генерации JWT-токенов по своему выбору.
+  Данный код приведен в качестве примера и использует сторонние библиотеки. Yandex Cloud гарантирует актуальность и работоспособность приведенного кода только с указанными версиями библиотек. Вы также можете использовать любые библиотеки для генерации JWT-токенов по своему выбору.
   
   {% endnote %}
 
@@ -282,7 +282,7 @@ Authorization: Bearer ${IAM_TOKEN}
 
   {% note info %}
   
-  Данный код приведен в качестве примера и использует сторонние библиотеки. {{ yandex-cloud }} гарантирует актуальность и работоспособность приведенного кода только с указанными версиями библиотек. Вы также можете использовать любые библиотеки для генерации JWT-токенов по своему выбору.
+  Данный код приведен в качестве примера и использует сторонние библиотеки. Yandex Cloud гарантирует актуальность и работоспособность приведенного кода только с указанными версиями библиотек. Вы также можете использовать любые библиотеки для генерации JWT-токенов по своему выбору.
   
   {% endnote %}
 
@@ -351,7 +351,7 @@ Authorization: Bearer ${IAM_TOKEN}
           String encodedToken = Jwts.builder()
                   .setHeaderParam("kid", keyId)
                   .setIssuer(serviceAccountId)
-                  .setAudience("https://iam.{{ api-host }}/iam/v1/tokens")
+                  .setAudience("https://iam.api.cloud.yandex.net/iam/v1/tokens")
                   .setIssuedAt(Date.from(now))
                   .setExpiration(Date.from(now.plusSeconds(3600)))
                   .signWith(privateKey, SignatureAlgorithm.PS256)
@@ -365,7 +365,7 @@ Authorization: Bearer ${IAM_TOKEN}
 
   {% note info %}
   
-  Данный код приведен в качестве примера и использует сторонние библиотеки. {{ yandex-cloud }} гарантирует актуальность и работоспособность приведенного кода только с указанными версиями библиотек. Вы также можете использовать любые библиотеки для генерации JWT-токенов по своему выбору.
+  Данный код приведен в качестве примера и использует сторонние библиотеки. Yandex Cloud гарантирует актуальность и работоспособность приведенного кода только с указанными версиями библиотек. Вы также можете использовать любые библиотеки для генерации JWT-токенов по своему выбору.
   
   {% endnote %}
 
@@ -403,7 +403,7 @@ Authorization: Bearer ${IAM_TOKEN}
     
                 var payload = new Dictionary<string, object>()
                 {
-                    { "aud", "https://iam.{{ api-host }}/iam/v1/tokens" },
+                    { "aud", "https://iam.api.cloud.yandex.net/iam/v1/tokens" },
                     { "iss", serviceAccountId },
                     { "iat", now },
                     { "exp", now + 3600 }
@@ -453,7 +453,7 @@ Authorization: Bearer ${IAM_TOKEN}
 
                 var payload = new Dictionary<string, object>()
                 {
-                    { "aud", "https://iam.{{ api-host }}/iam/v1/tokens" },
+                    { "aud", "https://iam.api.cloud.yandex.net/iam/v1/tokens" },
                     { "iss", serviceAccountId },
                     { "iat", now },
                     { "exp", now + 3600 }
@@ -473,7 +473,7 @@ Authorization: Bearer ${IAM_TOKEN}
 
   {% note info %}
   
-  Данный код приведен в качестве примера и использует сторонние библиотеки. {{ yandex-cloud }} гарантирует актуальность и работоспособность приведенного кода только с указанными версиями библиотек. Вы также можете использовать любые библиотеки для генерации JWT-токенов по своему выбору.
+  Данный код приведен в качестве примера и использует сторонние библиотеки. Yandex Cloud гарантирует актуальность и работоспособность приведенного кода только с указанными версиями библиотек. Вы также можете использовать любые библиотеки для генерации JWT-токенов по своему выбору.
   
   {% endnote %}
 
@@ -528,7 +528,7 @@ Authorization: Bearer ${IAM_TOKEN}
   	 	ExpiresAt: jwt.NewNumericDate(time.Now().UTC().Add(1 * time.Hour)),
   	 	IssuedAt:  jwt.NewNumericDate(time.Now().UTC()),
   	 	NotBefore: jwt.NewNumericDate(time.Now().UTC()),
-  	 	Audience:  []string{"https://iam.{{ api-host }}/iam/v1/tokens"},
+  	 	Audience:  []string{"https://iam.api.cloud.yandex.net/iam/v1/tokens"},
   	}
   	token := jwt.NewWithClaims(jwt.SigningMethodPS256, claims)
   	token.Header["kid"] = keyID
@@ -573,7 +573,7 @@ Authorization: Bearer ${IAM_TOKEN}
 
   {% note info %}
   
-  Данный код приведен в качестве примера и использует сторонние библиотеки. {{ yandex-cloud }} гарантирует актуальность и работоспособность приведенного кода только с указанными версиями библиотек. Вы также можете использовать любые библиотеки для генерации JWT-токенов по своему выбору.
+  Данный код приведен в качестве примера и использует сторонние библиотеки. Yandex Cloud гарантирует актуальность и работоспособность приведенного кода только с указанными версиями библиотек. Вы также можете использовать любые библиотеки для генерации JWT-токенов по своему выбору.
   
   {% endnote %}
 
@@ -619,7 +619,7 @@ Authorization: Bearer ${IAM_TOKEN}
 
   {% note info %}
   
-  Данный код приведен в качестве примера и использует сторонние библиотеки. {{ yandex-cloud }} гарантирует актуальность и работоспособность приведенного кода только с указанными версиями библиотек. Вы также можете использовать любые библиотеки для генерации JWT-токенов по своему выбору.
+  Данный код приведен в качестве примера и использует сторонние библиотеки. Yandex Cloud гарантирует актуальность и работоспособность приведенного кода только с указанными версиями библиотек. Вы также можете использовать любые библиотеки для генерации JWT-токенов по своему выбору.
   
   {% endnote %}
 
@@ -664,7 +664,7 @@ Authorization: Bearer ${IAM_TOKEN}
   
   $payload = json_encode([
       'iss' => $serviceAccountId,
-      'aud' => "https://iam.{{ api-host }}/iam/v1/tokens",
+      'aud' => "https://iam.api.cloud.yandex.net/iam/v1/tokens",
       'iat' => time(),
       'nbf' => time(),
       'exp' => time() + 3600,
@@ -690,7 +690,7 @@ Authorization: Bearer ${IAM_TOKEN}
 
   {% note info %}
   
-  Данный код приведен в качестве примера и использует сторонние библиотеки. {{ yandex-cloud }} гарантирует актуальность и работоспособность приведенного кода только с указанными версиями библиотек. Вы также можете использовать любые библиотеки для генерации JWT-токенов по своему выбору.
+  Данный код приведен в качестве примера и использует сторонние библиотеки. Yandex Cloud гарантирует актуальность и работоспособность приведенного кода только с указанными версиями библиотек. Вы также можете использовать любые библиотеки для генерации JWT-токенов по своему выбору.
   
   {% endnote %}
 
@@ -720,7 +720,7 @@ Authorization: Bearer ${IAM_TOKEN}
       auto now = std::chrono::system_clock::now();
       auto expires_at = now + std::chrono::hours(1);
       picojson::array audience_array;
-      audience_array.push_back(picojson::value("https://iam.{{ api-host }}/iam/v1/tokens"));
+      audience_array.push_back(picojson::value("https://iam.api.cloud.yandex.net/iam/v1/tokens"));
       auto algorithm = jwt::algorithm::ps256(
           "",
           privateKey);
@@ -742,7 +742,7 @@ Authorization: Bearer ${IAM_TOKEN}
 
   {% note info %}
   
-  Данный код приведен в качестве примера и использует сторонние библиотеки. {{ yandex-cloud }} гарантирует актуальность и работоспособность приведенного кода только с указанными версиями библиотек. Вы также можете использовать любые библиотеки для генерации JWT-токенов по своему выбору.
+  Данный код приведен в качестве примера и использует сторонние библиотеки. Yandex Cloud гарантирует актуальность и работоспособность приведенного кода только с указанными версиями библиотек. Вы также можете использовать любые библиотеки для генерации JWT-токенов по своему выбору.
   
   {% endnote %}
 
@@ -779,7 +779,7 @@ Authorization: Bearer ${IAM_TOKEN}
       exp: Time.now.to_i + 3600,
       iat: Time.now.to_i,
       nbf: Time.now.to_i,
-      aud: "https://iam.{{ api-host }}/iam/v1/tokens"
+      aud: "https://iam.api.cloud.yandex.net/iam/v1/tokens"
     }
   
     header = {
@@ -826,7 +826,7 @@ Authorization: Bearer ${IAM_TOKEN}
       --request POST \
       --header 'Content-Type: application/json' \
       --data '{"jwt": "<JWT-токен>"}' \
-      https://iam.{{ api-host }}/iam/v1/tokens
+      https://iam.api.cloud.yandex.net/iam/v1/tokens
   ```
 
   Где `<JWT-токен>` — токен в формате JWT, полученный на предыдущем шаге.
@@ -834,7 +834,7 @@ Authorization: Bearer ${IAM_TOKEN}
 - Python {#python}
 
   Для того чтобы обменять JWT на IAM-токен, вы можете использовать [YC SDK](../../../overview/sdk/overview.md) для Python.
-  1. Установите {{ yandex-cloud }} SDK для Python: 
+  1. Установите Yandex Cloud SDK для Python: 
 
       ```bash
       pip install yandexcloud
@@ -885,7 +885,7 @@ Authorization: Bearer ${IAM_TOKEN}
 - Go {#go}
 
   Для того чтобы обменять JWT на IAM-токен, вы можете использовать [YC SDK](../../../overview/sdk/overview.md) для Go.
-  1. Установите {{ yandex-cloud }} SDK для Go: 
+  1. Установите Yandex Cloud SDK для Go: 
 
       ```bash
       go get github.com/yandex-cloud/go-sdk
@@ -938,7 +938,7 @@ Authorization: Bearer ${IAM_TOKEN}
 - Node.js {#node}
 
   Для того чтобы обменять JWT на IAM-токен, вы можете использовать [YC SDK](../../../overview/sdk/overview.md) для Node.js.
-  1. Установите {{ yandex-cloud }} SDK для Node.js: 
+  1. Установите Yandex Cloud SDK для Node.js: 
 
       ```bash
       npm install @yandex-cloud/nodejs-sdk
@@ -1000,7 +1000,7 @@ Authorization: Bearer ${IAM_TOKEN}
 
 {% endlist %}
 
-Полученный IAM-токен указывайте при обращении к ресурсам {{ yandex-cloud }} через API. Передайте IAM-токен в заголовке `Authorization` в следующем формате:
+Полученный IAM-токен указывайте при обращении к ресурсам Yandex Cloud через API. Передайте IAM-токен в заголовке `Authorization` в следующем формате:
 
 ```yaml
 Authorization: Bearer <IAM-токен>
@@ -1015,6 +1015,6 @@ Authorization: Bearer ${IAM_TOKEN}
 
 #### Что дальше {#what-is-next}
 
-* [{#T}](../sa/set-access-bindings.md).
-* [{#T}](../sa/assign-role-for-sa.md).
-* [{#T}](revoke-iam-token.md).
+* [Настройка прав доступа к сервисному аккаунту](../sa/set-access-bindings.md).
+* [Назначение роли сервисному аккаунту](../sa/assign-role-for-sa.md).
+* [Отзыв IAM-токена](revoke-iam-token.md).

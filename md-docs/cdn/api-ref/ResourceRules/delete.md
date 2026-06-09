@@ -5,7 +5,7 @@ Delete specified by id resource rule.
 ## HTTP request
 
 ```
-DELETE https://cdn.{{ api-host }}/cdn/v1/rules/{ruleId}
+DELETE https://cdn.api.cloud.yandex.net/cdn/v1/rules/{ruleId}
 ```
 
 ## Path parameters

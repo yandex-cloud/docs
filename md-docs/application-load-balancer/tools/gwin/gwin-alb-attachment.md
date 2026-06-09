@@ -1,30 +1,30 @@
-# Механизм Attachment для интеграции {{ yandex-cloud }} Gwin с существующей инфраструктурой {{ alb-full-name }}
+# Механизм Attachment для интеграции Yandex Cloud Gwin с существующей инфраструктурой Yandex Application Load Balancer
 
-_Attachment_ — это механизм, при котором инфраструктура [{{ alb-name }}](../../concepts/index.md) создается в {{ TF }}, а [Gwin]({{ gwin-tip-local-link }}) связывает ее с ресурсами {{ k8s }} на основе аннотаций. В этом случае Gwin отвечает только за обновление ресурсов балансировщика, а за их создание и удаление — {{ TF }}.
+_Attachment_ — это механизм, при котором инфраструктура [Application Load Balancer](../../concepts/index.md) создается в Terraform, а [Gwin](index.md) связывает ее с ресурсами Kubernetes на основе аннотаций. В этом случае Gwin отвечает только за обновление ресурсов балансировщика, а за их создание и удаление — Terraform.
 
 Такой подход позволяет решать следующие задачи:
 
 * Маршрутизация трафика с одного балансировщика:
   
-  * в несколько кластеров [{{ managed-k8s-name }}](../../../managed-kubernetes/concepts/index.md);
-  * в кластер {{ managed-k8s-name }} и в другие сервисы.
+  * в несколько кластеров [Managed Service for Kubernetes](../../../managed-kubernetes/concepts/index.md);
+  * в кластер Managed Service for Kubernetes и в другие сервисы.
 
-* Интеграция Gwin с существующей инфраструктурой {{ alb-name }}.
-* Переход с маршрутизации через {{ alb-name }} в [{{ ig-name }}](../../../compute/concepts/instance-groups/index.md) на сервисы в {{ k8s }} без изменения балансировщика.
-* Конфигурация [Gateway API]({{ configuration-gwin-local-link }}/gateway.md) через {{ TF }}, а не через манифесты {{ k8s }}.
+* Интеграция Gwin с существующей инфраструктурой Application Load Balancer.
+* Переход с маршрутизации через Application Load Balancer в [Instance Groups](../../../compute/concepts/instance-groups/index.md) на сервисы в Kubernetes без изменения балансировщика.
+* Конфигурация [Gateway API](../../gwin-ref/gateway.md) через Terraform, а не через манифесты Kubernetes.
 
 
 ## Процесс настройки групп бэкендов и целевых групп {#backend-and-target-groups-setup}
 
 При использовании Attachment настройка групп бэкендов и целевых групп выполняется одинаково. На примере целевой группы настройка выглядит следующим образом:
 
-1. [Создайте целевую группу](../../operations/target-group-create.md#tf_1) с помощью {{ TF }}.
+1. [Создайте целевую группу](../../operations/target-group-create.md#tf_1) с помощью Terraform.
     
-    В описании ресурса добавьте блок `lifecycle` с параметром `ignore_changes = all`, чтобы {{ TF }} не перезаписывал изменения, внесенные Gwin.
+    В описании ресурса добавьте блок `lifecycle` с параметром `ignore_changes = all`, чтобы Terraform не перезаписывал изменения, внесенные Gwin.
 
-1. Добавьте в ресурс [Service](../../../managed-kubernetes/concepts/service.md) {{ k8s }} [аннотацию gwin.yandex.cloud/attach.targetGroup.id]({{ configuration-gwin-local-link }}/service.md#attach-configuration) с идентификатором целевой группы в {{ TF }}.
+1. Добавьте в ресурс [Service](../../../managed-kubernetes/concepts/service.md) Kubernetes [аннотацию gwin.yandex.cloud/attach.targetGroup.id](../../gwin-ref/service.md#attach-configuration) с идентификатором целевой группы в Terraform.
   
-При изменении ресурса Service {{ k8s }} контроллер Gwin обновляет ресурсы балансировщика следующим образом:
+При изменении ресурса Service Kubernetes контроллер Gwin обновляет ресурсы балансировщика следующим образом:
 
 1. Находит целевую группу по аннотации.
     
@@ -33,9 +33,9 @@ _Attachment_ — это механизм, при котором инфрастр
 1. Обновляет целевую группу:
 
     * добавляет метку `gwin-attached: true`;
-    * изменяет конфигурацию целевой группы на основе сервиса в {{ k8s }}.
+    * изменяет конфигурацию целевой группы на основе сервиса в Kubernetes.
 
-Если при обновлении ресурсов Gwin находит ресурс, у которого есть метка `gwin-attached: true`, но соответствующий сервис в {{ k8s }} не существует, возвращается предупреждение.
+Если при обновлении ресурсов Gwin находит ресурс, у которого есть метка `gwin-attached: true`, но соответствующий сервис в Kubernetes не существует, возвращается предупреждение.
 
 {% note warning %}
 
@@ -49,13 +49,13 @@ _Attachment_ — это механизм, при котором инфрастр
 
 ### Привязка ресурса HTTPRoute к группе бэкендов {#httproute-backend-group-attachment}
 
-Чтобы привязать ресурс [HTTPRoute]({{ configuration-gwin-local-link }}/httproute.md) к группе бэкендов:
+Чтобы привязать ресурс [HTTPRoute](../../gwin-ref/httproute.md) к группе бэкендов:
 
-1. В {{ TF }} создайте группу бэкендов и целевую группу:
+1. В Terraform создайте группу бэкендов и целевую группу:
 
     {% list tabs group=instructions %}
 
-    - {{ TF }} {#tf}
+    - Terraform {#tf}
 
       ```hcl
       resource "yandex_alb_backend_group" "demo-attach-httproute-bg-bg" {
@@ -81,7 +81,7 @@ _Attachment_ — это механизм, при котором инфрастр
 
     {% endlist %}
 
-1. В ресурс HTTPRoute добавьте [аннотацию gwin.yandex.cloud/rule.demo-rule.attach.backendGroup.id]({{ configuration-gwin-local-link }}/httproute.md#attach-configuration):
+1. В ресурс HTTPRoute добавьте [аннотацию gwin.yandex.cloud/rule.demo-rule.attach.backendGroup.id](../../gwin-ref/httproute.md#attach-configuration):
 
     ```yaml
     apiVersion: gateway.networking.k8s.io/v1
@@ -109,13 +109,13 @@ _Attachment_ — это механизм, при котором инфрастр
 
 ### Привязка ресурса IngressBackendGroup к группе бэкендов {#ingress-backend-group-attachment}
 
-Чтобы привязать ресурс [IngressBackendGroup]({{ configuration-gwin-local-link }}/ingressbackendgroup.md) к группе бэкендов:
+Чтобы привязать ресурс [IngressBackendGroup](../../gwin-ref/ingressbackendgroup.md) к группе бэкендов:
 
-1. В {{ TF }} создайте группу бэкендов и целевую группу:
+1. В Terraform создайте группу бэкендов и целевую группу:
 
     {% list tabs group=instructions %}
 
-    - {{ TF }} {#tf}
+    - Terraform {#tf}
 
       ```hcl
       resource "yandex_alb_backend_group" "demo-attach-ingbg-bg-bg" {
@@ -140,7 +140,7 @@ _Attachment_ — это механизм, при котором инфрастр
 
     {% endlist %}
 
-1. В ресурсе IngressBackendGroup в поле [attach]({{ configuration-gwin-local-link }}/ingressbackendgroup.md#ingressbackendgroupspec) добавьте идентификатор группы бэкендов:
+1. В ресурсе IngressBackendGroup в поле [attach](../../gwin-ref/ingressbackendgroup.md#ingressbackendgroupspec) добавьте идентификатор группы бэкендов:
 
     ```yaml
     apiVersion: gwin.yandex.cloud/v1
@@ -167,13 +167,13 @@ _Attachment_ — это механизм, при котором инфрастр
 
 ### Привязка ресурса Service к целевой группе {#service-target-group-attachment}
 
-Чтобы привязать ресурс [Service]({{ configuration-gwin-local-link }}/service.md) к целевой группе:
+Чтобы привязать ресурс [Service](../../gwin-ref/service.md) к целевой группе:
 
-1. В {{ TF }} создайте группу бэкендов и целевую группу:
+1. В Terraform создайте группу бэкендов и целевую группу:
 
     {% list tabs group=instructions %}
 
-    - {{ TF }} {#tf}
+    - Terraform {#tf}
 
       ```hcl
       resource "yandex_alb_backend_group" "demo-attach-service-tg-bg" {
@@ -209,7 +209,7 @@ _Attachment_ — это механизм, при котором инфрастр
 
     {% endlist %}
 
-1. В ресурс Service добавьте [аннотацию gwin.yandex.cloud/attach.targetGroup.id]({{ configuration-gwin-local-link }}/service.md#attach-configuration):
+1. В ресурс Service добавьте [аннотацию gwin.yandex.cloud/attach.targetGroup.id](../../gwin-ref/service.md#attach-configuration):
 
     ```yaml
     apiVersion: v1

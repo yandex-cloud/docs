@@ -7,7 +7,7 @@ to update a bucket, subject to its [policy](../../concepts/policy.md).
 ## HTTP request
 
 ```
-PATCH https://storage.{{ api-host }}/storage/v1/buckets/{name}
+PATCH https://storage.api.cloud.yandex.net/storage/v1/buckets/{name}
 ```
 
 ## Path parameters

@@ -1,10 +1,10 @@
 # Использование SDK для функции на Python
 
-Чтобы работать с [API {{ yandex-cloud }}](../../../api-design-guide/index.md), можно использовать SDK-библиотеку. Для ее установки необходимо указать [зависимость](dependencies.md) в файле `requirements.txt`. В средах выполнения `python37` и `python38` SDK-библиотека установлена по умолчанию.
+Чтобы работать с [API Yandex Cloud](../../../api-design-guide/index.md), можно использовать SDK-библиотеку. Для ее установки необходимо указать [зависимость](dependencies.md) в файле `requirements.txt`. В средах выполнения `python37` и `python38` SDK-библиотека установлена по умолчанию.
 
 Исходный код библиотеки находится на [GitHub](https://github.com/yandex-cloud/python-sdk).
 
-[SDK (Software Development Kit)](https://ru.wikipedia.org/wiki/SDK) позволяет управлять ресурсами {{ yandex-cloud }} от имени [сервисного аккаунта](../../operations/function-sa.md), указанного в параметрах функции. Например, можно получить список доступных облаков:
+[SDK (Software Development Kit)](https://ru.wikipedia.org/wiki/SDK) позволяет управлять ресурсами Yandex Cloud от имени [сервисного аккаунта](../../operations/function-sa.md), указанного в параметрах функции. Например, можно получить список доступных облаков:
 
 ```python
 import yandexcloud

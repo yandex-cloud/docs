@@ -10,7 +10,7 @@
 
  - [Все инструкции](operations/index.md)
 
-### Окружения {{ sd-name }}
+### Окружения Security Deck
 
  - [Обзор](operations/workspaces/index.md)
 
@@ -30,7 +30,7 @@
 
  - [Работа с алертами](operations/alerts/work.md)
 
-### Контроль данных ({{ dspm-name }})
+### Контроль данных (DSPM)
 
  - [Обзор](operations/dspm/index.md)
 
@@ -42,11 +42,11 @@
 
  - [Управлять результатами сканирования](operations/dspm/work-with-results.md)
 
-### Контроль {{ k8s }}® ({{ kspm-name }})
+### Контроль Kubernetes® (KSPM)
 
  - [Обзор](operations/kspm/index.md)
 
- - [Активировать модуль {{ kspm-name }}](operations/kspm/enable-kspm.md)
+ - [Активировать модуль KSPM](operations/kspm/enable-kspm.md)
 
  - [Работать с дашбордом](operations/kspm/use-kspm.md)
 
@@ -56,7 +56,7 @@
 
  - [Управлять исключениями из правил контроля](operations/kspm/manage-exceptions.md)
 
-### Диагностика доступов ({{ ciem-name }})
+### Диагностика доступов (CIEM)
 
  - [Обзор](operations/ciem/index.md)
 
@@ -64,7 +64,7 @@
 
  - [Отозвать доступ](operations/ciem/revoke-permissions.md)
 
-### Контроль конфигурации ({{ cspm-name }})
+### Контроль конфигурации (CSPM)
 
  - [Обзор](operations/cspm/index.md)
 
@@ -76,7 +76,7 @@
 
  - [Управлять исключениями из правил контроля](operations/cspm/manage-exceptions.md)
 
-### {{ td-full-name }} ({{ td-name }})
+### Обнаружение угроз (TD)
 
  - [Обзор](operations/td/index.md)
 
@@ -84,7 +84,7 @@
 
  - [Управлять исключениями из правил контроля](operations/td/manage-exceptions.md)
 
-### {{ vuln-man-name }} ({{ vuln-man-short-name }})
+### Управление уязвимостями (VM)
 
  - [Обзор](operations/vulnerability-management/index.md)
 
@@ -96,39 +96,39 @@
 
  - [Обзор](concepts/index.md)
 
- - [Окружения {{ sd-name }}](concepts/workspace.md)
+ - [Окружения Security Deck](concepts/workspace.md)
 
- - [{{ alerts-name }} в {{ sd-name }}](concepts/alerts.md)
+ - [Алерты в Security Deck](concepts/alerts.md)
 
 ### Интерфейс соответствия требованиям
 
  - [Обзор](concepts/standard-compliance/index.md)
 
- - [Базовые правила безопасности облачной платформы {{ yandex-cloud }}](concepts/standard-compliance/yc-security-baseline.md)
+ - [Базовые правила безопасности облачной платформы Yandex Cloud](concepts/standard-compliance/yc-security-baseline.md)
 
- - [Стандарт по защите облачной инфраструктуры {{ yandex-cloud }}](concepts/standard-compliance/yc-cloud-security-standard.md)
+ - [Стандарт по защите облачной инфраструктуры Yandex Cloud](concepts/standard-compliance/yc-cloud-security-standard.md)
 
- - [Требования стандарта CIS Benchmark™ для {{ k8s }}](concepts/standard-compliance/cis-kubernetes-benchmark.md)
+ - [Требования стандарта CIS Benchmark™ для Kubernetes](concepts/standard-compliance/cis-kubernetes-benchmark.md)
 
- - [Стандарт по защите персональных данных пользователей {{ yandex-cloud }}](concepts/standard-compliance/yc-personal-data-protection.md)
+ - [Стандарт по защите персональных данных пользователей Yandex Cloud](concepts/standard-compliance/yc-personal-data-protection.md)
 
- - [Стандарт PCI DSS в {{ yandex-cloud }}](concepts/standard-compliance/yc-pci-dss.md)
+ - [Стандарт PCI DSS в Yandex Cloud](concepts/standard-compliance/yc-pci-dss.md)
 
  - [Требования стандарта ГОСТ Р 57580](concepts/standard-compliance/yc-gost-57580.md)
 
- - [Контроль данных ({{ dspm-name }})](concepts/dspm.md)
+ - [Контроль данных (DSPM)](concepts/dspm.md)
 
- - [Контроль {{ k8s }}® ({{ kspm-name }})](concepts/kspm.md)
+ - [Контроль Kubernetes® (KSPM)](concepts/kspm.md)
 
- - [Диагностика доступов ({{ ciem-name }})](concepts/ciem.md)
+ - [Диагностика доступов (CIEM)](concepts/ciem.md)
 
- - [Контроль конфигурации ({{ cspm-name }})](concepts/cspm.md)
+ - [Контроль конфигурации (CSPM)](concepts/cspm.md)
 
- - [{{ td-full-name }} ({{ td-name }})](concepts/threat-detector.md)
+ - [Обнаружение угроз (TD)](concepts/threat-detector.md)
 
- - [{{ vuln-man-name }} ({{ vuln-man-short-name }})](concepts/vulnerability-management.md)
+ - [Управление уязвимостями (VM)](concepts/vulnerability-management.md)
 
- - [{{ atr-name }}](concepts/access-transparency.md)
+ - [Access Transparency](concepts/access-transparency.md)
 
  - [Портал соответствия требованиям](concepts/compliance.md)
 
@@ -140,25 +140,25 @@
 
  - [Обзор](diagnostics/index.md)
 
- - [Ошибки в работе {{ kspm-name }}](diagnostics/kspm-diagnostics.md)
+ - [Ошибки в работе KSPM](diagnostics/kspm-diagnostics.md)
 
- - [Ошибки в работе {{ dspm-name }}](diagnostics/dspm-diagnostics.md)
+ - [Ошибки в работе DSPM](diagnostics/dspm-diagnostics.md)
 
 ## Управление доступом
 
- - [Общие роли {{ sd-name }}](security/index.md)
+ - [Общие роли Security Deck](security/index.md)
 
- - [Роли {{ dspm-name }}](security/dspm-roles.md)
+ - [Роли DSPM](security/dspm-roles.md)
 
- - [Роли {{ kspm-name }}](security/kspm-roles.md)
+ - [Роли KSPM](security/kspm-roles.md)
 
- - [Роли {{ ciem-name }}](security/ciem-roles.md)
+ - [Роли CIEM](security/ciem-roles.md)
 
- - [Роли {{ cspm-name }}](security/cspm-roles.md)
+ - [Роли CSPM](security/cspm-roles.md)
 
- - [Роли {{ atr-name }}](security/access-transparency-roles.md)
+ - [Роли Access Transparency](security/access-transparency-roles.md)
 
- - [Роли модуля {{ alerts-name }}](security/alerts-roles.md)
+ - [Роли модуля Алерты](security/alerts-roles.md)
 
  - [Правила тарификации](pricing.md)
 
@@ -168,9 +168,9 @@
 
  - [Все правила](rules-reference/all.md)
 
- - [{{ cspm-name }}](rules-reference/cspm.md)
+ - [CSPM](rules-reference/cspm.md)
 
- - [{{ kspm-name }}](rules-reference/kspm.md)
+ - [KSPM](rules-reference/kspm.md)
 
 ## Справочник API
 
@@ -238,6 +238,6 @@
 
  - [Cancel](api-ref/Operation/cancel.md)
 
- - [Аудитные логи {{ at-name }}](at-ref.md)
+ - [Аудитные логи Audit Trails](at-ref.md)
 
  - [История изменений](release-notes.md)

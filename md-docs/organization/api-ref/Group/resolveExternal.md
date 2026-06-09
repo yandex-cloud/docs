@@ -5,7 +5,7 @@ Returns external group by subject container and external id
 ## HTTP request
 
 ```
-GET https://organization-manager.{{ api-host }}/organization-manager/v1/external_groups/{subjectContainerId}/{externalId}
+GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/external_groups/{subjectContainerId}/{externalId}
 ```
 
 ## Path parameters

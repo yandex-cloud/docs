@@ -2,7 +2,7 @@
 
 # Создание распределенной инфраструктуры с защищенным доступом
 
-В этом руководстве вы создадите инфраструктуру для организации защищенного доступа к веб-приложениям, размещенным в разных каталогах {{ yandex-cloud }}. Для контроля трафика все запросы к веб-приложениям будут приниматься на общий IP-адрес и проверяться правилами профиля безопасности [{{ sws-full-name }}](https://yandex.cloud/ru/services/smartwebsecurity).
+В этом руководстве вы создадите инфраструктуру для организации защищенного доступа к веб-приложениям, размещенным в разных каталогах Yandex Cloud. Для контроля трафика все запросы к веб-приложениям будут приниматься на общий IP-адрес и проверяться правилами профиля безопасности [Yandex Smart Web Security](https://yandex.cloud/ru/services/smartwebsecurity).
 
 Такой подход позволяет изолировать ресурсы, с которыми работают разные команды, и обеспечить общую политику безопасности для входящего трафика.
 
@@ -11,16 +11,16 @@
 Минимальные [роли](../../iam/roles-reference.md), необходимые для выполнения руководства:
 
 * На облако:
-    * `{{ roles-resource-manager-admin }}` — для создания каталогов и назначения ролей.
+    * `resource-manager.admin` — для создания каталогов и назначения ролей.
 
 * На каталоги:
-    * `{{ roles-vpc-admin }}` — для создания ресурсов в {{ vpc-full-name }}.
+    * `vpc.admin` — для создания ресурсов в Yandex Virtual Private Cloud.
     * `smart-web-security.editor` — для создания профиля безопасности.
     * `compute.editor` — для создания виртуальных машин.
-    * `{{ roles-alb-editor }}` — для создания ресурсов в {{ alb-full-name }}
+    * `alb.editor` — для создания ресурсов в Yandex Application Load Balancer
 
 
-## Схема размещения ресурсов в {{ yandex-cloud }} {#resource-allocation-scheme}
+## Схема размещения ресурсов в Yandex Cloud {#resource-allocation-scheme}
 
 ![image](../../_assets/smartwebsecurity/different-folders-for-security.svg)
 
@@ -29,11 +29,11 @@
 * **IP-адрес** — публичный IP-адрес или домен, на который поступают запросы к веб-приложениям.
 * **Каталог безопасности** `secured-entry-point` — [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), доступ к которому должны иметь только администраторы ресурсов компании и сотрудники службы информационной безопасности (СИБ). В этом каталоге будут располагаться:
 
-    * **ALB** `app-load-balancer` — [L7-балансировщик](../../application-load-balancer/concepts/application-load-balancer.md) {{ alb-full-name }}, через который веб-приложения публикуются в интернете.
-    * **SWS** `sws-profile` — [профиль безопасности](../../smartwebsecurity/concepts/profiles.md) {{ sws-full-name }} для защиты трафика на уровне приложений (L7).
-    * **Управляющая ВМ** `work-station` — [виртуальная машина](../../compute/concepts/vm.md) {{ compute-full-name }}, с которой происходит подключение к ВМ в каталогах веб-приложений.
+    * **ALB** `app-load-balancer` — [L7-балансировщик](../../application-load-balancer/concepts/application-load-balancer.md) Yandex Application Load Balancer, через который веб-приложения публикуются в интернете.
+    * **SWS** `sws-profile` — [профиль безопасности](../../smartwebsecurity/concepts/profiles.md) Yandex Smart Web Security для защиты трафика на уровне приложений (L7).
+    * **Управляющая ВМ** `work-station` — [виртуальная машина](../../compute/concepts/vm.md) Yandex Compute Cloud, с которой происходит подключение к ВМ в каталогах веб-приложений.
 
-* **VPC** `alb-network` — [облачная сеть](../../vpc/concepts/network.md) {{ vpc-full-name }}, которая объединяет [подсети](../../vpc/concepts/network.md#subnet) в разных каталогах:
+* **VPC** `alb-network` — [облачная сеть](../../vpc/concepts/network.md) Yandex Virtual Private Cloud, которая объединяет [подсети](../../vpc/concepts/network.md#subnet) в разных каталогах:
 
     * **alb-subnet-a**, **alb-subnet-b**, **alb-subnet-d** — подсети с узлами ALB в трех зонах доступности.
     * **subnet-service-1**, **subnet-service-2** — подсети с ресурсами веб-приложений.
@@ -58,11 +58,11 @@
 
 ## Подготовьте облако к работе {#prepare-cloud}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -71,10 +71,10 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за постоянно работающие ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование {{ alb-name }} (см. [тарифы {{ alb-full-name }}](../../application-load-balancer/pricing.md));
-* плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
-* плата за количество запросов в сервис {{ sws-name }} (см. [тарифы {{ sws-full-name }}](../../smartwebsecurity/pricing.md)).
+* плата за постоянно работающие ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за использование Application Load Balancer (см. [тарифы Yandex Application Load Balancer](../../application-load-balancer/pricing.md));
+* плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
+* плата за количество запросов в сервис Smart Web Security (см. [тарифы Yandex Smart Web Security](../../smartwebsecurity/pricing.md)).
 
 
 ## Создайте каталог безопасности {#create-alb-folder}
@@ -88,10 +88,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите облако и нажмите ![create](../../_assets/console-icons/plus.svg) **Создать каталог**.
   1. Введите имя каталога, например, `secured-entry-point`.
-  1. В поле **{{ ui-key.yacloud.iam.cloud.folders-create.field_optionally }}** отключите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. Сеть и подсети будут созданы на следующем шаге.
-  1. Нажмите **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
+  1. В поле **Дополнительно** отключите опцию **Создать сеть по умолчанию**. Сеть и подсети будут созданы на следующем шаге.
+  1. Нажмите **Создать**.
 
 {% endlist %}
 
@@ -104,19 +104,19 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `secured-entry-point`.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-  1. Нажмите **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
-  1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.user-accounts }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `secured-entry-point`.
+  1. Перейдите на вкладку **Права доступа**.
+  1. Нажмите **Настроить доступ**.
+  1. В открывшемся окне выберите раздел **Пользовательские аккаунты**.
   1. Выберите пользователя из списка или воспользуйтесь поиском по пользователям.
-  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите [роль](../../iam/roles-reference.md) из списка или воспользуйтесь поиском. Минимально необходимые роли:
+  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роль](../../iam/roles-reference.md) из списка или воспользуйтесь поиском. Минимально необходимые роли:
 
-      * `{{ roles-alb-editor }}` — управление ресурсами сервиса [{{ alb-name }}](../../application-load-balancer/index.md).
-      * `{{ roles-vpc-user }}` — подключение к сетевым ресурсам [{{ vpc-name }}](../../vpc/index.md) и их использование.
-      * `smart-web-security.editor` — использование профилей безопасности [{{ sws-name }}](../../smartwebsecurity/index.md) и управление ими.
-      * `compute.editor` — возможность создавать, обновлять и удалять ВМ [{{ compute-name }}](../../compute/index.md).
+      * `alb.editor` — управление ресурсами сервиса [Application Load Balancer](../../application-load-balancer/index.md).
+      * `vpc.user` — подключение к сетевым ресурсам [Virtual Private Cloud](../../vpc/index.md) и их использование.
+      * `smart-web-security.editor` — использование профилей безопасности [Smart Web Security](../../smartwebsecurity/index.md) и управление ими.
+      * `compute.editor` — возможность создавать, обновлять и удалять ВМ [Compute Cloud](../../compute/index.md).
 
-  1. Нажмите **{{ ui-key.yacloud_components.acl.action.apply }}**.
+  1. Нажмите **Сохранить**.
 
 {% endlist %}
 
@@ -130,26 +130,26 @@
 - Консоль управления {#console}
 
   1. Перейдите в созданный каталог `secured-entry-point`.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** введите `alb-network`.
-  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
-  1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-  1. На панели слева выберите ![subnets](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.subnetworks.button_action-create }}** и введите параметры подсети для каталога веб-приложений:
+  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. Справа сверху нажмите **Создать сеть**.
+  1. В поле **Имя** введите `alb-network`.
+  1. В поле **Дополнительно** отключите опцию **Создать подсети**.
+  1. Нажмите **Создать сеть**.
+  1. На панели слева выберите ![subnets](../../_assets/vpc/subnets.svg) **Подсети**.
+  1. Справа сверху нажмите **Создать подсеть** и введите параметры подсети для каталога веб-приложений:
 
-      1. **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** — `subnet-service-1`.
-      1. **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** — `{{ region-id }}-a`.
-      1. **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** — `alb-network`.
-      1. **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** — `10.121.0.0/24`.
-      1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
+      1. **Имя** — `subnet-service-1`.
+      1. **Зона доступности** — `ru-central1-a`.
+      1. **Сеть** — `alb-network`.
+      1. **CIDR** — `10.121.0.0/24`.
+      1. Нажмите **Создать подсеть**.
 
-  1. Аналогично создайте подсеть с именем `subnet-service-2` в зоне доступности `{{ region-id }}-b` с диапазоном IP-адресов `10.122.0.0/24`.
+  1. Аналогично создайте подсеть с именем `subnet-service-2` в зоне доступности `ru-central1-b` с диапазоном IP-адресов `10.122.0.0/24`.
   1. Создайте подсети для L7-балансировщика в разных зонах доступности и с разными диапазонами адресов:
 
-      * `subnet-alb-a` — `{{ region-id }}-a`, `10.131.0.0/24`.
-      * `subnet-alb-b` — `{{ region-id }}-b`, `10.132.0.0/24`.
-      * `subnet-alb-d` — `{{ region-id }}-d`, `10.133.0.0/24`.
+      * `subnet-alb-a` — `ru-central1-a`, `10.131.0.0/24`.
+      * `subnet-alb-b` — `ru-central1-b`, `10.132.0.0/24`.
+      * `subnet-alb-d` — `ru-central1-d`, `10.133.0.0/24`.
 
    {% endlist %}
 
@@ -162,14 +162,14 @@
 
 - Консоль управления {#console}
 
-  1. Выберите облако и нажмите ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+  1. Выберите облако и нажмите ![create](../../_assets/console-icons/plus.svg) **Создать каталог**.
   1. Введите имя каталога, например, `service-1`.
-  1. В поле **{{ ui-key.yacloud.iam.cloud.folders-create.field_optionally }}** отключите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**.
-  1. Нажмите **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
+  1. В поле **Дополнительно** отключите опцию **Создать сеть по умолчанию**.
+  1. Нажмите **Создать**.
   1. Аналогично создайте каталог `service-2`.
   1. Для ограничения доступа к каталогам [назначьте роли](#set-access-binding) пользователям в зависимости от ресурсов, которые будут размещены в каталоге. Минимально необходимые роли на каталоги `service-1` и `service-2`:
 
-      * `vpc.user` — подключение к сетевым ресурсам [{{ vpc-name }}](../../vpc/index.md) и их использование.
+      * `vpc.user` — подключение к сетевым ресурсам [Virtual Private Cloud](../../vpc/index.md) и их использование.
       * `compute.editor` — возможность создавать, обновлять и удалять ВМ.
 
 {% endlist %}
@@ -183,12 +183,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `secured-entry-point`.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `secured-entry-point`.
+  1. Перейдите в сервис **Virtual Private Cloud**.
   1. Выберите облачную сеть `alb-network`.
-  1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке подсети `subnet-service-1` и выберите **{{ ui-key.yacloud.common.move }}**.
+  1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке подсети `subnet-service-1` и выберите **Переместить**.
   1. В выпадающем списке выберите каталог `service-1`.
-  1. Нажмите **{{ ui-key.yacloud.common.move }}**.
+  1. Нажмите **Переместить**.
   1. Аналогично переместите подсеть `subnet-service-2` в каталог `service-2`.
 
 {% endlist %}
@@ -207,28 +207,28 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог `service-1`.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
-  1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** укажите `service-1-security-group`.
-  1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите сеть `alb-network` из каталога `secured-entry-point`.
-  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** создайте следующие правила по инструкции под таблицей:
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `service-1`.
+  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **Группы безопасности**.
+  1. Справа сверху нажмите **Создать группу безопасности**.
+  1. В поле **Имя** укажите `service-1-security-group`.
+  1. В поле **Сеть** выберите сеть `alb-network` из каталога `secured-entry-point`.
+  1. В блоке **Правила** создайте следующие правила по инструкции под таблицей:
 
-      | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Источник /<br/>назначение | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+      | Направление<br/>трафика | Описание | Диапазон портов | Протокол | Источник /<br/>назначение | CIDR блоки |
       | --- | --- | --- | --- | --- | --- |
-      | `Входящий` | `http` | `8000` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.131.0.0/24`<br/>`10.132.0.0/24`<br/>`10.133.0.0/24` |
-      | `Входящий` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.133.0.0/24` |
-      | `Исходящий` | `any` | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.131.0.0/24`<br/>`10.132.0.0/24`<br/>`10.133.0.0/24` |
+      | `Входящий` | `http` | `8000` | `TCP` | `CIDR` | `10.131.0.0/24`<br/>`10.132.0.0/24`<br/>`10.133.0.0/24` |
+      | `Входящий` | `ssh` | `22` | `TCP` | `CIDR` | `10.133.0.0/24` |
+      | `Исходящий` | `any` | `0-65535` | `Любой` | `CIDR` | `10.131.0.0/24`<br/>`10.132.0.0/24`<br/>`10.133.0.0/24` |
 
       Чтобы создать правило:
       
-      1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}**.
-      1. Нажмите **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+      1. Перейдите на вкладку **Входящий трафик** или **Исходящий трафик**.
+      1. Нажмите **Добавить правило**.
       1. Добавьте новое правило в соответствии с таблицей.
-      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+      1. Нажмите **Сохранить**.
 
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **Создать**.
   1. Аналогично создайте группу безопасности `service-2-security-group` в каталоге `service-2`.
 
 {% endlist %}
@@ -236,34 +236,34 @@
 
 ### Создайте группу безопасности для L7-балансировщика {#sg-balancer}
 
-Правила должны разрешать входящий трафик из интернета на порт `80` и трафик для проверки состояния узлов балансировщика на порт `30080` с источником `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`.
+Правила должны разрешать входящий трафик из интернета на порт `80` и трафик для проверки состояния узлов балансировщика на порт `30080` с источником `Проверки состояния балансировщика`.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог `secured-entry-point`.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
-  1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** укажите `alb-security-group`.
-  1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите сеть `alb-network`.
-  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** создайте следующие правила по инструкции под таблицей:
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `secured-entry-point`.
+  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **Группы безопасности**.
+  1. Справа сверху нажмите **Создать группу безопасности**.
+  1. В поле **Имя** укажите `alb-security-group`.
+  1. В поле **Сеть** выберите сеть `alb-network`.
+  1. В блоке **Правила** создайте следующие правила по инструкции под таблицей:
 
-      | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Источник /<br/>назначение | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+      | Направление<br/>трафика | Описание | Диапазон портов | Протокол | Источник /<br/>назначение | CIDR блоки |
       | --- | --- | --- | --- | --- | --- |
-      | `Входящий` | `http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | `Входящий` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
-      | `Исходящий` | `http` | `8000` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.121.0.0/24`<br/>`10.122.0.0/24` |
+      | `Входящий` | `http` | `80` | `TCP` | `CIDR` | `0.0.0.0/0` |
+      | `Входящий` | `healthchecks` | `30080` | `TCP` | `Проверки состояния балансировщика` | — |
+      | `Исходящий` | `http` | `8000` | `Любой` | `CIDR` | `10.121.0.0/24`<br/>`10.122.0.0/24` |
 
       Чтобы создать правило:
       
-      1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}**.
-      1. Нажмите **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+      1. Перейдите на вкладку **Входящий трафик** или **Исходящий трафик**.
+      1. Нажмите **Добавить правило**.
       1. Добавьте новое правило в соответствии с таблицей.
-      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+      1. Нажмите **Сохранить**.
 
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **Создать**.
 
 {% endlist %}
 
@@ -276,29 +276,29 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог `secured-entry-point`.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
-  1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** укажите `vm-security-group`.
-  1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите сеть `alb-network`.
-  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** создайте следующие правила по инструкции под таблицей:
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `secured-entry-point`.
+  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **Группы безопасности**.
+  1. Справа сверху нажмите **Создать группу безопасности**.
+  1. В поле **Имя** укажите `vm-security-group`.
+  1. В поле **Сеть** выберите сеть `alb-network`.
+  1. В блоке **Правила** создайте следующие правила по инструкции под таблицей:
 
-      | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Источник /<br/>назначение | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+      | Направление<br/>трафика | Описание | Диапазон портов | Протокол | Источник /<br/>назначение | CIDR блоки |
       | --- | --- | --- | --- | --- | --- |
-      | `Входящий` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` ^*^ |
-      | `Исходящий` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.121.0.0/24`<br/>`10.122.0.0/24` |
+      | `Входящий` | `ssh` | `22` | `TCP` | `CIDR` | `0.0.0.0/0` ^*^ |
+      | `Исходящий` | `ssh` | `22` | `TCP` | `CIDR` | `10.121.0.0/24`<br/>`10.122.0.0/24` |
 
       ^*^ Рекомендуется вместо `0.0.0.0/0` указать CIDR блоки публичных IP-адресов, с которых вы хотите разрешить подключение к управляющей ВМ.
 
       Чтобы создать правило:
       
-      1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}**.
-      1. Нажмите **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+      1. Перейдите на вкладку **Входящий трафик** или **Исходящий трафик**.
+      1. Нажмите **Добавить правило**.
       1. Добавьте новое правило в соответствии с таблицей.
-      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+      1. Нажмите **Сохранить**.
 
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **Создать**.
 
 {% endlist %}
 
@@ -313,13 +313,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог `secured-entry-point`.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** и нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
-  1. Выберите **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `secured-entry-point`.
+  1. Перейдите в сервис **Smart Web Security**.
+  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **Профили безопасности** и нажмите **Создать профиль**.
+  1. Выберите **По преднастроенному шаблону**.
   1. Введите имя профиля — `sws-profile`.
-  1. В поле **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** выберите `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
-  1. Нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
+  1. В поле **Действие для базового правила по умолчанию** выберите `Разрешить`.
+  1. Нажмите **Создать профиль**.
 
 {% endlist %}
 
@@ -337,36 +337,36 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог `secured-entry-point`.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.group.switch_instances }}**.
-  1. Нажмите **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите операционную систему [Ubuntu 24.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2404-lts-oslogin).
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите зону доступности `{{ region-id }}-d`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `secured-entry-point`.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
+  1. Нажмите **Создать виртуальную машину**.
+  1. В блоке **Образ загрузочного диска** выберите операционную систему [Ubuntu 24.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2404-lts-oslogin).
+  1. В блоке **Расположение** выберите зону доступности `ru-central1-d`.
+  1. В блоке **Сетевые настройки**:
 
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** убедитесь, что выбрана подсеть `subnet-alb-d`.
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_security-groups }}** выберите группу безопасности `vm-security-group`.
+      * В поле **Подсеть** убедитесь, что выбрана подсеть `subnet-alb-d`.
+      * В поле **Публичный IP-адрес** оставьте значение `Автоматически`.
+      * В поле **Группы безопасности** выберите группу безопасности `vm-security-group`.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}**.
-  1. В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя ВМ. Не используйте имена `root`, `admin` или другие, зарезервированные ОС.
-  1. В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+  1. В блоке **Доступ** выберите вариант **SSH-ключ**.
+  1. В поле **Логин** введите имя пользователя ВМ. Не используйте имена `root`, `admin` или другие, зарезервированные ОС.
+  1. В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
 
       Чтобы добавить новый ключ:
 
-      1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+      1. Нажмите **Добавить ключ**.
       1. Задайте имя SSH-ключа.
       1. Выберите вариант:
 
-          * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-          * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-          * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+          * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+          * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+          * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
 
-      1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+      1. Нажмите **Добавить**.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ `work-station`.
-  1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. В блоке **Общая информация** задайте имя ВМ `work-station`.
+  1. Нажмите **Создать ВМ**.
 
 {% endlist %}
 
@@ -375,10 +375,10 @@
 
 Аналогично создайте ВМ в каталогах `service-1` и `service-2`, при этом:
 
-* Выберите зоны доступности `{{ region-id }}-a` и `{{ region-id }}-b` соответственно.
+* Выберите зоны доступности `ru-central1-a` и `ru-central1-b` соответственно.
 * Убедитесь, что для ВМ выбраны подсети `subnet-service-1` и `subnet-service-2` соответственно.
-* В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите опцию `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
-* В поле **{{ ui-key.yacloud.compute.instances.create.field_security-groups }}** выберите группы безопасности `service-1-security-group` и `service-2-security-group`.
+* В поле **Публичный IP-адрес** выберите опцию `Без адреса`.
+* В поле **Группы безопасности** выберите группы безопасности `service-1-security-group` и `service-2-security-group`.
 * Укажите имена ВМ `vm-service-1` и `vm-service-2`.
 
 
@@ -399,9 +399,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог `secured-entry-point`.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. Нажмите **{{ ui-key.yacloud.alb.button_load-balancer-create }}** и выберите **{{ ui-key.yacloud.alb.label_alb-create-wizard }}**. Визард перейдет на страницу создания целевых групп.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `secured-entry-point`.
+  1. Перейдите в сервис **Application Load Balancer**.
+  1. Нажмите **Создать L7-балансировщик** и выберите **Визард**. Визард перейдет на страницу создания целевых групп.
 
 {% endlist %}
 
@@ -419,13 +419,13 @@
   1. Введите имя целевой группы: `target-group-1`.
   1. В списке целевых ресурсов будет указан только IP-адрес управляющей ВМ. Добавьте в список ресурсов новый целевой ресурс:
 
-      1. Под списком ресурсов в блоке с кнопкой **{{ ui-key.yacloud.alb.button_add-target }}** укажите внутренний IP-адрес ВМ `vm-service-1`.
+      1. Под списком ресурсов в блоке с кнопкой **Добавить целевой ресурс** укажите внутренний IP-адрес ВМ `vm-service-1`.
       1. Там же выберите подсеть `subnet-service-1` в выпадающем списке с плейсхолдером `Не выбрано`. Чтобы найти нужную подсеть, включите опцию `Во всех каталогах`.
-      1. Нажмите **{{ ui-key.yacloud.alb.button_add-target }}**.
+      1. Нажмите **Добавить целевой ресурс**.
       1. Активируйте новый целевой ресурс в списке ресурсов.
       1. Убедитесь, что ресурс управляющей ВМ деактивирован.
 
-  1. Нажмите **{{ ui-key.yacloud.alb.button_wizard-create-tg }}**. Визард перейдет на страницу создания группы бэкендов.
+  1. Нажмите **Создать и продолжить**. Визард перейдет на страницу создания группы бэкендов.
 
 {% endlist %}
 
@@ -438,11 +438,11 @@
 
 - Консоль управления {#console}
 
-  1. Включите **{{ ui-key.yacloud.alb.label_detailed-settings }}**.
+  1. Включите **Расширенные настройки**.
   1. Введите имя группы бэкендов: `backend-group-1`.
   1. Тип группы оставьте `HTTP`.
-  1. Чтобы запросы одной пользовательской сессии обрабатывал один и тот же ресурс бэкенда, активируйте опцию **{{ ui-key.yacloud.alb.label_session-affinity }}**.
-  1. В блоке **{{ ui-key.yacloud_billing.alb.label_backends }}**:
+  1. Чтобы запросы одной пользовательской сессии обрабатывал один и тот же ресурс бэкенда, активируйте опцию **Привязка сессий**.
+  1. В блоке **Бэкенды**:
 
       * Введите имя бэкенда: `backend-1`.
       * Оставьте тип бэкенда — `Целевая группа`.
@@ -452,9 +452,9 @@
   1. В блоке **HTTP проверка состояния**:
 
       * Укажите тот же порт, который вы указали выше — `8000`.
-      * В поле **{{ ui-key.yacloud_billing.alb.label_path }}** оставьте значение без изменений, поскольку тестовый сервис не имеет специально выделенного эндпоинта для проверки состояния.
+      * В поле **Путь** оставьте значение без изменений, поскольку тестовый сервис не имеет специально выделенного эндпоинта для проверки состояния.
 
-  1. Нажмите **{{ ui-key.yacloud.alb.button_wizard-create-tg }}**. Визард перейдет на страницу настройки HTTP-роутера.
+  1. Нажмите **Создать и продолжить**. Визард перейдет на страницу настройки HTTP-роутера.
 
 {% endlist %}
 
@@ -468,22 +468,22 @@
 - Консоль управления {#console}
 
   1. Введите имя роутера: `alb-http-router`.
-  1. Включите **{{ ui-key.yacloud.alb.label_detailed-settings }}**.
-  1. В блоке **{{ ui-key.yacloud.alb.label_virtual-hosts }}**:
+  1. Включите **Расширенные настройки**.
+  1. В блоке **Виртуальные хосты**:
 
-      * В поле **{{ ui-key.yacloud.common.name }}** введите имя хоста: `alb-virtual-host`.
-      * Поле **{{ ui-key.yacloud.alb.label_authority }}** оставьте пустым.
-      * В поле **{{ ui-key.yacloud.alb.label_security-profile-id }}** выберите профиль `sws-profile`, созданный ранее.
+      * В поле **Имя** введите имя хоста: `alb-virtual-host`.
+      * Поле **Authority** оставьте пустым.
+      * В поле **Профиль безопасности** выберите профиль `sws-profile`, созданный ранее.
 
   1. Задайте параметры маршрута:
 
       * Имя маршрута — `app-1`.
-      * **{{ ui-key.yacloud.alb.label_path }}** — **{{ ui-key.yacloud.alb.label_match-prefix }}** и далее `/app1`.
-      * **{{ ui-key.yacloud.alb.label_route-action }}** — `{{ ui-key.yacloud.alb.label_route-action-route }}`.
-      * **{{ ui-key.yacloud.alb.label_backend-group }}** — оставьте созданную ранее группу.
-      * **{{ ui-key.yacloud.alb.label_prefix-rewrite }}** — укажите путь `/`.
+      * **Путь** — **Начинается с** и далее `/app1`.
+      * **Действие** — `Маршрутизация`.
+      * **Группа бэкендов** — оставьте созданную ранее группу.
+      * **Замена пути или начала** — укажите путь `/`.
 
-  1. Нажмите **{{ ui-key.yacloud.alb.button_wizard-create-tg }}**. Визард перейдет на страницу настройки балансировщика.
+  1. Нажмите **Создать и продолжить**. Визард перейдет на страницу настройки балансировщика.
 
 {% endlist %}
 
@@ -497,20 +497,20 @@
 - Консоль управления {#console}
 
   1. Введите имя балансировщика: `app-load-balancer`.
-  1. Включите **{{ ui-key.yacloud.alb.label_detailed-settings }}**.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите созданную ранее сеть `alb-network`.
-  1. Для **{{ ui-key.yacloud.alb.label_security-groups }}** выберите **{{ ui-key.yacloud.component.security-group-field.label_sg-from-list }}** и далее группу безопасности балансировщика `alb-security-group`.
-  1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите ранее созданные подсети `subnet-alb-a`, `subnet-alb-b` и `subnet-alb-d` в соответствующих [зонах доступности](../../overview/concepts/geo-scope.md) и включите прием трафика в этих подсетях.
+  1. Включите **Расширенные настройки**.
+  1. В блоке **Сетевые настройки** выберите созданную ранее сеть `alb-network`.
+  1. Для **Группы безопасности** выберите **Из списка** и далее группу безопасности балансировщика `alb-security-group`.
+  1. В блоке **Размещение** выберите ранее созданные подсети `subnet-alb-a`, `subnet-alb-b` и `subnet-alb-d` в соответствующих [зонах доступности](../../overview/concepts/geo-scope.md) и включите прием трафика в этих подсетях.
   1. Настройте обработчик:
 
       * Введите имя обработчика: `alb-listener`.
-      * В блоке **{{ ui-key.yacloud.alb.section_common-address-specs }}** укажите:
+      * В блоке **Приём и обработка трафика** укажите:
 
-          * **{{ ui-key.yacloud_billing.alb.label_listener-type }}** — `HTTP`.
-          * **{{ ui-key.yacloud.alb.label_protocol }}** — `HTTP`.
-          * **{{ ui-key.yacloud.alb.label_http-router }}** — выберите созданный ранее роутер.
+          * **Тип обработчика** — `HTTP`.
+          * **Протокол** — `HTTP`.
+          * **HTTP-роутер** — выберите созданный ранее роутер.
 
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **Создать**.
 
 {% endlist %}
 
@@ -523,18 +523,18 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог `secured-entry-point`.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
-  1. Нажмите **{{ ui-key.yacloud.alb.button_target-group-create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `secured-entry-point`.
+  1. Перейдите в сервис **Application Load Balancer**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **Целевые группы**.
+  1. Нажмите **Создать целевую группу**.
   1. Создайте целевую группу для каталога `service-2` по образцу [целевой группы для каталога `service-1`](#setup-target-group). В качестве параметров целевого ресурса используйте:
 
       * Имя — `target-group-2`.
       * Внутренний IP-адрес ВМ — `vm-service-2`.
       * Подсеть — `subnet-service-2`.
 
-  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
-  1. Нажмите **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**.
+  1. Нажмите **Создать группу бэкендов**.
   1. Создайте группу бэкендов по образцу [группы бэкендов для каталога `service-1`](#settings-backend-group). В качестве параметров бэкенда используйте:
 
       * Имя группы бэкендов — `backend-group-2`.
@@ -543,20 +543,20 @@
       * Путь — такой же, как у группы бэкендов `backend-group-1`.
       * Порт — TCP-порт вашего сервиса, который вы открыли в группе безопасности `service-2-security-group`. В этом руководстве — `8000`.
 
-  1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **HTTP-роутеры**.
   1. Выберите HTTP-роутер `alb-http-router`.
-  1. В блоке **{{ ui-key.yacloud.alb.label_virtual-hosts }}** справа от `alb-virtual-host` нажмите ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. Внизу открывшегося окна нажмите **{{ ui-key.yacloud.alb.button_add-route }}**.
+  1. В блоке **Виртуальные хосты** справа от `alb-virtual-host` нажмите ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. Внизу открывшегося окна нажмите **Добавить маршрут**.
   1. Задайте параметры маршрута:
 
       * Имя маршрута — `app-2`.
-      * **{{ ui-key.yacloud.alb.label_path }}** — **{{ ui-key.yacloud.alb.label_match-prefix }}** и далее `/app2`.
-      * **{{ ui-key.yacloud.alb.label_route-action }}** — `{{ ui-key.yacloud.alb.label_route-action-route }}`.
-      * **{{ ui-key.yacloud.alb.label_backend-group }}** — `backend-group-2`.
-      * **{{ ui-key.yacloud.alb.label_prefix-rewrite }}** — укажите путь `/`.
-      * В поле **{{ ui-key.yacloud.alb.label_timeout }}** удалите значение и оставьте поле пустым.
+      * **Путь** — **Начинается с** и далее `/app2`.
+      * **Действие** — `Маршрутизация`.
+      * **Группа бэкендов** — `backend-group-2`.
+      * **Замена пути или начала** — укажите путь `/`.
+      * В поле **Таймаут, с** удалите значение и оставьте поле пустым.
 
-  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите **Сохранить**.
 
 {% endlist %}
 
@@ -589,7 +589,7 @@
 
     {% note tip %}
 
-    Команду подключения к ВМ можно скопировать на странице описания ВМ в блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**.
+    Команду подключения к ВМ можно скопировать на странице описания ВМ в блоке **Доступ**.
 
     {% endnote %}
 
@@ -641,7 +641,7 @@
 ### Посмотрите проверки состояний {#check-healthchecking}
 
 1. Перейдите на страницу балансировщика `app-load-balancer`.
-1. Слева выберите ![healthcheck](../../_assets/application-load-balancer/healthchecks.svg) **{{ ui-key.yacloud.alb.label_healthchecks }}**.
+1. Слева выберите ![healthcheck](../../_assets/application-load-balancer/healthchecks.svg) **Проверки состояния**.
 1. Убедитесь, что целевые ресурсы имеют во всех подсетях балансировщика статусы `HEALTHY`.
 
 
@@ -656,7 +656,7 @@ http://<публичный_IP-адрес_балансировщика>/<преф
 Где:
 
 * `<публичный_IP-адрес_балансировщика>` — IP-адрес балансировщика `app-load-balancer`.
-* `<префикс_маршрута>` — префикс, указанный в поле **{{ ui-key.yacloud.alb.label_match-prefix }}** при настройке HTTP-роутера. В этом руководстве — `app1` и `app2`.
+* `<префикс_маршрута>` — префикс, указанный в поле **Начинается с** при настройке HTTP-роутера. В этом руководстве — `app1` и `app2`.
 
 Откроется страница со списком файлов в корневой папке соответствующего сервиса, например:
 
@@ -678,34 +678,34 @@ http://<публичный_IP-адрес_балансировщика>/<преф
         ```
 
     1. На другой вкладке браузера перейдите на страницу балансировщика `app-load-balancer`.
-    1. Слева выберите ![logs](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}**.
-    1. В поле **{{ ui-key.yacloud.logging.label_filter-query }}** укажите [фильтрующее выражение](../../logging/concepts/filter.md):
+    1. Слева выберите ![logs](../../_assets/console-icons/receipt.svg) **Логи**.
+    1. В поле **Запрос** укажите [фильтрующее выражение](../../logging/concepts/filter.md):
 
         ```text
         json_payload.smartwebsecurity.matched_rule.rule_type = SMART_PROTECTION
         and json_payload.smartwebsecurity.matched_rule.verdict = ALLOW
         ```
 
-    1. Нажмите **{{ ui-key.yacloud.logging.button_execute }}**.
+    1. Нажмите **Выполнить**.
 
         В списке логов останутся записи об успешных GET-запросах.
 
 1. Добавьте запрещающее базовое правило:
 
     1. Перейдите на страницу профиля безопасности `sws-profile`.
-    1. В блоке **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_add-rule }}**.
+    1. В блоке **Правила безопасности** нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить правило**.
     1. Введите имя правила: `deny-rule`.
-    1. В поле **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** установите значение `1000`.
-    1. В блоке **{{ ui-key.yacloud.smart-web-security.label_search-rule-type }}** оставьте значение **{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}**.
-    1. Параметр **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}** оставьте в положении **{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}**.
+    1. В поле **Приоритет** установите значение `1000`.
+    1. В блоке **Тип правила:** оставьте значение **Базовое**.
+    1. Параметр **Действие** оставьте в положении **Запретить**.
     1. Параметр **Трафик** установите в положение `При условии`.
     1. Далее выберите:
 
-        * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** — `IP`.
+        * **Условия** — `IP`.
         * **Условия на IP** — `Совпадает или принадлежит диапазону`.
         * **IP совпадает или принадлежит диапазону** — укажите IP-адрес устройства, с которого проводится тестирование веб-сервиса.
 
-    1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+    1. Нажмите **Добавить**.
 
 1. Проверьте работу базового правила:
 
@@ -716,15 +716,15 @@ http://<публичный_IP-адрес_балансировщика>/<преф
         ```
 
     1. На другой вкладке браузера перейдите на страницу балансировщика `app-load-balancer`.
-    1. Слева выберите ![logs](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}**.
-    1. В поле **{{ ui-key.yacloud.logging.label_filter-query }}** укажите фильтрующее выражение:
+    1. Слева выберите ![logs](../../_assets/console-icons/receipt.svg) **Логи**.
+    1. В поле **Запрос** укажите фильтрующее выражение:
 
         ```text
         json_payload.smartwebsecurity.matched_rule.rule_type = RULE_CONDITION
         and json_payload.smartwebsecurity.matched_rule.verdict = DENY
         ```
 
-    1. Нажмите **{{ ui-key.yacloud.logging.button_execute }}**.
+    1. Нажмите **Выполнить**.
 
         В списке логов останутся записи о заблокированных правилом GET-запросах.
 

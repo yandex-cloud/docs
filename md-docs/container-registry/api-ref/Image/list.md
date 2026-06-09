@@ -5,7 +5,7 @@ Retrieves the list of Image resources in the specified registry or repository.
 ## HTTP request
 
 ```
-GET https://container-registry.{{ api-host }}/container-registry/v1/images
+GET https://container-registry.api.cloud.yandex.net/container-registry/v1/images
 ```
 
 ## Query parameters {#yandex.cloud.containerregistry.v1.ListImagesRequest}

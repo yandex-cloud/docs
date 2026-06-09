@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Функциональность находится на стадии [Preview](../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+Функциональность находится на стадии [Preview](../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
@@ -10,18 +10,18 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Раздел {{ ycdr-name }} появится в интерфейсе {{ sd-name }} после одобрения заявки на доступ.
+Раздел YCDR появится в интерфейсе Security Deck после одобрения заявки на доступ.
 
 Для работы с расследованиями вам потребуется [роль](../iam/roles-reference.md#ycdr-admin) `ycdr.admin`.
 
 ## Создайте расследование {#create-investigation}
 
-1. Перейдите в сервис [{{ sd-name }}]({{ link-sd-main }}).
-1. На панели слева выберите **{{ ycdr-name }}**.
-1. Перейдите на вкладку **{{ ui-key.yacloud_org.security.ycdr.YcdrPageLayout.investigations_wYxSe }}**.
-1. Нажмите **{{ ui-key.yacloud_org.security.siem.InvestigationsPage.create-investigation_iCPUP }}**.
+1. Перейдите в сервис [Security Deck](https://center.yandex.cloud/security/).
+1. На панели слева выберите **YCDR**.
+1. Перейдите на вкладку **Расследования**.
+1. Нажмите **Новое расследование**.
 1. Введите название расследования, например: `Анализ неудачных входов`.
-1. В поле **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.fieldDescription_wiAxw }}** добавьте описание: `Поиск неудачных попыток входа в консоль за последние 30 минут`.
+1. В поле **Описание** добавьте описание: `Поиск неудачных попыток входа в консоль за последние 30 минут`.
 
 ## Создайте запрос {#create-query}
 
@@ -38,7 +38,7 @@
    * отображает поля `event_class` и `time`;
    * ограничивает результат одной записью.
 
-1. Выберите временной период **{{ ui-key.yacloud_org.security.ycdr.preset_last_30_minutes_s5Gq5 }}**.
+1. Выберите временной период **Последние 30 минут**.
 1. Нажмите кнопку запуска запроса.
 
 ## Проанализируйте результаты {#analyze-results}

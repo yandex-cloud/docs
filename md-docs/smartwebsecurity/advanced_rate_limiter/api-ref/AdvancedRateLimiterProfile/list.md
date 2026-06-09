@@ -5,7 +5,7 @@ Retrieves the list of AdvancedRateLimiterProfile resources in the specified fold
 ## HTTP request
 
 ```
-GET https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/advancedRateLimiterProfiles
+GET https://smartwebsecurity.api.cloud.yandex.net/smartwebsecurity/v1/advancedRateLimiterProfiles
 ```
 
 ## Query parameters {#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.ListAdvancedRateLimiterProfilesRequest}

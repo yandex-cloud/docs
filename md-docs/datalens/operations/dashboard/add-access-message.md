@@ -1,11 +1,11 @@
-# Добавление сообщения при ошибке доступа в {{ datalens-full-name }}
+# Добавление сообщения при ошибке доступа в Yandex DataLens
 
 Чтобы добавить [сообщение при ошибке прав доступа](../../dashboard/settings.md#message-settings) к дашборду:
 
 
 {% note warning %}
 
-Если вы работаете с новой объектной моделью {{ datalens-short-name }}, включающей [воркбуки и коллекции](../../workbooks-collections/index.md):
+Если вы работаете с новой объектной моделью DataLens, включающей [воркбуки и коллекции](../../workbooks-collections/index.md):
 
 1. На панели слева выберите ![collections](../../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**.
 1. Откройте нужный воркбук и выберите объект.
@@ -39,9 +39,9 @@
 
 {% note info %}
 
-Посмотреть права доступа для дашборда, в котором настроено сообщение при ошибке доступа, могут только пользователи с правами [{{ permission-write }}](../../security/manage-access.md#permission-write) или [{{ permission-admin }}](../../security/manage-access.md#permission-admin) на этот дашборд.
+Посмотреть права доступа для дашборда, в котором настроено сообщение при ошибке доступа, могут только пользователи с правами [Редактирование](../../security/manage-access.md#permission-write) или [Администрирование](../../security/manage-access.md#permission-admin) на этот дашборд.
 
-Пользователи с правом [{{ permission-read }}](../../security/manage-access.md#permission-read) не могут просмотреть список прав доступа на этот дашборд или запросить изменение доступа к нему через интерфейс {{ datalens-short-name }}.
+Пользователи с правом [Просмотр](../../security/manage-access.md#permission-read) не могут просмотреть список прав доступа на этот дашборд или запросить изменение доступа к нему через интерфейс DataLens.
 
 {% endnote %}
 

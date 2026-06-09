@@ -5,7 +5,7 @@ Creates resource group
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/resource_groups
+POST https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}/resource_groups
 ```
 
 ## Path parameters

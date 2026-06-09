@@ -1,6 +1,6 @@
-# Measure Names и Measure Values в {{ datalens-full-name }}
+# Measure Names и Measure Values в Yandex DataLens
 
-После добавления показателя в одну из секций чарта в списке полей датасета появляется два технических поля — `Measure Names` и `Measure Values`. Они не входят в список исходных полей датасета — {{ datalens-short-name }} создает эти поля автоматически. Поля `Measure Names` и `Measure Values` применяются при создании чартов, в которых используется несколько показателей.
+После добавления показателя в одну из секций чарта в списке полей датасета появляется два технических поля — `Measure Names` и `Measure Values`. Они не входят в список исходных полей датасета — DataLens создает эти поля автоматически. Поля `Measure Names` и `Measure Values` применяются при создании чартов, в которых используется несколько показателей.
 
 `Measure Names` — это **измерение** (зеленое поле), которое содержит **названия** всех показателей, использующихся в чарте. Оно применяется для задания группировки в чарте или для отображения названия каждого показателя в виде подписей. Например, с помощью `Measure Names` можно сделать столбчатую диаграмму с группировкой по нескольким показателям или подписать названия секторов на круговой диаграмме.
 
@@ -68,4 +68,4 @@
 Для полей `Measure Names` и `Measure Values` существуют следующие ограничения:
 
 * `Measure Names` и `Measure Values` нельзя использовать для фильтрации чарта.
-* `Measure Values` можно использовать для сортировки только в чартах [{#T}](../../visualization-ref/area-chart.md) и [{#T}](../../visualization-ref/normalized-area-chart.md) после добавления `Measure Names` в секцию **Цвета**.
+* `Measure Values` можно использовать для сортировки только в чартах [Диаграмма с областями ![](https://yandex.cloud/ru/ru/_assets/datalens/area.svg) в Yandex DataLens](../../visualization-ref/area-chart.md) и [Нормированная диаграмма с областями ![](https://yandex.cloud/ru/ru/_assets/datalens/normalized-area.svg) в Yandex DataLens](../../visualization-ref/normalized-area-chart.md) после добавления `Measure Names` в секцию **Цвета**.

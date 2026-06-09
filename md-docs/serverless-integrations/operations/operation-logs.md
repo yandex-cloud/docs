@@ -1,6 +1,6 @@
-# Просмотр операций с ресурсами сервиса {{ si-name }}
+# Просмотр операций с ресурсами сервиса Serverless Integrations
 
-Все действия с ресурсами сервиса {{ si-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.
+Все действия с ресурсами сервиса Serverless Integrations сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.
 
 ## Получить список операций {#get-operations}
 
@@ -8,23 +8,23 @@
 
 - Консоль управления {#console}
 
-  Можно получить список операций для конкретного ресурса. Ниже показано, как это сделать для шины {{ er-name }}. Для других ресурсов сервиса последовательность действий такая же.
+  Можно получить список операций для конкретного ресурса. Ниже показано, как это сделать для шины EventRouter. Для других ресурсов сервиса последовательность действий такая же.
 
-  1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится шина.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
+  1. В [консоли управления](https://console.yandex.cloud) откройте каталог, в котором находится шина.
+  1. Перейдите в сервис **Serverless Integrations**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/object-align-center-vertical.svg) **EventRouter**.
   1. Выберите нужную шину.
-  1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** для выбранной шины.
+  1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **Операции** для выбранной шины.
 
      В открывшемся списке отображаются операции с выбранной шиной.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы получить список операций для ресурса сервиса {{ si-name }}, воспользуйтесь командой:
+  Чтобы получить список операций для ресурса сервиса Serverless Integrations, воспользуйтесь командой:
 
   ```bash
   yc serverless <тип_ресурса> list-operations <имя_или_идентификатор_ресурса>
@@ -32,7 +32,7 @@
 
   **Пример**
 
-  Получить список операций для шины {{ er-name }}:
+  Получить список операций для шины EventRouter:
 
   ```bash
   yc serverless eventrouter bus list-operations epdplu8jn7sr********
@@ -78,7 +78,7 @@
 
   Воспользуйтесь методом REST API `listOperations` для соответствующего ресурса или вызовом gRPC API `<сервис>/ListOperations`.
 
-  Например, для шины {{ er-name }} воспользуйтесь методом REST API [listOperations](../eventrouter/api-ref/Bus/listOperations.md) для ресурса [Bus](../eventrouter/api-ref/Bus/index.md) или вызовом gRPC API [BusService/ListOperations](../eventrouter/api-ref/grpc/Bus/listOperations.md).
+  Например, для шины EventRouter воспользуйтесь методом REST API [listOperations](../eventrouter/api-ref/Bus/listOperations.md) для ресурса [Bus](../eventrouter/api-ref/Bus/index.md) или вызовом gRPC API [BusService/ListOperations](../eventrouter/api-ref/grpc/Bus/listOperations.md).
 
 {% endlist %}
 
@@ -92,7 +92,7 @@
 
     - CLI {#cli}
 
-      Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
       По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -133,4 +133,4 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../../api-design-guide/concepts/about-async.md)
+* [Работа с операциями](../../api-design-guide/concepts/about-async.md)

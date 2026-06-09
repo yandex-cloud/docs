@@ -1,4 +1,4 @@
-# История изменений в {{ network-load-balancer-full-name }}
+# История изменений в Yandex Network Load Balancer
 
 ## I квартал 2025 {#q1-2025}
 

@@ -5,7 +5,7 @@ Adds shared resource to project
 ## HTTP request
 
 ```
-POST https://datasphere.{{ api-host }}/datasphere/v2/projects/{resourceId}:addResource
+POST https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/{resourceId}:addResource
 ```
 
 ## Path parameters

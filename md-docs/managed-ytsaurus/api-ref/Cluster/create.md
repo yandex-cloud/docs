@@ -5,7 +5,7 @@ Creates a cluster in the specified folder.
 ## HTTP request
 
 ```
-POST https://ytsaurus.{{ api-host }}/ytsaurus/v1/clusters
+POST https://ytsaurus.api.cloud.yandex.net/ytsaurus/v1/clusters
 ```
 
 ## Body parameters {#yandex.cloud.ytsaurus.v1.CreateClusterRequest}

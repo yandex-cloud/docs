@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Не удалось создать <тип_объекта>
+# [Yandex DataLens] Не удалось создать <тип_объекта>
 
 `ERR.US.BAD_REQUEST.ALREADY_EXISTS`
 

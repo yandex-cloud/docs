@@ -5,7 +5,7 @@ Lists access bindings for the specified billing account.
 ## HTTP request
 
 ```
-GET https://billing.{{ api-host }}/billing/v1/billingAccounts/{resourceId}:listAccessBindings
+GET https://billing.api.cloud.yandex.net/billing/v1/billingAccounts/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

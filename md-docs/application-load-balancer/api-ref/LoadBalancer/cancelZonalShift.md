@@ -5,7 +5,7 @@ Cancel ZonalShift for the specified load balancer.
 ## HTTP request
 
 ```
-POST https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId}:cancelZonalShift
+POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBalancerId}:cancelZonalShift
 ```
 
 ## Path parameters

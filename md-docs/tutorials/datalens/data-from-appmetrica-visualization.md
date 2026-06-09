@@ -1,18 +1,18 @@
 # AppMetrica: прямое подключение
 
 
-Вы можете визуализировать и исследовать данные AppMetrica в {{ datalens-full-name }}, используя следующие подходы:
+Вы можете визуализировать и исследовать данные AppMetrica в Yandex DataLens, используя следующие подходы:
 
 * Прямой доступ.
-  {{ datalens-name }} напрямую подключается к AppMetrica. Этот метод проще и быстрее всего, однако набор поддерживаемых функций [ограничен](../../datalens/function-ref/availability.md).
-* Экспорт в режиме реального времени из AppMetrica в {{ mch-name }}.
-  Доступны сырые данные и есть возможность предагрегации и постобработки данных на уровне БД. Для реализации этого варианта [настройте экспорт](https://appmetrica.yandex.ru/docs/common/cloud/about.html) и [создайте подключение](../../datalens/operations/connection/create-clickhouse.md) {{ datalens-name }} к БД {{ CH }}.
+  DataLens напрямую подключается к AppMetrica. Этот метод проще и быстрее всего, однако набор поддерживаемых функций [ограничен](../../datalens/function-ref/availability.md).
+* Экспорт в режиме реального времени из AppMetrica в Managed Service for ClickHouse®.
+  Доступны сырые данные и есть возможность предагрегации и постобработки данных на уровне БД. Для реализации этого варианта [настройте экспорт](https://appmetrica.yandex.ru/docs/common/cloud/about.html) и [создайте подключение](../../datalens/operations/connection/create-clickhouse.md) DataLens к БД ClickHouse®.
 
 В этом сценарии используется прямой доступ. В качестве источника данных будет использовано приложение, которое добавлено в сервис [AppMetrica](https://appmetrica.yandex.ru). Просмотреть список доступных вам приложений можно в разделе [Приложения](https://appmetrica.yandex.ru/application/list).
 
 Если у вас нет доступных приложений, то перед выполнением сценария вам необходимо [добавить приложение](https://appmetrica.yandex.ru/docs/quick-start/concepts/quick-start.html) или использовать стандартный **Дашборд AppMetrica**. 
 
-Для визуализации и исследования данных [подготовьте {{ datalens-short-name }} к работе](#before-you-begin), затем выполните следующие шаги:
+Для визуализации и исследования данных [подготовьте DataLens к работе](#before-you-begin), затем выполните следующие шаги:
 
 1. [Создайте подключение и стандартный дашборд](#create-dashboard).
 1. [Измените стандартный дашборд](#edit-dashboard).
@@ -21,30 +21,30 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Чтобы начать работать с {{ datalens-short-name }}:
+Чтобы начать работать с DataLens:
 
 
 {% list tabs group=datalens_user %}
 
 - Новый пользователь {#new}
 
-  1. [Войдите]({{ link-passport-login }}) в ваш аккаунт на Яндексе. Если у вас еще нет аккаунта, [создайте](https://yandex.ru/support/passport/authorization/registration.html) его.
-  1. Откройте [главную страницу]({{ link-datalens-main-promo }}) {{ datalens-short-name }}.
+  1. [Войдите](https://passport.yandex.ru/auth) в ваш аккаунт на Яндексе. Если у вас еще нет аккаунта, [создайте](https://yandex.ru/support/passport/authorization/registration.html) его.
+  1. Откройте [главную страницу](https://datalens.ru/promo) DataLens.
   1. Нажмите **Начать в облаке**.
   1. Подтвердите, что ознакомились с [Условиями использования](https://yandex.ru/legal/cloud_termsofuse/?lang=ru) и принимаете их и нажмите кнопку **Войти**.
 
-- Уже использую {{ yandex-cloud }} {#already}
+- Уже использую Yandex Cloud {#already}
 
-  1. [Войдите]({{ link-passport-login }}) в ваш аккаунт на Яндексе.
-  1. Откройте [главную страницу]({{ link-datalens-main-promo }}) {{ datalens-short-name }}.
+  1. [Войдите](https://passport.yandex.ru/auth) в ваш аккаунт на Яндексе.
+  1. Откройте [главную страницу](https://datalens.ru/promo) DataLens.
   1. Нажмите **Начать в облаке**.
   1. Выберите один из вариантов:
 
-     * Если у вас уже есть организация, выберите ее в выпадающем меню на вкладке **Организации** и нажмите **{{ datalens-short-name }}**.
+     * Если у вас уже есть организация, выберите ее в выпадающем меню на вкладке **Организации** и нажмите **DataLens**.
 
        {% note info %}
 
-       Для активации экземпляра {{ datalens-short-name }} пользователю нужна роль `admin` или `owner`. Подробнее про роли см. в разделе [{#T}](../../organization/security/index.md).
+       Для активации экземпляра DataLens пользователю нужна роль `admin` или `owner`. Подробнее про роли см. в разделе [Управление доступом в Yandex Identity Hub](../../organization/security/index.md).
 
        {% endnote %}
 
@@ -52,7 +52,7 @@
 
 {% endlist %}
 
-Если у вас возник технический вопрос по работе сервиса, обратитесь в [службу поддержки]({{ link-console-support }}) {{ yandex-cloud }}. Чтобы спросить совета, обсудить решение вашей задачи или лучшие практики работы сервиса, напишите в чат [{{ datalens-short-name }}](https://t.me/YandexDataLens) в Telegram.
+Если у вас возник технический вопрос по работе сервиса, обратитесь в [службу поддержки](https://center.yandex.cloud/support) Yandex Cloud. Чтобы спросить совета, обсудить решение вашей задачи или лучшие практики работы сервиса, напишите в чат [DataLens](https://t.me/YandexDataLens) в Telegram.
 
 
 ## Создайте подключение и стандартный дашборд {#create-dashboard}
@@ -63,7 +63,7 @@
 
 {% endnote %}
 
-1. Перейдите в [{{ datalens-short-name }}]({{ link-datalens-main-skip-promo }}).
+1. Перейдите в [DataLens](https://datalens.ru/?skipPromo=true).
 1. На панели слева выберите ![image](../../_assets/console-icons/thunderbolt.svg) **Подключения** и нажмите кнопку **Создать подключение**.
 1. Выберите подключение **AppMetrica**.
 
@@ -129,6 +129,6 @@
 Чтобы поделиться дашбордом или чартом, воспользуйтесь одним из способов:
 
 * [Добавьте](../../datalens/security/add-new-user.md) пользователя в организацию или облако и предоставьте ему доступ к дашборду или чарту.
-* [Выгрузите](../../datalens/qa/connections.md#uploading-data-logs-api) данные в кластер [{{ mch-short-name }}](../../managed-clickhouse/index.md) и используйте подключение к БД {{ CH }} в качестве источника. С тарифами сервиса {{ mch-short-name }} можно ознакомиться в разделе [Правила тарификации](../../managed-clickhouse/pricing.md).
+* [Выгрузите](../../datalens/qa/connections.md#uploading-data-logs-api) данные в кластер [Managed Service for ClickHouse®](../../managed-clickhouse/index.md) и используйте подключение к БД ClickHouse® в качестве источника. С тарифами сервиса Managed Service for ClickHouse® можно ознакомиться в разделе [Правила тарификации](../../managed-clickhouse/pricing.md).
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

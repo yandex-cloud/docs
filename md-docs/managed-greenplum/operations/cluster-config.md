@@ -1,4 +1,4 @@
-# Изменение конфигурации кластера {{ mgp-name }}
+# Изменение конфигурации кластера Yandex MPP Analytics for PostgreSQL
 
 
 После создания кластера вы можете:
@@ -26,21 +26,21 @@
 
 Рекомендуется изменять класс хостов только во время отсутствия рабочей нагрузки на кластер.
 
-Проверьте, что в облаке достаточно квот для изменения класса хостов. Откройте страницу [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) для облака и убедитесь, что в секции **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}** в строках **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-mdb.cpu.count }}** и **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-mdb.memory.size }}** есть квота на vCPU и виртуальную память, соответственно.
+Проверьте, что в облаке достаточно квот для изменения класса хостов. Откройте страницу [Квоты](https://console.yandex.cloud/cloud?section=quotas) для облака и убедитесь, что в секции **Managed Databases** в строках **Количество vCPU** и **Объём виртуальной памяти** есть квота на vCPU и виртуальную память, соответственно.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите нужный класс для хостов-мастеров или хостов-сегментов {{ mgp-name }}.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+  1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **Изменить** на панели сверху.
+  1. В блоке **Класс хоста** выберите нужный класс для хостов-мастеров или хостов-сегментов Yandex MPP Analytics for PostgreSQL.
+  1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -49,20 +49,20 @@
   1. Посмотрите описание команды CLI для изменения кластера:
 
       ```bash
-      {{ yc-mdb-gp }} cluster update --help
+      yc managed-greenplum cluster update --help
       ```
 
   1. Запросите список доступных классов (в колонке `ZONE IDS` указаны зоны доступности, в которых можно выбрать соответствующий класс):
      * для хостов-мастеров:
 
         ```bash
-        {{ yc-mdb-gp }} resource-preset list master
+        yc managed-greenplum resource-preset list master
         ```
 
      * для хостов-сегментов:
 
         ```bash
-        {{ yc-mdb-gp }} resource-preset list segment
+        yc managed-greenplum resource-preset list segment
         ```
 
      
@@ -70,7 +70,7 @@
      +-------------+--------------------------------+--------------------------------+-------+----------+--------------------+---------------------+
      |     ID      |            ZONE IDS            |           DISK TYPES           | CORES |  MEMORY  | HOST COUNT DIVIDER | MAX SEGMENT IN HOST |
      +-------------+--------------------------------+--------------------------------+-------+----------+--------------------+---------------------+
-     | i2.2xlarge  | {{ region-id }}-a, {{ region-id }}-b   | local-ssd,                     |    16 | 128.0 GB |                  1 |                   0 |
+     | i2.2xlarge  | ru-central1-a, ru-central1-b   | local-ssd,                     |    16 | 128.0 GB |                  1 |                   0 |
      |             |                                | network-ssd-nonreplicated      |       |          |                    |                     |
      | ...                                                                                                                                         |
      +-------------+--------------------------------+--------------------------------+-------+----------+--------------------+---------------------+
@@ -80,22 +80,22 @@
   1. Укажите нужные классы в команде изменения кластера:
 
       ```bash
-      {{ yc-mdb-gp }} cluster update <имя_или_идентификатор_кластера> \
+      yc managed-greenplum cluster update <имя_или_идентификатор_кластера> \
           --master-config resource-id=<идентификатор_класса_хостов-мастеров> \
           --segment-config resource-id=<идентификатор_класса_хостов-сегментов>
       ```
 
-      {{ mgp-short-name }} запустит операцию изменения класса хостов для кластера.
+      Yandex MPP Analytics for PostgreSQL запустит операцию изменения класса хостов для кластера.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
       Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-      Полный список доступных для изменения полей конфигурации кластера {{ mgp-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
+      Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
 
-  1. Измените в описании кластера {{ mgp-name }} значение атрибута `resource_preset_id` в блоке `master_subcluster.resources` или `segment_subcluster.resources`:
+  1. Измените в описании кластера Yandex MPP Analytics for PostgreSQL значение атрибута `resource_preset_id` в блоке `master_subcluster.resources` или `segment_subcluster.resources`:
 
       ```hcl
       resource "yandex_mdb_greenplum_cluster" "<имя_кластера>" {
@@ -117,14 +117,14 @@
 
   1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -148,7 +148,7 @@
 
       {% note warning "Ограничения по времени" %}
       
-      Провайдер {{ TF }} ограничивает время на выполнение всех операций с кластером {{ mgp-name }} 120 минутами.
+      Провайдер Terraform ограничивает время на выполнение всех операций с кластером Yandex MPP Analytics for PostgreSQL 120 минутами.
       
       Операции, длящиеся дольше указанного времени, прерываются.
       
@@ -179,7 +179,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -192,7 +192,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "masterConfig.resources.resourcePresetId,segmentConfig.resources.resourcePresetId",
                       "masterConfig": {
@@ -234,7 +234,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -283,7 +283,7 @@
                     }
                   }
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.greenplum.v1.ClusterService.Update
         ```
 
@@ -301,7 +301,7 @@
 
 ## Изменить тип диска и увеличить размер хранилища {#change-disk-size}
 
-Проверьте, что в облаке достаточно квот для увеличения хранилища. Откройте страницу [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) для облака и убедитесь, что в секции **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}** в строке **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-mdb.hdd.size }}** или **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-mdb.ssd.size }}** есть квота на объем хранилищ.
+Проверьте, что в облаке достаточно квот для увеличения хранилища. Откройте страницу [Квоты](https://console.yandex.cloud/cloud?section=quotas) для облака и убедитесь, что в секции **Managed Databases** в строке **Объём HDD-хранилищ** или **Объём SSD-хранилищ** есть квота на объем хранилищ.
 
 {% note warning %}
 
@@ -317,20 +317,20 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
+  1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
   1. Выберите нужный кластер.
-  1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
+  1. В верхней части страницы нажмите кнопку **Изменить**.
+  1. В блоке **Хранилище**:
 
       * Выберите [тип диска](../concepts/storage.md).
       * Укажите нужный размер диска.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -339,26 +339,26 @@
   1. Посмотрите описание команды CLI для изменения кластера:
 
       ```bash
-      {{ yc-mdb-gp }} cluster update --help
+      yc managed-greenplum cluster update --help
       ```
 
   1. Укажите нужный размер хранилища для хостов-мастеров или хостов-сегментов в команде изменения кластера (размер хранилища должен быть не меньше, чем значение `disk_size` в свойствах кластера):
 
       ```bash
-      {{ yc-mdb-my }} cluster update <имя_или_идентификатор_кластера> \
+      yc managed-mysql cluster update <имя_или_идентификатор_кластера> \
          --master-config disk-size <размер_хранилища_в_гигабайтах> \
          --segment-config disk-size <размер_хранилища_в_гигабайтах>
       ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера {{ mgp-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
+        Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
 
-    1. Измените в описании кластера {{ mgp-name }} значения атрибутов `disk_type_id` и `disk_size` в блоке `master_subcluster.resources` или `segment_subcluster.resources`:
+    1. Измените в описании кластера Yandex MPP Analytics for PostgreSQL значения атрибутов `disk_type_id` и `disk_size` в блоке `master_subcluster.resources` или `segment_subcluster.resources`:
 
         ```hcl
         resource "yandex_mdb_greenplum_cluster" "<имя_кластера>" {
@@ -382,14 +382,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -413,7 +413,7 @@
 
         {% note warning "Ограничения по времени" %}
         
-        Провайдер {{ TF }} ограничивает время на выполнение всех операций с кластером {{ mgp-name }} 120 минутами.
+        Провайдер Terraform ограничивает время на выполнение всех операций с кластером Yandex MPP Analytics for PostgreSQL 120 минутами.
         
         Операции, длящиеся дольше указанного времени, прерываются.
         
@@ -444,7 +444,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -457,7 +457,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "masterConfig.resources.diskTypeId,masterConfig.resources.diskSize,segmentConfig.resources.diskTypeId,segmentConfig.resources.diskSize",
                       "masterConfig": {
@@ -504,7 +504,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -557,7 +557,7 @@
                     }
                   }
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.greenplum.v1.ClusterService.Update
         ```
 
@@ -578,10 +578,10 @@
 
 ## Расширить кластер {#add-hosts}
 
-Вы можете добавить хосты-сегменты в кластер {{ mgp-name }}, выполнив процедуру [расширения кластера](cluster-expand.md). Количество добавляемых хостов не может быть меньше двух. Вы также можете увеличить [количество сегментов на хост](../concepts/index.md) при расширении кластера.
+Вы можете добавить хосты-сегменты в кластер Yandex MPP Analytics for PostgreSQL, выполнив процедуру [расширения кластера](cluster-expand.md). Количество добавляемых хостов не может быть меньше двух. Вы также можете увеличить [количество сегментов на хост](../concepts/index.md) при расширении кластера.
 
 ## Изменить зону доступности кластера {#change-cluster-zone}
 
-Все хосты кластера {{ mgp-name }} располагаются в одной [зоне доступности](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. Перенести кластер в другую зону доступности нельзя. При необходимости сменить зону доступности [восстановите кластер из резервной копии](cluster-backups.md#restore). При восстановлении из резервной копии укажите новую зону доступности в настройках нового кластера.
+Все хосты кластера Yandex MPP Analytics for PostgreSQL располагаются в одной [зоне доступности](../../overview/concepts/geo-scope.md) Yandex Cloud. Перенести кластер в другую зону доступности нельзя. При необходимости сменить зону доступности [восстановите кластер из резервной копии](cluster-backups.md#restore). При восстановлении из резервной копии укажите новую зону доступности в настройках нового кластера.
 
-Для кластеров, хосты которых располагаются в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`, недоступно хранилище на локальных SSD-дисках при использовании платформы Intel Cascade Lake.
+Для кластеров, хосты которых располагаются в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`, недоступно хранилище на локальных SSD-дисках при использовании платформы Intel Cascade Lake.

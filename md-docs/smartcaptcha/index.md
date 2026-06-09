@@ -34,7 +34,7 @@ Yandex SmartCaptcha позволяет определить, кем являет
 
  - [Все руководства](tutorials/index.md)
 
- - [Добавление HTML-страницы для работы {{ captcha-full-name }}](tutorials/mobile-app/website.md)
+ - [Добавление HTML-страницы для работы Yandex SmartCaptcha](tutorials/mobile-app/website.md)
 
  - [Капча в приложении Android](tutorials/mobile-app/android/quickstart-android.md)
 
@@ -136,7 +136,7 @@ Yandex SmartCaptcha позволяет определить, кем являет
 
  - [update](cli-ref/v1/captcha/update.md)
 
- - [Справочник {{ TF }}](tf-ref.md)
+ - [Справочник Terraform](tf-ref.md)
 
 ## Справочник API
 
@@ -198,8 +198,8 @@ Yandex SmartCaptcha позволяет определить, кем являет
 
  - [Cancel](api-ref/Operation/cancel.md)
 
- - [Метрики {{ monitoring-name }}](metrics.md)
+ - [Метрики Monitoring](metrics.md)
 
- - [Аудитные логи {{ at-name }}](at-ref.md)
+ - [Аудитные логи Audit Trails](at-ref.md)
 
  - [История изменений](release-notes.md)

@@ -5,7 +5,7 @@
 
 ## HTTP-запрос {#https-request}
 ```http
-GET https://monitoring.{{ api-host }}/monitoring/v2/metrics/labels/{labelKey}/values
+GET https://monitoring.api.cloud.yandex.net/monitoring/v2/metrics/labels/{labelKey}/values
 ```
 
 ## Path-параметры {#path_params}

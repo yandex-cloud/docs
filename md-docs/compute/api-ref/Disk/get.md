@@ -6,7 +6,7 @@ To get the list of available Disk resources, make a [List](list.md#List) request
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/disks/{diskId}
+GET https://compute.api.cloud.yandex.net/compute/v1/disks/{diskId}
 ```
 
 ## Path parameters

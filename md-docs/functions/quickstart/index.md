@@ -1,17 +1,17 @@
-# Начало работы с {{ sf-name }}
+# Начало работы с Cloud Functions
 
 Выберите сценарий для знакомства:
 
-* [{#T}](create-function/index.md)
+* [Создание и выполнение функции](create-function/index.md)
 
-  * [{#T}](create-function/node-function-quickstart.md)
-  * [{#T}](create-function/python-function-quickstart.md)
-  * [{#T}](create-function/go-function-quickstart.md)
-  * [{#T}](create-function/php-function-quickstart.md)
-  * [{#T}](create-function/bash-function-quickstart.md)
-  * [{#T}](create-function/java-function-quickstart.md)
-  * [{#T}](create-function/kotlin-function-quickstart.md)
-  * [{#T}](create-function/dotnet-function-quickstart.md)
+  * [Создание функции на Node.js](create-function/node-function-quickstart.md)
+  * [Создание функции на Python](create-function/python-function-quickstart.md)
+  * [Создание функции на Go](create-function/go-function-quickstart.md)
+  * [Создание функции на PHP](create-function/php-function-quickstart.md)
+  * [Создание функции на Bash](create-function/bash-function-quickstart.md)
+  * [Создание функции на Java](create-function/java-function-quickstart.md)
+  * [Создание функции на Kotlin](create-function/kotlin-function-quickstart.md)
+  * [Создание функции на .NET Core](create-function/dotnet-function-quickstart.md)
 
 * [Создание и запуск триггера](create-trigger/index.md)
 

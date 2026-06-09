@@ -5,7 +5,7 @@ Expands the specified Greenplum® cluster.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/expand
+POST https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}/expand
 ```
 
 ## Path parameters

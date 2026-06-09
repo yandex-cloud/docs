@@ -6,15 +6,15 @@
 
 Чтобы получить идентификатор федерации:
 
-1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-1. На панели слева выберите ![VectorSquare](../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
-1. Выберите нужную федерацию и на странице с информацией о ней скопируйте значение поля **{{ ui-key.yacloud_org.common.columns.column_id }}**.
+1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+1. На панели слева выберите ![VectorSquare](../_assets/console-icons/vector-square.svg) **Федерации**.
+1. Выберите нужную федерацию и на странице с информацией о ней скопируйте значение поля **Идентификатор**.
 
-При возникновении проблем обратитесь в [службу поддержки]({{ link-console-support }}).
+При возникновении проблем обратитесь в [службу поддержки](https://center.yandex.cloud/support).
 
 ## Внутренняя ошибка приложения {#internal-server-error}
 
-Произошла непредвиденная ошибка в работе приложения, обратитесь в [службу поддержки]({{ link-console-support }}).
+Произошла непредвиденная ошибка в работе приложения, обратитесь в [службу поддержки](https://center.yandex.cloud/support).
 
 ## Смотрите также {#see-also}
 

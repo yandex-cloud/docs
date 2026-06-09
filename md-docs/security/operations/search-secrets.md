@@ -1,10 +1,10 @@
-# Поиск секретов {{ yandex-cloud }} в открытых источниках
+# Поиск секретов Yandex Cloud в открытых источниках
 
-{{ yandex-cloud }} ищет следующие типы секретов в открытых источниках:
+Yandex Cloud ищет следующие типы секретов в открытых источниках:
 
 * [API-ключи](../../iam/concepts/authorization/api-key.md).
-* [{{ iam-short-name }} Cookies](../../iam/concepts/authorization/cookie.md).
-* [{{ iam-short-name }}-токены](../../iam/concepts/authorization/iam-token.md).
+* [IAM Cookies](../../iam/concepts/authorization/cookie.md).
+* [IAM-токены](../../iam/concepts/authorization/iam-token.md).
 * [Статические ключи доступа](../../iam/concepts/authorization/access-key.md).
 * [OAuth-токен](../../iam/concepts/authorization/oauth-token.md).
 
@@ -14,35 +14,35 @@
   
   {% endnote %}
 
-* [Серверные ключи {{ captcha-name }}](../../smartcaptcha/concepts/keys.md).
+* [Серверные ключи SmartCaptcha](../../smartcaptcha/concepts/keys.md).
 * [Refresh-токены](../../iam/concepts/authorization/refresh-token.md).
 * [Секреты OIDC-приложений](../../organization/concepts/applications.md#oidc-secret).
 
-{{ yandex-cloud }} подключен к следующим программам поиска секретов:
+Yandex Cloud подключен к следующим программам поиска секретов:
 
-* [Партнерская программа поиска секретов {{ yandex-cloud }}](search-secrets.md#leak-detection-affiliate-program).
+* [Партнерская программа поиска секретов Yandex Cloud](search-secrets.md#leak-detection-affiliate-program).
 * [GitHub Secret scanning partner program](search-secrets.md#github-secret-scanning).
 * [GitLab Secret Detection](search-secrets.md#gitlab-secret-detection).
 * [Поисковый индекс Яндекс](search-secrets.md#secret-is-leaked).
-* [Helm-чарты в {{ marketplace-full-name }}](search-secrets.md#helm-charts).
+* [Helm-чарты в Yandex Cloud Marketplace](search-secrets.md#helm-charts).
 
-## Партнерская программа поиска секретов {{ yandex-cloud }} {#leak-detection-affiliate-program}
+## Партнерская программа поиска секретов Yandex Cloud {#leak-detection-affiliate-program}
 
-В {{ yandex-cloud }} действует собственная партнерская программа поиска скомпрометированных секретов в публичных репозиториях и других открытых источниках.
+В Yandex Cloud действует собственная партнерская программа поиска скомпрометированных секретов в публичных репозиториях и других открытых источниках.
 
-Вы можете присоединиться к партнерской программе поиска секретов {{ yandex-cloud }}, чтобы повысить безопасность ваших сервисов.
+Вы можете присоединиться к партнерской программе поиска секретов Yandex Cloud, чтобы повысить безопасность ваших сервисов.
 
 Для работы с партнерской программой вам потребуется [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud). Рекомендуем [создать](../../organization/operations/enable-org.md#create-additional-org) отдельную организацию и [отдельное облако](../../resource-manager/operations/cloud/create.md) в ней для работы с партнерской программой. Так вы не потеряете доступ к партнерской программе, даже если ваше основное облако окажется заблокировано или удалено.
 
 ### Механизм работы партнерской программы {#program-roadmap}
 
-Для взаимодействия с {{ yandex-cloud }} в рамках партнерской программы используется [сервисный аккаунт](../../iam/concepts/users/service-accounts.md). При регистрации в программе вы передадите {{ yandex-cloud }} идентификатор вашего сервисного аккаунта и получите уникальный идентификатор `leak_source`, который будете использовать для взаимодействия с API.
+Для взаимодействия с Yandex Cloud в рамках партнерской программы используется [сервисный аккаунт](../../iam/concepts/users/service-accounts.md). При регистрации в программе вы передадите Yandex Cloud идентификатор вашего сервисного аккаунта и получите уникальный идентификатор `leak_source`, который будете использовать для взаимодействия с API.
 
-Участвуя в партнерской программе поиска секретов {{ yandex-cloud }}, вы выполняете сканирование публичных репозиториев и других источников на наличие скомпрометированных секретов и передаете в {{ yandex-cloud }} данные о найденных ключах и токенах. {{ yandex-cloud }} проверяет полученные от вас секреты.
+Участвуя в партнерской программе поиска секретов Yandex Cloud, вы выполняете сканирование публичных репозиториев и других источников на наличие скомпрометированных секретов и передаете в Yandex Cloud данные о найденных ключах и токенах. Yandex Cloud проверяет полученные от вас секреты.
 
-Взаимодействие с API {{ yandex-cloud }} происходит в два этапа:
+Взаимодействие с API Yandex Cloud происходит в два этапа:
 
-1. Вы регулярно запрашиваете в {{ yandex-cloud }} актуальный список [регулярных выражений](#regex), соответствующих известным типам секретов:
+1. Вы регулярно запрашиваете в Yandex Cloud актуальный список [регулярных выражений](#regex), соответствующих известным типам секретов:
 
     * Эндпоинт запроса: `https://leak-detector.yandexcloud.net/secret-types`.
     * Метод запроса: `GET`.
@@ -104,7 +104,7 @@
 
     {% endcut %}
 
-1. Вы сканируете ваши данные на предмет поиска соответствий полученному списку регулярных выражений. При обнаружении таких соответствий вы отправляете данные о них в {{ yandex-cloud }} для проверки:
+1. Вы сканируете ваши данные на предмет поиска соответствий полученному списку регулярных выражений. При обнаружении таких соответствий вы отправляете данные о них в Yandex Cloud для проверки:
 
     * Эндпоинт запроса: `https://leak-detector.yandexcloud.net/suspects`.
     * Метод запроса: `POST`.
@@ -160,9 +160,9 @@
 
 ### Условия участия в программе {#conditions}
 
-Партнерская программа поиска секретов {{ yandex-cloud }} действует в течение периода, установленного при вашем присоединении к ней. При отсутствии с вашей стороны заявления о выходе из программы ее действие продлевается на один год. Количество таких продлений не ограничено.
+Партнерская программа поиска секретов Yandex Cloud действует в течение периода, установленного при вашем присоединении к ней. При отсутствии с вашей стороны заявления о выходе из программы ее действие продлевается на один год. Количество таких продлений не ограничено.
 
-Сотрудничество с {{ yandex-cloud }} в рамках партнерской программы поиска секретов не предполагает материального вознаграждения и нацелено на совместное принятие мер по повышению уровня информационной безопасности.
+Сотрудничество с Yandex Cloud в рамках партнерской программы поиска секретов не предполагает материального вознаграждения и нацелено на совместное принятие мер по повышению уровня информационной безопасности.
 
 {% note info "Как присоединиться к программе" %}
 
@@ -172,31 +172,31 @@
 
 ## GitHub {#github-secret-scanning}
 
-{{ yandex-cloud }} подключен к [secret scanning partner program](https://docs.github.com/en/developers/overview/secret-scanning-partner-program), чтобы уменьшить риски пользователей от утечек секретов в публичные репозитории.
+Yandex Cloud подключен к [secret scanning partner program](https://docs.github.com/en/developers/overview/secret-scanning-partner-program), чтобы уменьшить риски пользователей от утечек секретов в публичные репозитории.
 
-По умолчанию GitHub ищет секреты {{ yandex-cloud }} в публичных репозиториях и отправляет все подозрительные фрагменты в {{ yandex-cloud }}.
+По умолчанию GitHub ищет секреты Yandex Cloud в публичных репозиториях и отправляет все подозрительные фрагменты в Yandex Cloud.
 
 В публичных репозиториях поиск выполняется автоматически. [Включить secret scanning](https://docs.github.com/en/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories) для приватного репозитория может администратор репозитория или владелец организации.
 
 ## GitLab {#gitlab-secret-detection}
 
-[Стандартный список](https://gitlab.com/gitlab-org/security-products/analyzers/secrets/-/blob/master/gitleaks.toml) шаблонов секретов для [Secret Detection](https://docs.gitlab.com/ee/user/application_security/secret_detection/#enable-secret-detection-using-a-merge-request) включает секреты {{ yandex-cloud }}.
+[Стандартный список](https://gitlab.com/gitlab-org/security-products/analyzers/secrets/-/blob/master/gitleaks.toml) шаблонов секретов для [Secret Detection](https://docs.gitlab.com/ee/user/application_security/secret_detection/#enable-secret-detection-using-a-merge-request) включает секреты Yandex Cloud.
 
 Чтобы включить Secret Detection для вашего проекта, следуйте [инструкции](https://docs.gitlab.com/ee/user/application_security/secret_detection/#enable-secret-detection-using-a-merge-request).
 
 ## Поисковый индекс Яндекс {#search-index-detection}
 
-{{ yandex-cloud }} по умолчанию ищет секреты на страницах, которые проиндексированы поиском Яндекс.
+Yandex Cloud по умолчанию ищет секреты на страницах, которые проиндексированы поиском Яндекс.
 
-## Helm-чарты в {{ marketplace-full-name }} {#helm-charts}
+## Helm-чарты в Yandex Cloud Marketplace {#helm-charts}
 
-{{ yandex-cloud }} по умолчанию ищет секреты в [Helm-чартах](https://helm.sh/docs/topics/charts/), доступных в [{{ marketplace-full-name }}](../../managed-kubernetes/operations/applications/marketplace.md).
+Yandex Cloud по умолчанию ищет секреты в [Helm-чартах](https://helm.sh/docs/topics/charts/), доступных в [Yandex Cloud Marketplace](../../managed-kubernetes/operations/applications/marketplace.md).
 
 ## Как узнать, что секрет обнаружен {#secret-is-detected}
 
-Если будет обнаружен действительный секрет, владельцу организации, или пользователю, который в соответствии с настройками организации получает оповещения от сервиса {{ iam-name }}, придет письмо c адреса технической поддержки {{ yandex-cloud }}. Письмо будет содержать часть обнаруженного секрета и адрес ресурса, где секрет был обнаружен.
+Если будет обнаружен действительный секрет, владельцу организации, или пользователю, который в соответствии с настройками организации получает оповещения от сервиса Identity and Access Management, придет письмо c адреса технической поддержки Yandex Cloud. Письмо будет содержать часть обнаруженного секрета и адрес ресурса, где секрет был обнаружен.
 
-Также {{ iam-name }} запишет в аудитный лог [событие](../../audit-trails/concepts/events.md#iam) `DetectLeakedCredential`.
+Также Identity and Access Management запишет в аудитный лог [событие](../../audit-trails/concepts/events.md#iam) `DetectLeakedCredential`.
 
 ## Что делать если секрет обнаружен {#secret-is-leaked}
 
@@ -207,7 +207,7 @@
 
 {% note warning %}
 
-{{ yandex-cloud }} не отзывает найденные секреты и не удаляет их из репозитория. Все действия над секретом выполняет только владелец секрета.
+Yandex Cloud не отзывает найденные секреты и не удаляет их из репозитория. Все действия над секретом выполняет только владелец секрета.
 
 {% endnote %}
 
@@ -217,13 +217,13 @@
 
 Вы можете использовать следующие регулярные выражения, чтобы самостоятельно проверять свои репозитории:
 
-* **{{ iam-short-name }} Cookies**
+* **IAM Cookies**
 
    ```regexp
    c1\.[A-Z0-9a-z_-]+[=]{0,2}\.[A-Z0-9a-z_-]{86}[=]{0,2}
    ```
 
-* **{{ iam-short-name }}-токены**
+* **IAM-токены**
 
    ```regexp
    t1\.[A-Z0-9a-z_-]+[=]{0,2}\.[A-Z0-9a-z_-]{86}[=]{0,2}
@@ -253,7 +253,7 @@
    y[0-6]_[-_A-Za-z0-9]{55,199}
    ```
 
-* **Серверные ключи {{ captcha-name }}**
+* **Серверные ключи SmartCaptcha**
 
    ```regexp
    ysc2_[a-zA-Z0-9]{40}[0-9a-f]{8}
@@ -403,7 +403,7 @@
 
     {% endlist %}
 
-* **Серверные ключи {{ captcha-name }}**
+* **Серверные ключи SmartCaptcha**
 
     {% list tabs group=programming_language %}
 

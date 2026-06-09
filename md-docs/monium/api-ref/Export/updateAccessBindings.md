@@ -5,7 +5,7 @@ Updates access bindings for the specified export.
 ## HTTP request
 
 ```
-PATCH https://logging.{{ api-host }}/logging/v1/exports/{resourceId}:updateAccessBindings
+PATCH https://logging.api.cloud.yandex.net/logging/v1/exports/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

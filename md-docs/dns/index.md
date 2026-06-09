@@ -68,7 +68,7 @@ Yandex Cloud DNS служит для управления зонами DNS и д
 
  - [DNS-подключения](concepts/dns-connection.md)
 
- - [Интеграция с {{ compute-name }}](concepts/compute-integration.md)
+ - [Интеграция с Compute Cloud](concepts/compute-integration.md)
 
  - [Квоты и лимиты](concepts/limits.md)
 
@@ -82,9 +82,9 @@ Yandex Cloud DNS служит для управления зонами DNS и д
 
  - [Интеграция с корпоративным сервисом DNS](tutorials/dns-integration.md)
 
- - [Интеграция {{ managed-k8s-name }} с корпоративной зоной DNS](tutorials/custom-dns.md)
+ - [Интеграция Managed Service for Kubernetes с корпоративной зоной DNS](tutorials/custom-dns.md)
 
- - [Настройка {{ dns-name }} для доступа к кластерам управляемых баз данных из других облачных сетей](tutorials/mdb-dns-peering.md)
+ - [Настройка Cloud DNS для доступа к кластерам управляемых баз данных из других облачных сетей](tutorials/mdb-dns-peering.md)
 
  - [Создание веб-хука резолвера ACME для ответов на DNS01-проверки](tutorials/cert-manager-webhook.md)
 
@@ -94,7 +94,7 @@ Yandex Cloud DNS служит для управления зонами DNS и д
 
  - [Консоль управления, CLI и API](tutorials/bind-domain-vm/console.md)
 
- - [{{ TF }}](tutorials/bind-domain-vm/terraform.md)
+ - [Terraform](tutorials/bind-domain-vm/terraform.md)
 
  - [Публикация обновлений для игр](tutorials/prefetch.md)
 
@@ -104,13 +104,13 @@ Yandex Cloud DNS служит для управления зонами DNS и д
 
  - [Консоль управления](tutorials/tls-termination/console.md)
 
- - [{{ TF }}](tutorials/tls-termination/terraform.md)
+ - [Terraform](tutorials/tls-termination/terraform.md)
 
- - [Подключение к {{ objstorage-name }} из {{ vpc-name }}](tutorials/storage-vpc-access.md)
+ - [Подключение к Object Storage из Virtual Private Cloud](tutorials/storage-vpc-access.md)
 
- - [Подключение к {{ container-registry-name }} из {{ vpc-name }}](tutorials/vpc-cr-access.md)
+ - [Подключение к Container Registry из Virtual Private Cloud](tutorials/vpc-cr-access.md)
 
- - [Переключение сетевого соединения при пересоздании кластера {{ dataproc-name }}](tutorials/reconnect-network.md)
+ - [Переключение сетевого соединения при пересоздании кластера Yandex Data Processing](tutorials/reconnect-network.md)
 
  - [Управление доступом](security/index.md)
 
@@ -332,7 +332,7 @@ Yandex Cloud DNS служит для управления зонами DNS и д
 
  - [update-private-networks](cli-ref/zone/update-private-networks.md)
 
- - [Справочник {{ TF }}](tf-ref.md)
+ - [Справочник Terraform](tf-ref.md)
 
 ## Справочник API
 
@@ -430,9 +430,9 @@ Yandex Cloud DNS служит для управления зонами DNS и д
 
  - [Cancel](api-ref/Operation/cancel.md)
 
- - [Метрики {{ monitoring-name }}](metrics.md)
+ - [Метрики Monitoring](metrics.md)
 
- - [Аудитные логи {{ at-name }}](at-ref.md)
+ - [Аудитные логи Audit Trails](at-ref.md)
 
  - [История изменений](release-notes.md)
 

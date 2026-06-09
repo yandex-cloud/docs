@@ -2,12 +2,12 @@
 
 Данные о состоянии трансфера доступны в консоли управления:
 
-* Краткая информация представлена на временной шкале в разделе **{{ ui-key.yacloud.common.overview }}** для выбранного трансфера в сервисе [{{ data-transfer-name }}]({{ link-console-main }}/link/data-transfer/). В правой верхней части шкалы вы можете выбрать интервал для просмотра — час, день или неделю. Интервал разбит на сегменты. Наведите курсор на сегмент, чтобы узнать сколько байт и строк перенес трансфер за соответствующий период времени или просмотреть сообщения об ошибках.
-* Подробная диагностическая информация представлена в виде графиков. Их можно посмотреть на вкладке **{{ ui-key.yacloud.data-transfer.label_monitoring }}** страницы управления трансфером или в сервисе [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
+* Краткая информация представлена на временной шкале в разделе **Обзор** для выбранного трансфера в сервисе [Data Transfer](https://console.yandex.cloud/link/data-transfer/). В правой верхней части шкалы вы можете выбрать интервал для просмотра — час, день или неделю. Интервал разбит на сегменты. Наведите курсор на сегмент, чтобы узнать сколько байт и строк перенес трансфер за соответствующий период времени или просмотреть сообщения об ошибках.
+* Подробная диагностическая информация представлена в виде графиков. Их можно посмотреть на вкладке **Мониторинг** страницы управления трансфером или в сервисе [Yandex Monitoring](../../monitoring/concepts/index.md).
 
-Вы можете [настроить алерты](#monitoring-integration) в сервисе {{ monitoring-full-name }} для получения уведомлений о сбоях в работе трансфера. В {{ monitoring-full-name }} используются два порога срабатывания алерта: `Warning` и `Alarm`. При превышении заданного порога вы получите оповещения через настроенные [каналы уведомлений](../../monitoring/concepts/alerting.md#notification-channel).
+Вы можете [настроить алерты](#monitoring-integration) в сервисе Yandex Monitoring для получения уведомлений о сбоях в работе трансфера. В Yandex Monitoring используются два порога срабатывания алерта: `Warning` и `Alarm`. При превышении заданного порога вы получите оповещения через настроенные [каналы уведомлений](../../monitoring/concepts/alerting.md#notification-channel).
 
-Отслеживать состояние трансферов и получать логи их работы можно и в [мобильном приложении](https://yandex.cloud/ru/mobile-app) {{ yandex-cloud }}.
+Отслеживать состояние трансферов и получать логи их работы можно и в [мобильном приложении](https://yandex.cloud/ru/mobile-app) Yandex Cloud.
 
 
 ## Ошибки, отображаемые на временной шкале трансфера {#errors-timeline}
@@ -27,11 +27,11 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
-  1. Нажмите на имя нужного трансфера и выберите вкладку ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.data-transfer.label_monitoring }}**.
-  1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе {{ monitoring-full-name }}, нажмите кнопку **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** на панели сверху.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Data Transfer**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы**.
+  1. Нажмите на имя нужного трансфера и выберите вкладку ![image](../../_assets/console-icons/display-pulse.svg) **Мониторинг**.
+  1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе Yandex Monitoring, нажмите кнопку **Открыть в Monium** на панели сверху.
 
 {% endlist %}
 
@@ -88,19 +88,19 @@
 Тип выполняющейся операции: `1` — задача активна.
 
 
-## Настройка алертов в {{ monitoring-full-name }} {#monitoring-integration}
+## Настройка алертов в Yandex Monitoring {#monitoring-integration}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог с трансфером, для которого нужно настроить алерты.
-  1. Перейдите в сервис ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. В блоке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_data-transfer }}**.
-  1. На нужном графике нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
-  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов в [документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
-  1. Задайте значения порогов `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` и `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` для срабатывания алерта.
-  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с трансфером, для которого нужно настроить алерты.
+  1. Перейдите в сервис ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
+  1. В блоке **Сервисные дашборды** выберите **Data Transfer**.
+  1. На нужном графике нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Создать алерт**.
+  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов в [документации Yandex Monitoring](../../monitoring/concepts/querying.md).
+  1. Задайте значения порогов `Alarm` и `Warning` для срабатывания алерта.
+  1. Нажмите кнопку **Создать алерт**.
 
 {% endlist %}
 
@@ -108,11 +108,11 @@
 
 ### Число событий источника {#source-change-items}
 
-Срабатывание алерта означает, что на протяжении окна вычисления база-источник не генерировала реплицируемых {{ data-transfer-name }} событий (отдельных элементов данных).
+Срабатывание алерта означает, что на протяжении окна вычисления база-источник не генерировала реплицируемых Data Transfer событий (отдельных элементов данных).
 
 Возможные причины срабатывания:
 
-* База-источник недоступна по сети для {{ data-transfer-name }}. Например, из-за отзыва доступов или из-за отказа базы-источника.
+* База-источник недоступна по сети для Data Transfer. Например, из-за отзыва доступов или из-за отказа базы-источника.
 * На базе-источнике отсутствуют данные для репликации.
 
 Параметры алерта:
@@ -121,28 +121,28 @@
 
     ![image](../../_assets/console-icons/chart-line.svg) `<имя_облака> > <имя_каталога>` `service = data-transfer` `name = publisher.data.changeitems`
 
-    ![image](../../_assets/console-icons/function.svg) `derivative()` (в разделе **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}**)
+    ![image](../../_assets/console-icons/function.svg) `derivative()` (в разделе **Преобразование**)
 
 * Настройки алерта:
 
-    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }} — `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }} — `0`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }} — `-`.
+    * Условие срабатывания — `Меньше или равно`.
+    * Alarm — `0`.
+    * Warning — `-`.
 
-    Можно дополнительно задать условие срабатывания `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` для ситуаций, когда число реплицируемых операций ниже ожидаемого значения.
+    Можно дополнительно задать условие срабатывания `Warning` для ситуаций, когда число реплицируемых операций ниже ожидаемого значения.
 
     Дополнительные настройки:
 
-    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}`.
-    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}** — `5 минут`. Если в базе-источнике изменения происходят реже одного раза в 5 минут, увеличьте окно вычисления до максимально допустимого интервала между двумя DML-операциями с данными в источнике.
+    * **Функция агрегации** — `Максимум`.
+    * **Окно вычисления** — `5 минут`. Если в базе-источнике изменения происходят реже одного раза в 5 минут, увеличьте окно вычисления до максимально допустимого интервала между двумя DML-операциями с данными в источнике.
 
 ### Число событий приемника {#target-change-items}
 
-Срабатывание алерта означает, что на протяжении окна вычисления в базу-приемник не записывались реплицируемые события {{ data-transfer-name }}.
+Срабатывание алерта означает, что на протяжении окна вычисления в базу-приемник не записывались реплицируемые события Data Transfer.
 
 Возможные причины срабатывания:
 
-* База-источник или база-приемник недоступны по сети для {{ data-transfer-name }}. Например, из-за отзыва доступов или из-за отказа базы-источника или базы-приемника.
+* База-источник или база-приемник недоступны по сети для Data Transfer. Например, из-за отзыва доступов или из-за отказа базы-источника или базы-приемника.
 * На базе-источнике отсутствуют данные для репликации.
 * Данные из базы-источника не могут быть реплицированы в базу-приемник. Например, из-за ограничений целевого типа данных в базе-приемнике.
 
@@ -151,20 +151,20 @@
 * Метрики:
 
     ![image](../../_assets/console-icons/chart-line.svg) `<имя_облака> > <имя_каталога>` `service = data-transfer` `name = sinker.pusher.data.changeitems`
-    ![image](../../_assets/console-icons/function.svg) `derivative()` (в разделе **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}**)
+    ![image](../../_assets/console-icons/function.svg) `derivative()` (в разделе **Преобразование**)
 
 * Настройки алерта:
 
-    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }} — `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }} — `0`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }} — `-`.
+    * Условие срабатывания — `Меньше или равно`.
+    * Alarm — `0`.
+    * Warning — `-`.
 
-    Можно дополнительно задать условие срабатывания `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` для ситуаций, когда число реплицируемых операций ниже ожидаемого значения.
+    Можно дополнительно задать условие срабатывания `Warning` для ситуаций, когда число реплицируемых операций ниже ожидаемого значения.
 
     Дополнительные настройки:
 
-    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}`.
-    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}** — `5 минут`. Если в базе-источнике изменения происходят реже одного раза в 5 минут, увеличьте окно вычисления до максимально допустимого интервала между двумя DML-операциями с данными в источнике.
+    * **Функция агрегации** — `Максимум`.
+    * **Окно вычисления** — `5 минут`. Если в базе-источнике изменения происходят реже одного раза в 5 минут, увеличьте окно вычисления до максимально допустимого интервала между двумя DML-операциями с данными в источнике.
 
 ### Максимальная задержка передачи данных {#row-max-lag}
 
@@ -172,8 +172,8 @@
 
 Возможные причины срабатывания:
 
-* База-приемник недоступна по сети для {{ data-transfer-name }}. Например, из-за отзыва доступов или из-за отказа базы-приемника.
-* Нехватка ресурсов для репликации. Например, нагрузка на базу-источник превышает возможности [виртуальной машины](../../glossary/vm.md), на которой запущена репликация {{ data-transfer-name }}.
+* База-приемник недоступна по сети для Data Transfer. Например, из-за отзыва доступов или из-за отказа базы-приемника.
+* Нехватка ресурсов для репликации. Например, нагрузка на базу-источник превышает возможности [виртуальной машины](../../glossary/vm.md), на которой запущена репликация Data Transfer.
 * Данные из базы-источника не могут быть реплицированы в базу-приемник. Например, из-за ограничений целевого типа данных в базе-приемнике.
 
 Параметры алерта:
@@ -184,14 +184,14 @@
 
 * Настройки алерта:
 
-    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }} — `{{ ui-key.yacloud_monitoring.alert.title_comparison-gte }}`.
-    *  {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }} — `15`. Если база-приемник медленная, или реплицируются сразу большие блоки данных, задайте максимально возможное значение.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }} — `-`.
+    * Условие срабатывания — `Больше или равно`.
+    *  Alarm — `15`. Если база-приемник медленная, или реплицируются сразу большие блоки данных, задайте максимально возможное значение.
+    * Warning — `-`.
 
     Дополнительные настройки:
 
-    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}`.
-    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}** — `1 минута`.
+    * **Функция агрегации** — `Минимум`.
+    * **Окно вычисления** — `1 минута`.
 
 ### Чтение {#reading}
 
@@ -199,7 +199,7 @@
 
 Возможные причины срабатывания:
 
-* База-источник недоступна по сети для {{ data-transfer-name }}. Например, из-за отзыва доступов или из-за отказа базы-источника.
+* База-источник недоступна по сети для Data Transfer. Например, из-за отзыва доступов или из-за отказа базы-источника.
 * На базе-источнике отсутствуют данные для репликации.
 
 Параметры алерта:
@@ -207,18 +207,18 @@
 * Метрики:
 
     ![image](../../_assets/console-icons/chart-line.svg) `<имя_облака> > <имя_каталога>` `service = data-transfer` `name = publisher.data.bytes`
-    ![image](../../_assets/console-icons/function.svg) `derivative()` (в разделе **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}**)
+    ![image](../../_assets/console-icons/function.svg) `derivative()` (в разделе **Преобразование**)
 
 * Настройки алерта:
 
-    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }} — `{{ ui-key.yacloud_monitoring.alert.title_comparison-eq }}`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }} — `0`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }} — `-`.
+    * Условие срабатывания — `Равно`.
+    * Alarm — `0`.
+    * Warning — `-`.
 
     Дополнительные настройки:
 
-    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}`.
-    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}** — `15 минут`. Если в базе-источнике изменения происходят реже одного раза в 15 минут, увеличьте окно вычисления до максимально допустимого интервала между двумя DML-операциями с данными в источнике.
+    * **Функция агрегации** — `Максимум`.
+    * **Окно вычисления** — `15 минут`. Если в базе-источнике изменения происходят реже одного раза в 15 минут, увеличьте окно вычисления до максимально допустимого интервала между двумя DML-операциями с данными в источнике.
 
 ## Особенности работы с алертами {#alert-specifics}
 

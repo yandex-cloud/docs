@@ -5,7 +5,7 @@ Grants a permission to the specified ClickHouse user.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/users/{userName}:grantPermission
+POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/users/{userName}:grantPermission
 ```
 
 ## Path parameters

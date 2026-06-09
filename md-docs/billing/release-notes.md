@@ -1,4 +1,4 @@
-# История изменений в {{ billing-name }}
+# История изменений в Yandex Cloud Billing
 
 {% note info %}
 
@@ -18,5 +18,5 @@
 * Реализована возможность [просмотра](operations/check-charges.md) детализации потребления по нескольким облакам и каталогам одновременно.
 * Добавлена возможность просмотра детализации потребления по [периодам](operations/check-charges.md#periods_1).
 * Изменена логика просмотра детализации потребления по [меткам](../resource-manager/concepts/labels.md). Фильтрация по меткам теперь отображается с даты создания метки, а не по ресурсам, как было ранее.
-* Добавлена возможность [выгрузки](operations/get-folder-report.md) детализации за прошлые периоды в [бакет](../storage/concepts/bucket.md) {{ objstorage-name }}, в том числе [зашифрованный](../storage/concepts/encryption.md).
-* Поддержано сохранение значений фильтров в {{ billing-interface }} при каждом изменении.
+* Добавлена возможность [выгрузки](operations/get-folder-report.md) детализации за прошлые периоды в [бакет](../storage/concepts/bucket.md) Object Storage, в том числе [зашифрованный](../storage/concepts/encryption.md).
+* Поддержано сохранение значений фильтров в Интерфейс Yandex Cloud Billing при каждом изменении.

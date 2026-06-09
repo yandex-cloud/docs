@@ -1,11 +1,11 @@
-# [{{ datalens-full-name }}] Request size limit exceeded
+# [Yandex DataLens] Request size limit exceeded
 
 `ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED`
 
 Превышен лимит объема данных.
 
 Ошибка возникает из-за того, что поступает очень большой объем данных для отображения в чарте.
-Для каждого типа визуализации в {{ datalens-short-name }} установлен свой [лимит](../../concepts/limits.md) на количество рядов.
+Для каждого типа визуализации в DataLens установлен свой [лимит](../../concepts/limits.md) на количество рядов.
 
 Чтобы исправить ошибку, уменьшите объем запрошенных данных, например:
 

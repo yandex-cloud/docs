@@ -10,36 +10,36 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
-  1. На панели слева выберите ![nodes-left](../../_assets/console-icons/nodes-left.svg) **{{ ui-key.yacloud.interconnect.private-connection.private-connections_daeaR }}** и нажмите кнопку **{{ ui-key.yacloud.interconnect.private-connection.create-private-connection_6K9tP }}**. В открывшемся окне:
+  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Interconnect**.
+  1. На панели слева выберите ![nodes-left](../../_assets/console-icons/nodes-left.svg) **Приватные соединения** и нажмите кнопку **Создать приватное соединение**. В открывшемся окне:
 
-      1. Поместите курсор в поле **{{ ui-key.yacloud.interconnect.private-connection.TrunkConnectionSuggestOrCreate.title_oPBF7 }}** и выберите транковое подключение, в котором вы хотите создать приватное соединение.
+      1. Поместите курсор в поле **Идентификатор транкового подключения** и выберите транковое подключение, в котором вы хотите создать приватное соединение.
 
-          При необходимости нажмите кнопку **{{ ui-key.yacloud.common.create }}**, чтобы создать новое транковое подключение.
-      1. В поле **{{ ui-key.yacloud.interconnect.vlan-id_2wghK }}** задайте произвольный `VLAN ID` для данного приватного соединения в 802.1Q-транке. Например: `123`.
+          При необходимости нажмите кнопку **Создать**, чтобы создать новое транковое подключение.
+      1. В поле **VLAN ID** задайте произвольный `VLAN ID` для данного приватного соединения в 802.1Q-транке. Например: `123`.
       
           Значение не должно совпадать со значениями `VLAN ID` других приватных соединений в данном транке.
-      1. В поле **{{ ui-key.yacloud.interconnect.peering-subnet_eYRTR }}** укажите [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация) стыковой подсети для BGP-пиринга. Например: `192.168.1.0/31`. Подробнее читайте в разделе [{#T}](../concepts/priv-con.md#priv-address).
-      1. В поле **{{ ui-key.yacloud.interconnect.peer-ip_pMdxo }}** укажите IP-адрес из стыковой (пиринговой) подсети на оборудовании клиента. Например: `192.168.1.0`.
-      1. В поле **{{ ui-key.yacloud.interconnect.cloud-ip_6ESSe }}** укажите IP-адрес из стыковой (пиринговой) подсети на оборудовании {{ yandex-cloud }}. Например: `192.168.1.1`.
-      1. В поле **{{ ui-key.yacloud.interconnect.bgp-asn_3dSL7 }}** укажите номер BGP ASN на оборудовании клиента в формате ASPlain. Например: `64513`. Подробнее читайте в разделе [{#T}](../concepts/priv-con.md#bgp-asn).
-      1. (Опционально) В поле **{{ ui-key.yacloud.interconnect.bgp-key_cn2dU }}** укажите зашифрованное значение ключа для установления BGP-соединения.
-      1. В поле **IPv4 StaticRoute prefix** нажмите кнопку **{{ ui-key.yacloud.interconnect.private-connection.StaticRoutePrefixRow.add-prefix-button_n11CU }}**, чтобы добавить в приватное соединение CIDR-префикс назначения статического маршрута, который будет анонсироваться в сети на стороне инфраструктуры клиента.
+      1. В поле **Стыковая подсеть** укажите [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация) стыковой подсети для BGP-пиринга. Например: `192.168.1.0/31`. Подробнее читайте в разделе [Стыковая подсеть](../concepts/priv-con.md#priv-address).
+      1. В поле **Peer IP** укажите IP-адрес из стыковой (пиринговой) подсети на оборудовании клиента. Например: `192.168.1.0`.
+      1. В поле **Cloud IP** укажите IP-адрес из стыковой (пиринговой) подсети на оборудовании Yandex Cloud. Например: `192.168.1.1`.
+      1. В поле **BGP ASN** укажите номер BGP ASN на оборудовании клиента в формате ASPlain. Например: `64513`. Подробнее читайте в разделе [BGP ASN](../concepts/priv-con.md#bgp-asn).
+      1. (Опционально) В поле **BGP Key** укажите зашифрованное значение ключа для установления BGP-соединения.
+      1. В поле **IPv4 StaticRoute prefix** нажмите кнопку **Добавить префикс**, чтобы добавить в приватное соединение CIDR-префикс назначения статического маршрута, который будет анонсироваться в сети на стороне инфраструктуры клиента.
 
-          В одном приватном соединении вы можете анонсировать несколько статических маршрутов. Для этого повторно нажмите **{{ ui-key.yacloud.interconnect.private-connection.StaticRoutePrefixRow.add-prefix-button_n11CU }}** необходимое количество раз.
-      1. (Опционально) В блоке **{{ ui-key.yacloud.common.section-base }}** задайте для создаваемого соединения:
+          В одном приватном соединении вы можете анонсировать несколько статических маршрутов. Для этого повторно нажмите **Добавить префикс** необходимое количество раз.
+      1. (Опционально) В блоке **Общая информация** задайте для создаваемого соединения:
 
-          * **{{ ui-key.yacloud.common.name }}**. Требования к имени:
+          * **Имя**. Требования к имени:
 
               * длина — от 3 до 63 символов;
               * может содержать строчные буквы латинского алфавита, цифры и дефисы;
               * первый символ — буква, последний — не дефис.
 
               Если не указать имя, приватному соединению будет присвоено имя, идентичное [идентификатору](../../api-design-guide/concepts/resources-identification.md) этого соединения.
-          * Произвольное **{{ ui-key.yacloud.common.description }}** соединения.
-          * [**{{ ui-key.yacloud.component.label-set.label_labels }}**](../../resource-manager/concepts/labels.md), назначаемые соединению.
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+          * Произвольное **Описание** соединения.
+          * [**Метки**](../../resource-manager/concepts/labels.md), назначаемые соединению.
+      1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
 
@@ -73,7 +73,7 @@
       id: bd6g2l17c8sv********
       name: prc-pop1
       folder_id: b1gt6g8ht345********
-      region_id: {{ region-id }}
+      region_id: ru-central1
       trunk_connection_id: cf3dcodot14p********
       vlan_id: "125"
       ipv4_peering:
@@ -98,7 +98,7 @@
       * `ipv4_peering` — группа параметров IP/BGP-связности для приватного соединения:
         * `peering_subnet` — [стыковая подсеть](../concepts/priv-con.md#priv-address) для BGP-пиринга. Выбирается клиентом.
         * `peer_ip` — IP-адрес из стыковой (пиринговой) подсети на оборудовании клиента. Выбирается клиентом.
-        * `cloud_ip` — IP-адрес из стыковой (пиринговой) подсети на оборудовании {{ yandex-cloud }}. Выбирается клиентом.
+        * `cloud_ip` — IP-адрес из стыковой (пиринговой) подсети на оборудовании Yandex Cloud. Выбирается клиентом.
         * `peer_bgp_asn` — номер [BGP ASN](../concepts/priv-con.md#bgp-asn) на оборудовании клиента в формате ASPlain. Выбирается клиентом.
         * `peer_bgp_md5_key` — необязательный параметр. Зашифрованное значение ключа для установления BGP-соединения.
       * `status` — состояние ресурса. Целевое состояние — `ACTIVE`.

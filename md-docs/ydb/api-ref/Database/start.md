@@ -5,7 +5,7 @@ Starts the specified database.
 ## HTTP request
 
 ```
-POST https://ydb.{{ api-host }}/ydb/v1/databases/{databaseId}:start
+POST https://ydb.api.cloud.yandex.net/ydb/v1/databases/{databaseId}:start
 ```
 
 ## Path parameters

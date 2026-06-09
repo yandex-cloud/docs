@@ -5,7 +5,7 @@ Disable a service in the specified resource container.
 ## HTTP request
 
 ```
-POST https://iam.{{ api-host }}/iam/v1/service/{serviceId}:disable
+POST https://iam.api.cloud.yandex.net/iam/v1/service/{serviceId}:disable
 ```
 
 ## Path parameters

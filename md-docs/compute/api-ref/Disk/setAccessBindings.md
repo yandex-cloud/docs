@@ -5,7 +5,7 @@ Sets access bindings for the disk.
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/disks/{resourceId}:setAccessBindings
+POST https://compute.api.cloud.yandex.net/compute/v1/disks/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

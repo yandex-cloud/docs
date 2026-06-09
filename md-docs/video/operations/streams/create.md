@@ -2,26 +2,26 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ video-name }} {#console}
+- Интерфейс Cloud Video {#console}
 
-  1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
+  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
   1. Выберите канал.
-  1. На вкладке ![image](../../../_assets/console-icons/antenna-signal.svg) **{{ ui-key.yacloud_video.streams.title_streams }}** нажмите кнопку **{{ ui-key.yacloud_video.streams.action_create-stream }}**.
+  1. На вкладке ![image](../../../_assets/console-icons/antenna-signal.svg) **Трансляции** нажмите кнопку **Создать трансляцию**.
   1. Введите имя и описание трансляции.
-  1. В поле **{{ ui-key.yacloud_video.stream-lines.label_input-stream-protocol }}** выберите [нужный протокол](../../concepts/streams.md): `RTMP` или `SRT`.
-  1. В поле **{{ ui-key.yacloud_video.stream-lines.label_input-stream-type }}** выберите:
+  1. В поле **Протокол входного потока** выберите [нужный протокол](../../concepts/streams.md): `RTMP` или `SRT`.
+  1. В поле **Тип потока** выберите:
 
-      * `Push` — для передачи видеосигнала на сервер {{ video-name }} из программ для видеотрансляций, например [vMix](https://www.vmix.com/) и [OBS](https://obsproject.com/). Основной способ подключения.
-      * `Pull` — для подключения {{ video-name }} к вашему серверу видеотрансляций и получения от него видеосигнала.
+      * `Push` — для передачи видеосигнала на сервер Cloud Video из программ для видеотрансляций, например [vMix](https://www.vmix.com/) и [OBS](https://obsproject.com/). Основной способ подключения.
+      * `Pull` — для подключения Cloud Video к вашему серверу видеотрансляций и получения от него видеосигнала.
 
-  1. Если вы выбрали тип потока `Pull`, в поле **{{ ui-key.yacloud_video.stream-lines.label_url }}** укажите адрес вашего сервера трансляций.
-  1. Выберите **{{ ui-key.yacloud_video.streams.field_segment-duration }}**, который определяет время между захватом видео на источнике и его воспроизведением у зрителей:
+  1. Если вы выбрали тип потока `Pull`, в поле **Адрес сервера** укажите адрес вашего сервера трансляций.
+  1. Выберите **Режим задержки**, который определяет время между захватом видео на источнике и его воспроизведением у зрителей:
      
-     * **{{ ui-key.yacloud_video.streams.option_segment-duration-standart }}** — обеспечивает высокое качество картинки и устойчивость к нестабильному соединению. Подходит для трансляций, где нет активного взаимодействия со зрителями в реальном времени.
-     * **{{ ui-key.yacloud_video.streams.option_segment-duration-low }}** — подходит для сценариев с активным взаимодействием со зрителями, но более чувствительна к качеству сети.
+     * **Стандартная** — обеспечивает высокое качество картинки и устойчивость к нестабильному соединению. Подходит для трансляций, где нет активного взаимодействия со зрителями в реальном времени.
+     * **Низкая** — подходит для сценариев с активным взаимодействием со зрителями, но более чувствительна к качеству сети.
   
-  1. Для автоматической публикации эпизодов при подаче входящего сигнала активируйте опцию **{{ ui-key.yacloud_video.streams.label_auto-publish-streams }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_create }}**.
+  1. Для автоматической публикации эпизодов при подаче входящего сигнала активируйте опцию **Автозапуск трансляции**.
+  1. Нажмите кнопку **Создать**.
 
 - API {#api}
 
@@ -33,12 +33,12 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ video-name }} {#console}
+- Интерфейс Cloud Video {#console}
 
-  1. В блоке **{{ ui-key.yacloud_video.streams.title_stream-episodes }}** нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_video.streams.action_add-stream-episode }}**.
-  1. В поле **{{ ui-key.yacloud_video.streams.label_episode-type }}** выберите режим:
-     * **{{ ui-key.yacloud_video.streams.label_episode-type-live }}** — показ в реальном времени с перемоткой назад.
-     * **{{ ui-key.yacloud_video.streams.label_episode-type-broadcast }}** — показ в определенное время с записью.
+  1. В блоке **Эпизоды** нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить эпизод**.
+  1. В поле **Тип эпизода** выберите режим:
+     * **Прямой эфир** — показ в реальном времени с перемоткой назад.
+     * **Трансляция** — показ в определенное время с записью.
   1. Введите имя и описание эпизода.
   1. В списке **Доступ** выберите тип доступа к эпизоду:
      * `Для всех пользователей` — эпизод будет доступен неограниченное время всем, у кого есть ссылка.
@@ -47,8 +47,8 @@
   
       Видео по временной ссылке доступно не более 12 часов.
 
-  1. При выборе типа эпизода **{{ ui-key.yacloud_video.streams.label_episode-type-live }}** в поле **{{ ui-key.yacloud_video.streams.label_rewind-buffer }}** укажите время в секундах, на которое плеер заранее загружает видео вокруг текущей позиции, чтобы перемотка происходила без пауз.
-  1. При выборе типа эпизода **{{ ui-key.yacloud_video.streams.label_episode-type-broadcast }}** в полях **{{ ui-key.yacloud_video.streams.label_stream-episode-start }}** и **{{ ui-key.yacloud_video.streams.label_stream-episode-end }}** укажите даты и время периода трансляции.
+  1. При выборе типа эпизода **Прямой эфир** в поле **Буфер перемотки (сек.)** укажите время в секундах, на которое плеер заранее загружает видео вокруг текущей позиции, чтобы перемотка происходила без пауз.
+  1. При выборе типа эпизода **Трансляция** в полях **Начало эпизода** и **Конец эпизода** укажите даты и время периода трансляции.
   
       {% note tip %}
 
@@ -57,14 +57,14 @@
       {% endnote %}
 
   1. Включите или выключите рекламу. Для включения заранее [настройте](../channels/settings.md#ad-settings) показ рекламы.
-  1. Чтобы изменить [шаблон плеера](../../concepts/player.md#player-presets), в списке **{{ ui-key.yacloud_video.streams.label_player-template }}** выберите нужный из доступных в канале или создайте новый.
-  1. В поле **{{ ui-key.yacloud_video.thumbnails.label_thumbnail }}** нажмите кнопку ![upload](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Выберите файл** и выберите изображение для обложки.
+  1. Чтобы изменить [шаблон плеера](../../concepts/player.md#player-presets), в списке **Шаблон плеера** выберите нужный из доступных в канале или создайте новый.
+  1. В поле **Обложка** нажмите кнопку ![upload](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Выберите файл** и выберите изображение для обложки.
   
       Поддерживаются обложки в следующих форматах: [JPG](https://ru.wikipedia.org/wiki/JPEG), [PNG](https://ru.wikipedia.org/wiki/PNG) и [GIF](https://ru.wikipedia.org/wiki/GIF).
 
-  1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
+  1. Нажмите кнопку **Сохранить**.
 
-  Вы можете добавить любое количество эпизодов. Чтобы удалить лишний эпизод, в строке эпизода нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  Вы можете добавить любое количество эпизодов. Чтобы удалить лишний эпизод, в строке эпизода нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
 
 - API {#api}
 

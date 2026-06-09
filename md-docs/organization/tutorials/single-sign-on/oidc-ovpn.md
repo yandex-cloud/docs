@@ -1,20 +1,20 @@
-# Настроить аутентификацию в OpenVPN Community Edition через {{ org-full-name }} по протоколу OIDC
+# Настроить аутентификацию в OpenVPN Community Edition через Yandex Identity Hub по протоколу OIDC
 
 
 [OpenVPN Community Edition](https://openvpn.net/community/) — бесплатная версия OpenVPN с открытым исходным кодом для организации защищенных VPN-соединений. Начиная с версии 2.6.2, OpenVPN Community Edition поддерживает аутентификацию через внешние провайдеры по протоколу [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC) с помощью плагина [openvpn-auth-oauth2](https://github.com/jkroepke/openvpn-auth-oauth2).
 
-Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться в OpenVPN Community Edition с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../concepts/applications.md#oidc) и настройте его на стороне {{ org-full-name }} и на стороне OpenVPN.
+Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться в OpenVPN Community Edition с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../concepts/applications.md#oidc) и настройте его на стороне Yandex Identity Hub и на стороне OpenVPN.
 
 Управлять OIDC-приложениями может пользователь, которому назначена [роль](../../security/index.md#organization-manager-oauthApplications-admin) `organization-manager.oauthApplications.admin` или выше.
 
-Чтобы настроить аутентификацию пользователей вашей организации в OpenVPN Community Edition через {{ org-full-name }}:
+Чтобы настроить аутентификацию пользователей вашей организации в OpenVPN Community Edition через Yandex Identity Hub:
 
 1. [Подготовьте облако к работе](#before-begin).
 1. [Создайте инфраструктуру](#deploy).
 1. [Установите OpenVPN](#install-openvpn).
 1. [Создайте Certificate Authority](#create-ca).
 1. [Настройте OpenVPN-сервер](#configure-server).
-1. [Создайте OIDC-приложение в {{ org-full-name }}](#create-app).
+1. [Создайте OIDC-приложение в Yandex Identity Hub](#create-app).
 1. [Установите и настройте плагин openvpn-auth-oauth2](#setup-plugin).
 1. [Проверьте работу интеграции](#validate).
 
@@ -22,11 +22,11 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -34,8 +34,8 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за постоянно запущенную [виртуальную машину](../../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md));
-* плата за использование [OIDC-приложения](../../concepts/applications.md#oidc) (см. [тарифы {{ org-full-name }}](../../pricing.md)).
+* плата за постоянно запущенную [виртуальную машину](../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за использование [OIDC-приложения](../../concepts/applications.md#oidc) (см. [тарифы Yandex Identity Hub](../../pricing.md)).
 
 ## Создайте инфраструктуру {#deploy}
 
@@ -50,7 +50,7 @@
 1. Убедитесь, что у вас есть:
 
    * Доменное имя, которое ведет на публичный IP-адрес ВМ. Оно потребуется для настройки плагина `openvpn-auth-oauth2`.
-   * TLS-сертификат для этого доменного имени. Вы можете использовать сертификат из [{{ certificate-manager-full-name }}](../../../certificate-manager/operations/managed/cert-create.md).
+   * TLS-сертификат для этого доменного имени. Вы можете использовать сертификат из [Yandex Certificate Manager](../../../certificate-manager/operations/managed/cert-create.md).
 
 ## Установите OpenVPN {#install-openvpn}
 
@@ -252,33 +252,33 @@ sudo cp /etc/openvpn/easy-rsa/pki/dh.pem /etc/openvpn/
    key-direction 1
    ```
 
-## Создайте OIDC-приложение в {{ org-full-name }} {#create-app}
+## Создайте OIDC-приложение в Yandex Identity Hub {#create-app}
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-  1. В центре страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
-      1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}**.
-      1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения, например `openvpn-oidc-app`.
-      1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-folder_rANM4 }}** выберите каталог, в котором будет создан OAuth-клиент для приложения.
-      1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** задайте описание приложения.
-      1. Нажмите **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
-  1. На странице созданного приложения справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:
-      1. В поле **{{ ui-key.yacloud_org.application.overview.oauth_field_redirect_uri }}** укажите Redirect URI в формате:
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
+  1. В центре страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
+      1. Выберите метод единого входа **OIDC (OpenID Connect)**.
+      1. В поле **Имя** задайте имя создаваемого приложения, например `openvpn-oidc-app`.
+      1. В поле **Каталог** выберите каталог, в котором будет создан OAuth-клиент для приложения.
+      1. (Опционально) В поле **Описание** задайте описание приложения.
+      1. Нажмите **Создать приложение**.
+  1. На странице созданного приложения справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать** и в открывшемся окне:
+      1. В поле **Redirect URI** укажите Redirect URI в формате:
 
          ```text
          https://<доменное_имя>:9000/oauth2/callback
          ```
 
-      1. В поле **{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.field-scopes_hEuar }}** отметьте атрибуты `email`, `profile`.
-      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
-  1. В блоке **{{ ui-key.yacloud_org.application.overview.secret_section_title }}** нажмите кнопку **{{ ui-key.yacloud_org.application.overview.secret_section_add_new_secret_action }}** и в открывшемся окне:
+      1. В поле **Scopes** отметьте атрибуты `email`, `profile`.
+      1. Нажмите **Сохранить**.
+  1. В блоке **Секреты приложения** нажмите кнопку **Добавить секрет** и в открывшемся окне:
      
      1. (Опционально) Добавьте произвольное описание создаваемого секрета.
-     1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+     1. Нажмите **Создать**.
      
      В окне отобразится сгенерированный [секрет приложения](../../concepts/applications.md#oidc-secret). Сохраните полученное значение.
      
@@ -288,17 +288,17 @@ sudo cp /etc/openvpn/easy-rsa/pki/dh.pem /etc/openvpn/
      
      {% endnote %}
      
-     Если вы закрыли или обновили страницу, не сохранив сгенерированный секрет, используйте кнопку **{{ ui-key.yacloud_org.application.overview.secret_section_add_new_secret_action }}**, чтобы создать новый.
+     Если вы закрыли или обновили страницу, не сохранив сгенерированный секрет, используйте кнопку **Добавить секрет**, чтобы создать новый.
      
-     Чтобы удалить секрет, в списке секретов на странице OIDC-приложения в строке с нужным секретом нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+     Чтобы удалить секрет, в списке секретов на странице OIDC-приложения в строке с нужным секретом нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
 
      Сохраните значение секрета — оно понадобится при настройке плагина `openvpn-auth-oauth2`.
 
-  1. В блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте значение поля **{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}** — оно понадобится при настройке плагина.
+  1. В блоке **Конфигурация поставщика удостоверений (IdP)** скопируйте значение поля **ClientID** — оно понадобится при настройке плагина.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -390,7 +390,7 @@ sudo cp /etc/openvpn/easy-rsa/pki/dh.pem /etc/openvpn/
 
 ### Добавьте пользователей в приложение {#add-users}
 
-Чтобы пользователи вашей организации могли аутентифицироваться в OpenVPN через OIDC-приложение {{ org-full-name }}, добавьте в приложение нужных пользователей и/или [группы пользователей](../../concepts/groups.md).
+Чтобы пользователи вашей организации могли аутентифицироваться в OpenVPN через OIDC-приложение Yandex Identity Hub, добавьте в приложение нужных пользователей и/или [группы пользователей](../../concepts/groups.md).
 
 {% note info %}
 
@@ -400,18 +400,18 @@ sudo cp /etc/openvpn/easy-rsa/pki/dh.pem /etc/openvpn/
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите созданное приложение.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}**.
-  1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppAssignmentsPage.action_add-assignments }}**.
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите созданное приложение.
+  1. Перейдите на вкладку **Пользователи и группы**.
+  1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **Добавить пользователей**.
   1. В открывшемся окне выберите нужного пользователя или группу пользователей.
-  1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+  1. Нажмите **Добавить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -459,11 +459,11 @@ sudo apt install openvpn-auth-oauth2
 
 {% note tip %}
 
-Разработчики плагина [рекомендуют](https://github.com/jkroepke/openvpn-auth-oauth2/blob/main/docs/Configuration.md#openvpn-auth-oauth2-config) не завершать TLS-соединения непосредственно в `openvpn-auth-oauth2`, а использовать для этого отдельный обратный прокси-сервер (reverse proxy). Реализовать этот подход можно с помощью [{{ alb-full-name }}](../../../application-load-balancer/tutorials/tls-termination/index.md).
+Разработчики плагина [рекомендуют](https://github.com/jkroepke/openvpn-auth-oauth2/blob/main/docs/Configuration.md#openvpn-auth-oauth2-config) не завершать TLS-соединения непосредственно в `openvpn-auth-oauth2`, а использовать для этого отдельный обратный прокси-сервер (reverse proxy). Реализовать этот подход можно с помощью [Yandex Application Load Balancer](../../../application-load-balancer/tutorials/tls-termination/index.md).
 
 {% endnote %}
 
-1. Если у вас есть сертификат в [{{ certificate-manager-full-name }}](../../../certificate-manager/index.md), экспортируйте его с помощью [{{ yandex-cloud }} CLI](../../../cli/index.md):
+1. Если у вас есть сертификат в [Yandex Certificate Manager](../../../certificate-manager/index.md), экспортируйте его с помощью [Yandex Cloud CLI](../../../cli/index.md):
 
    ```bash
    yc certificate-manager certificates content \
@@ -503,12 +503,12 @@ sudo apt install openvpn-auth-oauth2
      addr: unix:///run/openvpn/server.sock
      password: <пароль_управляющего_интерфейса>
    oauth2:
-     issuer: https://{{ auth-main-host }}
+     issuer: https://auth.yandex.cloud
      client:
        id: <идентификатор_OAuth-клиента>
        secret: <значение_секрета_приложения>
      endpoint:
-       discovery: https://{{ auth-main-host }}/.well-known/openid-configuration
+       discovery: https://auth.yandex.cloud/.well-known/openid-configuration
      scopes:
        - openid
        - profile
@@ -601,7 +601,7 @@ sudo apt install openvpn-auth-oauth2
 
 1. Импортируйте клиентский конфигурационный файл `client1.ovpn` в OpenVPN-клиент.
 
-1. Инициируйте подключение к VPN-серверу. OpenVPN-клиент откроет браузер и перенаправит вас на страницу аутентификации {{ yandex-cloud }}.
+1. Инициируйте подключение к VPN-серверу. OpenVPN-клиент откроет браузер и перенаправит вас на страницу аутентификации Yandex Cloud.
 
 1. Введите учетные данные пользователя, добавленного в OIDC-приложение.
 

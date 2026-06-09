@@ -5,7 +5,7 @@ Retrieves the list of Redis backups available for the specified folder.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-redis/v1/backups
+GET https://mdb.api.cloud.yandex.net/managed-redis/v1/backups
 ```
 
 ## Query parameters {#yandex.cloud.mdb.redis.v1.ListBackupsRequest}

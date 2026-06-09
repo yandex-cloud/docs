@@ -1,4 +1,4 @@
-# ViPNet Coordinator VA в {{ yandex-cloud }}
+# ViPNet Coordinator VA в Yandex Cloud
 
 Вы можете установить [ViPNet Coordinator VA](https://infotecs.ru/product/vipnet-coordinator-va.html#soft) в облаке и использовать его как VPN-шлюз для Site-to-site [VPN](../../glossary/vpn.md) между ресурсами облака и ресурсами удаленной площадки (on-premises).
 
@@ -17,7 +17,7 @@ ViPNet Coordinator VA устанавливается на [ВМ](../../glossary/
 * Импорт сертификата с помощью USB-носителя.
 * Аутентификация с помощью устройства.
 
-Чтобы развернуть ViPNet Coordinator VA в {{ yandex-cloud }}:
+Чтобы развернуть ViPNet Coordinator VA в Yandex Cloud:
 1. [Ознакомьтесь с описанием решения](#description).
 1. [Подготовьте облако к работе](#before-begin).
 1. [Подготовьте окружение](#environment-preparing).
@@ -71,25 +71,25 @@ VPN-туннель работает между двумя решениями ViP
 
 ## Перед началом работы {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
-Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
-Чтобы создать ВМ с несколькими сетевыми интерфейсами, [запросите в технической поддержке]({{ link-console-support }}) включение флага `MULTI_INTERFACE_INSTANCES_ALPHA` на облако.
+Чтобы создать ВМ с несколькими сетевыми интерфейсами, [запросите в технической поддержке](https://center.yandex.cloud/support) включение флага `MULTI_INTERFACE_INSTANCES_ALPHA` на облако.
 
 
 ## Необходимые платные ресурсы {#paid-resources}
 
 В стоимость инфраструктуры входит:
-* Плата за вычислительные ресурсы, диски и образы ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за хранение данных в бакете и операции с ними (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
-* Плата за публичный IP-адрес и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../pricing.md)).
+* Плата за вычислительные ресурсы, диски и образы ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за хранение данных в бакете и операции с ними (см. [тарифы Yandex Object Storage](../../storage/pricing.md)).
+* Плата за публичный IP-адрес и исходящий трафик (см. [тарифы Yandex Virtual Private Cloud](../pricing.md)).
 
 
 ## Подготовьте окружение {#environment-preparing}
@@ -110,8 +110,8 @@ VPN-туннель работает между двумя решениями ViP
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `vipnet-folder`.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `vipnet-folder`.
+    1. Перейдите в сервис **Virtual Private Cloud**.
     1. Нажмите **Создать сеть**.
     1. Задайте имя сети, например, `vipnet-network`.
     1. Отключите опцию **Создать подсети**.
@@ -140,12 +140,12 @@ VPN-туннель работает между двумя решениями ViP
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `vipnet-folder`.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `vipnet-folder`.
+    1. Перейдите в сервис **Virtual Private Cloud**.
     1. Выберите облачную сеть `vipnet-network`.
     1. Нажмите **Добавить подсеть**.
     1. Укажите имя подсети, например, `public-subnet`.
-    1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), например, `{{ region-id }}-a`.
+    1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), например, `ru-central1-a`.
     1. Введите **CIDR** подсети, например, `10.1.0.0/24`.
     1. Нажмите **Создать подсеть**.
 
@@ -177,7 +177,7 @@ VPN-туннель работает между двумя решениями ViP
         * `name` — имя подсети.
         * `folder-id` — идентификатор каталога, в котором размещена облачная сеть.
         * `network-name` — имя облачной сети.
-        * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), например, `{{ region-id }}-a`.
+        * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), например, `ru-central1-a`.
         * `range` — CIDR подсети.
 
     1. Аналогично создайте подсети для облачных ресурсов:
@@ -202,8 +202,8 @@ VPN-туннель работает между двумя решениями ViP
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `vipnet-folder`.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `vipnet-folder`.
+    1. Перейдите в сервис **Virtual Private Cloud**.
     1. Выберите облачную сеть `vipnet-network`.
     1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **Таблицы маршрутизации**.
     1. Нажмите **Создать**.
@@ -225,8 +225,8 @@ VPN-туннель работает между двумя решениями ViP
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `vipnet-folder`.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `vipnet-folder`.
+    1. Перейдите в сервис **Virtual Private Cloud**.
     1. Выберите облачную сеть `vipnet-network`.
     1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **Таблицы маршрутизации**.
     1. Выберите подсеть `segment1-subnet` и нажмите ![image](../../_assets/console-icons/ellipsis.svg) → **Привязать таблицу маршрутизации**.
@@ -243,7 +243,7 @@ VPN-туннель работает между двумя решениями ViP
 
 ### Создайте ВМ с ViPNet Coordinator VA на локальной машине {#create-vipnet-local}
 
-ВМ создается из подготовленного для {{ compute-name }} образа диска. Требования к образу:
+ВМ создается из подготовленного для Compute Cloud образа диска. Требования к образу:
 * Ключи установлены в системе.
 * Тип аутентификации ключей — `по паролю`.
 * Формат образа — `qcow2`.
@@ -536,15 +536,15 @@ VPN-туннель работает между двумя решениями ViP
 {% endlist %}
 
 
-### Загрузите образы дисков в {{ objstorage-name }} {#upload-image-s3}
+### Загрузите образы дисков в Object Storage {#upload-image-s3}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. Создайте бакет:
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать бакет.
+      1. Перейдите в сервис **Object Storage**.
       1. Нажмите кнопку **Создать бакет**.
       1. Задайте параметры бакета:
           * **Имя** — `my-vipnet-images`.
@@ -570,24 +570,24 @@ VPN-туннель работает между двумя решениями ViP
 {% endlist %}
 
 
-### Создайте образы дисков в {{ compute-name }} {#create-image-compute}
+### Создайте образы дисков в Compute Cloud {#create-image-compute}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог `example_folder`.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example_folder`.
+  1. Перейдите в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/layers.svg) **Образы**.
   1. Нажмите **Загрузить образ**.
   1. Введите имя образа — `vipnet-va-disk1`.
-  1. Вставьте ссылку на образ первого диска в {{ objstorage-name }}.
+  1. Вставьте ссылку на образ первого диска в Object Storage.
   1. Нажмите **Загрузить**.
   1. Повторите создание для второго образа `vipnet-va-disk2`.
 
 - CLI {#cli}
 
-  Чтобы создать образы дисков в {{ compute-name }}, выполните следующие команды:
+  Чтобы создать образы дисков в Compute Cloud, выполните следующие команды:
 
   ```bash
   yc compute image create vipnet-va-disk1 --source-uri="<ссылка_на_образ_первого_диска>"
@@ -607,7 +607,7 @@ VPN-туннель работает между двумя решениями ViP
 
       ```bash
       VM_NAME=vipnet-va
-      ZONE_ID={{ region-id }}-a
+      ZONE_ID=ru-central1-a
       DISK1_NAME=vipnet-va-disk1
       DISK2_NAME=vipnet-va-disk2
       ETH0_SUBNET=public-subnet
@@ -660,8 +660,8 @@ VPN-туннель работает между двумя решениями ViP
 - Консоль управления {#console}
 
     Перейдите в серийную консоль созданной ВМ:
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог `vipnet-folder`.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** и выберите ВМ `vipnet-va`.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог `vipnet-folder`.
+    1. Перейдите в сервис **Compute Cloud** и выберите ВМ `vipnet-va`.
     1. Перейдите на вкладку **Серийная консоль**.
     1. Введите логин `user` и пароль демоверсии `11111111`.
 

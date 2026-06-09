@@ -5,7 +5,7 @@ Returns the list of available backups for the specified Redis cluster.
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-mdb }}/managed-redis/v1/backups/{backupId}
+DELETE https://mdb.api.cloud.yandex.net/managed-redis/v1/backups/{backupId}
 ```
 
 ## Path parameters

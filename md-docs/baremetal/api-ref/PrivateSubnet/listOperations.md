@@ -5,7 +5,7 @@ Lists operations for the specified private subnet.
 ## HTTP request
 
 ```
-GET https://baremetal.{{ api-host }}/baremetal/v1alpha/privateSubnets/{privateSubnetId}/operations
+GET https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/privateSubnets/{privateSubnetId}/operations
 ```
 
 ## Path parameters

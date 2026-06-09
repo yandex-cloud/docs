@@ -55,7 +55,7 @@
      name: ri1-preprod
      description: Routing instance 1
      folder_id: b1gqf**********jiz2w
-     region_id: {{ region-id }}
+     region_id: ru-central1
      cic_private_connection_info:
        - cic_private_connection_id: cf3td**********nufvr
      status: ACTIVE

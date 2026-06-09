@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Data source timed out
+# [Yandex DataLens] Data source timed out
 
 `ERR.DS_API.DB.SOURCE_ERROR.TIMEOUT`
 
@@ -7,7 +7,7 @@
 
 {% note info %}
 
-На уровне сервиса {{ datalens-short-name }} ограничение времени выполнения запроса в источнике составляет 80 секунд.
+На уровне сервиса DataLens ограничение времени выполнения запроса в источнике составляет 80 секунд.
 
 {% endnote %}
 

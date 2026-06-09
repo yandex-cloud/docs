@@ -5,7 +5,7 @@ Delete retention policy.
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/retention_policies/{policyId}
+DELETE https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/retention_policies/{policyId}
 ```
 
 ## Path parameters

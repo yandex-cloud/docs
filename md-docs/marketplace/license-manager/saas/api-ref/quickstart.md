@@ -1,6 +1,6 @@
-# Как начать работать с {{ marketplace-short-name }} {{ license-manager }} SaaS API
+# Как начать работать с Marketplace License Manager SaaS API
 
-В этом разделе вы узнаете, как интегрировать SaaS-[продукт](../../../concepts/product.md) c {{ marketplace-full-name }} {{ license-manager }} SaaS API.
+В этом разделе вы узнаете, как интегрировать SaaS-[продукт](../../../concepts/product.md) c Yandex Cloud Marketplace License Manager SaaS API.
 
 ## Схема взаимодействия с API {#visualization}
 
@@ -9,29 +9,29 @@
 
 На схеме:
 
-1. Пользователь приобретает подписку на SaaS-продукт в {{ marketplace-short-name }}.
-1. {{ marketplace-short-name }} передает пользователю ссылку на SaaS-продукт. URL-параметр `token` в передаваемой ссылке содержит JWT-токен.
-    Адрес для перехода задается при [создании](../../../operations/create-new-version.md) версии продукта в {{ marketplace-short-name }} в поле **Ссылка на лендинг**.
+1. Пользователь приобретает подписку на SaaS-продукт в Marketplace.
+1. Marketplace передает пользователю ссылку на SaaS-продукт. URL-параметр `token` в передаваемой ссылке содержит JWT-токен.
+    Адрес для перехода задается при [создании](../../../operations/create-new-version.md) версии продукта в Marketplace в поле **Ссылка на лендинг**.
 1. Пользователь переходит по ссылке, в результате SaaS-продукту передается JWT-токен.
 1. _Первый вариант аутентификации_: у пользователя уже есть учетная запись в SaaS-продукте. В этом случае он вводит свои учетные данные и входит в систему.
 1. _Второй вариант аутентификации_: у пользователя нет учетной записи в SaaS-продукте. В этом случае он создает новую учетную запись и входит в систему.
-1. SaaS-продукт отправляет в {{ marketplace-short-name }} запрос `ProductInstanceService.Claim`, содержащий полученный от пользователя токен и идентификатор ресурса в SaaS-продукте.
-1. В результате {{ marketplace-short-name }} привязывает подписку к ресурсу и возвращает SaaS-продукту привязку (объект `Lock`).
+1. SaaS-продукт отправляет в Marketplace запрос `ProductInstanceService.Claim`, содержащий полученный от пользователя токен и идентификатор ресурса в SaaS-продукте.
+1. В результате Marketplace привязывает подписку к ресурсу и возвращает SaaS-продукту привязку (объект `Lock`).
 1. SaaS-продукт сохраняет полученную привязку и начинает предоставлять доступ к ресурсу.
-1. SaaS-продукт периодически [запрашивает](#get-lock) привязку в {{ marketplace-short-name }}.
-1. {{ marketplace-short-name }} возвращает SaaS-продукту привязку до тех пор, пока подписка активна.
+1. SaaS-продукт периодически [запрашивает](#get-lock) привязку в Marketplace.
+1. Marketplace возвращает SaaS-продукту привязку до тех пор, пока подписка активна.
 
 ## Перед началом работы {#before-you-begin}
 
-Чтобы начать работать c {{ marketplace-short-name }} {{ license-manager }} SaaS API:
+Чтобы начать работать c Marketplace License Manager SaaS API:
 
 1. [Подайте заявку](../../../quickstart.md#send-application) и [зарегистрируйте](../../../operations/registration.md) аккаунт юридического лица.
 
-1. В интерфейсе {{ yandex-cloud }}:
-    1. [Создайте](../../../../iam/operations/sa/create.md) сервисный аккаунт, от имени которого будете аутентифицироваться в {{ license-manager }} SaaS API.
+1. В интерфейсе Yandex Cloud:
+    1. [Создайте](../../../../iam/operations/sa/create.md) сервисный аккаунт, от имени которого будете аутентифицироваться в License Manager SaaS API.
     1. [Получите](../../../../iam/concepts/authorization/iam-token.md) IAM-токен для сервисного аккаунта.
 
-1. В [кабинете партнера]({{ link-cloud-partners }}) {{ marketplace-short-name }}:
+1. В [кабинете партнера](https://partners.yandex.cloud/) Marketplace:
     1. Создайте [продукт](../../../operations/create-product.md) и [тариф](../../../operations/create-tariff.md) с типом [Subscription](../../../concepts/subscription.md).
     1. [Назначьте](../../../security/partners.md#assign-role) сервисному аккаунту роли `license-manager.saasSubscriptionSupervisor` и `marketplace.productInstances.saasSupervisor` на [профиль партнера](../../../concepts/publisher.md) или на отдельный [продукт](../../../concepts/product.md).
 
@@ -40,12 +40,12 @@
 
 ## Настройте интеграцию с API {#integrate}
 
-Чтобы реализовать бизнес-логику продукта, самостоятельно доработайте код вашего приложения, [настроив интеграцию](../../../operations/license-manager-integration.md) с {{ license-manager }} SaaS API и Product Instance Manager API для проверки статуса и типа подписок:
+Чтобы реализовать бизнес-логику продукта, самостоятельно доработайте код вашего приложения, [настроив интеграцию](../../../operations/license-manager-integration.md) с License Manager SaaS API и Product Instance Manager API для проверки статуса и типа подписок:
 
-1. Аутентифицируйтесь в {{ license-manager }} SaaS API и Product Instance Manager API от имени сервисного аккаунта. Для аутентификации используйте [IAM-токен](../../../../iam/concepts/authorization/iam-token.md).
+1. Аутентифицируйтесь в License Manager SaaS API и Product Instance Manager API от имени сервисного аккаунта. Для аутентификации используйте [IAM-токен](../../../../iam/concepts/authorization/iam-token.md).
 1. Создайте страницу, на которую нужно перенаправить пользователя во время привязки купленной им подписки к сервису. На этой странице пользователь должен будет аутентифицироваться.
 
-    При перенаправлении пользователя на такую страницу в строке запроса в параметре `token` передается JWT-токен (`token`), сгенерированный {{ yandex-cloud }}. JWT-токен действует 15 минут и содержит:
+    При перенаправлении пользователя на такую страницу в строке запроса в параметре `token` передается JWT-токен (`token`), сгенерированный Yandex Cloud. JWT-токен действует 15 минут и содержит:
 
     * идентификатор подписки, которую купил пользователь (`license_instance_id`);
     * идентификатор шаблона подписки, который вы создали в кабинете партнера (`license_template_id`);
@@ -95,7 +95,7 @@
   ```bash
   curl \
     --request GET \
-    --url 'https://marketplace.{{ api-host }}/marketplace/license-manager/saas/v1/locks/<идентификатор_привязки>' \
+    --url 'https://marketplace.api.cloud.yandex.net/marketplace/license-manager/saas/v1/locks/<идентификатор_привязки>' \
     --header 'Authorization: Bearer <IAM-токен>' \
     --header 'Content-Type: application/json'
   ```
@@ -110,14 +110,14 @@
     -d '{
         "lockId": "<идентификатор_привязки>"
     }' \
-    marketplace.{{ api-host }}:443 yandex.cloud.marketplace.licensemanager.saas.v1.LockService/Get
+    marketplace.api.cloud.yandex.net:443 yandex.cloud.marketplace.licensemanager.saas.v1.LockService/Get
   ```
 
   Где `lockId` — значение поля `lockId`, полученное на предыдущем шаге.
 
 {% endlist %}
 
-В результате {{ marketplace-short-name }} вернет привязку (объект `Lock`), если подписка активна и привязана к экземпляру продукта пользователя.
+В результате Marketplace вернет привязку (объект `Lock`), если подписка активна и привязана к экземпляру продукта пользователя.
 
 
 ### Отследите продление подписки {#track-subscription-renewal}
@@ -133,7 +133,7 @@
   ```bash
   curl \
     --request GET \
-    --url 'https://marketplace.{{ api-host }}/marketplace/license-manager/saas/v1/instances/<идентификатор_экземпляра>' \
+    --url 'https://marketplace.api.cloud.yandex.net/marketplace/license-manager/saas/v1/instances/<идентификатор_экземпляра>' \
     --header 'Authorization: Bearer <IAM-токен>'
   ```
 
@@ -147,7 +147,7 @@
     -d '{
         "instanceId": "<идентификатор_экземпляра>"
     }' \
-  marketplace.{{ api-host }}:443 yandex.cloud.marketplace.licensemanager.saas.v1.InstanceService/Get
+  marketplace.api.cloud.yandex.net:443 yandex.cloud.marketplace.licensemanager.saas.v1.InstanceService/Get
   ```
 
   Где `instanceId` — идентификатор экземпляра подписки.

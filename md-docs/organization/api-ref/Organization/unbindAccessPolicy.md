@@ -5,7 +5,7 @@ Unbinds the access policy template from the organization.
 ## HTTP request
 
 ```
-POST https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{resourceId}:unbindAccessPolicy
+POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations/{resourceId}:unbindAccessPolicy
 ```
 
 ## Path parameters

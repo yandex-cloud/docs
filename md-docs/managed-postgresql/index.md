@@ -1,8 +1,8 @@
-# {{ mpg-full-name }}
+# Yandex Managed Service for PostgreSQL
 
-{{ mpg-name }} помогает разворачивать и поддерживать кластеры серверов {{ PG }} в инфраструктуре {{ yandex-cloud }}. Сервис поддерживает {{ PG }} 14, 15, 16, 17 и 18, а также {{ PG }} 14, 15, 16, 17 и 18 для 1C.
+Managed Service for PostgreSQL помогает разворачивать и поддерживать кластеры серверов PostgreSQL в инфраструктуре Yandex Cloud. Сервис поддерживает PostgreSQL 14, 15, 16, 17 и 18, а также PostgreSQL 14, 15, 16, 17 и 18 для 1C.
 
-Инфраструктура {{ yandex-cloud }} <a href="../security/conform.md">защищена</a> в соответствии со следующими стандартами:
+Инфраструктура Yandex Cloud <a href="../security/conform.md">защищена</a> в соответствии со следующими стандартами:
 
 <ul> <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>
 
@@ -60,19 +60,19 @@
 
 ### Базы данных
 
- - [SQL-запросы в {{ websql-full-name }}](operations/web-sql-query.md)
+ - [SQL-запросы в Yandex WebSQL](operations/web-sql-query.md)
 
  - [Копирование и заполнение таблицы](operations/copy-write-data.md)
 
  - [Управление базами данных](operations/databases.md)
 
-### Пользователи {{ PG }}
+### Пользователи PostgreSQL
 
  - [Управление пользователями БД](operations/cluster-users.md)
 
  - [Назначение привилегий и ролей](operations/grant.md)
 
-### Расширения и словари {{ PG }}
+### Расширения и словари PostgreSQL
 
  - [Управление расширениями](operations/extensions/cluster-extensions.md)
 
@@ -102,85 +102,85 @@
 
  - [Все руководства](tutorials/index.md)
 
- - [Создание кластера {{ PG }} для 1С](tutorials/1c-postgresql.md)
+ - [Создание кластера PostgreSQL для 1С](tutorials/1c-postgresql.md)
 
- - [Создание кластера Linux-серверов «1С:Предприятия» с кластером {{ mpg-name }}](tutorials/1c-postgresql-linux.md)
+ - [Создание кластера Linux-серверов «1С:Предприятия» с кластером Managed Service for PostgreSQL](tutorials/1c-postgresql-linux.md)
 
- - [Выгрузка базы данных в {{ dataproc-full-name }}](tutorials/sqoop.md)
+ - [Выгрузка базы данных в Yandex Data Processing](tutorials/sqoop.md)
 
  - [Поиск проблем с производительностью кластера](tutorials/performance-problems.md)
 
  - [Анализ производительности и оптимизация](tutorials/profiling.md)
 
- - [Настройка подключения из контейнера {{ serverless-containers-name }}](tutorials/container-connect.md)
+ - [Настройка подключения из контейнера Serverless Containers](tutorials/container-connect.md)
 
- - [Поставка данных в {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/cdc-data-transfer.md)
+ - [Поставка данных в Yandex Managed Service for Apache Kafka® с помощью Yandex Data Transfer](tutorials/cdc-data-transfer.md)
 
- - [Поставка данных в {{ ydb-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/data-transfer-ydb.md)
+ - [Поставка данных в Yandex Managed Service for YDB с помощью Yandex Data Transfer](tutorials/data-transfer-ydb.md)
 
- - [Загрузка данных из {{ ydb-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/ydb-to-postgresql.md)
+ - [Загрузка данных из Yandex Managed Service for YDB с помощью Yandex Data Transfer](tutorials/ydb-to-postgresql.md)
 
- - [Поставка данных в {{ mkf-full-name }} с помощью Debezium](tutorials/cdc-debezium.md)
+ - [Поставка данных в Yandex Managed Service for Apache Kafka® с помощью Debezium](tutorials/cdc-debezium.md)
 
- - [Захват изменений {{ PG }} и поставка в {{ DS }}](tutorials/mpg-to-yds.md)
+ - [Захват изменений PostgreSQL и поставка в YDS](tutorials/mpg-to-yds.md)
 
- - [Поставка данных из {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/mkf-to-mpg.md)
+ - [Поставка данных из Yandex Managed Service for Apache Kafka® с помощью Yandex Data Transfer](tutorials/mkf-to-mpg.md)
 
- - [Перенос данных из {{ objstorage-full-name }} с использованием {{ data-transfer-full-name }}](tutorials/object-storage-to-postgresql.md)
+ - [Перенос данных из Yandex Object Storage с использованием Yandex Data Transfer](tutorials/object-storage-to-postgresql.md)
 
- - [Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}](tutorials/fault-tolerance.md)
+ - [Настройка отказоустойчивой архитектуры в Yandex Cloud](tutorials/fault-tolerance.md)
 
-### Создание сайта на CMS Joomla с базой данных {{ PG }}
+### Создание сайта на CMS Joomla с базой данных PostgreSQL
 
  - [Обзор](tutorials/joomla-postgresql/index.md)
 
  - [Консоль управления](tutorials/joomla-postgresql/console.md)
 
- - [{{ TF }}](tutorials/joomla-postgresql/terraform.md)
+ - [Terraform](tutorials/joomla-postgresql/terraform.md)
 
  - [Мониторинг состояния географически распределенных устройств](tutorials/datalens.md)
 
- - [Запись логов балансировщика в {{ PG }}](tutorials/logging.md)
+ - [Запись логов балансировщика в PostgreSQL](tutorials/logging.md)
 
  - [Создание сервера MLFlow для логирования экспериментов и артефактов](tutorials/mlflow-datasphere.md)
 
- - [Работа с данными с помощью {{ yq-name }}](tutorials/yq-postgre.md)
+ - [Работа с данными с помощью Query](tutorials/yq-postgre.md)
 
- - [Федеративные запросы к данным с помощью {{ yq-name }}](tutorials/yq-federative-queries.md)
+ - [Федеративные запросы к данным с помощью Query](tutorials/yq-federative-queries.md)
 
  - [Решение проблем с сортировкой строк после обновления glibc](tutorials/glibc-collation-issues.md)
 
  - [Запись данных с устройства в базу данных](tutorials/data-recording.md)
 
- - [Подключение к {{ mpg-name }} из PySpark-задания в {{ msp-full-name }} с использованием секрета {{ lockbox-name }}](tutorials/job-pyspark-secret-access.md)
+ - [Подключение к Managed Service for PostgreSQL из PySpark-задания в Yandex Managed Service for Apache Spark™ с использованием секрета Yandex Lockbox](tutorials/job-pyspark-secret-access.md)
 
- - [Настройка прав доступа к секрету, созданному {{ connection-manager-name }}, для пользователя {{ mpg-name }}](tutorials/conn-man-secret-access.md)
+ - [Настройка прав доступа к секрету, созданному Connection Manager, для пользователя Managed Service for PostgreSQL](tutorials/conn-man-secret-access.md)
 
 ### Репликация и миграция
 
- - [Логическая репликация {{ PG }}](tutorials/replication-overview.md)
+ - [Логическая репликация PostgreSQL](tutorials/replication-overview.md)
 
- - [Миграция базы данных в {{ mpg-name }}](tutorials/data-migration.md)
+ - [Миграция базы данных в Managed Service for PostgreSQL](tutorials/data-migration.md)
 
- - [Миграция базы данных из {{ mpg-name }}](tutorials/outbound-replication.md)
+ - [Миграция базы данных из Managed Service for PostgreSQL](tutorials/outbound-replication.md)
 
- - [Миграция кластера {{ mpg-name }} на другую версию](tutorials/postgresql-versions.md)
+ - [Миграция кластера Managed Service for PostgreSQL на другую версию](tutorials/postgresql-versions.md)
 
- - [Создание логической реплики Amazon RDS для {{ PG }} в {{ mpg-name }}](tutorials/logical-replica-from-rds.md)
+ - [Создание логической реплики Amazon RDS для PostgreSQL в Managed Service for PostgreSQL](tutorials/logical-replica-from-rds.md)
 
- - [Миграция базы данных из {{ mpg-full-name }} в {{ objstorage-full-name }}](tutorials/mpg-to-objstorage.md)
+ - [Миграция базы данных из Yandex Managed Service for PostgreSQL в Yandex Object Storage](tutorials/mpg-to-objstorage.md)
 
- - [Миграция данных из {{ mmy-full-name }} в {{ mpg-name }} с помощью {{ data-transfer-full-name }}](tutorials/mmy-to-mpg.md)
+ - [Миграция данных из Yandex Managed Service for MySQL® в Managed Service for PostgreSQL с помощью Yandex Data Transfer](tutorials/mmy-to-mpg.md)
 
- - [Миграция данных из {{ mpg-name }} в {{ mmy-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/mpg-to-mmy.md)
+ - [Миграция данных из Managed Service for PostgreSQL в Yandex Managed Service for MySQL® с помощью Yandex Data Transfer](tutorials/mpg-to-mmy.md)
 
- - [Миграция данных из AWS RDS for {{ PG }} в {{ mpg-name }} с помощью {{ data-transfer-full-name }}](tutorials/rds-to-mpg.md)
+ - [Миграция данных из AWS RDS for PostgreSQL в Managed Service for PostgreSQL с помощью Yandex Data Transfer](tutorials/rds-to-mpg.md)
 
- - [Миграция базы данных из {{ GP }} в {{ PG }}](tutorials/greenplum-to-postgresql.md)
+ - [Миграция базы данных из Greenplum® в PostgreSQL](tutorials/greenplum-to-postgresql.md)
 
- - [Миграция данных из {{ mpg-name }} в {{ mos-name }} с помощью {{ data-transfer-full-name }}](tutorials/postgresql-to-opensearch.md)
+ - [Миграция данных из Managed Service for PostgreSQL в Managed Service for OpenSearch с помощью Yandex Data Transfer](tutorials/postgresql-to-opensearch.md)
 
- - [Асинхронная репликация данных из {{ PG }} в {{ CH }}](tutorials/rdbms-to-clickhouse.md)
+ - [Асинхронная репликация данных из PostgreSQL в ClickHouse®](tutorials/rdbms-to-clickhouse.md)
 
 ## Концепции
 
@@ -202,11 +202,11 @@
 
  - [Высокая доступность кластера](concepts/high-availability.md)
 
- - [Сеть в {{ mpg-name }}](concepts/network.md)
+ - [Сеть в Managed Service for PostgreSQL](concepts/network.md)
 
  - [Квоты и лимиты](concepts/limits.md)
 
- - [Хранилище в {{ mpg-name }}](concepts/storage.md)
+ - [Хранилище в Managed Service for PostgreSQL](concepts/storage.md)
 
  - [Резервные копии](concepts/backup.md)
 
@@ -226,9 +226,9 @@
 
  - [Ограничения для команд SQL](concepts/sql-limits.md)
 
- - [Обновление мажорной версии {{ PG }}](concepts/upgrade.md)
+ - [Обновление мажорной версии PostgreSQL](concepts/upgrade.md)
 
- - [Политика поддержки версий {{ PG }}](concepts/update-policy.md)
+ - [Политика поддержки версий PostgreSQL](concepts/update-policy.md)
 
  - [Управление доступом](security/index.md)
 
@@ -490,7 +490,7 @@
 
  - [update](cli-ref/v0/user/update.md)
 
- - [Справочник {{ TF }}](tf-ref.md)
+ - [Справочник Terraform](tf-ref.md)
 
 ## Справочник API
 
@@ -748,9 +748,9 @@
 
  - [RevokePermission](api-ref/User/revokePermission.md)
 
- - [Метрики {{ monitoring-name }}](metrics.md)
+ - [Метрики Monitoring](metrics.md)
 
- - [Аудитные логи {{ at-name }}](at-ref.md)
+ - [Аудитные логи Audit Trails](at-ref.md)
 
  - [Публичные материалы](public-talks.md)
 
@@ -768,7 +768,7 @@
 
  - [Перемещение и восстановление кластера](qa/backup.md)
 
- - [Обновление мажорной версии {{ PG }}](qa/version-update.md)
+ - [Обновление мажорной версии PostgreSQL](qa/version-update.md)
 
  - [Пользователи и роли](qa/users.md)
 

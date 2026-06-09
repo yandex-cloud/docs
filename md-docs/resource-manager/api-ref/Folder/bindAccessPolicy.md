@@ -5,7 +5,7 @@ Binds the access policy template to the folder.
 ## HTTP request
 
 ```
-POST https://resource-manager.{{ api-host }}/resource-manager/v1/folders/{resourceId}:bindAccessPolicy
+POST https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/{resourceId}:bindAccessPolicy
 ```
 
 ## Path parameters

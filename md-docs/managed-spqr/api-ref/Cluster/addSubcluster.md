@@ -3,7 +3,7 @@
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-spqr/v1/subclusters
+POST https://mdb.api.cloud.yandex.net/managed-spqr/v1/subclusters
 ```
 
 ## Body parameters {#yandex.cloud.mdb.spqr.v1.AddSubclusterRequest}

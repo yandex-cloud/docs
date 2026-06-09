@@ -1,7 +1,7 @@
-# Ограниченный режим {{ captcha-name }}
+# Ограниченный режим SmartCaptcha
 
-{{ captcha-name }} будет работать в ограниченном режиме, если ваш платежный аккаунт не находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`.
+SmartCaptcha будет работать в ограниченном режиме, если ваш платежный аккаунт не находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`.
 
-В ограниченном режиме все [запросы на валидацию](../quickstart.md#check-answer) получат ответ `ok`, а виджет {{ captcha-name }} может отображаться с сообщением **Работа {{ captcha-full-name }} на странице ограничена**.
+В ограниченном режиме все [запросы на валидацию](../quickstart.md#check-answer) получат ответ `ok`, а виджет SmartCaptcha может отображаться с сообщением **Работа Yandex SmartCaptcha на странице ограничена**.
 
-{{ captcha-name }} автоматически восстановит работу в полнофункциональном режиме, когда ваш аккаунт перейдет в статус `ACTIVE` или `TRIAL_ACTIVE`.
+SmartCaptcha автоматически восстановит работу в полнофункциональном режиме, когда ваш аккаунт перейдет в статус `ACTIVE` или `TRIAL_ACTIVE`.

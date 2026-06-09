@@ -1,13 +1,13 @@
-# Использование {{ api-gw-full-name }} для настройки синтеза речи в {{ speechkit-full-name }}
+# Использование Yandex API Gateway для настройки синтеза речи в Yandex SpeechKit
 
 
-С помощью serverless-технологий можно создать собственную интеграцию с сервисами {{ yandex-cloud }}.
+С помощью serverless-технологий можно создать собственную интеграцию с сервисами Yandex Cloud.
 
 Пользовательская интеграция, создаваемая в данном руководстве, представляет собой [API-шлюз](../../api-gateway/concepts/index.md), сконфигурированный по стандарту [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) c [HTTP-интеграцией](../../api-gateway/concepts/extensions/http.md). 
 
-Запросы на синтез речи от пользователей поступают в API-шлюз, который с помощью HTTP-интеграции вызывает [API {{ speechkit-name }}]({{ link-docs-ai }}speechkit/concepts/api) и получает от {{ speechkit-name }} синтезированную речь.
+Запросы на синтез речи от пользователей поступают в API-шлюз, который с помощью HTTP-интеграции вызывает [API SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/api) и получает от SpeechKit синтезированную речь.
 
-Чтобы настроить синтез речи {{ speechkit-name }} с помощью API-шлюза {{ api-gw-full-name }}:
+Чтобы настроить синтез речи SpeechKit с помощью API-шлюза Yandex API Gateway:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте сервисный аккаунт](#create-service-account).
@@ -19,11 +19,11 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -32,28 +32,28 @@
 
 В стоимость поддержки создаваемой инфраструктуры входит:
 
-* плата за количество запросов к API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md));
-* плата за использование {{ speechkit-name }} (см. [тарифы {{ speechkit-name }}]({{ link-docs-ai }}speechkit/pricing)).
+* плата за количество запросов к API-шлюзу и исходящий трафик (см. [тарифы Yandex API Gateway](../../api-gateway/pricing.md));
+* плата за использование SpeechKit (см. [тарифы SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/pricing)).
 
 
 ## Создайте сервисный аккаунт {#create-service-account}
 
-[Создайте](../../iam/operations/sa/create.md) сервисный аккаунт `speechkit-sa` с [ролью]({{ link-docs-ai }}speechkit/security/index#ai-speechkit-tts-user) `ai.speechkit-tts.user` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы создаете инфраструктуру:
+[Создайте](../../iam/operations/sa/create.md) сервисный аккаунт `speechkit-sa` с [ролью](https://aistudio.yandex.ru/docs/ru/speechkit/security/index#ai-speechkit-tts-user) `ai.speechkit-tts.user` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы создаете инфраструктуру:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать сервисный аккаунт.
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта: `speechkit-sa`.
-  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `ai.speechkit-tts.user`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `ai.speechkit-tts.user`.
+  1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -101,11 +101,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо создать API-шлюз.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.common.name }}** введите `speechkit-api-gw`.
-  1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте следующую спецификацию, указав [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта `speechkit-sa` в параметре `service_account_id`:
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо создать API-шлюз.
+  1. Перейдите в сервис **API Gateway**.
+  1. Нажмите кнопку **Создать API-шлюз**.
+  1. В поле **Имя** введите `speechkit-api-gw`.
+  1. В блок **Спецификация** добавьте следующую спецификацию, указав [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта `speechkit-sa` в параметре `service_account_id`:
 
       ```yaml
       openapi: 3.0.0
@@ -148,13 +148,13 @@
             x-yc-apigateway-integration:
               http_method: post
               type: http
-              url: https://{{ api-host-sk-tts }}/tts/v3/utteranceSynthesis
+              url: https://tts.api.cloud.yandex.net/tts/v3/utteranceSynthesis
               service_account_id: "<идентификатор_сервисного_аккаунта>"
       ```
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
+  1. Нажмите кнопку **Создать**.
   1. Подождите, пока статус созданного API-шлюза изменится на `running`, и нажмите на строку с именем API-шлюза.
-  1. В открывшемся окне скопируйте значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}**. Оно понадобится для проверки работы API-шлюза.
+  1. В открывшемся окне скопируйте значение поля **Служебный домен**. Оно понадобится для проверки работы API-шлюза.
 
 - CLI {#cli}
 
@@ -201,7 +201,7 @@
             x-yc-apigateway-integration:
               http_method: post
               type: http
-              url: https://{{ api-host-sk-tts }}/tts/v3/utteranceSynthesis
+              url: https://tts.api.cloud.yandex.net/tts/v3/utteranceSynthesis
               service_account_id: "<идентификатор_сервисного_аккаунта>"
       ```
 
@@ -226,7 +226,7 @@
      created_at: "2024-08-19T18:58:32.101Z"
      name: speechkit-api-gw
      status: ACTIVE
-     domain: {{ api-host-apigw }}
+     domain: d5dm1lba80md********.i9******.apigw.yandexcloud.net
      connectivity: {}
      log_options:
        folder_id: b1gt6g8ht345********
@@ -263,7 +263,7 @@ curl --verbose \
 
 В результате выполнения команды синтезированная речь будет сохранена в файл `audio.mp3` в текущей директории. Прослушать созданный файл можно в браузере, например в [Яндекс Браузере](https://browser.yandex.ru) или [Mozilla Firefox](http://www.mozilla.org).
 
-Подробнее о формате передаваемого в параметре `-d` текста см. в [документации {{ speechkit-full-name }}]({{ link-docs-ai }}speechkit/tts/request).
+Подробнее о формате передаваемого в параметре `-d` текста см. в [документации Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/tts/request).
 
 
 ## Как удалить созданные ресурсы {#clear-out}

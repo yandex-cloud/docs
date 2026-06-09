@@ -5,7 +5,7 @@ Updates access bindings for the specified OpenSearch cluster.
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{resourceId}:updateAccessBindings
+PATCH https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

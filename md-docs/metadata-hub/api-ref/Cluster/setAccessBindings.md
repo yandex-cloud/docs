@@ -5,7 +5,7 @@ Sets access bindings for the specified Metastore cluster.
 ## HTTP request
 
 ```
-POST https://metastore.{{ api-host }}/managed-metastore/v1/clusters/{resourceId}:setAccessBindings
+POST https://metastore.api.cloud.yandex.net/managed-metastore/v1/clusters/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

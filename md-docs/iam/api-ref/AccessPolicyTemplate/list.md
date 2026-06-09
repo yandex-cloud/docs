@@ -5,7 +5,7 @@ Returns list of available access policy templates.
 ## HTTP request
 
 ```
-GET https://iam.{{ api-host }}/iam/v1/accessPolicyTemplates
+GET https://iam.api.cloud.yandex.net/iam/v1/accessPolicyTemplates
 ```
 
 ## Query parameters {#yandex.cloud.iam.v1.ListAccessPolicyTemplatesRequest}

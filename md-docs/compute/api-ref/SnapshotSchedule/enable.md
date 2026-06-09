@@ -7,7 +7,7 @@ The [SnapshotSchedule.status](get.md#yandex.cloud.compute.v1.SnapshotSchedule) i
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotScheduleId}:enable
+POST https://compute.api.cloud.yandex.net/compute/v1/snapshotSchedules/{snapshotScheduleId}:enable
 ```
 
 ## Path parameters

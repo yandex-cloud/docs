@@ -5,7 +5,7 @@ Retrieves the list of available backups for the specified ClickHouse cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/backups
+GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/backups
 ```
 
 ## Path parameters

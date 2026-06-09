@@ -1,13 +1,13 @@
-# Как начать работать с {{ yandex-cloud }} SDK
+# Как начать работать с Yandex Cloud SDK
 
-[{{ yandex-cloud }} SDK](overview.md) — это комплект средств разработки для взаимодействия с облачной инфраструктурой.
+[Yandex Cloud SDK](overview.md) — это комплект средств разработки для взаимодействия с облачной инфраструктурой.
 
-Рассмотрим некоторые возможности SDK на примере пошагового создания [виртуальной машины](../../compute/concepts/vm.md) {{ compute-full-name }}.
+Рассмотрим некоторые возможности SDK на примере пошагового создания [виртуальной машины](../../compute/concepts/vm.md) Yandex Compute Cloud.
 
-Чтобы начать работать с {{ yandex-cloud }} SDK:
+Чтобы начать работать с Yandex Cloud SDK:
 1. [Подготовьте облако к работе](#before-begin).
     1. [Создайте сервисный аккаунт](#create-sa).
-    1. [Подготовьте {{ yandex-cloud }} CLI](#prepare-cli).
+    1. [Подготовьте Yandex Cloud CLI](#prepare-cli).
     1. [Получите исходные данные](#get-source-data).
 1. [Настройте окружение](#prepare-project).
 1. [Создайте файл конфигурации](#create-config).
@@ -20,42 +20,42 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки ВМ, созданной с помощью SDK, входят:
-* плата за вычислительные ресурсы ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md#prices-instance-resources));
-* плата за диски ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md#prices-storage));
-* плата за использование динамического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
+* плата за вычислительные ресурсы ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md#prices-instance-resources));
+* плата за диски ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md#prices-storage));
+* плата за использование динамического внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 ### Создайте сервисный аккаунт {#create-sa}
 
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт.
-1. [Назначьте](../../organization/operations/add-role.md) сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md) в зависимости от сервисов, которыми вы хотите управлять с помощью {{ yandex-cloud }} SDK.
+1. [Назначьте](../../organization/operations/add-role.md) сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md) в зависимости от сервисов, которыми вы хотите управлять с помощью Yandex Cloud SDK.
 
     В данном руководстве для создания ВМ вам понадобится роль [compute.admin](../../compute/security/index.md#compute-admin). 
     
     Если вы будете использовать **SDK для .NET**, также назначьте сервисному аккаунту роль [iam.serviceAccounts.admin](../../iam/security/index.md#iam-serviceAccounts-admin). Эта роль понадобится для получения [авторизованного ключа](../../iam/concepts/authorization/key.md).
 
-### Подготовьте {{ yandex-cloud }} CLI {#prepare-cli}
+### Подготовьте Yandex Cloud CLI {#prepare-cli}
 
-1. [Установите](../../cli/operations/install-cli.md) {{ yandex-cloud }} CLI.
-1. [Аутентифицируйтесь](../../cli/operations/authentication/service-account.md) в {{ yandex-cloud }} CLI от имени сервисного аккаунта.
+1. [Установите](../../cli/operations/install-cli.md) Yandex Cloud CLI.
+1. [Аутентифицируйтесь](../../cli/operations/authentication/service-account.md) в Yandex Cloud CLI от имени сервисного аккаунта.
 
-    С помощью {{ yandex-cloud }} CLI будут получены данные для аутентификации в {{ yandex-cloud }}:
+    С помощью Yandex Cloud CLI будут получены данные для аутентификации в Yandex Cloud:
     * для Node.js, Go, Python, Java — [IAM-токен](../../iam/concepts/authorization/iam-token.md).
     * для .NET — [авторизованный ключ](../../iam/concepts/authorization/key.md).
 
 ### Получите исходные данные {#get-source-data}
 
-1. [Получите](../../resource-manager/operations/folder/get-id.md) идентификатор каталога, внутри которого вы будете взаимодействовать с сервисами с помощью {{ yandex-cloud }} SDK.
+1. [Получите](../../resource-manager/operations/folder/get-id.md) идентификатор каталога, внутри которого вы будете взаимодействовать с сервисами с помощью Yandex Cloud SDK.
 1. [Подберите](../../compute/operations/images-with-pre-installed-software/get-list.md) подходящий образ для ВМ. Сохраните идентификатор [семейства образов](../../compute/concepts/image.md#family), например `ubuntu-2204-lts`.
 1. [Создайте](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) пару SSH-ключей, чтобы использовать их для [подключения к ВМ](../../compute/operations/vm-connect/ssh.md). 
 
@@ -71,8 +71,8 @@
         node -v
         ```
 
-        {{ yandex-cloud }} SDK поддерживает версию Node.js 12 и выше. Если Node.js не установлен или нужна более новая версия, выберите подходящий вариант установки на [сайте Node.js](https://nodejs.org/en/download/package-manager).
-    1. Склонируйте [репозиторий с примерами {{ yandex-cloud }} SDK для Node.js](https://github.com/yandex-cloud-examples/yc-sdk-quickstart-node-js.git):
+        Yandex Cloud SDK поддерживает версию Node.js 12 и выше. Если Node.js не установлен или нужна более новая версия, выберите подходящий вариант установки на [сайте Node.js](https://nodejs.org/en/download/package-manager).
+    1. Склонируйте [репозиторий с примерами Yandex Cloud SDK для Node.js](https://github.com/yandex-cloud-examples/yc-sdk-quickstart-node-js.git):
 
         ```bash
         git clone https://github.com/yandex-cloud-examples/yc-sdk-quickstart-node-js.git
@@ -93,7 +93,7 @@
         ```
 
         Если Go не установлен, выберите подходящий вариант установки на [сайте Go](https://go.dev/doc/install).
-    1. Склонируйте [репозиторий с примерами {{ yandex-cloud }} SDK для Go](https://github.com/yandex-cloud-examples/yc-sdk-quickstart-go.git):
+    1. Склонируйте [репозиторий с примерами Yandex Cloud SDK для Go](https://github.com/yandex-cloud-examples/yc-sdk-quickstart-go.git):
 
         ```bash
         git clone https://github.com/yandex-cloud-examples/yc-sdk-quickstart-go.git
@@ -120,7 +120,7 @@
         ```
         
         Если Python не установлен, выберите подходящий вариант установки на [сайте Python](https://www.python.org/downloads).
-    1. Склонируйте [репозиторий с примерами {{ yandex-cloud }} SDK для Python](https://github.com/yandex-cloud-examples/yc-sdk-quickstart-python.git):
+    1. Склонируйте [репозиторий с примерами Yandex Cloud SDK для Python](https://github.com/yandex-cloud-examples/yc-sdk-quickstart-python.git):
 
         ```bash
         git clone https://github.com/yandex-cloud-examples/yc-sdk-quickstart-python.git
@@ -142,7 +142,7 @@
 
         Если Java не установлен, выберите подходящий вариант установки на [сайте Oracle](https://www.oracle.com/java/technologies/downloads/).
     1. Дополнительно [установите Apache Maven](https://maven.apache.org/install.html) для сборки проекта.
-    1. Склонируйте [репозиторий с примерами {{ yandex-cloud }} SDK для Java](https://github.com/yandex-cloud-examples/yc-sdk-quickstart-java.git):
+    1. Склонируйте [репозиторий с примерами Yandex Cloud SDK для Java](https://github.com/yandex-cloud-examples/yc-sdk-quickstart-java.git):
 
         ```bash
         git clone https://github.com/yandex-cloud-examples/yc-sdk-quickstart-java.git
@@ -163,7 +163,7 @@
         ```
 
         Если .NET не установлен, выберите подходящий вариант установки на [сайте Microsoft](https://dotnet.microsoft.com/en-us/download). Рекомендуем установить версию 9.0 так как она используется в данной инструкции. Если вы установите другую версию .NET, укажите ее в файле `YC-test`.
-    1. Склонируйте [репозиторий с примерами {{ yandex-cloud }} SDK для .NET](https://github.com/yandex-cloud-examples/yc-sdk-quickstart-dotnet.git):
+    1. Склонируйте [репозиторий с примерами Yandex Cloud SDK для .NET](https://github.com/yandex-cloud-examples/yc-sdk-quickstart-dotnet.git):
 
         ```bash
         git clone https://github.com/yandex-cloud-examples/yc-sdk-quickstart-dotnet.git
@@ -480,7 +480,7 @@
     ```
 
     Где:
-    * `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md), получаемый с помощью {{ yandex-cloud }} CLI. Подробнее о команде `yc iam create-token` см. в [справочнике CLI](../../iam/operations/iam-token/create-for-sa.md);
+    * `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md), получаемый с помощью Yandex Cloud CLI. Подробнее о команде `yc iam create-token` см. в [справочнике CLI](../../iam/operations/iam-token/create-for-sa.md);
     * `SSH_PUBLIC_KEY_PATH` — путь к файлу с публичным SSH-ключом.
     
     {% note info %}
@@ -497,7 +497,7 @@
     
     Где `ID` — идентификатор [операции](../../api-design-guide/concepts/about-async.md) создания ВМ.
     
-    Отслеживать статус операции вы можете в консоли управления, а также с помощью {{ yandex-cloud }} CLI и API. Подробнее см. на странице [Посмотреть операции с ресурсами сервиса {{ compute-name }}](../../compute/operations/operation-logs.md).
+    Отслеживать статус операции вы можете в консоли управления, а также с помощью Yandex Cloud CLI и API. Подробнее см. на странице [Посмотреть операции с ресурсами сервиса Compute Cloud](../../compute/operations/operation-logs.md).
     
     Когда ВМ будет создана, вы увидите следующее сообщение:
     
@@ -518,7 +518,7 @@
     ```
 
     Где:
-    * `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md), получаемый с помощью {{ yandex-cloud }} CLI. Подробнее о команде `yc iam create-token` см. в [справочнике CLI](../../iam/operations/iam-token/create-for-sa.md);
+    * `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md), получаемый с помощью Yandex Cloud CLI. Подробнее о команде `yc iam create-token` см. в [справочнике CLI](../../iam/operations/iam-token/create-for-sa.md);
     * `SSH_PUBLIC_KEY_PATH` — путь к файлу с публичным SSH-ключом.
     
     {% note info %}
@@ -535,7 +535,7 @@
     
     Где `ID` — идентификатор [операции](../../api-design-guide/concepts/about-async.md) создания ВМ.
     
-    Отслеживать статус операции вы можете в консоли управления, а также с помощью {{ yandex-cloud }} CLI и API. Подробнее см. на странице [Посмотреть операции с ресурсами сервиса {{ compute-name }}](../../compute/operations/operation-logs.md).
+    Отслеживать статус операции вы можете в консоли управления, а также с помощью Yandex Cloud CLI и API. Подробнее см. на странице [Посмотреть операции с ресурсами сервиса Compute Cloud](../../compute/operations/operation-logs.md).
     
     Когда ВМ будет создана, вы увидите следующее сообщение:
     
@@ -556,7 +556,7 @@
     ```
 
     Где:
-    * `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md), получаемый с помощью {{ yandex-cloud }} CLI. Подробнее о команде `yc iam create-token` см. в [справочнике CLI](../../iam/operations/iam-token/create-for-sa.md);
+    * `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md), получаемый с помощью Yandex Cloud CLI. Подробнее о команде `yc iam create-token` см. в [справочнике CLI](../../iam/operations/iam-token/create-for-sa.md);
     * `SSH_PUBLIC_KEY_PATH` — путь к файлу с публичным SSH-ключом.
 
     {% note info %}
@@ -659,7 +659,7 @@
         ```
 
         Где:
-        * `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md), получаемый с помощью {{ yandex-cloud }} CLI. Подробнее о команде `yc iam create-token` см. в [справочнике CLI](../../iam/operations/iam-token/create-for-sa.md);
+        * `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md), получаемый с помощью Yandex Cloud CLI. Подробнее о команде `yc iam create-token` см. в [справочнике CLI](../../iam/operations/iam-token/create-for-sa.md);
         * `SSH_PUBLIC_KEY_PATH` — путь к файлу с публичным SSH-ключом.
         
         {% note info %}
@@ -676,7 +676,7 @@
         
         Где `ID` — идентификатор [операции](../../api-design-guide/concepts/about-async.md) создания ВМ.
         
-        Отслеживать статус операции вы можете в консоли управления, а также с помощью {{ yandex-cloud }} CLI и API. Подробнее см. на странице [Посмотреть операции с ресурсами сервиса {{ compute-name }}](../../compute/operations/operation-logs.md).
+        Отслеживать статус операции вы можете в консоли управления, а также с помощью Yandex Cloud CLI и API. Подробнее см. на странице [Посмотреть операции с ресурсами сервиса Compute Cloud](../../compute/operations/operation-logs.md).
         
         Когда ВМ будет создана, вы увидите следующее сообщение:
         
@@ -723,15 +723,15 @@
 
     Где `ID` — идентификатор [операции](../../api-design-guide/concepts/about-async.md) создания ВМ.
     
-    Отслеживать статус операции вы можете в консоли управления, а также с помощью {{ yandex-cloud }} CLI и API. Подробнее см. на странице [Посмотреть операции с ресурсами сервиса {{ compute-name }}](../../compute/operations/operation-logs.md).
+    Отслеживать статус операции вы можете в консоли управления, а также с помощью Yandex Cloud CLI и API. Подробнее см. на странице [Посмотреть операции с ресурсами сервиса Compute Cloud](../../compute/operations/operation-logs.md).
 
 {% endlist %}
 
-Вы можете проверить, что ВМ была создана, в [консоли управления]({{ link-console-main }}). У созданной ВМ должна быть [метка](../../resource-manager/concepts/labels.md) `yc-sdk:yes`.
+Вы можете проверить, что ВМ была создана, в [консоли управления](https://console.yandex.cloud). У созданной ВМ должна быть [метка](../../resource-manager/concepts/labels.md) `yc-sdk:yes`.
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за созданные ресурсы, [удалите](../../compute/operations/vm-control/vm-delete.md) ВМ из {{ compute-name }}.
+Чтобы перестать платить за созданные ресурсы, [удалите](../../compute/operations/vm-control/vm-delete.md) ВМ из Compute Cloud.
  
 # Примеры работы с SDK {#examples}
 
@@ -743,4 +743,4 @@
 
 ## См. также {#see-also}
 
-[{#T}](../../compute/operations/vm-connect/ssh.md)
+[Подключиться к виртуальной машине Linux по SSH](../../compute/operations/vm-connect/ssh.md)

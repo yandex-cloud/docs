@@ -140,9 +140,9 @@ Kubernetes — достаточно сложная система. Ее можн
 
 Для получения хорошо работающей системы важно правильно ее настроить — создать кластер, выставить сетевые настройки, права к сервису, логирование и резервное копирование.
 
-Чтобы избежать этих трудностей, можно использовать сервис [{{ managed-k8s-full-name }}](https://yandex.cloud/ru/services/managed-kubernetes/).
+Чтобы избежать этих трудностей, можно использовать сервис [Yandex Managed Service for Kubernetes](https://yandex.cloud/ru/services/managed-kubernetes/).
 
-Создайте кластер [{{ managed-k8s-full-name }}](../managed-kubernetes/concepts/index.md#kubernetes-cluster) и [группу узлов](../managed-kubernetes/concepts/index.md#node-group), а облачный провайдер настроит основную конфигурацию системы.
+Создайте кластер [Yandex Managed Service for Kubernetes](../managed-kubernetes/concepts/index.md#kubernetes-cluster) и [группу узлов](../managed-kubernetes/concepts/index.md#node-group), а облачный провайдер настроит основную конфигурацию системы.
 
 
 Полезные ресурсы K8S:

@@ -5,7 +5,7 @@ Claims a product instance - activates it and optionally locks to subscription
 ## HTTP request
 
 ```
-POST https://marketplace.{{ api-host }}/marketplace/pim/saas/v1/instances/claim
+POST https://marketplace.api.cloud.yandex.net/marketplace/pim/saas/v1/instances/claim
 ```
 
 ## Body parameters {#yandex.cloud.marketplace.pim.v1.saas.ClaimProductInstanceRequest}

@@ -5,7 +5,7 @@ Updates helm release.
 ## HTTP request
 
 ```
-PATCH https://mks.{{ api-host }}/managed-kubernetes/marketplace/v1/helm-releases/{id}
+PATCH https://mks.api.cloud.yandex.net/managed-kubernetes/marketplace/v1/helm-releases/{id}
 ```
 
 ## Path parameters

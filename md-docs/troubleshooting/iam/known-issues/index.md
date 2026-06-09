@@ -1,6 +1,6 @@
-## Решения для известных проблем {{ iam-name }} {#known-issues-resolving}
+## Решения для известных проблем Identity and Access Management {#known-issues-resolving}
 
-* [Устранение ошибок при назначении роли `{{ roles-cloud-owner }}` пользователю облака](resource-manager-clouds-owner-is-only-applicable-to-resources-of-type-resource-manager-cloud.md)
+* [Устранение ошибок при назначении роли `resource-manager.clouds.owner` пользователю облака](resource-manager-clouds-owner-is-only-applicable-to-resources-of-type-resource-manager-cloud.md)
 * [Устранение ошибок при работе с приглашениями в облачную организацию](error-when-users-accepts-invite-to-organisation.md)
 * [Устранение ошибки `The signature of response or assertion was invalid` при аутентификации через федеративный аккаунт](error-the-signature-of-response-or-assertion-was-invalid-when-using-federatadion-login.md)
 * [Устранение ошибки `publicAccessBindings` при переносе облака между разными организациями](move-org-public-access-bindings-error.md)
@@ -11,7 +11,7 @@
 * [Устранение ошибки `PROHIBITED_BILLING_ACCOUNT_USAGE_STATUS`](error-prohibited-billing-account-status.md)
 * [Устранение ошибки `Validation failed: - access_binding_deltas: Number of elements must be in the range of 1 to 1000`](error-validation-failed.md)
 * [В списке пользователей организации не отображается федеративный пользователь](federative-user-is-not-visible.md)
-* [Пользователь не видит приглашение в организацию или роль `{{ roles-admin }}`](invitation-or-admin-role-not-seen.md)
+* [Пользователь не видит приглашение в организацию или роль `admin`](invitation-or-admin-role-not-seen.md)
 * [Появление неизвестного пользователя в организации](unknown-user.md)
 * [Устранение ошибки `Такой логин не подойдет`](invalid-login.md)
 * [Устранение ошибки `Response is invalid in a general way` при авторизации через SAML-провайдер](error-bad-request.md)

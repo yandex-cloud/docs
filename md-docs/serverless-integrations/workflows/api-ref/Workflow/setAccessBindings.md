@@ -5,7 +5,7 @@ Sets access bindings for the Workflow.
 ## HTTP request
 
 ```
-POST https://serverless-workflows.{{ api-host }}/workflows/v1/workflow/{resourceId}:setAccessBindings
+POST https://serverless-workflows.api.cloud.yandex.net/workflows/v1/workflow/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

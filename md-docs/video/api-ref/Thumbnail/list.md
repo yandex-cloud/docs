@@ -6,7 +6,7 @@ with pagination support.
 ## HTTP request
 
 ```
-GET https://video.{{ api-host }}/video/v1/thumbnails
+GET https://video.api.cloud.yandex.net/video/v1/thumbnails
 ```
 
 ## Query parameters {#yandex.cloud.video.v1.ListThumbnailRequest}

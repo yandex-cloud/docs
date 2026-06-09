@@ -6,9 +6,9 @@
 
 {% endnote %}
 
-[Правила](../../concepts/cspm.md#rules) контроля безопасности модуля {{ cspm-name }} используются в [окружениях](../../concepts/workspace.md) {{ sd-name }}. Если у вас еще нет окружения, [создайте](../workspaces/create.md) его.
+[Правила](../../concepts/cspm.md#rules) контроля безопасности модуля CSPM используются в [окружениях](../../concepts/workspace.md) Security Deck. Если у вас еще нет окружения, [создайте](../workspaces/create.md) его.
 
-Проверка на соответствие правилам контроля безопасности модуля {{ cspm-name }} выполняется автоматически каждые 8 часов, но пользователи с [ролью](../../security/cspm-roles.md#cspm-editor) `cspm.editor` и выше могут запустить ее вручную.
+Проверка на соответствие правилам контроля безопасности модуля CSPM выполняется автоматически каждые 8 часов, но пользователи с [ролью](../../security/cspm-roles.md#cspm-editor) `cspm.editor` и выше могут запустить ее вручную.
 
 {% note info %}
 
@@ -20,17 +20,17 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ sd-name }} {#cloud-sd}
+- Интерфейс Security Deck {#cloud-sd}
 
-  1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите ![file-text](../../../_assets/console-icons/file-text.svg) **{{ ui-key.yacloud_org.app.security.control_rules_rWmUV }}**.
+  1. Перейдите в сервис [Yandex Security Deck](https://center.yandex.cloud/security/).
+  1. На панели слева выберите ![file-text](../../../_assets/console-icons/file-text.svg) **Правила и исключения**.
   1. В верхней части окна выберите окружение, для которого хотите запустить проверку.
-  1. На вкладке **{{ ui-key.yacloud_org.security.controls.ControlsPageLayout.configuration_w7Kw7 }}** нажмите кнопку **{{ ui-key.yacloud_org.security.workspaces.TriggeredRunsControl.action_check-environment_k3mP9 }}**.
-  1. В открывшемся окне нажмите **{{ ui-key.yacloud_org.security.workspaces.TriggeredRunsCheckEnvironmentDialog.action_start-check_w0jM2 }}**.
+  1. На вкладке **Конфигурация** нажмите кнопку **Проверить окружение на соответствие правилам контроля**.
+  1. В открывшемся окне нажмите **Запустить проверку**.
   1. По завершении проверки вы сможете посмотреть результаты в таблице или получить их в формате CSV-файла. Чтобы скачать CSV-файл с результатами проверки:
 
-     1. Нажмите кнопку ![file-arrow-down](../../../_assets/console-icons/file-arrow-down.svg) **{{ ui-key.yacloud_org.security.workspaces.TriggeredRunsControl.action_download-check-report_q7nR2 }}**.
-     1. В открывшемся окне нажмите **{{ ui-key.yacloud_org.security.workspaces.DownloadCspmScanResultsDialog.action_download-file_gJ3Vh }}**.
+     1. Нажмите кнопку ![file-arrow-down](../../../_assets/console-icons/file-arrow-down.svg) **Скачать отчёт о проверке**.
+     1. В открывшемся окне нажмите **Скачать файл**.
 
      {% note info %}
      
@@ -38,6 +38,6 @@
      
      {% endnote %}
 
-     Информация об обнаруженных проблемах безопасности также отправляется в виде алертов и доступна по кнопке ![alerts](../../../_assets/security-deck/alerts.svg) **{{ ui-key.yacloud_org.security-center.label_alerts }}** на панели слева.
+     Информация об обнаруженных проблемах безопасности также отправляется в виде алертов и доступна по кнопке ![alerts](../../../_assets/security-deck/alerts.svg) **Алерты** на панели слева.
 
 {% endlist %}

@@ -5,7 +5,7 @@ Updates access bindings for the specified key.
 ## HTTP request
 
 ```
-POST https://{{ api-host-kms }}/kms/v1/keys/{resourceId}:updateAccessBindings
+POST https://kms.api.cloud.yandex.net/kms/v1/keys/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

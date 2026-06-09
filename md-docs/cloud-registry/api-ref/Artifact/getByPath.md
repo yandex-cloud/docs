@@ -5,7 +5,7 @@ Returns the specified artifact resource by path within the registry.
 ## HTTP request
 
 ```
-GET https://registry.{{ api-host }}/cloud-registry/v1/registries/{registryId}/artifacts:getByPath
+GET https://registry.api.cloud.yandex.net/cloud-registry/v1/registries/{registryId}/artifacts:getByPath
 ```
 
 ## Path parameters

@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Connection not found
+# [Yandex DataLens] Connection not found
 
 `ERR.DS_API.US.OBJ_NOT_FOUND.CONNECTION`
 

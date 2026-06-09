@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Data source (table) does not exist
+# [Yandex DataLens] Data source (table) does not exist
 
 `ERR.DS_API.DB.SOURCE_DOES_NOT_EXIST`
 

@@ -6,7 +6,7 @@ To get the list of available Snapshot resources, make a [List](list.md#List) req
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/snapshots/{snapshotId}
+GET https://compute.api.cloud.yandex.net/compute/v1/snapshots/{snapshotId}
 ```
 
 ## Path parameters

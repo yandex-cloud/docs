@@ -5,7 +5,7 @@ Deprecated: Provider-specific CNAME is now available in the `provider_cname` fie
 ## HTTP request
 
 ```
-GET https://cdn.{{ api-host }}/cdn/v1/cname/{folderId}
+GET https://cdn.api.cloud.yandex.net/cdn/v1/cname/{folderId}
 ```
 
 ## Path parameters

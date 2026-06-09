@@ -1,8 +1,8 @@
-# Публичные материалы о {{ dataproc-name }}
+# Публичные материалы о Yandex Data Processing
 
 ## Конференции и вебинары {#conf-and-webinars}
 
-### 2022: {{ yandex-cloud }} {#yc-2022}
+### 2022: Yandex Cloud {#yc-2022}
 
 * Про людей. Жизнь SRE в облаке.
 
@@ -28,27 +28,27 @@
 
 ### 2019: Yandex Scale {#yandex-scale-2019}
 
-* Обработка больших данных с помощью {{ dataproc-full-name }}.
+* Обработка больших данных с помощью Yandex Data Processing.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=th1N3m6DQ54).
 
-### 2019: {{ yandex-cloud }} {#yc-2019}
+### 2019: Yandex Cloud {#yc-2019}
 
-* {{ dataproc-full-name }}.
+* Yandex Data Processing.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=PKJr-dJ3tu0).
 
-* Что нового в платформе баз данных {{ yandex-cloud }}.
+* Что нового в платформе баз данных Yandex Cloud.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=5OcUo3J4Wdc).
 
-* Внутреннее устройство платформы баз данных в {{ yandex-cloud }}.
+* Внутреннее устройство платформы баз данных в Yandex Cloud.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=Cwdg425a_cw).
 
 ### 2019: Статьи {#article-2019}
 
-* Как устроены сервисы управляемых баз данных в {{ yandex-cloud }}.
+* Как устроены сервисы управляемых баз данных в Yandex Cloud.
 
   * [Текст статьи](https://habr.com/ru/companies/yandex/articles/477860/).
 

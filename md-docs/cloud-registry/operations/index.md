@@ -1,4 +1,4 @@
-# Пошаговые инструкции для {{ cloud-registry-name }}
+# Пошаговые инструкции для Cloud Registry
 
 * [Создание реестра](registry/create.md)
 * [Создание политики жизненного цикла](lifecycle-policy/create.md)
@@ -8,7 +8,7 @@
 ### Docker {#docker}
 
 * [Установить и настроить Docker](docker/installation.md)
-* [{#T}](docker/authentication.md)
+* [Аутентифицировать в Cloud Registry](docker/authentication.md)
 * [Создать Docker-образ](docker/create.md)
 * [Загрузить Docker-образ в реестр](docker/push.md)
 * [Скачать Docker-образ из реестра](docker/pull.md)

@@ -5,7 +5,7 @@ Updates the specified server.
 ## HTTP request
 
 ```
-PATCH https://baremetal.{{ api-host }}/baremetal/v1alpha/servers/{serverId}
+PATCH https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers/{serverId}
 ```
 
 ## Path parameters

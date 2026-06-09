@@ -1,13 +1,13 @@
-# Docker-контейнер для монтирования бакета {{ objstorage-name }} к (S)FTP(S)-серверу
+# Docker-контейнер для монтирования бакета Object Storage к (S)FTP(S)-серверу
 
-Для доступа к [бакету](../concepts/bucket.md) по протоколу FTP, [FTPS](https://{{ lang }}.wikipedia.org/wiki/FTPS) или [SFTP](https://ru.wikipedia.org/wiki/SFTP) можно развернуть сервер с помощью публичного [Docker-контейнера](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers), предоставляемого {{ objstorage-name }}.
+Для доступа к [бакету](../concepts/bucket.md) по протоколу FTP, [FTPS](https://ru.wikipedia.org/wiki/FTPS) или [SFTP](https://ru.wikipedia.org/wiki/SFTP) можно развернуть сервер с помощью публичного [Docker-контейнера](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers), предоставляемого Object Storage.
 
-В Docker-контейнере реализованы связки FUSE-клиента {{ objstorage-name }} [GeeseFS](geesefs.md) и серверов: для FTP и FTPS — [vsftpd](https://security.appspot.com/vsftpd.html), для SFTP — sftp-server (входит в состав [OpenSSH](https://www.openssh.com/)).
+В Docker-контейнере реализованы связки FUSE-клиента Object Storage [GeeseFS](geesefs.md) и серверов: для FTP и FTPS — [vsftpd](https://security.appspot.com/vsftpd.html), для SFTP — sftp-server (входит в состав [OpenSSH](https://www.openssh.com/)).
 
 ## Подготовка к работе {#before-you-begin}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md).
-1. [Назначьте сервисному аккаунту роли](../../iam/operations/sa/assign-role-for-sa.md), которые нужны для вашего проекта, например [storage.editor](../security/index.md#storage-editor) на бакет — для работы с конкретным бакетом, или на каталог — для работы со всеми бакетами в каталоге. Подробнее о ролях см. на странице [Управление доступом с помощью {{ iam-full-name }}](../security/index.md).
+1. [Назначьте сервисному аккаунту роли](../../iam/operations/sa/assign-role-for-sa.md), которые нужны для вашего проекта, например [storage.editor](../security/index.md#storage-editor) на бакет — для работы с конкретным бакетом, или на каталог — для работы со всеми бакетами в каталоге. Подробнее о ролях см. на странице [Управление доступом с помощью Yandex Identity and Access Management](../security/index.md).
 
           
     Чтобы работать с объектами в [зашифрованном](../concepts/encryption.md) бакете, у пользователя или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) вместе с [ролью](../security/index.md#storage-configurer) `storage.configurer` должны быть следующие [роли на ключ шифрования](../../kms/operations/key-access.md):
@@ -16,13 +16,13 @@
     * `kms.keys.decrypter` — для чтения ключа, [расшифровки](../../kms/security/index.md#kms-keys-decrypter) и скачивания объектов;
     * `kms.keys.encrypterDecrypter` — включает [разрешения](../../kms/security/index.md#kms-keys-encrypterDecrypter), предоставляемые ролями `kms.keys.encrypter` и `kms.keys.decrypter`.
     
-    Подробнее см. [Сервисные роли {{ kms-name }}](../../kms/security/index.md#service-roles).
+    Подробнее см. [Сервисные роли Key Management Service](../../kms/security/index.md#service-roles).
 
 
 1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
     
-    В результате вы получите данные статического ключа доступа. Для аутентификации в {{ objstorage-name }} вам понадобятся:
+    В результате вы получите данные статического ключа доступа. Для аутентификации в Object Storage вам понадобятся:
     
     * `key_id` — идентификатор статического ключа доступа;
     * `secret` — секретный ключ.
@@ -31,7 +31,7 @@
 
 
 
-Авторизация статическими ключами необходима для обращения напрямую к HTTP API и поддерживается инструментами, перечисленными в разделе [{#T}](index.md).
+Авторизация статическими ключами необходима для обращения напрямую к HTTP API и поддерживается инструментами, перечисленными в разделе [Поддерживаемые инструменты](index.md).
   
 {% note info %}
 
@@ -40,7 +40,7 @@
 {% endnote %}
 
 
-Статический ключ для доступа к {{ objstorage-name }} можно безопасно хранить в сервисе {{ lockbox-full-name }}. Подробнее см. [{#T}](../tutorials/static-key-in-lockbox/index.md).
+Статический ключ для доступа к Object Storage можно безопасно хранить в сервисе Yandex Lockbox. Подробнее см. [Использование секрета Yandex Lockbox для хранения статического ключа доступа](../tutorials/static-key-in-lockbox/index.md).
 
 {% note info %}
 
@@ -53,11 +53,11 @@
 ## Установка {#install}
 
 1. [Установите Docker](https://docs.docker.com/get-docker/).
-1. [Аутентифицируйтесь в {{ container-registry-full-name }}](../../container-registry/operations/authentication.md).
+1. [Аутентифицируйтесь в Yandex Container Registry](../../container-registry/operations/authentication.md).
 1. Скачайте Docker-контейнер:
 
    ```bash
-   docker pull {{ objstorage-sftps-gateway-uri }}:{{ objstorage-sftps-gateway-version }}
+   docker pull cr.yandex/crp9ftr22d26age3hulg/ftp-s3-gateway:1.0
    ```
 
 1. Создайте [папку](../concepts/object.md#folder) `secrets` для хранения данных пользователей FTP-сервера и настроек монтирования бакета:
@@ -85,7 +85,7 @@
      ```
 
      
-     Инструкцию по созданию пары SSH-ключей см. в [документации {{ compute-name }}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+     Инструкцию по созданию пары SSH-ключей см. в [документации Compute Cloud](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 
    * Если вы будете использовать FTPS, добавьте в папку TLS-сертификат `ftp.pem` и его ключ `ftp.key`. Например, для тестирования вы можете выпустить самоподписанный сертификат:
@@ -98,9 +98,9 @@
     
     {% note alert %}
     
-    Поддержка протокола TLS версий 1.0 и 1.1 в {{ objstorage-name }} прекращена с 1 августа 2025 года.
+    Поддержка протокола TLS версий 1.0 и 1.1 в Object Storage прекращена с 1 августа 2025 года.
     
-    Подробнее см. на странице [{#T}](../concepts/tls.md).
+    Подробнее см. на странице [Протокол TLS](../concepts/tls.md).
     
     {% endnote %}
 
@@ -146,7 +146,7 @@
         -v <полный_путь_к_папке_secrets>:/secrets \
         -p 1022:22 \
         --name ftp \
-        {{ objstorage-sftps-gateway-uri }}:{{ objstorage-sftps-gateway-version }}
+        cr.yandex/crp9ftr22d26age3hulg/ftp-s3-gateway:1.0
       ```
 
      Сервер будет принимать соединения на порте 1022.
@@ -165,7 +165,7 @@
        --expose 21100 \
        -p 21100:21100 \
        --name ftp \
-       {{ objstorage-sftps-gateway-uri }}:{{ objstorage-sftps-gateway-version }}
+       cr.yandex/crp9ftr22d26age3hulg/ftp-s3-gateway:1.0
      ```
 
      Сервер будет принимать соединения на порте 1021. Также для пассивного режима (переменная `FTP_PASV_ENABLE`) открыт порт 21100 — если вы не используете этот режим, опции `--expose 21100` и `-p 21100:21100` можно не использовать.

@@ -6,7 +6,7 @@ Method skips non-existent federated user accounts and returns ones that were act
 ## HTTP request
 
 ```
-POST https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/{federationId}:suspendUserAccounts
+POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/{federationId}:suspendUserAccounts
 ```
 
 ## Path parameters

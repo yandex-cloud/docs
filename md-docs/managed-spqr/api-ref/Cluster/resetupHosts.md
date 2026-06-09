@@ -5,7 +5,7 @@ Resetups hosts.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}:resetupHosts
+POST https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/{clusterId}:resetupHosts
 ```
 
 ## Path parameters

@@ -1,11 +1,11 @@
-# Справочник аудитных логов {{ at-full-name }}
+# Справочник аудитных логов Yandex Audit Trails
 
-В {{ at-name }} для {{ mpg-full-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
+В Audit Trails для Yandex Managed Service for PostgreSQL поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
 
 Общий вид значения поля `event_type` (_тип события_):
 
 ```text
-{{ at-event-prefix }}.audit.mdb.postgresql.<имя_события>
+yandex.cloud.audit.mdb.postgresql.<имя_события>
 ```
 
 ## Справочник событий уровня конфигурации {#control-plane-events}
@@ -48,4 +48,4 @@
 `UpdateDatabase` | Изменение базы данных
 `UpdateUser` | Изменение пользователя базы данных
 
-^1^ Требуется дополнительная настройка на стороне {{ mpg-name }}. Подробнее см. в разделе [{#T}](operations/extensions/pgaudit.md)
+^1^ Требуется дополнительная настройка на стороне Managed Service for PostgreSQL. Подробнее см. в разделе [Использование pgaudit в Managed Service for PostgreSQL](operations/extensions/pgaudit.md)

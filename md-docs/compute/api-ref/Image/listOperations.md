@@ -5,7 +5,7 @@ Lists operations for the specified image.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/images/{imageId}/operations
+GET https://compute.api.cloud.yandex.net/compute/v1/images/{imageId}/operations
 ```
 
 ## Path parameters

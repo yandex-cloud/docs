@@ -1,4 +1,4 @@
-# Управление базами данных в {{ mpg-name }}
+# Управление базами данных в Managed Service for PostgreSQL
 
 Вы можете добавлять, переименовывать и удалять базы данных, а также просматривать информацию о них.
 
@@ -14,19 +14,19 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}**.
+  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить список баз данных в кластере, выполните команду:
 
   ```bash
-  {{ yc-mdb-pg }} database list --cluster-name=<имя_кластера>
+  yc managed-postgresql database list --cluster-name=<имя_кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -39,13 +39,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Database.List](../api-ref/Database/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Database.List](../api-ref/Database/list.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/databases'
+       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>/databases'
      ```
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -67,7 +67,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [DatabaseService.List](../api-ref/grpc/Database/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [DatabaseService.List](../api-ref/grpc/Database/list.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -79,7 +79,7 @@
        -d '{
              "cluster_id": "<идентификатор_кластера>"
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.postgresql.v1.DatabaseService.List
      ```
 
@@ -93,7 +93,7 @@
 
 {% note info %}
 
-В каждом кластере вы можете создать не более {{ all-mdb.max-databases }} баз данных.
+В каждом кластере вы можете создать не более 1000 баз данных.
 
 {% endnote %}
 
@@ -101,16 +101,16 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
   1. Нажмите на имя нужного кластера.
   1. Если владельцем новой базы данных должен стать еще не существующий пользователь, [создайте его](cluster-users.md#adduser).
-  1. Выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
+  1. Выберите вкладку **Базы данных**.
+  1. Нажмите кнопку **Создать базу данных**.
   1. Укажите параметры базы данных:
 
       * Имя.
 
-        Имя базы может содержать латинские буквы, цифры, подчеркивание и дефис. Максимальная длина имени 63 символа. Имена `postgres`, `template0`, `template1` зарезервированы для собственных нужд {{ mpg-name }}. Создавать базы с этими именами нельзя.
+        Имя базы может содержать латинские буквы, цифры, подчеркивание и дефис. Максимальная длина имени 63 символа. Имена `postgres`, `template0`, `template1` зарезервированы для собственных нужд Managed Service for PostgreSQL. Создавать базы с этими именами нельзя.
 
       * Владелец.
 
@@ -123,11 +123,11 @@
 
       * (Опционально) Шаблон — имя одной из существующих баз, с которой нужно будет скопировать схему данных. На время создания новой базы все подключения к базе-шаблону будут закрыты.
 
-          Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/sql-createdatabase.html).
+          Подробнее см. в [документации PostgreSQL](https://www.postgresql.org/docs/current/sql-createdatabase.html).
 
       * Локали сортировки и набора символов.
 
-          {{ PG }} использует локали для поддержки различных языковых стандартов. Выбор локали влияет на:
+          PostgreSQL использует локали для поддержки различных языковых стандартов. Выбор локали влияет на:
           
           - Порядок сортировки в запросах с использованием оператора `ORDER BY` или стандартных операторов сравнения текстовых данных.
           - Функции `upper`, `lower`, `initcap`, а также семейство функций `to_char`.
@@ -136,15 +136,15 @@
           
           По умолчанию используется локаль `C`. При использовании кодировки `C` для текстовых данных с нелатинскими (например, кириллическими) символами возможны ошибки в порядке сортировки данных и отображении данных при поиске по шаблону. Если эта локаль не подходит для корректной обработки таблиц в базе данных, выберите другую из списка. Однако учитывайте, что использование нестандартной локали может снизить скорость выполнения запросов к базе данных.
           
-          Подробнее о настройках локали см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/locale.html).
+          Подробнее о настройках локали см. в [документации PostgreSQL](https://www.postgresql.org/docs/current/locale.html).
           
-          Настройки локали нельзя изменить после создания базы данных. Но вы можете задать локаль сортировки для столбцов при создании и изменении отдельных таблиц. Подробнее читайте в  [документации {{ PG }}](https://www.postgresql.org/docs/current/sql-createtable.html).
+          Настройки локали нельзя изменить после создания базы данных. Но вы можете задать локаль сортировки для столбцов при создании и изменении отдельных таблиц. Подробнее читайте в  [документации PostgreSQL](https://www.postgresql.org/docs/current/sql-createtable.html).
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup-add-db_button_add }}**.
+  1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -153,13 +153,13 @@
   1. Посмотрите описание команды CLI для создания БД:
 
      ```bash
-     {{ yc-mdb-pg }} database create --help
+     yc managed-postgresql database create --help
      ```
 
   1. Запросите список пользователей кластера, чтобы выбрать владельца новой базы данных:
 
      ```bash
-     {{ yc-mdb-pg }} user list --cluster-name=<имя_кластера>
+     yc managed-postgresql user list --cluster-name=<имя_кластера>
      ```
 
      Если нужного пользователя в списке нет, [создайте его](cluster-users.md#adduser).
@@ -167,7 +167,7 @@
   1. Выполните команду создания БД. При необходимости укажите нужные локали сортировки и набора символов (по умолчанию задаются `LC_COLLATE=C` и `LC_CTYPE=C`) и шаблон:
 
      ```bash
-     {{ yc-mdb-pg }} database create <имя_БД> \
+     yc managed-postgresql database create <имя_БД> \
         --cluster-name=<имя_кластера> \
         --owner=<имя_владельца_БД> \
         --lc-collate=<локаль_сортировки> \
@@ -175,19 +175,19 @@
         --template-db=<имя_БД-шаблона>
      ```
 
-     Имя базы может содержать латинские буквы, цифры, подчеркивание и дефис. Максимальная длина имени 63 символа. Имена `postgres`, `template0`, `template1` зарезервированы для собственных нужд {{ mpg-name }}. Создавать базы с этими именами нельзя.
+     Имя базы может содержать латинские буквы, цифры, подчеркивание и дефис. Максимальная длина имени 63 символа. Имена `postgres`, `template0`, `template1` зарезервированы для собственных нужд Managed Service for PostgreSQL. Создавать базы с этими именами нельзя.
 
      Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-     {{ mpg-short-name }} запустит операцию создания базы данных.
+     Managed Service for PostgreSQL запустит операцию создания базы данных.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации базы данных кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_postgresql_database).
+        Полный список доступных для изменения полей конфигурации базы данных кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_database.md).
 
     1. Добавьте ресурс `yandex_mdb_postgresql_database`. При необходимости укажите нужные локали сортировки и набора символов (по умолчанию задаются `LC_COLLATE=C` и `LC_CTYPE=C`) и шаблон:
 
@@ -207,18 +207,18 @@
           * `owner` — имя пользователя-владельца, который должен быть задан в ресурсе `yandex_mdb_postgresql_user`.
           * `deletion_protection` — защита БД от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
 
-        Имя базы может содержать латинские буквы, цифры, подчеркивание и дефис. Максимальная длина имени 63 символа. Имена `postgres`, `template0`, `template1` зарезервированы для собственных нужд {{ mpg-name }}. Создавать базы с этими именами нельзя.
+        Имя базы может содержать латинские буквы, цифры, подчеркивание и дефис. Максимальная длина имени 63 символа. Имена `postgres`, `template0`, `template1` зарезервированы для собственных нужд Managed Service for PostgreSQL. Создавать базы с этими именами нельзя.
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -254,14 +254,14 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Database.Create](../api-ref/Database/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Database.Create](../api-ref/Database/create.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request POST \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/databases' \
+       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>/databases' \
        --data '{
                  "databaseSpec": {
                    "name": "<имя_БД>",
@@ -282,7 +282,7 @@
 
      * `name` — имя БД.
 
-       Имя базы может содержать латинские буквы, цифры, подчеркивание и дефис. Максимальная длина имени 63 символа. Имена `postgres`, `template0`, `template1` зарезервированы для собственных нужд {{ mpg-name }}. Создавать базы с этими именами нельзя.
+       Имя базы может содержать латинские буквы, цифры, подчеркивание и дефис. Максимальная длина имени 63 символа. Имена `postgres`, `template0`, `template1` зарезервированы для собственных нужд Managed Service for PostgreSQL. Создавать базы с этими именами нельзя.
 
      * `owner` — имя владельца БД.
      * `lcCollate` — локаль сортировки. Значение по умолчанию — `C`.
@@ -291,7 +291,7 @@
 
        * `extensions.name` — имя расширения;
 
-       Указывайте имя в соответствии со [списком поддерживаемых расширений и утилит {{ PG }}](extensions/cluster-extensions.md#postgresql).
+       Указывайте имя в соответствии со [списком поддерживаемых расширений и утилит PostgreSQL](extensions/cluster-extensions.md#postgresql).
 
      * `deletionProtection` — защита БД от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
 
@@ -314,7 +314,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [DatabaseService.Create](../api-ref/grpc/Database/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [DatabaseService.Create](../api-ref/grpc/Database/create.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -338,7 +338,7 @@
                "deletion_protection": <защита_от_удаления>
              }
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.postgresql.v1.DatabaseService.Create
      ```
 
@@ -346,7 +346,7 @@
 
      * `name` — имя БД.
 
-       Имя базы может содержать латинские буквы, цифры, подчеркивание и дефис. Максимальная длина имени 63 символа. Имена `postgres`, `template0`, `template1` зарезервированы для собственных нужд {{ mpg-name }}. Создавать базы с этими именами нельзя.
+       Имя базы может содержать латинские буквы, цифры, подчеркивание и дефис. Максимальная длина имени 63 символа. Имена `postgres`, `template0`, `template1` зарезервированы для собственных нужд Managed Service for PostgreSQL. Создавать базы с этими именами нельзя.
 
      * `owner` — имя владельца БД.
      * `lc_collate` — локаль сортировки. Значение по умолчанию — `C`.
@@ -355,7 +355,7 @@
 
        * `extensions.name` — имя расширения;
 
-       Указывайте имя в соответствии со [списком поддерживаемых расширений и утилит {{ PG }}](extensions/cluster-extensions.md#postgresql).
+       Указывайте имя в соответствии со [списком поддерживаемых расширений и утилит PostgreSQL](extensions/cluster-extensions.md#postgresql).
 
      * `deletion_protection` — защита БД от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
 
@@ -369,13 +369,13 @@
 
 {% list tabs group=instructions %}
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-      Полный список доступных для изменения полей конфигурации базы данных кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_postgresql_database).
+      Полный список доступных для изменения полей конфигурации базы данных кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_database.md).
 
   1. Найдите ресурс `yandex_mdb_postgresql_database` нужной базы данных.
   1. Измените значение поля `name`:
@@ -388,18 +388,18 @@
       }
       ```
 
-      Имя базы может содержать латинские буквы, цифры, подчеркивание и дефис. Максимальная длина имени 63 символа. Имена `postgres`, `template0`, `template1` зарезервированы для собственных нужд {{ mpg-name }}. Создавать базы с этими именами нельзя.
+      Имя базы может содержать латинские буквы, цифры, подчеркивание и дефис. Максимальная длина имени 63 символа. Имена `postgres`, `template0`, `template1` зарезервированы для собственных нужд Managed Service for PostgreSQL. Создавать базы с этими именами нельзя.
 
   1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -429,7 +429,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Database.Update](../api-ref/Database/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Database.Update](../api-ref/Database/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      {% note warning %}
      
@@ -442,7 +442,7 @@
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/databases/<прежнее_имя_БД>' \
+       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>/databases/<прежнее_имя_БД>' \
        --data '{
                  "updateMask": "newDatabaseName",
                  "newDatabaseName": "<новое_имя_БД>"
@@ -457,7 +457,7 @@
 
      * `newDatabaseName` — новое имя БД.
 
-       Имя базы может содержать латинские буквы, цифры, подчеркивание и дефис. Максимальная длина имени 63 символа. Имена `postgres`, `template0`, `template1` зарезервированы для собственных нужд {{ mpg-name }}. Создавать базы с этими именами нельзя.
+       Имя базы может содержать латинские буквы, цифры, подчеркивание и дефис. Максимальная длина имени 63 символа. Имена `postgres`, `template0`, `template1` зарезервированы для собственных нужд Managed Service for PostgreSQL. Создавать базы с этими именами нельзя.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
 
@@ -478,7 +478,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [DatabaseService.Update](../api-ref/grpc/Database/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [DatabaseService.Update](../api-ref/grpc/Database/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      {% note warning %}
      
@@ -518,7 +518,7 @@
              },
              "new_database_name": "<новое_имя_БД>"
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.postgresql.v1.DatabaseService.Update
      ```
 
@@ -530,7 +530,7 @@
 
      * `new_database_name` — новое имя БД.
 
-       Имя базы может содержать латинские буквы, цифры, подчеркивание и дефис. Максимальная длина имени 63 символа. Имена `postgres`, `template0`, `template1` зарезервированы для собственных нужд {{ mpg-name }}. Создавать базы с этими именами нельзя.
+       Имя базы может содержать латинские буквы, цифры, подчеркивание и дефис. Максимальная длина имени 63 символа. Имена `postgres`, `template0`, `template1` зарезервированы для собственных нужд Managed Service for PostgreSQL. Создавать базы с этими именами нельзя.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
 
@@ -544,15 +544,15 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
-  1. Выберите нужное значение в поле **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
+  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **Настроить**.
+  1. Выберите нужное значение в поле **Защита от удаления**.
+  1. Нажмите кнопку **Сохранить**.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
   1. Найдите ресурс `yandex_mdb_postgresql_database` нужной БД.
 
@@ -568,14 +568,14 @@
 
   1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -605,7 +605,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Database.Update](../api-ref/Database/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Database.Update](../api-ref/Database/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      {% note warning %}
      
@@ -618,7 +618,7 @@
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>' \
+       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>' \
        --data '{
                  "updateMask": "deletionProtection",
                  "deletionProtection": <защита_от_удаления>
@@ -652,7 +652,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [DatabaseService.Update](../api-ref/grpc/Database/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [DatabaseService.Update](../api-ref/grpc/Database/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      {% note warning %}
      
@@ -692,7 +692,7 @@
              },
              "deletion_protection": <защита_от_удаления>
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.postgresql.v1.DatabaseService.Update
      ```
 
@@ -725,46 +725,46 @@
 - Консоль управления {#console}
 
   Чтобы удалить базу данных:
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД, выберите пункт **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}** и подтвердите удаление.
+  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД, выберите пункт **Удалить** и подтвердите удаление.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы удалить базу данных, выполните команду:
 
   ```bash
-  {{ yc-mdb-pg }} database delete <имя_БД> \
+  yc managed-postgresql database delete <имя_БД> \
      --cluster-name <имя_кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   Чтобы удалить базу данных:
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-     Полный список доступных для изменения полей конфигурации базы данных кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_postgresql_database).
+     Полный список доступных для изменения полей конфигурации базы данных кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_database.md).
 
   1. Удалите ресурс `yandex_mdb_postgresql_database` с именем удаляемой базы данных.
 
   1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -794,13 +794,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Database.Delete](../api-ref/Database/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Database.Delete](../api-ref/Database/delete.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request DELETE \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>'
+       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>'
      ```
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
@@ -822,7 +822,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [DatabaseService.Delete](../api-ref/grpc/Database/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [DatabaseService.Delete](../api-ref/grpc/Database/delete.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -835,7 +835,7 @@
              "cluster_id": "<идентификатор_кластера>",
              "database_name": "<имя_БД>"
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.postgresql.v1.DatabaseService.Delete
      ```
 

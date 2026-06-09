@@ -1,6 +1,6 @@
-# Управление расширениями в {{ mch-name }}
+# Управление расширениями в Managed Service for ClickHouse®
 
-В кластерах {{ mch-name }} доступны следующие расширения:
+В кластерах Managed Service for ClickHouse® доступны следующие расширения:
 
 | **Расширение** | **Описание** |
 | --- | --- |
@@ -13,14 +13,14 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить список всех доступных для установки расширений и их версии, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} extension list
+  yc managed-clickhouse extension list
   ```
 
 - REST API {#api}
@@ -31,13 +31,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Extension.List](../api-ref/Extension/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Extension.List](../api-ref/Extension/list.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/extensions'
+       --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/extensions'
      ```
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Extension/list.md#yandex.cloud.mdb.clickhouse.v1.ListExtensionsResponse).
@@ -60,7 +60,7 @@
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-  1. Воспользуйтесь вызовом [ExtensionService.List](../api-ref/grpc/Extension/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ExtensionService.List](../api-ref/grpc/Extension/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -72,7 +72,7 @@
        -d '{
              "folder_id": "<идентификатор_каталога>"
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.clickhouse.v1.ExtensionService.List
      ```
 
@@ -92,14 +92,14 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить список всех установленных в кластере расширений и их версии, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} cluster list-extensions <имя_или_идентификатор_кластера>
+  yc managed-clickhouse cluster list-extensions <имя_или_идентификатор_кластера>
   ```
 
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -112,13 +112,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [ClusterExtension.List](../api-ref/ClusterExtension/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [ClusterExtension.List](../api-ref/ClusterExtension/list.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/extensions'
+       --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/extensions'
      ```
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -141,7 +141,7 @@
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-  1. Воспользуйтесь вызовом [ClusterExtensionService.List](../api-ref/grpc/ClusterExtension/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterExtensionService.List](../api-ref/grpc/ClusterExtension/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -153,7 +153,7 @@
        -d '{
              "cluster_id": "<идентификатор_кластера>"
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.clickhouse.v1.ClusterExtensionService.List
      ```
 
@@ -169,14 +169,14 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить подробную информацию о расширении, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} extension get <имя_расширения>
+  yc managed-clickhouse extension get <имя_расширения>
   ```
 
 - REST API {#api}
@@ -187,13 +187,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Extension.Get](../api-ref/Extension/get.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Extension.Get](../api-ref/Extension/get.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/extensions/<имя_расширения>'
+       --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/extensions/<имя_расширения>'
      ```
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Extension/get.md#yandex.cloud.mdb.clickhouse.v1.Extension).
@@ -214,7 +214,7 @@
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-  1. Воспользуйтесь вызовом [ExtensionService.Get](../api-ref/grpc/Extension/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ExtensionService.Get](../api-ref/grpc/Extension/get.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -227,7 +227,7 @@
              "extension_name": "<имя_расширения>",
              "folder_id": "<идентификатор_каталога>"
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.clickhouse.v1.ExtensionService.Get
      ```
 
@@ -245,14 +245,14 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить информацию об установленном в кластер расширении, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} cluster get-extension <имя_или_идентификатор_кластера> \
+  yc managed-clickhouse cluster get-extension <имя_или_идентификатор_кластера> \
      --extension-name <имя_расширения>
   ```
 
@@ -266,13 +266,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [ClusterExtension.Get](../api-ref/ClusterExtension/get.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [ClusterExtension.Get](../api-ref/ClusterExtension/get.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/extensions/<имя_расширения>'
+       --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/extensions/<имя_расширения>'
      ```
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -295,7 +295,7 @@
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-  1. Воспользуйтесь вызовом [ClusterExtensionService.Get](../api-ref/grpc/ClusterExtension/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterExtensionService.Get](../api-ref/grpc/ClusterExtension/get.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -308,7 +308,7 @@
              "cluster_id": "<идентификатор_кластера>",
              "extension_name": "<имя_расширения>"
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.clickhouse.v1.ClusterExtensionService.Get
      ```
 
@@ -324,14 +324,14 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы установить расширение в кластер, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} cluster add-extension <имя_или_идентификатор_кластера> \
+  yc managed-clickhouse cluster add-extension <имя_или_идентификатор_кластера> \
      --extension-name <имя_расширения>
   ```
 
@@ -345,13 +345,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [ClusterExtension.Create](../api-ref/ClusterExtension/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [ClusterExtension.Create](../api-ref/ClusterExtension/create.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request POST \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/extensions'
+       --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/extensions'
        --data '{
                  "extensionSpec": {
                    "name": "<имя_расширения>"
@@ -379,7 +379,7 @@
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-  1. Воспользуйтесь вызовом [ClusterExtensionService.Create](../api-ref/grpc/ClusterExtension/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterExtensionService.Create](../api-ref/grpc/ClusterExtension/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -394,7 +394,7 @@
                  "name": "<имя_расширения>"
              }
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.clickhouse.v1.ClusterExtensionService.Create
      ```
 
@@ -410,14 +410,14 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы обновить установленное в кластер расширение, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} cluster update-extension <имя_или_идентификатор_кластера> \
+  yc managed-clickhouse cluster update-extension <имя_или_идентификатор_кластера> \
      --extension-name <имя_расширения>
   ```
 
@@ -431,13 +431,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [ClusterExtension.Update](../api-ref/ClusterExtension/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [ClusterExtension.Update](../api-ref/ClusterExtension/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/extensions'
+       --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/extensions'
        --data '{
                  "extensionSpec": {
                    "name": "<имя_расширения>"
@@ -465,7 +465,7 @@
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-  1. Воспользуйтесь вызовом [ClusterExtensionService.Update](../api-ref/grpc/ClusterExtension/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterExtensionService.Update](../api-ref/grpc/ClusterExtension/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -480,7 +480,7 @@
                  "name": "<имя_расширения>"
              }
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.clickhouse.v1.ClusterExtensionService.Update
      ```
 
@@ -496,14 +496,14 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы удалить расширение из кластера, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} cluster remove-extension <имя_или_идентификатор_кластера> \
+  yc managed-clickhouse cluster remove-extension <имя_или_идентификатор_кластера> \
      --extension-name <имя_расширения>
   ```
 
@@ -517,13 +517,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [ClusterExtension.Delete](../api-ref/ClusterExtension/delete.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [ClusterExtension.Delete](../api-ref/ClusterExtension/delete.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request DELETE \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/extensions/<имя_расширения>'
+       --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/extensions/<имя_расширения>'
      ```
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -546,7 +546,7 @@
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-  1. Воспользуйтесь вызовом [ClusterExtensionService.Delete](../api-ref/grpc/ClusterExtension/delete.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterExtensionService.Delete](../api-ref/grpc/ClusterExtension/delete.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -559,7 +559,7 @@
              "cluster_id": "<идентификатор_кластера>",
              "extension_name": "<имя_расширения>"
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.clickhouse.v1.ClusterExtensionService.Delete
      ```
 
@@ -588,13 +588,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [ClusterExtension.SetExtensions](../api-ref/ClusterExtension/setExtensions.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [ClusterExtension.SetExtensions](../api-ref/ClusterExtension/setExtensions.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request POST \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/extensions:batchSet'
+       --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/extensions:batchSet'
        --data '{
                  "extensionSpec": [
                    {
@@ -631,7 +631,7 @@
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-  1. Воспользуйтесь вызовом [ClusterExtensionService.SetExtensions](../api-ref/grpc/ClusterExtension/setExtensions.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterExtensionService.SetExtensions](../api-ref/grpc/ClusterExtension/setExtensions.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -655,7 +655,7 @@
                }          
              ]
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.clickhouse.v1.ClusterExtensionService.SetExtensions
      ```
 

@@ -5,7 +5,7 @@ Updates the specified cluster.
 ## HTTP request
 
 ```
-PATCH https://ytsaurus.{{ api-host }}/ytsaurus/v1/clusters
+PATCH https://ytsaurus.api.cloud.yandex.net/ytsaurus/v1/clusters
 ```
 
 ## Body parameters {#yandex.cloud.ytsaurus.v1.UpdateClusterRequest}

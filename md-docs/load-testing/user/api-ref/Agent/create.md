@@ -7,7 +7,7 @@ Also creates a corresponding compute instance.
 ## HTTP request
 
 ```
-POST https://loadtesting.{{ api-host }}/loadtesting/api/v1/agent
+POST https://loadtesting.api.cloud.yandex.net/loadtesting/api/v1/agent
 ```
 
 ## Body parameters {#yandex.cloud.loadtesting.api.v1.CreateAgentRequest}

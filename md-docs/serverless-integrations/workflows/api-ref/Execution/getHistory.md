@@ -5,7 +5,7 @@ Retrieves detailed history of specified Workflow execution.
 ## HTTP request
 
 ```
-GET https://serverless-workflows.{{ api-host }}/workflows/v1/execution/{executionId}/history
+GET https://serverless-workflows.api.cloud.yandex.net/workflows/v1/execution/{executionId}/history
 ```
 
 ## Path parameters

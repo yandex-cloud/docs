@@ -4,25 +4,25 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создали или хотите создать [API-шлюз](../../concepts/index.md).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-    1. Выберите API-шлюз или нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**, чтобы создать новый.
-    1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** нажмите значок ![image](../../../_assets/api-gateway/spec-constructor/cloud-datastreams.svg).
+    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создали или хотите создать [API-шлюз](../../concepts/index.md).
+    1. Перейдите в сервис **API Gateway**.
+    1. Выберите API-шлюз или нажмите кнопку **Создать API-шлюз**, чтобы создать новый.
+    1. В поле **Спецификация** нажмите значок ![image](../../../_assets/api-gateway/spec-constructor/cloud-datastreams.svg).
     1. Укажите в поле:
 
-        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.path_name }}** — относительный путь к интеграции, который будет добавлен к URL-адресу {{ api-gw-name }}. Переменные указывайте в фигурных скобках, например `/static/{function_id}`. Подробнее см. спецификацию [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
-        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.http_method_name }}** — метод, который будет использоваться для взаимодействия с интеграцией.
+        * **Путь** — относительный путь к интеграции, который будет добавлен к URL-адресу API Gateway. Переменные указывайте в фигурных скобках, например `/static/{function_id}`. Подробнее см. спецификацию [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
+        * **HTTP-метод** — метод, который будет использоваться для взаимодействия с интеграцией.
 
-        * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}** — сервисный аккаунт для авторизации при выполнении операции с [потоком](../../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }}. Если у вас нет сервисного аккаунта, [создайте](../../../iam/operations/sa/create.md) его.
-        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_datastreams_action_name }}** — выполняемую операцию.
-        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_datastreams_stream_name_name }}** — имя потока данных {{ yds-name }}.
-        * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_datastreams_payload_format_type_name }}** — тип содержимого записи. Если значение — `body`, в поток записывается только тело запроса, если `request` — весь запрос в формате JSON. Значение по умолчанию — `body`.
-        * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_datastreams_partition_key_name }}** — [ключ сегмента](../../../data-streams/concepts/partition-keys.md). Если не указан, запись выполняется в случайный сегмент.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+        * (Опционально) **Сервисный аккаунт** — сервисный аккаунт для авторизации при выполнении операции с [потоком](../../../data-streams/concepts/glossary.md#stream-concepts) Data Streams. Если у вас нет сервисного аккаунта, [создайте](../../../iam/operations/sa/create.md) его.
+        * **Операция** — выполняемую операцию.
+        * **Имя потока Data Streams** — имя потока данных Data Streams.
+        * (Опционально) **Тип содержимого записи** — тип содержимого записи. Если значение — `body`, в поток записывается только тело запроса, если `request` — весь запрос в формате JSON. Значение по умолчанию — `body`.
+        * (Опционально) **Ключ сегмента** — [ключ сегмента](../../../data-streams/concepts/partition-keys.md). Если не указан, запись выполняется в случайный сегмент.
+    1. Нажмите кнопку **Добавить**.
 
 {% endlist %}
 
-В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** отобразится OpenAPI-спецификация с указанными значениями параметров.
+В поле **Спецификация** отобразится OpenAPI-спецификация с указанными значениями параметров.
 
 ## См. также {#see-also}
 

@@ -6,7 +6,7 @@ by default for all encrypt/decrypt operations where no version ID is specified.
 ## HTTP request
 
 ```
-POST https://{{ api-host-kms }}/kms/v1/keys/{keyId}:setPrimaryVersion
+POST https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}:setPrimaryVersion
 ```
 
 ## Path parameters

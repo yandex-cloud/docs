@@ -5,7 +5,7 @@ Creates a WAF profile in the specified folder using the data specified in the re
 ## HTTP request
 
 ```
-POST https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/wafProfiles
+POST https://smartwebsecurity.api.cloud.yandex.net/smartwebsecurity/v1/wafProfiles
 ```
 
 ## Body parameters {#yandex.cloud.smartwebsecurity.v1.waf.CreateWafProfileRequest}

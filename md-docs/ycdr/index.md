@@ -1,8 +1,8 @@
-# {{ ycdr-full-name }}
+# Yandex Cloud Detection and Response
 
-Сервис {{ ycdr-full-name }} позволяет вести мониторинг и реагировать на инциденты в {{ yandex-cloud }}.  {{ ycdr-name }} разработан на базе собственного центра мониторинга безопасности (SOC) платформы {{ yandex-cloud }}.  Сервис собирает данные с облачной инфраструктуры для выявления аномалий. При обнаружении аномалий {{ ycdr-name }} создает <a href="../security-deck/concepts/alerts.md">алерты</a>, указывающие на потенциальный инцидент.
+Сервис Yandex Cloud Detection and Response позволяет вести мониторинг и реагировать на инциденты в Yandex Cloud.  YCDR разработан на базе собственного центра мониторинга безопасности (SOC) платформы Yandex Cloud.  Сервис собирает данные с облачной инфраструктуры для выявления аномалий. При обнаружении аномалий YCDR создает <a href="../security-deck/concepts/alerts.md">алерты</a>, указывающие на потенциальный инцидент.
 
-# {{ ycdr-full-name }}
+# Yandex Cloud Detection and Response
 
  - [Начало работы](quickstart.md)
 
@@ -32,7 +32,7 @@
 
 ## Концепции
 
- - [О сервисе {{ ycdr-full-name }}](concepts/index.md)
+ - [О сервисе Yandex Cloud Detection and Response](concepts/index.md)
 
  - [Расследования](concepts/investigations.md)
 

@@ -1,6 +1,6 @@
-# Управление доступом в {{ mtr-name }}
+# Управление доступом в Managed Service for Trino
 
-В {{ mtr-name }} вы можете:
+В Managed Service for Trino вы можете:
 * [Получить информацию о существующих правилах доступа](access-control-get.md).
 * Назначить правила доступа для:
   * [всех объектов каталога](access-control-catalogs.md),

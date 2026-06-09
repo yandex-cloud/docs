@@ -5,7 +5,7 @@ Detaches the filesystem from the instance.
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:detachFilesystem
+POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:detachFilesystem
 ```
 
 ## Path parameters

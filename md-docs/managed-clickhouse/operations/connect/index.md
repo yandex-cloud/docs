@@ -1,13 +1,13 @@
-# Предварительная настройка для подключения к кластеру {{ CH }}
+# Предварительная настройка для подключения к кластеру ClickHouse®
 
-К хостам кластера {{ mch-short-name }} можно подключиться:
+К хостам кластера Managed Service for ClickHouse® можно подключиться:
 
 * Через интернет, если вы [настроили](../hosts.md#update) публичный доступ для нужного хоста. К таким хостам подключиться можно только используя SSL-соединение.
 
-* С виртуальных машин {{ yandex-cloud }}, расположенных в той же [облачной сети](../../../vpc/concepts/network.md). Если к хосту нет публичного доступа, для подключения с таких виртуальных машин необязательно использовать SSL-соединение.
+* С виртуальных машин Yandex Cloud, расположенных в той же [облачной сети](../../../vpc/concepts/network.md). Если к хосту нет публичного доступа, для подключения с таких виртуальных машин необязательно использовать SSL-соединение.
 
 
-К кластеру можно подключиться как с использованием шифрования — через порты `{{ port-mch-cli }}` для [clickhouse-client]({{ ch.docs }}{{ lang }}/interfaces/cli) и `{{ port-mch-http }}` для [HTTP-интерфейса]({{ ch.docs }}{{ lang }}/interfaces/http), так и без него — через порты `9000` и `8123` соответственно.
+К кластеру можно подключиться как с использованием шифрования — через порты `9440` для [clickhouse-client](https://clickhouse.com/docs/ru/interfaces/cli) и `8443` для [HTTP-интерфейса](https://clickhouse.com/docs/ru/interfaces/http), так и без него — через порты `9000` и `8123` соответственно.
 
 
 
@@ -23,27 +23,27 @@
 
   [Настройте все группы безопасности](../../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик с любых IP-адресов на порты 8443, 9440. Для этого создайте следующие правила для входящего трафика:
 
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `8443`, `9440`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+    * **Диапазон портов** — `8443`, `9440`.
+    * **Протокол** — `TCP`.
+    * **Источник** — `CIDR`.
+    * **CIDR блоки** — `0.0.0.0/0`.
 
   На каждый порт создается отдельное правило.
 
   {% note warning %}
 
-  Чтобы повысить безопасность кластера, укажите в поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** только доверенные IP-адреса или подсети.
+  Чтобы повысить безопасность кластера, укажите в поле **CIDR блоки** только доверенные IP-адреса или подсети.
 
   {% endnote %}
 
-- С ВМ в {{ yandex-cloud }} {#cloud}
+- С ВМ в Yandex Cloud {#cloud}
 
     1. [Настройте все группы безопасности](../../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик из группы безопасности, в которой находится ВМ, на порты 8123, 8443, 9000, 9440. Для этого создайте в этих группах следующие правила для входящего трафика:
 
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `8123` (или другой порт из перечисленных).
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — если кластер и ВМ находятся в одной и той же группе безопасности, выберите значение `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). В противном случае укажите группу безопасности ВМ.
+        * **Диапазон портов** — `8123` (или другой порт из перечисленных).
+        * **Протокол** — `TCP`.
+        * **Источник** — `Группа безопасности`.
+        * **Группа безопасности** — если кластер и ВМ находятся в одной и той же группе безопасности, выберите значение `Текущая` (`Self`). В противном случае укажите группу безопасности ВМ.
 
        На каждый порт создается отдельное правило.
 
@@ -52,18 +52,18 @@
        Пример правил для ВМ:
 
         * Для входящего трафика:
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `22`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+            * **Диапазон портов** — `22`.
+            * **Протокол** — `TCP`.
+            * **Источник** — `CIDR`.
+            * **CIDR блоки** — `0.0.0.0/0`.
 
           Это правило позволяет [подключаться](../../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по протоколу [SSH](../../../glossary/ssh-keygen.md).
 
         * Для исходящего трафика:
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+            * **Диапазон портов** — `0-65535`.
+            * **Протокол** — `Любой` (`Any`).
+            * **Назначение** — `CIDR`.
+            * **CIDR блоки** — `0.0.0.0/0`.
 
           Это правило разрешает любой исходящий трафик, что позволяет не только подключаться к кластеру, но и устанавливать на ВМ необходимые для этого сертификаты и утилиты.
 
@@ -89,41 +89,41 @@
 - Linux (Bash) {#linux}
 
    ```bash
-   sudo mkdir --parents {{ crt-local-dir }} && \
-   sudo wget "{{ crt-web-path-root }}" \
-        --output-document {{ crt-local-dir }}{{ crt-local-file-root }} && \
-   sudo wget "{{ crt-web-path-int }}" \
-        --output-document {{ crt-local-dir }}{{ crt-local-file-int }} && \
+   sudo mkdir --parents /usr/local/share/ca-certificates/Yandex/ && \
+   sudo wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
+        --output-document /usr/local/share/ca-certificates/Yandex/RootCA.crt && \
+   sudo wget "https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem" \
+        --output-document /usr/local/share/ca-certificates/Yandex/IntermediateCA.crt && \
    sudo chmod 655 \
-        {{ crt-local-dir }}{{ crt-local-file-root }} \
-        {{ crt-local-dir }}{{ crt-local-file-int }} && \
+        /usr/local/share/ca-certificates/Yandex/RootCA.crt \
+        /usr/local/share/ca-certificates/Yandex/IntermediateCA.crt && \
    sudo update-ca-certificates
    ```
 
    Сертификаты будут сохранены в файлах:
 
-   * `{{ crt-local-dir }}{{ crt-local-file-root }}`
-   * `{{ crt-local-dir }}{{ crt-local-file-int }}`
+   * `/usr/local/share/ca-certificates/Yandex/RootCA.crt`
+   * `/usr/local/share/ca-certificates/Yandex/IntermediateCA.crt`
 
 - macOS (Zsh) {#macos}
 
    ```bash
-   sudo mkdir -p {{ crt-local-dir }} && \
-   sudo wget "{{ crt-web-path-root }}" \
-        --output-document {{ crt-local-dir }}{{ crt-local-file-root }} && \
-   sudo wget "{{ crt-web-path-int }}" \
-        --output-document {{ crt-local-dir }}{{ crt-local-file-int }} && \
+   sudo mkdir -p /usr/local/share/ca-certificates/Yandex/ && \
+   sudo wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
+        --output-document /usr/local/share/ca-certificates/Yandex/RootCA.crt && \
+   sudo wget "https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem" \
+        --output-document /usr/local/share/ca-certificates/Yandex/IntermediateCA.crt && \
    sudo chmod 655 \
-        {{ crt-local-dir }}{{ crt-local-file-root }} \
-        {{ crt-local-dir }}{{ crt-local-file-int }} && \
-   security import {{ crt-local-dir }}{{ crt-local-file-root }} -k ~/Library/Keychains/login.keychain; \
-   security import {{ crt-local-dir }}{{ crt-local-file-int }} -k ~/Library/Keychains/login.keychain
+        /usr/local/share/ca-certificates/Yandex/RootCA.crt \
+        /usr/local/share/ca-certificates/Yandex/IntermediateCA.crt && \
+   security import /usr/local/share/ca-certificates/Yandex/RootCA.crt -k ~/Library/Keychains/login.keychain; \
+   security import /usr/local/share/ca-certificates/Yandex/IntermediateCA.crt -k ~/Library/Keychains/login.keychain
    ```
 
    Сертификаты будут сохранены в файлах:
 
-   * `{{ crt-local-dir }}{{ crt-local-file-root }}`
-   * `{{ crt-local-dir }}{{ crt-local-file-int }}`
+   * `/usr/local/share/ca-certificates/Yandex/RootCA.crt`
+   * `/usr/local/share/ca-certificates/Yandex/IntermediateCA.crt`
 
 - Windows (PowerShell) {#windows}
 
@@ -131,15 +131,15 @@
 
       ```powershell
       mkdir -Force $HOME\.yandex; `
-      curl.exe {{ crt-web-path-root }} `
-        --output $HOME\.yandex\{{ crt-local-file-root }}; `
-      curl.exe {{ crt-web-path-int }} `
-        --output $HOME\.yandex\{{ crt-local-file-int }}; `
+      curl.exe https://storage.yandexcloud.net/cloud-certs/RootCA.pem `
+        --output $HOME\.yandex\RootCA.crt; `
+      curl.exe https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem `
+        --output $HOME\.yandex\IntermediateCA.crt; `
       Import-Certificate `
-        -FilePath $HOME\.yandex\{{ crt-local-file-root }} `
+        -FilePath $HOME\.yandex\RootCA.crt `
         -CertStoreLocation cert:\CurrentUser\Root; `
       Import-Certificate `
-        -FilePath $HOME\.yandex\{{ crt-local-file-int }} `
+        -FilePath $HOME\.yandex\IntermediateCA.crt `
         -CertStoreLocation cert:\CurrentUser\Root
       ```
 
@@ -149,12 +149,12 @@
 
    Сертификаты будут сохранены в файлах:
 
-   * `$HOME\.yandex\{{ crt-local-file-root }}`
-   * `$HOME\.yandex\{{ crt-local-file-int }}`
+   * `$HOME\.yandex\RootCA.crt`
+   * `$HOME\.yandex\IntermediateCA.crt`
 
 {% endlist %}
 
-Для использования графических IDE [сохраните сертификат]({{ crt-web-path-root }}) в локальную папку и укажите путь к нему в настройках подключения.
+Для использования графических IDE [сохраните сертификат](https://storage.yandexcloud.net/cloud-certs/RootCA.pem) в локальную папку и укажите путь к нему в настройках подключения.
 
 ## Что дальше {#whats-next}
 
@@ -164,6 +164,6 @@
 
 ## См. также {#see-also}
 
-* [Подключение к {{ CH }} — вопросы и ответы](../../qa/connection.md)
+* [Подключение к ClickHouse® — вопросы и ответы](../../qa/connection.md)
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

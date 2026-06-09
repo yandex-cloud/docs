@@ -1,7 +1,7 @@
-# Аутентификация в API {{ sk-hybrid-name }}
+# Аутентификация в API SpeechKit Hybrid
 
-При работе с {{ sk-hybrid-name }} для выполнения операций через API аутентификация не требуется.
+При работе с SpeechKit Hybrid для выполнения операций через API аутентификация не требуется.
 
-Но при использовании [модели лицензирования Cloud Billing](pricing.md#billing) необходимо аутентифицироваться в облаке с помощью [API-ключа]({{ link-docs }}/iam/concepts/authorization/api-key).
+Но при использовании [модели лицензирования Cloud Billing](pricing.md#billing) необходимо аутентифицироваться в облаке с помощью [API-ключа](../iam/concepts/authorization/api-key.md).
 
-API {{ sk-hybrid-name }} совпадает с [API {{ speechkit-full-name }}]({{ link-docs-ai }}/speechkit/concepts/api).
+API SpeechKit Hybrid совпадает с [API Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru//speechkit/concepts/api).

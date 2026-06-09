@@ -1,14 +1,14 @@
 # Поля ресурса GrpcBackendGroup
 
-Ресурс `GrpcBackendGroup` позволяет объединять бэкенды — сервисы {{ k8s }}, между которыми распределяется gRPC-трафик, — в группу. По таким ресурсам [Ingress-контроллер {{ alb-name }}]({{ ingress-local-link }}/index.md) создает [группы бэкендов](../../application-load-balancer/concepts/backend-group.md).
+Ресурс `GrpcBackendGroup` позволяет объединять бэкенды — сервисы Kubernetes, между которыми распределяется gRPC-трафик, — в группу. По таким ресурсам [Ingress-контроллер Application Load Balancer](ingress-controller/index.md) создает [группы бэкендов](../../application-load-balancer/concepts/backend-group.md).
 
 {% note tip %}
 
-Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [{{ yandex-cloud }} Gwin]({{ gwin-tip-local-link }}).
+Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [Yandex Cloud Gwin](gwin-index.md).
 
 {% endnote %}
 
-Указание на `GrpcBackendGroup` нужно добавить в [ресурс `Ingress`]({{ configuration-local-link }}/ingress.md). Этот `Ingress` должен иметь аннотацию `ingress.alb.yc.io/protocol: grpc`.
+Указание на `GrpcBackendGroup` нужно добавить в [ресурс `Ingress`](ingress.md). Этот `Ingress` должен иметь аннотацию `ingress.alb.yc.io/protocol: grpc`.
 
 {% cut "Пример" %}
 
@@ -100,11 +100,11 @@ spec:
 
   * `name` (`string`, обязательное)
 
-    Имя ресурса. Подробнее о формате см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Подробнее о формате см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
   
-    Это имя нужно указать в поле `spec.rules.http.paths.backend.resource.name` ресурса `Ingress` (см. [конфигурацию]({{ configuration-local-link }}/ingress.md)).
+    Это имя нужно указать в поле `spec.rules.http.paths.backend.resource.name` ресурса `Ingress` (см. [конфигурацию](ingress.md)).
 
-    Не является именем группы бэкендов в {{ alb-name }}.
+    Не является именем группы бэкендов в Application Load Balancer.
 
 * `spec` (`GrpcBackendGroupSpec`)
 
@@ -128,25 +128,25 @@ spec:
 
     * `service` (`ServiceBackend`)
 
-      Указание на [сервис {{ k8s }}](../concepts/index.md#service), который должен обрабатывать запросы в качестве бэкенда.
+      Указание на [сервис Kubernetes](../concepts/index.md#service), который должен обрабатывать запросы в качестве бэкенда.
 
-      Ресурс `Service`, на который указывает это поле, должен быть описан по [принятой конфигурации]({{ configuration-local-link }}/service-for-ingress.md).
+      Ресурс `Service`, на который указывает это поле, должен быть описан по [принятой конфигурации](service-for-ingress.md).
 
       * `name` (`string`, обязательное)
       
-        Имя сервиса {{ k8s }}.
+        Имя сервиса Kubernetes.
       
       * `port` (`ServiceBackendPort`, обязательное)
       
         Порт сервиса, к которому будет обращаться `Ingress`.
       
-        Поле предназначено для работы Ingress-контроллера и не соответствует ни одному из полей ресурсов {{ alb-name }}.
+        Поле предназначено для работы Ingress-контроллера и не соответствует ни одному из полей ресурсов Application Load Balancer.
       
         * `name` (`string`)
       
           Имя порта сервиса.
       
-          Имя должно совпадать с одним из имен портов, указанных в полях `spec.ports.name` ресурса `Service`. Подробнее см. в [спецификации ресурса]({{ configuration-local-link2 }}/service-for-ingress.md).
+          Имя должно совпадать с одним из имен портов, указанных в полях `spec.ports.name` ресурса `Service`. Подробнее см. в [спецификации ресурса](service-for-ingress.md).
       
           Для порта сервиса должно быть указано либо имя, либо номер (`number`), но не оба одновременно.
       
@@ -154,7 +154,7 @@ spec:
       
           Номер порта сервиса.
       
-          Номер должен совпадать с одним из номеров портов, указанных в полях `spec.ports.port` ресурса `Service`. Подробнее см. в [спецификации ресурса]({{ configuration-local-link2 }}/service-for-ingress.md).
+          Номер должен совпадать с одним из номеров портов, указанных в полях `spec.ports.port` ресурса `Service`. Подробнее см. в [спецификации ресурса](service-for-ingress.md).
       
           Для порта сервиса должен быть указан либо номер, либо имя (`name`), но не оба одновременно.
         
@@ -174,11 +174,11 @@ spec:
 
     * `healthChecks` (`[]HealthChecks`)
 
-      Настройки пользовательских [проверок состояния](../../application-load-balancer/concepts/backend-group.md#health-checks) приложений в кластере {{ managed-k8s-name }}.
+      Настройки пользовательских [проверок состояния](../../application-load-balancer/concepts/backend-group.md#health-checks) приложений в кластере Managed Service for Kubernetes.
 
-      По умолчанию Ingress-контроллер {{ alb-name }} принимает от L7-балансировщика проверочные запросы на TCP-порт `10501` и проверяет работоспособность подов [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) на каждом узле кластера. Суть проверки состояния заключается в том, что когда kube-proxy работоспособен, то даже если приложение в конкретном поде не отвечает, {{ k8s }} перенаправит трафик в другой под с этим приложением или на другой узел.
+      По умолчанию Ingress-контроллер Application Load Balancer принимает от L7-балансировщика проверочные запросы на TCP-порт `10501` и проверяет работоспособность подов [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) на каждом узле кластера. Суть проверки состояния заключается в том, что когда kube-proxy работоспособен, то даже если приложение в конкретном поде не отвечает, Kubernetes перенаправит трафик в другой под с этим приложением или на другой узел.
       
-      С помощью параметров `healthChecks` вы можете [настроить собственные проверки состояния]({{ tutorial-local-link }}/custom-health-checks.md) приложений.
+      С помощью параметров `healthChecks` вы можете [настроить собственные проверки состояния](../tutorials/custom-health-checks.md) приложений.
 
       * `grpc` (`GrpcBackend`)
 
@@ -190,7 +190,7 @@ spec:
 
       * `port` (`int32`)
 
-        Порт на узлах кластера для проверки доступности приложения. Значение совпадает с портом, указанным в ресурсе [Service]({{ configuration-local-link }}/service-for-ingress.md) типа `NodePort`, в параметре `spec.ports.nodePort`.
+        Порт на узлах кластера для проверки доступности приложения. Значение совпадает с портом, указанным в ресурсе [Service](service-for-ingress.md) типа `NodePort`, в параметре `spec.ports.nodePort`.
 
         Приложение будет доступно для проверок состояния по адресу `http://<IP-адрес_узла>:<порт>/<путь>`.
 
@@ -214,6 +214,6 @@ spec:
 
       {% note info %}
       
-      Настроить проверки состояния приложения также можно с помощью аннотации [ingress.alb.yc.io/health-checks]({{ configuration-local-link2 }}/service-for-ingress.md#annot-health-checks) ресурса [Service]({{ configuration-local-link2 }}/service-for-ingress.md).
+      Настроить проверки состояния приложения также можно с помощью аннотации [ingress.alb.yc.io/health-checks](service-for-ingress.md#annot-health-checks) ресурса [Service](service-for-ingress.md).
       
       {% endnote %}

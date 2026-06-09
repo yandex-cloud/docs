@@ -1,10 +1,10 @@
-# Подключение к {{ mch-full-name }}
+# Подключение к Yandex Managed Service for ClickHouse®
 
-С помощью [направленного ациклического графа (DAG)](../concepts/index.md#about-the-service) можно настроить подключение к БД в кластере {{ mch-full-name }}. Данные для подключения к БД хранятся в {{ lockbox-name }} и автоматически подставляются в граф.
+С помощью [направленного ациклического графа (DAG)](../concepts/index.md#about-the-service) можно настроить подключение к БД в кластере Yandex Managed Service for ClickHouse®. Данные для подключения к БД хранятся в Yandex Lockbox и автоматически подставляются в граф.
 
 ## Перед началом работы {#before-begin}
 
-1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) с параметрами:
+1. [Создайте кластер Managed Service for ClickHouse®](../../managed-clickhouse/operations/cluster-create.md) с параметрами:
    * **Имя БД** — `default-bd`;
    * **Имя пользователя** — `admin`;
    * **Пароль** — `admin-password`.
@@ -15,36 +15,36 @@
 
    {% endnote %}
 
-1. [Создайте бакет](../../storage/operations/buckets/create.md) {{ objstorage-full-name }}, в котором будет храниться DAG-файл.
+1. [Создайте бакет](../../storage/operations/buckets/create.md) Yandex Object Storage, в котором будет храниться DAG-файл.
 
-1. [Настройте кластер {{ maf-name }}](cluster-update.md):
+1. [Настройте кластер Managed Service for Apache Airflow™](cluster-update.md):
 
-   1. Включите опцию **{{ ui-key.yacloud.airflow.field_lockbox }}**, которая позволяет использовать секреты в сервисе [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) для [хранения конфигурационных данных, переменных и параметров подключений](../concepts/impersonation.md#lockbox-integration) {{ AF }}.
-   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_dependencies }}** добавьте pip-пакет `airflow-clickhouse-plugin`.
-   1. В блоке **{{ ui-key.yacloud.airflow.section_storage }}** выберите созданный ранее бакет {{ objstorage-name }}. Из него будет загружен DAG-файл.
+   1. Включите опцию **Использовать Lockbox Secret Backend**, которая позволяет использовать секреты в сервисе [Yandex Lockbox](../../lockbox/concepts/index.md) для [хранения конфигурационных данных, переменных и параметров подключений](../concepts/impersonation.md#lockbox-integration) Apache Airflow™.
+   1. В блоке **Зависимости** добавьте pip-пакет `airflow-clickhouse-plugin`.
+   1. В блоке **Хранилище DAG-файлов** выберите созданный ранее бакет Object Storage. Из него будет загружен DAG-файл.
 
 1. Выдайте своему сервисному аккаунту [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
 
    {% note info %}
 
-   Роль `lockbox.payloadViewer` не обязательно выдавать на весь каталог. Достаточно [назначить ее на конкретный секрет {{ lockbox-name }}](../../lockbox/operations/secret-access.md) после [его создания](#create-lockbox-secret).
+   Роль `lockbox.payloadViewer` не обязательно выдавать на весь каталог. Достаточно [назначить ее на конкретный секрет Yandex Lockbox](../../lockbox/operations/secret-access.md) после [его создания](#create-lockbox-secret).
 
    {% endnote %}
 
-## Создайте секрет {{ lockbox-full-name }} {#create-lockbox-secret}
+## Создайте секрет Yandex Lockbox {#create-lockbox-secret}
 
-Для корректной работы кластера {{ AF }} секрет в {{ lockbox-name }} должен иметь имя в формате `airflow/<тип_артефакта>/<идентификатор_артефакта>`, где:
+Для корректной работы кластера Apache Airflow™ секрет в Yandex Lockbox должен иметь имя в формате `airflow/<тип_артефакта>/<идентификатор_артефакта>`, где:
    * `<тип_артефакта>` — определяет, какие данные будут храниться в секрете. Возможные значения:
      * `connections` — подключения;
      * `variables` — переменные;
      * `config` — данные конфигурации.
-   * `<идентификатор_артефакта>` — идентификатор, который будет использоваться для обращения к артефакту в {{ AF }}.
+   * `<идентификатор_артефакта>` — идентификатор, который будет использоваться для обращения к артефакту в Apache Airflow™.
 
-[Создайте секрет {{ lockbox-name }}](../../lockbox/operations/secret-create.md) с параметрами:
-   * **{{ ui-key.yacloud.common.name }}** — `airflow/connections/ch`.
-   * **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** — `Пользовательский`.
-   * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** — `conn`.
-   * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** — выберите **{{ ui-key.yacloud.lockbox.SecretVersionsInputs.value_payload-entry-value-type-text }}** и укажите следующее содержимое:
+[Создайте секрет Yandex Lockbox](../../lockbox/operations/secret-create.md) с параметрами:
+   * **Имя** — `airflow/connections/ch`.
+   * **Тип секрета** — `Пользовательский`.
+   * **Ключ** — `conn`.
+   * **Значение** — выберите **Текст** и укажите следующее содержимое:
 
       ```json
       {
@@ -60,9 +60,9 @@
       }
       ```
 
-Подробнее о том, как узнать FQDN хоста кластера {{ CH }}, читайте в разделе [{#T}](../../managed-clickhouse/operations/connect/fqdn.md).
+Подробнее о том, как узнать FQDN хоста кластера ClickHouse®, читайте в разделе [FQDN хостов ClickHouse®](../../managed-clickhouse/operations/connect/fqdn.md).
 
-В секрете будут сохранены данные для подключения к БД в кластере {{ mch-name }}.
+В секрете будут сохранены данные для подключения к БД в кластере Managed Service for ClickHouse®.
 
 ## Подготовьте DAG-файл и запустите граф {#dag}
 
@@ -89,7 +89,7 @@
    ```
 
 1. Загрузите DAG-файл `clickhouse.py` в созданный ранее бакет.
-1. [Откройте веб-интерфейс {{ AF }}](af-interfaces.md#web-gui).
+1. [Откройте веб-интерфейс Apache Airflow™](af-interfaces.md#web-gui).
 1. Убедитесь, что в разделе **Dags** появился новый граф `clickhouse`.
 
    Загрузка DAG-файла из бакета может занять несколько минут.
@@ -98,11 +98,11 @@
 
 ## Проверьте результат {#check-result}
 
-Чтобы проверить результат в веб-интерфейсе {{ AF }}:
+Чтобы проверить результат в веб-интерфейсе Apache Airflow™:
 
 {% list tabs group=instructions %}
    
-- Версия {{ AF }} ниже 3.0 {#version-2}
+- Версия Apache Airflow™ ниже 3.0 {#version-2}
 
   1. В разделе **DAGs** откройте граф `clickhouse`.
   1. Перейдите в раздел **Graph**.
@@ -110,7 +110,7 @@
   1. Перейдите в раздел **Logs**.
   1. Убедитесь, что в логах есть строка `query result: [(1,)]`. Это значит, что запрос выполнен успешно.
 
-- Версия {{ AF }} 3.0 и выше {#version-3}
+- Версия Apache Airflow™ 3.0 и выше {#version-3}
 
   1. В разделе **Dags** нажмите на граф `clickhouse`.
   1. Перейдите в раздел **Tasks**.
@@ -124,5 +124,5 @@
 
 ## Решение возможных проблем {#troubleshooting}
 
-* [{#T}](../qa/index.md#airflow-clickhouse-ssl)
-* [{#T}](../qa/index.md#airflow-clickhouse-plugin)
+* [Как исправить ошибку `SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED]`?](../qa/index.md#airflow-clickhouse-ssl)
+* [Как исправить ошибку `No module named 'airflow_clickhouse_plugin'`?](../qa/index.md#airflow-clickhouse-plugin)

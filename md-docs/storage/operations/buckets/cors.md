@@ -1,38 +1,38 @@
 # Настройка CORS
 
-{{ objstorage-name }} позволяет управлять [конфигурацией CORS](../../concepts/cors.md) в бакете.
+Object Storage позволяет управлять [конфигурацией CORS](../../concepts/cors.md) в бакете.
 
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Object Storage**.
   1. Выберите бакет, для которого хотите настроить CORS.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_cors }}**.
-  1. Нажмите **{{ ui-key.yacloud.storage.bucket.cors.button_action-edit }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **Безопасность**.
+  1. Выберите вкладку **CORS**.
+  1. Нажмите **Настроить**.
   1. Заполните открывшуюся форму. Вы можете добавлять, удалять и редактировать правила конфигурации.
      
      Чтобы создать правило:
      
      1. Заполните поля:
-        * **{{ ui-key.yacloud.storage.bucket.cors.field_description }}** — описание правила в произвольной форме.
-        * **{{ ui-key.yacloud.storage.bucket.cors.field_allowed-origins }}** — перечень доменов, разделенных запятыми. Каждый домен записывается в отдельное поле `AllowedOrigin` конфигурации CORS. Пример: `http://*.example.com, http://some.another.dom`.
-        * **{{ ui-key.yacloud.storage.bucket.cors.field_allowed-methods }}** — HTTP-методы, разрешенные в запросе к объекту, разделенные запятыми. Каждый метод записывается в отдельное поле `AllowedMethod` конфигурации CORS. Пример: `GET, PUT, HEAD, POST, DELETE`.
-        * **{{ ui-key.yacloud.storage.bucket.cors.field_allowed-headers }}** — разрешенные заголовки в запросе к объекту, разделенные запятыми. Каждый заголовок записывается в отдельное поле `AllowedHeader` конфигурации CORS. Пример: `X-Request-Id, X-Request-With`.
-        * **{{ ui-key.yacloud.storage.bucket.cors.field_expose-headers }}** — заголовки, разрешенные к показу в JavaScript-приложении в браузере, разделенные запятыми. Каждый заголовок записывается в отдельное поле `ExposeHeader` конфигурации CORS. Пример: `X-Amz-Request-Id`.
-        * **{{ ui-key.yacloud.storage.bucket.cors.field_max-age-seconds }}** — время в секундах, в течение которого браузер сохраняет в кеше результат запроса к объекту методом `OPTIONS`.
-     1. Нажмите **{{ ui-key.yacloud.storage.bucket.cors.button_save }}**.
+        * **Описание** — описание правила в произвольной форме.
+        * **Allowed Origins** — перечень доменов, разделенных запятыми. Каждый домен записывается в отдельное поле `AllowedOrigin` конфигурации CORS. Пример: `http://*.example.com, http://some.another.dom`.
+        * **Allowed Methods** — HTTP-методы, разрешенные в запросе к объекту, разделенные запятыми. Каждый метод записывается в отдельное поле `AllowedMethod` конфигурации CORS. Пример: `GET, PUT, HEAD, POST, DELETE`.
+        * **Allowed Headers** — разрешенные заголовки в запросе к объекту, разделенные запятыми. Каждый заголовок записывается в отдельное поле `AllowedHeader` конфигурации CORS. Пример: `X-Request-Id, X-Request-With`.
+        * **Expose Headers** — заголовки, разрешенные к показу в JavaScript-приложении в браузере, разделенные запятыми. Каждый заголовок записывается в отдельное поле `ExposeHeader` конфигурации CORS. Пример: `X-Amz-Request-Id`.
+        * **MaxAgeSeconds** — время в секундах, в течение которого браузер сохраняет в кеше результат запроса к объекту методом `OPTIONS`.
+     1. Нажмите **Сохранить**.
      
-     Вы можете добавить одновременно несколько правил. Чтобы добавить новое правило, нажмите **{{ ui-key.yacloud.storage.bucket.cors.label_add-cors-settings }}** и повторите предыдущие шаги.
+     Вы можете добавить одновременно несколько правил. Чтобы добавить новое правило, нажмите **Добавить правило** и повторите предыдущие шаги.
   
-     Подробное описание полей конфигурации смотрите в разделе [{#T}](../../s3/api-ref/cors/xml-config.md).
+     Подробное описание полей конфигурации смотрите в разделе [CORS-конфигурация бакетов](../../s3/api-ref/cors/xml-config.md).
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -126,27 +126,27 @@
      aws s3api put-bucket-cors \
        --bucket shared-bucket \
        --cors-configuration file://cors.json \
-       --endpoint-url=https://{{ s3-storage-host }}
+       --endpoint-url=https://storage.yandexcloud.net
      ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   {% note info %}
   
-  Если вы работаете с {{ objstorage-name }} через {{ TF }} от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
+  Если вы работаете с Object Storage через Terraform от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
   
   {% endnote %}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  Получите [статические ключи доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
+  Получите [статические ключи доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) — секретный ключ и идентификатор ключа, используемые для аутентификации в Object Storage.
 
   {% note info %}
   
-  Кроме статических ключей доступа для аутентификации в {{ objstorage-name }} можно использовать IAM-токен. Подробнее смотрите в разделе [{#T}](create.md) и в [документации провайдера]({{ tf-provider-resources-link }}/storage_object). 
+  Кроме статических ключей доступа для аутентификации в Object Storage можно использовать IAM-токен. Подробнее смотрите в разделе [Создание бакета](create.md) и в [документации провайдера](../../../terraform/resources/storage_object.md). 
   
   {% endnote %}
 
@@ -209,7 +209,7 @@
      * `max_age_seconds` — Время в секундах, в течение которого браузер сохраняет в кеше результат запроса к объекту. Необязательный параметр.
      * `server_side_encryption_configuration` — конфигурация шифрования бакета на стороне сервера. Необязательный параметр.
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
+     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform см. в [документации провайдера](../../../terraform/resources/storage_bucket.md).
 
   1. Примените изменения:
 
@@ -232,7 +232,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -241,7 +241,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Проверить изменения можно в [консоли управления]({{ link-console-main }}).
+     Проверить изменения можно в [консоли управления](https://console.yandex.cloud).
 
 - API {#api}
 

@@ -1,7 +1,7 @@
-# Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}
+# Поиск событий Yandex Cloud в Object Storage
 
 ## Перед началом работы {#before-you-begin}
-1. Установите и настройте программу [s3fs](../tools/s3fs.md) или [goofys](../tools/goofys.md), позволяющую монтировать бакеты {{ objstorage-name }} через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)).
+1. Установите и настройте программу [s3fs](../tools/s3fs.md) или [goofys](../tools/goofys.md), позволяющую монтировать бакеты Object Storage через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)).
 1. Смонтируйте бакет с аудитными логами к вашей файловой системе через [s3fs](../tools/s3fs.md#mounting-bucket) или [goofys](../tools/goofys.md#bucket-mounting).
 1. Установите утилиту [jq](https://stedolan.github.io/jq) для поиска по формату JSON.
 
@@ -12,13 +12,13 @@
     Пример команды для поиска событий по типу:
 
     ```bash
-    find <путь_к_папке> -type f -exec cat {} \; | jq  '.[] | select( .event_type == "{{ at-event-prefix }}.audit.iam.CreateServiceAccount")'
+    find <путь_к_папке> -type f -exec cat {} \; | jq  '.[] | select( .event_type == "yandex.cloud.audit.iam.CreateServiceAccount")'
     ```
 
 1. Чтобы найти, кто удалил [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) в облаке, необходимо искать по полю `eventType` (_тип события_) по всем файлам за период с фильтром по идентификатору каталога:
 
     ```bash
-    find <путь_к_папке> -type f -exec cat {} \; | jq  '.[] | select( .event_type == "{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder" and .details.folder_id == "<идентификатор_каталога>") | .authentication'
+    find <путь_к_папке> -type f -exec cat {} \; | jq  '.[] | select( .event_type == "yandex.cloud.audit.resourcemanager.DeleteFolder" and .details.folder_id == "<идентификатор_каталога>") | .authentication'
     ```
 
 1. Чтобы найти, кто создал/остановил/перезапустил/удалил [виртуальную машину](../../glossary/vm.md), необходимо искать по полю `eventType` по всем файлам за период с фильтром по идентификатору ВМ:

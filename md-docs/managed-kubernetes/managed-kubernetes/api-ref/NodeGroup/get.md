@@ -7,7 +7,7 @@ To get the list of available node group, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://mks.{{ api-host }}/managed-kubernetes/v1/nodeGroups/{nodeGroupId}
+GET https://mks.api.cloud.yandex.net/managed-kubernetes/v1/nodeGroups/{nodeGroupId}
 ```
 
 ## Path parameters

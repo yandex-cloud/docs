@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-9 июня 2026 года сервис перейдет на новый формат условий и имена полей в правилах профиля безопасности, WAF и ARL. Если вы используете API, CLI или {{ TF }}, обновите команды и конфигурации.
+9 июня 2026 года сервис перейдет на новый формат условий и имена полей в правилах профиля безопасности, WAF и ARL. Если вы используете API, CLI или Terraform, обновите команды и конфигурации.
 
 {% endnote %}
 
@@ -193,9 +193,9 @@ pire_regex_not_match = f.*
 
   Подробнее о командах в справочнике CLI: [security-profile create](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/create.md) и [security-profile update](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/update.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  В конфигурации {{ TF }} замените старые поля в блоках условий:
+  В конфигурации Terraform замените старые поля в блоках условий:
 
   ```hcl
   resource "yandex_sws_security_profile" "yandex-sws-security-profile" {
@@ -282,7 +282,7 @@ pire_regex_not_match = f.*
   }
   ```
   
-  Подробнее о параметрах ресурса `yandex_sws_security_profile` в [документации провайдера]({{ tf-provider-resources-link }}/sws_security_profile).
+  Подробнее о параметрах ресурса `yandex_sws_security_profile` в [документации провайдера](../../terraform/resources/sws_security_profile.md).
 
 - API {#api}
 
@@ -290,7 +290,7 @@ pire_regex_not_match = f.*
 
   ```bash
   curl -X POST \
-    '{{ api-host-sws }}/smartwebsecurity/v1/securityProfiles' \
+    'https://smartwebsecurity.api.cloud.yandex.net/smartwebsecurity/v1/securityProfiles' \
     -H "Authorization: Bearer $(yc iam create-token)" \
     -H 'Content-Type: application/json' \
     -d '{
@@ -333,7 +333,7 @@ pire_regex_not_match = f.*
 
   ```bash
   curl -X POST \
-    '{{ api-host-sws }}/smartwebsecurity/v1/securityProfiles' \
+    'https://smartwebsecurity.api.cloud.yandex.net/smartwebsecurity/v1/securityProfiles' \
     -H "Authorization: Bearer $(yc iam create-token)" \
     -H 'Content-Type: application/json' \
     -d '{
@@ -401,7 +401,7 @@ pire_regex_not_match = f.*
 
 #### См. также {#see-also}
 
-* [{#T}](profile-create.md)
-* [{#T}](profile-update.md)
-* [{#T}](rule-add.md)
-* [{#T}](rule-update.md)
+* [Создать профиль безопасности](profile-create.md)
+* [Изменить основные параметры профиля безопасности](profile-update.md)
+* [Добавить правило в профиль безопасности](rule-add.md)
+* [Изменить правило в профиле безопасности](rule-update.md)

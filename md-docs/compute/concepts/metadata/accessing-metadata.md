@@ -4,7 +4,7 @@
 
 ## Доступ к метаданным снаружи ВМ {#external-access}
 
-Извне доступ к метаданным виртуальных машин можно [получить](../../operations/vm-metadata/get-vm-metadata.md#external-access) с помощью инструментов {{ yandex-cloud }}: [консоли управления]({{ link-console-main }}), [CLI](../../../cli/cli-ref/compute/cli-ref/instance/get.md), [{{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md) и [API](../../api-ref/Instance/get.md). 
+Извне доступ к метаданным виртуальных машин можно [получить](../../operations/vm-metadata/get-vm-metadata.md#external-access) с помощью инструментов Yandex Cloud: [консоли управления](https://console.yandex.cloud), [CLI](../../../cli/cli-ref/compute/cli-ref/instance/get.md), [Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md) и [API](../../api-ref/Instance/get.md). 
 
 Этот способ предоставляет доступ ко [всем каталогам](directories.md) метаданных и некоторым ключам в них: 
 
@@ -46,8 +46,8 @@ latest
 #### См. также {#see-also}
 
 * [Получение метаданных виртуальной машины](../../operations/vm-metadata/get-vm-metadata.md)
-* [{#T}](../vm-metadata.md)
-* [{#T}](directories.md)
-* [{#T}](public-image-keys.md)
-* [{#T}](sending-metadata.md)
-* [{#T}](identity-document.md)
+* [Метаданные виртуальной машины](../vm-metadata.md)
+* [Каталоги метаданных](directories.md)
+* [Ключи, обрабатываемые в публичных образах Yandex Cloud](public-image-keys.md)
+* [Передача метаданных в виртуальные машины](sending-metadata.md)
+* [Идентификационный документ](identity-document.md)

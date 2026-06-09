@@ -1,6 +1,6 @@
 # Дисковая подсистема
 
-Дисковая подсистема {{ stackland-name }} обеспечивает динамическое выделение блочного хранилища для рабочих нагрузок Kubernetes.
+Дисковая подсистема Stackland обеспечивает динамическое выделение блочного хранилища для рабочих нагрузок Kubernetes.
 
 ## Архитектура {#architecture}
 
@@ -42,7 +42,7 @@
 
 ## Storage Classes {#storage-classes}
 
-{{ stackland-name }} автоматически создает четыре Storage Class, соответствующих типам дисков:
+Stackland автоматически создает четыре Storage Class, соответствующих типам дисков:
 
 * `stackland-nvme` — для NVMe-дисков.
 * `stackland-ssd` — для SSD-дисков.
@@ -156,7 +156,7 @@ spec:
 
 ### Алерты {#alerts}
 
-{{ stackland-name }} включает набор готовых алертов для дисковой подсистемы:
+Stackland включает набор готовых алертов для дисковой подсистемы:
 
 * `VolumeGroupSpaceCritical` (critical) — свободное место в Volume Group менее 10%.
 * `VolumeGroupSpaceLow` (warning) — свободное место в Volume Group менее 20%.
@@ -184,5 +184,5 @@ spec:
 
 Метрики дисковой подсистемы доступны в Grafana. Чтобы открыть дашборд:
 
-1. Перейдите по адресу `grafana.sys.{{ cluster-domain }}`.
+1. Перейдите по адресу `grafana.sys.<домен кластера>`.
 1. Откройте **Dashboards > stackland-monitoring > Storage**.

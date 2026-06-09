@@ -5,7 +5,7 @@ Deletes users from the specified federation.
 ## HTTP request
 
 ```
-POST https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/{federationId}:deleteUserAccounts
+POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/{federationId}:deleteUserAccounts
 ```
 
 ## Path parameters

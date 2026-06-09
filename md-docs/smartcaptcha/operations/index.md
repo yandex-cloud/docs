@@ -1,17 +1,17 @@
-# Пошаговые инструкции для {{ captcha-name }}
+# Пошаговые инструкции для SmartCaptcha
 
-* [{#T}](create-captcha.md)
-* [{#T}](delete-captcha.md)
-* [{#T}](get-keys.md)
-* [{#T}](advanced-method.md)
-* [{#T}](validate-captcha.md)
+* [Создать капчу](create-captcha.md)
+* [Удалить капчу](delete-captcha.md)
+* [Получить ключи капчи](get-keys.md)
+* [Добавить виджет SmartCaptcha](advanced-method.md)
+* [Проверить капчу](validate-captcha.md)
 
 ## Получение информации о капче {#get-info}
 
-* [{#T}](get-list.md)
-* [{#T}](get-info.md)
+* [Получить список капч](get-list.md)
+* [Получить информацию о капче](get-info.md)
 
 ## Получение дополнительной информации {#get-additional-info}
 
-* [{#T}](operation-logs.md)
-* [{#T}](api-migration.md)
+* [Посмотреть операции с ресурсами сервиса SmartCaptcha](operation-logs.md)
+* [Обновление формата условий в API, CLI и Terraform](api-migration.md)

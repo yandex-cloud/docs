@@ -1,12 +1,12 @@
-# Агент для сбора метрик {{ prometheus-name }}
+# Агент для сбора метрик Prometheus
 
-Чтобы передавать метрики из виртуальной машины в {{ managed-prometheus-name }}, надо установить агент для сбора метрик. Вы можете установить любой агент, который поддерживает передачу метрик, либо воспользоваться {{ unified-agent-short-name }} с возможностью передачи метрик {{ prometheus-name }}. 
+Чтобы передавать метрики из виртуальной машины в Yandex Managed Service for Prometheus®, надо установить агент для сбора метрик. Вы можете установить любой агент, который поддерживает передачу метрик, либо воспользоваться Unified Agent с возможностью передачи метрик Prometheus. 
 
-В этом разделе описана установка агента при создании виртуальной машины. Другие способы установки см. в разделе [{#T}](../../../concepts/data-collection/unified-agent/installation.md).
+В этом разделе описана установка агента при создании виртуальной машины. Другие способы установки см. в разделе [Установка и обновление Yandex Unified Agent](../../../concepts/data-collection/unified-agent/installation.md).
 
 {% note info %}
 
-{{ unified-agent-short-name }} с версии 25.03.80 может собирать и передавать метрики {{ prometheus-name }}.
+Unified Agent с версии 25.03.80 может собирать и передавать метрики Prometheus.
 
 {% endnote %}
 
@@ -17,21 +17,21 @@
 
 ## Подготовка к установке {#before-you-begin}
 
-1. [Создайте сервисный аккаунт](../../../../iam/operations/sa/create.md) в каталоге, куда будут записываться метрики, и [назначьте ему роль](../../../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-monitoring-editor }}`.
+1. [Создайте сервисный аккаунт](../../../../iam/operations/sa/create.md) в каталоге, куда будут записываться метрики, и [назначьте ему роль](../../../../iam/operations/sa/assign-role-for-sa.md) `monitoring.editor`.
 
-1. Настройте авторизацию агента в {{ monitoring-full-name }} API. Для этого [привяжите созданный сервисный аккаунт](../../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине. В этом случае агент будет автоматически получать IAM-токен сервисного аккаунта из сервиса метаданных.
+1. Настройте авторизацию агента в Yandex Monitoring API. Для этого [привяжите созданный сервисный аккаунт](../../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине. В этом случае агент будет автоматически получать IAM-токен сервисного аккаунта из сервиса метаданных.
 
 ## Установка и настройка {#setup}
 
-Вы можете установить агент для сбора метрик при создании виртуальной машины в консоли управления, через CLI, API или {{ TF }}.
+Вы можете установить агент для сбора метрик при создании виртуальной машины в консоли управления, через CLI, API или Terraform.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
   
-  1. В [консоли управления]({{ link-console-main }}) начните [создавать ВМ](../../../../compute/operations/vm-create/create-linux-vm.md).
-  1. Раскройте блок **{{ ui-key.yacloud.compute.instances.create.section_additional }}** ⟶ **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}**.
-  1. Включите **{{ ui-key.yacloud.compute.instances.create.unified-agent }}** и выберите **{{ managed-prometheus-name }}**.
+  1. В [консоли управления](https://console.yandex.cloud) начните [создавать ВМ](../../../../compute/operations/vm-create/create-linux-vm.md).
+  1. Раскройте блок **Дополнительно** ⟶ **Мониторинг**.
+  1. Включите **Агент сбора метрик** и выберите **Yandex Managed Service for Prometheus®**.
   1. [Создайте](../index.md#access) или выберите уже существующий воркспейс.
   1. (Опционально) Укажите параметры поставки собственных метрик в формате JSON.
 
@@ -73,12 +73,12 @@
 
     
       ```text
-      #cloud-config\nruncmd:\n  - wget -O - https://monitoring.{{ api-host }}/monitoring/v2/unifiedAgent/config/install.sh | bash
+      #cloud-config\nruncmd:\n  - wget -O - https://monitoring.api.cloud.yandex.net/monitoring/v2/unifiedAgent/config/install.sh | bash
       ```
 
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   Для установки агента:
   
@@ -105,7 +105,7 @@
 
       
       ```text
-      #cloud-config\nruncmd:\n  - wget -O - https://monitoring.{{ api-host }}/monitoring/v2/unifiedAgent/config/install.sh | bash
+      #cloud-config\nruncmd:\n  - wget -O - https://monitoring.api.cloud.yandex.net/monitoring/v2/unifiedAgent/config/install.sh | bash
       ```
 
 
@@ -118,7 +118,7 @@
 
 У агента есть два файла конфигурации: `config.yml` и `prometheus.yml`.
 
-Файл `config.yml` находится по пути `/etc/yc/unified_agent/config.yml`. Когда агент устанавливается в режиме сбора метрик {{ prometheus-name }}, файл не содержит параметров сбора метрик.
+Файл `config.yml` находится по пути `/etc/yc/unified_agent/config.yml`. Когда агент устанавливается в режиме сбора метрик Prometheus, файл не содержит параметров сбора метрик.
 
 {% cut "Пример файла config.yml" %}
 
@@ -133,7 +133,7 @@ import:
 
 {% endcut %}
 
-Файл `prometheus.yml` находится по пути `/etc/yc/unified_agent/generated_conf.d/prometheus.yml`. В нем настроен сбор метрик в формате {{ prometheus-name }} по умолчанию. Если при установке агента вы указали свои параметры сбора метрик, они будут добавлены в этот файл.
+Файл `prometheus.yml` находится по пути `/etc/yc/unified_agent/generated_conf.d/prometheus.yml`. В нем настроен сбор метрик в формате Prometheus по умолчанию. Если при установке агента вы указали свои параметры сбора метрик, они будут добавлены в этот файл.
 
 {% cut "Пример файла prometheus.yml" %}
 
@@ -154,7 +154,7 @@ channels:
       output:
         plugin: metrics
         config:
-          url: "https://{{ api-host-monitoring-1 }}/prometheus/workspaces/workspace_id/api/v1/write"
+          url: "https://monitoring.api.cloud.yandex.net/prometheus/workspaces/workspace_id/api/v1/write"
           set_host_label: null
           iam:
             cloud_meta: { }
@@ -175,30 +175,30 @@ routes:
 {% endcut %}
 
 
-После разворачивания ВМ агент запустится автоматически и начнет отправлять метрики в {{ managed-prometheus-name }}.
+После разворачивания ВМ агент запустится автоматически и начнет отправлять метрики в Yandex Managed Service for Prometheus®.
 
 Отправка метрик [тарифицируется](../../../pricing.md).
 
 
 ## Обзор метрик виртуальной машины {#view-metrics}
 
-Чтобы посмотреть метрики, которые передаются через агента в {{ managed-prometheus-name }}:
+Чтобы посмотреть метрики, которые передаются через агента в Yandex Managed Service for Prometheus®:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится виртуальная машина.
-  1. Перейдите в сервис **{{ monitoring-short-name }}**.
-  1. Перейдите в раздел **{{ prometheus-name }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится виртуальная машина.
+  1. Перейдите в сервис **Monitoring**.
+  1. Перейдите в раздел **Prometheus**.
   1. Выберите воркспейс, в который записываются метрики виртуальной машины.
-  1. Откройте вкладку **Метрики** и введите **{{ ui-key.yacloud_monitoring.prometheus.query.label }}** для просмотра:
+  1. Откройте вкладку **Метрики** и введите **Запрос на языке PromQL** для просмотра:
      
      * Системных метрик Linux — `{job="linux_metrics", instance="<имя_ВМ>", __name__="<имя_метрики>"}`.
 
         Пример: `{job="linux_metrics", instance="my_vm", __name__="sys_cpu_CpuCores"}`.
 
-        Список метрик, которые передает агент {{ prometheus-name }}, см. в разделе [{#T}](../../../metrics-ref/unifiedagent-ref.md).
+        Список метрик, которые передает агент Prometheus, см. в разделе [Метрики Yandex Unified Agent](../../../metrics-ref/unifiedagent-ref.md).
      
      * Пользовательских метрик, если их передача была настроена на агенте, — `{job="имя_набора_метрик", instance="<имя_ВМ>:<порт>", __name__="<имя_метрики>"}`.
 
@@ -208,6 +208,6 @@ routes:
          * `name` — имя метрики, которую передает ваше приложение.
 
          Пример: `{job="web_server", instance="my_server:9100", __name__="http_requests_total"}`.
-  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.prometheus.query.action_execute }}**.
+  1. Нажмите кнопку **Выполнить**.
 
 {% endlist %}

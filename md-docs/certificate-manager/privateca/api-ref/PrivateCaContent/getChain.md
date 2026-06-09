@@ -5,7 +5,7 @@ Returns the certificate chain for the specified certificate authority.
 ## HTTP request
 
 ```
-GET https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certificateAuthorities/{certificateAuthorityId}:getChain
+GET https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/certificateAuthorities/{certificateAuthorityId}:getChain
 ```
 
 ## Path parameters

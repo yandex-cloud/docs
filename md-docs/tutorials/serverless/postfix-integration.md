@@ -1,6 +1,6 @@
-# Настройка Postfix для отправки через {{ postbox-full-name }}
+# Настройка Postfix для отправки через Yandex Cloud Postbox
 
-В этом руководстве вы научитесь отправлять электронные письма через [{{ postbox-full-name }}](../../postbox/index.md) с использованием [Postfix](https://ru.wikipedia.org/wiki/Postfix) на виртуальной машине [{{ compute-full-name }}](../../compute/index.md).
+В этом руководстве вы научитесь отправлять электронные письма через [Yandex Cloud Postbox](../../postbox/index.md) с использованием [Postfix](https://ru.wikipedia.org/wiki/Postfix) на виртуальной машине [Yandex Compute Cloud](../../compute/index.md).
 
 Чтобы начать отправлять электронные письма:
 
@@ -15,11 +15,11 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -28,10 +28,10 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
-* плата за использование {{ postbox-full-name }} (см. [тарифы {{ postbox-name }}](../../postbox/pricing.md));
-* плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы создаете ресурсную запись в {{ dns-name }} (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
+* плата за постоянно запущенную ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
+* плата за использование Yandex Cloud Postbox (см. [тарифы Yandex Cloud Postbox](../../postbox/pricing.md));
+* плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы создаете ресурсную запись в Cloud DNS (см. [тарифы Cloud DNS](../../dns/pricing.md)).
 
 
 ### Подготовьте ресурсы {#infrastructure}
@@ -51,39 +51,39 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
-  1. Нажмите **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите образ [Ubuntu 24.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-24-04-lts).
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** настройте загрузочный [диск](../../compute/concepts/disk.md):
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
+  1. Нажмите **Создать виртуальную машину**.
+  1. В блоке **Образ загрузочного диска** выберите образ [Ubuntu 24.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-24-04-lts).
+  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+  1. В блоке **Диски и файловые хранилища** настройте загрузочный [диск](../../compute/concepts/disk.md):
 
-      * **{{ ui-key.yacloud.compute.disk-form.field_type }}** — `{{ ui-key.yacloud.compute.value_disk-type-network-hdd_cw9XD }}`.
-      * **{{ ui-key.yacloud.compute.disk-form.field_size }}** — `20 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      * **Тип** — `HDD`.
+      * **Размер** — `20 ГБ`.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** и укажите рекомендуемые параметры для сервера почты:
+  1. В блоке **Вычислительные ресурсы** перейдите на вкладку **Своя конфигурация** и укажите рекомендуемые параметры для сервера почты:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      * **Платформа** — `Intel Ice Lake`.
+      * **vCPU** — `2`.
+      * **Гарантированная доля vCPU** — `100%`.
+      * **RAM** — `2 ГБ`.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  1. В блоке **Сетевые настройки**:
 
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** укажите подсеть в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка.
+      * В поле **Подсеть** укажите подсеть в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка.
 
-          * У облачной сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
-          * Если сети нет, нажмите **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** и создайте ее:
+          * У облачной сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав **Создать подсеть**.
+          * Если сети нет, нажмите **Создать сеть** и создайте ее:
 
               * В открывшемся окне укажите имя сети и выберите каталог, в котором она будет создана.
-              * Нажмите **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
+              * Нажмите **Создать сеть**.
 
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить виртуальной машине случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+      * В поле **Публичный IP-адрес** выберите `Автоматически`, чтобы назначить виртуальной машине случайный внешний IP-адрес из пула Yandex Cloud, или выберите статический адрес из списка, если вы зарезервировали его заранее.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
+  1. В блоке **Доступ** выберите **SSH-ключ** и укажите данные для доступа к ВМ:
 
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, который будет создан на виртуальной машине, например `ubuntu`.
+      * В поле **Логин** введите имя пользователя, который будет создан на виртуальной машине, например `ubuntu`.
 
         {% note alert %}
 
@@ -91,25 +91,25 @@
 
         {% endnote %}
 
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+      * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
         
         Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+        1. Нажмите кнопку **Добавить ключ**.
         1. Задайте имя SSH-ключа.
         1. Выберите вариант:
         
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+            * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+        1. Нажмите кнопку **Добавить**.
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ.  Требования к имени:
+  1. В блоке **Общая информация** задайте имя ВМ.  Требования к имени:
 
       * длина — от 3 до 63 символов;
       * может содержать строчные буквы латинского алфавита, цифры и дефисы;
@@ -121,11 +121,11 @@
       
       {% endnote %}
 
-  1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. Нажмите **Создать ВМ**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -140,7 +140,7 @@
       ```bash
       yc compute instance create \
         --name postfix-server \
-        --zone {{ region-id }}-b \
+        --zone ru-central1-b \
         --platform-id standard-v3 \
         --cores 2 \
         --core-fraction 100 \
@@ -184,7 +184,7 @@
       folder_id: b1g681qpemb4********
       created_at: "2025-08-20T11:01:11Z"
       name: postfix-server
-      zone_id: {{ region-id }}-b
+      zone_id: ru-central1-b
       platform_id: standard-v3
       resources:
         memory: "2147483648"
@@ -255,7 +255,7 @@
 
     ```bash
     sudo postconf -e \
-    "relayhost = {{ postbox-host }}:587" \
+    "relayhost = postbox.cloud.yandex.net:587" \
     "smtp_sasl_auth_enable = yes" \
     "smtp_sasl_security_options = noanonymous" \
     "smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd" \
@@ -275,12 +275,12 @@
     1. Если такая строка есть, закомментируйте ее, добавив символ `#` в начало строки.
     1. Сохраните файл.
 
-1. Укажите учетные данные SMTP для {{ postbox-full-name }}:
+1. Укажите учетные данные SMTP для Yandex Cloud Postbox:
 
     1. Откройте (или создайте) файл `/etc/postfix/sasl_passwd` и добавьте в него строку:
 
         ```text
-        {{ postbox-host }}:587 SMTP_USERNAME:SMTP_PASSWORD
+        postbox.cloud.yandex.net:587 SMTP_USERNAME:SMTP_PASSWORD
         ```
 
     1. Аутентифицируйтесь:
@@ -311,7 +311,7 @@
               DATE = "20230926"
               SERVICE = "postbox"
               MESSAGE = "SendRawEmail"
-              REGION = "{{ region-id }}"
+              REGION = "ru-central1"
               TERMINAL = "aws4_request"
               VERSION = 0x04
 
@@ -412,9 +412,9 @@
 
     ```text
     From: <адрес_отправителя>
-    Subject: Test {{ postbox-full-name }} via Postfix
+    Subject: Test Yandex Cloud Postbox via Postfix
 
-    This is a test message sent via {{ postbox-full-name }} (SMTP, Postfix).
+    This is a test message sent via Yandex Cloud Postbox (SMTP, Postfix).
     .
     ```
 
@@ -427,7 +427,7 @@
 * После запуска команды `sendmail -f ... <адрес_получателя>` терминал перейдет в интерактивный режим ввода письма.
 * Сначала введите заголовки, по одному на строку. Минимум: `From:` и `Subject:`.
 
-    * Заголовок `From:` должен соответствовать домену, разрешенному в {{ postbox-full-name }}.
+    * Заголовок `From:` должен соответствовать домену, разрешенному в Yandex Cloud Postbox.
     * Заголовок `To:` можно добавить для наглядности, но он не обязателен — получатель уже задан в команде.
 
 * Вставьте пустую строку, чтобы отделить заголовки от тела письма.
@@ -451,7 +451,7 @@
     * Заголовки по RFC 2047 (пример для темы): `Subject: =?UTF-8?B?BASE64_ENCODED_SUBJECT?=`.
     * Тело письма через MIME с `charset=UTF-8` и `Content-Transfer-Encoding: quoted-printable` или `base64`.
 
-* Для адресов с международными доменами используйте [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) ([IDNA](https://ru.wikipedia.org/wiki/IDN)), например:
+* Для адресов с международными доменами используйте [Punycode](https://ru.wikipedia.org/wiki/Punycode) ([IDNA](https://ru.wikipedia.org/wiki/IDN)), например:
 
     ```bash
     sendmail -f user@xn--d1acpjx3f.xn--p1ai recipient@xn--e1afmkfd.xn--p1ai
@@ -469,7 +469,7 @@
 
     ```text
     From: <адрес_отправителя>
-    Subject: Test email via {{ postbox-full-name }}
+    Subject: Test email via Yandex Cloud Postbox
     MIME-Version: 1.0
     Content-Type: multipart/mixed; boundary="BOUNDARY-OUTER"
 
@@ -480,7 +480,7 @@
     Content-Type: text/plain; charset=UTF-8
     Content-Transfer-Encoding: quoted-printable
 
-    This is the plain text part sent via {{ postbox-full-name }} SMTP.
+    This is the plain text part sent via Yandex Cloud Postbox SMTP.
 
     --BOUNDARY-INNER
     Content-Type: text/html; charset=UTF-8
@@ -489,7 +489,7 @@
     <html>
       <body>
         <h1>Hello!</h1>
-        <p>This is the HTML part sent via {{ postbox-full-name }} SMTP.</p>
+        <p>This is the HTML part sent via Yandex Cloud Postbox SMTP.</p>
       </body>
     </html>
     --BOUNDARY-INNER--

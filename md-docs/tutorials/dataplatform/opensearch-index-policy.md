@@ -1,6 +1,6 @@
-# Настройка политики индексов в {{ mos-full-name }}
+# Настройка политики индексов в Yandex Managed Service for OpenSearch
 
-# Настройка политики индексов в {{ mos-full-name }}
+# Настройка политики индексов в Yandex Managed Service for OpenSearch
 
 
 С помощью [политик](../../managed-opensearch/concepts/index-policy.md) можно автоматически выполнять определенные операции с индексами. Например, чтобы повысить безопасность и доступность данных, вы можете установить политику, которая будет создавать новый индекс при выполнении хотя бы одного из условий:
@@ -19,8 +19,8 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mos-name }}: использование вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mos-name }}](../../managed-opensearch/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Кластер Managed Service for OpenSearch: использование вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы Managed Service for OpenSearch](../../managed-opensearch/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -31,19 +31,19 @@
 
     - Вручную {#manual}
 
-        1. [Создайте кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации с публичным доступом к любой группе хостов.
+        1. [Создайте кластер Managed Service for OpenSearch](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации с публичным доступом к любой группе хостов.
 
             {% note info %}
             
-            Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
+            Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
             
             {% endnote %}
 
-        1. Если вы используете группы безопасности в кластере, убедитесь, что они настроены правильно и допускают подключение к кластеру [{{ mos-name }}](../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
+        1. Если вы используете группы безопасности в кластере, убедитесь, что они настроены правильно и допускают подключение к кластеру [Managed Service for OpenSearch](../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
 
-    - С помощью {{ TF }} {#tf}
+    - С помощью Terraform {#tf}
 
-        1. Если у вас еще нет {{ TF }}, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
+        1. Если у вас еще нет Terraform, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
         1. [Получите данные для аутентификации](../infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
         1. [Настройте и инициализируйте провайдер](../infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
         1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -52,21 +52,21 @@
 
             * [сеть](../../vpc/concepts/network.md#network);
             * [подсеть](../../vpc/concepts/network.md#subnet);
-            * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру {{ mos-name }};
-            * кластер {{ mos-name }}.
+            * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру Managed Service for OpenSearch;
+            * кластер Managed Service for OpenSearch.
 
         1. Укажите в файле `opensearch-index-policy.tf` переменные:
 
-            * `version` — версия {{ OS }}.
-            * `admin_password` — пароль администратора {{ OS }}.
+            * `version` — версия OpenSearch.
+            * `admin_password` — пароль администратора OpenSearch.
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -88,7 +88,7 @@
                1. Подтвердите изменение ресурсов.
                1. Дождитесь завершения операции.
 
-            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
     {% endlist %}
 
@@ -100,7 +100,7 @@
     curl \
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
-        --request GET 'https://<FQDN_хоста_{{ OS }}_с_публичным_доступом>:{{ port-mos }}/'
+        --request GET 'https://<FQDN_хоста_OpenSearch_с_публичным_доступом>:9200/'
     ```
     
     FQDN хоста можно получить со [списком хостов в кластере](../../managed-opensearch/operations/host-groups.md#list-hosts).
@@ -109,7 +109,7 @@
     
     ```bash
     {
-      "name" : "....{{ dns-zone }}",
+      "name" : "....mdb.yandexcloud.net",
       "cluster_name" : "...",
       "cluster_uuid" : "...",
       "version" : {
@@ -129,7 +129,7 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request PUT 'https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/_plugins/_ism/policies/rollover_policy' \
+        --request PUT 'https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/_plugins/_ism/policies/rollover_policy' \
         --data '
             {
                 "policy": {
@@ -173,7 +173,7 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request PUT 'https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/_index_template/ism_rollover?pretty' \
+        --request PUT 'https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/_index_template/ism_rollover?pretty' \
         --data '
             {
                 "index_patterns": ["log*"],
@@ -194,7 +194,7 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request PUT 'https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/log-000001?pretty' \
+        --request PUT 'https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/log-000001?pretty' \
         --data '
             {
                 "aliases": {
@@ -212,7 +212,7 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request GET 'https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/_plugins/_ism/explain/log-000001?pretty'
+        --request GET 'https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/_plugins/_ism/explain/log-000001?pretty'
     ```
 
     В результатах будет выведено похожее сообщение:
@@ -240,7 +240,7 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request POST 'https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/log/_doc?pretty' \
+        --request POST 'https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/log/_doc?pretty' \
         --data '
             {
                 "num": "101",
@@ -256,7 +256,7 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request GET '<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/_cat/indices?pretty'
+        --request GET '<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/_cat/indices?pretty'
     ```
 
     5 минут — это время по умолчанию, через которое повторяется проверка условий политики.
@@ -288,15 +288,15 @@
 
 - Вручную {#manual}
 
-    [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
+    [Удалите кластер Managed Service for OpenSearch](../../managed-opensearch/operations/cluster-delete.md).
 
-- С помощью {{ TF }} {#tf}
+- С помощью Terraform {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     
         {% note warning %}
     
-        Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
     
         {% endnote %}
     
@@ -310,6 +310,6 @@
     
         1. Подтвердите удаление ресурсов и дождитесь завершения операции.
     
-        Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
 {% endlist %}

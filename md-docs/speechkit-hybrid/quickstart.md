@@ -1,39 +1,39 @@
-# Создание демонстрационного стенда {{ sk-hybrid-name }}
+# Создание демонстрационного стенда SpeechKit Hybrid
 
-{{ sk-hybrid-name }} предоставляет возможности сервиса {{ speechkit-full-name }} для [распознавания](stt/testing.md) и [синтеза](tts/testing.md) речи. Вы можете развернуть демонстрационный стенд {{ sk-hybrid-name }} с помощью сервисов {{ yandex-cloud }} через {{ TF }}. Так можно потестировать приложения распознавания и синтеза, размещаемые в [Docker-контейнерах]({{ link-blog }}/posts/2022/03/docker-containers).
+SpeechKit Hybrid предоставляет возможности сервиса Yandex SpeechKit для [распознавания](stt/testing.md) и [синтеза](tts/testing.md) речи. Вы можете развернуть демонстрационный стенд SpeechKit Hybrid с помощью сервисов Yandex Cloud через Terraform. Так можно потестировать приложения распознавания и синтеза, размещаемые в [Docker-контейнерах](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers).
 
 Работа по созданию демонстрационного стенда ведется на двух машинах:
 
 * Локальной. Ниже предполагается, что используется ОС Linux.
-* Виртуальной, соответствует [системным требованиям](system-requirements.md) {{ sk-hybrid-name }}. На этой ВМ запускаются Docker-контейнеры.
+* Виртуальной, соответствует [системным требованиям](system-requirements.md) SpeechKit Hybrid. На этой ВМ запускаются Docker-контейнеры.
 
-В демонстрационном стенде рассматривается модель лицензирования [Cloud Billing](pricing.md#billing), поэтому сведения о каждом запросе к сервису {{ sk-hybrid-name }} [отправляются](architecture.md) в сервис {{ billing-name }}.
+В демонстрационном стенде рассматривается модель лицензирования [Cloud Billing](pricing.md#billing), поэтому сведения о каждом запросе к сервису SpeechKit Hybrid [отправляются](architecture.md) в сервис Yandex Cloud Billing.
 
-Чтобы развернуть демонстрационный стенд {{ sk-hybrid-name }}:
+Чтобы развернуть демонстрационный стенд SpeechKit Hybrid:
 
-1. [Начните работу с {{ yandex-cloud }}](#get-started).
+1. [Начните работу с Yandex Cloud](#get-started).
 1. [Установите дополнительные зависимости](#prepare).
 1. [Подготовьте SSH-ключи](#ssh).
-1. [Добавьте переменные для конфигурации {{ TF }}](#variables).
-1. [Создайте инфраструктуру с помощью {{ TF }}](#create-infrastructure).
-1. [Организуйте постоянный канал связи с сервером {{ yandex-cloud }}](#communication-channel).
+1. [Добавьте переменные для конфигурации Terraform](#variables).
+1. [Создайте инфраструктуру с помощью Terraform](#create-infrastructure).
+1. [Организуйте постоянный канал связи с сервером Yandex Cloud](#communication-channel).
 1. [Проведите нагрузочное тестирование распознавания и синтеза речи](#stt-and-tts).
 
 В случае ошибок воспользуйтесь [инструкцией по отладке](quickstart-debugging.md).
 
-## Начните работу с {{ yandex-cloud }} {#get-started}
+## Начните работу с Yandex Cloud {#get-started}
 
-1. Зарегистрируйтесь в {{ yandex-cloud }}. Процесс регистрации различается для физических и юридических лиц:
+1. Зарегистрируйтесь в Yandex Cloud. Процесс регистрации различается для физических и юридических лиц:
 
-   * [регистрация физических лиц]({{ link-docs }}/getting-started/individuals/registration);
-   * [регистрация юридических лиц]({{ link-docs }}/getting-started/legal-entity/registration).
+   * [регистрация физических лиц](../getting-started/individuals/registration.md);
+   * [регистрация юридических лиц](../getting-started/legal-entity/registration.md).
 
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }}.
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud.
 1. Создайте каталог в консоли управления. В нем будут располагаться ваши ресурсы:
 
-   1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../_assets/console-icons/layout-side-content-left.svg) или ![image](../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](../resource-manager/concepts/resources-hierarchy.md#cloud).
+   1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../_assets/console-icons/layout-side-content-left.svg) или ![image](../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](../resource-manager/concepts/resources-hierarchy.md#cloud).
    1. Справа от названия облака нажмите ![image](../_assets/console-icons/ellipsis.svg).
-   1. Выберите ![image](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. Выберите ![image](../_assets/console-icons/plus.svg) **Создать каталог**.
    
       ![create-folder1](../_assets/resource-manager/create-folder-1.png)
    
@@ -44,41 +44,41 @@
        * первый символ — буква, последний — не дефис.
    
    1. (Опционально) Введите описание каталога.
-   1. Выберите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. Будет создана [сеть](../vpc/concepts/network.md#network) с подсетями в каждой зоне доступности. Также в этой сети будет создана [группа безопасности по умолчанию](../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
-   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
+   1. Выберите опцию **Создать сеть по умолчанию**. Будет создана [сеть](../vpc/concepts/network.md#network) с подсетями в каждой зоне доступности. Также в этой сети будет создана [группа безопасности по умолчанию](../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
+   1. Нажмите кнопку **Создать**.
    
       ![create-folder2](../_assets/resource-manager/create-folder-2.png)
 
-1. [Создайте сервисный аккаунт]({{ link-docs }}/iam/operations/sa/create) `sk-hybrid-example`.
+1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) `sk-hybrid-example`.
 
-   Сервисный аккаунт позволяет гибко настраивать права доступа. Подробнее о сервисном аккаунте читайте в разделе [Сервисные аккаунты]({{ link-docs }}/iam/concepts/users/service-accounts).
+   Сервисный аккаунт позволяет гибко настраивать права доступа. Подробнее о сервисном аккаунте читайте в разделе [Сервисные аккаунты](../iam/concepts/users/service-accounts.md).
 
-1. [Назначьте сервисному аккаунту роли]({{ link-docs }}/iam/operations/sa/assign-role-for-sa):
+1. [Назначьте сервисному аккаунту роли](../iam/operations/sa/assign-role-for-sa.md):
 
-   * `compute.editor` — чтобы создать ВМ {{ yandex-cloud }};
-   * `container-registry.images.puller` — чтобы работать с Docker-образами в реестре [{{ container-registry-full-name }}]({ link-docs }}/container-registry/);
-   * `iam.serviceAccounts.keyAdmin` — чтобы создать [API-ключ]({{ link-docs }}/iam/concepts/authorization/api-key) для аутентификации в {{ billing-name }}.
+   * `compute.editor` — чтобы создать ВМ Yandex Cloud;
+   * `container-registry.images.puller` — чтобы работать с Docker-образами в реестре [Yandex Container Registry]({ link-docs }}/container-registry/);
+   * `iam.serviceAccounts.keyAdmin` — чтобы создать [API-ключ](../iam/concepts/authorization/api-key.md) для аутентификации в Yandex Cloud Billing.
 
-1. [Создайте API-ключ]({{ link-docs }}/iam/operations/authentication/manage-api-keys#create-api-key).
+1. [Создайте API-ключ](../iam/operations/authentication/manage-api-keys.md#create-api-key).
 
    Сохраните идентификатор и секретную часть ключа. Их нельзя запросить позднее.
 
-1. [Создайте реестр]({{ link-docs }}/container-registry/operations/registry/registry-create) в {{ container-registry-name }}.
-1. [Сообщите команде {{ speechkit-name }}]({{ link-console-support }}) идентификатор реестра. В вашем реестре появятся необходимые контейнеры и образы.
+1. [Создайте реестр](../container-registry/operations/registry/registry-create.md) в Container Registry.
+1. [Сообщите команде SpeechKit](https://center.yandex.cloud/support) идентификатор реестра. В вашем реестре появятся необходимые контейнеры и образы.
 
 ## Установите дополнительные зависимости {#prepare}
 
 На локальной машине:
 
-1. [Установите интерфейс командной строки]({{ link-docs }}/cli/operations/install-cli) {{ yandex-cloud }} (CLI).
-1. [Аутентифицируйте свой сервисный аккаунт]({{ link-docs }}/cli/operations/authentication/service-account) через CLI.
-1. [Установите {{ TF }}]({{ link-docs }}/tutorials/infrastructure-management/terraform-quickstart#install-terraform).
+1. [Установите интерфейс командной строки](../cli/operations/install-cli.md) Yandex Cloud (CLI).
+1. [Аутентифицируйте свой сервисный аккаунт](../cli/operations/authentication/service-account.md) через CLI.
+1. [Установите Terraform](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-## Подготовьте репозиторий с конфигурацией {{ TF }} {#repository}
+## Подготовьте репозиторий с конфигурацией Terraform {#repository}
 
 На локальной машине:
 
-1. Склонируйте [репозиторий с конфигурацией {{ TF }}](https://github.com/yandex-cloud-examples/yc-speechkit-hybrid-deployment/), из которой будет развернута необходимая инфраструктура:
+1. Склонируйте [репозиторий с конфигурацией Terraform](https://github.com/yandex-cloud-examples/yc-speechkit-hybrid-deployment/), из которой будет развернута необходимая инфраструктура:
 
    ```bash
    git clone git@github.com:yandex-cloud-examples/yc-speechkit-hybrid-deployment.git
@@ -88,7 +88,7 @@
 
 ## Подготовьте SSH-ключи {#ssh}
 
-SSH-ключи понадобятся для аутентификации при подключении к ВМ {{ yandex-cloud }}. Чтобы подготовить их, выполните следующие действия на локальной машине:
+SSH-ключи понадобятся для аутентификации при подключении к ВМ Yandex Cloud. Чтобы подготовить их, выполните следующие действия на локальной машине:
 
 1. Если у вас нет пары из открытого и закрытого SSH-ключей, создайте ее:
 
@@ -109,13 +109,13 @@ SSH-ключи понадобятся для аутентификации при
    * `~/.ssh/<название_ключа>.pub` — файл с публичным SSH-ключом. Если вы создали ключ в предыдущем шаге, укажите `~/.ssh/speechkit_hybrid.pub`.
    * `./keys/ssh-user-id-rsa.pub` — символическая ссылка. Путь указан относительно текущей директории репозитория.
 
-## Добавьте переменные для конфигурации {{ TF }} {#variables}
+## Добавьте переменные для конфигурации Terraform {#variables}
 
-В директории репозитория `yc-speechkit-hybrid-deployment` располагается файл `terraform.tfvars.template`. Он представляет собой {{ TF }}-шаблон, по которому задаются переменные окружения. Эти переменные передаются CLI и {{ TF }} во время выполнения команд.
+В директории репозитория `yc-speechkit-hybrid-deployment` располагается файл `terraform.tfvars.template`. Он представляет собой Terraform-шаблон, по которому задаются переменные окружения. Эти переменные передаются CLI и Terraform во время выполнения команд.
 
-Чтобы задать переменные для конфигурации {{ TF }}, выполните следующие действия на локальной машине:
+Чтобы задать переменные для конфигурации Terraform, выполните следующие действия на локальной машине:
 
-1. Создайте копию {{ TF }}-шаблона в директории репозитория `yc-speechkit-hybrid-deployment`:
+1. Создайте копию Terraform-шаблона в директории репозитория `yc-speechkit-hybrid-deployment`:
 
    ```bash
    cp ./terraform.tfvars.template ./terraform.tfvars
@@ -123,39 +123,39 @@ SSH-ключи понадобятся для аутентификации при
 
 1. Укажите значения переменных в файле `terraform.tfvars`:
 
-   * `CR_REGISTRY_ID` — идентификатор реестра {{ container-registry-name }};
+   * `CR_REGISTRY_ID` — идентификатор реестра Container Registry;
    * `BILLING_STATIC_API_KEY` — секретная часть API-ключа.
 
 1. (Опционально) Добавьте переменную `NODES_GPU_INTERRUPTIBLE = false`.
 
-   Конфигурация {{ TF }} в репозитории предполагает создание [прерываемой ВМ]({{ link-docs }}/compute/concepts/preemptible-vm). Вы можете отключить возможность прерывания с помощью переменной `NODES_GPU_INTERRUPTIBLE`. Ее значение по умолчанию — `true`, оно прописано в файле `variables.tf` в репозитории `yc-speechkit-hybrid-deployment`.
+   Конфигурация Terraform в репозитории предполагает создание [прерываемой ВМ](../compute/concepts/preemptible-vm.md). Вы можете отключить возможность прерывания с помощью переменной `NODES_GPU_INTERRUPTIBLE`. Ее значение по умолчанию — `true`, оно прописано в файле `variables.tf` в репозитории `yc-speechkit-hybrid-deployment`.
 
-## Создайте инфраструктуру с помощью {{ TF }} {#create-infrastructure}
+## Создайте инфраструктуру с помощью Terraform {#create-infrastructure}
 
-Инфраструктура, необходимая для работы со {{ sk-hybrid-name }}, описана в файлах `networks.tf` и `node-deploy.tf` в репозитории `yc-speechkit-hybrid-deployment`. Файл `networks.tf` содержит конфигурацию сущностей:
+Инфраструктура, необходимая для работы со SpeechKit Hybrid, описана в файлах `networks.tf` и `node-deploy.tf` в репозитории `yc-speechkit-hybrid-deployment`. Файл `networks.tf` содержит конфигурацию сущностей:
 
 * сеть;
 * подсеть;
 * внутренняя зона DNS;
 * группа безопасности.
 
-Файл `node-deploy.tf` содержит конфигурацию ВМ и сервиса {{ sk-hybrid-name }}.
+Файл `node-deploy.tf` содержит конфигурацию ВМ и сервиса SpeechKit Hybrid.
 
-Подробнее о конфигурации сущностей читайте на сайте [{{ TF }}]({{ tf-provider-link }}) и в документации соответствующего сервиса {{ yandex-cloud }}.
+Подробнее о конфигурации сущностей читайте на сайте [Terraform](../terraform/index.md) и в документации соответствующего сервиса Yandex Cloud.
 
 Чтобы создать инфраструктуру, выполните следующие действия на локальной машине:
 
 {% list tabs group=instructions %}
 
-* {{ TF }} {#tf}
+* Terraform {#tf}
 
    1. В терминале перейдите в директорию репозитория `yc-speechkit-hybrid-deployment`.
-   1. [Получите данные для аутентификации]({{ link-docs }}/tutorials/infrastructure-management/terraform-quickstart#get-credentials) сервисного аккаунта `sk-hybrid-example`. Вы можете добавить данные в переменные окружения или указать эти данные в файле `main.tf`, в блоке `provider "yandex"`.
-   1. [Настройте и инициализируйте провайдеры {{ TF }}]({{ link-docs }}/tutorials/infrastructure-management/terraform-quickstart#configure-provider).
+   1. [Получите данные для аутентификации](../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) сервисного аккаунта `sk-hybrid-example`. Вы можете добавить данные в переменные окружения или указать эти данные в файле `main.tf`, в блоке `provider "yandex"`.
+   1. [Настройте и инициализируйте провайдеры Terraform](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
 
       В репозитории в качестве конфигурационного файла с настройками провайдеров используется файл `main.tf`, поэтому повторно создавать такой файл не нужно.
 
-   1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+   1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
       ```bash
       terraform validate
@@ -181,18 +181,18 @@ SSH-ключи понадобятся для аутентификации при
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
 {% endlist %}
 
-## Организуйте постоянный канал связи с сервером {{ yandex-cloud }} {#communication-channel}
+## Организуйте постоянный канал связи с сервером Yandex Cloud {#communication-channel}
 
-Для работы по модели лицензирования Cloud Billing обпеспечьте сетевую связность между узлом {{ billing-name }} `billing.datasphere.yandexcloud.net:443` и ВМ, на которой разворачивается сервис {{ sk-hybrid-name }}. Чтобы проверить доступность узла:
+Для работы по модели лицензирования Cloud Billing обпеспечьте сетевую связность между узлом Yandex Cloud Billing `billing.datasphere.yandexcloud.net:443` и ВМ, на которой разворачивается сервис SpeechKit Hybrid. Чтобы проверить доступность узла:
 
 1. На локальной машине получите публичный IP-адрес созданной ВМ:
 
    ```bash
-   {{ yc-compute-instance }} list
+   yc compute instance list
    ```
 
    Публичный адрес понадобится для подключения к ВМ.
@@ -203,14 +203,14 @@ SSH-ключи понадобятся для аутентификации при
    +-----------+-------------------------------+---------------+---------+-------------+--------------+
    |     ID    |              NAME             |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP  |
    +-----------+-------------------------------+---------------+---------+-------------+--------------+
-   | fhmjvr*** | sk-hybrid-compose-example-*** | {{ region-id }}-a | RUNNING | 158.160.*** | 192.168.***  |
+   | fhmjvr*** | sk-hybrid-compose-example-*** | ru-central1-a | RUNNING | 158.160.*** | 192.168.***  |
    | ...                                                                                              |
    +-----------+-------------------------------+---------------+---------+-------------+--------------+
    ```
 
    Публичный адрес указан в поле `EXTERNAL IP`.
 
-1. [Подключитесь к ВМ по SSH]({{ link-docs }}/compute/operations/vm-connect/ssh#vm-connect):
+1. [Подключитесь к ВМ по SSH](../compute/operations/vm-connect/ssh.md#vm-connect):
 
    ```bash
    ssh <имя_пользователя>@<публичный_IP-адрес_ВМ>
@@ -232,7 +232,7 @@ SSH-ключи понадобятся для аутентификации при
 
 ## Проведите нагрузочное тестирование распознавания и синтеза речи {#stt-and-tts}
 
-Чтобы оценить корректность и производительность тестовой инсталляции {{ sk-hybrid-name }}, используйте Docker-контейнеры с утилитой нагрузочного тестирования для распознавания и синтеза речи. Эти контейнеры описаны в файле `node-deploy.tf`, они были созданы вместе с [инфраструктурой](#create-infrastructure).
+Чтобы оценить корректность и производительность тестовой инсталляции SpeechKit Hybrid, используйте Docker-контейнеры с утилитой нагрузочного тестирования для распознавания и синтеза речи. Эти контейнеры описаны в файле `node-deploy.tf`, они были созданы вместе с [инфраструктурой](#create-infrastructure).
 
 Чтобы провести нагрузочное тестирование:
 
@@ -250,10 +250,10 @@ SSH-ключи понадобятся для аутентификации при
       --env ENVOY_HOST=<публичный_адрес_ВМ> \
       --env ENVOY_PORT=8080 \
       --env CONNECTIONS=40 \
-      {{ registry }}/<идентификатор_реестра>/release/tools/stt-tools:0.20
+      cr.yandex/<идентификатор_реестра>/release/tools/stt-tools:0.20
    ```
 
-   В команде укажите публичный IP-адрес ВМ и идентификатор созданного ранее реестра {{ container-registry-name }}.
+   В команде укажите публичный IP-адрес ВМ и идентификатор созданного ранее реестра Container Registry.
 
    Здесь:
 
@@ -269,10 +269,10 @@ SSH-ключи понадобятся для аутентификации при
       --env ENVOY_HOST=<публичный_адрес_ВМ> \
       --env ENVOY_TTS_PORT=9080 \
       --env RPS=20 \
-      {{ registry }}/<идентификатор_реестра>/release/tools/tts-tools:0.20
+      cr.yandex/<идентификатор_реестра>/release/tools/tts-tools:0.20
    ```
 
-   В команде укажите публичный IP-адрес ВМ и идентификатор созданного ранее реестра {{ container-registry-name }}.
+   В команде укажите публичный IP-адрес ВМ и идентификатор созданного ранее реестра Container Registry.
 
    Здесь:
 
@@ -288,7 +288,7 @@ SSH-ключи понадобятся для аутентификации при
 
    Пока в логах не появится строка `Load finished. Ready to serve requests on 0.0.0.0:17001`, сервисы распознавания и синтеза речи не будут отвечать на запросы. Ожидание может занять 2–10 минут.
 
-   Далее в логах появится сообщение о том, что компонент [Envoy](architecture.md) начал прослушивать порт `8080` для распознавания речи и порт `9080` для синтеза речи. Это означает, что сервис {{ sk-hybrid-name }} запущен и готов обслуживать клиентские запросы.
+   Далее в логах появится сообщение о том, что компонент [Envoy](architecture.md) начал прослушивать порт `8080` для распознавания речи и порт `9080` для синтеза речи. Это означает, что сервис SpeechKit Hybrid запущен и готов обслуживать клиентские запросы.
 
 1. (Опционально) Остановите нагрузочное тестирование.
 

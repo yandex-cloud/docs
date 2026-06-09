@@ -6,7 +6,7 @@ Rolling restart does restart of instances respecting all group policies.
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}:rollingRestart
+POST https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{instanceGroupId}:rollingRestart
 ```
 
 ## Path parameters

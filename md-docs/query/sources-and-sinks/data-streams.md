@@ -1,10 +1,10 @@
-# Чтение данных из {{ yds-name }} с помощью соединений в {{ yq-name }}
+# Чтение данных из Data Streams с помощью соединений в Query
 
-При работе с {{ yds-full-name }} с помощью соединений удобно выполнять прототипирование, первоначальную настройку подключений к данным.
+При работе с Yandex Data Streams с помощью соединений удобно выполнять прототипирование, первоначальную настройку подключений к данным.
 
-[{{ yds-full-name }}](../../data-streams/concepts/index.md) - это сервис, позволяющий передавать потоки данных сразу нескольким приложениям для обработки, при этом каждое приложение обрабатывает такие данные независимо от другого.
+[Yandex Data Streams](../../data-streams/concepts/index.md) - это сервис, позволяющий передавать потоки данных сразу нескольким приложениям для обработки, при этом каждое приложение обрабатывает такие данные независимо от другого.
 
-Пример чтения данных в формате `Json` из {{ yds-full-name }}.
+Пример чтения данных в формате `Json` из Yandex Data Streams.
 
 ```sql
 SELECT
@@ -28,22 +28,22 @@ LIMIT 10;
 
 ## Настройка соединения {#create_connection}
 
-Для чтения данных из {{ yds-full-name }} необходимо:
+Для чтения данных из Yandex Data Streams необходимо:
 
-1. [Перейти](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}** в раздел **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** и нажать кнопку **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
-1. В открывшемся окне в поле **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** указать название соединения с {{ yds-full-name }}.
-1. В выпадающем поле **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** выбрать `{{ ui-key.yql.yq-connection.action_datastreams }}`.
-1. В поле **{{ ui-key.yql.yq-connection-form.cloud.input-label }}** выберите расположение источника данных.
-1. В выпадающем поле **{{ ui-key.yql.yq-connection-form.database.input-label }}** выбрать базу данных {{ ydb-full-name }}, где ранее был создан поток {{ yds-full-name }}.
-1. В поле **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** выбрать сервисный аккаунт, который будет использоваться для чтения данных, или создать новый, выдав ему права [`yds.editor`](../../data-streams/security/index.md#yds-editor).
+1. [Перейти](../../console/operations/select-service.md#select-service) в сервис **Yandex Query** в раздел **Соединения** и нажать кнопку **Создать**.
+1. В открывшемся окне в поле **Имя** указать название соединения с Yandex Data Streams.
+1. В выпадающем поле **Тип** выбрать `Data Streams`.
+1. В поле **Облако и каталог** выберите расположение источника данных.
+1. В выпадающем поле **База данных** выбрать базу данных Yandex Managed Service for YDB, где ранее был создан поток Yandex Data Streams.
+1. В поле **Сервисный аккаунт** выбрать сервисный аккаунт, который будет использоваться для чтения данных, или создать новый, выдав ему права [`yds.editor`](../../data-streams/security/index.md#yds-editor).
 
    Чтобы использовать сервисный аккаунт, пользователю нужна [роль](../../iam/security/index.md#iam-serviceAccounts-user) `iam.serviceAccounts.user`.
 
-1. Создать соединение, нажав кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
+1. Создать соединение, нажав кнопку **Создать**.
 
 ## Модель данных
 
-Данные через {{ yds-full-name }} передаются в бинарном виде. Чтение данных выполняется с помощью SQL-выражений.
+Данные через Yandex Data Streams передаются в бинарном виде. Чтение данных выполняется с помощью SQL-выражений.
 
 ```sql
 SELECT 
@@ -63,12 +63,12 @@ WHERE <фильтр>;
 
 Где:
 
-- `<соединение>` — название соединения с потоком данных {{ yds-short-name }}, созданного в предыдущем пункте.
-- `<имя_потока>` — название потока данных в {{ yds-short-name }}.
+- `<соединение>` — название соединения с потоком данных Data Streams, созданного в предыдущем пункте.
+- `<имя_потока>` — название потока данных в Data Streams.
 
 ## Пример чтения данных
 
-Пример запроса для чтения данных из {{ yds-full-name }} и записи результатов в {{ yds-full-name }}.
+Пример запроса для чтения данных из Yandex Data Streams и записи результатов в Yandex Data Streams.
 
 ```sql
 $data = 
@@ -104,7 +104,7 @@ LIMIT 10;
 
 |Поле|Тип|Описание|
 |--|---|---|
-|`yds`| |Название соединения с {{ yds-full-name }}|
+|`yds`| |Название соединения с Yandex Data Streams|
 |`input_stream`| |Название потока-источника данных в SQL-запросе|
 |`host`|Строка|Строковый параметр запроса|
 |`raw`|Строка|Формат данных. На данный поддерживается только формат `raw` - сырые данные|

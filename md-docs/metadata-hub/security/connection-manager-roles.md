@@ -1,7 +1,7 @@
-# Сервисные роли для управления подключениями с помощью {{ connection-manager-full-name }}
+# Сервисные роли для управления подключениями с помощью Yandex Connection Manager
 
 
-С помощью сервисных ролей {{ connection-manager-full-name }} вы сможете просматривать несекретные данные подключений и управлять подключениями. Просматривать секретные данные подключений, такие как пароли доступа к БД, можно в сервисе [{{ lockbox-full-name }}](../../lockbox/index.md). Для этого дополнительно необходима [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
+С помощью сервисных ролей Yandex Connection Manager вы сможете просматривать несекретные данные подключений и управлять подключениями. Просматривать секретные данные подключений, такие как пароли доступа к БД, можно в сервисе [Yandex Lockbox](../../lockbox/index.md). Для этого дополнительно необходима [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
 
 ```mermaid
 flowchart BT
@@ -14,11 +14,11 @@ flowchart BT
 
 ### connection-manager.auditor {#connection-manager-auditor}
 
-Роль `connection-manager.auditor` позволяет просматривать несекретную информацию о [подключениях](../concepts/connection-manager.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним. Если роль выдана на облако, то она позволяет просматривать [квоты](../concepts/limits.md) сервиса {{ connection-manager-name }}.
+Роль `connection-manager.auditor` позволяет просматривать несекретную информацию о [подключениях](../concepts/connection-manager.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним. Если роль выдана на облако, то она позволяет просматривать [квоты](../concepts/limits.md) сервиса Connection Manager.
 
 ### connection-manager.viewer {#connection-manager-viewer}
 
-Роль `connection-manager.viewer` позволяет просматривать информацию о [подключениях](../concepts/connection-manager.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним, а также о [квотах](../concepts/limits.md) сервиса {{ connection-manager-name }}.
+Роль `connection-manager.viewer` позволяет просматривать информацию о [подключениях](../concepts/connection-manager.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним, а также о [квотах](../concepts/limits.md) сервиса Connection Manager.
 
 Включает разрешения, предоставляемые ролью `connection-manager.auditor`.
 
@@ -30,7 +30,7 @@ flowchart BT
 Пользователи с этой ролью могут:
 * создавать, использовать, изменять и удалять [подключения](../concepts/connection-manager.md);
 * просматривать информацию о подключениях и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
-* просматривать информацию о [квотах](../concepts/limits.md) сервиса {{ connection-manager-name }}.
+* просматривать информацию о [квотах](../concepts/limits.md) сервиса Connection Manager.
 
 Включает разрешения, предоставляемые ролью `connection-manager.viewer`.
 
@@ -41,13 +41,13 @@ flowchart BT
 Пользователи с этой ролью могут:
 * создавать, использовать, изменять и удалять [подключения](../concepts/connection-manager.md), а также управлять доступом к ним;
 * просматривать информацию о подключениях и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
-* просматривать информацию о [квотах](../concepts/limits.md) сервиса {{ connection-manager-name }}.
+* просматривать информацию о [квотах](../concepts/limits.md) сервиса Connection Manager.
 
 Включает разрешения, предоставляемые ролью `connection-manager.editor`.
 
 ### connection-manager.user {#connection-manager-user}
 
-Роль `connection-manager.user` позволяет использовать [подключения](../concepts/connection-manager.md) в ресурсах других сервисов облака, интегрированных с {{ connection-manager-name }}, например: в {{ data-transfer-name }}, {{ datalens-name }}, {{ websql-name }} и др.
+Роль `connection-manager.user` позволяет использовать [подключения](../concepts/connection-manager.md) в ресурсах других сервисов облака, интегрированных с Connection Manager, например: в Data Transfer, DataLens, WebSQL и др.
 
 
 ## Какие роли необходимы {#choosing-roles}

@@ -5,7 +5,7 @@ Starts prolongation of the specified server.
 ## HTTP request
 
 ```
-POST https://baremetal.{{ api-host }}/baremetal/v1alpha/servers/{serverId}:startProlongation
+POST https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers/{serverId}:startProlongation
 ```
 
 ## Path parameters

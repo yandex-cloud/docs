@@ -1,8 +1,8 @@
-# Создание образа продукта на базе Linux для загрузки в {{ marketplace-name }}
+# Создание образа продукта на базе Linux для загрузки в Cloud Marketplace
 
-Чтобы добавить в Marketplace продукт для {{ compute-full-name }}, нужно загрузить образ в {{ yandex-cloud }}. Продукты могут быть созданы на базе ОС Linux. Этот раздел поможет создать образ на базе ОС Linux.
+Чтобы добавить в Marketplace продукт для Yandex Compute Cloud, нужно загрузить образ в Yandex Cloud. Продукты могут быть созданы на базе ОС Linux. Этот раздел поможет создать образ на базе ОС Linux.
 
-Если вы хотите добавить продукт для {{ managed-k8s-full-name }}, воспользуйтесь [соответствующей инструкцией](kubernetes-product.md).
+Если вы хотите добавить продукт для Yandex Managed Service for Kubernetes, воспользуйтесь [соответствующей инструкцией](kubernetes-product.md).
 
 ## Создать образ {#create}
 
@@ -10,11 +10,11 @@
 
 Если у вас нет образа ВМ, создайте его:
 
-* [с помощью Packer](../../tutorials/infrastructure-management/packer-quickstart.md). Тогда образ автоматически загрузится в {{ compute-name }}.<br>Рекомендации по созданию образа:
-    * В качестве базового используйте образ из [публичного каталога](../../compute/operations/images-with-pre-installed-software/get-list.md) {{ yandex-cloud }}.
+* [с помощью Packer](../../tutorials/infrastructure-management/packer-quickstart.md). Тогда образ автоматически загрузится в Compute Cloud.<br>Рекомендации по созданию образа:
+    * В качестве базового используйте образ из [публичного каталога](../../compute/operations/images-with-pre-installed-software/get-list.md) Yandex Cloud.
     * Посмотрите [примеры packer-рецептов](https://github.com/yandex-cloud-examples/yc-marketplace-vm-image-packer/packer).
     * [Автоматизируйте](../../tutorials/infrastructure-management/jenkins.md) сборку образов с помощью Jenkins.
-* используя другие удобные для вас инструменты. Тогда вам потребуется самостоятельно [загрузить](../../compute/operations/image-create/upload.md) образ в {{ compute-name }}.
+* используя другие удобные для вас инструменты. Тогда вам потребуется самостоятельно [загрузить](../../compute/operations/image-create/upload.md) образ в Compute Cloud.
 
 Поддерживаемые форматы: `Qcow2`, `VMDK`, `RAW` и `VHD`.
 
@@ -39,7 +39,7 @@
 * Диск смонтирован по UUID, а не по имени.
 * Файловая система не зашифрована.
 
-Инструкции по настройке ОС для соответствия требованиям см. в разделе [{#T}](../../compute/operations/image-create/custom-image.md).
+Инструкции по настройке ОС для соответствия требованиям см. в разделе [Подготовить свой образ диска](../../compute/operations/image-create/custom-image.md).
 
 Чтобы образ можно было использовать для продукта в Marketplace, также выполните следующие действия:
 1. Очистите:

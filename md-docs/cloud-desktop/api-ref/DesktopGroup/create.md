@@ -5,7 +5,7 @@ Creates desktop group in the specified folder.
 ## HTTP request
 
 ```
-POST https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktopGroups
+POST https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/desktopGroups
 ```
 
 ## Body parameters {#yandex.cloud.clouddesktop.v1.api.CreateDesktopGroupRequest}

@@ -5,7 +5,7 @@ List subjects Refresh Tokens.
 ## HTTP request
 
 ```
-GET https://iam.{{ api-host }}/iam/v1/refreshTokens
+GET https://iam.api.cloud.yandex.net/iam/v1/refreshTokens
 ```
 
 ## Query parameters {#yandex.cloud.iam.v1.ListRefreshTokensRequest}

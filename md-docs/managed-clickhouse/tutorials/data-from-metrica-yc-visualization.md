@@ -6,64 +6,64 @@
 
 {% note info %}
 
-Для полноценной работы с необработанными данными Яндекс Метрики и поддержки всего набора аналитических функций {{ datalens-short-name }} рекомендуем использовать выгрузку данных в {{ CH }}, которая доступна в рамках пакета [{{ metrika-pro }}](https://yandex.ru/project/metrica/pro).
+Для полноценной работы с необработанными данными Яндекс Метрики и поддержки всего набора аналитических функций DataLens рекомендуем использовать выгрузку данных в ClickHouse®, которая доступна в рамках пакета [Метрика Про](https://yandex.ru/project/metrica/pro).
 
-Для пакета {{ metrika-pro }} доступна потоковая передача данных в реальном времени. Подробнее см. в [инструкции](https://yandex.ru/support/metrica/ru/pro/data-work).
+Для пакета Метрика Про доступна потоковая передача данных в реальном времени. Подробнее см. в [инструкции](https://yandex.ru/support/metrica/ru/pro/data-work).
 
 {% endnote %}
 
 
-В этом практическом руководстве вы научитесь строить воронки конверсий, проведете когортный анализ и посчитаете Retention пользовательской базы в {{ ml-platform-full-name }} и визуализируете данные в {{ datalens-full-name }}.
+В этом практическом руководстве вы научитесь строить воронки конверсий, проведете когортный анализ и посчитаете Retention пользовательской базы в Yandex DataSphere и визуализируете данные в Yandex DataLens.
 
 В качестве источника данных будут использованы данные из Яндекс Метрики.
 
-1. [Подключите {{ CH }} и {{ ml-platform-short-name }}](#ch-datasphere-connection):
-    1. [Подключите {{ CH }}](#ch-connection).
-    1. [Подключите {{ ml-platform-short-name }}](#datasphere-connection).
-    1. [Клонируйте репозиторий в {{ ml-platform-short-name }}](#clone-repo-to-datasphere).
-1. [Получите и загрузите данные в {{ CH }}](#get-download-data-in-ch):
+1. [Подключите ClickHouse® и DataSphere](#ch-datasphere-connection):
+    1. [Подключите ClickHouse®](#ch-connection).
+    1. [Подключите DataSphere](#datasphere-connection).
+    1. [Клонируйте репозиторий в DataSphere](#clone-repo-to-datasphere).
+1. [Получите и загрузите данные в ClickHouse®](#get-download-data-in-ch):
     1. [Яндекс Метрика. Создайте приложение и получите токен доступа](#create-metrica-app-token).
-    1. [{{ ml-platform-short-name }}. Выгрузите данные через Logs API Яндекс Метрики](#uploading-data-logs-api).
-    1. [{{ ml-platform-short-name }}. Выгрузите данные тестового счетчика через Яндекс Диск](#uploading-data-counter-from-disk).
-    1. [{{ CH }}. Получите адрес кластера](#getting-ch-cluster-host).
-    1. [{{ ml-platform-short-name }}. Загрузите данные в {{ CH }}](#uploading-data-counter-to-ch).
-1. [Подключите {{ datalens-short-name }} и создайте чарты](#datalens-connection-chart-creation):
-    1. [Подключитесь к {{ datalens-short-name }}](#datalens-connection).
-    1. [Создайте подключение к {{ CH }} в {{ datalens-short-name }}](#creation-datalens-connection-to-ch).
+    1. [DataSphere. Выгрузите данные через Logs API Яндекс Метрики](#uploading-data-logs-api).
+    1. [DataSphere. Выгрузите данные тестового счетчика через Яндекс Диск](#uploading-data-counter-from-disk).
+    1. [ClickHouse®. Получите адрес кластера](#getting-ch-cluster-host).
+    1. [DataSphere. Загрузите данные в ClickHouse®](#uploading-data-counter-to-ch).
+1. [Подключите DataLens и создайте чарты](#datalens-connection-chart-creation):
+    1. [Подключитесь к DataLens](#datalens-connection).
+    1. [Создайте подключение к ClickHouse® в DataLens](#creation-datalens-connection-to-ch).
     1. [Создайте датасет на базе подключения](#creating-dataset-based-on-connection).
     1. [Создайте чарт — диаграмма с областями](#creating-area-chart).
     1. [Создайте чарт — сводная таблица](#creating-pivot-table).
-1. [Создайте и настройте дашборд в {{ datalens-short-name }}](#creating-configuring-dashboard):
+1. [Создайте и настройте дашборд в DataLens](#creating-configuring-dashboard):
     1. [Создайте дашборд](#creating-dashboard).
     1. [Настройте дашборд](#configuring-dashboard).
 1. [Постройте воронки конверсий](#funnels):
-    1. [{{ ml-platform-short-name }}. Постройте воронки](#calculating-funnels-datasphere).
-    1. [{{ datalens-short-name }}. Воронки по браузерам. Создайте датасет](#calculating-browser-funnels-dataset).
-    1. [{{ datalens-short-name }}. Воронки по браузерам. Создайте чарт](#calculating-browser-funnels-chart).
-    1. [{{ datalens-short-name }}. Воронки по браузерам. Добавьте чарт на дашборд](#add-browser-funnels-chart-on-dashboard}).
-    1. [{{ datalens-short-name }}. Воронки по браузерам. Настройте дашборд](#setting-browser-funnels-chart-on-dashboard).
+    1. [DataSphere. Постройте воронки](#calculating-funnels-datasphere).
+    1. [DataLens. Воронки по браузерам. Создайте датасет](#calculating-browser-funnels-dataset).
+    1. [DataLens. Воронки по браузерам. Создайте чарт](#calculating-browser-funnels-chart).
+    1. [DataLens. Воронки по браузерам. Добавьте чарт на дашборд](#add-browser-funnels-chart-on-dashboard}).
+    1. [DataLens. Воронки по браузерам. Настройте дашборд](#setting-browser-funnels-chart-on-dashboard).
 1. [Проведите когортный анализ](#cohorts):
-    1. [{{ ml-platform-short-name }}. Проведите когортный анализ](#cohort-analysis).
-    1. [{{ datalens-short-name }}. Создайте датасет и чарт с визуализацией когорт](#creating-dataset-chart-with-cohort).
-    1. [{{ datalens-short-name }}. Настройте чарт с визуализацией когорт](#creating-chart-with-cohort).
-    1. [{{ datalens-short-name }}. Создайте чарт с ретеншеном](#creating-chart-with-retention).
-    1. [{{ datalens-short-name }}. Добавьте чарты на новую вкладку дашборда](#adding-charts-to-dashboard-tab).
-    1. [{{ datalens-short-name }}. Создайте чарты](#creating-chart).
-    1. [{{ datalens-short-name }}. Добавьте чарты на дашборд](#adding-chart-to-dashboard).
+    1. [DataSphere. Проведите когортный анализ](#cohort-analysis).
+    1. [DataLens. Создайте датасет и чарт с визуализацией когорт](#creating-dataset-chart-with-cohort).
+    1. [DataLens. Настройте чарт с визуализацией когорт](#creating-chart-with-cohort).
+    1. [DataLens. Создайте чарт с ретеншеном](#creating-chart-with-retention).
+    1. [DataLens. Добавьте чарты на новую вкладку дашборда](#adding-charts-to-dashboard-tab).
+    1. [DataLens. Создайте чарты](#creating-chart).
+    1. [DataLens. Добавьте чарты на дашборд](#adding-chart-to-dashboard).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Перед началом работы {#before-you-begin}
 
-Перед началом работы нужно зарегистрироваться в {{ yandex-cloud }}, настроить [сообщество](../../datasphere/concepts/community.md) и привязать к нему [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. [На главной странице {{ ml-platform-name }}]({{ link-datasphere-main }}) нажмите **Попробовать бесплатно** и выберите аккаунт для входа — Яндекс ID или рабочий аккаунт в федерации (SSO).
-1. Выберите [организацию {{ org-full-name }}](../../organization/index.md), в которой вы будете работать в {{ yandex-cloud }}.
+Перед началом работы нужно зарегистрироваться в Yandex Cloud, настроить [сообщество](../../datasphere/concepts/community.md) и привязать к нему [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. [На главной странице DataSphere](https://datasphere.yandex.cloud) нажмите **Попробовать бесплатно** и выберите аккаунт для входа — Яндекс ID или рабочий аккаунт в федерации (SSO).
+1. Выберите [организацию Yandex Identity Hub](../../organization/index.md), в которой вы будете работать в Yandex Cloud.
 1. [Создайте сообщество](../../datasphere/operations/community/create.md).
-1. [Привяжите платежный аккаунт](../../datasphere/operations/community/link-ba.md) к сообществу {{ ml-platform-name }}, в котором вы будете работать. Убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, создайте его в интерфейсе {{ ml-platform-name }}.
+1. [Привяжите платежный аккаунт](../../datasphere/operations/community/link-ba.md) к сообществу DataSphere, в котором вы будете работать. Убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, создайте его в интерфейсе DataSphere.
 
 {% note tip %}
 
-Чтобы {{ datalens-full-name }} и {{ ml-platform-full-name }} могли работать внутри сети {{ yandex-cloud }}, создавайте их экземпляры в рамках одной организации.
+Чтобы Yandex DataLens и Yandex DataSphere могли работать внутри сети Yandex Cloud, создавайте их экземпляры в рамках одной организации.
 
 {% endnote %}
 
@@ -71,20 +71,20 @@
 
 В стоимость развертывания инфраструктуры входят:
 
-* плата за вычислительные ресурсы кластера и объем хранилища (см. [тарифы {{ mch-name }}](../pricing.md));
-* плата за время вычислений (см. [тарифы {{ ml-platform-name }}](../../datasphere/pricing.md));
-* плата за исходящий трафик (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* плата за вычислительные ресурсы кластера и объем хранилища (см. [тарифы Managed Service for ClickHouse®](../pricing.md));
+* плата за время вычислений (см. [тарифы DataSphere](../../datasphere/pricing.md));
+* плата за исходящий трафик (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
-## 1. Подключите {{ CH }} и {{ ml-platform-short-name }} {#ch-datasphere-connection}
+## 1. Подключите ClickHouse® и DataSphere {#ch-datasphere-connection}
 
-### 1.1. Подключите {{ CH }} {#ch-connection}
+### 1.1. Подключите ClickHouse® {#ch-connection}
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог для создания кластера {{ CH }}.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-1. В открывшемся окне нажмите **{{ ui-key.yacloud.clickhouse.button_create-cluster }}**.
-1. Укажите настройки кластера {{ CH }}:
-   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** укажите произвольное имя кластера. 
-   1. В блоке **{{ ui-key.yacloud.mdb.forms.new_section_resource }}** выберите платформу `Intel Cascade Lake`, тип `burstable` и класс хоста `b2.medium`.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог для создания кластера ClickHouse®.
+1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+1. В открывшемся окне нажмите **Создать кластер ClickHouse**.
+1. Укажите настройки кластера ClickHouse®:
+   1. В блоке **Базовые параметры** укажите произвольное имя кластера. 
+   1. В блоке **Ресурсы** выберите платформу `Intel Cascade Lake`, тип `burstable` и класс хоста `b2.medium`.
    
       {% note warning %}
    
@@ -92,40 +92,40 @@
 
       {% endnote %}
 
-   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** оставьте значение `10 {{ ui-key.yacloud.mdb.forms.label_max-size-units }}`.
-   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите значок ![pencil](../../_assets/console-icons/pencil.svg). Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** и нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
-   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** выключите управление пользователями через SQL, укажите имя пользователя, пароль и имя БД, например `metrica_data`.
+   1. В блоке **Размер хранилища** оставьте значение `10 ГБ`.
+   1. В блоке **Хосты** нажмите значок ![pencil](../../_assets/console-icons/pencil.svg). Включите опцию **Публичный доступ** и нажмите кнопку **Сохранить**.
+   1. В блоке **Настройки СУБД** выключите управление пользователями через SQL, укажите имя пользователя, пароль и имя БД, например `metrica_data`.
  
-   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** включите опции:
-        * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**
+   1. В блоке **Сервисные настройки** включите опции:
+        * **Доступ из DataLens**
         * **Доступ из консоли управления**
-        * **{{ ui-key.yacloud.mdb.forms.additional-field-metrika }}**
-   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
+        * **Доступ из Метрики и AppMetrica**
+   1. Нажмите кнопку **Создать кластер**.
 
-### 1.2. Подключите {{ ml-platform-short-name }} {#datasphere-connection}
+### 1.2. Подключите DataSphere {#datasphere-connection}
 
-1. Откройте [главную страницу]({{ link-datasphere-main }}) {{ ml-platform-name }}.
-1. На панели слева выберите ![image](../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
+1. Откройте [главную страницу](https://datasphere.yandex.cloud) DataSphere.
+1. На панели слева выберите ![image](../../_assets/console-icons/circles-concentric.svg) **Сообщества**.
 1. Выберите сообщество, в котором вы хотите создать проект.
-1. На странице сообщества нажмите кнопку ![image](../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-datasphere.projects.create-project }}**.
+1. На странице сообщества нажмите кнопку ![image](../../_assets/console-icons/folder-plus.svg) **Создать проект**.
 1. В открывшемся окне укажите имя и (опционально) описание проекта. Требования к имени:
 
    * длина — от 3 до 63 символов;
    * может содержать строчные буквы латинского алфавита, цифры и дефисы;
    * первый символ — буква, последний — не дефис.
 
-1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
-1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}**.
+1. Нажмите кнопку **Создать**.
+1. Нажмите кнопку **Открыть проект в JupyterLab**.
 
-Перед вами среда разработки {{ jlab }}Lab, в которой вы будете работать дальше.
+Перед вами среда разработки JupyterLab, в которой вы будете работать дальше.
 
-### 1.3. Клонируйте репозиторий в {{ ml-platform-short-name }} {#clone-repo-to-datasphere}
+### 1.3. Клонируйте репозиторий в DataSphere {#clone-repo-to-datasphere}
 
 1. В меню **Git** выберите **Clone**.
 1. В открывшемся окне укажите **URI** репозитория `https://github.com/zhdanchik/yandex_metrika_cloud_case.git` и нажмите кнопку **CLONE**.
 1. Нажмите кнопку **OK**.
 
-## 2. Получите и загрузите данные в {{ CH }} {#get-download-data-in-ch}
+## 2. Получите и загрузите данные в ClickHouse® {#get-download-data-in-ch}
 
 Если у вас нет счетчика Метрики или в нем недостаточно данных, или вы гарантированно хотите пройти все шаги руководства и получить результат, перейдите к разделу [2.3](#uploading-data-counter-from-disk) (пропустите [2.1](#create-metrica-app-token) и [2.2](#uploading-data-logs-api)).
 
@@ -146,9 +146,9 @@
 1. Нажмите кнопку **Войти как**.
 1. Сохраните полученный токен доступа.
 
-### 2.2. {{ ml-platform-short-name }}. Выгрузите данные через Logs API Яндекс Метрики {#uploading-data-logs-api}
+### 2.2. DataSphere. Выгрузите данные через Logs API Яндекс Метрики {#uploading-data-logs-api}
 
-1. В проекте {{ ml-platform-short-name }} в корне рабочей директории создайте текстовый файл. Для этого нажмите **Text File** в рабочей области.
+1. В проекте DataSphere в корне рабочей директории создайте текстовый файл. Для этого нажмите **Text File** в рабочей области.
 1. Назовите файл `.yatoken.txt`, в содержимое файла вставьте полученный токен доступа. Сохраните изменения и закройте файл.
 1. Откройте папку **yandex_metrika_cloud_case** → ноутбук **1a. get_data_via_logs_api.ipynb**.
 1. Укажите идентификатор счетчика Метрики в качестве значения переменной `COUNTER_ID`. Узнать идентификатор счетчика можно в Метрике на странице [Мои счетчики](https://metrika.yandex.ru/list?).
@@ -165,7 +165,7 @@
 
 Если не получилось выгрузить данные из Logs API, то данные для демонстрационного счетчика можно [скачать через Яндекс Диск](#uploading-data-counter-from-disk). 
 
-### 2.3. {{ ml-platform-short-name }}. Выгрузите данные тестового счетчика через Яндекс Диск {#uploading-data-counter-from-disk}
+### 2.3. DataSphere. Выгрузите данные тестового счетчика через Яндекс Диск {#uploading-data-counter-from-disk}
 
 {% note info %}
 
@@ -176,37 +176,37 @@
 1. Откройте папку **yandex_metrika_cloud_case** → ноутбук **1b. get_data_via_yadisk.ipynb**.
 1. Выполните все шаги (ячейки с кодом) в ноутбуке **1b. get_data_via_yadisk.ipynb**.
 
-### 2.4. {{ CH }}. Получите адрес кластера {#getting-ch-cluster-host}
+### 2.4. ClickHouse®. Получите адрес кластера {#getting-ch-cluster-host}
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в уже созданный кластер {{ CH }}. Дождитесь, когда у кластера появится статус `Alive`. После этого откройте кластер, кликнув на сам кластер.
-1. Выберите из списка слева ![hosts](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-1. На вкладке **{{ ui-key.yacloud.mdb.cluster.hosts.switch_overview }}** скопируйте имя хоста. 
+1. В [консоли управления](https://console.yandex.cloud) перейдите в уже созданный кластер ClickHouse®. Дождитесь, когда у кластера появится статус `Alive`. После этого откройте кластер, кликнув на сам кластер.
+1. Выберите из списка слева ![hosts](../../_assets/console-icons/cube.svg) **Хосты**.
+1. На вкладке **Обзор** скопируйте имя хоста. 
 
-### 2.5. {{ ml-platform-short-name }}. Загрузите данные в {{ CH }} {#uploading-data-counter-to-ch}
+### 2.5. DataSphere. Загрузите данные в ClickHouse® {#uploading-data-counter-to-ch}
 
-1. Откройте папку **yandex_metrika_cloud_case** → ноутбук **2. upload_data_to_{{ CH }}.ipynb**:
+1. Откройте папку **yandex_metrika_cloud_case** → ноутбук **2. upload_data_to_ClickHouse®.ipynb**:
     1. Вставьте скопированное имя хоста в переменную `CH_HOST_NAME`.
-    1. В переменную `CH_USER` вставьте имя пользователя, которое вы задали при [создании кластера {{ CH }}](#ch-connection).
-    1. В переменную `CH_DB_NAME` вставьте имя БД, которое вы задали при [создании кластера {{ CH }}](#ch-connection).
+    1. В переменную `CH_USER` вставьте имя пользователя, которое вы задали при [создании кластера ClickHouse®](#ch-connection).
+    1. В переменную `CH_DB_NAME` вставьте имя БД, которое вы задали при [создании кластера ClickHouse®](#ch-connection).
 
 1. В корневой директории создайте новый текстовый файл с названием `.chpass.txt`.
-1. Запишите в файл `.chpass.txt` пароль заведенного пользователя, который вы задали при [создании кластера {{ CH }}](#ch-connection). Сохраните и закройте файл.
+1. Запишите в файл `.chpass.txt` пароль заведенного пользователя, который вы задали при [создании кластера ClickHouse®](#ch-connection). Сохраните и закройте файл.
 1. Выполните все шаги (ячейки с кодом) в ноутбуке.
 
-## 3. Подключите {{ datalens-short-name }} и создайте чарты {#datalens-connection-chart-creation}
+## 3. Подключите DataLens и создайте чарты {#datalens-connection-chart-creation}
 
-### 3.1. Подключитесь к {{ datalens-short-name }} {#datalens-connection}
+### 3.1. Подключитесь к DataLens {#datalens-connection}
 
-1. В [консоли управления]({{ link-console-main }}) откройте страницу созданного кластера {{ CH }}.
-1. В левой части окна выберите раздел ![datalens](../../_assets/console-icons/chart-column.svg) **{{ datalens-short-name }}**.
+1. В [консоли управления](https://console.yandex.cloud) откройте страницу созданного кластера ClickHouse®.
+1. В левой части окна выберите раздел ![datalens](../../_assets/console-icons/chart-column.svg) **DataLens**.
 1. Нажмите кнопку **Создать подключение**.
 
-### 3.2. Создайте подключение к {{ CH }} в {{ datalens-short-name }} {#creation-datalens-connection-to-ch}
+### 3.2. Создайте подключение к ClickHouse® в DataLens {#creation-datalens-connection-to-ch}
 
 1. Заполните настройки подключения:
 
-   1. Выберите кластер из выпадающего списка **Кластер** или создайте новый. Если нужный кластер в списке отсутствует, нажмите **Указать вручную** и укажите имя [кластера {{ CH }}](#ch-connection).
-   1. Выберите [хост {{ CH }}](#ch-connection) из выпадающего списка **Имя хоста**.
+   1. Выберите кластер из выпадающего списка **Кластер** или создайте новый. Если нужный кластер в списке отсутствует, нажмите **Указать вручную** и укажите имя [кластера ClickHouse®](#ch-connection).
+   1. Выберите [хост ClickHouse®](#ch-connection) из выпадающего списка **Имя хоста**.
    1. Выберите [имя пользователя](#ch-connection).
    1. Введите [пароль](#ch-connection) и нажмите **Проверить подключение**.
 
@@ -245,7 +245,7 @@
     * `Хиты` — в область **Сортировка**.
 1. Нажмите кнопку **Сохранить**.
 
-## 4. Создайте и настройте дашборд в {{ datalens-short-name }} {#creating-configuring-dashboard}
+## 4. Создайте и настройте дашборд в DataLens {#creating-configuring-dashboard}
 
 ### 4.1. Создайте дашборд {#creating-dashboard}
 
@@ -286,18 +286,18 @@
 
 ## 5. Постройте воронки конверсий {#funnels}
  
-### 5.1. {{ ml-platform-short-name }}. Постройте воронки {#calculating-funnels-datasphere}
+### 5.1. DataSphere. Постройте воронки {#calculating-funnels-datasphere}
 
-1. Откройте [главную страницу]({{ link-datasphere-main }}) {{ ml-platform-name }}.
+1. Откройте [главную страницу](https://datasphere.yandex.cloud) DataSphere.
 1. Откройте ноутбук **3. funnels.ipynb**. Укажите хост, пользователя и название БД.
 1. Выполните ячейки, оцените результаты анализа. 
-В {{ CH }} будет создана таблица `metrica_data.funnels_by_bro`, в которой будут посчитаны воронки по браузерам. 
+В ClickHouse® будет создана таблица `metrica_data.funnels_by_bro`, в которой будут посчитаны воронки по браузерам. 
 
-### 5.2. {{ datalens-short-name }}. Воронки по браузерам. Создайте датасет {#calculating-browser-funnels-dataset}
+### 5.2. DataLens. Воронки по браузерам. Создайте датасет {#calculating-browser-funnels-dataset}
 
-Создайте новый датасет на основе новой таблицы и подключения к {{ CH }}:
+Создайте новый датасет на основе новой таблицы и подключения к ClickHouse®:
 
-1. Откройте [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
+1. Откройте [главную страницу](https://datalens.ru/?skipPromo=true) DataLens.
 1. На панели слева нажмите ![image](../../_assets/console-icons/circles-intersection.svg) **Датасеты**.
 1. Нажмите кнопку **Создать датасет**.
 1. Перейдите в область **Подключения** и нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить**.
@@ -308,7 +308,7 @@
    1. Выберите значение **Сумма** в столбце **Агрегация** для полей `Шаг X` и нажмите кнопку **Сохранить**.
 1. Назовите датасет `ch_metrica_data_funnels_by_bro` и нажмите кнопку **Создать**.
 
-### 5.3. {{ datalens-short-name }}. Воронки по браузерам. Создайте чарт {#calculating-browser-funnels-chart}
+### 5.3. DataLens. Воронки по браузерам. Создайте чарт {#calculating-browser-funnels-chart}
 
 Создайте на основе датасета `ch_metrica_data_funnels_by_bro` чарт:
 
@@ -321,9 +321,9 @@
 1. Нажмите кнопку **Сохранить**.
 1. Укажите название чарта `ch_metrica_data_funnels_by_bro_table` и нажмите кнопку **Сохранить**.
 
-### 5.4. {{ datalens-short-name }}. Воронки по браузерам. Добавьте чарт на дашборд {#add-browser-funnels-chart-on-dashboard}
+### 5.4. DataLens. Воронки по браузерам. Добавьте чарт на дашборд {#add-browser-funnels-chart-on-dashboard}
 
-1. Перейдите на созданный дашборд (со страницы [дашбордов]({{ link-datalens-main }}/dashboards)).
+1. Перейдите на созданный дашборд (со страницы [дашбордов](https://datalens.ru/dashboards)).
 1. Добавьте новый чарт. В правом верхнем углу нажмите кнопку **Редактировать**:
     1. Нажмите **Добавить** ![save-button](../../_assets/console-icons/chevron-down.svg) → **Чарт**.
     1. Из выпадающего списка **Чарт** выберите чарт `ch_metrica_data_funnels_by_bro_table`.
@@ -331,7 +331,7 @@
 1. Расположите новый чарт справа от уже имеющихся двух. Растяните чарт так, чтобы он совпадал с остальными по вертикали и доходил справа до края страницы. 
 1. Нажмите кнопку **Сохранить**.
 
-### 5.5. {{ datalens-short-name }}. Воронки по браузерам. Настройте дашборд {#setting-browser-funnels-chart-on-dashboard}
+### 5.5. DataLens. Воронки по браузерам. Настройте дашборд {#setting-browser-funnels-chart-on-dashboard}
 
 Чтобы селектор влиял на новый чарт из другого датасета, настройте связи: 
 
@@ -346,18 +346,18 @@
 
 ## 6. Проведите когортный анализ {#cohorts}
 
-### 6.1. {{ ml-platform-short-name }}. Проведите когортный анализ {#cohort-analysis}
+### 6.1. DataSphere. Проведите когортный анализ {#cohort-analysis}
 
 1. Откройте ноутбук **4. cohorts.ipynb**. Укажите хост, пользователя и название БД.
 1. Выполните ячейки, оцените результаты анализа. 
  
-В {{ CH }} создастся таблица `metrica_data.retention_users` с данными, необходимыми для построения визуализации в {{ datalens-short-name }}. 
+В ClickHouse® создастся таблица `metrica_data.retention_users` с данными, необходимыми для построения визуализации в DataLens. 
 
-### 6.2. {{ datalens-short-name }}. Создайте датасет и чарт с визуализацией когорт {#creating-dataset-chart-with-cohort}
+### 6.2. DataLens. Создайте датасет и чарт с визуализацией когорт {#creating-dataset-chart-with-cohort}
 
-Создайте датасет на основе новой таблицы и подключения к {{ CH }}: 
+Создайте датасет на основе новой таблицы и подключения к ClickHouse®: 
 
-1. Откройте [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
+1. Откройте [главную страницу](https://datalens.ru/?skipPromo=true) DataLens.
 1. На панели слева нажмите ![image](../../_assets/console-icons/circles-intersection.svg) **Датасеты**.
 1. Нажмите кнопку **Создать датасет**.
 1. В области **Подключения** нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить**.
@@ -377,7 +377,7 @@
     1. Перетащите поле `min_date` в область **Строки**.
     1. Перетащите поле `Визиты` в область **Показатели**.
 
-### 6.3. {{ datalens-short-name }}. Настройте чарт с визуализацией когорт {#creating-chart-with-cohort}
+### 6.3. DataLens. Настройте чарт с визуализацией когорт {#creating-chart-with-cohort}
 
 Отфильтруйте неполные недели 29.06.2020 и 28.09.2020:
 
@@ -398,9 +398,9 @@
 1. Нажмите кнопку **Сохранить**.
 1. Назовите чарт `ch_metrica_data_users_visits_cohorts_abs` и нажмите **Сохранить**.
 
-### 6.4. {{ datalens-short-name }}. Создайте чарт с ретеншеном {#creating-chart-with-retention}
+### 6.4. DataLens. Создайте чарт с ретеншеном {#creating-chart-with-retention}
 
-Создайте чарт с ретеншеном на основе чарта `ch_metrica_data_users_visits_cohorts_abs`. Чарт можно открыть с дашборда или найти в [списке чартов]({{ link-datalens-main }}/widgets).
+Создайте чарт с ретеншеном на основе чарта `ch_metrica_data_users_visits_cohorts_abs`. Чарт можно открыть с дашборда или найти в [списке чартов](https://datalens.ru/widgets).
 
 1. В правом верхнем углу нажмите значок ![save-button](../../_assets/console-icons/chevron-down.svg) → **Сохранить как копию**.
 1. Укажите имя чарта `ch_metrica_data_users_visits_cohorts_rel` и нажмите кнопку **Сохранить**.
@@ -417,7 +417,7 @@
 1. Отредактируйте пороговые значения для цветов показателя. В секции **Цвета** нажмите значок ![gear](../../_assets/console-icons/gear.svg). В открывшемся окне включите опцию **Задать пороговые значения** и укажите пороговые значения `0,01`, `0,025` и `0,1` и нажмите кнопку **Применить**.
 1. Нажмите кнопку **Сохранить**.
 
-### 6.5. {{ datalens-short-name }}. Добавьте чарты на новую вкладку дашборда {#adding-charts-to-dashboard-tab}
+### 6.5. DataLens. Добавьте чарты на новую вкладку дашборда {#adding-charts-to-dashboard-tab}
 
 1. Нажмите кнопку ![dashboards](../../_assets/console-icons/layout-cells-large.svg) **Дашборды** на панели слева и откройте дашборд.
 1. Нажмите кнопку **Редактировать** → **Вкладки**.
@@ -434,9 +434,9 @@
 
 Вы получите чарт с двумя вкладками, между которыми можно переключаться.
 
-### 6.6. {{ datalens-short-name }}. Создайте чарты {#creating-chart}
+### 6.6. DataLens. Создайте чарты {#creating-chart}
 
-Создайте новый чарт на основе чарта `ch_metrica_data_users_visits_cohorts_abs`. Чарт можно открыть с дашборда или найти в [списке чартов]({{ link-datalens-main }}/widgets).
+Создайте новый чарт на основе чарта `ch_metrica_data_users_visits_cohorts_abs`. Чарт можно открыть с дашборда или найти в [списке чартов](https://datalens.ru/widgets).
 
 1. В правом верхнем углу нажмите значок ![image](../../_assets/console-icons/chevron-down.svg) → **Сохранить как копию**.
 1. Укажите имя чарта `ch_metrica_data_users_revenue_cohorts_abs` и нажмите кнопку **Сохранить**.
@@ -457,7 +457,7 @@
     1. Измените пороги градации цветов для нового поля на `0.01`, `0.2` и `0.3`.
 1. Сохраните чарт.
 
-### 6.7. {{ datalens-short-name }}. Добавьте чарты на дашборд {#adding-chart-to-dashboard}
+### 6.7. DataLens. Добавьте чарты на дашборд {#adding-chart-to-dashboard}
 
 Добавьте на дашборд чарты с визуализацией когорт:
 
@@ -475,4 +475,4 @@
 
 Чтобы перестать платить за созданные ресурсы, [удалите кластер](../operations/cluster-delete.md).
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

@@ -5,7 +5,7 @@ Updates the specified subcluster.
 ## HTTP request
 
 ```
-PATCH https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/subclusters/{subclusterId}
+PATCH https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}/subclusters/{subclusterId}
 ```
 
 ## Path parameters

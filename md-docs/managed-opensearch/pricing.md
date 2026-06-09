@@ -1,11 +1,11 @@
-# Правила тарификации для {{ mos-name }}
+# Правила тарификации для Managed Service for OpenSearch
 
-В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mos-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
+В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса Managed Service for OpenSearch, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
 
 {% note tip %}
 
 
-Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=85da325d39e8#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=85da325d39e8#calculator) на сайте Yandex Cloud или ознакомьтесь с тарифами в этом разделе.
 
 
 
@@ -31,15 +31,15 @@
 
 {% endnote %}
 
-## Из чего складывается стоимость использования {{ mos-short-name }} {#rules}
+## Из чего складывается стоимость использования Managed Service for OpenSearch {#rules}
 
-Расчет стоимости использования {{ mos-name }} учитывает:
+Расчет стоимости использования Managed Service for OpenSearch учитывает:
 
 * вычислительные ресурсы, выделенные хостам кластера (в том числе хостам с ролью `MANAGER`);
 
 * тип дисков и объем дискового пространства;
 
-* объем исходящего трафика из {{ yandex-cloud }} в интернет.
+* объем исходящего трафика из Yandex Cloud в интернет.
 
 Во всех расчетах 1 ГБ = 2<sup>30</sup> байт, 1 МБ = 2<sup>20</sup> байт.
 
@@ -49,7 +49,7 @@
 
 Вы можете выбрать класс хостов как для хостов с ролью `DATA`, так и для хостов с ролью `MANAGER` и `DASHBOARDS`.
 
-Стоимость начисляется за каждый час работы хоста. Минимальная единица тарификации — минута (например, стоимость 1,5 минут работы хоста равна стоимости 2 минут). Время, когда хост {{ OS }} не может выполнять свои основные функции, не тарифицируется.
+Стоимость начисляется за каждый час работы хоста. Минимальная единица тарификации — минута (например, стоимость 1,5 минут работы хоста равна стоимости 2 минут). Время, когда хост OpenSearch не может выполнять свои основные функции, не тарифицируется.
 
 ### Использование дискового пространства {#rules-storage}
 
@@ -73,39 +73,39 @@
 
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
-* **Хосты {{ OS }}**: 3 хоста класса `s3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM.
-* **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 ГБ на сетевых HDD-дисках.
+* **Хосты OpenSearch**: 3 хоста класса `s3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM.
+* **Хранилище**: 100 ГБ на сетевых HDD-дисках.
 
-Расчет стоимости для хостов {{ OS }}:
+Расчет стоимости для хостов OpenSearch:
 
 
 {% list tabs group=pricing %}
 
 - Расчет в рублях {#prices-rub}
 
-  > 3 × (2&nbsp;×&nbsp;{{ sku|RUB|mdb.cluster.opensearch.v3.cpu.c100|string }} + 8&nbsp;×&nbsp;{{ sku|RUB|mdb.cluster.opensearch.v3.ram|string }}) = {% calc [currency=RUB] 3 × (2 × {{ sku|RUB|mdb.cluster.opensearch.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.opensearch.v3.ram|number }}) %}
+  > 3 × (2&nbsp;×&nbsp;1,93 ₽ + 8&nbsp;×&nbsp;0,807 ₽) = {% calc [currency=RUB] 3 × (2 × 1.93 + 8 × 0.807) %}
   >
-  > Итого: {% calc [currency=RUB] 3 × (2 × {{ sku|RUB|mdb.cluster.opensearch.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.opensearch.v3.ram|number }}) %} — стоимость часа работы хостов {{ OS }}.
+  > Итого: {% calc [currency=RUB] 3 × (2 × 1.93 + 8 × 0.807) %} — стоимость часа работы хостов OpenSearch.
   
   Где:
-  * 3 — количество хостов {{ OS }}.
+  * 3 — количество хостов OpenSearch.
   * 2 — количество vCPU.
-  * {{ sku|RUB|mdb.cluster.opensearch.v3.cpu.c100|string }} — стоимость часа использования 100% vCPU.
-  * 8 — объем RAM одного хоста {{ OS }} (в гигабайтах).
-  * {{ sku|RUB|mdb.cluster.opensearch.v3.ram|string }} — стоимость часа использования 1 ГБ RAM на 100% vCPU.
+  * 1,93 ₽ — стоимость часа использования 100% vCPU.
+  * 8 — объем RAM одного хоста OpenSearch (в гигабайтах).
+  * 0,807 ₽ — стоимость часа использования 1 ГБ RAM на 100% vCPU.
 
 - Расчет в тенге {#prices-kzt}
 
-  > 3 × (2&nbsp;×&nbsp;{{ sku|KZT|mdb.cluster.opensearch.v3.cpu.c100|string }} + 8&nbsp;×&nbsp;{{ sku|KZT|mdb.cluster.opensearch.v3.ram|string }}) = {% calc [currency=KZT] 3 × (2 × {{ sku|KZT|mdb.cluster.opensearch.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.opensearch.v3.ram|number }}) %}
+  > 3 × (2&nbsp;×&nbsp;9,65 ₸ + 8&nbsp;×&nbsp;4,035 ₸) = {% calc [currency=KZT] 3 × (2 × 9.65 + 8 × 4.035) %}
   >
-  > Итого: {% calc [currency=KZT] 3 × (2 × {{ sku|KZT|mdb.cluster.opensearch.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.opensearch.v3.ram|number }}) %} — стоимость часа работы хостов {{ OS }}.
+  > Итого: {% calc [currency=KZT] 3 × (2 × 9.65 + 8 × 4.035) %} — стоимость часа работы хостов OpenSearch.
   
   Где:
-  * 3 — количество хостов {{ OS }}.
+  * 3 — количество хостов OpenSearch.
   * 2 — количество vCPU.
-  * {{ sku|KZT|mdb.cluster.opensearch.v3.cpu.c100|string }} — стоимость часа использования 100% vCPU.
-  * 8 — объем RAM одного хоста {{ OS }} (в гигабайтах).
-  * {{ sku|KZT|mdb.cluster.opensearch.v3.ram|string }} — стоимость часа использования 1 ГБ RAM на 100% vCPU.
+  * 9,65 ₸ — стоимость часа использования 100% vCPU.
+  * 8 — объем RAM одного хоста OpenSearch (в гигабайтах).
+  * 4,035 ₸ — стоимость часа использования 1 ГБ RAM на 100% vCPU.
 
 {% endlist %}
 
@@ -121,29 +121,29 @@
 
 - Расчет в рублях {#prices-rub}
 
-  > 720 × {% calc [currency=RUB] 3 × (2 × {{ sku|RUB|mdb.cluster.opensearch.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.opensearch.v3.ram|number }}) %} + 3 × (100&nbsp;×&nbsp;{{ sku|RUB|mdb.cluster.network-hdd.ch|month|string }}) = {% calc [currency=RUB] 720 × (3 × (2 × {{ sku|RUB|mdb.cluster.opensearch.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.opensearch.v3.ram|number }})) + 3 × (100 × {{ sku|RUB|mdb.cluster.network-hdd.ch|month|number }}) %}
+  > 720 × {% calc [currency=RUB] 3 × (2 × 1.93 + 8 × 0.807) %} + 3 × (100&nbsp;×&nbsp;3,744 ₽) = {% calc [currency=RUB] 720 × (3 × (2 × 1.93 + 8 × 0.807)) + 3 × (100 × 3.744) %}
   >
-  > Итого: {% calc [currency=RUB] 720 × (3 × (2 × {{ sku|RUB|mdb.cluster.opensearch.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.opensearch.v3.ram|number }})) + 3 × (100 × {{ sku|RUB|mdb.cluster.network-hdd.ch|month|number }}) %} — стоимость использования кластера в течение 30 дней.
+  > Итого: {% calc [currency=RUB] 720 × (3 × (2 × 1.93 + 8 × 0.807)) + 3 × (100 × 3.744) %} — стоимость использования кластера в течение 30 дней.
   
   Где:
   * 720 — количество часов в 30 днях.
-  * {% calc [currency=RUB] 3 × (2 × {{ sku|RUB|mdb.cluster.opensearch.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.opensearch.v3.ram|number }}) %} — стоимость часа работы хостов {{ OS }}.
-  * 3 — количество хостов {{ OS }}.
+  * {% calc [currency=RUB] 3 × (2 × 1.93 + 8 × 0.807) %} — стоимость часа работы хостов OpenSearch.
+  * 3 — количество хостов OpenSearch.
   * 100 — объем хранилища на сетевых HDD-дисках (в гигабайтах).
-  * {{ sku|RUB|mdb.cluster.network-hdd.ch|month|string }} — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
+  * 3,744 ₽ — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
 
 - Расчет в тенге {#prices-kzt}
 
-  > 720 × {% calc [currency=KZT] 3 × (2 × {{ sku|KZT|mdb.cluster.opensearch.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.opensearch.v3.ram|number }}) %} + 3 × (100&nbsp;×&nbsp;{{ sku|KZT|mdb.cluster.network-hdd.ch|month|string }}) = {% calc [currency=KZT] 720 × (3 × (2 × {{ sku|KZT|mdb.cluster.opensearch.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.opensearch.v3.ram|number }})) + 3 × (100 × {{ sku|KZT|mdb.cluster.network-hdd.ch|month|number }}) %}
+  > 720 × {% calc [currency=KZT] 3 × (2 × 9.65 + 8 × 4.035) %} + 3 × (100&nbsp;×&nbsp;18,72 ₸) = {% calc [currency=KZT] 720 × (3 × (2 × 9.65 + 8 × 4.035)) + 3 × (100 × 18.72) %}
   >
-  > Итого: {% calc [currency=KZT] 720 × (3 × (2 × {{ sku|KZT|mdb.cluster.opensearch.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.opensearch.v3.ram|number }})) + 3 × (100 × {{ sku|KZT|mdb.cluster.network-hdd.ch|month|number }}) %} — стоимость использования кластера в течение 30 дней.
+  > Итого: {% calc [currency=KZT] 720 × (3 × (2 × 9.65 + 8 × 4.035)) + 3 × (100 × 18.72) %} — стоимость использования кластера в течение 30 дней.
   
   Где:
   * 720 — количество часов в 30 днях.
-  * {% calc [currency=KZT] 3 × (2 × {{ sku|KZT|mdb.cluster.opensearch.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.opensearch.v3.ram|number }}) %} — стоимость часа работы хостов {{ OS }}.
-  * 3 — количество хостов {{ OS }}.
+  * {% calc [currency=KZT] 3 × (2 × 9.65 + 8 × 4.035) %} — стоимость часа работы хостов OpenSearch.
+  * 3 — количество хостов OpenSearch.
   * 100 — объем хранилища на сетевых HDD-дисках (в гигабайтах).
-  * {{ sku|KZT|mdb.cluster.network-hdd.ch|month|string }} — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
+  * 18,72 ₸ — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
 
 {% endlist %}
 
@@ -156,13 +156,13 @@
 
 Вы можете получить гарантированную скидку за потребление ресурсов сервиса, запланированное на 6 месяцев или 1 год вперед. Чтобы посмотреть ресурсы, для которых можно получить такую скидку:
 
-1. Перейдите в раздел [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}).
+1. Перейдите в раздел [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
 1. Нажмите на нужный платежный аккаунт.
-1. Выберите раздел ![image](../_assets/console-icons/lock.svg) **{{ ui-key.yacloud_billing.billing.account.switch_offers }}** в меню слева.
+1. Выберите раздел ![image](../_assets/console-icons/lock.svg) **Резервируемый объём** в меню слева.
 
-Механизм CVoS гарантирует скидку на потребление, но не гарантирует наличие заказанного объема ресурсов.  Подробнее о механизме работы CVoS читайте в [документации сервиса {{ billing-name }}](../billing/concepts/cvos.md).
+Механизм CVoS гарантирует скидку на потребление, но не гарантирует наличие заказанного объема ресурсов.  Подробнее о механизме работы CVoS читайте в [документации сервиса Yandex Cloud Billing](../billing/concepts/cvos.md).
 
-Сервис {{ mos-name }} предоставляет CVoS двух видов: на vCPU и RAM для хостов, которые вы планируете использовать в кластерах БД. В консоли управления вы можете увидеть потенциальную экономию для текущего потребления ресурсов при переводе их на схему CVoS, а также предварительно рассчитать месячные платежи для нужного количества ядер процессора и оперативной памяти.
+Сервис Managed Service for OpenSearch предоставляет CVoS двух видов: на vCPU и RAM для хостов, которые вы планируете использовать в кластерах БД. В консоли управления вы можете увидеть потенциальную экономию для текущего потребления ресурсов при переводе их на схему CVoS, а также предварительно рассчитать месячные платежи для нужного количества ядер процессора и оперативной памяти.
 
 {% note info %}
 
@@ -177,9 +177,9 @@
 
 {% note info %}
 
-Цены на ресурсы {{ yandex-cloud }} в разных регионах различаются. Подробнее о доступных регионах см. [{#T}](../overview/concepts/region.md).
+Цены на ресурсы Yandex Cloud в разных регионах различаются. Подробнее о доступных регионах см. [Регионы](../overview/concepts/region.md).
 
-Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [{#T}](../billing/quickstart/index.md).
+Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [Регистрация аккаунта в Yandex Cloud](../billing/quickstart/index.md).
 
 {% endnote %}
 
@@ -188,20 +188,51 @@
 
 {% note info %}
 
-Доступ к платформе **Intel Ice Lake (Compute Optimized)** предоставляется по запросу. Обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+Доступ к платформе **Intel Ice Lake (Compute Optimized)** предоставляется по запросу. Обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
 {% note info %}
 
-Доступ к хранилищу на локальных SSD-дисках при использовании стандартных хостов на платформе **Intel Ice Lake** предоставляется по запросу. Обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+Доступ к хранилищу на локальных SSD-дисках при использовании стандартных хостов на платформе **Intel Ice Lake** предоставляется по запросу. Обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
 
 
-| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
-| ------ | ---- | --------------- | ----------- | ------------ |
+| Услуга                                                                                                          | Цена      | Ед. тарификации | Действует с    | Действует до |
+| --------------------------------------------------------------------------------------------------------------- | --------- | --------------- | -------------- | ------------ |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4 HighFreq, 100% vCPU                    | 3,76 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4 HighFreq, RAM                          | 1,13 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU                             | 1,93 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU, CVoS на 1 год              | 1,51 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU, CVoS на 6 месяцев          | 1,64 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4, RAM                                   | 0,807 ₽   | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4, RAM, CVoS на 1 год                    | 0,6295 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4, RAM, CVoS на 6 месяцев                | 0,6859 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU                    | 1,93 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU, CVoS на 1 год     | 1,28 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Cascade Lake, 50% vCPU                     | 1,1244 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM                          | 0,807 ₽   | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM, CVoS на 1 год           | 0,535 ₽   | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM, CVoS на 6 месяцев       | 0,6859 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Cascade Lake. 100% vCPU, CVoS на 6 месяцев | 1,64 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake (Compute Optimized), 100% vCPU    | 3,1 ₽     | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake (Compute Optimized), RAM          | 0,93 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU                        | 1,93 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU, CVoS на 1 год         | 1,51 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU, CVoS на 6 месяцев     | 1,64 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake, 50% vCPU                         | 1,1244 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake, RAM                              | 0,807 ₽   | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake, RAM, CVoS на 1 год               | 0,6294 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake, RAM, CVoS на 6 месяцев           | 0,6859 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Публичный IP-адрес                                                              | 0,2766 ₽  | IP-адрес × час  | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Резервные копии сверх размера хранилища                                         | 0,00307 ₽ | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Сверхбыстрое сетевое хранилище с тремя репликами (SSD)                          | 0,0365 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Хранилище на локальных SSD-дисках                                               | 0,0198 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Хранилище на нереплицируемых SSD-дисках                                         | 0,0147 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Хранилище на сетевых HDD-дисках                                                 | 0,0052 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Хранилище на сетевых SSD-дисках                                                 | 0,0218 ₽  | ГБ × час        | 1 мая 2026     | —            |
 
 
 
@@ -209,12 +240,14 @@
 
 ### Исходящий трафик {#prices-traffic}
 
-При использовании сервиса оплачивается исходящий трафик из {{ yandex-cloud }} в интернет. Передача трафика между сервисами {{ yandex-cloud }} по внутренним адресам, как и входящий трафик из интернета, не тарифицируется.
+При использовании сервиса оплачивается исходящий трафик из Yandex Cloud в интернет. Передача трафика между сервисами Yandex Cloud по внутренним адресам, как и входящий трафик из интернета, не тарифицируется.
 
 Каждый месяц не тарифицируются первые 100 ГБ исходящего трафика.
 
 Минимальная единица тарификации — 1 МБ.
 
 
-| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
-| ------ | ---- | --------------- | ----------- | ------------ |
+| Услуга                                                    | Цена              | Ед. тарификации | Действует с | Действует до |
+| --------------------------------------------------------- | ----------------- | --------------- | ----------- | ------------ |
+| Исходящий трафик, от 0 до 100 единицы тарификации в месяц | Не тарифицируется | ГБ              | 1 мая 2026  | —            |
+| Исходящий трафик, от 100 единицы тарификации в месяц      | 1,42 ₽            | ГБ              | 1 мая 2026  | —            |

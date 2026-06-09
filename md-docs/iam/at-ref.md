@@ -1,11 +1,11 @@
-# Справочник аудитных логов {{ at-full-name }}
+# Справочник аудитных логов Yandex Audit Trails
 
-В {{ at-name }} для {{ iam-full-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
+В Audit Trails для Yandex Identity and Access Management поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
 
 Общий вид значения поля `event_type` (_тип события_):
 
 ```text
-{{ at-event-prefix }}.audit.iam.<имя_события>
+yandex.cloud.audit.iam.<имя_события>
 ```
 
 ## Справочник событий уровня конфигурации {#control-plane-events}
@@ -67,6 +67,6 @@
 `credential.RevokeRefreshTokenForSubject` | Отзыв refresh-токена у пользователя
 `credential.RevokeSsoSession` | Завершение SSO-сессии
 `mfa.VerifyUserCredential` | Подтверждение учетных данных пользователя в процессе проверки дополнительных [факторов MFA](../organization/concepts/mfa.md)
-`oslogin.CheckSshPolicy` | Проверка прав на подключение по SSH при доступе по {{ oslogin }}
-`oslogin.GenerateSshCertificate` | Генерация SSH-сертификата для доступа по {{ oslogin }}
+`oslogin.CheckSshPolicy` | Проверка прав на подключение по SSH при доступе по OS Login
+`oslogin.GenerateSshCertificate` | Генерация SSH-сертификата для доступа по OS Login
 `RevokeIamToken` | Отзыв IAM-токена

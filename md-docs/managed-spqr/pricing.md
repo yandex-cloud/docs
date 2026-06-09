@@ -1,8 +1,8 @@
-# Правила тарификации для {{ mspqr-name }}
+# Правила тарификации для Managed Service for Sharded PostgreSQL
 
 
 
-В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mspqr-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
+В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса Managed Service for Sharded PostgreSQL, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
 
 Цены на продукты сервиса также доступны в [Прайс-листе](https://yandex.cloud/ru/price-list).
 
@@ -22,9 +22,9 @@
 
 {% endnote %}
 
-## Из чего складывается стоимость использования {{ mspqr-name }} {#rules}
+## Из чего складывается стоимость использования Managed Service for Sharded PostgreSQL {#rules}
 
-Расчет стоимости использования {{ mspqr-name }} учитывает:
+Расчет стоимости использования Managed Service for Sharded PostgreSQL учитывает:
 
 * тип диска и размер хранилища;
 
@@ -32,7 +32,7 @@
 
 * настройки и количество резервных копий;
 
-* объем исходящего трафика из {{ yandex-cloud }} в интернет.
+* объем исходящего трафика из Yandex Cloud в интернет.
 
 Во всех расчетах 1 ГБ = 2<sup>30</sup> байт, 1 МБ = 2<sup>20</sup> байт.
 
@@ -51,7 +51,7 @@
     * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с тремя хостами и более:
 
         * для платформ Intel Broadwell и Intel Cascade Lake — с шагом 100 ГБ;
-        * для платформы Intel Ice Lake — с шагом {{ local-ssd-v3-step }}.
+        * для платформы Intel Ice Lake — с шагом 368 ГБ.
 
     * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров с тремя хостами и более, с шагом 93 ГБ.
 
@@ -65,7 +65,7 @@
 
     * Хранение резервных копий не тарифицируется, пока сумма размера БД и всех резервных копий остается меньше выбранного объема хранилища.
 
-    * При автоматическом резервном копировании {{ mspqr-name }} не создает новую копию, а сохраняет изменения БД по сравнению с предыдущей копией. Поэтому потребление хранилища автоматическими резервными копиями растет только пропорционально объему изменений.
+    * При автоматическом резервном копировании Managed Service for Sharded PostgreSQL не создает новую копию, а сохраняет изменения БД по сравнению с предыдущей копией. Поэтому потребление хранилища автоматическими резервными копиями растет только пропорционально объему изменений.
 
     * При добавлении хостов увеличивается общий размер хранилища кластера и, соответственно, бесплатный объем резервных копий.
 
@@ -75,13 +75,13 @@
 
 Вы можете получить гарантированную скидку за потребление ресурсов сервиса, запланированное на 6 месяцев или 1 год вперед. Чтобы посмотреть ресурсы, для которых можно получить такую скидку:
 
-1. Перейдите в раздел [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}).
+1. Перейдите в раздел [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
 1. Нажмите на нужный платежный аккаунт.
-1. Выберите раздел ![image](../_assets/console-icons/lock.svg) **{{ ui-key.yacloud_billing.billing.account.switch_offers }}** в меню слева.
+1. Выберите раздел ![image](../_assets/console-icons/lock.svg) **Резервируемый объём** в меню слева.
 
-Механизм CVoS гарантирует скидку на потребление, но не гарантирует наличие заказанного объема ресурсов.  Подробнее о механизме работы CVoS читайте в [документации сервиса {{ billing-name }}](../billing/concepts/cvos.md).
+Механизм CVoS гарантирует скидку на потребление, но не гарантирует наличие заказанного объема ресурсов.  Подробнее о механизме работы CVoS читайте в [документации сервиса Yandex Cloud Billing](../billing/concepts/cvos.md).
 
-Сервис {{ mspqr-name }} предоставляет CVoS двух видов: на vCPU и RAM для хостов, которые вы планируете использовать в кластерах БД. В консоли управления вы можете увидеть потенциальную экономию для текущего потребления ресурсов при переводе их на схему CVoS, а также предварительно рассчитать месячные платежи для нужного количества ядер процессора и оперативной памяти.
+Сервис Managed Service for Sharded PostgreSQL предоставляет CVoS двух видов: на vCPU и RAM для хостов, которые вы планируете использовать в кластерах БД. В консоли управления вы можете увидеть потенциальную экономию для текущего потребления ресурсов при переводе их на схему CVoS, а также предварительно рассчитать месячные платежи для нужного количества ядер процессора и оперативной памяти.
 
 {% note info %}
 
@@ -93,9 +93,9 @@
 
 {% note info %}
 
-Цены на ресурсы {{ yandex-cloud }} в разных регионах различаются. Подробнее о доступных регионах см. [{#T}](../overview/concepts/region.md).
+Цены на ресурсы Yandex Cloud в разных регионах различаются. Подробнее о доступных регионах см. [Регионы](../overview/concepts/region.md).
 
-Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [{#T}](../billing/quickstart/index.md).
+Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [Регистрация аккаунта в Yandex Cloud](../billing/quickstart/index.md).
 
 {% endnote %}
 
@@ -103,13 +103,13 @@
 
 {% note info %}
 
-Доступ к платформе **Intel Ice Lake (Compute Optimized)** предоставляется по запросу. Обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+Доступ к платформе **Intel Ice Lake (Compute Optimized)** предоставляется по запросу. Обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
 {% note info %}
 
-Доступ к хранилищу на локальных SSD-дисках при использовании стандартных хостов на платформе **Intel Ice Lake** предоставляется по запросу. Обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+Доступ к хранилищу на локальных SSD-дисках при использовании стандартных хостов на платформе **Intel Ice Lake** предоставляется по запросу. Обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
@@ -141,87 +141,87 @@
 
   | Услуга        | Цена за 1 час,<br>вкл. НДС                         | Ед. тарификации |
   |---------------|---------------------------------------------------:|----------------:|
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, AMD Zen 4 HighFreq, 100% vCPU | 3,65000000&nbsp;₽ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, AMD Zen 4 HighFreq, RAM | 0,71450000&nbsp;₽ | ГБ × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU | 1,87920000&nbsp;₽ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU, CVoS на 1 год | 1,46000000&nbsp;₽ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU, CVoS на 6 месяцев | 1,59000000&nbsp;₽ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, AMD Zen 4, RAM | 0,50720000&nbsp;₽ | ГБ × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, AMD Zen 4, RAM, CVoS на 1 год | 0,39570000&nbsp;₽ | ГБ × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, AMD Zen 4, RAM, CVoS на 6 месяцев | 0,43000000&nbsp;₽ | ГБ × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Broadwell, 5% vCPU | 1,08920000&nbsp;₽ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Broadwell, 100% vCPU | 2,35000000&nbsp;₽ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Broadwell, 20% vCPU | 1,08920000&nbsp;₽ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Broadwell, 50% vCPU | 1,08920000&nbsp;₽ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Broadwell, RAM | 0,53870000&nbsp;₽ | ГБ × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU | 2,08000000&nbsp;₽ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU, CVoS на 1 год | 1,62000000&nbsp;₽ | vCPU × час|
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU, CVoS на 6 месяцев | 1,77000000&nbsp;₽ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Cascade Lake, 20% vCPU | 1,08920000&nbsp;₽ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Cascade Lake, 5% vCPU | 1,08920000&nbsp;₽ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Cascade Lake, 50% vCPU| 1,08920000&nbsp;₽ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM | 0,56490000&nbsp;₽ | ГБ × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM, CVoS на 1 год | 0,44000000&nbsp;₽ | ГБ × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM, CVoS на 6 месяцев | 0,48000000&nbsp;₽ | ГБ × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Ice Lake (Compute Optimized), 100% vCPU | 3,00000000&nbsp;₽ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Ice Lake (Compute Optimized), RAM | 0,58790000&nbsp;₽ | ГБ × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU | 1,87920000&nbsp;₽ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU, CVoS на 1 год| 1,46000000&nbsp;₽ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU, CVoS на 6 месяцев| 1,59000000&nbsp;₽ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Ice Lake, 50% vCPU | 1,08920000&nbsp;₽ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Ice Lake, RAM  | 0,50720000&nbsp;₽ | ГБ × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Ice Lake, RAM, CVoS на 1 год | 0,39560000&nbsp;₽ | ГБ × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Ice Lake, RAM, CVoS на 6 месяцев | 0,43000000&nbsp;₽ | ГБ × час |
-  | {{ mspqr-name }}. Публичный IP-адрес | 0,27660000&nbsp;₽ | IP-адрес × час |
-  | {{ mspqr-name }}. Резервные копии сверх размера хранилища | 0,00307000&nbsp;₽ | ГБ × час |
-  | {{ mspqr-name }}. Сверхбыстрое сетевое хранилище с тремя репликами (SSD)| 0,03650000&nbsp;₽ | ГБ × час |
-  | {{ mspqr-name }}. Хранилище на локальных SSD-дисках | 0,01980000&nbsp;₽ | ГБ × час |
-  | {{ mspqr-name }}. Хранилище на нереплицируемых SSD-дисках | 0.01470000&nbsp;₽ | ГБ × час |
-  | {{ mspqr-name }}. Хранилище на сетевых HDD-дисках | 0,00520000&nbsp;₽ | ГБ × час |
-  | {{ mspqr-name }}. Хранилище на сетевых SSD-дисках | 0,02180000&nbsp;₽| ГБ × час|
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, AMD Zen 4 HighFreq, 100% vCPU | 3,65000000&nbsp;₽ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, AMD Zen 4 HighFreq, RAM | 0,71450000&nbsp;₽ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU | 1,87920000&nbsp;₽ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU, CVoS на 1 год | 1,46000000&nbsp;₽ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU, CVoS на 6 месяцев | 1,59000000&nbsp;₽ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, AMD Zen 4, RAM | 0,50720000&nbsp;₽ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, AMD Zen 4, RAM, CVoS на 1 год | 0,39570000&nbsp;₽ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, AMD Zen 4, RAM, CVoS на 6 месяцев | 0,43000000&nbsp;₽ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Broadwell, 5% vCPU | 1,08920000&nbsp;₽ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Broadwell, 100% vCPU | 2,35000000&nbsp;₽ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Broadwell, 20% vCPU | 1,08920000&nbsp;₽ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Broadwell, 50% vCPU | 1,08920000&nbsp;₽ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Broadwell, RAM | 0,53870000&nbsp;₽ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU | 2,08000000&nbsp;₽ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU, CVoS на 1 год | 1,62000000&nbsp;₽ | vCPU × час|
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU, CVoS на 6 месяцев | 1,77000000&nbsp;₽ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Cascade Lake, 20% vCPU | 1,08920000&nbsp;₽ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Cascade Lake, 5% vCPU | 1,08920000&nbsp;₽ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Cascade Lake, 50% vCPU| 1,08920000&nbsp;₽ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM | 0,56490000&nbsp;₽ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM, CVoS на 1 год | 0,44000000&nbsp;₽ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM, CVoS на 6 месяцев | 0,48000000&nbsp;₽ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Ice Lake (Compute Optimized), 100% vCPU | 3,00000000&nbsp;₽ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Ice Lake (Compute Optimized), RAM | 0,58790000&nbsp;₽ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU | 1,87920000&nbsp;₽ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU, CVoS на 1 год| 1,46000000&nbsp;₽ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU, CVoS на 6 месяцев| 1,59000000&nbsp;₽ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Ice Lake, 50% vCPU | 1,08920000&nbsp;₽ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Ice Lake, RAM  | 0,50720000&nbsp;₽ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Ice Lake, RAM, CVoS на 1 год | 0,39560000&nbsp;₽ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Ice Lake, RAM, CVoS на 6 месяцев | 0,43000000&nbsp;₽ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Публичный IP-адрес | 0,27660000&nbsp;₽ | IP-адрес × час |
+  | Managed Service for Sharded PostgreSQL. Резервные копии сверх размера хранилища | 0,00307000&nbsp;₽ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Сверхбыстрое сетевое хранилище с тремя репликами (SSD)| 0,03650000&nbsp;₽ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Хранилище на локальных SSD-дисках | 0,01980000&nbsp;₽ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Хранилище на нереплицируемых SSD-дисках | 0.01470000&nbsp;₽ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Хранилище на сетевых HDD-дисках | 0,00520000&nbsp;₽ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Хранилище на сетевых SSD-дисках | 0,02180000&nbsp;₽| ГБ × час|
 
 - Цены в тенге {#prices-kzt}
 
   | Услуга      | Цена за 1 час,<br>вкл. НДС | Ед. тарификации |
   |---------------|---------------------------:|----------------:|
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, AMD Zen 4 HighFreq, 100% vCPU | 18,25000000&nbsp;₸ |  vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, AMD Zen 4 HighFreq, RAM | 3,57250000&nbsp;₸ | ГБ × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU | 9,39600000&nbsp;₸ |  vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU, CVoS на 1 год | 7,30000000&nbsp;₸ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU, CVoS на 6 месяцев | 7,95000000&nbsp;₸ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, AMD Zen 4, RAM | 2,53600000&nbsp;₸ | ГБ × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, AMD Zen 4, RAM, CVoS на 1 год | 1,97850000&nbsp;₸ | ГБ × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, AMD Zen 4, RAM, CVoS на 6 месяцев | 2,15000000&nbsp;₸ | ГБ × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Broadwell, 5% vCPU| 5,44600000&nbsp;₸ |  vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Broadwell, 100% vCPU | 11,75000000&nbsp;₸ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Broadwell, 20% vCPU | 5,44600000&nbsp;₸ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Broadwell, 50% vCPU | 5,44600000&nbsp;₸ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Broadwell, RAM	| 2,69350000&nbsp;₸ | ГБ × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU | 10,40000000&nbsp;₸ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU, CVoS на 1 год | 8,10000000&nbsp;₸ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU, CVoS на 6 месяцев | 8,85000000&nbsp;₸ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Cascade Lake, 20% vCPU | 5,44600000&nbsp;₸ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Cascade Lake, 5% vCPU | 5,44600000&nbsp;₸ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Cascade Lake, 50% vCPU	| 5,44600000&nbsp;₸ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM | 2,82450000&nbsp;₸ | ГБ × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM, CVoS на 1 год | 2,20000000&nbsp;₸ | ГБ × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM, CVoS на 6 месяцев | 2,40000000&nbsp;₸ | ГБ × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Ice Lake (Compute Optimized), 100% vCPU | 15,00000000&nbsp;₸ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Ice Lake (Compute Optimized), RAM | 2,93950000&nbsp;₸ | ГБ × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU | 9,39600000&nbsp;₸ |  vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU, CVoS на 1 год| 7,30000000&nbsp;₸ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU, CVoS на 6 месяцев | 7,95000000&nbsp;₸ | vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Ice Lake, 50% vCPU	| 5,44600000&nbsp;₸ |  vCPU × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Ice Lake, RAM	| 2,53600000&nbsp;₸ |  ГБ × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Ice Lake, RAM, CVoS на 1 год | 1,97800000&nbsp;₸ | ГБ × час |
-  | {{ mspqr-name }}. Вычислительные ресурсы хостов, Intel Ice Lake, RAM, CVoS на 6 месяцев | 2,15000000&nbsp;₸ | ГБ × час |
-  | {{ mspqr-name }}. Публичный IP-адрес | 1,38300000&nbsp;₸ |  IP-адрес × час |
-  | {{ mspqr-name }}. Резервные копии сверх размера хранилища | 0,01535000&nbsp;₸ | ГБ × час |
-  | {{ mspqr-name }}. Сверхбыстрое сетевое хранилище с тремя репликами (SSD)  | 0,18250000&nbsp;₸ |  ГБ × час |
-  | {{ mspqr-name }}. Хранилище на локальных SSD-дисках | 0,09900000&nbsp;₸ | ГБ × час |
-  | {{ mspqr-name }}. Хранилище на нереплицируемых SSD-дисках | 0,07350000&nbsp;₸ | ГБ × час |
-  | {{ mspqr-name }}. Хранилище на сетевых HDD-дисках | 0,02600000&nbsp;₸ |  ГБ × час |
-  | {{ mspqr-name }}. Хранилище на сетевых SSD-дисках | 0,10900000&nbsp;₸  |  ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, AMD Zen 4 HighFreq, 100% vCPU | 18,25000000&nbsp;₸ |  vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, AMD Zen 4 HighFreq, RAM | 3,57250000&nbsp;₸ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU | 9,39600000&nbsp;₸ |  vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU, CVoS на 1 год | 7,30000000&nbsp;₸ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU, CVoS на 6 месяцев | 7,95000000&nbsp;₸ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, AMD Zen 4, RAM | 2,53600000&nbsp;₸ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, AMD Zen 4, RAM, CVoS на 1 год | 1,97850000&nbsp;₸ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, AMD Zen 4, RAM, CVoS на 6 месяцев | 2,15000000&nbsp;₸ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Broadwell, 5% vCPU| 5,44600000&nbsp;₸ |  vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Broadwell, 100% vCPU | 11,75000000&nbsp;₸ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Broadwell, 20% vCPU | 5,44600000&nbsp;₸ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Broadwell, 50% vCPU | 5,44600000&nbsp;₸ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Broadwell, RAM	| 2,69350000&nbsp;₸ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU | 10,40000000&nbsp;₸ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU, CVoS на 1 год | 8,10000000&nbsp;₸ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU, CVoS на 6 месяцев | 8,85000000&nbsp;₸ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Cascade Lake, 20% vCPU | 5,44600000&nbsp;₸ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Cascade Lake, 5% vCPU | 5,44600000&nbsp;₸ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Cascade Lake, 50% vCPU	| 5,44600000&nbsp;₸ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM | 2,82450000&nbsp;₸ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM, CVoS на 1 год | 2,20000000&nbsp;₸ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM, CVoS на 6 месяцев | 2,40000000&nbsp;₸ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Ice Lake (Compute Optimized), 100% vCPU | 15,00000000&nbsp;₸ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Ice Lake (Compute Optimized), RAM | 2,93950000&nbsp;₸ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU | 9,39600000&nbsp;₸ |  vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU, CVoS на 1 год| 7,30000000&nbsp;₸ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU, CVoS на 6 месяцев | 7,95000000&nbsp;₸ | vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Ice Lake, 50% vCPU	| 5,44600000&nbsp;₸ |  vCPU × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Ice Lake, RAM	| 2,53600000&nbsp;₸ |  ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Ice Lake, RAM, CVoS на 1 год | 1,97800000&nbsp;₸ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Вычислительные ресурсы хостов, Intel Ice Lake, RAM, CVoS на 6 месяцев | 2,15000000&nbsp;₸ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Публичный IP-адрес | 1,38300000&nbsp;₸ |  IP-адрес × час |
+  | Managed Service for Sharded PostgreSQL. Резервные копии сверх размера хранилища | 0,01535000&nbsp;₸ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Сверхбыстрое сетевое хранилище с тремя репликами (SSD)  | 0,18250000&nbsp;₸ |  ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Хранилище на локальных SSD-дисках | 0,09900000&nbsp;₸ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Хранилище на нереплицируемых SSD-дисках | 0,07350000&nbsp;₸ | ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Хранилище на сетевых HDD-дисках | 0,02600000&nbsp;₸ |  ГБ × час |
+  | Managed Service for Sharded PostgreSQL. Хранилище на сетевых SSD-дисках | 0,10900000&nbsp;₸  |  ГБ × час |
 
 {% endlist %}
 
@@ -229,12 +229,14 @@
 
 ### Исходящий трафик {#prices-traffic}
 
-При использовании сервиса оплачивается исходящий трафик из {{ yandex-cloud }} в интернет. Передача трафика между сервисами {{ yandex-cloud }} по внутренним адресам, как и входящий трафик из интернета, не тарифицируется.
+При использовании сервиса оплачивается исходящий трафик из Yandex Cloud в интернет. Передача трафика между сервисами Yandex Cloud по внутренним адресам, как и входящий трафик из интернета, не тарифицируется.
 
 Каждый месяц не тарифицируются первые 100 ГБ исходящего трафика.
 
 Минимальная единица тарификации — 1 МБ.
 
 
-| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
-| ------ | ---- | --------------- | ----------- | ------------ |
+| Услуга                                                    | Цена              | Ед. тарификации | Действует с | Действует до |
+| --------------------------------------------------------- | ----------------- | --------------- | ----------- | ------------ |
+| Исходящий трафик, от 0 до 100 единицы тарификации в месяц | Не тарифицируется | ГБ              | 1 мая 2026  | —            |
+| Исходящий трафик, от 100 единицы тарификации в месяц      | 1,42 ₽            | ГБ              | 1 мая 2026  | —            |

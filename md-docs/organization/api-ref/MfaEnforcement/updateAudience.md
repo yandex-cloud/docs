@@ -5,7 +5,7 @@ updates specified MFA enforcement's audience
 ## HTTP request
 
 ```
-PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/mfaEnforcements/{mfaEnforcementId}:updateAudience
+PATCH https://organization-manager.api.cloud.yandex.net/organization-manager/v1/mfaEnforcements/{mfaEnforcementId}:updateAudience
 ```
 
 ## Path parameters

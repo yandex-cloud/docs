@@ -6,7 +6,7 @@ To list all backups in a folder, make a [BackupService.List](../Backup/list.md#L
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/backups
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/backups
 ```
 
 ## Path parameters

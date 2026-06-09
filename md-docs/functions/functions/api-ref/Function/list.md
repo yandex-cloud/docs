@@ -5,7 +5,7 @@ Retrieves the list of functions in the specified folder.
 ## HTTP request
 
 ```
-GET https://serverless-functions.{{ api-host }}/functions/v1/functions
+GET https://serverless-functions.api.cloud.yandex.net/functions/v1/functions
 ```
 
 ## Query parameters {#yandex.cloud.serverless.functions.v1.ListFunctionsRequest}

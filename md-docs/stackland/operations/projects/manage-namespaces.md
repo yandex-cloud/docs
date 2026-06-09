@@ -62,7 +62,7 @@
       kubectl apply -f namespace.yaml
       ```
 
-  {{ stackland-name }} автоматически создаст пространство имен `team-alpha-backend` с меткой `stackland.yandex.cloud/project-name: team-alpha`.
+  Stackland автоматически создаст пространство имен `team-alpha-backend` с меткой `stackland.yandex.cloud/project-name: team-alpha`.
 
 {% endlist %}
 
@@ -171,7 +171,7 @@ spec:
       kubectl delete projectnamespace team-alpha-backend -n project-team-alpha
       ```
 
-  {{ stackland-name }} автоматически удалит связанное пространство имен и все ресурсы внутри него.
+  Stackland автоматически удалит связанное пространство имен и все ресурсы внутри него.
 
 {% endlist %}
 

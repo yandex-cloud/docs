@@ -1,6 +1,6 @@
 # Создание нового облака
 
-[После регистрации](../../../billing/quickstart/index.md#create_billing_account) в {{ yandex-cloud }} и создания [организации](../../../organization/concepts/organization.md) вы создадите свое первое [облако](../../concepts/resources-hierarchy.md#cloud). Если вам потребуется дополнительное облако, вы сможете создать его, следуя этой же инструкции.
+[После регистрации](../../../billing/quickstart/index.md#create_billing_account) в Yandex Cloud и создания [организации](../../../organization/concepts/organization.md) вы создадите свое первое [облако](../../concepts/resources-hierarchy.md#cloud). Если вам потребуется дополнительное облако, вы сможете создать его, следуя этой же инструкции.
 
 {% note info %}
 
@@ -14,10 +14,10 @@
 
 - Консоль управления {#console}
 
-  1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что [платежный аккаунт](../../../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account) или попросите вашего администратора назначить вам роль `billing.accounts.member` на платежный аккаунт.
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужную [организацию](../../../organization/concepts/organization.md).
+  1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что [платежный аккаунт](../../../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account) или попросите вашего администратора назначить вам роль `billing.accounts.member` на платежный аккаунт.
+  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужную [организацию](../../../organization/concepts/organization.md).
   1. Справа от названия организации нажмите ![image](../../../_assets/console-icons/ellipsis.svg).
-  1. Выберите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.cloud.label_create_cloud }}**.
+  1. Выберите ![image](../../../_assets/console-icons/plus.svg) **Создать облако**.
   
      ![create-cloud1](../../../_assets/resource-manager/create-cloud-1.png)
   
@@ -28,7 +28,7 @@
       * первый символ — буква, последний — не дефис.
   
   1. (Опционально) Добавьте метку облака.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите кнопку **Создать**.
   
      ![create-cloud2](../../../_assets/resource-manager/create-cloud-2.png)
 
@@ -36,11 +36,11 @@
 
   {% note info %}
 
-  Чтобы создать новое облако с помощью {{ yandex-cloud }} CLI, [привяжите](../../../cli/operations/profile/manage-properties.md#set) организацию к [профилю CLI](../../../cli/operations/profile/profile-list.md).
+  Чтобы создать новое облако с помощью Yandex Cloud CLI, [привяжите](../../../cli/operations/profile/manage-properties.md#set) организацию к [профилю CLI](../../../cli/operations/profile/profile-list.md).
 
   {% endnote %}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   1. Посмотрите описание команды для создания облака:
 
@@ -73,7 +73,7 @@
           * первый символ — буква, последний — не дефис.
       * `--billing-account-id` – идентификатор [платежного аккаунта](../../../billing/concepts/billing-account.md), к которому будет привязано создаваемое облако.
 
-          Идентификатор платежного аккаунта можно узнать в [интерфейсе {{ billing-name }}]({{ link-console-billing }}) в блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-info.title_main }}** на странице нужного платежного аккаунта.
+          Идентификатор платежного аккаунта можно узнать в [интерфейсе Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts) в блоке **Информация об аккаунте** на странице нужного платежного аккаунта.
 
       Результат:
 
@@ -85,12 +85,12 @@
       organization_id: bpfaidqca8vd********
       ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
   {% note warning %}
 
@@ -98,7 +98,7 @@
 
   {% endnote %}
 
-  1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
+  1. Опишите в конфигурационном файле Terraform параметры ресурсов, которые необходимо создать:
 
       ```hcl
       # Создание облака
@@ -124,13 +124,13 @@
         * может содержать строчные буквы латинского алфавита, цифры и дефисы;
         * первый символ — буква, последний — не дефис.
         
-      * `organization_id` — [идентификатор](../../../organization/operations/organization-get-id.md) организации. {{ TF }} позволяет создать облако только для существующей организации.
+      * `organization_id` — [идентификатор](../../../organization/operations/organization-get-id.md) организации. Terraform позволяет создать облако только для существующей организации.
       * `billing_account_id` — идентификатор [платежного аккаунта](../../../billing/concepts/billing-account.md), к которому будет привязано создаваемое облако.
 
-          [Идентификатор платежного аккаунта](../../../billing/concepts/billing-account.md#billing-account-id) можно узнать в [интерфейсе {{ billing-name }}]({{ link-console-billing }}) в блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-info.title_main }}** на странице нужного платежного аккаунта.
+          [Идентификатор платежного аккаунта](../../../billing/concepts/billing-account.md#billing-account-id) можно узнать в [интерфейсе Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts) в блоке **Информация об аккаунте** на странице нужного платежного аккаунта.
       * `cloud_id` — [идентификатор](get-id.md) облака, которое будет привязано к платежному аккаунту.
 
-      Более подробную информацию о параметрах ресурсов `yandex_resourcemanager_cloud` и `yandex_billing_cloud_binding` в {{ TF }}, см. в [документации провайдера]({{ tf-docs-link }}).
+      Более подробную информацию о параметрах ресурсов `yandex_resourcemanager_cloud` и `yandex_billing_cloud_binding` в Terraform, см. в [документации провайдера](../../../terraform/index.md).
 
   1. Создайте ресурсы:
 
@@ -153,7 +153,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -162,7 +162,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-  После этого в организации будет создано облако, привязанное к платежному аккаунту. Проверить облако и его параметры можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+  После этого в организации будет создано облако, привязанное к платежному аккаунту. Проверить облако и его параметры можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
 
     ```bash
     yc resource-manager cloud list
@@ -177,8 +177,8 @@
 
 #### См. также {#see-also}
 
-* [{#T}](update.md)
-* [{#T}](set-access-bindings.md)
-* [{#T}](switch-cloud.md)
-* [{#T}](../folder/create.md)
-* [{#T}](../../../billing/concepts/billing-account.md)
+* [Переименование облака](update.md)
+* [Настройка прав доступа к облаку](set-access-bindings.md)
+* [Переключение на другое облако](switch-cloud.md)
+* [Создание каталога](../folder/create.md)
+* [Платежный аккаунт](../../../billing/concepts/billing-account.md)

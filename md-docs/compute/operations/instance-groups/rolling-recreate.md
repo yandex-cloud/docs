@@ -6,8 +6,8 @@
 
 {% note warning %}
 
-При ручной (`OPPORTUNISTIC`) [стратегии остановки](../../concepts/instance-groups/policies/deploy-policy.md#strategy) ВМ {{ ig-name }} будет запускать перезагрузку или пересоздание ВМ только при одном из условий:
-* пользователь [остановил](../vm-control/vm-stop-and-start.md#stop) ВМ в сервисе {{ compute-name }};
+При ручной (`OPPORTUNISTIC`) [стратегии остановки](../../concepts/instance-groups/policies/deploy-policy.md#strategy) ВМ Instance Groups будет запускать перезагрузку или пересоздание ВМ только при одном из условий:
+* пользователь [остановил](../vm-control/vm-stop-and-start.md#stop) ВМ в сервисе Compute Cloud;
 * приложение или пользователь остановили ВМ изнутри;
 * ВМ не прошла [проверку](../../concepts/instance-groups/autohealing.md#functional-healthcheck) состояния приложения.
 
@@ -19,14 +19,14 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Посмотрите описание команды CLI для пересоздания группы ВМ:
 
       ```bash
-      {{ yc-compute-ig }} rolling-recreate --help
+      yc compute instance-group rolling-recreate --help
       ```
 
   1. Получите список каталогов в облаке по умолчанию:
@@ -49,7 +49,7 @@
   1. Получите список групп ВМ в выбранном каталоге, указав его имя:
 
       ```bash
-      {{ yc-compute-ig }} list \
+      yc compute instance-group list \
         --folder-name <имя_каталога>
       ```
 
@@ -66,7 +66,7 @@
   1. Пересоздайте виртуальные машины в группе ВМ:
 
       ```bash
-      {{ yc-compute-ig }} rolling-recreate --all \
+      yc compute instance-group rolling-recreate --all \
         --name <имя_группы_ВМ> \
         --folder-name <имя_каталога>
       ```
@@ -75,7 +75,7 @@
       * `--name` — имя группы виртуальных машин.
       * `--folder-name` — имя каталога, которому принадлежит группа ВМ.
 
-      {{ ig-name }} начнет по очереди пересоздавать все ВМ в группе. Пересозданные ВМ перейдут в статус `Running`.
+      Instance Groups начнет по очереди пересоздавать все ВМ в группе. Пересозданные ВМ перейдут в статус `Running`.
 
       Результат:
 
@@ -90,7 +90,7 @@
       Чтобы пересоздать отдельные ВМ группы, [получите](get-list-instances.md) список ВМ в этой группе:
      
       ```bash
-      {{ yc-compute-ig }} list-instances \
+      yc compute instance-group list-instances \
         --name <имя_группы_ВМ> \
         --folder-name <имя_каталога>
       ```
@@ -115,7 +115,7 @@
       Пересоздайте нужные ВМ:
 
       ```bash
-      {{ yc-compute-ig }} rolling-recreate \
+      yc compute instance-group rolling-recreate \
         --instance-ids <идентификаторы_ВМ> \
         --name <имя_группы_ВМ> \
         --folder-name <имя_каталога>
@@ -126,9 +126,9 @@
       * `--name` — имя группы виртуальных машин.
       * `--folder-name` — имя каталога, которому принадлежит группа ВМ.
       
-      {{ ig-name }} начнет по очереди пересоздавать заданные ВМ в группе. Пересозданные ВМ перейдут в статус `Running`.
+      Instance Groups начнет по очереди пересоздавать заданные ВМ в группе. Пересозданные ВМ перейдут в статус `Running`.
 
-  Подробную информацию о параметрах команды `{{ yc-compute-ig }} rolling-recreate` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance-group/rolling-recreate.md).
+  Подробную информацию о параметрах команды `yc compute instance-group rolling-recreate` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance-group/rolling-recreate.md).
 
 - API {#api}
 

@@ -2,7 +2,7 @@
 
 ## Изменить сети и IP-префиксы в Routing Instance {#update-networks}
 
-[Команда](../cli-ref/routing-instance/update-networks.md) {{ yandex-cloud }} CLI `yc cloudrouter routing-instance update-networks` позволяет одновременно управлять набором [анонсированных IP-префиксов](../concepts/announces.md) облачных [сетей](../../vpc/concepts/network.md#network) {{ vpc-full-name }}, добавленных в [Routing Instance](../concepts/routing-instance.md), а также добавлять новые сети в Routing Instance и удалять имеющиеся. 
+[Команда](../cli-ref/routing-instance/update-networks.md) Yandex Cloud CLI `yc cloudrouter routing-instance update-networks` позволяет одновременно управлять набором [анонсированных IP-префиксов](../concepts/announces.md) облачных [сетей](../../vpc/concepts/network.md#network) Yandex Virtual Private Cloud, добавленных в [Routing Instance](../concepts/routing-instance.md), а также добавлять новые сети в Routing Instance и удалять имеющиеся. 
 
 {% note info %}
 
@@ -16,7 +16,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   1. Посмотрите описание команды для управления сетями и IP-префиксами в Routing Instance:
      
@@ -57,26 +57,26 @@
      name: ri1
      description: Routing instance 1
      folder_id: b1gt6g8ht345********
-     region_id: {{ region-id }}
+     region_id: ru-central1
      vpc_info:
        - vpc_network_id: enpcfncr6uld********
          az_infos:
            - manual_info:
-               az_id: {{ region-id }}-d
+               az_id: ru-central1-d
                prefixes:
                  - 192.168.7.0/24
            - manual_info:
-               az_id: {{ region-id }}-a
+               az_id: ru-central1-a
                prefixes:
                  - 192.168.2.0/24
            - manual_info:
-               az_id: {{ region-id }}-b
+               az_id: ru-central1-b
                prefixes:
                  - 192.168.15.0/24
        - vpc_network_id: enpt8ok6snlp********
          az_infos:
            - manual_info:
-               az_id: {{ region-id }}-a
+               az_id: ru-central1-a
                prefixes:
                  - 192.168.45.0/24
                  - 192.168.46.0/24
@@ -92,7 +92,7 @@
       yc cloudrouter routing-instance update-networks \
         --folder-id <идентификатор_каталога> \
         --id c3lgk007olse******** \
-        --add-vpc-net id=enpvt41bh5gk********,zone={{ region-id }}-a,ipv4-prefixes=192.168.100.0/24,192.168.101.0/24 \
+        --add-vpc-net id=enpvt41bh5gk********,zone=ru-central1-a,ipv4-prefixes=192.168.100.0/24,192.168.101.0/24 \
         --async
       ```
 
@@ -131,33 +131,33 @@
       name: ri1
       description: Routing instance 1
       folder_id: b1gt6g8ht345********
-      region_id: {{ region-id }}
+      region_id: ru-central1
       vpc_info:
         - vpc_network_id: enpcfncr6uldme5e5929
           az_infos:
             - manual_info:
-                az_id: {{ region-id }}-d
+                az_id: ru-central1-d
                 prefixes:
                   - 192.168.7.0/24
             - manual_info:
-                az_id: {{ region-id }}-a
+                az_id: ru-central1-a
                 prefixes:
                   - 192.168.2.0/24
             - manual_info:
-                az_id: {{ region-id }}-b
+                az_id: ru-central1-b
                 prefixes:
                   - 192.168.15.0/24
         - vpc_network_id: enpt8ok6snlp********
           az_infos:
             - manual_info:
-                az_id: {{ region-id }}-a
+                az_id: ru-central1-a
                 prefixes:
                   - 192.168.45.0/24
                   - 192.168.46.0/24
         - vpc_network_id: enpvt41bh5gk********
           az_infos:
             - manual_info:
-                az_id: {{ region-id }}-a
+                az_id: ru-central1-a
                 prefixes:
                   - 192.168.100.0/24
                   - 192.168.101.0/24
@@ -187,7 +187,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   1. Посмотрите описание команды для управления сетями и IP-префиксами в Routing Instance:
      
@@ -228,26 +228,26 @@
      name: ri1
      description: Routing instance 1
      folder_id: b1gt6g8ht345********
-     region_id: {{ region-id }}
+     region_id: ru-central1
      vpc_info:
        - vpc_network_id: enpcfncr6uld********
          az_infos:
            - manual_info:
-               az_id: {{ region-id }}-d
+               az_id: ru-central1-d
                prefixes:
                  - 192.168.7.0/24
            - manual_info:
-               az_id: {{ region-id }}-a
+               az_id: ru-central1-a
                prefixes:
                  - 192.168.2.0/24
            - manual_info:
-               az_id: {{ region-id }}-b
+               az_id: ru-central1-b
                prefixes:
                  - 192.168.15.0/24
        - vpc_network_id: enpt8ok6snlp********
          az_infos:
            - manual_info:
-               az_id: {{ region-id }}-a
+               az_id: ru-central1-a
                prefixes:
                  - 192.168.45.0/24
                  - 192.168.46.0/24
@@ -302,20 +302,20 @@
       name: ri1
       description: Routing instance 1
       folder_id: b1gt6g8ht345********
-      region_id: {{ region-id }}
+      region_id: ru-central1
       vpc_info:
         - vpc_network_id: enpcfncr6uldme5e5929
           az_infos:
             - manual_info:
-                az_id: {{ region-id }}-d
+                az_id: ru-central1-d
                 prefixes:
                   - 192.168.7.0/24
             - manual_info:
-                az_id: {{ region-id }}-a
+                az_id: ru-central1-a
                 prefixes:
                   - 192.168.2.0/24
             - manual_info:
-                az_id: {{ region-id }}-b
+                az_id: ru-central1-b
                 prefixes:
                   - 192.168.15.0/24
       cic_private_connection_info:
@@ -344,7 +344,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   1. Посмотрите описание команды для управления сетями и IP-префиксами в Routing Instance:
      
@@ -385,26 +385,26 @@
      name: ri1
      description: Routing instance 1
      folder_id: b1gt6g8ht345********
-     region_id: {{ region-id }}
+     region_id: ru-central1
      vpc_info:
        - vpc_network_id: enpcfncr6uld********
          az_infos:
            - manual_info:
-               az_id: {{ region-id }}-d
+               az_id: ru-central1-d
                prefixes:
                  - 192.168.7.0/24
            - manual_info:
-               az_id: {{ region-id }}-a
+               az_id: ru-central1-a
                prefixes:
                  - 192.168.2.0/24
            - manual_info:
-               az_id: {{ region-id }}-b
+               az_id: ru-central1-b
                prefixes:
                  - 192.168.15.0/24
        - vpc_network_id: enpt8ok6snlp********
          az_infos:
            - manual_info:
-               az_id: {{ region-id }}-a
+               az_id: ru-central1-a
                prefixes:
                  - 192.168.45.0/24
                  - 192.168.46.0/24
@@ -421,10 +421,10 @@
       yc cloudrouter routing-instance update-networks \
         --folder-id <идентификатор_каталога> \
         --id c3lgk007olse******** \
-        --update-vpc-net id=enpcfncr6uld********,zone={{ region-id }}-a,ipv4-prefixes=192.168.2.0/28 \
-        --update-vpc-net id=enpcfncr6uld********,zone={{ region-id }}-b,ipv4-prefixes=192.168.15.0/24 \
-        --update-vpc-net id=enpcfncr6uld********,zone={{ region-id }}-d,ipv4-prefixes=192.168.7.0/24 \
-        --update-vpc-net id=enpt8ok6snlp********,zone={{ region-id }}-d,ipv4-prefixes=192.168.47.0/28 \
+        --update-vpc-net id=enpcfncr6uld********,zone=ru-central1-a,ipv4-prefixes=192.168.2.0/28 \
+        --update-vpc-net id=enpcfncr6uld********,zone=ru-central1-b,ipv4-prefixes=192.168.15.0/24 \
+        --update-vpc-net id=enpcfncr6uld********,zone=ru-central1-d,ipv4-prefixes=192.168.7.0/24 \
+        --update-vpc-net id=enpt8ok6snlp********,zone=ru-central1-d,ipv4-prefixes=192.168.47.0/28 \
         --async
       ```
 
@@ -464,26 +464,26 @@
       name: ri1
       description: Routing instance 1
       folder_id: b1gt6g8ht345********
-      region_id: {{ region-id }}
+      region_id: ru-central1
       vpc_info:
         - vpc_network_id: enpcfncr6uld********
           az_infos:
             - manual_info:
-                az_id: {{ region-id }}-a
+                az_id: ru-central1-a
                 prefixes:
                   - 192.168.2.0/28
             - manual_info:
-                az_id: {{ region-id }}-b
+                az_id: ru-central1-b
                 prefixes:
                   - 192.168.15.0/24
             - manual_info:
-                az_id: {{ region-id }}-d
+                az_id: ru-central1-d
                 prefixes:
                   - 192.168.7.0/24
         - vpc_network_id: enpt8ok6snlp********
           az_infos:
             - manual_info:
-                az_id: {{ region-id }}-a
+                az_id: ru-central1-a
                 prefixes:
                   - 192.168.47.0/28
       cic_private_connection_info:
@@ -508,7 +508,7 @@
 
 ## Добавить IP-префиксы в Routing Instance {#upsert-prefixes}
 
-[Команда](../cli-ref/routing-instance/upsert-prefixes.md) {{ yandex-cloud }} CLI `yc cloudrouter routing-instance upsert-prefixes` позволяет [анонсировать новые IP-префиксы](../concepts/announces.md) в Routing Instance.
+[Команда](../cli-ref/routing-instance/upsert-prefixes.md) Yandex Cloud CLI `yc cloudrouter routing-instance upsert-prefixes` позволяет [анонсировать новые IP-префиксы](../concepts/announces.md) в Routing Instance.
 
 {% note tip %}
 
@@ -520,7 +520,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   1. Посмотрите описание команды CLI для изменения списка IP-префиксов в [Routing Instance](../concepts/routing-instance.md):
 
@@ -544,12 +544,12 @@
       name: ri1
       description: Routing instance 1
       folder_id: b1gqfjiz2wda********
-      region_id: {{ region-id }}
+      region_id: ru-central1
       vpc_info:
         - vpc_network_id: c64ckjtr7b3l********
           az_infos:
             - manual_info:
-                az_id: {{ region-id }}-a
+                az_id: ru-central1-a
                 prefixes:
                   - 10.128.0.0/24
       cic_private_connection_info:
@@ -569,8 +569,8 @@
       ```bash
       yc cloudrouter routing-instance upsert-prefixes c3l871dpin4f******** \
         --folder-id <идентификатор_каталога> \
-        --vpc-net id=c64ckjtr7b3l********,zone={{ region-id }}-b,ipv4-prefixes=10.129.0.0/24 \
-        --vpc-net id=c64ckjtr7b3l********,zone={{ region-id }}-d,ipv4-prefixes=172.16.1.0/24 \
+        --vpc-net id=c64ckjtr7b3l********,zone=ru-central1-b,ipv4-prefixes=10.129.0.0/24 \
+        --vpc-net id=c64ckjtr7b3l********,zone=ru-central1-d,ipv4-prefixes=172.16.1.0/24 \
         --async
       ```
 
@@ -610,20 +610,20 @@
       name: ri1
       description: Routing instance 1
       folder_id: b1gqfjiz2wda********
-      region_id: {{ region-id }}
+      region_id: ru-central1
       vpc_info:
         - vpc_network_id: c64ckjtr7b3l********
           az_infos:
             - manual_info:
-                az_id: {{ region-id }}-a
+                az_id: ru-central1-a
                 prefixes:
                   - 10.128.0.0/24
             - manual_info:
-                az_id: {{ region-id }}-b
+                az_id: ru-central1-b
                 prefixes:
                   - 10.129.0.0/24
             - manual_info:
-                az_id: {{ region-id }}-d
+                az_id: ru-central1-d
                 prefixes:
                   - 172.16.1.0/24
       cic_private_connection_info:
@@ -649,7 +649,7 @@
 
 ## Удалить IP-префиксы из Routing Instance {#remove-prefixes}
 
-[Команда](../cli-ref/routing-instance/remove-prefixes.md) {{ yandex-cloud }} CLI `yc cloudrouter routing-instance remove-prefixes` позволяет удалить [анонсированные IP-префиксы](../concepts/announces.md) из Routing Instance.
+[Команда](../cli-ref/routing-instance/remove-prefixes.md) Yandex Cloud CLI `yc cloudrouter routing-instance remove-prefixes` позволяет удалить [анонсированные IP-префиксы](../concepts/announces.md) из Routing Instance.
 
 {% note tip %}
 
@@ -661,7 +661,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   1. Посмотрите описание команды CLI для удаления IP-префиксов из [Routing Instance](../concepts/routing-instance.md):
 
@@ -686,20 +686,20 @@
       name: ri1
       description: Routing instance 1
       folder_id: b1gqfjiz2wda********
-      region_id: {{ region-id }}
+      region_id: ru-central1
       vpc_info:
         - vpc_network_id: c64ckjtr7b3l********
           az_infos:
             - manual_info:
-                az_id: {{ region-id }}-a
+                az_id: ru-central1-a
                 prefixes:
                   - 10.128.0.0/24
             - manual_info:
-                az_id: {{ region-id }}-b
+                az_id: ru-central1-b
                 prefixes:
                   - 10.129.0.0/24
             - manual_info:
-                az_id: {{ region-id }}-d
+                az_id: ru-central1-d
                 prefixes:
                   - 172.16.1.0/24
       cic_private_connection_info:
@@ -721,8 +721,8 @@
       ```bash
       yc cloudrouter routing-instance remove-prefixes c3l871dpin4f******** \
         --folder-id <идентификатор_каталога> \
-        --vpc-net id=c64ckjtr7b3l********,zone={{ region-id }}-b,ipv4-prefixes=10.128.0.0/24 \
-        --vpc-net id=c64ckjtr7b3l********,zone={{ region-id }}-d,ipv4-prefixes=10.129.0.0/24 \
+        --vpc-net id=c64ckjtr7b3l********,zone=ru-central1-b,ipv4-prefixes=10.128.0.0/24 \
+        --vpc-net id=c64ckjtr7b3l********,zone=ru-central1-d,ipv4-prefixes=10.129.0.0/24 \
         --async
       ```
 
@@ -762,12 +762,12 @@
       name: ri1
       description: Routing instance 1
       folder_id: b1gqfjiz2wda********
-      region_id: {{ region-id }}
+      region_id: ru-central1
       vpc_info:
         - vpc_network_id: c64ckjtr7b3l********
           az_infos:
             - manual_info:
-                az_id: {{ region-id }}-d
+                az_id: ru-central1-d
                 prefixes:
                   - 172.16.1.0/24
       cic_private_connection_info:

@@ -1,55 +1,55 @@
-# Как начать работать с {{ websql-full-name }}
+# Как начать работать с Yandex WebSQL
 
 
-Вы можете устанавливать подключения к кластерам управляемых БД из облаков и каталогов, которые принадлежат вашей [организации](../organization/concepts/organization.md) {{ yandex-cloud }}. Если вы [перейдете в другую организацию](../organization/operations/manage-organizations.md#switch-to-another-org), то вам будет доступен набор кластеров из других облаков и каталогов. Добавленные подключения будут доступны, пока вы работаете в текущем облаке {{ yandex-cloud }}.
+Вы можете устанавливать подключения к кластерам управляемых БД из облаков и каталогов, которые принадлежат вашей [организации](../organization/concepts/organization.md) Yandex Cloud. Если вы [перейдете в другую организацию](../organization/operations/manage-organizations.md#switch-to-another-org), то вам будет доступен набор кластеров из других облаков и каталогов. Добавленные подключения будут доступны, пока вы работаете в текущем облаке Yandex Cloud.
 
 
 
 Подключившись к БД, вы сможете просматривать схемы, таблицы и представления БД, а также выполнять запросы. Сервис работает в браузере и предлагает удобные подсказки и команды для выполнения запросов.
 
-{{ websql-full-name }} поддерживает работу со следующими версиями БД:
+Yandex WebSQL поддерживает работу со следующими версиями БД:
 
-* {{ PG }}: 12 и выше.
-* {{ MY }}: 5 и выше.
-* {{ CH }}: 23 и выше.
-* {{ RD }}/{{ VLK }} (только нешардированные кластеры): 6 и выше.
-* {{ MG }}/{{ SD }}: 6 и выше.
-* [{{ mtr-full-name }}](../managed-trino/index.md) (сервис находится на стадии [Preview](../overview/concepts/launch-stages.md)): 454 и выше.
-* {{ GP }}: 6 и выше.
+* PostgreSQL: 12 и выше.
+* MySQL®: 5 и выше.
+* ClickHouse®: 23 и выше.
+* Redis/Valkey™ (только нешардированные кластеры): 6 и выше.
+* MongoDB/Yandex StoreDoc: 6 и выше.
+* [Yandex Managed Service for Trino](../managed-trino/index.md) (сервис находится на стадии [Preview](../overview/concepts/launch-stages.md)): 454 и выше.
+* Greenplum®: 6 и выше.
 
 В этом разделе вы научитесь подключаться:
 
-* к [кластерам управляемых БД](#connect-cluster) внутри {{ yandex-cloud }};
+* к [кластерам управляемых БД](#connect-cluster) внутри Yandex Cloud;
 * к [пользовательским инсталляциям БД](#connect-db) через Интернет.
 
 
 ## Перед началом работы {#before-you-begin}
 
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или [зарегистрируйтесь](https://yandex.ru/support/id/authorization/registration.html), если вы еще не зарегистрированы.
-1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md).
-1. Выберите организацию, в которой вы будете работать с {{ websql-full-name }}, или [создайте новую](../organization/operations/enable-org.md).
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или [зарегистрируйтесь](https://yandex.ru/support/id/authorization/registration.html), если вы еще не зарегистрированы.
+1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md).
+1. Выберите организацию, в которой вы будете работать с Yandex WebSQL, или [создайте новую](../organization/operations/enable-org.md).
 
 
-## Как подключиться к кластеру управляемых БД внутри {{ yandex-cloud }} {#connect-cluster}
+## Как подключиться к кластеру управляемых БД внутри Yandex Cloud {#connect-cluster}
 
-Перед созданием подключения убедитесь, что вы выбрали нужный каталог. Если у вас есть доступ к ранее созданным в этом каталоге кластерам {{ PG }}, {{ CH }}, {{ MY }}, {{ GP }}, {{ VLK }} или {{ SD }}, они автоматически отобразятся в подразделе **Подключения {{ yandex-cloud }}**. Вам нужно будет только создать подключение к нужной БД в кластере.
+Перед созданием подключения убедитесь, что вы выбрали нужный каталог. Если у вас есть доступ к ранее созданным в этом каталоге кластерам PostgreSQL, ClickHouse®, MySQL®, Greenplum®, Valkey™ или Yandex StoreDoc, они автоматически отобразятся в подразделе **Подключения Yandex Cloud**. Вам нужно будет только создать подключение к нужной БД в кластере.
 
 
 {% note info %}
 
-[{{ mtr-full-name }}](../managed-trino/index.md) находится на стадии [Preview](../overview/concepts/launch-stages.md). В интерфейсе {{ websql-full-name }} пока нельзя создавать подключения к {{ mtr-full-name }}, но если в текущем каталоге есть кластер {{ mtr-full-name }} и у пользователя есть к нему доступ, подключение отобразится в {{ websql-name }} и будет доступно для использования. 
+[Yandex Managed Service for Trino](../managed-trino/index.md) находится на стадии [Preview](../overview/concepts/launch-stages.md). В интерфейсе Yandex WebSQL пока нельзя создавать подключения к Yandex Managed Service for Trino, но если в текущем каталоге есть кластер Yandex Managed Service for Trino и у пользователя есть к нему доступ, подключение отобразится в WebSQL и будет доступно для использования. 
 
 {% endnote %}
 
 
-{{ websql-name }} использует подключения в {{ connection-manager-name }} сервиса {{ metadata-hub-full-name }}, поэтому все подключения, настроенные в {{ connection-manager-name }}, доступны для работы в {{ websql-name }} автоматически при условии, что у пользователя есть [роли](../metadata-hub/security/index.md#service-roles).
+WebSQL использует подключения в Connection Manager сервиса Yandex MetaData Hub, поэтому все подключения, настроенные в Connection Manager, доступны для работы в WebSQL автоматически при условии, что у пользователя есть [роли](../metadata-hub/security/index.md#service-roles).
 
-Чтобы создать подключение к кластеру управляемых БД {{ yandex-cloud }}:
+Чтобы создать подключение к кластеру управляемых БД Yandex Cloud:
 
-1. Убедитесь, что в настройках кластера включена опция **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}**.
-1. Откройте [**Подключения**]({{ websql-link }}) {{ websql-full-name }}.
+1. Убедитесь, что в настройках кластера включена опция **Доступ из WebSQL**.
+1. Откройте [**Подключения**](https://websql.yandex.cloud) Yandex WebSQL.
 1. В разделе ![image](../_assets/console-icons/folder-tree.svg) **Подключения** нажмите ![image](../_assets/console-icons/square-plus.svg).
-1. В поле **Тип базы данных** выберите нужную БД: {{ PG }}, {{ CH }}, {{ MY }}, {{ VLK }}, {{ SD }}, {{ GP }}.
+1. В поле **Тип базы данных** выберите нужную БД: PostgreSQL, ClickHouse®, MySQL®, Valkey™, Yandex StoreDoc, Greenplum®.
 1. В поле **Каталог кластера** выберите каталог, в котором содержится нужный кластер.
 1. В поле **Кластер** выберите кластер управляемых БД, к которому вы хотите подключиться. 
 1. Укажите **Имя пользователя**, от лица которого будете подключаться к БД в кластере.
@@ -63,14 +63,14 @@
 
 Чтобы подключиться к пользовательской инсталляции БД через Интернет:
 
-1. Откройте [**Подключения**]({{ websql-link }}) {{ websql-full-name }}.
+1. Откройте [**Подключения**](https://websql.yandex.cloud) Yandex WebSQL.
 1. В разделе ![image](../_assets/console-icons/folder-tree.svg) **Подключения** нажмите ![image](../_assets/console-icons/square-plus.svg).
 1. В левом нижнем углу открывшегося окна нажмите **Внешнее подключение**.
 1. Укажите **Имя** подключения.
-1. В поле **Тип базы данных** выберите нужную БД: {{ PG }}, {{ CH }}, {{ MY }}, {{ RD }}, {{ MG }}, {{ GP }}, {{ VLK }} или {{ SD }}.
+1. В поле **Тип базы данных** выберите нужную БД: PostgreSQL, ClickHouse®, MySQL®, Redis, MongoDB, Greenplum®, Valkey™ или Yandex StoreDoc.
 1. В разделе **Хосты** задайте конфигурацию хостов:
     * укажите FQDN хоста c БД и номер порта для подключения к БД;
-    * для {{ CH }} также укажите порт Native Protocol и имя [шарда](../managed-clickhouse/operations/shards.md#list-shards).
+    * для ClickHouse® также укажите порт Native Protocol и имя [шарда](../managed-clickhouse/operations/shards.md#list-shards).
     * (Опционально) Включите использование [TLS](../glossary/tls.md).
 
         Если в вашей компании есть [центр авторизации (CA)](../glossary/tls.md#authentication), по умолчанию будет использоваться выпущенный им сертификат. Если в компании нет СА, загрузите TLS-сертификат сервера.
@@ -89,4 +89,4 @@
 * [Создавайте шаблоны запросов](operations/templates.md).
 * [Просматривайте историю запросов](operations/history.md).
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

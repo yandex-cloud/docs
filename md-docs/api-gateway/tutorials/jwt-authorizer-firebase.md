@@ -1,10 +1,10 @@
-# Развертывание веб-приложения с JWT-авторизацией в {{ api-gw-full-name }} и аутентификацией в Firebase
+# Развертывание веб-приложения с JWT-авторизацией в Yandex API Gateway и аутентификацией в Firebase
 
 
-В этом руководстве вы узнаете, как реализовать аутентификацию и авторизацию в вашем веб-приложении на основе протоколов [OAuth 2.0](https://oauth.net/2/) и [OpenID Connect](https://openid.net/connect/). Для аутентификации будут использованы [Google OAuth](https://developers.google.com/identity/protocols/oauth2) и [Firebase](https://firebase.google.com/docs). Авторизация будет выполняться на стороне [{{ api-gw-name }}](../index.md) с помощью JWT-авторайзера. Веб-приложение будет состоять из:
+В этом руководстве вы узнаете, как реализовать аутентификацию и авторизацию в вашем веб-приложении на основе протоколов [OAuth 2.0](https://oauth.net/2/) и [OpenID Connect](https://openid.net/connect/). Для аутентификации будут использованы [Google OAuth](https://developers.google.com/identity/protocols/oauth2) и [Firebase](https://firebase.google.com/docs). Авторизация будет выполняться на стороне [API Gateway](../index.md) с помощью JWT-авторайзера. Веб-приложение будет состоять из:
 * Внешнего сервиса аутентификации Firebase.
-* Простого REST API, развернутого в виде {{ api-gw-name }}.
-* Статического сайта, развернутого в [бакете](../../storage/concepts/bucket.md) [{{ objstorage-full-name }}](../../storage/index.md).
+* Простого REST API, развернутого в виде API Gateway.
+* Статического сайта, развернутого в [бакете](../../storage/concepts/bucket.md) [Yandex Object Storage](../../storage/index.md).
 
 Чтобы развернуть веб-приложение:
 1. [Подготовьте облако к работе](#prepare-cloud).
@@ -13,26 +13,26 @@
 1. [Завершите настройку ресурсов Google](#google-oauth-setup).
 1. [Создайте API-шлюз](#create-gateway).
 1. [Подготовьте файлы веб-приложения](#project-prepare).
-1. [Разверните ресурсы {{ yandex-cloud }} и загрузите веб-приложение в бакет](#deploy).
+1. [Разверните ресурсы Yandex Cloud и загрузите веб-приложение в бакет](#deploy).
 1. [Проверьте работу созданного приложения](#test).
 
 Если созданные ресурсы больше не нужны, [удалите](#clear-out) их.
 
 ## Подготовьте облако к работе {#prepare-cloud}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для работы веб-приложения входят:
-* Плата за хранение данных в бакете и операции с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-* Плата за использование API-шлюза (см. [тарифы {{ api-gw-name }}](../pricing.md)).
+* Плата за хранение данных в бакете и операции с ними (см. [тарифы Object Storage](../../storage/pricing.md)).
+* Плата за использование API-шлюза (см. [тарифы API Gateway](../pricing.md)).
 
 ## Создайте проект и настройте Google OAuth в Google Cloud {#create-google-cloud-project}
 
@@ -70,11 +70,11 @@ Firebase:
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо создать API-шлюз.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.common.name }}** введите `jwt-api-gw`.
-  1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте спецификацию:
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо создать API-шлюз.
+  1. Перейдите в сервис **API Gateway**.
+  1. Нажмите кнопку **Создать API-шлюз**.
+  1. В поле **Имя** введите `jwt-api-gw`.
+  1. В блок **Спецификация** добавьте спецификацию:
 
      ```yaml
      openapi: 3.0.0
@@ -116,11 +116,11 @@ Firebase:
                - email
      ```
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
+  1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -187,16 +187,16 @@ Firebase:
      created_at: "2020-06-17T09:20:22.929Z"
      name: jwt-api-gw
      status: ACTIVE
-     domain: {{ api-host-apigw }}
+     domain: d5dm1lba80md********.i9******.apigw.yandexcloud.net
      log_group_id: ckghq1hm19********
      ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
   1. Опишите в конфигурационном файле параметры API-шлюза:
 
@@ -247,7 +247,7 @@ Firebase:
      * `name` — имя API-шлюза.
      * `spec` — спецификация API-шлюза.
 
-     Более подробную информацию о параметрах ресурса `yandex_api_gateway` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/api_gateway).
+     Более подробную информацию о параметрах ресурса `yandex_api_gateway` в Terraform, см. в [документации провайдера](../../terraform/resources/api_gateway.md).
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -269,7 +269,7 @@ Firebase:
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -326,26 +326,26 @@ Firebase:
       The build folder is ready to be deployed.
       ```
 
-## Разверните ресурсы {{ yandex-cloud }} и загрузите веб-приложение в бакет {{ objstorage-name }} {#deploy}
+## Разверните ресурсы Yandex Cloud и загрузите веб-приложение в бакет Object Storage {#deploy}
 
 Разверните статический сайт.
-1. Создайте бакет {{ objstorage-name }}:
+1. Создайте бакет Object Storage:
 
    {% list tabs group=instructions %}
 
    - Консоль управления {#console}
 
-     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать бакет.
+     1. Перейдите в сервис **Object Storage**.
+     1. Нажмите кнопку **Создать бакет**.
      1. На странице создания бакета:
         1. Введите имя бакета — `bucket-for-tutorial`.
-        1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
-        1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
+        1. В поле **Чтение объектов** выберите `Для всех`.
+        1. Нажмите кнопку **Создать бакет** для завершения операции.
 
    - CLI {#cli}
 
-     Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+     Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
      По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -373,12 +373,12 @@ Firebase:
         created_at: "2023-06-08T11:57:49.898024Z"
         ```
 
-   - {{ TF }} {#tf}
+   - Terraform {#tf}
 
-     Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
      
      
-     Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+     Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
      1. Опишите в конфигурационном файле параметры необходимых ресурсов:
 
@@ -415,7 +415,7 @@ Firebase:
           * `bucket` — имя бакета.
           * `acl` — настройки доступа к бакету.
 
-        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
+        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform см. в [документации провайдера](../../terraform/resources/storage_bucket.md).
      1. Создайте ресурсы:
 
         1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -437,7 +437,7 @@ Firebase:
            terraform plan
            ```
         
-           В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+           В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
         1. Примените изменения конфигурации:
         
            ```bash
@@ -454,18 +454,18 @@ Firebase:
 
    {% endlist %}
 
-1. Загрузите объекты в бакет {{ objstorage-name }}:
+1. Загрузите объекты в бакет Object Storage:
 
    {% list tabs group=instructions %}
 
    - Консоль управления {#console}
 
-     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который нужно загрузить объекты.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в который нужно загрузить объекты.
+     1. Перейдите в сервис **Object Storage**.
      1. Нажмите на бакет `bucket-for-tutorial`.
-     1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}** и выберите [сгенерированные ранее](#project-prepare) объекты в папке `build`.
+     1. Нажмите кнопку **Загрузить** и выберите [сгенерированные ранее](#project-prepare) объекты в папке `build`.
      1. Консоль управления отобразит все объекты, выбранные для загрузки, и предложит для каждого из них выбрать [класс хранилища](../../storage/concepts/storage-class.md). Класс хранилища по умолчанию определяется [настройкой бакета](../../storage/concepts/bucket.md#bucket-settings).
-     1. Нажмите кнопку **{{ ui-key.yacloud.storage.button_upload }}**.
+     1. Нажмите кнопку **Загрузить**.
      1. Обновите страницу.
 
      В консоли управления информация о количестве объектов в бакете и занятом месте обновляется с задержкой в несколько минут.
@@ -478,18 +478,18 @@ Firebase:
 
    - Консоль управления {#console}
 
-     1. В [консоли управления]({{ link-console-main }}) перейдите в бакет `bucket-for-tutorial`.
-     1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-     1. На вкладке **{{ ui-key.yacloud.storage.bucket.switch_website }}**:
-        * Выберите `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
-        * В поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите абсолютный путь к файлу главной страницы сайта — `index.html`.
-        * В поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите абсолютный путь к файлу, который будет отображаться при ошибках 4хх — `error.html`.
-     1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
-     1. В поле **{{ ui-key.yacloud.storage.bucket.website.field_link }}** скопируйте адрес вашего сайта.
+     1. В [консоли управления](https://console.yandex.cloud) перейдите в бакет `bucket-for-tutorial`.
+     1. На панели слева выберите **Настройки**.
+     1. На вкладке **Веб-сайт**:
+        * Выберите `Хостинг`.
+        * В поле **Главная страница** укажите абсолютный путь к файлу главной страницы сайта — `index.html`.
+        * В поле **Страница ошибки** укажите абсолютный путь к файлу, который будет отображаться при ошибках 4хх — `error.html`.
+     1. Нажмите кнопку **Сохранить**.
+     1. В поле **Ссылка** скопируйте адрес вашего сайта.
 
    - CLI {#cli}
 
-     Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+     Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
      По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -528,15 +528,15 @@ Firebase:
         created_at: "2022-12-14T08:42:16.273717Z"
         ```
 
-   - {{ TF }} {#tf}
+   - Terraform {#tf}
 
-     Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
      
      
-     Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+     Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
      Чтобы настроить переадресацию всех запросов:
-     1. Откройте файл конфигурации {{ TF }} и добавьте параметр `redirect_all_requests_to` в описание ресурса `yandex_storage_bucket`:
+     1. Откройте файл конфигурации Terraform и добавьте параметр `redirect_all_requests_to` в описание ресурса `yandex_storage_bucket`:
 
         ```hcl
         ...
@@ -559,7 +559,7 @@ Firebase:
           * `index_document` — абсолютный путь к файлу главной страницы сайта. Обязательный параметр.
           * `error_document` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках `4хх`. Необязательный параметр.
 
-        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform см. в [документации провайдера](../../terraform/resources/storage_bucket.md#static-website-hosting).
      1. Создайте ресурсы:
 
         1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -581,7 +581,7 @@ Firebase:
            terraform plan
            ```
         
-           В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+           В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
         1. Примените изменения конфигурации:
         
            ```bash
@@ -604,14 +604,14 @@ Firebase:
 
 ## Протестируйте работу созданного приложения {#test}
 
-1. Обратитесь к статическому сайту по адресу, который получили при [настройке хостинга](#deploy), и нажмите кнопку **Call {{ api-gw-short-name }}**, не проходя авторизации. Убедитесь, что в ответ приходит ошибка `Got error: Request failed with status code 401`.
+1. Обратитесь к статическому сайту по адресу, который получили при [настройке хостинга](#deploy), и нажмите кнопку **Call API Gateway**, не проходя авторизации. Убедитесь, что в ответ приходит ошибка `Got error: Request failed with status code 401`.
 1. Чтобы авторизоваться на сайте, нажмите кнопку **Log in**.
-1. После авторизации снова нажмите кнопку **Call {{ api-gw-short-name }}**. Убедитесь, что вызов успешно обрабатывается и в ответ приходит информация об авторизованном пользователе.
+1. После авторизации снова нажмите кнопку **Call API Gateway**. Убедитесь, что вызов успешно обрабатывается и в ответ приходит информация об авторизованном пользователе.
 
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
-1. [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
+1. [Удалите бакет Object Storage](../../storage/operations/buckets/delete.md).
 1. [Удалите API-шлюз](../operations/api-gw-delete.md).
 1. [Удалите проект в Firebase](https://support.google.com/firebase/answer/9137886?hl=en).
 1. [Удалите проект в Google Cloud](https://cloud.google.com/go/getting-started#clean-up).

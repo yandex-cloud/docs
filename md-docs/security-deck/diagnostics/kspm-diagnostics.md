@@ -1,8 +1,8 @@
-# Диагностика ошибок в работе модуля Контроль {{ k8s }} ({{ kspm-name }})
+# Диагностика ошибок в работе модуля Контроль Kubernetes (KSPM)
 
 ## Existing Kyverno installation detected and has to be removed manually {#existing-kyverno-installation}
 
-В кластере ранее был установлен Admission Controller на базе Kyverno. Для корректной работы {{ kspm-name }} Admission Controller требуется отсутствие Kyverno при установке. При удалении версии Kyverno также нужно удалить все [CustomResourceDefinitions](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions), созданные Kyverno:
+В кластере ранее был установлен Admission Controller на базе Kyverno. Для корректной работы KSPM Admission Controller требуется отсутствие Kyverno при установке. При удалении версии Kyverno также нужно удалить все [CustomResourceDefinitions](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions), созданные Kyverno:
 
 ```bash
 kubectl delete crd $(kubectl get crd -o name | grep kyverno.io)
@@ -10,7 +10,7 @@ kubectl delete crd $(kubectl get crd -o name | grep kyverno.io)
 
 ## Unable to check for existing Kyverno installation {#kyverno-check-error}
 
-Произошла непредвиденная ошибка во время проверки на наличие Kyverno в кластере. Обратитесь в [службу поддержки]({{ link-console-support }})
+Произошла непредвиденная ошибка во время проверки на наличие Kyverno в кластере. Обратитесь в [службу поддержки](https://center.yandex.cloud/support)
 
 ## Cluster version too old {#outdated-cluster}
 
@@ -26,8 +26,8 @@ kubectl delete crd $(kubectl get crd -o name | grep kyverno.io)
 
  ## Component is unhealthy {#unhealthy-component}
  
- Ошибка в работе компонента. Обратитесь в [службу поддержки]({{ link-console-support }})
+ Ошибка в работе компонента. Обратитесь в [службу поддержки](https://center.yandex.cloud/support)
 
  ## Component sync failed {#failed-sync}
  
- Произошла непредвиденная ошибка во время изменения компонента. Обратитесь в [службу поддержки]({{ link-console-support }})
+ Произошла непредвиденная ошибка во время изменения компонента. Обратитесь в [службу поддержки](https://center.yandex.cloud/support)

@@ -5,7 +5,7 @@ Uploads specified files from origins to cache of the specified resource. For def
 ## HTTP request
 
 ```
-POST https://cdn.{{ api-host }}/cdn/v1/cache/{resourceId}:prefetch
+POST https://cdn.api.cloud.yandex.net/cdn/v1/cache/{resourceId}:prefetch
 ```
 
 ## Path parameters

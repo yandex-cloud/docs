@@ -18,7 +18,7 @@ Initializing provider plugins...
 
 ## Решение {#issue-resolution}
 
-Убедитесь, что в файле конфигурации {{ TF }} верно настроен провайдер. Эта настройка описана [в руководстве по началу работы с {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+Убедитесь, что в файле конфигурации Terraform верно настроен провайдер. Эта настройка описана [в руководстве по началу работы с Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
 
 Решение проблемы зависит от операционной системы:
 

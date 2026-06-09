@@ -6,7 +6,7 @@ To get the list of available MongoDB Database resources, make a [List](../../../
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/databases/{databaseName}
+GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/databases/{databaseName}
 ```
 
 ## Path parameters

@@ -1,45 +1,45 @@
-# Включение поддержки федерации сервисных аккаунтов {{ iam-full-name }} в кластере {{ managed-k8s-full-name }}
+# Включение поддержки федерации сервисных аккаунтов Yandex Identity and Access Management в кластере Yandex Managed Service for Kubernetes
 
-В {{ managed-k8s-name }} реализована интеграция с _федерациями сервисных аккаунтов_ {{ iam-name }}.
+В Managed Service for Kubernetes реализована интеграция с _федерациями сервисных аккаунтов_ Identity and Access Management.
 
-[Федерации сервисных аккаунтов](../../../iam/concepts/workload-identity.md) (Workload Identity Federation) позволяют настроить связь между внешними системами и {{ yandex-cloud }} по протоколу [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC). За счет этого внешние системы могут выполнять действия с ресурсами {{ yandex-cloud }} от имени [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md) {{ iam-short-name }} без использования [авторизованных ключей](../../../iam/concepts/authorization/key.md). Это более безопасный способ, минимизирующий риск утечки учетных данных и возможность несанкционированного доступа.
+[Федерации сервисных аккаунтов](../../../iam/concepts/workload-identity.md) (Workload Identity Federation) позволяют настроить связь между внешними системами и Yandex Cloud по протоколу [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC). За счет этого внешние системы могут выполнять действия с ресурсами Yandex Cloud от имени [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md) IAM без использования [авторизованных ключей](../../../iam/concepts/authorization/key.md). Это более безопасный способ, минимизирующий риск утечки учетных данных и возможность несанкционированного доступа.
 
-При включении опции {{ managed-k8s-name }} автоматически создает для конкретного кластера OIDC-провайдер и предоставляет следующие параметры для интеграции с федерациями сервисных аккаунтов:
-* `{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-issuer_iKJcv }}`.
-* `{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-jwks-uri_x2AJJ }}`.
+При включении опции Managed Service for Kubernetes автоматически создает для конкретного кластера OIDC-провайдер и предоставляет следующие параметры для интеграции с федерациями сервисных аккаунтов:
+* `URL эмитента`.
+* `URL набора ключей JWKS`.
 
 {% note tip %}
 
-В инструкции описана настройка кластера и групп узлов {{ managed-k8s-name }}, полное руководство по интеграции с федерациями сервисных аккаунтов {{ iam-name }} см. на странице [{#T}](../../tutorials/wlif-managed-k8s-integration.md).
+В инструкции описана настройка кластера и групп узлов Managed Service for Kubernetes, полное руководство по интеграции с федерациями сервисных аккаунтов Identity and Access Management см. на странице [Доступ к API Yandex Cloud из кластера Managed Service for Kubernetes с помощью федерации сервисных аккаунтов Identity and Access Management](../../tutorials/wlif-managed-k8s-integration.md).
 
 {% endnote %}
 
-1. Если у вас еще нет кластера {{ managed-k8s-name }}:
+1. Если у вас еще нет кластера Managed Service for Kubernetes:
     1. [Создайте](kubernetes-cluster-create.md) кластер.
 
     1. [Создайте](../node-group/node-group-create.md) группу узлов.
     1. [Настройте](../connect/security-groups.md) группы безопасности для кластера и группы узлов.
-1. Для доступа к API {{ yandex-cloud }} у узлов кластера должен быть доступ в интернет. Убедитесь, что узлам кластера назначены публичные IP-адреса, или в подсети, где размещаются узлы, настроен [NAT-шлюз](../../../vpc/concepts/gateways.md#nat-gateway) или [NAT-инстанс](../../../tutorials/routing/nat-instance/index.md). Также убедитесь, что правилами группы безопасности разрешен весь исходящий трафик для узлов кластера.
+1. Для доступа к API Yandex Cloud у узлов кластера должен быть доступ в интернет. Убедитесь, что узлам кластера назначены публичные IP-адреса, или в подсети, где размещаются узлы, настроен [NAT-шлюз](../../../vpc/concepts/gateways.md#nat-gateway) или [NAT-инстанс](../../../tutorials/routing/nat-instance/index.md). Также убедитесь, что правилами группы безопасности разрешен весь исходящий трафик для узлов кластера.
 1. Настройте интеграцию с федерацией сервисных аккаунтов для кластера и группы узлов:
 
     {% list tabs group=instructions %}
 
     - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором размещен кластер.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-      1. Напротив кластера нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
-      1. В поле **{{ ui-key.yacloud.k8s.IAMService.section-title_4Cx2E }}** включите федерацию сервисных аккаунтов.
-      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
-      1. На обзорной странице кластера в блоке **{{ ui-key.yacloud.k8s.IAMService.section-title_4Cx2E }}** скопируйте значения параметров **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-issuer_iKJcv }}** и **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-jwks-uri_x2AJJ }}**. Они понадобятся для дальнейшей интеграции.
-      1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
-      1. Напротив группы узлов нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
-      1. В поле **{{ ui-key.yacloud.k8s.IAMService.section-title_4Cx2E }}** включите федерацию сервисных аккаунтов.
-      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором размещен кластер.
+      1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+      1. Напротив кластера нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
+      1. В поле **Управление идентификацией и доступом** включите федерацию сервисных аккаунтов.
+      1. Нажмите **Сохранить**.
+      1. На обзорной странице кластера в блоке **Управление идентификацией и доступом** скопируйте значения параметров **URL эмитента** и **URL набора ключей JWKS**. Они понадобятся для дальнейшей интеграции.
+      1. Перейдите на вкладку **Группы узлов**.
+      1. Напротив группы узлов нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
+      1. В поле **Управление идентификацией и доступом** включите федерацию сервисных аккаунтов.
+      1. Нажмите **Сохранить**.
 
     - CLI {#cli}
 
-      Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
       По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -58,8 +58,8 @@
           ...
           workload_identity_federation:
             enabled: true
-            issuer: https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/catc7433801j********
-            jwks_uri: https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/catc7433801j********/jwks.json
+            issuer: https://storage.yandexcloud.net/mk8s-oidc/v1/clusters/catc7433801j********
+            jwks_uri: https://storage.yandexcloud.net/mk8s-oidc/v1/clusters/catc7433801j********/jwks.json
           ```
 
           Скопируйте значения параметров `workload_identity_federation.issuer` и `workload_identity_federation.jwks_uri`. Они понадобятся для дальнейшей интеграции.
@@ -81,20 +81,20 @@
             enabled: true
           ```
 
-    - {{ TF }} {#tf}
+    - Terraform {#tf}
 
-      [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+      [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
       
-      {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+      Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
       
-      Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+      Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
-      Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
       
       
-      Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+      Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-      1. В конфигурационном файле {{ TF }} добавьте в манифест кластера блок `workload_identity_federation`:
+      1. В конфигурационном файле Terraform добавьте в манифест кластера блок `workload_identity_federation`:
 
           ```hcl
           resource "yandex_kubernetes_cluster" "my_cluster" {
@@ -105,7 +105,7 @@
           }
           ```
 
-      1. В конфигурационном файле {{ TF }} добавьте в манифест группы узлов блок `workload_identity_federation`:
+      1. В конфигурационном файле Terraform добавьте в манифест группы узлов блок `workload_identity_federation`:
 
           ```hcl
           resource "yandex_kubernetes_node_group" "my_node_group" {
@@ -118,14 +118,14 @@
 
       1. Проверьте корректность конфигурационных файлов.
 
-          1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+          1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
           1. Выполните команду:
           
              ```bash
              terraform validate
              ```
           
-             Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+             Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
       1. Подтвердите изменение ресурсов.
 
@@ -147,9 +147,9 @@
              1. Подтвердите изменение ресурсов.
              1. Дождитесь завершения операции.
 
-      1. Получите URL эмитента (`issuer`) и URL набора ключей JWKS (`jwks_uri`) для настройки федерации сервисных аккаунтов с помощью источника данных {{ TF }} [yandex_kubernetes_cluster]({{ tf-provider-datasources-link }}/kubernetes_cluster).
+      1. Получите URL эмитента (`issuer`) и URL набора ключей JWKS (`jwks_uri`) для настройки федерации сервисных аккаунтов с помощью источника данных Terraform [yandex_kubernetes_cluster](../../../terraform/data-sources/kubernetes_cluster.md).
 
-          Также вы можете [узнать](kubernetes-cluster-list.md#get) эти параметры в [консоли управления]({{ link-console-main }}), с помощью CLI или API.
+          Также вы можете [узнать](kubernetes-cluster-list.md#get) эти параметры в [консоли управления](https://console.yandex.cloud), с помощью CLI или API.
 
     - API {#api}
 
@@ -186,5 +186,5 @@
 
 ### См. также {#see-also}
 
-* [{#T}](../../../iam/concepts/workload-identity.md)
-* [{#T}](../../tutorials/wlif-managed-k8s-integration.md)
+* [Федерации сервисных аккаунтов](../../../iam/concepts/workload-identity.md)
+* [Доступ к API Yandex Cloud из кластера Managed Service for Kubernetes с помощью федерации сервисных аккаунтов Identity and Access Management](../../tutorials/wlif-managed-k8s-integration.md)

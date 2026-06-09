@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-С 1 июля 2026 года сервис {{ load-testing-name }} прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../../sunset.md).
+С 1 июля 2026 года сервис Load Testing прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../../sunset.md).
 
 {% endnote %}
 
@@ -139,6 +139,6 @@ uri2 tag
 
 ## Примеры использования {#examples}
 
-* [{#T}](../../tutorials/loadtesting-https-phantom.md)
-* [{#T}](../../tutorials/loadtesting-https-pandora.md)
-* [{#T}](../../tutorials/loadtesting-results-compare.md)
+* [HTTPS-тест с постоянной нагрузкой с помощью Phantom](../../tutorials/loadtesting-https-phantom.md)
+* [HTTPS-тест со ступенчатой нагрузкой с помощью Pandora](../../tutorials/loadtesting-https-pandora.md)
+* [Сравнение результатов нагрузочных тестов](../../tutorials/loadtesting-results-compare.md)

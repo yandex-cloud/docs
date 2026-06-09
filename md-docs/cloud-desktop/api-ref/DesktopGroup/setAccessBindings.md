@@ -5,7 +5,7 @@ Sets access bindings for the specified desktop group.
 ## HTTP request
 
 ```
-POST https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktopGroups/{resourceId}:setAccessBindings
+POST https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/desktopGroups/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

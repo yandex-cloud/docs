@@ -5,7 +5,7 @@ Deletes the specified Apache Airflow cluster.
 ## HTTP request
 
 ```
-DELETE https://airflow.{{ api-host }}/managed-airflow/v1/clusters/{clusterId}
+DELETE https://airflow.api.cloud.yandex.net/managed-airflow/v1/clusters/{clusterId}
 ```
 
 ## Path parameters

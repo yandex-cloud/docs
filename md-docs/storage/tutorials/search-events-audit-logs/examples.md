@@ -2,21 +2,21 @@
 
 # Примеры запросов для поиска событий в аудитных логах
 
-В этом разделе собраны наиболее частые запросы для поиска событий в аудитных логах для различных ресурсов {{ yandex-cloud }}. Чтобы получить нужные события, выполните запрос из приведенных примеров.
+В этом разделе собраны наиболее частые запросы для поиска событий в аудитных логах для различных ресурсов Yandex Cloud. Чтобы получить нужные события, выполните запрос из приведенных примеров.
 
 **Инфраструктура и сеть**   
-* [{{ compute-full-name }}](#compute)
+* [Yandex Compute Cloud](#compute)
     * [Любые действия с виртуальной машиной](#any-actions-vm)
     * [Добавление дополнительного интерфейса к виртуальной машине](#attach-additional-interface-vm)
     * [Добавление доступа к серийной консоли виртуальной машины](#add-access-serial-console-vm)
     * [Создание или изменение виртуальной машины с включенным получением токена через AWS IMDSv1](#create-vm-aws-imdsv1)
-* [{{ vpc-full-name }}](#vpc)
+* [Yandex Virtual Private Cloud](#vpc)
     * [Любые действия с определенного IP-адреса](#any-actions-ip)
     * [Добавление публичного IP-адреса к виртуальной машине](#address-attached)
     * [Создание или изменение группы безопасности](#create-security-group)
 
 **Мониторинг и управление ресурсами**
-* [{{ org-full-name }}](#organization)
+* [Yandex Identity Hub](#organization)
     * [Удаление каталога](#delete-folder)
     * [Создание федерации](#create-federation)
     * [Изменение федерации](#update-federation)
@@ -24,7 +24,7 @@
     * [Обнаружение облачного секрета в открытом доступе](#detect-leaked-credential)
 
 **Контейнеры**
-* [{{ managed-k8s-full-name }}](#k8s)
+* [Yandex Managed Service for Kubernetes](#k8s)
     * [Создание кластера с публичным IP-адресом мастера](#create-k8s-with-public-ip-for-master)
     * [Создание кластера без группы безопасности для мастера](#create-k8s-without-security-group-for-master)
     * [Создание кластера без автоматического обновления мастеров](#create-k8s-without-autoupgrade-for-master)
@@ -32,24 +32,24 @@
     * [Создание кластера без сетевых политик](#create-k8s-without-network-policy)
     * [Создание группы узлов c публичными IP-адресами](#create-k8s-with-public-ip-for-node-group)
     * [Создание кластера без автоматического обновления группы узлов](#create-k8s-without-autoupgrade-for-node-group)
-* [{{ container-registry-full-name }}](#container-registry)
+* [Yandex Container Registry](#container-registry)
     * [Обнаружение критических уязвимостей при сканировании образа](#detect-critical-vulnerabilities)
 
 **Платформа данных**
-* [{{ objstorage-full-name }}](#object-storage)
+* [Yandex Object Storage](#object-storage)
     * [Изменение политики доступа к бакету](#update-bucket-policy)
     * [Открытие публичного доступа при создании или изменении бакета](#public-access-bucket)
 * [Управляемые базы данных (MDB)](#mdb)
     * [Создание или изменение пользователя для MDB](#create-user)
 
 **Безопасность**
-* [{{ kms-full-name }}](#kms)
+* [Yandex Key Management Service](#kms)
     * [Изменение ролей для KMS-ключей](#update-key-access-bindings)
-* [{{ iam-full-name }}](#iam)
+* [Yandex Identity and Access Management](#iam)
     * [Действия конкретного пользователя за период времени](#any-actions-user)
     * [Создание любых ключей для сервисных аккаунтов](#create-sa-keys)
     * [Назначение примитивных привилегированных ролей на ресурсы](#assigning-primitive-privileged-roles)
-* [{{ lockbox-full-name }}](#lockbox)
+* [Yandex Lockbox](#lockbox)
     * [Изменение ролей для секретов](#update-secret-access-bindings)
     * [Чтение секрета](#read-secret)
 
@@ -59,13 +59,13 @@
 
 ## Инфраструктура и сеть {#infrastructure-and-network}
 
-### {{ compute-full-name }} {#compute}
+### Yandex Compute Cloud {#compute}
 
 #### Любые действия с виртуальной машиной {#any-actions-vm}
 
 {% list tabs group=at_logs_tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -84,7 +84,7 @@
 
     Идентификатор можно запросить со списком виртуальных машин в каталоге.
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -107,7 +107,7 @@
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -118,7 +118,7 @@
       JSON_VALUE(data,"$.event_type") = 'yandex.cloud.audit.compute.AttachInstanceNetworkInterface'
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -132,7 +132,7 @@
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -145,7 +145,7 @@
       JSON_VALUE(data,"$.details.metadata_serial_port_enable") = '1'
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -161,7 +161,7 @@
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -174,7 +174,7 @@
       JSON_VALUE(data,"$.details.metadata_options.aws_v1_http_token") = 'ENABLED'
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -186,13 +186,13 @@
 
 {% endlist %}
 
-### {{ vpc-full-name }} {#vpc}
+### Yandex Virtual Private Cloud {#vpc}
 
 #### Любые действия с определенного IP-адреса {#any-actions-ip}
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -203,7 +203,7 @@
       JSON_VALUE(data,"$.request_metadata.remote_address") = '<IP-адрес>' 
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -217,7 +217,7 @@
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -228,7 +228,7 @@
       JSON_VALUE(data,"$.event_type") = 'yandex.cloud.audit.network.AddressAttached'
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -242,7 +242,7 @@
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -254,7 +254,7 @@
       JSON_VALUE(data,"$.event_type") = 'yandex.cloud.audit.compute.UpdateInstance'
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -267,13 +267,13 @@
 
 ## Мониторинг и управление ресурсами {#monitoring-and-resource-management}
 
-### {{ org-full-name }} {#organization}
+### Yandex Identity Hub {#organization}
 
 #### Удаление каталога {#delete-folder}
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -287,17 +287,17 @@
 
     Имя каталога можно запросить со списком каталогов в облаке.
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Поиск по идентификатору:
 
     ```json
-    json_payload.event_type="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_id="<идентификатор_каталога>"
+    json_payload.event_type="yandex.cloud.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_id="<идентификатор_каталога>"
     ```
     
     Поиск по имени:
     ```json
-    json_payload.event_type="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_name="<имя_каталога>"
+    json_payload.event_type="yandex.cloud.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_name="<имя_каталога>"
     ```
 
     Имя каталога можно запросить со списком каталогов в облаке.
@@ -309,7 +309,7 @@
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }}
+- Yandex Query
 
     Выполните запрос:
 
@@ -320,7 +320,7 @@
       JSON_VALUE(data,"$.event_type") = 'yandex.cloud.audit.organizationmanager.saml.CreateFederation'
     ```
 
-- {{ cloud-logging-full-name }}
+- Yandex Cloud Logging
 
     Используйте фильтр:
 
@@ -334,7 +334,7 @@
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }}
+- Yandex Query
 
     Выполните запрос:
 
@@ -345,7 +345,7 @@
       JSON_VALUE(data,"$.event_type") = 'yandex.cloud.audit.organizationmanager.saml.UpdateFederation'
     ```
 
-- {{ cloud-logging-full-name }}
+- Yandex Cloud Logging
 
     Используйте фильтр:
 
@@ -359,7 +359,7 @@
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -370,7 +370,7 @@
       JSON_VALUE(data,"$.event_type") = 'yandex.cloud.audit.organizationmanager.saml.CreateCertificate'
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -384,7 +384,7 @@
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -395,7 +395,7 @@
       JSON_VALUE(data,"$.event_type") = 'yandex.cloud.audit.organizationmanager.DetectLeakedCredential'
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -407,13 +407,13 @@
 
 ## Контейнеры {#containers}
 
-### {{ managed-k8s-full-name }} {#k8s}
+### Yandex Managed Service for Kubernetes {#k8s}
 
 #### Создание кластера с публичным IP-адресом мастера {#create-k8s-with-public-ip-for-master}
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -425,7 +425,7 @@
       JSON_EXISTS(data,"$.request_parameters.master_spec.zonal_master_spec.external_v4_address_spec.address")
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -440,7 +440,7 @@
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -453,7 +453,7 @@
       JSON_EXISTS(data,"$.request_parameters.master_spec.security_group_ids")
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -469,7 +469,7 @@
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -482,7 +482,7 @@
       JSON_EXISTS(data,"$.request_parameters.master_spec.maintenance_policy.auto_upgrade")
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -498,7 +498,7 @@
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -510,7 +510,7 @@
       JSON_EXISTS(data,"$.request_parameters.kms_provider.key_id")
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -525,7 +525,7 @@
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -537,7 +537,7 @@
       JSON_EXISTS(data,"$.request_parameters.network_policy.provider")
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -552,7 +552,7 @@
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -565,7 +565,7 @@
       JSON_EXISTS(data,"$.request_parameters.node_template.v4_address_spec.one_to_one_nat_spec")
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -581,7 +581,7 @@
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -594,7 +594,7 @@
       JSON_EXISTS(data,"$.request_parameters.maintenance_policy.auto_upgrade")
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -606,13 +606,13 @@
 
 {% endlist %}
 
-### {{ container-registry-full-name }} {#container-registry}
+### Yandex Container Registry {#container-registry}
 
 #### Обнаружение критических уязвимостей при сканировании образа {#detect-critical-vulnerabilities}
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -624,7 +624,7 @@
       JSON_VALUE(data,"$.details.vulnerability_stats.critical") > 0
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -637,13 +637,13 @@
 
 ## Платформа данных {#data-platform}
 
-### {{ objstorage-full-name }} {#object-storage}
+### Yandex Object Storage {#object-storage}
 
 #### Изменение политики доступа к бакету {#update-bucket-policy}
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -654,7 +654,7 @@
       JSON_VALUE(data,"$.event_type") = 'yandex.cloud.audit.storage.BucketPolicyUpdate'
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -668,7 +668,7 @@
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -682,7 +682,7 @@
       JSON_VALUE(data,"$.details.list_access") = 'true')
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -701,7 +701,7 @@
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -715,7 +715,7 @@
       JSON_VALUE(data,"$.event_type") = 'yandex.cloud.audit.mdb.mysql.CreateUser'
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -730,13 +730,13 @@
 
 ## Безопасность {#security}
 
-### {{ kms-full-name }} {#kms}
+### Yandex Key Management Service {#kms}
 
 #### Изменение ролей для KMS-ключей {#update-key-access-bindings}
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -750,7 +750,7 @@
       JSON_VALUE(data,"$.event_type") = 'yandex.cloud.audit.kms.SetAsymmetricEncryptionKeyAccessBindings'
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -763,13 +763,13 @@
 
 {% endlist %}
 
-### {{ iam-full-name }} {#iam}
+### Yandex Identity and Access Management {#iam}
 
 #### Действия конкретного пользователя за период времени {#any-actions-user}
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -784,7 +784,7 @@
 
     Дата задается в формате `ГГГГ-ММ-ДД`.
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -802,7 +802,7 @@
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -815,7 +815,7 @@
       JSON_VALUE(data,"$.event_type") = 'yandex.cloud.audit.iam.CreateApiKey'
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -831,7 +831,7 @@
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -842,7 +842,7 @@
       JSON_VALUE(data,"$.details.access_binding_deltas.access_binding.role_id") = '<примитивная_роль>'
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -852,13 +852,13 @@
 
 {% endlist %}
 
-### {{ lockbox-full-name }} {#lockbox}
+### Yandex Lockbox {#lockbox}
 
 #### Изменение ролей для секретов {#update-secret-access-bindings}
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -869,7 +869,7 @@
       JSON_VALUE(data,"$.event_type") = 'yandex.cloud.audit.lockbox.UpdateSecretAccessBindings' 
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -883,7 +883,7 @@
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     Выполните запрос:
 
@@ -894,7 +894,7 @@
       JSON_VALUE(data,"$.event_type") = 'yandex.cloud.audit.lockbox.GetPayload'
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -912,7 +912,7 @@
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }} {#yandex-query}
+- Yandex Query {#yandex-query}
 
     ```sql
     select * from 
@@ -922,7 +922,7 @@
       JSON_VALUE(data,"$.error.code") = 7
     ```
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- Yandex Cloud Logging {#cloud-logging}
 
     ```sql
     json_payload.event_status = ERROR and json_payload.error.code = 7

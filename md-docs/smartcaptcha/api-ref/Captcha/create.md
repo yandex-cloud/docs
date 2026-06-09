@@ -5,7 +5,7 @@ Creates a captcha in the specified folder using the data specified in the reques
 ## HTTP request
 
 ```
-POST https://smartcaptcha.{{ api-host }}/smartcaptcha/v1/captchas
+POST https://smartcaptcha.api.cloud.yandex.net/smartcaptcha/v1/captchas
 ```
 
 ## Body parameters {#yandex.cloud.smartcaptcha.v1.CreateCaptchaRequest}

@@ -7,7 +7,7 @@ Get the list of available Network resources by making a [List](list.md#List) req
 ## HTTP request
 
 ```
-GET https://vpc.{{ api-host }}/vpc/v1/networks/{networkId}
+GET https://vpc.api.cloud.yandex.net/vpc/v1/networks/{networkId}
 ```
 
 ## Path parameters

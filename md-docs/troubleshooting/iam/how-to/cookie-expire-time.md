@@ -7,12 +7,12 @@
 
 ## Решение {#case-resolution}
 
-Максимальное время жизни сессии составляет 12 часов. Изменить его в бо́льшую сторону возможности нет, но вы можете воспользоваться опцией **{{ ui-key.yacloud_org.entity.federation.field.forceAuthn }}**. При включении этой опции IdP-провайдер запрашивает у пользователя аутентификацию по истечении сессии в {{ yandex-cloud }}.
+Максимальное время жизни сессии составляет 12 часов. Изменить его в бо́льшую сторону возможности нет, но вы можете воспользоваться опцией **Принудительная повторная аутентификация (ForceAuthn) в IdP**. При включении этой опции IdP-провайдер запрашивает у пользователя аутентификацию по истечении сессии в Yandex Cloud.
 
 Подробнее вы можете ознакомиться с изменениями в разделе **Создайте федерацию в организации** по ссылкам ниже:
 
 * [ADFS](../../../organization/operations/federations/integration-adfs#create-federation);
 * [Google Workspace](../../../organization/operations/federations/integration-gworkspace#yc-settings);
-* [{{ microsoft-idp.entra-id-short }}](../../../organization/operations/federations/integration-azure#yc-settings);
+* [Entra ID](../../../organization/operations/federations/integration-azure#yc-settings);
 * [Keycloak](../../../organization/operations/federations/integration-keycloak#yc-settings);
 * [SAML-совместимая](../../../organization/operations/federations/integration-common#create-federation).

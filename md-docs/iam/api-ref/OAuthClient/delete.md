@@ -5,7 +5,7 @@ Deletes the specified oauth client with all its secrets.
 ## HTTP request
 
 ```
-DELETE https://iam.{{ api-host }}/iam/v1/oauthClients/{oauthClientId}
+DELETE https://iam.api.cloud.yandex.net/iam/v1/oauthClients/{oauthClientId}
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Signs hash value specified KMS key.
 ## HTTP request
 
 ```
-POST https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys/{keyId}:signHash
+POST https://kms.api.cloud.yandex.net/kms/v1/asymmetricSignatureKeys/{keyId}:signHash
 ```
 
 ## Path parameters

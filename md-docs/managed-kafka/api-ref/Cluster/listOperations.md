@@ -5,7 +5,7 @@ Retrieves the list of operations for the specified Apache Kafka® cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/operations
+GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/operations
 ```
 
 ## Path parameters

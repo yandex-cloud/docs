@@ -1,15 +1,15 @@
 # Создание внешнего источника данных JDBC
 
-В {{ mgp-name }} в качестве [внешнего источника данных](../../concepts/external-tables.md#pxf-data-sources) с типом подключения JDBC можно использовать:
+В Yandex MPP Analytics for PostgreSQL в качестве [внешнего источника данных](../../concepts/external-tables.md#pxf-data-sources) с типом подключения JDBC можно использовать:
 
-* {{ CH }};
-* {{ MY }};
+* ClickHouse®;
+* MySQL®;
 * Oracle;
-* {{ PG }};
-* {{ MS }};
-* {{ TR }}.
+* PostgreSQL;
+* SQL Server;
+* Trino.
 
-В этот список входят управляемые БД {{ yandex-cloud }} и сторонние БД.
+В этот список входят управляемые БД Yandex Cloud и сторонние БД.
 
 ## Создайте внешний источник {#create-external-source}
 
@@ -17,21 +17,21 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Откройте страницу нужного кластера {{ mgp-name }}.
-    1. На панели слева выберите ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.greenplum.cluster.pxf.action_create-datasource }}**.
-    1. Выберите тип подключения `{{ ui-key.yacloud.greenplum.cluster.pxf.value_jdbc }}`.
+    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. Откройте страницу нужного кластера Yandex MPP Analytics for PostgreSQL.
+    1. На панели слева выберите ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **PXF**.
+    1. Нажмите кнопку **Создать источник данных**.
+    1. Выберите тип подключения `JDBC`.
     1. Укажите имя источника.
     1. Задайте хотя бы одну [опциональную настройку](../../concepts/settings-list.md#jdbc-settings).
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    1. Нажмите кнопку **Создать**.
 
     После создания внешнего источника данных [создайте внешнюю таблицу](create-table.md).
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -40,13 +40,13 @@
     1. Посмотрите описание команды CLI для создания источника данных:
 
         ```bash
-        {{ yc-mdb-gp }} pxf-datasource create jdbc --help
+        yc managed-greenplum pxf-datasource create jdbc --help
         ```
 
     1. Задайте настройки источника данных:
 
         ```bash
-        {{ yc-mdb-gp }} pxf-datasource create jdbc <имя_внешнего_источника_данных> \
+        yc managed-greenplum pxf-datasource create jdbc <имя_внешнего_источника_данных> \
            --cluster-id=<идентификатор_кластера> \
            --driver=<адрес_драйвера> \
            --url=<URL_базы_данных> \
@@ -70,8 +70,8 @@
 
         * `url` — URL базы данных. Примеры:
 
-            * `jdbc:mysql://mysqlhost:{{ port-mmy }}/testdb` — для локальной БД {{ MY }}.
-            * `jdbc:postgresql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mpg }}/db1` — для кластера {{ mpg-full-name }}. Адрес содержит [особый FQDN](../../../managed-postgresql/operations/connect/fqdn.md#special-fqdns) мастера в кластере.
+            * `jdbc:mysql://mysqlhost:3306/testdb` — для локальной БД MySQL®.
+            * `jdbc:postgresql://c-<идентификатор_кластера>.rw.mdb.yandexcloud.net:6432/db1` — для кластера Yandex Managed Service for PostgreSQL. Адрес содержит [особый FQDN](../../../managed-postgresql/operations/connect/fqdn.md#special-fqdns) мастера в кластере.
             * `jdbc:oracle:thin:@host.example:1521:orcl` — для БД Oracle.
 
         * `user` — имя пользователя, владельца БД.
@@ -87,14 +87,14 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [PXFDatasource.Create](../../api-ref/PXFDatasource/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [PXFDatasource.Create](../../api-ref/PXFDatasource/create.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>/pxf_datasources' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>/pxf_datasources' \
             --data '{
                       "datasource": {
                         "name": "<имя_внешнего_источника_данных>",
@@ -134,7 +134,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [PXFDatasourceService.Create](../../api-ref/grpc/PXFDatasource/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [PXFDatasourceService.Create](../../api-ref/grpc/PXFDatasource/create.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -156,7 +156,7 @@
                     }
                   }
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.greenplum.v1.PXFDatasourceService.Create
         ```
 
@@ -171,7 +171,7 @@
 
 - SQL {#sql}
 
-  Этот способ подходит для {{ mgp-name }}, использующего [Apache Cloudberry™](https://cloudberry.apache.org).
+  Этот способ подходит для Yandex MPP Analytics for PostgreSQL, использующего [Apache Cloudberry™](https://cloudberry.apache.org).
   
   Чтобы создать внешний источник данных, выполните следующие действия:
 
@@ -205,4 +205,4 @@
 
 _Greenplum® и Greenplum Database® являются зарегистрированными товарными знаками или товарными знаками Broadcom Inc в США и/или других странах._
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

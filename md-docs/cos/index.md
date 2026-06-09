@@ -4,7 +4,7 @@ Yandex Container Solution — это сценарии использования
 
 # Yandex Container Solution
 
- - [Сопоставление с другими сервисами {{ yandex-cloud }}](service-comparison.md)
+ - [Сопоставление с другими сервисами Yandex Cloud](service-comparison.md)
 
  - [Начало работы](quickstart.md)
 
@@ -12,29 +12,29 @@ Yandex Container Solution — это сценарии использования
 
  - [Все руководства](tutorials/index.md)
 
- - [Создать ВМ с {{ coi }}](tutorials/vm-create.md)
+ - [Создать ВМ с Container Optimized Image](tutorials/vm-create.md)
 
- - [Создать ВМ с {{ coi }} и дополнительным томом для Docker-контейнера](tutorials/vm-create-with-second-disk.md)
+ - [Создать ВМ с Container Optimized Image и дополнительным томом для Docker-контейнера](tutorials/vm-create-with-second-disk.md)
 
- - [Создать ВМ с {{ coi }} и несколькими Docker-контейнерами](tutorials/docker-compose.md)
+ - [Создать ВМ с Container Optimized Image и несколькими Docker-контейнерами](tutorials/docker-compose.md)
 
- - [Создать группу ВМ с {{ coi }}](tutorials/ig-create.md)
+ - [Создать группу ВМ с Container Optimized Image](tutorials/ig-create.md)
 
- - [Создать группу ВМ с {{ coi }} и несколькими Docker-контейнерами](tutorials/ig-with-containers.md)
+ - [Создать группу ВМ с Container Optimized Image и несколькими Docker-контейнерами](tutorials/ig-with-containers.md)
 
- - [Изменить ВМ с {{ coi }}](tutorials/vm-update.md)
+ - [Изменить ВМ с Container Optimized Image](tutorials/vm-update.md)
 
  - [Настройка вывода информации из Docker-контейнера в серийный порт](tutorials/serial-port.md)
 
- - [Запуск контейнерного приложения в {{ serverless-containers-full-name }}](tutorials/deploy-app-container.md)
+ - [Запуск контейнерного приложения в Yandex Serverless Containers](tutorials/deploy-app-container.md)
 
- - [Создать ВМ и группу ВМ с {{ coi }} с помощью {{ TF }}](tutorials/coi-with-terraform.md)
+ - [Создать ВМ и группу ВМ с Container Optimized Image с помощью Terraform](tutorials/coi-with-terraform.md)
 
- - [Передача логов с {{ coi }} в {{ cloud-logging-name }}](tutorials/coi-fluent-bit-logging.md)
+ - [Передача логов с Container Optimized Image в Cloud Logging](tutorials/coi-fluent-bit-logging.md)
 
 ## Концепции
 
- - [Образ {{ coi }}](concepts/index.md)
+ - [Образ Container Optimized Image](concepts/index.md)
 
  - [Особенности работы с дисками](concepts/disks.md)
 
@@ -50,7 +50,7 @@ Yandex Container Solution — это сценарии использования
 
  - [Правила тарификации](pricing.md)
 
- - [Релизы {{ coi }}](release-notes.md)
+ - [Релизы Container Optimized Image](release-notes.md)
 
  - [Вопросы и ответы](qa/index.md)
 

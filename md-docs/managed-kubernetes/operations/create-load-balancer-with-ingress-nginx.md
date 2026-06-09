@@ -5,7 +5,7 @@
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с [ролями](../../iam/concepts/access-control/roles.md) `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller` и `load-balancer.admin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Роль `load-balancer.admin` нужна для создания [сетевого балансировщика нагрузки](../../network-load-balancer/concepts/index.md).
-1. [Создайте группы безопасности](connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
+1. [Создайте группы безопасности](connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 
     {% note warning %}
     
@@ -13,9 +13,9 @@
     
     {% endnote %}
 
-1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md). В настройках кластера укажите сервисный аккаунт и группы безопасности, созданные ранее.
+1. [Создайте кластер Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-create.md). В настройках кластера укажите сервисный аккаунт и группы безопасности, созданные ранее.
 1. [Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/) версии не ниже 3.8.0.
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](connect/index.md#kubectl-connect).
+1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](connect/index.md#kubectl-connect).
 1. Настройте Helm для работы с репозиторием NGINX:
 
    1. Добавьте в Helm репозиторий для NGINX:
@@ -30,7 +30,7 @@
       "ingress-nginx" has been added to your repositories
       ```
 
-   1. Обновите набор данных для создания экземпляра приложения в [кластере {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster):
+   1. Обновите набор данных для создания экземпляра приложения в [кластере Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster):
 
       ```bash
       helm repo update
@@ -45,7 +45,7 @@
       ```
 
    
-   Ingress-контроллер NGINX можно также [установить с помощью {{ marketplace-full-name }}](../alb-ref/nginx-gwin-migration.md).
+   Ingress-контроллер NGINX можно также [установить с помощью Yandex Cloud Marketplace](../alb-ref/nginx-gwin-migration.md).
 
 
 ## Внешний сетевой балансировщик {#external}
@@ -53,11 +53,11 @@
 {% note warning %}
 
 * Созданный сетевой балансировщик тарифицируется согласно установленным [правилам тарификации](../../network-load-balancer/pricing.md).
-* Не изменяйте и не удаляйте сетевой балансировщик и целевые группы, которые будут автоматически созданы в вашем каталоге, через интерфейсы {{ yandex-cloud }} (консоль управления, {{ TF }}, CLI и API). Это может привести к некорректной работе кластера.
+* Не изменяйте и не удаляйте сетевой балансировщик и целевые группы, которые будут автоматически созданы в вашем каталоге, через интерфейсы Yandex Cloud (консоль управления, Terraform, CLI и API). Это может привести к некорректной работе кластера.
 
 {% endnote %}
 
-Для создания сетевого балансировщика у сервисного аккаунта, привязанного к кластеру {{ managed-k8s-name }}, должна быть роль `load-balancer.admin`.
+Для создания сетевого балансировщика у сервисного аккаунта, привязанного к кластеру Managed Service for Kubernetes, должна быть роль `load-balancer.admin`.
 
 Внешний сетевой балансировщик создается при установке Ingress-контроллера NGINX в стандартной конфигурации:
 
@@ -83,11 +83,11 @@ You can watch the status by running 'kubectl --namespace default get services -o
 {% note warning %}
 
 * Созданный сетевой балансировщик тарифицируется согласно установленным [правилам тарификации](../../network-load-balancer/pricing.md).
-* Не изменяйте и не удаляйте сетевой балансировщик и целевые группы, которые будут автоматически созданы в вашем каталоге, через интерфейсы {{ yandex-cloud }} (консоль управления, {{ TF }}, CLI и API). Это может привести к некорректной работе кластера.
+* Не изменяйте и не удаляйте сетевой балансировщик и целевые группы, которые будут автоматически созданы в вашем каталоге, через интерфейсы Yandex Cloud (консоль управления, Terraform, CLI и API). Это может привести к некорректной работе кластера.
 
 {% endnote %}
 
-Для создания сетевого балансировщика у сервисного аккаунта, привязанного к кластеру {{ managed-k8s-name }}, должна быть роль `load-balancer.admin`.
+Для создания сетевого балансировщика у сервисного аккаунта, привязанного к кластеру Managed Service for Kubernetes, должна быть роль `load-balancer.admin`.
 
 Чтобы установить внутренний сетевой балансировщик:
 1. Настройте [конфигурацию контроллера](https://github.com/kubernetes/ingress-nginx/blob/main/charts/ingress-nginx/values.yaml). Для этого создайте конфигурационный файл `values.yaml` и укажите в нем идентификатор [подсети](../../vpc/concepts/network.md#subnet), в которой должен работать сетевой балансировщик:
@@ -163,7 +163,7 @@ You can watch the status by running 'kubectl --namespace default get services -o
 
 После установки Ingress-контроллера созданный сетевой балансировщик будет иметь дополнительный обработчик `test-9000-tcp` с заданными настройками перенаправления.
 
-Имя порта Ingress-контроллера NGINX и обработчика сетевого балансировщика формируется из настроек перенаправления: `<внешний_порт>-<протокол>`. Ограничения {{ yandex-cloud }} не допускают цифр в начале имени обработчика, поэтому для правильной настройки необходимо указать префикс `portNamePrefix`. Таким образом, имя порта и обработчика будет сформировано как `<значение_префикса_portNamePrefix>-<внешний_порт>-<протокол>`.
+Имя порта Ingress-контроллера NGINX и обработчика сетевого балансировщика формируется из настроек перенаправления: `<внешний_порт>-<протокол>`. Ограничения Yandex Cloud не допускают цифр в начале имени обработчика, поэтому для правильной настройки необходимо указать префикс `portNamePrefix`. Таким образом, имя порта и обработчика будет сформировано как `<значение_префикса_portNamePrefix>-<внешний_порт>-<протокол>`.
 
 Имя порта имеет техническое ограничение в 15 символов, а имя обработчика не может начинаться с цифр. Поэтому префикс `portNamePrefix` должен:
 * Начинаться с букв.

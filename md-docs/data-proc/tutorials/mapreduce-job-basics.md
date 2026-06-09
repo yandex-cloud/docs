@@ -1,8 +1,8 @@
 # Работа с заданиями MapReduce
 
-[MapReduce](http://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) — инструмент параллельной обработки больших (порядка нескольких десятков ТБ) наборов данных на кластерах в экосистеме Hadoop. Позволяет работать с данными в разных форматах. Ввод и вывод задания хранится в {{ objstorage-full-name }}. MapReduce использует ряд библиотек, путь к которым определяется сборщиком [Apache Bigtop](https://github.com/apache/bigtop).
+[MapReduce](http://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) — инструмент параллельной обработки больших (порядка нескольких десятков ТБ) наборов данных на кластерах в экосистеме Hadoop. Позволяет работать с данными в разных форматах. Ввод и вывод задания хранится в Yandex Object Storage. MapReduce использует ряд библиотек, путь к которым определяется сборщиком [Apache Bigtop](https://github.com/apache/bigtop).
 
-В этой статье на простом примере показывается, как в {{ dataproc-name }} использовать MapReduce. При помощи MapReduce подсчитывается количество жителей 500 самых населенных городов мира из набора данных о городах.
+В этой статье на простом примере показывается, как в Yandex Data Processing использовать MapReduce. При помощи MapReduce подсчитывается количество жителей 500 самых населенных городов мира из набора данных о городах.
 
 Чтобы запустить MapReduce на Hadoop, используется интерфейс Streaming. При этом для этапов предобработки данных (map) и вычисления финальных данных (reduce) используются программы, читающие из стандартного программного ввода (stdin) и выдающие результат в стандартный вывод (stdout).
 
@@ -10,20 +10,20 @@
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
 
-1. В {{ objstorage-short-name }} [создайте бакеты](../../storage/operations/buckets/create.md) и [настройте доступ](../../storage/operations/buckets/edit-acl.md) к ним:
+1. В Object Storage [создайте бакеты](../../storage/operations/buckets/create.md) и [настройте доступ](../../storage/operations/buckets/edit-acl.md) к ним:
    
    1. Создайте бакет для исходных данных и предоставьте сервисному аккаунту кластера разрешение `READ` для этого бакета.
    1. Создайте бакет для результатов обработки и предоставьте сервисному аккаунту кластера разрешение `READ и WRITE` для этого бакета.
 
-1. [Создайте кластер {{ dataproc-name }}](../operations/cluster-create.md) со следующими настройками:
+1. [Создайте кластер Yandex Data Processing](../operations/cluster-create.md) со следующими настройками:
 
-    * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`.
-    * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
+    * **Окружение** — `PRODUCTION`.
+    * **Сервисы**:
         * `HDFS`
         * `MAPREDUCE`
         * `YARN`
-    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: выберите созданный ранее сервисный аккаунт.
-    * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: выберите бакет для результатов обработки.
+    * **Сервисный аккаунт**: выберите созданный ранее сервисный аккаунт.
+    * **Имя бакета**: выберите бакет для результатов обработки.
 
 ## Создайте задание MapReduce {#create-job}
 
@@ -52,8 +52,8 @@
 
 1. [Создайте задание MapReduce](../operations/jobs-mapreduce.md#create) с параметрами:
 
-    * **{{ ui-key.yacloud.dataproc.jobs.field_main-class }}**: `org.apache.hadoop.streaming.HadoopStreaming`
-    * **{{ ui-key.yacloud.dataproc.jobs.field_args }}**:
+    * **Основной класс**: `org.apache.hadoop.streaming.HadoopStreaming`
+    * **Аргументы**:
        * `-mapper`
        * `mapper.py`
        * `-reducer`
@@ -64,10 +64,10 @@
        * `s3a://<имя_бакета_для_исходных_данных>/cities500.txt`
        * `-output`
        * `s3a://<имя_бакета_для_результатов_обработки>/<папка_для_результатов>`
-    * **{{ ui-key.yacloud.dataproc.jobs.field_files }}**:
+    * **Файлы**:
        * `s3a://<имя_бакета_для_исходных_данных>/mapper.py`
        * `s3a://<имя_бакета_для_исходных_данных>/reducer.py`
-    * **{{ ui-key.yacloud.dataproc.jobs.field_properties }}**:
+    * **Настройки**:
        * `mapreduce.job.maps: 6`
        * `yarn.app.mapreduce.am.resource.mb: 2048`
        * `yarn.app.mapreduce.am.command-opts: -Xmx2048m`
@@ -84,7 +84,7 @@
 
 {% note info %}
 
-Вы можете просматривать логи выполнения заданий и искать в них информацию с помощью сервиса [{{ cloud-logging-full-name }}](../../logging/index.md). Подробнее в разделе [{#T}](../operations/logging.md).
+Вы можете просматривать логи выполнения заданий и искать в них информацию с помощью сервиса [Yandex Cloud Logging](../../logging/index.md). Подробнее в разделе [Работа с логами](../operations/logging.md).
 
 {% endnote %}
 

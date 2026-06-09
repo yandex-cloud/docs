@@ -4,14 +4,14 @@
 
 Настройка доступа зависит от расположения дашборда — в [воркбуке](../../workbooks-collections/index.md#enable-workbooks) или в папке.
 
-Чтобы узнать расположение дашборда, на панели слева нажмите ![image](../../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.datalens.component.aside-header.view.switch_dashboards }}**. При необходимости для поиска нужного дашборда используйте фильтр по имени.
+Чтобы узнать расположение дашборда, на панели слева нажмите ![image](../../../_assets/console-icons/layout-cells-large.svg) **Дашборды**. При необходимости для поиска нужного дашборда используйте фильтр по имени.
 
 ![image](../../../_assets/datalens/dashboard-navigation.png)
 
 1. ![image](../../../_assets/datalens/icons/square-house.svg) — дашборд в воркбуке.
 1. ![image](../../../_assets/console-icons/folder.svg) — дашборд в папке.
 
-Убедитесь, что у пользователя есть [роль для доступа к сервису](../../security/roles.md#service-roles) {{ datalens-name }}, то есть открывается ли у него {{ datalens-name }}. Если это не так, обратитесь к администратору, чтобы он добавил пользователя [по инструкции](../../security/add-new-user.md).
+Убедитесь, что у пользователя есть [роль для доступа к сервису](../../security/roles.md#service-roles) DataLens, то есть открывается ли у него DataLens. Если это не так, обратитесь к администратору, чтобы он добавил пользователя [по инструкции](../../security/add-new-user.md).
 
 Чтобы настроить права доступа к дашборду:
 
@@ -29,11 +29,11 @@
 
 - В папке
 
-  1. В строке с нужным дашбордом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.datalens.component.access-rights.view.section_main-title }}**.
+  1. В строке с нужным дашбордом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Права доступа**.
 
      ![screen02-1](../../../_assets/datalens/operations/dashboard/manage-access/screen02-1.png)
 
-  1. Нажмите кнопку **{{ ui-key.datalens.component.access-rights.view.button_access-to-dash }}**.
+  1. Нажмите кнопку **Права на дашборд**.
 
      ![screen03-1](../../../_assets/datalens/operations/dashboard/manage-access/screen03-1.png)
 
@@ -41,7 +41,7 @@
 
   1. (опционально) Напишите комментарий для пользователя, которому выдаете доступ.
 
-  1. Укажите права доступа и нажмите кнопку **{{ ui-key.datalens.component.access-rights.view.button_add }}**.
+  1. Укажите права доступа и нажмите кнопку **Добавить**.
 
      ![screen04-1](../../../_assets/datalens/operations/dashboard/manage-access/screen04-1.png)  
 
@@ -50,5 +50,5 @@
 Федеративный пользователь может сразу перейти к нужному дашборду, используя для аутентификации ссылку вида:
 
 ```html
-{{ link-datalens-main }}/<идентификатор_дашборда>?__yc_federation_id=<идентификатор_федерации>
+https://datalens.ru/<идентификатор_дашборда>?__yc_federation_id=<идентификатор_федерации>
 ```

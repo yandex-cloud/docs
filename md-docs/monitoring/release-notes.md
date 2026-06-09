@@ -1,19 +1,19 @@
-# История изменений в {{ monitoring-full-name }}
+# История изменений в Yandex Monitoring
 
 
 ## Октябрь — декабрь 2025 {#oct-dec-2025}
 
-* Для {{ managed-prometheus-full-name }} добавлена [вкладка Алерты](operations/prometheus/alerting-rules.md#view-alerts), на которую вынесены все алерты и их статусы. Ранее статус вычисления алерта можно было просмотреть в конкретном файле. Вкладка с алертами позволяет быстрее оценивать текущее состояние системы и реагировать на инциденты.
-* Для графиков {{ prometheus-name }} добавлена возможность задать в запросе шаг вычисления для агрегации данных. Это позволяет управлять детализацией и объемом возвращаемых метрик.
+* Для Yandex Managed Service for Prometheus® добавлена [вкладка Алерты](operations/prometheus/alerting-rules.md#view-alerts), на которую вынесены все алерты и их статусы. Ранее статус вычисления алерта можно было просмотреть в конкретном файле. Вкладка с алертами позволяет быстрее оценивать текущее состояние системы и реагировать на инциденты.
+* Для графиков Prometheus добавлена возможность задать в запросе шаг вычисления для агрегации данных. Это позволяет управлять детализацией и объемом возвращаемых метрик.
 * В разделе [Алерты](operations/alert/create-alert.md) добавлены лейблы для поиска и сортировки алертов. Лейблы (метки) можно задать в настройках алерта в формате `ключ=значение`.
-* На дашборды с данными {{ prometheus-name }} можно добавить [параметр](concepts/visualization/dashboard.md#parameterization) `Идентификатор воркспейса`.
-* Для переноса дашбордов {{ prometheus-name }} из существующих инсталляций Grafana в {{ monitoring-name }} добавлен [скрипт импорта](https://github.com/yandex-cloud-examples/yc-monitoring-dashboard-importer). Он автоматизирует процесс и позволяет избежать ошибок при ручном переносе конфигураций.
+* На дашборды с данными Prometheus можно добавить [параметр](concepts/visualization/dashboard.md#parameterization) `Идентификатор воркспейса`.
+* Для переноса дашбордов Prometheus из существующих инсталляций Grafana в Monitoring добавлен [скрипт импорта](https://github.com/yandex-cloud-examples/yc-monitoring-dashboard-importer). Он автоматизирует процесс и позволяет избежать ошибок при ручном переносе конфигураций.
 
 ## Июль — сентябрь 2025 {#jul-sep-2025}
 
-* В {{ marketplace-full-name }} обновлена версия [{{ prometheus-name }} Operator]({{ link-cloud-marketplace }}/products/yc/prometheus-operator).
+* В Yandex Cloud Marketplace обновлена версия [Prometheus Operator](https://yandex.cloud/ru/marketplace/products/yc/prometheus-operator).
   
-* В {{ managed-prometheus-full-name }} для [Alert Manager](operations/prometheus/alerting-rules.md#alert-manager-create) поддержана маршрутизация каналов отправки уведомлений. Маршрутизация происходит по меткам `severity`, которые сопоставляются с каналами уведомлений.
+* В Yandex Managed Service for Prometheus® для [Alert Manager](operations/prometheus/alerting-rules.md#alert-manager-create) поддержана маршрутизация каналов отправки уведомлений. Маршрутизация происходит по меткам `severity`, которые сопоставляются с каналами уведомлений.
 
 * В разделе [Дашборды](concepts/visualization/dashboard.md) добавлены [лейблы](operations/dashboard/create.md#labels) для поиска и сортировки дашбордов. Лейблы (метки) можно задать в настройках дашборда в формате `ключ=значение`.
 
@@ -30,9 +30,9 @@
 
 ## Апрель — июнь 2025 {#apr-jun-2025}
 
-* Добавлена возможность строить графики по метрикам из [{{ managed-prometheus-full-name }}](operations/prometheus/querying/monitoring.md) в разделе **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**. Это позволяет работать со всеми метриками {{ monitoring-name }} в едином интерфейсе и более гибко настраивать графики {{ prometheus-name }}. Также графики {{ prometheus-name }} можно добавлять на дашборды и комбинировать с графиками {{ monitoring-name }}.
+* Добавлена возможность строить графики по метрикам из [Yandex Managed Service for Prometheus®](operations/prometheus/querying/monitoring.md) в разделе **Метрики**. Это позволяет работать со всеми метриками Monitoring в едином интерфейсе и более гибко настраивать графики Prometheus. Также графики Prometheus можно добавлять на дашборды и комбинировать с графиками Monitoring.
  
-   Для метрик {{ prometheus-name }} доступны все возможности, кроме [параметров](concepts/visualization/metric-explorer.md#repeated-graphs).
+   Для метрик Prometheus доступны все возможности, кроме [параметров](concepts/visualization/metric-explorer.md#repeated-graphs).
 
 * Телефонные звонки и эскалации теперь доступны всем пользователям без обращения в техническую поддержку. Функциональность находится на стадии [Preview](../overview/concepts/launch-stages.md) и работает с [ограничениями](concepts/alerting/escalations.md).
 
@@ -53,15 +53,15 @@
 
 * Добавлена возможность **разложить графики** по какому-либо параметру для [drill down](https://en.wikipedia.org/wiki/Data_drilling) анализа (детализация данных). Разложение графиков позволяет переходить от общего обзора к анализу метрик конкретных элементов системы, помогая быстрее выявлять причины аномалий или инцидентов.
 
-   Подробнее о возможностях работы с метриками см. раздел [{#T}](operations/metric/metric-explorer.md).
+   Подробнее о возможностях работы с метриками см. раздел [Посмотреть метрики в Yandex Monitoring](operations/metric/metric-explorer.md).
 
 * Добавлена возможность задать количество минимальных, максимальных или средних значений при разложении графиков. Например, при анализе использования процессора можно отобразить 10 всплесков высокой нагрузки на процессор за последние 24 часа.
 
-* В каналы уведомлений для алертов добавлена возможность вызова функции [{{ sf-name }}](../functions/index.md). Это позволяет создать webhook для автоматической обработки инцидентов и других событий в вашем облаке.
+* В каналы уведомлений для алертов добавлена возможность вызова функции [Cloud Functions](../functions/index.md). Это позволяет создать webhook для автоматической обработки инцидентов и других событий в вашем облаке.
 
-   Подробнее см. разделы [{#T}](operations/alert/create-channel-function.md) и [{#T}](operations/alert/alert-call-function.md).
+   Подробнее см. разделы [Создание канала уведомлений с вызовом функции](operations/alert/create-channel-function.md) и [Webhook с использованием Cloud Functions](operations/alert/alert-call-function.md).
 
-* При создании виртуальной машины можно [установить агент](operations/prometheus/ingestion/prometheus-agent.md) для сбора метрик в формате {{ prometheus-name }}. По умолчанию в {{ managed-prometheus-full-name }} передаются системные метрики Linux. Также при создании ВМ или позднее вы можете настроить передачу метрик ваших приложений.
+* При создании виртуальной машины можно [установить агент](operations/prometheus/ingestion/prometheus-agent.md) для сбора метрик в формате Prometheus. По умолчанию в Yandex Managed Service for Prometheus® передаются системные метрики Linux. Также при создании ВМ или позднее вы можете настроить передачу метрик ваших приложений.
 
 * Обновления раздела [Дашборды](concepts/visualization/dashboard.md):
   
@@ -78,7 +78,7 @@
 
 * Общие обновления интерфейса: теперь в окне информации длинное название метки можно посмотреть целиком.
 
-* Обновление документации: для {{ managed-prometheus-full-name }} добавили руководство [{#T}](operations/prometheus/ingestion/troubleshooting.md).
+* Обновление документации: для Yandex Managed Service for Prometheus® добавили руководство [Диагностика и устранение проблем при записи метрик через Remote API](operations/prometheus/ingestion/troubleshooting.md).
 
 ## Октябрь — декабрь 2024 {#oct-nov-2024}
 
@@ -88,9 +88,9 @@
 
   Функциональность доступна на стадии [Preview](../overview/concepts/launch-stages.md).
 
-* Реализована интеграция с сервисом [{{ sf-name }}](../functions/index.md). Таким образом в эскалациях можно вызвать функцию на любом из доступных [языков программирования](../functions/concepts/index.md).
+* Реализована интеграция с сервисом [Cloud Functions](../functions/index.md). Таким образом в эскалациях можно вызвать функцию на любом из доступных [языков программирования](../functions/concepts/index.md).
 
-* В {{ managed-prometheus-full-name }} добавлена поддержка [правил алертинга](operations/prometheus/alerting-rules.md) — alerting rules. Уведомления по метрикам {{ prometheus-name }} можно отправлять на почту, в Telegram, СМС и другие каналы.
+* В Yandex Managed Service for Prometheus® добавлена поддержка [правил алертинга](operations/prometheus/alerting-rules.md) — alerting rules. Уведомления по метрикам Prometheus можно отправлять на почту, в Telegram, СМС и другие каналы.
   
   Функциональность доступна на стадии [Preview](../overview/concepts/launch-stages.md).
 
@@ -124,11 +124,11 @@
 
 ### Обновления {#updates}
 
-* {{ managed-prometheus-full-name }} перешел на [стадию General Availability](../overview/concepts/launch-stages.md).
+* Yandex Managed Service for Prometheus® перешел на [стадию General Availability](../overview/concepts/launch-stages.md).
 * Добавлена поддержка [отправки уведомлений об алертах](concepts/alerting/notification-channel.md) в Telegram.
 
 ### Исправления и улучшения {#fixes-improvements}
 
-* Ускорили [экспорт метрик в формате {{ prometheus-name }}](operations/metric/prometheusExport.md).
+* Ускорили [экспорт метрик в формате Prometheus](operations/metric/prometheusExport.md).
 
 _© 2025 Linux Foundation. Все права защищены. Linux Foundation зарегистрировала товарные знаки и использует товарные знаки. Список товарных знаков Linux Foundation см. на странице [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage)._

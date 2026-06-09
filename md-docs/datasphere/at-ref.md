@@ -1,11 +1,11 @@
-# Справочник аудитных логов {{ at-full-name }}
+# Справочник аудитных логов Yandex Audit Trails
 
-В {{ at-name }} поддерживается отслеживание событий уровня конфигурации (Control Plane) для {{ ml-platform-full-name }}. Подробнее см. [{#T}](../audit-trails/concepts/format.md).
+В Audit Trails поддерживается отслеживание событий уровня конфигурации (Control Plane) для Yandex DataSphere. Подробнее см. [Аудитный лог событий уровня конфигурации](../audit-trails/concepts/format.md).
 
 Общий вид значения поля `event_type` (_тип события_):
 
 ```text
-{{ at-event-prefix }}.audit.datasphere.<имя_события>
+yandex.cloud.audit.datasphere.<имя_события>
 ```
 
 Имя события | Описание
@@ -27,7 +27,7 @@
 `CreateS3Connector` | Создание [коннектора S3](concepts/s3-connector.md)
 `CreateSecret` | Создание [секрета](concepts/secrets.md)
 `CreateSparkConnector` | Создание [коннектора Spark](concepts/spark-connector.md)
-`CreateYandexDataProcessing` | Создание [шаблона {{ dataproc-name }}](concepts/data-processing-template.md)
+`CreateYandexDataProcessing` | Создание [шаблона Yandex Data Processing](concepts/data-processing-template.md)
 `DeactivateDataset` | Деактивация датасета
 `DeleteAllJobData` | Удаление данных всех заданий
 `DeleteCluster` | Удаление кластера Apache Spark™
@@ -42,7 +42,7 @@
 `DeleteS3Connector` | Удаление коннектора S3
 `DeleteSecret` | Удаление секрета
 `DeleteSparkConnector` | Удаление коннектора Apache Spark™
-`DeleteYandexDataProcessing` | Удаление шаблона {{ dataproc-name }}
+`DeleteYandexDataProcessing` | Удаление шаблона Yandex Data Processing
 `ExecuteJob` | Запуск выполнения задания
 `OpenProject` | Открытие проекта
 `ResumeNode` | Возобновление работы ноды
@@ -63,4 +63,4 @@
 `UpdateS3Connector` | Изменение коннектора S3
 `UpdateSecret` | Изменение секрета
 `UpdateSparkConnector` | Изменение коннектора Spark
-`UpdateYandexDataProcessing` | Изменение шаблона {{ dataproc-name }}
+`UpdateYandexDataProcessing` | Изменение шаблона Yandex Data Processing

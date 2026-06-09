@@ -61,19 +61,19 @@ PUT /{bucket}/{key}?retention&versionId={versionId} HTTP/2
 
 ### Коды ответов {#response-codes}
 
-Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
+Перечень возможных ответов смотрите в разделе [Ответы](../response-codes.md).
 
 #### Связанные статьи {#related-articles}
 
-* [{#T}](../../../concepts/object.md)
+* [Объект](../../../concepts/object.md)
 
-* [{#T}](../../../concepts/object-lock.md)
+* [Блокировка версии объекта (object lock)](../../../concepts/object-lock.md)
 
 * [Настройка блокировок версии объекта](../../../operations/objects/edit-object-lock.md)
 
 #### См. также {#see-also}
 
-* [{#T}](../../s3-api-quickstart.md)
+* [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
 
 * [Отладка запросов с помощью утилиты AWS CLI](../../signing-requests.md#debugging)
 

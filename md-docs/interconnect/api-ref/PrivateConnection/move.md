@@ -5,7 +5,7 @@ Moves the specified PrivateConnection to another folder.
 ## HTTP request
 
 ```
-POST https://cic.{{ api-host }}/cic/v1/privateConnections/{privateConnectionId}:move
+POST https://cic.api.cloud.yandex.net/cic/v1/privateConnections/{privateConnectionId}:move
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Sets access bindings for the specified bucket.
 ## HTTP request
 
 ```
-POST https://storage.{{ api-host }}/storage/v1/buckets/{resourceId}:setAccessBindings
+POST https://storage.api.cloud.yandex.net/storage/v1/buckets/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

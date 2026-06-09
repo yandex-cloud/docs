@@ -1,6 +1,6 @@
 # Управление коннекторами
 
-[Коннектор](../concepts/connectors.md) управляет процессом переноса топиков {{ KF }} в другой кластер или другую систему хранения данных.
+[Коннектор](../concepts/connectors.md) управляет процессом переноса топиков Apache Kafka® в другой кластер или другую систему хранения данных.
 
 Вы можете:
 
@@ -13,7 +13,7 @@
 * [изменить коннектор](#update);
 * [приостановить коннектор](#pause);
 * [возобновить работу коннектора](#resume);
-* [импортировать коннектор в {{ TF }}](#import);
+* [импортировать коннектор в Terraform](#import);
 * [удалить коннектор](#delete).
 
 ## Получить список коннекторов {#list}
@@ -22,20 +22,20 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-    1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_connectors }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+    1. Выберите нужный кластер и перейдите на вкладку **Коннекторы**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы запросить список коннекторов кластера, выполните команду:
 
     ```bash
-    {{ yc-mdb-kf }} connector list --cluster-name=<имя_кластера>
+    yc managed-kafka connector list --cluster-name=<имя_кластера>
     ```
 
     Результат:
@@ -59,13 +59,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Connector.list](../api-ref/Connector/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Connector.list](../api-ref/Connector/list.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors'
+       --url 'https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors'
      ```
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -87,7 +87,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ConnectorService/List](../api-ref/grpc/Connector/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ConnectorService/List](../api-ref/grpc/Connector/list.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -99,7 +99,7 @@
        -d '{
              "cluster_id": "<идентификатор_кластера>"
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.kafka.v1.ConnectorService.List
      ```
 
@@ -115,21 +115,21 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-    1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_connectors }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+    1. Выберите нужный кластер и перейдите на вкладку **Коннекторы**.
     1. Нажмите на имя нужного коннектора.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы получить детальную информацию о коннекторе, выполните команду:
 
     ```bash
-    {{ yc-mdb-kf }} connector get <имя_коннектора>\
+    yc managed-kafka connector get <имя_коннектора>\
        --cluster-name=<имя_кластера>
     ```
 
@@ -152,13 +152,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Connector.get](../api-ref/Connector/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Connector.get](../api-ref/Connector/get.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors/<имя_коннектора>'
+       --url 'https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors/<имя_коннектора>'
      ```
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя коннектора — со [списком коннекторов в кластере](#list).
@@ -180,7 +180,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ConnectorService/Get](../api-ref/grpc/Connector/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ConnectorService/Get](../api-ref/grpc/Connector/get.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -192,7 +192,7 @@
        -d '{
              "cluster_id": "<идентификатор_кластера>"
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.kafka.v1.ConnectorService.Get
      ```
 
@@ -208,16 +208,16 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-    1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_connectors }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.kafka.button_create-connector }}**.
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** укажите:
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+    1. Выберите нужный кластер и перейдите на вкладку **Коннекторы**.
+    1. Нажмите кнопку **Создать коннектор**.
+    1. В блоке **Базовые параметры** укажите:
 
         * Имя коннектора.
         * Лимит задач — количество одновременно работающих процессов. Рекомендуется указывать не менее `2` для равномерного распределения нагрузки репликации.
 
-    1. В блоке **{{ ui-key.yacloud.kafka.section_properties }}** укажите свойства коннектора в формате:
+    1. В блоке **Дополнительные свойства** укажите свойства коннектора в формате:
 
         ```text
         <ключ>:<значение>
@@ -231,13 +231,13 @@
 
     1. Выберите тип коннектора — [MirrorMaker](#settings-mm2), [S3 Sink](#settings-s3) или [Iceberg Sink](#settings-iceberg) — и задайте его конфигурацию.
 
-        Подробнее о поддерживаемых типах коннекторов в разделе [{#T}](../concepts/connectors.md).
+        Подробнее о поддерживаемых типах коннекторов в разделе [Коннекторы](../concepts/connectors.md).
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -246,13 +246,13 @@
   1. Посмотрите описание команды CLI для создания коннектора:
 
       ```bash
-      {{ yc-mdb-kf }} connector-mirrormaker create --help
+      yc managed-kafka connector-mirrormaker create --help
       ```
 
   1. Создайте коннектор:
 
       ```bash
-      {{ yc-mdb-kf }} connector-mirrormaker create <имя_коннектора> \
+      yc managed-kafka connector-mirrormaker create <имя_коннектора> \
          --cluster-name=<имя_кластера> \
          --direction=<направление_коннектора> \
          --tasks-max=<лимит_задач> \
@@ -283,13 +283,13 @@
   1. Посмотрите описание команды CLI для создания коннектора:
 
       ```bash
-      {{ yc-mdb-kf }} connector-s3-sink create --help
+      yc managed-kafka connector-s3-sink create --help
       ```
 
   1. Создайте коннектор:
 
       ```bash
-      {{ yc-mdb-kf }} connector-s3-sink create <имя_коннектора> \
+      yc managed-kafka connector-s3-sink create <имя_коннектора> \
          --cluster-name=<имя_кластера> \
          --tasks-max=<лимит_задач> \
          --properties=<дополнительные_свойства> \
@@ -310,13 +310,13 @@
   1. Посмотрите описание команды CLI для создания коннектора:
 
       ```bash
-      {{ yc-mdb-kf }} connector-iceberg-sink create --help
+      yc managed-kafka connector-iceberg-sink create --help
       ```
 
   1. Создайте коннектор:
 
       ```bash
-      {{ yc-mdb-kf }} connector-iceberg-sink create <имя_коннектора> \
+      yc managed-kafka connector-iceberg-sink create <имя_коннектора> \
          --cluster-name=<имя_кластера> \
          --tasks-max=<лимит_задач> \
          --properties=<дополнительные_свойства> \
@@ -332,13 +332,13 @@
 
      Имя кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     1. Ознакомьтесь со списком настроек коннекторов [MirrorMaker](#settings-mm2) и [S3 Sink](#settings-s3).
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
+        Как создать такой файл, описано в разделе [Создание кластера Apache Kafka®](cluster-create.md).
 
     1. Чтобы создать коннектор MirrorMaker, добавьте ресурс `yandex_mdb_kafka_connector` с блоком настроек `connector_config_mirrormaker`:
 
@@ -454,14 +454,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -483,7 +483,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_kafka_connector.md).
 
 - REST API {#api}
 
@@ -493,13 +493,13 @@
        export IAM_TOKEN="<IAM-токен>"
        ```
 
-    1. Чтобы создать коннектор [MirrorMaker](#settings-mm2), воспользуйтесь методом [Connector.create](../api-ref/Connector/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Чтобы создать коннектор [MirrorMaker](#settings-mm2), воспользуйтесь методом [Connector.create](../api-ref/Connector/create.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
        ```bash
        curl \
          --request POST \
          --header "Authorization: Bearer $IAM_TOKEN" \
-         --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors' \
+         --url 'https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors' \
          --data '{
                    "connectorSpec": {
                      "name": "<имя_коннектора>",
@@ -514,13 +514,13 @@
 
        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-    1. Чтобы создать коннектор [S3 Sink](#settings-s3), воспользуйтесь методом [Connector.create](../api-ref/Connector/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Чтобы создать коннектор [S3 Sink](#settings-s3), воспользуйтесь методом [Connector.create](../api-ref/Connector/create.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
        ```bash
        curl \
          --request POST \
          --header "Authorization: Bearer $IAM_TOKEN" \
-         --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors' \
+         --url 'https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors' \
          --data '{
                    "connectorSpec": {
                      "name": "<имя_коннектора>",
@@ -553,7 +553,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Чтобы создать коннектор [MirrorMaker](#settings-mm2), воспользуйтесь вызовом [ConnectorService/Create](../api-ref/grpc/Connector/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Чтобы создать коннектор [MirrorMaker](#settings-mm2), воспользуйтесь вызовом [ConnectorService/Create](../api-ref/grpc/Connector/create.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -575,13 +575,13 @@
                   }
                 }
               }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.kafka.v1.ConnectorService.Create
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-    1. Чтобы создать коннектор [S3 Sink](#settings-s3), воспользуйтесь вызовом [ConnectorService/Create](../api-ref/grpc/Connector/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Чтобы создать коннектор [S3 Sink](#settings-s3), воспользуйтесь вызовом [ConnectorService/Create](../api-ref/grpc/Connector/create.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -603,7 +603,7 @@
                   }
                 }
               }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.kafka.v1.ConnectorService.Create
         ```
 
@@ -621,10 +621,10 @@
 
 - Консоль управления {#console}
 
-  * **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-topics }}** — шаблон для отбора реплицируемых топиков, имена топиков перечисляются через запятую или символ `|`. Можно использовать выражение `.*`, например `analysis.*`. Для переноса всех топиков укажите `.*`.
-  * **{{ ui-key.yacloud.kafka.label_replication-factor }}** — количество копий топика, хранящихся в кластере.
-  * В блоке **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-source-cluster }}** укажите параметры для подключения к кластеру-источнику:
-    * **{{ ui-key.yacloud.kafka.field_connector-alias }}** — префикс для обозначения кластера-источника в настройках коннектора.
+  * **Топики** — шаблон для отбора реплицируемых топиков, имена топиков перечисляются через запятую или символ `|`. Можно использовать выражение `.*`, например `analysis.*`. Для переноса всех топиков укажите `.*`.
+  * **Фактор репликации** — количество копий топика, хранящихся в кластере.
+  * В блоке **Кластер-источник** укажите параметры для подключения к кластеру-источнику:
+    * **Псевдоним** — префикс для обозначения кластера-источника в настройках коннектора.
 
       {% note info %}
 
@@ -632,40 +632,40 @@
 
       {% endnote %}
 
-    * **{{ ui-key.yacloud.kafka.label_connector-this-cluster }}** — выберите опцию для использования текущего кластера в качестве источника.
-    * **{{ ui-key.yacloud.kafka.field_connector-bootstrap-servers }}** — список FQDN хостов-брокеров кластера-источника с номерами портов для подключения, разделенный запятыми. Например: `broker1.example.com:9091,broker2.example.com`.
+    * **Использовать этот кластер** — выберите опцию для использования текущего кластера в качестве источника.
+    * **Бутстрап-серверы** — список FQDN хостов-брокеров кластера-источника с номерами портов для подключения, разделенный запятыми. Например: `broker1.example.com:9091,broker2.example.com`.
 
        Как получить FQDN хоста-брокера, читайте в [инструкции](connect/index.md#get-fqdn).
 
-    * **{{ ui-key.yacloud.kafka.field_connector-sasl-username }}** — имя пользователя для подключения коннектора к кластеру-источнику.
-    * **{{ ui-key.yacloud.kafka.field_connector-sasl-password }}** — пароль пользователя для подключения коннектора к кластеру-источнику.
-    * **{{ ui-key.yacloud.kafka.field_connector-sasl-mechanism }}** — выберите механизм шифрования имени и пароля.
-    * **{{ ui-key.yacloud.kafka.field_connector-security-protocol }}** — выберите протокол подключения коннектора:
+    * **SASL имя пользователя** — имя пользователя для подключения коннектора к кластеру-источнику.
+    * **SASL пароль** — пароль пользователя для подключения коннектора к кластеру-источнику.
+    * **SASL механизм** — выберите механизм шифрования имени и пароля.
+    * **Протокол безопасности** — выберите протокол подключения коннектора:
       * `PLAINTEXT`, `SASL_PLAINTEXT` – для подключений без SSL;
       * `SSL`, `SASL_SSL` – для подключений с SSL.
-    * **{{ ui-key.yacloud.kafka.field_connector-ssl-truststore-certificates }}** — загрузите PEM-сертификат для доступа к внешнему кластеру.
+    * **Сертификат в формате PEM** — загрузите PEM-сертификат для доступа к внешнему кластеру.
 
-  * В блоке **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-target-cluster }}** укажите параметры для подключения к кластеру-приемнику:
-    * **{{ ui-key.yacloud.kafka.field_connector-alias }}** — префикс для обозначения кластера-приемника в настройках коннектора.
-    * **{{ ui-key.yacloud.kafka.label_connector-this-cluster }}** — выберите опцию для использования текущего кластера в качестве приемника.
-    * **{{ ui-key.yacloud.kafka.field_connector-bootstrap-servers }}** — список FQDN хостов-брокеров кластера-приемника с номерами портов для подключения, разделенный запятыми.
+  * В блоке **Кластер-приёмник** укажите параметры для подключения к кластеру-приемнику:
+    * **Псевдоним** — префикс для обозначения кластера-приемника в настройках коннектора.
+    * **Использовать этот кластер** — выберите опцию для использования текущего кластера в качестве приемника.
+    * **Бутстрап-серверы** — список FQDN хостов-брокеров кластера-приемника с номерами портов для подключения, разделенный запятыми.
 
        Как получить FQDN хоста-брокера, читайте в [инструкции](connect/index.md#get-fqdn).
 
-    * **{{ ui-key.yacloud.kafka.field_connector-sasl-username }}** — имя пользователя для подключения коннектора к кластеру-приемнику.
-    * **{{ ui-key.yacloud.kafka.field_connector-sasl-password }}** — пароль пользователя для подключения коннектора к кластеру-приемнику.
-    * **{{ ui-key.yacloud.kafka.field_connector-sasl-mechanism }}** — выберите механизм шифрования имени и пароля.
-    * **{{ ui-key.yacloud.kafka.field_connector-security-protocol }}** — выберите протокол подключения коннектора:
+    * **SASL имя пользователя** — имя пользователя для подключения коннектора к кластеру-приемнику.
+    * **SASL пароль** — пароль пользователя для подключения коннектора к кластеру-приемнику.
+    * **SASL механизм** — выберите механизм шифрования имени и пароля.
+    * **Протокол безопасности** — выберите протокол подключения коннектора:
       * `PLAINTEXT`, `SASL_PLAINTEXT` – для подключений без SSL;
       * `SSL`, `SASL_SSL` – для подключений с SSL.
-    * **{{ ui-key.yacloud.kafka.field_connector-ssl-truststore-certificates }}** — загрузите PEM-сертификат для доступа к внешнему кластеру.
+    * **Сертификат в формате PEM** — загрузите PEM-сертификат для доступа к внешнему кластеру.
 
-  * Чтобы задать значения дополнительных настроек, не указанных в этом списке, создайте необходимые ключи и задайте их значения в блоке **{{ ui-key.yacloud.kafka.section_properties }}** при [создании](#create) или [изменении](#update) коннектора. Примеры ключей:
+  * Чтобы задать значения дополнительных настроек, не указанных в этом списке, создайте необходимые ключи и задайте их значения в блоке **Дополнительные свойства** при [создании](#create) или [изменении](#update) коннектора. Примеры ключей:
 
     * `key.converter`
     * `value.converter`
 
-    Список общих настроек коннекторов в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
+    Список общих настроек коннекторов в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
 - CLI {#cli}
 
@@ -681,7 +681,7 @@
         * `key.converter`
         * `value.converter`
 
-        Список общих настроек коннекторов в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
+        Список общих настроек коннекторов в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
     * `--replication-factor` — количество копий топика, хранящихся в кластере.
     * `--topics` — шаблон для отбора реплицируемых топиков, имена топиков перечисляются через запятую или символ `|`. Можно использовать выражение `.*`, например `analysis.*`. Для переноса всех топиков укажите `.*`.
@@ -703,14 +703,14 @@
         * `sasl-password` — пароль пользователя для подключения коннектора к внешнему кластеру.
         * `ssl-truststore-certificates` — список сертификатов в формате PEM.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   * **properties** — список дополнительных настроек коннектора в формате `<ключ>:<значение>`, разделенный запятыми. Примеры ключей:
 
      * `key.converter`
      * `value.converter`
 
-     Список общих настроек коннекторов в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
+     Список общих настроек коннекторов в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
   
    * **connector_config_mirrormaker** — настройки коннектора MirrorMaker:
       
@@ -815,8 +815,8 @@
 
 - Консоль управления {#console}
 
-  * **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-topics }}** — шаблон для отбора экспортируемых топиков, имена топиков перечисляются через запятую или символ `|`. Можно использовать выражение `.*`, например `analysis.*`. Для переноса всех топиков укажите `.*`.
-  * **{{ ui-key.yacloud.kafka.field_connector-compression-type }}** — выберите кодек для сжатия сообщений:
+  * **Топики** — шаблон для отбора экспортируемых топиков, имена топиков перечисляются через запятую или символ `|`. Можно использовать выражение `.*`, например `analysis.*`. Для переноса всех топиков укажите `.*`.
+  * **Механизм сжатия** — выберите кодек для сжатия сообщений:
 
       * `none` (по умолчанию) — сжатие отсутствует;
       * `gzip` — кодек [gzip](https://www.gzip.org/);
@@ -825,30 +825,30 @@
 
       После создания кластера данный параметр нельзя изменить.
 
-  * (Опционально) **{{ ui-key.yacloud.kafka.field_connector-file-max-records }}** — максимальное количество записей, которое может быть записано в один файл, размещенный в [S3-совместимом хранилище](../../glossary/s3.md).
-  * В блоке **{{ ui-key.yacloud.kafka.field_connector-s3-connection }}** укажите параметры подключения к хранилищу:
-      * **{{ ui-key.yacloud.kafka.field_connector-bucket-name }}** — имя бакета хранилища.
-      * **{{ ui-key.yacloud.kafka.field_connector-endpoint }}** — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища).
-      * (Опционально) **{{ ui-key.yacloud.kafka.field_connector-region }}** — название региона. Значение по умолчанию — `{{ region-id }}`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+  * (Опционально) **Максимальное количество записей на файл** — максимальное количество записей, которое может быть записано в один файл, размещенный в [S3-совместимом хранилище](../../glossary/s3.md).
+  * В блоке **Подключение к S3** укажите параметры подключения к хранилищу:
+      * **Имя бакета** — имя бакета хранилища.
+      * **Эндпоинт** — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища).
+      * (Опционально) **Регион** — название региона. Значение по умолчанию — `ru-central1`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
           {% note info %}
           
-          Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому [{{ objstorage-full-name }}](../../storage/index.md) принимает также значение основного региона AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
+          Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому [Yandex Object Storage](../../storage/index.md) принимает также значение основного региона AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
           
           {% endnote %}
 
       
-      * (Опционально) **{{ ui-key.yacloud.kafka.field_connector-access-key-id }}**, **{{ ui-key.yacloud.kafka.field_connector-secret-access-key }}** — [идентификатор и содержимое AWS-совместимого ключа](../../iam/concepts/authorization/access-key.md).
+      * (Опционально) **Идентификатор ключа доступа**, **Секретный ключ** — [идентификатор и содержимое AWS-совместимого ключа](../../iam/concepts/authorization/access-key.md).
 
 
-  * Чтобы задать значения дополнительных настроек, не указанных в этом списке, создайте необходимые ключи и задайте их значения в блоке **{{ ui-key.yacloud.kafka.section_properties }}** при [создании](#create) или [изменении](#update) коннектора. Примеры ключей:
+  * Чтобы задать значения дополнительных настроек, не указанных в этом списке, создайте необходимые ключи и задайте их значения в блоке **Дополнительные свойства** при [создании](#create) или [изменении](#update) коннектора. Примеры ключей:
 
       * `key.converter`
       * `value.converter`
       * `value.converter.schemas.enable`
       * `format.output.type`
 
-      Список всех настроек коннектора в [документации коннектора](https://github.com/aiven/s3-connector-for-apache-kafka). Список общих настроек коннекторов в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
+      Список всех настроек коннектора в [документации коннектора](https://github.com/aiven/s3-connector-for-apache-kafka). Список общих настроек коннекторов в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
 - CLI {#cli}
 
@@ -861,7 +861,7 @@
       * `value.converter.schemas.enable`
       * `format.output.type`
 
-      Список всех настроек коннектора в [документации коннектора](https://github.com/aiven/s3-connector-for-apache-kafka). Список общих настроек коннекторов в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
+      Список всех настроек коннектора в [документации коннектора](https://github.com/aiven/s3-connector-for-apache-kafka). Список общих настроек коннекторов в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
     * `--topics` — шаблон для отбора реплицируемых топиков, имена топиков перечисляются через запятую или символ `|`. Можно использовать выражение `.*`, например `analysis.*`. Для переноса всех топиков укажите `.*`.
     * `--file-compression-type` — кодек для сжатия сообщений. После создания кластера данный параметр нельзя изменить. Допустимые значения:
@@ -873,12 +873,12 @@
 
     * `--file-max-records` — максимальное количество записей, которое может быть записано в один файл, размещенный в S3-совместимом хранилище.
     * `--bucket-name` — имя бакета в S3-совместимом хранилище, в который будет производиться запись.
-    * `--storage-endpoint` — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища). Пример: `{{ s3-storage-host }}`.
-    * `--region` — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `{{ region-id }}`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+    * `--storage-endpoint` — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища). Пример: `storage.yandexcloud.net`.
+    * `--region` — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `ru-central1`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
         {% note info %}
         
-        Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому [{{ objstorage-full-name }}](../../storage/index.md) принимает также значение основного региона AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
+        Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому [Yandex Object Storage](../../storage/index.md) принимает также значение основного региона AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
         
         {% endnote %}
 
@@ -886,7 +886,7 @@
     * `--access-key-id`, `--secret-access-key` — [идентификатор и содержимое AWS-совместимого ключа](../../iam/concepts/authorization/access-key.md).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   * **properties** — список дополнительных настроек коннектора в формате `<ключ>:<значение>`, разделенный запятыми. Примеры ключей:
 
@@ -895,7 +895,7 @@
      * `value.converter.schemas.enable`
      * `format.output.type`
 
-   Список всех настроек коннектора в [документации коннектора](https://github.com/aiven/s3-connector-for-apache-kafka). Список общих настроек коннекторов в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
+   Список всех настроек коннектора в [документации коннектора](https://github.com/aiven/s3-connector-for-apache-kafka). Список общих настроек коннекторов в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
   * **connector_config_s3_sink** — настройки коннектора S3 Sink:
      * **file_compression_type** — кодек для сжатия сообщений. После создания кластера данный параметр нельзя изменить. Допустимые значения:
@@ -913,12 +913,12 @@
         * **bucket_name** — имя бакета, в который будет производиться запись.
         * **external_s3** — параметры для подключения к внешнему S3-совместимому хранилищу:
 
-           * **endpoint** — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища). Пример: `{{ s3-storage-host }}`.
-            * **region** — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `{{ region-id }}`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+           * **endpoint** — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища). Пример: `storage.yandexcloud.net`.
+            * **region** — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `ru-central1`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
                 {% note info %}
                 
-                Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому [{{ objstorage-full-name }}](../../storage/index.md) принимает также значение основного региона AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
+                Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому [Yandex Object Storage](../../storage/index.md) принимает также значение основного региона AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
                 
                 {% endnote %}
 
@@ -942,12 +942,12 @@
     * `s3Connection` — параметры для подключения к S3-совместимому хранилищу:
         * `bucketName` — имя бакета, в который будет производиться запись.
         * `externalS3` — параметры внешнего хранилища:
-            * `endpoint` — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища). Пример: `{{ s3-storage-host }}`.
-            * `region` — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `{{ region-id }}`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+            * `endpoint` — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища). Пример: `storage.yandexcloud.net`.
+            * `region` — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `ru-central1`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
                 {% note info %}
                 
-                Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому [{{ objstorage-full-name }}](../../storage/index.md) принимает также значение основного региона AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
+                Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому [Yandex Object Storage](../../storage/index.md) принимает также значение основного региона AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
                 
                 {% endnote %}
 
@@ -971,12 +971,12 @@
     * `s3_connection` — параметры для подключения к S3-совместимому хранилищу:
         * `bucket_name` — имя бакета, в который будет производиться запись.
         * `external_s3` — параметры внешнего хранилища:
-            * `endpoint` — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища). Пример: `{{ s3-storage-host }}`.
-            * `region` — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `{{ region-id }}`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+            * `endpoint` — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища). Пример: `storage.yandexcloud.net`.
+            * `region` — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `ru-central1`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
                 {% note info %}
                 
-                Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому [{{ objstorage-full-name }}](../../storage/index.md) принимает также значение основного региона AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
+                Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому [Yandex Object Storage](../../storage/index.md) принимает также значение основного региона AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
                 
                 {% endnote %}
 
@@ -994,48 +994,48 @@
 
 - Консоль управления {#console}
 
-  * **{{ ui-key.yacloud.kafka.field_connector-control-topic }}** — выберите или создайте топик управления. Топик будет использоваться для координации и управления процессом записи данных в Iceberg-таблицы.
-  * **{{ ui-key.yacloud.kafka.field_connector-topics-source }}** — выберите источник топиков, данные из которого будут перенесены в Iceberg-таблицы:
+  * **Топик управления** — выберите или создайте топик управления. Топик будет использоваться для координации и управления процессом записи данных в Iceberg-таблицы.
+  * **Источник топиков** — выберите источник топиков, данные из которого будут перенесены в Iceberg-таблицы:
      * **Список топиков** — имена топиков через запятую.
      * **Regex топиков** — регулярное выражение для выбора топиков. Можно использовать выражение `.*`, например `analysis.*`. Для переноса всех топиков укажите `.*`.
-  * **{{ ui-key.yacloud.kafka.field_connector-table-routing }}** — выберите правило, по которому каждое сообщение из топика {{ KF }} будет попадать в Iceberg-таблицы:
-     * **{{ ui-key.yacloud.kafka.field_connector-table-routing-static }}** — таблицы назначения определяются заранее. Каждый топик со всеми сообщениями будет попадать в отдельную Iceberg-таблицу. 
+  * **Маршрутизация таблиц** — выберите правило, по которому каждое сообщение из топика Apache Kafka® будет попадать в Iceberg-таблицы:
+     * **Статическая** — таблицы назначения определяются заранее. Каждый топик со всеми сообщениями будет попадать в отдельную Iceberg-таблицу. 
         
-        В поле **{{ ui-key.yacloud.kafka.field_connector-static-tables }}** перечислите имена Iceberg-таблиц через запятую.
+        В поле **Таблицы** перечислите имена Iceberg-таблиц через запятую.
     
-     * **{{ ui-key.yacloud.kafka.field_connector-table-routing-dynamic }}** — таблица назначения определяется по содержимому самого сообщения.
+     * **Динамическая** — таблица назначения определяется по содержимому самого сообщения.
        
-       В поле **{{ ui-key.yacloud.kafka.field_connector-route-field }}** укажите поле в сообщении, по значению которого определяется целевая таблица.
-  * В блоке **{{ ui-key.yacloud.kafka.field_connector-metastore-connection }}** укажите параметры подключения к {{ metastore-name }}:
-     * **{{ ui-key.yacloud.kafka.field_connector-catalog-uri }}** — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<хост>:<порт>`.
-     * **{{ ui-key.yacloud.kafka.field_connector-warehouse }}** — корневая директория для хранения данных управляемых таблиц в S3 в формате `s3a://bucket-name/path/to/warehouse`.
-  * В блоке **{{ ui-key.yacloud.kafka.field_connector-s3-connection }}** укажите параметры подключения к хранилищу:
-     * **{{ ui-key.yacloud.kafka.field_connector-endpoint }}** — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища).
-     * (Опционально) **{{ ui-key.yacloud.kafka.field_connector-region }}** — название региона. Значение по умолчанию — `{{ region-id }}`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+       В поле **Поле маршрутизации** укажите поле в сообщении, по значению которого определяется целевая таблица.
+  * В блоке **Подключение к Metastore** укажите параметры подключения к Apache Hive™ Metastore:
+     * **URI каталога** — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<хост>:<порт>`.
+     * **Warehouse** — корневая директория для хранения данных управляемых таблиц в S3 в формате `s3a://bucket-name/path/to/warehouse`.
+  * В блоке **Подключение к S3** укажите параметры подключения к хранилищу:
+     * **Эндпоинт** — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища).
+     * (Опционально) **Регион** — название региона. Значение по умолчанию — `ru-central1`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
         {% note info %}
         
-        Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому [{{ objstorage-full-name }}](../../storage/index.md) принимает также значение основного региона AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
+        Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому [Yandex Object Storage](../../storage/index.md) принимает также значение основного региона AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
         
         {% endnote %}
 
-     * **{{ ui-key.yacloud.kafka.field_connector-access-key-id }}**, **{{ ui-key.yacloud.kafka.field_connector-secret-access-key }}** — [идентификатор и содержимое AWS-совместимого ключа](../../iam/concepts/authorization/access-key.md). 
+     * **Идентификатор ключа доступа**, **Секретный ключ** — [идентификатор и содержимое AWS-совместимого ключа](../../iam/concepts/authorization/access-key.md). 
 
-  * (Опционально) В блоке **{{ ui-key.yacloud.kafka.section_iceberg-optional-settings }}**:
-     * Секция **{{ ui-key.yacloud.kafka.section_iceberg-tables-config }}**:
-        * **{{ ui-key.yacloud.kafka.field_connector-default-commit-branch }}** — имя ветки по умолчанию. В эту ветку Iceberg-таблицы коннектор будет коммитить данные. Значение по умолчанию — `main`.
-        * **{{ ui-key.yacloud.kafka.field_connector-default-id-columns }}** — список столбцов по умолчанию, разделенных запятыми, которые определяют строку идентификатора в Iceberg-таблицах (primary key). Является обязательным параметром при включенном UPSERT-режиме.
-        * **{{ ui-key.yacloud.kafka.field_connector-default-partition-by }}** — список столбцов или выражений трансформации для партиционирования данных Iceberg-таблицы через запятую. Определяет физическое размещение данных для оптимизации запросов. Примеры: `date`, `year`, `month`, `year (timestamp)`, `month (timestamp)`, `days (timestamp)`, `bucket (16, user_id)`.
-        * **{{ ui-key.yacloud.kafka.field_connector-evolve-schema-enabled }}** — настройка, которая указывает, должен ли коннектор автоматически изменять схему Iceberg-таблицы, если схема входящих сообщений из {{ KF }} изменилась.
-        * **{{ ui-key.yacloud.kafka.field_connector-schema-force-optional }}** — настройка, указывающая, делать ли все поля схемы Iceberg-таблицы необязательными (`nullable`), независимо от того, как они определены в схеме входящего сообщения.
-        * **{{ ui-key.yacloud.kafka.field_connector-schema-case-insensitive }}** — настройка, которая указывает, должен ли коннектор игнорировать регистр при сопоставлении полей входящего сообщения с колонками Iceberg-таблицы.
+  * (Опционально) В блоке **Дополнительные настройки**:
+     * Секция **Настройки таблиц**:
+        * **Ветка коммитов по умолчанию** — имя ветки по умолчанию. В эту ветку Iceberg-таблицы коннектор будет коммитить данные. Значение по умолчанию — `main`.
+        * **Список столбцов по умолчанию** — список столбцов по умолчанию, разделенных запятыми, которые определяют строку идентификатора в Iceberg-таблицах (primary key). Является обязательным параметром при включенном UPSERT-режиме.
+        * **Партиционирование по умолчанию** — список столбцов или выражений трансформации для партиционирования данных Iceberg-таблицы через запятую. Определяет физическое размещение данных для оптимизации запросов. Примеры: `date`, `year`, `month`, `year (timestamp)`, `month (timestamp)`, `days (timestamp)`, `bucket (16, user_id)`.
+        * **Включить автоматическую эволюцию схемы** — настройка, которая указывает, должен ли коннектор автоматически изменять схему Iceberg-таблицы, если схема входящих сообщений из Apache Kafka® изменилась.
+        * **Сделать все колонки nullable** — настройка, указывающая, делать ли все поля схемы Iceberg-таблицы необязательными (`nullable`), независимо от того, как они определены в схеме входящего сообщения.
+        * **Регистронезависимое сопоставление имён полей** — настройка, которая указывает, должен ли коннектор игнорировать регистр при сопоставлении полей входящего сообщения с колонками Iceberg-таблицы.
 
-     * Секция **{{ ui-key.yacloud.kafka.section_iceberg-control-config }}**:
-        * **{{ ui-key.yacloud.kafka.field_connector-group-id-prefix }}** — префикс для `Consumer Group ID`, который коннектор использует при чтении из топиков {{ KF }}. Значение по умолчанию — `cg-control`.
-        * **{{ ui-key.yacloud.kafka.field_connector-commit-interval-ms }}** — указывает, как часто коннектор делает коммит данных в Iceberg-таблицу. Задается в миллисекундах. Значение по умолчанию — `300000`.
-        * **{{ ui-key.yacloud.kafka.field_connector-commit-timeout-ms }}** — указывает, сколько времени координатор ждет подтверждения от всех воркеров перед тем, как признать коммит неудачным. Задается в миллисекундах. Значение по умолчанию — `30000`.
-        * **{{ ui-key.yacloud.kafka.field_connector-commit-threads }}** — количество потоков, которые используются для коммита данных в Iceberg-таблицу.
-        * **{{ ui-key.yacloud.kafka.field_connector-transactional-prefix }}** — префикс для `Transactional ID`, который коннектор использует при записи в {{ KF }} в рамках транзакций.
+     * Секция **Настройки управления**:
+        * **Префикс consumer group** — префикс для `Consumer Group ID`, который коннектор использует при чтении из топиков Apache Kafka®. Значение по умолчанию — `cg-control`.
+        * **Интервал коммита, мс** — указывает, как часто коннектор делает коммит данных в Iceberg-таблицу. Задается в миллисекундах. Значение по умолчанию — `300000`.
+        * **Таймаут коммита, мс** — указывает, сколько времени координатор ждет подтверждения от всех воркеров перед тем, как признать коммит неудачным. Задается в миллисекундах. Значение по умолчанию — `30000`.
+        * **Потоки коммита** — количество потоков, которые используются для коммита данных в Iceberg-таблицу.
+        * **Транзакционный префикс** — префикс для `Transactional ID`, который коннектор использует при записи в Apache Kafka® в рамках транзакций.
 
 - CLI {#cli}
 
@@ -1048,20 +1048,20 @@
      * `value.converter`
      * `value.converter.schemas.enable`
 
-     Список общих настроек коннекторов в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
+     Список общих настроек коннекторов в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
   * `--topics` — список топиков, разделенных запятыми, данные из которых будут перенесены в Iceberg-таблицы.
   * `--topics-regex` — регулярное выражение для выбора топиков, данные из которых будут перенесены в Iceberg-таблицы. Можно использовать выражение `.*`, например, `analysis.*`. Для переноса всех топиков укажите `.*`.
   * `--control-topic` — имя топика управления, используется для координации и управления процессом записи данных в Iceberg-таблицы.
-  * `--catalog-uri` — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<хост>:<порт>`.
+  * `--catalog-uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<хост>:<порт>`.
   * `--warehouse` — корневая директория для хранения данных управляемых таблиц в S3 в формате `s3a://bucket-name/path/to/warehouse`.
   * `--access-key-id`, `--secret-access-key` — [идентификатор и содержимое AWS-совместимого ключа](../../iam/concepts/authorization/access-key.md).
-  * `--storage-endpoint` — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища). Пример: `{{ s3-storage-host }}`.
-  * `--region` — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `{{ region-id }}`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+  * `--storage-endpoint` — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища). Пример: `storage.yandexcloud.net`.
+  * `--region` — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `ru-central1`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
      {% note info %}
      
-     Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому [{{ objstorage-full-name }}](../../storage/index.md) принимает также значение основного региона AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
+     Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому [Yandex Object Storage](../../storage/index.md) принимает также значение основного региона AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
      
      {% endnote %}
   
@@ -1070,16 +1070,16 @@
   * `--default-commit-branch` — имя ветки по умолчанию. В эту ветку Iceberg-таблицы коннектор будет коммитить данные. Значение по умолчанию — `main`.
   * `--default-id-columns` — список столбцов по умолчанию, разделенных запятыми, которые определяют строку идентификатора в Iceberg-таблицах (primary key). Является обязательным параметром при включенном UPSERT-режиме.
   * `--default-partition-by` — список столбцов или выражений трансформации для партиционирования данных Iceberg-таблицы через запятую. Определяет физическое размещение данных для оптимизации запросов. Примеры: `date`, `year`, `month`, `year (timestamp)`, `month (timestamp)`, `days (timestamp)`, `bucket (16, user_id)`.
-  * `--evolve-schema-enabled` — настройка, которая указывает, должен ли коннектор автоматически изменять схему Iceberg-таблицы, если схема входящих сообщений из {{ KF }} изменилась. Значение по умолчанию — `false`.
+  * `--evolve-schema-enabled` — настройка, которая указывает, должен ли коннектор автоматически изменять схему Iceberg-таблицы, если схема входящих сообщений из Apache Kafka® изменилась. Значение по умолчанию — `false`.
   * `--schema-force-optional` — настройка, которая указывает, делать ли все поля схемы Iceberg-таблицы необязательными (`nullable`), независимо от того, как они определены в схеме входящего сообщения. Значение по умолчанию — `false`.
   * `--schema-case-insensitive` — настройка, которая указывает, должен ли коннектор игнорировать регистр при сопоставлении полей входящего сообщения с колонками Iceberg-таблицы. Значение по умолчанию — `false`.
-  * `--group-id-prefix` — префикс для `Consumer Group ID`, который коннектор использует при чтении из топиков {{ KF }}. Значение по умолчанию — `cg-control`.
+  * `--group-id-prefix` — префикс для `Consumer Group ID`, который коннектор использует при чтении из топиков Apache Kafka®. Значение по умолчанию — `cg-control`.
   * `--commit-interval-ms` — указывает, как часто коннектор делает коммит данных в Iceberg-таблицу. Задается в миллисекундах. Значение по умолчанию — `300000`.
   * `--commit-timeout-ms` — указывает, сколько времени координатор ждет подтверждения от всех воркеров перед тем, как признать коммит неудачным. Задается в миллисекундах. Значение по умолчанию — `30000`.
   * `--commit-threads` — количество потоков, которые используются для коммита данных в Iceberg-таблицу. Значение по умолчанию — `vCPU × 2`.
-  * `--transactional-prefix` — префикс для `Transactional ID`, который коннектор использует при записи в {{ KF }} в рамках транзакций.
+  * `--transactional-prefix` — префикс для `Transactional ID`, который коннектор использует при записи в Apache Kafka® в рамках транзакций.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   * **properties** — список дополнительных настроек коннектора в формате `<ключ>:<значение>`, разделенный запятыми. Примеры ключей:
 
@@ -1087,7 +1087,7 @@
      * `value.converter`
      * `value.converter.schemas.enable`
 
-     Список общих настроек коннекторов в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
+     Список общих настроек коннекторов в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
   * **tasks_max** — максимальное количество одновременно запущенных задач коннектора.
   * **connector_config_iceberg_sink** — блок с настройками коннектора Iceberg Sink:
@@ -1098,21 +1098,21 @@
         * **commit_interval_ms** — указывает, как часто коннектор делает коммит данных в Iceberg-таблицу. Задается в миллисекундах. Значение по умолчанию — `300000`.
         * **commit_threads** — количество потоков, которые используются для коммита данных в Iceberg-таблицу. Значение по умолчанию — `vCPU × 2`.
         * **commit_timeout_ms** — указывает, сколько времени координатор ждет подтверждения от всех воркеров перед тем, как признать коммит неудачным. Задается в миллисекундах. Значение по умолчанию — `30000`.
-        * **group_id_prefix** — префикс для `Consumer Group ID`, который коннектор использует при чтении из топиков {{ KF }}. Значение по умолчанию — `cg-control`.
-        * **transactional_prefix** — префикс для `Transactional ID`, который коннектор использует при записи в {{ KF }} в рамках транзакций.
+        * **group_id_prefix** — префикс для `Consumer Group ID`, который коннектор использует при чтении из топиков Apache Kafka®. Значение по умолчанию — `cg-control`.
+        * **transactional_prefix** — префикс для `Transactional ID`, который коннектор использует при записи в Apache Kafka® в рамках транзакций.
      * **dynamic_tables** — блок с настройками динамической маршрутизации таблиц:
         * **route_field** — поле в сообщении для определения целевой таблицы при динамической маршрутизации.
-     * **metastore_connection** — блок с настройками подключения к {{ metastore-name }}:
-        * **catalog_uri** — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<хост>:<порт>`.
+     * **metastore_connection** — блок с настройками подключения к Apache Hive™ Metastore:
+        * **catalog_uri** — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<хост>:<порт>`.
         * **warehouse** — корневая директория для хранения данных управляемых таблиц в S3 в формате `s3a://bucket-name/path/to/warehouse`.
      * **s3_connection** — блок с настройками для подключения к S3-совместимому хранилищу:
         * **external_s3** — блок с параметрами для подключения к S3-совместимому хранилищу:
-           * **endpoint** — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища). Пример: `{{ s3-storage-host }}`.
-           * **region** — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `{{ region-id }}`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+           * **endpoint** — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища). Пример: `storage.yandexcloud.net`.
+           * **region** — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `ru-central1`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
               {% note info %}
               
-              Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому [{{ objstorage-full-name }}](../../storage/index.md) принимает также значение основного региона AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
+              Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому [Yandex Object Storage](../../storage/index.md) принимает также значение основного региона AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
               
               {% endnote %}
 
@@ -1124,7 +1124,7 @@
         * **default_commit_branch** — имя ветки по умолчанию. В эту ветку Iceberg-таблиц коннектор будет коммитить данные. Значение по умолчанию — `main`.
         * **default_id_columns** — список столбцов по умолчанию, разделенных запятыми, которые определяют строку идентификатора в Iceberg-таблицах (primary key). Является обязательным параметром при включенном UPSERT-режиме.
         * **default_partition_by** — список столбцов или выражений трансформации для партиционирования данных Iceberg-таблицы через запятую. Определяет физическое размещение данных для оптимизации запросов. Примеры: `date`, `year`, `month`, `year (timestamp)`, `month (timestamp)`, `days (timestamp)`, `bucket (16, user_id)`.
-        * **evolve_schema_enabled** — настройка указывает, должен ли коннектор автоматически изменять схему Iceberg-таблицы, если схема входящих сообщений из {{ KF }} изменилась. Значение по умолчанию — `false`.
+        * **evolve_schema_enabled** — настройка указывает, должен ли коннектор автоматически изменять схему Iceberg-таблицы, если схема входящих сообщений из Apache Kafka® изменилась. Значение по умолчанию — `false`.
         * **schema_case_insensitive** — настройка, которая указывает, должен ли коннектор игнорировать регистр при сопоставлении полей входящего сообщения с колонками Iceberg-таблицы. Значение по умолчанию — `false`.
         * **schema_force_optional** — настройка, указывающая, делать ли все поля схемы Iceberg-таблицы необязательными (`nullable`), независимо от того, как они определены в схеме входящего сообщения. Значение по умолчанию — `false`.
 
@@ -1138,17 +1138,17 @@
   Для отбора топиков используйте либо параметр `topics`, либо параметр `topicsRegex`.
     
   * `controlTopic` — имя топика управления, используется для координации и управления процессом записи данных в Iceberg-таблицы.
-  * `metastoreConnection` — параметры для подключения к {{ metastore-name }}:
-      * `catalogUri` — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<хост>:<порт>`.
+  * `metastoreConnection` — параметры для подключения к Apache Hive™ Metastore:
+      * `catalogUri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<хост>:<порт>`.
       * `warehouse` — корневая директория для хранения данных управляемых таблиц в S3 в формате `s3a://bucket-name/path/to/warehouse`.
   * `s3Connection` — параметры для подключения к S3-совместимому хранилищу:
       * `externalS3` — параметры внешнего хранилища:
-          * `endpoint` — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища). Пример: `{{ s3-storage-host }}`.
-          * `region` — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `{{ region-id }}`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+          * `endpoint` — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища). Пример: `storage.yandexcloud.net`.
+          * `region` — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `ru-central1`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
              {% note info %}
              
-             Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому [{{ objstorage-full-name }}](../../storage/index.md) принимает также значение основного региона AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
+             Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому [Yandex Object Storage](../../storage/index.md) принимает также значение основного региона AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
              
              {% endnote %}
 
@@ -1165,15 +1165,15 @@
       * `defaultCommitBranch` — имя ветки по умолчанию. В эту ветку Iceberg-таблицы коннектор будет коммитить данные. Значение по умолчанию — `main`.
       * `defaultIdColumns` — список столбцов по умолчанию, разделенных запятыми, которые определяют строку идентификатора в Iceberg-таблицах (primary key). Является обязательным параметром при включенном UPSERT-режиме.
       * `defaultPartitionBy` — список столбцов или выражений трансформации для партиционирования данных Iceberg-таблицы через запятую. Определяет физическое размещение данных для оптимизации запросов. Примеры: `date`, `year`, `month`, `year (timestamp)`, `month (timestamp)`, `days (timestamp)`, `bucket (16, user_id)`.
-      * `evolveSchemaEnabled` — настройка, указывающая, должен ли коннектор автоматически изменять схему Iceberg-таблицы, если схема входящих сообщений из {{ KF }} изменилась. Значение по умолчанию — `false`.
+      * `evolveSchemaEnabled` — настройка, указывающая, должен ли коннектор автоматически изменять схему Iceberg-таблицы, если схема входящих сообщений из Apache Kafka® изменилась. Значение по умолчанию — `false`.
       * `schemaForceOptional` — настройка, указывающая, делать ли все поля схемы Iceberg-таблицы необязательными (`nullable`), независимо от того, как они определены в схеме входящего сообщения. Значение по умолчанию — `false`.
       * `schemaCaseInsensitive` — настройка, указывающая, должен ли коннектор игнорировать регистр при сопоставлении полей входящего сообщения с колонками Iceberg-таблицы. Значение по умолчанию — `false`.
   * `controlConfig` — блок с дополнительными настройками:
-      * `groupIdPrefix` — префикс для `Consumer Group ID`, который коннектор использует при чтении из топиков {{ KF }}. Значение по умолчанию — `cg-control`.
+      * `groupIdPrefix` — префикс для `Consumer Group ID`, который коннектор использует при чтении из топиков Apache Kafka®. Значение по умолчанию — `cg-control`.
       * `commitIntervalMs` — указывает, как часто коннектор делает коммит данных в Iceberg-таблицу. Задается в миллисекундах. Значение по умолчанию — `300000`.
       * `commitTimeoutMs` — указывает, сколько времени координатор ждет подтверждения от всех воркеров перед тем, как признать коммит неудачным. Задается в миллисекундах. Значение по умолчанию — `30000`.
       * `commitThreads` — количество потоков, которые используются для коммита данных в Iceberg-таблицу. Значение по умолчанию — `vCPU × 2`.
-      * `transactionalPrefix` — префикс для `Transactional ID`, который коннектор использует при записи в {{ KF }} в рамках транзакций.
+      * `transactionalPrefix` — префикс для `Transactional ID`, который коннектор использует при записи в Apache Kafka® в рамках транзакций.
 
 - gRPC API {#grpc-api}
 
@@ -1185,17 +1185,17 @@
   Для отбора топиков используйте либо параметр `topics`, либо параметр `topics_regex`.
     
   * `control_topic` — имя топика управления, используется для координации и управления процессом записи данных в Iceberg-таблицы.
-  * `metastore_connection` — параметры для подключения к {{ metastore-name }}:
-      * `catalog_uri` — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<хост>:<порт>`.
+  * `metastore_connection` — параметры для подключения к Apache Hive™ Metastore:
+      * `catalog_uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<хост>:<порт>`.
       * `warehouse` — корневая директория для хранения данных управляемых таблиц в S3 в формате `s3a://bucket-name/path/to/warehouse`.
     * `s3_connection` — параметры для подключения к S3-совместимому хранилищу:
         * `externalS3` — параметры внешнего хранилища:
-            * `endpoint` — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища). Пример: `{{ s3-storage-host }}`.
-            * `region` — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `{{ region-id }}`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+            * `endpoint` — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища). Пример: `storage.yandexcloud.net`.
+            * `region` — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `ru-central1`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
                 {% note info %}
                 
-                Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому [{{ objstorage-full-name }}](../../storage/index.md) принимает также значение основного региона AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
+                Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому [Yandex Object Storage](../../storage/index.md) принимает также значение основного региона AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
                 
                 {% endnote %}
 
@@ -1212,15 +1212,15 @@
        * `default_commit_branch` — имя ветки по умолчанию. В эту ветку Iceberg-таблиц коннектор будет коммитить данные. Значение по умолчанию — `main`.
        * `default_id_columns` — список столбцов по умолчанию, разделенных запятыми, которые определяют строку идентификатора в Iceberg-таблицах (primary key). Является обязательным параметром при включенном UPSERT-режиме.
        * `default_partition_by` — список столбцов или выражений трансформации для партиционирования данных Iceberg-таблицы через запятую. Определяет физическое размещение данных для оптимизации запросов. Примеры: `date`, `year`, `month`, `year (timestamp)`, `month (timestamp)`, `days (timestamp)`, `bucket (16, user_id)`.
-       * `evolve_schema_enabled` — настройка, которая указывает, должен ли коннектор автоматически изменять схему Iceberg-таблицы, если схема входящих сообщений из {{ KF }} изменилась. Значение по умолчанию — `false`.
+       * `evolve_schema_enabled` — настройка, которая указывает, должен ли коннектор автоматически изменять схему Iceberg-таблицы, если схема входящих сообщений из Apache Kafka® изменилась. Значение по умолчанию — `false`.
        * `schema_force_optional` — настройка, указывающая, делать ли все поля схемы Iceberg-таблицы необязательными (`nullable`), независимо от того, как они определены в схеме входящего сообщения. Значение по умолчанию — `false`.
        * `schema_case_insensitive` — настройка, которая указывает, должен ли коннектор игнорировать регистр при сопоставлении полей входящего сообщения с колонками Iceberg-таблицы. Значение по умолчанию — `false`.
     * `control_config` — блок с дополнительными настройками:
-       * `group_id_prefix` — префикс для `Consumer Group ID`, который коннектор использует при чтении из топиков {{ KF }}. Значение по умолчанию — `cg-control`.
+       * `group_id_prefix` — префикс для `Consumer Group ID`, который коннектор использует при чтении из топиков Apache Kafka®. Значение по умолчанию — `cg-control`.
        * `commit_interval_ms` — указывает, как часто коннектор делает коммит данных в Iceberg-таблицу. Задается в миллисекундах. Значение по умолчанию — `300000`.
        * `commit_timeout_ms` — указывает, сколько времени координатор ждет подтверждения от всех воркеров перед тем, как признать коммит неудачным. Задается в миллисекундах. Значение по умолчанию — `30000`.
        * `commit_threads` — количество потоков, которые используются для коммита данных в Iceberg-таблицу. Значение по умолчанию — `vCPU × 2`.
-       * `transactional_prefix` — префикс для `Transactional ID`, который коннектор использует при записи в {{ KF }} в рамках транзакций.
+       * `transactional_prefix` — префикс для `Transactional ID`, который коннектор использует при записи в Apache Kafka® в рамках транзакций.
 
 {% endlist %}
 
@@ -1230,16 +1230,16 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-    1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_connectors }}**.
-    1. В строке с нужным коннектором нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.kafka.button_edit-connector }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+    1. Выберите нужный кластер и перейдите на вкладку **Коннекторы**.
+    1. В строке с нужным коннектором нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Изменить коннектор**.
     1. Внесите необходимые изменения в свойства коннектора.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+    1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -1248,13 +1248,13 @@
     1. Посмотрите описание команды CLI для изменения коннектора:
 
         ```bash
-        {{ yc-mdb-kf }} connector-mirrormaker update --help
+        yc managed-kafka connector-mirrormaker update --help
         ```
 
     1. Запустите операцию, например, изменения лимита задач:
 
         ```bash
-        {{ yc-mdb-kf }} connector-mirrormaker update <имя_коннектора> \
+        yc managed-kafka connector-mirrormaker update <имя_коннектора> \
            --cluster-name=<имя_кластера> \
            --direction=<направление_коннектора> \
            --tasks-max=<новый_лимит_задач>
@@ -1269,13 +1269,13 @@
     1. Посмотрите описание команды CLI для изменения коннектора:
 
         ```bash
-        {{ yc-mdb-kf }} connector-s3-sink update --help
+        yc managed-kafka connector-s3-sink update --help
         ```
 
     1. Запустите операцию, например, изменения лимита задач:
 
         ```bash
-        {{ yc-mdb-kf }} connector-s3-sink update <имя_коннектора> \
+        yc managed-kafka connector-s3-sink update <имя_коннектора> \
            --cluster-name=<имя_кластера> \
            --tasks-max=<новый_лимит_задач>
         ```
@@ -1287,26 +1287,26 @@
     1. Посмотрите описание команды CLI для изменения коннектора:
 
         ```bash
-        {{ yc-mdb-kf }} connector-iceberg-sink update --help
+        yc managed-kafka connector-iceberg-sink update --help
         ```
 
     1. Запустите операцию, например, изменение лимита задач:
 
         ```bash
-        {{ yc-mdb-kf }} connector-iceberg-sink update <имя_коннектора> \
+        yc managed-kafka connector-iceberg-sink update <имя_коннектора> \
            --cluster-name=<имя_кластера> \
            --tasks-max=<новый_лимит_задач>
         ```
 
         Имя коннектора можно запросить со [списком коннекторов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     1. Ознакомьтесь со списком настроек коннекторов [MirrorMaker](#settings-mm2), [S3 Sink](#settings-s3) и [Iceberg Sink](#settings-iceberg).
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
+        Как создать такой файл, описано в разделе [Создание кластера Apache Kafka®](cluster-create.md).
 
     1. Измените значение параметров в описании ресурса `yandex_mdb_kafka_connector`:
 
@@ -1417,14 +1417,14 @@
 
     1. Проверьте корректность настроек.
 
-       1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+       1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
        1. Выполните команду:
        
           ```bash
           terraform validate
           ```
        
-          Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+          Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -1446,7 +1446,7 @@
           1. Подтвердите изменение ресурсов.
           1. Дождитесь завершения операции.
 
-    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_kafka_connector.md).
 
 - REST API {#api}
 
@@ -1456,7 +1456,7 @@
        export IAM_TOKEN="<IAM-токен>"
        ```
 
-    1. Воспользуйтесь методом [Connector.update](../api-ref/Connector/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Connector.update](../api-ref/Connector/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
        {% note warning %}
        
@@ -1468,7 +1468,7 @@
        curl \
          --request PATCH \
          --header "Authorization: Bearer $IAM_TOKEN" \
-         --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors/<имя_коннектора>' \
+         --url 'https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors/<имя_коннектора>' \
          --data '{
                    "updateMask": "connectorSpec.tasksMax,connectorSpec.properties,connectorSpec.connectorConfigMirrormaker.<настройка_коннектора_Mirrormaker_1>,...,connectorSpec.connectorConfigMirrormaker.<настройка_коннектора_Mirrormaker_N>,connectorSpec.connectorConfigS3Sink.<настройка_коннектора_S3-Sink_1>,...,connectorSpec.connectorConfigS3Sink.<настройка_коннектора_S3-Sink_N>,connectorSpec.connectorConfigIcebergSink.<настройка_коннектора_IcebergSink_1>,...,connectorSpec.connectorConfigIcebergSink.<настройка_коннектора_IcebergSink_N>",
                    "connectorSpec": {
@@ -1520,7 +1520,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ConnectorService/Update](../api-ref/grpc/Connector/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ConnectorService/Update](../api-ref/grpc/Connector/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -1584,7 +1584,7 @@
                   }
                 }
               }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.kafka.v1.ConnectorService.Update
         ```
 
@@ -1619,21 +1619,21 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-    1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_connectors }}**.
-    1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного коннектора и выберите пункт **{{ ui-key.yacloud.compute.groups.popup-confirm_button_pause }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+    1. Выберите нужный кластер и перейдите на вкладку **Коннекторы**.
+    1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного коннектора и выберите пункт **Приостановить**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы приостановить работу коннектора, выполните команду:
 
     ```bash
-    {{ yc-mdb-kf }} connector pause <имя_коннектора> \
+    yc managed-kafka connector pause <имя_коннектора> \
        --cluster-name=<имя_кластера>
     ```
 
@@ -1645,13 +1645,13 @@
        export IAM_TOKEN="<IAM-токен>"
        ```
 
-    1. Воспользуйтесь методом [Connector.pause](../api-ref/Connector/pause.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Connector.pause](../api-ref/Connector/pause.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
        ```bash
        curl \
          --request POST \
          --header "Authorization: Bearer $IAM_TOKEN" \
-         --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors/pause/<имя_коннектора>'
+         --url 'https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors/pause/<имя_коннектора>'
        ```
 
        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя коннектора — со [списком коннекторов в кластере](#list).
@@ -1674,7 +1674,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ConnectorService/Pause](../api-ref/grpc/Connector/pause.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ConnectorService/Pause](../api-ref/grpc/Connector/pause.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -1687,7 +1687,7 @@
                 "cluster_id": "<идентификатор_кластера>",
                 "connector_name": "<имя_коннектора>"
               }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.kafka.v1.ConnectorService.Pause
         ```
 
@@ -1703,21 +1703,21 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-    1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_connectors }}**.
-    1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного коннектора и выберите пункт **{{ ui-key.yacloud.compute.groups.popup-confirm_button_resume }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+    1. Выберите нужный кластер и перейдите на вкладку **Коннекторы**.
+    1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного коннектора и выберите пункт **Возобновить**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы возобновить работу коннектора, выполните команду:
 
     ```bash
-    {{ yc-mdb-kf }} connector resume <имя_коннектора> \
+    yc managed-kafka connector resume <имя_коннектора> \
        --cluster-name=<имя_кластера>
     ```
 
@@ -1729,13 +1729,13 @@
        export IAM_TOKEN="<IAM-токен>"
        ```
 
-    1. Воспользуйтесь методом [Connector.pause](../api-ref/Connector/resume.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Connector.pause](../api-ref/Connector/resume.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
        ```bash
        curl \
          --request POST \
          --header "Authorization: Bearer $IAM_TOKEN" \
-         --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors/resume/<имя_коннектора>'
+         --url 'https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors/resume/<имя_коннектора>'
        ```
 
        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя коннектора — со [списком коннекторов в кластере](#list).
@@ -1758,7 +1758,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ConnectorService/Resume](../api-ref/grpc/Connector/resume.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ConnectorService/Resume](../api-ref/grpc/Connector/resume.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -1771,7 +1771,7 @@
                 "cluster_id": "<идентификатор_кластера>",
                 "connector_name": "<имя_коннектора>"
               }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.kafka.v1.ConnectorService.Resume
         ```
 
@@ -1781,15 +1781,15 @@
 
 {% endlist %}
 
-## Импортировать коннектор в {{ TF }} {#import}
+## Импортировать коннектор в Terraform {#import}
 
-С помощью импорта вы можете передать существующие коннекторы под управление {{ TF }}.
+С помощью импорта вы можете передать существующие коннекторы под управление Terraform.
 
 {% list tabs group=instructions %}
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Укажите в конфигурационном файле {{ TF }} коннектор, который необходимо импортировать:
+    1. Укажите в конфигурационном файле Terraform коннектор, который необходимо импортировать:
 
         ```hcl
         resource "yandex_mdb_kafka_cluster" "<имя_коннектора>" {}
@@ -1801,7 +1801,7 @@
         terraform import yandex_mdb_kafka_connector.<имя_коннектора> <идентификатор_кластера>:<имя_коннектора>
         ```
 
-        Подробнее об импорте коннекторов в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector#import).
+        Подробнее об импорте коннекторов в [документации провайдера Terraform](../../terraform/resources/mdb_kafka_connector.md#import).
 
 {% endlist %}
 
@@ -1811,42 +1811,42 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-    1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_connectors }}**.
-    1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного коннектора и выберите пункт **{{ ui-key.yacloud.common.delete }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+    1. Выберите нужный кластер и перейдите на вкладку **Коннекторы**.
+    1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного коннектора и выберите пункт **Удалить**.
+    1. Нажмите кнопку **Удалить**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы удалить коннектор, выполните команду:
 
     ```bash
-    {{ yc-mdb-kf }} connector delete <имя_коннектора> \
+    yc managed-kafka connector delete <имя_коннектора> \
        --cluster-name <имя_кластера>
     ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
+        Как создать такой файл, описано в разделе [Создание кластера Apache Kafka®](cluster-create.md).
 
     1. Удалите ресурс `yandex_mdb_kafka_connector` с описанием нужного коннектора.
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -1868,7 +1868,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_kafka_connector.md).
 
 - REST API {#api}
 
@@ -1878,13 +1878,13 @@
        export IAM_TOKEN="<IAM-токен>"
        ```
 
-    1. Воспользуйтесь методом [Connector.pause](../api-ref/Connector/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Connector.pause](../api-ref/Connector/delete.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
        ```bash
        curl \
          --request DELETE \
          --header "Authorization: Bearer $IAM_TOKEN" \
-         --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors/<имя_коннектора>'
+         --url 'https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors/<имя_коннектора>'
        ```
 
        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя коннектора — со [списком коннекторов в кластере](#list).
@@ -1907,7 +1907,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ConnectorService/Delete](../api-ref/grpc/Connector/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ConnectorService/Delete](../api-ref/grpc/Connector/delete.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -1920,7 +1920,7 @@
                 "cluster_id": "<идентификатор_кластера>",
                 "connector_name": "<имя_коннектора>"
               }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.kafka.v1.ConnectorService.Delete
         ```
 

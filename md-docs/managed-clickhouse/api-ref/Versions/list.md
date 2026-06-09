@@ -5,7 +5,7 @@ Returns list of available ClickHouse versions.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-clickhouse/v1/versions
+GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/versions
 ```
 
 ## Query parameters {#yandex.cloud.mdb.clickhouse.v1.ListVersionsRequest}

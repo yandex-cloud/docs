@@ -1,4 +1,4 @@
-# Удаление правил доступа в {{ mtr-name }}
+# Удаление правил доступа в Managed Service for Trino
 
 ## Удалить правило доступа {#rule}
 
@@ -6,15 +6,15 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+  1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
   1. Нажмите на имя нужного кластера.
-  1. Перейдите в блок **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}**.
+  1. Перейдите в блок **Настройки доступа**.
   1. В строке правила, которое вы хотите удалить, нажмите на значок ![trash-bin](../../_assets/console-icons/trash-bin.svg).
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -23,15 +23,15 @@
   1. Выполните команду:
 
      ```bash
-     {{ yc-mdb-tr }} cluster set-access-control <имя_или_идентификатор_кластера> \
+     yc managed-trino cluster set-access-control <имя_или_идентификатор_кластера> \
        --from-file access_control.yaml
      ```
 
      Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
   
       Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
   
@@ -39,14 +39,14 @@
 
   1. Проверьте корректность настроек.
   
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
   
   1. Подтвердите изменение ресурсов.
   
@@ -68,7 +68,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
  
-  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
+  Подробнее в [документации провайдера Terraform](../../terraform/resources/trino_access_control.md).
 
 - REST API {#api}
 
@@ -80,13 +80,13 @@
 
   1. Откройте существующий файл `body.json` с правилами и удалите из него ненужное правило.
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
+       --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>'
        --data '@body.json'
      ```
 
@@ -112,7 +112,7 @@
 
   1. Откройте существующий файл `body.json` с правилами и удалите из него ненужное правило.
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -122,7 +122,7 @@
         -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
         -rpc-header "Authorization: Bearer $IAM_TOKEN" \
         -d @ \
-        {{ api-host-trino }}:{{ port-https }} \
+        trino.api.cloud.yandex.net:443 \
         yandex.cloud.trino.v1.ClusterService.Update \
         < body.json
       ```
@@ -139,21 +139,21 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы удалить все правила доступа для кластера {{ mtr-name }}, выполните команду:
+  Чтобы удалить все правила доступа для кластера Managed Service for Trino, выполните команду:
 
   ```bash
-  {{ yc-mdb-tr }} cluster remove-access-control <имя_или_идентификатор_кластера>
+  yc managed-trino cluster remove-access-control <имя_или_идентификатор_кластера>
   ```
 
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
   
       Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
   
@@ -161,14 +161,14 @@
 
   1. Проверьте корректность настроек.
   
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
   
   1. Подтвердите изменение ресурсов.
   
@@ -190,7 +190,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
  
-  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
+  Подробнее в [документации провайдера Terraform](../../terraform/resources/trino_access_control.md).
 
 - REST API {#api}
 
@@ -223,13 +223,13 @@
 
       * `accessControl` — конфигурация прав доступа в рамках кластера.
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
+       --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>'
        --data '@body.json'
      ```
 
@@ -300,7 +300,7 @@
 
       * `access_control` — конфигурация прав доступа в рамках кластера.
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -310,7 +310,7 @@
         -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
         -rpc-header "Authorization: Bearer $IAM_TOKEN" \
         -d @ \
-        {{ api-host-trino }}:{{ port-https }} \
+        trino.api.cloud.yandex.net:443 \
         yandex.cloud.trino.v1.ClusterService.Update \
         < body.json
       ```

@@ -73,4 +73,4 @@
 
 #### См. также: {#see-also}
 
-* [{#T}](private-embedded-objects.md).
+* [Встраивание непубличных объектов](private-embedded-objects.md).

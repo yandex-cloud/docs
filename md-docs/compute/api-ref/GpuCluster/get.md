@@ -6,7 +6,7 @@ To get the list of available GPU clusters, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/gpuClusters/{gpuClusterId}
+GET https://compute.api.cloud.yandex.net/compute/v1/gpuClusters/{gpuClusterId}
 ```
 
 ## Path parameters

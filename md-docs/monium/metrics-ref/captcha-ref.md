@@ -1,11 +1,11 @@
-# Метрики {{ captcha-full-name }}
+# Метрики Yandex SmartCaptcha
 
 
-В этом разделе описаны метрики сервиса [{{ captcha-name }}](../../smartcaptcha/index.md), поставляемые в {{ monitoring-name }}.
+В этом разделе описаны метрики сервиса [SmartCaptcha](../../smartcaptcha/index.md), поставляемые в Monium Metrics.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик {{ captcha-name }}:
+Общие метки для всех метрик SmartCaptcha:
 
 | Метка | Значение |
 | --- | --- |

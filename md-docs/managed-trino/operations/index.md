@@ -1,11 +1,11 @@
-# Пошаговые инструкции для {{ mtr-name }}
+# Пошаговые инструкции для Managed Service for Trino
 
 ## Кластеры {#clusters}
 
 * [Получение информации об имеющихся кластерах](cluster-list.md)
 * [Создание кластера](cluster-create.md)
 * [Изменение кластера](cluster-update.md)
-* [Обновление версии {{ TR }}](cluster-version-update.md)
+* [Обновление версии Trino](cluster-version-update.md)
 * [Остановка и запуск кластера](cluster-stop.md)
 * [Подключение к кластеру](connect.md)
 * [Управление доступом к кластеру](cluster-access.md)
@@ -13,12 +13,12 @@
 * [Управление ресурсными группами](manage-resource-groups.md)
 * [Удаление кластера](cluster-delete.md)
 
-## Каталоги {{ TR }} {#catalogs}
+## Каталоги Trino {#catalogs}
 
 * [Получение информации об имеющихся каталогах](catalog-list.md)
-* [Создание каталога {{ TR }}](catalog-create.md)
-* [Изменение каталога {{ TR }}](catalog-update.md)
-* [Удаление каталога {{ TR }}](catalog-delete.md)
+* [Создание каталога Trino](catalog-create.md)
+* [Изменение каталога Trino](catalog-update.md)
+* [Удаление каталога Trino](catalog-delete.md)
 
 ## Логи и мониторинг {#monitoring-and-logs}
 

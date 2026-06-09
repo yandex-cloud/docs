@@ -5,7 +5,7 @@ Returns the OpenAPI specification of specified API gateway.
 ## HTTP request
 
 ```
-GET https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{apiGatewayId}:spec
+GET https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateways/{apiGatewayId}:spec
 ```
 
 ## Path parameters

@@ -3,14 +3,14 @@
 
 Вы можете создать трейл, который будет загружать аудитные логи [уровня конфигурации](../concepts/format.md) и [уровня сервисов](../concepts/format-data-plane.md) в один из [объектов назначения](../concepts/trail.md#target):
 
-* бакет [{{ objstorage-full-name }}](../../storage/index.md);
-* лог-группу [{{ cloud-logging-full-name }}](../../logging/index.md);
-* поток данных [{{ yds-full-name }}](../../data-streams/index.md);
-* шину [{{ er-full-name }}](../../serverless-integrations/index.md).
+* бакет [Yandex Object Storage](../../storage/index.md);
+* лог-группу [Yandex Cloud Logging](../../logging/index.md);
+* поток данных [Yandex Data Streams](../../data-streams/index.md);
+* шину [Yandex EventRouter](../../serverless-integrations/index.md).
 
 {% note info %}
 
-В настоящий момент создать трейл с объектом назначения **{{ ui-key.yacloud.audit-trails.label_eventRouter }}** можно только с помощью [консоли управления]({{ link-console-main }}), {{ yandex-cloud }} [CLI](../../cli/index.md) и [API](../../api-design-guide/index.md).
+В настоящий момент создать трейл с объектом назначения **EventRouter** можно только с помощью [консоли управления](https://console.yandex.cloud), Yandex Cloud [CLI](../../cli/index.md) и [API](../../api-design-guide/index.md).
 
 {% endnote %}
 
@@ -20,7 +20,7 @@
 
 {% list tabs group=trail-target %}
 
-- Бакет {{ objstorage-name }} {#bucket}
+- Бакет Object Storage {#bucket}
 
   1. [Создайте бакет](../../storage/operations/buckets/create.md) с ограниченным доступом, в который будут загружаться аудитные логи.
   1. (Опционально) Включите шифрование для бакета.
@@ -47,7 +47,7 @@
      * [audit-trails.editor](../security/index.md#at-editor) на каталог, в котором будет находиться трейл.
      * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) на сервисный аккаунт для трейла.
 
-- Лог-группа {{ cloud-logging-name }} {#logging}
+- Лог-группа Cloud Logging {#logging}
 
   1. [Создайте лог-группу](../../logging/operations/create-group.md), в которую будут загружаться аудитные логи.
   1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) для трейла.
@@ -68,7 +68,7 @@
      * [audit-trails.editor](../security/index.md#at-editor) на каталог, в котором будет находиться трейл.
      * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) на сервисный аккаунт для трейла.
 
-- Поток данных {{ yds-name }} {#data-streams}
+- Поток данных Data Streams {#data-streams}
 
   1. [Создайте поток данных](../../data-streams/operations/manage-streams.md#create-data-stream), в который будут загружаться аудитные логи.
 
@@ -98,20 +98,20 @@
      * [audit-trails.editor](../security/index.md#at-editor) на каталог, в котором будет находиться трейл.
      * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) на сервисный аккаунт для трейла.
 
-- Шина {{ er-name }} {#eventrouter}
+- Шина EventRouter {#eventrouter}
 
-  1. [Создайте](../../serverless-integrations/operations/eventrouter/bus/create.md) шину {{ er-full-name }}.
+  1. [Создайте](../../serverless-integrations/operations/eventrouter/bus/create.md) шину Yandex EventRouter.
 
       {% note info %}
 
-      В настоящий момент создать [коннектор](../../serverless-integrations/concepts/eventrouter/connector.md) шины {{ er-name }} с типом источника `{{ at-name }}` можно только в [консоли управления]({{ link-console-main }}) при создании или изменении трейла, а также с помощью [API {{ er-name }}](../../serverless-integrations/eventrouter/api-ref/Connector/create.md).
+      В настоящий момент создать [коннектор](../../serverless-integrations/concepts/eventrouter/connector.md) шины EventRouter с типом источника `Audit Trails` можно только в [консоли управления](https://console.yandex.cloud) при создании или изменении трейла, а также с помощью [API EventRouter](../../serverless-integrations/eventrouter/api-ref/Connector/create.md).
 
       {% endnote %}
 
   1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) для трейла.
   1. [Назначьте роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md), чтобы трейл мог собирать и загружать логи:
 
-      * [serverless.eventrouter.supplier](../../serverless-integrations/security/eventrouter.md#serverless-eventrouter-supplier) на каталог, в котором находится нужная [шина](../../serverless-integrations/concepts/eventrouter/bus.md) {{ er-name }}.
+      * [serverless.eventrouter.supplier](../../serverless-integrations/security/eventrouter.md#serverless-eventrouter-supplier) на каталог, в котором находится нужная [шина](../../serverless-integrations/concepts/eventrouter/bus.md) EventRouter.
 
       * [audit-trails.viewer](../security/index.md#at-viewer) на один из ресурсов, который определяет [нужную область сбора](../concepts/trail.md#collecting-area) логов:
       
@@ -134,17 +134,17 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите разместить трейл.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите разместить трейл.
+  1. Перейдите в сервис **Audit Trails**.
+  1. Нажмите кнопку **Создать трейл**.
   1. Введите имя трейла. Оно должно быть уникальным в рамках каталога.
   1. (Опционально) Введите описание трейла.
-  1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** выберите один из объектов назначения и укажите его настройки:
+  1. В блоке **Назначение** выберите один из объектов назначения и укажите его настройки:
 
-      * **{{ ui-key.yacloud.audit-trails.label_objectStorage }}** — загружать аудитные логи в бакет {{ objstorage-name }}. Рекомендуется для долгосрочного хранения данных. Задайте настройки хранения логов:
+      * **Object Storage** — загружать аудитные логи в бакет Object Storage. Рекомендуется для долгосрочного хранения данных. Задайте настройки хранения логов:
 
-          * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — бакет, который [был создан ранее](#before-you-begin).
-          * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}** — [префикс](../concepts/format.md#log-file-name), который будет присвоен объектам с аудитными логами в бакете. Необязательный параметр, участвует в [полном имени](../concepts/format.md#log-file-name) файла аудитного лога.
+          * **Бакет** — бакет, который [был создан ранее](#before-you-begin).
+          * **Префикс объекта** — [префикс](../concepts/format.md#log-file-name), который будет присвоен объектам с аудитными логами в бакете. Необязательный параметр, участвует в [полном имени](../concepts/format.md#log-file-name) файла аудитного лога.
 
               {% note info %}
               
@@ -152,18 +152,18 @@
               
               {% endnote %}
 
-          * **{{ ui-key.yacloud.audit-trails.title_kms-key }}** — ключ шифрования для бакета. Выбирать его необходимо, только если для бакета было включено шифрование.
-      * **{{ ui-key.yacloud.audit-trails.label_cloudLogging }}** — лог-группа, которая [была создана ранее](#before-you-begin). В нее будут загружаться аудитные логи. Рекомендуется для быстрого сбора и анализа логов.
-      * **{{ ui-key.yacloud.audit-trails.label_dataStream }}** — поток данных, который [был создан ранее](#before-you-begin). В этот поток будут загружаться аудитные логи. Рекомендуется для потоковой передачи логов в другие сервисы или системы.
-      * **{{ ui-key.yacloud.audit-trails.label_eventRouter }}** — коннектор шины {{ er-name }}. Рекомендуется для подробного анализа логов и дальнейшей отправки их в различные обработчики и системы в зависимости от заданных в шине условий.
+          * **Ключ шифрования** — ключ шифрования для бакета. Выбирать его необходимо, только если для бакета было включено шифрование.
+      * **Cloud Logging** — лог-группа, которая [была создана ранее](#before-you-begin). В нее будут загружаться аудитные логи. Рекомендуется для быстрого сбора и анализа логов.
+      * **Data Streams** — поток данных, который [был создан ранее](#before-you-begin). В этот поток будут загружаться аудитные логи. Рекомендуется для потоковой передачи логов в другие сервисы или системы.
+      * **EventRouter** — коннектор шины EventRouter. Рекомендуется для подробного анализа логов и дальнейшей отправки их в различные обработчики и системы в зависимости от заданных в шине условий.
 
-          В поле **Коннектор** выберите нужный [коннектор](../../serverless-integrations/concepts/eventrouter/connector.md) шины {{ er-name }} с типом источника `{{ at-name }}` или нажмите кнопку **{{ ui-key.yacloud.common.create }}**, чтобы создать новый коннектор в нужной шине.
+          В поле **Коннектор** выберите нужный [коннектор](../../serverless-integrations/concepts/eventrouter/connector.md) шины EventRouter с типом источника `Audit Trails` или нажмите кнопку **Создать**, чтобы создать новый коннектор в нужной шине.
 
-  1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите [созданный ранее](#before-you-begin) сервисный аккаунт, от имени которого будет работать трейл.
+  1. В блоке **Сервисный аккаунт** выберите [созданный ранее](#before-you-begin) сервисный аккаунт, от имени которого будет работать трейл.
 
   1. Включите и настройте сбор событий с одного или двух уровней. Такие события попадут в аудитные логи.
 
-      Чтобы настроить **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**:
+      Чтобы настроить **Сбор событий c уровня конфигурации**:
 
       1. Выберите [область сбора логов](../concepts/trail.md) — `Организация`, `Облако` или `Каталог`. События, которые попадут в логи, будут собираться в указанной области.
 
@@ -171,15 +171,15 @@
 
       1. В зависимости от выбранной области сбора логов выберите конкретные облака или каталоги, с которых будут собираться события:
 
-          * Для области сбора `Организация` выберите из выпадающего списка **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}** одно или несколько облаков, с которых будут собираться события.
+          * Для области сбора `Организация` выберите из выпадающего списка **Облако** одно или несколько облаков, с которых будут собираться события.
 
-              Оставьте значение по умолчанию (`{{ ui-key.yacloud.common.all }}`), чтобы собирать события со всех облаков в организации.
+              Оставьте значение по умолчанию (`Все`), чтобы собирать события со всех облаков в организации.
 
-          * Для области сбора `Облако` выберите из выпадающего списка **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** один или несколько каталогов, с которых будут собираться события.
+          * Для области сбора `Облако` выберите из выпадающего списка **Каталог** один или несколько каталогов, с которых будут собираться события.
 
-              Оставьте значение по умолчанию (`{{ ui-key.yacloud.common.all }}`), чтобы собирать события со всех каталогов в облаке.
+              Оставьте значение по умолчанию (`Все`), чтобы собирать события со всех каталогов в облаке.
 
-      Чтобы настроить **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**:
+      Чтобы настроить **Сбор событий с уровня сервисов**:
 
       {% note warning %}
       
@@ -195,13 +195,13 @@
 
       1. В зависимости от выбранной области сбора логов выберите конкретные облака или каталоги, с которых будут собираться события:
 
-          * Для области сбора `Организация` выберите из выпадающего списка **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}** одно или несколько облаков, с которых будут собираться события.
+          * Для области сбора `Организация` выберите из выпадающего списка **Облако** одно или несколько облаков, с которых будут собираться события.
 
-              Оставьте значение по умолчанию (`{{ ui-key.yacloud.common.all }}`), чтобы собирать события со всех облаков в организации.
+              Оставьте значение по умолчанию (`Все`), чтобы собирать события со всех облаков в организации.
 
-          * Для области сбора `Облако` выберите из выпадающего списка **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** один или несколько каталогов, с которых будут собираться события.
+          * Для области сбора `Облако` выберите из выпадающего списка **Каталог** один или несколько каталогов, с которых будут собираться события.
 
-              Оставьте значение по умолчанию (`{{ ui-key.yacloud.common.all }}`), чтобы собирать события со всех каталогов в облаке.
+              Оставьте значение по умолчанию (`Все`), чтобы собирать события со всех каталогов в облаке.
 
       1. Для каждого такого сервиса выберите один из следующих фильтров по [событиям](../concepts/events-data-plane.md#dns):
 
@@ -211,7 +211,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -283,7 +283,7 @@
 
           {% endnote %}
 
-          * `object_storage` — загружать логи в [бакет](../../storage/concepts/bucket.md#naming) {{ objstorage-full-name }}:
+          * `object_storage` — загружать логи в [бакет](../../storage/concepts/bucket.md#naming) Yandex Object Storage:
 
               * `bucket_id` — [имя](../../storage/concepts/bucket.md#naming) созданного [ранее](#before-you-begin) бакета.
 
@@ -300,17 +300,17 @@
                   
                   {% endnote %}
 
-          * `cloud_logging` — загружать логи в [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}.
+          * `cloud_logging` — загружать логи в [лог-группу](../../logging/concepts/log-group.md) Yandex Cloud Logging.
 
               В параметре `log_group_id` укажите идентификатор [созданной ранее](#before-you-begin) лог-группы. Идентификатор можно запросить со [списком лог-групп в каталоге](../../logging/operations/list.md).
-          * `data_stream` — загружать логи в [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }}:
+          * `data_stream` — загружать логи в [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) Yandex Data Streams:
 
               * `stream_name` — имя [созданного ранее](#before-you-begin) потока данных. Имя можно запросить со [списком потоков данных в каталоге](../../data-streams/operations/manage-streams.md#list-data-streams).
-              * `database_id` — идентификатор базы данных {{ ydb-short-name }}, которая используется потоком данных {{ yds-name }}. Идентификатор можно запросить со [списком баз данных {{ ydb-short-name }} в каталоге](../../ydb/operations/manage-databases.md#list-db).
-              * `codec` — метод сжатия событий при записи в поток данных {{ yds-name }}. Возможные значения: `RAW` (без сжатия, по умолчанию), `GZIP`, `ZSTD`. Включайте сжатие, если ожидается поток событий более 1 МБ/с.
-          * `eventrouter` — загружать логи в [шину](../../serverless-integrations/concepts/eventrouter/bus.md) {{ er-full-name }}:
+              * `database_id` — идентификатор базы данных YDB, которая используется потоком данных Data Streams. Идентификатор можно запросить со [списком баз данных YDB в каталоге](../../ydb/operations/manage-databases.md#list-db).
+              * `codec` — метод сжатия событий при записи в поток данных Data Streams. Возможные значения: `RAW` (без сжатия, по умолчанию), `GZIP`, `ZSTD`. Включайте сжатие, если ожидается поток событий более 1 МБ/с.
+          * `eventrouter` — загружать логи в [шину](../../serverless-integrations/concepts/eventrouter/bus.md) Yandex EventRouter:
 
-              * `eventrouter_connector_id` — идентификатор [коннектора](../../serverless-integrations/concepts/eventrouter/connector.md) шины {{ er-name }} с типом источника `{{ at-name }}`.
+              * `eventrouter_connector_id` — идентификатор [коннектора](../../serverless-integrations/concepts/eventrouter/connector.md) шины EventRouter с типом источника `Audit Trails`.
       * `service_account_id` — [идентификатор](../../iam/operations/sa/get-id.md) созданного [ранее](#before-you-begin) сервисного аккаунта.
 
       * `filtering_policy` — настройки политики фильтрации, которая определяет, какие события будут собираться и попадут в аудитные логи. Политика состоит из набора фильтров, которые относятся к разным уровням событий.
@@ -422,7 +422,7 @@
     * `--description` — описание трейла. Необязательный параметр.
     * `--labels` — список [меток](../../resource-manager/concepts/labels.md). Необязательный параметр. Можно указать одну или несколько меток через запятую в формате `<ключ1>=<значение1>,<ключ2>=<значение2>`.
     * `--service-account-id` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта.
-    * `--destination-bucket` — [имя](../../storage/concepts/bucket.md#naming) бакета {{ objstorage-full-name }}, в который будут загружаться аудитные логи.
+    * `--destination-bucket` — [имя](../../storage/concepts/bucket.md#naming) бакета Yandex Object Storage, в который будут загружаться аудитные логи.
     
         С этим параметром нельзя использовать параметры `--destination-log-group-id`, `--destination-yds-stream` и `--destination-eventrouter-connector-id`.
     * `--destination-bucket-object-prefix` — [префикс](../../storage/concepts/object.md#folder), который будет присвоен объектам с аудитными логами в бакете. Необязательный параметр, участвует в [полном имени](../concepts/format.md#log-file-name) файла аудитного лога.
@@ -433,15 +433,15 @@
         
         {% endnote %}
     
-    * `--destination-log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}, в которую будут загружаться аудитные логи.
+    * `--destination-log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md) Yandex Cloud Logging, в которую будут загружаться аудитные логи.
     
         С этим параметром нельзя использовать параметры `--destination-bucket`, `--destination-yds-stream` и `--destination-eventrouter-connector-id`.
-    * `--destination-yds-stream` — имя [потока данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }}, в который будут загружаться аудитные логи.
+    * `--destination-yds-stream` — имя [потока данных](../../data-streams/concepts/glossary.md#stream-concepts) Yandex Data Streams, в который будут загружаться аудитные логи.
     
         С этим параметром нельзя использовать параметры `--destination-bucket`, `--destination-log-group-id` и `--destination-eventrouter-connector-id`.
-    * `--destination-yds-database-id` — идентификатор базы данных {{ ydb-short-name }}, которая используется потоком данных {{ yds-name }}.
-    * `--destination-yds-codec` — метод сжатия событий при записи в поток данных {{ yds-name }}. Возможные значения: `RAW` (без сжатия, по умолчанию), `GZIP`, `ZSTD`. Включайте сжатие, если ожидается поток событий более 1 МБ/с.
-    * `--destination-eventrouter-connector-id` — идентификатор [коннектора](../../serverless-integrations/concepts/eventrouter/connector.md) шины {{ er-name }} с типом источника `{{ at-name }}`, в которую будут загружаться аудитные логи.
+    * `--destination-yds-database-id` — идентификатор базы данных YDB, которая используется потоком данных Data Streams.
+    * `--destination-yds-codec` — метод сжатия событий при записи в поток данных Data Streams. Возможные значения: `RAW` (без сжатия, по умолчанию), `GZIP`, `ZSTD`. Включайте сжатие, если ожидается поток событий более 1 МБ/с.
+    * `--destination-eventrouter-connector-id` — идентификатор [коннектора](../../serverless-integrations/concepts/eventrouter/connector.md) шины EventRouter с типом источника `Audit Trails`, в которую будут загружаться аудитные логи.
     
         С этим параметром нельзя использовать параметры `--destination-bucket`, `--destination-log-group-id` и `--destination-yds-stream`.
     * `--filter-all-folder-id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, для всех ресурсов которого будут регистрироваться события уровня конфигурации.
@@ -462,18 +462,18 @@
 
   {% endcut %}
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
   1. Опишите в конфигурационном файле параметры трейла, который будет собирать аудитные логи:
 
@@ -573,10 +573,10 @@
       
       {% endnote %}
       
-      * `logging_destination` — загружать логи в [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}.
+      * `logging_destination` — загружать логи в [лог-группу](../../logging/concepts/log-group.md) Yandex Cloud Logging.
       
           * `log_group_id` — [идентификатор лог-группы](../../logging/operations/get-group.md), в которую трейл будет сохранять аудитные логи.
-      * `storage_destination` — загружать логи в [бакет](../../storage/concepts/bucket.md) {{ objstorage-full-name }}:
+      * `storage_destination` — загружать логи в [бакет](../../storage/concepts/bucket.md) Yandex Object Storage:
       
           * `bucket_name` — имя бакета, куда трейл будет сохранять аудитные логи.
           * `object_prefix` — [префикс](../../storage/concepts/object.md#folder), который будет присвоен объектам с аудитными логами в бакете. Необязательный параметр, участвует в [полном имени](../concepts/format.md#log-file-name) файла аудитного лога.
@@ -587,11 +587,11 @@
               
               {% endnote %}
       
-      * `data_stream_destination` — загружать логи в [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }}:
+      * `data_stream_destination` — загружать логи в [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) Yandex Data Streams:
       
           * `stream_name` — имя потока данных, в который трейл будет сохранять аудитные логи.
-          * `database_id` — идентификатор базы данных {{ ydb-full-name }}, которая используется потоком данных {{ yds-name }}.
-          * `codec` — метод сжатия событий при записи в поток данных {{ yds-name }}. Возможные значения: `RAW` (без сжатия, по умолчанию), `GZIP`, `ZSTD`. Включайте сжатие, если ожидается поток событий более 1 МБ/с.
+          * `database_id` — идентификатор базы данных Yandex Managed Service for YDB, которая используется потоком данных Data Streams.
+          * `codec` — метод сжатия событий при записи в поток данных Data Streams. Возможные значения: `RAW` (без сжатия, по умолчанию), `GZIP`, `ZSTD`. Включайте сжатие, если ожидается поток событий более 1 МБ/с.
 
       * `filtering_policy` — настройки политики фильтрации, которая определяет, какие события будут собираться и попадут в аудитные логи. Политика состоит из набора фильтров, которые относятся к разным уровням событий. Содержит объекты `management_events_filter` и `data_events_filters`.
       
@@ -611,7 +611,7 @@
               * `included_events` — собирать только указанные события. Необязательный параметр. Если не указать, то будут собираться все события. Вместо `included_events` можно указать `excluded_events` — собирать все события, кроме указанных. Эти параметры — взаимоисключающие.
                   Полный перечень событий можно получить в [справочнике событий уровня сервисов](../concepts/events-data-plane.md).
 
-      Более подробную информацию о параметрах ресурса `yandex_audit_trails_trail` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/audit_trails_trail).
+      Более подробную информацию о параметрах ресурса `yandex_audit_trails_trail` в Terraform см. в [документации провайдера](../../terraform/resources/audit_trails_trail.md).
 
   1. Создайте ресурсы:
 
@@ -634,7 +634,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -643,7 +643,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/index.md):
+      Terraform создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/index.md):
 
      ```bash
      yc audit-trails trail get <имя_трейла>
@@ -659,7 +659,7 @@
 
 Трейл создастся и начнет загружать аудитные логи в выбранный объект назначения.
 
-При загрузке в {{ cloud-logging-name }} события в [лог-группе](../../logging/concepts/log-group.md) могут дублироваться. Чтобы найти дубли, ориентируйтесь на уникальный идентификатор записи `json_payload.event_id`.
+При загрузке в Cloud Logging события в [лог-группе](../../logging/concepts/log-group.md) могут дублироваться. Чтобы найти дубли, ориентируйтесь на уникальный идентификатор записи `json_payload.event_id`.
 
 ## Примеры {#examples}
 
@@ -669,7 +669,7 @@
 
 * Имя трейла — `sample-trail-all-planes`.
 * Каталог, в котором будет размещен трейл — каталог с идентификатором `folder0***`.
-* Объект назначения — бакет {{ objstorage-name }} с именем `sample-logs-bucket`.
+* Объект назначения — бакет Object Storage с именем `sample-logs-bucket`.
 * Сервисный аккаунт для трейла — аккаунт с идентификатором `service0***`.
 * Настройки фильтра событий уровня конфигурации:
 
@@ -677,14 +677,14 @@
 
 * Настройки фильтров событий уровня сервиса:
 
-    * Для сервиса [{{ mpg-name }}](../../managed-postgresql/index.md) логи будут собираться из облака с идентификатором `cloud1***` и каталога с идентификатором `folder1***`.
+    * Для сервиса [Managed Service for PostgreSQL](../../managed-postgresql/index.md) логи будут собираться из облака с идентификатором `cloud1***` и каталога с идентификатором `folder1***`.
 
         Будут собираться все [события сервиса](../concepts/events-data-plane.md#mpg), кроме следующих:
 
         * `yandex.cloud.audit.mdb.postgresql.CreateDatabase`,
         * `yandex.cloud.audit.mdb.postgresql.UpdateDatabase`.
 
-    * Для сервиса [{{ objstorage-name }}](../../storage/index.md) логи будут собираться из облаков с идентификаторами `cloud2***` и `cloud3***`.
+    * Для сервиса [Object Storage](../../storage/index.md) логи будут собираться из облаков с идентификаторами `cloud2***` и `cloud3***`.
 
         Будут собираться только следующие [события сервиса](../concepts/events-data-plane.md#objstorage):
 
@@ -692,7 +692,7 @@
         * `yandex.cloud.audit.storage.ObjectUpdate`,
         * `yandex.cloud.audit.storage.ObjectDelete`.
 
-    * Для сервиса [{{ compute-name }}](../../compute/index.md) логи будут собираться из каталогов с идентификаторами `folder2***` и `folder3***`.
+    * Для сервиса [Compute Cloud](../../compute/index.md) логи будут собираться из каталогов с идентификаторами `folder2***` и `folder3***`.
 
         Будут собираться все [события сервиса](../concepts/events-data-plane.md#compute).
 
@@ -756,9 +756,9 @@
 
   Будет создан трейл с указанными параметрами.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Опишите в конфигурационном файле {{ TF }} параметры создаваемого трейла:
+  1. Опишите в конфигурационном файле Terraform параметры создаваемого трейла:
 
       ```hcl
       resource "yandex_audit_trails_trail" "basic_trail" {
@@ -836,7 +836,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -845,7 +845,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-      Будет создан трейл с указанными параметрами. Проверить появление трейла можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/index.md):
+      Будет создан трейл с указанными параметрами. Проверить появление трейла можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/index.md):
 
       ```bash
       yc audit-trails trail get sample-trail-all-planes
@@ -857,7 +857,7 @@
 
   Чтобы воспользоваться примерами, установите [cURL](https://curl.haxx.se).
 
-  Пример ниже разработан для выполнения в операционных системах MacOS и Linux. Чтобы выполнить его в системе Windows, [ознакомьтесь]({{ link-docs }}/overview/concepts/console-syntax-guide) с особенностями работы с Bash в Microsoft Windows.
+  Пример ниже разработан для выполнения в операционных системах MacOS и Linux. Чтобы выполнить его в системе Windows, [ознакомьтесь](../../overview/concepts/console-syntax-guide.md) с особенностями работы с Bash в Microsoft Windows.
 
   1. [Получите](../../iam/operations/index.md#authentication) IAM-токен, чтобы [аутентифицироваться](../api-ref/authentication.md) в API.
 

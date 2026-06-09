@@ -1,4 +1,4 @@
-# Как начать работать с {{ mspqr-name }}
+# Как начать работать с Managed Service for Sharded PostgreSQL
 
 {% note info %}
 
@@ -6,25 +6,25 @@
 
 {% endnote %}
 
-Сервис {{ mspqr-name }} позволяет создавать и поддерживать кластеры шардированного {{ PG }} ([SPQR](https://pg-sharding.tech/welcome)) в инфраструктуре {{ yandex-cloud }}. {{ SPQR }} использует протокол {{ PG }}, поэтому настраивать правила шардирования и выполнять запросы к базе данных можно с помощью клиента `psql`. Настройка правил шардирования выполняется через консоль администратора (SPQR router admin console). При подключении к консоли администратора укажите имя пользователя `spqr-console` и имя базы данных `spqr-console`.
+Сервис Managed Service for Sharded PostgreSQL позволяет создавать и поддерживать кластеры шардированного PostgreSQL ([SPQR](https://pg-sharding.tech/welcome)) в инфраструктуре Yandex Cloud. Sharded PostgreSQL использует протокол PostgreSQL, поэтому настраивать правила шардирования и выполнять запросы к базе данных можно с помощью клиента `psql`. Настройка правил шардирования выполняется через консоль администратора (SPQR router admin console). При подключении к консоли администратора укажите имя пользователя `spqr-console` и имя базы данных `spqr-console`.
 
 Чтобы начать работу с сервисом:
 
-1. [Создайте кластер {{ SPQR }}](#cluster-create).
-1. [Создайте шарды в кластере {{ SPQR }}](#shard-create).
+1. [Создайте кластер Sharded PostgreSQL](#cluster-create).
+1. [Создайте шарды в кластере Sharded PostgreSQL](#shard-create).
 1. [Настройте окружение](#setup_environment).
 1. [Настройте правила шардирования](#setting-up-sharding).
 1. [Отправьте запросы к БД](#query-db).
 
 ## Перед началом работы {#before-you-begin}
 
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь, если вы еще не зарегистрированы.
 
 1. Если у вас еще нет каталога, создайте его:
 
-   1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../_assets/console-icons/layout-side-content-left.svg) или ![image](../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](../resource-manager/concepts/resources-hierarchy.md#cloud).
+   1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../_assets/console-icons/layout-side-content-left.svg) или ![image](../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](../resource-manager/concepts/resources-hierarchy.md#cloud).
    1. Справа от названия облака нажмите ![image](../_assets/console-icons/ellipsis.svg).
-   1. Выберите ![image](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. Выберите ![image](../_assets/console-icons/plus.svg) **Создать каталог**.
    
       ![create-folder1](../_assets/resource-manager/create-folder-1.png)
    
@@ -35,13 +35,13 @@
        * первый символ — буква, последний — не дефис.
    
    1. (Опционально) Введите описание каталога.
-   1. Выберите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. Будет создана [сеть](../vpc/concepts/network.md#network) с подсетями в каждой зоне доступности. Также в этой сети будет создана [группа безопасности по умолчанию](../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
-   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
+   1. Выберите опцию **Создать сеть по умолчанию**. Будет создана [сеть](../vpc/concepts/network.md#network) с подсетями в каждой зоне доступности. Также в этой сети будет создана [группа безопасности по умолчанию](../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
+   1. Нажмите кнопку **Создать**.
    
       ![create-folder2](../_assets/resource-manager/create-folder-2.png)
 
 
-1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и `managed-spqr.editor` на каталог. Эти роли позволяют создать кластер.
+1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роли [vpc.user](../vpc/security/index.md#vpc-user) и `managed-spqr.editor` на каталог. Эти роли позволяют создать кластер.
 
 
    {% note info %}
@@ -50,9 +50,9 @@
    
    {% endnote %}
 
-1. Подключаться к [кластерам](../glossary/cluster.md) БД можно как изнутри, так и извне {{ yandex-cloud }}:
+1. Подключаться к [кластерам](../glossary/cluster.md) БД можно как изнутри, так и извне Yandex Cloud:
 
-   * Чтобы подключиться изнутри {{ yandex-cloud }}, создайте виртуальную машину на основе [Linux](../compute/quickstart/quick-create-linux.md) в той же облачной сети, что и кластер БД.
+   * Чтобы подключиться изнутри Yandex Cloud, создайте виртуальную машину на основе [Linux](../compute/quickstart/quick-create-linux.md) в той же облачной сети, что и кластер БД.
 
    * Чтобы подключиться к кластеру из интернета, включите публичный доступ к хостам при [создании кластера](#cluster-create).
 
@@ -66,70 +66,70 @@
 
 ## Создайте кластер {#cluster-create}
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер {{ SPQR }}.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
-1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}** введите имя кластера.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер Sharded PostgreSQL.
+1. Перейдите в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
+1. Нажмите кнопку **Создать кластер**.
+1. В поле **Имя кластера** введите имя кластера.
 1. Выберите окружение `PRODUCTION`.
 
 1. Выберите тип шардирования:
 
-    * **{{ ui-key.yacloud.spqr.section_sharding-type-standard }}** — кластер будет состоять только из инфраструктурных хостов.
-    * **{{ ui-key.yacloud.spqr.section_sharding-type-advanced }}** — кластер будет состоять только из хостов-роутеров и хостов-координаторов.
+    * **Стандартное** — кластер будет состоять только из инфраструктурных хостов.
+    * **Расширенное** — кластер будет состоять только из хостов-роутеров и хостов-координаторов.
 
-1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}**:
+1. В блоке **Сетевые настройки**:
 
     * Выберите [созданную перед началом работы](#before-you-begin) облачную сеть.
     * Выберите группу безопасности по умолчанию или создайте новую.
 
 1. Задайте конфигурацию вычислительных ресурсов:
 
-    * Для стандартного шардирования задайте в блоке **{{ ui-key.yacloud.spqr.section_infra }}** конфигурацию инфраструктурных хостов.
-    * Для расширенного шардирования задайте в блоке **{{ ui-key.yacloud.spqr.section_router }}** конфигурацию хостов-роутеров.
+    * Для стандартного шардирования задайте в блоке **Инфраструктура** конфигурацию инфраструктурных хостов.
+    * Для расширенного шардирования задайте в блоке **Роутер** конфигурацию хостов-роутеров.
 
     Чтобы задать конфигурацию вычислительных ресурсов:
 
       1. Выберите [класс хостов](concepts/instance-types.md). Он определяет технические характеристики [виртуальных машин](../compute/concepts/vm.md), на которых будут развернуты [хосты](concepts/index.md) кластера.
-      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
+      1. В блоке **Хранилище**:
 
           1. Выберите [тип диска](concepts/storage.md#storage-type-selection).
           1. Задайте размер [хранилища](concepts/storage.md).
 
-      1. В блоке **{{ ui-key.yacloud.spqr.section_hosts }}** укажите зоны доступности и подсети для хостов, которые будут созданы вместе с кластером.
+      1. В блоке **Хосты** укажите зоны доступности и подсети для хостов, которые будут созданы вместе с кластером.
 
-         Если вы собираетесь подключаться к кластеру из интернета, включите для хостов опцию **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}**.
+         Если вы собираетесь подключаться к кластеру из интернета, включите для хостов опцию **Публичный доступ**.
 
-1. В блоке **{{ ui-key.yacloud.spqr.section_coordinator }}** задайте конфигурацию хостов-координаторов.
+1. В блоке **Координатор** задайте конфигурацию хостов-координаторов.
 
-1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}** укажите параметры БД, в которой можно выполнять запросы к таблицам на шардах:
+1. В блоке **База данных** укажите параметры БД, в которой можно выполнять запросы к таблицам на шардах:
 
     * Имя БД. Оно должно быть уникальным в рамках каталога.
     * Имя пользователя — владельца БД.
     * Пароль.
 
-1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** укажите пароль для консоли {{ SPQR }}, в которой можно настраивать правила шардирования. [Подробнее о консоли {{ SPQR }}](https://docs.pg-sharding.tech/sharding/console/how_to_connect).
-1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
-1. Дождитесь, когда кластер будет готов к работе: его статус сменится на **Running**, а состояние — на **Alive**. Чтобы проверить состояние, наведите курсор на статус кластера в столбце **{{ ui-key.yacloud.common.availability }}**.
+1. В блоке **Дополнительные настройки** укажите пароль для консоли Sharded PostgreSQL, в которой можно настраивать правила шардирования. [Подробнее о консоли Sharded PostgreSQL](https://docs.pg-sharding.tech/sharding/console/how_to_connect).
+1. Нажмите кнопку **Создать кластер**.
+1. Дождитесь, когда кластер будет готов к работе: его статус сменится на **Running**, а состояние — на **Alive**. Чтобы проверить состояние, наведите курсор на статус кластера в столбце **Доступность**.
 
 ## Создайте шарды в кластере {#shard-create}
 
-Создайте два шарда в кластере {{ mspqr-name }}. Чтобы создать шард:
+Создайте два шарда в кластере Managed Service for Sharded PostgreSQL. Чтобы создать шард:
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором [создан](#cluster-create) кластер {{ SPQR }}.
-1. [Создайте кластер](../managed-postgresql/operations/cluster-create.md#create-cluster) {{ mpg-name }} в той же облачной сети, что и кластер {{ SPQR }}.
-1. Откройте ваш кластер {{ SPQR }} и перейдите на вкладку ![image](../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}**.
-1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором [создан](#cluster-create) кластер Sharded PostgreSQL.
+1. [Создайте кластер](../managed-postgresql/operations/cluster-create.md#create-cluster) Managed Service for PostgreSQL в той же облачной сети, что и кластер Sharded PostgreSQL.
+1. Откройте ваш кластер Sharded PostgreSQL и перейдите на вкладку ![image](../_assets/console-icons/copy-transparent.svg) **Шарды**.
+1. В правом верхнем углу страницы нажмите кнопку **Создать шард**.
 1. В открывшемся окне:
 
-   1. Задайте **{{ ui-key.yacloud.common.name }}** шарда.
-   1. В поле **Кластер Managed Service for PostgreSQL** выберите созданный ранее кластер {{ PG }}.
+   1. Задайте **Имя** шарда.
+   1. В поле **Кластер Managed Service for PostgreSQL** выберите созданный ранее кластер PostgreSQL.
 
-      Кластер {{ mpg-name }} должен находиться в том же каталоге и в той же облачной сети, что и кластер {{ mspqr-name }}.
+      Кластер Managed Service for PostgreSQL должен находиться в том же каталоге и в той же облачной сети, что и кластер Managed Service for Sharded PostgreSQL.
 
 
 {% note warning %}
 
-Убедитесь, что роутер может подключаться к хостам шарда. Для этого шарды и кластер {{ mspqr-name }} должны находиться в одной [группе безопасности](../vpc/concepts/security-groups.md), разрешающей входящие и исходящие TCP-подключения на порт `6432`.
+Убедитесь, что роутер может подключаться к хостам шарда. Для этого шарды и кластер Managed Service for Sharded PostgreSQL должны находиться в одной [группе безопасности](../vpc/concepts/security-groups.md), разрешающей входящие и исходящие TCP-подключения на порт `6432`.
 
 {% endnote %}
 
@@ -144,14 +144,14 @@
 
         ```bash
         mkdir -p ~/.postgresql && \
-        wget "{{ crt-web-path }}" \
+        wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
                 --output-document ~/.postgresql/root.crt && \
         chmod 0655 ~/.postgresql/root.crt
         ```
 
         Сертификат будет сохранен в файле `~/.postgresql/root.crt`.
 
-    1. Установите необходимые зависимости и клиент {{ PG }}:
+    1. Установите необходимые зависимости и клиент PostgreSQL:
 
         ```bash
         sudo apt update && sudo apt install -y postgresql-client
@@ -159,12 +159,12 @@
 
 - Windows (PowerShell) {#windows}
 
-    1. Установите [{{ PG }} для Windows](https://www.postgresql.org/download/windows/) последней версии. Выберите только установку _Command Line Tools_.
+    1. Установите [PostgreSQL для Windows](https://www.postgresql.org/download/windows/) последней версии. Выберите только установку _Command Line Tools_.
 
     1. Получите SSL-сертификат:
 
         ```powershell
-        mkdir $HOME\.postgresql; curl.exe -o $HOME\.postgresql\root.crt {{ crt-web-path }}
+        mkdir $HOME\.postgresql; curl.exe -o $HOME\.postgresql\root.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
         ```
 
         Сертификат будет сохранен в файле `$HOME\.postgresql\root.crt`.
@@ -189,28 +189,28 @@
 
       ```bash
       psql "host=<FQDN_хоста> \
-           port={{ port-mpg }} \
+           port=6432 \
            sslmode=verify-full \
            sslrootcert=~/.postgresql/root.crt \
            dbname=spqr-console \
            user=spqr-console"
       ```
 
-      [Подробнее о подключении к кластеру {{ mspqr-name }}](operations/connect.md).
+      [Подробнее о подключении к кластеру Managed Service for Sharded PostgreSQL](operations/connect.md).
 
     - Windows (PowerShell) {#windows}
 
       ```powershell
-      & "C:\Program Files\PostgreSQL\<мажорная_версия_{{ PG }}>\bin\psql.exe" `
+      & "C:\Program Files\PostgreSQL\<мажорная_версия_PostgreSQL>\bin\psql.exe" `
           --host=<FQDN_хоста> `
-          --port={{ port-mpg }} `
+          --port=6432 `
           --username=spqr-console `
           --dbname=spqr-console `
           --set=sslmode=verify-full `
           --set=sslrootcert=$HOME\.postgresql\root.crt
       ```
 
-      [Подробнее о подключении к кластеру {{ mspqr-name }}](operations/connect.md).
+      [Подробнее о подключении к кластеру Managed Service for Sharded PostgreSQL](operations/connect.md).
 
     {% endlist %}
 
@@ -255,7 +255,7 @@
 
       ```bash
       psql "host=<FQDN_хоста> \
-           port={{ port-mpg }} \
+           port=6432 \
            sslmode=verify-full \
            sslrootcert=~/.postgresql/root.crt \
            dbname=<имя_БД> \
@@ -263,14 +263,14 @@
            target_session_attrs=read-write"
       ```
 
-      [Подробнее о подключении к кластеру {{ mspqr-name }}](operations/connect.md).
+      [Подробнее о подключении к кластеру Managed Service for Sharded PostgreSQL](operations/connect.md).
 
     - Windows (PowerShell) {#windows}
 
       ```powershell
-      & "C:\Program Files\PostgreSQL\<мажорная_версия_{{ PG }}>\bin\psql.exe" `
+      & "C:\Program Files\PostgreSQL\<мажорная_версия_PostgreSQL>\bin\psql.exe" `
           --host=<FQDN_хоста> `
-          --port={{ port-mpg }} `
+          --port=6432 `
           --username=<имя_пользователя> `
           --dbname=<имя_БД> `
           --set=target_session_attrs=read-write `
@@ -278,7 +278,7 @@
           --set=sslrootcert=$HOME\.postgresql\root.crt
       ```
 
-      [Подробнее о подключении к кластеру {{ mspqr-name }}](operations/connect.md).
+      [Подробнее о подключении к кластеру Managed Service for Sharded PostgreSQL](operations/connect.md).
 
     {% endlist %}
 

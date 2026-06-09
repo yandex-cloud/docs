@@ -5,14 +5,14 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
-  1. На панели слева нажмите ![userpool](../../../_assets/organization/userpool.svg) **{{ ui-key.yacloud_org.pages.userpools }}** и выберите нужный пул пользователей.
-  1. На вкладке **{{ ui-key.yacloud_org.organization.userpools.title_userpool_overview }}** нажмите **{{ ui-key.yacloud_org.organization.userpools.title_password_policy }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите ![gear](../../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud_org.organization.userpools.UserpoolOverviewPage.action_set_password_policy_aaDns }}**.
-  1. В блоке **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.complexity_oeJs5 }}** укажите настройки классов символов в пароле:
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) с учетной записью администратора или владельца организации.
+  1. На панели слева нажмите ![userpool](../../../_assets/organization/userpool.svg) **Пулы пользователей** и выберите нужный пул пользователей.
+  1. На вкладке **Обзор** нажмите **Парольная политика** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите ![gear](../../../_assets/console-icons/gear.svg) **Настроить политику**.
+  1. В блоке **Сложность пароля** укажите настройки классов символов в пароле:
 
-     * **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.symbol_classes_any_fqb6f }}** — настройте минимальную длину в зависимости от количества классов символов, которые используются в пароле:
+     * **Произвольные** — настройте минимальную длину в зависимости от количества классов символов, которые используются в пароле:
  
        * 1 класс (`abc`);
        * 2 класса (`aBc`);
@@ -21,25 +21,25 @@
        
        Это предпочтительный вариант, поскольку он не требует наличия определенных символов и позволяет пользователям делать более простые для запоминания, но надежные пароли.
  
-     * **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.symbol_classes_required_1BHUu }}** — выберите типы символов, которые должны использоваться в пароле, активируя следующие опции:
+     * **Обязательные** — выберите типы символов, которые должны использоваться в пароле, активируя следующие опции:
 
-       * **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.option_lowers_75kTr }}**;
-       * **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.option_uppers_ur5iy }}**;
-       * **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.option_digits_ssY6G }}**;
-       * **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.option_specials_6GSqK }}**.
+       * **Строчные буквы латинского алфавита**;
+       * **Заглавные буквы латинского алфавита**;
+       * **Цифры**;
+       * **Специальные символы, например `!@#$%^&*`**.
 
-       В поле **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.min_length_title_mvmiQ }}** задайте минимальное число символов в пароле, но не менее 7.
+       В поле **Минимальная длина** задайте минимальное число символов в пароле, но не менее 7.
        
   1. В блоке **Уникальность пароля** в поле **Проверка пароля** при необходимости включите опцию **Нельзя использовать пароль из базы распространенных паролей**. Это защитит пользователей от установки паролей, которые легко подбираются по словарю.
-  1. В блоке **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.lifetime_hnEhW }}** задайте минимальный и максимальный срок жизни пароля (до 730 дней) или выберите **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.unlimited_cSfYU }}**.
-  1. В блоке **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.brute_force_protection_msHno }}** задайте:
-     * **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.attempts_before_lockout_ay7Le }}** — от 1 до 100.
-     * **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.failed_attempts_interval_wfd7Z }}** в минутах или секундах.
-     * **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.lockout_duration_t1CZB }}** в минутах или секундах.
+  1. В блоке **Срок жизни пароля** задайте минимальный и максимальный срок жизни пароля (до 730 дней) или выберите **Без ограничений**.
+  1. В блоке **Защита пароля от подбора** задайте:
+     * **Количество неудачных попыток ввода пароля до блокировки** — от 1 до 100.
+     * **Интервал для подсчёта неудачных попыток** в минутах или секундах.
+     * **Продолжительность блокировки** в минутах или секундах.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -139,20 +139,20 @@
 
   Подробнее о команде `yc organization-manager idp userpool update` см. в [справочнике CLI](../../cli-ref/idp/userpool/update.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  Подробнее о {{ TF }} см. в [документации](../../../tutorials/infrastructure-management/terraform-quickstart.md).
+  Подробнее о Terraform см. в [документации](../../../tutorials/infrastructure-management/terraform-quickstart.md).
 
   1. Создайте конфигурационный файл с параметрами пула пользователей и парольной политикой:
 
@@ -242,7 +242,7 @@
        * `window` — интервал для подсчета неудачных попыток (например, `10m` для 10 минут или `600s` для 600 секунд).
        * `block` — продолжительность блокировки после превышения лимита попыток (например, `10m` или `600s`).
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_userpool` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_userpool` см. в [документации провайдера](../../../terraform/resources/organizationmanager_idp_userpool.md).
 
   1. Создайте ресурсы:
 
@@ -265,7 +265,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -274,7 +274,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-  После этого в указанной организации будет создан пул пользователей с заданной парольной политикой. Проверить появление пула и его настройки можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}) или с помощью команды CLI:
+  После этого в указанной организации будет создан пул пользователей с заданной парольной политикой. Проверить появление пула и его настройки можно в [интерфейсе Cloud Center](https://center.yandex.cloud/organization) или с помощью команды CLI:
 
   ```bash
   yc organization-manager idp userpool get <идентификатор_пула>

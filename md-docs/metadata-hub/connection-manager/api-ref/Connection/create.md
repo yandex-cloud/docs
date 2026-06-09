@@ -5,7 +5,7 @@ Creates a connection.
 ## HTTP request
 
 ```
-POST https://connman.{{ api-host }}/v1/connection
+POST https://connman.api.cloud.yandex.net/v1/connection
 ```
 
 ## Body parameters {#yandex.cloud.connectionmanager.v1.CreateConnectionRequest}

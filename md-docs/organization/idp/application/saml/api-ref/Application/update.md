@@ -5,7 +5,7 @@ Updates the specified SAML application.
 ## HTTP request
 
 ```
-PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/idp/application/saml/applications/{applicationId}
+PATCH https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/application/saml/applications/{applicationId}
 ```
 
 ## Path parameters

@@ -6,7 +6,7 @@ To get the list of available TrunkConnection resources, make a [List](list.md#Li
 ## HTTP request
 
 ```
-GET https://cic.{{ api-host }}/cic/v1/trunkConnections/{trunkConnectionId}
+GET https://cic.api.cloud.yandex.net/cic/v1/trunkConnections/{trunkConnectionId}
 ```
 
 ## Path parameters

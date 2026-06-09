@@ -1,9 +1,9 @@
-# Использование плагина yandex-lemmer в {{ mos-name }}
+# Использование плагина yandex-lemmer в Managed Service for OpenSearch
 
-# Использование плагина yandex-lemmer в {{ mos-full-name }}
+# Использование плагина yandex-lemmer в Yandex Managed Service for OpenSearch
 
 
-С помощью плагина `yandex-lemmer` вы можете добавить фильтр, который [помогает улучшить поиск текста](../concepts/plugins.md#yandex-lemmer) на русском языке по документам {{ OS }}.
+С помощью плагина `yandex-lemmer` вы можете добавить фильтр, который [помогает улучшить поиск текста](../concepts/plugins.md#yandex-lemmer) на русском языке по документам OpenSearch.
 
 Чтобы оценить работу плагина, сравните [результаты обычного поиска](#search-without-yandex-lemmer) и [поиска с фильтром `yandex-lemmer`](#search-with-yandex-lemmer), а затем [усовершенствуйте фильтр](#improve-search).
 
@@ -12,8 +12,8 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mos-name }}: использование вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mos-name }}](../pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Кластер Managed Service for OpenSearch: использование вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы Managed Service for OpenSearch](../pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -24,22 +24,22 @@
 
     * Вручную {#manual}
 
-        1. [Создайте кластер {{ mos-name }}](../operations/cluster-create.md#create-cluster) нужной вам конфигурации со следующими настройками:
+        1. [Создайте кластер Managed Service for OpenSearch](../operations/cluster-create.md#create-cluster) нужной вам конфигурации со следующими настройками:
 
             * Подключены плагины `yandex-lemmer` и `analysis-icu`.
             * Включен публичный доступ к группе хостов с ролью `DATA`.
 
             {% note info %}
             
-            Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
+            Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
             
             {% endnote %}
 
         1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../operations/connect/index.md#configuring-security-groups) и допускают подключение к кластеру.
 
-    * С помощью {{ TF }} {#tf}
+    * С помощью Terraform {#tf}
 
-        1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+        1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
         1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
         1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
         1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -48,21 +48,21 @@
 
             * [сеть](../../vpc/concepts/network.md#network);
             * [подсеть](../../vpc/concepts/network.md#subnet);
-            * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру {{ mos-name }};
-            * кластер {{ mos-name }}.
+            * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру Managed Service for OpenSearch;
+            * кластер Managed Service for OpenSearch.
 
         1. Укажите в файле `opensearch-yandex-lemmer.tf` переменные:
 
-            * `version` — версия {{ OS }}.
-            * `admin_password` — пароль администратора {{ OS }}.
+            * `version` — версия OpenSearch.
+            * `admin_password` — пароль администратора OpenSearch.
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -84,7 +84,7 @@
                1. Подтвердите изменение ресурсов.
                1. Дождитесь завершения операции.
 
-            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
     {% endlist %}
 
@@ -96,7 +96,7 @@
     curl \
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
-        --request GET 'https://<FQDN_хоста_{{ OS }}_с_публичным_доступом>:{{ port-mos }}/'
+        --request GET 'https://<FQDN_хоста_OpenSearch_с_публичным_доступом>:9200/'
     ```
     
     FQDN хоста можно получить со [списком хостов в кластере](../operations/host-groups.md#list-hosts).
@@ -105,7 +105,7 @@
     
     ```bash
     {
-      "name" : "....{{ dns-zone }}",
+      "name" : "....mdb.yandexcloud.net",
       "cluster_name" : "...",
       "cluster_uuid" : "...",
       "version" : {
@@ -125,14 +125,14 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/simple-index/_doc?pretty' \
+        --request POST 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/simple-index/_doc?pretty' \
         --data '{
                   "book": "Ночь, когда шел дождь",
                   "author": "Юджиния Райли"
                 }'
     ```
 
-    Индекс `simple-index` будет создан автоматически при создании документа. По умолчанию в индексах используется [встроенный анализатор текста]({{ os.docs }}/analyzers/supported-analyzers/index/#built-in-analyzers) `Standard`.
+    Индекс `simple-index` будет создан автоматически при создании документа. По умолчанию в индексах используется [встроенный анализатор текста](https://opensearch.org/docs/latest/analyzers/supported-analyzers/index/#built-in-analyzers) `Standard`.
 
 1. Выполните поиск:
 
@@ -141,7 +141,7 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request GET 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/simple-index/_search?pretty' \
+        --request GET 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/simple-index/_search?pretty' \
         --data '{
                   "query": {
                     "query_string": {
@@ -177,7 +177,7 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request PUT "https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/lemmer-index?pretty" \
+        --request PUT "https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/lemmer-index?pretty" \
         --data '{
                   "mappings": {
                     "properties": {
@@ -210,7 +210,7 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/lemmer-index/_doc?pretty' \
+        --request POST 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/lemmer-index/_doc?pretty' \
         --data '{
                   "book": "Ночь, когда шел дождь",
                   "author": "Юджиния Райли"
@@ -224,7 +224,7 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request GET 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/lemmer-index/_search?pretty' \
+        --request GET 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/lemmer-index/_search?pretty' \
         --data '{
                   "query": {
                     "query_string": {
@@ -268,7 +268,7 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request GET 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/lemmer-index/_analyze?pretty' \
+        --request GET 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/lemmer-index/_analyze?pretty' \
         --data '{"field":"book","text":"шел дождь"}'
     ```
 
@@ -326,7 +326,7 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request PUT "https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/index-with-filters?pretty" \
+        --request PUT "https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/index-with-filters?pretty" \
         --data '{
                   "mappings": {
                     "properties": {
@@ -373,7 +373,7 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request POST "https://<адрес_хоста_{{ OS }}_с_ролью_DATA>.mdb.yandexcloud.net:9200/index-with-filters/_doc?pretty" \
+        --request POST "https://<адрес_хоста_OpenSearch_с_ролью_DATA>.mdb.yandexcloud.net:9200/index-with-filters/_doc?pretty" \
         --data '{
                   "book": "Чёрный тюльпан",
                   "author": "Александр Дюма"
@@ -389,7 +389,7 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request GET 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/index-with-filters2/_search?pretty' \
+        --request GET 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/index-with-filters2/_search?pretty' \
         --data '{
                   "query": {
                     "query_string": {
@@ -436,15 +436,15 @@
 
 * Вручную {#manual}
 
-    [Удалите кластер {{ mos-name }}](../operations/cluster-delete.md).
+    [Удалите кластер Managed Service for OpenSearch](../operations/cluster-delete.md).
 
-* С помощью {{ TF }} {#tf}
+* С помощью Terraform {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     
         {% note warning %}
     
-        Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
     
         {% endnote %}
     
@@ -458,6 +458,6 @@
     
         1. Подтвердите удаление ресурсов и дождитесь завершения операции.
     
-        Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
 {% endlist %}

@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
@@ -10,7 +10,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Раздел {{ yandex-siem-full-name }} появится в интерфейсе {{ cloud-center }} как модуль {{ sd-name }} после одобрения заявки на доступ.
+Раздел Yandex SIEM появится в интерфейсе Cloud Center как модуль Security Deck после одобрения заявки на доступ.
 
 Для работы с сервисом вам потребуется [роль](../../../iam/roles-reference.md#ycdr-admin) `ycem.editor`.
 
@@ -20,11 +20,11 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Перейдите в сервис [{{ sd-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите **{{ yandex-siem-full-name }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_org.security.ycdr.YcdrPageLayout.investigations_wYxSe }}**.
+  1. Перейдите в сервис [Security Deck](https://center.yandex.cloud/security/).
+  1. На панели слева выберите **Yandex SIEM**.
+  1. Перейдите на вкладку **Расследования**.
 
   В списке отображаются все расследования, доступные вам в соответствии с правами доступа.
 
@@ -36,9 +36,9 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Перейдите в раздел **{{ ui-key.yacloud_org.security.ycdr.YcdrPageLayout.investigations_wYxSe }}**.
+  1. Перейдите в раздел **Расследования**.
   1. Нажмите на фильтр даты.
   1. Выберите период:
      * конкретную дату;
@@ -55,9 +55,9 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Перейдите в раздел **{{ ui-key.yacloud_org.security.ycdr.YcdrPageLayout.investigations_wYxSe }}**.
+  1. Перейдите в раздел **Расследования**.
   1. Введите поисковый запрос в поле поиска.
   1. Результаты отобразятся автоматически.
 
@@ -80,10 +80,10 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Перейдите в раздел **{{ ui-key.yacloud_org.security.ycdr.YcdrPageLayout.investigations_wYxSe }}**.
-  1. Нажмите на заголовок столбца **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.fieldModified }}**.
+  1. Перейдите в раздел **Расследования**.
+  1. Нажмите на заголовок столбца **Изменено**.
   1. Выберите порядок сортировки:
      * по возрастанию — от старых к новым;
      * по убыванию — от новых к старым.
@@ -105,7 +105,7 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../../concepts/investigations.md).
-* [{#T}](../../concepts/queries.md).
-* [{#T}](manage-investigations.md).
-* [{#T}](../queries/index.md).
+* [Расследования](../../concepts/investigations.md).
+* [Запросы](../../concepts/queries.md).
+* [Управление расследованиями](manage-investigations.md).
+* [Работа с запросами](../queries/index.md).

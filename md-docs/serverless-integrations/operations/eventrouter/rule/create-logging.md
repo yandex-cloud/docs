@@ -1,34 +1,34 @@
-# Создать правило с приемником {{ cloud-logging-full-name }}
+# Создать правило с приемником Yandex Cloud Logging
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать [правило](../../../concepts/eventrouter/rule.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
-  1. На панели слева нажмите ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать [правило](../../../concepts/eventrouter/rule.md).
+  1. Перейдите в сервис **Serverless Integrations**.
+  1. На панели слева нажмите ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **EventRouter**.
   1. Выберите нужную [шину](../../../concepts/eventrouter/bus.md).
-  1. Перейдите на вкладку ![image](../../../../_assets/console-icons/target-dart.svg) **{{ ui-key.yacloud.serverless-event-router.label_rules }}**.
-  1. В правом верхнем углу нажмите **{{ ui-key.yacloud.serverless-event-router.button_create-rule }}**.
+  1. Перейдите на вкладку ![image](../../../../_assets/console-icons/target-dart.svg) **Правила**.
+  1. В правом верхнем углу нажмите **Создать правило**.
 
-  1. (Опционально) Раскройте блок **{{ ui-key.yacloud.serverless-event-router.label_filter }}** и введите [jq-шаблон](https://jqlang.github.io/jq/manual/) для [фильтрации](../../../concepts/eventrouter/rule.md#filter) событий.
-  1. В блоке **{{ ui-key.yacloud.serverless-event-router.label_targets }}** нажмите **{{ ui-key.yacloud.common.add }}** и настройте приемник:
+  1. (Опционально) Раскройте блок **Фильтр** и введите [jq-шаблон](https://jqlang.github.io/jq/manual/) для [фильтрации](../../../concepts/eventrouter/rule.md#filter) событий.
+  1. В блоке **Приёмники** нажмите **Добавить** и настройте приемник:
 
-      1. Укажите тип приемника `{{ cloud-logging-full-name }}`.
+      1. Укажите тип приемника `Yandex Cloud Logging`.
       1. Выберите [лог-группу](../../../../logging/concepts/log-group.md), в которую будут отправляться сообщения, соответствующие правилу, или [каталог](../../../../resource-manager/concepts/resources-hierarchy.md#folder). Если выбран каталог, то сообщения будут отправляться в лог-группу по умолчанию для этого каталога.
       1. Выберите [сервисный аккаунт](../../../../iam/concepts/users/service-accounts.md), которому назначена [роль](../../../../logging/security/index.md#logging-writer) `logging.writer` или выше на выбранную лог-группу, или [создайте](../../../../iam/operations/sa/create.md) новый.
-      1. (Опционально) Нажмите ![plus](../../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-eventrouter.dynamic-forms.template_target_retry_title }}** и укажите:
+      1. (Опционально) Нажмите ![plus](../../../../_assets/console-icons/plus.svg) **Настройки повторной отправки сообщений** и укажите:
          
-         * **{{ ui-key.yc-eventrouter.dynamic-forms.template_target_retry_max_attempts }}** — количество повторных попыток отправки сообщений, которые будут сделаны, прежде чем {{ er-name }} отправит сообщения в Dead Letter Queue (DLQ). Допустимые значения от 0 до 1 000, значение по умолчанию — 3.
-         * **{{ ui-key.yc-eventrouter.dynamic-forms.template_target_retry_max_age }}** — время в часах, через которое будет сделана повторная попытка отправить сообщения, если текущая завершилась неуспешно. Допустимые значения от 0 до 60 часов, значение по умолчанию — 10 минут.
-      1. (Опционально) Раскройте поле **{{ ui-key.yacloud.serverless-event-router.label_target-transformer }}** и введите [jq-шаблон](https://jqlang.github.io/jq/manual/) для преобразования событий. Если шаблон не указан, событие не преобразовывается.
-      1. (Опционально) Раскройте блок **{{ ui-key.yacloud.serverless-event-router.label_target-dead-letter-settings }}**:
+         * **Количество попыток** — количество повторных попыток отправки сообщений, которые будут сделаны, прежде чем EventRouter отправит сообщения в Dead Letter Queue (DLQ). Допустимые значения от 0 до 1 000, значение по умолчанию — 3.
+         * **Интервал, ч** — время в часах, через которое будет сделана повторная попытка отправить сообщения, если текущая завершилась неуспешно. Допустимые значения от 0 до 60 часов, значение по умолчанию — 10 минут.
+      1. (Опционально) Раскройте поле **Шаблон** и введите [jq-шаблон](https://jqlang.github.io/jq/manual/) для преобразования событий. Если шаблон не указан, событие не преобразовывается.
+      1. (Опционально) Раскройте блок **Настройки обработки недоставленных сообщений**:
          
-         1. Укажите тип обработчика `{{ message-queue-full-name }}`.
+         1. Укажите тип обработчика `Yandex Message Queue`.
          1. Выберите каталог и очередь DLQ, в которую будут перенаправляться сообщения, которые не смог обработать приемник.
          1. Выберите сервисный аккаунт, которому назначена [роль](../../../../message-queue/security/index.md#ymq-writer) `ymq.writer` или выше на выбранную очередь DLQ, или [создайте](../../../../iam/operations/sa/create.md) новый.
 
-  1. Раскройте блок **{{ ui-key.yacloud.serverless-event-router.label_additional-parameters }}**:
+  1. Раскройте блок **Дополнительные параметры**:
      
      
      1. Введите имя и описание правила. Требования к имени:
@@ -39,16 +39,16 @@
      
      1. (Опционально) Добавьте метки:
      
-         * Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+         * Нажмите **Добавить метку**.
          * Введите метку в формате `ключ: значение`.
          * Нажмите **Enter**.
      
      1. (Опционально) Включите защиту от удаления. Пока опция включена, удалить правило невозможно.
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **Создать**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -58,7 +58,7 @@
       yc serverless eventrouter rule create --help
       ```
 
-  1. Создайте правило с приемником {{ cloud-logging-full-name }}:
+  1. Создайте правило с приемником Yandex Cloud Logging:
 
       ```bash
       yc serverless eventrouter rule create \
@@ -80,10 +80,10 @@
 
       Где:
 
-      * `--bus-id` — идентификатор [шины](../../../concepts/eventrouter/bus.md) {{ er-name }}.
+      * `--bus-id` — идентификатор [шины](../../../concepts/eventrouter/bus.md) EventRouter.
       * `--filter` — [jq-шаблон](https://jqlang.github.io/jq/manual/) для [фильтрации](../../../concepts/eventrouter/rule.md#filter) событий.
 
-      * `--logging-target` — параметр для настройки приемника с типом `{{ cloud-logging-full-name }}` и его свойства:
+      * `--logging-target` — параметр для настройки приемника с типом `Yandex Cloud Logging` и его свойства:
 
           * `log-group-id` — идентификатор [лог-группы](../../../../logging/concepts/log-group.md), в которую будут отправляться сообщения, соответствующие правилу.
 
@@ -92,7 +92,7 @@
           * `service-account-id` — идентификатор [сервисного аккаунта](../../../../iam/concepts/users/service-accounts.md), которому назначена [роль](../../../../logging/security/index.md#logging-writer) `logging.writer` или выше на выбранную лог-группу.
 
 
-          * `retry-attempts` — количество повторных попыток отправки сообщений, которые будут сделаны, прежде чем {{ er-name }} отправит сообщения в Dead Letter Queue (DLQ). Допустимые значения от 0 до 1 000. Необязательный параметр.
+          * `retry-attempts` — количество повторных попыток отправки сообщений, которые будут сделаны, прежде чем EventRouter отправит сообщения в Dead Letter Queue (DLQ). Допустимые значения от 0 до 1 000. Необязательный параметр.
           * `maximum-age` — время, через которое будет сделана повторная попытка отправить сообщения, если текущая завершилась неуспешно. Допустимые значения от 0 до 60 часов. Необязательный параметр.
 
           * `transformer` — [jq-шаблон](https://jqlang.github.io/jq/manual/) для преобразования событий. Если шаблон не указан, событие не преобразовывается. Необязательный параметр.
@@ -138,27 +138,27 @@
             retry_attempts: "3"
             maximum_age: 600s
           dead_letter_queue:
-            queue_arn: yrn:yc:ymq:{{ region-id }}:b1g681qpemb4********:dlq-42
+            queue_arn: yrn:yc:ymq:ru-central1:b1g681qpemb4********:dlq-42
             service_account_id: ajelprpohp7r********
           status: ENABLED
       deletion_protection: true
       status: ENABLED
       ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../../terraform/index.md).
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../../terraform/authentication.md) соответствующим способом.
 
-  Чтобы создать [правило](../../../concepts/eventrouter/rule.md) с приемником {{ cloud-logging-full-name }}:
+  Чтобы создать [правило](../../../concepts/eventrouter/rule.md) с приемником Yandex Cloud Logging:
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -186,9 +186,9 @@
 
       Где:
 
-      * `bus_id` — идентификатор [шины](../../../concepts/eventrouter/bus.md) {{ er-name }}.
+      * `bus_id` — идентификатор [шины](../../../concepts/eventrouter/bus.md) EventRouter.
       * `jq_filter` — [jq-шаблон](https://jqlang.github.io/jq/manual/) для [фильтрации](../../../concepts/eventrouter/rule.md#filter) событий.
-      * `logging` — блок для настройки приемника с типом `{{ cloud-logging-full-name }}` и его параметры:
+      * `logging` — блок для настройки приемника с типом `Yandex Cloud Logging` и его параметры:
 
           * `log_group_id` — идентификатор [лог-группы](../../../../logging/concepts/log-group.md), в которую будут отправляться сообщения, соответствующие правилу.
 
@@ -205,7 +205,7 @@
       * `description` — описание правила. Необязательный параметр.
       * `labels` — список меток. Метки задаются в формате `<ключ> = "<значение>"`. Необязательный параметр.
 
-      Более подробную информацию о параметрах ресурса `yandex_serverless_eventrouter_rule` см. в [документации провайдера]({{ tf-provider-resources-link }}/serverless_eventrouter_rule).
+      Более подробную информацию о параметрах ресурса `yandex_serverless_eventrouter_rule` см. в [документации провайдера](../../../../terraform/resources/serverless_eventrouter_rule.md).
 
   1. Создайте ресурсы:
 
@@ -228,7 +228,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -237,7 +237,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../../cli/index.md):
+      Terraform создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../../cli/index.md):
 
       ```bash
       yc serverless eventrouter rule list
@@ -245,7 +245,7 @@
 
 - API {#api}
 
-  Чтобы создать [правило](../../../concepts/eventrouter/rule.md) с приемником {{ cloud-logging-full-name }}, воспользуйтесь методом REST API [Create](../../../eventrouter/api-ref/Rule/create.md) для ресурса [rule](../../../eventrouter/api-ref/Rule/index.md) или вызовом gRPC API [rule/Create](../../../eventrouter/api-ref/grpc/Rule/create.md).
+  Чтобы создать [правило](../../../concepts/eventrouter/rule.md) с приемником Yandex Cloud Logging, воспользуйтесь методом REST API [Create](../../../eventrouter/api-ref/Rule/create.md) для ресурса [rule](../../../eventrouter/api-ref/Rule/index.md) или вызовом gRPC API [rule/Create](../../../eventrouter/api-ref/grpc/Rule/create.md).
 
 {% endlist %}
 

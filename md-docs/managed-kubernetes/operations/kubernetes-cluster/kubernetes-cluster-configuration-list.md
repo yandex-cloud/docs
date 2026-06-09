@@ -1,19 +1,19 @@
-# Получение списка доступных конфигураций мастера в кластере {{ k8s }}
+# Получение списка доступных конфигураций мастера в кластере Kubernetes
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-    1. Выберите кластер и в правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**. Откроется страница редактирования кластера.  
-    1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}** раскройте секцию **{{ ui-key.yacloud.k8s.clusters.create.label_master-computing-resources }}**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+    1. Выберите кластер и в правом верхнем углу страницы нажмите кнопку **Редактировать**. Откроется страница редактирования кластера.  
+    1. В блоке **Конфигурация мастера** раскройте секцию **Вычислительные ресурсы**.
 
        Доступные конфигурации перечислены на вкладках:
 
-          * **{{ ui-key.yacloud.k8s.clusters.create.label_master-preset-group-standard }}**,
-          * **{{ ui-key.yacloud.k8s.clusters.create.label_master-preset-group-cpu-optimized }}**,
-          * **{{ ui-key.yacloud.k8s.clusters.create.label_master-preset-group-memory-optimized }}**.
+          * **Standard**,
+          * **CPU optimized**,
+          * **Memory optimized**.
 
 - CLI {#cli}
 

@@ -5,7 +5,7 @@ Deletes a user in a cluster.
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/users/{userName}
+DELETE https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/users/{userName}
 ```
 
 ## Path parameters

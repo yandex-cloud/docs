@@ -6,7 +6,7 @@ Updates the specified parameters for the host.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/hosts:batchUpdate
+POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/hosts:batchUpdate
 ```
 
 ## Path parameters

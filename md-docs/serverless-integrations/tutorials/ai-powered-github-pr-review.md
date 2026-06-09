@@ -1,8 +1,8 @@
-# ИИ-ревью пул-реквестов на GitHub с помощью {{ sw-name }} и GitHub Actions
+# ИИ-ревью пул-реквестов на GitHub с помощью Workflows и GitHub Actions
 
-В этом руководстве вы воспользуетесь возможностями [моделей генерации текста]({{ link-docs-ai }}ai-studio/concepts/generation/models) {{ ai-studio-full-name }} для реализации сценария автоматического [ревью](https://docs.github.com/en/get-started/learning-about-github/github-glossary#review) предлагаемых изменений в программном коде на [GitHub](https://github.com/).
+В этом руководстве вы воспользуетесь возможностями [моделей генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) Yandex AI Studio для реализации сценария автоматического [ревью](https://docs.github.com/en/get-started/learning-about-github/github-glossary#review) предлагаемых изменений в программном коде на [GitHub](https://github.com/).
 
-Предлагаемое решение использует сценарий [GitHub Actions](https://docs.github.com/en/actions/get-started/understand-github-actions), чтобы запросить в {{ yandex-cloud }} ИИ-ревью изменений в [пул-реквесте](https://docs.github.com/en/get-started/learning-about-github/github-glossary#pull-request). Процесс получения изменений, запрос формирования ревью генеративной моделью и последующая публикация ревью на GitHub выполняются [рабочим процессом](../concepts/workflows/workflow.md) {{ sw-full-name }}.
+Предлагаемое решение использует сценарий [GitHub Actions](https://docs.github.com/en/actions/get-started/understand-github-actions), чтобы запросить в Yandex Cloud ИИ-ревью изменений в [пул-реквесте](https://docs.github.com/en/get-started/learning-about-github/github-glossary#pull-request). Процесс получения изменений, запрос формирования ревью генеративной моделью и последующая публикация ревью на GitHub выполняются [рабочим процессом](../concepts/workflows/workflow.md) Yandex Workflows.
 
 ![ai-powered-github-pr-review](../../_assets/tutorials/ai-powered-github-pr-review.svg)
 
@@ -10,19 +10,19 @@
 
 1. Пользователь добавляет [коммит](https://docs.github.com/en/get-started/learning-about-github/github-glossary#commit) в пул-реквест на GitHub.
 1. После появления нового коммита в пул-реквесте запускается сценарий GitHub Actions.
-1. Сценарий GitHub Actions получает [авторизованный ключ](../../iam/concepts/authorization/key.md) сервисного аккаунта {{ yandex-cloud }}, сохраненный в [секрете репозитория](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets) на GitHub.
-1. Сценарий GitHub Actions запрашивает [IAM-токен](../../iam/concepts/authorization/iam-token.md) в обмен на авторизованный ключ [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) в сервисе {{ iam-full-name }}. IAM-токен необходим для аутентификации в API {{ si-full-name }}.
-1. Сценарий GitHub Actions с использованием полученного IAM-токена отправляет рабочему процессу {{ sw-full-name }} HTTP-запрос на формирование ревью. При этом в рабочий процесс {{ sw-name }} передается номер пул-реквеста.
-1. Рабочий процесс {{ sw-name }} получает в [секрете](../../lockbox/concepts/secret.md) {{ lockbox-full-name }} [токен доступа](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#about-personal-access-tokens) `personal access token (classic)` к репозиторию на GitHub.
-1. Рабочий процесс {{ sw-name }} с использованием токена доступа получает в репозитории на GitHub изменения, предлагаемые в пул-реквесте.
-1. Рабочий процесс {{ sw-name }} запрашивает у [модели]({{ link-docs-ai }}ai-studio/concepts/generation/models) {{ ai-studio-full-name }} формирование ревью изменений, предлагаемых в пул-реквесте. Модель возвращает сгенерированное ревью с комментариями и собственными предложениями по улучшению кода.
-1. Рабочий процесс {{ sw-name }} с использованием токена доступа публикует полученное ревью в пул-реквесте на GitHub.
+1. Сценарий GitHub Actions получает [авторизованный ключ](../../iam/concepts/authorization/key.md) сервисного аккаунта Yandex Cloud, сохраненный в [секрете репозитория](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets) на GitHub.
+1. Сценарий GitHub Actions запрашивает [IAM-токен](../../iam/concepts/authorization/iam-token.md) в обмен на авторизованный ключ [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) в сервисе Yandex Identity and Access Management. IAM-токен необходим для аутентификации в API Yandex Serverless Integrations.
+1. Сценарий GitHub Actions с использованием полученного IAM-токена отправляет рабочему процессу Yandex Workflows HTTP-запрос на формирование ревью. При этом в рабочий процесс Workflows передается номер пул-реквеста.
+1. Рабочий процесс Workflows получает в [секрете](../../lockbox/concepts/secret.md) Yandex Lockbox [токен доступа](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#about-personal-access-tokens) `personal access token (classic)` к репозиторию на GitHub.
+1. Рабочий процесс Workflows с использованием токена доступа получает в репозитории на GitHub изменения, предлагаемые в пул-реквесте.
+1. Рабочий процесс Workflows запрашивает у [модели](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) Yandex AI Studio формирование ревью изменений, предлагаемых в пул-реквесте. Модель возвращает сгенерированное ревью с комментариями и собственными предложениями по улучшению кода.
+1. Рабочий процесс Workflows с использованием токена доступа публикует полученное ревью в пул-реквесте на GitHub.
 
 Чтобы настроить автоматическое ИИ-ревью пул-реквестов на GitHub:
 
 1. [Создайте репозиторий на GitHub](#create-github-repo).
 1. [Подготовьте облако к работе](#prepare-cloud).
-1. [Создайте рабочий процесс {{ sw-name }}](#create-si-workflow).
+1. [Создайте рабочий процесс Workflows](#create-si-workflow).
 1. [Настройте сценарий GitHub Actions](#github-actions-workflow).
 1. [Протестируйте работу сценария](#test).
 
@@ -36,43 +36,43 @@
 
 ## Подготовьте облако к работе {#prepare-cloud}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для реализации сценария автоматического ИИ-ревью пул-реквестов входят:
-* плата за генерацию текста (см. [тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing));
-* плата за хранение секрета и операции с ним (см. [тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md));
-* плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md), если вы используете сервис [{{ cloud-logging-name }}](../../logging/index.md) (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
+* плата за генерацию текста (см. [тарифы Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing));
+* плата за хранение секрета и операции с ним (см. [тарифы Yandex Lockbox](../../lockbox/pricing.md));
+* плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md), если вы используете сервис [Cloud Logging](../../logging/index.md) (см. [тарифы Yandex Cloud Logging](../../logging/pricing.md)).
 
-### Создайте секрет {{ lockbox-name }} {#create-secret}
+### Создайте секрет Yandex Lockbox {#create-secret}
 
-Создайте [секрет](../../lockbox/concepts/secret.md) {{ lockbox-full-name }}, в котором будет безопасно храниться токен доступа GitHub.
+Создайте [секрет](../../lockbox/concepts/secret.md) Yandex Lockbox, в котором будет безопасно храниться токен доступа GitHub.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать инфраструктуру.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
-   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета `github/pat-for-workflows`.
-   1. В поле **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
-   1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите `token`.
-   1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** введите полученный ранее на GitHub токен доступа `personal access token (classic)`.
-   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать инфраструктуру.
+   1. Перейдите в сервис **Lockbox**.
+   1. Нажмите кнопку **Создать секрет**.
+   1. В поле **Имя** введите имя секрета `github/pat-for-workflows`.
+   1. В поле **Тип секрета** выберите `Пользовательский`.
+   1. В поле **Ключ** введите `token`.
+   1. В поле **Значение** введите полученный ранее на GitHub токен доступа `personal access token (classic)`.
+   1. Нажмите кнопку **Создать**.
 
   В результате откроется окно с таблицей, содержащей информацию о созданном секрете. Сохраните его идентификатор — он понадобится позднее при создании рабочего процесса.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -113,21 +113,21 @@
 ### Создайте сервисные аккаунты {#create-sa}
 
 Cоздайте два [сервисных аккаунта](../../iam/concepts/users/service-accounts.md):
-* `workflow-sa` — от его имени будет выполняться [рабочий процесс](../concepts/workflows/workflow.md) {{ sw-name }};
+* `workflow-sa` — от его имени будет выполняться [рабочий процесс](../concepts/workflows/workflow.md) Workflows;
 * `github-worker` — от его имени будет запускаться рабочий процесс при получении запроса от сценария GitHub Actions.
 
-1. Создайте сервисный аккаунт `workflow-sa` и назначьте ему [роли](../../iam/concepts/access-control/roles.md) [`{{ roles-lockbox-payloadviewer }}`](../../lockbox/security/index.md#lockbox-payloadViewer) и [`ai.languageModels.user`]({{ link-docs-ai }}ai-studio/security/index#languageModels-user):
+1. Создайте сервисный аккаунт `workflow-sa` и назначьте ему [роли](../../iam/concepts/access-control/roles.md) [`lockbox.payloadViewer`](../../lockbox/security/index.md#lockbox-payloadViewer) и [`ai.languageModels.user`](https://aistudio.yandex.ru/docs/ru/ai-studio/security/index#languageModels-user):
 
     {% list tabs group=instructions %}
 
     - Консоль управления {#console}
 
-        1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-        1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+        1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
+        1. Перейдите в сервис **Identity and Access Management**.
+        1. Нажмите кнопку **Создать сервисный аккаунт**.
         1. Введите имя сервисного аккаунта `workflow-sa`.
-        1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите роли [`{{ roles-lockbox-payloadviewer }}`](../../lockbox/security/index.md#lockbox-payloadViewer) и [`ai.languageModels.user`]({{ link-docs-ai }}ai-studio/security/index#languageModels-user).
-        1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+        1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роли [`lockbox.payloadViewer`](../../lockbox/security/index.md#lockbox-payloadViewer) и [`ai.languageModels.user`](https://aistudio.yandex.ru/docs/ru/ai-studio/security/index#languageModels-user).
+        1. Нажмите кнопку **Создать**.
 
     - CLI {#cli}
 
@@ -189,19 +189,19 @@ Cоздайте два [сервисных аккаунта](../../iam/concepts/
 
 ### Создайте авторизованный ключ сервисного аккаунта {#create-authorized-key}
 
-Создайте [авторизованный ключ](../../iam/concepts/authorization/key.md) для сервисного аккаунта `github-worker`. Авторизованный ключ позволит сценарию GitHub Actions получать IAM-токен для аутентификации в API {{ yandex-cloud }}.
+Создайте [авторизованный ключ](../../iam/concepts/authorization/key.md) для сервисного аккаунта `github-worker`. Авторизованный ключ позволит сценарию GitHub Actions получать IAM-токен для аутентификации в API Yandex Cloud.
 
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
+  1. Перейдите в сервис **Identity and Access Management**.
   1. В открывшемся списке выберите сервисный аккаунт `github-worker`.
-  1. На панели сверху нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите `{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}** и нажмите **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_close }}**.
+  1. На панели сверху нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите `Создать авторизованный ключ`.
+  1. Нажмите кнопку **Создать**.
+  1. В открывшемся окне нажмите кнопку **Скачать файл с ключами** и нажмите **Закрыть**.
 
   В результате на ваш компьютер скачается файл `authorized_key.json`, содержащий авторизованный ключ. Сохраните его, он понадобится позднее для настройки GitHub Actions.
 
@@ -223,9 +223,9 @@ Cоздайте два [сервисных аккаунта](../../iam/concepts/
 
 {% endlist %}
 
-## Создайте рабочий процесс {{ sw-name }} {#create-si-workflow}
+## Создайте рабочий процесс Workflows {#create-si-workflow}
 
-Создайте [рабочий процесс](../concepts/workflows/workflow.md) {{ sw-name }} на стороне {{ yandex-cloud }}.
+Создайте [рабочий процесс](../concepts/workflows/workflow.md) Workflows на стороне Yandex Cloud.
 
 {% note tip %}
 
@@ -295,8 +295,8 @@ Cоздайте два [сервисных аккаунта](../../iam/concepts/
     Где:
     * `<имя_организации_на_GitHub>` — имя пользователя или организации — владельца репозитория на GitHub.
     * `<имя_репозитория>` — имя репозитория на GitHub.
-    * `<идентификатор_секрета>` — сохраненный ранее идентификатор секрета {{ lockbox-name }}.
-    * `<имя_модели>` — [имя модели]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation) генерации текста {{ ai-studio-full-name }}. Например: `qwen3-235b-a22b-fp8`.
+    * `<идентификатор_секрета>` — сохраненный ранее идентификатор секрета Yandex Lockbox.
+    * `<имя_модели>` — [имя модели](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models#generation) генерации текста Yandex AI Studio. Например: `qwen3-235b-a22b-fp8`.
 
 1. Создайте рабочий процесс:
 
@@ -304,17 +304,17 @@ Cоздайте два [сервисных аккаунта](../../iam/concepts/
 
     - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
-      1. На панели слева нажмите ![image](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
-      1. В правом верхнем углу нажмите **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
-      1. Выберите способ `{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}`.
+      1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором вы создаете инфраструктуру.
+      1. Перейдите в сервис **Serverless Integrations**.
+      1. На панели слева нажмите ![image](../../_assets/console-icons/graph-node.svg) **Workflows**.
+      1. В правом верхнем углу нажмите **Создать рабочий процесс**.
+      1. Выберите способ `YaML-спецификация`.
       1. В редакторе кода вставьте содержимое созданного ранее файла `yawl-spec.yaml`.
-      1. Раскройте блок **{{ ui-key.yacloud.serverless-workflows.label_additional-parameters }}**:
-      1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя рабочего процесса. Например: `github-ai-review-workflow`.
-      1. В поле **{{ ui-key.yacloud.serverless-workflows.label_service-account }}** выберите созданный ранее сервисный аккаунт `workflow-sa`.
+      1. Раскройте блок **Дополнительные параметры**:
+      1. В поле **Имя** укажите имя рабочего процесса. Например: `github-ai-review-workflow`.
+      1. В поле **Сервисный аккаунт** выберите созданный ранее сервисный аккаунт `workflow-sa`.
       1. (Опционально) [Настройте](../operations/workflows/workflow/logs-write.md) логирование запусков рабочего процесса.
-      1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+      1. Нажмите **Создать**.
 
       В результате откроется окно с таблицей, содержащей информацию о созданном рабочем процессе. Сохраните его идентификатор — он понадобится позднее при настройке сценария GitHub Actions.
 
@@ -371,7 +371,7 @@ Cоздайте два [сервисных аккаунта](../../iam/concepts/
     git clone <URL_репозитория>
     ```
 1. В локальной копии вашего репозитория создайте директорию `.github/workflows/` (если еще не создана) и создайте в этой директории файл `ai-review.yml`.
-1. В файл `ai-review.yml` вставьте следующий код, указав в поле `workflowId` сохраненный ранее идентификатор рабочего процесса {{ sw-name }}:
+1. В файл `ai-review.yml` вставьте следующий код, указав в поле `workflowId` сохраненный ранее идентификатор рабочего процесса Workflows:
 
     ```yaml
     name: Pull Request Automated Checks
@@ -414,13 +414,13 @@ Cоздайте два [сервисных аккаунта](../../iam/concepts/
 
 ## Протестируйте работу сценария {#test}
 
-Чтобы проверить работу сценария, создайте новый пул-реквест в вашем репозитории на GitHub. При создании пул-реквеста, а также при каждой последующей отправке в пул-реквест нового коммита будет запускаться сценарий GitHub Actions, инициирующий создание на стороне {{ yandex-cloud }} ревью предлагаемых изменений и публикацию этого ревью в пул-реквесте.
+Чтобы проверить работу сценария, создайте новый пул-реквест в вашем репозитории на GitHub. При создании пул-реквеста, а также при каждой последующей отправке в пул-реквест нового коммита будет запускаться сценарий GitHub Actions, инициирующий создание на стороне Yandex Cloud ревью предлагаемых изменений и публикацию этого ревью в пул-реквесте.
 
 ## Удалите созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
 
-1. [Удалите](../../lockbox/operations/secret-delete.md) секрет {{ lockbox-name }}.
-1. [Удалите](../operations/workflows/workflow/delete.md) рабочий процесс {{ sw-name }}.
+1. [Удалите](../../lockbox/operations/secret-delete.md) секрет Yandex Lockbox.
+1. [Удалите](../operations/workflows/workflow/delete.md) рабочий процесс Workflows.
 1. [Удалите](../../logging/operations/delete-group.md) лог-группу, если вы включали логирование запусков рабочего процесса.
 1. При необходимости [удалите](../../iam/operations/sa/delete.md) сервисные аккаунты.

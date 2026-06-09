@@ -26,7 +26,7 @@
 
  - [Управление резервными копиями](operations/instance/instance-backups.md)
 
- - [Миграция из пользовательской инсталляции {{ GL }}](operations/instance/migration.md)
+ - [Миграция из пользовательской инсталляции GitLab](operations/instance/migration.md)
 
  - [Миграция в другую зону доступности](operations/instance/zone-migration.md)
 
@@ -42,7 +42,7 @@
 
  - [Настройка OmniAuth](operations/omniauth.md)
 
- - [Интеграция с {{ objstorage-name }}](operations/objstorage-integration.md)
+ - [Интеграция с Object Storage](operations/objstorage-integration.md)
 
  - [Работа с управляемым раннером](operations/runner.md)
 
@@ -50,25 +50,25 @@
 
  - [Все руководства](tutorials/index.md)
 
- - [Развертывание {{ GLR }} на виртуальной машине {{ compute-full-name }}](tutorials/install-gitlab-runner.md)
+ - [Развертывание GitLab Runner на виртуальной машине Yandex Compute Cloud](tutorials/install-gitlab-runner.md)
 
- - [Безопасное хранение паролей для {{ GL }} CI в виде секретов {{ lockbox-name }}](tutorials/gitlab-lockbox-integration.md)
+ - [Безопасное хранение паролей для GitLab CI в виде секретов Yandex Lockbox](tutorials/gitlab-lockbox-integration.md)
 
- - [Непрерывное развертывание контейнеризованных приложений {{ managed-k8s-name }}](tutorials/gitlab-containers.md)
+ - [Непрерывное развертывание контейнеризованных приложений Managed Service for Kubernetes](tutorials/gitlab-containers.md)
 
- - [Сканирование уязвимостей {{ container-registry-name }} при непрерывном развертывании приложений {{ managed-k8s-name }}](tutorials/cr-scanner-with-k8s-and-gitlab.md)
+ - [Сканирование уязвимостей Container Registry при непрерывном развертывании приложений Managed Service for Kubernetes](tutorials/cr-scanner-with-k8s-and-gitlab.md)
 
  - [Построение пайплайна CI/CD с использованием serverless-продуктов](tutorials/ci-cd-serverless.md)
 
- - [Хранение Docker-образов в {{ container-registry-full-name }}](tutorials/image-storage.md)
+ - [Хранение Docker-образов в Yandex Container Registry](tutorials/image-storage.md)
 
- - [Тестирование приложений с помощью {{ GL }}](tutorials/application-testing-with-gitlab.md)
+ - [Тестирование приложений с помощью GitLab](tutorials/application-testing-with-gitlab.md)
 
- - [Создание тестовых виртуальных машин через {{ GL }} CI](tutorials/test-vms-creation-via-gitlab-ci.md)
+ - [Создание тестовых виртуальных машин через GitLab CI](tutorials/test-vms-creation-via-gitlab-ci.md)
 
- - [Интеграция с {{ tracker-full-name }}](tutorials/tracker-integration.md)
+ - [Интеграция с Яндекс Трекер](tutorials/tracker-integration.md)
 
- - [Вызов нагрузочного тестирования из {{ GL }} CI](tutorials/loadtesting-gitlab-ci.md)
+ - [Вызов нагрузочного тестирования из GitLab CI](tutorials/loadtesting-gitlab-ci.md)
 
  - [Интеграция с Argo CD](tutorials/argo-cd.md)
 
@@ -78,9 +78,9 @@
 
  - [Взаимосвязь ресурсов сервиса](concepts/index.md)
 
- - [Преимущества сервиса перед пользовательской инсталляцией {{ GL }}](concepts/managed-gitlab-vs-custom-installation.md)
+ - [Преимущества сервиса перед пользовательской инсталляцией GitLab](concepts/managed-gitlab-vs-custom-installation.md)
 
- - [Порядок миграции из пользовательской инсталляции {{ GL }}](concepts/migration.md)
+ - [Порядок миграции из пользовательской инсталляции GitLab](concepts/migration.md)
 
 ### Правила ревью кода
 
@@ -90,11 +90,11 @@
 
  - [Резервные копии](concepts/backup.md)
 
- - [Безопасность в {{ GL }}](concepts/security.md)
+ - [Безопасность в GitLab](concepts/security.md)
 
  - [Квоты и лимиты](concepts/limits.md)
 
- - [Интеграция с хранилищем {{ objstorage-name }}](concepts/s3-integration.md)
+ - [Интеграция с хранилищем Object Storage](concepts/s3-integration.md)
 
  - [Управление доступом](security/index.md)
 
@@ -144,7 +144,7 @@
 
  - [update](cli-ref/v0/instance/update.md)
 
- - [Справочник {{ TF }}](tf-ref.md)
+ - [Справочник Terraform](tf-ref.md)
 
 ## Справочник API
 
@@ -210,9 +210,9 @@
 
  - [Cancel](api-ref/Operation/cancel.md)
 
- - [Метрики {{ monitoring-name }}](metrics.md)
+ - [Метрики Monitoring](metrics.md)
 
- - [Аудитные логи {{ at-name }}](at-ref.md)
+ - [Аудитные логи Audit Trails](at-ref.md)
 
  - [История изменений](release-notes.md)
 

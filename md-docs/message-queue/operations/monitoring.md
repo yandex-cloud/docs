@@ -8,9 +8,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит очередь с сообщениями.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит очередь с сообщениями.
+  1. Перейдите в сервис **Message Queue**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/display-pulse.svg) **Мониторинг**.
 
   На странице появятся секции с графиками.
 
@@ -99,4 +99,4 @@
 
 #### См. также {#see-also}
 
-[{#T}](../metrics.md)
+[Справочник метрик Yandex Monitoring](../metrics.md)

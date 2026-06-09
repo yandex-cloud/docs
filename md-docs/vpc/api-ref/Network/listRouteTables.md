@@ -5,7 +5,7 @@ Lists route tables from the specified network.
 ## HTTP request
 
 ```
-GET https://vpc.{{ api-host }}/vpc/v1/networks/{networkId}/route_tables
+GET https://vpc.api.cloud.yandex.net/vpc/v1/networks/{networkId}/route_tables
 ```
 
 ## Path parameters

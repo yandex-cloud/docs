@@ -4,15 +4,15 @@
 
 ## Создать секрет {#create}
 
-1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
-1. Нажмите **{{ ui-key.yc-ui-datasphere.common.create }}**.
-1. В поле **{{ ui-key.yc-ui-datasphere.secret.name }}** задайте имя секрета.
+1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+1. В блоке **Ресурсы проекта** нажмите ![secret](../../../_assets/console-icons/shield-check.svg)**Секрет**.
+1. Нажмите **Создать**.
+1. В поле **Имя** задайте имя секрета.
 
    Имя может содержать строчные и заглавные буквы латинского алфавита, цифры и дефисы. Первый символ должен быть буквой. Последний символ не должен быть дефисом или подчеркиванием. Допустимая длина – от 3 до 63 символов.
 
-1. В поле **{{ ui-key.yc-ui-datasphere.secret.content }}** введите значение, которое будет храниться в зашифрованном виде.
-1. Нажмите **{{ ui-key.yc-ui-datasphere.common.create }}**. Откроется страница с информацией о созданном секрете.
+1. В поле **Значение** введите значение, которое будет храниться в зашифрованном виде.
+1. Нажмите **Создать**. Откроется страница с информацией о созданном секрете.
 
 ## Поделиться секретом {#share}
 
@@ -22,15 +22,15 @@
 
 {% endnote %}
 
-Чтобы поделиться секретом в сообществе, понадобятся роли `Editor` в проекте и `Developer` в сообществе. Подробнее о ролях, действующих в {{ ml-platform-name }}, см. в разделе [{#T}](../../security/index.md).
+Чтобы поделиться секретом в сообществе, понадобятся роли `Editor` в проекте и `Developer` в сообществе. Подробнее о ролях, действующих в DataSphere, см. в разделе [Управление доступом в DataSphere](../../security/index.md).
 
-1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
+1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+1. В блоке **Ресурсы проекта** нажмите ![secret](../../../_assets/console-icons/shield-check.svg)**Секрет**.
 1. Выберите нужный секрет в списке.
-1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.access }}**.
+1. Перейдите на вкладку **Доступ**.
 1. Включите опцию видимости напротив названия сообщества, в котором нужно поделиться секретом.
 
-Чтобы секрет стал доступен для работы в другом проекте, редактор проекта должен [добавить](../projects/use-shared-resource.md) его на вкладке **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}**.
+Чтобы секрет стал доступен для работы в другом проекте, редактор проекта должен [добавить](../projects/use-shared-resource.md) его на вкладке **Доступные**.
 
 ## Вызвать секрет в ячейке проекта {#call}
 
@@ -57,30 +57,30 @@
 
 ## Копировать секрет {#copy}
 
-1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
-1. В списке секретов выберите тот, который вы хотите скопировать в свой проект, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.clone }}**.
+1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+1. В блоке **Ресурсы проекта** нажмите ![secret](../../../_assets/console-icons/shield-check.svg)**Секрет**.
+1. В списке секретов выберите тот, который вы хотите скопировать в свой проект, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **Клонировать**.
 1. Отредактируйте имя и контент секрета для копирования.
-1. Нажмите **{{ ui-key.yc-ui-datasphere.common.create }}**. Откроется страница с информацией о созданном секрете.
+1. Нажмите **Создать**. Откроется страница с информацией о созданном секрете.
 
 Скопированный секрет не связан с исходным: копию можно изменять и удалять, и это не затронет оригинал.
 
 ## Изменить секрет {#change}
 
-1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
-1. В списке секретов выберите тот, который вы хотите изменить, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.edit }}**.
+1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+1. В блоке **Ресурсы проекта** нажмите ![secret](../../../_assets/console-icons/shield-check.svg)**Секрет**.
+1. В списке секретов выберите тот, который вы хотите изменить, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
 1. Измените секрет: отредактируйте имя и контент.
-1. Нажмите **{{ ui-key.yc-ui-datasphere.common.save }}**.
+1. Нажмите **Сохранить**.
 
 Секрет, который создан в другом проекте, нельзя изменить, но можно изменить его [копию](secrets.md#copy).
 
 ## Удалить секрет {#delete}
 
-1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
-1. В списке секретов выберите тот, который хотите удалить, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
-1. Нажмите **{{ ui-key.yc-ui-datasphere.common.submit }}**.
+1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+1. В блоке **Ресурсы проекта** нажмите ![secret](../../../_assets/console-icons/shield-check.svg)**Секрет**.
+1. В списке секретов выберите тот, который хотите удалить, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+1. Нажмите **Подтвердить**.
 
 Отобразится сообщение о том, что секрет удален.
 

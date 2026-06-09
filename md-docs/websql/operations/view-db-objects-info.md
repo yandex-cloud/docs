@@ -1,6 +1,6 @@
 # Просмотр информации об объектах в базе данных
 
-В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**]({{ websql-link }}) сервиса [{{ websql-full-name }}]({{ websql-link }}) доступна информация об объектах в БД. Вы можете просмотреть информацию:
+В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**](https://websql.yandex.cloud) сервиса [Yandex WebSQL](https://websql.yandex.cloud) доступна информация об объектах в БД. Вы можете просмотреть информацию:
 
 * [о схеме](#view-schema);
 * [о таблице](#view-table);
@@ -8,7 +8,7 @@
 
 ## Просмотреть информацию о схеме {#view-schema}
 
-1. В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**]({{ websql-link }}) выберите подключение и БД.
+1. В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**](https://websql.yandex.cloud) выберите подключение и БД.
 1. Выберите схему.
 1. Справа от имени схемы нажмите ![image](../../_assets/console-icons/sliders-vertical.svg).
 
@@ -16,7 +16,7 @@
 
 ## Просмотреть информацию о таблице {#view-table}
 
-1. В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**]({{ websql-link }}) выберите подключение и БД.
+1. В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**](https://websql.yandex.cloud) выберите подключение и БД.
 1. В группе **Таблицы** выберите таблицу.
 1. Справа от имени таблицы нажмите ![image](../../_assets/console-icons/sliders-vertical.svg).
 
@@ -32,7 +32,7 @@
 
 ## Просмотреть информацию о представлении {#view-view}
 
-1. В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**]({{ websql-link }}) выберите подключение и БД.
+1. В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**](https://websql.yandex.cloud) выберите подключение и БД.
 1. В группе **Представления** выберите представление.
 1. Справа от имени представления нажмите ![image](../../_assets/console-icons/sliders-vertical.svg).
 

@@ -4,7 +4,7 @@ This API reference is organized by resource. All actions are performed by sendin
 
 **Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/compute/v1/instancegroup).
 
-**Service URL**: `https://compute.{{ api-host }}`
+**Service URL**: `https://compute.api.cloud.yandex.net`
 
 #|
 ||Service | Description ||

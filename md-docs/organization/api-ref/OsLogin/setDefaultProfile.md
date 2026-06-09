@@ -5,7 +5,7 @@ Sets a profile as a default for the subject assigned to this profile
 ## HTTP request
 
 ```
-POST https://organization-manager.{{ api-host }}/organization-manager/v1/osLoginProfiles/{osLoginProfileId}:setDefault
+POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/osLoginProfiles/{osLoginProfileId}:setDefault
 ```
 
 ## Path parameters

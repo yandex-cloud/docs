@@ -5,7 +5,7 @@ Updates the specified database.
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/databases/{databaseName}
+PATCH https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/databases/{databaseName}
 ```
 
 ## Path parameters

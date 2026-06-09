@@ -7,7 +7,7 @@ To get the list of all available agents, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://loadtesting.{{ api-host }}/loadtesting/api/v1/agent/{agentId}
+GET https://loadtesting.api.cloud.yandex.net/loadtesting/api/v1/agent/{agentId}
 ```
 
 ## Path parameters

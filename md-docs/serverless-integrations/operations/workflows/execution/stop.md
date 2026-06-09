@@ -1,20 +1,20 @@
 # Остановить запуск рабочего процесса
 
-Если остановить запуск [рабочего процесса](../../../concepts/workflows/workflow.md), {{ sw-name }} сначала дождется завершения текущего активного шага. Чтобы прервать текущий активный шаг, воспользуйтесь инструкцией [{#T}](terminate.md).
+Если остановить запуск [рабочего процесса](../../../concepts/workflows/workflow.md), Workflows сначала дождется завершения текущего активного шага. Чтобы прервать текущий активный шаг, воспользуйтесь инструкцией [Прекратить запуск рабочего процесса](terminate.md).
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором [запущен рабочий процесс](start.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
-  1. На панели слева нажмите ![image](../../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}** и выберите рабочий процесс.
-  1. На панели слева нажмите ![image](../../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.serverless-workflows.label_workflow-executions }}**.
-  1. В строке с нужным запуском нажмите ![image](../../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../../_assets/console-icons/circle-stop.svg) **{{ ui-key.yacloud.serverless-workflows.label_stop-workflow }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором [запущен рабочий процесс](start.md).
+  1. Перейдите в сервис **Serverless Integrations**.
+  1. На панели слева нажмите ![image](../../../../_assets/console-icons/graph-node.svg) **Workflows** и выберите рабочий процесс.
+  1. На панели слева нажмите ![image](../../../../_assets/console-icons/bars-play.svg) **Запуски**.
+  1. В строке с нужным запуском нажмите ![image](../../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../../_assets/console-icons/circle-stop.svg) **Остановить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 

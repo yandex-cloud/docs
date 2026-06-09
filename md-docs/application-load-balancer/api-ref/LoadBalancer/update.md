@@ -5,7 +5,7 @@ Updates the specified application load balancer.
 ## HTTP request
 
 ```
-PATCH https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId}
+PATCH https://alb.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBalancerId}
 ```
 
 ## Path parameters

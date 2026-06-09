@@ -1,28 +1,28 @@
-# Как устроено управление доступом в {{ yandex-cloud }}
+# Как устроено управление доступом в Yandex Cloud
 
-На этой странице можно узнать, как управлять доступом к ресурсам, и как {{ iam-short-name }} проверяет права доступа к ним.
+На этой странице можно узнать, как управлять доступом к ресурсам, и как IAM проверяет права доступа к ним.
 
 ## Как проверяются права доступа? {#access-verifying}
 
-Все операции в {{ yandex-cloud }} предварительно отправляются на проверку в {{ iam-short-name }}, например:
+Все операции в Yandex Cloud предварительно отправляются на проверку в IAM, например:
 
-1. Пользователь просит сервис {{ compute-name }} создать новый диск в каталоге <q>default</q>.
-1. Сервис спрашивает {{ iam-short-name }}, можно ли этому пользователю создать диск в этом каталоге.
-1. {{ iam-short-name }} проверяет, что пользователь — участник облака с каталогом <q>default</q> и имеет необходимые разрешения для создания диска в этом каталоге:
+1. Пользователь просит сервис Compute Cloud создать новый диск в каталоге <q>default</q>.
+1. Сервис спрашивает IAM, можно ли этому пользователю создать диск в этом каталоге.
+1. IAM проверяет, что пользователь — участник облака с каталогом <q>default</q> и имеет необходимые разрешения для создания диска в этом каталоге:
 
-    * Если какого-то из разрешений у пользователя нет, операция не будет выполнена, и {{ yandex-cloud }} сообщит об ошибке.
-    * Если все разрешения имеются, то {{ iam-short-name }} переходит к следующей проверке.
-1. {{ iam-short-name }} проверяет, что на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), [облако](../../../resource-manager/concepts/resources-hierarchy.md#cloud) или [организацию](../../../organization/concepts/organization.md) не назначены [политики авторизации](access-policies.md), запрещающие выполнение запрашиваемой операции:
+    * Если какого-то из разрешений у пользователя нет, операция не будет выполнена, и Yandex Cloud сообщит об ошибке.
+    * Если все разрешения имеются, то IAM переходит к следующей проверке.
+1. IAM проверяет, что на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), [облако](../../../resource-manager/concepts/resources-hierarchy.md#cloud) или [организацию](../../../organization/concepts/organization.md) не назначены [политики авторизации](access-policies.md), запрещающие выполнение запрашиваемой операции:
 
-    * Если такие политики авторизации найдены, операция не будет выполнена, и {{ yandex-cloud }} сообщит об ошибке.
-    * Если политики авторизации, запрещающие операцию, не найдены, то {{ iam-short-name }} сообщает об этом сервису.
+    * Если такие политики авторизации найдены, операция не будет выполнена, и Yandex Cloud сообщит об ошибке.
+    * Если политики авторизации, запрещающие операцию, не найдены, то IAM сообщает об этом сервису.
 1. Сервис создает новый диск.
 
 ![checkPermissions.png](../../../_assets/checkPermissions.png)
 
 ## Как вы управляете доступом? {#how-do-i-perform-access-management}
 
-Управление доступом в {{ yandex-cloud }} построено на политике [Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control) (RBAC). Кроме того, для более гибкого управления доступом используются дополнительные механизмы: [политики авторизации](access-policies.md) и [области действия](../authorization/api-key.md#scoped-api-keys) API-ключей сервисных аккаунтов.
+Управление доступом в Yandex Cloud построено на политике [Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control) (RBAC). Кроме того, для более гибкого управления доступом используются дополнительные механизмы: [политики авторизации](access-policies.md) и [области действия](../authorization/api-key.md#scoped-api-keys) API-ключей сервисных аккаунтов.
 
 Чтобы предоставить доступ к ресурсу, вы указываете, кому и какие [роли](roles.md) назначены на ресурс. При этом некоторые действия с ресурсами могут быть запрещены политиками авторизации на уровне [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), [облака](../../../resource-manager/concepts/resources-hierarchy.md#cloud) или [организации](../../../organization/concepts/organization.md) — в этом случае такие операции не будут выполняться, даже при наличии ролей, необходимых для их выполнения.
 
@@ -40,7 +40,7 @@
 
 ### Ресурсы, на которые можно назначать роли {#resource}
 
-Назначать роли можно на [облако](../../../resource-manager/operations/cloud/set-access-bindings.md), [каталог](../../../resource-manager/operations/folder/set-access-bindings.md) и другие ресурсы из [списка](resources-with-access-control.md). Если нужно предоставить доступ к ресурсу, которого нет в списке, назначьте роль на родительский ресурс, от которого [наследуются](#inheritance) права доступа. Например, у [кластеров {{ mpg-full-name }}](../../../managed-postgresql/concepts/index.md) права доступа наследуются от каталога.
+Назначать роли можно на [облако](../../../resource-manager/operations/cloud/set-access-bindings.md), [каталог](../../../resource-manager/operations/folder/set-access-bindings.md) и другие ресурсы из [списка](resources-with-access-control.md). Если нужно предоставить доступ к ресурсу, которого нет в списке, назначьте роль на родительский ресурс, от которого [наследуются](#inheritance) права доступа. Например, у [кластеров Yandex Managed Service for PostgreSQL](../../../managed-postgresql/concepts/index.md) права доступа наследуются от каталога.
 
 ### Роль {#role}
 
@@ -56,19 +56,19 @@
 
 Каждая роль состоит из набора разрешений, описывающих допустимые операции с ресурсом. Пользователь может назначить роли только с теми разрешениями, которые имеются у него самого. Например, чтобы назначить роль [владельца облака](../../../resource-manager/security/index.md#resource-manager-clouds-owner), пользователь должен сам обладать этой ролью, а роли администратора для этого недостаточно.
 
-О том, какие есть роли и какие разрешения в них входят, читайте в разделе [{#T}](roles.md).
+О том, какие есть роли и какие разрешения в них входят, читайте в разделе [Роли](roles.md).
 
 ### Субъект, которому назначается роль {#subject}
 
 Роли назначаются субъектам. Существуют следующие типы субъектов:
 
-* `userAccount` — [аккаунт на Яндексе](../users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md):
+* `userAccount` — [аккаунт на Яндексе](../users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md):
 
     Идентификатор субъекта: `userAccount:<идентификатор_пользователя>`.
 
     Где `<идентификатор_пользователя>` — уникальный [идентификатор](../../../api-design-guide/concepts/resources-identification.md), [присвоенный](../../../organization/operations/users-get.md) пользователю. Например: `userAccount:ajecpdmpr4pr********`.
 
-* `serviceAccount` — [сервисный аккаунт](../users/service-accounts.md), созданный в {{ yandex-cloud }}:
+* `serviceAccount` — [сервисный аккаунт](../users/service-accounts.md), созданный в Yandex Cloud:
 
     Идентификатор субъекта: `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
@@ -82,7 +82,7 @@
 
     Где `<идентификатор_пользователя>` — уникальный идентификатор, [присвоенный](../../../organization/operations/users-get.md) федеративному пользователю. Например: `federatedUser:aje7b4u65nb6********`.
 
-* `group` — группа пользователей [{{ org-full-name }}](../../../organization/index.md):
+* `group` — группа пользователей [Yandex Identity Hub](../../../organization/index.md):
 
     * [Группа пользователей](../../../organization/concepts/groups.md), созданная администратором организации:
 
@@ -134,7 +134,7 @@
 
 ## Управление доступом сервисов к ресурсам в облаке пользователя {#service-control}
 
-{{ iam-full-name }} позволяет управлять [доступом сервисов](../service-control.md) к ресурсам в облаке пользователя, при необходимости [включая](../../operations/service-control/enable-disable.md#enable) или [выключая](../../operations/service-control/enable-disable.md#disable) нужные сервисы.
+Yandex Identity and Access Management позволяет управлять [доступом сервисов](../service-control.md) к ресурсам в облаке пользователя, при необходимости [включая](../../operations/service-control/enable-disable.md#enable) или [выключая](../../operations/service-control/enable-disable.md#disable) нужные сервисы.
 
 Доступ сервиса — это совокупность прав доступа, необходимых для создания и функционирования ресурсов этого сервиса в облаке пользователя. Такие права доступа назначаются специальным сервисным аккаунтам — [сервисным агентам](../service-control.md#service-agent), от имени которых сервис осуществляет доступ к ресурсам пользователя в облаке.
 
@@ -142,17 +142,17 @@
 
 #### См. также {#see-also}
 
-Вы можете найти подробную информацию об управлении доступом для конкретного сервиса {{ yandex-cloud }} в разделе <q>Управление доступом</q> в документации соответствующего сервиса.
+Вы можете найти подробную информацию об управлении доступом для конкретного сервиса Yandex Cloud в разделе <q>Управление доступом</q> в документации соответствующего сервиса.
 
 Пошаговые инструкции и примеры:
 
-* [{#T}](../../operations/access-policies/assign.md)
-* [{#T}](../../operations/access-policies/revoke.md)
-* [{#T}](../../operations/roles/grant.md)
-* [{#T}](../../operations/roles/revoke.md)
-* [{#T}](../../operations/sa/assign-role-for-sa.md)
-* [{#T}](../../operations/sa/set-access-bindings.md)
-* [{#T}](../../operations/sa/impersonate-sa.md)
-* [{#T}](../../../resource-manager/operations/cloud/set-access-bindings.md)
-* [{#T}](../../../resource-manager/operations/folder/set-access-bindings.md)
-* [{#T}](../../operations/service-control/enable-disable.md)
+* [Создание политики авторизации для ресурса](../../operations/access-policies/assign.md)
+* [Удаление политики авторизации](../../operations/access-policies/revoke.md)
+* [Назначение роли](../../operations/roles/grant.md)
+* [Отзыв роли на ресурс](../../operations/roles/revoke.md)
+* [Назначение роли сервисному аккаунту](../../operations/sa/assign-role-for-sa.md)
+* [Настройка прав доступа к сервисному аккаунту](../../operations/sa/set-access-bindings.md)
+* [Использование имперсонации](../../operations/sa/impersonate-sa.md)
+* [Настройка прав доступа к облаку](../../../resource-manager/operations/cloud/set-access-bindings.md)
+* [Настройка прав доступа к каталогу](../../../resource-manager/operations/folder/set-access-bindings.md)
+* [Включение и выключение сервиса](../../operations/service-control/enable-disable.md)

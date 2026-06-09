@@ -1,11 +1,11 @@
-# Метрики {{ mmg-full-name }}
+# Метрики Yandex StoreDoc
 
 
-В этом разделе описаны метрики сервиса [{{ mmg-name }}](../../storedoc/index.md), поставляемые в {{ monitoring-name }}.
+В этом разделе описаны метрики сервиса [Yandex StoreDoc](../../storedoc/index.md), поставляемые в Monium Metrics.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса {{ mmg-name }}: 
+Общие метки для всех метрик сервиса Yandex StoreDoc: 
 
 Метка | Значение
 ----|----

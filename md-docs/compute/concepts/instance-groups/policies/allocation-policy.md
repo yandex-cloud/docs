@@ -1,7 +1,7 @@
 # Политика распределения
 
 
-При создании группы виртуальных машин можно выбрать, в каких [зонах доступности](../../../../overview/concepts/geo-scope.md) {{ yandex-cloud }} будут размещаться ВМ, а также задать список тегов для ВМ внутри каждой зоны доступности.
+При создании группы виртуальных машин можно выбрать, в каких [зонах доступности](../../../../overview/concepts/geo-scope.md) Yandex Cloud будут размещаться ВМ, а также задать список тегов для ВМ внутри каждой зоны доступности.
 
 Переместить виртуальные машины в другие зоны доступности невозможно, но вы можете [обновить группу](../../../operations/instance-groups/deploy/rolling-update.md) с новыми значениями зон.
 
@@ -23,15 +23,15 @@
 ...
 allocation_policy:
   zones:
-    - zone_id: {{ region-id }}-a
+    - zone_id: ru-central1-a
       instance_tags_pool:
       - first-tag
       - second-tag
-    - zone_id: {{ region-id }}-b
+    - zone_id: ru-central1-b
       instance_tags_pool:
       - third-tag
       - fourth-tag
-    - zone_id: {{ region-id }}-d
+    - zone_id: ru-central1-d
       instance_tags_pool:
       - fifth-tag
       - sixth-tag
@@ -79,7 +79,7 @@ scale_policy:
     size: 3
 allocation_policy:
   zones:
-    - zone_id: {{ region-id }}-a
+    - zone_id: ru-central1-a
       instance_tags_pool:
       - first
       - second
@@ -88,12 +88,12 @@ allocation_policy:
 
 ## Примеры использования {#examples}
 
-* [{#T}](../../../tutorials/vm-autoscale/index.md)
-* [{#T}](../../../tutorials/autoscale-monitoring.md)
+* [Работа с группой виртуальных машин с автоматическим масштабированием](../../../tutorials/vm-autoscale/index.md)
+* [Автоматическое масштабирование группы виртуальных машин для обработки сообщений из очереди Yandex Message Queue](../../../tutorials/autoscale-monitoring.md)
 
 ### См. также {#see-also}
 
-* [{#T}](healing-policy.md)
-* [{#T}](scale-policy.md)
-* [{#T}](deploy-policy.md)
-* [{#T}](../../../operations/instance-groups/create-with-fixed-ip.md)
+* [Политика восстановления](healing-policy.md)
+* [Политика масштабирования](scale-policy.md)
+* [Политика развертывания](deploy-policy.md)
+* [Создать группу виртуальных машин с фиксированными IP-адресами](../../../operations/instance-groups/create-with-fixed-ip.md)

@@ -6,7 +6,7 @@ To get the list of available OAuthClient resources, make a [List](list.md#List) 
 ## HTTP request
 
 ```
-GET https://iam.{{ api-host }}/iam/v1/oauthClients/{oauthClientId}
+GET https://iam.api.cloud.yandex.net/iam/v1/oauthClients/{oauthClientId}
 ```
 
 ## Path parameters

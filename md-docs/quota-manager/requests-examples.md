@@ -2,11 +2,11 @@
 
 {% note info %}
 
-Для работы с запросами на изменение квот через CLI и API обратитесь в [службу поддержки]({{ link-console-support }}).
+Для работы с запросами на изменение квот через CLI и API обратитесь в [службу поддержки](https://center.yandex.cloud/support).
 
 {% endnote %}
 
-Чтобы гарантировать наличие критически важных для вашего сервиса ресурсов, проверяйте потребление квот и запрашивайте их увеличение в автоматическом режиме. Для этого можно использовать CLI или API {{ quota-manager-full-name }}.
+Чтобы гарантировать наличие критически важных для вашего сервиса ресурсов, проверяйте потребление квот и запрашивайте их увеличение в автоматическом режиме. Для этого можно использовать CLI или API Yandex Cloud Quota Manager.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -16,7 +16,7 @@
 
 - CLI {#cli}
 
-  1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
+  1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
 
       По умолчанию используется каталог, указанный при [создании](../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -62,7 +62,7 @@
 
 - CLI {#cli}
 
-  * `--quota-id` — идентификатор квоты. В примерах используется идентификатор `iam.accessKeys.count` — количество статических ключей доступа в одном облаке, [квота в сервисе {{ iam-name }}](../iam/concepts/limits.md).
+  * `--quota-id` — идентификатор квоты. В примерах используется идентификатор `iam.accessKeys.count` — количество статических ключей доступа в одном облаке, [квота в сервисе Identity and Access Management](../iam/concepts/limits.md).
   * `--resource-id` — идентификатор ресурса. В примерах используется идентификатор облака. Для выполнения запросов из примеров укажите [идентификатор](../resource-manager/operations/cloud/get-id.md) вашего облака.
   * `--resource-type` — тип ресурса. В примере используется `resource-manager.cloud` — облако.
   * `--filter` — фильтрующее выражение. Отфильтровать запросы можно только по их статусу.
@@ -72,7 +72,7 @@
 
   * `<IAM-токен>` или `${IAM_TOKEN?}` — [IAM-токен](../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта или переменная окружения, в которой находится IAM-токен.
   * `uuidgen -t` — команда для генерации уникального идентификатора запроса (UUID), который передается в заголовке `X-Request-Id`. Передавать UUID необязательно, но он помогает отслеживать конкретный запрос в системе.
-  * `quotaId` — идентификатор квоты. В примерах используется идентификатор `iam.accessKeys.count` — количество статических ключей доступа в одном облаке, [квота в сервисе {{ iam-name }}](../iam/concepts/limits.md).
+  * `quotaId` — идентификатор квоты. В примерах используется идентификатор `iam.accessKeys.count` — количество статических ключей доступа в одном облаке, [квота в сервисе Identity and Access Management](../iam/concepts/limits.md).
   * `resourceId` — идентификатор ресурса. В примерах используется идентификатор облака. Для выполнения запросов из примеров укажите [идентификатор](../resource-manager/operations/cloud/get-id.md) вашего облака.
   * `resourceType` — тип ресурса. В примере используется `resource-manager.cloud` — облако.
   * `<идентификатор_запроса>` — идентификатор вашего запроса на изменение квоты.
@@ -81,7 +81,7 @@
 
 ## Посмотреть идентификатор квоты {#get-quota-id}
 
-Узнать идентификатор определенной квоты можно в разделе [{#T}](all-quotas.md).
+Узнать идентификатор определенной квоты можно в разделе [Квоты для сервисов Yandex Cloud](all-quotas.md).
 
 ## Посмотреть значение и потребление квоты {#get-quota-info}
 
@@ -123,7 +123,7 @@
     --request GET \
     --header "X-Request-Id: $(uuidgen -t)" \
     --header "Authorization: Bearer ${IAM_TOKEN?}" \
-    'https://{{ api-host-quota-manager }}/quota-manager/v1/quotaLimits/iam.accessKeys.count?resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud'
+    'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits/iam.accessKeys.count?resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud'
   ```
 
   **Пример ответа**
@@ -147,7 +147,7 @@
     -H "X-Request-Id: $(uuidgen -t)" \
     -H "Authorization: Bearer ${IAM_TOKEN?}" \
     -d "{ \"resource\": { \"id\": \"<идентификатор_облака>\", \"type\": \"resource-manager.cloud\" }, \"quota_id\": \"iam.accessKeys.count\"}" \
-    {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaLimitService/Get
+    quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaLimitService/Get
   ```
 
   **Пример ответа**
@@ -179,7 +179,7 @@
     --resource-id <идентификатор_облака>
   ```
 
-  Будут выведены идентификаторы квот, которые есть в сервисе {{ iam-short-name }} в облаке, а также значения и потребление этих квот:
+  Будут выведены идентификаторы квот, которые есть в сервисе IAM в облаке, а также значения и потребление этих квот:
   
   ```text
   resource:
@@ -209,7 +209,7 @@
     --request GET \
     --header "X-Request-Id: $(uuidgen -t)" \
     --header "Authorization: Bearer ${IAM_TOKEN?}" \
-    'https://{{ api-host-quota-manager }}/quota-manager/v1/quotaLimits?service=iam&resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud'
+    'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits?service=iam&resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud'
   ```
 
   **Пример ответа**
@@ -252,7 +252,7 @@
     -H "X-Request-Id: $(uuidgen -t)" \
     -H "Authorization: Bearer ${IAM_TOKEN?}" \
     -d "{ \"resource\": { \"id\": \"<идентификатор_облака>\", \"type\": \"resource-manager.cloud\" }, \"service\": \"iam\"}" \
-    {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaLimitService/List
+    quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaLimitService/List
   ```
 
   **Пример ответа**
@@ -305,8 +305,8 @@
   ```
 
   Будет создан запрос на увеличение квот:
-  * В сервисе {{ compute-name }} — количество групп размещения ВМ (`compute.placementGroups.count`), новое значение — `5`.
-  * В сервисе {{ objstorage-name }} — количество бакетов (`storage.buckets.count`), новое значение — `30`.
+  * В сервисе Compute Cloud — количество групп размещения ВМ (`compute.placementGroups.count`), новое значение — `5`.
+  * В сервисе Object Storage — количество бакетов (`storage.buckets.count`), новое значение — `30`.
 
   **Пример ответа**
 
@@ -340,7 +340,7 @@
     --header "X-Request-Id: $(uuidgen -t)" \
     --header "Authorization: Bearer ${IAM_TOKEN?}" \
     --data '{"resource": {"id": "<идентификатор_облака>", "type": "resource-manager.cloud"}, "desired_quota_limits": [{"quota_id": "iam.accessKeys.count", "desired_limit": "1001"}]}' \
-    'https://{{ api-host-quota-manager }}/quota-manager/v1/quotaRequests'
+    'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests'
   ```
   
   **Пример ответа**
@@ -373,7 +373,7 @@
     -H "X-Request-Id: $(uuidgen -t)" \
     -H "Authorization: Bearer ${IAM_TOKEN?}" \
     -d "{\"resource\": {\"id\": \"<идентификатор_облака>\", \"type\": \"resource-manager.cloud\"}, \"desired_quota_limits\": [{\"quota_id\": \"iam.accessKeys.count\", \"desired_limit\": \"1001\"}]}" \
-    {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Create
+    quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Create
   ```
   
   **Пример ответа**
@@ -443,7 +443,7 @@
     --request GET \
     --header "X-Request-Id: $(uuidgen -t)" \
     --header "Authorization: Bearer ${IAM_TOKEN?}" \
-    'https://{{ api-host-quota-manager }}/quota-manager/v1/quotaRequests?page_size=100&resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud'
+    'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests?page_size=100&resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud'
   ```
 
   **Пример ответа**
@@ -484,7 +484,7 @@
     -H "X-Request-Id: $(uuidgen -t)" \
     -H "Authorization: Bearer ${IAM_TOKEN?}" \
     -d "{\"resource\": {\"id\": \"<идентификатор_облака>\", \"type\": \"resource-manager.cloud\"}}" \
-    {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaRequestService/List
+    quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/List
   ```
 
   **Пример ответа**
@@ -562,7 +562,7 @@
     --request GET \
     --header "X-Request-Id: $(uuidgen -t)" \
     --header "Authorization: Bearer ${IAM_TOKEN?}" \
-    'https://{{ api-host-quota-manager }}/quota-manager/v1/quotaRequests/<идентификатор_запроса>'
+    'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests/<идентификатор_запроса>'
   ```
 
   **Пример ответа (запрос в ожидании)**
@@ -621,7 +621,7 @@
     -H "X-Request-Id: $(uuidgen -t)" \
     -H "Authorization: Bearer ${IAM_TOKEN?}" \
     -d "{\"quota_request_id\": \"<идентификатор_запроса>\"}" \
-    {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Get
+    quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Get
   ```
 
   **Пример ответа (запрос в ожидании)**
@@ -743,7 +743,7 @@
     --request GET \
     --header "X-Request-Id: $(uuidgen -t)" \
     --header "Authorization: Bearer ${IAM_TOKEN?}" \
-    'https://{{ api-host-quota-manager }}/quota-manager/v1/quotaRequests?page_size=1&resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud&filter=status%20in%20(%27CANCELED%27%2C%20%27PENDING%27)&page_size=100'
+    'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests?page_size=1&resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud&filter=status%20in%20(%27CANCELED%27%2C%20%27PENDING%27)&page_size=100'
   ```
   
   Фильтр выбирает запросы, которые были отменены (`CANCELED`) или находятся в ожидании (`PENDING`).
@@ -804,7 +804,7 @@
     -H "X-Request-Id: $(uuidgen -t)" \
     -H "Authorization: Bearer ${IAM_TOKEN?}" \
     -d "{\"resource\": {\"id\": \"<идентификатор_облака>\", \"type\": \"resource-manager.cloud\"}, \"filter\": \"status in ('CANCELED', 'PENDING')\"}" \
-    {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaRequestService/List
+    quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/List
   ```
   
   Фильтр выбирает запросы, которые были отменены (`CANCELED`) или находятся в ожидании (`PENDING`).
@@ -901,7 +901,7 @@
     --header "X-Request-Id: $(uuidgen -t)" \
     --header "Authorization: Bearer ${IAM_TOKEN?}" \
     --data "{\"quota_ids\": [ \"iam.accessKeys.count\" ]}" \
-    'https://{{ api-host-quota-manager }}/quota-manager/v1/quotaRequests/<идентификатор_запроса>/cancel'
+    'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests/<идентификатор_запроса>/cancel'
   ```
 
   **Пример ответа**
@@ -932,7 +932,7 @@
     -H "X-Request-Id: $(uuidgen -t)" \
     -H "Authorization: Bearer ${IAM_TOKEN?}" \
     -d "{ \"quota_request_id\": \"<идентификатор_запроса>\", \"quota_ids\": [ \"iam.accessKeys.count\" ]}" \
-    {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Cancel
+    quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Cancel
   ```
 
   **Пример ответа**
@@ -990,7 +990,7 @@
     --request GET \
     --header "X-Request-Id: $(uuidgen -t)" \
     --header "Authorization: Bearer ${IAM_TOKEN?}" \
-    'https://{{ api-host-quota-manager }}/quota-manager/v1/quotaRequests/<идентификатор_запроса>/operations'
+    'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests/<идентификатор_запроса>/operations'
   ```
 
   **Пример ответа**

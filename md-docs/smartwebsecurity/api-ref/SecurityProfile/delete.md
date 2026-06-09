@@ -5,7 +5,7 @@ Deletes the specified security profile.
 ## HTTP request
 
 ```
-DELETE https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/securityProfiles/{securityProfileId}
+DELETE https://smartwebsecurity.api.cloud.yandex.net/smartwebsecurity/v1/securityProfiles/{securityProfileId}
 ```
 
 ## Path parameters

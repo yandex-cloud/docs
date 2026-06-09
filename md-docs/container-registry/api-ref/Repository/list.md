@@ -5,7 +5,7 @@ Retrieves the list of Repository resources in the specified registry.
 ## HTTP request
 
 ```
-GET https://container-registry.{{ api-host }}/container-registry/v1/repositories
+GET https://container-registry.api.cloud.yandex.net/container-registry/v1/repositories
 ```
 
 ## Query parameters {#yandex.cloud.containerregistry.v1.ListRepositoriesRequest}

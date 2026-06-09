@@ -5,7 +5,7 @@ Creates a registry in the specified folder.
 ## HTTP request
 
 ```
-POST https://registry.{{ api-host }}/cloud-registry/v1/registries
+POST https://registry.api.cloud.yandex.net/cloud-registry/v1/registries
 ```
 
 ## Body parameters {#yandex.cloud.cloudregistry.v1.CreateRegistryRequest}

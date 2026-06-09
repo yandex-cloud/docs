@@ -1,7 +1,7 @@
-# Метрики {{ ydb-full-name }}
+# Метрики Yandex Managed Service for YDB
 
 
-В этом разделе описаны метрики сервиса [{{ ydb-name }}](../../ydb/index.md), поставляемые в {{ monitoring-name }}.
+В этом разделе описаны метрики сервиса [Managed Service for YDB](../../ydb/index.md), поставляемые в Monium Metrics.
 
 Имя метрики пишется в метку `name`.
 
@@ -16,7 +16,7 @@
 --- | ---
 `resources.storage.limit_bytes`<br>`IGAUGE`, байты | Ограничение на размер пользовательских и служебных данных, которые база данных может сохранить в распределенном сетевом хранилище.
 `resources.storage.topic.used_bytes`<br>`DGAUGE`, байты | Используемый объем хранилища топиков.
-`resources.storage.used_bytes`<br>`IGAUGE`, байты | Размер пользовательских и служебных данных, сохраненных в распределенном сетевом хранилище. К служебным данным относятся данные первичного и [вторичных индексов]({{ ydb.docs }}/concepts/secondary_indexes).
+`resources.storage.used_bytes`<br>`IGAUGE`, байты | Размер пользовательских и служебных данных, сохраненных в распределенном сетевом хранилище. К служебным данным относятся данные первичного и [вторичных индексов](https://ydb.tech/docs/ru//concepts/secondary_indexes).
 `resources.stream.limit_shards`<br>`DGAUGE`, штуки | Ограничение на количество шардов в потоке.
 `resources.stream.storage.limit_bytes`<br>`DGAUGE`, байты | Ограничение на размер хранилища потока.
 `resources.stream.storage.reserved_bytes`<br>`DGAUGE`, байты | Зарезервированный размер хранилища потока.
@@ -33,9 +33,9 @@
 `api.grpc.request.inflight_bytes`<br>`IGAUGE`, байты | Размер запросов, которые одновременно обрабатываются базой данных в определенный период времени.<br>Метки:<ul><li>`api_service` – название сервиса gRPC API, например `table`.</li><li>`method` – название метода сервиса gRPC API, например `ExecuteDataQuery`.</li></ul>
 `api.grpc.request.inflight_count`<br>`IGAUGE`, штуки | Количество запросов, которые одновременно обрабатываются базой данных в определенный период времени.<br>Метки:<ul><li>`api_service` – название сервиса gRPC API, например `table`.</li><li>`method` – название метода сервиса gRPC API, например `ExecuteDataQuery`.</li></ul>
 `api.grpc.response.bytes`<br>`RATE`, байты | Размер ответов, которые отправлены базой данный в определенный период времени.<br>Метки:<ul><li>`api_service` – название сервиса gRPC API, например `table`.</li><li>`method` – название метода сервиса gRPC API, например `ExecuteDataQuery`.</li></ul>
-`api.grpc.response.count`<br>`RATE`, штуки | Количество ответов, которые отправлены базой в определенный период времени.<br>Метки:<ul><li>`api_service` – название сервиса gRPC API, например `table`.</li><li>`method` – название метода сервиса gRPC API, например `ExecuteDataQuery`.</li><li>`status` – статус выполнения запроса, подробнее статусы описаны в разделе [Обработка ошибок]({{ ydb.docs }}/docs/reference/ydb-sdk/error_handling).</li></ul>
+`api.grpc.response.count`<br>`RATE`, штуки | Количество ответов, которые отправлены базой в определенный период времени.<br>Метки:<ul><li>`api_service` – название сервиса gRPC API, например `table`.</li><li>`method` – название метода сервиса gRPC API, например `ExecuteDataQuery`.</li><li>`status` – статус выполнения запроса, подробнее статусы описаны в разделе [Обработка ошибок](https://ydb.tech/docs/ru//docs/reference/ydb-sdk/error_handling).</li></ul>
 `api.grpc.response.dropped_count`<br>`RATE`, штуки | Количество ответов, отправка которых была прекращена на транспортном (gRPC) уровне из-за ошибки.<br>Метки:<ul><li>`api_service` – название сервиса gRPC API, например `table`.</li><li>`method` – название метода сервиса gRPC API, например `ExecuteDataQuery`.</li></ul>
-`api.grpc.response.issues`<br>`RATE`, штуки | Количество ошибок определенного типа, возникших при выполнении запросов в определенный период времени.<br>Метки:<ul><li>`issue_type` – тип ошибки, единственное значение – `optimistic_locks_invalidation`, подробнее инвалидация блокировок описана в разделе [Транзакции и запросы к {{ ydb-short-name }}]({{ ydb.docs }}/docs/concepts/secondary_indexes).</li></ul>
+`api.grpc.response.issues`<br>`RATE`, штуки | Количество ошибок определенного типа, возникших при выполнении запросов в определенный период времени.<br>Метки:<ul><li>`issue_type` – тип ошибки, единственное значение – `optimistic_locks_invalidation`, подробнее инвалидация блокировок описана в разделе [Транзакции и запросы к YDB](https://ydb.tech/docs/ru//docs/concepts/secondary_indexes).</li></ul>
 `api.request.completed_per_second`<br>`DGAUGE`, запросы/с | Скорость завершения запросов API.
 `api.request.latency_milliseconds`<br>`IGAUGE`, миллисекунды | Задержка, с которой API обрабатывает запросы.
 `api.request.latency_milliseconds_count`<br>`COUNTER`, количество запросов | Общее количество запросов API, для которых измерялась задержка.
@@ -119,6 +119,6 @@
 
 Имя метрики<br>Тип<br>единицы измерения | Описание<br>Метки
 --- | ---
-`table.query.compilation.cache_evictions`<br>`RATE`, штуки | Количество запросов, вытесненных из кеша [подготовленных запросов]({{ ydb.docs }}/docs/reference/ydb-sdk/example/#param-queries) в определенный период времени.
+`table.query.compilation.cache_evictions`<br>`RATE`, штуки | Количество запросов, вытесненных из кеша [подготовленных запросов](https://ydb.tech/docs/ru//docs/reference/ydb-sdk/example/#param-queries) в определенный период времени.
 `table.query.compilation.cache_size_bytes`<br>`IGAUGE`, байты | Размер кеша подготовленных запросов.
 `table.query.compilation.cached_query_count`<br>`IGAUGE`, штуки | Размер кеша подготовленных запросов.

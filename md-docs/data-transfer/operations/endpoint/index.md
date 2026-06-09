@@ -1,6 +1,6 @@
 # Управление эндпоинтами
 
-[Эндпоинт](../../concepts/index.md#endpoint)-источник описывает настройки базы данных, из которой будет передаваться информация с помощью {{ data-transfer-name }}, а эндпоинт-приемник — БД, в которую будет производиться перенос. Вы можете [создать](#create), [изменить](#update), [клонировать](#clone) или [удалить](#delete) такие эндпоинты.
+[Эндпоинт](../../concepts/index.md#endpoint)-источник описывает настройки базы данных, из которой будет передаваться информация с помощью Data Transfer, а эндпоинт-приемник — БД, в которую будет производиться перенос. Вы можете [создать](#create), [изменить](#update), [клонировать](#clone) или [удалить](#delete) такие эндпоинты.
 
 ## Получить список эндпоинтов {#list}
 
@@ -8,20 +8,20 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Data Transfer**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **Эндпоинты**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить список [трансферов](../../concepts/index.md#transfer) в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), выполните команду:
 
   ```bash
-  {{ yc-dt }} endpoint list
+  yc datatransfer endpoint list
   ```
 
 
@@ -38,21 +38,21 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
-    1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+    1. Перейдите в сервис **Data Transfer**.
+    1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **Эндпоинты**.
     1. Нажмите на имя нужного эндпоинта.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы получить информацию об эндпоинте, выполните команду:
 
     ```bash
-    {{ yc-dt }} endpoint get <идентификатор_эндпоинта>
+    yc datatransfer endpoint get <идентификатор_эндпоинта>
     ```
 
     Идентификатор эндпоинта можно получить со [списком эндпоинтов в каталоге](#list).
@@ -81,75 +81,75 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
-  1. В поле **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** выберите **{{ ui-key.yacloud.data-transfer.forms.label_source-type }}** или **{{ ui-key.yacloud.data-transfer.forms.label_target-type }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Data Transfer**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **Эндпоинты**.
+  1. Нажмите кнопку **Создать эндпоинт**.
+  1. В поле **Направление** выберите **Источник** или **Приёмник**.
   1. Укажите имя эндпоинта. Используйте строчные латинские буквы и цифры.
   1. (Опционально) Укажите описание эндпоинта.
-  1. Выберите нужное значение в поле **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**. Будет создан эндпоинт соответствующего типа.
+  1. Выберите нужное значение в поле **Тип базы данных**. Будет создан эндпоинт соответствующего типа.
   1. Задайте параметры эндпоинта:
 
      * Источники:
       
-         * {{ AB }}:
+         * Airbyte®:
              * [AWS CloudTrail](source/aws-cloudtrail.md)
              * [BigQuery](source/bigquery.md)
              * [MS SQL Server](source/mssql.md)
              * [S3](source/s3.md)
-         * [{{ KF }}](source/kafka.md)
-         * [{{ CH }}](source/clickhouse.md)
-         * [{{ GP }}](source/greenplum.md)
-         * [{{ metrika }}](source/metrika.md)
-         * [{{ MG }}](source/mongodb.md)
-         * [{{ MY }}](source/mysql.md)
-         * [{{ objstorage-name }}](source/object-storage.md)
+         * [Apache Kafka®](source/kafka.md)
+         * [ClickHouse®](source/clickhouse.md)
+         * [Greenplum®](source/greenplum.md)
+         * [Яндекс Метрика](source/metrika.md)
+         * [MongoDB](source/mongodb.md)
+         * [MySQL®](source/mysql.md)
+         * [Object Storage](source/object-storage.md)
          * [Oracle](source/oracle.md)
-         * [{{ PG }}](source/postgresql.md)
-         * [{{ yds-full-name }}](source/data-streams.md)
-         * [{{ ydb-full-name }}](source/ydb.md)
-         * [{{ ytsaurus-name }}](target/yt.md)
+         * [PostgreSQL](source/postgresql.md)
+         * [Yandex Data Streams](source/data-streams.md)
+         * [Yandex Managed Service for YDB](source/ydb.md)
+         * [YTsaurus](target/yt.md)
      * Приемники:
-         * [{{ IBRG }}](target/iceberg.md)
-         * [{{ KF }}](target/kafka.md)
-         * [{{ CH }}](target/clickhouse.md)
-         * [{{ GP }}](target/greenplum.md)
-         * [{{ MG }}](target/mongodb.md)
-         * [{{ MY }}](target/mysql.md)
-         * [{{ objstorage-name }}](target/object-storage.md)
-         * [{{ OS }}](target/opensearch.md)
-         * [{{ PG }}](target/postgresql.md)
-         * [{{ yds-full-name }}](target/data-streams.md)
-         * [{{ ydb-full-name }}](target/yandex-database.md)
-         * {{ ytsaurus-name }}:
+         * [Apache Iceberg™](target/iceberg.md)
+         * [Apache Kafka®](target/kafka.md)
+         * [ClickHouse®](target/clickhouse.md)
+         * [Greenplum®](target/greenplum.md)
+         * [MongoDB](target/mongodb.md)
+         * [MySQL®](target/mysql.md)
+         * [Object Storage](target/object-storage.md)
+         * [OpenSearch](target/opensearch.md)
+         * [PostgreSQL](target/postgresql.md)
+         * [Yandex Data Streams](target/data-streams.md)
+         * [Yandex Managed Service for YDB](target/yandex-database.md)
+         * YTsaurus:
              * [YTSaurus Dynamic](target/yt.md)
              * [YTSaurus Static](target/yt.md)
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
+  1. Нажмите кнопку **Создать эндпоинт**.
 
 - CLI {#cli}
 
   {% note info %}
 
-  Создание эндпоинта с помощью команд [CLI](../../../cli/index.md) поддерживается только для источников и приемников типа {{ CH }}, {{ MG }}, {{ MY }} и {{ PG }}.
+  Создание эндпоинта с помощью команд [CLI](../../../cli/index.md) поддерживается только для источников и приемников типа ClickHouse®, MongoDB, MySQL® и PostgreSQL.
 
   {% endnote %}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Посмотрите описание команды CLI для создания эндпоинта:
 
      ```bash
-     {{ yc-dt }} endpoint create --help
+     yc datatransfer endpoint create --help
      ```
 
   1. Укажите параметры эндпоинта в команде создания (в примере приведены не все параметры):
 
      ```bash
-     {{ yc-dt }} endpoint create <тип_эндпоинта> \
+     yc datatransfer endpoint create <тип_эндпоинта> \
        --name <имя_эндпоинта> \
        --description <описание_эндпоинта> \
        <параметры_эндпоинта>
@@ -157,27 +157,27 @@
 
      Тип эндпоинта и его параметры читайте в разделе настроек для нужного источника или приемника данных.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   
   {% note info %}
 
-  Создание эндпоинта с помощью {{ TF }} поддерживается только для источников и приемников типа {{ CH }}, {{ MG }}, {{ MY }} и {{ PG }}.
+  Создание эндпоинта с помощью Terraform поддерживается только для источников и приемников типа ClickHouse®, MongoDB, MySQL® и PostgreSQL.
 
   {% endnote %}
 
 
   
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
 
   1. Создайте конфигурационный файл с описанием эндпоинта.
@@ -185,7 +185,7 @@
      Пример структуры конфигурационного файла:
 
      ```hcl
-     resource "ycp_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
+     resource "ycp_datatransfer_endpoint" "<имя_эндпоинта_в_Terraform>" {
        name = "<имя_эндпоинта>"
        settings {
          <тип_эндпоинта> {
@@ -199,14 +199,14 @@
   1. Тип эндпоинта и его параметры читайте в разделе настроек для нужного источника или приемника данных.
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -229,14 +229,14 @@
         1. Дождитесь завершения операции.
 
   
-  1. Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+  1. Подробнее в [документации провайдера Terraform](../../../terraform/resources/datatransfer_endpoint.md).
 
 
 - API {#api}
 
   {% note info %}
 
-  Создание эндпоинта с помощью [API](../../../glossary/rest-api.md) поддерживается только для источников и приемников типа {{ CH }}, {{ KF }}, {{ MG }}, {{ MY }} и {{ PG }}.
+  Создание эндпоинта с помощью [API](../../../glossary/rest-api.md) поддерживается только для источников и приемников типа ClickHouse®, Apache Kafka®, MongoDB, MySQL® и PostgreSQL.
 
   {% endnote %}
 
@@ -270,58 +270,58 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
-  1. Выберите эндпоинт и нажмите кнопку ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** на панели сверху.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Data Transfer**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **Эндпоинты**.
+  1. Выберите эндпоинт и нажмите кнопку ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
   1. Отредактируйте параметры эндпоинта:
 
      * Источники:
       
-         * {{ AB }}:
+         * Airbyte®:
              * [AWS CloudTrail](source/aws-cloudtrail.md)
              * [BigQuery](source/bigquery.md)
              * [MS SQL Server](source/mssql.md)
              * [S3](source/s3.md)
-         * [{{ KF }}](source/kafka.md)
-         * [{{ CH }}](source/clickhouse.md)
-         * [{{ GP }}](source/greenplum.md)
-         * [{{ metrika }}](source/metrika.md)
-         * [{{ MG }}](source/mongodb.md)
-         * [{{ MY }}](source/mysql.md)
-         * [{{ objstorage-name }}](source/object-storage.md)
+         * [Apache Kafka®](source/kafka.md)
+         * [ClickHouse®](source/clickhouse.md)
+         * [Greenplum®](source/greenplum.md)
+         * [Яндекс Метрика](source/metrika.md)
+         * [MongoDB](source/mongodb.md)
+         * [MySQL®](source/mysql.md)
+         * [Object Storage](source/object-storage.md)
          * [Oracle](source/oracle.md)
-         * [{{ PG }}](source/postgresql.md)
-         * [{{ yds-full-name }}](source/data-streams.md)
-         * [{{ ydb-full-name }}](source/ydb.md)
-         * [{{ ytsaurus-name }}](target/yt.md)
+         * [PostgreSQL](source/postgresql.md)
+         * [Yandex Data Streams](source/data-streams.md)
+         * [Yandex Managed Service for YDB](source/ydb.md)
+         * [YTsaurus](target/yt.md)
      * Приемники:
-         * [{{ IBRG }}](target/iceberg.md)
-         * [{{ KF }}](target/kafka.md)
-         * [{{ CH }}](target/clickhouse.md)
-         * [{{ GP }}](target/greenplum.md)
-         * [{{ MG }}](target/mongodb.md)
-         * [{{ MY }}](target/mysql.md)
-         * [{{ objstorage-name }}](target/object-storage.md)
-         * [{{ OS }}](target/opensearch.md)
-         * [{{ PG }}](target/postgresql.md)
-         * [{{ yds-full-name }}](target/data-streams.md)
-         * [{{ ydb-full-name }}](target/yandex-database.md)
-         * {{ ytsaurus-name }}:
+         * [Apache Iceberg™](target/iceberg.md)
+         * [Apache Kafka®](target/kafka.md)
+         * [ClickHouse®](target/clickhouse.md)
+         * [Greenplum®](target/greenplum.md)
+         * [MongoDB](target/mongodb.md)
+         * [MySQL®](target/mysql.md)
+         * [Object Storage](target/object-storage.md)
+         * [OpenSearch](target/opensearch.md)
+         * [PostgreSQL](target/postgresql.md)
+         * [Yandex Data Streams](target/data-streams.md)
+         * [Yandex Managed Service for YDB](target/yandex-database.md)
+         * YTsaurus:
              * [YTSaurus Dynamic](target/yt.md)
              * [YTSaurus Static](target/yt.md)
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
+  1. Нажмите кнопку **Применить**.
 
 - CLI {#cli}
 
   {% note info %}
 
-  Изменение эндпоинта с помощью команд CLI поддерживается только для источников и приемников типа {{ CH }}, {{ MG }}, {{ MY }} и {{ PG }}.
+  Изменение эндпоинта с помощью команд CLI поддерживается только для источников и приемников типа ClickHouse®, MongoDB, MySQL® и PostgreSQL.
 
   {% endnote %}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -329,13 +329,13 @@
   1. Посмотрите описание команды CLI для изменения трансфера:
 
      ```bash
-     {{ yc-dt }} endpoint update --help
+     yc datatransfer endpoint update --help
      ```
 
   1. Выполните команду, передав список настроек, которые хотите изменить (в примере приведены не все параметры):
 
      ```bash
-     {{ yc-dt }} transfer update <тип_эндпоинта> <идентификатор_эндпоинта> \
+     yc datatransfer transfer update <тип_эндпоинта> <идентификатор_эндпоинта> \
        --name <имя_эндпоинта> \
        --description <описание_эндпоинта> \
        <параметры_эндпоинта>
@@ -343,22 +343,22 @@
 
      Тип эндпоинта и его параметры читайте в разделе настроек для нужного источника или приемника данных. Идентификатор эндпоинта можно получить со [списком эндпоинтов в каталоге](#list).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с описанием эндпоинта.
+  1. Откройте актуальный конфигурационный файл Terraform с описанием эндпоинта.
 
      О том, как создать такой файл, читайте в подразделе [Создать эндпоинт](#create).
   1. Измените значение поля `name` (имя эндпоинта) и параметры эндпоинта в блоке `settings`.
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -380,13 +380,13 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+    Подробнее в [документации провайдера Terraform](../../../terraform/resources/datatransfer_endpoint.md).
 
 - API {#api}
 
   {% note info %}
 
-  Изменение эндпоинта с помощью API поддерживается только для источников и приемников типа {{ CH }}, {{ KF }}, {{ MG }}, {{ MY }} и {{ PG }}.
+  Изменение эндпоинта с помощью API поддерживается только для источников и приемников типа ClickHouse®, Apache Kafka®, MongoDB, MySQL® и PostgreSQL.
 
   {% endnote %}
 
@@ -400,7 +400,7 @@
 
 {% endlist %}
 
-Изменение настроек эндпоинта для трансфера с типом {{ dt-type-repl }} в статусе {{ dt-status-repl }} приведет к перезапуску трансфера.
+Изменение настроек эндпоинта для трансфера с типом **Репликация** в статусе **Реплицируется** приведет к перезапуску трансфера.
 
 ## Клонировать эндпоинт {#clone}
 
@@ -414,49 +414,49 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Data Transfer**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **Эндпоинты**.
   1. Выберите эндпоинт, который нужно клонировать.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.clone }}** на панели сверху.
+  1. Нажмите кнопку **Клонировать** на панели сверху.
   1. Задайте имя нового эндпоинта и при необходимости отредактируйте остальные параметры:
 
      * Источники:
       
-         * {{ AB }}:
+         * Airbyte®:
              * [AWS CloudTrail](source/aws-cloudtrail.md)
              * [BigQuery](source/bigquery.md)
              * [MS SQL Server](source/mssql.md)
              * [S3](source/s3.md)
-         * [{{ KF }}](source/kafka.md)
-         * [{{ CH }}](source/clickhouse.md)
-         * [{{ GP }}](source/greenplum.md)
-         * [{{ metrika }}](source/metrika.md)
-         * [{{ MG }}](source/mongodb.md)
-         * [{{ MY }}](source/mysql.md)
-         * [{{ objstorage-name }}](source/object-storage.md)
+         * [Apache Kafka®](source/kafka.md)
+         * [ClickHouse®](source/clickhouse.md)
+         * [Greenplum®](source/greenplum.md)
+         * [Яндекс Метрика](source/metrika.md)
+         * [MongoDB](source/mongodb.md)
+         * [MySQL®](source/mysql.md)
+         * [Object Storage](source/object-storage.md)
          * [Oracle](source/oracle.md)
-         * [{{ PG }}](source/postgresql.md)
-         * [{{ yds-full-name }}](source/data-streams.md)
-         * [{{ ydb-full-name }}](source/ydb.md)
-         * [{{ ytsaurus-name }}](target/yt.md)
+         * [PostgreSQL](source/postgresql.md)
+         * [Yandex Data Streams](source/data-streams.md)
+         * [Yandex Managed Service for YDB](source/ydb.md)
+         * [YTsaurus](target/yt.md)
      * Приемники:
-         * [{{ IBRG }}](target/iceberg.md)
-         * [{{ KF }}](target/kafka.md)
-         * [{{ CH }}](target/clickhouse.md)
-         * [{{ GP }}](target/greenplum.md)
-         * [{{ MG }}](target/mongodb.md)
-         * [{{ MY }}](target/mysql.md)
-         * [{{ objstorage-name }}](target/object-storage.md)
-         * [{{ OS }}](target/opensearch.md)
-         * [{{ PG }}](target/postgresql.md)
-         * [{{ yds-full-name }}](target/data-streams.md)
-         * [{{ ydb-full-name }}](target/yandex-database.md)
-         * {{ ytsaurus-name }}:
+         * [Apache Iceberg™](target/iceberg.md)
+         * [Apache Kafka®](target/kafka.md)
+         * [ClickHouse®](target/clickhouse.md)
+         * [Greenplum®](target/greenplum.md)
+         * [MongoDB](target/mongodb.md)
+         * [MySQL®](target/mysql.md)
+         * [Object Storage](target/object-storage.md)
+         * [OpenSearch](target/opensearch.md)
+         * [PostgreSQL](target/postgresql.md)
+         * [Yandex Data Streams](target/data-streams.md)
+         * [Yandex Managed Service for YDB](target/yandex-database.md)
+         * YTsaurus:
              * [YTSaurus Dynamic](target/yt.md)
              * [YTSaurus Static](target/yt.md)
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
+  1. Нажмите кнопку **Создать эндпоинт**.
 
 {% endlist %}
 
@@ -474,45 +474,45 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Data Transfer**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **Эндпоинты**.
   1. Выберите эндпоинт, который нужно удалить.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.delete }}** на панели сверху.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+  1. Нажмите кнопку **Удалить** на панели сверху.
+  1. В открывшемся окне нажмите кнопку **Удалить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы удалить эндпоинт, выполните команду:
 
   ```bash
-  {{ yc-dt }} endpoint delete <идентификатор_эндпоинта>
+  yc datatransfer endpoint delete <идентификатор_эндпоинта>
   ```
 
   Идентификатор эндпоинта можно получить со [списком эндпоинтов в каталоге](#list).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  Чтобы удалить эндпоинт, созданный с помощью {{ TF }}:
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  Чтобы удалить эндпоинт, созданный с помощью Terraform:
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
   
-     О том, как создать такой файл, читайте в разделе [{#T}](index.md#create).
+     О том, как создать такой файл, читайте в разделе [Создать эндпоинт](index.md#create).
   1. Убедитесь, что удаляемый эндпоинт не привязан ни к какому трансферу.
   1. Удалите описание эндпоинта.
   1. Проверьте корректность настроек.
   
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
   
   1. Введите слово `yes` и нажмите **Enter**.
   
@@ -534,7 +534,7 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
   
-  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+  Подробнее в [документации провайдера Terraform](../../../terraform/resources/datatransfer_endpoint.md).
 
 - API {#api}
 
@@ -546,4 +546,4 @@
 
 _Greenplum® и Greenplum Database® являются зарегистрированными товарными знаками или товарными знаками Broadcom Inc в США и/или других странах._
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

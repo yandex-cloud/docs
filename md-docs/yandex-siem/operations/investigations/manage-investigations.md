@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
@@ -10,7 +10,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Раздел {{ yandex-siem-full-name }} появится в интерфейсе {{ cloud-center }} как модуль {{ sd-name }} после одобрения заявки на доступ.
+Раздел Yandex SIEM появится в интерфейсе Cloud Center как модуль Security Deck после одобрения заявки на доступ.
 
 Для работы с сервисом вам потребуется [роль](../../../iam/roles-reference.md#ycdr-admin) `ycem.editor`.
 
@@ -20,14 +20,14 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Перейдите в сервис [{{ sd-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите **{{ yandex-siem-full-name }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_org.security.ycdr.YcdrPageLayout.investigations_wYxSe }}**.
-  1. Нажмите **{{ ui-key.yacloud_org.security.siem.InvestigationsPage.create-investigation_iCPUP }}**.
+  1. Перейдите в сервис [Security Deck](https://center.yandex.cloud/security/).
+  1. На панели слева выберите **Yandex SIEM**.
+  1. Перейдите на вкладку **Расследования**.
+  1. Нажмите **Новое расследование**.
   1. Введите название расследования в поле заголовка.
-  1. В поле **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.fieldDescription_wiAxw }}** добавьте описание расследования.
+  1. В поле **Описание** добавьте описание расследования.
 
   {% note tip %}
 
@@ -45,7 +45,7 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
   1. Откройте расследование.
   1. Нажмите на название расследования в верхней части страницы.
@@ -60,10 +60,10 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
   1. Откройте расследование.
-  1. В блоке **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.information_cZr8L }}** нажмите на поле **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.fieldDescription_wiAxw }}**.
+  1. В блоке **Информация** нажмите на поле **Описание**.
   1. Введите новое описание.
   1. Нажмите клавишу **Enter** или кликните вне поля ввода.
 
@@ -76,7 +76,7 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
   1. Откройте расследование.
   1. В меню действий выберите **Создать копию**.
@@ -92,10 +92,10 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
   1. Откройте расследование.
-  1. В меню действий выберите **{{ ui-key.yacloud_org.security.siem.action_delete_wM5k5 }}**.
+  1. В меню действий выберите **Удалить**.
   1. Подтвердите удаление.
 
   {% note warning %}
@@ -108,7 +108,7 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../../concepts/investigations.md).
-* [{#T}](../../concepts/queries.md).
-* [{#T}](investigations-list.md).
-* [{#T}](../queries/index.md).
+* [Расследования](../../concepts/investigations.md).
+* [Запросы](../../concepts/queries.md).
+* [Работа со списком расследований](investigations-list.md).
+* [Работа с запросами](../queries/index.md).

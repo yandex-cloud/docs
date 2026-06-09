@@ -5,7 +5,7 @@ Creates desktop in the specified folder.
 ## HTTP request
 
 ```
-POST https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops
+POST https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/desktops
 ```
 
 ## Body parameters {#yandex.cloud.clouddesktop.v1.api.CreateDesktopRequest}

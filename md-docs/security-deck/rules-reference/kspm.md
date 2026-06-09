@@ -1,4 +1,4 @@
-## {{ kspm-name }} {{ kspm-full-name }}
+## KSPM Kubernetes® Security Posture Management
 
 Правила для проверки конфигурации кластеров Kubernetes.
 

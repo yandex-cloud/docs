@@ -6,7 +6,7 @@ To get the list of available Organization resources, make a [List](list.md#List)
 ## HTTP request
 
 ```
-GET https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{organizationId}
+GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations/{organizationId}
 ```
 
 ## Path parameters

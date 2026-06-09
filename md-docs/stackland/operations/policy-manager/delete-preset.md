@@ -1,6 +1,6 @@
 # Удалить пресеты политик
 
-Администраторы {{ stackland-name }} могут удалять пресеты Policy Manager.
+Администраторы Stackland могут удалять пресеты Policy Manager.
 
 Если вы добавляли пресеты политик с помощью `ClusterPolicySet`, то удалите их с помощью команды `kubectl delete ClusterPolicySet <название ресурса>`.
 

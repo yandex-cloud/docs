@@ -1,4 +1,4 @@
-# Изменение настроек кластера {{ VLK }}
+# Изменение настроек кластера Valkey™
 
 После создания кластера вы можете:
 
@@ -16,7 +16,7 @@
 
 * [Настроить автоматическое увеличение размера хранилища](#disk-size-aut0scale).
 
-* [Настроить серверы](#change-valkey-config) {{ VLK }} согласно [документации {{ VLK }}](https://valkey.io/docs). Список поддерживаемых настроек приведен в разделе [{#T}](../concepts/settings-list.md) и [в справочнике API](../api-ref/Cluster/update.md).
+* [Настроить серверы](#change-valkey-config) Valkey™ согласно [документации Valkey™](https://valkey.io/docs). Список поддерживаемых настроек приведен в разделе [Настройки Valkey™](../concepts/settings-list.md) и [в справочнике API](../api-ref/Cluster/update.md).
 
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
 
@@ -30,13 +30,13 @@
 
 Подробнее о других изменениях кластера:
 
-* [{#T}](cluster-version-update.md).
+* [Обновление версии Valkey™](cluster-version-update.md).
 
 * [Миграция хостов в другую зону доступности](host-migration.md).
 
-* [Изменение настроек пользователя {{ VLK }}](user-update.md).
+* [Изменение настроек пользователя Valkey™](user-update.md).
 
-* [Подключение и изменение параметров модулей {{ VLK }}](modules.md).
+* [Подключение и изменение параметров модулей Valkey™](modules.md).
 
 ## Изменить имя и описание кластера {#change-name-and-description}
 
@@ -44,16 +44,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
+  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
   1. Выберите нужный кластер.
-  1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** задайте новые имя и описание кластера.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. В верхней части страницы нажмите кнопку **Редактировать**.
+  1. В блоке **Базовые параметры** задайте новые имя и описание кластера.
+  1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -62,26 +62,26 @@
   1. Посмотрите описание команды CLI для изменения кластера:
 
      ```bash
-     {{ yc-mdb-rd }} cluster update --help
+     yc managed-redis cluster update --help
      ```
 
   1. Укажите новые имя и описание в команде изменения кластера:
 
      ```bash
-     {{ yc-mdb-rd }} cluster update <имя_или_идентификатор_кластера> \
+     yc managed-redis cluster update <имя_или_идентификатор_кластера> \
        --new-name <новое_имя_кластера> \
        --description <новое_описание_кластера>
      ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Чтобы изменить описание кластера:
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Измените в описании кластера {{ mrd-name }} значение параметра `description`:
+    1. Измените в описании кластера Yandex Managed Service for Valkey™ значение параметра `description`:
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
@@ -92,14 +92,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -121,11 +121,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_redis_cluster_v2.md).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
+    Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
     * изменение — 60 минут;
@@ -160,7 +160,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -173,7 +173,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "name,description",
                       "name": "<новое_имя_кластера>",
@@ -203,7 +203,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -241,7 +241,7 @@
                   "name": "<новое_имя_кластера>",
                   "description": "<новое_описание_кластера>" 
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.redis.v1.ClusterService.Update
         ```
 
@@ -255,7 +255,7 @@
 
 ## Настроить использование FQDN вместо IP-адресов {#configure-fqdn-ip-behavior}
 
-Если соответствующая настройка отключена (по умолчанию), то {{ VLK }} использует IP-адреса в качестве адресов хостов. Если эта настройка включена, то IP-адрес хоста будет подменяться на его FQDN. Подробнее об этой настройке и сферах ее применения см. в разделе [{#T}](../concepts/network.md#fqdn-ip-setting).
+Если соответствующая настройка отключена (по умолчанию), то Valkey™ использует IP-адреса в качестве адресов хостов. Если эта настройка включена, то IP-адрес хоста будет подменяться на его FQDN. Подробнее об этой настройке и сферах ее применения см. в разделе [Использование FQDN вместо IP-адресов](../concepts/network.md#fqdn-ip-setting).
 
 {% note info %}
 
@@ -269,16 +269,16 @@
 
     Чтобы включить или выключить использование FQDN вместо IP-адресов:
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
+    1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
     1. Выберите нужный кластер.
-    1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** включите или выключите опцию **{{ ui-key.yacloud.redis.field_announce-hostnames }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+    1. В верхней части страницы нажмите кнопку **Редактировать**.
+    1. В блоке **Базовые параметры** включите или выключите опцию **Использовать FQDN вместо IP-адресов**.
+    1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -287,13 +287,13 @@
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
-        {{ yc-mdb-rd }} cluster update --help
+        yc managed-redis cluster update --help
         ```
 
     1. Укажите нужное значение настройки в команде изменения кластера:
 
         ```bash
-        {{ yc-mdb-rd }} cluster update <имя_или_идентификатор_кластера> \
+        yc managed-redis cluster update <имя_или_идентификатор_кластера> \
           --announce-hostnames <использование_FQDN_вместо_IP-адресов>
         ```
 
@@ -301,15 +301,15 @@
 
         Имя и идентификатор кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Чтобы включить или выключить использование FQDN вместо IP-адресов:
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Измените в описании кластера {{ mrd-name }} значение параметра `announce_hostnames`:
+    1. Измените в описании кластера Yandex Managed Service for Valkey™ значение параметра `announce_hostnames`:
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
@@ -322,14 +322,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -351,11 +351,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_redis_cluster_v2.md).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
+    Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
     * изменение — 60 минут;
@@ -390,7 +390,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -403,7 +403,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "announceHostnames",
                       "announceHostnames": <использование_FQDN_вместо_IP-адресов>
@@ -438,7 +438,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -475,7 +475,7 @@
                   },
                   "announce_hostnames": <использование_FQDN_вместо_IP-адресов>
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.redis.v1.ClusterService.Update
         ```
 
@@ -503,16 +503,16 @@
 
     Чтобы изменить режим персистентности:
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
+    1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
     1. Выберите нужный кластер.
-    1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** выберите режим персистентности.
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+    1. В верхней части страницы нажмите кнопку **Редактировать**.
+    1. В блоке **Базовые параметры** выберите режим персистентности.
+    1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -521,13 +521,13 @@
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
-        {{ yc-mdb-rd }} cluster update --help
+        yc managed-redis cluster update --help
         ```
 
     1.  Укажите нужное значение настройки в команде изменения кластера:
 
         ```bash
-        {{ yc-mdb-rd }} cluster update <имя_или_идентификатор_кластера> \
+        yc managed-redis cluster update <имя_или_идентификатор_кластера> \
           --persistence-mode <режим_персистентности>
         ```
 
@@ -539,15 +539,15 @@
 
         Имя и идентификатор кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Чтобы изменить режим персистентности:
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Измените в описании кластера {{ mrd-name }} значение параметра `persistence_mode`:
+    1. Измените в описании кластера Yandex Managed Service for Valkey™ значение параметра `persistence_mode`:
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
@@ -564,14 +564,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -593,11 +593,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_redis_cluster_v2.md).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
+    Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
     * изменение — 60 минут;
@@ -632,7 +632,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -645,7 +645,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "persistenceMode",
                       "persistenceMode": "<режим_персистентности>"
@@ -686,7 +686,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -723,7 +723,7 @@
                   },
                   "persistence_mode": "<режим_персистентности>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.redis.v1.ClusterService.Update
         ```
 
@@ -768,23 +768,23 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
+  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
   1. Выберите нужный кластер.
-  1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
+  1. В верхней части страницы нажмите кнопку **Редактировать**.
+  1. В блоке **Класс хоста**:
      
-	 * В поле **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** выберите платформу.
-     * Выберите **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** виртуальной машины, на которой разворачиваются хосты:
+	 * В поле **Платформа** выберите платформу.
+     * Выберите **Тип** виртуальной машины, на которой разворачиваются хосты:
         * `high-memory` — с увеличенным объемом RAM на 1 vCPU;
         * `burstable` — с неполной гарантированной долей vCPU. ВМ с гарантированной долей меньше 100% обеспечивают указанный уровень производительности с вероятностью временного повышения вплоть до 100%. Кластеры с такими хостами подходят для задач, которые не требуют постоянной гарантии производительности (например, тестирование).
      * Измените конфигурацию хостов.
 	 
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -793,14 +793,14 @@
   1. Посмотрите описание команды CLI для изменения кластера:
 
      ```bash
-     {{ yc-mdb-rd }} cluster update --help
+     yc managed-redis cluster update --help
      ```
 
   1. Запросите список доступных классов хостов (в колонке `ZONE IDS` указаны зоны доступности, в которых можно выбрать соответствующий класс):
 
      
      ```bash
-     {{ yc-mdb-rd }} resource-preset list
+     yc managed-redis resource-preset list
      ```
 
      Результат:
@@ -809,13 +809,13 @@
      +-------------+--------------------------------+----------+
      |     ID      |            ZONE IDS            |  MEMORY  |
      +-------------+--------------------------------+----------+
-     | b1.nano     | {{ region-id }}-a, {{ region-id }}-b,  | 2.0 GB   |
-     |             | {{ region-id }}-d                  |          |
-     | b1.small    | {{ region-id }}-a, {{ region-id }}-b,  | 4.0 GB   |
-     |             | {{ region-id }}-d                  |          |
-     | hm1.nano    | {{ region-id }}-a, {{ region-id }}-b,  | 8.0 GB   |
-     |             | {{ region-id }}-d                  |          |
-     | hm1.micro   | {{ region-id }}-a, {{ region-id }}-b,  | 12.0 GB  |
+     | b1.nano     | ru-central1-a, ru-central1-b,  | 2.0 GB   |
+     |             | ru-central1-d                  |          |
+     | b1.small    | ru-central1-a, ru-central1-b,  | 4.0 GB   |
+     |             | ru-central1-d                  |          |
+     | hm1.nano    | ru-central1-a, ru-central1-b,  | 8.0 GB   |
+     |             | ru-central1-d                  |          |
+     | hm1.micro   | ru-central1-a, ru-central1-b,  | 12.0 GB  |
      | ...                                                     |
      +-----------+----------------------------------+----------+
      ```
@@ -824,19 +824,19 @@
   1. Укажите нужный класс в команде изменения кластера:
 
      ```bash
-     {{ yc-mdb-rd }} cluster update <имя_или_идентификатор_кластера> \
+     yc managed-redis cluster update <имя_или_идентификатор_кластера> \
        --resource-preset <идентификатор_класса_хостов>
      ```
 
-     {{ mrd-short-name }} запустит операцию изменения класса хостов для кластера.
+     Yandex Managed Service for Valkey™ запустит операцию изменения класса хостов для кластера.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Измените в описании кластера {{ mrd-name }} значение параметра `resource_preset_id` в блоке `resources`:
+    1. Измените в описании кластера Yandex Managed Service for Valkey™ значение параметра `resource_preset_id` в блоке `resources`:
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
@@ -850,14 +850,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -879,11 +879,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_redis_cluster_v2.md).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
+    Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
     * изменение — 60 минут;
@@ -918,7 +918,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -931,7 +931,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "configSpec.resources.resourcePresetId",
                       "configSpec": {
@@ -970,7 +970,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -1011,7 +1011,7 @@
                     }
                   }
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.redis.v1.ClusterService.Update
         ```
 
@@ -1031,7 +1031,7 @@
 
 ## Изменить тип диска и увеличить размер хранилища {#change-disk-size}
 
-Проверьте, что в облаке достаточно квот для увеличения хранилища. Откройте страницу [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) для облака и убедитесь, что в секции **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}** в строке **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-mdb.hdd.size }}** или **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-mdb.ssd.size }}** есть квота на объем хранилищ.
+Проверьте, что в облаке достаточно квот для увеличения хранилища. Откройте страницу [Квоты](https://console.yandex.cloud/cloud?section=quotas) для облака и убедитесь, что в секции **Managed Databases** в строке **Объём HDD-хранилищ** или **Объём SSD-хранилищ** есть квота на объем хранилищ.
 
 {% list tabs group=instructions %}
 
@@ -1039,52 +1039,52 @@
 
   Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
+  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
   1. Выберите нужный кластер.
-  1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+  1. В верхней части страницы нажмите кнопку **Редактировать**.
 
   
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
+  1. В блоке **Размер хранилища**:
 
       * Выберите [тип диска](../concepts/storage.md).
       * Укажите нужный размер диска.
 
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы увеличить размер хранилища хостов {{ VLK }}:
+  Чтобы увеличить размер хранилища хостов Valkey™:
 
   1. Посмотрите описание команды CLI для изменения кластера:
 
      ```bash
-     {{ yc-mdb-rd }} cluster update --help
+     yc managed-redis cluster update --help
      ```
 
   1. Укажите нужный размер хранилища в команде изменения кластера. Новый размер должен быть не меньше, чем текущее значение `disk_size` в свойствах кластера.
 
      ```bash
-     {{ yc-mdb-rd }} cluster update <имя_или_идентификатор_кластера> \
+     yc managed-redis cluster update <имя_или_идентификатор_кластера> \
        --disk-size <размер_хранилища_ГБ>
      ```
 
-     Если все условия выполнены, {{ mrd-short-name }} запустит операцию по увеличению размера дисков хостов {{ VLK }}.
+     Если все условия выполнены, Yandex Managed Service for Valkey™ запустит операцию по увеличению размера дисков хостов Valkey™.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   Чтобы увеличить размер хранилища для кластера:
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Измените в описании кластера {{ mrd-name }} значение параметра `disk_size` в блоке `resources`:
+    1. Измените в описании кластера Yandex Managed Service for Valkey™ значение параметра `disk_size` в блоке `resources`:
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
@@ -1098,14 +1098,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -1127,11 +1127,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_redis_cluster_v2.md).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
+    Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
     * изменение — 60 минут;
@@ -1166,7 +1166,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -1180,7 +1180,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "configSpec.resources.diskTypeId,configSpec.resources.diskSize",
                       "configSpec": {
@@ -1224,7 +1224,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -1270,7 +1270,7 @@
                     }
                   }
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.redis.v1.ClusterService.Update
         ```
 
@@ -1294,21 +1294,21 @@
 
 ## Настроить автоматическое увеличение размера хранилища {#disk-size-autoscale}
 
-Подробнее о хранилище и автоматическом увеличении см. в разделе [Хранилище в {{ mrd-name }}](../concepts/storage.md).
+Подробнее о хранилище и автоматическом увеличении см. в разделе [Хранилище в Yandex Managed Service for Valkey™](../concepts/storage.md).
 
-Проверьте, что в облаке достаточно квот для увеличения хранилища. Откройте страницу [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) для облака и убедитесь, что в секции **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}** в строке **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-mdb.hdd.size }}** или **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-mdb.ssd.size }}** есть квота на объем хранилищ.
+Проверьте, что в облаке достаточно квот для увеличения хранилища. Откройте страницу [Квоты](https://console.yandex.cloud/cloud?section=quotas) для облака и убедитесь, что в секции **Managed Databases** в строке **Объём HDD-хранилищ** или **Объём SSD-хранилищ** есть квота на объем хранилищ.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
 
-  1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **Изменить**.
 
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.new_section_resource }}** настройте автоматическое увеличение размера диска:
+  1. В блоке **Ресурсы** настройте автоматическое увеличение размера диска:
 
-        * В поле **{{ ui-key.yacloud.mdb.cluster.field_thresholds }}** задайте соответствующие условия, чтобы:
+        * В поле **Увеличивать размер** задайте соответствующие условия, чтобы:
         
             * Размер хранилища увеличился в следующее [окно обслуживания](../concepts/maintenance.md#maintenance-window), когда хранилище окажется заполнено более чем на указанную долю (%). Если вы задали этот параметр, настройте расписание технического обслуживания.
         
@@ -1320,7 +1320,7 @@
         
                 {% endnote %}
         
-        * В поле **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** укажите максимальный размер хранилища, который может быть установлен при автоматическом увеличении размера хранилища.
+        * В поле **Максимальный размер хранилища** укажите максимальный размер хранилища, который может быть установлен при автоматическом увеличении размера хранилища.
         
         
         {% note warning %}
@@ -1334,7 +1334,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -1343,13 +1343,13 @@
   1. Посмотрите описание команды CLI для изменения кластера:
 
      ```bash
-     {{ yc-mdb-rd }} cluster update --help
+     yc managed-redis cluster update --help
      ```
 
   1. Укажите максимальный размер хранилища и условия для его увеличения в команде изменения кластера.
 
       ```bash
-      {{ yc-mdb-rd }} cluster update <идентификатор_или_имя_кластера> \
+      yc managed-redis cluster update <идентификатор_или_имя_кластера> \
           --disk-size-autoscaling planned-usage-threshold=<процент_для_планового_увеличения>,`
                                   `emergency-usage-threshold=<процент_для_незамедлительного_увеличения>,`
                                   `disk-size-limit=<максимальный_размер_хранилища_в_гигабайтах> \
@@ -1383,11 +1383,11 @@
       
       {% endnote %}
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   Чтобы настроить автоматическое увеличение размера хранилища:
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -1431,14 +1431,14 @@
 
   1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -1460,11 +1460,11 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_redis_cluster_v2.md).
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
+  Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
   * изменение — 60 минут;
@@ -1499,7 +1499,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -1512,7 +1512,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "configSpec.diskSizeAutoscaling",
                       "configSpec": {
@@ -1577,7 +1577,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -1620,7 +1620,7 @@
                     }
                   }
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.redis.v1.ClusterService.Update
         ```
 
@@ -1662,9 +1662,9 @@
 
 {% endlist %}
 
-## Изменить настройки {{ VLK }} {#change-valkey-config}
+## Изменить настройки Valkey™ {#change-valkey-config}
 
-Вы можете изменить настройки СУБД для хостов вашего кластера. Все поддерживаемые настройки описаны в разделе [{#T}](../concepts/settings-list.md) и в [справочнике API](../api-ref/Cluster/update.md).
+Вы можете изменить настройки СУБД для хостов вашего кластера. Все поддерживаемые настройки описаны в разделе [Настройки Valkey™](../concepts/settings-list.md) и в [справочнике API](../api-ref/Cluster/update.md).
 
 {% list tabs group=instructions %}
 
@@ -1672,23 +1672,23 @@
 
   Чтобы изменить [настройки СУБД](../concepts/settings-list.md) для кластера:
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
+  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
   1. Выберите нужный кластер.
-  1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-  1. В разделе **{{ ui-key.yacloud.mdb.forms.section_settings }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
-  1. Настройте доступные параметры в соответствии с [документацией {{ VLK }}](https://valkey.io/documentation).
-  1. Нажмите кнопку **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
+  1. В верхней части страницы нажмите кнопку **Редактировать**.
+  1. В разделе **Настройки СУБД** нажмите кнопку **Настроить**.
+  1. Настройте доступные параметры в соответствии с [документацией Valkey™](https://valkey.io/documentation).
+  1. Нажмите кнопку **Сохранить**.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Чтобы изменить [настройки СУБД](../concepts/settings-list.md) для кластера:
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Измените в описании кластера {{ mrd-name }} значения параметров в блоке `config`:
+    1. Измените в описании кластера Yandex Managed Service for Valkey™ значения параметров в блоке `config`:
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
@@ -1711,14 +1711,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -1740,11 +1740,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_redis_cluster_v2.md).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
+    Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
     * изменение — 60 минут;
@@ -1779,7 +1779,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -1792,11 +1792,11 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>' \
             --data '{
-                      "updateMask": "configSpec.redisConfig_<версия_{{ VLK }}>.<настройка_1>,configSpec.redisConfig_<версия_{{ VLK }}>.<настройка_2>,...,configSpec.redisConfig_<версия_{{ VLK }}>.<настройка_N>",
+                      "updateMask": "configSpec.redisConfig_<версия_Valkey™>.<настройка_1>,configSpec.redisConfig_<версия_Valkey™>.<настройка_2>,...,configSpec.redisConfig_<версия_Valkey™>.<настройка_N>",
                       "configSpec": {
-                        "redisConfig_<версия_{{ VLK }}>": {
+                        "redisConfig_<версия_Valkey™>": {
                           "<настройка_1>": "<значение_1>",
                           "<настройка_2>": "<значение_2>",
                           ...
@@ -1810,9 +1810,9 @@
 
         * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
-        * `configSpec.redisConfig_<версия_{{ VLK }}>` — набор настроек {{ VLK }}. Укажите каждую настройку на отдельной строке через запятую.
+        * `configSpec.redisConfig_<версия_Valkey™>` — набор настроек Valkey™. Укажите каждую настройку на отдельной строке через запятую.
 
-            Список версий {{ VLK }}, доступных для параметра, см. в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md).
+            Список версий Valkey™, доступных для параметра, см. в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest). Описание и возможные значения настроек см. в разделе [Настройки Valkey™](../concepts/settings-list.md).
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -1834,7 +1834,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -1868,14 +1868,14 @@
                   "cluster_id": "<идентификатор_кластера>",
                   "update_mask": {
                     "paths": [ 
-                      "config_spec.redis_config_<версия_{{ VLK }}>.<настройка_1>",
-                      "config_spec.redis_config_<версия_{{ VLK }}>.<настройка_2>",
+                      "config_spec.redis_config_<версия_Valkey™>.<настройка_1>",
+                      "config_spec.redis_config_<версия_Valkey™>.<настройка_2>",
                       ...
-                      "config_spec.redis_config_<версия_{{ VLK }}>.<настройка_N>"
+                      "config_spec.redis_config_<версия_Valkey™>.<настройка_N>"
                     ]
                   },
                   "config_spec": {
-                    "redis_config_<версия_{{ VLK }}>": {
+                    "redis_config_<версия_Valkey™>": {
                       "<настройка_1>": "<значение_1>",
                       "<настройка_2>": "<значение_2>",
                       ...
@@ -1883,7 +1883,7 @@
                     }
                   }
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.redis.v1.ClusterService.Update
         ```
 
@@ -1891,9 +1891,9 @@
 
         * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
-        * `config_spec.redis_config_<версия_{{ VLK }}>` — набор настроек {{ VLK }}. Укажите каждую настройку на отдельной строке через запятую.
+        * `config_spec.redis_config_<версия_Valkey™>` — набор настроек Valkey™. Укажите каждую настройку на отдельной строке через запятую.
 
-            Список версий {{ VLK }}, доступных для параметра, см. в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md).
+            Список версий Valkey™, доступных для параметра, см. в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest). Описание и возможные значения настроек см. в разделе [Настройки Valkey™](../concepts/settings-list.md).
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -1907,33 +1907,33 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
+  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
   1. Выберите нужный кластер.
-  1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+  1. В верхней части страницы нажмите кнопку **Редактировать**.
   1. Измените дополнительные настройки кластера:
 
-     - **{{ ui-key.yacloud.mdb.forms.backup-window-start }}** — время по UTC, когда требуется начать [резервное копирование](cluster-backups.md) кластера (в 24-часовом формате). Если время не задано, резервное копирование начнется в 22:00 UTC.
+     - **Начало резервного копирования (UTC)** — время по UTC, когда требуется начать [резервное копирование](cluster-backups.md) кластера (в 24-часовом формате). Если время не задано, резервное копирование начнется в 22:00 UTC.
      
-     - **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки времени [технического обслуживания](../concepts/maintenance.md):
+     - **Обслуживание** — настройки времени [технического обслуживания](../concepts/maintenance.md):
      
-         * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (по умолчанию).
-         * Чтобы указать предпочтительное время начала обслуживания, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** и укажите день недели и интервал времени по UTC. Например, можно выбрать время, когда кластер наименее загружен.
+         * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **В любое время** (по умолчанию).
+         * Чтобы указать предпочтительное время начала обслуживания, выберите пункт **По расписанию** и укажите день недели и интервал времени по UTC. Например, можно выбрать время, когда кластер наименее загружен.
          
          Операции по техническому обслуживанию проводятся для включенных и выключенных кластеров. Они могут включать в себя: обновление СУБД, применение патчей и так далее.
      
-     - **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** — управляет защитой кластера от непреднамеренного удаления.
+     - **Защита от удаления** — управляет защитой кластера от непреднамеренного удаления.
      
          Включенная защита кластера от удаления не помешает подключиться к нему вручную и удалить данные.
      
      
-     - **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** — опция разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
+     - **Доступ из WebSQL** — опция разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления Yandex Cloud с помощью сервиса Yandex WebSQL.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -1942,14 +1942,14 @@
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
-        {{ yc-mdb-rd }} cluster update --help
+        yc managed-redis cluster update --help
         ```
 
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
         
         ```bash
-        {{ yc-mdb-rd }} cluster update <имя_или_идентификатор_кластера> \
+        yc managed-redis cluster update <имя_или_идентификатор_кластера> \
             --backup-window-start <время> \
             --maintenance-window type=<тип_технического_обслуживания>,`
                                 `day=<день_недели>,`
@@ -1972,7 +1972,7 @@
         
               > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
     
-    * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
+    * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления Yandex Cloud с помощью сервиса Yandex WebSQL. Значение по умолчанию — `false`.
 
     * `--deletion-protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
@@ -1980,13 +1980,13 @@
 
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Измените в описании кластера {{ mrd-name }} значения нужных вам параметров:
+    1. Измените в описании кластера Yandex Managed Service for Valkey™ значения нужных вам параметров:
     
         * Для настройки времени начала резервного копирования добавьте в блок `config` параметр `backup_window_start`:
         
@@ -2040,14 +2040,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -2069,11 +2069,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_redis_cluster_v2.md).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
+    Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
     * изменение — 60 минут;
@@ -2108,7 +2108,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -2121,7 +2121,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "configSpec.backupWindowStart,maintenanceWindow,deletionProtection",
                       "configSpec": {
@@ -2187,7 +2187,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -2242,7 +2242,7 @@
                   },
                   "deletion_protection": <защита_кластера_от_удаления>
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.redis.v1.ClusterService.Update
         ```
 
@@ -2291,18 +2291,18 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
+    1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
     1. Выберите нужный кластер.
-    1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** включите опцию **{{ ui-key.yacloud.mdb.forms.field_cluster-mode }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+    1. В верхней части страницы нажмите кнопку **Редактировать**.
+    1. В блоке **Базовые параметры** включите опцию **Шардирование кластера**.
+    1. Нажмите кнопку **Сохранить изменения**.
 
     После включения шардирования все существующие хосты кластера будут добавлены в единственный шард `shard1`.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -2311,28 +2311,28 @@
     1. Посмотрите описание команды CLI для включения шардирования:
 
         ```bash
-        {{ yc-mdb-rd }} cluster enable-sharding --help
+        yc managed-redis cluster enable-sharding --help
         ```
 
     1. Выполните команду:
 
         ```bash
-        {{ yc-mdb-rd }} cluster enable-sharding <идентификатор_кластера>
+        yc managed-redis cluster enable-sharding <идентификатор_кластера>
         ```
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
     После включения шардирования все существующие хосты кластера будут добавлены в единственный шард `shard1`.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Чтобы включить шардирование:
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Добавьте к описанию кластера {{ mrd-name }} параметр `sharded` со значением `true`:
+    1. Добавьте к описанию кластера Yandex Managed Service for Valkey™ параметр `sharded` со значением `true`:
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
@@ -2343,14 +2343,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -2376,11 +2376,11 @@
 
     Также вы можете [управлять шардами](shards.md).
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_redis_cluster_v2.md).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
+    Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
     * изменение — 60 минут;
@@ -2415,13 +2415,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.EnableSharding](../api-ref/Cluster/enableSharding.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.EnableSharding](../api-ref/Cluster/enableSharding.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>:enable_sharding'
+            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>:enable_sharding'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -2446,7 +2446,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.EnableSharding](../api-ref/grpc/Cluster/enableSharding.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.EnableSharding](../api-ref/grpc/Cluster/enableSharding.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -2458,7 +2458,7 @@
             -d '{
                   "cluster_id": "<идентификатор_кластера>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.redis.v1.ClusterService.EnableSharding
         ```
 
@@ -2476,15 +2476,15 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке кластера, который вы хотите переместить.
-    1. Выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-move }}**.
+    1. Выберите пункт **Переместить**.
     1. Выберите каталог, в который вы хотите переместить кластер.
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
+    1. Нажмите кнопку **Переместить**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -2493,25 +2493,25 @@
     1. Посмотрите описание команды CLI для перемещения кластера:
 
         ```bash
-        {{ yc-mdb-rd }} cluster move --help
+        yc managed-redis cluster move --help
         ```
 
     1. Укажите каталог назначения в команде перемещения кластера:
 
         ```bash
-        {{ yc-mdb-rd }} cluster move <идентификатор_кластера> \
+        yc managed-redis cluster move <идентификатор_кластера> \
            --destination-folder-name=<имя_каталога_назначения>
         ```
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Измените или добавьте в описании кластера {{ mrd-name }} значение параметра `folder_id`:
+    1. Измените или добавьте в описании кластера Yandex Managed Service for Valkey™ значение параметра `folder_id`:
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
@@ -2522,14 +2522,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -2551,11 +2551,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_redis_cluster_v2.md).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
+    Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
     * изменение — 60 минут;
@@ -2590,14 +2590,14 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Move](../api-ref/Cluster/move.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Move](../api-ref/Cluster/move.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>:move' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>:move' \
             --data '{
                       "destinationFolderId": "<идентификатор_каталога>"
                     }'
@@ -2625,7 +2625,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Move](../api-ref/grpc/Cluster/move.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Move](../api-ref/grpc/Cluster/move.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -2638,7 +2638,7 @@
                   "cluster_id": "<идентификатор_кластера>",
                   "destination_folder_id": "<идентификатор_каталога>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.redis.v1.ClusterService.Move
         ```
 
@@ -2657,15 +2657,15 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
+    1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
     1. Выберите нужный кластер.
-    1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите группы безопасности для сетевого трафика кластера.
+    1. В верхней части страницы нажмите кнопку **Редактировать**.
+    1. В блоке **Сетевые настройки** выберите группы безопасности для сетевого трафика кластера.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -2674,23 +2674,23 @@
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
-        {{ yc-mdb-rd }} cluster update --help
+        yc managed-redis cluster update --help
         ```
 
     1. Укажите нужные группы безопасности в команде изменения кластера:
 
         ```bash
-        {{ yc-mdb-rd }} cluster update <имя_или_идентификатор_кластера> \
+        yc managed-redis cluster update <имя_или_идентификатор_кластера> \
           --security-group-ids <список_идентификаторов_групп_безопасности>
         ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Измените в описании кластера {{ mrd-name }} значение параметра `security_group_ids`:
+    1. Измените в описании кластера Yandex Managed Service for Valkey™ значение параметра `security_group_ids`:
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
@@ -2701,14 +2701,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -2730,11 +2730,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_redis_cluster_v2.md).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
+    Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
     * изменение — 60 минут;
@@ -2769,7 +2769,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -2782,7 +2782,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "securityGroupIds",
                       "securityGroupIds": [
@@ -2822,7 +2822,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -2864,7 +2864,7 @@
                     "<идентификатор_группы_безопасности_N>"
                   ] 
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.redis.v1.ClusterService.Update
         ```
 

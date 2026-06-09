@@ -1,20 +1,20 @@
-# Практические руководства {{ datalens-name }}
+# Практические руководства DataLens
 
-Ниже описаны руководства по работе с сервисом {{ datalens-full-name }}:
+Ниже описаны руководства по работе с сервисом Yandex DataLens:
 
 
-* Знакомство с {{ datalens-short-name }}
+* Знакомство с DataLens
 
   * [Простой дашборд из CSV-файла](data-from-csv-visualization.md)
   * [Публичный чарт с картой Москвы из CSV-файла](data-from-csv-to-public-visualization.md)
-  * [Дашборд сети магазинов из БД {{ CH }}](data-from-ch-visualization.md)
+  * [Дашборд сети магазинов из БД ClickHouse®](data-from-ch-visualization.md)
   
 * Работа с геоданными
 
   * [Анализ открытых данных ДТП на дорогах России](data-from-csv-geo-visualization.md)
-  * [Анализ продаж и локаций пиццерий на данных из БД {{ CH }} и Marketplace](data-from-ch-to-geolayers-visualization.md)
-  * [{#T}](data-from-ch-geocoder.md)
-  * [{#T}](datalens.md)
+  * [Анализ продаж и локаций пиццерий на данных из БД ClickHouse® и Marketplace](data-from-ch-to-geolayers-visualization.md)
+  * [Геокодинг с помощью API Яндекс Карт для визуализации в DataLens](data-from-ch-geocoder.md)
+  * [Мониторинг состояния географически распределенных устройств](datalens.md)
 
 * Аналитика сервисов
 
@@ -23,15 +23,15 @@
   * [AppMetrica: прямое подключение](data-from-appmetrica-visualization.md)
   * [AppMetrica: экспорт, постобработка и визуализация данных](data-from-appmetrica-yc-visualization.md)
   * [Битрикс24: прямое подключение](data-from-bitrix24-visualization.md)
-  * [{{ tracker-full-name }}: экспорт и визуализация данных](data-from-tracker.md)
-  * [Анализ логов {{ objstorage-name }}](storage-logs-analysis.md)
+  * [Яндекс Трекер: экспорт и визуализация данных](data-from-tracker.md)
+  * [Анализ логов Object Storage](storage-logs-analysis.md)
   * [Подкасты Яндекс Музыки: статистика](data-from-podcasts.md)
-  * [Визуализация данных {{ yq-full-name }}](data-from-yandex-query-visualization.md)
-  * [Визуализация данных {{ monitoring-full-name }}](data-from-monitoring-visualization.md)
-  * [Визуализация данных из {{ ytsaurus-name }} CHYT](data-from-ch-over-yt.md)
-  * [Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их анализ с помощью {{ datalens-full-name }}](events-from-postbox-to-yds.md)
-  * [{#T}](forms-and-datalens-integration/index.md)
-  * [{#T}](bigquery-to-clickhouse.md)
+  * [Визуализация данных Yandex Query](data-from-yandex-query-visualization.md)
+  * [Визуализация данных Yandex Monitoring](data-from-monitoring-visualization.md)
+  * [Визуализация данных из YTsaurus CHYT](data-from-ch-over-yt.md)
+  * [Передача событий Yandex Cloud Postbox в Yandex Data Streams и их анализ с помощью Yandex DataLens](events-from-postbox-to-yds.md)
+  * [Поставка данных из Яндекс Формы в Yandex DataLens с использованием Yandex Cloud Functions и Yandex Query](forms-and-datalens-integration/index.md)
+  * [Миграция базы данных из Google BigQuery в Yandex Managed Service for ClickHouse®](bigquery-to-clickhouse.md)
 
 * Функциональные
 
@@ -42,4 +42,4 @@
 
 
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

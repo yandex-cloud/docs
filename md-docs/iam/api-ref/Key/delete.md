@@ -5,7 +5,7 @@ Deletes the specified key pair.
 ## HTTP request
 
 ```
-DELETE https://iam.{{ api-host }}/iam/v1/keys/{keyId}
+DELETE https://iam.api.cloud.yandex.net/iam/v1/keys/{keyId}
 ```
 
 ## Path parameters

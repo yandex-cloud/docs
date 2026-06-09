@@ -5,7 +5,7 @@ Lists operations for the specified API gateway.
 ## HTTP request
 
 ```
-GET https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{apiGatewayId}/operations
+GET https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateways/{apiGatewayId}/operations
 ```
 
 ## Path parameters

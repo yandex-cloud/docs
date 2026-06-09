@@ -7,7 +7,7 @@ Powers off the specified server.
 ## HTTP request
 
 ```
-POST https://baremetal.{{ api-host }}/baremetal/v1alpha/servers/{serverId}:powerOff
+POST https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers/{serverId}:powerOff
 ```
 
 ## Path parameters

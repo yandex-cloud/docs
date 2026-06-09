@@ -13,12 +13,12 @@
   ```
 
   * `--endpoint` — для получения информации о потоке, данные в который поставляются по протоколу AWS Kinesis Data Streams, укажите эндпоинт `https://yds.serverless.yandexcloud.net`.
-  * `--stream-name` — состоит из зоны доступности, идентификатора облака, идентификатора базы данных {{ ydb-full-name }} и имени потока.
+  * `--stream-name` — состоит из зоны доступности, идентификатора облака, идентификатора базы данных Yandex Managed Service for YDB и имени потока.
 
-    >Например, укажите идентификатор потока `/{{ region-id }}/b1gvlrnlei4l********/etn780rpm7e5********/default`, если:
-     >* `{{ region-id }}` — регион;
+    >Например, укажите идентификатор потока `/ru-central1/b1gvlrnlei4l********/etn780rpm7e5********/default`, если:
+     >* `ru-central1` — регион;
      >* `b1gvlrnlei4l********` — идентификатор облака;
-     >* `etn780rpm7e5********` — идентификатор базы данных {{ ydb-short-name }};
+     >* `etn780rpm7e5********` — идентификатор базы данных YDB;
      >* `default` — имя потока.
 
   Пример команды:
@@ -26,7 +26,7 @@
   ```bash
   aws kinesis describe-stream \
     --endpoint https://yds.serverless.yandexcloud.net \
-    --stream-name /{{ region-id }}/b1gvlrnlei4l********/etn780rpm7e5********/default
+    --stream-name /ru-central1/b1gvlrnlei4l********/etn780rpm7e5********/default
   ```
 
   Результат:

@@ -1,8 +1,8 @@
-# Создать SAML-приложение в {{ org-full-name }} для интеграции с Sentry
+# Создать SAML-приложение в Yandex Identity Hub для интеграции с Sentry
 
 [Sentry](https://sentry.io/) — это платформа для мониторинга и отслеживания ошибок в реальном времени в приложениях, позволяющая разработчикам оперативно обнаруживать, диагностировать и исправлять сбои и проблемы с производительностью.
 
-Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться в Sentry с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../concepts/applications.md#saml) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне Sentry.
+Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться в Sentry с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../concepts/applications.md#saml) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне Sentry.
 
 Управлять SAML-приложениями может пользователь, которому назначена [роль](../../security/index.md#organization-manager-samlApplications-admin) `organization-manager.samlApplications.admin` или выше.
 
@@ -14,36 +14,36 @@
 
 Чтобы дать доступ пользователям вашей организации в Sentry:
 
-1. [Создайте приложение в {{ org-full-name }}](#create-app).
+1. [Создайте приложение в Yandex Identity Hub](#create-app).
 1. [Настройте интеграцию](#setup-integration).
 1. [Убедитесь в корректной работе приложения](#validate).
 
-## Создайте приложение в {{ org-full-name }} {#create-app}
+## Создайте приложение в Yandex Identity Hub {#create-app}
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-   1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
-      1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}**.
-      1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения: `sentry-app`.
+   1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
+   1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
+      1. Выберите метод единого входа **SAML (Security Assertion Markup Language)**.
+      1. В поле **Имя** задайте имя создаваемого приложения: `sentry-app`.
 
-      1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** задайте описание приложения.
+      1. (Опционально) В поле **Описание** задайте описание приложения.
       1. (Опционально) Добавьте [метки](../../../resource-manager/concepts/labels.md):
 
-         1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+         1. Нажмите **Добавить метку**.
          1. Введите метку в формате `ключ: значение`.
          1. Нажмите **Enter**.
-      1. Нажмите **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
-   1. Сохраните значение поля **{{ ui-key.yacloud_org.application.overview.saml_field_metadata }}**, оно понадобится на следующем шаге.
+      1. Нажмите **Создать приложение**.
+   1. Сохраните значение поля **Metadata URL**, оно понадобится на следующем шаге.
 
 {% endlist %}
 
 ## Настройте интеграцию {#setup-integration}
 
-### Настройте SAML-приложение на стороне {{ org-full-name }} {#setup-idp}
+### Настройте SAML-приложение на стороне Yandex Identity Hub {#setup-idp}
 
 #### Найдите слаг организации {#get-org-slug}
 
@@ -58,15 +58,15 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
-  1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:  
-      1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** вставьте значение `<адрес_инстанса_sentry>/saml/metadata/<слаг_организации>/`.
-      1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** вставьте значение `<адрес_инстанса_sentry>/saml/acs/<слаг_организации>/`.
-      1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-logout-url_sLuRl }}** вставьте значение `<адрес_инстанса_sentry>/saml/sls/<слаг_организации>/`.
-      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное SAML-приложение.
+  1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать** и в открывшемся окне:  
+      1. В поле **SP EntityID** вставьте значение `<адрес_инстанса_sentry>/saml/metadata/<слаг_организации>/`.
+      1. В поле **ACS URL** вставьте значение `<адрес_инстанса_sentry>/saml/acs/<слаг_организации>/`.
+      1. (Опционально) В поле **SP Logout URL** вставьте значение `<адрес_инстанса_sentry>/saml/sls/<слаг_организации>/`.
+      1. Нажмите **Сохранить**.
 
 {% endlist %}
 
@@ -88,7 +88,7 @@
 
 ### Добавьте пользователя {#add-user}
 
-Чтобы пользователи вашей организации могли аутентифицироваться в Sentry с помощью SAML-приложения {{ org-full-name }}, необходимо явно добавить в SAML-приложение нужных пользователей и/или [группы пользователей](../../concepts/groups.md).
+Чтобы пользователи вашей организации могли аутентифицироваться в Sentry с помощью SAML-приложения Yandex Identity Hub, необходимо явно добавить в SAML-приложение нужных пользователей и/или [группы пользователей](../../concepts/groups.md).
 
 {% note info %}
 
@@ -100,14 +100,14 @@
 
    {% list tabs group=instructions %}
 
-   - Интерфейс {{ cloud-center }} {#cloud-center}
+   - Интерфейс Cloud Center {#cloud-center}
 
-      1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-      1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
-      1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}**.
-      1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppAssignmentsPage.action_add-assignments }}**.
+      1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+      1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное приложение.
+      1. Перейдите на вкладку **Пользователи и группы**.
+      1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **Добавить пользователей**.
       1. В открывшемся окне выберите нужного пользователя или группу пользователей.
-      1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+      1. Нажмите **Добавить**.
 
    {% endlist %}
 
@@ -117,5 +117,5 @@
 
 1. В браузере перейдите по адресу вашего экземпляра Sentry.
 1. На странице аутентификации нажмите **Login with SAML2**.
-1. На странице аутентификации {{ yandex-cloud }} укажите почту и пароль пользователя. Пользователь должен быть добавлен в приложение или состоять в группе, добавленной в приложение. Также у пользователя должна быть указана почта.
+1. На странице аутентификации Yandex Cloud укажите почту и пароль пользователя. Пользователь должен быть добавлен в приложение или состоять в группе, добавленной в приложение. Также у пользователя должна быть указана почта.
 1. Убедитесь, что вы аутентифицировались в Sentry.

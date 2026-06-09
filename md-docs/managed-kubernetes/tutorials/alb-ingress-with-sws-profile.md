@@ -1,14 +1,14 @@
-# Создание L7-балансировщика с профилем безопасности {{ sws-name }} через Ingress-контроллер {{ alb-name }}
+# Создание L7-балансировщика с профилем безопасности Smart Web Security через Ingress-контроллер Application Load Balancer
 
-Приложения в кластере {{ managed-k8s-full-name }} можно защитить от DDoS-атак и ботов с помощью сервиса [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md). Для этого опубликуйте приложения через ресурс Ingress, которому назначен [профиль безопасности](../../smartwebsecurity/concepts/profiles.md) {{ sws-name }} и который использует [контроллер Gwin](../../application-load-balancer/tools/gwin/index.md) или [Ingress-контроллер {{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
+Приложения в кластере Yandex Managed Service for Kubernetes можно защитить от DDoS-атак и ботов с помощью сервиса [Yandex Smart Web Security](../../smartwebsecurity/concepts/index.md). Для этого опубликуйте приложения через ресурс Ingress, которому назначен [профиль безопасности](../../smartwebsecurity/concepts/profiles.md) Smart Web Security и который использует [контроллер Gwin](../../application-load-balancer/tools/gwin/index.md) или [Ingress-контроллер Application Load Balancer](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
 {% note tip %}
 
-Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [{{ yandex-cloud }} Gwin](../../application-load-balancer/tools/gwin/index.md).
+Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [Yandex Cloud Gwin](../../application-load-balancer/tools/gwin/index.md).
 
 {% endnote %}
 
-Опираясь на ресурс Ingress будет развернут L7-балансировщик с профилем безопасности, подключенным к виртуальным хостам балансировщика. Бэкенды приложений, которые указаны в ресурсе Ingress, будут защищены с помощью {{ sws-name }}: все поступающие к бэкендам HTTP-запросы [будут обработаны](../../smartwebsecurity/concepts/rules.md#rule-action) в соответствии с правилами в профиле безопасности.
+Опираясь на ресурс Ingress будет развернут L7-балансировщик с профилем безопасности, подключенным к виртуальным хостам балансировщика. Бэкенды приложений, которые указаны в ресурсе Ingress, будут защищены с помощью Smart Web Security: все поступающие к бэкендам HTTP-запросы [будут обработаны](../../smartwebsecurity/concepts/rules.md#rule-action) в соответствии с правилами в профиле безопасности.
 
 Чтобы через Ingress создать L7-балансировщик с подключенным профилем безопасности:
 
@@ -26,12 +26,12 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за DNS-зону и DNS-запросы (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
-* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы {{ alb-name }}](../../application-load-balancer/pricing.md)).
-* Плата за публичные IP-адреса для узлов кластера и L7-балансировщика (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
-* Плата за количество запросов в сервис {{ sws-name }} (см. [тарифы {{ sws-name }}](../../smartwebsecurity/pricing.md)).
+* Плата за DNS-зону и DNS-запросы (см. [тарифы Cloud DNS](../../dns/pricing.md)).
+* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
+* Плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы Application Load Balancer](../../application-load-balancer/pricing.md)).
+* Плата за публичные IP-адреса для узлов кластера и L7-балансировщика (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Плата за количество запросов в сервис Smart Web Security (см. [тарифы Smart Web Security](../../smartwebsecurity/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -42,7 +42,7 @@
 
     - Вручную {#manual}
 
-        1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md), который будет использоваться Ingress-контроллером {{ alb-name }}.
+        1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md), который будет использоваться Ingress-контроллером Application Load Balancer.
 
             Назначьте аккаунту следующие [роли](../../application-load-balancer/operations/k8s-ingress-controller-install.md#before-you-begin) на каталог, в котором будет создан кластер:
 
@@ -55,19 +55,19 @@
 
                 {% note warning %}
 
-                Эта роль необходима для корректной интеграции L7-балансировщика {{ alb-name }} с профилем безопасности.
+                Эта роль необходима для корректной интеграции L7-балансировщика Application Load Balancer с профилем безопасности.
 
                 {% endnote %}
 
         1. Создайте сервисный аккаунт, который будет использоваться кластером и группой узлов.
 
             Назначьте аккаунту следующие [роли](../security/index.md#sa-annotation) на каталог, в котором будет создан кластер:
-            * [{{ roles.k8s.clusters.agent }}](../security/index.md#k8s-clusters-agent)
-            * [{{ roles-vpc-public-admin }}](../../vpc/security/index.md#vpc-public-admin)
+            * [k8s.clusters.agent](../security/index.md#k8s-clusters-agent)
+            * [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin)
 
-        1. [Создайте группы безопасности](../operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
+        1. [Создайте группы безопасности](../operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 
-            Также [настройте](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) группы безопасности, необходимые для работы {{ alb-name }}.
+            Также [настройте](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) группы безопасности, необходимые для работы Application Load Balancer.
 
             {% note warning %}
             
@@ -79,16 +79,16 @@
 
             * Созданный ранее сервисный аккаунт. Используйте его для ресурсов и для узлов.
             * Созданные ранее группы безопасности, которые должны быть назначены кластеру.
-            * Опцию, которая назначает кластеру публичный адрес. Такой адрес нужен, чтобы можно было использовать {{ k8s }} API из интернета.
+            * Опцию, которая назначает кластеру публичный адрес. Такой адрес нужен, чтобы можно было использовать Kubernetes API из интернета.
 
         1. [Создайте группу узлов](../operations/node-group/node-group-create.md) в кластере. При создании группы узлов выберите:
 
             * Созданные ранее группы безопасности, которые должны быть назначены группе узлов.
             * Опцию, которая назначает узлам публичный адрес. Такой адрес нужен, чтобы можно было скачивать образы из интернета.
 
-    - {{ TF }} {#tf}
+    - Terraform {#tf}
 
-        1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+        1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
         1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
         1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
         1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -96,12 +96,12 @@
         1. Скачайте в ту же рабочую директорию файл конфигурации кластера [alb-ready-k8s-cluster.tf](https://github.com/yandex-cloud-examples/yc-alb-mk8s-with-sws-profile/blob/main/alb-ready-k8s-cluster.tf). В файле описаны:
             * [Сеть](../../vpc/concepts/network.md#network).
             * [Подсеть](../../vpc/concepts/network.md#subnet).
-            * Кластер {{ k8s }}.
-            * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и группы узлов {{ managed-k8s-name }}.
-            * Сервисный аккаунт, необходимый для работы Ingress-контроллера {{ alb-name }}.
-            * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](../operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
+            * Кластер Kubernetes.
+            * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и группы узлов Managed Service for Kubernetes.
+            * Сервисный аккаунт, необходимый для работы Ingress-контроллера Application Load Balancer.
+            * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](../operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 
-                [Часть правил](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) необходима для работы {{ alb-name }}.
+                [Часть правил](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) необходима для работы Application Load Balancer.
 
                 {% note warning %}
                 
@@ -109,27 +109,27 @@
                 
                 {% endnote %}
                 
-            * [Профиль безопасности](../../smartwebsecurity/concepts/profiles.md) {{ sws-name }} с [правилом Smart Protection](../../smartwebsecurity/concepts/rules.md#smart-protection-rules) и простым правилом для [проверки](#check-the-result) работы профиля, которое будет разрешать трафик только с определенного IP-адреса.
+            * [Профиль безопасности](../../smartwebsecurity/concepts/profiles.md) Smart Web Security с [правилом Smart Protection](../../smartwebsecurity/concepts/rules.md#smart-protection-rules) и простым правилом для [проверки](#check-the-result) работы профиля, которое будет разрешать трафик только с определенного IP-адреса.
               
               [Базовое правило](../../smartwebsecurity/concepts/rules.md#base-rules) по умолчанию не указывается в манифесте и создается автоматически.
 
         1. Укажите в файле конфигурации:
 
             * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-            * Версию {{ k8s }} для кластера и групп узлов {{ k8s }}.
-            * CIDR кластера {{ k8s }}, CIDR сервисов.
-            * Имя сервисного аккаунта кластера {{ managed-k8s-name }}.
-            * Имя сервисного аккаунта {{ alb-name }}.
-            * Имя профиля безопасности {{ sws-name }}.
+            * Версию Kubernetes для кластера и групп узлов Kubernetes.
+            * CIDR кластера Kubernetes, CIDR сервисов.
+            * Имя сервисного аккаунта кластера Managed Service for Kubernetes.
+            * Имя сервисного аккаунта Application Load Balancer.
+            * Имя профиля безопасности Smart Web Security.
             * IP-адрес, трафик с которого будет разрешен.
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -151,11 +151,11 @@
                1. Подтвердите изменение ресурсов.
                1. Дождитесь завершения операции.
 
-            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
             
         {% note info %}
 
-        Если вы развернули инфраструктуру с помощью {{ TF }}, выполнять шаг с [Созданием профиля безопасности](#create-security-profile) не нужно.
+        Если вы развернули инфраструктуру с помощью Terraform, выполнять шаг с [Созданием профиля безопасности](#create-security-profile) не нужно.
 
         {% endnote %}
 
@@ -163,7 +163,7 @@
 
 1. Убедитесь, что у вас есть [домен](../../glossary/fqdn.md) и вы можете управлять ресурсными записями в зоне [DNS](../../glossary/dns.md) для этого домена. Тестовое приложение будут доступно через Ingress на поддомене этого домена.
 
-    Если у вас еще нет домена, зарегистрируйте домен у любого регистратора доменных имен. Чтобы управлять ресурсными записями домена с помощью {{ dns-full-name }}, [создайте публичную зону DNS и делегируйте домен](../../dns/operations/zone-create-public.md).
+    Если у вас еще нет домена, зарегистрируйте домен у любого регистратора доменных имен. Чтобы управлять ресурсными записями домена с помощью Yandex Cloud DNS, [создайте публичную зону DNS и делегируйте домен](../../dns/operations/zone-create-public.md).
 
     {% note info %}
 
@@ -173,7 +173,7 @@
 
     {% endnote %}
 
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
+1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
 
 ## Установите инструмент для управления балансировщиком {#deploy-controller}
 
@@ -210,7 +210,7 @@
 
 - Ingress-контроллер {#alb-ingress}
 
-  1. [Установите Ingress-контроллер {{ alb-name }}](../../application-load-balancer/operations/k8s-ingress-controller-install.md) в пространство имен `yc-alb`.
+  1. [Установите Ingress-контроллер Application Load Balancer](../../application-load-balancer/operations/k8s-ingress-controller-install.md) в пространство имен `yc-alb`.
 
       При установке укажите сервисный аккаунт, который [был создан ранее для использования с контроллером](#before-you-begin).
 
@@ -395,10 +395,10 @@
 
   Создайте профиль безопасности:
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать профиль.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.action_empty }}** и выберите **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать профиль.
+  1. Перейдите в сервис **Smart Web Security**.
+  1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
+  1. Нажмите кнопку **Создать профиль** и выберите **По преднастроенному шаблону**.
 
       Профиль будет содержать несколько преднастроенных правил безопасности:
 
@@ -413,18 +413,18 @@
 
   1. Задайте данные профиля:
 
-      * **{{ ui-key.yacloud.common.name }}** — имя профиля, например `test-sp1`.
-      * **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** — действие, которое должно выполнять базовое правило.
+      * **Имя** — имя профиля, например `test-sp1`.
+      * **Действие для базового правила по умолчанию** — действие, которое должно выполнять базовое правило.
 
-          Оставьте выбранным действие `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}`, чтобы базовое правило запрещало весь трафик.
+          Оставьте выбранным действие `Запретить`, чтобы базовое правило запрещало весь трафик.
 
   1. Добавьте правило безопасности:
 
-      1. Нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+      1. Нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **Добавить правило**.
 
       1. Укажите основные настройки правила:
 
-          * **{{ ui-key.yacloud.common.name }}** — имя правила, например `test-rule1`.
+          * **Имя** — имя правила, например `test-rule1`.
 
           * **Приоритет** — укажите такое значение, чтобы правило имело приоритет над преднастроенными правилами. Например, можно указать значение `999800`.
 
@@ -436,26 +436,26 @@
               
               {% endnote %}
 
-          * **Тип правила** — выберите `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`.
+          * **Тип правила** — выберите `Базовое`.
 
-          * **Действие** — выберите `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-allow }}`.
+          * **Действие** — выберите `Разрешить`.
 
-      1. В блоке **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** настройте условия так, чтобы разрешался трафик только с определенного IP-адреса:
+      1. В блоке **Условия** настройте условия так, чтобы разрешался трафик только с определенного IP-адреса:
 
           1. Выберите область действия правила на трафик `При условии`.
           1. Выберите условие `IP`.
           1. Выберите условие на IP `Совпадает или принадлежит диапазону`.
           1. Укажите публичный IP-адрес, например `203.0.113.200`.
 
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+      1. Нажмите кнопку **Добавить**.
 
       В списке правил безопасности появится созданное правило.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите кнопку **Создать**.
 
   В списке профилей безопасности появится созданный профиль. Запишите идентификатор этого профиля безопасности — он потребуется позднее.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   Если вы использовали файл конфигурации [alb-ready-k8s-cluster.tf](https://github.com/yandex-cloud-examples/yc-alb-mk8s-with-sws-profile/blob/main/alb-ready-k8s-cluster.tf), то профиль безопасности [уже создан](#before-you-begin) и дополнительные действия не требуются.
 
@@ -463,7 +463,7 @@
 
 ## Создайте ресурс Ingress {#deploy-ingress}
 
-В этом ресурсе Ingress будут описаны параметры балансировщика {{ alb-name }}. Инструмент для управления балансировщиком, [установленный ранее](#deploy-controller), развернет балансировщик с указанными параметрами после создания ресурса Ingress.
+В этом ресурсе Ingress будут описаны параметры балансировщика Application Load Balancer. Инструмент для управления балансировщиком, [установленный ранее](#deploy-controller), развернет балансировщик с указанными параметрами после создания ресурса Ingress.
 
 Согласно правилам Ingress, трафик к виртуальному хосту `demo.example.com` по пути `/app1` будет направляться к бэкенду [service/demo-app1](#deploy-app). [Созданный ранее профиль безопасности](#create-security-profile) будет использоваться, чтобы защитить этот бэкенд.
 
@@ -505,13 +505,13 @@
 
       * [gwin.yandex.cloud/subnets](../../application-load-balancer/gwin-ref/ingress.md#load-balancer-configuration) — список идентификаторов подсетей, в которых будет расположен балансировщик.
 
-          Если вы [создали инфраструктуру с помощью {{ TF }}](#before-you-begin), используйте идентификатор подсети, которая имеет имя `subnet-a`.
+          Если вы [создали инфраструктуру с помощью Terraform](#before-you-begin), используйте идентификатор подсети, которая имеет имя `subnet-a`.
 
       * [gwin.yandex.cloud/security-groups](../../application-load-balancer/gwin-ref/ingress.md#load-balancer-configuration) — идентификатор группы, [созданной ранее](#before-you-begin) для балансировщика.
 
-          Если вы создали инфраструктуру с помощью {{ TF }}, укажите идентификатор группы, которая имеет имя `alb-traffic`.
+          Если вы создали инфраструктуру с помощью Terraform, укажите идентификатор группы, которая имеет имя `alb-traffic`.
 
-      * [gwin.yandex.cloud/hosts.securityProfileID](../../application-load-balancer/gwin-ref/ingress.md#security-configuration) — идентификатор профиля безопасности, [созданного ранее](#create-security-profile) в сервисе {{ sws-name }}.
+      * [gwin.yandex.cloud/hosts.securityProfileID](../../application-load-balancer/gwin-ref/ingress.md#security-configuration) — идентификатор профиля безопасности, [созданного ранее](#create-security-profile) в сервисе Smart Web Security.
 
           {% note info %}
 
@@ -554,13 +554,13 @@
 
       * [ingress.alb.yc.io/subnets](../../application-load-balancer/k8s-ref/ingress.md#annot-subnets) — список идентификаторов подсетей, в которых будет расположен балансировщик.
 
-          Если вы [создали инфраструктуру с помощью {{ TF }}](#before-you-begin), используйте идентификатор подсети, которая имеет имя `subnet-a`.
+          Если вы [создали инфраструктуру с помощью Terraform](#before-you-begin), используйте идентификатор подсети, которая имеет имя `subnet-a`.
 
       * [ingress.alb.yc.io/security-groups](../../application-load-balancer/k8s-ref/ingress.md#annot-security-groups) — идентификатор группы, [созданной ранее](#before-you-begin) для балансировщика.
 
-          Если вы создали инфраструктуру с помощью {{ TF }}, укажите идентификатор группы, которая имеет имя `alb-traffic`.
+          Если вы создали инфраструктуру с помощью Terraform, укажите идентификатор группы, которая имеет имя `alb-traffic`.
 
-      * [ingress.alb.yc.io/security-profile-id](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id) — идентификатор профиля безопасности, [созданного ранее](#create-security-profile) в сервисе {{ sws-name }}.
+      * [ingress.alb.yc.io/security-profile-id](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id) — идентификатор профиля безопасности, [созданного ранее](#create-security-profile) в сервисе Smart Web Security.
 
           {% note info %}
 
@@ -580,7 +580,7 @@
     kubectl apply -f demo-ingress.yaml
     ```
 
-    Ingress-контроллер {{ alb-name }} запустит процесс создания целевых групп, групп бэкендов, HTTP-роутеров и балансировщика нагрузки.
+    Ingress-контроллер Application Load Balancer запустит процесс создания целевых групп, групп бэкендов, HTTP-роутеров и балансировщика нагрузки.
 
 1. Периодически проверяйте статус ресурса Ingress, пока в столбце `ADDRESS` не появится IP-адрес балансировщика:
 
@@ -613,7 +613,7 @@
 
 ## Проверьте результат {#check-the-result}
 
-Запросы к приложению, развернутому в кластере {{ k8s }}, проходят через балансировщик нагрузки {{ alb-name }}. Виртуальные хосты, на которые направляются запросы, защищены с помощью профиля безопасности. Этот профиль [был настроен так](#create-security-profile), чтобы разрешать трафик только с определенного IP-адреса (например, с `203.0.113.200`).
+Запросы к приложению, развернутому в кластере Kubernetes, проходят через балансировщик нагрузки Application Load Balancer. Виртуальные хосты, на которые направляются запросы, защищены с помощью профиля безопасности. Этот профиль [был настроен так](#create-security-profile), чтобы разрешать трафик только с определенного IP-адреса (например, с `203.0.113.200`).
 
 Проверьте, что балансировщик работает корректно с учетом настроенного профиля безопасности:
 
@@ -639,8 +639,8 @@
 
 Если маршрутизация трафика не выполняется так, как ожидается, то убедитесь, что заданы необходимые настройки:
 
-* Сервисному аккаунту для Ingress-контроллера [должны быть назначены необходимые роли](#before-you-begin), в том числе для работы с сервисом {{ sws-name }}.
-* Группы безопасности для кластера {{ managed-k8s-name }} и его групп узлов [должны быть настроены корректно](../operations/connect/security-groups.md). Если отсутствует какое-либо из правил — [добавьте его](../../vpc/operations/security-group-add-rule.md).
+* Сервисному аккаунту для Ingress-контроллера [должны быть назначены необходимые роли](#before-you-begin), в том числе для работы с сервисом Smart Web Security.
+* Группы безопасности для кластера Managed Service for Kubernetes и его групп узлов [должны быть настроены корректно](../operations/connect/security-groups.md). Если отсутствует какое-либо из правил — [добавьте его](../../vpc/operations/security-group-add-rule.md).
 * Профиль безопасности [должен быть настроен корректно](#create-security-profile), чтобы разрешать трафик с нужного адреса.
 
 {% note tip %}
@@ -661,25 +661,25 @@
 
     Будет удален балансировщик нагрузки, а также HTTP-роутер, связанный с балансировщиком.
 
-    Профиль безопасности {{ sws-name }} будет отключен от виртуальных хостов, указанных в ресурсе Ingress.
+    Профиль безопасности Smart Web Security будет отключен от виртуальных хостов, указанных в ресурсе Ingress.
 
-1. Удалите кластер {{ managed-k8s-name }} и связанную с ним инфраструктуру:
+1. Удалите кластер Managed Service for Kubernetes и связанную с ним инфраструктуру:
 
     {% list tabs group=instructions %}
 
     - Вручную {#manual}
 
-        [Удалите кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+        [Удалите кластер Managed Service for Kubernetes](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 
         При необходимости удалите сервисные аккаунты и группы безопасности, [созданные перед началом работы](#before-you-begin).
 
-    - {{ TF }} {#tf}
+    - Terraform {#tf}
 
         1. В терминале перейдите в директорию с планом инфраструктуры.
         
             {% note warning %}
         
-            Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+            Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
         
             {% endnote %}
         
@@ -693,6 +693,6 @@
         
             1. Подтвердите удаление ресурсов и дождитесь завершения операции.
         
-            Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+            Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
     {% endlist %}

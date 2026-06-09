@@ -3,7 +3,7 @@
 ## HTTP request
 
 ```
-GET https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets:getEx
+GET https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets:getEx
 ```
 
 ## Query parameters {#yandex.cloud.lockbox.v1.GetExRequest}

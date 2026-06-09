@@ -5,7 +5,7 @@ Publishes message on behalf of specified registry
 ## HTTP request
 
 ```
-POST https://{{ api-host-iot-data }}/iot-devices/v1/registries/{registryId}/publish
+POST https://iot-data.api.cloud.yandex.net/iot-devices/v1/registries/{registryId}/publish
 ```
 
 ## Path parameters

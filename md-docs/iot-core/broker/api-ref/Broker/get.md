@@ -7,7 +7,7 @@ To get the list of available brokers, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}
+GET https://iot-broker.api.cloud.yandex.net/iot-broker/v1/brokers/{brokerId}
 ```
 
 ## Path parameters

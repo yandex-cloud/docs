@@ -5,7 +5,7 @@ Lists operations for the specified RoutingInstance.
 ## HTTP request
 
 ```
-GET https://cloudrouter.{{ api-host }}/cloudrouter/v1/routingInstances/{routingInstanceId}/operations
+GET https://cloudrouter.api.cloud.yandex.net/cloudrouter/v1/routingInstances/{routingInstanceId}/operations
 ```
 
 ## Path parameters

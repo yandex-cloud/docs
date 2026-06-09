@@ -5,7 +5,7 @@ Creates a Redis cluster in the specified folder.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-redis/v1/clusters
+POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters
 ```
 
 ## Body parameters {#yandex.cloud.mdb.redis.v1.CreateClusterRequest}

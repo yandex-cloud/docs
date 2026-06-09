@@ -1,18 +1,18 @@
-# Отслеживание потери сообщений в топике {{ KF }}
+# Отслеживание потери сообщений в топике Apache Kafka®
 
-# Отслеживание потери сообщений в топике {{ KF }}
+# Отслеживание потери сообщений в топике Apache Kafka®
 
-Потеря сообщений в топике {{ KF }} [группа потребителей](../concepts/producers-consumers.md#consumer-groups) возникает из-за сочетания двух факторов:
+Потеря сообщений в топике Apache Kafka® [группа потребителей](../concepts/producers-consumers.md#consumer-groups) возникает из-за сочетания двух факторов:
 1. В этом топике или во всем кластере включена политика очистки лога `Delete` и задано малое время жизни сегмента лога `Log retention`.
 2. Одна или несколько групп потребителей недостаточно быстро вычитывают сообщения из топика. В результате могут быть удалены даже те сообщения, которые еще не были прочитаны. 
 
-Потерю сообщений можно отслеживать с помощью [метрик](../metrics.md) сервиса {{ mkf-name }}, поставляемых в [{{ monitoring-name }}](../../monitoring/concepts/index.md). Если значение `kafka_group_topic_partition_offset` становится меньше `kafka_log_Log_LogStartOffset`, это указывает на потерю сообщений группой потребителей.
+Потерю сообщений можно отслеживать с помощью [метрик](../metrics.md) сервиса Managed Service for Apache Kafka®, поставляемых в [Monitoring](../../monitoring/concepts/index.md). Если значение `kafka_group_topic_partition_offset` становится меньше `kafka_log_Log_LogStartOffset`, это указывает на потерю сообщений группой потребителей.
 
 В этом руководстве вы:
-* Смоделируете потерю сообщений в топике на тестовом кластере {{ mkf-name }}, используя [инструменты подключения к топику](https://kafka.apache.org/community/downloads/).
-* Построите график метрик `kafka_group_topic_partition_offset`, `kafka_log_Log_LogStartOffset` и `kafka_log_Log_LogEndOffset` с помощью сервиса {{ monitoring-full-name }}, а также проследите закономерности, возникающие при потере сообщений.
+* Смоделируете потерю сообщений в топике на тестовом кластере Managed Service for Apache Kafka®, используя [инструменты подключения к топику](https://kafka.apache.org/community/downloads/).
+* Построите график метрик `kafka_group_topic_partition_offset`, `kafka_log_Log_LogStartOffset` и `kafka_log_Log_LogEndOffset` с помощью сервиса Yandex Monitoring, а также проследите закономерности, возникающие при потере сообщений.
 
-Чтобы смоделировать и отследить потерю сообщений в топике {{ KF }}:
+Чтобы смоделировать и отследить потерю сообщений в топике Apache Kafka®:
 
 1. [Подготовьте инструменты для подключения к топику](#test-cluster-prepare).
 1. [Подготовьте команды для отправки и получения сообщений](#prepare-commands).
@@ -29,22 +29,22 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер {{ KF }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства (см. [тарифы {{ KF }}](../pricing.md)).
-* Плата за использование публичных IP-адресов для хостов кластеров (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Плата за кластер Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства (см. [тарифы Apache Kafka®](../pricing.md)).
+* Плата за использование публичных IP-адресов для хостов кластеров (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте кластер {{ mkf-name }}](../operations/cluster-create.md) любой подходящей конфигурации. При создании кластера включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+1. [Создайте кластер Managed Service for Apache Kafka®](../operations/cluster-create.md) любой подходящей конфигурации. При создании кластера включите опцию **Публичный доступ**.
 
     {% note info %}
     
-    Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
+    Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
     
     {% endnote %}
 
 1. [Создайте топик](../operations/cluster-topics.md#create-topic) для обмена сообщениями между производителем и потребителем со следующими параметрами:
-    * **{{ ui-key.yacloud.common.name }}** — `messages`;
-    * **{{ ui-key.yacloud.kafka.label_partitions }}** — `1`.
+    * **Имя** — `messages`;
+    * **Количество разделов** — `1`.
 1. [Создайте пользователя](../operations/cluster-accounts.md#create-account) с именем `user` и [выдайте ему права](../operations/cluster-accounts.md#grant-permission) на топик `messages`:
     * `ACCESS_ROLE_CONSUMER`,
     * `ACCESS_ROLE_PRODUCER`.
@@ -72,7 +72,7 @@
        sudo apt update && sudo apt install --yes default-jdk
        ```
 
-    1. Загрузите [архив с бинарными файлами](https://kafka.apache.org/community/downloads/) для версии {{ KF }}, которая используется в кластере. Версия Scala не важна.
+    1. Загрузите [архив с бинарными файлами](https://kafka.apache.org/community/downloads/) для версии Apache Kafka®, которая используется в кластере. Версия Scala не важна.
 
     1. Распакуйте архив.
 
@@ -82,11 +82,11 @@
        cd /etc/security
        ```
 
-    1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер {{ KF }} мог использовать этот сертификат при защищенном подключении к хостам кластера. Задайте пароль не короче 6 символов в параметре `-storepass` для дополнительной защиты хранилища:
+    1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер Apache Kafka® мог использовать этот сертификат при защищенном подключении к хостам кластера. Задайте пароль не короче 6 символов в параметре `-storepass` для дополнительной защиты хранилища:
        
        ```bash
        sudo keytool -importcert \
-                    -alias {{ crt-alias }} -file {{ crt-local-dir }}{{ crt-local-file }} \
+                    -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
                     -keystore ssl -storepass <пароль_хранилища_сертификатов> \
                     --noprompt
        ```
@@ -113,23 +113,23 @@
 
     1. Установите последнюю доступную версию [Microsoft OpenJDK](https://docs.microsoft.com/en-us/java/openjdk/download).
 
-    1. Загрузите [архив с бинарными файлами](https://kafka.apache.org/community/downloads/) для версии {{ KF }}, которая используется в кластере. Версия Scala не важна.
+    1. Загрузите [архив с бинарными файлами](https://kafka.apache.org/community/downloads/) для версии Apache Kafka®, которая используется в кластере. Версия Scala не важна.
 
     1. Распакуйте архив.
 
        {% note tip %}
 
-       Распаковывайте файлы {{ KF }} в корневой каталог диска, например, `C:\kafka_2.12-2.6.0\`.
+       Распаковывайте файлы Apache Kafka® в корневой каталог диска, например, `C:\kafka_2.12-2.6.0\`.
 
-       Если путь к исполняемым и пакетным файлам {{ KF }} будет слишком длинным, то при попытке запустить их возникнет ошибка `The input line is too long`.
+       Если путь к исполняемым и пакетным файлам Apache Kafka® будет слишком длинным, то при попытке запустить их возникнет ошибка `The input line is too long`.
 
        {% endnote %}
 
-    1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер {{ KF }} мог использовать этот сертификат при защищенном подключении к хостам кластера. Задайте пароль в параметре `--storepass` для дополнительной защиты хранилища:
+    1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер Apache Kafka® мог использовать этот сертификат при защищенном подключении к хостам кластера. Задайте пароль в параметре `--storepass` для дополнительной защиты хранилища:
 
        ```powershell
-       keytool.exe -importcert -alias {{ crt-alias }} `
-       --file $HOME\.kafka\{{ crt-local-file }} `
+       keytool.exe -importcert -alias YandexCA `
+       --file $HOME\.kafka\YandexInternalRootCA.crt `
        --keystore $HOME\.kafka\ssl `
        --storepass <пароль_хранилища_сертификатов> `
        --noprompt
@@ -247,7 +247,7 @@
 
 ## Создайте графики мониторинга {#create-chart}
 
-Используя сервис [{{ monitoring-full-name }}]({{ link-monitoring }}), [отобразите на одном графике](../../monitoring/operations/metric/metric-explorer.md#add-graph) метрики `kafka_group_topic_partition_offset`, `kafka_log_Log_LogStartOffset` и `kafka_log_Log_LogEndOffset`:
+Используя сервис [Yandex Monitoring](https://monitoring.yandex.cloud), [отобразите на одном графике](../../monitoring/operations/metric/metric-explorer.md#add-graph) метрики `kafka_group_topic_partition_offset`, `kafka_log_Log_LogStartOffset` и `kafka_log_Log_LogEndOffset`:
 * Для `kafka_group_topic_partition_offset` укажите метки:
     * `service = managed-kafka`,
     * `name = kafka_group_topic_partition_offset`,
@@ -291,8 +291,8 @@
 
 [Задайте следующие настройки](../operations/cluster-topics.md#update-topic) топика `messages`:
 
-   * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}** — `Delete`;
-   * **{{ ui-key.yacloud.kafka.label_topic-retention-ms }}** — `60000`.
+   * **Политика очистки лога** — `Delete`;
+   * **Время жизни сегмента лога, мс** — `60000`.
 
 {% note info %}
 
@@ -314,7 +314,7 @@
 
 ## Проанализируйте графики мониторинга {#check-charts}
 
-Перейдите в сервис [{{ monitoring-full-name }}]({{ link-monitoring }}) и проанализируйте поведение созданных ранее метрик:
+Перейдите в сервис [Yandex Monitoring](https://monitoring.yandex.cloud) и проанализируйте поведение созданных ранее метрик:
 * `kafka_log_Log_LogStartOffset` — первое смещение в разделе. Увеличивается при записи сообщений в топик.
 * `kafka_log_Log_LogEndOffset` — последнее смещение в разделе. Увеличивается при удалении сообщений из топика.
 * `kafka_group_topic_partition_offset` — текущее смещение группы потребителей в разделе. Увеличивается при вычитывании сообщений из топика группой потребителей.
@@ -335,5 +335,5 @@
 
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, чтобы не платить за них:
 
-* [Удалите кластер {{ mkf-name }}](../operations/cluster-delete.md).
+* [Удалите кластер Managed Service for Apache Kafka®](../operations/cluster-delete.md).
 * Освободите и [удалите](../../vpc/operations/address-delete.md) публичные статические IP-адреса.

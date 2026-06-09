@@ -5,7 +5,7 @@ Sets access bindings for the specified Redis cluster.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-redis/v1/clusters/{resourceId}:setAccessBindings
+POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

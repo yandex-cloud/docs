@@ -1,14 +1,14 @@
-# Сопоставление групп пользователей в {{ microsoft-idp.adfs-full }}
+# Сопоставление групп пользователей в Microsoft Active Directory Federation Services
 
-Вы можете использовать сервис [{{ microsoft-idp.adfs-short }}](https://learn.microsoft.com/ru-ru/windows-server/identity/ad-fs/ad-fs-overview) ({{ microsoft-idp.adfs-abbreviated }}) для аутентификации пользователей в организации.
+Вы можете использовать сервис [Active Directory Federation Services](https://learn.microsoft.com/ru-ru/windows-server/identity/ad-fs/ad-fs-overview) (AD FS) для аутентификации пользователей в организации.
 
-Чтобы настроить сопоставление групп пользователей в {{ microsoft-idp.adfs-abbreviated }} и групп пользователей в [федерации удостоверений](../../organization/concepts/add-federation.md):
+Чтобы настроить сопоставление групп пользователей в AD FS и групп пользователей в [федерации удостоверений](../../organization/concepts/add-federation.md):
 
-1. [Соберите данные о ферме {{ microsoft-idp.adfs-abbreviated }}](#get-adfs-info).
-1. [Создайте федерацию {{ org-full-name }}](#create-federation).
-1. [Добавьте сертификат {{ microsoft-idp.adfs-abbreviated }} в федерацию](#add-certificate).
-1. [Создайте и настройте отношение доверия на стороне {{ microsoft-idp.adfs-abbreviated }}](#create-relying-party-trust).
-1. [Настройте сопоставление атрибутов на стороне {{ microsoft-idp.adfs-abbreviated }}](#adfs-mapping).
+1. [Соберите данные о ферме AD FS](#get-adfs-info).
+1. [Создайте федерацию Yandex Identity Hub](#create-federation).
+1. [Добавьте сертификат AD FS в федерацию](#add-certificate).
+1. [Создайте и настройте отношение доверия на стороне AD FS](#create-relying-party-trust).
+1. [Настройте сопоставление атрибутов на стороне AD FS](#adfs-mapping).
 1. [Настройте сопоставление групп на стороне федерации](#org-mapping).
 1. [Проверьте работу аутентификации](#test-auth).
 
@@ -18,16 +18,16 @@
 
 1. Есть доступ к MMC-оснастке **Active Directory Users and Computers**, через которую можно управлять доменными компьютерами, пользователями и группами.
 
-1. Есть настроенная ферма {{ microsoft-idp.adfs-abbreviated }} с одним или несколькими действующими сертификатами типа `Token-signing` для подписи токенов.
+1. Есть настроенная ферма AD FS с одним или несколькими действующими сертификатами типа `Token-signing` для подписи токенов.
 
 1. Есть доступ к следующим инструментам для управления этой фермой:
 
-    * MMC-оснастка **{{ microsoft-idp.adfs-abbreviated }} Management**.
-    * [Модуль PowerShell](https://learn.microsoft.com/en-us/powershell/module/adfs/) для управления {{ microsoft-idp.adfs-abbreviated }}.
+    * MMC-оснастка **AD FS Management**.
+    * [Модуль PowerShell](https://learn.microsoft.com/en-us/powershell/module/adfs/) для управления AD FS.
 
-## Соберите данные о ферме {{ microsoft-idp.adfs-abbreviated }} {#get-adfs-info}
+## Соберите данные о ферме AD FS {#get-adfs-info}
 
-1. Получите и сохраните сертификат, который будет использоваться для подписи сообщений от {{ microsoft-idp.adfs-abbreviated }}.
+1. Получите и сохраните сертификат, который будет использоваться для подписи сообщений от AD FS.
 
     Чтобы получить сертификат типа `Token-Signing` в формате Base64, выполните команды с помощью PowerShell, указав путь, по которому нужно сохранить сертификат:
 
@@ -56,7 +56,7 @@
         Get-AdfsProperties | Select Identifier
         ```
 
-        Идентификатор содержит в себе FQDN фермы {{ microsoft-idp.adfs-abbreviated }} и имеет вид:
+        Идентификатор содержит в себе FQDN фермы AD FS и имеет вид:
 
         ```text
         http://<FQDN_фермы_AD_FS>/adfs/services/trust
@@ -68,7 +68,7 @@
         Get-AdfsEndpoint -AddressPath /adfs/ls/ | Select FullUrl
         ```
        
-       Эндпоинт содержит в себе FQDN фермы {{ microsoft-idp.adfs-abbreviated }} и имеет следующий вид:
+       Эндпоинт содержит в себе FQDN фермы AD FS и имеет следующий вид:
        
        ```text
        https://<FQDN_фермы_AD_FS>/adfs/ls/
@@ -78,79 +78,79 @@
 
     Присутствие `http://` в идентификаторе не означает, что данные будут передаваться в открытом виде по протоколу HTTP.
 
-    Все взаимодействие между {{ microsoft-idp.adfs-abbreviated }} и {{ yandex-cloud }} будет происходить через эндпоинт по протоколу HTTPS.
+    Все взаимодействие между AD FS и Yandex Cloud будет происходить через эндпоинт по протоколу HTTPS.
 
     {% endnote %}
 
-## Создайте федерацию {{ org-full-name }} {#create-federation}
+## Создайте федерацию Yandex Identity Hub {#create-federation}
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. Перейдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
 
-  1. На панели слева выберите ![icon-federation](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
+  1. На панели слева выберите ![icon-federation](../../_assets/console-icons/vector-square.svg) **Федерации**.
 
-  1. В правом верхнем углу страницы нажмите кнопку ![Circles3Plus](../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}**. В открывшемся окне:
+  1. В правом верхнем углу страницы нажмите кнопку ![Circles3Plus](../../_assets/console-icons/circles-3-plus.svg) **Создать федерацию**. В открывшемся окне:
 
       1. Задайте имя федерации, например `demo-federation`. Имя должно быть уникальным в каталоге.
 
       1. При необходимости добавьте описание.
 
-      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** укажите время, в течение которого браузер не будет требовать у пользователя повторной аутентификации.
+      1. В поле **Время жизни cookie** укажите время, в течение которого браузер не будет требовать у пользователя повторной аутентификации.
 
-      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** вставьте идентификатор сервиса федераций, [полученный при сборе данных о ферме {{ microsoft-idp.adfs-abbreviated }}](#get-adfs-info).
+      1. В поле **IdP Issuer** вставьте идентификатор сервиса федераций, [полученный при сборе данных о ферме AD FS](#get-adfs-info).
 
-      1. В выпадающем списке **{{ ui-key.yacloud_org.entity.federation.field.ssoBinding }}** выберите `POST`.
+      1. В выпадающем списке **Single Sign-On метод** выберите `POST`.
 
-      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** вставьте эндпоинт сервиса федераций, полученный при сборе данных о ферме {{ microsoft-idp.adfs-abbreviated }}.
+      1. В поле **Ссылка на страницу для входа в IdP** вставьте эндпоинт сервиса федераций, полученный при сборе данных о ферме AD FS.
 
-      1. Включите опцию **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}**, чтобы автоматически добавлять пользователя в организацию после аутентификации. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../organization/operations/add-account.md#add-user-sso).
+      1. Включите опцию **Автоматически создавать пользователей**, чтобы автоматически добавлять пользователя в организацию после аутентификации. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../organization/operations/add-account.md#add-user-sso).
 
           Автоматически федеративный пользователь создается только при первом входе пользователя в облако. Если вы исключили пользователя из федерации, вернуть его туда можно будет только вручную.
 
-      1. (Опционально) Чтобы все запросы аутентификации от {{ yandex-cloud }} содержали цифровую подпись, включите опцию **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**. Потребуется установить SAML-сертификат {{ yandex-cloud }} на стороне поставщика удостоверений.
+      1. (Опционально) Чтобы все запросы аутентификации от Yandex Cloud содержали цифровую подпись, включите опцию **Подписывать запросы аутентификации**. Потребуется установить SAML-сертификат Yandex Cloud на стороне поставщика удостоверений.
 
-          В появившемся блоке **Сертификаты SAML** появится информация о действующем SAML-сертификате {{ yandex-cloud }}.
+          В появившемся блоке **Сертификаты SAML** появится информация о действующем SAML-сертификате Yandex Cloud.
           
           Нажмите ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **Скачать** и сохраните скачанный файл сертификата. Он потребуется для установки на ваш IdP-сервер.
           
           {% note tip %}
           
-          Следите за сроком действия сертификатов и устанавливайте новые сертификаты до истечения срока действия используемых. Перевыпущенный SAML-сертификат {{ yandex-cloud }} необходимо заранее [скачать и установить](../../organization/operations/renew-yc-certificate.md) на стороне IdP-провайдера и в вашей федерации.
+          Следите за сроком действия сертификатов и устанавливайте новые сертификаты до истечения срока действия используемых. Перевыпущенный SAML-сертификат Yandex Cloud необходимо заранее [скачать и установить](../../organization/operations/renew-yc-certificate.md) на стороне IdP-провайдера и в вашей федерации.
           
           {% endnote %}
 
-          [Скачать и установить сертификат](../../organization/operations/setup-federation.md#add-certificate-idp) {{ yandex-cloud }} вы можете и после создания федерации.
+          [Скачать и установить сертификат](../../organization/operations/setup-federation.md#add-certificate-idp) Yandex Cloud вы можете и после создания федерации.
 
-          Сертификат потребуется в дальнейшем при настройке отношения доверия {{ microsoft-idp.adfs-abbreviated }}.
+          Сертификат потребуется в дальнейшем при настройке отношения доверия AD FS.
 
-      1. Включите опцию **{{ ui-key.yacloud_org.entity.federation.field.forceAuthn }}**, чтобы задать значение `true` для параметра [ForceAuthn](../../organization/saml/api-ref/Federation/index.md) в запросе аутентификации SAML. При включении этой опции поставщик удостоверений (Identity Provider, IdP) запрашивает у пользователя аутентификацию по истечении сессии в {{ yandex-cloud }}. Необязательный параметр.
+      1. Включите опцию **Принудительная повторная аутентификация (ForceAuthn) в IdP**, чтобы задать значение `true` для параметра [ForceAuthn](../../organization/saml/api-ref/Federation/index.md) в запросе аутентификации SAML. При включении этой опции поставщик удостоверений (Identity Provider, IdP) запрашивает у пользователя аутентификацию по истечении сессии в Yandex Cloud. Необязательный параметр.
 
-      1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
+      1. Нажмите кнопку **Создать федерацию**.
 
 {% endlist %}
 
-## Добавьте сертификат {{ microsoft-idp.adfs-abbreviated }} в федерацию {#add-certificate}
+## Добавьте сертификат AD FS в федерацию {#add-certificate}
 
-Чтобы при аутентификации сервис {{ org-full-name }} мог проверить сертификат {{ microsoft-idp.adfs-abbreviated }}, добавьте сертификат в федерацию:
+Чтобы при аутентификации сервис Yandex Identity Hub мог проверить сертификат AD FS, добавьте сертификат в федерацию:
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
 
-  1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
+  1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **Федерации**.
 
   1. Нажмите на строку с федерацией, для которой нужно добавить сертификат — `demo-federation`.
 
-  1. Внизу страницы в блоке **{{ ui-key.yacloud_org.page.federation.section.certificates }}** нажмите кнопку **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
+  1. Внизу страницы в блоке **Сертификаты** нажмите кнопку **Добавить сертификат**.
 
   1. Введите название сертификата и укажите путь к файлу `adfs_certificate.cer`, который был [сохранен ранее](#get-adfs-info).
 
-  1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**.
+  1. Нажмите кнопку **Добавить**.
 
 {% endlist %}
 
@@ -162,13 +162,13 @@
 
 {% endnote %}
 
-## Создайте и настройте отношение доверия на стороне {{ microsoft-idp.adfs-abbreviated }} {#create-relying-party-trust}
+## Создайте и настройте отношение доверия на стороне AD FS {#create-relying-party-trust}
 
-В роли поставщика удостоверений (IdP) выступает {{ microsoft-idp.adfs-abbreviated }}, в котором настроено отношение доверия с проверяющей стороной (Relying Party Trust). Чтобы создать такое отношение и настроить его:
+В роли поставщика удостоверений (IdP) выступает AD FS, в котором настроено отношение доверия с проверяющей стороной (Relying Party Trust). Чтобы создать такое отношение и настроить его:
 
-1. Откройте MMC-оснастку **{{ microsoft-idp.adfs-abbreviated }} Management**.
+1. Откройте MMC-оснастку **AD FS Management**.
 
-1. Откройте в дереве консоли контекстное меню элемента **{{ microsoft-idp.adfs-abbreviated }}** → **Relying Party Trusts** и выберите пункт **Add Relying Party Trust**.
+1. Откройте в дереве консоли контекстное меню элемента **AD FS** → **Relying Party Trusts** и выберите пункт **Add Relying Party Trust**.
 
     Откроется мастер добавления отношения доверия с проверяющей стороной (Add Relying Party Trust Wizard).
 
@@ -176,7 +176,7 @@
 
 1. Выберите опцию **Enter data about the relying party manually** на шаге **Select Data Source**. Нажмите кнопку **Next**.
 
-1. Укажите имя отношения доверия (например, `{{ yandex-cloud }}`) и, при необходимости, его описание на шаге **Specify Display Name**. Нажмите кнопку **Next**.
+1. Укажите имя отношения доверия (например, `Yandex Cloud`) и, при необходимости, его описание на шаге **Specify Display Name**. Нажмите кнопку **Next**.
 
 1. Пропустите шаг **Configure Certificate**, нажав кнопку **Next**.
 
@@ -188,14 +188,14 @@
         URL для перенаправления имеет вид:
 
         ```text
-        https://{{ auth-host }}/federations/<идентификатор_федерации>
+        https://console.cloud.yandex.ru/federations/<идентификатор_федерации>
         ```
 
         {% cut "Как получить идентификатор федерации" %}
 
-        1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-        1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
-        1. Выберите нужную федерацию и на странице с информацией о ней скопируйте значение поля **{{ ui-key.yacloud_org.common.columns.column_id }}**.
+        1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+        1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **Федерации**.
+        1. Выберите нужную федерацию и на странице с информацией о ней скопируйте значение поля **Идентификатор**.
 
         {% endcut %}
 
@@ -219,18 +219,18 @@
 
     Политики для утверждений (claims) [будут настроены позднее](#map-adfs-ldap).
 
-1. (Опционально) Если при [создании федерации](#create-federation) в {{ org-full-name }} вы включили опцию **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**, настройте связанные с этим параметры для отношения доверия:
+1. (Опционально) Если при [создании федерации](#create-federation) в Yandex Identity Hub вы включили опцию **Подписывать запросы аутентификации**, настройте связанные с этим параметры для отношения доверия:
    
    1. Откройте контекстное меню созданного отношения доверия и выберите пункт **Properties**.
    
        Откроется окно со свойствами отношения доверия.
    
-   1. Перейдите на вкладку **Encryption** и добавьте скачанный [ранее](#create-federation) SAML-сертификат {{ yandex-cloud }} для подписи запросов аутентификации:
+   1. Перейдите на вкладку **Encryption** и добавьте скачанный [ранее](#create-federation) SAML-сертификат Yandex Cloud для подписи запросов аутентификации:
    
        1. Нажмите кнопку **Browse**.
        1. Выберите файл с сертификатом (например, `YandexCloud.cer`).
    
-            Если вы не скачивали SAML-сертификат при создании федерации, вы можете скачать его на странице сведений о федерации в {{ org-full-name }}, нажав кнопку ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}** в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
+            Если вы не скачивали SAML-сертификат при создании федерации, вы можете скачать его на странице сведений о федерации в Yandex Identity Hub, нажав кнопку ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **Скачать сертификат** в поле **Подписывать запросы аутентификации**.
    
    1. Перейдите на вкладку **Signature** и добавьте этот же сертификат:
    
@@ -243,13 +243,13 @@
    
        ```powershell
        Set-AdfsRelyingPartyTrust `
-           -TargetName "{{ yandex-cloud }}" `
+           -TargetName "Yandex Cloud" `
            -EncryptClaims $true `
            -SignedSamlRequestsRequired $true `
            -SamlResponseSignature MessageAndAssertion
        ```
 
-## Настройте сопоставление атрибутов на стороне {{ microsoft-idp.adfs-abbreviated }} {#adfs-mapping}
+## Настройте сопоставление атрибутов на стороне AD FS {#adfs-mapping}
 
 ### Создайте пользователя {#create-user}
 
@@ -281,7 +281,7 @@
 
     1. (Опционально) Отключите опцию **User must change password at next login**.
 
-        Если этого не сделать, то пользователю потребуется сменить пароль при первой аутентификации в {{ microsoft-idp.adfs-abbreviated }}.
+        Если этого не сделать, то пользователю потребуется сменить пароль при первой аутентификации в AD FS.
 
     1. Убедитесь, что опция **Account is disabled** отключена.
 
@@ -289,7 +289,7 @@
 
         В противном случае учетная запись этого пользователя будет отключена.
 
-        Пользователь не сможет выполнять аутентификацию в {{ microsoft-idp.adfs-abbreviated }} и работать с {{ yandex-cloud }}.
+        Пользователь не сможет выполнять аутентификацию в AD FS и работать с Yandex Cloud.
 
         {% endnote %}
 
@@ -341,11 +341,11 @@
 
 Чтобы настроить политику:
 
-1. Откройте MMC-оснастку **{{ microsoft-idp.adfs-abbreviated }} Management**.
+1. Откройте MMC-оснастку **AD FS Management**.
 
-1. Выберите в дереве консоли элемент **{{ microsoft-idp.adfs-abbreviated }}** → **Relying Party Trusts**.
+1. Выберите в дереве консоли элемент **AD FS** → **Relying Party Trusts**.
 
-1. Выберите [отношение доверия](#create-relying-party-trust) `{{ yandex-cloud }}` в панели результатов.
+1. Выберите [отношение доверия](#create-relying-party-trust) `Yandex Cloud` в панели результатов.
 
 1. Откройте контекстное меню этого отношения доверия и выберите пункт **Edit Access Control Policy**.
 
@@ -361,15 +361,15 @@
 
 1. Нажмите кнопку **OK** в окне **Select Groups**.
 
-1. Нажмите кнопку **OK** в окне **Edit Access Control Policy for {{ yandex-cloud }}**.
+1. Нажмите кнопку **OK** в окне **Edit Access Control Policy for Yandex Cloud**.
 
 ### Настройте сопоставление атрибутов LDAP {#map-adfs-ldap}
 
-1. Откройте MMC-оснастку **{{ microsoft-idp.adfs-abbreviated }} Management**.
+1. Откройте MMC-оснастку **AD FS Management**.
 
-1. Выберите в дереве консоли элемент **{{ microsoft-idp.adfs-abbreviated }}** → **Relying Party Trusts**.
+1. Выберите в дереве консоли элемент **AD FS** → **Relying Party Trusts**.
 
-1. Выберите [отношение доверия](#create-relying-party-trust) `{{ yandex-cloud }}` в панели результатов.
+1. Выберите [отношение доверия](#create-relying-party-trust) `Yandex Cloud` в панели результатов.
 
 1. Откройте контекстное меню этого отношения доверия и выберите пункт **Edit Claim Issuance Policy**.
 
@@ -389,7 +389,7 @@
 
     * **Mapping of LDAP attributes to outgoing claim types** — список сопоставлений в виде пар «атрибут/тип исходящего утверждения».
 
-        Добавьте в список следующие обязательные сопоставления, которые необходимы для корректного взаимодействия с {{ yandex-cloud }}:
+        Добавьте в список следующие обязательные сопоставления, которые необходимы для корректного взаимодействия с Yandex Cloud:
 
         #|
         || **Атрибут** | **Тип исходящего утверждения** ||
@@ -409,7 +409,7 @@
 
         || `Token-Groups - Unqualified Names`
 
-        Перечень групп, к которым принадлежит пользователь. Этот перечень будет использоваться в ходе сопоставления групп при аутентификации пользователя в {{ yandex-cloud }}.
+        Перечень групп, к которым принадлежит пользователь. Этот перечень будет использоваться в ходе сопоставления групп при аутентификации пользователя в Yandex Cloud.
 
         В данном случае будут передаваться короткие имена групп (например `adfs_group`, `Domain Users`) без указания их принадлежности к домену.
 
@@ -432,7 +432,7 @@
 
 {% note info %}
 
-Чтобы настроить сопоставление [групп пользователей](../../organization/concepts/user-pools.md) на стороне {{ yandex-cloud }}, [назначьте](../../iam/operations/roles/grant.md#resource) пользователю одну из следующих [ролей](../../iam/concepts/access-control/roles.md):
+Чтобы настроить сопоставление [групп пользователей](../../organization/concepts/user-pools.md) на стороне Yandex Cloud, [назначьте](../../iam/operations/roles/grant.md#resource) пользователю одну из следующих [ролей](../../iam/concepts/access-control/roles.md):
 
 * [`organization-manager.federations.editor`](../../organization/security/index.md#organization-manager-federations-editor);
 * [`organization-manager.federations.admin`](../../organization/security/index.md#organization-manager-federations-admin);
@@ -445,31 +445,31 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
 
-  1. [Создайте группу пользователей](../../organization/operations/create-group.md) `yc-demo-group` в {{ org-full-name }} и [выдайте ей права](../../organization/operations/access-group.md) на просмотр ресурсов в облаке или отдельном каталоге (роль `viewer`).
+  1. [Создайте группу пользователей](../../organization/operations/create-group.md) `yc-demo-group` в Yandex Identity Hub и [выдайте ей права](../../organization/operations/access-group.md) на просмотр ресурсов в облаке или отдельном каталоге (роль `viewer`).
 
-  1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
+  1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **Федерации**.
 
-  1. Выберите [созданную ранее федерацию](#create-federation) `demo-federation` и перейдите на вкладку **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}**.
+  1. Выберите [созданную ранее федерацию](#create-federation) `demo-federation` и перейдите на вкладку **IdP-группы**.
 
-  1. Включите опцию **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}**.
+  1. Включите опцию **Маппинг групп в IdP**.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud_org.form.group-mapping.create.add }}**.
+  1. Нажмите кнопку **Добавить группу**.
 
-  1. В поле **{{ ui-key.yacloud_org.form.group-mapping.note.group-name }}** введите идентификатор нужной группы, который передается в [утверждениях со стороны {{ microsoft-idp.adfs-abbreviated }}](#map-adfs-ldap).
+  1. В поле **Имя группы** введите идентификатор нужной группы, который передается в [утверждениях со стороны AD FS](#map-adfs-ldap).
 
       Если используется атрибут `Token-Groups - Unqualified Names`, то укажите в качестве идентификатора короткое имя группы — `adfs_group`.
 
-  1. В поле **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}** выберите из списка имя группы в {{ org-full-name }} — `yc-demo-group`.
+  1. В поле **IAM-группа** выберите из списка имя группы в Yandex Identity Hub — `yc-demo-group`.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.save-changes }}**.
+  1. Нажмите кнопку **Сохранить**.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Опишите в конфигурационном файле {{ TF }} параметры создаваемых ресурсов:
+  1. Опишите в конфигурационном файле Terraform параметры создаваемых ресурсов:
 
       ```hcl
       # Создание группы пользователей
@@ -503,11 +503,11 @@
 
       Где:
       * `folder_id` — каталог, на который назначается роль.
-      * `external_group_id` — идентификатор нужной группы, который передается в [утверждениях со стороны {{ microsoft-idp.adfs-abbreviated }}](#map-adfs-ldap).
+      * `external_group_id` — идентификатор нужной группы, который передается в [утверждениях со стороны AD FS](#map-adfs-ldap).
 
          Если используется атрибут `Token-Groups - Unqualified Names`, то укажите в качестве идентификатора короткое имя группы — `adfs_group`.
 
-      Подробнее см. в описаниях ресурсов [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) и [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) в документации провайдера {{ TF }}.
+      Подробнее см. в описаниях ресурсов [yandex_organizationmanager_group_mapping](../../terraform/resources/organizationmanager_group_mapping.md) и [yandex_organizationmanager_group_mapping_item](../../terraform/resources/organizationmanager_group_mapping_item.md) в документации провайдера Terraform.
 
   1. Создайте ресурсы:
 
@@ -530,7 +530,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -545,26 +545,26 @@
 
 1. Откройте браузер в гостевом режиме или режиме инкогнито.
 
-    Это действие необходимо выполнять с компьютера, который входит в домен и имеет доступ к {{ microsoft-idp.adfs-abbreviated }}.
+    Это действие необходимо выполнять с компьютера, который входит в домен и имеет доступ к AD FS.
 
 1. Перейдите по URL для входа в консоль:
 
     ```text
-    https://{{ console-host }}/federations/<идентификатор_федерации>
+    https://console.cloud.yandex.ru/federations/<идентификатор_федерации>
     ```
 
     {% cut "Как получить идентификатор федерации" %}
 
-    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-    1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
-    1. Выберите нужную федерацию и на странице с информацией о ней скопируйте значение поля **{{ ui-key.yacloud_org.common.columns.column_id }}**.
+    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+    1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **Федерации**.
+    1. Выберите нужную федерацию и на странице с информацией о ней скопируйте значение поля **Идентификатор**.
 
     {% endcut %}
 
-    Если все настроено правильно, браузер перенаправит вас на страницу аутентификации в {{ microsoft-idp.adfs-abbreviated }}.
+    Если все настроено правильно, браузер перенаправит вас на страницу аутентификации в AD FS.
 
 1. Введите реквизиты пользователя `adfs_demo_user@example.com`, [созданного ранее](#create-user), и нажмите кнопку **Sign in**.
 
-    После успешной аутентификации IdP-сервер перенаправит вас по URL `https://{{ auth-host }}/federations/<идентификатор_федерации>`, который вы указали в настройках [отношения доверия](#create-relying-party-trust), а после — на главную страницу [консоли управления]({{ link-console-main }}).
+    После успешной аутентификации IdP-сервер перенаправит вас по URL `https://console.cloud.yandex.ru/federations/<идентификатор_федерации>`, который вы указали в настройках [отношения доверия](#create-relying-party-trust), а после — на главную страницу [консоли управления](https://console.yandex.cloud).
 
 1. Убедитесь, что пользователь, от имени которого был выполнен вход, входит в группу `yc-demo-group` и у него есть права на просмотр ресурсов в соответствии с ролью, назначенной для группы.

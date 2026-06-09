@@ -5,7 +5,7 @@ Lists access bindings for the specified group.
 ## HTTP request
 
 ```
-GET https://organization-manager.{{ api-host }}/organization-manager/v1/groups/{resourceId}:listAccessBindings
+GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/groups/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

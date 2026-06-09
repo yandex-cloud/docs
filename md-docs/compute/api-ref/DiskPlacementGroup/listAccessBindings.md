@@ -5,7 +5,7 @@ Lists access bindings for the disk placement group.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/diskPlacementGroups/{resourceId}:listAccessBindings
+GET https://compute.api.cloud.yandex.net/compute/v1/diskPlacementGroups/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

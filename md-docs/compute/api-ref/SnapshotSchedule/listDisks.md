@@ -5,7 +5,7 @@ Retrieves the list of disks attached to the specified snapshot schedule.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotScheduleId}/disks
+GET https://compute.api.cloud.yandex.net/compute/v1/snapshotSchedules/{snapshotScheduleId}/disks
 ```
 
 ## Path parameters

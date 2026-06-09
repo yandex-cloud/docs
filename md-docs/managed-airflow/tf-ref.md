@@ -1,17 +1,17 @@
-# Справочник {{ TF }} для {{ maf-full-name }}
+# Справочник Terraform для Yandex Managed Service for Apache Airflow™
 
-[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
 
-Подробнее о {{ TF }} [читайте в документации](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+Подробнее о Terraform [читайте в документации](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 ## Ресурсы {#resources}
 
-Для {{ maf-name }} поддерживаются следующие ресурсы провайдера {{ TF }}:
+Для Managed Service for Apache Airflow™ поддерживаются следующие ресурсы провайдера Terraform:
 
-| **Ресурс {{ TF }}** | **Ресурс {{ yandex-cloud }}** |
+| **Ресурс Terraform** | **Ресурс Yandex Cloud** |
 | --- | --- |
-| [yandex_airflow_cluster]({{ tf-provider-maf }}) | [Кластер](concepts/index.md#cluster) |
-| [yandex_airflow_cluster_iam_binding]({{ tf-provider-resources-link }}/airflow_cluster_iam_binding) | [Настройка](../iam/concepts/access-control/index.md#access-bindings) прав доступа к кластеру |
+| [yandex_airflow_cluster](../terraform/resources/airflow_cluster.md) | [Кластер](concepts/index.md#cluster) |
+| [yandex_airflow_cluster_iam_binding](../terraform/resources/airflow_cluster_iam_binding.md) | [Настройка](../iam/concepts/access-control/index.md#access-bindings) прав доступа к кластеру |

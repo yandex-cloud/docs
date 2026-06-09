@@ -14,13 +14,13 @@
   ```
 
   * `--endpoint` — для создания потока, данные в который будут поставляться по протоколу AWS Kinesis Data Streams, укажите эндпоинт `https://yds.serverless.yandexcloud.net`.
-  * `--stream-name` — состоит из зоны доступности, идентификатора каталога, идентификатора базы данных {{ ydb-full-name }} и имени потока.
+  * `--stream-name` — состоит из зоны доступности, идентификатора каталога, идентификатора базы данных Yandex Managed Service for YDB и имени потока.
 
-     >Например, укажите идентификатор потока `/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/aws_stream`, если:
+     >Например, укажите идентификатор потока `/ru-central1/aoeu1kuk2dht********/cc8029jgtuab********/aws_stream`, если:
      >* `aws_stream` — имя потока;
-     >* `{{ region-id }}` — регион;
+     >* `ru-central1` — регион;
      >* `aoeu1kuk2dht********` — идентификатор каталога;
-     >* `cc8029jgtuab********` — идентификатор базы данных {{ ydb-short-name }}.
+     >* `cc8029jgtuab********` — идентификатор базы данных YDB.
   * `--shard-count` — количество [сегментов потока данных](../../concepts/glossary.md#shard).
 
   {% note info %}
@@ -34,7 +34,7 @@
   ```bash
   aws kinesis create-stream \
     --endpoint https://yds.serverless.yandexcloud.net \
-    --stream-name /{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/aws_stream \
+    --stream-name /ru-central1/aoeu1kuk2dht********/cc8029jgtuab********/aws_stream \
     --shard-count 1
   ```
 

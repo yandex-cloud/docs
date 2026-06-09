@@ -7,7 +7,7 @@
 
     * [Служебный трафик внутри кластера](#rules-internal).
 
-      Эти правила разрешают внутрикластерную коммуникацию и подключение к кластеру через API {{ k8s }}.
+      Эти правила разрешают внутрикластерную коммуникацию и подключение к кластеру через API Kubernetes.
 
     * [Подключение к сервисам из интернета](#rules-nodes).
     * [Подключение к узлам по SSH](#rules-nodes-ssh).
@@ -20,7 +20,7 @@
 
     {% endnote %}
 
-1. (Опционально) Если вы планируете использовать [L7-балансировщик {{ alb-full-name }}](../../../application-load-balancer/concepts/application-load-balancer.md) вместе с кластером, то [добавьте правила для балансировщика](../../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
+1. (Опционально) Если вы планируете использовать [L7-балансировщик Yandex Application Load Balancer](../../../application-load-balancer/concepts/application-load-balancer.md) вместе с кластером, то [добавьте правила для балансировщика](../../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
 
 1. [Примените группы безопасности с этими правилами](#apply) к кластеру и группам узлов.
 
@@ -57,35 +57,35 @@
 1. Добавьте правила для входящего трафика, которые разрешают:
 
    * Выполнять проверки состояния сетевого балансировщика нагрузки:
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`.
+     * **Диапазон портов** — `0-65535`.
+     * **Протокол** — `TCP`.
+     * **Источник** — `Проверки состояния балансировщика`.
    * Передавать служебный трафик между [мастером](../../concepts/index.md#master) и [узлами](../../concepts/index.md#node-group):
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
-   * Проверять работоспособность узлов с помощью ICMP-запросов из подсетей внутри {{ yandex-cloud }}:
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `ICMP`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — диапазоны адресов подсетей внутри {{ yandex-cloud }}, из которых будет осуществляться проверка работоспособности, например:
+     * **Диапазон портов** — `0-65535`.
+     * **Протокол** — `Любой` (`Any`).
+     * **Источник** — `Группа безопасности`.
+     * **Группа безопасности** — `Текущая` (`Self`).
+   * Проверять работоспособность узлов с помощью ICMP-запросов из подсетей внутри Yandex Cloud:
+     * **Протокол** — `ICMP`.
+     * **Источник** — `CIDR`.
+     * **CIDR блоки** — диапазоны адресов подсетей внутри Yandex Cloud, из которых будет осуществляться проверка работоспособности, например:
        * `10.0.0.0/8`.
        * `192.168.0.0/16`.
        * `172.16.0.0/12`.
 
 1. Добавьте правило для исходящего служебного трафика между мастером и узлами:
 
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
+    * **Диапазон портов** — `0-65535`.
+    * **Протокол** — `Любой` (`Any`).
+    * **Назначение** — `Группа безопасности`.
+    * **Группа безопасности** — `Текущая` (`Self`).
 
 
 1. Если вы используете кластер без [туннельного режима работы](../../concepts/network-policy.md#cilium) (Cilium CNI не используется), добавьте правило для исходящего трафика до CIDR кластера, которое разрешает мастеру обращаться к подам, которые располагаются на узлах.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — укажите CIDR кластера, например `10.96.0.0/16`.
+    * **Диапазон портов** — `0-65535`.
+    * **Протокол** — `Любой` (`Any`).
+    * **Назначение** — `CIDR`.
+    * **CIDR блоки** — укажите CIDR кластера, например `10.96.0.0/16`.
     
     Это правило нужно, например, для успешного обращения к эндпоинтам вебхуков в подах.
     
@@ -101,16 +101,16 @@
 Чтобы группы узлов работали корректно, создайте правила для входящего и исходящего трафика, и [примените их к группам узлов](#apply):
 
 1. Добавьте правило для входящего трафика, которое разрешает передачу трафика между [подами](../../concepts/index.md#pod) и [сервисами](../../concepts/index.md#service):
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — CIDR кластера и CIDR сервисов. Например, `10.96.0.0/16` и `10.112.0.0/16`.
+     * **Диапазон портов** — `0-65535`.
+     * **Протокол** — `Любой` (`Any`).
+     * **Источник** — `CIDR`.
+     * **CIDR блоки** — CIDR кластера и CIDR сервисов. Например, `10.96.0.0/16` и `10.112.0.0/16`.
 
-1. Добавьте правило для исходящего трафика, которое разрешает узлам в группе узлов подключаться к внешним ресурсам, например реестрам Docker-образов [{{ container-registry-name }}](../../../container-registry/concepts/index.md), [{{ cloud-registry-name }}](../../../cloud-registry/concepts/index.md) или [Docker Hub](https://hub.docker.com/), а также бакетам [{{ objstorage-name }}](../../../storage/concepts/bucket.md):
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+1. Добавьте правило для исходящего трафика, которое разрешает узлам в группе узлов подключаться к внешним ресурсам, например реестрам Docker-образов [Container Registry](../../../container-registry/concepts/index.md), [Cloud Registry](../../../cloud-registry/concepts/index.md) или [Docker Hub](https://hub.docker.com/), а также бакетам [Object Storage](../../../storage/concepts/bucket.md):
+   * **Диапазон портов** — `0-65535`.
+   * **Протокол** — `Любой` (`Any`).
+   * **Назначение** — `CIDR`.
+   * **CIDR блоки** — `0.0.0.0/0`.
 
     {% note info %}
 
@@ -120,17 +120,17 @@
 
       * Доступ к CIDR кластера:
 
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `10.131.0.32/32`.
+        * **Диапазон портов** — `0-65535`.
+        * **Протокол** — `Любой` (`Any`).
+        * **Назначение** — `CIDR`.
+        * **CIDR блоки** — `10.131.0.32/32`.
 
       * Доступ к CIDR подсетей с хостами мастера:
 
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `10.128.0.0/24`, `10.129.0.0/24`, `10.131.0.0/24`.
+        * **Диапазон портов** — `0-65535`.
+        * **Протокол** — `Любой` (`Any`).
+        * **Назначение** — `CIDR`.
+        * **CIDR блоки** — `10.128.0.0/24`, `10.129.0.0/24`, `10.131.0.0/24`.
 
       {% endcut %}
 
@@ -140,14 +140,14 @@
 
 Чтобы кластер работал корректно и к нему можно было [подключиться](index.md), создайте правила для входящего и исходящего трафика и [примените их к кластеру](#apply):
 
-1. Добавьте правила для входящего трафика, которые разрешают подключение к [мастеру](../../concepts/index.md#master) через порты `{{ port-k8s }}` и `{{ port-https }}`. Это позволит получить доступ к API {{ k8s }} и управлять кластером с помощью `kubectl` и других утилит.
+1. Добавьте правила для входящего трафика, которые разрешают подключение к [мастеру](../../concepts/index.md#master) через порты `6443` и `443`. Это позволит получить доступ к API Kubernetes и управлять кластером с помощью `kubectl` и других утилит.
 
     Создайте два правила для входящего трафика, по одному для каждого порта:
 
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`, `{{ port-k8s }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — укажите диапазон адресов подсетей, из которых будете управлять кластером, например:
+    * **Диапазон портов** — `443`, `6443`.
+    * **Протокол** — `TCP`.
+    * **Источник** — `CIDR`.
+    * **CIDR блоки** — укажите диапазон адресов подсетей, из которых будете управлять кластером, например:
       * `85.23.23.22/32` — для внешней сети.
       * `192.168.0.0/24` — для внутренней сети.
 
@@ -155,35 +155,35 @@
    
    * Передачу трафика между мастером и [подами](../../concepts/index.md#pod) `metric-server`:
 
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `4443`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — укажите CIDR кластера, например `10.96.0.0/16`.
+     * **Диапазон портов** — `4443`.
+     * **Протокол** — `TCP`.
+     * **Назначение** — `CIDR`.
+     * **CIDR блоки** — укажите CIDR кластера, например `10.96.0.0/16`.
    
    * Подключение мастера к NTP-серверам для синхронизации времени:
 
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `123`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_udp }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+     * **Диапазон портов** — `123`.
+     * **Протокол** — `UDP`.
+     * **Назначение** — `CIDR`.
+     * **CIDR блоки** — `0.0.0.0/0`.
 
 ## Создать правило для подключения к сервисам из интернета {#rules-nodes}
 
-Чтобы запущенные на узлах сервисы были доступны из интернета и подсетей внутри {{ yandex-cloud }}, создайте правило для входящего трафика, и [примените его к группе узлов](#apply):
+Чтобы запущенные на узлах сервисы были доступны из интернета и подсетей внутри Yandex Cloud, создайте правило для входящего трафика, и [примените его к группе узлов](#apply):
 
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `30000-32767`.
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+* **Диапазон портов** — `30000-32767`.
+* **Протокол** — `TCP`.
+* **Источник** — `CIDR`.
+* **CIDR блоки** — `0.0.0.0/0`.
 
 ## Создать правило для подключения к узлам по SSH {#rules-nodes-ssh}
 
 Чтобы получить доступ к узлам по протоколу [SSH](../../../glossary/ssh-keygen.md), создайте правило для входящего трафика и [примените его к группе узлов](#apply):
 
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-ssh }}`.
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — диапазоны адресов подсетей внутри {{ yandex-cloud }}, а также публичные IP-адреса компьютеров в интернете, например:
+* **Диапазон портов** — `22`.
+* **Протокол** — `TCP`.
+* **Источник** — `CIDR`.
+* **CIDR блоки** — диапазоны адресов подсетей внутри Yandex Cloud, а также публичные IP-адреса компьютеров в интернете, например:
     * `10.0.0.0/8`.
     * `192.168.0.0/16`.
     * `172.16.0.0/12`.
@@ -203,19 +203,19 @@
 
 ## Примеры правил {#examples}
 
-### Группы безопасности для кластера {{ managed-k8s-name }} {#k8s-example}
+### Группы безопасности для кластера Managed Service for Kubernetes {#k8s-example}
 
-Пусть планируется создать кластер {{ k8s }}, в котором:
+Пусть планируется создать кластер Kubernetes, в котором:
 
 * Используется следующая конфигурация:
 
-    * Высокодоступный мастер, размещенный в зонах доступности `{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-d`.
-    * Группа узлов `worker-nodes-a`, размещенная в зоне доступности `{{ region-id }}-a`.
+    * Высокодоступный мастер, размещенный в зонах доступности `ru-central1-a`, `ru-central1-b` и `ru-central1-d`.
+    * Группа узлов `worker-nodes-a`, размещенная в зоне доступности `ru-central1-a`.
     * CIDR кластера — `10.96.0.0/16`, CIDR сервисов — `10.112.0.0/16`.
 
 * Применяются следующие политики по обмену трафиком:
 
-    * [Проверка работоспособности узлов с помощью ICMP-запросов](#rules-internal-cluster) разрешена из следующих подсетей внутри {{ yandex-cloud }}:
+    * [Проверка работоспособности узлов с помощью ICMP-запросов](#rules-internal-cluster) разрешена из следующих подсетей внутри Yandex Cloud:
 
         * `10.0.0.0/8`,
         * `172.16.0.0/12`,
@@ -223,7 +223,7 @@
 
     * [Подключение к сервисам из интернета](#rules-nodes) разрешено с любых адресов — `0.0.0.0/0`.
     * [Подключение к узлам по SSH](#rules-nodes-ssh) разрешено только с одного адреса — `85.32.32.22/32`.
-    * [Доступ к API {{ k8s }}](#rules-master) разрешен из одной подсети — `203.0.113.0/24`.
+    * [Доступ к API Kubernetes](#rules-master) разрешен из одной подсети — `203.0.113.0/24`.
 
 Чтобы создать такой кластер:
 
@@ -286,7 +286,7 @@
   1. Создайте кластер и назначьте ему группы безопасности `k8s-cluster-nodegroup-traffic`, `k8s-cluster-traffic`:
 
       ```bash
-      {{ yc-k8s }} cluster create \
+      yc managed-kubernetes cluster create \
         --name k8s-cluster \
         --network-id <идентификатор_облачной_сети> \
         --service-account-id <идентификатор_сервисного_аккаунта_для_кластера> \
@@ -294,9 +294,9 @@
         --cluster-ipv4-range 10.96.0.0/16 \
         --service-ipv4-range 10.112.0.0/16 \
         --public-ip \
-        --master-location zone={{ region-id }}-a,subnet-id=<идентификатор_облачной_подсети_в_зоне_{{ region-id }}-a> \
-        --master-location zone={{ region-id }}-b,subnet-id=<идентификатор_облачной_подсети_в_зоне_{{ region-id }}-b> \
-        --master-location zone={{ region-id }}-d,subnet-id=<идентификатор_облачной_подсети_в_зоне_{{ region-id }}-d> \
+        --master-location zone=ru-central1-a,subnet-id=<идентификатор_облачной_подсети_в_зоне_ru-central1-a> \
+        --master-location zone=ru-central1-b,subnet-id=<идентификатор_облачной_подсети_в_зоне_ru-central1-b> \
+        --master-location zone=ru-central1-d,subnet-id=<идентификатор_облачной_подсети_в_зоне_ru-central1-d> \
         --security-group-ids <идентификатор_k8s-cluster-nodegroup-traffic>,<идентификатор_k8s-cluster-traffic>
       ```
 
@@ -305,17 +305,17 @@
   1. Создайте группу узлов и назначьте ей группы безопасности `k8s-cluster-nodegroup-traffic`, `k8s-nodegroup-traffic`, `k8s-services-access`, `k8s-ssh-access`:
 
       ```bash
-      {{ yc-k8s }} node-group create \
+      yc managed-kubernetes node-group create \
         --name worker-nodes-a \
         --cluster-id <идентификатор_кластера> \
-        --location zone={{ region-id }}-a \
+        --location zone=ru-central1-a \
         --fixed-size 1 \
-        --network-interface subnets=<идентификатор_подсети_в_зоне_{{ region-id }}-a>,ipv4-address=nat,security-group-ids=[<идентификатор_k8s-cluster-nodegroup-traffic>,<идентификатор_k8s-nodegroup-traffic>,<идентификатор_k8s-services-access>,<идентификатор_k8s-ssh-access>]
+        --network-interface subnets=<идентификатор_подсети_в_зоне_ru-central1-a>,ipv4-address=nat,security-group-ids=[<идентификатор_k8s-cluster-nodegroup-traffic>,<идентификатор_k8s-nodegroup-traffic>,<идентификатор_k8s-services-access>,<идентификатор_k8s-ssh-access>]
       ```
 
       Идентификатор группы безопасности можно [получить](../../../vpc/operations/security-group-get-info.md) вместе с информацией о ней.
     
-- {{ TF }} {#tf}    
+- Terraform {#tf}    
 
   1. Создайте группы безопасности с необходимыми правилами:
 
@@ -339,7 +339,7 @@
           predefined_target = "self_security_group"
         }
         ingress {
-          description    = "Правило для проверки работоспособности узлов с помощью ICMP-запросов из подсетей внутри {{ yandex-cloud }}."
+          description    = "Правило для проверки работоспособности узлов с помощью ICMP-запросов из подсетей внутри Yandex Cloud."
           protocol       = "ICMP"
           v4_cidr_blocks = ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"]
         }
@@ -402,13 +402,13 @@
         description = "Правила группы разрешают трафик для кластера. Примените ее к кластеру."
         network_id  = "<идентификатор_облачной_сети>"
         ingress {
-          description    = "Правило для входящего трафика, разрешающее доступ к API {{ k8s }} (порт 443)."
+          description    = "Правило для входящего трафика, разрешающее доступ к API Kubernetes (порт 443)."
           port           = 443
           protocol       = "TCP"
           v4_cidr_blocks = ["203.0.113.0/24"]
         }
         ingress {
-          description    = "Правило для входящего трафика, разрешающее доступ к API {{ k8s }} (порт 6443)."
+          description    = "Правило для входящего трафика, разрешающее доступ к API Kubernetes (порт 6443)."
           port           = 6443
           protocol       = "TCP"
           v4_cidr_blocks = ["203.0.113.0/24"]
@@ -440,15 +440,15 @@
         network_id = "<идентификатор_облачной_сети>"
         master {
           master_location {
-            zone      = "{{ region-id }}-a"
+            zone      = "ru-central1-a"
             subnet_id = "<идентификатор_облачной_подсети_в_зоне>"
           }
           master_location {
-            zone      = "{{ region-id }}-b"
+            zone      = "ru-central1-b"
             subnet_id = "<идентификатор_облачной_подсети_в_зоне>"
           }
           master_location {
-            zone      = "{{ region-id }}-d"
+            zone      = "ru-central1-d"
             subnet_id = "<идентификатор_облачной_подсети_в_зоне>"
           }
           security_group_ids = [
@@ -464,7 +464,7 @@
         name       = "worker-nodes-a"
         allocation_policy {
           location {
-            zone = "{{ region-id }}-a"
+            zone = "ru-central1-a"
           }
         }
         scale_policy {
@@ -489,7 +489,7 @@
 
 {% endlist %}
 
-### Группы безопасности для L7-балансировщика {{ alb-name }} и кластера {{ managed-k8s-name }} {#alb-example}
+### Группы безопасности для L7-балансировщика Application Load Balancer и кластера Managed Service for Kubernetes {#alb-example}
 
 Пусть необходимо создать правила для следующих условий:
 
@@ -500,7 +500,7 @@
 
 {% list tabs group=instructions %}
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Создайте следующие группы безопасности и правила:
     

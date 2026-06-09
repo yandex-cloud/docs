@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-С 1 июля 2026 года сервис {{ load-testing-name }} прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../sunset.md).
+С 1 июля 2026 года сервис Load Testing прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../sunset.md).
 
 {% endnote %}
 
@@ -15,9 +15,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог для тестирования.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
-  1. На панели слева выберите ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог для тестирования.
+  1. В списке сервисов выберите **Load Testing**.
+  1. На панели слева выберите ![image](../../_assets/load-testing/test.svg) **Тесты**.
   1. Выберите тест, отчет которого хотите посмотреть.
   1. Перейдите на одну из вкладок:
      * Обзор — содержит основную информацию о тесте.
@@ -30,4 +30,4 @@
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/loadtesting-results-compare.md)
+* [Сравнение результатов нагрузочных тестов](../tutorials/loadtesting-results-compare.md)

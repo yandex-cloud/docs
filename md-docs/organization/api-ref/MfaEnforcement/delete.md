@@ -5,7 +5,7 @@ deletes the specified MFA enforcement
 ## HTTP request
 
 ```
-DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/mfaEnforcements/{mfaEnforcementId}
+DELETE https://organization-manager.api.cloud.yandex.net/organization-manager/v1/mfaEnforcements/{mfaEnforcementId}
 ```
 
 ## Path parameters

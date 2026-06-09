@@ -5,7 +5,7 @@ Retrieves list of Workflows in specified folder.
 ## HTTP request
 
 ```
-GET https://serverless-workflows.{{ api-host }}/workflows/v1/workflow
+GET https://serverless-workflows.api.cloud.yandex.net/workflows/v1/workflow
 ```
 
 ## Query parameters {#yandex.cloud.serverless.workflows.v1.ListWorkflowsRequest}

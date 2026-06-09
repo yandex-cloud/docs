@@ -5,7 +5,7 @@ Updates a Dashboards type host group.
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/dashboards/node_groups/{name}
+PATCH https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/{clusterId}/dashboards/node_groups/{name}
 ```
 
 ## Path parameters

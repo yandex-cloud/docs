@@ -5,7 +5,7 @@ Creates an access key for the specified service account.
 ## HTTP request
 
 ```
-POST https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys
+POST https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys
 ```
 
 ## Body parameters {#yandex.cloud.iam.v1.awscompatibility.CreateAccessKeyRequest}

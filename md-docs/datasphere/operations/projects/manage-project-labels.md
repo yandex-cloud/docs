@@ -6,17 +6,17 @@
 
 ## Добавить метку {#add-label}
 
-1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
 
-1. В правом верхнем углу нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.more }}** и в выпадающем списке выберите **{{ ui-key.yc-ui-datasphere.common.manage-labels }}**.
+1. В правом верхнем углу нажмите кнопку **Еще** и в выпадающем списке выберите **Управление метками**.
 1. Нажмите кнопку **Добавить метку**.
 1. Введите ключ и значение и нажмите **Enter**.
-1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+1. Нажмите кнопку **Сохранить**.
 
 ## Удалить метку {#delete-label}
 
-1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
 
-1. В правом верхнем углу нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.more }}** и в выпадающем списке выберите **{{ ui-key.yc-ui-datasphere.common.manage-labels }}**.
+1. В правом верхнем углу нажмите кнопку **Еще** и в выпадающем списке выберите **Управление метками**.
 1. Справа от метки нажмите значок ![image](../../../_assets/console-icons/xmark.svg).
-1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+1. Нажмите кнопку **Сохранить**.

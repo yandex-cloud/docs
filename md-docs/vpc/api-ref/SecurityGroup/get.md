@@ -7,7 +7,7 @@ To get the list of all available SecurityGroup resources, make a [List](list.md#
 ## HTTP request
 
 ```
-GET https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}
+GET https://vpc.api.cloud.yandex.net/vpc/v1/securityGroups/{securityGroupId}
 ```
 
 ## Path parameters

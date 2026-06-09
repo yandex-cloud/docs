@@ -4,12 +4,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится топик.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
-  1. Слева выберите раздел **{{ ui-key.yacloud.cns.local.label_topics_vhBR3 }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится топик.
+  1. Перейдите в сервис **Cloud Notification Service**.
+  1. Слева выберите раздел **Топики**.
   
      1. Выберите топик.
-     1. Слева выберите **{{ ui-key.yacloud.cns.shared.CnsTopicLayout.subscriptions_cp53u }}**.
+     1. Слева выберите **Подписки**.
      1. Нажмите кнопку **Создать подписку**.
      1. Выберите тип канала уведомлений:
           
@@ -44,7 +44,7 @@
      Где:
        * `topic-arn` — ARN топика.
        * `protocol` — тип канала отправки уведомлений, например, `sms`, `application`.
-       * `notification-endpoint` — ARN эндпоинта, который подписывается на топик, в формате `arn:aws:sns::<cloud_id>:endpoint/<platform>/<channel_name>/<endpoint_unique_id>`. Для SMS — номер телефона в формате [E.164](https://{{ lang }}.wikipedia.org/wiki/E.164), например `+79991112233`.
+       * `notification-endpoint` — ARN эндпоинта, который подписывается на топик, в формате `arn:aws:sns::<cloud_id>:endpoint/<platform>/<channel_name>/<endpoint_unique_id>`. Для SMS — номер телефона в формате [E.164](https://ru.wikipedia.org/wiki/E.164), например `+79991112233`.
      
      Подробнее о команде `aws sns subscribe` см. в [документации AWS](https://docs.amazonaws.cn/en_us/sns/latest/dg/sns-create-subscribe-endpoint-to-topic.html).
 
@@ -69,6 +69,6 @@
      
      * `TopicArn` — ARN топика.
      * `Protocol` — тип канала для отправки уведомлений, например, `sms`, `application`.
-     * `Endpoint` — ARN эндпоинта, который подписывается на топик, в формате `arn:aws:sns::<cloud_id>:endpoint/<platform>/<channel_name>/<endpoint_unique_id>`. Для SMS — номер телефона в формате [E.164](https://{{ lang }}.wikipedia.org/wiki/E.164), например `+79991112233`.
+     * `Endpoint` — ARN эндпоинта, который подписывается на топик, в формате `arn:aws:sns::<cloud_id>:endpoint/<platform>/<channel_name>/<endpoint_unique_id>`. Для SMS — номер телефона в формате [E.164](https://ru.wikipedia.org/wiki/E.164), например `+79991112233`.
 
 {% endlist %}

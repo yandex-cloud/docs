@@ -5,7 +5,7 @@ Retrieves the list of Kafka users in the specified cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/users
+GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/users
 ```
 
 ## Path parameters

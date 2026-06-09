@@ -5,7 +5,7 @@ Delete instances from the instance group.
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}:deleteInstances
+POST https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{instanceGroupId}:deleteInstances
 ```
 
 ## Path parameters

@@ -1,10 +1,10 @@
-# Изменение настроек кластера {{ SD }} 
+# Изменение настроек кластера Yandex StoreDoc 
 
 После создания кластера вы можете:
 
 * [Изменить класс хостов](#change-resource-preset).
 * [Изменить тип диска и увеличить размер хранилища](#change-disk-size).
-* [Настроить серверы](#change-mongod-config) {{ SD }} согласно документации {{ MG }}.
+* [Настроить серверы](#change-mongod-config) Yandex StoreDoc согласно документации MongoDB.
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
 * [Переместить кластер](#move-cluster) в другой каталог.
 * [Изменить группы безопасности](#change-sg-set).
@@ -15,7 +15,7 @@
 
 {% note info %}
 
-Некоторые настройки {{ SD }} [зависят от выбранного класса хостов](../concepts/settings-list.md#settings-instance-dependent).
+Некоторые настройки Yandex StoreDoc [зависят от выбранного класса хостов](../concepts/settings-list.md#settings-instance-dependent).
 
 {% endnote %}
 
@@ -31,12 +31,12 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex StoreDoc**.
 
-  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+  1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
 
-  1. В зависимости от выбранного [типа шардирования](../concepts/sharding.md#shard-management), перейдите к блоку ресурсов кластера, которые нужно изменить: **Ресурсы**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongod-resources_ncXUZ }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongoinfra-resources_13TPT }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongocfg-resources_1cuU2 }}** или **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongos-resources_wBGnr }}**.
+  1. В зависимости от выбранного [типа шардирования](../concepts/sharding.md#shard-management), перейдите к блоку ресурсов кластера, которые нужно изменить: **Ресурсы**, **Ресурсы Mongod**, **Ресурсы Mongoinfra**, **Ресурсы Mongocfg** или **Ресурсы Mongos**.
 
   
   1. Выберите:
@@ -46,11 +46,11 @@
      * [Класс хостов](../concepts/instance-types.md) — он определяет технические характеристики виртуальных машин, на которых будут развернуты хосты БД. При изменении класса хостов для кластера меняются характеристики всех созданных хостов.
 
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -59,20 +59,20 @@
   1. Посмотрите описание команды CLI для изменения кластера:
 
       ```bash
-      {{ yc-mdb-mg }} cluster update --help
+      yc managed-mongodb cluster update --help
       ```
 
   1. Запросите список доступных классов хостов (в колонке `ZONE IDS` указаны зоны доступности, в которых можно выбрать соответствующий класс):
 
      
      ```bash
-     {{ yc-mdb-mg }} resource-preset list
+     yc managed-mongodb resource-preset list
 
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
      +-----------+--------------------------------+-------+----------+
-     | s1.micro  | {{ region-id }}-a, {{ region-id }}-b,  |     2 | 8.0 GB   |
-     |           | {{ region-id }}-d                  |       |          |
+     | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
+     |           | ru-central1-d                  |       |          |
      | ...                                                           |
      +-----------+--------------------------------+-------+----------+
      ```
@@ -84,41 +84,41 @@
       * Для хостов `MONGOD`:
 
           ```bash
-          {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
+          yc managed-mongodb cluster update <имя_или_идентификатор_кластера> \
              --mongod-resource-preset <ID_класса>
           ```
 
       * Для хостов `MONGOINFRA`:
 
           ```bash
-          {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
+          yc managed-mongodb cluster update <имя_или_идентификатор_кластера> \
              --mongoinfra-resource-preset <ID_класса>
           ```
 
       * Для хостов `MONGOS`:
 
           ```bash
-          {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
+          yc managed-mongodb cluster update <имя_или_идентификатор_кластера> \
              --mongos-resource-preset <ID_класса>
           ```
 
       * Для хостов `MONGOCFG`:
 
           ```bash
-          {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
+          yc managed-mongodb cluster update <имя_или_идентификатор_кластера> \
              --mongocfg-resource-preset <ID_класса>
           ```
 
-      {{ mmg-short-name }} запустит операцию изменения класса хостов для кластера.
+      Yandex StoreDoc запустит операцию изменения класса хостов для кластера.
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
   
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
   
-  1. Измените в описании кластера {{ mmg-name }} значение параметра `resource_preset_id` для ресурсов `resources_mongod`, `resources_mongoinfra`, `resources_mongos` или `resources_mongocfg`. Тип ресурса зависит от [типа шардирования](../concepts/sharding.md#shard-management).
+  1. Измените в описании кластера Yandex StoreDoc значение параметра `resource_preset_id` для ресурсов `resources_mongod`, `resources_mongoinfra`, `resources_mongos` или `resources_mongocfg`. Тип ресурса зависит от [типа шардирования](../concepts/sharding.md#shard-management).
 
       Пример:
   
@@ -134,14 +134,14 @@
 
   1. Проверьте корректность настроек.
   
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
   
   1. Подтвердите изменение ресурсов.
   
@@ -163,11 +163,11 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
  
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
+  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_cluster.md).
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mmg-name }}:
+  Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex StoreDoc:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 30 минут;
   * изменение — 60 минут.
@@ -201,7 +201,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       {% note warning %}
       
@@ -214,7 +214,7 @@
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
           --header "Content-Type: application/json" \
-          --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>' \
+          --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>' \
           --data '{
                     "updateMask": "configSpec.mongodb.<тип_хоста_Yandex_StoreDoc>.resources.resourcePresetId",
                     "configSpec": {
@@ -237,7 +237,7 @@
 
       * `configSpec.mongodb.<тип_хоста_Yandex_StoreDoc>.resources.resourcePresetId` — новый [класс хостов](../concepts/instance-types.md).
 
-        Тип хоста {{ SD }} зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`. Если кластер нешардированный, укажите `mongod`.
+        Тип хоста Yandex StoreDoc зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`. Если кластер нешардированный, укажите `mongod`.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -258,7 +258,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       {% note warning %}
       
@@ -305,7 +305,7 @@
                   }
                 }
               }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.mongodb.v1.ClusterService.Update
       ```
 
@@ -317,7 +317,7 @@
 
       * `config_spec.mongodb.<тип_хоста_Yandex_StoreDoc>.resources.resource_preset_id` — новый класс хостов.
       
-        Тип хоста {{ SD }} зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`. Если кластер нешардированный, укажите `mongod`.
+        Тип хоста Yandex StoreDoc зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`. Если кластер нешардированный, укажите `mongod`.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -327,7 +327,7 @@
 
 ## Изменить тип диска и увеличить размер хранилища {#change-disk-size}
 
-Проверьте, что в облаке достаточно квот для увеличения хранилища. Откройте страницу [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) для облака и убедитесь, что в секции **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}** в строке **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-mdb.hdd.size }}** или **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-mdb.ssd.size }}** есть квота на объем хранилищ.
+Проверьте, что в облаке достаточно квот для увеличения хранилища. Откройте страницу [Квоты](https://console.yandex.cloud/cloud?section=quotas) для облака и убедитесь, что в секции **Managed Databases** в строке **Объём HDD-хранилищ** или **Объём SSD-хранилищ** есть квота на объем хранилищ.
 
 {% list tabs group=instructions %}
 
@@ -335,20 +335,20 @@
 
   Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
-  1. В зависимости от выбранного [типа шардирования](../concepts/sharding.md#shard-management), перейдите к блоку ресурсов кластера, которые нужно изменить: **Ресурсы**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongod-resources_ncXUZ }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongoinfra-resources_13TPT }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongocfg-resources_1cuU2 }}** или **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongos-resources_wBGnr }}**.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+  1. В зависимости от выбранного [типа шардирования](../concepts/sharding.md#shard-management), перейдите к блоку ресурсов кластера, которые нужно изменить: **Ресурсы**, **Ресурсы Mongod**, **Ресурсы Mongoinfra**, **Ресурсы Mongocfg** или **Ресурсы Mongos**.
+  1. В блоке **Хранилище**:
 
       * Выберите [тип диска](../concepts/storage.md).
       * Укажите нужный размер диска.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -357,7 +357,7 @@
   1. Посмотрите описание команды CLI для изменения кластера:
 
       ```bash
-      {{ yc-mdb-mg }} cluster update --help
+      yc managed-mongodb cluster update --help
       ```
 
   1. Укажите [тип диска](../concepts/instance-types.md) и нужный размер хранилища в команде изменения кластера (размер хранилища должен быть не меньше, чем значение `disk_size` в свойствах кластера).
@@ -367,7 +367,7 @@
       * Для хостов `MONGOD`:
 
           ```bash
-          {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
+          yc managed-mongodb cluster update <имя_или_идентификатор_кластера> \
              --mongod-disk-type <тип_диска> \
              --mongod-disk-size <размер_хранилища_ГБ>
           ```
@@ -375,7 +375,7 @@
       * Для хостов `MONGOINFRA`:
 
           ```bash
-          {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
+          yc managed-mongodb cluster update <имя_или_идентификатор_кластера> \
              --mongoinfra-disk-type <тип_диска> \
              --mongoinfra-disk-size <размер_хранилища_ГБ>
           ```
@@ -383,7 +383,7 @@
       * Для хостов `MONGOS`:
 
           ```bash
-          {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
+          yc managed-mongodb cluster update <имя_или_идентификатор_кластера> \
              --mongos-disk-type <тип_диска> \
              --mongos-disk-size <размер_хранилища_ГБ>
           ```
@@ -391,23 +391,23 @@
       * Для хостов `MONGOCFG`:
 
           ```bash
-          {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
+          yc managed-mongodb cluster update <имя_или_идентификатор_кластера> \
              --mongocfg-disk-type <тип_диска> \
              --mongocfg-disk-size <размер_хранилища_ГБ>
           ```
 
-      Если все условия выполнены, {{ mmg-short-name }} запустит операцию по изменению параметров хранилища.
+      Если все условия выполнены, Yandex StoreDoc запустит операцию по изменению параметров хранилища.
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-  1. Измените в описании кластера {{ mmg-name }} значения параметров `disk_type_id` и `disk_size` для ресурсов `resources_mongod`, `resources_mongoinfra`, `resources_mongos` или `resources_mongocfg`. Тип ресурса зависит от [типа шардирования](../concepts/sharding.md#shard-management).
+  1. Измените в описании кластера Yandex StoreDoc значения параметров `disk_type_id` и `disk_size` для ресурсов `resources_mongod`, `resources_mongoinfra`, `resources_mongos` или `resources_mongocfg`. Тип ресурса зависит от [типа шардирования](../concepts/sharding.md#shard-management).
 
       Пример:
 
@@ -424,14 +424,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -453,11 +453,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_cluster.md).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mmg-name }}:
+    Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex StoreDoc:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 30 минут;
     * изменение — 60 минут.
@@ -491,7 +491,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       {% note warning %}
       
@@ -504,7 +504,7 @@
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
           --header "Content-Type: application/json" \
-          --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>' \
+          --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>' \
           --data '{
                     "updateMask": "configSpec.mongodb.<тип_хоста_Yandex_StoreDoc>.resources.diskTypeId,configSpec.mongodb.<тип_хоста_Yandex_StoreDoc>.resources.diskSize",
                     "configSpec": {
@@ -529,7 +529,7 @@
           * `diskTypeId` — [тип диска](../concepts/storage.md).
           * `diskSize` — новый размер хранилища в байтах.
 
-        Тип хоста {{ SD }} зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`. Если кластер нешардированный, укажите `mongod`.
+        Тип хоста Yandex StoreDoc зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`. Если кластер нешардированный, укажите `mongod`.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -550,7 +550,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       {% note warning %}
       
@@ -599,7 +599,7 @@
                   }
                 }
               }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.mongodb.v1.ClusterService.Update
       ```
 
@@ -612,7 +612,7 @@
           * `disk_type_id` — [тип диска](../concepts/storage.md).
           * `disk_size` — новый размер хранилища в байтах.
 
-        Тип хоста {{ SD }} зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`. Если кластер нешардированный, укажите `mongod`.
+        Тип хоста Yandex StoreDoc зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`. Если кластер нешардированный, укажите `mongod`.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -620,13 +620,13 @@
 
 {% endlist %}
 
-## Изменить настройки {{ SD }} {#change-mongod-config}
+## Изменить настройки Yandex StoreDoc {#change-mongod-config}
 
 Вы можете изменить настройки СУБД для хостов вашего кластера.
 
 {% note info %}
 
-Некоторые настройки {{ SD }} [зависят от выбранного класса хостов](../concepts/settings-list.md#settings-instance-dependent).
+Некоторые настройки Yandex StoreDoc [зависят от выбранного класса хостов](../concepts/settings-list.md#settings-instance-dependent).
 
 {% endnote %}
 
@@ -634,32 +634,32 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
-  1. Чтобы изменить [настройки {{ SD }}](../concepts/settings-list.md#dbms-cluster-settings), нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+  1. Чтобы изменить [настройки Yandex StoreDoc](../concepts/settings-list.md#dbms-cluster-settings), нажмите кнопку **Настроить** в блоке **Настройки СУБД**.
+  1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы изменить [настройки {{ SD }}](../concepts/settings-list.md#dbms-cluster-settings) для кластера, используйте команду:
+  Чтобы изменить [настройки Yandex StoreDoc](../concepts/settings-list.md#dbms-cluster-settings) для кластера, используйте команду:
 
   ```bash
-  {{ yc-mdb-mg }} cluster update-config
+  yc managed-mongodb cluster update-config
   ```
 
   Например, для установки значения параметра net.maxIncomingConnections в `4096`, выполните следующую команду:
 
   ```bash
-  {{ yc-mdb-mg }} cluster update-config <имя_кластера> \
+  yc managed-mongodb cluster update-config <имя_кластера> \
      --set net.max_incoming_connections=4096
   ```
 
-  {{ mmg-short-name }} запустит операцию изменения настроек СУБД для кластера. Если изменяемая настройка применяется только с перезапуском СУБД, то {{ mmg-short-name }} последовательно перезапустит СУБД на всех хостах кластера.
+  Yandex StoreDoc запустит операцию изменения настроек СУБД для кластера. Если изменяемая настройка применяется только с перезапуском СУБД, то Yandex StoreDoc последовательно перезапустит СУБД на всех хостах кластера.
 
 - REST API {#api}
 
@@ -669,7 +669,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       {% note warning %}
       
@@ -682,7 +682,7 @@
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
           --header "Content-Type: application/json" \
-          --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>' \
+          --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>' \
           --data '{
                     "updateMask": "configSpec.mongodb.<тип_хоста_Yandex_StoreDoc>.config.<настройка_1>,configSpec.mongodb.<тип_хоста_Yandex_StoreDoc>.config.<настройка_2>,...,configSpec.mongodb.<тип_хоста_Yandex_StoreDoc>.config.<настройка_N>",
                     "configSpec": {
@@ -704,9 +704,9 @@
 
       * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
-      * `configSpec.mongodb.<тип_хоста_Yandex_StoreDoc>.config` — набор настроек {{ SD }}. Укажите каждую настройку на отдельной строке через запятую. Все поддерживаемые настройки описаны [в справочнике API](../api-ref/Cluster/update.md) и в разделе [{#T}](../concepts/settings-list.md).
+      * `configSpec.mongodb.<тип_хоста_Yandex_StoreDoc>.config` — набор настроек Yandex StoreDoc. Укажите каждую настройку на отдельной строке через запятую. Все поддерживаемые настройки описаны [в справочнике API](../api-ref/Cluster/update.md) и в разделе [Настройки Yandex StoreDoc](../concepts/settings-list.md).
 
-        Тип хоста {{ SD }} зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`. Если кластер нешардированный, укажите `mongod`.
+        Тип хоста Yandex StoreDoc зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`. Если кластер нешардированный, укажите `mongod`.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -727,7 +727,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       {% note warning %}
       
@@ -780,7 +780,7 @@
                   }
                 }
               }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.mongodb.v1.ClusterService.Update
       ```
 
@@ -788,9 +788,9 @@
 
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
-      * `config_spec.mongodb.<тип_хоста_Yandex_StoreDoc>.config` — набор настроек {{ SD }}. Укажите каждую настройку на отдельной строке через запятую. Все поддерживаемые настройки описаны [в справочнике API](../api-ref/grpc/Cluster/update.md) и в разделе [{#T}](../concepts/settings-list.md).
+      * `config_spec.mongodb.<тип_хоста_Yandex_StoreDoc>.config` — набор настроек Yandex StoreDoc. Укажите каждую настройку на отдельной строке через запятую. Все поддерживаемые настройки описаны [в справочнике API](../api-ref/grpc/Cluster/update.md) и в разделе [Настройки Yandex StoreDoc](../concepts/settings-list.md).
 
-        Тип хоста {{ SD }} зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`. Если кластер нешардированный, укажите `mongod`.
+        Тип хоста Yandex StoreDoc зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`. Если кластер нешардированный, укажите `mongod`.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -804,45 +804,45 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
   1. Измените дополнительные настройки кластера:
 
-     - **{{ ui-key.yacloud.mdb.forms.backup-window-start }}** — промежуток времени, в течение которого начинается резервное копирование кластера. Время указывается по UTC в 24-часовом формате. По умолчанию — `22:00 - 23:00` UTC.
+     - **Начало резервного копирования (UTC)** — промежуток времени, в течение которого начинается резервное копирование кластера. Время указывается по UTC в 24-часовом формате. По умолчанию — `22:00 - 23:00` UTC.
      
-     - **{{ ui-key.yacloud.mdb.forms.backup-retain-period }}**{#setting-backup-saving}
+     - **Срок хранения автоматических резервных копий, дней**{#setting-backup-saving}
        
-       Время, в течение которого нужно хранить созданные автоматически резервные копии. Если для такой копии истекает срок хранения, то она удаляется. Значение по умолчанию — {{ mmg-backup-retention }} дней. Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Подробнее см. в разделе [Резервные копии](../concepts/backup.md).
+       Время, в течение которого нужно хранить созданные автоматически резервные копии. Если для такой копии истекает срок хранения, то она удаляется. Значение по умолчанию — 7 дней. Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Подробнее см. в разделе [Резервные копии](../concepts/backup.md).
      
      
        Изменение срока хранения затрагивает как новые автоматические резервные копии, так и уже существующие. Например, если изначальный срок хранения был 7 дней и оставшееся время жизни отдельной автоматической резервной копии при таком сроке — 1 день, то при увеличении срока хранения до 9 дней, оставшееся время жизни этой резервной копии будет уже 3 дня.
      
-       Для существующего кластера автоматически созданные копии хранятся заданное количество дней, а созданные вручную — бессрочно. После удаления кластера все копии хранятся {{ mmg-backup-retention }} дней.
+       Для существующего кластера автоматически созданные копии хранятся заданное количество дней, а созданные вручную — бессрочно. После удаления кластера все копии хранятся 7 дней.
      
-     - **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки времени [технического обслуживания](../concepts/maintenance.md):
+     - **Обслуживание** — настройки времени [технического обслуживания](../concepts/maintenance.md):
      
-         * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (по умолчанию).
-         * Чтобы указать предпочтительное время начала обслуживания, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** и укажите день недели и интервал времени по UTC. Например, можно выбрать время, когда кластер наименее загружен.
+         * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **В любое время** (по умолчанию).
+         * Чтобы указать предпочтительное время начала обслуживания, выберите пункт **По расписанию** и укажите день недели и интервал времени по UTC. Например, можно выбрать время, когда кластер наименее загружен.
          
          Операции по техническому обслуживанию проводятся для включенных и выключенных кластеров. Они могут включать в себя: обновление СУБД, применение патчей и так далее.
      
      
      
-     - **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** — опция разрешает [выполнять SQL-запросы](websql.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
+     - **Доступ из WebSQL** — опция разрешает [выполнять SQL-запросы](websql.md) к базам данных кластера из консоли управления Yandex Cloud с помощью сервиса Yandex WebSQL.
      
      
-     - **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** — включите эту опцию, чтобы пользоваться встроенным инструментом для [диагностики производительности](performance-diagnostics.md) в кластере. Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+     - **Сбор статистики** — включите эту опцию, чтобы пользоваться встроенным инструментом для [диагностики производительности](performance-diagnostics.md) в кластере. Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
      
-     - **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** — защита кластера от непреднамеренного удаления.
+     - **Защита от удаления** — защита кластера от непреднамеренного удаления.
      
        Включенная защита кластера от удаления не помешает удалить пользователя или базу данных, а также подключиться вручную и удалить содержимое базы данных.
      
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -851,13 +851,13 @@
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
-        {{ yc-mdb-mg }} cluster update --help
+        yc managed-mongodb cluster update --help
         ```
 
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
         ```bash
-        {{ yc-mdb-mg }} cluster update <идентификатор_или_имя_кластера> \
+        yc managed-mongodb cluster update <идентификатор_или_имя_кластера> \
           --backup-retain-period-days=<срок_хранения> \
           --backup-window-start <время_начала_резервного_копирования> \
           --maintenance-window type=<тип_технического_обслуживания>,`
@@ -871,7 +871,7 @@
 
     * `--backup-retain-period` — срок хранения автоматических резервных копий (в днях).
       
-      Значение параметра `<срок_хранения>` задается в диапазоне от {{ mmg-backup-retention-min }} до {{ mmg-backup-retention-max }} (по умолчанию — {{ mmg-backup-retention }}). Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Подробнее см. в разделе [Резервные копии](../concepts/backup.md).
+      Значение параметра `<срок_хранения>` задается в диапазоне от 7 до 35 (по умолчанию — 7). Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Подробнее см. в разделе [Резервные копии](../concepts/backup.md).
 
 
       Изменение срока хранения затрагивает как новые автоматические резервные копии, так и уже существующие.
@@ -898,13 +898,13 @@
     Идентификатор и имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
       
        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Чтобы изменить время начала резервного копирования, добавьте к описанию кластера {{ mmg-name }} блок `backup_window_start` в секции `cluster_config`:
+    1. Чтобы изменить время начала резервного копирования, добавьте к описанию кластера Yandex StoreDoc блок `backup_window_start` в секции `cluster_config`:
   
         ```hcl
         resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
@@ -961,14 +961,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -990,11 +990,11 @@
           1. Подтвердите изменение ресурсов.
           1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
+  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_cluster.md).
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mmg-name }}:
+  Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex StoreDoc:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 30 минут;
   * изменение — 60 минут.
@@ -1094,14 +1094,14 @@
 
         Включенная защита кластера от удаления не помешает удалить пользователя или базу данных, а также подключиться вручную и удалить содержимое базы данных.
         
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>' \
             --data "@body.json"
         ```
 
@@ -1215,7 +1215,7 @@
 
         Включенная защита кластера от удаления не помешает удалить пользователя или базу данных, а также подключиться вручную и удалить содержимое базы данных.
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -1225,7 +1225,7 @@
           -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/cluster_service.proto \
           -rpc-header "Authorization: Bearer $IAM_TOKEN" \
           -d @ \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.mongodb.v1.ClusterService.Update \
           < body.json
       ```
@@ -1240,16 +1240,16 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+    1. Перейдите в сервис **Yandex StoreDoc**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке кластера, который вы хотите переместить.
-    1. Выберите пункт **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
+    1. Выберите пункт **Переместить**.
     1. Выберите каталог, в который вы хотите переместить кластер.
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
+    1. Нажмите кнопку **Переместить**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -1258,26 +1258,26 @@
     1. Посмотрите описание команды CLI для перемещения кластера:
 
         ```bash
-        {{ yc-mdb-mg }} cluster move --help
+        yc managed-mongodb cluster move --help
         ```
 
     1. Укажите каталог назначения в команде перемещения кластера:
 
         ```bash
-        {{ yc-mdb-mg }} cluster move <имя_или_идентификатор_кластера> \
+        yc managed-mongodb cluster move <имя_или_идентификатор_кластера> \
            --destination-folder-name=<имя_каталога_назначения>
         ```
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Измените или добавьте в описании кластера {{ mmg-name }} значение параметра `folder_id`:
+    1. Измените или добавьте в описании кластера Yandex StoreDoc значение параметра `folder_id`:
 
         ```hcl
         resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
@@ -1288,14 +1288,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -1317,11 +1317,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_cluster.md).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mmg-name }}:
+    Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex StoreDoc:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 30 минут;
     * изменение — 60 минут.
@@ -1355,14 +1355,14 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.Move](../api-ref/Cluster/move.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Move](../api-ref/Cluster/move.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
           --request POST \
           --header "Authorization: Bearer $IAM_TOKEN" \
           --header "Content-Type: application/json" \
-          --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>:move' \
+          --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>:move' \
           --data '{
                     "destinationFolderId": "<идентификатор_каталога>"
                   }'
@@ -1389,7 +1389,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.Move](../api-ref/grpc/Cluster/move.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Move](../api-ref/grpc/Cluster/move.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -1402,7 +1402,7 @@
                 "cluster_id": "<идентификатор_кластера>",
                 "destination_folder_id": "<идентификатор_каталога>"
               }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.mongodb.v1.ClusterService.Move
       ```
 
@@ -1421,15 +1421,15 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите группы безопасности для сетевого трафика кластера.
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+    1. Перейдите в сервис **Yandex StoreDoc**.
+    1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+    1. В блоке **Сетевые настройки** выберите группы безопасности для сетевого трафика кластера.
+    1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -1438,23 +1438,23 @@
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
-        {{ yc-mdb-mg }} cluster update --help
+        yc managed-mongodb cluster update --help
         ```
 
     1. Укажите нужные группы безопасности в команде изменения кластера:
 
         ```bash
-        {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
+        yc managed-mongodb cluster update <имя_или_идентификатор_кластера> \
           --security-group-ids <список_идентификаторов_групп_безопасности>
         ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
       
        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Измените в описании кластера {{ mmg-name }} значение параметра `security_group_ids`:
+    1. Измените в описании кластера Yandex StoreDoc значение параметра `security_group_ids`:
   
         ```hcl
         resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
@@ -1466,14 +1466,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -1495,11 +1495,11 @@
           1. Подтвердите изменение ресурсов.
           1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
+  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_cluster.md).
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mmg-name }}:
+  Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex StoreDoc:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 30 минут;
   * изменение — 60 минут.
@@ -1533,7 +1533,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       {% note warning %}
       
@@ -1546,7 +1546,7 @@
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
           --header "Content-Type: application/json" \
-          --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>' \
+          --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>' \
           --data '{
                     "updateMask": "securityGroupIds",
                     "securityGroupIds": [
@@ -1585,7 +1585,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       {% note warning %}
       
@@ -1629,7 +1629,7 @@
                   "<идентификатор_группы_безопасности_N>"
                 ]
               }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.mongodb.v1.ClusterService.Update
       ```
 

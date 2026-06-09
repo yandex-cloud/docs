@@ -1,80 +1,80 @@
 # Руководства по работе с контейнерной инфраструктурой
 
-* [{#T}](loadtesting-grpc-autoscaling.md)
-* [{#T}](container-pg-connect.md)
-* [{#T}](vm-create.md)
-* [{#T}](vm-create-with-second-disk.md)
-* [{#T}](docker-compose.md)
-* [{#T}](ig-create.md)
-* [{#T}](ig-with-containers.md)
-* [{#T}](vm-update.md)
-* [{#T}](serial-port.md)
-* [{#T}](docker-cloud-registry.md)
+* [Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием в Yandex Managed Service for Kubernetes](loadtesting-grpc-autoscaling.md)
+* [Настройка подключения к Yandex Managed Service for PostgreSQL из контейнера Serverless Containers](container-pg-connect.md)
+* [Создание ВМ с Container Optimized Image](vm-create.md)
+* [Создание ВМ с Container Optimized Image и дополнительным томом для Docker-контейнера](vm-create-with-second-disk.md)
+* [Создание ВМ с Container Optimized Image и несколькими Docker-контейнерами](docker-compose.md)
+* [Создать группу ВМ с Container Optimized Image](ig-create.md)
+* [Создание группы виртуальных машин с Container Optimized Image и несколькими Docker-контейнерами](ig-with-containers.md)
+* [Изменить ВМ с Container Optimized Image](vm-update.md)
+* [Настройка вывода информации из Docker-контейнера в серийный порт](serial-port.md)
+* [Запуск Docker-образа на виртуальной машине с помощью Yandex Cloud Registry](docker-cloud-registry.md)
 
-## {{ managed-k8s-name }} {#k8s}
+## Managed Service for Kubernetes {#k8s}
 
 ### Создание и настройка проекта {#creating-project}
 
-* [{#T}](new-kubernetes-project.md)
-* [{#T}](k8s-cluster-with-no-internet.md)
-* [{#T}](running-pod-gpu.md)
-* [{#T}](driverless-gpu.md)
-* [{#T}](time-slicing-gpu.md)
-* [{#T}](migration-to-an-availability-zone.md)
-* [{#T}](kms-k8s.md)
-* [{#T}](k8s-cluster-api-provider-yandex.md)
-* [{#T}](k8s-connect-bms-as-node.md)
+* [Создание нового Kubernetes-проекта в Yandex Managed Service for Kubernetes](new-kubernetes-project.md)
+* [Создание и настройка кластера Managed Service for Kubernetes без доступа в интернет](k8s-cluster-with-no-internet.md)
+* [Запуск рабочих нагрузок с GPU в Yandex Managed Service for Kubernetes](running-pod-gpu.md)
+* [Использование групп узлов Yandex Managed Service for Kubernetes c GPU без предустановленных драйверов](driverless-gpu.md)
+* [Установка Time-Slicing GPUs в Yandex Managed Service for Kubernetes](time-slicing-gpu.md)
+* [Миграция ресурсов Yandex Managed Service for Kubernetes в другую зону доступности](migration-to-an-availability-zone.md)
+* [Шифрование секретов в Yandex Managed Service for Kubernetes](kms-k8s.md)
+* [Создание управляемого пользователем (self-managed) кластера Kubernetes с помощью провайдера Yandex Cloud для Kubernetes Cluster API](k8s-cluster-api-provider-yandex.md)
+* [Подключение сервера Yandex BareMetal как внешнего узла к кластеру Yandex Managed Service for Kubernetes](k8s-connect-bms-as-node.md)
 
 ### Настройка и тестирование масштабирования {#scaling}
 
-* [{#T}](autoscaling.md)
-* [{#T}](vpa-autoscaling.md)
-* [{#T}](loadtesting-grpc-autoscaling.md)
+* [Горизонтальное масштабирование приложения в кластере Yandex Managed Service for Kubernetes](autoscaling.md)
+* [Вертикальное масштабирование приложения в кластере Yandex Managed Service for Kubernetes](vpa-autoscaling.md)
+* [Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием в Yandex Managed Service for Kubernetes](loadtesting-grpc-autoscaling.md)
 
 ### Установка NGINX {#nginx}
 
-* [{#T}](ingress-cert-manager.md)
-* [{#T}](nginx-ingress-certificate-manager.md)
+* [Установка Ingress-контроллера NGINX с менеджером для сертификатов Let's Encrypt® в Yandex Managed Service for Kubernetes](ingress-cert-manager.md)
+* [Установка Ingress-контроллера NGINX с сертификатом из Yandex Certificate Manager](nginx-ingress-certificate-manager.md)
 
-### Использование {{ container-registry-full-name }} {#container-registry}
+### Использование Yandex Container Registry {#container-registry}
 
-* [{#T}](container-registry.md)
-* [{#T}](sign-cr-with-cosign.md)
-* [{#T}](image-storage.md)
+* [Интеграция Managed Service for Kubernetes с Container Registry](container-registry.md)
+* [Подпись и проверка Docker-образов Yandex Container Registry в Yandex Managed Service for Kubernetes](sign-cr-with-cosign.md)
+* [Хранение Docker-образов из проектов Yandex Managed Service for GitLab](image-storage.md)
 
-### Непрерывная интеграция с {{ GL }} {#gitlab}
+### Непрерывная интеграция с GitLab {#gitlab}
 
-* [{#T}](cr-scanner-with-k8s-and-gitlab.md)
+* [Сканирование уязвимостей при непрерывном развертывании приложений Managed Service for Kubernetes с помощью GitLab](cr-scanner-with-k8s-and-gitlab.md)
 
 ### Работа с DNS {#dns}
 
-* [{#T}](custom-dns.md)
-* [{#T}](dns-autoscaler.md)
-* [{#T}](node-local-dns.md)
-* [{#T}](dnschallenge.md)
+* [Интеграция Yandex Managed Service for Kubernetes с корпоративной зоной DNS](custom-dns.md)
+* [Автоматическое масштабирование кластера Yandex Managed Service for Kubernetes DNS по размеру кластера](dns-autoscaler.md)
+* [Настройка NodeLocal DNS Yandex Managed Service for Kubernetes](node-local-dns.md)
+* [Проверка DNS Challenge для сертификатов Let's Encrypt® в Yandex Managed Service for Kubernetes](dnschallenge.md)
 
 ## Резервное копирование {#backup}
 
-* [{#T}](pvc-snapshot-restore.md)
+* [Работа со снапшотами Compute Cloud в Yandex Managed Service for Kubernetes](pvc-snapshot-restore.md)
 
 
 ### Мониторинг {#monitoring}
 
-* [{#T}](prometheus-grafana-monitoring.md)
-* [{#T}](filebeat-oss-monitoring.md)
+* [Мониторинг кластера Yandex Managed Service for Kubernetes с помощью Prometheus Operator с поддержкой Yandex Monitoring](prometheus-grafana-monitoring.md)
+* [Мониторинг кластера Yandex Managed Service for Kubernetes с помощью Filebeat OSS](filebeat-oss-monitoring.md)
 
-### Использование продуктов {{ marketplace-full-name }} {#marketplace-tutorials}
+### Использование продуктов Yandex Cloud Marketplace {#marketplace-tutorials}
 
-* [{#T}](argo-cd.md)
-* [{#T}](crossplane.md)
-* [{#T}](kubernetes-lockbox-secrets.md)
-* [{#T}](k8s-fluent-bit-logging.md)
-* [{#T}](gateway-api.md)
-* [{#T}](alb-ingress-controller.md)
-* [{#T}](alb-ingress-controller-log-options.md)
-* [{#T}](custom-health-checks.md)
-* [{#T}](kyverno.md)
-* [{#T}](metrics-provider.md)
-* [{#T}](thumbor.md)
-* [{#T}](istio.md)
-* [{#T}](hashicorp-vault.md)
+* [Интеграция Yandex Managed Service for Kubernetes с Argo CD](argo-cd.md)
+* [Интеграция Yandex Managed Service for Kubernetes с Crossplane](crossplane.md)
+* [Синхронизация секретов Yandex Lockbox и Yandex Managed Service for Kubernetes](kubernetes-lockbox-secrets.md)
+* [Передача логов кластера Yandex Managed Service for Kubernetes в Yandex Cloud Logging](k8s-fluent-bit-logging.md)
+* [Настройка Gateway API в Yandex Managed Service for Kubernetes](gateway-api.md)
+* [Настройка L7-балансировщика Yandex Application Load Balancer с помощью Ingress-контроллера](alb-ingress-controller.md)
+* [Настройка логирования для L7-балансировщика Yandex Application Load Balancer с помощью Ingress-контроллера](alb-ingress-controller-log-options.md)
+* [Проверка состояния приложений в кластере Yandex Managed Service for Kubernetes с помощью L7-балансировщика Yandex Application Load Balancer](custom-health-checks.md)
+* [Настройка Kyverno & Kyverno Policies в Yandex Managed Service for Kubernetes](kyverno.md)
+* [Использование Metrics Provider для трансляции метрик Yandex Managed Service for Kubernetes](metrics-provider.md)
+* [Редактирование изображений для сайтов с помощью приложения Thumbor в Yandex Managed Service for Kubernetes](thumbor.md)
+* [Использование Istio в Yandex Managed Service for Kubernetes](istio.md)
+* [Использование HashiCorp Vault для хранения секретов в Yandex Managed Service for Kubernetes](hashicorp-vault.md)

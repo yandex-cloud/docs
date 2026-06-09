@@ -5,7 +5,7 @@
 1. [Создайте объект PersistentVolumeClaim](#create-pvc).
 1. [Создайте под с подключенным томом](#create-pod).
 
-Перед началом работы [установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/) и [настройте его на работу с созданным кластером {{ managed-k8s-name }}](../connect/index.md#kubectl-connect).
+Перед началом работы [установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/) и [настройте его на работу с созданным кластером Managed Service for Kubernetes](../connect/index.md#kubectl-connect).
 
 ## Создайте объект PersistentVolumeClaim {#create-pvc}
 
@@ -15,11 +15,11 @@
 
    {% note info %}
 
-   Если не указать параметр `storageClassName`, будет использован класс хранилищ по умолчанию: `yc-network-hdd`. Как изменить класс по умолчанию читайте в разделе [{#T}](manage-storage-class.md#sc-default).
+   Если не указать параметр `storageClassName`, будет использован класс хранилищ по умолчанию: `yc-network-hdd`. Как изменить класс по умолчанию читайте в разделе [Измените класс хранилищ по умолчанию](manage-storage-class.md#sc-default).
 
    {% endnote %}
 
-   Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
+   Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
    ```yaml
    apiVersion: v1
@@ -54,7 +54,7 @@
 
    Сохраните следующую спецификацию для создания пода в YAML-файл с названием `pod.yaml`.
 
-   Подробнее о спецификации для создания пода читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#pod-v1-core).
+   Подробнее о спецификации для создания пода читайте в [документации Kubernetes](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#pod-v1-core).
 
    ```yaml
    apiVersion: v1

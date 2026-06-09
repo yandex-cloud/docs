@@ -5,7 +5,7 @@ Retrieves a list of hosts for the specified cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/hosts
+GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/hosts
 ```
 
 ## Path parameters

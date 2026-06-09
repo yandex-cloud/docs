@@ -1,6 +1,6 @@
 # Создать образ на основе Windows
 
-В {{ cloud-desktop-name }} вы можете создавать рабочие столы из предустановленных [системных образов](../../concepts/images.md) или собственных [пользовательских образов](../../concepts/images.md#custom-images). Пользовательские образы могут быть с [ОС Linux](create-from-compute-linux.md) или Windows.
+В Cloud Desktop вы можете создавать рабочие столы из предустановленных [системных образов](../../concepts/images.md) или собственных [пользовательских образов](../../concepts/images.md#custom-images). Пользовательские образы могут быть с [ОС Linux](create-from-compute-linux.md) или Windows.
 
 Образ Windows создается на базе вашего образа Windows с вашей лицензией. Перед установкой необходимо уточнить в Microsoft, подходит ли ваша лицензия для работы в облачных средах. При этом лицензионные отношения действуют только между вами как клиентом и Microsoft как вендором лицензии. Вы несете полную ответственность за соблюдение [условий лицензирования Microsoft](https://www.microsoft.com/en-us/legal).
 
@@ -10,7 +10,7 @@
 
 {% endnote %}
 
-Для создания образа в {{ cloud-desktop-name }}:
+Для создания образа в Cloud Desktop:
 
 1. [Подготовьте оборудование](#prerequisites).
 1. [Установите и настройте образ Windows](#windows-installation) для ваших пользователей.
@@ -18,12 +18,12 @@
 1. [Установите облачный агент](#agent-install).
 1. (Опционально) [Установите Cloudbase-Init](#cloudbase-init).
 1. (Опционально) [Генерализируйте образ](#generalize).
-1. [Добавьте образ в {{ compute-name }}](#image-to-compute).
-1. [Создайте образ в {{ cloud-desktop-name }}](#image-to-desktop).
+1. [Добавьте образ в Compute Cloud](#image-to-compute).
+1. [Создайте образ в Cloud Desktop](#image-to-desktop).
 
 ## Предварительные требования {#prerequisites}
 
-Чтобы использовать образ с операционной системой семейства Windows в {{ cloud-desktop-name }}, вы создадите и настроите его с помощью системы виртуализации [QEMU](https://www.qemu.org/).
+Чтобы использовать образ с операционной системой семейства Windows в Cloud Desktop, вы создадите и настроите его с помощью системы виртуализации [QEMU](https://www.qemu.org/).
 
 Чтобы настроить образ, вам потребуются:
 
@@ -40,7 +40,7 @@
 
 {% note warning %}
 
-Убедитесь, что операционная система в создаваемом образе поддерживает подключение к удаленному рабочему столу по протоколу [Remote Desktop Protocol](https://{{ lang }}.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP).
+Убедитесь, что операционная система в создаваемом образе поддерживает подключение к удаленному рабочему столу по протоколу [Remote Desktop Protocol](https://ru.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP).
 
 {% endnote %}
 
@@ -114,7 +114,7 @@
 1. Убедитесь, что в операционной системе установлен и работает сервис **Подключение к удаленному рабочему столу** (RDP).
 1. Настройте Windows и установите программное обеспечение в соответствии с потребностями ваших пользователей.
 
-## Настройка образа для работы в {{ yandex-cloud }} {#windows-cloud}
+## Настройка образа для работы в Yandex Cloud {#windows-cloud}
 
 1. Запустите командную строку `cmd` от имени администратора.
 1. Активируйте `serial console` для загрузчика ОС:
@@ -191,7 +191,7 @@
 1. Установите облачный агент:
 
     ```powershell
-    Invoke-WebRequest 'https://{{ s3-storage-host }}/yandexcloud-vdi-agent/install.ps1' -OutFile "$($Env:temp)\install.ps1"
+    Invoke-WebRequest 'https://storage.yandexcloud.net/yandexcloud-vdi-agent/install.ps1' -OutFile "$($Env:temp)\install.ps1"
     cd $($Env:temp)
     Powershell.exe -ExecutionPolicy Bypass -File .\install.ps1
     mkdir "C:\Program Files\Yandex.Cloud\Cloud Desktop\"
@@ -273,7 +273,7 @@
     }
 
     if(!$(Get-Service -DisplayName "Yandex Desktop Agent") -or !$(Get-Item -Path "C:\Program Files\Yandex.Cloud\Cloud Desktop\desktopagent.exe" -ErrorAction SilentlyContinue)) {
-        Invoke-WebRequest 'https://{{ s3-storage-host }}/yandexcloud-vdi-agent/install.ps1' -OutFile "$($Env:temp)\install.ps1"
+        Invoke-WebRequest 'https://storage.yandexcloud.net/yandexcloud-vdi-agent/install.ps1' -OutFile "$($Env:temp)\install.ps1"
         cd $($Env:temp)
         Powershell.exe -ExecutionPolicy Bypass -File .\install.ps1
         mkdir "C:\Program Files\Yandex.Cloud\Cloud Desktop\"
@@ -365,20 +365,20 @@
     }
     ```
 
-    Приведенный скрипт содержит настройки запуска и работы системной службы облачного агента {{ cloud-desktop-name }}, а также настройку сетевого маршрута к [сервису метаданных](../../../compute/concepts/vm-metadata.md), доступному изнутри ВМ.
+    Приведенный скрипт содержит настройки запуска и работы системной службы облачного агента Cloud Desktop, а также настройку сетевого маршрута к [сервису метаданных](../../../compute/concepts/vm-metadata.md), доступному изнутри ВМ.
 
     {% note warning %}
 
     Сервис метаданных доступен по адресу `http://169.254.169.254`.
     
-    Не ограничивайте сетевой доступ к этому адресу из операционной системы. Доступ к метаданным виртуальной машины необходим для корректной работы рабочего стола {{ cloud-desktop-name }}.
+    Не ограничивайте сетевой доступ к этому адресу из операционной системы. Доступ к метаданным виртуальной машины необходим для корректной работы рабочего стола Cloud Desktop.
 
     {% endnote %}
 
 
 ## Установка Cloudbase-Init {#cloudbase-init}
 
-В подготовленный образ вы можете установить [Cloudbase-Init](https://cloudbase.it/cloudbase-init/). При использовании образа в {{ cloud-desktop-name }} эта программа автоматически расширяет файловую систему и загрузочный раздел ОС до фактического размера загрузочного диска.
+В подготовленный образ вы можете установить [Cloudbase-Init](https://cloudbase.it/cloudbase-init/). При использовании образа в Cloud Desktop эта программа автоматически расширяет файловую систему и загрузочный раздел ОС до фактического размера загрузочного диска.
 
 Чтобы установить Cloudbase-Init, выполните следующие команды в терминале PowerShell, запущенном от имени администратора:
 
@@ -428,7 +428,7 @@ $WorkDirectory = "C:\sysprep"
 
 # Download the unattend.xml file for Sysprep
 New-Item -Path $WorkDirectory -ItemType Directory
-Start-BitsTransfer https://{{ s3-storage-host }}/cloudbase/sysprepunattend-cloudbase-init.xml -Destination $WorkDirectory\unattend.xml
+Start-BitsTransfer https://storage.yandexcloud.net/cloudbase/sysprepunattend-cloudbase-init.xml -Destination $WorkDirectory\unattend.xml
 
 # Start Sysprep
 & $env:SystemRoot\System32\Sysprep\Sysprep.exe /oobe /generalize /quiet /quit /unattend:"$WorkDirectory\unattend.xml"
@@ -453,17 +453,17 @@ Stop-Computer -Force
 
 В результате выполнения последней команды сценария виртуальная машина будет остановлена, а на вашем компьютере в созданном ранее файле `image.qcow2` будет сохранен загрузочный образ ВМ в формате [QCOW2](https://ru.wikipedia.org/wiki/Qcow2).
 
-## Добавление образа в {{ compute-name }} {#image-to-compute}
+## Добавление образа в Compute Cloud {#image-to-compute}
 
-1. [Загрузите образ](../../../storage/operations/objects/upload.md) в {{ objstorage-full-name }}.
+1. [Загрузите образ](../../../storage/operations/objects/upload.md) в Yandex Object Storage.
 1. [Получите ссылку](../../../storage/operations/objects/link-for-download.md) на загруженный образ.
-1. [Импортируйте образ](../../../compute/operations/image-create/upload.md) в {{ compute-full-name }}.
+1. [Импортируйте образ](../../../compute/operations/image-create/upload.md) в Yandex Compute Cloud.
 
-    Если вы используете [{{ yandex-cloud }} CLI](../../../cli/quickstart.md), вы можете импортировать образ с помощью команды, указав в ней полученную ранее ссылку:
+    Если вы используете [Yandex Cloud CLI](../../../cli/quickstart.md), вы можете импортировать образ с помощью команды, указав в ней полученную ранее ссылку:
 
     {% list tabs group=instructions %}
 
-    - {{ yandex-cloud }} CLI {#cli}
+    - Yandex Cloud CLI {#cli}
 
       ```bash
       yc compute image create \
@@ -475,20 +475,20 @@ Stop-Computer -Force
 
     {% endlist %}
 
-## Добавление образа в {{ cloud-desktop-name }} {#image-to-desktop}
+## Добавление образа в Cloud Desktop {#image-to-desktop}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором будет создан образ. 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.vdi.label_desktop-images }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.vdi.button_add-image }}**.
-  1. В поле **{{ ui-key.yacloud.vdi.label_image-source }}** выберите `{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}`.
-  1. В поле **{{ ui-key.yacloud.vdi.label_image }}** выберите образ, добавленный ранее.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором будет создан образ. 
+  1. Перейдите в сервис **Cloud Desktop**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/layers.svg) **Образы**.
+  1. Нажмите кнопку **Добавить образ**.
+  1. В поле **Источник образа** выберите `Compute Cloud`.
+  1. В поле **Образ в Compute Cloud** выберите образ, добавленный ранее.
   1. Задайте имя создаваемого образа.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+  1. Нажмите кнопку **Добавить**.
 
 {% endlist %}
 
@@ -499,5 +499,5 @@ Stop-Computer -Force
 Если вы не используете Cloudbase-Init и хотите изменить размер загрузочного диска в группе рабочих столов:
 
 1. Расширьте размер файловой системы загрузочного диска на рабочем столе. Например, с помощью оснастки `diskmgmt.msc`.
-1. На основе этого рабочего стола [создайте](create-from-desktop.md) новый образ {{ cloud-desktop-name }}.
+1. На основе этого рабочего стола [создайте](create-from-desktop.md) новый образ Cloud Desktop.
 1. Используйте новый образ как образ загрузочного диска для групп рабочих столов.

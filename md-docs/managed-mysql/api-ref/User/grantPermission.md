@@ -5,7 +5,7 @@ Grants permission to access a database to a user in a cluster.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/users/{userName}:grantPermission
+POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/users/{userName}:grantPermission
 ```
 
 ## Path parameters

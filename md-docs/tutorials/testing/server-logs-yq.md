@@ -1,25 +1,25 @@
-# Получение статистики запросов к объектам {{ objstorage-full-name }} с использованием {{ yq-full-name }}
+# Получение статистики запросов к объектам Yandex Object Storage с использованием Yandex Query
 
 
-Из этого руководства вы узнаете, как получить статистику запросов к объектам [{{ objstorage-full-name }}](../../storage/index.md) с использованием [{{ yq-full-name }}](../../query/index.md). Вы создадите бакет и настроите логирование в {{ objstorage-name }}, создадите соединение в {{ yq-name }} и получите статистику с помощью SQL-запросов.
+Из этого руководства вы узнаете, как получить статистику запросов к объектам [Yandex Object Storage](../../storage/index.md) с использованием [Yandex Query](../../query/index.md). Вы создадите бакет и настроите логирование в Object Storage, создадите соединение в Query и получите статистику с помощью SQL-запросов.
 
 Чтобы получить статистику:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте бакеты](#create-buckets).
 1. [Включите механизм логирования](#enable-logging).
-1. [Настройте подключения в {{ yq-name }}](#create-connection).
+1. [Настройте подключения в Query](#create-connection).
 1. [Получите статистику запросов](#get-statistics).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -27,12 +27,12 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за хранение данных (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md));
-* плата за объем считанных данных (см. [тарифы {{ yq-full-name }}](../../query/pricing.md)).
+* плата за хранение данных (см. [тарифы Yandex Object Storage](../../storage/pricing.md));
+* плата за объем считанных данных (см. [тарифы Yandex Query](../../query/pricing.md)).
 
 ### Создайте сервисный аккаунт {#create-sa}
 
-С помощью сервисного аккаунта {{ yq-name }} сможет отправлять запросы к {{ objstorage-name }}.
+С помощью сервисного аккаунта Query сможет отправлять запросы к Object Storage.
 
 [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт с именем `yq-sa` и [назначьте](../../iam/operations/roles/grant.md) ему роли `storage.viewer` и `yq.editor`.
 
@@ -46,11 +46,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета `object-bucket`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать бакет.
+  1. Перейдите в сервис **Object Storage**.
+  1. Справа сверху нажмите кнопку **Создать бакет**.
+  1. В поле **Имя** укажите имя бакета `object-bucket`.
+  1. Нажмите кнопку **Создать бакет**.
 
   Аналогичным образом создайте бакет с именем `logs-bucket`.
 
@@ -64,60 +64,60 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали бакеты.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали бакеты.
+  1. Перейдите в сервис **Object Storage**.
   1. Выберите бакет `object-bucket`.
   1. [Включите механизм логирования](../../storage/operations/buckets/enable-logging.md#enable):
 
-      1. На панели слева выберите ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-      1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
-      1. Включите опцию **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_server-logs_mfGpj }}**.
-      1. В поле **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_target-bucket_jEJ5E }}** выберите бакет `logs-bucket`.
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+      1. На панели слева выберите ![image](../../_assets/console-icons/wrench.svg) **Настройки**.
+      1. Перейдите на вкладку **Логирование**.
+      1. Включите опцию **Запись логов**.
+      1. В поле **Бакет для хранения логов** выберите бакет `logs-bucket`.
+      1. Нажмите кнопку **Сохранить**.
 
-  1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** и [загрузите](../../storage/operations/objects/upload.md) объекты. Например, пару простых текстовых файлов.
+  1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **Объекты** и [загрузите](../../storage/operations/objects/upload.md) объекты. Например, пару простых текстовых файлов.
 
 {% endlist %}
 
-## Настройте подключения в {{ yq-name }} {#create-connection}
+## Настройте подключения в Query {#create-connection}
 
-Чтобы получать данные из {{ objstorage-name }}, создайте [соединение](../../query/concepts/glossary.md#connection) и [привязку](../../query/concepts/glossary.md#binding):
+Чтобы получать данные из Object Storage, создайте [соединение](../../query/concepts/glossary.md#connection) и [привязку](../../query/concepts/glossary.md#binding):
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ yq-full-name }} {#console}
+- Интерфейс Yandex Query {#console}
 
-  1. Перейдите в сервис [{{ yq-name }}](https://yq.yandex.cloud/).
-  1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
-  1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
+  1. Перейдите в сервис [Query](https://yq.yandex.cloud/).
+  1. На панели слева выберите **Соединения**.
+  1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **Создать**.
   1. Введите имя соединения, например `bucket-logs-connection`.
-  1. Выберите тип соединения **{{ ui-key.yql.yq-connection.action_object-storage }}** и укажите **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**.
-  1. В поле **{{ ui-key.yql.yq-connection-form.bucket-auth.input-label }}** выберите `{{ ui-key.yql.yq-connection-form.private.button-text }}` и задайте параметры:
+  1. Выберите тип соединения **Object Storage** и укажите **Параметры типа соединения**.
+  1. В поле **Аутентификация бакета** выберите `Приватный` и задайте параметры:
 
-      * **{{ ui-key.yql.yq-connection-form.cloud.input-label }}** — выберите облако и каталог, в которых вы создали бакеты.
-      * **{{ ui-key.yql.yq-connection-form.bucket.input-label }}** — `logs-bucket`.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — `yq-sa`.
+      * **Облако и каталог** — выберите облако и каталог, в которых вы создали бакеты.
+      * **Бакет** — `logs-bucket`.
+      * **Сервисный аккаунт** — `yq-sa`.
 
-  1. Нажмите кнопку **{{ ui-key.yql.yq-connection-form.test.button-text }}**. После успешной проверки нажмите кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
-  1. Нажмите кнопку **{{ ui-key.yql.yq-binding-form.binding-fields-templates.button.label }}** и в выпадающем списке выберите **Object Storage Access Logs**.
+  1. Нажмите кнопку **Проверить**. После успешной проверки нажмите кнопку **Создать**.
+  1. Нажмите кнопку **Автоматически заполнить настройки для** и в выпадающем списке выберите **Object Storage Access Logs**.
 
       1. Введите имя привязки, например `bucket-logs-binding`.
-      1. В поле **{{ ui-key.yql.yq-binding-form.binding-path-pattern.title }}** укажите путь к данным статистики внутри бакета. Если данные статистики хранятся в корневой директории бакета, укажите `/`.
-      1. Нажмите кнопку **{{ ui-key.yql.yq-binding-form.binding-preview.button-text }}** для проверки правильности настроек.
-      1. Нажмите кнопку **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}** для завершения создания привязки.
+      1. В поле **Путь** укажите путь к данным статистики внутри бакета. Если данные статистики хранятся в корневой директории бакета, укажите `/`.
+      1. Нажмите кнопку **Предпросмотр** для проверки правильности настроек.
+      1. Нажмите кнопку **Создать** для завершения создания привязки.
 
 {% endlist %}
 
 ## Получите статистику запросов {#get-statistics}
 
-Используйте соединение, чтобы создать SQL-запросы и получить статистику запросов к объектам {{ objstorage-name }}:
+Используйте соединение, чтобы создать SQL-запросы и получить статистику запросов к объектам Object Storage:
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ yq-full-name }} {#console}
+- Интерфейс Yandex Query {#console}
 
-  1. Перейдите в сервис [{{ yq-name }}](https://yq.yandex.cloud/).
-  1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+  1. Перейдите в сервис [Query](https://yq.yandex.cloud/).
+  1. На панели слева выберите **Соединения**.
   1. Выберите соединение `bucket-logs-connection`.
   1. В редакторе справа введите запрос:
 
@@ -127,9 +127,9 @@
       LIMIT 100;
       ```
 
-      Такой запрос вернет 100 записей со статистикой запросов к объектам {{ objstorage-name }}. Лимит записей можно снять, а результаты фильтровать с помощью `WHERE`.
+      Такой запрос вернет 100 записей со статистикой запросов к объектам Object Storage. Лимит записей можно снять, а результаты фильтровать с помощью `WHERE`.
 
-  1. Нажмите кнопку ![image](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}** и посмотрите результат.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/play-fill.svg) **Выполнить** и посмотрите результат.
 
 {% endlist %}
 

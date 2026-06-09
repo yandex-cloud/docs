@@ -5,7 +5,7 @@ Creates an external dictionary for the specified ClickHouse cluster.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}:createExternalDictionary
+POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}:createExternalDictionary
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Creates an HTTP router in the specified folder.
 ## HTTP request
 
 ```
-POST https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters
+POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/httpRouters
 ```
 
 ## Body parameters {#yandex.cloud.apploadbalancer.v1.CreateHttpRouterRequest}

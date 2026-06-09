@@ -6,7 +6,7 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
 ## HTTP request
 
 ```
-POST https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}:remove-cidr-blocks
+POST https://vpc.api.cloud.yandex.net/vpc/v1/subnets/{subnetId}:remove-cidr-blocks
 ```
 
 ## Path parameters

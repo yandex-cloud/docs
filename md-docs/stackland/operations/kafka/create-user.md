@@ -1,6 +1,6 @@
 # Создать пользователя
 
-Если у вас есть ../projects/create-project.md, вы можете создать в нем пользователя [{{ KF }}](../../concepts/components/kafka.md).
+Если у вас есть ../projects/create-project.md, вы можете создать в нем пользователя [Apache Kafka®](../../concepts/components/kafka.md).
 
 ## Через CLI
 

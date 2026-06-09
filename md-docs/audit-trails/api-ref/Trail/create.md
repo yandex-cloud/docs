@@ -5,7 +5,7 @@ Creates a trail in the specified folder.
 ## HTTP request
 
 ```
-POST https://audittrails.{{ api-host }}/audit-trails/v1/trails
+POST https://audittrails.api.cloud.yandex.net/audit-trails/v1/trails
 ```
 
 ## Body parameters {#yandex.cloud.audittrails.v1.CreateTrailRequest}

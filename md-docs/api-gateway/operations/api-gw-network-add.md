@@ -16,12 +16,12 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится API-шлюз.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится API-шлюз.
+    1. Перейдите в сервис **API Gateway**.
     1. Выберите API-шлюз.
-    1. Нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-    1. В поле **{{ ui-key.yacloud.vpc.label_network }}** укажите облачную сеть, в которой будет находиться API-шлюз.
-    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
+    1. Нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
+    1. В поле **Сеть** укажите облачную сеть, в которой будет находиться API-шлюз.
+    1. Нажмите кнопку **Сохранить**.
 
 - API {#api}
 
@@ -31,4 +31,4 @@
 
 ## См. также
 
-* [Сетевое взаимодействие в {{ api-gw-name }}](../concepts/networking.md).
+* [Сетевое взаимодействие в API Gateway](../concepts/networking.md).

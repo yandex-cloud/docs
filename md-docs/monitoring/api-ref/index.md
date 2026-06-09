@@ -1,6 +1,6 @@
-# {{ yandex-cloud }} Monitoring API
+# Yandex Cloud Monitoring API
 
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре API {{ yandex-cloud }} см. [Концепции API {{ yandex-cloud }}](../../api-design-guide/index.md).
+Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре API Yandex Cloud см. [Концепции API Yandex Cloud](../../api-design-guide/index.md).
 
 Ресурс | Описание
 --- | ---

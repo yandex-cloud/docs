@@ -1,4 +1,4 @@
-# Управление хостами кластера {{ VLK }}
+# Управление хостами кластера Valkey™
 
 Вы можете добавлять и удалять хосты кластера, а также управлять их настройками. О том, как перенести хосты кластера в другую [зону доступности](../../overview/concepts/geo-scope.md), читайте в [инструкции](host-migration.md).
 
@@ -8,19 +8,19 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить список хостов в кластере, выполните команду:
 
   ```bash
-  {{ yc-mdb-rd }} host list \
+  yc managed-redis host list \
     --cluster-name=<имя_кластера>
   ```
 
@@ -31,8 +31,8 @@
   +---------------------------------+----------------------+------------+---------+--------+-------------------+
   |              NAME               |      CLUSTER ID      | SHARD NAME |  ROLE   | HEALTH |      ZONE ID      |
   +---------------------------------+----------------------+------------+---------+--------+-------------------+
-  | rc1a-...caf.{{ dns-zone }} | c9qb2q230gg1******** | shard1     | MASTER  | ALIVE  | {{ region-id }}-a     |
-  | rc1b-...bgc.{{ dns-zone }} | c9qb2q230gg1******** | shard1     | REPLICA | ALIVE  | {{ region-id }}-b     |
+  | rc1a-...caf.mdb.yandexcloud.net | c9qb2q230gg1******** | shard1     | MASTER  | ALIVE  | ru-central1-a     |
+  | rc1b-...bgc.mdb.yandexcloud.net | c9qb2q230gg1******** | shard1     | REPLICA | ALIVE  | ru-central1-b     |
   +---------------------------------+----------------------+------------+---------+--------+-------------------+
   ```
 
@@ -47,13 +47,13 @@
        export IAM_TOKEN="<IAM-токен>"
        ```
 
-    1. Воспользуйтесь методом [Cluster.ListHosts](../api-ref/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.ListHosts](../api-ref/Cluster/listHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>/hosts'
+            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>/hosts'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -76,7 +76,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.ListHosts](../api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.ListHosts](../api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -88,7 +88,7 @@
             -d '{
                   "cluster_id": "<идентификатор_кластера>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.redis.v1.ClusterService.ListHosts
         ```
 
@@ -100,7 +100,7 @@
 
 ## Создать хост {#add}
 
-Количество хостов в кластерах {{ mrd-name }} ограничено квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [Квоты]({{ link-console-quotas }}) и найдите блок **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}**.
+Количество хостов в кластерах Yandex Managed Service for Valkey™ ограничено квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [Квоты](https://console.yandex.cloud/cloud?section=quotas) и найдите блок **Managed Databases**.
 
 
 {% note info %}
@@ -115,9 +115,9 @@
 - Консоль управления {#console}
 
   Чтобы создать хост:
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
+  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
+  1. Нажмите кнопку **Создать хост**.
   1. Укажите параметры хоста:
      * Зону доступности.
 
@@ -135,7 +135,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -154,10 +154,10 @@
      +----------------------+-----------+-----------------------+---------------+------------------+
      |          ID          |   NAME    |       NETWORK ID      |     ZONE      |      RANGE       |
      +----------------------+-----------+-----------------------+---------------+------------------+
-     | b0cl69a2b4c6******** | default-d | enp6rq72rndgr******** | {{ region-id }}-d | [172.16.0.0/20]  |
-     | e2lkj9qwe762******** | default-b | enp6rq72rndgr******** | {{ region-id }}-b | [10.10.0.0/16]   |
-     | e9b0ph42bn96******** | a-2       | enp6rq72rndgr******** | {{ region-id }}-a | [172.16.32.0/20] |
-     | e9b9v22r88io******** | default-a | enp6rq72rndgr******** | {{ region-id }}-a | [172.16.16.0/20] |
+     | b0cl69a2b4c6******** | default-d | enp6rq72rndgr******** | ru-central1-d | [172.16.0.0/20]  |
+     | e2lkj9qwe762******** | default-b | enp6rq72rndgr******** | ru-central1-b | [10.10.0.0/16]   |
+     | e9b0ph42bn96******** | a-2       | enp6rq72rndgr******** | ru-central1-a | [172.16.32.0/20] |
+     | e9b9v22r88io******** | default-a | enp6rq72rndgr******** | ru-central1-a | [172.16.16.0/20] |
      +----------------------+-----------+-----------------------+---------------+------------------+
      ```
 
@@ -167,14 +167,14 @@
   1. Посмотрите описание команды CLI для добавления хостов:
 
      ```bash
-     {{ yc-mdb-rd }} host add --help
+     yc managed-redis host add --help
      ```
 
   1. Выполните команду добавления хоста:
 
      
      ```bash
-     {{ yc-mdb-rd }} host add \
+     yc managed-redis host add \
        --cluster-name=<имя_кластера> \
        --host zone-id=<зона_доступности>,`
          `subnet-id=<идентификатор_подсети>,`
@@ -185,7 +185,7 @@
 
 
      Где:
-     * `--cluster-name` — имя кластера {{ mrd-name }}. Его можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     * `--cluster-name` — имя кластера Yandex Managed Service for Valkey™. Его можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
      * `--host` — параметры хоста:
        * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
        * `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
@@ -193,13 +193,13 @@
        * `replica-priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover). Доступен только для нешардированного кластера.
        * `shard-name` — имя шарда, в котором следует создать хост, если кластер шардированный.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   Чтобы создать хост:
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
-  1. Добавьте к описанию кластера {{ mrd-name }} новый хост в блоке `hosts`:
+  1. Добавьте к описанию кластера Yandex Managed Service for Valkey™ новый хост в блоке `hosts`:
 
      
      ```hcl
@@ -235,14 +235,14 @@
 
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -264,11 +264,11 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_redis_cluster_v2.md).
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
+  Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
   * изменение — 60 минут;
@@ -303,7 +303,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
     
-    1. Воспользуйтесь методом [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
     
         
         ```bash
@@ -311,7 +311,7 @@
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>/hosts:batchCreate' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>/hosts:batchCreate' \
             --data '{
                       "hostSpecs": [
                         {
@@ -354,7 +354,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
     
-    1. Воспользуйтесь вызовом [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
     
         
         ```bash
@@ -376,7 +376,7 @@
                     }
                   ] 
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.redis.v1.ClusterService.AddHosts
         ```
     
@@ -418,22 +418,22 @@
 - Консоль управления {#console}
 
   Чтобы изменить параметры хоста в кластере:
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
+  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **Редактировать**.
 
   
   1. Задайте новые настройки для хоста:
 
-      1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
+      1. Включите опцию **Публичный доступ**, если хост должен быть доступен извне Yandex Cloud.
       1. Укажите [приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
 
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -441,7 +441,7 @@
 
   
   ```bash
-  {{ yc-mdb-rd }} host update <имя_хоста> \
+  yc managed-redis host update <имя_хоста> \
     --cluster-name=<имя_кластера> \
     --assign-public-ip=<публичный_доступ> \
     --replica-priority=<приоритет_хоста>
@@ -452,13 +452,13 @@
 
   Имя хоста можно запросить со [списком хостов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   Чтобы изменить параметры хоста в кластере:
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
-  1. Измените в описании кластера {{ mrd-name }} параметры нужного хоста в блоке `hosts`:
+  1. Измените в описании кластера Yandex Managed Service for Valkey™ параметры нужного хоста в блоке `hosts`:
 
      
      ```hcl
@@ -492,14 +492,14 @@
 
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -521,11 +521,11 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_redis_cluster_v2.md).
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
+  Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
   * изменение — 60 минут;
@@ -560,7 +560,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.UpdateHosts](../api-ref/Cluster/updateHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.UpdateHosts](../api-ref/Cluster/updateHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -574,7 +574,7 @@
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>/hosts:batchUpdate' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>/hosts:batchUpdate' \
             --data '{
                       "updateHostSpecs": [
                         {
@@ -615,7 +615,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -659,7 +659,7 @@
                     }
                   ] 
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.redis.v1.ClusterService.UpdateHosts
         ```
 
@@ -687,9 +687,9 @@
 
 ## Удалить хост {#remove}
 
-Вы можете удалить хост из кластера {{ VLK }}, если он не является единственным хостом. Чтобы заменить единственный хост, сначала создайте новый хост, а затем удалите старый.
+Вы можете удалить хост из кластера Valkey™, если он не является единственным хостом. Чтобы заменить единственный хост, сначала создайте новый хост, а затем удалите старый.
 
-Если хост является мастером в момент удаления, {{ mrd-name }} автоматически назначит мастером другую реплику.
+Если хост является мастером в момент удаления, Yandex Managed Service for Valkey™ автоматически назначит мастером другую реплику.
 
 Если количество хостов в кластере или в шарде кластера равно минимально допустимому, удалить хост нельзя. См. подробнее в разделе [Квоты и лимиты](../concepts/limits.md#mrd-limits).
 
@@ -698,43 +698,43 @@
 - Консоль управления {#console}
 
   Чтобы удалить хост из кластера:
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-  1. В строке с нужным хостом нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
-  1. В открывшемся окне включите опцию **Я удаляю хост** и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
+  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
+  1. В строке с нужным хостом нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+  1. В открывшемся окне включите опцию **Я удаляю хост** и нажмите кнопку **Подтвердить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы удалить хост из кластера, выполните команду:
 
   ```bash
-  {{ yc-mdb-rd }} host delete <имя_хоста> \
+  yc managed-redis host delete <имя_хоста> \
     --cluster-name=<имя_кластера>
   ```
 
   Имя хоста можно запросить со [списком хостов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   Чтобы удалить хост из кластера:
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
-  1. Удалите из описания кластера {{ mrd-name }} нужный хост в блоке `hosts`.
+  1. Удалите из описания кластера Yandex Managed Service for Valkey™ нужный хост в блоке `hosts`.
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Введите слово `yes` и нажмите **Enter**.
 
@@ -756,11 +756,11 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_redis_cluster_v2.md).
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
+  Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
   * изменение — 60 минут;
@@ -795,14 +795,14 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
     
-    1. Воспользуйтесь методом [Cluster.DeleteHosts](../api-ref/Cluster/deleteHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.DeleteHosts](../api-ref/Cluster/deleteHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
     
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>/hosts:batchDelete' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>/hosts:batchDelete' \
             --data '{
                       "hostNames": [ "<имя_хоста>" ]
                     }'
@@ -830,7 +830,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
     
-    1. Воспользуйтесь вызовом [ClusterService.DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
     
         ```bash
         grpcurl \
@@ -843,7 +843,7 @@
                   "cluster_id": "<идентификатор_кластера>",
                   "host_names": [ "<имя_хоста>" ]
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.redis.v1.ClusterService.DeleteHosts
         ```
     

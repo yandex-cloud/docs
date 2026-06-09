@@ -4,25 +4,25 @@
 
 Чтобы [отправить](../../../concepts/eventrouter/sending-events.md) события в [шину](../../../concepts/eventrouter/bus.md) через коннектор с типом источника [таймер](../../../concepts/eventrouter/connector.md#timer), укажите необходимые данные в настройках коннектора — они будут отправлены в шину, когда сработает таймер.
 
-## Коннектор для API {{ er-name }} {#er-api}
+## Коннектор для API EventRouter {#er-api}
 
 {% note info %}
 
-Отправлять события в шину с помощью коннектора для API {{ er-name }} можно только, если к ней привязано хотя бы одно [правило](../../../concepts/eventrouter/rule.md).
+Отправлять события в шину с помощью коннектора для API EventRouter можно только, если к ней привязано хотя бы одно [правило](../../../concepts/eventrouter/rule.md).
 
 {% endnote %}
 
-Чтобы отправить события в шину через [коннектор](../../../concepts/eventrouter/connector.md#from-api) с типом источника API {{ er-name }}:
+Чтобы отправить события в шину через [коннектор](../../../concepts/eventrouter/connector.md#from-api) с типом источника API EventRouter:
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  1. Посмотрите описание [команды CLI](../../../../cli/cli-ref/serverless/cli-ref/eventrouter/send-event.md) для отправки событий в шину с помощью коннектора для API {{ er-name }}:
+  1. Посмотрите описание [команды CLI](../../../../cli/cli-ref/serverless/cli-ref/eventrouter/send-event.md) для отправки событий в шину с помощью коннектора для API EventRouter:
 
       ```bash
       yc serverless eventrouter send-event --help
@@ -67,10 +67,10 @@
 
 - API {#api}
 
-  Чтобы отправить событие в шину с помощью коннектора для API {{ er-name }}, воспользуйтесь вызовом gRPC API [EventService/Send](../../../eventrouter/api-ref/grpc/Event/send.md):
+  Чтобы отправить событие в шину с помощью коннектора для API EventRouter, воспользуйтесь вызовом gRPC API [EventService/Send](../../../eventrouter/api-ref/grpc/Event/send.md):
 
   1. Если у вас не установлена утилита gRPCurl, [установите](https://github.com/fullstorydev/grpcurl) ее.
-  1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
+  1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
   1. Получите [IAM-токен](../../../../iam/concepts/authorization/iam-token.md) для [аутентификации](../../../api-ref/eventrouter/authentication.md) в API.
 
       ```bash
@@ -120,10 +120,10 @@
 
 {% endlist %}
 
-## Коннектор для {{ yds-full-name }} {#yds}
+## Коннектор для Yandex Data Streams {#yds}
 
-Через коннектор с типом источника [{{ yds-full-name }}](../../../../data-streams/index.md) события в шину поступают из [потока данных](../../../../data-streams/concepts/glossary.md#stream-concepts).
+Через коннектор с типом источника [Yandex Data Streams](../../../../data-streams/index.md) события в шину поступают из [потока данных](../../../../data-streams/concepts/glossary.md#stream-concepts).
 
-## Коннектор для {{ message-queue-full-name }} {#ymq}
+## Коннектор для Yandex Message Queue {#ymq}
 
-Через коннектор с типом источника [{{ message-queue-full-name }}](../../../../message-queue/index.md) события в шину поступают из [очереди сообщений](../../../../message-queue/concepts/queue.md).
+Через коннектор с типом источника [Yandex Message Queue](../../../../message-queue/index.md) события в шину поступают из [очереди сообщений](../../../../message-queue/concepts/queue.md).

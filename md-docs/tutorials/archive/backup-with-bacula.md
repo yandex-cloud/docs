@@ -1,6 +1,6 @@
-# Резервное копирование в {{ objstorage-full-name }} с помощью Bacula
+# Резервное копирование в Yandex Object Storage с помощью Bacula
 
-{{ objstorage-full-name }} можно использовать для резервного копирования и восстановления данных виртуальной машины с помощью утилиты [Bacula](https://www.bacula.org/).
+Yandex Object Storage можно использовать для резервного копирования и восстановления данных виртуальной машины с помощью утилиты [Bacula](https://www.bacula.org/).
 
 Bacula состоит из нескольких компонентов:
 * **Bacula Director** — контролирует резервное копирование и восстановление.
@@ -24,11 +24,11 @@ Bacula состоит из нескольких компонентов:
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -36,24 +36,24 @@ Bacula состоит из нескольких компонентов:
 
 В стоимость поддержки резервного копирования и восстановления входит:
 
-* плата за вычислительные ресурсы и диски ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за хранение данных в бакете и операции с ними (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md));
-* плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* плата за вычислительные ресурсы и диски ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за хранение данных в бакете и операции с ними (см. [тарифы Yandex Object Storage](../../storage/pricing.md));
+* плата за использование динамического или статического внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ### Создайте бакет {#create-bucket}
 
-Чтобы создать бакет для резервного копирования в {{ objstorage-name }}:
+Чтобы создать бакет для резервного копирования в Object Storage:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Перейдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите каталог, в котором будете выполнять операции.
-  1. На странице каталога нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** введите имя бакета.
-  1. Задайте параметры [публичного доступа](../../storage/security/public-access.md) на чтение [объектов](../../storage/concepts/object.md) в бакете, получение списка объектов и чтение настроек бакета — `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** выберите **{{ ui-key.yacloud.storage.value_cold }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
+  1. Перейдите в [консоль управления](https://console.yandex.cloud) Yandex Cloud и выберите каталог, в котором будете выполнять операции.
+  1. На странице каталога нажмите кнопку **Создать ресурс** и выберите **Бакет**.
+  1. В поле **Имя** введите имя бакета.
+  1. Задайте параметры [публичного доступа](../../storage/security/public-access.md) на чтение [объектов](../../storage/concepts/object.md) в бакете, получение списка объектов и чтение настроек бакета — `С авторизацией`.
+  1. В поле **Класс хранилища** выберите **Холодное**.
+  1. Нажмите кнопку **Создать бакет**.
 
 {% endlist %}
 
@@ -75,35 +75,35 @@ Bacula состоит из нескольких компонентов:
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите публичный образ [CentOS 7](https://yandex.cloud/ru/marketplace/products/yc/centos-7).
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** и укажите параметры:
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
+  1. Нажмите кнопку **Создать виртуальную машину**.
+  1. В блоке **Образ загрузочного диска** выберите публичный образ [CentOS 7](https://yandex.cloud/ru/marketplace/products/yc/centos-7).
+  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+  1. В блоке **Вычислительные ресурсы** перейдите на вкладку **Своя конфигурация** и укажите параметры:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      * **Платформа** — `Intel Ice Lake`.
+      * **vCPU** — `2`.
+      * **Гарантированная доля vCPU** — `20%`.
+      * **RAM** — `2 ГБ`.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  1. В блоке **Сетевые настройки**:
 
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** укажите идентификатор подсети в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка.
+      * В поле **Подсеть** укажите идентификатор подсети в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка.
 
-          * У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
-          * Если сети нет, нажмите **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** и создайте ее:
+          * У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав **Создать подсеть**.
+          * Если сети нет, нажмите **Создать сеть** и создайте ее:
 
               * В открывшемся окне укажите имя сети и выберите каталог, в котором она будет создана.
-              * (Опционально) Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**, чтобы автоматически создать подсети во всех зонах доступности.
-              * Нажмите **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
+              * (Опционально) Выберите опцию **Создать подсети**, чтобы автоматически создать подсети во всех зонах доступности.
+              * Нажмите **Создать сеть**.
 
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить виртуальной машине случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+      * В поле **Публичный IP-адрес** выберите `Автоматически`, чтобы назначить виртуальной машине случайный внешний IP-адрес из пула Yandex Cloud, или выберите статический адрес из списка, если вы зарезервировали его заранее.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
+  1. В блоке **Доступ** выберите **SSH-ключ** и укажите данные для доступа к ВМ:
 
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, который будет создан на виртуальной машине, например `yc-user`.
+      * В поле **Логин** введите имя пользователя, который будет создан на виртуальной машине, например `yc-user`.
 
         {% note alert %}
 
@@ -111,26 +111,26 @@ Bacula состоит из нескольких компонентов:
 
         {% endnote %}
 
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+      * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
         
         Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+        1. Нажмите кнопку **Добавить ключ**.
         1. Задайте имя SSH-ключа.
         1. Выберите вариант:
         
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+            * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+        1. Нажмите кнопку **Добавить**.
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `bacula-vm`.
-  1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. В блоке **Общая информация** задайте имя ВМ: `bacula-vm`.
+  1. Нажмите **Создать ВМ**.
   1. Дождитесь перехода ВМ в статус `RUNNING`.
 
 {% endlist %}
@@ -139,7 +139,7 @@ Bacula состоит из нескольких компонентов:
 
 Чтобы настроить утилиту AWS CLI на ВМ `bacula-vm`:
 
-1. В [консоли управления]({{ link-console-main }}) перейдите на страницу ВМ и узнайте ее публичный IP-адрес.
+1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу ВМ и узнайте ее публичный IP-адрес.
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ по протоколу SSH.
 
     Рекомендуемый способ аутентификации при подключении по SSH — с помощью пары ключей. Настройте использование созданной пары ключей: закрытый ключ должен соответствовать открытому ключу, переданному на ВМ.
@@ -164,7 +164,7 @@ Bacula состоит из нескольких компонентов:
     Укажите значения параметров:
     * `AWS Access Key ID` — идентификатор `key_id`, который вы получили при [создании статического ключа](#create-access-key).
     * `AWS Secret Access Key` — секретный ключ `secret`, который вы получили при [создании статического ключа](#create-access-key).
-    * `Default region name` — `{{ region-id }}`.
+    * `Default region name` — `ru-central1`.
     * `Default output format` — `json`.
 1. Проверьте, что файл `/root/.aws/credentials` содержит правильные значения параметров `key_id` и `secret`:
 
@@ -192,7 +192,7 @@ Bacula состоит из нескольких компонентов:
     sudo yum install -y mariadb-server
     ```
 
-1. Установите утилиту `s3fs` для монтирования бакета {{ objstorage-name }} в файловую систему:
+1. Установите утилиту `s3fs` для монтирования бакета Object Storage в файловую систему:
 
     ```bash
     sudo yum install -y epel-release
@@ -299,11 +299,11 @@ Bacula состоит из нескольких компонентов:
 
 ### Смонтируйте бакет в файловую систему {#mount-bucket}
 
-1. Смонтируйте бакет с помощью утилиты `s3fs`, чтобы загружать резервные копии в {{ objstorage-name }}, для этого выполните команду, указав имя бакета:
+1. Смонтируйте бакет с помощью утилиты `s3fs`, чтобы загружать резервные копии в Object Storage, для этого выполните команду, указав имя бакета:
 
     ```bash
     sudo s3fs <имя_бакета> /tmp/bacula \
-      -o url=https://{{ s3-storage-host }} \
+      -o url=https://storage.yandexcloud.net \
       -o use_path_request_style \
       -o allow_other \
       -o nonempty \
@@ -346,7 +346,7 @@ Bacula состоит из нескольких компонентов:
         sudo ls -la /tmp/bacula | grep test.test 
         ```
 
-    1. В [консоли управления]({{ link-console-main }}) на странице каталога выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и убедитесь, что файл `test.test` появился в бакете.
+    1. В [консоли управления](https://console.yandex.cloud) на странице каталога выберите сервис **Object Storage** и убедитесь, что файл `test.test` появился в бакете.
     1. Удалите тестовый файл:
 
         ```bash
@@ -445,7 +445,7 @@ Bacula состоит из нескольких компонентов:
     ...
     ```
 
-1. В [консоли управления]({{ link-console-main }}) перейдите на страницу ВМ и узнайте ее внутренний IP-адрес.
+1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу ВМ и узнайте ее внутренний IP-адрес.
 1. Чтобы настроить исходящее подключение к Storage Daemon, в блоке конфигурации `Storage` в поле `Address` укажите внутренний IP-адрес ВМ:
 
     ```text
@@ -684,7 +684,7 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на странице каталога выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. В [консоли управления](https://console.yandex.cloud) на странице каталога выберите сервис **Object Storage**.
   1. Откройте бакет.
   1. Убедитесь, что внутри находится объект `MyVolume`.
 
@@ -871,6 +871,6 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
 Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите](../../compute/operations/vm-control/vm-delete.md) ВМ.
-1. [Удалите](../../storage/operations/objects/delete-all.md) все объекты из бакета {{ objstorage-name }}.
-1. [Удалите](../../storage/operations/buckets/delete.md) бакет {{ objstorage-name }}.
+1. [Удалите](../../storage/operations/objects/delete-all.md) все объекты из бакета Object Storage.
+1. [Удалите](../../storage/operations/buckets/delete.md) бакет Object Storage.
 1. [Удалите](../../vpc/operations/address-delete.md) статический публичный IP-адрес, если вы его зарезервировали.

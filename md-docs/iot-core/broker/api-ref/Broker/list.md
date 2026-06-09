@@ -5,7 +5,7 @@ Retrieves the list of brokers in the specified folder.
 ## HTTP request
 
 ```
-GET https://{{ api-host-iot-broker }}/iot-broker/v1/brokers
+GET https://iot-broker.api.cloud.yandex.net/iot-broker/v1/brokers
 ```
 
 ## Query parameters {#yandex.cloud.iot.broker.v1.ListBrokersRequest}

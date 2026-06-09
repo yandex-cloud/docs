@@ -1,13 +1,13 @@
 # Ресурсы, на которые можно назначать роли
 
 
-Для управления правами доступа в {{ yandex-cloud }} используются [роли](roles.md).
+Для управления правами доступа в Yandex Cloud используются [роли](roles.md).
 
-Пользователь {{ yandex-cloud }} может выполнять только те операции над ресурсами, которые разрешены назначенными ему [ролями](roles.md). Пока у пользователя нет никаких ролей, почти все операции ему запрещены.
+Пользователь Yandex Cloud может выполнять только те операции над ресурсами, которые разрешены назначенными ему [ролями](roles.md). Пока у пользователя нет никаких ролей, почти все операции ему запрещены.
 
 ## Наследование прав доступа {#permission-inheritance}
 
-Роли [назначаются](../../operations/roles/grant.md) на [ресурсы](../../../resource-manager/concepts/resources-hierarchy.md) {{ yandex-cloud }}. Для ресурсов большинства [сервисов](../../../overview/concepts/services.md) {{ yandex-cloud }} действует стандартный механизм [наследования](../../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) прав доступа:
+Роли [назначаются](../../operations/roles/grant.md) на [ресурсы](../../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud. Для ресурсов большинства [сервисов](../../../overview/concepts/services.md) Yandex Cloud действует стандартный механизм [наследования](../../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) прав доступа:
 
 * Права на организацию распространяются на ресурсы [организации](../../../organization/concepts/organization.md):
   * [Федерации](../federations.md).
@@ -18,21 +18,21 @@
 
 ### Исключения из правил наследования прав доступа {#inheritance-exceptions}
 
-Несколько сервисов {{ yandex-cloud }} не подчиняются стандартному механизму наследования ролей. Для этих сервисов роли должны быть назначены пользователям отдельно:
+Несколько сервисов Yandex Cloud не подчиняются стандартному механизму наследования ролей. Для этих сервисов роли должны быть назначены пользователям отдельно:
 
-* [{{ billing-name }}](../../../billing/security/index.md);
-* [{{ tracker-full-name }}]({{ link-tracker-cloudless }}access);
-* [{{ datalens-full-name }}](../../../datalens/security/index.md);
-* [{{ wiki-full-name }}]({{ link-wiki-cloudless }}/page-management/access-setup);
-* [{{ forms-full-name }}]({{ link-forms-cloudless }}/access);
-* [{{ ml-platform-full-name }}](../../../datasphere/security/index.md);
-* [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/security/).
+* [Yandex Cloud Billing](../../../billing/security/index.md);
+* [Яндекс Трекер](https://yandex.ru/support/tracker/ru/access);
+* [Yandex DataLens](../../../datalens/security/index.md);
+* [Яндекс Вики](https://yandex.ru/support/wiki/ru/page-management/access-setup);
+* [Яндекс Формы](https://yandex.ru/support/forms/ru/access);
+* [Yandex DataSphere](../../../datasphere/security/index.md);
+* [Yandex SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/security/).
 
 ## Гранулярное назначение ролей {#granular-assignment}
 
-Некоторые сервисы {{ yandex-cloud }} позволяют назначать роли более гранулярно — на отдельные ресурсы сервиса. Например, в [{{ compute-full-name }}](../../../compute/index.md) роли можно назначать на такие ресурсы:
+Некоторые сервисы Yandex Cloud позволяют назначать роли более гранулярно — на отдельные ресурсы сервиса. Например, в [Yandex Compute Cloud](../../../compute/index.md) роли можно назначать на такие ресурсы:
 
-# Ресурсы в {{ compute-name }}, на которые можно назначать роли
+# Ресурсы в Compute Cloud, на которые можно назначать роли
 
 * [Виртуальная машина](../../../compute/operations/vm-control/vm-access.md)
 * [Группа виртуальных машин](../../../compute/operations/instance-groups/access.md)
@@ -46,6 +46,6 @@
 * [Снимок диска](../../../compute/operations/snapshot-control/snapshot-access.md)
 * [Файловое хранилище](../../../compute/operations/filesystem/filesystem-access.md)
 
-При этом в некоторых случаях гранулярное назначение ролей на ресурсы может быть недоступно для некоторых [интерфейсов](../../../overview/concepts/interfaces.md). Например, роль на [группу виртуальных машин](../../../compute/concepts/instance-groups/index.md) в {{ compute-name }} можно назначить с помощью [консоли управления]({{ link-console-main }}), [{{ yandex-cloud }} CLI](../../../cli/index.md) и [API](../../../api-design-guide/index.md), но нельзя с помощью [{{ TF }}](../../../terraform/index.md).
+При этом в некоторых случаях гранулярное назначение ролей на ресурсы может быть недоступно для некоторых [интерфейсов](../../../overview/concepts/interfaces.md). Например, роль на [группу виртуальных машин](../../../compute/concepts/instance-groups/index.md) в Compute Cloud можно назначить с помощью [консоли управления](https://console.yandex.cloud), [Yandex Cloud CLI](../../../cli/index.md) и [API](../../../api-design-guide/index.md), но нельзя с помощью [Terraform](../../../terraform/index.md).
 
-Подробную информацию о ресурсах, на которые можно назначить роли, доступных ролях и особенностях их назначения смотрите на странице **Управление доступом** в документации нужного сервиса. Например: [{#T}](../../../compute/security/index.md).
+Подробную информацию о ресурсах, на которые можно назначить роли, доступных ролях и особенностях их назначения смотрите на странице **Управление доступом** в документации нужного сервиса. Например: [Управление доступом в Compute Cloud](../../../compute/security/index.md).

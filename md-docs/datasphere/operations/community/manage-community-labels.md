@@ -6,15 +6,15 @@
 
 ## Добавить метку {#add-label}
 
-1. Откройте [главную страницу]({{ link-datasphere-main }}) {{ ml-platform-name }}. На панели слева выберите ![community-panel](../../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
-1. Выберите сообщество, в котором вы хотите изменить метки {{ ml-platform-name }}.
-1. В правом верхнем углу нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.more }}** и в выпадающем списке выберите **{{ ui-key.yc-ui-datasphere.common.manage-labels }}**.
+1. Откройте [главную страницу](https://datasphere.yandex.cloud) DataSphere. На панели слева выберите ![community-panel](../../../_assets/console-icons/circles-concentric.svg) **Сообщества**.
+1. Выберите сообщество, в котором вы хотите изменить метки DataSphere.
+1. В правом верхнем углу нажмите кнопку **Еще** и в выпадающем списке выберите **Управление метками**.
 1. Нажмите кнопку **Добавить метку**.
 1. Введите ключ и значение и нажмите **Enter**.
-1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+1. Нажмите кнопку **Сохранить**.
 
 ## Удалить метку {#delete-label}
 
-1. В правом верхнем углу нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.more }}** и в выпадающем списке выберите **{{ ui-key.yc-ui-datasphere.common.manage-labels }}**.
+1. В правом верхнем углу нажмите кнопку **Еще** и в выпадающем списке выберите **Управление метками**.
 1. Справа от метки нажмите значок ![image](../../../_assets/console-icons/xmark.svg).
-1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+1. Нажмите кнопку **Сохранить**.

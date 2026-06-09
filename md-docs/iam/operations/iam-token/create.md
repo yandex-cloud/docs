@@ -1,6 +1,6 @@
 {% note info %}
 
-Данные способы получения [IAM-токена](../../concepts/authorization/iam-token.md) предназначены для выполнения запросов от имени пользовательского [аккаунта на Яндексе](../../concepts/users/accounts.md#passport) и не рекомендуются для автоматизированных решений. Если вы хотите автоматизировать работу с API {{ yandex-cloud }} и получать IAM-токены программно, ознакомьтесь с разделом [{#T}](create-for-sa.md).
+Данные способы получения [IAM-токена](../../concepts/authorization/iam-token.md) предназначены для выполнения запросов от имени пользовательского [аккаунта на Яндексе](../../concepts/users/accounts.md#passport) и не рекомендуются для автоматизированных решений. Если вы хотите автоматизировать работу с API Yandex Cloud и получать IAM-токены программно, ознакомьтесь с разделом [Получение IAM-токена для сервисного аккаунта](create-for-sa.md).
 
 {% endnote %}
 
@@ -10,7 +10,7 @@ IAM-токен для аккаунта на Яндексе можно получ
 
 {% note info %}
 
-[Время жизни](../../concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше {{ iam-token-lifetime }}, но рекомендуется запрашивать его чаще, например каждый час.
+[Время жизни](../../concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше 12 часов, но рекомендуется запрашивать его чаще, например каждый час.
 
 Для автоматического перевыпуска IAM-токена можно использовать скрипт `export IAM_TOKEN=$(yc iam create-token)`.
 
@@ -23,7 +23,7 @@ IAM-токен для аккаунта на Яндексе можно получ
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   1. [Аутентифицируйтесь в CLI от имени пользователя](../../../cli/operations/authentication/user.md).
   1. Получите IAM-токен:
@@ -46,7 +46,7 @@ IAM-токен для аккаунта на Яндексе можно получ
 
 {% endlist %}
 
-Полученный IAM-токен указывайте при обращении к ресурсам {{ yandex-cloud }} через API. Передайте IAM-токен в заголовке `Authorization` в следующем формате:
+Полученный IAM-токен указывайте при обращении к ресурсам Yandex Cloud через API. Передайте IAM-токен в заголовке `Authorization` в следующем формате:
 
 ```yaml
 Authorization: Bearer <IAM-токен>
@@ -79,7 +79,7 @@ Authorization: Bearer ${IAM_TOKEN}
      curl \
        --request GET \
        --header "Authorization: Bearer ${IAM_TOKEN}" \
-       https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
+       https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds
      ```
 
   1. Результат:
@@ -117,7 +117,7 @@ Authorization: Bearer ${IAM_TOKEN}
      curl.exe ` 
        --request GET ` 
        --header "Authorization: Bearer $IAM_TOKEN" ` 
-       https://resource-manager.{{ api-host }}/resource-manager/v1/clouds 
+       https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds 
      ```
 
   1. Результат:

@@ -4,7 +4,7 @@
 
 {% note info %}
 
-Для работы с {{ objstorage-name }} используйте версию не ниже 5.14.
+Для работы с Object Storage используйте версию не ниже 5.14.
 
 {% endnote %}
 
@@ -12,7 +12,7 @@
 
 1. [Создайте](../operations/buckets/create.md) бакет.
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт.
-1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) нужную роль сервисному аккаунту, например `storage.editor`. Подробнее о ролях см. в разделе [{#T}](../security/index.md).
+1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) нужную роль сервисному аккаунту, например `storage.editor`. Подробнее о ролях см. в разделе [Управление доступом с помощью Yandex Identity and Access Management](../security/index.md).
 
        
    Чтобы работать с объектами в [зашифрованном](../concepts/encryption.md) бакете, у пользователя или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) вместе с [ролью](../security/index.md#storage-configurer) `storage.configurer` должны быть следующие [роли на ключ шифрования](../../kms/operations/key-access.md):
@@ -21,7 +21,7 @@
    * `kms.keys.decrypter` — для чтения ключа, [расшифровки](../../kms/security/index.md#kms-keys-decrypter) и скачивания объектов;
    * `kms.keys.encrypterDecrypter` — включает [разрешения](../../kms/security/index.md#kms-keys-encrypterDecrypter), предоставляемые ролями `kms.keys.encrypter` и `kms.keys.decrypter`.
    
-   Подробнее см. [Сервисные роли {{ kms-name }}](../../kms/security/index.md#service-roles).
+   Подробнее см. [Сервисные роли Key Management Service](../../kms/security/index.md#service-roles).
 
 
    {% note tip %}
@@ -33,7 +33,7 @@
 1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
         
-    В результате вы получите данные статического ключа доступа. Для аутентификации в {{ objstorage-name }} вам понадобятся:
+    В результате вы получите данные статического ключа доступа. Для аутентификации в Object Storage вам понадобятся:
     
     * `key_id` — идентификатор статического ключа доступа;
     * `secret` — секретный ключ.
@@ -58,7 +58,7 @@
 1. На вкладке **Sessions** выберите **New Session...**.
 1. В блоке **Sessions** укажите следующие параметры:
     * **File protocol** — **Amazon S3**;
-    * **Host name** — `{{ s3-storage-host }}`;
+    * **Host name** — `storage.yandexcloud.net`;
     * **Port number** — `443`;
     * **Access key ID** — идентификатор статического ключа, [полученный ранее](#before-you-begin);
     * **Secret access key** — содержимое статического ключа, [полученное ранее](#before-you-begin).
@@ -70,7 +70,7 @@
 
 {% note info %}
 
-WinSCP работает с {{ objstorage-name }} как с иерархической файловой системой. Это значит, что ключи объектов, загруженных через WinSCP, будут иметь вид пути к файлу, например `prefix/subprefix/picture.jpg`.
+WinSCP работает с Object Storage как с иерархической файловой системой. Это значит, что ключи объектов, загруженных через WinSCP, будут иметь вид пути к файлу, например `prefix/subprefix/picture.jpg`.
 
 {% endnote %}
 

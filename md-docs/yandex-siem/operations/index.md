@@ -1,27 +1,27 @@
-# Инструкции по работе с {{ yandex-siem-full-name }}
+# Инструкции по работе с Yandex SIEM
 
 ## Расследования {#investigations}
 
-* [{#T}](investigations/index.md)
-* [{#T}](investigations/manage-investigations.md)
-* [{#T}](investigations/investigations-list.md)
+* [Работа с расследованиями](investigations/index.md)
+* [Управление расследованиями](investigations/manage-investigations.md)
+* [Работа со списком расследований](investigations/investigations-list.md)
 
 ## Запросы {#queries}
 
-* [{#T}](queries/index.md).
-* [{#T}](queries/manage-queries.md).
-* [{#T}](queries/work-with-templates.md).
-* [{#T}](queries/work-with-schema-datasets.md).
-* [{#T}](queries/query-history.md).
+* [Работа с запросами](queries/index.md).
+* [Управление запросами](queries/manage-queries.md).
+* [Работа с шаблонами запросов](queries/work-with-templates.md).
+* [Работа со схемой базы и датасетами](queries/work-with-schema-datasets.md).
+* [История запросов](queries/query-history.md).
 
 ## Правила корреляции {#correlation-rules}
 
-* [{#T}](correlation-rules/index.md)
-* [{#T}](correlation-rules/manage-rules.md)
-* [{#T}](correlation-rules/rules-list.md)
+* [Работа с правилами корреляции](correlation-rules/index.md)
+* [Управление правилами корреляции](correlation-rules/manage-rules.md)
+* [Работа со списком правил корреляции](correlation-rules/rules-list.md)
 
 ## Исключения {#exceptions}
 
-* [{#T}](exceptions/index.md)
-* [{#T}](exceptions/manage-exceptions.md)
-* [{#T}](exceptions/exceptions-list.md)
+* [Работа с исключениями](exceptions/index.md)
+* [Управление исключениями](exceptions/manage-exceptions.md)
+* [Работа со списком исключений](exceptions/exceptions-list.md)

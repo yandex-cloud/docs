@@ -5,7 +5,7 @@ Lists access bindings for the specified OAuth application.
 ## HTTP request
 
 ```
-GET https://organization-manager.{{ api-host }}/organization-manager/v1/idp/application/oauth/applications/{resourceId}:listAccessBindings
+GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/application/oauth/applications/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

@@ -1,26 +1,26 @@
-# Gateway API в {{ managed-k8s-name }}
+# Gateway API в Managed Service for Kubernetes
 
 {% note tip %}
 
-Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [{{ yandex-cloud }} Gwin]({{ gwin-tip-local-link }}).
+Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [Yandex Cloud Gwin](../gwin-index.md).
 
 {% endnote %}
 
-{{ alb-name }} предоставляет инструмент для создания и управления балансировщиками нагрузки в [кластерах {{ managed-k8s-full-name }}](../../concepts/index.md#kubernetes-cluster) — Gateway API. Подробнее о проекте Gateway API см. на его [сайте](https://gateway-api.sigs.k8s.io/).
+Application Load Balancer предоставляет инструмент для создания и управления балансировщиками нагрузки в [кластерах Yandex Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster) — Gateway API. Подробнее о проекте Gateway API см. на его [сайте](https://gateway-api.sigs.k8s.io/).
 
 После установки Gateway API вы сможете создать с его помощью ресурс `Gateway`, а также связанные с ним ресурсы `HTTPRoute` и `GRPCRoute`:
 * Ресурсом `Gateway` управляет оператор кластера. В этом ресурсе описывается прием входящего трафика и правила, по которым выбираются маршруты для этого трафика — ресурсы `HTTPRoute` и `GRPCRoute`. Для приема трафика по `Gateway` создается [L7-балансировщик](../../../application-load-balancer/concepts/application-load-balancer.md), а для маршрутизации к балансировщику привязываются [HTTP-роутеры](../../../application-load-balancer/concepts/http-router.md).
-* Ресурсами `HTTPRoute` и `GRPCRoute` управляют разработчики приложений — сервисов {{ k8s }}. `HTTPRoute` и `GRPCRoute` — описание маршрута для принятого входящего трафика. В соответствии с этим описанием трафик может быть отправлен в сервис {{ k8s }}, выполняющий роль бэкенда, или перенаправлен на другой URI. По `HTTPRoute` и `GRPCRoute` создаются виртуальные хосты и маршруты в HTTP-роутерах, а также [группы бэкендов](../../../application-load-balancer/concepts/backend-group.md).
+* Ресурсами `HTTPRoute` и `GRPCRoute` управляют разработчики приложений — сервисов Kubernetes. `HTTPRoute` и `GRPCRoute` — описание маршрута для принятого входящего трафика. В соответствии с этим описанием трафик может быть отправлен в сервис Kubernetes, выполняющий роль бэкенда, или перенаправлен на другой URI. По `HTTPRoute` и `GRPCRoute` создаются виртуальные хосты и маршруты в HTTP-роутерах, а также [группы бэкендов](../../../application-load-balancer/concepts/backend-group.md).
 
 Полную конфигурацию ресурсов для Gateway API см. в следующих разделах:
 
-* [Gateway]({{ configuration-local-link }}/gateway.md) — правила приема входящего трафика и выбора маршрутов (`HTTPRoute`) для этого трафика.
-* [GatewayPolicy]({{ configuration-local-link }}/gateway-policy.md) — политика применения правил ресурса `Gateway`, конфигурация обработки входящего трафика.
-* [YCCertificate]({{ configuration-local-link }}/yc-certificate.md) — параметры сертификата {{ certificate-manager-name }} для настройки TLS-соединений в ресурсе `Gateway`.
-* [HTTPRoute]({{ configuration-local-link }}/http-route.md) и [GRPCRoute]({{ configuration-local-link }}/grpc-route.md) — правила маршрутизации трафика по бэкендам или его перенаправления.
-* [RoutePolicy]({{ configuration-local-link }}/route-policy.md) — политика применения правил ресурса `HTTPRoute` и настройка правил доступа к бэкендам.
-* [YCStorageBucket]({{ configuration-local-link }}/yc-storage-bucket.md) — параметры бакета {{ objstorage-name }} для настройки бэкенда в ресурсе `HTTPRoute`.
-* [Service]({{ configuration-local-link }}/service-for-gateway.md) — описание сервисов {{ k8s }}, используемых в качестве бэкендов.
+* [Gateway](../gateway.md) — правила приема входящего трафика и выбора маршрутов (`HTTPRoute`) для этого трафика.
+* [GatewayPolicy](../gateway-policy.md) — политика применения правил ресурса `Gateway`, конфигурация обработки входящего трафика.
+* [YCCertificate](../yc-certificate.md) — параметры сертификата Certificate Manager для настройки TLS-соединений в ресурсе `Gateway`.
+* [HTTPRoute](../http-route.md) и [GRPCRoute](../grpc-route.md) — правила маршрутизации трафика по бэкендам или его перенаправления.
+* [RoutePolicy](../route-policy.md) — политика применения правил ресурса `HTTPRoute` и настройка правил доступа к бэкендам.
+* [YCStorageBucket](../yc-storage-bucket.md) — параметры бакета Object Storage для настройки бэкенда в ресурсе `HTTPRoute`.
+* [Service](../service-for-gateway.md) — описание сервисов Kubernetes, используемых в качестве бэкендов.
 
 ## Порядок маршрутов в виртуальных хостах {#route-order}
 
@@ -142,14 +142,14 @@ spec:
 
 Для установки Gateway API требуются:
 
-* Кластер {{ managed-k8s-name }}.
+* Кластер Managed Service for Kubernetes.
 * Группа узлов в кластере.
-* Пространство имен в кластере для хранения ключа [сервисного аккаунта]({{ alb-local-link }}/service-account.md).
+* Пространство имен в кластере для хранения ключа [сервисного аккаунта](../service-account.md).
 
-Установить Gateway API можно по [инструкции]({{ gateway-install-local-link }}).
+Установить Gateway API можно по [инструкции](../../operations/applications/gateway-api.md).
 
 #### См. также {#see-also}
 
-* [Настройка групп безопасности]({{ alb-local-link }}/security-groups.md) для кластера {{ k8s }} и балансировщика.
-* [Сервисный аккаунт]({{ alb-local-link }}/service-account.md) для работы контроллера.
-* [Gateway API в {{ marketplace-full-name }}]({{ link-cloud-marketplace }}/products/yc/gateway-api).
+* [Настройка групп безопасности](../security-groups.md) для кластера Kubernetes и балансировщика.
+* [Сервисный аккаунт](../service-account.md) для работы контроллера.
+* [Gateway API в Yandex Cloud Marketplace](https://yandex.cloud/ru/marketplace/products/yc/gateway-api).

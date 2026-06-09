@@ -1,8 +1,8 @@
-# Управление доступом в сервисе {{ billing-name }}
+# Управление доступом в сервисе Yandex Cloud Billing
 
 ## Доступ к платежному аккаунту {#billing-account}
 
-Доступ к [платежному аккаунту](../concepts/billing-account.md) можно предоставить через [интерфейс сервиса {{ billing-name }}]({{ link-console-billing }}) или [{{ yandex-cloud }} API](../api-ref/authentication.md). Платежный аккаунт могут создавать пользователи с зарегистрированным аккаунтом на Яндексе или в Яндекс 360:
+Доступ к [платежному аккаунту](../concepts/billing-account.md) можно предоставить через [интерфейс сервиса Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts) или [Yandex Cloud API](../api-ref/authentication.md). Платежный аккаунт могут создавать пользователи с зарегистрированным аккаунтом на Яндексе или в Яндекс 360:
 
 * Если у вас или вашего сотрудника еще нет аккаунта, создайте его на [Яндексе](https://passport.yandex.ru/registration) или в [Яндекс 360](https://yandex.ru/support/business/add-users.html).
 * Если для авторизации на Яндексе вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
@@ -11,7 +11,7 @@
 
 {% note info %}
 
-Доступ может быть предоставлен только пользователю, к платежному аккаунту которого привязано любое облако в сервисе [{{ iam-name }}](../../iam/index.md).
+Доступ может быть предоставлен только пользователю, к платежному аккаунту которого привязано любое облако в сервисе [Identity and Access Management](../../iam/index.md).
 
 {% endnote %}
 
@@ -305,14 +305,14 @@ flowchart BT
 
 ### Примитивные роли {#primitive-roles}
 
-Примитивные роли — роли агрегаторы, определяющие разрешения пользователя для доступа к сервисам. В {{ billing-name }} эти роли соответствуют ролям `billing.accounts.*`:
+Примитивные роли — роли агрегаторы, определяющие разрешения пользователя для доступа к сервисам. В Yandex Cloud Billing эти роли соответствуют ролям `billing.accounts.*`:
 
 * `auditor` — аналогична роли `billing.accounts.viewer` с ограничениями.
 * `viewer` — аналогична роли `billing.accounts.viewer`.
 * `editor` — аналогична роли `billing.accounts.editor`.
 * `admin` — аналогична роли `billing.accounts.admin`.
 
-Примитивные роли могут назначаться только пользователям, добавленным в список **{{ ui-key.yacloud_components.notify-subs.label_users }}**.
+Примитивные роли могут назначаться только пользователям, добавленным в список **Пользователи**.
 
 ### Доступные операции {#available-operations}
 
@@ -366,14 +366,14 @@ flowchart BT
 
   {% endnote %}
 
-  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
   1. Выберите платежный аккаунт.
-  1. Перейдите на страницу **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.users.button_add }}**.
+  1. Перейдите на страницу **Управление доступом**.
+  1. Справа сверху нажмите кнопку **Добавить пользователя**.
   1. Выберите пользователя из выпадающего списка. В списке отображаются пользователи, облака которых привязаны к вашему платежному аккаунту.
-  1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.user-dialog.button_submit }}**.
+  1. Нажмите кнопку **Добавить**.
 
-  Пользователь или сервисный аккаунт получит роль `billing.accounts.member` и будет добавлен в список **{{ ui-key.yacloud_components.notify-subs.label_users }}**. Чтобы разрешить доступ к платежному аккаунту, назначьте нужную роль.
+  Пользователь или сервисный аккаунт получит роль `billing.accounts.member` и будет добавлен в список **Пользователи**. Чтобы разрешить доступ к платежному аккаунту, назначьте нужную роль.
 
 {% endlist %}
 
@@ -388,34 +388,34 @@ flowchart BT
   Пользователь, которому назначена роль `billing.accounts.admin`, может предоставить доступ к платежному аккаунту любому пользователю или сервисному аккаунту, относящемуся к той же организации, что и платежный аккаунт. Для этого:
 
   1. [Убедитесь](../../organization/operations/users-get.md), что в вашей организации есть нужный пользователь. Если нет, [добавьте](../../organization/operations/add-account.md) его.
-  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
   1. Выберите платежный аккаунт.
-  1. На панели слева выберите ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**. В открывшемся окне:
+  1. На панели слева выберите ![persons](../../_assets/console-icons/persons.svg) **Управление доступом**.
+  1. Справа сверху нажмите кнопку **Назначить роли**. В открывшемся окне:
 
      1. Выберите пользователя, сервисный аккаунт или группу пользователей. При необходимости воспользуйтесь строкой поиска.
-     1. Нажмите кнопку ![image](../../_assets/create.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** и выберите нужную роль.
-     1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+     1. Нажмите кнопку ![image](../../_assets/create.svg) **Добавить роль** и выберите нужную роль.
+     1. Нажмите кнопку **Сохранить**.
 
   {% note info %}
 
-  Если назначить сервисную роль {{ billing-name }} на организацию, то она будет выдана и на все платежные аккаунты в этой организации.
+  Если назначить сервисную роль Yandex Cloud Billing на организацию, то она будет выдана и на все платежные аккаунты в этой организации.
 
   {% endnote %}
 
 - Без организации {#no-organization}
 
-  Пользователь, которому назначена роль `billing.accounts.admin`, может предоставить доступ к платежному аккаунту любому пользователю или сервисному аккаунту, добавленному в список **{{ ui-key.yacloud_components.notify-subs.label_users }}**. Для этого:
+  Пользователь, которому назначена роль `billing.accounts.admin`, может предоставить доступ к платежному аккаунту любому пользователю или сервисному аккаунту, добавленному в список **Пользователи**. Для этого:
  
-  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
   1. Выберите платежный аккаунт.
-  1. На панели слева выберите ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
+  1. На панели слева выберите ![persons](../../_assets/console-icons/persons.svg) **Управление доступом**.
   1. В списке пользователей найдите нужного пользователя, сервисный аккаунт или группу пользователей, либо воспользуйтесь фильтром. 
-  1. В строке с нужным пользователем, сервисным аккаунтом или группой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_billing.common.resource-acl.button_assign-binding }}**. В открывшемся окне:
+  1. В строке с нужным пользователем, сервисным аккаунтом или группой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Изменить роли**. В открывшемся окне:
   
-      1. Нажмите кнопку ![image](../../_assets/create.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**.
+      1. Нажмите кнопку ![image](../../_assets/create.svg) **Добавить роль**.
       1. Выберите необходимую роль из списка.
-      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+      1. Нажмите кнопку **Сохранить**.
 
 {% endlist %}
 
@@ -431,27 +431,27 @@ flowchart BT
 
   В любой момент пользователь, которому выдана роль `billing.accounts.admin`, может отозвать у пользователя или сервисного аккаунта в своей организации роль на платежный аккаунт. Для этого:
 
-  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
   1. Выберите платежный аккаунт.
-  1. На панели слева выберите ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
+  1. На панели слева выберите ![persons](../../_assets/console-icons/persons.svg) **Управление доступом**.
   1. В списке пользователей найдите нужного пользователя, сервисный аккаунт или группу пользователей, либо воспользуйтесь фильтром.
-  1. В строке с нужным пользователем, сервисным аккаунтом или группой нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_billing.common.resource-acl.button_assign-binding }}**. В открывшемся окне:
+  1. В строке с нужным пользователем, сервисным аккаунтом или группой нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Изменить роли**. В открывшемся окне:
 
       1. Нажмите значок ![image](../../_assets/cross.svg) справа от роли, которую необходимо отозвать.
-      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**. Роль будет отозвана.
+      1. Нажмите кнопку **Сохранить**. Роль будет отозвана.
 
 - Без организации {#no-organization}
 
   В любой момент пользователь, которому выдана роль `billing.accounts.admin`, может отозвать роль на платежный аккаунт у пользователя или сервисного аккаунта из списка. Для этого:
 
-  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
   1. Выберите платежный аккаунт.
-  1. На панели слева выберите ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
+  1. На панели слева выберите ![persons](../../_assets/console-icons/persons.svg) **Управление доступом**.
   1. В списке пользователей найдите нужного пользователя, сервисный аккаунт или группу пользователей, либо воспользуйтесь фильтром. 
-  1. В строке с нужным пользователем, сервисным аккаунтом или группой нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_billing.common.resource-acl.button_assign-binding }}**. В открывшемся окне:
+  1. В строке с нужным пользователем, сервисным аккаунтом или группой нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Изменить роли**. В открывшемся окне:
 
       1. Нажмите значок ![image](../../_assets/cross.svg) справа от роли, которую необходимо отозвать.
-      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**. Роль будет отозвана.
+      1. Нажмите кнопку **Сохранить**. Роль будет отозвана.
 
   {% note info %}
 
@@ -465,12 +465,12 @@ flowchart BT
 
 Удаление пользователей возможно лишь в платежных аккаунтах, которые не привязаны к организации. Для этого:
 
-1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
 1. Выберите платежный аккаунт.
-1. На панели слева выберите ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_billing.billing.account.switch_users }}** и в открывшемся списке найдите нужного пользователя или сервисный аккаунт.
+1. На панели слева выберите ![persons](../../_assets/console-icons/persons.svg) **Управление доступом** и в открывшемся списке найдите нужного пользователя или сервисный аккаунт.
 
     При необходимости воспользуйтесь фильтром в верхней части экрана.
-1. В строке с нужным пользователем или сервисным аккаунтом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_billing.billing.account.users.button_remove-user }}**.
+1. В строке с нужным пользователем или сервисным аккаунтом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить пользователя**.
 1. Пользователь будет удален из списка пользователей этого платежного аккаунта.
 
 Если платежный аккаунт привязан к организации, просто [отзовите](#delete-role) нужную роль у пользователя или сервисного аккаунта. Также вы можете [удалить пользователя из организации](../../organization/operations/edit-account.md), чтобы закрыть для него доступ ко всем облакам и ресурсам в ней.

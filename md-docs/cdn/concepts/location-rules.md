@@ -1,4 +1,4 @@
-# Локационные правила {{ cdn-full-name }}
+# Локационные правила Yandex Cloud CDN
 
 _Локационные правила_ — это механизм точечного переопределения настроек [CDN-ресурса](resource.md) для запросов, пути которых соответствуют заданному шаблону.
 
@@ -49,13 +49,13 @@ _Локационные правила_ — это механизм точечн
 
 Полный список параметров локационных правил см. в спецификации [API](../api-ref/ResourceRules/create.md).
 
-Настройка локационных правил доступна в [консоли управления]({{ link-console-main }}), а также с помощью [API](../api-ref/ResourceRules/index.md). Подробнее см. на странице [{#T}](../operations/resources/location-rules.md).
+Настройка локационных правил доступна в [консоли управления](https://console.yandex.cloud), а также с помощью [API](../api-ref/ResourceRules/index.md). Подробнее см. на странице [Настроить локационные правила Yandex Cloud CDN](../operations/resources/location-rules.md).
 
 ## См. также {#see-also}
 
-* [{#T}](resource.md)
-* [{#T}](caching.md)
-* [{#T}](http-rewrite.md)
-* [{#T}](secure-tokens.md)
-* [{#T}](ip-address-acl.md)
-* [{#T}](../operations/resources/location-rules.md)
+* [CDN-ресурс](resource.md)
+* [Кеширование контента](caching.md)
+* [Перенаправление запросов](http-rewrite.md)
+* [Защищенные токены](secure-tokens.md)
+* [Политика доступа по IP-адресам](ip-address-acl.md)
+* [Настроить локационные правила Yandex Cloud CDN](../operations/resources/location-rules.md)

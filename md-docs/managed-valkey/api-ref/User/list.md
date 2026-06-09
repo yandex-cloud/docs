@@ -5,7 +5,7 @@ Retrieves the list of Redis User resources in the specified cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/users
+GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/users
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Retrieves the list of disk types for the specified folder.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/diskTypes
+GET https://compute.api.cloud.yandex.net/compute/v1/diskTypes
 ```
 
 ## Query parameters {#yandex.cloud.compute.v1.ListDiskTypesRequest}

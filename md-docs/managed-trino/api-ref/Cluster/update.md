@@ -5,7 +5,7 @@ Updates configuration of the specified Trino cluster.
 ## HTTP request
 
 ```
-PATCH https://trino.{{ api-host }}/managed-trino/v1/clusters/{clusterId}
+PATCH https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/{clusterId}
 ```
 
 ## Path parameters

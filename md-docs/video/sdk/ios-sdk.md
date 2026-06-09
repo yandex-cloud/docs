@@ -1,6 +1,6 @@
 # SDK видеоплеера для iOS
 
-С помощью [SDK](https://github.com/yandex-cloud/cloud-video-player-ios-sdk/) вы можете встроить в ваше iOS-приложение [видеоплеер](../concepts/player.md) для воспроизведения контента из {{ video-name }}.
+С помощью [SDK](https://github.com/yandex-cloud/cloud-video-player-ios-sdk/) вы можете встроить в ваше iOS-приложение [видеоплеер](../concepts/player.md) для воспроизведения контента из Cloud Video.
 
 Для работы с SDK нужна среда разработки [Xcode](https://developer.apple.com/xcode/) версии 16.4 или выше и [Swift](https://www.swift.org/install/macos/) версии 5.8 или выше.
 

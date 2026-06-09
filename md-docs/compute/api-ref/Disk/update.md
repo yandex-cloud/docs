@@ -5,7 +5,7 @@ Updates the specified disk.
 ## HTTP request
 
 ```
-PATCH https://compute.{{ api-host }}/compute/v1/disks/{diskId}
+PATCH https://compute.api.cloud.yandex.net/compute/v1/disks/{diskId}
 ```
 
 ## Path parameters

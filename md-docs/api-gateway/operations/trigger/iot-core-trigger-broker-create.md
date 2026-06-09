@@ -1,6 +1,6 @@
-# Создать триггер, который отправляет сообщения в WebSocket-соединения из топика брокера {{ iot-full-name }}
+# Создать триггер, который отправляет сообщения в WebSocket-соединения из топика брокера Yandex IoT Core
 
-Создайте [триггер](../../concepts/trigger/iot-core-trigger.md) для топика брокера {{ iot-name }} и отправляйте копии сообщений в [WebSocket-соединения](../../concepts/extensions/websocket.md) {{ api-gw-full-name }}.
+Создайте [триггер](../../concepts/trigger/iot-core-trigger.md) для топика брокера Yandex IoT Core и отправляйте копии сообщений в [WebSocket-соединения](../../concepts/extensions/websocket.md) Yandex API Gateway.
 
 {% note warning %}
 
@@ -36,42 +36,42 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать триггер.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать триггер.
 
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. Перейдите в сервис **API Gateway**.
 
-    1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+    1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **Триггеры**.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
+    1. Нажмите кнопку **Создать триггер**.
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
+    1. В блоке **Базовые параметры**:
 
         * Введите имя и описание триггера.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_iot-broker }}`.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_gateway-broadcast }}`.
+        * В поле **Тип** выберите `IoT Core (брокер)`.
+        * В поле **Запускаемый ресурс** выберите `API-шлюз`.
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}**:
+    1. В блоке **Настройки сообщений IoT Core**:
       
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_broker }}** укажите брокер.
-        * (Опционально) В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_mqtt-topic }}** укажите MQTT-топик. Если MQTT-топик не указан, триггер срабатывает для всех топиков брокера.
+        * В поле **Брокер** укажите брокер.
+        * (Опционально) В поле **MQTT-топик** укажите MQTT-топик. Если MQTT-топик не указан, триггер срабатывает для всех топиков брокера.
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
+    1. В блоке **Настройки группирования сообщений** укажите:
 
         * размер группы сообщений. Допустимые значения от 1 до 1000, значение по умолчанию — 1.
         * максимальное время ожидания. Допустимые значения от 1 до 60 секунд, значение по умолчанию — 1 секунда.
 
        Триггер группирует сообщения не дольше указанного времени ожидания и отправляет их в WebSocket-соединения. Число сообщений при этом не превышает указанный размер группы.
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_gateway-broadcast }}**:
-       * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_api-gateway }}** выберите API-шлюз.
-       * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_gateway-path }}** укажите путь в OpenAPI-спецификации. Через WebSocket-соединения, которые установлены по этому пути, будут отправляться сообщения.
-       * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }}** выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого в WebSocket-соединения будут отправляться сообщения.
+    1. В блоке **Настройки API-шлюза**:
+       * В поле **API-шлюз** выберите API-шлюз.
+       * В поле **Путь** укажите путь в OpenAPI-спецификации. Через WebSocket-соединения, которые установлены по этому пути, будут отправляться сообщения.
+       * В поле **Сервисный аккаунт** выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого в WebSocket-соединения будут отправляться сообщения.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
+    1. Нажмите кнопку **Создать триггер**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -125,7 +125,7 @@
 
 - API {#api}
 
-  Чтобы создать триггер для {{ iot-name }}, воспользуйтесь методом REST API [create](../../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../triggers/api-ref/grpc/Trigger/create.md).
+  Чтобы создать триггер для Yandex IoT Core, воспользуйтесь методом REST API [create](../../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
 
@@ -135,5 +135,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ iot-name }}, который передает сообщения из топиков брокеров в функцию {{ sf-name }}](../../../functions/operations/trigger/iot-core-trigger-broker-create.md)
-* [Триггер для {{ iot-name }}, который передает сообщения из топиков брокеров в контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/iot-core-trigger-broker-create.md)
+* [Триггер для Yandex IoT Core, который передает сообщения из топиков брокеров в функцию Cloud Functions](../../../functions/operations/trigger/iot-core-trigger-broker-create.md)
+* [Триггер для Yandex IoT Core, который передает сообщения из топиков брокеров в контейнер Serverless Containers](../../../serverless-containers/operations/iot-core-trigger-broker-create.md)

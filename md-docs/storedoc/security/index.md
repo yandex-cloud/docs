@@ -1,4 +1,4 @@
-# Управление доступом в {{ mmg-name }}
+# Управление доступом в Yandex StoreDoc
 
 
 В этом разделе вы узнаете:
@@ -9,10 +9,10 @@
 
 ## Об управлении доступом {#about-access-control}
 
-Все операции в {{ yandex-cloud }} проверяются в сервисе [{{ iam-full-name }}](../../iam/index.md). Если у субъекта нет необходимых разрешений, сервис вернет ошибку.
+Все операции в Yandex Cloud проверяются в сервисе [Yandex Identity and Access Management](../../iam/index.md). Если у субъекта нет необходимых разрешений, сервис вернет ошибку.
 
 
-Чтобы выдать разрешения к ресурсу, [назначьте роли](../../iam/operations/roles/grant.md) на этот ресурс субъекту, который будет выполнять операции. Роли можно назначить [аккаунту на Яндексе](../../iam/concepts/users/accounts.md#passport), [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [локальному пользователю](../../iam/concepts/users/accounts.md#local), [федеративному пользователю](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md). Подробнее читайте в разделе [{#T}](../../iam/concepts/access-control/index.md).
+Чтобы выдать разрешения к ресурсу, [назначьте роли](../../iam/operations/roles/grant.md) на этот ресурс субъекту, который будет выполнять операции. Роли можно назначить [аккаунту на Яндексе](../../iam/concepts/users/accounts.md#passport), [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [локальному пользователю](../../iam/concepts/users/accounts.md#local), [федеративному пользователю](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md). Подробнее читайте в разделе [Как устроено управление доступом в Yandex Cloud](../../iam/concepts/access-control/index.md).
 
 Назначать роли на ресурс могут пользователи, у которых на этот ресурс есть роль `mdb.admin`, `managed-mongodb.admin` или одна из следующих ролей:
 
@@ -28,11 +28,11 @@
 
 Чтобы разрешить доступ к ресурсам сервиса (кластеры и хосты БД, резервные копии кластеров, базы данных и их пользователи), назначьте пользователю нужные роли на каталог, облако или организацию, в которых содержатся эти ресурсы.
 
-В [консоли управления]({{ link-console-main }}), через [CLI](../../cli/index.md) или [API](../api-ref/authentication.md) роль также можно назначить на отдельный кластер.
+В [консоли управления](https://console.yandex.cloud), через [CLI](../../cli/index.md) или [API](../api-ref/authentication.md) роль также можно назначить на отдельный кластер.
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `{{ roles-editor }}` входят все разрешения `{{ roles-viewer }}`. После диаграммы дано описание каждой роли.
+На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
 ```mermaid
 flowchart BT
@@ -67,130 +67,130 @@ flowchart BT
 
 #### managed-mongodb.auditor {#managed-mongodb-auditor}
 
-Роль `managed-mongodb.auditor` позволяет просматривать информацию о [кластерах {{ SD }}](../concepts/index.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним, о [хостах](../concepts/instance-types.md) и [резервных копиях](../concepts/backup.md) кластеров, а также о [квотах](../concepts/limits.md#mmg-quotas) и операциях с ресурсами сервиса.
+Роль `managed-mongodb.auditor` позволяет просматривать информацию о [кластерах Yandex StoreDoc](../concepts/index.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним, о [хостах](../concepts/instance-types.md) и [резервных копиях](../concepts/backup.md) кластеров, а также о [квотах](../concepts/limits.md#mmg-quotas) и операциях с ресурсами сервиса.
 
 #### managed-mongodb.viewer {#managed-mongodb-viewer}
 
-Роль `managed-mongodb.viewer` позволяет просматривать информацию о кластерах, хостах, шардах, базах данных и пользователях {{ SD }}, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса.
+Роль `managed-mongodb.viewer` позволяет просматривать информацию о кластерах, хостах, шардах, базах данных и пользователях Yandex StoreDoc, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [кластерах {{ SD }}](../concepts/index.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
-* просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров {{ SD }};
-* просматривать информацию о [хостах](../concepts/instance-types.md) кластеров {{ SD }};
-* просматривать информацию о [шардах](../concepts/sharding.md) кластеров {{ SD }};
-* просматривать информацию о базах данных {{ SD }};
-* просматривать информацию о [пользователях](../concepts/users-and-roles.md) {{ SD }};
-* просматривать информацию о [резервных копиях](../concepts/backup.md) кластеров {{ SD }};
-* просматривать информацию об алертах {{ SD }};
-* просматривать [логи](../operations/cluster-logs.md) работы кластеров {{ SD }};
-* просматривать информацию о результатах диагностики производительности кластеров {{ SD }};
-* просматривать информацию о [квотах](../concepts/limits.md#mmg-quotas) сервиса {{ mmg-name }};
-* просматривать информацию об операциях с ресурсами сервиса {{ mmg-name }}.
+* просматривать информацию о [кластерах Yandex StoreDoc](../concepts/index.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
+* просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров Yandex StoreDoc;
+* просматривать информацию о [хостах](../concepts/instance-types.md) кластеров Yandex StoreDoc;
+* просматривать информацию о [шардах](../concepts/sharding.md) кластеров Yandex StoreDoc;
+* просматривать информацию о базах данных Yandex StoreDoc;
+* просматривать информацию о [пользователях](../concepts/users-and-roles.md) Yandex StoreDoc;
+* просматривать информацию о [резервных копиях](../concepts/backup.md) кластеров Yandex StoreDoc;
+* просматривать информацию об алертах Yandex StoreDoc;
+* просматривать [логи](../operations/cluster-logs.md) работы кластеров Yandex StoreDoc;
+* просматривать информацию о результатах диагностики производительности кластеров Yandex StoreDoc;
+* просматривать информацию о [квотах](../concepts/limits.md#mmg-quotas) сервиса Yandex StoreDoc;
+* просматривать информацию об операциях с ресурсами сервиса Yandex StoreDoc.
 
 Включает разрешения, предоставляемые ролями `managed-mongodb.auditor` и `managed-mongodb.maintenanceTask.viewer`.
 
 #### managed-mongodb.restorer {#managed-mongodb-restorer}
 
-Роль `managed-mongodb.restorer` позволяет восстанавливать кластеры {{ SD }} из резервных копий, просматривать информацию о кластерах, хостах, шардах, базах данных и пользователях {{ SD }}, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса.
+Роль `managed-mongodb.restorer` позволяет восстанавливать кластеры Yandex StoreDoc из резервных копий, просматривать информацию о кластерах, хостах, шардах, базах данных и пользователях Yandex StoreDoc, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о резервных копиях [кластеров {{ SD }}](../concepts/index.md) и восстанавливать кластеры из [резервных копий](../concepts/backup.md);
-* просматривать информацию о кластерах {{ SD }} и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
-* просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров {{ SD }};
-* просматривать информацию о [хостах](../concepts/instance-types.md) кластеров {{ SD }};
-* просматривать информацию о [шардах](../concepts/sharding.md) кластеров {{ SD }};
-* просматривать информацию о базах данных {{ SD }};
-* просматривать информацию о [пользователях](../concepts/users-and-roles.md) {{ SD }};
-* просматривать информацию об алертах {{ SD }};
-* просматривать [логи](../operations/cluster-logs.md) работы кластеров {{ SD }};
-* просматривать информацию о результатах диагностики производительности кластеров {{ SD }};
-* просматривать информацию о [квотах](../concepts/limits.md#mmg-quotas) сервиса {{ mmg-name }};
-* просматривать информацию об операциях с ресурсами сервиса {{ mmg-name }}.
+* просматривать информацию о резервных копиях [кластеров Yandex StoreDoc](../concepts/index.md) и восстанавливать кластеры из [резервных копий](../concepts/backup.md);
+* просматривать информацию о кластерах Yandex StoreDoc и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
+* просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров Yandex StoreDoc;
+* просматривать информацию о [хостах](../concepts/instance-types.md) кластеров Yandex StoreDoc;
+* просматривать информацию о [шардах](../concepts/sharding.md) кластеров Yandex StoreDoc;
+* просматривать информацию о базах данных Yandex StoreDoc;
+* просматривать информацию о [пользователях](../concepts/users-and-roles.md) Yandex StoreDoc;
+* просматривать информацию об алертах Yandex StoreDoc;
+* просматривать [логи](../operations/cluster-logs.md) работы кластеров Yandex StoreDoc;
+* просматривать информацию о результатах диагностики производительности кластеров Yandex StoreDoc;
+* просматривать информацию о [квотах](../concepts/limits.md#mmg-quotas) сервиса Yandex StoreDoc;
+* просматривать информацию об операциях с ресурсами сервиса Yandex StoreDoc.
 
 Включает разрешения, предоставляемые ролью `managed-mongodb.viewer`.
 
 #### managed-mongodb.user {#managed-mongodb-user}
 
-Роль `managed-mongodb.user` позволяет использовать [кластеры {{ SD }}](../concepts/index.md).
+Роль `managed-mongodb.user` позволяет использовать [кластеры Yandex StoreDoc](../concepts/index.md).
 
 #### managed-mongodb.switcher {#managed-mongodb-switcher}
 
-Роль `managed-mongodb.switcher` позволяет переназначать хост-мастер в кластерах {{ SD }}, просматривать информацию о кластерах, хостах, шардах, базах данных и пользователях {{ SD }}, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса.
+Роль `managed-mongodb.switcher` позволяет переназначать хост-мастер в кластерах Yandex StoreDoc, просматривать информацию о кластерах, хостах, шардах, базах данных и пользователях Yandex StoreDoc, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса.
 
 Пользователи с этой ролью могут:
-* переназначать хост-мастер в [кластерах {{ SD }}](../concepts/index.md);
-* просматривать информацию о кластерах {{ SD }} и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
-* просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров {{ SD }};
-* просматривать информацию о [хостах](../concepts/instance-types.md) кластеров {{ SD }};
-* просматривать информацию о [шардах](../concepts/sharding.md) кластеров {{ SD }};
-* просматривать информацию о базах данных {{ SD }};
-* просматривать информацию о [пользователях](../concepts/users-and-roles.md) {{ SD }};
-* просматривать информацию о [резервных копиях](../concepts/backup.md) кластеров {{ SD }};
-* просматривать информацию об алертах {{ SD }};
-* просматривать [логи](../operations/cluster-logs.md) работы кластеров {{ SD }};
-* просматривать информацию о результатах диагностики производительности кластеров {{ SD }};
-* просматривать информацию о [квотах](../concepts/limits.md#mmg-quotas) сервиса {{ mmg-name }};
-* просматривать информацию об операциях с ресурсами сервиса {{ mmg-name }}.
+* переназначать хост-мастер в [кластерах Yandex StoreDoc](../concepts/index.md);
+* просматривать информацию о кластерах Yandex StoreDoc и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
+* просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров Yandex StoreDoc;
+* просматривать информацию о [хостах](../concepts/instance-types.md) кластеров Yandex StoreDoc;
+* просматривать информацию о [шардах](../concepts/sharding.md) кластеров Yandex StoreDoc;
+* просматривать информацию о базах данных Yandex StoreDoc;
+* просматривать информацию о [пользователях](../concepts/users-and-roles.md) Yandex StoreDoc;
+* просматривать информацию о [резервных копиях](../concepts/backup.md) кластеров Yandex StoreDoc;
+* просматривать информацию об алертах Yandex StoreDoc;
+* просматривать [логи](../operations/cluster-logs.md) работы кластеров Yandex StoreDoc;
+* просматривать информацию о результатах диагностики производительности кластеров Yandex StoreDoc;
+* просматривать информацию о [квотах](../concepts/limits.md#mmg-quotas) сервиса Yandex StoreDoc;
+* просматривать информацию об операциях с ресурсами сервиса Yandex StoreDoc.
 
 Включает разрешения, предоставляемые ролью `managed-mongodb.viewer`.
 
 #### managed-mongodb.editor {#managed-mongodb-editor}
 
-Роль `managed-mongodb.editor` позволяет управлять кластерами {{ SD }}.
+Роль `managed-mongodb.editor` позволяет управлять кластерами Yandex StoreDoc.
 
 Пользователи с этой ролью могут:
-* создавать, использовать, изменять, удалять, запускать и останавливать [кластеры {{ SD }}](../concepts/index.md) и просматривать информацию о них;
-* просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к кластерам {{ SD }};
-* просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров {{ SD }} и изменять такие задания;
-* создавать, изменять и удалять [хосты](../concepts/instance-types.md) кластеров {{ SD }} и просматривать информацию о них;
-* переназначать хост-мастер в кластерах {{ SD }};
-* создавать и удалять [шарды](../concepts/sharding.md) кластеров {{ SD }} и просматривать информацию о них;
-* создавать и удалять базы данных {{ SD }} и просматривать информацию о них;
-* создавать, изменять и удалять [пользователей](../concepts/users-and-roles.md) {{ SD }} и просматривать информацию о них;
-* создавать [резервные копии](../concepts/backup.md) кластеров {{ SD }}, просматривать информацию о резервных копиях, а также восстанавливать кластеры из резервных копий;
-* создавать, изменять и удалять алерты {{ SD }} и просматривать информацию о них;
-* просматривать логи работы кластеров {{ SD }};
-* просматривать информацию о результатах диагностики производительности кластеров {{ SD }};
-* просматривать информацию о [квотах](../concepts/limits.md#mmg-quotas) сервиса {{ mmg-name }};
-* просматривать информацию об операциях с ресурсами сервиса {{ mmg-name }}.
+* создавать, использовать, изменять, удалять, запускать и останавливать [кластеры Yandex StoreDoc](../concepts/index.md) и просматривать информацию о них;
+* просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к кластерам Yandex StoreDoc;
+* просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров Yandex StoreDoc и изменять такие задания;
+* создавать, изменять и удалять [хосты](../concepts/instance-types.md) кластеров Yandex StoreDoc и просматривать информацию о них;
+* переназначать хост-мастер в кластерах Yandex StoreDoc;
+* создавать и удалять [шарды](../concepts/sharding.md) кластеров Yandex StoreDoc и просматривать информацию о них;
+* создавать и удалять базы данных Yandex StoreDoc и просматривать информацию о них;
+* создавать, изменять и удалять [пользователей](../concepts/users-and-roles.md) Yandex StoreDoc и просматривать информацию о них;
+* создавать [резервные копии](../concepts/backup.md) кластеров Yandex StoreDoc, просматривать информацию о резервных копиях, а также восстанавливать кластеры из резервных копий;
+* создавать, изменять и удалять алерты Yandex StoreDoc и просматривать информацию о них;
+* просматривать логи работы кластеров Yandex StoreDoc;
+* просматривать информацию о результатах диагностики производительности кластеров Yandex StoreDoc;
+* просматривать информацию о [квотах](../concepts/limits.md#mmg-quotas) сервиса Yandex StoreDoc;
+* просматривать информацию об операциях с ресурсами сервиса Yandex StoreDoc.
 
 Включает разрешения, предоставляемые ролями `managed-mongodb.viewer`, `managed-mongodb.restorer`, `managed-mongodb.user`, `managed-mongodb.switcher` и `managed-mongodb.maintenanceTask.editor`.
 
-Для создания кластеров {{ SD }} дополнительно необходима роль `vpc.user`.
+Для создания кластеров Yandex StoreDoc дополнительно необходима роль `vpc.user`.
 
 #### managed-mongodb.admin {#managed-mongodb-admin}
 
-Роль `managed-mongodb.admin` позволяет управлять кластерами {{ SD }} и доступом к ним.
+Роль `managed-mongodb.admin` позволяет управлять кластерами Yandex StoreDoc и доступом к ним.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к [кластерам {{ SD }}](../concepts/index.md) и изменять такие права доступа;
-* создавать, использовать, изменять, удалять, запускать и останавливать кластеры {{ SD }} и просматривать информацию о них;
-* просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров {{ SD }} и изменять такие задания;
-* создавать, изменять и удалять [хосты](../concepts/instance-types.md) кластеров {{ SD }} и просматривать информацию о них;
-* переназначать хост-мастер в кластерах {{ SD }};
-* создавать и удалять [шарды](../concepts/sharding.md) кластеров {{ SD }} и просматривать информацию о них;
-* создавать и удалять базы данных {{ SD }} и просматривать информацию о них;
-* создавать, изменять и удалять [пользователей](../concepts/users-and-roles.md) {{ SD }} и просматривать информацию о них;
-* создавать [резервные копии](../concepts/backup.md) кластеров {{ SD }}, просматривать информацию о резервных копиях, а также восстанавливать кластеры из резервных копий;
-* создавать, изменять и удалять алерты {{ SD }} и просматривать информацию о них;
-* просматривать логи работы кластеров {{ SD }};
-* просматривать информацию о результатах диагностики производительности кластеров {{ SD }};
-* просматривать информацию о [квотах](../concepts/limits.md#mmg-quotas) сервиса {{ mmg-name }};
-* просматривать информацию об операциях с ресурсами сервиса {{ mmg-name }}.
+* просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к [кластерам Yandex StoreDoc](../concepts/index.md) и изменять такие права доступа;
+* создавать, использовать, изменять, удалять, запускать и останавливать кластеры Yandex StoreDoc и просматривать информацию о них;
+* просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров Yandex StoreDoc и изменять такие задания;
+* создавать, изменять и удалять [хосты](../concepts/instance-types.md) кластеров Yandex StoreDoc и просматривать информацию о них;
+* переназначать хост-мастер в кластерах Yandex StoreDoc;
+* создавать и удалять [шарды](../concepts/sharding.md) кластеров Yandex StoreDoc и просматривать информацию о них;
+* создавать и удалять базы данных Yandex StoreDoc и просматривать информацию о них;
+* создавать, изменять и удалять [пользователей](../concepts/users-and-roles.md) Yandex StoreDoc и просматривать информацию о них;
+* создавать [резервные копии](../concepts/backup.md) кластеров Yandex StoreDoc, просматривать информацию о резервных копиях, а также восстанавливать кластеры из резервных копий;
+* создавать, изменять и удалять алерты Yandex StoreDoc и просматривать информацию о них;
+* просматривать логи работы кластеров Yandex StoreDoc;
+* просматривать информацию о результатах диагностики производительности кластеров Yandex StoreDoc;
+* просматривать информацию о [квотах](../concepts/limits.md#mmg-quotas) сервиса Yandex StoreDoc;
+* просматривать информацию об операциях с ресурсами сервиса Yandex StoreDoc.
 
 Включает разрешения, предоставляемые ролью `managed-mongodb.editor`.
 
-Для создания кластеров {{ SD }} дополнительно необходима роль `vpc.user`.
+Для создания кластеров Yandex StoreDoc дополнительно необходима роль `vpc.user`.
 
 #### managed-mongodb.maintenanceTask.viewer {#managed-mongodb-maintenanceTask-viewer}
 
-Роль `managed-mongodb.maintenanceTask.viewer` позволяет просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров {{ SD }}, а также о таких [кластерах](../concepts/index.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним, о [хостах](../concepts/instance-types.md) и [резервных копиях](../concepts/backup.md) кластеров, о [квотах](../concepts/limits.md#mmg-quotas) и операциях с ресурсами сервиса.
+Роль `managed-mongodb.maintenanceTask.viewer` позволяет просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров Yandex StoreDoc, а также о таких [кластерах](../concepts/index.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним, о [хостах](../concepts/instance-types.md) и [резервных копиях](../concepts/backup.md) кластеров, о [квотах](../concepts/limits.md#mmg-quotas) и операциях с ресурсами сервиса.
 
 Включает разрешения, предоставляемые ролью `managed-mongodb.auditor`.
 
 #### managed-mongodb.maintenanceTask.editor {#managed-mongodb-maintenanceTask-editor}
 
-Роль `managed-mongodb.maintenanceTask.editor` позволяет просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров {{ SD }} и изменять такие задания, просматривать информацию о [кластерах {{ SD }}](../concepts/index.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним, о [хостах](../concepts/instance-types.md) и [резервных копиях](../concepts/backup.md) кластеров, а также о [квотах](../concepts/limits.md#mmg-quotas) и операциях с ресурсами сервиса.
+Роль `managed-mongodb.maintenanceTask.editor` позволяет просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров Yandex StoreDoc и изменять такие задания, просматривать информацию о [кластерах Yandex StoreDoc](../concepts/index.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним, о [хостах](../concepts/instance-types.md) и [резервных копиях](../concepts/backup.md) кластеров, а также о [квотах](../concepts/limits.md#mmg-quotas) и операциях с ресурсами сервиса.
 
 Включает разрешения, предоставляемые ролью `managed-mongodb.maintenanceTask.viewer`.
 
@@ -265,9 +265,9 @@ flowchart BT
 * просматривать список [таблиц маршрутизации](../../vpc/concepts/routing.md#rt-vpc) и информацию о них, а также привязывать таблицы маршрутизации к подсетям;
 * просматривать список [групп безопасности](../../vpc/concepts/security-groups.md) и информацию о них;
 * просматривать информацию об использованных IP-адресах в подсетях;
-* просматривать информацию о [квотах](../../vpc/concepts/limits.md#vpc-quotas) сервиса {{ vpc-name }};
-* просматривать информацию об операциях с ресурсами сервиса {{ vpc-name }};
-* просматривать информацию об операциях с ресурсами сервиса {{ compute-name }};
+* просматривать информацию о [квотах](../../vpc/concepts/limits.md#vpc-quotas) сервиса Virtual Private Cloud;
+* просматривать информацию об операциях с ресурсами сервиса Virtual Private Cloud;
+* просматривать информацию об операциях с ресурсами сервиса Compute Cloud;
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
@@ -285,58 +285,58 @@ flowchart BT
 
 ### Примитивные роли {#primitive-roles}
 
-Примитивные роли позволяют пользователям совершать действия во [всех сервисах](../../overview/concepts/services.md) {{ yandex-cloud }}.
+Примитивные роли позволяют пользователям совершать действия во [всех сервисах](../../overview/concepts/services.md) Yandex Cloud.
 
-#### {{ roles-auditor }} {#auditor}
+#### auditor {#auditor}
 
 Роль `auditor` предоставляет разрешения на чтение конфигурации и метаданных любых ресурсов Yandex Cloud без возможности доступа к данным.
 
 Например, пользователи с этой ролью могут:
-* просматривать информацию о [ресурсе]({{ link-docs }}/resource-manager/concepts/resources-hierarchy);
+* просматривать информацию о [ресурсе](../../resource-manager/concepts/resources-hierarchy.md);
 * просматривать метаданные ресурса;
 * просматривать список операций с ресурсом.
 
-Роль `auditor` — наиболее безопасная роль, исключающая доступ к данным [сервисов]({{ link-docs }}/overview/concepts/services). Роль подходит для пользователей, которым необходим минимальный уровень доступа к ресурсам Yandex Cloud.
+Роль `auditor` — наиболее безопасная роль, исключающая доступ к данным [сервисов](../../overview/concepts/services.md). Роль подходит для пользователей, которым необходим минимальный уровень доступа к ресурсам Yandex Cloud.
 
-#### {{ roles-viewer }} {#viewer}
+#### viewer {#viewer}
 
-Роль `viewer` предоставляет разрешения на чтение информации о любых [ресурсах]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud.
+Роль `viewer` предоставляет разрешения на чтение информации о любых [ресурсах](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud.
 
 Включает разрешения, предоставляемые ролью `auditor`.
 
-В отличие от роли `auditor`, роль `viewer` предоставляет доступ к данным [сервисов]({{ link-docs }}/overview/concepts/services) в режиме чтения.
+В отличие от роли `auditor`, роль `viewer` предоставляет доступ к данным [сервисов](../../overview/concepts/services.md) в режиме чтения.
 
-#### {{ roles-editor }} {#editor}
+#### editor {#editor}
 
-Роль `editor` предоставляет разрешения на управление любыми [ресурсами]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud, кроме назначения ролей другим пользователям, передачи прав владения [организацией]({{ link-docs }}/organization/concepts/organization) и ее удаления, а также удаления [ключей шифрования]({{ link-docs }}/kms/concepts/) Key Management Service.
+Роль `editor` предоставляет разрешения на управление любыми [ресурсами](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud, кроме назначения ролей другим пользователям, передачи прав владения [организацией](../../organization/concepts/organization.md) и ее удаления, а также удаления [ключей шифрования](../../kms/concepts/index.md) Key Management Service.
 
 Например, пользователи с этой ролью могут создавать, изменять и удалять ресурсы.
 
 Включает разрешения, предоставляемые ролью `viewer`.
 
-#### {{ roles-admin }} {#admin}
+#### admin {#admin}
 
-Роль `admin` позволяет назначать любые роли, кроме `resource-manager.clouds.owner` и `organization-manager.organizations.owner`, а также предоставляет разрешения на управление любыми [ресурсами]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud, кроме передачи прав владения [организацией]({{ link-docs }}/organization/concepts/organization) и ее удаления.
+Роль `admin` позволяет назначать любые роли, кроме `resource-manager.clouds.owner` и `organization-manager.organizations.owner`, а также предоставляет разрешения на управление любыми [ресурсами](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud, кроме передачи прав владения [организацией](../../organization/concepts/organization.md) и ее удаления.
 
-Прежде чем назначить роль `admin` на организацию, [облако]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#cloud) или [платежный аккаунт]({{ link-docs }}/billing/concepts/billing-account), ознакомьтесь с информацией о защите [привилегированных аккаунтов]({{ link-docs }}/security/standard/all#privileged-users).
+Прежде чем назначить роль `admin` на организацию, [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [платежный аккаунт](../../billing/concepts/billing-account.md), ознакомьтесь с информацией о защите [привилегированных аккаунтов](../../security/standard/all.md#privileged-users).
 
 Включает разрешения, предоставляемые ролью `editor`.
 
 Вместо примитивных ролей мы рекомендуем использовать роли сервисов. Такой подход позволит более гранулярно управлять доступом и обеспечить соблюдение [принципа минимальных привилегий](../../security/standard/all.md#min-privileges).
 
-Подробнее о примитивных ролях см. в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md#primitive-roles).
+Подробнее о примитивных ролях см. в [справочнике ролей Yandex Cloud](../../iam/roles-reference.md#primitive-roles).
 
 ## Какие роли необходимы {#required-roles}
 
-Чтобы пользоваться сервисом, необходима роль [{{ roles.mmg.editor }} или выше](../../iam/concepts/access-control/roles.md) на каталог, в котором создается кластер. Роль `{{ roles.mmg.viewer }}` позволит только просматривать список кластеров.
+Чтобы пользоваться сервисом, необходима роль [managed-mongodb.editor или выше](../../iam/concepts/access-control/roles.md) на каталог, в котором создается кластер. Роль `managed-mongodb.viewer` позволит только просматривать список кластеров.
 
-Чтобы создать кластер {{ mmg-name }}, нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль `{{ roles.mmg.editor }}` или выше.
+Чтобы создать кластер Yandex StoreDoc, нужна роль [vpc.user](../../vpc/security/index.md#vpc-user) и роль `managed-mongodb.editor` или выше.
 
-Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `{{ roles.mmg.admin }}` вместо `{{ roles.mmg.editor }}`.
+Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `managed-mongodb.admin` вместо `managed-mongodb.editor`.
 
 ## Что дальше {#whats-next}
 
 * [Как назначить роль](../../iam/operations/roles/grant.md).
 * [Как отозвать роль](../../iam/operations/roles/revoke.md).
-* [Подробнее об управлении доступом в {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
+* [Подробнее об управлении доступом в Yandex Cloud](../../iam/concepts/access-control/index.md).
 * [Подробнее о наследовании ролей](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

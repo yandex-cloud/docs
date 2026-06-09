@@ -5,7 +5,7 @@ Set ip permissions for the specified registry.
 ## HTTP request
 
 ```
-POST https://registry.{{ api-host }}/cloud-registry/v1/registries/{registryId}:setIpPermissions
+POST https://registry.api.cloud.yandex.net/cloud-registry/v1/registries/{registryId}:setIpPermissions
 ```
 
 ## Path parameters

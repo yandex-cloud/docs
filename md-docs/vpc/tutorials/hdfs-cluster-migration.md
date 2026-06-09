@@ -1,20 +1,20 @@
-# Миграция кластера {{ dataproc-name }} с файловой системой HDFS в другую зону доступности
+# Миграция кластера Yandex Data Processing с файловой системой HDFS в другую зону доступности
 
 
-Подкластеры каждого кластера {{ dataproc-name }} находятся в одной [облачной сети](../concepts/network.md#network) и одной [зоне доступности](../../overview/concepts/geo-scope.md). Вы можете перенести кластер в другую зону доступности. Процесс переноса зависит от типа кластера:
+Подкластеры каждого кластера Yandex Data Processing находятся в одной [облачной сети](../concepts/network.md#network) и одной [зоне доступности](../../overview/concepts/geo-scope.md). Вы можете перенести кластер в другую зону доступности. Процесс переноса зависит от типа кластера:
 
 * Ниже описано, как перенести кластеры с файловой системой HDFS.
 * О миграции [легковесных кластеров](../../data-proc/concepts/index.md#light-weight-clusters) читайте в [инструкции](../../data-proc/operations/migration-to-an-availability-zone.md).
 
 {% note info %}
 
-Для кластеров, хосты которых располагаются в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`, недоступно использование платформы Intel Broadwell.
+Для кластеров, хосты которых располагаются в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`, недоступно использование платформы Intel Broadwell.
 
 {% endnote %}
 
 Чтобы перенести кластер с файловой системой HDFS:
 
-1. [Создайте кластер через импорт в {{ TF }}](#create).
+1. [Создайте кластер через импорт в Terraform](#create).
 1. [Скопируйте данные в новый кластер](#copy).
 1. [Удалите первоначальный кластер](#delete).
 
@@ -23,18 +23,18 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входит плата за кластеры {{ dataproc-name }} (см. [тарифы {{ dataproc-name }}](../../data-proc/pricing.md)).
+В стоимость поддержки описываемого решения входит плата за кластеры Yandex Data Processing (см. [тарифы Yandex Data Processing](../../data-proc/pricing.md)).
 
 
-## Создайте кластер через импорт в {{ TF }} {#create}
+## Создайте кластер через импорт в Terraform {#create}
 
-Чтобы в другой зоне доступности создать кластер {{ dataproc-name }}, настройки которого совпадают с настройками первоначального кластера, импортируйте конфигурацию первоначального кластера в {{ TF }}:
+Чтобы в другой зоне доступности создать кластер Yandex Data Processing, настройки которого совпадают с настройками первоначального кластера, импортируйте конфигурацию первоначального кластера в Terraform:
 
 {% list tabs group=instructions %}
 
-* {{ TF }} {#tf}
+* Terraform {#tf}
 
-   1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
    1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
    1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -52,7 +52,7 @@
 
       Идентификатор можно запросить вместе со [списком кластеров в каталоге](../../data-proc/operations/cluster-list.md#list).
 
-   1. Импортируйте настройки первоначального кластера в конфигурацию {{ TF }}:
+   1. Импортируйте настройки первоначального кластера в конфигурацию Terraform:
 
       ```bash
       terraform import yandex_dataproc_cluster.old ${DATAPROC_CLUSTER_ID}
@@ -93,13 +93,13 @@
    1. В директории `imported-cluster` [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
    1. В этой же директории [настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
    1. Поместите конфигурационный файл в директорию `imported-cluster` и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
-   1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+   1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
       ```bash
       terraform validate
       ```
 
-      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+      Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
    1. Создайте необходимую инфраструктуру:
 
@@ -121,7 +121,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
 {% endlist %}
 
@@ -131,9 +131,9 @@
 
    Чтобы посмотреть список запущенных операций и заданий:
 
-   1. Откройте [консоль управления]({{ link-console-main }}).
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-   1. Нажмите на имя первоначального кластера и выберите вкладку **{{ ui-key.yacloud.dataproc.switch_operations }}**, затем — **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
+   1. Откройте [консоль управления](https://console.yandex.cloud).
+   1. Перейдите в сервис **Yandex Data Processing**.
+   1. Нажмите на имя первоначального кластера и выберите вкладку **Операции**, затем — **Задания**.
 
    {% note info %}
 
@@ -150,7 +150,7 @@
 
    Вместо символа `/` можно указать нужную вам директорию.
 
-1. Чтобы протестировать копирование данных в новый кластер {{ dataproc-name }}, создайте тестовые директории:
+1. Чтобы протестировать копирование данных в новый кластер Yandex Data Processing, создайте тестовые директории:
 
    ```bash
    hdfs dfs -mkdir /user/foo &&\
@@ -202,10 +202,10 @@
 
    Объем копируемых данных можно посмотреть в веб-интерфейсе HDFS. Чтобы открыть его:
 
-   1. Откройте [консоль управления]({{ link-console-main }}).
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. Откройте [консоль управления](https://console.yandex.cloud).
+   1. Перейдите в сервис **Yandex Data Processing**.
    1. Нажмите на имя первоначального кластера.
-   1. На его странице, в разделе **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, перейдите по ссылке **HDFS Namenode UI**.
+   1. На его странице, в разделе **UI Proxy**, перейдите по ссылке **HDFS Namenode UI**.
 
    В поле **DFS Used** указан объем данных в HDFS в первоначальном кластере.
 

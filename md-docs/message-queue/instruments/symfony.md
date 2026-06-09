@@ -1,6 +1,6 @@
-# Пример использования {{ message-queue-full-name }} на Symfony
+# Пример использования Yandex Message Queue на Symfony
 
-PHP-фреймворк [Symfony](https://symfony.com/) содержит компонент [Messenger](https://symfony.com/doc/current/messenger.html) для работы с очередями. В качестве брокера сообщений можно использовать {{ message-queue-name }}.
+PHP-фреймворк [Symfony](https://symfony.com/) содержит компонент [Messenger](https://symfony.com/doc/current/messenger.html) для работы с очередями. В качестве брокера сообщений можно использовать Message Queue.
 
 ## Установка {#install}
 
@@ -14,19 +14,19 @@ PHP-фреймворк [Symfony](https://symfony.com/) содержит комп
 ## Подготовка к работе {#prepare}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md).
-1. [Назначьте роль {{ roles-editor }} сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
+1. [Назначьте роль editor сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
 1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
-Создайте очередь в сервисе {{ message-queue-name }} и скопируйте ее URL.
+Создайте очередь в сервисе Message Queue и скопируйте ее URL.
 
 ## Инструкции {#sample}
 
 В этом примере создаются:
 * демонстрационное сообщение (Message), в котором хранятся исходные числа;
 * обработчик сообщения (MessageHandler), который суммирует два числа из сообщения;
-* команда (Command), которая ставит задачу в очередь {{ message-queue-name }}.
+* команда (Command), которая ставит задачу в очередь Message Queue.
 
-Чтобы использовать {{ message-queue-name }} с Symfony Messenger, выполните следующие инструкции:
+Чтобы использовать Message Queue с Symfony Messenger, выполните следующие инструкции:
 
 1. Создайте тестовый проект `mq_example`:
 
@@ -34,7 +34,7 @@ PHP-фреймворк [Symfony](https://symfony.com/) содержит комп
    symfony new --webapp mq_example
    ```
 
-1. Установите зависимости для работы с Amazon SQS. {{ message-queue-name }} использует формат совместимый с SQS:
+1. Установите зависимости для работы с Amazon SQS. Message Queue использует формат совместимый с SQS:
 
    ```bash
    composer require symfony/amazon-sqs-messenger async-aws/sqs ^1.9
@@ -142,12 +142,12 @@ PHP-фреймворк [Symfony](https://symfony.com/) содержит комп
 1. Откройте файл `.env` и найдите в нем строку `MESSENGER_TRANSPORT_DSN=doctrine://default?auto_setup=0`. Приведите ее к следующему виду:
     
     ```text
-    MESSENGER_TRANSPORT_DSN=sqs://message-queue.{{ api-host }}/b1gvlrnlei4l********/dj6000000000********/symfony-test?access_key=KEY&secret_key=SECRET&region={{ region-id }}
+    MESSENGER_TRANSPORT_DSN=sqs://message-queue.api.cloud.yandex.net/b1gvlrnlei4l********/dj6000000000********/symfony-test?access_key=KEY&secret_key=SECRET&region=ru-central1
     ```
 
-    Часть `b1gvlrnlei4l********/dj6000000000********/symfony-test` нужно заменить на путь, скопированный в консоли {{ yandex-cloud }}.
+    Часть `b1gvlrnlei4l********/dj6000000000********/symfony-test` нужно заменить на путь, скопированный в консоли Yandex Cloud.
 
-    В параметрах `access_key=KEY` и `secret_key=SECRET` значения `KEY` и `SECRET` нужно заменить на значение статического ключа доступа к {{ message-queue-name }}.
+    В параметрах `access_key=KEY` и `secret_key=SECRET` значения `KEY` и `SECRET` нужно заменить на значение статического ключа доступа к Message Queue.
 
 1. Откройте файл `config/packages/messenger.yaml` и приведите его к следующему виду:
 

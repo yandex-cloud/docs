@@ -2,15 +2,15 @@
 
 {% note info %}
 
-Функциональность находится на стадии [Preview](../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+Функциональность находится на стадии [Preview](../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
-В этом разделе представлен справочник по подмножеству [KQL (Kusto Query Language)](https://learn.microsoft.com/en-us/kusto/), используемому в {{ ycdr-full-name }}.
+В этом разделе представлен справочник по подмножеству [KQL (Kusto Query Language)](https://learn.microsoft.com/en-us/kusto/), используемому в Yandex Cloud Detection and Response.
 
 ## Системные таблицы {#system-tables}
 
-В {{ ycdr-name }} доступны следующие системные таблицы:
+В YCDR доступны следующие системные таблицы:
 
 * **Events** — нормализованные события в базе или потоке.
 * **EVENT_CLASS** — названия классов событий, указанные в классификаторе, с соответствующей фильтрацией полей.

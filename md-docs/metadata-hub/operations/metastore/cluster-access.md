@@ -1,4 +1,4 @@
-# Управление доступом к кластеру {{ metastore-name }}
+# Управление доступом к кластеру Apache Hive™ Metastore
 
 Вы можете предоставить пользователю или сервисному аккаунту [роль](../../security/metastore-roles.md) для доступа к конкретному [кластеру](../../concepts/metastore.md).
 
@@ -11,20 +11,20 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Получите список кластеров в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию, выполнив команду:
 
       ```bash
-      {{ yc-metastore }} cluster list
+      yc managed-metastore cluster list
       ```
 
   1. Получите список ролей, назначенных на кластер, выполнив команду:
 
       ```bash
-      {{ yc-metastore }} cluster list-access-bindings <имя_или_идентификатор_кластера>
+      yc managed-metastore cluster list-access-bindings <имя_или_идентификатор_кластера>
       ```
 
 - REST API {#api}
@@ -35,14 +35,14 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.ListAccessBindings](../../api-ref/Cluster/listAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.ListAccessBindings](../../api-ref/Cluster/listAccessBindings.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
         --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-metastore }}/managed-metastore/v1/clusters/<идентификатор_кластера>:listAccessBindings'
+        --url 'https://metastore.api.cloud.yandex.net/managed-metastore/v1/clusters/<идентификатор_кластера>:listAccessBindings'
       ```
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/Cluster/listAccessBindings.md#yandex.cloud.access.ListAccessBindingsResponse).
@@ -62,7 +62,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.ListAccessBindings](../../api-ref/grpc/Cluster/listAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.ListAccessBindings](../../api-ref/grpc/Cluster/listAccessBindings.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -74,7 +74,7 @@
         -d '{
               "resource_id": "<идентификатор_кластера>"
             }' \
-        {{ api-host-metastore }}:{{ port-https }} \
+        metastore.api.cloud.yandex.net:443 \
         yandex.cloud.metastore.v1.ClusterService.ListAccessBindings
       ```
 
@@ -89,20 +89,20 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Посмотрите описание команды CLI для назначения роли на кластер:
 
       ```bash
-      {{ yc-metastore }} cluster add-access-binding --help
+      yc managed-metastore cluster add-access-binding --help
       ```
 
   1. Назначьте роль, выполнив команду:
 
       ```bash
-      {{ yc-metastore }} cluster add-access-binding <имя_или_идентификатор_кластера> \
+      yc managed-metastore cluster add-access-binding <имя_или_идентификатор_кластера> \
         --role <роль> \
         --subject <тип_субъекта>:<идентификатор_субъекта>
       ```
@@ -120,8 +120,8 @@
 
           Допустимые типы субъектов:
           
-          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
+          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../../organization/concepts/add-federation.md).
           * `system` — [публичная группа](../../../iam/concepts/access-control/public-group.md) пользователей.
           
@@ -137,7 +137,7 @@
   1. Проверьте список ролей, назначенных на кластер, выполнив команду:
 
       ```bash
-      {{ yc-metastore }} cluster list-access-bindings <имя_или_идентификатор_кластера>
+      yc managed-metastore cluster list-access-bindings <имя_или_идентификатор_кластера>
       ```
 
 - REST API {#api}
@@ -148,14 +148,14 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.UpdateAccessBindings](../../api-ref/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.UpdateAccessBindings](../../api-ref/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
         --request PATCH \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-metastore }}/managed-metastore/v1/clusters/<идентификатор_кластера>:updateAccessBindings' \
+        --url 'https://metastore.api.cloud.yandex.net/managed-metastore/v1/clusters/<идентификатор_кластера>:updateAccessBindings' \
         --data '{
                   "access_binding_deltas": [
                     {
@@ -180,8 +180,8 @@
 
           Допустимые типы субъектов:
           
-          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
+          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../../organization/concepts/add-federation.md).
           * `system` — [публичная группа](../../../iam/concepts/access-control/public-group.md) пользователей.
           
@@ -211,7 +211,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.UpdateAccessBindings](../../api-ref/grpc/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.UpdateAccessBindings](../../api-ref/grpc/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -235,7 +235,7 @@
                 }
               ]
             }' \
-        {{ api-host-metastore }}:{{ port-https }} \
+        metastore.api.cloud.yandex.net:443 \
         yandex.cloud.metastore.v1.ClusterService.UpdateAccessBindings
       ```
 
@@ -248,8 +248,8 @@
 
           Допустимые типы субъектов:
           
-          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
+          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../../organization/concepts/add-federation.md).
           * `system` — [публичная группа](../../../iam/concepts/access-control/public-group.md) пользователей.
           
@@ -273,7 +273,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -286,19 +286,19 @@
   1. Посмотрите список ролей, назначенных на кластер, выполнив команду:
 
       ```bash
-      {{ yc-metastore }} cluster list-access-bindings <имя_или_идентификатор_кластера>
+      yc managed-metastore cluster list-access-bindings <имя_или_идентификатор_кластера>
       ```
 
   1. Посмотрите описание команды CLI для назначения ролей на кластер:
 
       ```bash
-      {{ yc-metastore }} cluster set-access-bindings --help
+      yc managed-metastore cluster set-access-bindings --help
       ```
 
   1. Назначьте роли, выполнив команду:
 
       ```bash
-      {{ yc-metastore }} cluster set-access-bindings <имя_или_идентификатор_кластера> \
+      yc managed-metastore cluster set-access-bindings <имя_или_идентификатор_кластера> \
         --access-binding role=<роль>,subject=<тип_субъекта>:<идентификатор_субъекта_1> \
         --access-binding role=<роль>,subject=<тип_субъекта>:<идентификатор_субъекта_2>
       ```
@@ -316,8 +316,8 @@
 
           Допустимые типы субъектов:
           
-          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
+          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../../organization/concepts/add-federation.md).
           * `system` — [публичная группа](../../../iam/concepts/access-control/public-group.md) пользователей.
           
@@ -344,14 +344,14 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.SetAccessBindings](../../api-ref/Cluster/setAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.SetAccessBindings](../../api-ref/Cluster/setAccessBindings.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-metastore }}/managed-metastore/v1/clusters/<идентификатор_кластера>:setAccessBindings' \
+        --url 'https://metastore.api.cloud.yandex.net/managed-metastore/v1/clusters/<идентификатор_кластера>:setAccessBindings' \
         --data '{
                   "accessBindings": [
                     {
@@ -388,8 +388,8 @@
 
           Допустимые типы субъектов:
           
-          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
+          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../../organization/concepts/add-federation.md).
           * `system` — [публичная группа](../../../iam/concepts/access-control/public-group.md) пользователей.
           
@@ -425,7 +425,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.SetAccessBindings](../../api-ref/grpc/Cluster/setAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.SetAccessBindings](../../api-ref/grpc/Cluster/setAccessBindings.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -461,7 +461,7 @@
                 }
               ]
             }' \
-        {{ api-host-metastore }}:{{ port-https }} \
+        metastore.api.cloud.yandex.net:443 \
         yandex.cloud.metastore.v1.ClusterService.SetAccessBindings
       ```
 
@@ -474,8 +474,8 @@
 
           Допустимые типы субъектов:
           
-          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
+          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../../organization/concepts/add-federation.md).
           * `system` — [публичная группа](../../../iam/concepts/access-control/public-group.md) пользователей.
           
@@ -499,25 +499,25 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Посмотрите список ролей, назначенных на кластер, выполнив команду:
 
       ```bash
-      {{ yc-metastore }} cluster list-access-bindings <имя_или_идентификатор_кластера>
+      yc managed-metastore cluster list-access-bindings <имя_или_идентификатор_кластера>
       ```
 
   1. Посмотрите описание команды CLI для отзыва роли на кластер:
 
       ```bash
-      {{ yc-metastore }} cluster remove-access-binding --help
+      yc managed-metastore cluster remove-access-binding --help
       ```
   1. Отзовите роль, выполнив команду:
 
       ```bash
-      {{ yc-metastore }} cluster remove-access-binding <имя_или_идентификатор_кластера> \
+      yc managed-metastore cluster remove-access-binding <имя_или_идентификатор_кластера> \
         --role <роль> \
         --subject <тип_субъекта>:<идентификатор_субъекта>
       ```
@@ -535,8 +535,8 @@
 
           Допустимые типы субъектов:
           
-          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
+          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../../organization/concepts/add-federation.md).
           * `system` — [публичная группа](../../../iam/concepts/access-control/public-group.md) пользователей.
           
@@ -557,14 +557,14 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.UpdateAccessBindings](../../api-ref/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.UpdateAccessBindings](../../api-ref/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
         --request PATCH \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-metastore }}/managed-metastore/v1/clusters/<идентификатор_кластера>:updateAccessBindings' \
+        --url 'https://metastore.api.cloud.yandex.net/managed-metastore/v1/clusters/<идентификатор_кластера>:updateAccessBindings' \
         --data '{
                   "access_binding_deltas": [
                     {
@@ -589,8 +589,8 @@
 
           Допустимые типы субъектов:
           
-          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
+          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../../organization/concepts/add-federation.md).
           * `system` — [публичная группа](../../../iam/concepts/access-control/public-group.md) пользователей.
           
@@ -620,7 +620,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.UpdateAccessBindings](../../api-ref/grpc/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.UpdateAccessBindings](../../api-ref/grpc/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -644,7 +644,7 @@
                 }
               ]
             }' \
-        {{ api-host-metastore }}:{{ port-https }} \
+        metastore.api.cloud.yandex.net:443 \
         yandex.cloud.metastore.v1.ClusterService.UpdateAccessBindings
       ```
 
@@ -657,8 +657,8 @@
 
           Допустимые типы субъектов:
           
-          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
+          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../../organization/concepts/add-federation.md).
           * `system` — [публичная группа](../../../iam/concepts/access-control/public-group.md) пользователей.
           
@@ -680,7 +680,7 @@
 
 ### Добавить сервисному аккаунту доступ к управлению кластером {#sa-cluster-control}
 
-Чтобы сервисный аккаунт мог просматривать информацию обо всех кластерах {{ metastore-name }} в каталоге, но изменять ресурсы только конкретного кластера, выдайте ему роль `managed-metastore.viewer` на каталог и роль `managed-metastore.editor` на этот кластер:
+Чтобы сервисный аккаунт мог просматривать информацию обо всех кластерах Apache Hive™ Metastore в каталоге, но изменять ресурсы только конкретного кластера, выдайте ему роль `managed-metastore.viewer` на каталог и роль `managed-metastore.editor` на этот кластер:
 
 {% list tabs group=instructions %}
 
@@ -697,14 +697,14 @@
   1. Назначьте роли на кластер:
 
       ```bash
-      {{ yc-metastore }} cluster add-access-bindings <имя_или_идентификатор_кластера> \
+      yc managed-metastore cluster add-access-bindings <имя_или_идентификатор_кластера> \
         --access-binding role=managed-metastore.editor,subject=serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 
   1. Проверьте список ролей, назначенных на кластер:
 
       ```bash
-      {{ yc-metastore }} cluster list-access-bindings <имя_или_идентификатор_кластера>
+      yc managed-metastore cluster list-access-bindings <имя_или_идентификатор_кластера>
       ```
 
 - REST API {#api}
@@ -722,7 +722,7 @@
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://resource-manager.{{ api-host }}/resource-manager/v1/folders/<идентификатор_каталога>:updateAccessBindings' \
+        --url 'https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/<идентификатор_каталога>:updateAccessBindings' \
         --data '{
                   "access_binding_deltas": [
                     {
@@ -741,14 +741,14 @@
 
       Где `access_binding_deltas.subject.id` — идентификатор сервисного аккаунта, которому назначается роль.
 
-  1. Воспользуйтесь методом [Cluster.UpdateAccessBindings](../../api-ref/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.UpdateAccessBindings](../../api-ref/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
         --request PATCH \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-metastore }}/managed-metastore/v1/clusters/<идентификатор_кластера>:updateAccessBindings' \
+        --url 'https://metastore.api.cloud.yandex.net/managed-metastore/v1/clusters/<идентификатор_кластера>:updateAccessBindings' \
         --data '{
                   "access_binding_deltas": [
                     {
@@ -774,7 +774,7 @@
         --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://resource-manager.{{ api-host }}/resource-manager/v1/folders/<идентификатор_каталога>:updateAccessBindings'
+        --url 'https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/<идентификатор_каталога>:updateAccessBindings'
       ```
 
   1. Проверьте список ролей, назначенных на кластер:
@@ -784,7 +784,7 @@
         --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-metastore }}/managed-metastore/v1/clusters/<идентификатор_кластера>:listAccessBindings'
+        --url 'https://metastore.api.cloud.yandex.net/managed-metastore/v1/clusters/<идентификатор_кластера>:listAccessBindings'
       ```
 
 - gRPC API {#grpc-api}
@@ -826,7 +826,7 @@
                 }
               ]
             }' \
-        resource-manager.{{ api-host }}:443 \
+        resource-manager.api.cloud.yandex.net:443 \
         yandex.cloud.resourcemanager.v1.FolderService.UpdateAccessBindings
       ```
 
@@ -856,7 +856,7 @@
                 }
               ]
             }' \
-        {{ api-host-metastore }}:{{ port-https }} \
+        metastore.api.cloud.yandex.net:443 \
         yandex.cloud.metastore.v1.ClusterService.UpdateAccessBindings
       ```
 
@@ -874,7 +874,7 @@
         -d '{
               "resource_id": "<идентификатор_каталога>"
             }' \
-        resource-manager.{{ api-host }}:443 \
+        resource-manager.api.cloud.yandex.net:443 \
         yandex.cloud.resourcemanager.v1.FolderService.ListAccessBindings
       ```
 
@@ -890,7 +890,7 @@
         -d '{
               "resource_id": "<идентификатор_кластера>"
             }' \
-        {{ api-host-metastore }}:{{ port-https }} \
+        metastore.api.cloud.yandex.net:443 \
         yandex.cloud.metastore.v1.ClusterService.ListAccessBindings
       ```
 

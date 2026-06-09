@@ -1,20 +1,20 @@
-# Настройка NodeLocal DNS {{ managed-k8s-full-name }}
+# Настройка NodeLocal DNS Yandex Managed Service for Kubernetes
 
-Чтобы снизить нагрузку по [DNS-запросам](../../glossary/dns.md) в [кластере {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), используйте компонент NodeLocal DNS.
+Чтобы снизить нагрузку по [DNS-запросам](../../glossary/dns.md) в [кластере Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), используйте компонент NodeLocal DNS.
 
 {% note tip %}
 
-Если кластер {{ managed-k8s-name }} содержит более 50 [узлов](../../managed-kubernetes/concepts/index.md#node-group), используйте [автоматическое масштабирование DNS](dns-autoscaler.md).
+Если кластер Managed Service for Kubernetes содержит более 50 [узлов](../../managed-kubernetes/concepts/index.md#node-group), используйте [автоматическое масштабирование DNS](dns-autoscaler.md).
 
 {% endnote %}
 
 {% note warning %}
 
-Если в кластере {{ managed-k8s-name }} используется контроллер сетевых политик Cilium, то настройка имеет свои особенности. Воспользуйтесь следующей [инструкцией](../../managed-kubernetes/operations/cilium-node-local-dns.md).
+Если в кластере Managed Service for Kubernetes используется контроллер сетевых политик Cilium, то настройка имеет свои особенности. Воспользуйтесь следующей [инструкцией](../../managed-kubernetes/operations/cilium-node-local-dns.md).
 
 {% endnote %}
 
-NodeLocal DNS является системным компонентом кластера {{ managed-k8s-name }}, выполняющим роль локального DNS-кеша на каждом узле.
+NodeLocal DNS является системным компонентом кластера Managed Service for Kubernetes, выполняющим роль локального DNS-кеша на каждом узле.
 
 NodeLocal DNS разворачивается в кластере как [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) с подами `node-local-dns` в пространстве имен `kube-system`. NodeLocal DNS настраивает [iptables](https://ru.wikipedia.org/wiki/Iptables) так, чтобы запросы подов к сервису `kube-dns` перенаправлялись в под `node-local-dns` на этом же узле (локальный кеш):
 * Если в кеше есть подходящая запись и ее срок действия не истек, ответ возвращается без обращения к основному DNS-сервису кластера.
@@ -26,13 +26,13 @@ DNS-запросы перенаправляются в локальный кеш
 
 {% endnote %}
 
-Использование NodeLocal DNS в кластере {{ managed-k8s-name }} имеет [ряд преимуществ](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#motivation):
+Использование NodeLocal DNS в кластере Managed Service for Kubernetes имеет [ряд преимуществ](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#motivation):
 * Уменьшение времени обработки DNS-запросов.
 * Снижение объема внутреннего сетевого трафика, что позволяет избежать ограничений по [количеству соединений](../../vpc/concepts/limits.md#vpc-limits).
 * Снижение риска сбоев механизма connection tracking (conntrack) за счет уменьшения числа UDP-запросов к DNS-сервису.
 * Повышение устойчивости и масштабируемости кластерной DNS-подсистемы.
 
-В этом руководстве вы установите компонент NodeLocal DNS в кластере {{ managed-k8s-name }} и проверите его работу с помощью пакета сетевых утилит `dnsutils`. Для этого выполните следующие шаги:
+В этом руководстве вы установите компонент NodeLocal DNS в кластере Managed Service for Kubernetes и проверите его работу с помощью пакета сетевых утилит `dnsutils`. Для этого выполните следующие шаги:
 
 1. [Установите NodeLocal DNS](#install).
 1. [Создайте тестовое окружение](#create-test-environment).
@@ -43,9 +43,9 @@ DNS-запросы перенаправляются в локальный кеш
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Мастер {{ managed-k8s-name }} (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Публичные IP-адреса для узлов кластера {{ managed-k8s-name }} (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Мастер Managed Service for Kubernetes (см. [тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
+* Публичные IP-адреса для узлов кластера Managed Service for Kubernetes (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -59,7 +59,7 @@ DNS-запросы перенаправляются в локальный кеш
   1. Создайте [облачную сеть](../../vpc/operations/network-create.md) и [подсеть](../../vpc/operations/subnet-create.md).
   1. Создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с [ролями](../../iam/concepts/access-control/roles.md) `k8s.clusters.agent` и `vpc.publicAdmin`.
 
-  1. [Создайте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
+  1. [Создайте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 
       {% note warning %}
       
@@ -67,21 +67,21 @@ DNS-запросы перенаправляются в локальный кеш
       
       {% endnote %}
 
-  1. [Создайте кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) с [публичным доступом в интернет](../../managed-kubernetes/operations/node-group/node-group-update.md#node-internet-access) и с группами безопасности, подготовленными ранее.
+  1. [Создайте кластер Managed Service for Kubernetes](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) с [публичным доступом в интернет](../../managed-kubernetes/operations/node-group/node-group-update.md#node-internet-access) и с группами безопасности, подготовленными ранее.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Если у вас еще нет {{ TF }}, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
+  1. Если у вас еще нет Terraform, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
   1. [Получите данные для аутентификации](../infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
   1. [Настройте и инициализируйте провайдер](../infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
   1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
-  1. Скачайте в ту же рабочую директорию файл конфигурации кластера {{ managed-k8s-name }} [k8s-node-local-dns.tf](https://github.com/yandex-cloud-examples/yc-mk8s-node-local-dns-cache/blob/main/k8s-node-local-dns.tf). В файле описаны:
+  1. Скачайте в ту же рабочую директорию файл конфигурации кластера Managed Service for Kubernetes [k8s-node-local-dns.tf](https://github.com/yandex-cloud-examples/yc-mk8s-node-local-dns-cache/blob/main/k8s-node-local-dns.tf). В файле описаны:
 
      * [Сеть](../../vpc/concepts/network.md#network).
      * [Подсеть](../../vpc/concepts/network.md#subnet).
-     * Кластер {{ managed-k8s-name }}.
-     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и [группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group).
-     * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](../../managed-kubernetes/operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
+     * Кластер Managed Service for Kubernetes.
+     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и [группы узлов Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#node-group).
+     * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](../../managed-kubernetes/operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 
         {% note warning %}
         
@@ -92,17 +92,17 @@ DNS-запросы перенаправляются в локальный кеш
   1. Укажите в файле конфигурации:
 
      * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-     * [Версии {{ k8s }}](../../managed-kubernetes/concepts/release-channels-and-updates.md) для кластера и групп узлов {{ managed-k8s-name }}.
-     * CIDR кластера {{ managed-k8s-name }}.
-     * Имя сервисного аккаунта кластера {{ managed-k8s-name }}.
+     * [Версии Kubernetes](../../managed-kubernetes/concepts/release-channels-and-updates.md) для кластера и групп узлов Managed Service for Kubernetes.
+     * CIDR кластера Managed Service for Kubernetes.
+     * Имя сервисного аккаунта кластера Managed Service for Kubernetes.
 
-  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+  1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
      ```bash
      terraform validate
      ```
 
-     Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+     Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Создайте необходимую инфраструктуру:
 
@@ -124,31 +124,31 @@ DNS-запросы перенаправляются в локальный кеш
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-     В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+     В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
 {% endlist %}
 
 {% note warning %}
 
-Не изменяйте и не удаляйте ресурсы {{ vpc-name }}, которые используются кластером {{ managed-k8s-name }}. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
+Не изменяйте и не удаляйте ресурсы Virtual Private Cloud, которые используются кластером Managed Service for Kubernetes. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
 
 {% endnote %}
 
 ### Подготовьте окружение {#prepare-env}
 
-1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
+1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
 
 ## Установите NodeLocal DNS {#install}
 
 {% list tabs group=instructions %}
 
-- {{ marketplace-full-name }} {#marketplace}
+- Yandex Cloud Marketplace {#marketplace}
 
-  Установите [NodeLocal DNS](https://yandex.cloud/ru/marketplace/products/yc/node-local-dns) с помощью {{ marketplace-name }}, как описано в [инструкции](../../managed-kubernetes/operations/applications/node-local-dns.md#marketplace-install).
+  Установите [NodeLocal DNS](https://yandex.cloud/ru/marketplace/products/yc/node-local-dns) с помощью Cloud Marketplace, как описано в [инструкции](../../managed-kubernetes/operations/applications/node-local-dns.md#marketplace-install).
 
 - Вручную {#manual}
 
@@ -163,7 +163,7 @@ DNS-запросы перенаправляются в локальный кеш
       {% cut "node-local-dns.yaml" %}
 
       ```yaml
-      # Copyright 2018 The {{ k8s }} Authors.
+      # Copyright 2018 The Kubernetes Authors.
       #
       # Licensed under the Apache License, Version 2.0 (the "License");
       # you may not use this file except in compliance with the License.
@@ -176,7 +176,7 @@ DNS-запросы перенаправляются в локальный кеш
       # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
       # See the License for the specific language governing permissions and
       # limitations under the License.
-      # Modified for {{ yandex-cloud }} Usage
+      # Modified for Yandex Cloud Usage
       ---
       apiVersion: v1
       kind: ServiceAccount
@@ -408,12 +408,12 @@ DNS-запросы перенаправляются в локальный кеш
 
 ## Создайте тестовое окружение {#create-test-environment}
 
-Для проверки работы локального DNS в кластере {{ managed-k8s-name }} будет запущен под `nettool`, содержащий в себе пакет сетевых утилит `dnsutils`.
+Для проверки работы локального DNS в кластере Managed Service for Kubernetes будет запущен под `nettool`, содержащий в себе пакет сетевых утилит `dnsutils`.
 
 1. Запустите под `nettool`:
 
    ```bash
-   kubectl run nettool --image {{ registry }}/yc/demo/network-multitool -- sleep infinity
+   kubectl run nettool --image cr.yandex/yc/demo/network-multitool -- sleep infinity
    ```
 
 1. Убедитесь, что под перешел в состояние `Running`:
@@ -422,7 +422,7 @@ DNS-запросы перенаправляются в локальный кеш
    kubectl get pods
    ```
 
-1. Выясните, на каком узле кластера {{ managed-k8s-name }} развернут под `nettool`:
+1. Выясните, на каком узле кластера Managed Service for Kubernetes развернут под `nettool`:
 
    ```bash
    kubectl get pod nettool -o wide
@@ -546,7 +546,7 @@ DNS-запросы перенаправляются в локальный кеш
 
 {% list tabs group=instructions %}
 
-- {{ marketplace-full-name }} {#marketplace}
+- Yandex Cloud Marketplace {#marketplace}
 
   Удалите приложение [NodeLocal DNS](https://yandex.cloud/ru/marketplace/products/yc/node-local-dns), как описано в [инструкции](../../managed-kubernetes/operations/applications/marketplace.md#delete-apps).
 
@@ -580,15 +580,15 @@ DNS-запросы перенаправляются в локальный кеш
 
     - Вручную {#manual}
 
-        [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+        [Удалите кластер Managed Service for Kubernetes](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 
-    - {{ TF }} {#tf}
+    - Terraform {#tf}
 
         1. В терминале перейдите в директорию с планом инфраструктуры.
         
             {% note warning %}
         
-            Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+            Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
         
             {% endnote %}
         
@@ -602,8 +602,8 @@ DNS-запросы перенаправляются в локальный кеш
         
             1. Подтвердите удаление ресурсов и дождитесь завершения операции.
         
-            Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+            Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
     {% endlist %}
 
-1. Если для доступа к кластеру {{ managed-k8s-name }} или узлам использовались статические [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses), освободите и [удалите](../../vpc/operations/address-delete.md) их.
+1. Если для доступа к кластеру Managed Service for Kubernetes или узлам использовались статические [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses), освободите и [удалите](../../vpc/operations/address-delete.md) их.

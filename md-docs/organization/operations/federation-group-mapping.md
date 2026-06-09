@@ -1,9 +1,9 @@
 # Настроить сопоставление групп федеративных пользователей
 
-Чтобы настроить права доступа пользователей к ресурсам {{ yandex-cloud }} с помощью [сопоставления групп](../concepts/add-federation.md#group-mapping):
+Чтобы настроить права доступа пользователей к ресурсам Yandex Cloud с помощью [сопоставления групп](../concepts/add-federation.md#group-mapping):
 
-1. [Создайте группы пользователей](#create-group) в {{ org-full-name }}.
-1. [Настройте права доступа](#access) этих групп к ресурсам {{ yandex-cloud }}.
+1. [Создайте группы пользователей](#create-group) в Yandex Identity Hub.
+1. [Настройте права доступа](#access) этих групп к ресурсам Yandex Cloud.
 1. Создайте группы пользователей в вашем [поставщике удостоверений](../concepts/add-federation.md#federation-usage) и добавьте в них пользователей.
 
     {% note info %}
@@ -16,16 +16,16 @@
 
     Инструкции по настройке сопоставления групп некоторых поставщиков удостоверений:
 
-   * [{{ keycloak }}](../tutorials/federations/group-mapping/keycloak.md).
-   * [{{ microsoft-idp.adfs-full }}](../tutorials/federations/group-mapping/adfs.md).
-   * [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/group-mapping/entra-id.md).
+   * [Keycloak](../tutorials/federations/group-mapping/keycloak.md).
+   * [Microsoft Active Directory Federation Services](../tutorials/federations/group-mapping/adfs.md).
+   * [Microsoft Entra ID](../tutorials/federations/group-mapping/entra-id.md).
    * [Google](https://support.google.com/a/answer/11143403?sjid=815248229840499495-EU).
 
 1. Задайте сопоставление групп пользователей в настройках федерации:
 
     {% note info %}
     
-    Чтобы настроить сопоставление [групп пользователей](../concepts/user-pools.md) на стороне {{ yandex-cloud }}, [назначьте](../../iam/operations/roles/grant.md#resource) пользователю одну из следующих [ролей](../../iam/concepts/access-control/roles.md):
+    Чтобы настроить сопоставление [групп пользователей](../concepts/user-pools.md) на стороне Yandex Cloud, [назначьте](../../iam/operations/roles/grant.md#resource) пользователю одну из следующих [ролей](../../iam/concepts/access-control/roles.md):
     
     * [`organization-manager.federations.editor`](../security/index.md#organization-manager-federations-editor);
     * [`organization-manager.federations.admin`](../security/index.md#organization-manager-federations-admin);
@@ -38,39 +38,39 @@
 
     {% list tabs group=instructions %}
 
-    - Интерфейс {{ cloud-center }} {#cloud-center}
+    - Интерфейс Cloud Center {#cloud-center}
 
-      1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
+      1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) с учетной записью администратора или владельца организации.
 
-      1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
+      1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **Федерации**.
 
-      1. Нажмите на строку с нужной федерацией и перейдите на вкладку **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}**.
+      1. Нажмите на строку с нужной федерацией и перейдите на вкладку **IdP-группы**.
 
-      1. Включите опцию **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}**.
+      1. Включите опцию **Маппинг групп в IdP**.
 
-      1. Нажмите кнопку **{{ ui-key.yacloud_org.form.group-mapping.create.add }}** и задайте сопоставление:
+      1. Нажмите кнопку **Добавить группу** и задайте сопоставление:
 
-          * **{{ ui-key.yacloud_org.form.group-mapping.note.group-name }}** — укажите имя группы поставщика удостоверений.
-          * **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}** — выберите группу {{ org-full-name }} из списка.
+          * **Имя группы** — укажите имя группы поставщика удостоверений.
+          * **IAM-группа** — выберите группу Yandex Identity Hub из списка.
 
       1. Повторите предыдущий шаг для всех сопоставляемых групп.
 
-      1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.save-changes }}**.
+      1. Нажмите кнопку **Сохранить**.
 
-    - {{ TF }}{#tf}
+    - Terraform{#tf}
 
-      [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+      [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
       
-      {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+      Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
       
-      Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+      Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
-      Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
       
       
-      Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+      Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-      1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
+      1. Опишите в конфигурационном файле Terraform параметры ресурсов, которые необходимо создать:
 
           ```hcl
           # Включение сопоставления групп федеративных пользователей
@@ -101,10 +101,10 @@
 
           Где:
           * `federation_id` — идентификатор федерации.
-          * `internal_group_id` — имя группы {{ org-full-name }}.
+          * `internal_group_id` — имя группы Yandex Identity Hub.
           * `external_group_id` — имя группы поставщика удостоверений.
 
-          Более подробную информацию о параметрах ресурса `yandex_organizationmanager_group_mapping_item` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item).
+          Более подробную информацию о параметрах ресурса `yandex_organizationmanager_group_mapping_item` см. в [документации провайдера](../../terraform/resources/organizationmanager_group_mapping_item.md).
       1. Создайте ресурсы:
 
           1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -126,7 +126,7 @@
              terraform plan
              ```
           
-             В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+             В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
           1. Примените изменения конфигурации:
           
              ```bash
@@ -135,6 +135,6 @@
           
           1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-          {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}).
+          Terraform создаст все требуемые ресурсы. Проверить появление ресурсов можно в [интерфейсе Cloud Center](https://center.yandex.cloud/organization).
 
     {% endlist %}

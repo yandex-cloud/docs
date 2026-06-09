@@ -5,7 +5,7 @@ Updates an Apache Kafka® connector.
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/connectors/{connectorName}
+PATCH https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/connectors/{connectorName}
 ```
 
 ## Path parameters

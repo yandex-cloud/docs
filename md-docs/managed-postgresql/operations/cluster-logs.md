@@ -1,6 +1,6 @@
-# Просмотр логов кластера {{ PG }}
+# Просмотр логов кластера PostgreSQL
 
-{{ mpg-name }} позволяет [получить фрагмент логов кластера](#get-log) за выбранный период и [просматривать логи в реальном времени](#get-log-stream).
+Managed Service for PostgreSQL позволяет [получить фрагмент логов кластера](#get-log) за выбранный период и [просматривать логи в реальном времени](#get-log-stream).
 
 {% note info %}
 
@@ -18,8 +18,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_logs }}**.
+    1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **Логи**.
     1. Укажите период времени, за который нужно отобразить логи: введите его вручную или выберите в календаре, нажав на поле ввода дат.
     
         
@@ -28,24 +28,24 @@
 
     Будет отображен список записей в логе за выбранный период времени. Чтобы посмотреть подробную информацию о событии, нажмите на интересующую запись в списке.
 
-    Если записей слишком много и отображается только часть из них, нажмите на кнопку **{{ ui-key.yacloud.common.label_load-more }}** в конце списка.
+    Если записей слишком много и отображается только часть из них, нажмите на кнопку **Загрузить еще** в конце списка.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     1. Просмотрите описание команды CLI для просмотра логов кластера:
 
         ```bash
-        {{ yc-mdb-pg }} cluster list-logs --help
+        yc managed-postgresql cluster list-logs --help
         ```
 
     1. Запустите команду получения логов кластера (в примере приведены не все доступные параметры):
 
         ```bash
-        {{ yc-mdb-pg }} cluster list-logs <имя_или_идентификатор_кластера> \
+        yc managed-postgresql cluster list-logs <имя_или_идентификатор_кластера> \
            --limit <ограничение_количества_записей> \
            --format <формат_вывода> \
            --service-type <тип_сервиса> \
@@ -75,7 +75,7 @@
 
             Для вывода отдельных колонок передайте параметр `--format` с указанием формата вывода (`yaml`, `json` или `json-rest`). Колонки не поддерживаются для формата вывода `text` (установлен по умолчанию).
 
-        * `--filter` — настройки фильтрации записей, например `message.hostname='node1.{{ dns-zone }}'`.
+        * `--filter` — настройки фильтрации записей, например `message.hostname='node1.mdb.yandexcloud.net'`.
         * `--since` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html), `HH:MM:SS` или временного промежутка относительно текущего времени. Примеры: `2006-01-02T15:04:05Z`, `15:04:05`, `2h`, `3h30m ago`.
         * `--until` — правая граница временного диапазона, формат аналогичен `--since`.
 
@@ -89,13 +89,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>:logs' \
+       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>:logs' \
        --url-query serviceType=<тип_сервиса> \
        --url-query columnFilter=<список_колонок> \
        --url-query fromTime=<левая_граница_временного_диапазона> \
@@ -106,7 +106,7 @@
 
      * `serviceType` — тип сервиса, логи которого нужно получить:
 
-       * `POSTGRESQL` — операции {{ PG }};
+       * `POSTGRESQL` — операции PostgreSQL;
        * `POOLER` — операции менеджера подключений.
 
      * `columnFilter` — название колонки для вывода информации:
@@ -147,7 +147,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -165,7 +165,7 @@
              "from_time": "<левая_граница_временного_диапазона>",
              "to_time": "<правая_граница_временного_диапазона>"
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.postgresql.v1.ClusterService.ListLogs
      ```
 
@@ -173,7 +173,7 @@
 
      * `service_type` — тип сервиса, логи которого нужно получить:
 
-       * `POSTGRESQL` — операции {{ PG }};
+       * `POSTGRESQL` — операции PostgreSQL;
        * `POOLER` — операции менеджера подключений.
 
      * `column_filter` — список колонок для вывода информации:
@@ -209,14 +209,14 @@
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Для просмотра логов кластера по мере их поступления выполните команду:
 
     ```bash
-    {{ yc-mdb-pg }} cluster list-logs <имя_или_идентификатор_кластера> --follow
+    yc managed-postgresql cluster list-logs <имя_или_идентификатор_кластера> --follow
     ```
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -229,13 +229,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.StreamLogs](../api-ref/Cluster/streamLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.StreamLogs](../api-ref/Cluster/streamLogs.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>:stream_logs' \
+       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>:stream_logs' \
        --url-query serviceType=<тип_сервиса> \
        --url-query columnFilter=<список_колонок>
      ```
@@ -244,7 +244,7 @@
 
      * `serviceType` — тип сервиса, логи которого нужно получить:
 
-       * `POSTGRESQL` — логи операций {{ PG }};
+       * `POSTGRESQL` — логи операций PostgreSQL;
        * `POOLER` — логи операций менеджера подключений.
 
      * `columnFilter` — название колонки для вывода информации:
@@ -284,7 +284,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -300,7 +300,7 @@
                "<колонка_1>", "<колонка_2>", ..., "<колонка_N>"
              ]
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.postgresql.v1.ClusterService.StreamLogs
      ```
 
@@ -308,7 +308,7 @@
 
      * `service_type` — тип сервиса, логи которого нужно получить:
 
-       * `POSTGRESQL` — логи операций {{ PG }};
+       * `POSTGRESQL` — логи операций PostgreSQL;
        * `POOLER` — логи операций менеджера подключений.
 
      * `column_filter` — список колонок для вывода информации:

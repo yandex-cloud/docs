@@ -6,7 +6,7 @@ Returns all channel metadata, settings, and related information.
 ## HTTP request
 
 ```
-GET https://video.{{ api-host }}/video/v1/channels/{channelId}
+GET https://video.api.cloud.yandex.net/video/v1/channels/{channelId}
 ```
 
 ## Path parameters

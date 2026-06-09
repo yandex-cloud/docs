@@ -5,7 +5,7 @@ Returns the private key and passphrase for the specified certificate authority.
 ## HTTP request
 
 ```
-GET https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certificateAuthorities/{certificateAuthorityId}:getPrivateKey
+GET https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/certificateAuthorities/{certificateAuthorityId}:getPrivateKey
 ```
 
 ## Path parameters

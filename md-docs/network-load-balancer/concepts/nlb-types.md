@@ -6,10 +6,10 @@
 
 {% endnote %}
 
-Сетевой балансировщик в {{ yandex-cloud }} можно развернуть в следующих вариантах:
+Сетевой балансировщик в Yandex Cloud можно развернуть в следующих вариантах:
 
 * Внешний балансировщик (`EXTERNAL`) — создается по умолчанию. Используется для обработки трафика из интернета.
-* Внутренний балансировщик (`INTERNAL`) — используется для обработки трафика внутри {{ vpc-name }}.
+* Внутренний балансировщик (`INTERNAL`) — используется для обработки трафика внутри Virtual Private Cloud.
 
 Работа балансировщиков разного типа почти не отличаются друг от друга, однако следует принимать во внимание следующие различия:
 
@@ -29,12 +29,12 @@
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/mssql-alwayson-lb.md)
-* [{#T}](../tutorials/vpc-cr-access.md)
-* [{#T}](../tutorials/storage-vpc-access.md)
-* [{#T}](../tutorials/route-switcher.md)
-* [{#T}](../tutorials/dns-integration.md)
-* [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)
+* [Развертывание группы доступности Always On с внутренним сетевым балансировщиком](../tutorials/mssql-alwayson-lb.md)
+* [Подключение к Container Registry из Virtual Private Cloud](../tutorials/vpc-cr-access.md)
+* [Подключение к Object Storage из Virtual Private Cloud](../tutorials/storage-vpc-access.md)
+* [Реализация отказоустойчивых сценариев для сетевых виртуальных машин](../tutorials/route-switcher.md)
+* [Интеграция Cloud DNS и корпоративного сервиса DNS](../tutorials/dns-integration.md)
+* [Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для подключения защиты Yandex Smart Web Security](../tutorials/migration-from-nlb-to-alb/index.md)
 
 #### См. также {#see-also}
 

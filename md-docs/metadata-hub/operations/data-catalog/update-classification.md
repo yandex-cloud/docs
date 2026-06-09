@@ -12,18 +12,18 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+  1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
   1. В открывшемся списке выберите каталог метаданных, в котором вы хотите изменить классификацию.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/tag.svg) **{{ ui-key.yacloud.data-catalog.label_tags-and-classification }}**.
-  1. В списке классификаций нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке с нужной классификацией и выберите **{{ ui-key.yacloud.common.edit }}**.
-  1. В поле **{{ ui-key.yacloud.common.name }}** задайте новое уникальное имя классификации.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/tag.svg) **Теги и классификации**.
+  1. В списке классификаций нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке с нужной классификацией и выберите **Редактировать**.
+  1. В поле **Имя** задайте новое уникальное имя классификации.
   1. (Опционально) Измените описание классификации.
-  1. (Опционально) Включите или выключите опцию **{{ ui-key.yacloud.data-catalog.label_tag-mutual-exclusion }}**.
+  1. (Опционально) Включите или выключите опцию **Взаимоисключение**.
 
-      Если опция включена, то на любой ресурс {{ data-catalog-name }} можно будет назначить не более одного тега классификации.
+      Если опция включена, то на любой ресурс Data Catalog можно будет назначить не более одного тега классификации.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save-changes }}**.
+  1. Нажмите кнопку **Сохранить изменения**.
 
 {% endlist %}

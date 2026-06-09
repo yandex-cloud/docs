@@ -1,17 +1,17 @@
-# Справочник {{ TF }} для {{ data-transfer-full-name }}
+# Справочник Terraform для Yandex Data Transfer
 
-[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
 
-Подробнее о {{ TF }} [читайте в документации](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+Подробнее о Terraform [читайте в документации](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 ## Ресурсы {#resources}
 
-Для {{ data-transfer-name }} поддерживаются следующие ресурсы провайдера {{ TF }}:
+Для Data Transfer поддерживаются следующие ресурсы провайдера Terraform:
 
-| **Ресурс {{ TF }}** | **Ресурс {{ yandex-cloud }}** |
+| **Ресурс Terraform** | **Ресурс Yandex Cloud** |
 | --- | --- |
-| [yandex_datatransfer_transfer]({{ tf-provider-resources-link }}/datatransfer_transfer) | [Трансфер](concepts/index.md#transfer) |
-| [yandex_datatransfer_endpoint]({{ tf-provider-resources-link }}/datatransfer_endpoint) | [Эндпоинт](concepts/index.md#endpoint) |
+| [yandex_datatransfer_transfer](../terraform/resources/datatransfer_transfer.md) | [Трансфер](concepts/index.md#transfer) |
+| [yandex_datatransfer_endpoint](../terraform/resources/datatransfer_endpoint.md) | [Эндпоинт](concepts/index.md#endpoint) |

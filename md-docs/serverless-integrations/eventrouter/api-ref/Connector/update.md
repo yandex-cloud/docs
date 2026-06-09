@@ -5,7 +5,7 @@ Updates the specified connector.
 ## HTTP request
 
 ```
-PATCH https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/connectors/{connectorId}
+PATCH https://serverless-eventrouter.api.cloud.yandex.net/eventrouter/v1/connectors/{connectorId}
 ```
 
 ## Path parameters

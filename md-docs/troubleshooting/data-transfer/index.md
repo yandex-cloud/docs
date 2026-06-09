@@ -1,7 +1,7 @@
-# Решения для {{ data-transfer-name }}
+# Решения для Data Transfer
 
 
 
-## Решения для известных проблем {{ data-transfer-name }} {#known-issues-resolving}
+## Решения для известных проблем Data Transfer {#known-issues-resolving}
 
 * [Устранение ошибки `failed to connect to the destination cluster to get type information`](known-issues/failed-to-connect-to-the-destination-cluster-to-get-type-information.md)

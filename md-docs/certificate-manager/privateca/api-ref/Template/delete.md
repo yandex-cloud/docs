@@ -6,7 +6,7 @@ This will remove the template permanently from your folder.
 ## HTTP request
 
 ```
-DELETE https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/templates/{id}
+DELETE https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/templates/{id}
 ```
 
 ## Path parameters

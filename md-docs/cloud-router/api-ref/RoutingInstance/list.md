@@ -5,7 +5,7 @@ Retrieves the list of RoutingInstance resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://cloudrouter.{{ api-host }}/cloudrouter/v1/routingInstances
+GET https://cloudrouter.api.cloud.yandex.net/cloudrouter/v1/routingInstances
 ```
 
 ## Query parameters {#yandex.cloud.cloudrouter.v1.ListRoutingInstancesRequest}

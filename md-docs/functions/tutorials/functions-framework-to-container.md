@@ -1,38 +1,38 @@
-# Разработка функций в Functions Framework и их развертывание в {{ serverless-containers-full-name }}
+# Разработка функций в Functions Framework и их развертывание в Yandex Serverless Containers
 
 
 [Functions Framework](https://cloud.google.com/functions/docs/functions-framework) от Google Cloud — это открытый контракт и набор реализующих его библиотек с [открытым исходным кодом](https://ru.wikipedia.org/wiki/Открытое_программное_обеспечение) на различных языках программирования. Фреймворк позволяет разрабатывать [функции](../concepts/function.md) в стиле программирования [FaaS](https://ru.wikipedia.org/wiki/Функция_как_услуга) (Function as a service), которые могут обрабатывать HTTP-запросы или [CloudEvents](https://cloudevents.io/).
 
-Фреймворк Functions Framework позволяет создавать функции и запускать их в [контейнерах](../../serverless-containers/concepts/container.md) {{ serverless-containers-full-name }} без использования сервиса [{{ sf-full-name }}](../index.md). Написанные этим способом функции можно переносить между различными платформами, такими как [Cloud Run](https://cloud.google.com/run), [Cloud Run functions](https://cloud.google.com/functions), [Knative](https://knative.dev/docs/) и [{{ serverless-containers-full-name }}](../../serverless-containers/index.md), а также между этими платформами и вашей локальной машиной разработки.
+Фреймворк Functions Framework позволяет создавать функции и запускать их в [контейнерах](../../serverless-containers/concepts/container.md) Yandex Serverless Containers без использования сервиса [Yandex Cloud Functions](../index.md). Написанные этим способом функции можно переносить между различными платформами, такими как [Cloud Run](https://cloud.google.com/run), [Cloud Run functions](https://cloud.google.com/functions), [Knative](https://knative.dev/docs/) и [Yandex Serverless Containers](../../serverless-containers/index.md), а также между этими платформами и вашей локальной машиной разработки.
 
-В данном руководстве рассматривается сценарий, при котором вы локально создадите функцию с помощью фреймворка Functions Framework. Затем из этой функции вы соберете [Docker-образ](../../container-registry/concepts/docker-image.md), который загрузите в [реестр](../../container-registry/concepts/registry.md) {{ container-registry-full-name }}. Из сохраненного в реестре Docker-образа вы создадите [контейнер](../../serverless-containers/concepts/container.md) {{ serverless-containers-name }}, при вызове которого будет выполняться код вашей функции.
+В данном руководстве рассматривается сценарий, при котором вы локально создадите функцию с помощью фреймворка Functions Framework. Затем из этой функции вы соберете [Docker-образ](../../container-registry/concepts/docker-image.md), который загрузите в [реестр](../../container-registry/concepts/registry.md) Yandex Container Registry. Из сохраненного в реестре Docker-образа вы создадите [контейнер](../../serverless-containers/concepts/container.md) Serverless Containers, при вызове которого будет выполняться код вашей функции.
 
 Предлагаемое решение позволяет:
 * собирать и распространять функции как [OCI-совместимые](https://opencontainers.org/) Docker-образы, а также развертывать их на различных облачных и [on-prem-платформах](https://en.wikipedia.org/wiki/On-premises_software): [Kubernetes](https://kubernetes.io/), Cloud Run, Knative и др.
 * разрабатывать, локально запускать, отлаживать и тестировать функции как обычные веб-приложения с использованием современных [IDE](https://ru.wikipedia.org/wiki/Интегрированная_среда_разработки);
 * переносить ваши функции из Cloud Run functions или Knative, сохранив совместимость с этими платформами;
-* создавать функции на языках [Dart](https://dart.dev/), [C++](https://ru.wikipedia.org/wiki/C%2B%2B) или [Ruby](https://www.ruby-lang.org/ru/), которые в настоящий момент не поддержаны в {{ sf-name }}.
+* создавать функции на языках [Dart](https://dart.dev/), [C++](https://ru.wikipedia.org/wiki/C%2B%2B) или [Ruby](https://www.ruby-lang.org/ru/), которые в настоящий момент не поддержаны в Cloud Functions.
 
 В данном руководстве вы создадите тестовую функцию. Полный перечень поддерживаемых языков программирования см. в [репозитории](https://github.com/GoogleCloudPlatform/functions-framework?tab=readme-ov-file#languages--test-status) проекта Functions Framework на GitHub.
 
-Чтобы развернуть функцию в {{ serverless-containers-name }}:
+Чтобы развернуть функцию в Serverless Containers:
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте сервисный аккаунт](#service-account).
-1. [Создайте реестр {{ container-registry-name }}](#create-registry).
+1. [Создайте реестр Container Registry](#create-registry).
 1. [Создайте функцию](#create-function).
-1. [Создайте Docker-образ и загрузите его в реестр {{ container-registry-name }}](#push-docker-image).
-1. [Создайте контейнер {{ serverless-containers-name }} из загруженного Docker-образа](#setup-container).
+1. [Создайте Docker-образ и загрузите его в реестр Container Registry](#push-docker-image).
+1. [Создайте контейнер Serverless Containers из загруженного Docker-образа](#setup-container).
 1. [Проверьте работу функции в контейнере](#run-test).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -40,15 +40,15 @@
 
 В стоимость поддержки создаваемой инфраструктуры входят:
 
-* плата за объем хранилища, объем исходящего трафика и использование сканера уязвимостей {{ container-registry-name }} (см. [тарифы {{ container-registry-full-name }}](../../container-registry/pricing.md));
-* плата за использование сервиса {{ serverless-containers-name }} (см. [тарифы {{ serverless-containers-full-name }}](../../serverless-containers/pricing.md)).
+* плата за объем хранилища, объем исходящего трафика и использование сканера уязвимостей Container Registry (см. [тарифы Yandex Container Registry](../../container-registry/pricing.md));
+* плата за использование сервиса Serverless Containers (см. [тарифы Yandex Serverless Containers](../../serverless-containers/pricing.md)).
 
 ### Настройте окружение {#setup-runtime}
 
 1. Установите утилиту [cURL](https://curl.haxx.se).
-1. [Установите и настройте](../../cli/quickstart.md) интерфейс {{ yandex-cloud }} CLI.
+1. [Установите и настройте](../../cli/quickstart.md) интерфейс Yandex Cloud CLI.
 1. [Установите и настройте](../../container-registry/operations/configure-docker.md) Docker.
-1. [Аутентифицируйтесь](../../container-registry/operations/authentication.md) в {{ container-registry-name }}.
+1. [Аутентифицируйтесь](../../container-registry/operations/authentication.md) в Container Registry.
 1. Установите утилиту [Pack](https://buildpacks.io/docs/for-platform-operators/how-to/integrate-ci/pack/). Для этого в терминале выполните команды и дождитесь завершения процесса установки:
 
     ```bash
@@ -64,12 +64,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}** и в открывшемся окне:
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. Нажмите кнопку **Создать сервисный аккаунт** и в открывшемся окне:
       1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md): `serverless-containers-sa`.
-      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../../container-registry/security/index.md#container-registry-images-puller) `container-registry.images.puller`.
-      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роль](../../container-registry/security/index.md#container-registry-images-puller) `container-registry.images.puller`.
+      1. Нажмите кнопку **Создать**.
 
 
 - CLI {#cli}
@@ -128,17 +128,17 @@
 
 {% endlist %}
 
-## Создайте реестр {{ container-registry-name }} {#create-registry}
+## Создайте реестр Container Registry {#create-registry}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы ранее создали сервисный аккаунт.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.cr.overview.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.cr.overview.popup-create_field_name }}** задайте имя реестра: `functions-framework-registry`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы ранее создали сервисный аккаунт.
+  1. Перейдите в сервис **Container Registry**.
+  1. Нажмите кнопку **Создать реестр**.
+  1. В поле **Имя** задайте имя реестра: `functions-framework-registry`.
+  1. Нажмите кнопку **Создать реестр**.
   1. На открывшейся странице скопируйте идентификатор созданного реестра, он понадобится в дальнейшем.
 
 - CLI {#cli}
@@ -483,7 +483,7 @@
 
 {% endlist %}
 
-## Создайте Docker-образ и загрузите его в реестр {{ container-registry-name }} {#push-docker-image}
+## Создайте Docker-образ и загрузите его в реестр Container Registry {#push-docker-image}
 
 Для сборки функции используется технология [Buildpacks](https://buildpacks.io) и набор [сборщиков](https://buildpacks.io/docs/for-app-developers/concepts/builder/) от [GCP](https://github.com/GoogleCloudPlatform/buildpacks). Вы также можете использовать сборщики от [Heroku](https://github.com/heroku/buildpacks).
 
@@ -529,7 +529,7 @@
 
         Код функции выполняется в запущенном локально Docker-контейнере.
     1. Закройте дополнительное окно терминала. В основном окне терминала остановите выполнение Docker-контейнера, нажав сочетание клавиш **Ctrl + C**.
-1. Присвойте созданному Docker-образу URL вида `{{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`, указав сохраненный ранее идентификатор реестра {{ container-registry-name }}:
+1. Присвойте созданному Docker-образу URL вида `cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`, указав сохраненный ранее идентификатор реестра Container Registry:
 
      ```bash
      docker tag my-first-function \
@@ -538,7 +538,7 @@
 
      {% note info %}
 
-     Загрузить в {{ container-registry-name }} можно только Docker-образы с URL вида `{{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`.
+     Загрузить в Container Registry можно только Docker-образы с URL вида `cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`.
 
      {% endnote %}
 1. Загрузите Docker-образ в реестр:
@@ -558,26 +558,26 @@
     some-tag: digest: sha256:1b8bac8da5e64dd4359f81d71a7803f212af385f9718a7a4f9a40bca******** size: 2830
     ```
 
-## Создайте контейнер {{ serverless-containers-name }} из загруженного Docker-образа {#setup-container}
+## Создайте контейнер Serverless Containers из загруженного Docker-образа {#setup-container}
 
-Используйте загруженный в {{ container-registry-name }} Docker-образ, чтобы создать [ревизию](../../serverless-containers/concepts/container.md#revision) контейнера {{ serverless-containers-name }}.
+Используйте загруженный в Container Registry Docker-образ, чтобы создать [ревизию](../../serverless-containers/concepts/container.md#revision) контейнера Serverless Containers.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находятся созданные ранее ресурсы.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-containers.button_create-container }}**.
-  1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя контейнера: `my-first-function`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-  1. В блоке **{{ ui-key.yacloud.serverless-containers.section_image }}** в поле **{{ ui-key.yacloud.serverless-containers.label_image-url }}** выберите загруженный ранее Docker-образ `cr.yandex/<идентификатор_реестра>/my-first-function:some-tag`.
-  1. В блоке **{{ ui-key.yacloud.serverless-containers.section_parameters }}** в поле **{{ ui-key.yacloud.forms.label_service-account-select }}** выберите созданный ранее сервисный аккаунт `serverless-containers-sa`.
-  1. В блоке **{{ ui-key.yacloud.logging.label_title }}** отключите опцию **{{ ui-key.yacloud.logging.field_logging }}**, чтобы отключить запись логов в [лог-группу](../../logging/concepts/log-group.md).
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находятся созданные ранее ресурсы.
+  1. Перейдите в сервис **Serverless Containers**.
+  1. Нажмите кнопку **Создать контейнер**.
+  1. В поле **Имя** укажите имя контейнера: `my-first-function`.
+  1. Нажмите кнопку **Создать**.
+  1. В блоке **Параметры образа** в поле **URL образа** выберите загруженный ранее Docker-образ `cr.yandex/<идентификатор_реестра>/my-first-function:some-tag`.
+  1. В блоке **Настройки** в поле **Сервисный аккаунт** выберите созданный ранее сервисный аккаунт `serverless-containers-sa`.
+  1. В блоке **Логирование** отключите опцию **Запись логов**, чтобы отключить запись логов в [лог-группу](../../logging/concepts/log-group.md).
 
       Вы можете оставить опцию включенной, чтобы [записывать](../../serverless-containers/operations/logs-write.md) логи в журнал выполнения контейнера. Запись и хранение логов [тарифицируются](../../logging/pricing.md).
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
-  1. В открывшемся окне в блоке **{{ ui-key.yacloud_org.common.section-base }}** скопируйте значение поля **{{ ui-key.yacloud.serverless-containers.label_url }}** — этот URL понадобится при тестировании работы функции в контейнере.
+  1. Нажмите кнопку **Создать ревизию**.
+  1. В открывшемся окне в блоке **Общая информация** скопируйте значение поля **Ссылка для вызова** — этот URL понадобится при тестировании работы функции в контейнере.
 
 - CLI {#cli}
 
@@ -615,7 +615,7 @@
       ```
 
       Где:
-      * `<идентификатор_реестра>` — сохраненный ранее идентификатор реестра {{ container-registry-name }}.
+      * `<идентификатор_реестра>` — сохраненный ранее идентификатор реестра Container Registry.
       * `<идентификатор_сервисного_аккаунта>` — сохраненный ранее идентификатор сервисного аккаунта `serverless-containers-sa`.
       * `--no-logging` — параметр отключает запись логов в [лог-группу](../../logging/concepts/log-group.md). Уберите этот параметр из команды, чтобы [записывать](../../serverless-containers/operations/logs-write.md) логи в журнал выполнения контейнера. Запись и хранение логов [тарифицируются](../../logging/pricing.md).
 
@@ -677,6 +677,6 @@ Hello, World%
 
 Чтобы перестать платить за созданные ресурсы:
 
-1. [Удалите](../../serverless-containers/operations/delete.md) контейнер {{ serverless-containers-name }}.
-1. [Удалите](../../container-registry/operations/docker-image/docker-image-delete.md) Docker-образ из реестра {{ container-registry-name }}, затем [удалите](../../container-registry/operations/registry/registry-delete.md) реестр.
+1. [Удалите](../../serverless-containers/operations/delete.md) контейнер Serverless Containers.
+1. [Удалите](../../container-registry/operations/docker-image/docker-image-delete.md) Docker-образ из реестра Container Registry, затем [удалите](../../container-registry/operations/registry/registry-delete.md) реестр.
 1. Если вы оставили включенной запись логов в журнал выполнения контейнера, [удалите](../../logging/operations/delete-group.md) лог-группу.

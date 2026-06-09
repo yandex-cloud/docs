@@ -4,45 +4,45 @@
 
 ### Я могу получить логи моей работы в сервисах? {#logs}
 
-Вы можете самостоятельно получить логи сервисов {{ yandex-cloud }} с помощью подключения к [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md).
+Вы можете самостоятельно получить логи сервисов Yandex Cloud с помощью подключения к [DataLens Usage Analytics](../operations/connection/create-usage-tracking.md).
 
 ### Как скопировать папку с объектами? {#how-to-copy-folder}
 
 Сейчас это возможно только вручную.
 
-### Можно ли установить {{ datalens-short-name }} внутри компании? {#datalens-local}
+### Можно ли установить DataLens внутри компании? {#datalens-local}
 
-{{ datalens-short-name }} доступен в следующих вариантах поставки:
+DataLens доступен в следующих вариантах поставки:
 
-* {{ datalens-short-name }} On-premises можно развернуть внутри локальной инфраструктуры клиента для командной работы. [Оставить заявку]({{ link-datalens-main }}/#enterpise)
-* {{ datalens-full-name }} в виде облачного сервиса. Хотим также отметить:
+* DataLens On-premises можно развернуть внутри локальной инфраструктуры клиента для командной работы. [Оставить заявку](https://datalens.ru/#enterpise)
+* Yandex DataLens в виде облачного сервиса. Хотим также отметить:
 
-  * {{ datalens-full-name }} — это сервис {{ yandex-cloud }}, который соответствует ФЗ-152 и индустриальным стандартам безопасности. Подробнее в разделе [Безопасность {{ yandex-cloud }}](https://yandex.cloud/ru/security).
-  * Для {{ datalens-full-name }} можно [настроить федерацию учетных записей](../../organization/quickstart.md).
+  * Yandex DataLens — это сервис Yandex Cloud, который соответствует ФЗ-152 и индустриальным стандартам безопасности. Подробнее в разделе [Безопасность Yandex Cloud](https://yandex.cloud/ru/security).
+  * Для Yandex DataLens можно [настроить федерацию учетных записей](../../organization/quickstart.md).
 
-* [{{ datalens-short-name }} Open Source]({{ link-datalens-main }}/opensource/) можно развернуть локально для ознакомления, возможности сервиса ограничены.
+* [DataLens Open Source](https://datalens.ru/opensource/) можно развернуть локально для ознакомления, возможности сервиса ограничены.
 
-### Почему заблокировано облако с экземпляром {{ datalens-short-name }}? {#datalens-suspended}
+### Почему заблокировано облако с экземпляром DataLens? {#datalens-suspended}
 
 Ваше облако может быть заблокировано в следующих случаях:
 
-* Наличие задолженности за использование платных сервисов {{ yandex-cloud }}, которые находятся в том же облаке, что и {{ datalens-short-name }}.
-* Пробный период за использование платных сервисов {{ yandex-cloud }} завершен.
-* При нарушении [условий использования](https://yandex.ru/legal/cloud_termsofuse/?lang=ru) {{ yandex-cloud }}.
+* Наличие задолженности за использование платных сервисов Yandex Cloud, которые находятся в том же облаке, что и DataLens.
+* Пробный период за использование платных сервисов Yandex Cloud завершен.
+* При нарушении [условий использования](https://yandex.ru/legal/cloud_termsofuse/?lang=ru) Yandex Cloud.
 
-После блокировки облака ваш экземпляр {{ datalens-short-name }} будет недоступен. Работа с {{ datalens-short-name }} будет невозможна до восстановления облака.
+После блокировки облака ваш экземпляр DataLens будет недоступен. Работа с DataLens будет невозможна до восстановления облака.
 
 Подробнее о блокировке можно прочитать в разделе [Автоматическая блокировка облака](../../overview/concepts/data-deletion.md#block).
 
 ### Как найти id объекта (подключения, датасета, чарта, дашборда)? {#how-to-find-object-id}
 
-Идентификатор (id) объекта указан в URL-адресе объекта. Например, `{{ link-datalens-main }}/datasets/scuxhh1jrrlql-new-dataset`, где `scuxhh1jrrlql` — это id.
+Идентификатор (id) объекта указан в URL-адресе объекта. Например, `https://datalens.ru/datasets/scuxhh1jrrlql-new-dataset`, где `scuxhh1jrrlql` — это id.
 
 Идентификаторы объектов можно скопировать из меню соответствующего объекта, в навигации или в окне **Связанные объекты**, нажав ![](../../_assets/console-icons/ellipsis.svg) → **Копировать ID**. Идентификатор будет сохранен в буфере обмена.
 
-### Как в {{ datalens-short-name }} посмотреть связанные объекты? {#related-objects}
+### Как в DataLens посмотреть связанные объекты? {#related-objects}
 
-В {{ datalens-short-name }} можно посмотреть, где используется объект, а также какие объекты он использует. Для этого на странице навигации или в окне редактирования объекта нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) → **Связанные объекты**. Например, так можно узнать, на каких источниках построен дашборд или какие чарты построены на основе датасета.
+В DataLens можно посмотреть, где используется объект, а также какие объекты он использует. Для этого на странице навигации или в окне редактирования объекта нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) → **Связанные объекты**. Например, так можно узнать, на каких источниках построен дашборд или какие чарты построены на основе датасета.
 
 {% cut "Окно связанных объектов" %}
 
@@ -65,7 +65,7 @@
 
 ### Не открывается стартовая страница сервиса. Что делать? {#main-page-error}
 
-Если вы не можете открыть [стартовую страницу]({{ link-datalens-main-skip-promo }}) сервиса, попробуйте выполнить один из вариантов:
+Если вы не можете открыть [стартовую страницу](https://datalens.ru/?skipPromo=true) сервиса, попробуйте выполнить один из вариантов:
 
 * Перезагрузите страницу.
 * Откройте страницу без плагинов, например, в режиме Инкогнито.
@@ -74,7 +74,7 @@
 * Очистите кеш браузера и удалите файлы cookie.
 * Перезагрузите компьютер.
 
-### Какие версии браузеров поддерживает {{ datalens-short-name }}? {#browser-versions}
+### Какие версии браузеров поддерживает DataLens? {#browser-versions}
 
 
-{{ datalens-short-name }} поддерживает последние две выпущенные мажорные версии браузера. Подробнее см. [список версий](https://browsersl.ist/#q=last+2+major+versions+and+last+2+years+and+fully+supports+es6+and+%3E+0.05%25%0Anot+dead%0Anot+op_mini+all%0Anot+and_qq+%3E+0%0Anot+and_uc+%3E+0%0AFirefox+ESR%0AChrome+%3E+0+and+last+2+years+and+%3E+0.05%25%0ASafari+%3E+0+and+last+2+years+and+%3E+0.05%25%0AFirefox+%3E+0+and+last+2+years+and+%3E+0.01%25).
+DataLens поддерживает последние две выпущенные мажорные версии браузера. Подробнее см. [список версий](https://browsersl.ist/#q=last+2+major+versions+and+last+2+years+and+fully+supports+es6+and+%3E+0.05%25%0Anot+dead%0Anot+op_mini+all%0Anot+and_qq+%3E+0%0Anot+and_uc+%3E+0%0AFirefox+ESR%0AChrome+%3E+0+and+last+2+years+and+%3E+0.05%25%0ASafari+%3E+0+and+last+2+years+and+%3E+0.05%25%0AFirefox+%3E+0+and+last+2+years+and+%3E+0.01%25).

@@ -5,7 +5,7 @@ Creates a server in the specified folder.
 ## HTTP request
 
 ```
-POST https://baremetal.{{ api-host }}/baremetal/v1alpha/servers
+POST https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers
 ```
 
 ## Body parameters {#yandex.cloud.baremetal.v1alpha.CreateServerRequest}

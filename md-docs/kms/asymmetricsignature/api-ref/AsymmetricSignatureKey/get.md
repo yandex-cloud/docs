@@ -7,7 +7,7 @@ To get the list of available asymmetric KMS keys, make a [SymmetricKeyService.Li
 ## HTTP request
 
 ```
-GET https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys/{keyId}
+GET https://kms.api.cloud.yandex.net/kms/v1/asymmetricSignatureKeys/{keyId}
 ```
 
 ## Path parameters

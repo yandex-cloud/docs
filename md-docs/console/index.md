@@ -10,20 +10,20 @@
 
  - [Консоль управления](quickstart/console.md)
 
- - [{{ cloud-shell-name }}](quickstart/cloud-shell.md)
+ - [Cloud Shell](quickstart/cloud-shell.md)
 
 ## Пошаговые инструкции
 
- - [Переход в сервис и создание ресурсов {{ yandex-cloud }}](operations/select-service.md)
+ - [Переход в сервис и создание ресурсов Yandex Cloud](operations/select-service.md)
 
  - [Изменение настроек консоли управления](operations/update.md)
 
- - [Управление {{ cloud-shell-name }}](operations/cloud-shell-options.md)
+ - [Управление Cloud Shell](operations/cloud-shell-options.md)
 
  - [Поиск в консоли управления](operations/search.md)
 
- - [Управление ресурсами {{ yandex-cloud }} с помощью AI-ассистента](operations/ai-assistant.md)
+ - [Управление ресурсами Yandex Cloud с помощью AI-ассистента](operations/ai-assistant.md)
 
- - [Лимиты в {{ cloud-shell-name }}](concepts/cloud-shell/limits.md)
+ - [Лимиты в Cloud Shell](concepts/cloud-shell/limits.md)
 
  - [Правила тарификации](pricing.md)

@@ -5,7 +5,7 @@ Deletes a specific video by its ID.
 ## HTTP request
 
 ```
-DELETE https://video.{{ api-host }}/video/v1/videos/{videoId}
+DELETE https://video.api.cloud.yandex.net/video/v1/videos/{videoId}
 ```
 
 ## Path parameters

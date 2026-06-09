@@ -5,7 +5,7 @@ Updates access bindings for the specified certificate.
 ## HTTP request
 
 ```
-POST https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/{resourceId}:updateAccessBindings
+POST https://certificate-manager.api.cloud.yandex.net/certificate-manager/v1/certificates/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

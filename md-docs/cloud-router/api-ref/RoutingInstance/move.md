@@ -5,7 +5,7 @@ Moves the specified RoutingInstance to another folder.
 ## HTTP request
 
 ```
-POST https://cloudrouter.{{ api-host }}/cloudrouter/v1/routingInstances/{routingInstanceId}:move
+POST https://cloudrouter.api.cloud.yandex.net/cloudrouter/v1/routingInstances/{routingInstanceId}:move
 ```
 
 ## Path parameters

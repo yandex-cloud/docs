@@ -1,6 +1,6 @@
 
 
-# {{ myt-full-name }}
+# Yandex Managed Service for YTsaurus
 
  - [Начало работы](quickstart.md)
 
@@ -78,7 +78,7 @@
 
  - [stop](cli-ref/v0/cluster/stop.md)
 
- - [Справочник {{ TF }}](tf-ref.md)
+ - [Справочник Terraform](tf-ref.md)
 
 ## Справочник API
 
@@ -144,8 +144,8 @@
 
  - [Cancel](api-ref/Operation/cancel.md)
 
- - [Метрики {{ monitoring-full-name }}](metrics.md)
+ - [Метрики Yandex Monitoring](metrics.md)
 
- - [Аудитные логи {{ at-name }}](at-ref.md)
+ - [Аудитные логи Audit Trails](at-ref.md)
 
  - [История изменений](release-notes.md)

@@ -21,19 +21,19 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит [реестр](../concepts/registry.md), содержащий Docker-образ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит [реестр](../concepts/registry.md), содержащий Docker-образ.
+  1. Перейдите в сервис **Container Registry**.
   1. Выберите реестр, в который загружен Docker-образ, или [создайте](registry/registry-create.md) новый и [загрузите](docker-image/docker-image-push.md) в него образ.
   1. Откройте [репозиторий](../concepts/repository.md), в котором находится Docker-образ.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного Docker-образа и выберите **{{ ui-key.yacloud.cr.image.label_start-scan }}**.
-  1. Дождитесь завершения сканирования. Во время его выполнения Docker-образ будет иметь статус сканирования `{{ ui-key.yacloud.cr.registry.label_scan-status-RUNNING }}`, а после окончания статус сменится на `{{ ui-key.yacloud.cr.registry.label_scan-status-READY }}`.
-  1. Просмотрите результаты сканирования. Для этого в строке нужного Docker-образа нажмите на значение в столбце **{{ ui-key.yacloud.cr.image.label_last-scan-time }}**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного Docker-образа и выберите **Сканировать**.
+  1. Дождитесь завершения сканирования. Во время его выполнения Docker-образ будет иметь статус сканирования `Сканируется`, а после окончания статус сменится на `Готово`.
+  1. Просмотрите результаты сканирования. Для этого в строке нужного Docker-образа нажмите на значение в столбце **Дата последнего сканирования**.
 
-  Чтобы посмотреть запуски сканирования по Docker-образу, выберите нужный образ и перейдите на вкладку **{{ ui-key.yacloud.cr.image.label_scan-history }}**.
+  Чтобы посмотреть запуски сканирования по Docker-образу, выберите нужный образ и перейдите на вкладку **История сканирований**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -122,18 +122,18 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит реестр с Docker-образами.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит реестр с Docker-образами.
+  1. Перейдите в сервис **Container Registry**.
   1. Выберите реестр или [создайте](registry/registry-create.md) новый.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
-  1. В блоке **{{ ui-key.yacloud.cr.registry.title_scan-on-push }}** выберите **{{ ui-key.yacloud.cr.image.label_start-scan }}** и один из вариантов сканирования:
-     * `{{ ui-key.yacloud.cr.registry.label_all-repositories }}` — сканировать все репозитории реестра.
-     * `{{ ui-key.yacloud.cr.registry.label_selected }}` — сканировать только выбранные репозитории:
-       1. Нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_select-repositories }}**.
+  1. Перейдите на вкладку **Сканер уязвимостей**.
+  1. Нажмите кнопку **Изменить настройки**.
+  1. В блоке **Сканирование Docker-образов при загрузке** выберите **Сканировать** и один из вариантов сканирования:
+     * `Все репозитории` — сканировать все репозитории реестра.
+     * `Выбранные` — сканировать только выбранные репозитории:
+       1. Нажмите кнопку **Выбрать репозитории**.
        1. Выберите репозитории из списка.
-       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+       1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **Сохранить**.
 
 - API {#api}
 
@@ -151,20 +151,20 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит реестр с Docker-образами.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит реестр с Docker-образами.
+  1. Перейдите в сервис **Container Registry**.
   1. Выберите реестр или [создайте](registry/registry-create.md) новый.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
-  1. В блоке **{{ ui-key.yacloud.cr.registry.title_scheduled-scan }}** нажмите **{{ ui-key.yacloud.cr.registry.label_add-scan-rule }}**.
-  1. Выберите **{{ ui-key.yacloud.cr.image.label_start-scan }}** и один из вариантов сканирования:
-     * `{{ ui-key.yacloud.cr.registry.label_all-repositories }}` — сканировать все репозитории реестра.
-     * `{{ ui-key.yacloud.cr.registry.label_selected }}` — сканировать только выбранные репозитории:
-       1. Нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_select-repositories }}**.
+  1. Перейдите на вкладку **Сканер уязвимостей**.
+  1. Нажмите кнопку **Изменить настройки**.
+  1. В блоке **Сканирование Docker-образов по расписанию** нажмите **Добавить правило сканирования**.
+  1. Выберите **Сканировать** и один из вариантов сканирования:
+     * `Все репозитории` — сканировать все репозитории реестра.
+     * `Выбранные` — сканировать только выбранные репозитории:
+       1. Нажмите кнопку **Выбрать репозитории**.
        1. Выберите репозитории из списка.
-       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+       1. Нажмите кнопку **Сохранить**.
   1. Укажите, как часто хотите сканировать Docker-образы.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите кнопку **Сохранить**.
 
 - API {#api}
 

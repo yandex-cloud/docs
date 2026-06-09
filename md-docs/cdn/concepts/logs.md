@@ -1,8 +1,8 @@
 # Выгрузка логов
 
-{{ cdn-name }} предоставляет логи запросов к CDN-серверам и, если включено [экранирование источников](origins-shielding.md), к экранирующим серверам.
+Cloud CDN предоставляет логи запросов к CDN-серверам и, если включено [экранирование источников](origins-shielding.md), к экранирующим серверам.
 
-Выгрузка логов [включается](../operations/resources/configure-logs.md#enabling) для конкретного [CDN-ресурса](resource.md). Для выгрузки логов нужен [бакет](../../storage/concepts/bucket.md) в {{ objstorage-full-name }}. 
+Выгрузка логов [включается](../operations/resources/configure-logs.md#enabling) для конкретного [CDN-ресурса](resource.md). Для выгрузки логов нужен [бакет](../../storage/concepts/bucket.md) в Yandex Object Storage. 
 
 {% note info %}
 
@@ -10,7 +10,7 @@
 
 {% endnote %}
 
-Выгрузка логов — платная функция, о ее тарификации см. раздел [{#T}](../pricing.md).
+Выгрузка логов — платная функция, о ее тарификации см. раздел [Правила тарификации для Yandex Cloud CDN](../pricing.md).
 
 {% note warning %}
 

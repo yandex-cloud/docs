@@ -1,15 +1,15 @@
 # Управление пользовательскими метаданными объекта
 
-При загрузке объекта в {{ objstorage-name }} вместе с ним вы можете передавать набор [пользовательских метаданных](../../concepts/object.md#user-meta) в виде пар `ключ-значение`.
+При загрузке объекта в Object Storage вместе с ним вы можете передавать набор [пользовательских метаданных](../../concepts/object.md#user-meta) в виде пар `ключ-значение`.
 
 
 ## Загрузить объект с метаданными {#load-object-with-meta}
 
 {% list tabs group=instructions %}
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -49,7 +49,7 @@
       * `--bucket` — имя бакета, в который вы хотите загрузить объект.
       * `--key` — [ключ](../../concepts/object.md#key) объекта в бакете.
       * `--body` — путь к локальному файлу, который вы хотите загрузить в бакет.
-      * `--metadata` — набор пользовательских метаданных в виде пар `ключ-значение`, указанных через запятую. Ключи должны состоять только из [ASCII-символов](https://{{ lang }}.wikipedia.org/wiki/ASCII). Размер значения не должен превышать 2 КБ.
+      * `--metadata` — набор пользовательских метаданных в виде пар `ключ-значение`, указанных через запятую. Ключи должны состоять только из [ASCII-символов](https://ru.wikipedia.org/wiki/ASCII). Размер значения не должен превышать 2 КБ.
 
       Результат:
 
@@ -70,7 +70,7 @@
     --key <ключ_объекта> \
     --body <путь_к_локальному_файлу> \
     --metadata "<ключ_1>"="<значение_1>","<ключ_2>"="<значение_2>" \
-    --endpoint-url=https://{{ s3-storage-host }}
+    --endpoint-url=https://storage.yandexcloud.net
   ```
 
   Где:
@@ -78,8 +78,8 @@
   * `--bucket` — имя бакета, в который вы хотите загрузить объект.
   * `--key` — [ключ](../../concepts/object.md#key) объекта в бакете.
   * `--body` — путь к локальному файлу, который вы хотите загрузить в бакет.
-  * `--metadata` — набор пользовательских метаданных в виде пар `ключ-значение`, указанных через запятую. Ключи должны состоять только из [ASCII-символов](https://{{ lang }}.wikipedia.org/wiki/ASCII). Размер значения не должен превышать 2 КБ.
-  * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
+  * `--metadata` — набор пользовательских метаданных в виде пар `ключ-значение`, указанных через запятую. Ключи должны состоять только из [ASCII-символов](https://ru.wikipedia.org/wiki/ASCII). Размер значения не должен превышать 2 КБ.
+  * `--endpoint-url` — эндпоинт Object Storage.
 
   Результат:
 
@@ -109,12 +109,12 @@
   curl \
     --request PUT \
     --user "${AWS_KEY_ID}:${AWS_SECRET_KEY}" \
-    --aws-sigv4 "aws:amz:{{ region-id }}:s3" \
+    --aws-sigv4 "aws:amz:ru-central1:s3" \
     --upload-file "${LOCAL_FILE}" \
     --header "X-Amz-Meta-${META_KEY_1}: ${META_VALUE_1}" \
     --header "X-Amz-Meta-${META_KEY_2}: ${META_VALUE_2}" \
     --verbose \
-    "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
+    "https://storage.yandexcloud.net/${BUCKET_NAME}/${OBJECT_PATH}"
   ```
 
   Где:
@@ -124,7 +124,7 @@
   * `LOCAL_FILE` — путь к локальному файлу, который вы хотите загрузить в бакет.
   * `BUCKET_NAME` — имя бакета, в который вы хотите загрузить объект.
   * `OBJECT_PATH` — [ключ](../../concepts/object.md#key) объекта в бакете.
-  * `META_KEY_1` и `META_KEY_1` — ключи пользовательских метаданных. Ключи должны состоять только из [ASCII-символов](https://{{ lang }}.wikipedia.org/wiki/ASCII).
+  * `META_KEY_1` и `META_KEY_1` — ключи пользовательских метаданных. Ключи должны состоять только из [ASCII-символов](https://ru.wikipedia.org/wiki/ASCII).
   * `META_VALUE_1` и `META_VALUE_2` — значения пользовательских метаданных. Размер значения не должен превышать 2 КБ.
 
 {% endlist %}
@@ -134,9 +134,9 @@
 
 {% list tabs group=instructions %}
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -222,14 +222,14 @@
   aws s3api head-object \
     --bucket <имя_бакета> \
     --key <ключ_объекта> \
-    --endpoint-url=https://{{ s3-storage-host }}
+    --endpoint-url=https://storage.yandexcloud.net
   ```
 
   Где:
 
   * `--bucket` — имя бакета, в котором размещен объект.
   * `--key` — [ключ](../../concepts/object.md#key) объекта в бакете.
-  * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
+  * `--endpoint-url` — эндпоинт Object Storage.
 
   Результат:
 
@@ -262,8 +262,8 @@
   curl \
     --head \
     --user "${AWS_KEY_ID}:${AWS_SECRET_KEY}" \
-    --aws-sigv4 "aws:amz:{{ region-id }}:s3" \
-    "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
+    --aws-sigv4 "aws:amz:ru-central1:s3" \
+    "https://storage.yandexcloud.net/${BUCKET_NAME}/${OBJECT_PATH}"
   ```
 
   Где:
@@ -286,9 +286,9 @@
 
 {% list tabs group=instructions %}
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -355,7 +355,7 @@
       * `--bucket` — имя бакета, в котором вы хотите изменить метаданные объекта.
       * `--key` — [ключ](../../concepts/object.md#key) объекта в бакете.
       * `--copy-source` — путь к объекту в формате `<имя_бакета>/<ключ_объекта>`.
-      * `--metadata` — набор новых пользовательских метаданных в виде пар `ключ-значение`, указанных через запятую. Ключи должны состоять только из [ASCII-символов](https://{{ lang }}.wikipedia.org/wiki/ASCII). Размер значения не должен превышать 2 КБ.
+      * `--metadata` — набор новых пользовательских метаданных в виде пар `ключ-значение`, указанных через запятую. Ключи должны состоять только из [ASCII-символов](https://ru.wikipedia.org/wiki/ASCII). Размер значения не должен превышать 2 КБ.
       * `--metadata-directive` — параметр, который указывает, что нужно заменить метаданные объекта на новые.
 
       Результат:
@@ -381,7 +381,7 @@
     --copy-source <имя_бакета>/<ключ_объекта> \
     --metadata "<ключ_1>"="<значение_1>","<ключ_2>"="<значение_2>" \
     --metadata-directive REPLACE \
-    --endpoint-url=https://{{ s3-storage-host }}
+    --endpoint-url=https://storage.yandexcloud.net
   ```
 
   Где:
@@ -389,9 +389,9 @@
   * `--bucket` — имя бакета, в котором вы хотите изменить метаданные объекта.
   * `--key` — [ключ](../../concepts/object.md#key) объекта в бакете.
   * `--copy-source` — путь к объекту в формате `<имя_бакета>/<ключ_объекта>`.
-  * `--metadata` — набор новых пользовательских метаданных в виде пар `ключ-значение`, указанных через запятую. Ключи должны состоять только из [ASCII-символов](https://{{ lang }}.wikipedia.org/wiki/ASCII). Размер значения не должен превышать 2 КБ.
+  * `--metadata` — набор новых пользовательских метаданных в виде пар `ключ-значение`, указанных через запятую. Ключи должны состоять только из [ASCII-символов](https://ru.wikipedia.org/wiki/ASCII). Размер значения не должен превышать 2 КБ.
   * `--metadata-directive` — параметр, который указывает, что нужно заменить метаданные объекта на новые.
-  * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
+  * `--endpoint-url` — эндпоинт Object Storage.
 
   Результат:
 
@@ -424,13 +424,13 @@
   curl \
     --request PUT \
     --user "${AWS_KEY_ID}:${AWS_SECRET_KEY}" \
-    --aws-sigv4 "aws:amz:{{ region-id }}:s3" \
+    --aws-sigv4 "aws:amz:ru-central1:s3" \
     --header "X-Amz-Copy-Source: /${BUCKET_NAME}/${OBJECT_PATH}" \
     --header "X-Amz-Metadata-Directive: REPLACE" \
     --header "X-Amz-Meta-${META_KEY_1}: ${META_VALUE_1}" \
     --header "X-Amz-Meta-${META_KEY_2}: ${META_VALUE_2}" \
     --verbose \
-    "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
+    "https://storage.yandexcloud.net/${BUCKET_NAME}/${OBJECT_PATH}"
   ```
 
   Где:
@@ -439,7 +439,7 @@
   * `AWS_SECRET_KEY` — [секретный ключ](../../../iam/concepts/authorization/access-key.md#private-key).
   * `BUCKET_NAME` — имя бакета, в котором вы хотите изменить метаданные объекта.
   * `OBJECT_PATH` — [ключ](../../concepts/object.md#key) объекта в бакете.
-  * `META_KEY_1` и `META_KEY_1` — новые ключи пользовательских метаданных. Ключи должны состоять только из [ASCII-символов](https://{{ lang }}.wikipedia.org/wiki/ASCII).
+  * `META_KEY_1` и `META_KEY_1` — новые ключи пользовательских метаданных. Ключи должны состоять только из [ASCII-символов](https://ru.wikipedia.org/wiki/ASCII).
   * `META_VALUE_1` и `META_VALUE_2` — новые значения пользовательских метаданных. Размер значения не должен превышать 2 КБ.
 
 {% endlist %}
@@ -455,13 +455,13 @@
 
 {% list tabs group=instructions %}
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  {{ yandex-cloud }} CLI не предоставляет встроенную функцию для прямого поиска объектов по метаданным. Однако вы можете использовать bash-скрипт, который последовательно проверяет метаданные каждого объекта в бакете.
+  Yandex Cloud CLI не предоставляет встроенную функцию для прямого поиска объектов по метаданным. Однако вы можете использовать bash-скрипт, который последовательно проверяет метаданные каждого объекта в бакете.
 
   1. Сохраните данные для поиска в переменные:
 
@@ -530,7 +530,7 @@
       # Перебираем все объекты и проверяем их метаданные
       aws s3api list-objects \
         --bucket $BUCKET_NAME \
-        --endpoint-url=https://{{ s3-storage-host }} \
+        --endpoint-url=https://storage.yandexcloud.net \
         --query 'Contents[].Key' \
         --output text | tr '\t' '\n' | while read -r key; do
 
@@ -538,7 +538,7 @@
           metadata=$(aws s3api head-object \
             --bucket $BUCKET_NAME \
             --key "$key" \
-            --endpoint-url=https://{{ s3-storage-host }})
+            --endpoint-url=https://storage.yandexcloud.net)
 
         # Преобразуем METADATA_KEY в заглавные
         uppercase_threshold_key=$(echo "$METADATA_KEY" | awk '{print toupper(substr($0,1,1)) tolower(substr($0,2))}')

@@ -5,7 +5,7 @@ Updates auth settings for specified cluster.
 ## HTTP request
 
 ```
-PUT https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/auth
+PUT https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/{clusterId}/auth
 ```
 
 ## Path parameters

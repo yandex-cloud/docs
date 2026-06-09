@@ -5,7 +5,7 @@ Imports data to the specified Metastore Cluster.
 ## HTTP request
 
 ```
-POST https://metastore.{{ api-host }}/managed-metastore/v1/clusters/{clusterId}:import
+POST https://metastore.api.cloud.yandex.net/managed-metastore/v1/clusters/{clusterId}:import
 ```
 
 ## Path parameters

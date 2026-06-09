@@ -7,7 +7,7 @@ To get the list of all available versions, make a [ListVersions](listVersions.md
 ## HTTP request
 
 ```
-GET https://serverless-functions.{{ api-host }}/functions/v1/versions:byTag
+GET https://serverless-functions.api.cloud.yandex.net/functions/v1/versions:byTag
 ```
 
 ## Query parameters {#yandex.cloud.serverless.functions.v1.GetFunctionVersionByTagRequest}

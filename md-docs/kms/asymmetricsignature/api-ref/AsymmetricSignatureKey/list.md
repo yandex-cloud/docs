@@ -5,7 +5,7 @@ Returns the list of asymmetric KMS keys in the specified folder.
 ## HTTP request
 
 ```
-GET https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys
+GET https://kms.api.cloud.yandex.net/kms/v1/asymmetricSignatureKeys
 ```
 
 ## Query parameters {#yandex.cloud.kms.v1.asymmetricsignature.ListAsymmetricSignatureKeysRequest}

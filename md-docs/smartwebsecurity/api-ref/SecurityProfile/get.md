@@ -5,7 +5,7 @@ Returns the specified SecurityProfile resource.
 ## HTTP request
 
 ```
-GET https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/securityProfiles/{securityProfileId}
+GET https://smartwebsecurity.api.cloud.yandex.net/smartwebsecurity/v1/securityProfiles/{securityProfileId}
 ```
 
 ## Path parameters

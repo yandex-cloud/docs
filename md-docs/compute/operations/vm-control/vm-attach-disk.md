@@ -2,7 +2,7 @@
 
 Вы можете подключить дополнительный [диск](../../concepts/disk.md) к [работающей и остановленной ВМ](../../concepts/vm-statuses.md).
 
-На ВМ с Linux из [{{ marketplace-name }}]({{ link-cloud-marketplace }}) или из пользовательских образов с [установленным набором драйверов](../image-create/custom-image.md#requirements) подключенный дополнительный диск будет доступен в качестве нового устройства без перезагрузки ВМ. 
+На ВМ с Linux из [Cloud Marketplace](https://yandex.cloud/ru/marketplace) или из пользовательских образов с [установленным набором драйверов](../image-create/custom-image.md#requirements) подключенный дополнительный диск будет доступен в качестве нового устройства без перезагрузки ВМ. 
 
 Чтобы диск был успешно подключен, операционная система ВМ должна быть полностью загружена или остановлена, иначе операция завершится с ошибкой. При возникновении ошибки остановите ВМ и повторите операцию.
 
@@ -22,21 +22,21 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. Перейдите в сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски**.
   1. Выберите неподключенный диск или [создайте](../disk-create/empty.md) новый.
-  1. Напротив диска, который вы хотите подключить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.disks.button_action-attach }}**.
+  1. Напротив диска, который вы хотите подключить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Присоединить**.
   1. В открывшемся окне:
-     * В поле **{{ ui-key.yacloud.compute.attach-disk.field_instance }}** выберите виртуальную машину, к которой нужно подключить диск.
-     * Если в хотите подключить [зашифрованный](../../concepts/encryption.md) диск, выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) c [ролью](../../../kms/security/index.md#kms-keys-encrypterDecrypter) `kms.keys.encrypterDecrypter` на [ключ {{ kms-short-name }}](../../../kms/concepts/key.md), которым зашифрован диск.
+     * В поле **ВМ** выберите виртуальную машину, к которой нужно подключить диск.
+     * Если в хотите подключить [зашифрованный](../../concepts/encryption.md) диск, выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) c [ролью](../../../kms/security/index.md#kms-keys-encrypterDecrypter) `kms.keys.encrypterDecrypter` на [ключ KMS](../../../kms/concepts/key.md), которым зашифрован диск.
      * Укажите название устройства.
-     * При необходимости включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete_qZn4x }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.attach-disk.button_attach }}**.
+     * При необходимости включите опцию **Удалять вместе с виртуальной машиной**.
+  1. Нажмите кнопку **Подключить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -57,8 +57,8 @@
      +----------------------+-----------------+---------------+---------+----------------------+
      |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
      +----------------------+-----------------+---------------+---------+----------------------+
-     | fhm0b28lgfp4******** | first-instance  | {{ region-id }}-a | RUNNING | my first vm via CLI  |
-     | fhm9gk85nj7g******** | second-instance | {{ region-id }}-a | RUNNING | my second vm via CLI |
+     | fhm0b28lgfp4******** | first-instance  | ru-central1-a | RUNNING | my first vm via CLI  |
+     | fhm9gk85nj7g******** | second-instance | ru-central1-a | RUNNING | my second vm via CLI |
      +----------------------+-----------------+---------------+---------+----------------------+
      ```
 
@@ -66,7 +66,7 @@
   1. Получите список дисков в каталоге по умолчанию:
 
      ```bash
-     {{ yc-compute }} disk list
+     yc compute disk list
      ```
      
      Результат:
@@ -75,8 +75,8 @@
      +----------------------+--------------+-------------+-------------------+--------+----------------------+-----------------+-------------+
      |          ID          |     NAME     |    SIZE     |       ZONE        | STATUS |     INSTANCE IDS     | PLACEMENT GROUP | DESCRIPTION |
      +----------------------+--------------+-------------+-------------------+--------+----------------------+-----------------+-------------+
-     | a7lqgbt0bb9s******** | first-disk   | 20401094656 |   {{ region-id }}-a   | READY  | a7lcvu28njbh******** |                 |             |
-     | a7lv5j5hm1p1******** | second-disk  | 21474836480 |   {{ region-id }}-a   | READY  |                      |                 |             |
+     | a7lqgbt0bb9s******** | first-disk   | 20401094656 |   ru-central1-a   | READY  | a7lcvu28njbh******** |                 |             |
+     | a7lv5j5hm1p1******** | second-disk  | 21474836480 |   ru-central1-a   | READY  |                      |                 |             |
      +----------------------+--------------+-------------+-------------------+--------+----------------------+-----------------+-------------+
      ```
 
@@ -115,18 +115,18 @@
      yc compute instance start first-instance
      ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
   1. В конфигурационном файле в описании ресурса `yandex_compute_instance` добавьте новый блок `secondary_disk`:
 
@@ -148,7 +148,7 @@
 
       {% endnote %}
 
-      Более подробную информацию о параметрах ресурса `yandex_compute_disk` см. в [документации провайдера]({{ tf-provider-datasources-link }}/compute_disk).
+      Более подробную информацию о параметрах ресурса `yandex_compute_disk` см. в [документации провайдера](../../../terraform/data-sources/compute_disk.md).
 
   1. Примените новую конфигурацию:
 
@@ -171,7 +171,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -180,7 +180,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-      {{ TF }} обновит все требуемые ресурсы. Проверить изменения можно в [консоли управления]({{ link-console-main }}).
+      Terraform обновит все требуемые ресурсы. Проверить изменения можно в [консоли управления](https://console.yandex.cloud).
 
 
 - API {#api}
@@ -218,7 +218,7 @@
      sudo tune2fs -U $(uuidgen) /dev/vdb2
      ```
 
-     Этот способ подойдет для разделов с файловыми системами `ext2`, `ext3` и `ext4`. Последняя используется в образах Linux, предоставляемых {{ yandex-cloud }}. Тип файловой системы возвращается командой `blkid` в параметре `TYPE`.
+     Этот способ подойдет для разделов с файловыми системами `ext2`, `ext3` и `ext4`. Последняя используется в образах Linux, предоставляемых Yandex Cloud. Тип файловой системы возвращается командой `blkid` в параметре `TYPE`.
 
      Если у вас отличается файловая система, используйте соответствующие команды. Например, для `XFS` выполните:
 
@@ -264,7 +264,7 @@
      {% endnote %}
 
   1. Если подключенный диск **Не в сети**, нажмите на него правой кнопкой мыши и выберите пункт **В сети**.
-  1. При необходимости назначьте букву подключенному диску. Как это сделать читайте в [документации Microsoft]({{ ms.docs }}/windows-server/storage/disk-management/change-a-drive-letter).
+  1. При необходимости назначьте букву подключенному диску. Как это сделать читайте в [документации Microsoft](https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/change-a-drive-letter).
   1. Откройте **Проводник**, чтобы убедиться, что подключенный диск смонтирован и доступен.
 
 {% endlist %}
@@ -416,9 +416,9 @@
 
   1. Если подключенный диск **Не в сети**, нажмите на него правой кнопкой мыши и выберите пункт **В сети**.
   1. Инициализируйте диск. Для этого нажмите на него правой кнопкой мыши и выберите пункт **Инициализировать диск**. Откроется окно **Инициализация диска**.
-  1. Выберите [стиль разделов]({{ ms.docs }}/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr) и нажмите **ОК**.
+  1. Выберите [стиль разделов](https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr) и нажмите **ОК**.
   1. Создайте разделы на диске. Для этого нажмите правой кнопкой мыши на пустой диск и выберите пункт **Создать простой том**.
-  1. С помощью **Мастера создания простых томов** задайте размер раздела, [назначьте букву]({{ ms.docs }}/windows-server/storage/disk-management/change-a-drive-letter) диска и укажите файловую систему.
+  1. С помощью **Мастера создания простых томов** задайте размер раздела, [назначьте букву](https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/change-a-drive-letter) диска и укажите файловую систему.
   1. Откройте **Проводник**, чтобы убедиться, что подключенный диск смонтирован и доступен.
 
 {% endlist %}

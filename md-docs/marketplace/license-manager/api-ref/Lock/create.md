@@ -5,7 +5,7 @@ Locks the specified subscription instance to the resource.
 ## HTTP request
 
 ```
-POST https://marketplace.{{ api-host }}/marketplace/license-manager/v1/locks
+POST https://marketplace.api.cloud.yandex.net/marketplace/license-manager/v1/locks
 ```
 
 ## Body parameters {#yandex.cloud.marketplace.licensemanager.v1.CreateLockRequest}

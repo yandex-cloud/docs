@@ -1,4 +1,4 @@
-# Изменение кластера {{ AF }}
+# Изменение кластера Apache Airflow™
 
 После создания кластера вы можете изменить его основные и дополнительные настройки.
 
@@ -8,40 +8,40 @@
 
     Чтобы изменить настройки кластера:
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+    1. Перейдите в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
 
-    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
 
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** измените имя и описание кластера, удалите или добавьте новые метки.
+    1. В блоке **Базовые параметры** измените имя и описание кластера, удалите или добавьте новые метки.
 
-    1. В блоке **{{ ui-key.yacloud.airflow.section_accesses }}** выберите сервисный аккаунт или [создайте новый](../../iam/operations/sa/create.md#create-sa) с ролью `{{ roles.maf.integrationProvider }}`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее в разделе [Имперсонация](../concepts/impersonation.md).
+    1. В блоке **Настройки доступа** выберите сервисный аккаунт или [создайте новый](../../iam/operations/sa/create.md#create-sa) с ролью `managed-airflow.integrationProvider`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее в разделе [Имперсонация](../concepts/impersonation.md).
 
-        Для изменения сервисного аккаунта в кластере {{ maf-name }} [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+        Для изменения сервисного аккаунта в кластере Managed Service for Apache Airflow™ [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 
         {% note warning %}
         
-        Если для доступа к объектам из {{ objstorage-name }} в кластере уже используется сервисный аккаунт, то его смена может привести к недоступности этих объектов и нарушению работы кластера. Перед изменением настроек сервисного аккаунта убедитесь, что кластер не использует соответствующие объекты.
+        Если для доступа к объектам из Object Storage в кластере уже используется сервисный аккаунт, то его смена может привести к недоступности этих объектов и нарушению работы кластера. Перед изменением настроек сервисного аккаунта убедитесь, что кластер не использует соответствующие объекты.
         
         {% endnote %}
 
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите [группу безопасности](../concepts/network.md#security-groups) для сетевого трафика кластера или создайте ее.
+    1. В блоке **Сетевые настройки** выберите [группу безопасности](../concepts/network.md#security-groups) для сетевого трафика кластера или создайте ее.
 
-       Настройки группы безопасности не влияют на доступ к [веб-интерфейсу {{ AF }}](af-interfaces.md#web-gui).
+       Настройки группы безопасности не влияют на доступ к [веб-интерфейсу Apache Airflow™](af-interfaces.md#web-gui).
 
-    1. В блоках для настройки [компонентов](../concepts/index.md#components) {{ maf-name }} — **{{ ui-key.yacloud.airflow.section_webserver }}**, **{{ ui-key.yacloud.airflow.section_scheduler }}**, **{{ ui-key.yacloud.airflow.section_workers }}**, **{{ ui-key.yacloud.airflow.section_dag_processor }}** — укажите количество экземпляров и [конфигурацию вычислительных ресурсов](../concepts/instance-types.md).
+    1. В блоках для настройки [компонентов](../concepts/index.md#components) Managed Service for Apache Airflow™ — **Конфигурация веб-сервера**, **Конфигурация планировщика**, **Конфигурация воркеров**, **Конфигурация DAG-процессора** — укажите количество экземпляров и [конфигурацию вычислительных ресурсов](../concepts/instance-types.md).
 
        {% note warning %}
               
-       Компонент _DAG-процессор_ доступен в версии {{ AF }} 3.0 и выше.
+       Компонент _DAG-процессор_ доступен в версии Apache Airflow™ 3.0 и выше.
               
        {% endnote %}
 
-    1. В блоке **{{ ui-key.yacloud.airflow.section_triggerer }}** включите или выключите службу Triggerer. Если служба включена, укажите количество экземпляров и ресурсов.
+    1. В блоке **Конфигурация Triggerer** включите или выключите службу Triggerer. Если служба включена, укажите количество экземпляров и ресурсов.
 
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_dependencies }}** удалите или добавьте названия pip- и deb-пакетов.
+    1. В блоке **Зависимости** удалите или добавьте названия pip- и deb-пакетов.
 
-    1. В блоке **{{ ui-key.yacloud.airflow.section_storage }}** выберите **Тип источника данных** и укажите его параметры:
+    1. В блоке **Хранилище DAG-файлов** выберите **Тип источника данных** и укажите его параметры:
        * **S3** – выберите существующий бакет или создайте новый. В этом бакете будут храниться DAG-файлы.
 
           Сервисному аккаунту кластера должно быть [предоставлено разрешение](../../storage/operations/buckets/edit-acl.md) `READ` для этого бакета.
@@ -56,34 +56,34 @@
           
           * Закрытый ключ не должен быть защищен паролем.
           
-          * Для использования Git-репозитория [настройте доступ в интернет через NAT-шлюз](../../vpc/operations/create-nat-gateway.md) из сети кластера {{ maf-name }}. Во время настройки привяжите таблицу маршрутизации с NAT-шлюзом ко всем подсетям кластера.
+          * Для использования Git-репозитория [настройте доступ в интернет через NAT-шлюз](../../vpc/operations/create-nat-gateway.md) из сети кластера Managed Service for Apache Airflow™. Во время настройки привяжите таблицу маршрутизации с NAT-шлюзом ко всем подсетям кластера.
           
           {% endnote %}
 
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
+    1. В блоке **Дополнительные настройки**:
 
         * Измените время [технического обслуживания](../concepts/maintenance.md) кластера.
         * Установите или снимите защиту от удаления.
 
-    1. В блоке **{{ ui-key.yacloud.airflow.section_airflow-configuration }}**:
+    1. В блоке **Конфигурация Airflow**:
 
-        * Добавьте, измените или удалите [дополнительные свойства {{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html), например: ключ — `api.maximum_page_limit`, значение — `150`.
+        * Добавьте, измените или удалите [дополнительные свойства Apache Airflow™](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html), например: ключ — `api.maximum_page_limit`, значение — `150`.
 
-            Заполните поля вручную или загрузите конфигурацию из файла (см. [пример конфигурационного файла](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
+            Заполните поля вручную или загрузите конфигурацию из файла (см. [пример конфигурационного файла](https://storage.yandexcloud.net/doc-files/managed-airflow/airflow.cfg)).
 
-        * Включите или выключите опцию **{{ ui-key.yacloud.airflow.field_lockbox }}**, которая позволяет использовать секреты в сервисе [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) для [хранения конфигурационных данных, переменных и параметров подключений](../concepts/impersonation.md#lockbox-integration) {{ AF }}.
+        * Включите или выключите опцию **Использовать Lockbox Secret Backend**, которая позволяет использовать секреты в сервисе [Yandex Lockbox](../../lockbox/concepts/index.md) для [хранения конфигурационных данных, переменных и параметров подключений](../concepts/impersonation.md#lockbox-integration) Apache Airflow™.
 
             Чтобы извлечь нужную информацию из секрета, сервисный аккаунт кластера должен иметь [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
             
             Эту роль можно назначить как [на уровне всего каталога](../../iam/operations/roles/grant.md#cloud-or-folder), так и [на уровне отдельного секрета](../../lockbox/operations/secret-access.md).
 
-    1. В блоке **Логирование** включите или выключите запись логов. Если логирование включено, укажите, в какую лог-группу будут записываться логи и минимальный уровень логирования. Логи, сгенерированные компонентами {{ AF }}, будут отправляться в {{ cloud-logging-full-name }}.
+    1. В блоке **Логирование** включите или выключите запись логов. Если логирование включено, укажите, в какую лог-группу будут записываться логи и минимальный уровень логирования. Логи, сгенерированные компонентами Apache Airflow™, будут отправляться в Yandex Cloud Logging.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+    1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -92,13 +92,13 @@
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
-        {{ yc-mdb-af }} cluster update --help
+        yc managed-airflow cluster update --help
         ```
 
     1. Передайте список настроек, которые хотите изменить, в команде изменения кластера:
 
         ```bash
-        {{ yc-mdb-af }} cluster update <имя_или_идентификатор_кластера> \
+        yc managed-airflow cluster update <имя_или_идентификатор_кластера> \
            --new-name <новое_имя_кластера> \
            --description <описание_кластера> \
            --labels <список_меток> \
@@ -148,7 +148,7 @@
         * `--service-account-id` — идентификатор сервисного аккаунта.
 
         * `--security-group-ids` — список идентификаторов [групп безопасности](../concepts/network.md#security-groups).
-        * `--webserver`, `--scheduler`, `--worker`, `--triggerer`, `--dag-processor` — конфигурация [компонентов](../concepts/index.md#components) {{ maf-name }}:
+        * `--webserver`, `--scheduler`, `--worker`, `--triggerer`, `--dag-processor` — конфигурация [компонентов](../concepts/index.md#components) Managed Service for Apache Airflow™:
         
             * `count` — количество экземпляров в кластере для веб-сервера, планировщика, DAG-процессора и Triggerer.
             * `min-count`, `max-count` — минимальное и максимальное количество экземпляров в кластере для воркера.
@@ -165,7 +165,7 @@
         
             {% note warning %}
                    
-            Компонент _DAG-процессор_ доступен в версии {{ AF }} 3.0 и выше.
+            Компонент _DAG-процессор_ доступен в версии Apache Airflow™ 3.0 и выше.
                    
             {% endnote %}
         
@@ -201,7 +201,7 @@
               
               * Закрытый ключ не должен быть защищен паролем.
               
-              * Для использования Git-репозитория [настройте доступ в интернет через NAT-шлюз](../../vpc/operations/create-nat-gateway.md) из сети кластера {{ maf-name }}. Во время настройки привяжите таблицу маршрутизации с NAT-шлюзом ко всем подсетям кластера.
+              * Для использования Git-репозитория [настройте доступ в интернет через NAT-шлюз](../../vpc/operations/create-nat-gateway.md) из сети кластера Managed Service for Apache Airflow™. Во время настройки привяжите таблицу маршрутизации с NAT-шлюзом ко всем подсетям кластера.
               
               {% endnote %}
         
@@ -220,8 +220,8 @@
         
             Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
         
-        * `--lockbox-secrets-backend` — включает использование секретов в сервисе [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) для [хранения конфигурационных данных, переменных и параметров подключений](../concepts/impersonation.md#lockbox-integration) {{ AF }}.
-        * `--airflow-config` — [дополнительные свойства {{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Задаются в формате `<раздел_конфигурации>.<ключ>=<значение>`, например:
+        * `--lockbox-secrets-backend` — включает использование секретов в сервисе [Yandex Lockbox](../../lockbox/concepts/index.md) для [хранения конфигурационных данных, переменных и параметров подключений](../concepts/impersonation.md#lockbox-integration) Apache Airflow™.
+        * `--airflow-config` — [дополнительные свойства Apache Airflow™](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Задаются в формате `<раздел_конфигурации>.<ключ>=<значение>`, например:
         
             ```bash
             --airflow-config core.load_examples=False
@@ -229,7 +229,7 @@
         
         * Параметры логирования:
         
-            * `--log-enabled` — включает логирование. Логи, сгенерированные компонентами {{ AF }}, будут отправляться в {{ cloud-logging-full-name }}.
+            * `--log-enabled` — включает логирование. Логи, сгенерированные компонентами Apache Airflow™, будут отправляться в Yandex Cloud Logging.
             * `--log-folder-id` — идентификатор каталога. Логи будут записываться в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для этого каталога.
             * `--log-group-id` — идентификатор пользовательской лог-группы. Логи будут записываться в нее.
         
@@ -239,11 +239,11 @@
 
         Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Чтобы изменить настройки кластера:
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
 
@@ -251,7 +251,7 @@
 
         {% note alert %}
 
-        Не изменяйте имя кластера и пароль с помощью {{ TF }}. Это приведет к удалению существующего кластера и созданию нового.
+        Не изменяйте имя кластера и пароль с помощью Terraform. Это приведет к удалению существующего кластера и созданию нового.
 
         {% endnote %}
 
@@ -361,7 +361,7 @@
             {% endnote %}
 
         * `security_group_ids` — список идентификаторов [групп безопасности](../concepts/network.md#security-groups).
-        * `webserver`, `scheduler`, `worker`, `triggerer`, `dag_processor` — конфигурация [компонентов](../concepts/index.md#components) {{ maf-name }}:
+        * `webserver`, `scheduler`, `worker`, `triggerer`, `dag_processor` — конфигурация [компонентов](../concepts/index.md#components) Managed Service for Apache Airflow™:
         
             * `count` — количество экземпляров в кластере для веб-сервера, планировщика, DAG-процессора и Triggerer.
             * `min_count`, `max_count` — минимальное и максимальное количество экземпляров в кластере для воркера.
@@ -378,7 +378,7 @@
             
             {% note warning %}
                    
-            Компонент _DAG-процессор_ доступен в версии {{ AF }} 3.0 и выше.
+            Компонент _DAG-процессор_ доступен в версии Apache Airflow™ 3.0 и выше.
                    
             {% endnote %}
         
@@ -411,7 +411,7 @@
             
             * Закрытый ключ не должен быть защищен паролем.
             
-            * Для использования Git-репозитория [настройте доступ в интернет через NAT-шлюз](../../vpc/operations/create-nat-gateway.md) из сети кластера {{ maf-name }}. Во время настройки привяжите таблицу маршрутизации с NAT-шлюзом ко всем подсетям кластера.
+            * Для использования Git-репозитория [настройте доступ в интернет через NAT-шлюз](../../vpc/operations/create-nat-gateway.md) из сети кластера Managed Service for Apache Airflow™. Во время настройки привяжите таблицу маршрутизации с NAT-шлюзом ко всем подсетям кластера.
             
             {% endnote %}
         
@@ -429,11 +429,11 @@
         
             Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
         
-        * `lockbox_secrets_backend.enabled` — включает использование секретов в сервисе [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) для [хранения конфигурационных данных, переменных и параметров подключений](../concepts/impersonation.md#lockbox-integration) {{ AF }}. Возможные значения: `true` или `false`.
-        * `airflow_config` — [дополнительные свойства {{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html), например: раздел конфигурации — `core`, ключ — `load_examples`, значение — `False`.
+        * `lockbox_secrets_backend.enabled` — включает использование секретов в сервисе [Yandex Lockbox](../../lockbox/concepts/index.md) для [хранения конфигурационных данных, переменных и параметров подключений](../concepts/impersonation.md#lockbox-integration) Apache Airflow™. Возможные значения: `true` или `false`.
+        * `airflow_config` — [дополнительные свойства Apache Airflow™](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html), например: раздел конфигурации — `core`, ключ — `load_examples`, значение — `False`.
         * `logging` — параметры логирования:
         
-            * `enabled` — позволяет включить логирование. Логи, сгенерированные компонентами {{ AF }}, будут отправляться в {{ cloud-logging-full-name }}. Возможные значения: `true` или `false`.
+            * `enabled` — позволяет включить логирование. Логи, сгенерированные компонентами Apache Airflow™, будут отправляться в Yandex Cloud Logging. Возможные значения: `true` или `false`.
             * `folder_id` — идентификатор каталога. Логи будут записываться в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для этого каталога.
             * `log_group_id` — идентификатор пользовательской лог-группы. Логи будут записываться в нее.
         
@@ -443,14 +443,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -472,7 +472,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-maf }}).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/airflow_cluster.md).
 
 - REST API {#api}
 
@@ -580,7 +580,7 @@
         * `labels` — список меток. Метки задаются в формате `"<ключ>": "<значение>"`.
         * `config` — конфигурация кластера:
 
-            * `airflow.config` — [дополнительные свойства {{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Задаются в формате `"<раздел_конфигурации>.<ключ>": "<значение>"`, например:
+            * `airflow.config` — [дополнительные свойства Apache Airflow™](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Задаются в формате `"<раздел_конфигурации>.<ключ>": "<значение>"`, например:
 
                 ```json
                 "airflow": {
@@ -590,7 +590,7 @@
                 }
                 ```
 
-            * `webserver`, `scheduler`, `triggerer`, `worker`, `dagProcessor` — конфигурация [компонентов](../concepts/index.md#components) {{ maf-name }}:
+            * `webserver`, `scheduler`, `triggerer`, `worker`, `dagProcessor` — конфигурация [компонентов](../concepts/index.md#components) Managed Service for Apache Airflow™:
 
                 * `count` — количество экземпляров в кластере для веб-сервера, планировщика, DAG-процессора и Triggerer.
                 * `minCount`, `maxCount` — минимальное и максимальное количество экземпляров в кластере для воркера.
@@ -607,7 +607,7 @@
 
                 {% note warning %}
                        
-                Компонент _DAG-процессор_ доступен в версии {{ AF }} 3.0 и выше.
+                Компонент _DAG-процессор_ доступен в версии Apache Airflow™ 3.0 и выше.
                        
                 {% endnote %}
 
@@ -630,7 +630,7 @@
 
                 Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
 
-            * `lockbox.enabled` — позволяет использовать секреты в сервисе [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) для [хранения конфигурационных данных, переменных и параметров подключений](../concepts/impersonation.md#lockbox-integration) {{ AF }}. Возможные значения: `true` или `false`.
+            * `lockbox.enabled` — позволяет использовать секреты в сервисе [Yandex Lockbox](../../lockbox/concepts/index.md) для [хранения конфигурационных данных, переменных и параметров подключений](../concepts/impersonation.md#lockbox-integration) Apache Airflow™. Возможные значения: `true` или `false`.
 
         * `network.securityGroupIds` — список идентификаторов [групп безопасности](../concepts/network.md#security-groups).
 
@@ -653,7 +653,7 @@
               
               * Закрытый ключ не должен быть защищен паролем.
               
-              * Для использования Git-репозитория [настройте доступ в интернет через NAT-шлюз](../../vpc/operations/create-nat-gateway.md) из сети кластера {{ maf-name }}. Во время настройки привяжите таблицу маршрутизации с NAT-шлюзом ко всем подсетям кластера.
+              * Для использования Git-репозитория [настройте доступ в интернет через NAT-шлюз](../../vpc/operations/create-nat-gateway.md) из сети кластера Managed Service for Apache Airflow™. Во время настройки привяжите таблицу маршрутизации с NAT-шлюзом ко всем подсетям кластера.
               
               {% endnote %}
 
@@ -673,30 +673,30 @@
 
         * `serviceAccountId` — идентификатор сервисного аккаунта с [ролью](../../iam/concepts/access-control/roles.md) `managed-airflow.integrationProvider`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее в разделе [Имперсонация](../concepts/impersonation.md).
 
-            Для изменения сервисного аккаунта в кластере {{ maf-name }} [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+            Для изменения сервисного аккаунта в кластере Managed Service for Apache Airflow™ [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 
             {% note warning %}
             
-            Если для доступа к объектам из {{ objstorage-name }} в кластере уже используется сервисный аккаунт, то его смена может привести к недоступности этих объектов и нарушению работы кластера. Перед изменением настроек сервисного аккаунта убедитесь, что кластер не использует соответствующие объекты.
+            Если для доступа к объектам из Object Storage в кластере уже используется сервисный аккаунт, то его смена может привести к недоступности этих объектов и нарушению работы кластера. Перед изменением настроек сервисного аккаунта убедитесь, что кластер не использует соответствующие объекты.
             
             {% endnote %}
 
         * `logging` — параметры логирования:
 
-            * `enabled` — позволяет включить логирование. Логи, сгенерированные компонентами {{ AF }}, будут отправляться в {{ cloud-logging-full-name }}. Возможные значения: `true` или `false`.
+            * `enabled` — позволяет включить логирование. Логи, сгенерированные компонентами Apache Airflow™, будут отправляться в Yandex Cloud Logging. Возможные значения: `true` или `false`.
             * `minLevel` — минимальный уровень логирования. Возможные значения: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`.
             * `folderId` — идентификатор каталога. Логи будут записываться в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для этого каталога.
             * `logGroupId` — идентификатор пользовательской лог-группы. Логи будут записываться в нее.
 
                 Укажите один из двух параметров: `folderId` либо `logGroupId`.
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-airflow }}/managed-airflow/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://airflow.api.cloud.yandex.net/managed-airflow/v1/clusters/<идентификатор_кластера>' \
             --data '@body.json'
         ```
 
@@ -835,7 +835,7 @@
         * `labels` — список меток. Метки задаются в формате `"<ключ>": "<значение>"`.
         * `config_spec` — конфигурация кластера:
 
-            * `airflow.config` — [дополнительные свойства {{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Задаются в формате `"<раздел_конфигурации>.<ключ>": "<значение>"`, например:
+            * `airflow.config` — [дополнительные свойства Apache Airflow™](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Задаются в формате `"<раздел_конфигурации>.<ключ>": "<значение>"`, например:
 
                 ```json
                 "airflow": {
@@ -845,7 +845,7 @@
                 }
                 ```
 
-            * `webserver`, `scheduler`, `triggerer`, `worker`, `dag_processor` — конфигурация [компонентов](../concepts/index.md#components) {{ maf-name }}:
+            * `webserver`, `scheduler`, `triggerer`, `worker`, `dag_processor` — конфигурация [компонентов](../concepts/index.md#components) Managed Service for Apache Airflow™:
 
                 * `count` — количество экземпляров в кластере для веб-сервера, планировщика, DAG-процессора и Triggerer.
                 * `min_count`, `max_count` — минимальное и максимальное количество экземпляров в кластере для воркера.
@@ -862,7 +862,7 @@
 
                 {% note warning %}
                        
-                Компонент _DAG-процессор_ доступен в версии {{ AF }} 3.0 и выше.
+                Компонент _DAG-процессор_ доступен в версии Apache Airflow™ 3.0 и выше.
                        
                 {% endnote %}
 
@@ -885,7 +885,7 @@
 
                 Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
 
-            * `lockbox.enabled` — позволяет использовать секреты в сервисе [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) для [хранения конфигурационных данных, переменных и параметров подключений](../concepts/impersonation.md#lockbox-integration) {{ AF }}. Возможные значения: `true` или `false`.
+            * `lockbox.enabled` — позволяет использовать секреты в сервисе [Yandex Lockbox](../../lockbox/concepts/index.md) для [хранения конфигурационных данных, переменных и параметров подключений](../concepts/impersonation.md#lockbox-integration) Apache Airflow™. Возможные значения: `true` или `false`.
 
         * `network_spec.security_group_ids` — список идентификаторов [групп безопасности](../concepts/network.md#security-groups).
 
@@ -908,7 +908,7 @@
               
               * Закрытый ключ не должен быть защищен паролем.
               
-              * Для использования Git-репозитория [настройте доступ в интернет через NAT-шлюз](../../vpc/operations/create-nat-gateway.md) из сети кластера {{ maf-name }}. Во время настройки привяжите таблицу маршрутизации с NAT-шлюзом ко всем подсетям кластера.
+              * Для использования Git-репозитория [настройте доступ в интернет через NAT-шлюз](../../vpc/operations/create-nat-gateway.md) из сети кластера Managed Service for Apache Airflow™. Во время настройки привяжите таблицу маршрутизации с NAT-шлюзом ко всем подсетям кластера.
               
               {% endnote %}
 
@@ -928,24 +928,24 @@
 
         * `service_account_id` — идентификатор сервисного аккаунта с [ролью](../../iam/concepts/access-control/roles.md) `managed-airflow.integrationProvider`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее в разделе [Имперсонация](../concepts/impersonation.md).
 
-            Для изменения сервисного аккаунта в кластере {{ maf-name }} [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+            Для изменения сервисного аккаунта в кластере Managed Service for Apache Airflow™ [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 
             {% note warning %}
             
-            Если для доступа к объектам из {{ objstorage-name }} в кластере уже используется сервисный аккаунт, то его смена может привести к недоступности этих объектов и нарушению работы кластера. Перед изменением настроек сервисного аккаунта убедитесь, что кластер не использует соответствующие объекты.
+            Если для доступа к объектам из Object Storage в кластере уже используется сервисный аккаунт, то его смена может привести к недоступности этих объектов и нарушению работы кластера. Перед изменением настроек сервисного аккаунта убедитесь, что кластер не использует соответствующие объекты.
             
             {% endnote %}
 
         * `logging` — параметры логирования:
 
-            * `enabled` — позволяет включить логирование. Логи, сгенерированные компонентами {{ AF }}, будут отправляться в {{ cloud-logging-full-name }}. Возможные значения: `true` или `false`.
+            * `enabled` — позволяет включить логирование. Логи, сгенерированные компонентами Apache Airflow™, будут отправляться в Yandex Cloud Logging. Возможные значения: `true` или `false`.
             * `min_level` — минимальный уровень логирования. Возможные значения: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`.
             * `folder_id` — идентификатор каталога. Логи будут записываться в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для этого каталога.
             * `log_group_id` — идентификатор пользовательской лог-группы. Логи будут записываться в нее.
 
                 Укажите один из двух параметров: `folder_id` либо `log_group_id`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -955,7 +955,7 @@
             -proto ~/cloudapi/yandex/cloud/airflow/v1/cluster_service.proto \
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d @ \
-            {{ api-host-airflow }}:{{ port-https }} \
+            airflow.api.cloud.yandex.net:443 \
             yandex.cloud.airflow.v1.ClusterService.Update \
             < body.json
         ```
