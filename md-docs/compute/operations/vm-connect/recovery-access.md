@@ -47,7 +47,7 @@
       }
       ```
 
-      Подробнее о ресурсе `yandex_compute_disk` см. в [документации провайдера](../../../terraform/resources/compute_instance.md).
+      Подробнее о ресурсе `yandex_compute_disk` читайте в [документации провайдера](../../../terraform/resources/compute_instance.md).
 
     {% endlist %}
 

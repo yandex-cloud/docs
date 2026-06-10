@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/placement-group/set-access-bindings
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/placement-group/set-access-bindings/
 ---
 
 # yc compute v0 placement-group set-access-bindings

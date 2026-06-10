@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/image/list-vulnerabilities
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/image/list-vulnerabilities/
 ---
 
 # yc container image list-vulnerabilities

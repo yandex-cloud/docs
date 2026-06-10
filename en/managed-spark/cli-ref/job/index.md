@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-spark/cli-ref/job/
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-spark/cli-ref/job/
 ---
 
 # yc managed-spark job

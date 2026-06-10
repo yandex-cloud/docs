@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/node-group/remove-labels
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/node-group/remove-labels/
 ---
 
 # yc container node-group remove-labels

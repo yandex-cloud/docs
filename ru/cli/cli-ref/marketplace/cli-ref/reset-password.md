@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/marketplace/cli-ref/reset-password
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/marketplace/cli-ref/reset-password/
 ---
 
 # yc marketplace reset-password

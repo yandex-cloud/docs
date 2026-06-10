@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/v0/private-endpoint/list-operations
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/v0/private-endpoint/list-operations/
 ---
 
 # yc vpc v0 private-endpoint list-operations

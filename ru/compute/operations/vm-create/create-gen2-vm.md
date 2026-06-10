@@ -28,7 +28,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [available-image-format](../../../_includes/compute/available-image-format.md) %}
 
-Инструкции по настройке см. в разделе [{#T}](../image-create/custom-image.md).
+Инструкции по настройке приведены в разделе [{#T}](../image-create/custom-image.md).
 
 #### Загрузите файл образа в {{ objstorage-name }} {#upload-file}
 
@@ -141,7 +141,7 @@ description: Следуя данной инструкции, вы сможете
           
           Необязательный параметр. По умолчанию оптимизация выключена.
 
-      Подробную информацию о параметрах ресурса `yandex_compute_image` см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_image).
+      Подробную информацию о параметрах ресурса `yandex_compute_image` читайте в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_image).
   1. Создайте ресурсы:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -383,7 +383,7 @@ description: Следуя данной инструкции, вы сможете
           
           Необязательный параметр. По умолчанию оптимизация выключена.
 
-          Подробную информацию о параметрах ресурса `yandex_compute_image` см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_image).
+          Подробную информацию о параметрах ресурса `yandex_compute_image` читайте в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_image).
           
   1. Создайте ресурсы:
 
@@ -585,7 +585,7 @@ description: Следуя данной инструкции, вы сможете
 
       * `source_disk_id` — идентификатор диска, для которого вы создаете снимок.
 
-      Подробную информацию о параметрах ресурса `yandex_compute_snapshot` см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_snapshot).
+      Подробную информацию о параметрах ресурса `yandex_compute_snapshot` читайте в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_snapshot).
           
   1. Создайте ресурсы:
 
@@ -823,7 +823,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% endnote %}
 
-          Подробную информацию о параметрах ресурса `yandex_compute_disk` см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_disk).
+          Подробную информацию о параметрах ресурса `yandex_compute_disk` читайте в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_disk).
           
   1. Создайте ресурсы:
 
@@ -1203,7 +1203,7 @@ description: Следуя данной инструкции, вы сможете
               * `image_id` — идентификатор [подготовленного ранее образа](#create-image), на основе которого будет создан загрузочный диск ВМ.
               * `snapshot_id` — идентификатор [подготовленного ранее снимка](#create-snapshot), на основе которого будет создан загрузочный диск ВМ.
 
-          Подробную информацию о параметрах ресурса `yandex_compute_disk` см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_disk).
+          Подробную информацию о параметрах ресурса `yandex_compute_disk` читайте в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_disk).
 
       * `yandex_compute_instance` — описание ВМ:
           * `name` — имя ВМ. Требования к имени:
@@ -1228,7 +1228,7 @@ description: Следуя данной инструкции, вы сможете
 
           * `metadata` — в метаданных необходимо передать имя пользователя и открытый SSH-ключ для доступа на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
 
-      Подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_instance).
+      Подробную информацию о параметрах ресурса `yandex_compute_instance` читайте в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_instance).
           
   1. Создайте ресурсы:
 

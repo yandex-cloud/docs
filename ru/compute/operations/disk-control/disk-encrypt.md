@@ -215,7 +215,7 @@ description: Следуя данной инструкции, вы сможете
       * `source_disk` — идентификатор незашифрованного диска.
       * `name` — имя создаваемого зашифрованного диска.
 
-     Более подробную информацию о параметрах ресурса `yandex_compute_disk` см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_disk).
+     Более подробную информацию о параметрах ресурса `yandex_compute_disk` читайте в [документации провайдера]({{ tf-provider-resources-link }}/compute_disk).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

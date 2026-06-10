@@ -6,7 +6,7 @@ description: Следуя данной инструкции, вы сможете
 # Создать группу виртуальных машин фиксированного размера с L7-балансировщиком
 
 
-Вы можете создать [группу ВМ](../../concepts/instance-groups/index.md) фиксированного размера, интегрированную с сервисом балансировки нагрузки [{{ alb-full-name }}](../../../application-load-balancer/). Вместе с группой [ВМ](../../concepts/vm.md) будет автоматически создана [целевая группа](../../../application-load-balancer/concepts/target-group.md) {{ alb-name }}, которую можно привязать к [балансировщику](../../../application-load-balancer/concepts/index.md) и распределять нагрузку между ВМ в группе на прикладном уровне. Подробнее см. в разделе [{#T}](../../concepts/instance-groups/balancers.md).
+Вы можете создать [группу ВМ](../../concepts/instance-groups/index.md) фиксированного размера, интегрированную с сервисом балансировки нагрузки [{{ alb-full-name }}](../../../application-load-balancer/). Вместе с группой [ВМ](../../concepts/vm.md) будет автоматически создана [целевая группа](../../../application-load-balancer/concepts/target-group.md) {{ alb-name }}, которую можно привязать к [балансировщику](../../../application-load-balancer/concepts/index.md) и распределять нагрузку между ВМ в группе на прикладном уровне. Подробнее в разделе [{#T}](../../concepts/instance-groups/balancers.md).
 
 {% include [alb-warning.md](../../../_includes/instance-groups/alb-warning.md) %}
 
@@ -75,7 +75,7 @@ description: Следуя данной инструкции, вы сможете
      * Выберите `{{ ui-key.yacloud.compute.groups.create.value_scale-fixed }}` [тип масштабирования](../../../compute/concepts/instance-groups/scale.md).
      * Укажите размер группы ВМ.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_alb }}** включите опцию **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}**.
-  1. Укажите настройки целевой группы. Подробнее см. в разделе [{#T}](../../concepts/instance-groups/balancers.md#settings-alb).
+  1. Укажите настройки целевой группы. Подробнее в разделе [{#T}](../../concepts/instance-groups/balancers.md#settings-alb).
   1. При необходимости активируйте опцию **{{ ui-key.yacloud.compute.groups.create.section_health-check }}** для получения сведений о состоянии ВМ и их автоматического восстановления в случае сбоя.
      * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** выберите протокол проверок состояния: `{{ ui-key.yacloud.common.label_http }}` или `{{ ui-key.yacloud.common.label_tcp }}`.
      * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** (для типа HTTP) укажите URL‐путь запроса, на который {{ ig-name }} будет отправлять запросы проверки для HTTP.
@@ -211,7 +211,7 @@ description: Следуя данной инструкции, вы сможете
        * `target_group_spec` — спецификация целевой группы {{ alb-name }}, связанной с группой ВМ.
        * `name` — произвольное имя целевой группы {{ alb-name }}. Имя должно быть уникальным в рамках каталога. Имя может содержать строчные буквы латинского алфавита, цифры и дефисы. Первый символ должен быть буквой. Последний символ не может быть дефисом. Максимальная длина имени — 63 символа.
 
-       Подробнее о настройках целевой группы см. в разделе [{#T}](../../concepts/instance-groups/balancers.md#settings-alb).
+       Подробнее о настройках целевой группы читайте в разделе [{#T}](../../concepts/instance-groups/balancers.md#settings-alb).
 
      Полный код файла `specification.yaml`:
 
@@ -388,7 +388,7 @@ description: Следуя данной инструкции, вы сможете
        * [Целевая группа](../../../application-load-balancer/concepts/target-group.md) {{ alb-full-name }}:
          * `target_group_name` — имя целевой группы.
          * `target_group_description` — описание целевой группы.
-         Подробнее о настройках целевой группы см. в разделе [{#T}](../../concepts/instance-groups/balancers.md#settings-alb).
+         Подробнее о настройках целевой группы читайте в разделе [{#T}](../../concepts/instance-groups/balancers.md#settings-alb).
      * `yandex_vpc_network` — описание облачной сети.
      * `yandex_vpc_subnet` — описание подсети, к которой будет подключена группа ВМ.
 
@@ -398,7 +398,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% endnote %}
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, читайте в [документации провайдера]({{ tf-provider-link }}).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

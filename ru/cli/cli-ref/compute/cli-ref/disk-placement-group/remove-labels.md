@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/disk-placement-group/remove-labels
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/disk-placement-group/remove-labels/
 ---
 
 # yc compute disk-placement-group remove-labels

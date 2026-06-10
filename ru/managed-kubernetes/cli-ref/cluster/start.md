@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kubernetes/cli-ref/cluster/start
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kubernetes/cli-ref/cluster/start/
 ---
 
 # yc managed-kubernetes cluster start

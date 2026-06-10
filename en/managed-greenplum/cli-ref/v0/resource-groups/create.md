@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/v0/resource-groups/create
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/v0/resource-groups/create/
 ---
 
 # yc managed-greenplum v0 resource-groups create
@@ -51,9 +51,6 @@ Apache Cloudberry only. The memory limit (Mb) specified for the resource group. 
 || `--min-cost` | `int`
 
 Apache Cloudberry only. The minimum cost of a query plan to be included in the resource group. ||
-|| `--io-limit` | `int`
-
-Apache Cloudberry only. The limit for the maximum read/write disk I/O throughput, and maximum read/write I/O operations per second. ||
 |#
 
 #### Global Flags

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/v0/eventrouter/rule/enable
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/v0/eventrouter/rule/enable/
 ---
 
 # yc serverless v0 eventrouter rule enable

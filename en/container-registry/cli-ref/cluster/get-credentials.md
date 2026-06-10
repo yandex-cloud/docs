@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/cluster/get-credentials
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/cluster/get-credentials/
 ---
 
 # yc container cluster get-credentials

@@ -41,7 +41,7 @@ description: Следуя данной инструкции, вы сможете
      * `gce-http-endpoint` — параметр управляет доступом к метаданным с использованием формата Google Compute Engine. Возможные значения: `enabled`, `disabled`.
      * `gce-http-token` — параметр управляет доступом к получению через метаданные Google Compute Engine [IAM-токена](../../../iam/concepts/authorization/iam-token.md) сервисного аккаунта, подключенного к ВМ. Возможные значения: `enabled`, `disabled`.
 
-     Подробнее см. в разделе [{#T}](../../concepts/vm-metadata.md#metadata-formats).
+     Подробнее в разделе [{#T}](../../concepts/vm-metadata.md#metadata-formats).
 
   Чтобы настроить параметры сервиса метаданных ВМ при создании, аналогичным образом используйте параметр `--metadata-options` в [команде](../../../cli/cli-ref/compute/cli-ref/instance/create.md) `yc compute instance create`.
 
@@ -72,9 +72,9 @@ description: Следуя данной инструкции, вы сможете
          * `gce_http_endpoint` — параметр управляет доступом к метаданным с использованием формата Google Compute Engine. Возможные значения: `0` и `1` — `enabled`, `2` — `disabled`.
          * `gce_http_token` — параметр управляет доступом к получению через метаданные Google Compute Engine [IAM-токена](../../../iam/concepts/authorization/iam-token.md) сервисного аккаунта, подключенного к ВМ. Возможные значения: `0` и `1` — `enabled`, `2` — `disabled`.
 
-       Подробнее см. в разделе [{#T}](../../concepts/vm-metadata.md#metadata-formats).
+       Подробнее в разделе [{#T}](../../concepts/vm-metadata.md#metadata-formats).
 
-     Более подробную информацию о параметрах ресурса `yandex_compute_instance` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
+     Более подробную информацию о параметрах ресурса `yandex_compute_instance` в {{ TF }} читайте в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

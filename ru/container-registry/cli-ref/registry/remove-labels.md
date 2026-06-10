@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/registry/remove-labels
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/registry/remove-labels/
 ---
 
 # yc container registry remove-labels

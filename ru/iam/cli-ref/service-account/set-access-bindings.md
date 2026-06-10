@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/service-account/set-access-bindings
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/service-account/set-access-bindings/
 ---
 
 # yc iam service-account set-access-bindings

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/v0/bucket/list-inventory-configurations
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/v0/bucket/list-inventory-configurations/
 ---
 
 # yc storage v0 bucket list-inventory-configurations

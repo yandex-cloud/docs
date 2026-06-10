@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/disk-placement-group/list-disks
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/disk-placement-group/list-disks/
 ---
 
 # yc compute v0 disk-placement-group list-disks

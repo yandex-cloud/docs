@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/private-connection/
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/private-connection/
 ---
 
 # yc cic private-connection
@@ -80,7 +80,7 @@ Query to select values from the response using jq syntax ||
 || `--print-metadata` | Print operation metadata along with result. ||
 || `--syntax` | `string`
 
-CLI syntax: this standalone binary only supports 2 (current). Use main yc for syntax 1. ||
+Choose syntax option. ||
 || `--cli-auto-prompt` | `string[="on"]`
 
 Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||

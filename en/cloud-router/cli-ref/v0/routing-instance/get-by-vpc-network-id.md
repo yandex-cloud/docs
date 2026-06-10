@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloudrouter/cli-ref/v0/routing-instance/get-by-vpc-network-id
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloudrouter/cli-ref/v0/routing-instance/get-by-vpc-network-id/
 ---
 
 # yc cloudrouter v0 routing-instance get-by-vpc-network-id

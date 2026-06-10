@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/disk-placement-group/set-access-bindings
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/disk-placement-group/set-access-bindings/
 ---
 
 # yc compute disk-placement-group set-access-bindings

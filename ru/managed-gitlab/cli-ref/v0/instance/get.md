@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-gitlab/cli-ref/v0/instance/get
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-gitlab/cli-ref/v0/instance/get/
 ---
 
 # yc managed-gitlab v0 instance get

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/repository/list
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/repository/list/
 ---
 
 # yc container repository list

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/cluster/set-resource-groups
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/cluster/set-resource-groups/
 ---
 
 # yc managed-trino cluster set-resource-groups

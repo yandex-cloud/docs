@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/node-group/get
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/node-group/get/
 ---
 
 # yc container node-group get

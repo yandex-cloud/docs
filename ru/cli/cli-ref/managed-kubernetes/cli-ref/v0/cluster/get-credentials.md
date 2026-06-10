@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kubernetes/cli-ref/v0/cluster/get-credentials
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kubernetes/cli-ref/v0/cluster/get-credentials/
 ---
 
 # yc managed-kubernetes v0 cluster get-credentials

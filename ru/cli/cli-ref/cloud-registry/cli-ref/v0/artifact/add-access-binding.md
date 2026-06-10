@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/v0/artifact/add-access-binding
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/v0/artifact/add-access-binding/
 ---
 
 # yc cloud-registry v0 artifact add-access-binding

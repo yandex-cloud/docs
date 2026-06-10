@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/components/cli-ref/v0/restore
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/components/cli-ref/v0/restore/
 ---
 
 # yc components v0 restore

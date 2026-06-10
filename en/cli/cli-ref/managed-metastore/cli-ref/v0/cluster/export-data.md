@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-metastore/cli-ref/v0/cluster/export-data
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-metastore/cli-ref/v0/cluster/export-data/
 ---
 
 # yc managed-metastore v0 cluster export-data

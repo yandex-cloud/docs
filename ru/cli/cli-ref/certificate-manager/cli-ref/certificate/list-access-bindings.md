@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/certificate-manager/cli-ref/certificate/list-access-bindings
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/certificate-manager/cli-ref/certificate/list-access-bindings/
 ---
 
 # yc certificate-manager certificate list-access-bindings

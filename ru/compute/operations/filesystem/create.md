@@ -119,7 +119,7 @@ description: Следуя данной инструкции, вы сможете
      * `size` — размер файлового хранилища в ГБ. Необязательный параметр. Значение по умолчанию 150 ГБ.
      * `labels` — [метка](../../../resource-manager/concepts/labels.md) ресурса в формате `<ключ> = "<значение>"`. Необязательный параметр.
 
-      Более подробную информацию о параметрах ресурса `yandex_compute_filesystem` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_filesystem).
+      Более подробную информацию о параметрах ресурса `yandex_compute_filesystem` в {{ TF }} читайте в [документации провайдера]({{ tf-provider-resources-link }}/compute_filesystem).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

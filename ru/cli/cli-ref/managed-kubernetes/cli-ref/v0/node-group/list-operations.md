@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kubernetes/cli-ref/v0/node-group/list-operations
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kubernetes/cli-ref/v0/node-group/list-operations/
 ---
 
 # yc managed-kubernetes v0 node-group list-operations

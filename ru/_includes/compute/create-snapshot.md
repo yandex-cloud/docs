@@ -117,7 +117,7 @@
 
           {% endnote %}
 
-     Более подробную информацию о ресурсе `yandex_compute_snapshot` см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_snapshot).
+     Более подробную информацию о ресурсе `yandex_compute_snapshot` читайте в [документации провайдера]({{ tf-provider-resources-link }}/compute_snapshot).
 
   1. Проверьте корректность конфигурационных файлов.
 

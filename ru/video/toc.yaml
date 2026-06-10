@@ -631,11 +631,5 @@ items:
   - name: История изменений
     href: release-notes.md
   - name: Решение проблем
-    items:
-      - name: Обзор
-        href: troubleshooting/index.md
-      - name: Видеоплеер
-        href: troubleshooting/player.md
-      - name: Загрузка и обработка видео
-        href: troubleshooting/video-processing.md
+    href: troubleshooting/index.md
 path: ru/video/toc.yaml

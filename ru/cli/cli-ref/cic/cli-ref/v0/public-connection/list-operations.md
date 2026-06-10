@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/v0/public-connection/list-operations
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/v0/public-connection/list-operations/
 ---
 
 # yc cic v0 public-connection list-operations

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/v0/workload-identity/oidc/federation/add-audiences
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/v0/workload-identity/oidc/federation/add-audiences/
 ---
 
 # yc iam v0 workload-identity oidc federation add-audiences

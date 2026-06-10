@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/cloud/list-access-policy-bindings
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/cloud/list-access-policy-bindings/
 ---
 
 # yc resource-manager cloud list-access-policy-bindings

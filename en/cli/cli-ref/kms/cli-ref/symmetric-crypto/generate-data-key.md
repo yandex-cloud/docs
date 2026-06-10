@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/symmetric-crypto/generate-data-key
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/symmetric-crypto/generate-data-key/
 ---
 
 # yc kms symmetric-crypto generate-data-key

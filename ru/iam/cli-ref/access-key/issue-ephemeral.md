@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/access-key/issue-ephemeral
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/access-key/issue-ephemeral/
 ---
 
 # yc iam access-key issue-ephemeral

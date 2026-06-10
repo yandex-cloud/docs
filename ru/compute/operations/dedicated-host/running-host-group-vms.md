@@ -86,7 +86,7 @@ description: Следуя данной инструкции, вы сможете
 
       * {% include [dedicated-cli-attach-local-disk](../../../_includes/compute/dedicated-cli-attach-local-disk.md) %}
 
-      Чтобы указать остальные характеристики ВМ, используйте параметры команды `yc compute instance create`, описанные в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/create.md). Подробнее см. в разделах [{#T}](../../concepts/vm.md) и [{#T}](../index.md#vm-create).
+      Чтобы указать остальные характеристики ВМ, используйте параметры команды `yc compute instance create`, описанные в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/create.md). Подробнее в разделах [{#T}](../../concepts/vm.md) и [{#T}](../index.md#vm-create).
 
       Результат:
 

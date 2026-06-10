@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/user/update
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/user/update/
 ---
 
 # yc managed-redis user update
@@ -47,6 +47,9 @@ Set of patterns permissions grant access to ||
 || `--pub-sub-channels` | `string`
 
 Set of pub/sub channels permissions grant access to ||
+|| `--databases` | `string`
+
+Databases permissions grant access to. Possible values: alldbs, resetdbs, db=&lt;id&gt;[,&lt;id&gt;...] ||
 |#
 
 #### Global Flags

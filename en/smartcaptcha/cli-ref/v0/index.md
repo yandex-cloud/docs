@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartcaptcha/cli-ref/v0/
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartcaptcha/cli-ref/v0/
 ---
 
 # yc smartcaptcha v0

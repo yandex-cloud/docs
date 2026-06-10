@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/image/get
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/image/get/
 ---
 
 # yc container image get

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/repository/list-access-bindings
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/repository/list-access-bindings/
 ---
 
 # yc container repository list-access-bindings

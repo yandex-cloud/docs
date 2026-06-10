@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/cluster/update
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/cluster/update/
 ---
 
 # yc container cluster update

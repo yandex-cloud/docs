@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/help
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/help/
 ---
 
 # yc help

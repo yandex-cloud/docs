@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/v0/virtual-host/insert-http-route
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/v0/virtual-host/insert-http-route/
 ---
 
 # yc application-load-balancer v0 virtual-host insert-http-route

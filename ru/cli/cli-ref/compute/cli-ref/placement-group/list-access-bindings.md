@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/placement-group/list-access-bindings
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/placement-group/list-access-bindings/
 ---
 
 # yc compute placement-group list-access-bindings

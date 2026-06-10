@@ -33,7 +33,7 @@ description: Следуя данной инструкции, вы сможете
   1. Раскройте блок **{{ ui-key.yacloud.common.metadata }}** и в появившихся полях укажите:
 
       * **{{ ui-key.yacloud_billing.component.key-values-input.label_key }}** — `user-data`.
-      * **{{ ui-key.yacloud_billing.component.key-values-input.label_value }}** — конфигурация `cloud-config` в формате YAML. Примеры конфигурации для `user-data` см. в подразделе [Примеры](#examples).
+      * **{{ ui-key.yacloud_billing.component.key-values-input.label_value }}** — конфигурация `cloud-config` в формате YAML. Примеры конфигурации для `user-data` приведены в подразделе [Примеры](#examples).
 
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
@@ -81,7 +81,7 @@ description: Следуя данной инструкции, вы сможете
 
   * `--metadata-from-file` — ключ `user-data` и его значение — путь к файлу с конфигурацией `cloud-config` в формате YAML. Например: `--metadata-from-file user-data="/home/user/metadata.yaml"`.
 
-      Примеры конфигурации для `user-data` см. в подразделе [Примеры](#examples).
+      Примеры конфигурации для `user-data` приведены в подразделе [Примеры](#examples).
 
   {% include [cli-metadata-variables-substitution-notice](../../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
@@ -105,7 +105,7 @@ description: Следуя данной инструкции, вы сможете
   Где:
   * `user-data` — путь к файлу с конфигурацией `cloud-config` в формате YAML. Например: `user-data = "${file("/home/user/metadata.yaml")}"`.
   
-      Примеры конфигурации для `user-data` см. в подразделе [Примеры](#examples).
+      Примеры конфигурации для `user-data` приведены в подразделе [Примеры](#examples).
 
 - API {#api}
 
@@ -125,11 +125,11 @@ description: Следуя данной инструкции, вы сможете
   }
   ```
 
-  Примеры конфигурации для `user-data` см. в подразделе [Примеры](#examples).
+  Примеры конфигурации для `user-data` приведены в подразделе [Примеры](#examples).
 
 {% endlist %}
 
-Подробнее о создании ВМ см. в разделе [{#T}](./create-linux-vm.md).
+Подробнее о создании ВМ читайте в разделе [{#T}](./create-linux-vm.md).
 
 Чтобы убедиться в успешном выполнении скриптов конфигурации, [получите вывод последовательного порта](../vm-info/get-serial-port-output.md) ВМ.
 

@@ -102,7 +102,7 @@
       * `role` — назначаемая [роль](../../security/index.md#roles-list).
       * `members` — список типов и идентификаторов [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-      Более подробную информацию о параметрах ресурса `yandex_compute_placement_group_iam_binding` см. в [документации провайдера](../../../terraform/resources/compute_placement_group_iam_binding.md).
+      Более подробную информацию о параметрах ресурса `yandex_compute_placement_group_iam_binding` читайте в [документации провайдера](../../../terraform/resources/compute_placement_group_iam_binding.md).
 
   1. Примените изменения:
 
@@ -252,7 +252,7 @@
       * `role` — назначаемая [роль](../../security/index.md#roles-list).
       * `members` — список типов и идентификаторов [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-      Более подробную информацию о параметрах ресурса `yandex_compute_placement_group_iam_binding` см. в [документации провайдера](../../../terraform/resources/compute_placement_group_iam_binding.md).
+      Более подробную информацию о параметрах ресурса `yandex_compute_placement_group_iam_binding` читайте в [документации провайдера](../../../terraform/resources/compute_placement_group_iam_binding.md).
 
   1. Примените изменения:
 

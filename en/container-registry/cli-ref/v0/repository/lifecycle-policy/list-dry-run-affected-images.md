@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/v0/repository/lifecycle-policy/list-dry-run-affected-images
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/v0/repository/lifecycle-policy/list-dry-run-affected-images/
 ---
 
 # yc container v0 repository lifecycle-policy list-dry-run-affected-images

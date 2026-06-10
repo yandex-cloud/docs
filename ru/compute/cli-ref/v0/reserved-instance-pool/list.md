@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/reserved-instance-pool/list
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/reserved-instance-pool/list/
 ---
 
 # yc compute v0 reserved-instance-pool list

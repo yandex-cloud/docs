@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/v0/symmetric-key/cancel-version-destruction
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/v0/symmetric-key/cancel-version-destruction/
 ---
 
 # yc kms v0 symmetric-key cancel-version-destruction

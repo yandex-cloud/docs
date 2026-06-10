@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/audit-trails/cli-ref/trail/list-operations
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/audit-trails/cli-ref/trail/list-operations/
 ---
 
 # yc audit-trails trail list-operations

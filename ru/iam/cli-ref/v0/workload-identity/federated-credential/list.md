@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/v0/workload-identity/federated-credential/list
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/v0/workload-identity/federated-credential/list/
 ---
 
 # yc iam v0 workload-identity federated-credential list

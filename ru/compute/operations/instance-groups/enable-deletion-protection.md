@@ -116,7 +116,7 @@ description: Следуя данной инструкции, вы сможете
 
      Где `deletion_protection` — защита группы ВМ от удаления: `true` или `false`. Пока опция включена, группу ВМ удалить невозможно. Значение по умолчанию — `false`.
 
-     Более подробную информацию о параметрах ресурса `yandex_compute_instance_group` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance_group).
+     Более подробную информацию о параметрах ресурса `yandex_compute_instance_group` в {{ TF }} читайте в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance_group).
 
   1. Примените изменения:
 
@@ -206,7 +206,7 @@ description: Следуя данной инструкции, вы сможете
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_compute_instance_group` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance_group).
+     Более подробную информацию о параметрах ресурса `yandex_compute_instance_group` в {{ TF }} читайте в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance_group).
 
   1. Примените изменения:
 

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/desktops/cli-ref/v0/desktop/get-rdp-file
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/desktops/cli-ref/v0/desktop/get-rdp-file/
 ---
 
 # yc desktops v0 desktop get-rdp-file

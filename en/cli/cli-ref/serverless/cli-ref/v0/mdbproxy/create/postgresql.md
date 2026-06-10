@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/v0/mdbproxy/create/postgresql
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/v0/mdbproxy/create/postgresql/
 ---
 
 # yc serverless v0 mdbproxy create postgresql

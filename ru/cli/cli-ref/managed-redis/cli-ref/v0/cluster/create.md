@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/v0/cluster/create
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/v0/cluster/create/
 ---
 
 # yc managed-redis v0 cluster create
@@ -74,7 +74,9 @@ Possible property names:
 
 - `patterns`: Set of patterns permissions grant access to
 
-- `pub-sub-channels`: Set of pub/sub channels permissions grant access to ||
+- `pub-sub-channels`: Set of pub/sub channels permissions grant access to
+
+- `databases`: Databases permissions grant access to. Possible values: alldbs, resetdbs, db=&lt;id&gt;[,&lt;id&gt;...] ||
 || `--sharded` | Enables sharding for Redis cluster. ||
 || `--security-group-ids` | `value[,value]`
 

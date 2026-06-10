@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kubernetes/cli-ref/cluster/reschedule-maintenance
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kubernetes/cli-ref/cluster/reschedule-maintenance/
 ---
 
 # yc managed-kubernetes cluster reschedule-maintenance

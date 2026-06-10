@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/operation/cli-ref/v0/wait
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/operation/cli-ref/v0/wait/
 ---
 
 # yc operation v0 wait

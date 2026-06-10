@@ -43,12 +43,15 @@
 
        1. [Создайте кластер-источник и кластер-приемник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с публичным доступом из интернета.
 
+                        
             {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
 
        1. [Создайте в кластере-источнике топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `sensors`.
        1. [Создайте в кластере-источнике пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с правами доступа `ACCESS_ROLE_PRODUCER`, `ACCESS_ROLE_CONSUMER` к созданному топику.
        1. [Создайте в кластере-приемнике пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с правами доступа `ACCESS_ROLE_PRODUCER`, `ACCESS_ROLE_CONSUMER` ко всем топикам.
 
+   
    - {{ TF }} {#tf}
 
        1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
@@ -66,18 +69,21 @@
            * кластер-источник {{ mkf-name }} с публичным доступом из интернета;
            * топик {{ KF }} для кластера-источника;
            * пользователь {{ KF }} для кластера-источника;
-           * кластер-приемник {{ mkf-name }};
+           * кластер-приемник {{ mkf-name }} с публичным доступом из интернета;
            * топик {{ KF }} для кластера-приемника;
            * пользователь {{ KF }} для кластера-приемника;
+           * эндпоинты для источника и приемника;
            * трансфер.
 
        1. Укажите в файле `data-transfer-mkf-mkf.tf` значения параметров:
 
-           * `source_kf_version` — версия {{ KF }} в кластере-источнике;
-           * `source_user_name` — имя пользователя для подключения к топику {{ KF }};
-           * `source_user_password` — пароль пользователя;
-           * `target_kf_version` — версия {{ KF }} в кластере-приемнике;
-           * `transfer_enabled` — значение `0`, чтобы не создавать трансфер до [создания эндпоинта-приемника и эндпоинта-источника вручную](#prepare-transfer).
+           * `source_kf_version` — версия {{ KF }} в кластере-источнике.
+           * `source_user_name` — имя пользователя для подключения к топику {{ KF }}.
+           * `source_user_password` — пароль пользователя.
+           * `target_kf_version` — версия {{ KF }} в кластере-приемнике.
+           * `target_user_name` — имя пользователя для подключения к топику {{ KF }}.
+           * `target_user_password` — пароль пользователя.
+           * `transfer_enabled = 0` — отключает создание эндпоинтов и трансфера. Они будут созданы при [подготовке трансфера](#prepare-transfer).
 
        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
@@ -92,6 +98,7 @@
            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
            {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
 
    {% endlist %}
 
@@ -129,60 +136,56 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
+{% list tabs group=instructions %}
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Kafka`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.title }}**:
+- Вручную {#manual}
 
-       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+  1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 
-          Выберите кластер-приемник из списка и укажите настройки подключения к нему.
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Kafka`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.title }}**:
 
-       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**:
-          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}** — `measurements`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
-1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
+           Выберите кластер-приемник из списка и укажите настройки подключения к нему.
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Kafka`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
-       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**:
+           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}** — `measurements`.
+
+  1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
+
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Kafka`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
           Выберите кластер-источник из списка и укажите настройки подключения к нему.
 
-       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}** — `sensors`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}** — `sensors`.
 
-1. Создайте трансфер:
+  1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа {{ dt-type-repl }}, использующий созданные эндпоинты.
+  1. [Активируйте](../../data-transfer/operations/transfer.md#activate) трансфер.
 
-    {% list tabs group=instructions %}
 
-    - Вручную {#manual}
+- {{ TF }} {#tf}
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа {{ dt-type-repl }}, использующий созданные эндпоинты.
-        1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
+  1. Укажите в файле `data-transfer-mkf-mkf.tf` значение параметра `transfer_enabled = 1`.
 
-    - {{ TF }} {#tf}
+  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
-        1. Укажите в файле `data-transfer-mkf-mkf.tf` значения параметров:
+      ```bash
+      terraform validate
+      ```
 
-            * `source_endpoint_id` — значение идентификатора эндпоинта для источника;
-            * `target_endpoint_id` — значение идентификатора эндпоинта для приемника;
-            * `transfer_enabled` – значение `1` для создания трансфера.
+      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+  1. Создайте необходимую инфраструктуру:
 
-            ```bash
-            terraform validate
-            ```
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+      Будут созданы эндпоинты и трансфер. Трансфер активируется автоматически после создания.
 
-        1. Создайте необходимую инфраструктуру:
 
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-            Трансфер активируется автоматически после создания.
-
-    {% endlist %}
+{% endlist %}
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
@@ -266,20 +269,22 @@
 
 {% endnote %}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete-transfer).
-1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
-1. Остальные ресурсы удалите в зависимости от способа их создания:
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-   {% list tabs group=instructions %}
 
-   - Вручную {#manual}
+{% list tabs group=instructions %}
 
-       [Удалите кластеры {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+- Вручную {#manual}
 
-   - {{ TF }} {#tf}
+  1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete-transfer).
+  1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
+  1. [Удалите кластеры {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
 
-       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-   {% endlist %}
+- {{ TF }} {#tf}
+
+  {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
+
+
+{% endlist %}

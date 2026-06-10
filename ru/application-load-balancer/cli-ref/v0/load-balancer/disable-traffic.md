@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/v0/load-balancer/disable-traffic
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/v0/load-balancer/disable-traffic/
 ---
 
 # yc application-load-balancer v0 load-balancer disable-traffic

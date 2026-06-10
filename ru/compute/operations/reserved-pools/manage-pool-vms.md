@@ -9,7 +9,7 @@ description: Из статьи вы узнаете, как создавать в
 
 {% include [reserved-pools-preview-notice](../../../_includes/compute/reserved-pools-preview-notice.md) %}
 
-Вы можете привязывать к пулам резервов ВМ как вновь создаваемые, так и существующие виртуальные машины. Подробнее см. в разделе [{#T}](../../concepts/reserved-pools.md).
+Вы можете привязывать к пулам резервов ВМ как вновь создаваемые, так и существующие виртуальные машины. Подробнее в разделе [{#T}](../../concepts/reserved-pools.md).
 
 {% include [reserved-pools-attach-rule](../../../_includes/compute/reserved-pools-attach-rule.md) %}
 

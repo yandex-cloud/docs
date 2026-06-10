@@ -165,7 +165,7 @@ ACL | Описание
   yc resource-manager folder remove-access-binding \
     --id b1g7gvsi89m3******** \
     --role viewer \
-    --allUsers
+    --subject system:allUsers
   ```
 
 ### См. также {#see-also}

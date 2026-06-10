@@ -1348,18 +1348,6 @@ default:
         12_month: dn21fsqmbhvseaof5pf6
         3_month: dn2pstl57mu8t3c1qm4q
         6_month: dn2jc74moe4laf8m6m7j
-      ba_i215_ss_10g:
-        1_day: dn2h6lrfdk4nac5wgwuq
-        1_month: dn2mgkgws5vkgcmx66i7
-        12_month: dn2orsv7lvzgtlixnsg4
-        3_month: dn2xvje2mxqacwktsmm7
-        6_month: dn2kl2dpcdusi7z2oe72
-      ba_i216_ss_1_10g:
-        1_day: dn2zyeoen3zgazt4haws
-        1_month: dn2pjbzzniodflca5tru
-        12_month: dn2p7j4g65rioh676pec
-        3_month: dn2td7drocpwss27prtp
-        6_month: dn24m37i7jgimv47zsao
       ba_i218_s:
         1_day: dn2yspxmcbxndak267qp
         1_month: dn2eyi7ztdxbxmd4dgj5
@@ -8606,11 +8594,21 @@ default:
         label_default-smartcaptcha-name: Default
         label_domain-protection: Domain security
         label_domain-protection-domains: Domains
+        label_match-list_ip_qG1ho: IP addresses
         label_search-rule-type: 'Rule type:'
         match-lists:
+          label_action-edit-description: Change description
           label_create-list: Create list
           label_create-match-list: Create list
           label_match-lists: Lists
+        MatchListActions:
+          button_download_bdcBp: Download list
+          button_edit-list-items_2JFvu: Edit list
+        MatchListForm:
+          item-type_asn_oyhKw: ASN numbers
+          item-type_ip_7TYwL: IP addresses
+          item-type_regexp_eLHPr: Regular expressions
+          item-type_string_hGRJK: String values
         MatchListTable:
           button_add-to-list_1kKXh: Add to list
         overview:

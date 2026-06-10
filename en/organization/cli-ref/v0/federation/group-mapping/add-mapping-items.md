@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/federation/group-mapping/add-mapping-items
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/federation/group-mapping/add-mapping-items/
 ---
 
 # yc organization-manager v0 federation group-mapping add-mapping-items

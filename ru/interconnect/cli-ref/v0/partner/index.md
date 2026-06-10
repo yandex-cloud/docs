@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/v0/partner/
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/v0/partner/
 ---
 
 # yc cic v0 partner

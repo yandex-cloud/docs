@@ -30,7 +30,7 @@ description: Следуя данной инструкции, вы сможете
   1. В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` и в появившемся списке выберите нужный снимок. При необходимости воспользуйтесь фильтром.
   1. Задайте параметры диска: [тип диска](../../concepts/disk.md#disks_types), [размер диска](../../concepts/disk.md#maximum-disk-size), а также [размер блока](../../concepts/disk.md#maximum-disk-size).
   1. {% include [encryption-section](../../../_includes/compute/encryption-section.md) %}
-  1. Если требуется, выберите [расписание](../../concepts/snapshot-schedule.md), по которому для диска будут автоматически создаваться снимки, или создайте его. Подробнее о настройках расписания см. в [инструкции](../snapshot-control/create-schedule.md).
+  1. Если требуется, выберите [расписание](../../concepts/snapshot-schedule.md), по которому для диска будут автоматически создаваться снимки, или создайте его. Подробнее о настройках расписания читайте в [инструкции](../snapshot-control/create-schedule.md).
 
       {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
@@ -130,7 +130,7 @@ description: Следуя данной инструкции, вы сможете
           pci_topology: PCI_TOPOLOGY_V2
       ```
 
-      Подробнее о команде `yc compute disk create` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/disk/create.md).
+      Подробнее о команде `yc compute disk create` читайте в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/disk/create.md).
 
   1. Получите список дисков в каталоге по умолчанию:
 
@@ -220,7 +220,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% endnote %}
 
-      Более подробную информацию о ресурсе `yandex_compute_disk` см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_disk).
+      Более подробную информацию о ресурсе `yandex_compute_disk` читайте в [документации провайдера]({{ tf-provider-resources-link }}/compute_disk).
 
   1. Проверьте корректность конфигурационных файлов.
 

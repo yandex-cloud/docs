@@ -33,7 +33,7 @@ description: Из статьи вы узнаете, что такое шабло
 
 Кроме дисков, к виртуальным машинам в группе можно подключать [файловые хранилища](../filesystem.md). Файловые хранилища позволяют настроить работу ВМ со [Stateful-нагрузкой](./stateful-workload.md) за счет сохранения состояний запущенных на ВМ приложений в независимом от группы ВМ хранилище.
 
-После подключения файлового хранилища к ВМ группы, [смонтируйте](../../operations/filesystem/attach-to-vm.md) его в операционной системе виртуальной машины. Подключать файловые хранилища можно с помощью [CLI](../../../cli/quickstart.md), [{{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md) или [API](../../api-ref/). Подробнее см. в разделе [{#T}](../../operations/instance-groups/create-with-filesystem.md).
+После подключения файлового хранилища к ВМ группы [смонтируйте](../../operations/filesystem/attach-to-vm.md) его в операционной системе виртуальной машины. Подключать файловые хранилища можно с помощью [CLI](../../../cli/quickstart.md), [{{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md) или [API](../../api-ref/). Подробнее в разделе [{#T}](../../operations/instance-groups/create-with-filesystem.md).
 
 ## Сеть {#network}
 
@@ -149,14 +149,14 @@ instance_template:
 `boot_disk_spec.disk_spec.size` | Размер диска в байтах. Допустимые значения — от 4194304 (4 МБ) до 4398046511104 (4 ТБ) включительно.
 `boot_disk_spec.preserve_after_instance_delete` | Опция для сохранения диска после удаления виртуальной машины.</br>– `true` — сохранять диск после удаления виртуальной машины.</br>– `false` — удалять диск вместе с виртуальной машиной.
 `secondary_disk_specs` | (опционально) Параметры дополнительных дисков.
-`secondary_disk_specs.name` | (опционально) Имя дополнительного диска. В одной спецификации имена должны быть либо присвоены всем дополнительным дискам, либо не присвоены ни одному. Подробнее см. в разделе [{#T}](./deploy/secondary-disk.md).
+`secondary_disk_specs.name` | (опционально) Имя дополнительного диска. В одной спецификации имена должны быть либо присвоены всем дополнительным дискам, либо не присвоены ни одному. Подробнее в разделе [{#T}](./deploy/secondary-disk.md).
 `secondary_disk_specs.mode` | Режим доступа к диску.</br>– `READ_ONLY` — доступ на чтение.</br>– `READ_WRITE` — доступ на чтение и запись.
 `secondary_disk_specs.disk_spec.preserve_after_instance_delete` | Опция для сохранения диска после удаления виртуальной машины.</br>– `true` — сохранять диск после удаления виртуальной машины.</br>– `false` — удалять диск вместе с виртуальной машиной.
 `secondary_disk_specs.disk_spec.type_id` | Идентификатор типа диска. Чтобы получить список доступных типов дисков, используйте запрос [diskTypes](../../api-ref/DiskType/list.md).
 `secondary_disk_specs.disk_spec.size` | Размер диска в байтах. Допустимые значения — от 4194304 (4 МБ) до 4398046511104 (4 ТБ) включительно.
 `filesystem_specs` | (опционально) Параметры файлового хранилища.
 `filesystem_specs.mode` | Режим доступа к файловому хранилищу: </br>– `READ_ONLY` — доступ на чтение.</br>– `READ_WRITE` — доступ на чтение и запись (по умолчанию).
-`filesystem_specs.device_name` | Имя устройства, под которым файловое хранилище будет подключено к ВМ. Например: `sample-fs`. После подключения файлового хранилища к ВМ группы, [смонтируйте](../../operations/filesystem/attach-to-vm.md) его в операционной системе виртуальной машины. Подробнее см. в разделе [{#T}](../../operations/instance-groups/create-with-filesystem.md).
+`filesystem_specs.device_name` | Имя устройства, под которым файловое хранилище будет подключено к ВМ. Например: `sample-fs`. После подключения файлового хранилища к ВМ группы, [смонтируйте](../../operations/filesystem/attach-to-vm.md) его в операционной системе виртуальной машины. Подробнее в разделе [{#T}](../../operations/instance-groups/create-with-filesystem.md).
 `filesystem_specs.filesystem_id` | Идентификатор файлового хранилища.
 `network_interface_specs.network_id` | Идентификатор облачной сети.
 `network_interface_specs.subnet_ids` | Идентификаторы облачных подсетей.

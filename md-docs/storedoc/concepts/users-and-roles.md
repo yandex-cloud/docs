@@ -28,6 +28,7 @@
 
 Роли, необходимые для мониторинга и администрирования кластера. Назначаются для служебной базы данных `admin`.
 
+
 ### mdbMonitor {#mdbMonitor}
 
 Роль для сбора статистики и мониторинга. Предоставляет пользователю следующие права:
@@ -72,6 +73,7 @@
   * `listCollections`
   * `listIndexes`
   * `planCacheRead`
+
 
 ### mdbShardingManager {#mdbShardingManager}
 

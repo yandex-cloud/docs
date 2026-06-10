@@ -168,7 +168,7 @@ description: Из статьи вы узнаете, как можно перен
              * `target_port` — целевой порт, на который балансировщик будет направлять трафик. 
              * `subnet_id` — идентификатор подсети в той зоне доступности, в которую вы хотите перенести группу ВМ.
 
-             Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+             Более подробную информацию о параметрах ресурсов в {{ TF }} читайте в [документации провайдера]({{ tf-provider-resources-link }}/lb_network_load_balancer).
           1. Примените изменения:
 
              {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

@@ -148,7 +148,7 @@
                   * `PCI_TOPOLOGY_V1` — топология `PCI_TOPOLOGY_V1` соответствует поколению оборудования `Gen 1.1`.
                   * `PCI_TOPOLOGY_V2` — топология `PCI_TOPOLOGY_V2` соответствует поколению оборудования `Gen 1.2`.
           Блок параметров `hardware_generation` — необязательный. Если не задан, к создаваемому образу будет привязано поколение оборудования `Gen 1.1`.
-      Подробную информацию о параметрах ресурса `yandex_compute_image` см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_image).
+      Подробную информацию о параметрах ресурса `yandex_compute_image` читайте в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_image).
   1. Создайте ресурсы:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

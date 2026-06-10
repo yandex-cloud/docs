@@ -2,6 +2,32 @@
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.13.0 (09.06.26) {#v-1-13-0}
+
+#### Изменения в системных командах CLI {#v-1-13-0-yc}
+
+* Добавлено удаление старого профиля при реинициализации `yc init`.
+
+#### Yandex Managed Service for Valkey™ {#v-1-13-0-mrd-name}
+
+Добавлен параметр `--databases` в команды для добавления/обновления пользователей в Valkey ACL:
+* `yc managed-redis user create`;
+* `yc managed-redis user update`.
+
+#### Managed Service for OpenSearch {#v-1-13-0-mos-name}
+
+Добавлены новые флаги для гранулярного управления событиями, которые отображаются в аудитных логах:
+* `--compliance-enabled`;
+* `--log-request-body`;
+* `--log-search-queries`;
+* `--log-data-modifications`;
+* `--log-index-metadata-access`;
+* `--log-monitoring-checks`;
+* `--log-index-maintenance`;
+* `--log-backup-operations`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.12.0 (04.06.26) {#v-1-12-0}
 
 #### Изменения в системных командах CLI {#v-1-12-0-yc}
@@ -66,8 +92,6 @@
 Добавлена поддержка ресурс-групп Apache Cloudberry: новые параметры `--cpu-max-percent`, `--cpu-weight`, `--memory-quota`, `--min-cost`, `--io-limit` для команд:
   * `yc managed-greenplum resource-groups create`;
   * `yc managed-greenplum resource-groups update`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.11.0 (28.05.26) {#v-1-11-0}
 

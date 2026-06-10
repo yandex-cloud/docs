@@ -52,7 +52,7 @@ description: Следуя данной инструкции, вы сможете
       }
       ```
 
-      Подробнее о ресурсе `yandex_compute_disk` см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
+      Подробнее о ресурсе `yandex_compute_disk` читайте в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
 
     {% endlist %}
 

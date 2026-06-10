@@ -191,7 +191,7 @@ description: Следуя данной инструкции, вы сможете
       * `subnet_id` — идентификатор [подсети](../../../vpc/concepts/network.md#subnet).
       * `allow_stopping_for_update` — параметр для разрешения остановки ВМ на время обновления.
 
-      Более подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
+      Более подробную информацию о параметрах ресурса `yandex_compute_instance` читайте в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
 
   1. Создайте ресурсы:
 

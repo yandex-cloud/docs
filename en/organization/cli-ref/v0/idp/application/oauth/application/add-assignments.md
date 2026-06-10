@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/idp/application/oauth/application/add-assignments
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/idp/application/oauth/application/add-assignments/
 ---
 
 # yc organization-manager v0 idp application oauth application add-assignments
