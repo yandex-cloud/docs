@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/v0/s3api/complete-multipart-upload
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/v0/s3api/complete-multipart-upload/
 ---
 
 # yc storage v0 s3api complete-multipart-upload

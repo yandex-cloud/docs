@@ -36,7 +36,7 @@
      * `gce-http-endpoint` — параметр управляет доступом к метаданным с использованием формата Google Compute Engine. Возможные значения: `enabled`, `disabled`.
      * `gce-http-token` — параметр управляет доступом к получению через метаданные Google Compute Engine [IAM-токена](../../../iam/concepts/authorization/iam-token.md) сервисного аккаунта, подключенного к ВМ. Возможные значения: `enabled`, `disabled`.
 
-     Подробнее см. в разделе [Параметры сервиса метаданных ВМ](../../concepts/vm-metadata.md#metadata-formats).
+     Подробнее в разделе [Параметры сервиса метаданных ВМ](../../concepts/vm-metadata.md#metadata-formats).
 
   Чтобы настроить параметры сервиса метаданных ВМ при создании, аналогичным образом используйте параметр `--metadata-options` в [команде](../../../cli/cli-ref/compute/cli-ref/instance/create.md) `yc compute instance create`.
 
@@ -74,9 +74,9 @@
          * `gce_http_endpoint` — параметр управляет доступом к метаданным с использованием формата Google Compute Engine. Возможные значения: `0` и `1` — `enabled`, `2` — `disabled`.
          * `gce_http_token` — параметр управляет доступом к получению через метаданные Google Compute Engine [IAM-токена](../../../iam/concepts/authorization/iam-token.md) сервисного аккаунта, подключенного к ВМ. Возможные значения: `0` и `1` — `enabled`, `2` — `disabled`.
 
-       Подробнее см. в разделе [Параметры сервиса метаданных ВМ](../../concepts/vm-metadata.md#metadata-formats).
+       Подробнее в разделе [Параметры сервиса метаданных ВМ](../../concepts/vm-metadata.md#metadata-formats).
 
-     Более подробную информацию о параметрах ресурса `yandex_compute_instance` в Terraform см. в [документации провайдера](../../../terraform/resources/compute_instance.md).
+     Более подробную информацию о параметрах ресурса `yandex_compute_instance` в Terraform читайте в [документации провайдера](../../../terraform/resources/compute_instance.md).
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.

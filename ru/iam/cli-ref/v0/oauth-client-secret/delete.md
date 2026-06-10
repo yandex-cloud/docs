@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/v0/oauth-client-secret/delete
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/v0/oauth-client-secret/delete/
 ---
 
 # yc iam v0 oauth-client-secret delete

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/v0/registry/list-device-topic-aliases
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/v0/registry/list-device-topic-aliases/
 ---
 
 # yc iot v0 registry list-device-topic-aliases

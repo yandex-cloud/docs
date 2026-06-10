@@ -32,7 +32,7 @@ _Метаданные виртуальной машины_ — это метаи
 
 Получить текущие значения параметров сервиса метаданных ВМ вы можете вместе с [информацией о ВМ](./metadata/accessing-metadata.md#external-access) с помощью [CLI](../../cli/cli-ref/compute/cli-ref/instance/get.md) и [API](../api-ref/Instance/get.md).
 
-Настроить параметры сервиса метаданных вы можете при [создании](../operations/index.md#vm-create) или [изменении](../operations/vm-control/vm-update.md) ВМ. Подробнее о том, как настроить параметры сервиса метаданных, см. в [инструкции](../operations/vm-metadata/setup-metadata-service.md).
+Настроить параметры сервиса метаданных вы можете при [создании](../operations/index.md#vm-create) или [изменении](../operations/vm-control/vm-update.md) ВМ. Подробнее о том, как настроить параметры сервиса метаданных, читайте в [инструкции](../operations/vm-metadata/setup-metadata-service.md).
 
 ## Примеры использования {#examples}
 

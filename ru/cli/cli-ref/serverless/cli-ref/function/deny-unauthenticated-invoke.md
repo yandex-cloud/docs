@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/function/deny-unauthenticated-invoke
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/function/deny-unauthenticated-invoke/
 ---
 
 # yc serverless function deny-unauthenticated-invoke

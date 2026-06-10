@@ -1,6 +1,6 @@
 # Внешние таблицы
 
-{{ mgp-name }} позволяет работать с данными в источниках, внешних по отношению к кластеру {{ mgp-name }}. Для этого используются _внешние таблицы_ — специальные объекты в базе данных, которые ссылаются на таблицы, бакеты или файлы внешних источников. Для доступа к данным во внешних СУБД используется протокол [{{ GP }} Platform Extension Framework](../operations/external-tables.md) (PXF), а к файлам на внешних файловых серверах — утилита [{{ GP }} Parallel File Server](../operations/gpfdist/connect.md) (`gpfdist`).
+{{ mgp-name }} позволяет работать с данными в источниках, внешних по отношению к кластеру {{ mgp-name }}. Для этого используются _внешние таблицы_ — специальные объекты в базе данных, которые ссылаются на таблицы, бакеты или файлы внешних источников. Для доступа к данным во внешних СУБД используется протокол [{{ GP }} Platform Extension Framework](../operations/external-tables.md) (PXF), а к файлам на внешних файловых серверах — утилита [{{ GP }} Parallel File Server](../operations/gpfdist/connect.md) (`gpfdist`). Для СУБД {{ GP }} и {{ CB }} используются разные утилиты `gpfdist`. Подробнее об утилитах в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-gpfdist.html) и [{{ CB }}]({{ gp.docs.cloudberry }}/sys-utilities/gpfdist).
 
 С помощью внешних таблиц вы можете:
 
@@ -33,3 +33,5 @@
 * [{#T}](../tutorials/pxf-named-queries.md)
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [cloudberry-trademark](../../_includes/mdb/mgp/trademark-cloudberry.md) %}

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/desktops/cli-ref/v0/group/remove-access-bindings
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/desktops/cli-ref/v0/group/remove-access-bindings/
 ---
 
 # yc desktops v0 group remove-access-bindings

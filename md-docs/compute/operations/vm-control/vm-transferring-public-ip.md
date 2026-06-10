@@ -130,7 +130,7 @@
   * `--id` — идентификатор (ID) ВМ. Получите список идентификаторов ВМ, доступных в каталоге, с помощью [команды CLI](../../../cli/cli-ref/compute/cli-ref/instance/list.md) `yc compute instance list`.
   * `--network-interface-index` — номер сетевого интерфейса ВМ. По умолчанию — `0`. Чтобы получить список сетевых интерфейсов ВМ и их номера, выполните команду `yc compute instance get <идентификатор_ВМ>`.
 
-  Подробнее о команде `yc compute instance remove-one-to-one-nat` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/remove-one-to-one-nat.md).
+  Подробнее о команде `yc compute instance remove-one-to-one-nat` читайте в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/remove-one-to-one-nat.md).
 
 - API {#api}
 
@@ -180,7 +180,7 @@
   1. Выберите нужную ВМ.
   1. В открывшемся окне в секции **Сеть** в правом верхнем углу блока нужного сетевого интерфейса нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Добавить публичный IP-адрес**. В открывшемся окне:
       * В поле **Публичный адрес** выберите `Автоматически`, чтобы автоматически получить IP-адрес, или `Список`, чтобы выбрать зарезервированный адрес из списка.
-      * (Опционально) Если в поле **Публичный адрес** вы выбрали `Автоматически`, включите опцию **Защита от DDoS-атак**. Подробнее см. в разделе [Yandex DDoS Protection в Virtual Private Cloud](../../../vpc/ddos-protection/index.md).
+      * (Опционально) Если в поле **Публичный адрес** вы выбрали `Автоматически`, включите опцию **Защита от DDoS-атак**. Подробнее в разделе [Yandex DDoS Protection в Virtual Private Cloud](../../../vpc/ddos-protection/index.md).
       * Если в поле **Публичный адрес** вы выбрали `Список`, выберите IP-адрес, который хотите привязать к ВМ. IP-адрес и ВМ должны находиться в одной зоне доступности.
       * Нажмите кнопку **Добавить**.
 
@@ -227,7 +227,7 @@
   placement_policy: {}
   ```
 
-  Подробнее о команде `yc compute instance add-one-to-one-nat` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/add-one-to-one-nat.md).
+  Подробнее о команде `yc compute instance add-one-to-one-nat` читайте в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/add-one-to-one-nat.md).
 
 - Terraform {#tf}
 
@@ -286,7 +286,7 @@
 
      IP-адрес и ВМ должны находиться в одной зоне доступности.
 
-     Более подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера](../../../terraform/resources/compute_instance.md).
+     Более подробную информацию о параметрах ресурса `yandex_compute_instance` читайте в [документации провайдера](../../../terraform/resources/compute_instance.md).
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.

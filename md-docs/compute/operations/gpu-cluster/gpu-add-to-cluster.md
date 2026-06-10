@@ -102,8 +102,8 @@
 
        {% endnote %}
 
-       Подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера Terraform](../../../terraform/resources/compute_instance.md).
-  1. В блоке `metadata` укажите имя пользователя и путь к открытому [SSH-ключу](../../../glossary/ssh-keygen.md). Подробнее см. в разделе [Метаданные виртуальной машины](../../concepts/vm-metadata.md).
+       Подробную информацию о параметрах ресурса `yandex_compute_instance` читайте в [документации провайдера Terraform](../../../terraform/resources/compute_instance.md).
+  1. В блоке `metadata` укажите имя пользователя и путь к открытому [SSH-ключу](../../../glossary/ssh-keygen.md). Подробнее в разделе [Метаданные виртуальной машины](../../concepts/vm-metadata.md).
   1. Создайте ресурсы:
 
     1. В терминале перейдите в директорию с конфигурационным файлом.

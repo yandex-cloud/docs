@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-airflow/cli-ref/cluster/update
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-airflow/cli-ref/cluster/update/
 ---
 
 # yc managed-airflow cluster update

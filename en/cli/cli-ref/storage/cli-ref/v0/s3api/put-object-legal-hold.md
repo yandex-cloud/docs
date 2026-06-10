@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/v0/s3api/put-object-legal-hold
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/v0/s3api/put-object-legal-hold/
 ---
 
 # yc storage v0 s3api put-object-legal-hold

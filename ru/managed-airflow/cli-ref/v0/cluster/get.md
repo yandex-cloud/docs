@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-airflow/cli-ref/v0/cluster/get
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-airflow/cli-ref/v0/cluster/get/
 ---
 
 # yc managed-airflow v0 cluster get

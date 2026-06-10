@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-ytsaurus/cli-ref/v0/cluster/stop
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-ytsaurus/cli-ref/v0/cluster/stop/
 ---
 
 # yc managed-ytsaurus v0 cluster stop

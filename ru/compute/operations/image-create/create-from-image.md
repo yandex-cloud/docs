@@ -133,7 +133,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% endnote %}
 
-     Более подробную информацию о ресурсе `yandex_compute_image` см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_image).
+     Более подробную информацию о ресурсе `yandex_compute_image` читайте в [документации провайдера]({{ tf-provider-resources-link }}/compute_image).
 
   1. Проверьте корректность конфигурационных файлов.
 

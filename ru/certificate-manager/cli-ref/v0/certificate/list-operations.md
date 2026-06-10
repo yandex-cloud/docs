@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/certificate-manager/cli-ref/v0/certificate/list-operations
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/certificate-manager/cli-ref/v0/certificate/list-operations/
 ---
 
 # yc certificate-manager v0 certificate list-operations

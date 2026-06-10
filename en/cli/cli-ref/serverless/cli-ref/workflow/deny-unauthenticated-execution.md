@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/workflow/deny-unauthenticated-execution
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/workflow/deny-unauthenticated-execution/
 ---
 
 # yc serverless workflow deny-unauthenticated-execution

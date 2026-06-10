@@ -128,7 +128,7 @@
       
       Instance Groups начнет по очереди пересоздавать заданные ВМ в группе. Пересозданные ВМ перейдут в статус `Running`.
 
-  Подробную информацию о параметрах команды `yc compute instance-group rolling-recreate` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance-group/rolling-recreate.md).
+  Подробную информацию о параметрах команды `yc compute instance-group rolling-recreate` читайте в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance-group/rolling-recreate.md).
 
 - API {#api}
 

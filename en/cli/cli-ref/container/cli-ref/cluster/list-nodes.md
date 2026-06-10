@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/cluster/list-nodes
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/cluster/list-nodes/
 ---
 
 # yc container cluster list-nodes

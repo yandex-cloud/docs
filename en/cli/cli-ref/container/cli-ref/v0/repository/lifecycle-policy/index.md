@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/v0/repository/lifecycle-policy/
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/v0/repository/lifecycle-policy/
 ---
 
 # yc container v0 repository lifecycle-policy

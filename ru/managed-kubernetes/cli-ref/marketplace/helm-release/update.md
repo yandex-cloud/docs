@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kubernetes/cli-ref/marketplace/helm-release/update
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kubernetes/cli-ref/marketplace/helm-release/update/
 ---
 
 # yc managed-kubernetes marketplace helm-release update

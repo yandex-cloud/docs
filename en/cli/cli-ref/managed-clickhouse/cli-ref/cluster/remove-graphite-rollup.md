@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/cluster/remove-graphite-rollup
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/cluster/remove-graphite-rollup/
 ---
 
 # yc managed-clickhouse cluster remove-graphite-rollup

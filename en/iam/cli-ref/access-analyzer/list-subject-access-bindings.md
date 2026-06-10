@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/access-analyzer/list-subject-access-bindings
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/access-analyzer/list-subject-access-bindings/
 ---
 
 # yc iam access-analyzer list-subject-access-bindings

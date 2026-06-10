@@ -128,7 +128,7 @@
       
       Instance Groups начнет по очереди перезагружать указанные ВМ в группе. Перезагруженные ВМ перейдут в статус `Running`.
 
-  Подробную информацию о параметрах команды `yc compute instance-group rolling-restart` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance-group/rolling-restart.md).
+  Подробную информацию о параметрах команды `yc compute instance-group rolling-restart` читайте в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance-group/rolling-restart.md).
 
 - API {#api}
 

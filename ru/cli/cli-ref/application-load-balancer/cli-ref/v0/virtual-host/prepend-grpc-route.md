@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/v0/virtual-host/prepend-grpc-route
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/v0/virtual-host/prepend-grpc-route/
 ---
 
 # yc application-load-balancer v0 virtual-host prepend-grpc-route

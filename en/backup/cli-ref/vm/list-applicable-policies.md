@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/vm/list-applicable-policies
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/vm/list-applicable-policies/
 ---
 
 # yc backup vm list-applicable-policies

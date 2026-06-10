@@ -69,7 +69,9 @@ Possible property names:
 
 - `patterns`: Set of patterns permissions grant access to
 
-- `pub-sub-channels`: Set of pub/sub channels permissions grant access to ||
+- `pub-sub-channels`: Set of pub/sub channels permissions grant access to
+
+- `databases`: Databases permissions grant access to. Possible values: alldbs, resetdbs, db=&lt;id&gt;[,&lt;id&gt;...] ||
 || `--sharded` | Enables sharding for Redis cluster. ||
 || `--security-group-ids` | `value[,value]`
 

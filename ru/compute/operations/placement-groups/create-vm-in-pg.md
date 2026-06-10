@@ -114,7 +114,7 @@ description: Следуя данной инструкции, вы сможете
 
      Где `placement_group_id` — идентификатор группы размещения.
 
-     Более подробную информацию о параметрах ресурсов `yandex_compute_instance` и `yandex_compute_placement_group` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
+     Более подробную информацию о параметрах ресурсов `yandex_compute_instance` и `yandex_compute_placement_group` в {{ TF }} читайте в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
   1. В командной строке перейдите в папку, где расположен файл конфигурации {{ TF }}.
   1. Проверьте конфигурацию командой:
 

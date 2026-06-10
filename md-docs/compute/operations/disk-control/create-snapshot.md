@@ -212,7 +212,7 @@ _Снимок диска_ — это копия файловой системы 
 
           {% endnote %}
 
-     Более подробную информацию о ресурсе `yandex_compute_snapshot` см. в [документации провайдера](../../../terraform/resources/compute_snapshot.md).
+     Более подробную информацию о ресурсе `yandex_compute_snapshot` читайте в [документации провайдера](../../../terraform/resources/compute_snapshot.md).
 
   1. Проверьте корректность конфигурационных файлов.
 

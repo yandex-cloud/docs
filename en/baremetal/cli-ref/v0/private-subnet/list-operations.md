@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/v0/private-subnet/list-operations
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/v0/private-subnet/list-operations/
 ---
 
 # yc baremetal v0 private-subnet list-operations

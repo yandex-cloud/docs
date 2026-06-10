@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/v0/bind-file/migrate-to-terraform
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/v0/bind-file/migrate-to-terraform/
 ---
 
 # yc dns v0 bind-file migrate-to-terraform

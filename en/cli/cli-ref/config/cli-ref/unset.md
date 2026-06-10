@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/config/cli-ref/unset
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/config/cli-ref/unset/
 ---
 
 # yc config unset

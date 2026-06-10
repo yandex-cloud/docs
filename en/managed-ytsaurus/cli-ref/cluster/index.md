@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-ytsaurus/cli-ref/cluster/
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-ytsaurus/cli-ref/cluster/
 ---
 
 # yc managed-ytsaurus cluster

@@ -232,7 +232,7 @@ description: Следуя данной инструкции, вы сможете
       * `snapshot_id` — идентификатор незашифрованного снимка.
       * `name` — имя создаваемого зашифрованного снимка.
 
-      Более подробную информацию о параметрах ресурса `yandex_compute_snapshot` см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_snapshot).
+      Более подробную информацию о параметрах ресурса `yandex_compute_snapshot` читайте в [документации провайдера]({{ tf-provider-resources-link }}/compute_snapshot).
 
   1. Создайте ресурсы:
 

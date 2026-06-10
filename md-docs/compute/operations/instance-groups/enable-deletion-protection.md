@@ -126,7 +126,7 @@
 
      Где `deletion_protection` — защита группы ВМ от удаления: `true` или `false`. Пока опция включена, группу ВМ удалить невозможно. Значение по умолчанию — `false`.
 
-     Более подробную информацию о параметрах ресурса `yandex_compute_instance_group` в Terraform см. в [документации провайдера](../../../terraform/resources/compute_instance_group.md).
+     Более подробную информацию о параметрах ресурса `yandex_compute_instance_group` в Terraform читайте в [документации провайдера](../../../terraform/resources/compute_instance_group.md).
 
   1. Примените изменения:
 
@@ -257,7 +257,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_compute_instance_group` в Terraform см. в [документации провайдера](../../../terraform/resources/compute_instance_group.md).
+     Более подробную информацию о параметрах ресурса `yandex_compute_instance_group` в Terraform читайте в [документации провайдера](../../../terraform/resources/compute_instance_group.md).
 
   1. Примените изменения:
 

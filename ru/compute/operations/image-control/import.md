@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
      * Роль на облако: `resource-manager.clouds.member`.
      * Роль на каталог: `viewer` или `compute.images.user`.
 
-     Подробнее о назначении ролей см. в инструкции [{#T}](../../../iam/operations/roles/grant.md).
+     Подробнее о назначении ролей читайте в инструкции [{#T}](../../../iam/operations/roles/grant.md).
 
   1. Импортируйте копию этого образа в ваш каталог с помощью [CLI](../../../cli/quickstart.md):
 

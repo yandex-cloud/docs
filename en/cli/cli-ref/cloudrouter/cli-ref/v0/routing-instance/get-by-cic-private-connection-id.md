@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloudrouter/cli-ref/v0/routing-instance/get-by-cic-private-connection-id
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloudrouter/cli-ref/v0/routing-instance/get-by-cic-private-connection-id/
 ---
 
 # yc cloudrouter v0 routing-instance get-by-cic-private-connection-id

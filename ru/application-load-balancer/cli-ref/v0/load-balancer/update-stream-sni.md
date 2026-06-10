@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/v0/load-balancer/update-stream-sni
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/v0/load-balancer/update-stream-sni/
 ---
 
 # yc application-load-balancer v0 load-balancer update-stream-sni

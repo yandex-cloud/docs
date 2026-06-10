@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/config/cli-ref/profile/get
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/config/cli-ref/profile/get/
 ---
 
 # yc config profile get

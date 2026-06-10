@@ -172,7 +172,7 @@ description: Следуя данной инструкции, вы сможете
 
           Если у ВМ несколько сетевых интерфейсов, задайте параметр `--network-interface` необходимое количество раз (для каждого сетевого интерфейса).
 
-      Подробнее о команде `yc compute instance relocate` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md).
+      Подробнее о команде `yc compute instance relocate` читайте в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md).
 
       Если вы переносите ВМ с [диском в группе размещения](../../concepts/disk-placement-group.md), используйте команду:
 
@@ -195,7 +195,7 @@ description: Следуя данной инструкции, вы сможете
         * `disk-placement-group-id` — идентификатор группы размещения дисков, в которую необходимо поместить диск.
         * `disk-placement-group-partition` — номер раздела в группе размещения дисков.
 
-      Подробнее о команде `yc compute instance relocate` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md).
+      Подробнее о команде `yc compute instance relocate` читайте в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md).
 
   Обратите внимание, что при подключении [сетевых интерфейсов](../../concepts/network.md) ВМ к новым подсетям изменится адресация. Если для сетевых интерфейсов ВМ требуется указать внутренние IP-адреса, используйте свойство `ipv4-address=<внутренний_IP-адрес>`, если публичные IP-адреса — свойство `nat-address=<публичный_IP-адрес>` параметра `network-interface`. В остальном установка параметров сетевых интерфейсов при переносе ВМ в другую зону доступности аналогична установке таких параметров при создании ВМ.
 

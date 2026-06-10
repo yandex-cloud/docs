@@ -19,7 +19,7 @@
 
   Укажите другую зону доступности в параметре `--zone` команды создания ВМ. Список зон доступности для этого параметра можно получить командой `yc compute zone list`.
 
-Подробнее см. в разделах [Создать виртуальную машину из публичного образа Linux](../operations/vm-create/create-linux-vm.md) и [Изменить виртуальную машину](../operations/vm-control/vm-update.md).
+Подробнее в разделах [Создать виртуальную машину из публичного образа Linux](../operations/vm-create/create-linux-vm.md) и [Изменить виртуальную машину](../operations/vm-control/vm-update.md).
 
 {% endlist %}
 
@@ -47,7 +47,7 @@
 
 {% endlist %}
 
-Подробнее см. в разделе [Изменить вычислительные ресурсы виртуальной машины](../operations/vm-control/vm-update-resources.md).
+Подробнее в разделе [Изменить вычислительные ресурсы виртуальной машины](../operations/vm-control/vm-update-resources.md).
 
 {% endcut %}
 
@@ -71,7 +71,7 @@
 
 {% endlist %}
 
-Подробнее см. в разделе [Сменить тип ВМ](../operations/vm-create/create-preemptible-vm.md#preemptible-to-regular).
+Подробнее в разделе [Сменить тип ВМ](../operations/vm-create/create-preemptible-vm.md#preemptible-to-regular).
 
 В сценариях с прерываемыми ВМ вы также можете использовать [группы виртуальных машин](../concepts/instance-groups/index.md) из одной или нескольких ВМ. Чтобы перезапустить прерываемые ВМ, настройте у группы [политики автоматического восстановления](../concepts/instance-groups/autohealing.md).
 

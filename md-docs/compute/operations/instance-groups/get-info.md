@@ -82,7 +82,7 @@
      * `output "instancegroupvm_external_ip"` — список всех [публичных IP-адресов](../../../vpc/concepts/address.md#public-addresses) ВМ из группы, который будет выводиться в результате:
        * `value` — возвращаемое значение.
 
-     Более подробную информацию о параметрах источника данных `yandex_compute_instance_group` см. в [документации провайдера](../../../terraform/data-sources/compute_instance_group.md).
+     Более подробную информацию о параметрах источника данных `yandex_compute_instance_group` читайте в [документации провайдера](../../../terraform/data-sources/compute_instance_group.md).
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.

@@ -237,6 +237,7 @@ default:
     docs:
       broadcom: >-
         https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum
+      cloudberry: https://cloudberry.apache.org/docs
   gpt-lite: YandexGPT Lite
   gpt-pro: YandexGPT Pro
   grafana-name: Grafana
@@ -1350,18 +1351,6 @@ default:
         12_month: dn21fsqmbhvseaof5pf6
         3_month: dn2pstl57mu8t3c1qm4q
         6_month: dn2jc74moe4laf8m6m7j
-      ba_i215_ss_10g:
-        1_day: dn2h6lrfdk4nac5wgwuq
-        1_month: dn2mgkgws5vkgcmx66i7
-        12_month: dn2orsv7lvzgtlixnsg4
-        3_month: dn2xvje2mxqacwktsmm7
-        6_month: dn2kl2dpcdusi7z2oe72
-      ba_i216_ss_1_10g:
-        1_day: dn2zyeoen3zgazt4haws
-        1_month: dn2pjbzzniodflca5tru
-        12_month: dn2p7j4g65rioh676pec
-        3_month: dn2td7drocpwss27prtp
-        6_month: dn24m37i7jgimv47zsao
       ba_i218_s:
         1_day: dn2yspxmcbxndak267qp
         1_month: dn2eyi7ztdxbxmd4dgj5
@@ -8614,11 +8603,21 @@ default:
         label_default-smartcaptcha-name: По умолчанию
         label_domain-protection: Защита доменов
         label_domain-protection-domains: Домены
+        label_match-list_ip_qG1ho: IP-адреса
         label_search-rule-type: 'Тип правила:'
         match-lists:
+          label_action-edit-description: Изменить описание
           label_create-list: Создать список
           label_create-match-list: Создать список
           label_match-lists: Списки
+        MatchListActions:
+          button_download_bdcBp: Скачать список
+          button_edit-list-items_2JFvu: Изменить список
+        MatchListForm:
+          item-type_asn_oyhKw: Номера ASN
+          item-type_ip_7TYwL: IP-адреса
+          item-type_regexp_eLHPr: Регулярные выражения
+          item-type_string_hGRJK: Строковые значения
         MatchListTable:
           button_add-to-list_1kKXh: Добавить в список
         overview:

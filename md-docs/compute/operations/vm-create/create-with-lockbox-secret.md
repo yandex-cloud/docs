@@ -233,7 +233,7 @@
           * `security_group_ids` — идентификатор [группы безопасности](../../../vpc/concepts/security-groups.md).
           * `user-data` — путь к созданному ранее файлу конфигурации `metadata.yaml`.
 
-          Подробнее о создаваемых ресурсах см. в [документации провайдера](../../../terraform/index.md).
+          Подробнее о создаваемых ресурсах читайте в [документации провайдера](../../../terraform/index.md).
 
       1. Создайте ресурсы:
 
@@ -299,7 +299,7 @@
         my value
         ```
 
-Другие примеры конфигурации для ключа `user-data` см. в разделе [Примеры](create-with-cloud-init-scripts.md#examples).
+Другие примеры конфигурации для ключа `user-data` приведены в разделе [Примеры](create-with-cloud-init-scripts.md#examples).
 
 #### См. также {#see-also}
 
