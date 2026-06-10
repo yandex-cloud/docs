@@ -1,24 +1,44 @@
 # Подключение к внешнему файловому серверу
 
-[Greenplum® Parallel File Server](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum7/greenplum-database/utility_guide-ref-gpfdist.html) (`gpfdist`) — утилита для чтения и записи данных из файлов, расположенных на удаленных серверах. Она установлена на всех хостах-сегментах кластера Yandex MPP Analytics for PostgreSQL и обеспечивает параллельную загрузку данных, распределяя их между сегментами равномерно или согласно заданному [ключу дистрибуции](../../concepts/sharding.md#distribution-key). Это повышает производительность при работе с большими объемами внешних данных.
+[Greenplum® Parallel File Server](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/utility_guide-ref-gpfdist.html) (`gpfdist`) — утилита для чтения и записи данных из файлов, расположенных на удаленных серверах. Она установлена на всех хостах-сегментах кластера Yandex MPP Analytics for PostgreSQL и обеспечивает параллельную загрузку данных, распределяя их между сегментами равномерно или согласно заданному [ключу дистрибуции](../../concepts/sharding.md#distribution-key). Это повышает производительность при работе с большими объемами внешних данных.
+
+Для кластера Yandex MPP Analytics for PostgreSQL с СУБД Apache Cloudberry™ используется собственная утилита `gpfdist`. Подробнее в [документации Apache Cloudberry™](https://cloudberry.apache.org/docs/sys-utilities/gpfdist).
 
 Утилита `gpfdist` может работать с любыми текстовыми файлами, которые содержат разделители, а также со сжатыми файлами gzip и bzip2.
 
 Для чтения или записи файлов на внешнем сервере:
-1. [Установите и запустите](#run-gpfdist) `gpfdist` в составе пакета Greenplum® Loader или Greenplum® Database на удаленном сервере, где находятся нужные файлы.
+
+1. [Установите и запустите](#run-gpfdist) `gpfdist` на удаленном сервере, где находятся нужные файлы.
+
+    Для СУБД Greenplum® `gpfdist` устанавливается с помощью пакета Greenplum® Loader или Greenplum® Database.
+
+    Для СУБД Apache Cloudberry™ `gpfdist` устанавливается вместе с СУБД Apache Cloudberry™.
+
 1. В кластере Yandex MPP Analytics for PostgreSQL [создайте внешнюю таблицу](#create-gpfdist-table), которая будет ссылаться на эти файлы.
 
 ## Запуск gpfdist {#run-gpfdist}
 
+1. Установите `gpfdist`:
 
-{% note info %}
+    {% list tabs %}
 
-Скачивание и использование продуктов с сайта VMware не входит в [условия использования Yandex MPP Analytics for PostgreSQL](https://yandex.ru/legal/cloud_termsofuse/?lang=ru) и является предметом отдельного регулирования между клиентом и VMware. Яндекс не несет ответственности за взаимоотношения клиента и VMware, вытекающие из использования клиентом продуктов или услуг VMware.
+    - Для Greenplum®
 
-{% endnote %}
+        Скачайте и установите пакет Greenplum® Loader с [сайта VMware](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/client_tool_guides-installing.html) или пакет Greenplum® Database из бакета Yandex Object Storage по [инструкции](../greenplum-db.md).
+
+        
+        {% note info %}
+
+        Скачивание и использование продуктов с сайта VMware не входит в [условия использования Yandex MPP Analytics for PostgreSQL](https://yandex.ru/legal/cloud_termsofuse/?lang=ru) и является предметом отдельного регулирования между клиентом и VMware. Яндекс не несет ответственности за взаимоотношения клиента и VMware, вытекающие из использования клиентом продуктов или услуг VMware.
+
+        {% endnote %}
 
 
-1. Скачайте и установите пакет Greenplum® Loader с [сайта VMware](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/client_tool_guides-installing.html) или пакет Greenplum® Database из бакета Yandex Object Storage по [инструкции](../greenplum-db.md).
+    - Для Apache Cloudberry™
+
+        Установите СУБД Apache Cloudberry™ по инструкции из [документации Apache Cloudberry™](https://cloudberry.apache.org/docs/deployment).
+
+    {% endlist %}
 
 1. Запустите утилиту `gpfdist`:
 
@@ -85,3 +105,5 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
     ```
 
 _Greenplum® и Greenplum Database® являются зарегистрированными товарными знаками или товарными знаками Broadcom Inc в США и/или других странах._
+
+_Apache® и Apache Cloudberry™ являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах._

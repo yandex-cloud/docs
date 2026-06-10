@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/dataproc/cli-ref/v0/subcluster/update
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/dataproc/cli-ref/v0/subcluster/update/
 ---
 
 # yc dataproc v0 subcluster update

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/cluster/list-logs
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/cluster/list-logs/
 ---
 
 # yc managed-postgresql cluster list-logs

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/zone/list-operations
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/zone/list-operations/
 ---
 
 # yc dns zone list-operations

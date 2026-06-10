@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/role/
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/role/
 ---
 
 # yc iam role

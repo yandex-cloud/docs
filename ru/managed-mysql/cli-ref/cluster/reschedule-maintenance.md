@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/cluster/reschedule-maintenance
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/cluster/reschedule-maintenance/
 ---
 
 # yc managed-mysql cluster reschedule-maintenance

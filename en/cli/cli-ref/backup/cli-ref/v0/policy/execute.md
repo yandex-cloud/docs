@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/v0/policy/execute
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/v0/policy/execute/
 ---
 
 # yc backup v0 policy execute

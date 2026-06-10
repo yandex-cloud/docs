@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/container/set-access-bindings
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/container/set-access-bindings/
 ---
 
 # yc serverless container set-access-bindings

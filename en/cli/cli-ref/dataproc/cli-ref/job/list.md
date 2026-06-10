@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/dataproc/cli-ref/job/list
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/dataproc/cli-ref/job/list/
 ---
 
 # yc dataproc job list

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/subnet/list-used-addresses
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/subnet/list-used-addresses/
 ---
 
 # yc vpc subnet list-used-addresses

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/v0/gateway/delete
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/v0/gateway/delete/
 ---
 
 # yc vpc v0 gateway delete

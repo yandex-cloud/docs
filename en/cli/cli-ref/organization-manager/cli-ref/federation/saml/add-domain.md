@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/federation/saml/add-domain
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/federation/saml/add-domain/
 ---
 
 # yc organization-manager federation saml add-domain

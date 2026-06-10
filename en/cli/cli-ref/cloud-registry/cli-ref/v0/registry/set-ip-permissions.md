@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/v0/registry/set-ip-permissions
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/v0/registry/set-ip-permissions/
 ---
 
 # yc cloud-registry v0 registry set-ip-permissions

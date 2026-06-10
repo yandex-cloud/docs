@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/access-policy-template/
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/access-policy-template/
 ---
 
 # yc iam access-policy-template

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/trigger/create/container-registry
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/trigger/create/container-registry/
 ---
 
 # yc serverless trigger create container-registry

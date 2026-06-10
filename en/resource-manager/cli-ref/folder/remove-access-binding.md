@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/folder/remove-access-binding
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/folder/remove-access-binding/
 ---
 
 # yc resource-manager folder remove-access-binding

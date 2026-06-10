@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/instance/detach-filesystem
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/instance/detach-filesystem/
 ---
 
 # yc compute instance detach-filesystem

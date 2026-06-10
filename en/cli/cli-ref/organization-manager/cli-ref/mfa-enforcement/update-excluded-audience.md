@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/mfa-enforcement/update-excluded-audience
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/mfa-enforcement/update-excluded-audience/
 ---
 
 # yc organization-manager mfa-enforcement update-excluded-audience

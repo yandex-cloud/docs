@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-metastore/cli-ref/cluster/
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-metastore/cli-ref/cluster/
 ---
 
 # yc managed-metastore cluster

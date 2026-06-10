@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/function/set-scaling-policy
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/function/set-scaling-policy/
 ---
 
 # yc serverless function set-scaling-policy

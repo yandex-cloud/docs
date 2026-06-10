@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/catalog/create/iceberg
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/catalog/create/iceberg/
 ---
 
 # yc managed-trino catalog create iceberg

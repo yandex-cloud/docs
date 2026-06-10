@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/access-key/get
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/access-key/get/
 ---
 
 # yc iam access-key get

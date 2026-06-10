@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/filesystem/resize
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/filesystem/resize/
 ---
 
 # yc compute filesystem resize

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/container/revision/list
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/container/revision/list/
 ---
 
 # yc serverless container revision list

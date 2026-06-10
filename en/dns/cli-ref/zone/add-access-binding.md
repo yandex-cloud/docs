@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/zone/add-access-binding
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/zone/add-access-binding/
 ---
 
 # yc dns zone add-access-binding

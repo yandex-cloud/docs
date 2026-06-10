@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-opensearch/cli-ref/cluster/restart-opensearch
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-opensearch/cli-ref/cluster/restart-opensearch/
 ---
 
 # yc managed-opensearch cluster restart-opensearch

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/cluster/list-operations
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/cluster/list-operations/
 ---
 
 # yc managed-trino cluster list-operations

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/v0/broker/get
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/v0/broker/get/
 ---
 
 # yc iot v0 broker get

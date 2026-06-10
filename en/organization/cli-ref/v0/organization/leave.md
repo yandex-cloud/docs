@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/organization/leave
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/organization/leave/
 ---
 
 # yc organization-manager v0 organization leave

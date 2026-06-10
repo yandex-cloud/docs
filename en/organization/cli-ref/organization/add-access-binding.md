@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/organization/add-access-binding
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/organization/add-access-binding/
 ---
 
 # yc organization-manager organization add-access-binding

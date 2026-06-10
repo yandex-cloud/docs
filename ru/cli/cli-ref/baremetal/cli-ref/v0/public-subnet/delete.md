@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/v0/public-subnet/delete
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/v0/public-subnet/delete/
 ---
 
 # yc baremetal v0 public-subnet delete

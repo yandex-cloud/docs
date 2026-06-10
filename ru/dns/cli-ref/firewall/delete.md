@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/firewall/delete
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/firewall/delete/
 ---
 
 # yc dns firewall delete

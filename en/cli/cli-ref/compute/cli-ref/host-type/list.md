@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/host-type/list
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/host-type/list/
 ---
 
 # yc compute host-type list

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/v0/key/list
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/v0/key/list/
 ---
 
 # yc iam v0 key list

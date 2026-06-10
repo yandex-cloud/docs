@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/container/add-labels
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/container/add-labels/
 ---
 
 # yc serverless container add-labels

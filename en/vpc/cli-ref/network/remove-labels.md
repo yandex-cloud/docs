@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/network/remove-labels
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/network/remove-labels/
 ---
 
 # yc vpc network remove-labels

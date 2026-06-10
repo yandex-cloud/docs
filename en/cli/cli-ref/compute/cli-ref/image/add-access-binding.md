@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/image/add-access-binding
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/image/add-access-binding/
 ---
 
 # yc compute image add-access-binding

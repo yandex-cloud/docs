@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-spark/cli-ref/v0/cluster/list-operations
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-spark/cli-ref/v0/cluster/list-operations/
 ---
 
 # yc managed-spark v0 cluster list-operations

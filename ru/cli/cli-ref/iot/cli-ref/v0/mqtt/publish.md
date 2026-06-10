@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/v0/mqtt/publish
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/v0/mqtt/publish/
 ---
 
 # yc iot v0 mqtt publish

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/v0/private-cloud-connection/create
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/v0/private-cloud-connection/create/
 ---
 
 # yc baremetal v0 private-cloud-connection create

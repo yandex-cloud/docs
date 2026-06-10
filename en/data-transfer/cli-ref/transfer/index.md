@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/datatransfer/cli-ref/transfer/
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/datatransfer/cli-ref/transfer/
 ---
 
 # yc datatransfer transfer

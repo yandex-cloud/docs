@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/v0/vm/get
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/v0/vm/get/
 ---
 
 # yc backup v0 vm get

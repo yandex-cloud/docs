@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/hosts/stepdown
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/hosts/stepdown/
 ---
 
 # yc managed-mongodb hosts stepdown

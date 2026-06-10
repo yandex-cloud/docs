@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/database/list
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/database/list/
 ---
 
 # yc managed-mongodb database list

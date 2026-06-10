@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/quota-manager/cli-ref/v0/quota-limit/list-services
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/quota-manager/cli-ref/v0/quota-limit/list-services/
 ---
 
 # yc quota-manager v0 quota-limit list-services

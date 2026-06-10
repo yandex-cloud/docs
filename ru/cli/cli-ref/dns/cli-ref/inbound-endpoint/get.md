@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/inbound-endpoint/get
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/inbound-endpoint/get/
 ---
 
 # yc dns inbound-endpoint get

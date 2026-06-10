@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/v0/cluster/clear-compression
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/v0/cluster/clear-compression/
 ---
 
 # yc managed-clickhouse v0 cluster clear-compression

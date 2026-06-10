@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/snapshot-schedule/list
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/snapshot-schedule/list/
 ---
 
 # yc compute v0 snapshot-schedule list

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/load-balancer/cli-ref/v0/network-load-balancer/list-operations
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/load-balancer/cli-ref/v0/network-load-balancer/list-operations/
 ---
 
 # yc load-balancer v0 network-load-balancer list-operations

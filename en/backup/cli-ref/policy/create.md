@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/policy/create
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/policy/create/
 ---
 
 # yc backup policy create

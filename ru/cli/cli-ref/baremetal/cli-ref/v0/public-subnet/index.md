@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/v0/public-subnet/
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/v0/public-subnet/
 ---
 
 # yc baremetal v0 public-subnet

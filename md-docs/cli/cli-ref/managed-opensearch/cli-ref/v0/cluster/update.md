@@ -49,6 +49,14 @@ For any schedule, the minute (0-59) of the hour to start snapshot. ||
 || `--snapshot-max-age-days` | `int`
 
 Max snapshot age in days. 7 days minimum. ||
+|| `--compliance-enabled` | Enables audit logging on changes to a security index, such as changes to roles mappings and role creation or deletion. ||
+|| `--log-request-body` | Includes the body of the request (if available) for both REST and the transport layer. ||
+|| `--log-search-queries` | Enables indices data read requests logging. ||
+|| `--log-data-modifications` | Enables indices data write request logging. ||
+|| `--log-index-metadata-access` | Enables indices metadata requests logging. ||
+|| `--log-monitoring-checks` | Enables monitoring data requests logging. ||
+|| `--log-index-maintenance` | Enables indices maintenance requests logging, such as indices refreshes, flushes and merges. ||
+|| `--log-backup-operations` | Enables snapshots and repositories requests logging. ||
 || `--new-name` | `string`
 
 Name of the cluster. ||

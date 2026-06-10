@@ -24,7 +24,7 @@
   yc compute instance-group create --file specification.yaml
   ```
 
-  Подробнее о команде `yc compute instance-group create` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance-group/create.md).
+  Подробнее о команде `yc compute instance-group create` читайте в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance-group/create.md).
 
 - API {#api}
 

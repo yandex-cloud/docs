@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/symmetric-key/set-access-bindings
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/symmetric-key/set-access-bindings/
 ---
 
 # yc kms symmetric-key set-access-bindings

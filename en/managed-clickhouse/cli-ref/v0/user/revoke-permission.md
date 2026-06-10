@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/v0/user/revoke-permission
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/v0/user/revoke-permission/
 ---
 
 # yc managed-clickhouse v0 user revoke-permission

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/desktops/cli-ref/v0/desktop/list
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/desktops/cli-ref/v0/desktop/list/
 ---
 
 # yc desktops v0 desktop list

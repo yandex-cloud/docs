@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/v0/node-group/delete
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/v0/node-group/delete/
 ---
 
 # yc container v0 node-group delete

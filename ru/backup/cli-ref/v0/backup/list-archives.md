@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/v0/backup/list-archives
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/v0/backup/list-archives/
 ---
 
 # yc backup v0 backup list-archives

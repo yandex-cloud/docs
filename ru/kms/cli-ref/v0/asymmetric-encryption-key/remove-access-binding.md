@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/v0/asymmetric-encryption-key/remove-access-binding
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/v0/asymmetric-encryption-key/remove-access-binding/
 ---
 
 # yc kms v0 asymmetric-encryption-key remove-access-binding

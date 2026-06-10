@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-opensearch/cli-ref/cluster/list-backups
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-opensearch/cli-ref/cluster/list-backups/
 ---
 
 # yc managed-opensearch cluster list-backups

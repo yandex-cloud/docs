@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/security-group/delete
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/security-group/delete/
 ---
 
 # yc vpc security-group delete

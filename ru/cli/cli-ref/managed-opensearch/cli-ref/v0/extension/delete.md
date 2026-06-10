@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-opensearch/cli-ref/v0/extension/delete
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-opensearch/cli-ref/v0/extension/delete/
 ---
 
 # yc managed-opensearch v0 extension delete

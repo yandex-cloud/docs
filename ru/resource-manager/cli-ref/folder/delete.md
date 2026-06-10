@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/folder/delete
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/folder/delete/
 ---
 
 # yc resource-manager folder delete

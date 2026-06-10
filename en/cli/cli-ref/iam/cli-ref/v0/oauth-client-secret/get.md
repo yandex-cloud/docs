@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/v0/oauth-client-secret/get
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/v0/oauth-client-secret/get/
 ---
 
 # yc iam v0 oauth-client-secret get

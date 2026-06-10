@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-opensearch/cli-ref/extension/list
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-opensearch/cli-ref/extension/list/
 ---
 
 # yc managed-opensearch extension list

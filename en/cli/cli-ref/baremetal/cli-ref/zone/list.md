@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/zone/list
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/zone/list/
 ---
 
 # yc baremetal zone list

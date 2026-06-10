@@ -37,7 +37,7 @@
 
 Поддерживаемые форматы: `Qcow2`, `VMDK`, `RAW` и `VHD`.
 
-Инструкции по настройке см. в разделе [Подготовить свой образ диска](../image-create/custom-image.md).
+Инструкции по настройке приведены в разделе [Подготовить свой образ диска](../image-create/custom-image.md).
 
 #### Загрузите файл образа в Object Storage {#upload-file}
 
@@ -167,7 +167,7 @@
           
           Необязательный параметр. По умолчанию оптимизация выключена.
 
-      Подробную информацию о параметрах ресурса `yandex_compute_image` см. в [документации провайдера Terraform](../../../terraform/resources/compute_image.md).
+      Подробную информацию о параметрах ресурса `yandex_compute_image` читайте в [документации провайдера Terraform](../../../terraform/resources/compute_image.md).
   1. Создайте ресурсы:
 
       1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -462,7 +462,7 @@
           
           Необязательный параметр. По умолчанию оптимизация выключена.
 
-          Подробную информацию о параметрах ресурса `yandex_compute_image` см. в [документации провайдера Terraform](../../../terraform/resources/compute_image.md).
+          Подробную информацию о параметрах ресурса `yandex_compute_image` читайте в [документации провайдера Terraform](../../../terraform/resources/compute_image.md).
           
   1. Создайте ресурсы:
 
@@ -744,7 +744,7 @@
 
       * `source_disk_id` — идентификатор диска, для которого вы создаете снимок.
 
-      Подробную информацию о параметрах ресурса `yandex_compute_snapshot` см. в [документации провайдера Terraform](../../../terraform/resources/compute_snapshot.md).
+      Подробную информацию о параметрах ресурса `yandex_compute_snapshot` читайте в [документации провайдера Terraform](../../../terraform/resources/compute_snapshot.md).
           
   1. Создайте ресурсы:
 
@@ -1023,7 +1023,7 @@
 
           {% endnote %}
 
-          Подробную информацию о параметрах ресурса `yandex_compute_disk` см. в [документации провайдера Terraform](../../../terraform/resources/compute_disk.md).
+          Подробную информацию о параметрах ресурса `yandex_compute_disk` читайте в [документации провайдера Terraform](../../../terraform/resources/compute_disk.md).
           
   1. Создайте ресурсы:
 
@@ -1511,7 +1511,7 @@
               * `image_id` — идентификатор [подготовленного ранее образа](#create-image), на основе которого будет создан загрузочный диск ВМ.
               * `snapshot_id` — идентификатор [подготовленного ранее снимка](#create-snapshot), на основе которого будет создан загрузочный диск ВМ.
 
-          Подробную информацию о параметрах ресурса `yandex_compute_disk` см. в [документации провайдера Terraform](../../../terraform/resources/compute_disk.md).
+          Подробную информацию о параметрах ресурса `yandex_compute_disk` читайте в [документации провайдера Terraform](../../../terraform/resources/compute_disk.md).
 
       * `yandex_compute_instance` — описание ВМ:
           * `name` — имя ВМ. Требования к имени:
@@ -1538,7 +1538,7 @@
 
           * `metadata` — в метаданных необходимо передать имя пользователя и открытый SSH-ключ для доступа на ВМ. Подробнее в разделе [Метаданные виртуальной машины](../../concepts/vm-metadata.md).
 
-      Подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера Terraform](../../../terraform/resources/compute_instance.md).
+      Подробную информацию о параметрах ресурса `yandex_compute_instance` читайте в [документации провайдера Terraform](../../../terraform/resources/compute_instance.md).
           
   1. Создайте ресурсы:
 

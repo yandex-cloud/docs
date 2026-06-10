@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/asymmetric-signature-crypto/sign-hash
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/asymmetric-signature-crypto/sign-hash/
 ---
 
 # yc kms asymmetric-signature-crypto sign-hash

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/gateway/add-labels
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/gateway/add-labels/
 ---
 
 # yc vpc gateway add-labels

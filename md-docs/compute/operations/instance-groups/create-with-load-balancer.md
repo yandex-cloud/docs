@@ -1,7 +1,7 @@
 # Создать группу виртуальных машин фиксированного размера с L7-балансировщиком
 
 
-Вы можете создать [группу ВМ](../../concepts/instance-groups/index.md) фиксированного размера, интегрированную с сервисом балансировки нагрузки [Yandex Application Load Balancer](../../../application-load-balancer/index.md). Вместе с группой [ВМ](../../concepts/vm.md) будет автоматически создана [целевая группа](../../../application-load-balancer/concepts/target-group.md) Application Load Balancer, которую можно привязать к [балансировщику](../../../application-load-balancer/concepts/index.md) и распределять нагрузку между ВМ в группе на прикладном уровне. Подробнее см. в разделе [Интеграция группы ВМ с Network Load Balancer или Application Load Balancer](../../concepts/instance-groups/balancers.md).
+Вы можете создать [группу ВМ](../../concepts/instance-groups/index.md) фиксированного размера, интегрированную с сервисом балансировки нагрузки [Yandex Application Load Balancer](../../../application-load-balancer/index.md). Вместе с группой [ВМ](../../concepts/vm.md) будет автоматически создана [целевая группа](../../../application-load-balancer/concepts/target-group.md) Application Load Balancer, которую можно привязать к [балансировщику](../../../application-load-balancer/concepts/index.md) и распределять нагрузку между ВМ в группе на прикладном уровне. Подробнее в разделе [Интеграция группы ВМ с Network Load Balancer или Application Load Balancer](../../concepts/instance-groups/balancers.md).
 
 {% note alert %}
 
@@ -102,7 +102,7 @@
      * Выберите `Фиксированный` [тип масштабирования](../../concepts/instance-groups/scale.md).
      * Укажите размер группы ВМ.
   1. В блоке **Интеграция с Application Load Balancer** включите опцию **Создать целевую группу**.
-  1. Укажите настройки целевой группы. Подробнее см. в разделе [Настройки интеграции с Application Load Balancer](../../concepts/instance-groups/balancers.md#settings-alb).
+  1. Укажите настройки целевой группы. Подробнее в разделе [Настройки интеграции с Application Load Balancer](../../concepts/instance-groups/balancers.md#settings-alb).
   1. При необходимости активируйте опцию **Проверка состояний** для получения сведений о состоянии ВМ и их автоматического восстановления в случае сбоя.
      * В поле **Тип** выберите протокол проверок состояния: `HTTP` или `TCP`.
      * В поле **Путь** (для типа HTTP) укажите URL‐путь запроса, на который Instance Groups будет отправлять запросы проверки для HTTP.
@@ -278,7 +278,7 @@
        * `target_group_spec` — спецификация целевой группы Application Load Balancer, связанной с группой ВМ.
        * `name` — произвольное имя целевой группы Application Load Balancer. Имя должно быть уникальным в рамках каталога. Имя может содержать строчные буквы латинского алфавита, цифры и дефисы. Первый символ должен быть буквой. Последний символ не может быть дефисом. Максимальная длина имени — 63 символа.
 
-       Подробнее о настройках целевой группы см. в разделе [Настройки интеграции с Application Load Balancer](../../concepts/instance-groups/balancers.md#settings-alb).
+       Подробнее о настройках целевой группы читайте в разделе [Настройки интеграции с Application Load Balancer](../../concepts/instance-groups/balancers.md#settings-alb).
 
      Полный код файла `specification.yaml`:
 
@@ -458,7 +458,7 @@
        * [Целевая группа](../../../application-load-balancer/concepts/target-group.md) Yandex Application Load Balancer:
          * `target_group_name` — имя целевой группы.
          * `target_group_description` — описание целевой группы.
-         Подробнее о настройках целевой группы см. в разделе [Настройки интеграции с Application Load Balancer](../../concepts/instance-groups/balancers.md#settings-alb).
+         Подробнее о настройках целевой группы читайте в разделе [Настройки интеграции с Application Load Balancer](../../concepts/instance-groups/balancers.md#settings-alb).
      * `yandex_vpc_network` — описание облачной сети.
      * `yandex_vpc_subnet` — описание подсети, к которой будет подключена группа ВМ.
 
@@ -468,7 +468,7 @@
 
      {% endnote %}
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../../terraform/index.md).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, читайте в [документации провайдера](../../../terraform/index.md).
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.

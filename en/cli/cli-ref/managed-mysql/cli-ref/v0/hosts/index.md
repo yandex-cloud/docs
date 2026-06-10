@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/v0/hosts/
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/v0/hosts/
 ---
 
 # yc managed-mysql v0 hosts

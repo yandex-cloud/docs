@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/zone/update-private-networks
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/zone/update-private-networks/
 ---
 
 # yc dns zone update-private-networks

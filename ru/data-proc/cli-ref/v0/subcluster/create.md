@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/dataproc/cli-ref/v0/subcluster/create
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/dataproc/cli-ref/v0/subcluster/create/
 ---
 
 # yc dataproc v0 subcluster create

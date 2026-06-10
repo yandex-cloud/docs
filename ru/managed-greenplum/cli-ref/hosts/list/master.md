@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/hosts/list/master
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/hosts/list/master/
 ---
 
 # yc managed-greenplum hosts list master

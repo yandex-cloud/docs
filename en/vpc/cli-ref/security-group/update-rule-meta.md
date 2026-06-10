@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/security-group/update-rule-meta
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/security-group/update-rule-meta/
 ---
 
 # yc vpc security-group update-rule-meta

@@ -1,3 +1,8 @@
+---
+title: Обзор {{ sws-full-name }}
+description: Что такое {{ sws-full-name }}, какие типы угроз он помогает предотвращать и из каких компонентов состоит защита веб-приложений.
+---
+
 # Обзор сервиса {{ sws-full-name }}
 
 {% include [about-sws](../../_includes/smartwebsecurity/about-sws.md) %}

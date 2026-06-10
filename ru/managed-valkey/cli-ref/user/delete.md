@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/user/delete
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/user/delete/
 ---
 
 # yc managed-redis user delete

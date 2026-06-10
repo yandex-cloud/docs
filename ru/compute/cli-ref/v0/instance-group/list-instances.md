@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/instance-group/list-instances
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/instance-group/list-instances/
 ---
 
 # yc compute v0 instance-group list-instances

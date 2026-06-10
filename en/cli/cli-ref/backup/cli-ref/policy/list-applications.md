@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/policy/list-applications
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/policy/list-applications/
 ---
 
 # yc backup policy list-applications

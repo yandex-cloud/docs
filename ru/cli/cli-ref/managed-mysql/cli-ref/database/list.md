@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/database/list
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/database/list/
 ---
 
 # yc managed-mysql database list

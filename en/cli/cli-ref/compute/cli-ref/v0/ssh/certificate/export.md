@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/ssh/certificate/export
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/ssh/certificate/export/
 ---
 
 # yc compute v0 ssh certificate export

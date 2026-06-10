@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/logging/cli-ref/v0/group/get
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/logging/cli-ref/v0/group/get/
 ---
 
 # yc logging v0 group get

@@ -163,7 +163,7 @@
 
           {% endnote %}
 
-     Более подробную информацию о ресурсе `yandex_compute_image` см. в [документации провайдера](../../../terraform/resources/compute_image.md).
+     Более подробную информацию о ресурсе `yandex_compute_image` читайте в [документации провайдера](../../../terraform/resources/compute_image.md).
 
   1. Проверьте корректность конфигурационных файлов.
 

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/dataproc/cli-ref/v0/cluster/remove-access-binding
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/dataproc/cli-ref/v0/cluster/remove-access-binding/
 ---
 
 # yc dataproc v0 cluster remove-access-binding

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/datatransfer/cli-ref/endpoint/create/clickhouse-target
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/datatransfer/cli-ref/endpoint/create/clickhouse-target/
 ---
 
 # yc datatransfer endpoint create clickhouse-target

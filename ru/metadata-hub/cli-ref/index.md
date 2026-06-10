@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-metastore/cli-ref/
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-metastore/cli-ref/
 ---
 
 # yc managed-metastore

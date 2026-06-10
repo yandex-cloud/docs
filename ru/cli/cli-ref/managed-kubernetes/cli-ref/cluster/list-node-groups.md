@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kubernetes/cli-ref/cluster/list-node-groups
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kubernetes/cli-ref/cluster/list-node-groups/
 ---
 
 # yc managed-kubernetes cluster list-node-groups

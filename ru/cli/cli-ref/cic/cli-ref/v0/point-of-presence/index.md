@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/v0/point-of-presence/
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/v0/point-of-presence/
 ---
 
 # yc cic v0 point-of-presence

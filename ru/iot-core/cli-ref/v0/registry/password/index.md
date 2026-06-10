@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/v0/registry/password/
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/v0/registry/password/
 ---
 
 # yc iot v0 registry password

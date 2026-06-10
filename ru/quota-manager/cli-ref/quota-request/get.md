@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/quota-manager/cli-ref/quota-request/get
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/quota-manager/cli-ref/quota-request/get/
 ---
 
 # yc quota-manager quota-request get

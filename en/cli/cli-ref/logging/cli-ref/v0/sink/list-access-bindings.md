@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/logging/cli-ref/v0/sink/list-access-bindings
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/logging/cli-ref/v0/sink/list-access-bindings/
 ---
 
 # yc logging v0 sink list-access-bindings

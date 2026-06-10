@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/v0/registry/remove-ip-permissions
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/v0/registry/remove-ip-permissions/
 ---
 
 # yc cloud-registry v0 registry remove-ip-permissions

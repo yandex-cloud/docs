@@ -2,7 +2,7 @@
 
 Вы можете передать [метаданные](../vm-metadata.md) в ВМ при ее [создании](../../operations/index.md#vm-create) и [изменении](../../operations/vm-control/vm-update.md#change-metadata). Данные для подключения к ВМ можно передать только при создании, причем в [ВМ с ОС Linux](../../operations/vm-create/create-linux-vm.md) для каждого пользователя необходимо также передавать открытый [SSH-ключ](../../../glossary/ssh-keygen.md).
 
-Изменять метаданные ВМ можно только в каталоге [user-data](directories.md#dir-user) и в пути `instance/attributes/*` каталога [computeMetadata](directories.md#dir-compute). Подробнее о том, как изменить метаданные ВМ, см. в инструкции [Изменить метаданные виртуальной машины](../../operations/vm-metadata/update-vm-metadata.md).
+Изменять метаданные ВМ можно только в каталоге [user-data](directories.md#dir-user) и в пути `instance/attributes/*` каталога [computeMetadata](directories.md#dir-compute). Подробнее о том, как изменить метаданные ВМ, читайте в инструкции [Изменить метаданные виртуальной машины](../../operations/vm-metadata/update-vm-metadata.md).
 
 {% note warning %}
 
@@ -61,11 +61,11 @@
 
 Чтобы изменить такое поведение, не подставлять значение переменной из среды выполнения команды CLI и передать в метаданные ВМ имя переменной в формате `$<имя_переменной>`, используйте синтаксис с двумя символами доллара. Например: `$$<имя_переменной>`.
 
-Подробнее см. в разделе [Особенности передачи переменных окружения в метаданных через CLI](sending-metadata.md#environment-variables).
+Подробнее в разделе [Особенности передачи переменных окружения в метаданных через CLI](sending-metadata.md#environment-variables).
 
 {% endnote %}
 
-Пример использования переменных при передаче метаданных на ВМ через Yandex Cloud CLI см. в разделе [Создать виртуальную машину с метаданными из переменных окружения](../../operations/vm-create/create-with-env-variables.md).
+Пример использования переменных при передаче метаданных на ВМ через Yandex Cloud CLI приведен в разделе [Создать виртуальную машину с метаданными из переменных окружения](../../operations/vm-create/create-with-env-variables.md).
 
 #### См. также {#see-also}
 

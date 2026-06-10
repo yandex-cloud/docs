@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloudrouter/cli-ref/v0/routing-instance/get
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloudrouter/cli-ref/v0/routing-instance/get/
 ---
 
 # yc cloudrouter v0 routing-instance get

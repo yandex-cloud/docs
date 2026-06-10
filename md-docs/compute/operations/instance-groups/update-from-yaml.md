@@ -16,7 +16,7 @@
   yc compute instance-group update <имя_или_идентификатор_группы_ВМ> --file specification.yaml
   ```
 
-  Подробнее о команде `yc compute instance-group update` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance-group/update.md).
+  Подробнее о команде `yc compute instance-group update` читайте в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance-group/update.md).
 
 - API {#api}
 

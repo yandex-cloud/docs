@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/http-router/
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/http-router/
 ---
 
 # yc application-load-balancer http-router

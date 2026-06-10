@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kafka/cli-ref/connector-iceberg-sink/update
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kafka/cli-ref/connector-iceberg-sink/update/
 ---
 
 # yc managed-kafka connector-iceberg-sink update

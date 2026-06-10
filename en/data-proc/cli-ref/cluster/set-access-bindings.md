@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/dataproc/cli-ref/cluster/set-access-bindings
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/dataproc/cli-ref/cluster/set-access-bindings/
 ---
 
 # yc dataproc cluster set-access-bindings

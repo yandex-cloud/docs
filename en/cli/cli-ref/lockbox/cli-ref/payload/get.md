@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/lockbox/cli-ref/payload/get
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/lockbox/cli-ref/payload/get/
 ---
 
 # yc lockbox payload get

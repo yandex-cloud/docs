@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/resource-preset/list
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/resource-preset/list/
 ---
 
 # yc managed-mysql resource-preset list

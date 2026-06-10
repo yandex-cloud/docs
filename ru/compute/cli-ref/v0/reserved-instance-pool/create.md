@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/reserved-instance-pool/create
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/reserved-instance-pool/create/
 ---
 
 # yc compute v0 reserved-instance-pool create

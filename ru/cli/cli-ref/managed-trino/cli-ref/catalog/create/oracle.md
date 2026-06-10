@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/catalog/create/oracle
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/catalog/create/oracle/
 ---
 
 # yc managed-trino catalog create oracle

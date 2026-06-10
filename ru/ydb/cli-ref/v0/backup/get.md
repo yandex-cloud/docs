@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/v0/backup/get
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/v0/backup/get/
 ---
 
 # yc ydb v0 backup get

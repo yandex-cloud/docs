@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/idp/application/saml/application/list-supported-attribute-values
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/idp/application/saml/application/list-supported-attribute-values/
 ---
 
 # yc organization-manager v0 idp application saml application list-supported-attribute-values

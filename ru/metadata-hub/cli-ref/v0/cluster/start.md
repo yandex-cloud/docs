@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-metastore/cli-ref/v0/cluster/start
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-metastore/cli-ref/v0/cluster/start/
 ---
 
 # yc managed-metastore v0 cluster start

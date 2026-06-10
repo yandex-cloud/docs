@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/v0/network/list-route-tables
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/v0/network/list-route-tables/
 ---
 
 # yc vpc v0 network list-route-tables

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/backup-retention-policy/
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/backup-retention-policy/
 ---
 
 # yc managed-postgresql backup-retention-policy

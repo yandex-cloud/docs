@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/v0/private-endpoint/get
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/v0/private-endpoint/get/
 ---
 
 # yc vpc v0 private-endpoint get

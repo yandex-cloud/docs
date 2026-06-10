@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/v0/registry/set-ip-permissions
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/v0/registry/set-ip-permissions/
 ---
 
 # yc container v0 registry set-ip-permissions

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/bucket/create
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/bucket/create/
 ---
 
 # yc storage bucket create

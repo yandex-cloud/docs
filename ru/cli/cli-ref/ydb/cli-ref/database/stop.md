@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/database/stop
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/database/stop/
 ---
 
 # yc ydb database stop

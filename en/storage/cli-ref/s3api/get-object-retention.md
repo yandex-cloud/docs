@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/s3api/get-object-retention
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/s3api/get-object-retention/
 ---
 
 # yc storage s3api get-object-retention

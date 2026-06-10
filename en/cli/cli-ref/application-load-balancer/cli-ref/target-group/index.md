@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/target-group/
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/target-group/
 ---
 
 # yc application-load-balancer target-group

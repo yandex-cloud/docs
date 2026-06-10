@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kafka/cli-ref/v0/user/revoke-permission
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kafka/cli-ref/v0/user/revoke-permission/
 ---
 
 # yc managed-kafka v0 user revoke-permission

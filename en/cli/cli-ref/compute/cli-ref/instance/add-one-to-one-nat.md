@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/instance/add-one-to-one-nat
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/instance/add-one-to-one-nat/
 ---
 
 # yc compute instance add-one-to-one-nat

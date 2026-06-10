@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/logging/cli-ref/group/stats
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/logging/cli-ref/group/stats/
 ---
 
 # yc logging group stats

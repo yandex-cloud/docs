@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/cdn/cli-ref/provider/list-activated
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cdn/cli-ref/provider/list-activated/
 ---
 
 # yc cdn provider list-activated

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/lockbox/cli-ref/secret/activate
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/lockbox/cli-ref/secret/activate/
 ---
 
 # yc lockbox secret activate

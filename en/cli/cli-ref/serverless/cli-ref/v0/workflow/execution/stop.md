@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/v0/workflow/execution/stop
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/v0/workflow/execution/stop/
 ---
 
 # yc serverless v0 workflow execution stop

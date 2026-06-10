@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/v0/asymmetric-signature-key/list-operations
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/v0/asymmetric-signature-key/list-operations/
 ---
 
 # yc kms v0 asymmetric-signature-key list-operations

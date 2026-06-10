@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/cloud/list
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/cloud/list/
 ---
 
 # yc resource-manager cloud list

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/lockbox/cli-ref/v0/secret/add-version
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/lockbox/cli-ref/v0/secret/add-version/
 ---
 
 # yc lockbox v0 secret add-version

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/backup/add-access-binding
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/backup/add-access-binding/
 ---
 
 # yc ydb backup add-access-binding

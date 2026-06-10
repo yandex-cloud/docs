@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/load-balancer/cli-ref/v0/target-group/update
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/load-balancer/cli-ref/v0/target-group/update/
 ---
 
 # yc load-balancer v0 target-group update

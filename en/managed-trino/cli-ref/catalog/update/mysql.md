@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/catalog/update/mysql
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/catalog/update/mysql/
 ---
 
 # yc managed-trino catalog update mysql

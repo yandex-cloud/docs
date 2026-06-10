@@ -27,7 +27,7 @@ keywords:
 
 {% include [available-image-format](../../../_includes/compute/available-image-format.md) %}
 
-Инструкции по настройке см. в разделе [{#T}](custom-image.md).
+Инструкции по настройке приведены в разделе [{#T}](custom-image.md).
 
 ## Загрузите файл образа в {{ objstorage-name }} {#upload-file}
 

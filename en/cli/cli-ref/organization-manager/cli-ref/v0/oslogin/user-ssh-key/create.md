@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/oslogin/user-ssh-key/create
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/oslogin/user-ssh-key/create/
 ---
 
 # yc organization-manager v0 oslogin user-ssh-key create

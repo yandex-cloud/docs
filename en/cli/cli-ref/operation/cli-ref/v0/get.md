@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/operation/cli-ref/v0/get
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/operation/cli-ref/v0/get/
 ---
 
 # yc operation v0 get

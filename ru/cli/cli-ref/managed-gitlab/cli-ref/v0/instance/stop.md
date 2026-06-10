@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-gitlab/cli-ref/v0/instance/stop
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-gitlab/cli-ref/v0/instance/stop/
 ---
 
 # yc managed-gitlab v0 instance stop

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/device/get
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/device/get/
 ---
 
 # yc iot device get

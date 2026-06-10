@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/inbound-endpoint/add-labels
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/inbound-endpoint/add-labels/
 ---
 
 # yc dns inbound-endpoint add-labels

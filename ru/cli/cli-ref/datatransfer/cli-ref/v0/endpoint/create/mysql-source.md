@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/datatransfer/cli-ref/v0/endpoint/create/mysql-source
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/datatransfer/cli-ref/v0/endpoint/create/mysql-source/
 ---
 
 # yc datatransfer v0 endpoint create mysql-source

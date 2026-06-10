@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/federation/saml/suspend-user-accounts
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/federation/saml/suspend-user-accounts/
 ---
 
 # yc organization-manager v0 federation saml suspend-user-accounts

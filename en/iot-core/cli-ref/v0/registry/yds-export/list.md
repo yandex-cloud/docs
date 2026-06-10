@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/v0/registry/yds-export/list
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/v0/registry/yds-export/list/
 ---
 
 # yc iot v0 registry yds-export list

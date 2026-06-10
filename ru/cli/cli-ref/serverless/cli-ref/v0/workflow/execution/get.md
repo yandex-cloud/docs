@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/v0/workflow/execution/get
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/v0/workflow/execution/get/
 ---
 
 # yc serverless v0 workflow execution get

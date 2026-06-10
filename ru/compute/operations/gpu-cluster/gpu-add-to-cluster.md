@@ -104,8 +104,8 @@ description: Следуя данной инструкции, вы сможете
 
        {% endnote %}
 
-       Подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_instance).
-  1. В блоке `metadata` укажите имя пользователя и путь к открытому [SSH-ключу](../../../glossary/ssh-keygen.md). Подробнее см. в разделе [{#T}](../../../compute/concepts/vm-metadata.md).
+       Подробную информацию о параметрах ресурса `yandex_compute_instance` читайте в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_instance).
+  1. В блоке `metadata` укажите имя пользователя и путь к открытому [SSH-ключу](../../../glossary/ssh-keygen.md). Подробнее в разделе [{#T}](../../../compute/concepts/vm-metadata.md).
   1. Создайте ресурсы:
 
     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

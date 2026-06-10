@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/workflow/remove-access-binding
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/workflow/remove-access-binding/
 ---
 
 # yc serverless workflow remove-access-binding

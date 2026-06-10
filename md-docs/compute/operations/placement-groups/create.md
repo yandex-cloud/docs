@@ -111,7 +111,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_compute_placement_group` в Terraform см. в [документации провайдера](../../../terraform/resources/compute_placement_group.md).
+     Более подробную информацию о параметрах ресурса `yandex_compute_placement_group` в Terraform читайте в [документации провайдера](../../../terraform/resources/compute_placement_group.md).
   1. В командной строке перейдите в папку, где расположен файл конфигурации Terraform.
   1. Проверьте конфигурацию командой:
 

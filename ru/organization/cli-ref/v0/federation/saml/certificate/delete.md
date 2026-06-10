@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/federation/saml/certificate/delete
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/federation/saml/certificate/delete/
 ---
 
 # yc organization-manager v0 federation saml certificate delete

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/workload-identity/oidc/federation/create
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/workload-identity/oidc/federation/create/
 ---
 
 # yc iam workload-identity oidc federation create

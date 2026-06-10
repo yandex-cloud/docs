@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/loadtesting/cli-ref/v0/agent/delete
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/loadtesting/cli-ref/v0/agent/delete/
 ---
 
 # yc loadtesting v0 agent delete

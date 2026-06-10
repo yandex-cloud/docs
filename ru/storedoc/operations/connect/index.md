@@ -144,7 +144,7 @@ FQDN можно получить несколькими способами:
 
       ```bash
       echo >> /home/<имя_пользователя>/.bashrc && \
-      echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/<пользователя>/.bashrc && \
+      echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/<имя_пользователя>/.bashrc && \
       eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
       ```
 

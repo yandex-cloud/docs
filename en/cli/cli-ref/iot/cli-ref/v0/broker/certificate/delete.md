@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/v0/broker/certificate/delete
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/v0/broker/certificate/delete/
 ---
 
 # yc iot v0 broker certificate delete

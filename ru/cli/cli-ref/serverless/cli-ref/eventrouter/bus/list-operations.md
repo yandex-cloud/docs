@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/eventrouter/bus/list-operations
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/eventrouter/bus/list-operations/
 ---
 
 # yc serverless eventrouter bus list-operations

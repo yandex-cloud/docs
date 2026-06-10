@@ -100,4 +100,4 @@ yc compute instance get my-vm --full --jq .metadata
 }
 ```
 
-Информацию о способах получить переданные через метаданные значения переменных и [секретов {{ lockbox-full-name }}](../../../lockbox/concepts/secret.md) см. в инструкциях [{#T}](../../../compute/operations/vm-create/create-with-env-variables.md) и [{#T}](../../../compute/operations/vm-create/create-with-lockbox-secret.md).
+Информацию о способах получить переданные через метаданные значения переменных и [секретов {{ lockbox-full-name }}](../../../lockbox/concepts/secret.md) читайте в инструкциях [{#T}](../../../compute/operations/vm-create/create-with-env-variables.md) и [{#T}](../../../compute/operations/vm-create/create-with-lockbox-secret.md).

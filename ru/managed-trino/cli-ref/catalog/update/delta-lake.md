@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/catalog/update/delta-lake
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/catalog/update/delta-lake/
 ---
 
 # yc managed-trino catalog update delta-lake

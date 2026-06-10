@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/lockbox/cli-ref/secret/list-operations
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/lockbox/cli-ref/secret/list-operations/
 ---
 
 # yc lockbox secret list-operations

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/v0/firewall/list-operations
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/v0/firewall/list-operations/
 ---
 
 # yc dns v0 firewall list-operations

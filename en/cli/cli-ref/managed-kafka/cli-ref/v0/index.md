@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kafka/cli-ref/v0/
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kafka/cli-ref/v0/
 ---
 
 # yc managed-kafka v0

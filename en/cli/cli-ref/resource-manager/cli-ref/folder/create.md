@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/folder/create
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/folder/create/
 ---
 
 # yc resource-manager folder create

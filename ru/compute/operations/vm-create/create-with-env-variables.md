@@ -90,7 +90,7 @@ description: Следуя данной инструкции, вы сможете
 
           Обратите внимание, что при выполнении команды CLI для переменной `HOSTNAME` значение не будет подставлено в метаданные. Вместо этого при выполнении команды CLI в конфигурацию `cloud-init` будет передано имя переменной `$HOSTNAME`, а значение имени хоста создаваемой ВМ будет подставлено вместо этой переменной позднее при создании ВМ.
 
-          Для этого в ключе `user-data` переменная `HOSTNAME` задана с двумя символами доллара: `$$HOSTNAME`. Подробнее см. в разделе [{#T}](../../concepts/metadata/sending-metadata.md#environment-variables).
+          Для этого в ключе `user-data` переменная `HOSTNAME` задана с двумя символами доллара: `$$HOSTNAME`. Подробнее в разделе [{#T}](../../concepts/metadata/sending-metadata.md#environment-variables).
 
           {% endnote %}
 
@@ -145,7 +145,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% endcut %}
 
-      Подробнее о команде `yc compute instance create` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/create.md).
+      Подробнее о команде `yc compute instance create` читайте в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
     {% endlist %}
 
@@ -173,7 +173,7 @@ description: Следуя данной инструкции, вы сможете
     value1 value2
     ```
 
-Другие примеры конфигурации для `user-data` см. в разделе [Примеры](./create-with-cloud-init-scripts.md#examples).
+Другие примеры конфигурации для `user-data` приведены в разделе [Примеры](./create-with-cloud-init-scripts.md#examples).
 
 #### См. также {#see-also}
 

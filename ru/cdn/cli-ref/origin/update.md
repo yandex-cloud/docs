@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/cdn/cli-ref/origin/update
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cdn/cli-ref/origin/update/
 ---
 
 # yc cdn origin update

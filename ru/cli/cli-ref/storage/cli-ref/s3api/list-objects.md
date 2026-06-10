@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/s3api/list-objects
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/s3api/list-objects/
 ---
 
 # yc storage s3api list-objects

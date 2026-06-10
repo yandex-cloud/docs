@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/v0/repository/remove-access-binding
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/v0/repository/remove-access-binding/
 ---
 
 # yc container v0 repository remove-access-binding

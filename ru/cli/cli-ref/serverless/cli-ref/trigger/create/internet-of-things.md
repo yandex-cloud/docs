@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/trigger/create/internet-of-things
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/trigger/create/internet-of-things/
 ---
 
 # yc serverless trigger create internet-of-things

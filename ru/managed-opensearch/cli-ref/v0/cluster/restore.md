@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-opensearch/cli-ref/v0/cluster/restore
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-opensearch/cli-ref/v0/cluster/restore/
 ---
 
 # yc managed-opensearch v0 cluster restore
@@ -145,6 +145,27 @@ Possible property names:
 || `--disk-encryption-key-id` | `string`
 
 ID of the KMS key for cluster disk encryption. Empty input will remove the use of encryption. ||
+|| `--audit-log` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Audit log settings
+
+Possible property names:
+
+- `compliance-enabled`: Enables audit logging on changes to a security index, such as changes to roles mappings and role creation or deletion.
+
+- `log-request-body`: Includes the body of the request (if available) for both REST and the transport layer.
+
+- `log-search-queries`: Enables indices data read requests logging.
+
+- `log-data-modifications`: Enables indices data write request logging.
+
+- `log-index-metadata-access`: Enables indices metadata requests logging.
+
+- `log-monitoring-checks`: Enables monitoring data requests logging.
+
+- `log-index-maintenance`: Enables indices maintenance requests logging, such as indices refreshes, flushes and merges.
+
+- `log-backup-operations`: Enables snapshots and repositories requests logging. ||
 |#
 
 #### Global Flags

@@ -103,7 +103,7 @@
 
      Terraform изменит все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления](https://console.yandex.cloud).
 
-  Более подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера](../../../terraform/data-sources/compute_instance.md).
+  Более подробную информацию о параметрах ресурса `yandex_compute_instance` читайте в [документации провайдера](../../../terraform/data-sources/compute_instance.md).
 
 - API {#api}
 
@@ -182,7 +182,7 @@
 
      Terraform создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления](https://console.yandex.cloud).
 
-  Более подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера](../../../terraform/data-sources/compute_instance.md).
+  Более подробную информацию о параметрах ресурса `yandex_compute_instance` читайте в [документации провайдера](../../../terraform/data-sources/compute_instance.md).
 
 - API {#api}
 

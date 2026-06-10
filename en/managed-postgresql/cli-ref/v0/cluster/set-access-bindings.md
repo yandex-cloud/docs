@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/v0/cluster/set-access-bindings
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/v0/cluster/set-access-bindings/
 ---
 
 # yc managed-postgresql v0 cluster set-access-bindings

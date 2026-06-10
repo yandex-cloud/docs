@@ -61,7 +61,7 @@ description: Следуя данной инструкции, вы сможете
        ```bash
        yc cloud-registry registry remove-access-binding <имя_или_идентификатор_реестра> \
          --role <роль> \
-         --allUsers
+         --subject system:allUsers
        ```
 
        Где `<роль>` — [роль](../../security/index.md#service-roles), которую необходимо отозвать.

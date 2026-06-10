@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/v0/cluster/enable-sharding
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/v0/cluster/enable-sharding/
 ---
 
 # yc managed-redis v0 cluster enable-sharding

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/v0/cluster/list-logs
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/v0/cluster/list-logs/
 ---
 
 # yc managed-mysql v0 cluster list-logs

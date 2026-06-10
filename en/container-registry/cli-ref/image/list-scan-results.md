@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/image/list-scan-results
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/image/list-scan-results/
 ---
 
 # yc container image list-scan-results

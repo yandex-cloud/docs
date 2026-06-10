@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloudrouter/cli-ref/v0/routing-instance/upsert-prefixes
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloudrouter/cli-ref/v0/routing-instance/upsert-prefixes/
 ---
 
 # yc cloudrouter v0 routing-instance upsert-prefixes

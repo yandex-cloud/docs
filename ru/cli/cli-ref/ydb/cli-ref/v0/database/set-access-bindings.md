@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/v0/database/set-access-bindings
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/v0/database/set-access-bindings/
 ---
 
 # yc ydb v0 database set-access-bindings

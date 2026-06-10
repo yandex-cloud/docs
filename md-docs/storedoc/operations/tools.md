@@ -7,14 +7,29 @@
 * `mongostat` — собирает статистику утилизации ресурсов CPU и памяти процессами Yandex StoreDoc,
 * `mongotop` — собирает статистику чтения/записи данных по каждой коллекции.
 
-При вызове этих утилит используйте строку подключения с логином и паролем пользователя с ролью `mdbMonitor`, например:
+При вызове этих утилит используйте учетную запись пользователя БД с ролью [mdbMonitor](../concepts/users-and-roles.md#mdbMonitor).
+
+Например, чтобы вывести набор данных о производительности с интервалом опроса (polling interval) в 5 секунд, выполните одну из следующих команд:
 
 ```bash
-mongostat 5 --uri="mongodb://{<имя_пользователя_с_ролью_mdbMonitor>}:{<пароль>}@{<хост>}:27018/?authSource=admin"
-mongotop 5 --uri="mongodb://{<имя_пользователя_с_ролью_mdbMonitor>}:{<пароль>}@{<хост>}:27018/?authSource=admin"
+mongostat 5 \
+  --ssl \
+  --host=<FQDN_хоста_Yandex_StoreDoc> \
+  --port=27018 \
+  --username=<имя_пользователя> \
+  --authenticationDatabase=admin
 ```
 
-Здесь обе утилиты выводят набор данных о производительности с интервалом опроса (polling interval) в 5 секунд.
+```bash
+mongotop 5 \
+  --ssl \
+  --host=<FQDN_хоста_Yandex_StoreDoc> \
+  --port=27018 \
+  --username=<имя_пользователя> \
+  --authenticationDatabase=admin
+```
+
+О том, как получить FQDN хоста, см. [инструкцию](connect/index.md#get-fqdn).
 
 
 ### Профилировщик {#explore-profiler}

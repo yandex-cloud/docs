@@ -1,24 +1,44 @@
 # Подключение к внешнему файловому серверу
 
-[{{ GP }} Parallel File Server]({{ gp.docs.broadcom }}7/greenplum-database/utility_guide-ref-gpfdist.html) (`gpfdist`) — утилита для чтения и записи данных из файлов, расположенных на удаленных серверах. Она установлена на всех хостах-сегментах кластера {{ mgp-name }} и обеспечивает параллельную загрузку данных, распределяя их между сегментами равномерно или согласно заданному [ключу дистрибуции](../../concepts/sharding.md#distribution-key). Это повышает производительность при работе с большими объемами внешних данных.
+[{{ GP }} Parallel File Server]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-gpfdist.html) (`gpfdist`) — утилита для чтения и записи данных из файлов, расположенных на удаленных серверах. Она установлена на всех хостах-сегментах кластера {{ mgp-name }} и обеспечивает параллельную загрузку данных, распределяя их между сегментами равномерно или согласно заданному [ключу дистрибуции](../../concepts/sharding.md#distribution-key). Это повышает производительность при работе с большими объемами внешних данных.
+
+Для кластера {{ mgp-name }} с СУБД {{ CB }} используется собственная утилита `gpfdist`. Подробнее в [документации {{ CB }}]({{ gp.docs.cloudberry }}/sys-utilities/gpfdist).
 
 Утилита `gpfdist` может работать с любыми текстовыми файлами, которые содержат разделители, а также со сжатыми файлами gzip и bzip2.
 
 Для чтения или записи файлов на внешнем сервере:
-1. [Установите и запустите](#run-gpfdist) `gpfdist` в составе пакета {{ GP }} Loader или {{ GP }} Database на удаленном сервере, где находятся нужные файлы.
+
+1. [Установите и запустите](#run-gpfdist) `gpfdist` на удаленном сервере, где находятся нужные файлы.
+
+    Для СУБД {{ GP }} `gpfdist` устанавливается с помощью пакета {{ GP }} Loader или {{ GP }} Database.
+
+    Для СУБД {{ CB }} `gpfdist` устанавливается вместе с СУБД {{ CB }}.
+
 1. В кластере {{ mgp-name }} [создайте внешнюю таблицу](#create-gpfdist-table), которая будет ссылаться на эти файлы.
 
 ## Запуск gpfdist {#run-gpfdist}
 
+1. Установите `gpfdist`:
 
-{% note info %}
+    {% list tabs %}
 
-Скачивание и использование продуктов с сайта VMware не входит в [условия использования {{ mgp-full-name }}]({{ link-cloud-terms-of-use }}) и является предметом отдельного регулирования между клиентом и VMware. Яндекс не несет ответственности за взаимоотношения клиента и VMware, вытекающие из использования клиентом продуктов или услуг VMware.
+    - Для {{ GP }}
 
-{% endnote %}
+        Скачайте и установите пакет {{ GP }} Loader с [сайта VMware]({{ gp.docs.broadcom }}/6/greenplum-database/client_tool_guides-installing.html) или пакет {{ GP }} Database из бакета {{ objstorage-full-name }} по [инструкции](../greenplum-db.md).
+
+        
+        {% note info %}
+
+        Скачивание и использование продуктов с сайта VMware не входит в [условия использования {{ mgp-full-name }}]({{ link-cloud-terms-of-use }}) и является предметом отдельного регулирования между клиентом и VMware. Яндекс не несет ответственности за взаимоотношения клиента и VMware, вытекающие из использования клиентом продуктов или услуг VMware.
+
+        {% endnote %}
 
 
-1. Скачайте и установите пакет {{ GP }} Loader с [сайта VMware]({{ gp.docs.broadcom }}/7/greenplum-database/client_tool_guides-installing.html) или пакет {{ GP }} Database из бакета {{ objstorage-full-name }} по [инструкции](../greenplum-db.md).
+    - Для {{ CB }}
+
+        Установите СУБД {{ CB }} по инструкции из [документации {{ CB }}]({{ gp.docs.cloudberry }}/deployment).
+
+    {% endlist %}
 
 1. Запустите утилиту `gpfdist`:
 
@@ -85,3 +105,5 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
     ```
 
 {% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [cloudberry-trademark](../../../_includes/mdb/mgp/trademark-cloudberry.md) %}

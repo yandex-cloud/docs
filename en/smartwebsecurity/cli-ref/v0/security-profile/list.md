@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/v0/security-profile/list
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/v0/security-profile/list/
 ---
 
 # yc smartwebsecurity v0 security-profile list

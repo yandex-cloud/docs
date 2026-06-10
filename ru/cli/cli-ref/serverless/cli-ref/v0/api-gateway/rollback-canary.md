@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/v0/api-gateway/rollback-canary
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/v0/api-gateway/rollback-canary/
 ---
 
 # yc serverless v0 api-gateway rollback-canary

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/audit-trails/cli-ref/trail/update
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/audit-trails/cli-ref/trail/update/
 ---
 
 # yc audit-trails trail update

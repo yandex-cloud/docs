@@ -309,8 +309,8 @@ WITH(
 
 |Формат сжатия|Название в Query|
 |--|--|
-|[Raw](https://ru.wikipedia.org/wiki/Gzip)|raw|
-|[Snappy](https://ru.wikipedia.org/wiki/Gzip)|snappy|
+|[Raw](https://github.com/apache/parquet-format/blob/master/Compression.md)|raw|
+|[Snappy](https://en.wikipedia.org/wiki/Snappy_(compression))|snappy|
 
 ### Запись в Yandex Object Storage {#write_objstorage}
 

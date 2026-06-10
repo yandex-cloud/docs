@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/v0/cloud/add-access-binding
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/v0/cloud/add-access-binding/
 ---
 
 # yc resource-manager v0 cloud add-access-binding

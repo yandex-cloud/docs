@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/v0/database/restore
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/v0/database/restore/
 ---
 
 # yc ydb v0 database restore

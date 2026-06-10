@@ -17,7 +17,7 @@ description: Из этой статьи вы узнаете о способах 
 
 {% include [vm-metadata](../../../_includes/vm-metadata.md) %}
 
-Подробнее о получении метаданных изнутри ВМ см. в разделе [Примеры запросов к сервису метаданных изнутри ВМ](../../operations/vm-metadata/get-vm-metadata.md#request-examples).
+Подробнее о получении метаданных изнутри ВМ читайте в разделе [Примеры запросов к сервису метаданных изнутри ВМ](../../operations/vm-metadata/get-vm-metadata.md#request-examples).
 
 #### См. также {#see-also}
 

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/node-group/remove-metadata
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/node-group/remove-metadata/
 ---
 
 # yc container node-group remove-metadata

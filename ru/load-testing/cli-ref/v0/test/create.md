@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/loadtesting/cli-ref/v0/test/create
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/loadtesting/cli-ref/v0/test/create/
 ---
 
 # yc loadtesting v0 test create

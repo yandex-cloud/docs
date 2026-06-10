@@ -42,6 +42,9 @@ Set of patterns permissions grant access to ||
 || `--pub-sub-channels` | `string`
 
 Set of pub/sub channels permissions grant access to ||
+|| `--databases` | `string`
+
+Databases permissions grant access to. Possible values: alldbs, resetdbs, db=&lt;id&gt;[,&lt;id&gt;...] ||
 |#
 
 #### Global Flags

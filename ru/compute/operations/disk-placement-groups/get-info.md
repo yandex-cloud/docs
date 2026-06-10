@@ -74,7 +74,7 @@ description: Следуя данной инструкции, вы сможете
       * `output "placement_group"` — выходная переменная, которая содержит информацию о группе размещения дисков:
         * `value` — возвращаемое значение.
 
-      Вместо `name` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_compute_disk_placement_group` см. в [документации провайдера]({{ tf-provider-datasources-link }}/compute_disk_placement_group).
+      Вместо `name` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_compute_disk_placement_group` читайте в [документации провайдера]({{ tf-provider-datasources-link }}/compute_disk_placement_group).
 
   1. Создайте ресурсы:
 

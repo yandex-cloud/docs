@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/s3/mv
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/s3/mv/
 ---
 
 # yc storage s3 mv

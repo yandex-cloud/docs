@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/desktops/cli-ref/image/delete
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/desktops/cli-ref/image/delete/
 ---
 
 # yc desktops image delete

@@ -76,7 +76,7 @@
         --destination-folder-id b1gd129pp9ha********
       ```
 
-      Подробнее о команде `yc compute instance move` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/move.md).
+      Подробнее о команде `yc compute instance move` читайте в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/move.md).
 
 - {{ TF }} {#tf}
 
@@ -103,7 +103,7 @@
       * `allow_stopping_for_update` — параметр для разрешения остановки ВМ на время обновления.
       * `folder_id` — идентификатор каталога, в котором должна размещаться ВМ (по умолчанию указывается из [переменной окружения](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials)).
 
-      Более подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
+      Более подробную информацию о параметрах ресурса `yandex_compute_instance` читайте в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
 
   1. Примените новую конфигурацию:
 
@@ -357,7 +357,7 @@
       * `subnet_id` — идентификатор [подсети](../../../vpc/concepts/network.md#subnet).
       * `allow_stopping_for_update` — параметр для разрешения остановки ВМ на время обновления.
 
-      Более подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
+      Более подробную информацию о параметрах ресурса `yandex_compute_instance` читайте в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
 
   1. Примените новую конфигурацию:
 

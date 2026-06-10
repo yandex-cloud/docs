@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/logging/cli-ref/v0/sink/
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/logging/cli-ref/v0/sink/
 ---
 
 # yc logging v0 sink

@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/pxf-datasource/create/jdbc
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/pxf-datasource/create/jdbc/
 ---
 
 # yc managed-greenplum pxf-datasource create jdbc

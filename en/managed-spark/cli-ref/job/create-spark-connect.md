@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-spark/cli-ref/job/create-spark-connect
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-spark/cli-ref/job/create-spark-connect/
 ---
 
 # yc managed-spark job create-spark-connect

@@ -9,7 +9,7 @@
 
 {% note info %}
 
-Также группу ВМ можно создать с помощью [Terraform](https://terraform.io) по описанию, схожему со спецификацией в формате YAML. Подробнее см. в [руководстве по началу работы с Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md), [инструкции по созданию группы ВМ](../../operations/instance-groups/create-fixed-group.md) и [справочнике ресурса `yandex_compute_instance_group`](../../../terraform/resources/compute_instance_group.md).
+Также группу ВМ можно создать с помощью [Terraform](https://terraform.io) по описанию, схожему со спецификацией в формате YAML. Подробнее читайте в [руководстве по началу работы с Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md), [инструкции по созданию группы ВМ](../../operations/instance-groups/create-fixed-group.md) и [справочнике ресурса `yandex_compute_instance_group`](../../../terraform/resources/compute_instance_group.md).
 
 {% endnote %}
 
@@ -247,7 +247,7 @@ service_account_id: ajefnb8427bh********
 
 ## Как создать или изменить группу ВМ по спецификации {#how}
 
-Создать группу виртуальных машин по YAML-спецификации можно через интерфейс командной строки (CLI) или API. Подробнее см. в инструкциях:
+Создать группу виртуальных машин по YAML-спецификации можно через интерфейс командной строки (CLI) или API. Подробнее читайте в инструкциях:
 
 * [Создать группу виртуальных машин по спецификации в формате YAML](../../operations/instance-groups/create-from-yaml.md)
 * [Изменить группу виртуальных машин по спецификации в формате YAML](../../operations/instance-groups/update-from-yaml.md)

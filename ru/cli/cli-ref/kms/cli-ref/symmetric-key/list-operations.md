@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/symmetric-key/list-operations
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/symmetric-key/list-operations/
 ---
 
 # yc kms symmetric-key list-operations

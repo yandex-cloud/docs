@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/symmetric-crypto/decrypt
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/symmetric-crypto/decrypt/
 ---
 
 # yc kms symmetric-crypto decrypt

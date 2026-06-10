@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/registry/get
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/registry/get/
 ---
 
 # yc container registry get

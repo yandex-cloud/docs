@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-sharded-postgresql/cli-ref/cluster/remove-labels
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-sharded-postgresql/cli-ref/cluster/remove-labels/
 ---
 
 # yc managed-sharded-postgresql cluster remove-labels

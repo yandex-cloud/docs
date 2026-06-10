@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/loadtesting/cli-ref/test/
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/loadtesting/cli-ref/test/
 ---
 
 # yc loadtesting test

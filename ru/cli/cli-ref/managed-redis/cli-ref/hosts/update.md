@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/hosts/update
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/hosts/update/
 ---
 
 # yc managed-redis hosts update

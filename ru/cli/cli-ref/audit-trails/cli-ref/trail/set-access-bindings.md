@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/audit-trails/cli-ref/trail/set-access-bindings
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/audit-trails/cli-ref/trail/set-access-bindings/
 ---
 
 # yc audit-trails trail set-access-bindings

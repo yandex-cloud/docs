@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/eventrouter/connector/create/timer
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/eventrouter/connector/create/timer/
 ---
 
 # yc serverless eventrouter connector create timer

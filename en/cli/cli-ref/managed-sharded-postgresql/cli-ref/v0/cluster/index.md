@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-sharded-postgresql/cli-ref/v0/cluster/
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-sharded-postgresql/cli-ref/v0/cluster/
 ---
 
 # yc managed-sharded-postgresql v0 cluster

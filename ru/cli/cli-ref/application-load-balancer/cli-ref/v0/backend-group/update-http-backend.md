@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/v0/backend-group/update-http-backend
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/v0/backend-group/update-http-backend/
 ---
 
 # yc application-load-balancer v0 backend-group update-http-backend

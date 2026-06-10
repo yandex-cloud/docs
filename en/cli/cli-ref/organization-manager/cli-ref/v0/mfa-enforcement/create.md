@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/mfa-enforcement/create
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/mfa-enforcement/create/
 ---
 
 # yc organization-manager v0 mfa-enforcement create

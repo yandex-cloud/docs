@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/registry/lifecycle-policy/change-state
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/registry/lifecycle-policy/change-state/
 ---
 
 # yc cloud-registry registry lifecycle-policy change-state

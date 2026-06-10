@@ -99,7 +99,7 @@
      * `output "instance_external_ip"` — [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) ВМ, который будет выводиться в результате:
        * `value` — возвращаемое значение.
 
-     Более подробную информацию о параметрах источника данных `yandex_compute_instance` см. в [документации провайдера](../../../terraform/data-sources/compute_instance.md).
+     Более подробную информацию о параметрах источника данных `yandex_compute_instance` читайте в [документации провайдера](../../../terraform/data-sources/compute_instance.md).
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -305,4 +305,4 @@ yc compute instance get my-vm --full --jq .metadata
 }
 ```
 
-Информацию о способах получить переданные через метаданные значения переменных и [секретов Yandex Lockbox](../../../lockbox/concepts/secret.md) см. в инструкциях [Создать виртуальную машину с метаданными из переменных окружения](../vm-create/create-with-env-variables.md) и [Создать ВМ с доступом к секрету Yandex Lockbox](../vm-create/create-with-lockbox-secret.md).
+Информацию о способах получить переданные через метаданные значения переменных и [секретов Yandex Lockbox](../../../lockbox/concepts/secret.md) читайте в инструкциях [Создать виртуальную машину с метаданными из переменных окружения](../vm-create/create-with-env-variables.md) и [Создать ВМ с доступом к секрету Yandex Lockbox](../vm-create/create-with-lockbox-secret.md).

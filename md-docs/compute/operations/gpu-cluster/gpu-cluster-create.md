@@ -62,7 +62,7 @@
      * `interconnect_type` — тип соединения. Сейчас создаются только кластеры GPU с типом соединения `infiniband`. Обязательный параметр.
      * `labels` — [метка](../../../resource-manager/concepts/labels.md) ресурса в формате `<ключ> = "<значение>"`. Необязательный параметр.
 
-     Подробную информацию о параметрах ресурса `yandex_compute_gpu_cluster` см. в [документации провайдера Terraform](../../../terraform/resources/compute_gpu_cluster.md).
+     Подробную информацию о параметрах ресурса `yandex_compute_gpu_cluster` читайте в [документации провайдера Terraform](../../../terraform/resources/compute_gpu_cluster.md).
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.

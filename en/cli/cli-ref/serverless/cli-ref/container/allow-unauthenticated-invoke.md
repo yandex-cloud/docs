@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/container/allow-unauthenticated-invoke
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/container/allow-unauthenticated-invoke/
 ---
 
 # yc serverless container allow-unauthenticated-invoke

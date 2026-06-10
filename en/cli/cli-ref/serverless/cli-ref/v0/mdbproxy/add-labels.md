@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/v0/mdbproxy/add-labels
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/v0/mdbproxy/add-labels/
 ---
 
 # yc serverless v0 mdbproxy add-labels

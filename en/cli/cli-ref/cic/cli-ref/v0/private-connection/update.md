@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/v0/private-connection/update
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/v0/private-connection/update/
 ---
 
 # yc cic v0 private-connection update

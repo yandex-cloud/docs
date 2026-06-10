@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/registry/add-labels
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/registry/add-labels/
 ---
 
 # yc container registry add-labels

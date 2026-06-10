@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/components/cli-ref/v0/update
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/components/cli-ref/v0/update/
 ---
 
 # yc components v0 update

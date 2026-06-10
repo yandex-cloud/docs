@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/desktops/cli-ref/desktop/reset-password
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/desktops/cli-ref/desktop/reset-password/
 ---
 
 # yc desktops desktop reset-password

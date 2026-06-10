@@ -1,6 +1,6 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/v0/cluster/remove-resource-groups
 editable: false
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/v0/cluster/remove-resource-groups/
 ---
 
 # yc managed-trino v0 cluster remove-resource-groups

@@ -10,7 +10,7 @@
 
 {% note info %}
 
-Подключить локальный диск к ВМ на [выделенном хосте](../../concepts/dedicated-host.md) можно только при ее создании. Подробнее см. в [инструкциях](../index.md#dedicated-host).
+Подключить локальный диск к ВМ на [выделенном хосте](../../concepts/dedicated-host.md) можно только при ее создании. Подробнее читайте в [инструкциях](../index.md#dedicated-host).
 
 {% endnote %}
 
@@ -108,7 +108,7 @@
 
       {% endnote %}
 
-      Более подробную информацию о параметрах ресурса `yandex_compute_disk` см. в [документации провайдера]({{ tf-provider-datasources-link }}/compute_disk).
+      Более подробную информацию о параметрах ресурса `yandex_compute_disk` читайте в [документации провайдера]({{ tf-provider-datasources-link }}/compute_disk).
 
   1. Примените новую конфигурацию:
 

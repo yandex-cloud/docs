@@ -23,7 +23,7 @@ description: Следуя данной инструкции, вы сможете
   1. Перейдите в сервис **{{ compute-name }}**.
   1. Откройте вкладку ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}** и выберите диск.
   1. В блоке **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.snapshots-schedules.action_edit-disk-schedules }}**.
-  1. Выберите расписание или создайте новое. Подробнее о настройках расписания см. в [инструкции](../snapshot-control/create-schedule.md).
+  1. Выберите расписание или создайте новое. Подробнее о настройках расписания читайте в [инструкции](../snapshot-control/create-schedule.md).
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -77,7 +77,7 @@ description: Следуя данной инструкции, вы сможете
           - fhm1c7u23aiq********
         disk_placement_policy: {}
       ```
-      Подробнее о команде `yc compute disk list` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/disk/list.md).
+      Подробнее о команде `yc compute disk list` читайте в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/disk/list.md).
 
       Чтобы получить список дисков, привязанных к отдельному расписанию, можно также воспользоваться командой:
 
