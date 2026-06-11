@@ -9,6 +9,8 @@ description: Use investigations in {{ ycdr-name }} to analyze security events wi
 
 An _investigation_ is the core entity for security event analysis in {{ ycdr-full-name }}. An investigation comprises one or more queries enabling you to search and analyze events within the past 90 days.
 
+{% include [queries-max-results](../../_includes/ycdr/queries-max-results.md) %}
+
 ## {{ ycdr-name }} instance binding {#instance-binding}
 
 Each investigation is associated with a specific {{ ycdr-name }} [instance](index.md). Each instance maintains its own investigations, templates, and datasets. Access to investigations can be granted to:

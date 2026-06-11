@@ -53,13 +53,17 @@
 
    {% endnote %}
 
-1. Установите утилиту `kafkacat` — приложение с открытым исходным кодом, которое может работать как универсальный производитель или потребитель данных:
+1. Установите утилиту `kafkactl` — интерфейс командной строки для взаимодействия с Apache Kafka®:
 
    ```bash
-   sudo apt-get install kafkacat
+   wget https://github.com/deviceinsight/kafkactl/releases/download/v<номер_версии>/<имя_архива>.tar.gz
+   tar xzf <имя_архива>.tar.gz kafkactl
+   sudo mv kafkactl /usr/local/bin
    ```
+   
+   Версию и имя архива можно посмотреть на [странице релизов `kafkactl`](https://github.com/deviceinsight/kafkactl/releases).
 
-   Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику Managed Service for Apache Kafka® через SSL](operations/connect/clients.md#bash-zsh).
+   Убедитесь, что с помощью `kafkactl` можете [подключиться к кластеру-источнику Managed Service for Apache Kafka® через SSL](operations/connect/clients.md#kafkactl).
 
 
 ## Создайте кластер {#cluster-create}
@@ -141,40 +145,46 @@
    
    {% endlist %}
 
+1. Создайте каталог `~/.config/kafkactl` и поместите в него конфигурационный файл `config.yml` с параметрами подключения к кластеру Apache Kafka®:
+
+   ```bash
+   cd ~/ && \
+   mkdir --parents .config/kafkactl && \
+   cd ~/.config/kafkactl
+   ```
+
+   Пример файла `config.yml`:
+   
+   ```yaml
+   contexts:
+     default:
+       brokers:
+       - <FQDN_брокера>:9091
+       sasl:
+         enabled: true
+         username: <логин_потребителя>
+         password: <пароль_потребителя>
+         mechanism: scram-sha512
+       tls:
+         enabled: true
+         ca: /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+   ```
+
+   В конфигурационном файле укажите FQDN брокера, а также логин и пароль пользователя Apache Kafka®, созданного ранее.
+
+   Как получить FQDN хоста-брокера, читайте в [инструкции](operations/connect/index.md#get-fqdn).
+
 1. Чтобы отправить сообщение в топик, выполните команду:
 
    ```bash
-   echo "test message" | kafkacat -P \
-       -b <FQDN_брокера>:9091 \
-       -t <имя_топика> \
-       -k key \
-       -X security.protocol=SASL_SSL \
-       -X sasl.mechanism=SCRAM-SHA-512 \
-       -X sasl.username="<логин_производителя>" \
-       -X sasl.password="<пароль_производителя>" \
-       -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
+   echo "test message" | kafkactl produce <имя_топика>
    ```
-
-   В команде укажите FQDN брокера, имя топика, логин и пароль пользователя Apache Kafka®, созданного ранее.
-
-   Как получить FQDN хоста-брокера, читайте в [инструкции](operations/connect/index.md#get-fqdn).
 
 1. Чтобы получить сообщения из топика, выполните команду:
 
    ```bash
-   kafkacat -C \
-            -b <FQDN_брокера>:9091 \
-            -t <имя_топика> \
-            -X security.protocol=SASL_SSL \
-            -X sasl.mechanism=SCRAM-SHA-512 \
-            -X sasl.username="<логин_потребителя>" \
-            -X sasl.password="<пароль_потребителя>" \
-            -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z -K:
+   kafkactl consume <имя_топика>
    ```
-
-   В команде укажите FQDN брокера, имя топика, логин и пароль пользователя Apache Kafka®, созданного ранее.
-
-   Как получить FQDN хоста-брокера, читайте в [инструкции](operations/connect/index.md#get-fqdn).
 
 Подробно процесс подключения к кластеру Managed Service for Apache Kafka® рассмотрен в разделе [Подключение к топикам в кластере](operations/connect/clients.md).
 

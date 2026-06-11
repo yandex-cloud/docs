@@ -346,12 +346,8 @@ Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarg
 
 #|
 ||Field | Description ||
-|| fromPort | **string** (int64)
-
-Acceptable values are 0 to 65535, inclusive. ||
-|| toPort | **string** (int64)
-
-Acceptable values are 0 to 65535, inclusive. ||
+|| fromPort | **string** (int64) ||
+|| toPort | **string** (int64) ||
 |#
 
 ## CidrBlocks {#yandex.cloud.vpc.v1.CidrBlocks}

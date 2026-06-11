@@ -29,7 +29,118 @@
 
 Примеры кода с заполненным FQDN хоста доступны в [консоли управления](https://console.yandex.cloud) по нажатию кнопки **Подключиться** на странице кластера.
 
+### kafkactl {#kafkactl}
+
+`kafkactl` — это интерфейс командной строки для взаимодействия с Apache Kafka®. Утилита позволяет создавать, обновлять и удалять ресурсы в кластере Apache Kafka®, запрашивать информацию (например, о брокерах, темах, сообщениях и т. д.). Может использоваться для потребителей и производителей сообщений.
+
+Перед подключением установите `kafkactl`:
+
+```bash
+wget https://github.com/deviceinsight/kafkactl/releases/download/v<номер_версии>/<имя_архива>.tar.gz
+tar xzf <имя_архива>.tar.gz kafkactl
+sudo mv kafkactl /usr/local/bin
+```
+
+Версию и имя архива можно посмотреть на [странице релизов `kafkactl`](https://github.com/deviceinsight/kafkactl/releases).
+
+О других способах установки `kafkactl` читайте в [документации `kafkactl`](https://github.com/deviceinsight/kafkactl#installation).
+
+{% list tabs group=connection %}
+
+- Подключение без SSL {#without-ssl}
+
+  1. Создайте каталог `~/.config/kafkactl` и поместите в него конфигурационный файл `config.yml` с параметрами подключения к кластеру Apache Kafka®:
+
+      ```bash
+      cd ~/ && \
+      mkdir --parents .config/kafkactl && \
+      cd ~/.config/kafkactl
+      ```
+
+      Пример файла `config.yml`:
+      
+      ```yaml
+      contexts:
+        default:
+          brokers:
+          - <FQDN_брокера>:9092
+          sasl:
+            enabled: true
+            username: <логин_потребителя>
+            password: <пароль_потребителя>
+            mechanism: scram-sha512
+      ```
+
+      Как получить FQDN хоста-брокера, читайте в [инструкции](index.md#get-fqdn).
+
+  1. Запустите команду получения сообщений из топика:
+
+      ```bash
+      kafkactl consume <имя_топика>
+      ```
+
+     Команда будет непрерывно считывать новые сообщения из топика.
+
+  1. В отдельном терминале запустите команду отправки сообщения в топик:
+
+      ```bash
+      echo "test message" | kafkactl produce <имя_топика>
+      ```
+
+- Подключение с SSL {#with-ssl}
+
+  1. Создайте каталог `~/.config/kafkactl` и поместите в него конфигурационный файл `config.yml` с параметрами подключения к кластеру Apache Kafka®:
+
+      ```bash
+      cd ~/ && \
+      mkdir --parents .config/kafkactl && \
+      cd ~/.config/kafkactl
+      ```
+
+      Пример файла `config.yml`:
+      
+      ```yaml
+      contexts:
+        default:
+          brokers:
+          - <FQDN_брокера>:9091
+          sasl:
+            enabled: true
+            username: <логин_потребителя>
+            password: <пароль_потребителя>
+            mechanism: scram-sha512
+          tls:
+            enabled: true
+            ca: /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+      ```
+
+      Как получить FQDN хоста-брокера, читайте в [инструкции](index.md#get-fqdn).
+
+  1. Запустите команду получения сообщений из топика:
+
+      ```bash
+      kafkactl consume <имя_топика>
+      ```
+
+     Команда будет непрерывно считывать новые сообщения из топика.
+
+  1. В отдельном терминале запустите команду отправки сообщения в топик:
+
+      ```bash
+      echo "test message" | kafkactl produce <имя_топика>
+      ```
+
+{% endlist %}
+
+Убедитесь, что в первом терминале отобразилось сообщение `test message`, отправленное во втором.
+
 ### kafkacat {#bash-zsh}
+
+{% note info %}
+
+`kafkacat` — это устаревший инструмент. Он работает только для кластеров с версией Apache Kafka® ниже 4.0. Если ваш кластер с версией Apache Kafka® 4.0 или выше, используйте утилиту [kafkactl](clients.md#kafkactl).
+
+{% endnote %}
 
 Утилита [kafkacat](https://github.com/edenhill/kcat) (второе название `kcat`) — приложение с открытым исходным кодом, которое может работать как универсальный производитель или потребитель данных и не требует установки Java Runtime Environment.
 
@@ -111,11 +222,13 @@ sudo apt update && sudo apt install -y kafkacat
 
 Как получить FQDN хоста-брокера, читайте в [инструкции](index.md#get-fqdn).
 
-Убедитесь, что в первом терминале отобразилось сообщение `key:test message`, отправленное во втором.
+Убедитесь, что в первом терминале отобразилось сообщение `test message`, отправленное во втором.
 
 ### Инструменты Apache Kafka® для Linux (Bash)/macOS (Zsh) {#kafka-sh}
 
-В состав [архивов с бинарными файлами Apache Kafka®](https://kafka.apache.org/community/downloads/) включен [набор инструментов](https://docs.confluent.io/kafka/operations-tools/kafka-tools.html), который позволяет управлять кластером Apache Kafka® и сущностями в нем. Далее на примере будет показано, как указать реквизиты пользователя для подключения и использовать инструменты с этими реквизитами:
+В состав [архивов с бинарными файлами Apache Kafka®](https://kafka.apache.org/community/downloads/) включен набор инструментов, который позволяет управлять кластером Apache Kafka® и сущностями в нем. Подробнее об этих инструментах читайте в [документации вендора Apache Kafka®](https://docs.confluent.io/kafka/operations-tools/kafka-tools.html).
+
+Далее на примере будет показано, как указать реквизиты пользователя для подключения и использовать инструменты с этими реквизитами:
 
 * С помощью [kafka-console-producer](https://docs.confluent.io/kafka/operations-tools/kafka-tools.html#kafka-console-producer-sh) будет отправлено сообщение в топик.
 * С помощью [kafka-console-consumer](https://docs.confluent.io/kafka/operations-tools/kafka-tools.html#kafka-console-consumer-sh) будет получено сообщение из топика.
@@ -231,11 +344,13 @@ sudo apt update && sudo apt install -y kafkacat
 
 Как получить FQDN хоста-брокера, читайте в [инструкции](index.md#get-fqdn).
 
-Убедитесь, что в первом терминале отобразилось сообщение `key:test message`, отправленное во втором.
+Убедитесь, что в первом терминале отобразилось сообщение `test message`, отправленное во втором.
 
 ### Инструменты Apache Kafka® для Windows (PowerShell) {#powershell}
 
-В состав [архивов с бинарными файлами Apache Kafka®](https://kafka.apache.org/community/downloads/) включен [набор инструментов](https://docs.confluent.io/kafka/operations-tools/kafka-tools.html), который позволяет управлять кластером Apache Kafka® и сущностями в нем. Далее на примере будет показано, как указать реквизиты пользователя для подключения и использовать инструменты с этими реквизитами:
+В состав [архивов с бинарными файлами Apache Kafka®](https://kafka.apache.org/community/downloads/) включен набор инструментов, который позволяет управлять кластером Apache Kafka® и сущностями в нем. Подробнее об этих инструментах читайте в [документации вендора Apache Kafka®](https://docs.confluent.io/kafka/operations-tools/kafka-tools.html).
+
+Далее на примере будет показано, как указать реквизиты пользователя для подключения и использовать инструменты с этими реквизитами:
 
 * С помощью [kafka-console-producer](https://docs.confluent.io/kafka/operations-tools/kafka-tools.html#kafka-console-producer-sh) будет отправлено сообщение в топик.
 * С помощью [kafka-console-consumer](https://docs.confluent.io/kafka/operations-tools/kafka-tools.html#kafka-console-consumer-sh) будет получено сообщение из топика.
@@ -373,11 +488,98 @@ sudo apt update && sudo apt install -y kafkacat
 
 Как получить FQDN хоста-брокера, читайте в [инструкции](index.md#get-fqdn).
 
-Убедитесь, что в первом терминале отобразилось сообщение `key:test message`, отправленное во втором.
+Убедитесь, что в первом терминале отобразилось сообщение `test message`, отправленное во втором.
 
 ## Подготовка к подключению из Docker-контейнера {#docker}
 
-Чтобы подключаться к кластеру Managed Service for Apache Kafka® из Docker-контейнера, добавьте в Dockerfile строки:
+### Подключение с помощью kafkactl {docker-kafkactl}
+
+Чтобы подключаться к кластеру Managed Service for Apache Kafka® из Docker-контейнера с помощью `kafkactl`:
+
+{% list tabs group=connection %}
+
+
+- Подключение без SSL {#without-ssl}
+
+  1. В каталоге с Dockerfile создайте конфигурационный файл `config.yml`.
+
+      Пример файла `config.yml`:
+      
+      ```yaml
+      contexts:
+        default:
+          brokers:
+          - <FQDN_брокера>:9092
+          sasl:
+            enabled: true
+            username: <логин_потребителя>
+            password: <пароль_потребителя>
+            mechanism: scram-sha512
+      ```
+
+  1. Добавьте в Dockerfile строки:
+
+      ```bash
+      COPY config.yml $HOME/.config/kafkactl/config.yml
+      RUN apt-get update && \
+          apt-get install -y wget && \
+          wget https://github.com/deviceinsight/kafkactl/releases/download/v<номер_версии>/<имя_архива>.tar.gz && \
+          tar xzf <имя_архива>.tar.gz kafkactl && \
+          mv kafkactl /usr/local/bin
+      ```
+
+      Версию и имя архива можно посмотреть на [странице релизов `kafkactl`](https://github.com/deviceinsight/kafkactl/releases).
+
+
+- Подключение с SSL {#with-ssl}
+
+  1. В каталоге с Dockerfile создайте конфигурационный файл `config.yml`.
+
+      Пример файла `config.yml`:
+      
+      ```yaml
+      contexts:
+        default:
+          brokers:
+          - <FQDN_брокера>:9091
+          sasl:
+            enabled: true
+            username: <логин_потребителя>
+            password: <пароль_потребителя>
+            mechanism: scram-sha512
+          tls:
+            enabled: true
+            ca: /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+      ```
+
+  1. Добавьте в Dockerfile строки:
+
+      ```bash
+      COPY config.yml $HOME/.config/kafkactl/config.yml
+      RUN apt-get update && \
+          apt-get install -y wget && \
+          wget https://github.com/deviceinsight/kafkactl/releases/download/v<номер_версии>/<имя_архива>.tar.gz && \
+          tar xzf <имя_архива>.tar.gz kafkactl && \
+          mv kafkactl /usr/local/bin && \
+          mkdir --parents /usr/local/share/ca-certificates/Yandex/ && \
+          wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
+               --output-document /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
+          chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+      ```
+
+      Версию и имя архива можно посмотреть на [странице релизов `kafkactl`](https://github.com/deviceinsight/kafkactl/releases).
+
+{% endlist %}
+
+### Подключение с помощью kafkacat {docker-kafkacat}
+
+{% note info %}
+
+`kafkacat` — это устаревший инструмент. Он работает только для кластеров с версией Apache Kafka® ниже 4.0. Если ваш кластер с версией Apache Kafka® 4.0 или выше, используйте утилиту [kafkactl](clients.md#kafkactl).
+
+{% endnote %}
+
+Чтобы подключаться к кластеру Managed Service for Apache Kafka® из Docker-контейнера с помощью `kafkacat`, добавьте в Dockerfile строки:
 
 {% list tabs group=connection %}
 

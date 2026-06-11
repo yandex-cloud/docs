@@ -19,6 +19,8 @@ items:
         href: domains/iaas-checklist.md
       - name: Чеклист безопасности аутентификации и авторизации
         href: domains/iam-checklist.md
+      - name: Чеклист предотвращения атак программ-шифровальщиков
+        href: domains/ransomware-checklist.md
       - name: Безопасность Kubernetes
         href: domains/kubernetes.md
       - name: >-

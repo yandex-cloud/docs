@@ -13,13 +13,15 @@ description: Следуя данной инструкции, вы сможете
 1. [Настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) в подсети, к которой будет подключен кластер. Это необходимо, чтобы кластер мог взаимодействовать с сервисами {{ yandex-cloud }}.
 1. [Настройте группу безопасности](configure-security-group.md).
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md).
-1. [Назначьте сервисному аккаунту](../../../iam/operations/sa/assign-role-for-sa.md) роль `{{ roles.metastore.integrationProvider }}`. Она позволяет кластеру от имени сервисного аккаунта [взаимодействовать с сервисами](../../concepts/metastore-impersonation.md) {{ yandex-cloud }}, например, с {{ cloud-logging-full-name }} и {{ monitoring-full-name }}.
+1. [Назначьте сервисному аккаунту](../../../iam/operations/sa/assign-role-for-sa.md) роль `{{ roles.metastore.integrationProvider }}`. Она позволяет кластеру от имени сервисного аккаунта [взаимодействовать с сервисами](../../concepts/metastore-impersonation.md) {{ yandex-cloud }}, например с {{ cloud-logging-full-name }} и {{ monitoring-full-name }}.
+   
+    Для использования {{ objstorage-name }} дополнительно назначьте сервисному аккаунту кластера [роль](../../../storage/security/index.md#storage-editor) `storage.editor`.
 
     Вы можете добавить дополнительные роли. Их набор зависит от сценария работы. Сервисные роли приведены в [разделе для {{ metastore-name }}](../../security/metastore-roles.md), все доступные роли — в [справочнике](../../../iam/roles-reference.md).
 
 1. Если вы хотите сохранять логи кластера в пользовательскую лог-группу, [создайте ее](../../../logging/operations/create-group.md).
 
-    Подробнее читайте в разделе [Передача логов кластера](logging.md).
+    Подробнее в разделе [Передача логов кластера](logging.md).
 
 ## Создание кластера {#create-cluster}
 
@@ -38,6 +40,11 @@ description: Следуя данной инструкции, вы сможете
     1. Выберите версию {{ metastore-name }}.
 
         {% include [metastore-version](../../../_includes/metadata-hub/metastore-version-cluster-create.md) %}
+
+    1. В блоке **{{ ui-key.yacloud.metastore.label_section-warehouse }}** укажите параметры бакета для хранения данных таблиц:
+
+        * **{{ ui-key.yacloud.metastore.label_warehouse-bucket }}** — имя бакета {{ objstorage-name }}, который будет использоваться в качестве хранилища данных {{ metastore-name }} (warehouse).
+        * **{{ ui-key.yacloud.metastore.label_warehouse-path }}** — путь внутри бакета, который будет использоваться как префикс для данных {{ metastore-name }}. Опциональный параметр.
 
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть и подсеть, в которых будет размещен кластер {{ metastore-name }}. Укажите заранее настроенную группу безопасности.
     1. В блоке **{{ ui-key.yacloud.metastore.label_resource-preset }}** выберите [конфигурацию кластера](../../concepts/metastore.md#presets).
@@ -81,6 +88,8 @@ description: Следуя данной инструкции, вы сможете
          --labels <список_меток> \
          --service-account-id <идентификатор_сервисного_аккаунта> \
          --version <версия_Apache_Hive™_Metastore> \
+         --warehouse-bucket <имя_бакета> \
+         --warehouse-path <путь_внутри_бакета> \
          --subnet-ids <идентификаторы_подсетей> \
          --security-group-ids <идентификаторы_групп_безопасности> \
          --resource-preset-id <идентификатор_вычислительных_ресурсов> \
@@ -134,6 +143,12 @@ description: Следуя данной инструкции, вы сможете
 
           cluster_config = {
             resource_preset_id = "<класс_вычислительных_ресурсов>"
+            warehouse_config = {
+              s3 = {
+                bucket = "<имя_бакета>"
+                path   = "<путь_внутри_бакета>"
+              }
+            }
           }
 
           maintenance_window = {
@@ -171,6 +186,9 @@ description: Следуя данной инструкции, вы сможете
             {% include [metastore-version](../../../_includes/metadata-hub/metastore-version-cluster-create.md) %}
 
         * `cluster_config.resource_preset_id` — [конфигурация вычислительных ресурсов](../../../metadata-hub/concepts/metastore.md#presets).
+        * `cluster_config.warehouse_config.s3` — параметры хранилища данных {{ metastore-name }}:
+           * `bucket` — имя бакета {{ objstorage-name }}.
+           * `path` — путь внутри бакета, который будет использоваться как префикс для данных {{ metastore-name }}.
         * {% include [metastore-maintenance-window-terraform](../../../_includes/metadata-hub/metastore-maintenance-window-terraform.md) %}
         * `logging` — параметры логирования:
 
@@ -212,6 +230,12 @@ description: Следуя данной инструкции, вы сможете
           "configSpec": {
             "resources": {
             "resourcePresetId": "<идентификатор_конфигурации_ресурсов>"
+            },
+            "warehouse": {
+              "s3": {
+                "bucket": "<имя_бакета>",
+                "path": "<путь_внутри_бакета>"
+              }
             }
           },
           "serviceAccountId": "<идентификатор_сервисного_аккаунта>",
@@ -277,6 +301,12 @@ description: Следуя данной инструкции, вы сможете
           "config_spec": {
             "resources": {
               "resource_preset_id": "<идентификатор_конфигурации_ресурсов>"
+            },
+            "warehouse": {
+              "s3": {
+                "bucket": "<имя_бакета>",
+                "path": "<путь_внутри_бакета>"
+              }
             }
           },
           "service_account_id": "<идентификатор_сервисного_аккаунта>",

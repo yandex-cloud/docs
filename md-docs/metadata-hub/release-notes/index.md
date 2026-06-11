@@ -53,6 +53,11 @@ index: 1
 ## 2026 год {#2026}
 
 
+### Май {#may26}
+
+* Выпущена новая версия [Apache Hive™ Metastore 4.2.0](../concepts/metastore.md#versions).
+* Добавлены параметры для хранения метаданных Apache Hive™ Metastore. Теперь при [создании](../operations/metastore/cluster-create.md) или [изменении кластера](../operations/metastore/cluster-update.md) можно задать имя бакета и путь к данным внутри него.
+
 ### Апрель {#apr26}
 
 * Добавлена возможность [строить связи](../operations/data-catalog/analysis-metadata.md) (lineage) от базы данных до дашборда.

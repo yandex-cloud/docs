@@ -211,6 +211,8 @@
                 "lightweightMutationProjectionMode": "string",
                 "replicatedDeduplicationWindow": "string",
                 "replicatedDeduplicationWindowSeconds": "string",
+                "replicatedDeduplicationWindowForAsyncInserts": "string",
+                "replicatedDeduplicationWindowSecondsForAsyncInserts": "string",
                 "fsyncAfterInsert": "boolean",
                 "fsyncPartDirectory": "boolean",
                 "minCompressedBytesToFsyncAfterFetch": "string",
@@ -555,6 +557,8 @@
                 "lightweightMutationProjectionMode": "string",
                 "replicatedDeduplicationWindow": "string",
                 "replicatedDeduplicationWindowSeconds": "string",
+                "replicatedDeduplicationWindowForAsyncInserts": "string",
+                "replicatedDeduplicationWindowSecondsForAsyncInserts": "string",
                 "fsyncAfterInsert": "boolean",
                 "fsyncPartDirectory": "boolean",
                 "minCompressedBytesToFsyncAfterFetch": "string",
@@ -899,6 +903,8 @@
                 "lightweightMutationProjectionMode": "string",
                 "replicatedDeduplicationWindow": "string",
                 "replicatedDeduplicationWindowSeconds": "string",
+                "replicatedDeduplicationWindowForAsyncInserts": "string",
+                "replicatedDeduplicationWindowSecondsForAsyncInserts": "string",
                 "fsyncAfterInsert": "boolean",
                 "fsyncPartDirectory": "boolean",
                 "minCompressedBytesToFsyncAfterFetch": "string",
@@ -1138,6 +1144,186 @@
               },
               "builtinDictionariesReloadInterval": "string"
             }
+          },
+          "defaultUserSettings": {
+            "readonly": "string",
+            "allowDdl": "boolean",
+            "allowIntrospectionFunctions": "boolean",
+            "connectTimeout": "string",
+            "connectTimeoutWithFailover": "string",
+            "connectTimeoutWithFailoverSecure": "string",
+            "connectionsWithFailoverMaxTries": "string",
+            "receiveTimeout": "string",
+            "sendTimeout": "string",
+            "idleConnectionTimeout": "string",
+            "timeoutBeforeCheckingExecutionSpeed": "string",
+            "insertQuorum": "string",
+            "insertQuorumTimeout": "string",
+            "insertQuorumParallel": "boolean",
+            "selectSequentialConsistency": "boolean",
+            "replicationAlterPartitionsSync": "string",
+            "maxReplicaDelayForDistributedQueries": "string",
+            "fallbackToStaleReplicasForDistributedQueries": "boolean",
+            "distributedProductMode": "string",
+            "distributedAggregationMemoryEfficient": "boolean",
+            "distributedDdlTaskTimeout": "string",
+            "distributedDdlOutputMode": "string",
+            "skipUnavailableShards": "boolean",
+            "useHedgedRequests": "boolean",
+            "hedgedConnectionTimeoutMs": "string",
+            "loadBalancing": "string",
+            "preferLocalhostReplica": "boolean",
+            "compileExpressions": "boolean",
+            "minCountToCompileExpression": "string",
+            "maxBlockSize": "string",
+            "minInsertBlockSizeRows": "string",
+            "minInsertBlockSizeBytes": "string",
+            "maxInsertBlockSize": "string",
+            "maxPartitionsPerInsertBlock": "string",
+            "minBytesToUseDirectIo": "string",
+            "useUncompressedCache": "boolean",
+            "mergeTreeMaxRowsToUseCache": "string",
+            "mergeTreeMaxBytesToUseCache": "string",
+            "mergeTreeMinRowsForConcurrentRead": "string",
+            "mergeTreeMinBytesForConcurrentRead": "string",
+            "maxBytesBeforeExternalGroupBy": "string",
+            "maxBytesRatioBeforeExternalGroupBy": "number",
+            "maxBytesRatioBeforeExternalSort": "number",
+            "maxBytesBeforeExternalSort": "string",
+            "groupByTwoLevelThreshold": "string",
+            "groupByTwoLevelThresholdBytes": "string",
+            "deduplicateBlocksInDependentMaterializedViews": "boolean",
+            "localFilesystemReadMethod": "string",
+            "remoteFilesystemReadMethod": "string",
+            "priority": "string",
+            "maxThreads": "string",
+            "maxInsertThreads": "string",
+            "maxMemoryUsage": "string",
+            "maxMemoryUsageForUser": "string",
+            "memoryOvercommitRatioDenominator": "string",
+            "memoryOvercommitRatioDenominatorForUser": "string",
+            "memoryUsageOvercommitMaxWaitMicroseconds": "string",
+            "maxNetworkBandwidth": "string",
+            "maxNetworkBandwidthForUser": "string",
+            "maxNetworkBytes": "string",
+            "maxTemporaryDataOnDiskSizeForQuery": "string",
+            "maxTemporaryDataOnDiskSizeForUser": "string",
+            "maxConcurrentQueriesForUser": "string",
+            "forceIndexByDate": "boolean",
+            "forcePrimaryKey": "boolean",
+            "maxRowsToRead": "string",
+            "maxBytesToRead": "string",
+            "readOverflowMode": "string",
+            "maxRowsToGroupBy": "string",
+            "groupByOverflowMode": "string",
+            "maxRowsToSort": "string",
+            "maxBytesToSort": "string",
+            "sortOverflowMode": "string",
+            "maxResultRows": "string",
+            "maxResultBytes": "string",
+            "resultOverflowMode": "string",
+            "maxRowsInDistinct": "string",
+            "maxBytesInDistinct": "string",
+            "distinctOverflowMode": "string",
+            "maxRowsToTransfer": "string",
+            "maxBytesToTransfer": "string",
+            "transferOverflowMode": "string",
+            "maxExecutionTime": "string",
+            "timeoutOverflowMode": "string",
+            "maxRowsInSet": "string",
+            "maxBytesInSet": "string",
+            "setOverflowMode": "string",
+            "maxRowsInJoin": "string",
+            "maxBytesInJoin": "string",
+            "joinOverflowMode": "string",
+            "maxColumnsToRead": "string",
+            "maxTemporaryColumns": "string",
+            "maxTemporaryNonConstColumns": "string",
+            "maxQuerySize": "string",
+            "maxAstDepth": "string",
+            "maxAstElements": "string",
+            "maxExpandedAstElements": "string",
+            "maxParserDepth": "string",
+            "minExecutionSpeed": "string",
+            "minExecutionSpeedBytes": "string",
+            "inputFormatValuesInterpretExpressions": "boolean",
+            "inputFormatDefaultsForOmittedFields": "boolean",
+            "inputFormatNullAsDefault": "boolean",
+            "inputFormatWithNamesUseHeader": "boolean",
+            "outputFormatJsonQuote_64bitIntegers": "boolean",
+            "outputFormatJsonQuoteDenormals": "boolean",
+            "dateTimeInputFormat": "string",
+            "dateTimeOutputFormat": "string",
+            "lowCardinalityAllowInNativeFormat": "boolean",
+            "emptyResultForAggregationByEmptySet": "boolean",
+            "formatRegexp": "string",
+            "formatRegexpEscapingRule": "string",
+            "formatRegexpSkipUnmatched": "boolean",
+            "inputFormatParallelParsing": "boolean",
+            "inputFormatImportNestedJson": "boolean",
+            "formatAvroSchemaRegistryUrl": "string",
+            "dataTypeDefaultNullable": "boolean",
+            "httpConnectionTimeout": "string",
+            "httpReceiveTimeout": "string",
+            "httpSendTimeout": "string",
+            "enableHttpCompression": "boolean",
+            "sendProgressInHttpHeaders": "boolean",
+            "httpHeadersProgressInterval": "string",
+            "addHttpCorsHeader": "boolean",
+            "cancelHttpReadonlyQueriesOnClientClose": "boolean",
+            "maxHttpGetRedirects": "string",
+            "httpMaxFieldNameSize": "string",
+            "httpMaxFieldValueSize": "string",
+            "quotaMode": "string",
+            "asyncInsert": "boolean",
+            "waitForAsyncInsert": "boolean",
+            "waitForAsyncInsertTimeout": "string",
+            "asyncInsertMaxDataSize": "string",
+            "asyncInsertBusyTimeout": "string",
+            "asyncInsertUseAdaptiveBusyTimeout": "boolean",
+            "logQueryThreads": "boolean",
+            "logQueryViews": "boolean",
+            "logQueriesProbability": "number",
+            "logProcessorsProfiles": "boolean",
+            "useQueryCache": "boolean",
+            "enableReadsFromQueryCache": "boolean",
+            "enableWritesToQueryCache": "boolean",
+            "queryCacheMinQueryRuns": "string",
+            "queryCacheMinQueryDuration": "string",
+            "queryCacheTtl": "string",
+            "queryCacheMaxEntries": "string",
+            "queryCacheMaxSizeInBytes": "string",
+            "queryCacheTag": "string",
+            "queryCacheShareBetweenUsers": "boolean",
+            "queryCacheNondeterministicFunctionHandling": "string",
+            "queryCacheSystemTableHandling": "string",
+            "countDistinctImplementation": "string",
+            "joinedSubqueryRequiresAlias": "boolean",
+            "joinUseNulls": "boolean",
+            "transformNullIn": "boolean",
+            "insertNullAsDefault": "boolean",
+            "joinAlgorithm": [
+              "string"
+            ],
+            "anyJoinDistinctRightTableKeys": "boolean",
+            "allowSuspiciousLowCardinalityTypes": "boolean",
+            "flattenNested": "boolean",
+            "memoryProfilerStep": "string",
+            "memoryProfilerSampleProbability": "number",
+            "maxFinalThreads": "string",
+            "maxReadBufferSize": "string",
+            "insertKeeperMaxRetries": "string",
+            "doNotMergeAcrossPartitionsSelectFinal": "boolean",
+            "ignoreMaterializedViewsWithDroppedTargetTable": "boolean",
+            "enableAnalyzer": "boolean",
+            "s3UseAdaptiveTimeouts": "boolean",
+            "final": "boolean",
+            "useHivePartitioning": "boolean",
+            "showDataLakeCatalogsInSystemTables": "boolean",
+            "compile": "boolean",
+            "minCountToCompile": "string",
+            "asyncInsertThreads": "string",
+            "asyncInsertStaleTimeout": "string"
           },
           "resources": {
             "resourcePresetId": "string",
@@ -1485,6 +1671,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 #|
 ||Field | Description ||
 || config | **[ClickhouseConfigSet](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfigSet)** ||
+|| defaultUserSettings | **[UserSettings](#yandex.cloud.mdb.clickhouse.v1.UserSettings)** ||
 || resources | **[Resources](#yandex.cloud.mdb.clickhouse.v1.Resources)** ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.clickhouse.v1.DiskSizeAutoscaling)** ||
 |#
@@ -1651,6 +1838,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 - `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_REBUILD` ||
 || replicatedDeduplicationWindow | **string** (int64) ||
 || replicatedDeduplicationWindowSeconds | **string** (int64) ||
+|| replicatedDeduplicationWindowForAsyncInserts | **string** (int64) ||
+|| replicatedDeduplicationWindowSecondsForAsyncInserts | **string** (int64) ||
 || fsyncAfterInsert | **boolean** ||
 || fsyncPartDirectory | **boolean** ||
 || minCompressedBytesToFsyncAfterFetch | **string** (int64) ||
@@ -2033,6 +2222,285 @@ The maximum string length in characters is 63. ||
 #|
 ||Field | Description ||
 || trustedCertificates[] | **string** ||
+|#
+
+## UserSettings {#yandex.cloud.mdb.clickhouse.v1.UserSettings}
+
+#|
+||Field | Description ||
+|| readonly | **string** (int64) ||
+|| allowDdl | **boolean** ||
+|| allowIntrospectionFunctions | **boolean** ||
+|| connectTimeout | **string** (int64) ||
+|| connectTimeoutWithFailover | **string** (int64) ||
+|| connectTimeoutWithFailoverSecure | **string** (int64) ||
+|| connectionsWithFailoverMaxTries | **string** (int64) ||
+|| receiveTimeout | **string** (int64) ||
+|| sendTimeout | **string** (int64) ||
+|| idleConnectionTimeout | **string** (int64) ||
+|| timeoutBeforeCheckingExecutionSpeed | **string** (int64) ||
+|| insertQuorum | **string** (int64) ||
+|| insertQuorumTimeout | **string** (int64) ||
+|| insertQuorumParallel | **boolean** ||
+|| selectSequentialConsistency | **boolean** ||
+|| replicationAlterPartitionsSync | **string** (int64) ||
+|| maxReplicaDelayForDistributedQueries | **string** (int64) ||
+|| fallbackToStaleReplicasForDistributedQueries | **boolean** ||
+|| distributedProductMode | **enum** (DistributedProductMode)
+
+- `DISTRIBUTED_PRODUCT_MODE_DENY`
+- `DISTRIBUTED_PRODUCT_MODE_LOCAL`
+- `DISTRIBUTED_PRODUCT_MODE_GLOBAL`
+- `DISTRIBUTED_PRODUCT_MODE_ALLOW` ||
+|| distributedAggregationMemoryEfficient | **boolean** ||
+|| distributedDdlTaskTimeout | **string** (int64) ||
+|| distributedDdlOutputMode | **enum** (DistributedDdlOutputMode)
+
+- `DISTRIBUTED_DDL_OUTPUT_MODE_THROW`
+- `DISTRIBUTED_DDL_OUTPUT_MODE_NONE`
+- `DISTRIBUTED_DDL_OUTPUT_MODE_NULL_STATUS_ON_TIMEOUT`
+- `DISTRIBUTED_DDL_OUTPUT_MODE_NEVER_THROW`
+- `DISTRIBUTED_DDL_OUTPUT_MODE_NONE_ONLY_ACTIVE`
+- `DISTRIBUTED_DDL_OUTPUT_MODE_NULL_STATUS_ON_TIMEOUT_ONLY_ACTIVE`
+- `DISTRIBUTED_DDL_OUTPUT_MODE_THROW_ONLY_ACTIVE` ||
+|| skipUnavailableShards | **boolean** ||
+|| useHedgedRequests | **boolean** ||
+|| hedgedConnectionTimeoutMs | **string** (int64) ||
+|| loadBalancing | **enum** (LoadBalancing)
+
+- `LOAD_BALANCING_RANDOM`
+- `LOAD_BALANCING_NEAREST_HOSTNAME`
+- `LOAD_BALANCING_IN_ORDER`
+- `LOAD_BALANCING_FIRST_OR_RANDOM`
+- `LOAD_BALANCING_ROUND_ROBIN` ||
+|| preferLocalhostReplica | **boolean** ||
+|| compileExpressions | **boolean** ||
+|| minCountToCompileExpression | **string** (int64) ||
+|| maxBlockSize | **string** (int64) ||
+|| minInsertBlockSizeRows | **string** (int64) ||
+|| minInsertBlockSizeBytes | **string** (int64) ||
+|| maxInsertBlockSize | **string** (int64) ||
+|| maxPartitionsPerInsertBlock | **string** (int64) ||
+|| minBytesToUseDirectIo | **string** (int64) ||
+|| useUncompressedCache | **boolean** ||
+|| mergeTreeMaxRowsToUseCache | **string** (int64) ||
+|| mergeTreeMaxBytesToUseCache | **string** (int64) ||
+|| mergeTreeMinRowsForConcurrentRead | **string** (int64) ||
+|| mergeTreeMinBytesForConcurrentRead | **string** (int64) ||
+|| maxBytesBeforeExternalGroupBy | **string** (int64) ||
+|| maxBytesRatioBeforeExternalGroupBy | **number** (double) ||
+|| maxBytesRatioBeforeExternalSort | **number** (double) ||
+|| maxBytesBeforeExternalSort | **string** (int64) ||
+|| groupByTwoLevelThreshold | **string** (int64) ||
+|| groupByTwoLevelThresholdBytes | **string** (int64) ||
+|| deduplicateBlocksInDependentMaterializedViews | **boolean** ||
+|| localFilesystemReadMethod | **enum** (LocalFilesystemReadMethod)
+
+- `LOCAL_FILESYSTEM_READ_METHOD_READ`
+- `LOCAL_FILESYSTEM_READ_METHOD_PREAD_THREADPOOL`
+- `LOCAL_FILESYSTEM_READ_METHOD_PREAD`
+- `LOCAL_FILESYSTEM_READ_METHOD_NMAP`
+- `LOCAL_FILESYSTEM_READ_METHOD_IO_URING` ||
+|| remoteFilesystemReadMethod | **enum** (RemoteFilesystemReadMethod)
+
+- `REMOTE_FILESYSTEM_READ_METHOD_READ`
+- `REMOTE_FILESYSTEM_READ_METHOD_THREADPOOL` ||
+|| priority | **string** (int64) ||
+|| maxThreads | **string** (int64) ||
+|| maxInsertThreads | **string** (int64) ||
+|| maxMemoryUsage | **string** (int64) ||
+|| maxMemoryUsageForUser | **string** (int64) ||
+|| memoryOvercommitRatioDenominator | **string** (int64) ||
+|| memoryOvercommitRatioDenominatorForUser | **string** (int64) ||
+|| memoryUsageOvercommitMaxWaitMicroseconds | **string** (int64) ||
+|| maxNetworkBandwidth | **string** (int64) ||
+|| maxNetworkBandwidthForUser | **string** (int64) ||
+|| maxNetworkBytes | **string** (int64) ||
+|| maxTemporaryDataOnDiskSizeForQuery | **string** (int64) ||
+|| maxTemporaryDataOnDiskSizeForUser | **string** (int64) ||
+|| maxConcurrentQueriesForUser | **string** (int64) ||
+|| forceIndexByDate | **boolean** ||
+|| forcePrimaryKey | **boolean** ||
+|| maxRowsToRead | **string** (int64) ||
+|| maxBytesToRead | **string** (int64) ||
+|| readOverflowMode | **enum** (OverflowMode)
+
+- `OVERFLOW_MODE_THROW`
+- `OVERFLOW_MODE_BREAK` ||
+|| maxRowsToGroupBy | **string** (int64) ||
+|| groupByOverflowMode | **enum** (GroupByOverflowMode)
+
+- `GROUP_BY_OVERFLOW_MODE_THROW`
+- `GROUP_BY_OVERFLOW_MODE_BREAK`
+- `GROUP_BY_OVERFLOW_MODE_ANY` ||
+|| maxRowsToSort | **string** (int64) ||
+|| maxBytesToSort | **string** (int64) ||
+|| sortOverflowMode | **enum** (OverflowMode)
+
+- `OVERFLOW_MODE_THROW`
+- `OVERFLOW_MODE_BREAK` ||
+|| maxResultRows | **string** (int64) ||
+|| maxResultBytes | **string** (int64) ||
+|| resultOverflowMode | **enum** (OverflowMode)
+
+- `OVERFLOW_MODE_THROW`
+- `OVERFLOW_MODE_BREAK` ||
+|| maxRowsInDistinct | **string** (int64) ||
+|| maxBytesInDistinct | **string** (int64) ||
+|| distinctOverflowMode | **enum** (OverflowMode)
+
+- `OVERFLOW_MODE_THROW`
+- `OVERFLOW_MODE_BREAK` ||
+|| maxRowsToTransfer | **string** (int64) ||
+|| maxBytesToTransfer | **string** (int64) ||
+|| transferOverflowMode | **enum** (OverflowMode)
+
+- `OVERFLOW_MODE_THROW`
+- `OVERFLOW_MODE_BREAK` ||
+|| maxExecutionTime | **string** (int64) ||
+|| timeoutOverflowMode | **enum** (OverflowMode)
+
+- `OVERFLOW_MODE_THROW`
+- `OVERFLOW_MODE_BREAK` ||
+|| maxRowsInSet | **string** (int64) ||
+|| maxBytesInSet | **string** (int64) ||
+|| setOverflowMode | **enum** (OverflowMode)
+
+- `OVERFLOW_MODE_THROW`
+- `OVERFLOW_MODE_BREAK` ||
+|| maxRowsInJoin | **string** (int64) ||
+|| maxBytesInJoin | **string** (int64) ||
+|| joinOverflowMode | **enum** (OverflowMode)
+
+- `OVERFLOW_MODE_THROW`
+- `OVERFLOW_MODE_BREAK` ||
+|| maxColumnsToRead | **string** (int64) ||
+|| maxTemporaryColumns | **string** (int64) ||
+|| maxTemporaryNonConstColumns | **string** (int64) ||
+|| maxQuerySize | **string** (int64) ||
+|| maxAstDepth | **string** (int64) ||
+|| maxAstElements | **string** (int64) ||
+|| maxExpandedAstElements | **string** (int64) ||
+|| maxParserDepth | **string** (int64) ||
+|| minExecutionSpeed | **string** (int64) ||
+|| minExecutionSpeedBytes | **string** (int64) ||
+|| inputFormatValuesInterpretExpressions | **boolean** ||
+|| inputFormatDefaultsForOmittedFields | **boolean** ||
+|| inputFormatNullAsDefault | **boolean** ||
+|| inputFormatWithNamesUseHeader | **boolean** ||
+|| outputFormatJsonQuote_64bitIntegers | **boolean** ||
+|| outputFormatJsonQuoteDenormals | **boolean** ||
+|| dateTimeInputFormat | **enum** (DateTimeInputFormat)
+
+- `DATE_TIME_INPUT_FORMAT_BEST_EFFORT`
+- `DATE_TIME_INPUT_FORMAT_BASIC`
+- `DATE_TIME_INPUT_FORMAT_BEST_EFFORT_US` ||
+|| dateTimeOutputFormat | **enum** (DateTimeOutputFormat)
+
+- `DATE_TIME_OUTPUT_FORMAT_SIMPLE`
+- `DATE_TIME_OUTPUT_FORMAT_ISO`
+- `DATE_TIME_OUTPUT_FORMAT_UNIX_TIMESTAMP` ||
+|| lowCardinalityAllowInNativeFormat | **boolean** ||
+|| emptyResultForAggregationByEmptySet | **boolean** ||
+|| formatRegexp | **string** ||
+|| formatRegexpEscapingRule | **enum** (FormatRegexpEscapingRule)
+
+- `FORMAT_REGEXP_ESCAPING_RULE_ESCAPED`
+- `FORMAT_REGEXP_ESCAPING_RULE_QUOTED`
+- `FORMAT_REGEXP_ESCAPING_RULE_CSV`
+- `FORMAT_REGEXP_ESCAPING_RULE_JSON`
+- `FORMAT_REGEXP_ESCAPING_RULE_XML`
+- `FORMAT_REGEXP_ESCAPING_RULE_RAW` ||
+|| formatRegexpSkipUnmatched | **boolean** ||
+|| inputFormatParallelParsing | **boolean** ||
+|| inputFormatImportNestedJson | **boolean** ||
+|| formatAvroSchemaRegistryUrl | **string** ||
+|| dataTypeDefaultNullable | **boolean** ||
+|| httpConnectionTimeout | **string** (int64) ||
+|| httpReceiveTimeout | **string** (int64) ||
+|| httpSendTimeout | **string** (int64) ||
+|| enableHttpCompression | **boolean** ||
+|| sendProgressInHttpHeaders | **boolean** ||
+|| httpHeadersProgressInterval | **string** (int64) ||
+|| addHttpCorsHeader | **boolean** ||
+|| cancelHttpReadonlyQueriesOnClientClose | **boolean** ||
+|| maxHttpGetRedirects | **string** (int64) ||
+|| httpMaxFieldNameSize | **string** (int64) ||
+|| httpMaxFieldValueSize | **string** (int64) ||
+|| quotaMode | **enum** (QuotaMode)
+
+- `QUOTA_MODE_DEFAULT`
+- `QUOTA_MODE_KEYED`
+- `QUOTA_MODE_KEYED_BY_IP` ||
+|| asyncInsert | **boolean** ||
+|| waitForAsyncInsert | **boolean** ||
+|| waitForAsyncInsertTimeout | **string** (int64) ||
+|| asyncInsertMaxDataSize | **string** (int64) ||
+|| asyncInsertBusyTimeout | **string** (int64) ||
+|| asyncInsertUseAdaptiveBusyTimeout | **boolean** ||
+|| logQueryThreads | **boolean** ||
+|| logQueryViews | **boolean** ||
+|| logQueriesProbability | **number** (double) ||
+|| logProcessorsProfiles | **boolean** ||
+|| useQueryCache | **boolean** ||
+|| enableReadsFromQueryCache | **boolean** ||
+|| enableWritesToQueryCache | **boolean** ||
+|| queryCacheMinQueryRuns | **string** (int64) ||
+|| queryCacheMinQueryDuration | **string** (int64) ||
+|| queryCacheTtl | **string** (int64) ||
+|| queryCacheMaxEntries | **string** (int64) ||
+|| queryCacheMaxSizeInBytes | **string** (int64) ||
+|| queryCacheTag | **string** ||
+|| queryCacheShareBetweenUsers | **boolean** ||
+|| queryCacheNondeterministicFunctionHandling | **enum** (QueryCacheNondeterministicFunctionHandling)
+
+- `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_THROW`
+- `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_SAVE`
+- `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_IGNORE` ||
+|| queryCacheSystemTableHandling | **enum** (QueryCacheSystemTableHandling)
+
+- `QUERY_CACHE_SYSTEM_TABLE_HANDLING_THROW`
+- `QUERY_CACHE_SYSTEM_TABLE_HANDLING_SAVE`
+- `QUERY_CACHE_SYSTEM_TABLE_HANDLING_IGNORE` ||
+|| countDistinctImplementation | **enum** (CountDistinctImplementation)
+
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ`
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED`
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED_64`
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_HLL_12`
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT` ||
+|| joinedSubqueryRequiresAlias | **boolean** ||
+|| joinUseNulls | **boolean** ||
+|| transformNullIn | **boolean** ||
+|| insertNullAsDefault | **boolean** ||
+|| joinAlgorithm[] | **enum** (JoinAlgorithm)
+
+- `JOIN_ALGORITHM_HASH`
+- `JOIN_ALGORITHM_PARALLEL_HASH`
+- `JOIN_ALGORITHM_PARTIAL_MERGE`
+- `JOIN_ALGORITHM_DIRECT`
+- `JOIN_ALGORITHM_AUTO`
+- `JOIN_ALGORITHM_FULL_SORTING_MERGE`
+- `JOIN_ALGORITHM_PREFER_PARTIAL_MERGE` ||
+|| anyJoinDistinctRightTableKeys | **boolean** ||
+|| allowSuspiciousLowCardinalityTypes | **boolean** ||
+|| flattenNested | **boolean** ||
+|| memoryProfilerStep | **string** (int64) ||
+|| memoryProfilerSampleProbability | **number** (double) ||
+|| maxFinalThreads | **string** (int64) ||
+|| maxReadBufferSize | **string** (int64) ||
+|| insertKeeperMaxRetries | **string** (int64) ||
+|| doNotMergeAcrossPartitionsSelectFinal | **boolean** ||
+|| ignoreMaterializedViewsWithDroppedTargetTable | **boolean** ||
+|| enableAnalyzer | **boolean** ||
+|| s3UseAdaptiveTimeouts | **boolean** ||
+|| final | **boolean** ||
+|| useHivePartitioning | **boolean** ||
+|| showDataLakeCatalogsInSystemTables | **boolean** ||
+|| compile | **boolean** ||
+|| minCountToCompile | **string** (int64) ||
+|| asyncInsertThreads | **string** (int64) ||
+|| asyncInsertStaleTimeout | **string** (int64) ||
 |#
 
 ## Resources {#yandex.cloud.mdb.clickhouse.v1.Resources}

@@ -76,7 +76,7 @@
        * **Назначение** — `CIDR`.
        * **CIDR блоки** — `0.0.0.0/0`.
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с ролями `dataproc.agent`, `dataproc.provisioner` и `managed-metastore.integrationProvider`.
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с ролями `dataproc.agent`, `dataproc.provisioner`, `managed-metastore.integrationProvider` и `storage.editor`.
 
 1. [Создайте бакет Object Storage](../../storage/operations/buckets/create.md) для работы с кластером Yandex Data Processing.
 
@@ -100,7 +100,12 @@
     1. Нажмите кнопку **Создать кластер**.
     1. Введите имя кластера. Оно должно быть уникальным в рамках каталога.
     1. Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого кластер Apache Hive™ Metastore будет взаимодействовать с другими сервисами Yandex Cloud, или [создайте](../../iam/operations/sa/create.md) новый.
-    1. Выберите версию Apache Hive™ Metastore 3.1.
+    1. Выберите нужную версию Apache Hive™ Metastore.
+    1. В блоке **Хранилище данных Hive Metastore** укажите параметры бакета для хранения данных таблиц:
+
+        * **Имя бакета** — имя бакета Object Storage, который будет использоваться в качестве хранилища данных Apache Hive™ Metastore (warehouse).
+        * **Путь внутри бакета** — путь внутри бакета, который будет использоваться как префикс для данных Apache Hive™ Metastore. Опциональный параметр.
+
     1. В блоке **Сетевые настройки** выберите созданную ранее сеть и подсеть. Укажите заранее настроенную группу безопасности.
     1. В блоке **Metastore** выберите [конфигурацию кластера](../concepts/metastore.md#presets).
     1. (Опционально) В блоке **Логирование** включите запись логов, выберите минимальный уровень логирования и укажите каталог или [лог-группу](../../logging/concepts/log-group.md).

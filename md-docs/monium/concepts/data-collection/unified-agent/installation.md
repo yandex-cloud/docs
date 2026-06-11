@@ -62,8 +62,10 @@ Unified Agent с версии 25.03.80 может собирать и перед
   
       ```bash
       ubuntu_name="<полное_название_версии_ОС>" \
-      ua_version=$(curl --silent https://storage.yandexcloud.net/yc-unified-agent/latest-version) \
-      bash -c 'curl --silent --remote-name https://storage.yandexcloud.net/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
+      ua_version=$(curl --silent https://storage.yandexcloud.net/yc-unified-agent/latest-version)
+  
+      curl --silent --remote-name \
+      "https://storage.yandexcloud.net/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb"
       ```
   
       Где `ubuntu_name` — идентификатор версии операционной системы в формате `ubuntu-<номер_версии>-<кодовое_имя>`. Указывайте значение точно так, как оно используется в имени каталога пакета:

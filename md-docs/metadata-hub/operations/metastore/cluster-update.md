@@ -15,15 +15,23 @@
         1. Выберите другой [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) или создайте новый с ролью `managed-metastore.integrationProvider`.
         1. Измените версию Apache Hive™ Metastore.
 
-            Доступны версии 3.1 и 4.0.
+            Доступны версии 3.1, 4.0 и 4.2.
             
             {% note warning %}
             
-            Для интеграции кластера Apache Hive™ Metastore с сервисами [Yandex Managed Service for Trino](../../../managed-trino/index.md) и [Yandex Managed Service for Apache Spark™](../../../managed-spark/index.md) требуется версия 3.1.
+            Для интеграции кластера Apache Hive™ Metastore с сервисом [Yandex Managed Service for Apache Spark™](../../../managed-spark/index.md) требуется соответствие версий:
             
-            При необходимости версию 3.1 можно повысить до 4.0, но понизить версию 4.0 до 3.1 невозможно.
+            * версия Apache Spark™ 3.5.7 работает с версией Apache Hive™ Metastore 3.1;
+            * версия Apache Spark™ 4.0.0 работает с версиями Apache Hive™ Metastore 3.1 и выше.
+            
+            При необходимости версию Apache Hive™ Metastore 3.1 можно повысить последовательно: 3.1 → 4.0 → 4.2, но понизить версию 4.2 до 3.1 невозможно.
             
             {% endnote %}
+
+  1. В блоке **Хранилище данных Hive Metastore** измените параметры бакета:
+
+        * **Имя бакета** — имя бакета Object Storage, который будет использоваться в качестве хранилища данных Apache Hive™ Metastore (warehouse).
+        * **Путь внутри бакета** — путь внутри бакета, который будет использоваться как префикс для данных Apache Hive™ Metastore. Опциональный параметр.
 
   1. В блоке **Сетевые настройки** выберите другую [группу безопасности](configure-security-group.md) или создайте новую.
   1. В блоке **Metastore** измените [конфигурацию кластера](../../concepts/metastore.md#presets).
@@ -58,6 +66,8 @@
          --labels <список_меток> \
          --service-account-id <идентификатор_сервисного_аккаунта> \
          --version <версия_Apache_Hive™_Metastore> \
+         --warehouse-bucket <имя_бакета> \
+         --warehouse-path <путь_внутри_бакета> \
          --security-group-ids <идентификаторы_групп_безопасности> \
          --resource-preset-id <идентификатор_вычислительных_ресурсов> \
          --maintenance-window type=<тип_технического_обслуживания>,`
@@ -77,15 +87,21 @@
       * `--service-account-id` — идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
       * `--version` — версия Apache Hive™ Metastore.
       
-        Доступны версии 3.1 и 4.0.
+        Доступны версии 3.1, 4.0 и 4.2.
         
         {% note warning %}
         
-        Для интеграции кластера Apache Hive™ Metastore с сервисами [Yandex Managed Service for Trino](../../../managed-trino/index.md) и [Yandex Managed Service for Apache Spark™](../../../managed-spark/index.md) требуется версия 3.1.
+        Для интеграции кластера Apache Hive™ Metastore с сервисом [Yandex Managed Service for Apache Spark™](../../../managed-spark/index.md) требуется соответствие версий:
         
-        При необходимости версию 3.1 можно повысить до 4.0, но понизить версию 4.0 до 3.1 невозможно.
+        * версия Apache Spark™ 3.5.7 работает с версией Apache Hive™ Metastore 3.1;
+        * версия Apache Spark™ 4.0.0 работает с версиями Apache Hive™ Metastore 3.1 и выше.
+        
+        При необходимости версию Apache Hive™ Metastore 3.1 можно повысить последовательно: 3.1 → 4.0 → 4.2, но понизить версию 4.2 до 3.1 невозможно.
         
         {% endnote %}
+      
+      * `--warehouse-bucket` — имя бакета Object Storage, который будет использован в качестве хранилища данных Apache Hive™ Metastore (warehouse).
+      * `--warehouse-path` — путь внутри бакета, который будет использоваться как префикс для данных Apache Hive™ Metastore. Опциональный параметр.
 
       * `--security-group-ids` — список идентификаторов [групп безопасности](configure-security-group.md).
       * `--resource-preset-id` — [конфигурация вычислительных ресурсов](../../concepts/metastore.md#presets).
@@ -132,6 +148,12 @@
           "configSpec": {
             "resources": {
             "resourcePresetId": "<идентификатор_конфигурации_ресурсов>"
+            },
+            "warehouse": {
+              "s3": {
+                "bucket": "<имя_бакета>",
+                "path": "<путь_внутри_бакета>"
+              }
             }
           },
           "serviceAccountId": "<идентификатор_сервисного_аккаунта>",
@@ -168,17 +190,25 @@
         * `deletionProtection` — позволяет включить защиту кластера от непреднамеренного удаления. Возможные значения: `true` или `false`.
         * `version` — версия Apache Hive™ Metastore.
         
-          Доступны версии 3.1 и 4.0.
+          Доступны версии 3.1, 4.0 и 4.2.
           
           {% note warning %}
           
-          Для интеграции кластера Apache Hive™ Metastore с сервисами [Yandex Managed Service for Trino](../../../managed-trino/index.md) и [Yandex Managed Service for Apache Spark™](../../../managed-spark/index.md) требуется версия 3.1.
+          Для интеграции кластера Apache Hive™ Metastore с сервисом [Yandex Managed Service for Apache Spark™](../../../managed-spark/index.md) требуется соответствие версий:
           
-          При необходимости версию 3.1 можно повысить до 4.0, но понизить версию 4.0 до 3.1 невозможно.
+          * версия Apache Spark™ 3.5.7 работает с версией Apache Hive™ Metastore 3.1;
+          * версия Apache Spark™ 4.0.0 работает с версиями Apache Hive™ Metastore 3.1 и выше.
+          
+          При необходимости версию Apache Hive™ Metastore 3.1 можно повысить последовательно: 3.1 → 4.0 → 4.2, но понизить версию 4.2 до 3.1 невозможно.
           
           {% endnote %}
         
         * `configSpec.resources.resourcePresetId` — [конфигурация вычислительных ресурсов](../../concepts/metastore.md#presets).
+        * `configSpec.warehouse.s3` — параметры хранилища данных Apache Hive™ Metastore:
+        
+          * `bucket` — имя бакета Object Storage, который будет использоваться в качестве хранилища данных Apache Hive™ Metastore (warehouse).
+          * `path` — путь внутри бакета, который будет использоваться как префикс для данных Apache Hive™ Metastore. Опциональный параметр.
+        
         * `serviceAccountId` — идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
         * `logging` — параметры логирования:
         
@@ -245,6 +275,12 @@
           "config_spec": {
             "resources": {
               "resource_preset_id": "<идентификатор_конфигурации_ресурсов>"
+            },
+            "warehouse": {
+              "s3": {
+                "bucket": "<имя_бакета>",
+                "path": "<путь_внутри_бакета>"
+              }
             }
           },
           "service_account_id": "<идентификатор_сервисного_аккаунта>",
@@ -297,17 +333,25 @@
           * `deletion_protection` — позволяет включить защиту кластера от непреднамеренного удаления. Возможные значения: `true` или `false`.
           * `version` — версия Apache Hive™ Metastore.
           
-            Доступны версии 3.1 и 4.0.
+            Доступны версии 3.1, 4.0 и 4.2.
             
             {% note warning %}
             
-            Для интеграции кластера Apache Hive™ Metastore с сервисами [Yandex Managed Service for Trino](../../../managed-trino/index.md) и [Yandex Managed Service for Apache Spark™](../../../managed-spark/index.md) требуется версия 3.1.
+            Для интеграции кластера Apache Hive™ Metastore с сервисом [Yandex Managed Service for Apache Spark™](../../../managed-spark/index.md) требуется соответствие версий:
             
-            При необходимости версию 3.1 можно повысить до 4.0, но понизить версию 4.0 до 3.1 невозможно.
+            * версия Apache Spark™ 3.5.7 работает с версией Apache Hive™ Metastore 3.1;
+            * версия Apache Spark™ 4.0.0 работает с версиями Apache Hive™ Metastore 3.1 и выше.
+            
+            При необходимости версию Apache Hive™ Metastore 3.1 можно повысить последовательно: 3.1 → 4.0 → 4.2, но понизить версию 4.2 до 3.1 невозможно.
             
             {% endnote %}
           
           * `config_spec.resources.resource_preset_id` — [конфигурация вычислительных ресурсов](../../concepts/metastore.md#presets).
+          * `config_spec.warehouse.s3` — параметры хранилища данных Apache Hive™ Metastore:
+          
+            * `bucket` — имя бакета Object Storage, который будет использоваться в качестве хранилища данных Apache Hive™ Metastore (warehouse).
+            * `path` — путь внутри бакета, который будет использоваться как префикс для данных Apache Hive™ Metastore. Опциональный параметр.
+          
           * `service_account_id` — идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
           * `logging` — параметры логирования:
           
