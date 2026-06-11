@@ -118,7 +118,7 @@ To pass a [domain rights check](../../concepts/challenges.md):
        domains = ["<domain>"]
 
        managed {
-       challenge_type = "DNS_CNAME"
+         challenge_type = "DNS_CNAME"
        }
      }
 
@@ -157,7 +157,7 @@ To pass a [domain rights check](../../concepts/challenges.md):
        * `data`: Record value.
        * `ttl`: Record time to live (TTL) in seconds before updating the record value.
        * `description`: Record set description. This is an optional setting.
-     * `yandex_dns_recordset` data source properties:
+     * `yandex_cm_certificate` data source properties:
        * `depends_on`: Indicates the dependence on another {{ TF }} resource.
        * `certificate_id`: Certificate ID.
        * `wait_validation`: Certificate validation wait flag. If `true`, the operation will not be completed until the certificate is `VALIDATING`. The default value is `false`.
