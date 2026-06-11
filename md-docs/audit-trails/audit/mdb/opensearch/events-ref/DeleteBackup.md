@@ -491,7 +491,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || access | **[Access](#yandex.cloud.mdb.opensearch.v1.Access)** ||
 || snapshotManagement | **[SnapshotManagement](#yandex.cloud.mdb.opensearch.v1.SnapshotManagement)** ||
 || fullVersion | **string** ||
-|| auditLog | **[AuditLog](#yandex.cloud.mdb.opensearch.v1.AuditLog)** ||
+|| auditLog | **[AuditLog](#yandex.cloud.mdb.opensearch.v1.config.AuditLog)** ||
 |#
 
 ## OpenSearch {#yandex.cloud.mdb.opensearch.v1.OpenSearch}
@@ -664,7 +664,7 @@ Acceptable values are 0 to 23, inclusive. ||
 Acceptable values are 0 to 59, inclusive. ||
 |#
 
-## AuditLog {#yandex.cloud.mdb.opensearch.v1.AuditLog}
+## AuditLog {#yandex.cloud.mdb.opensearch.v1.config.AuditLog}
 
 #|
 ||Field | Description ||

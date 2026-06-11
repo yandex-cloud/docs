@@ -210,6 +210,8 @@
                 "lightweightMutationProjectionMode": "string",
                 "replicatedDeduplicationWindow": "string",
                 "replicatedDeduplicationWindowSeconds": "string",
+                "replicatedDeduplicationWindowForAsyncInserts": "string",
+                "replicatedDeduplicationWindowSecondsForAsyncInserts": "string",
                 "fsyncAfterInsert": "boolean",
                 "fsyncPartDirectory": "boolean",
                 "minCompressedBytesToFsyncAfterFetch": "string",
@@ -554,6 +556,8 @@
                 "lightweightMutationProjectionMode": "string",
                 "replicatedDeduplicationWindow": "string",
                 "replicatedDeduplicationWindowSeconds": "string",
+                "replicatedDeduplicationWindowForAsyncInserts": "string",
+                "replicatedDeduplicationWindowSecondsForAsyncInserts": "string",
                 "fsyncAfterInsert": "boolean",
                 "fsyncPartDirectory": "boolean",
                 "minCompressedBytesToFsyncAfterFetch": "string",
@@ -898,6 +902,8 @@
                 "lightweightMutationProjectionMode": "string",
                 "replicatedDeduplicationWindow": "string",
                 "replicatedDeduplicationWindowSeconds": "string",
+                "replicatedDeduplicationWindowForAsyncInserts": "string",
+                "replicatedDeduplicationWindowSecondsForAsyncInserts": "string",
                 "fsyncAfterInsert": "boolean",
                 "fsyncPartDirectory": "boolean",
                 "minCompressedBytesToFsyncAfterFetch": "string",
@@ -1138,6 +1144,186 @@
               "builtinDictionariesReloadInterval": "string"
             }
           },
+          "defaultUserSettings": {
+            "readonly": "string",
+            "allowDdl": "boolean",
+            "allowIntrospectionFunctions": "boolean",
+            "connectTimeout": "string",
+            "connectTimeoutWithFailover": "string",
+            "connectTimeoutWithFailoverSecure": "string",
+            "connectionsWithFailoverMaxTries": "string",
+            "receiveTimeout": "string",
+            "sendTimeout": "string",
+            "idleConnectionTimeout": "string",
+            "timeoutBeforeCheckingExecutionSpeed": "string",
+            "insertQuorum": "string",
+            "insertQuorumTimeout": "string",
+            "insertQuorumParallel": "boolean",
+            "selectSequentialConsistency": "boolean",
+            "replicationAlterPartitionsSync": "string",
+            "maxReplicaDelayForDistributedQueries": "string",
+            "fallbackToStaleReplicasForDistributedQueries": "boolean",
+            "distributedProductMode": "string",
+            "distributedAggregationMemoryEfficient": "boolean",
+            "distributedDdlTaskTimeout": "string",
+            "distributedDdlOutputMode": "string",
+            "skipUnavailableShards": "boolean",
+            "useHedgedRequests": "boolean",
+            "hedgedConnectionTimeoutMs": "string",
+            "loadBalancing": "string",
+            "preferLocalhostReplica": "boolean",
+            "compileExpressions": "boolean",
+            "minCountToCompileExpression": "string",
+            "maxBlockSize": "string",
+            "minInsertBlockSizeRows": "string",
+            "minInsertBlockSizeBytes": "string",
+            "maxInsertBlockSize": "string",
+            "maxPartitionsPerInsertBlock": "string",
+            "minBytesToUseDirectIo": "string",
+            "useUncompressedCache": "boolean",
+            "mergeTreeMaxRowsToUseCache": "string",
+            "mergeTreeMaxBytesToUseCache": "string",
+            "mergeTreeMinRowsForConcurrentRead": "string",
+            "mergeTreeMinBytesForConcurrentRead": "string",
+            "maxBytesBeforeExternalGroupBy": "string",
+            "maxBytesRatioBeforeExternalGroupBy": "number",
+            "maxBytesRatioBeforeExternalSort": "number",
+            "maxBytesBeforeExternalSort": "string",
+            "groupByTwoLevelThreshold": "string",
+            "groupByTwoLevelThresholdBytes": "string",
+            "deduplicateBlocksInDependentMaterializedViews": "boolean",
+            "localFilesystemReadMethod": "string",
+            "remoteFilesystemReadMethod": "string",
+            "priority": "string",
+            "maxThreads": "string",
+            "maxInsertThreads": "string",
+            "maxMemoryUsage": "string",
+            "maxMemoryUsageForUser": "string",
+            "memoryOvercommitRatioDenominator": "string",
+            "memoryOvercommitRatioDenominatorForUser": "string",
+            "memoryUsageOvercommitMaxWaitMicroseconds": "string",
+            "maxNetworkBandwidth": "string",
+            "maxNetworkBandwidthForUser": "string",
+            "maxNetworkBytes": "string",
+            "maxTemporaryDataOnDiskSizeForQuery": "string",
+            "maxTemporaryDataOnDiskSizeForUser": "string",
+            "maxConcurrentQueriesForUser": "string",
+            "forceIndexByDate": "boolean",
+            "forcePrimaryKey": "boolean",
+            "maxRowsToRead": "string",
+            "maxBytesToRead": "string",
+            "readOverflowMode": "string",
+            "maxRowsToGroupBy": "string",
+            "groupByOverflowMode": "string",
+            "maxRowsToSort": "string",
+            "maxBytesToSort": "string",
+            "sortOverflowMode": "string",
+            "maxResultRows": "string",
+            "maxResultBytes": "string",
+            "resultOverflowMode": "string",
+            "maxRowsInDistinct": "string",
+            "maxBytesInDistinct": "string",
+            "distinctOverflowMode": "string",
+            "maxRowsToTransfer": "string",
+            "maxBytesToTransfer": "string",
+            "transferOverflowMode": "string",
+            "maxExecutionTime": "string",
+            "timeoutOverflowMode": "string",
+            "maxRowsInSet": "string",
+            "maxBytesInSet": "string",
+            "setOverflowMode": "string",
+            "maxRowsInJoin": "string",
+            "maxBytesInJoin": "string",
+            "joinOverflowMode": "string",
+            "maxColumnsToRead": "string",
+            "maxTemporaryColumns": "string",
+            "maxTemporaryNonConstColumns": "string",
+            "maxQuerySize": "string",
+            "maxAstDepth": "string",
+            "maxAstElements": "string",
+            "maxExpandedAstElements": "string",
+            "maxParserDepth": "string",
+            "minExecutionSpeed": "string",
+            "minExecutionSpeedBytes": "string",
+            "inputFormatValuesInterpretExpressions": "boolean",
+            "inputFormatDefaultsForOmittedFields": "boolean",
+            "inputFormatNullAsDefault": "boolean",
+            "inputFormatWithNamesUseHeader": "boolean",
+            "outputFormatJsonQuote_64bitIntegers": "boolean",
+            "outputFormatJsonQuoteDenormals": "boolean",
+            "dateTimeInputFormat": "string",
+            "dateTimeOutputFormat": "string",
+            "lowCardinalityAllowInNativeFormat": "boolean",
+            "emptyResultForAggregationByEmptySet": "boolean",
+            "formatRegexp": "string",
+            "formatRegexpEscapingRule": "string",
+            "formatRegexpSkipUnmatched": "boolean",
+            "inputFormatParallelParsing": "boolean",
+            "inputFormatImportNestedJson": "boolean",
+            "formatAvroSchemaRegistryUrl": "string",
+            "dataTypeDefaultNullable": "boolean",
+            "httpConnectionTimeout": "string",
+            "httpReceiveTimeout": "string",
+            "httpSendTimeout": "string",
+            "enableHttpCompression": "boolean",
+            "sendProgressInHttpHeaders": "boolean",
+            "httpHeadersProgressInterval": "string",
+            "addHttpCorsHeader": "boolean",
+            "cancelHttpReadonlyQueriesOnClientClose": "boolean",
+            "maxHttpGetRedirects": "string",
+            "httpMaxFieldNameSize": "string",
+            "httpMaxFieldValueSize": "string",
+            "quotaMode": "string",
+            "asyncInsert": "boolean",
+            "waitForAsyncInsert": "boolean",
+            "waitForAsyncInsertTimeout": "string",
+            "asyncInsertMaxDataSize": "string",
+            "asyncInsertBusyTimeout": "string",
+            "asyncInsertUseAdaptiveBusyTimeout": "boolean",
+            "logQueryThreads": "boolean",
+            "logQueryViews": "boolean",
+            "logQueriesProbability": "number",
+            "logProcessorsProfiles": "boolean",
+            "useQueryCache": "boolean",
+            "enableReadsFromQueryCache": "boolean",
+            "enableWritesToQueryCache": "boolean",
+            "queryCacheMinQueryRuns": "string",
+            "queryCacheMinQueryDuration": "string",
+            "queryCacheTtl": "string",
+            "queryCacheMaxEntries": "string",
+            "queryCacheMaxSizeInBytes": "string",
+            "queryCacheTag": "string",
+            "queryCacheShareBetweenUsers": "boolean",
+            "queryCacheNondeterministicFunctionHandling": "string",
+            "queryCacheSystemTableHandling": "string",
+            "countDistinctImplementation": "string",
+            "joinedSubqueryRequiresAlias": "boolean",
+            "joinUseNulls": "boolean",
+            "transformNullIn": "boolean",
+            "insertNullAsDefault": "boolean",
+            "joinAlgorithm": [
+              "string"
+            ],
+            "anyJoinDistinctRightTableKeys": "boolean",
+            "allowSuspiciousLowCardinalityTypes": "boolean",
+            "flattenNested": "boolean",
+            "memoryProfilerStep": "string",
+            "memoryProfilerSampleProbability": "number",
+            "maxFinalThreads": "string",
+            "maxReadBufferSize": "string",
+            "insertKeeperMaxRetries": "string",
+            "doNotMergeAcrossPartitionsSelectFinal": "boolean",
+            "ignoreMaterializedViewsWithDroppedTargetTable": "boolean",
+            "enableAnalyzer": "boolean",
+            "s3UseAdaptiveTimeouts": "boolean",
+            "final": "boolean",
+            "useHivePartitioning": "boolean",
+            "showDataLakeCatalogsInSystemTables": "boolean",
+            "compile": "boolean",
+            "minCountToCompile": "string",
+            "asyncInsertThreads": "string",
+            "asyncInsertStaleTimeout": "string"
+          },
           "resources": {
             "resourcePresetId": "string",
             "diskSize": "string",
@@ -1262,6 +1448,8 @@
           "allowIntrospectionFunctions": "boolean",
           "connectTimeout": "string",
           "connectTimeoutWithFailover": "string",
+          "connectTimeoutWithFailoverSecure": "string",
+          "connectionsWithFailoverMaxTries": "string",
           "receiveTimeout": "string",
           "sendTimeout": "string",
           "idleConnectionTimeout": "string",
@@ -1314,6 +1502,7 @@
           "memoryUsageOvercommitMaxWaitMicroseconds": "string",
           "maxNetworkBandwidth": "string",
           "maxNetworkBandwidthForUser": "string",
+          "maxNetworkBytes": "string",
           "maxTemporaryDataOnDiskSizeForQuery": "string",
           "maxTemporaryDataOnDiskSizeForUser": "string",
           "maxConcurrentQueriesForUser": "string",
@@ -1445,7 +1634,8 @@
         ],
         "connectionManager": {
           "connectionId": "string"
-        }
+        },
+        "authMethod": "string"
       }
     ]
   },
@@ -1706,6 +1896,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 #|
 ||Field | Description ||
 || config | **[ClickhouseConfigSet](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfigSet)** ||
+|| defaultUserSettings | **[UserSettings](#yandex.cloud.mdb.clickhouse.v1.UserSettings)** ||
 || resources | **[Resources](#yandex.cloud.mdb.clickhouse.v1.Resources)** ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.clickhouse.v1.DiskSizeAutoscaling)** ||
 |#
@@ -1872,6 +2063,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 - `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_REBUILD` ||
 || replicatedDeduplicationWindow | **string** (int64) ||
 || replicatedDeduplicationWindowSeconds | **string** (int64) ||
+|| replicatedDeduplicationWindowForAsyncInserts | **string** (int64) ||
+|| replicatedDeduplicationWindowSecondsForAsyncInserts | **string** (int64) ||
 || fsyncAfterInsert | **boolean** ||
 || fsyncPartDirectory | **boolean** ||
 || minCompressedBytesToFsyncAfterFetch | **string** (int64) ||
@@ -2256,194 +2449,6 @@ The maximum string length in characters is 63. ||
 || trustedCertificates[] | **string** ||
 |#
 
-## Resources {#yandex.cloud.mdb.clickhouse.v1.Resources}
-
-#|
-||Field | Description ||
-|| resourcePresetId | **string** ||
-|| diskSize | **string** (int64) ||
-|| diskTypeId | **string** ||
-|#
-
-## DiskSizeAutoscaling {#yandex.cloud.mdb.clickhouse.v1.DiskSizeAutoscaling}
-
-#|
-||Field | Description ||
-|| plannedUsageThreshold | **string** (int64)
-
-Acceptable values are 0 to 100, inclusive. ||
-|| emergencyUsageThreshold | **string** (int64)
-
-Acceptable values are 0 to 100, inclusive. ||
-|| diskSizeLimit | **string** (int64) ||
-|#
-
-## Zookeeper {#yandex.cloud.mdb.clickhouse.v1.ClusterConfig.Zookeeper}
-
-#|
-||Field | Description ||
-|| resources | **[Resources](#yandex.cloud.mdb.clickhouse.v1.Resources)** ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.clickhouse.v1.DiskSizeAutoscaling)** ||
-|#
-
-## TimeOfDay {#google.type.TimeOfDay}
-
-#|
-||Field | Description ||
-|| hours | **integer** (int32) ||
-|| minutes | **integer** (int32) ||
-|| seconds | **integer** (int32) ||
-|| nanos | **integer** (int32) ||
-|#
-
-## Access {#yandex.cloud.mdb.clickhouse.v1.Access}
-
-#|
-||Field | Description ||
-|| dataLens | **boolean** ||
-|| webSql | **boolean** ||
-|| metrika | **boolean** ||
-|| serverless | **boolean** ||
-|| dataTransfer | **boolean** ||
-|| yandexQuery | **boolean** ||
-|#
-
-## CloudStorage {#yandex.cloud.mdb.clickhouse.v1.CloudStorage}
-
-#|
-||Field | Description ||
-|| enabled | **boolean** ||
-|| moveFactor | **number** (double)
-
-Acceptable values are 0 to 1, inclusive. ||
-|| dataCacheEnabled | **boolean** ||
-|| dataCacheMaxSize | **string** (int64) ||
-|| preferNotToMerge | **boolean** ||
-|#
-
-## PerformanceDiagnostics {#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics}
-
-#|
-||Field | Description ||
-|| enabled | **boolean** ||
-|| processesRefreshInterval | **string** (duration) ||
-|#
-
-## MaintenanceWindow {#yandex.cloud.mdb.clickhouse.v1.MaintenanceWindow}
-
-#|
-||Field | Description ||
-|| anytime | **object**
-
-Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
-|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.clickhouse.v1.WeeklyMaintenanceWindow)**
-
-Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
-|#
-
-## WeeklyMaintenanceWindow {#yandex.cloud.mdb.clickhouse.v1.WeeklyMaintenanceWindow}
-
-#|
-||Field | Description ||
-|| day | **enum** (WeekDay)
-
-- `MON`
-- `TUE`
-- `WED`
-- `THU`
-- `FRI`
-- `SAT`
-- `SUN` ||
-|| hour | **string** (int64)
-
-Acceptable values are 1 to 24, inclusive. ||
-|#
-
-## MaintenanceOperation {#yandex.cloud.mdb.clickhouse.v1.MaintenanceOperation}
-
-#|
-||Field | Description ||
-|| info | **string**
-
-The maximum string length in characters is 256. ||
-|| delayedUntil | **string** (date-time)
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|#
-
-## HostDetails {#yandex.cloud.audit.mdb.clickhouse.HostDetails}
-
-#|
-||Field | Description ||
-|| name | **string** ||
-|| clusterId | **string** ||
-|| zoneId | **string** ||
-|| type | **enum** (Type)
-
-- `CLICKHOUSE`
-- `ZOOKEEPER` ||
-|| resources | **[Resources](#yandex.cloud.mdb.clickhouse.v1.Resources)** ||
-|| services[] | **[Service](#yandex.cloud.mdb.clickhouse.v1.Service)** ||
-|| subnetId | **string** ||
-|| assignPublicIp | **boolean** ||
-|| shardName | **string** ||
-|| internalIpv4[] | **string** ||
-|#
-
-## Service {#yandex.cloud.mdb.clickhouse.v1.Service}
-
-#|
-||Field | Description ||
-|| type | **enum** (Type)
-
-- `CLICKHOUSE`
-- `ZOOKEEPER`
-- `KEEPER` ||
-|| health | **enum** (Health)
-
-- `UNKNOWN`
-- `ALIVE`
-- `DEAD`
-- `READONLY`
-- `RESTORING` ||
-|#
-
-## Database {#yandex.cloud.mdb.clickhouse.v1.Database}
-
-#|
-||Field | Description ||
-|| name | **string** ||
-|| clusterId | **string** ||
-|| engine | **enum** (DatabaseEngine)
-
-- `DATABASE_ENGINE_ATOMIC`
-- `DATABASE_ENGINE_REPLICATED` ||
-|#
-
-## User {#yandex.cloud.mdb.clickhouse.v1.User}
-
-#|
-||Field | Description ||
-|| name | **string** ||
-|| clusterId | **string** ||
-|| permissions[] | **[Permission](#yandex.cloud.mdb.clickhouse.v1.Permission)** ||
-|| settings | **[UserSettings](#yandex.cloud.mdb.clickhouse.v1.UserSettings)** ||
-|| quotas[] | **[UserQuota](#yandex.cloud.mdb.clickhouse.v1.UserQuota)** ||
-|| connectionManager | **[ConnectionManager](#yandex.cloud.mdb.clickhouse.v1.ConnectionManager)** ||
-|#
-
-## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission}
-
-#|
-||Field | Description ||
-|| databaseName | **string** ||
-|#
-
 ## UserSettings {#yandex.cloud.mdb.clickhouse.v1.UserSettings}
 
 #|
@@ -2453,6 +2458,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || allowIntrospectionFunctions | **boolean** ||
 || connectTimeout | **string** (int64) ||
 || connectTimeoutWithFailover | **string** (int64) ||
+|| connectTimeoutWithFailoverSecure | **string** (int64) ||
+|| connectionsWithFailoverMaxTries | **string** (int64) ||
 || receiveTimeout | **string** (int64) ||
 || sendTimeout | **string** (int64) ||
 || idleConnectionTimeout | **string** (int64) ||
@@ -2533,6 +2540,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || memoryUsageOvercommitMaxWaitMicroseconds | **string** (int64) ||
 || maxNetworkBandwidth | **string** (int64) ||
 || maxNetworkBandwidthForUser | **string** (int64) ||
+|| maxNetworkBytes | **string** (int64) ||
 || maxTemporaryDataOnDiskSizeForQuery | **string** (int64) ||
 || maxTemporaryDataOnDiskSizeForUser | **string** (int64) ||
 || maxConcurrentQueriesForUser | **string** (int64) ||
@@ -2718,6 +2726,198 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || minCountToCompile | **string** (int64) ||
 || asyncInsertThreads | **string** (int64) ||
 || asyncInsertStaleTimeout | **string** (int64) ||
+|#
+
+## Resources {#yandex.cloud.mdb.clickhouse.v1.Resources}
+
+#|
+||Field | Description ||
+|| resourcePresetId | **string** ||
+|| diskSize | **string** (int64) ||
+|| diskTypeId | **string** ||
+|#
+
+## DiskSizeAutoscaling {#yandex.cloud.mdb.clickhouse.v1.DiskSizeAutoscaling}
+
+#|
+||Field | Description ||
+|| plannedUsageThreshold | **string** (int64)
+
+Acceptable values are 0 to 100, inclusive. ||
+|| emergencyUsageThreshold | **string** (int64)
+
+Acceptable values are 0 to 100, inclusive. ||
+|| diskSizeLimit | **string** (int64) ||
+|#
+
+## Zookeeper {#yandex.cloud.mdb.clickhouse.v1.ClusterConfig.Zookeeper}
+
+#|
+||Field | Description ||
+|| resources | **[Resources](#yandex.cloud.mdb.clickhouse.v1.Resources)** ||
+|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.clickhouse.v1.DiskSizeAutoscaling)** ||
+|#
+
+## TimeOfDay {#google.type.TimeOfDay}
+
+#|
+||Field | Description ||
+|| hours | **integer** (int32) ||
+|| minutes | **integer** (int32) ||
+|| seconds | **integer** (int32) ||
+|| nanos | **integer** (int32) ||
+|#
+
+## Access {#yandex.cloud.mdb.clickhouse.v1.Access}
+
+#|
+||Field | Description ||
+|| dataLens | **boolean** ||
+|| webSql | **boolean** ||
+|| metrika | **boolean** ||
+|| serverless | **boolean** ||
+|| dataTransfer | **boolean** ||
+|| yandexQuery | **boolean** ||
+|#
+
+## CloudStorage {#yandex.cloud.mdb.clickhouse.v1.CloudStorage}
+
+#|
+||Field | Description ||
+|| enabled | **boolean** ||
+|| moveFactor | **number** (double)
+
+Acceptable values are 0 to 1, inclusive. ||
+|| dataCacheEnabled | **boolean** ||
+|| dataCacheMaxSize | **string** (int64) ||
+|| preferNotToMerge | **boolean** ||
+|#
+
+## PerformanceDiagnostics {#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics}
+
+#|
+||Field | Description ||
+|| enabled | **boolean** ||
+|| processesRefreshInterval | **string** (duration) ||
+|#
+
+## MaintenanceWindow {#yandex.cloud.mdb.clickhouse.v1.MaintenanceWindow}
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
+|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.clickhouse.v1.WeeklyMaintenanceWindow)**
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
+|#
+
+## WeeklyMaintenanceWindow {#yandex.cloud.mdb.clickhouse.v1.WeeklyMaintenanceWindow}
+
+#|
+||Field | Description ||
+|| day | **enum** (WeekDay)
+
+- `MON`
+- `TUE`
+- `WED`
+- `THU`
+- `FRI`
+- `SAT`
+- `SUN` ||
+|| hour | **string** (int64)
+
+Acceptable values are 1 to 24, inclusive. ||
+|#
+
+## MaintenanceOperation {#yandex.cloud.mdb.clickhouse.v1.MaintenanceOperation}
+
+#|
+||Field | Description ||
+|| info | **string**
+
+The maximum string length in characters is 256. ||
+|| delayedUntil | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|#
+
+## HostDetails {#yandex.cloud.audit.mdb.clickhouse.HostDetails}
+
+#|
+||Field | Description ||
+|| name | **string** ||
+|| clusterId | **string** ||
+|| zoneId | **string** ||
+|| type | **enum** (Type)
+
+- `CLICKHOUSE`
+- `ZOOKEEPER` ||
+|| resources | **[Resources](#yandex.cloud.mdb.clickhouse.v1.Resources)** ||
+|| services[] | **[Service](#yandex.cloud.mdb.clickhouse.v1.Service)** ||
+|| subnetId | **string** ||
+|| assignPublicIp | **boolean** ||
+|| shardName | **string** ||
+|| internalIpv4[] | **string** ||
+|#
+
+## Service {#yandex.cloud.mdb.clickhouse.v1.Service}
+
+#|
+||Field | Description ||
+|| type | **enum** (Type)
+
+- `CLICKHOUSE`
+- `ZOOKEEPER`
+- `KEEPER` ||
+|| health | **enum** (Health)
+
+- `UNKNOWN`
+- `ALIVE`
+- `DEAD`
+- `READONLY`
+- `RESTORING` ||
+|#
+
+## Database {#yandex.cloud.mdb.clickhouse.v1.Database}
+
+#|
+||Field | Description ||
+|| name | **string** ||
+|| clusterId | **string** ||
+|| engine | **enum** (DatabaseEngine)
+
+- `DATABASE_ENGINE_ATOMIC`
+- `DATABASE_ENGINE_REPLICATED` ||
+|#
+
+## User {#yandex.cloud.mdb.clickhouse.v1.User}
+
+#|
+||Field | Description ||
+|| name | **string** ||
+|| clusterId | **string** ||
+|| permissions[] | **[Permission](#yandex.cloud.mdb.clickhouse.v1.Permission)** ||
+|| settings | **[UserSettings](#yandex.cloud.mdb.clickhouse.v1.UserSettings)** ||
+|| quotas[] | **[UserQuota](#yandex.cloud.mdb.clickhouse.v1.UserQuota)** ||
+|| connectionManager | **[ConnectionManager](#yandex.cloud.mdb.clickhouse.v1.ConnectionManager)** ||
+|| authMethod | **enum** (AuthMethod)
+
+- `AUTH_METHOD_PASSWORD`
+- `AUTH_METHOD_IAM` ||
+|#
+
+## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission}
+
+#|
+||Field | Description ||
+|| databaseName | **string** ||
 |#
 
 ## UserQuota {#yandex.cloud.mdb.clickhouse.v1.UserQuota}

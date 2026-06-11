@@ -78,6 +78,16 @@ The revocation function was unable to check revocation for the certificate
 
 На Ubuntu 24.04 и выше команда `kafkacat` не работает, используйте вместо нее команду `kcat`.
 
+#### Что делать, если возникает ошибка аутентификации при подключении через kafkacat? {#kafkacat-authentication-error}
+
+Текст ошибки:
+
+```text
+SASL authentication error: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+```
+
+Ошибка возникает при попытке подключиться через `kafkacat` к кластеру с версией {{ KF }} 4.0 и выше. Утилита `kafkacat` устарела и не работает с новыми версиями. Если ваш кластер с версией {{ KF }} 4.0 или выше, используйте утилиту [kafkactl](../../managed-kafka/operations/connect/clients.md#kafkactl).
+
 #### Будет ли доступен Karapace во время технического обслуживания? {#karapace-maintenance}
 
 {% include [karapace-maintenance](../../_includes/mdb/mkf/karapace-maintenance.md) %}

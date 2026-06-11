@@ -22,6 +22,11 @@ description: Следуя данной инструкции, вы сможете
 
             {% include [metastore-version](../../../_includes/metadata-hub/metastore-version-cluster-create.md) %}
 
+  1. В блоке **{{ ui-key.yacloud.metastore.label_section-warehouse }}** измените параметры бакета:
+
+        * **{{ ui-key.yacloud.metastore.label_warehouse-bucket }}** — имя бакета {{ objstorage-name }}, который будет использоваться в качестве хранилища данных {{ metastore-name }} (warehouse).
+        * **{{ ui-key.yacloud.metastore.label_warehouse-path }}** — путь внутри бакета, который будет использоваться как префикс для данных {{ metastore-name }}. Опциональный параметр.
+
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите другую [группу безопасности](configure-security-group.md) или создайте новую.
   1. В блоке **{{ ui-key.yacloud.metastore.label_resource-preset }}** измените [конфигурацию кластера](../../concepts/metastore.md#presets).
   1. В блоке **{{ ui-key.yacloud.logging.label_title }}** включите или выключите запись логов. Если логирование включено:
@@ -55,6 +60,8 @@ description: Следуя данной инструкции, вы сможете
          --labels <список_меток> \
          --service-account-id <идентификатор_сервисного_аккаунта> \
          --version <версия_Apache_Hive™_Metastore> \
+         --warehouse-bucket <имя_бакета> \
+         --warehouse-path <путь_внутри_бакета> \
          --security-group-ids <идентификаторы_групп_безопасности> \
          --resource-preset-id <идентификатор_вычислительных_ресурсов> \
          --maintenance-window type=<тип_технического_обслуживания>,`
@@ -94,6 +101,12 @@ description: Следуя данной инструкции, вы сможете
           "configSpec": {
             "resources": {
             "resourcePresetId": "<идентификатор_конфигурации_ресурсов>"
+            },
+            "warehouse": {
+              "s3": {
+                "bucket": "<имя_бакета>",
+                "path": "<путь_внутри_бакета>"
+              }
             }
           },
           "serviceAccountId": "<идентификатор_сервисного_аккаунта>",
@@ -167,6 +180,12 @@ description: Следуя данной инструкции, вы сможете
           "config_spec": {
             "resources": {
               "resource_preset_id": "<идентификатор_конфигурации_ресурсов>"
+            },
+            "warehouse": {
+              "s3": {
+                "bucket": "<имя_бакета>",
+                "path": "<путь_внутри_бакета>"
+              }
             }
           },
           "service_account_id": "<идентификатор_сервисного_аккаунта>",

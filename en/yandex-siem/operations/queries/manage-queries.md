@@ -87,6 +87,8 @@ To run a query:
 
   After you run it, the query enters the **{{ ui-key.yacloud_org.security.siem.cell-result-running_4S3Mi }}** status. Once it is over, its results are presented in the table and on the histogram.
 
+  {% include [queries-max-results](../../../_includes/ycdr/queries-max-results.md) %}
+
 {% endlist %}
 
 ## Stopping a running query {#stop-query}

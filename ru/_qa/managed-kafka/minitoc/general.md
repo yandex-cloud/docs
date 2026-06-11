@@ -20,6 +20,8 @@
 
 * [Что делать, если возникает ошибка kafkacat: command not found?](#kafkacat-not-found)
 
+* [Что делать, если возникает ошибка аутентификации при подключении через kafkacat?](#kafkacat-authentication-error)
+
 * [Будет ли доступен Karapace во время технического обслуживания?](#karapace-maintenance)
 
 * [Эндпоинт Karapace постоянный или меняется в зависимости от брокера?](#karapace-endpoint)

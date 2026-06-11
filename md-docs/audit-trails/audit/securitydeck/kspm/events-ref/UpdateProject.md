@@ -131,7 +131,8 @@
     },
     "controls": [
       {
-        "id": "string"
+        "id": "string",
+        "mode": "string"
       }
     ],
     "alertSinkId": "string",
@@ -403,4 +404,8 @@ Includes only one of the fields `organization`, `cloud`, `folder`, `cluster`. ||
 #|
 ||Field | Description ||
 || id | **string** ||
+|| mode | **enum** (Mode)
+
+- `ENFORCE`
+- `AUDIT` ||
 |#

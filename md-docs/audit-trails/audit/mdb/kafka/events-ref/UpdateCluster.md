@@ -212,17 +212,17 @@
         "restApiConfig": {
           "enabled": "boolean"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "string",
-          "emergencyUsageThreshold": "string",
-          "diskSizeLimit": "string"
-        },
         "kraft": {
           "resources": {
             "resourcePresetId": "string",
             "diskSize": "string",
             "diskTypeId": "string"
           }
+        },
+        "diskSizeAutoscaling": {
+          "plannedUsageThreshold": "string",
+          "emergencyUsageThreshold": "string",
+          "diskSizeLimit": "string"
         },
         "kafkaUiConfig": {
           "enabled": "boolean"
@@ -508,8 +508,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || schemaRegistry | **boolean** ||
 || access | **[Access](#yandex.cloud.mdb.kafka.v1.Access)** ||
 || restApiConfig | **[RestAPIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.RestAPIConfig)** ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.kafka.v1.DiskSizeAutoscaling)** ||
 || kraft | **[KRaft](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KRaft)** ||
+|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.kafka.v1.DiskSizeAutoscaling)** ||
 || kafkaUiConfig | **[KafkaUIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig)** ||
 || patchVersion | **string** ||
 |#
@@ -670,6 +670,13 @@ Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`, `kafkaConfig
 || enabled | **boolean** ||
 |#
 
+## KRaft {#yandex.cloud.mdb.kafka.v1.ConfigSpec.KRaft}
+
+#|
+||Field | Description ||
+|| resources | **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)** ||
+|#
+
 ## DiskSizeAutoscaling {#yandex.cloud.mdb.kafka.v1.DiskSizeAutoscaling}
 
 #|
@@ -681,13 +688,6 @@ Acceptable values are 0 to 100, inclusive. ||
 
 Acceptable values are 0 to 100, inclusive. ||
 || diskSizeLimit | **string** (int64) ||
-|#
-
-## KRaft {#yandex.cloud.mdb.kafka.v1.ConfigSpec.KRaft}
-
-#|
-||Field | Description ||
-|| resources | **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)** ||
 |#
 
 ## KafkaUIConfig {#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig}

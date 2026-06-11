@@ -47,6 +47,8 @@ After the query is completed, the results are displayed in a table with the foll
 * `event_class`: Event class
 * `time`: Event time
 
+{% include [queries-max-results](../_includes/ycdr/queries-max-results.md) %}
+
 This is an example of a simple query which checks service performance. For more complex analysis, use additional queries and filters.
 
 

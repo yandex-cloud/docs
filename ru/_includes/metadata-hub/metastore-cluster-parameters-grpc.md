@@ -7,6 +7,11 @@
   {% include [metastore-version](metastore-version-cluster-create.md) %}
 
 * `config_spec.resources.resource_preset_id` — [конфигурация вычислительных ресурсов](../../metadata-hub/concepts/metastore.md#presets).
+* `config_spec.warehouse.s3` — параметры хранилища данных {{ metastore-name }}:
+
+  * `bucket` — имя бакета {{ objstorage-name }}, который будет использоваться в качестве хранилища данных {{ metastore-name }} (warehouse).
+  * `path` — путь внутри бакета, который будет использоваться как префикс для данных {{ metastore-name }}. Опциональный параметр.
+
 * `service_account_id` — идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
 * `logging` — параметры логирования:
 

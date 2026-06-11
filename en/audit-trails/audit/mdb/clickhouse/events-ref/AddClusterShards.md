@@ -205,6 +205,8 @@ editable: false
                     "lightweightMutationProjectionMode": "string",
                     "replicatedDeduplicationWindow": "string",
                     "replicatedDeduplicationWindowSeconds": "string",
+                    "replicatedDeduplicationWindowForAsyncInserts": "string",
+                    "replicatedDeduplicationWindowSecondsForAsyncInserts": "string",
                     "fsyncAfterInsert": "boolean",
                     "fsyncPartDirectory": "boolean",
                     "minCompressedBytesToFsyncAfterFetch": "string",
@@ -549,6 +551,8 @@ editable: false
                     "lightweightMutationProjectionMode": "string",
                     "replicatedDeduplicationWindow": "string",
                     "replicatedDeduplicationWindowSeconds": "string",
+                    "replicatedDeduplicationWindowForAsyncInserts": "string",
+                    "replicatedDeduplicationWindowSecondsForAsyncInserts": "string",
                     "fsyncAfterInsert": "boolean",
                     "fsyncPartDirectory": "boolean",
                     "minCompressedBytesToFsyncAfterFetch": "string",
@@ -893,6 +897,8 @@ editable: false
                     "lightweightMutationProjectionMode": "string",
                     "replicatedDeduplicationWindow": "string",
                     "replicatedDeduplicationWindowSeconds": "string",
+                    "replicatedDeduplicationWindowForAsyncInserts": "string",
+                    "replicatedDeduplicationWindowSecondsForAsyncInserts": "string",
                     "fsyncAfterInsert": "boolean",
                     "fsyncPartDirectory": "boolean",
                     "minCompressedBytesToFsyncAfterFetch": "string",
@@ -1521,6 +1527,8 @@ A list of messages that carry the error details. ||
 - `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_REBUILD` ||
 || replicatedDeduplicationWindow | **string** (int64) ||
 || replicatedDeduplicationWindowSeconds | **string** (int64) ||
+|| replicatedDeduplicationWindowForAsyncInserts | **string** (int64) ||
+|| replicatedDeduplicationWindowSecondsForAsyncInserts | **string** (int64) ||
 || fsyncAfterInsert | **boolean** ||
 || fsyncPartDirectory | **boolean** ||
 || minCompressedBytesToFsyncAfterFetch | **string** (int64) ||

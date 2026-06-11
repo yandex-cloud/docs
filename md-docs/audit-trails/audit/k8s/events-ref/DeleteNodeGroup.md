@@ -616,7 +616,7 @@ Includes only one of the fields `fixedScale`, `autoScale`. ||
 ||Field | Description ||
 || size | **string** (int64)
 
-Acceptable values are 0 to 100, inclusive. ||
+The minimum value is 0. ||
 |#
 
 ## AutoScale {#yandex.cloud.k8s.v1.ScalePolicy.AutoScale}
@@ -625,13 +625,13 @@ Acceptable values are 0 to 100, inclusive. ||
 ||Field | Description ||
 || minSize | **string** (int64)
 
-Acceptable values are 0 to 100, inclusive. ||
+The minimum value is 0. ||
 || maxSize | **string** (int64)
 
-Acceptable values are 0 to 100, inclusive. ||
+The minimum value is 0. ||
 || initialSize | **string** (int64)
 
-Acceptable values are 0 to 100, inclusive. ||
+The minimum value is 0. ||
 |#
 
 ## NodeGroupAllocationPolicy {#yandex.cloud.k8s.v1.NodeGroupAllocationPolicy}
