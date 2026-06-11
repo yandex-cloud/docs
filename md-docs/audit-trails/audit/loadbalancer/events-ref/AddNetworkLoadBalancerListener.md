@@ -91,9 +91,9 @@
       "address": "string",
       "port": "string",
       "protocol": "string",
+      "ipVersion": "string",
       "targetPort": "string",
-      "subnetId": "string",
-      "ipVersion": "string"
+      "subnetId": "string"
     },
     "listeners": [
       {
@@ -101,9 +101,9 @@
         "address": "string",
         "port": "string",
         "protocol": "string",
+        "ipVersion": "string",
         "targetPort": "string",
-        "subnetId": "string",
-        "ipVersion": "string"
+        "subnetId": "string"
       }
     ]
   },
@@ -293,10 +293,10 @@ A list of messages that carry the error details. ||
 
 - `TCP`
 - `UDP` ||
-|| targetPort | **string** (int64) ||
-|| subnetId | **string** ||
 || ipVersion | **enum** (IpVersion)
 
 - `IPV4`
 - `IPV6` ||
+|| targetPort | **string** (int64) ||
+|| subnetId | **string** ||
 |#

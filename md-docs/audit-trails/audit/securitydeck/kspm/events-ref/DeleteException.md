@@ -135,7 +135,8 @@
     "modifiedAt": "string",
     "controls": [
       {
-        "id": "string"
+        "id": "string",
+        "mode": "string"
       }
     ],
     "resourcesCount": "string",
@@ -447,4 +448,8 @@ The maximum string length in characters is 127. ||
 #|
 ||Field | Description ||
 || id | **string** ||
+|| mode | **enum** (Mode)
+
+- `ENFORCE`
+- `AUDIT` ||
 |#

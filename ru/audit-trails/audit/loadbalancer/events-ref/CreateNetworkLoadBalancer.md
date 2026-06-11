@@ -98,9 +98,9 @@ editable: false
         "address": "string",
         "port": "string",
         "protocol": "string",
+        "ipVersion": "string",
         "targetPort": "string",
-        "subnetId": "string",
-        "ipVersion": "string"
+        "subnetId": "string"
       }
     ],
     "attachedTargetGroups": [
@@ -340,41 +340,31 @@ A list of messages that carry the error details. ||
 
 - `TCP`
 - `UDP` ||
-|| targetPort | **string** (int64) ||
-|| subnetId | **string** ||
 || ipVersion | **enum** (IpVersion)
 
 - `IPV4`
 - `IPV6` ||
+|| targetPort | **string** (int64) ||
+|| subnetId | **string** ||
 |#
 
 ## AttachedTargetGroup {#yandex.cloud.loadbalancer.v1.AttachedTargetGroup}
 
 #|
 ||Field | Description ||
-|| targetGroupId | **string**
-
-The maximum string length in characters is 50. ||
-|| healthChecks[] | **[HealthCheck](#yandex.cloud.loadbalancer.v1.HealthCheck)**
-
-Must contain exactly 1 element. ||
+|| targetGroupId | **string** ||
+|| healthChecks[] | **[HealthCheck](#yandex.cloud.loadbalancer.v1.HealthCheck)** ||
 |#
 
 ## HealthCheck {#yandex.cloud.loadbalancer.v1.HealthCheck}
 
 #|
 ||Field | Description ||
-|| name | **string**
-
-Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
+|| name | **string** ||
 || interval | **string** (duration) ||
 || timeout | **string** (duration) ||
-|| unhealthyThreshold | **string** (int64)
-
-Acceptable values are 2 to 10, inclusive. ||
-|| healthyThreshold | **string** (int64)
-
-Acceptable values are 2 to 10, inclusive. ||
+|| unhealthyThreshold | **string** (int64) ||
+|| healthyThreshold | **string** (int64) ||
 || tcpOptions | **[TcpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.TcpOptions)**
 
 Includes only one of the fields `tcpOptions`, `httpOptions`. ||
@@ -387,17 +377,13 @@ Includes only one of the fields `tcpOptions`, `httpOptions`. ||
 
 #|
 ||Field | Description ||
-|| port | **string** (int64)
-
-Acceptable values are 1 to 65535, inclusive. ||
+|| port | **string** (int64) ||
 |#
 
 ## HttpOptions {#yandex.cloud.loadbalancer.v1.HealthCheck.HttpOptions}
 
 #|
 ||Field | Description ||
-|| port | **string** (int64)
-
-Acceptable values are 1 to 65535, inclusive. ||
+|| port | **string** (int64) ||
 || path | **string** ||
 |#

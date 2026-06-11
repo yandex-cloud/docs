@@ -10,7 +10,15 @@ items:
       - name: Управление реестром
         items:
           - name: Создание реестра
-            href: operations/registry/create.md
+            items:
+              - name: Обзор
+                href: operations/registry/create.md
+              - name: Локальный
+                href: operations/registry/local.md
+              - name: Удаленный
+                href: operations/registry/remote.md
+              - name: Виртуальный
+                href: operations/registry/virtual.md
           - name: Управление правами доступа к реестру
             items:
               - name: Посмотреть роли, назначенные на реестр

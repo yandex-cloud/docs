@@ -272,6 +272,113 @@
           }
         },
         // end of the list of possible fields
+        "dbmsConfigSet": {
+          "effectiveConfig": {
+            "maxConnections": "string",
+            "maxSlotWalKeepSize": "string",
+            "gpWorkfileLimitPerSegment": "string",
+            "gpWorkfileLimitPerQuery": "string",
+            "gpWorkfileLimitFilesPerQuery": "string",
+            "maxPreparedTransactions": "string",
+            "gpWorkfileCompression": "boolean",
+            "maxStatementMem": "string",
+            "logStatement": "string",
+            "logConnections": "boolean",
+            "logDisconnections": "boolean",
+            "logHostname": "boolean",
+            "logErrorVerbosity": "string",
+            "logMinDurationStatement": "string",
+            "logMinMessages": "string",
+            "logStatementStats": "boolean",
+            "masterSharedBuffers": "string",
+            "segmentSharedBuffers": "string",
+            "maxLocksPerTransaction": "string",
+            "gpEnableGlobalDeadlockDetector": "boolean",
+            "gpGlobalDeadlockDetectorPeriod": "string",
+            "gpMaxSlices": "string",
+            "gpCachedSegworkersThreshold": "string",
+            "lockTimeout": "string",
+            "idleInTransactionSessionTimeout": "string",
+            "runawayDetectorActivationPercent": "string",
+            "gpVmemProtectSegworkerCacheLimit": "string",
+            "gpEnableZstdMemoryAccounting": "boolean",
+            "gpMaxPlanSize": "string",
+            "gpAutostatsMode": "string",
+            "gpAutostatsOnChangeThreshold": "string",
+            "gpResourceGroupMemoryLimit": "number",
+            "gpAddColumnInheritsTableSetting": "boolean"
+          },
+          "userConfig": {
+            "maxConnections": "string",
+            "maxSlotWalKeepSize": "string",
+            "gpWorkfileLimitPerSegment": "string",
+            "gpWorkfileLimitPerQuery": "string",
+            "gpWorkfileLimitFilesPerQuery": "string",
+            "maxPreparedTransactions": "string",
+            "gpWorkfileCompression": "boolean",
+            "maxStatementMem": "string",
+            "logStatement": "string",
+            "logConnections": "boolean",
+            "logDisconnections": "boolean",
+            "logHostname": "boolean",
+            "logErrorVerbosity": "string",
+            "logMinDurationStatement": "string",
+            "logMinMessages": "string",
+            "logStatementStats": "boolean",
+            "masterSharedBuffers": "string",
+            "segmentSharedBuffers": "string",
+            "maxLocksPerTransaction": "string",
+            "gpEnableGlobalDeadlockDetector": "boolean",
+            "gpGlobalDeadlockDetectorPeriod": "string",
+            "gpMaxSlices": "string",
+            "gpCachedSegworkersThreshold": "string",
+            "lockTimeout": "string",
+            "idleInTransactionSessionTimeout": "string",
+            "runawayDetectorActivationPercent": "string",
+            "gpVmemProtectSegworkerCacheLimit": "string",
+            "gpEnableZstdMemoryAccounting": "boolean",
+            "gpMaxPlanSize": "string",
+            "gpAutostatsMode": "string",
+            "gpAutostatsOnChangeThreshold": "string",
+            "gpResourceGroupMemoryLimit": "number",
+            "gpAddColumnInheritsTableSetting": "boolean"
+          },
+          "defaultConfig": {
+            "maxConnections": "string",
+            "maxSlotWalKeepSize": "string",
+            "gpWorkfileLimitPerSegment": "string",
+            "gpWorkfileLimitPerQuery": "string",
+            "gpWorkfileLimitFilesPerQuery": "string",
+            "maxPreparedTransactions": "string",
+            "gpWorkfileCompression": "boolean",
+            "maxStatementMem": "string",
+            "logStatement": "string",
+            "logConnections": "boolean",
+            "logDisconnections": "boolean",
+            "logHostname": "boolean",
+            "logErrorVerbosity": "string",
+            "logMinDurationStatement": "string",
+            "logMinMessages": "string",
+            "logStatementStats": "boolean",
+            "masterSharedBuffers": "string",
+            "segmentSharedBuffers": "string",
+            "maxLocksPerTransaction": "string",
+            "gpEnableGlobalDeadlockDetector": "boolean",
+            "gpGlobalDeadlockDetectorPeriod": "string",
+            "gpMaxSlices": "string",
+            "gpCachedSegworkersThreshold": "string",
+            "lockTimeout": "string",
+            "idleInTransactionSessionTimeout": "string",
+            "runawayDetectorActivationPercent": "string",
+            "gpVmemProtectSegworkerCacheLimit": "string",
+            "gpEnableZstdMemoryAccounting": "boolean",
+            "gpMaxPlanSize": "string",
+            "gpAutostatsMode": "string",
+            "gpAutostatsOnChangeThreshold": "string",
+            "gpResourceGroupMemoryLimit": "number",
+            "gpAddColumnInheritsTableSetting": "boolean"
+          }
+        },
         "pool": {
           "effectiveConfig": {
             "mode": "string",
@@ -757,6 +864,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || greenplumConfigSet_6 | **[GreenplumConfigSet6](#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6)**
 
 Includes only one of the fields `greenplumConfigSet_6`. ||
+|| dbmsConfigSet | **[DBMSConfigSet](#yandex.cloud.mdb.greenplum.v1.DBMSConfigSet)** ||
 || pool | **[ConnectionPoolerConfigSet](#yandex.cloud.mdb.greenplum.v1.ConnectionPoolerConfigSet)** ||
 || backgroundActivities | **[BackgroundActivitiesConfig](#yandex.cloud.mdb.greenplum.v1.BackgroundActivitiesConfig)** ||
 || pxfConfig | **[PXFConfigSet](#yandex.cloud.mdb.greenplum.v1.PXFConfigSet)** ||
@@ -869,6 +977,117 @@ Acceptable values are 1048576 to 2147483647, inclusive. ||
 - `ERROR`
 - `FATAL`
 - `PANIC` ||
+|#
+
+## DBMSConfigSet {#yandex.cloud.mdb.greenplum.v1.DBMSConfigSet}
+
+#|
+||Field | Description ||
+|| effectiveConfig | **[DBMSConfig](#yandex.cloud.mdb.greenplum.v1.DBMSConfig)** ||
+|| userConfig | **[DBMSConfig](#yandex.cloud.mdb.greenplum.v1.DBMSConfig)** ||
+|| defaultConfig | **[DBMSConfig](#yandex.cloud.mdb.greenplum.v1.DBMSConfig)** ||
+|#
+
+## DBMSConfig {#yandex.cloud.mdb.greenplum.v1.DBMSConfig}
+
+#|
+||Field | Description ||
+|| maxConnections | **string** (int64)
+
+Acceptable values are 50 to 1000, inclusive. ||
+|| maxSlotWalKeepSize | **string** (int64)
+
+Acceptable values are 0 to 214748364800, inclusive. ||
+|| gpWorkfileLimitPerSegment | **string** (int64)
+
+The minimum value is 0. ||
+|| gpWorkfileLimitPerQuery | **string** (int64)
+
+Acceptable values are 0 to 1099511627776, inclusive. ||
+|| gpWorkfileLimitFilesPerQuery | **string** (int64)
+
+Acceptable values are 0 to 100000, inclusive. ||
+|| maxPreparedTransactions | **string** (int64)
+
+Acceptable values are 50 to 10000, inclusive. ||
+|| gpWorkfileCompression | **boolean** ||
+|| maxStatementMem | **string** (int64)
+
+Acceptable values are 134217728 to 1099511627776, inclusive. ||
+|| logStatement | **enum** (LogStatement)
+
+- `NONE`
+- `DDL`
+- `MOD`
+- `ALL` ||
+|| logConnections | **boolean** ||
+|| logDisconnections | **boolean** ||
+|| logHostname | **boolean** ||
+|| logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+- `TERSE`
+- `DEFAULT`
+- `VERBOSE` ||
+|| logMinDurationStatement | **string** (int64) ||
+|| logMinMessages | **enum** (LogLevelMessage)
+
+- `DEBUG5`
+- `DEBUG4`
+- `DEBUG3`
+- `DEBUG2`
+- `DEBUG1`
+- `INFO`
+- `NOTICE`
+- `WARNING`
+- `ERROR`
+- `FATAL`
+- `PANIC` ||
+|| logStatementStats | **boolean** ||
+|| masterSharedBuffers | **string** (int64)
+
+The minimum value is 1048576. ||
+|| segmentSharedBuffers | **string** (int64)
+
+The minimum value is 1048576. ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Acceptable values are 128 to 2048, inclusive. ||
+|| gpEnableGlobalDeadlockDetector | **boolean** ||
+|| gpGlobalDeadlockDetectorPeriod | **string** (int64)
+
+Acceptable values are 5 to 2147483647, inclusive. ||
+|| gpMaxSlices | **string** (int64)
+
+Acceptable values are 10 to 100, inclusive. ||
+|| gpCachedSegworkersThreshold | **string** (int64)
+
+Acceptable values are 1 to 10, inclusive. ||
+|| lockTimeout | **string** (int64)
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| idleInTransactionSessionTimeout | **string** (int64)
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| runawayDetectorActivationPercent | **string** (int64)
+
+Acceptable values are 0 to 100, inclusive. ||
+|| gpVmemProtectSegworkerCacheLimit | **string** (int64)
+
+Acceptable values are 0 to 4096, inclusive. ||
+|| gpEnableZstdMemoryAccounting | **boolean** ||
+|| gpMaxPlanSize | **string** (int64)
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| gpAutostatsMode | **enum** (GPAutostatsMode)
+
+- `GP_AUTOSTATS_MODE_NONE`
+- `GP_AUTOSTATS_MODE_ON_CHANGE`
+- `GP_AUTOSTATS_MODE_ON_NO_STATS` ||
+|| gpAutostatsOnChangeThreshold | **string** (int64)
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| gpResourceGroupMemoryLimit | **number** (double) ||
+|| gpAddColumnInheritsTableSetting | **boolean** ||
 |#
 
 ## ConnectionPoolerConfigSet {#yandex.cloud.mdb.greenplum.v1.ConnectionPoolerConfigSet}

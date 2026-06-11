@@ -100,6 +100,8 @@
         "allowIntrospectionFunctions": "boolean",
         "connectTimeout": "string",
         "connectTimeoutWithFailover": "string",
+        "connectTimeoutWithFailoverSecure": "string",
+        "connectionsWithFailoverMaxTries": "string",
         "receiveTimeout": "string",
         "sendTimeout": "string",
         "idleConnectionTimeout": "string",
@@ -152,6 +154,7 @@
         "memoryUsageOvercommitMaxWaitMicroseconds": "string",
         "maxNetworkBandwidth": "string",
         "maxNetworkBandwidthForUser": "string",
+        "maxNetworkBytes": "string",
         "maxTemporaryDataOnDiskSizeForQuery": "string",
         "maxTemporaryDataOnDiskSizeForUser": "string",
         "maxConcurrentQueriesForUser": "string",
@@ -283,7 +286,8 @@
       ],
       "connectionManager": {
         "connectionId": "string"
-      }
+      },
+      "authMethod": "string"
     },
     "clusterName": "string"
   },
@@ -472,6 +476,10 @@ A list of messages that carry the error details. ||
 || settings | **[UserSettings](#yandex.cloud.mdb.clickhouse.v1.UserSettings)** ||
 || quotas[] | **[UserQuota](#yandex.cloud.mdb.clickhouse.v1.UserQuota)** ||
 || connectionManager | **[ConnectionManager](#yandex.cloud.mdb.clickhouse.v1.ConnectionManager)** ||
+|| authMethod | **enum** (AuthMethod)
+
+- `AUTH_METHOD_PASSWORD`
+- `AUTH_METHOD_IAM` ||
 |#
 
 ## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission}
@@ -490,6 +498,8 @@ A list of messages that carry the error details. ||
 || allowIntrospectionFunctions | **boolean** ||
 || connectTimeout | **string** (int64) ||
 || connectTimeoutWithFailover | **string** (int64) ||
+|| connectTimeoutWithFailoverSecure | **string** (int64) ||
+|| connectionsWithFailoverMaxTries | **string** (int64) ||
 || receiveTimeout | **string** (int64) ||
 || sendTimeout | **string** (int64) ||
 || idleConnectionTimeout | **string** (int64) ||
@@ -570,6 +580,7 @@ A list of messages that carry the error details. ||
 || memoryUsageOvercommitMaxWaitMicroseconds | **string** (int64) ||
 || maxNetworkBandwidth | **string** (int64) ||
 || maxNetworkBandwidthForUser | **string** (int64) ||
+|| maxNetworkBytes | **string** (int64) ||
 || maxTemporaryDataOnDiskSizeForQuery | **string** (int64) ||
 || maxTemporaryDataOnDiskSizeForUser | **string** (int64) ||
 || maxConcurrentQueriesForUser | **string** (int64) ||

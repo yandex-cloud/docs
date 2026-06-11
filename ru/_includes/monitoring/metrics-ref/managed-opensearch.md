@@ -384,6 +384,7 @@ subcluster_name | Имя субкластера
 | `opensearch_indices_indexing_delete_total`<br/>`DGAUGE`, штуки | Суммарное количество операций удаления документов. |
 | `opensearch_indices_indexing_doc_status_2xx`<br/>`DGAUGE`, штуки | Количество документов, проиндексированных с HTTP-статусом 2xx (успех). |
 | `opensearch_indices_indexing_doc_status_4xx`<br/>`DGAUGE`, штуки | Количество документов с HTTP-статусом 4xx (клиентская ошибка индексации). |
+| `opensearch_indices_indexing_doc_status_5xx`<br/>`DGAUGE`, штуки | Количество документов с HTTP-статусом 5xx (серверная ошибка индексации). |
 | `opensearch_indices_indexing_index_current`<br/>`DGAUGE`, штуки | Количество выполняющихся операций индексации. |
 | `opensearch_indices_indexing_index_failed`<br/>`DGAUGE`, штуки | Количество неуспешных операций индексации. |
 | `opensearch_indices_indexing_index_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время операций индексации. |

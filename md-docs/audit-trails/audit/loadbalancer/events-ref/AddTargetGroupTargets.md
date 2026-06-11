@@ -271,8 +271,6 @@ A list of messages that carry the error details. ||
 
 #|
 ||Field | Description ||
-|| subnetId | **string**
-
-The maximum string length in characters is 50. ||
+|| subnetId | **string** ||
 || address | **string** ||
 |#

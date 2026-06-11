@@ -9,6 +9,8 @@ description: Use investigations in {{ yandex-siem-full-name }} to analyze securi
 
 An _investigation_ is the core entity for security event analysis in {{ yandex-siem-full-name }}. An investigation comprises one or more queries enabling you to search and analyze events within the past 90 days.
 
+{% include [queries-max-results](../../_includes/ycdr/queries-max-results.md) %}
+
 ## {{ yandex-siem-full-name }} instance binding {#instance-binding}
 
 Each investigation is associated with a specific {{ yandex-siem-full-name }} [instance](index.md). Each instance maintains its own investigations, templates, and datasets. Access to investigations can be granted to:

@@ -8091,6 +8091,9 @@ default:
         field_metastore-endpoint-ip: IP address
         label_metastore: Metastore
         label_resource-preset: Metastore
+        label_section-warehouse: Hive Metastore data warehouse
+        label_warehouse-bucket: Bucket name
+        label_warehouse-path: Path in bucket
       mongodb:
         cluster:
           shards:

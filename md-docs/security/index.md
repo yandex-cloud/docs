@@ -22,6 +22,8 @@
 
  - [Чеклист безопасности аутентификации и авторизации](domains/iam-checklist.md)
 
+ - [Чеклист предотвращения атак программ-шифровальщиков](domains/ransomware-checklist.md)
+
  - [Безопасность Kubernetes](domains/kubernetes.md)
 
  - [Референсная архитектура для облачной инфраструктуры в изолированном режиме без доступа в интернет](domains/architecture-isolated.md)

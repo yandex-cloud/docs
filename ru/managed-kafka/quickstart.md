@@ -38,13 +38,11 @@ description: Следуя данной инструкции, вы сможете
 
    {% endnote %}
 
-1. Установите утилиту `kafkacat` — приложение с открытым исходным кодом, которое может работать как универсальный производитель или потребитель данных:
+1. Установите утилиту `kafkactl` — интерфейс командной строки для взаимодействия с {{ KF }}:
 
-   ```bash
-   sudo apt-get install kafkacat
-   ```
+   {% include [kafkactl-install](../_includes/mdb/mkf/kafkactl_install.md) %}
 
-   Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../managed-kafka/operations/connect/clients.md#bash-zsh).
+   Убедитесь, что с помощью `kafkactl` можете [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../managed-kafka/operations/connect/clients.md#kafkactl).
 
 
 ## Создайте кластер {#cluster-create}
@@ -103,21 +101,27 @@ description: Следуя данной инструкции, вы сможете
 
    {% include [install-certificate](../_includes/mdb/mkf/install-certificate.md) %}
 
-1. Чтобы отправить сообщение в топик, выполните команду:
+1. Создайте каталог `~/.config/kafkactl` и поместите в него конфигурационный файл `config.yml` с параметрами подключения к кластеру {{ KF }}:
 
-   {% include [default-get-string](../_includes/mdb/mkf/default-send-string.md) %}
+   {% include [kafkactl-folder](../_includes/mdb/mkf/kafkactl_folder.md) %}
 
-   В команде укажите FQDN брокера, имя топика, логин и пароль пользователя {{ KF }}, созданного ранее.
+   {% include [kafkactl-config-ssl](../_includes/mdb/mkf/kafkactl-config-ssl.md) %}
+
+   В конфигурационном файле укажите FQDN брокера, а также логин и пароль пользователя {{ KF }}, созданного ранее.
 
    {% include [fqdn](../_includes/mdb/mkf/fqdn-host.md) %}
+
+1. Чтобы отправить сообщение в топик, выполните команду:
+
+   ```bash
+   echo "test message" | kafkactl produce <имя_топика>
+   ```
 
 1. Чтобы получить сообщения из топика, выполните команду:
 
-   {% include [default-get-string](../_includes/mdb/mkf/default-get-string.md) %}
-
-   В команде укажите FQDN брокера, имя топика, логин и пароль пользователя {{ KF }}, созданного ранее.
-
-   {% include [fqdn](../_includes/mdb/mkf/fqdn-host.md) %}
+   ```bash
+   kafkactl consume <имя_топика>
+   ```
 
 Подробно процесс подключения к кластеру {{ mkf-name }} рассмотрен в разделе [Подключение к топикам в кластере](operations/connect/clients.md).
 

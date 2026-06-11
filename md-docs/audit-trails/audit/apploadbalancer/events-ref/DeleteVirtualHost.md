@@ -352,7 +352,8 @@
         "rename": "string"
         // end of the list of possible fields
       }
-    ]
+    ],
+    "labels": "object"
   },
   "requestParameters": "object",
   "response": "object"
@@ -530,6 +531,7 @@ A list of messages that carry the error details. ||
 || routeOptions | **[RouteOptions](#yandex.cloud.apploadbalancer.v1.RouteOptions)** ||
 || modifyRequestHeaders[] | **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification)** ||
 || modifyResponseHeaders[] | **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification)** ||
+|| labels | **object** (map<**string**, **string**>) ||
 |#
 
 ## Route {#yandex.cloud.apploadbalancer.v1.Route}
