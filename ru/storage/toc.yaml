@@ -151,6 +151,10 @@ items:
               Резервное копирование кластера {{ managed-k8s-name }} в {{
               objstorage-name }}
             href: tutorials/kubernetes-backup.md
+          - name: >-
+              Защита резервных копий от удаления и перезаписи с помощью
+              блокировок версий объектов
+            href: tutorials/storage-backup-object-lock.md
       - name: Получение статистики запросов к объекту с использованием S3 Select
         href: tutorials/server-logs.md
       - name: Получение статистики посещения сайта с использованием S3 Select
