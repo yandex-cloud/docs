@@ -68,7 +68,7 @@ editable: false
 
 12 мая приобрели 5 рабочих мест, а 20 мая — еще 3 рабочих места.
 
-Общая стоимость за май составит (10 + 5 + 3) × {{ sku|RUB|datalens.users.v1|string }} = {% calc [currency=RUB] (10 + 5 + 3) × {{ sku|RUB|datalens.users.v1|number }} %}
+Общая стоимость за май составит (10 + 5 + 3) × {{ sku|RUB|datalens.users.v1|string }} = {% calc [currency=RUB] 18 × {{ sku|RUB|datalens.users.v1|number }} %}
 
 {% endcut %}
 
@@ -120,7 +120,7 @@ editable: false
 
 24 декабря приобрели 10 рабочих мест, 28 декабря — 5 рабочих мест, а 29 декабря — еще 3 рабочих места.
 
-Общая стоимость за декабрь составит (10 + 5 + 3) × ({{ sku|RUB|datalens.users.v1|string }} / 2) × (8 / 31) = {% calc [currency=RUB] (10 + 5 + 3) × ({{ sku|RUB|datalens.users.v1|number }} / 2) × (8 / 31) %}
+Общая стоимость за декабрь составит (10 + 5 + 3) × ({{ sku|RUB|datalens.users.v1|string }} / 2) × (8 / 31) = {% calc [currency=RUB] 18 × {{ sku|RUB|datalens.users.v1|number }} / 2 × 8 / 31 %}
 
 {% endcut %}
 
