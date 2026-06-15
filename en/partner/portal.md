@@ -1,3 +1,8 @@
+---
+title: Partner portal
+description: The partner portal is the main partner tool used to manage customers, track their consumption, register deals, and view the partner bonus.
+---
+
 # Partner portal
 
 {% include [referral-program-closure](../_includes/partner/referral-program-closure.md) %}
@@ -26,7 +31,7 @@ This section lists all your customers with their current subaccount statuses. To
 Subaccount statuses:
 
 * `Active`: Subaccount is verified and ready to use. You will receive invoices for the paid resources consumed by the customer.
-* `Acceptance required`: Subaccount is created and pending customer verification by email.
+* `Verification required`: Subaccount is created and pending customer verification by email.
 * `Suspended`: Partner suspended services and customer collaboration.
 * `Inactive`: Subaccount is deleted. To delete a billing account, contact [support]({{ link-console-support }}).
 

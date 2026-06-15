@@ -5,6 +5,8 @@ description: In this tutorial, you will learn how to get a list of broker certif
 
 # Managing broker certificates
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 {% include [note-pp](../../../_includes/iot-core/note-pp.md) %}
 
 To start exchanging messages between broker clients, you must [log in](../../concepts/authorization.md). This section describes how to manage broker certificates for the relevant authorization method.
@@ -35,14 +37,14 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
       - To add a file:
 
-         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
+         1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
          1. Click **Attach file**.
          1. Select the certificate file on your computer and click **Open**.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
       - To add text:
 
-         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
+         1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
          1. Insert the certificate body in the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
@@ -83,7 +85,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
   To add a certificate to a broker created using {{ TF }}:
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
      * `yandex_iot_core_broker`: Broker parameters:
        * `name`: Broker name.
@@ -113,7 +115,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       terraform validate
       ```
 
-      If the configuration is correct, you will get this message:
+      If the configuration is valid, you will get this message:
      
       ```bash
       Success! The configuration is valid.
@@ -125,8 +127,8 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       terraform plan
       ```
 
-      You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-  1. Apply the changes:
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply
@@ -220,7 +222,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       terraform validate
       ```
 
-      If the configuration is correct, you will get this message:
+      If the configuration is valid, you will get this message:
      
       ```bash
       Success! The configuration is valid.
@@ -232,8 +234,8 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       terraform plan
       ```
 
-      You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-  1. Apply the changes:
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply

@@ -35,12 +35,6 @@ To access your organization from {{ ml-platform-name }}, you need an [IAM token]
   yc iam create-token
   ```
 
-- API {#api}
-
-  {% include [owner-warning](../../_includes/iam/owner-warning.md) %}
-
-  {% include [create-iam-token-api-steps](../../_includes/iam/create-iam-token-api-steps.md) %}
-
 {% endlist %}
 
 ## Create projects {#create-projects}

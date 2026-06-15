@@ -128,6 +128,6 @@ Required field. ID of the ClickHouse cluster that the database belongs to. ||
 
 Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
 
-- `DATABASE_ENGINE_ATOMIC`
-- `DATABASE_ENGINE_REPLICATED` ||
+- `DATABASE_ENGINE_ATOMIC`: Atomic database engine.
+- `DATABASE_ENGINE_REPLICATED`: Replicated database engine. ||
 |#

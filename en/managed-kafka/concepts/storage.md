@@ -36,12 +36,6 @@ Learn more about limits on the number of broker hosts per cluster [here](./limit
 
 When creating a cluster, you can encrypt the storage disk with a [custom KMS key](../../kms/concepts/key.md).
 
-{% note warning %}
-
-Encryption is not available for local disks (`local-hdd` and `local-ssd`).
-
-{% endnote %}
-
 {% include [encryption-role](../../_includes/compute/encryption-role.md) %}
 
 If you deactivate the key used to encrypt a disk, access to the data will be suspended until you reactivate the key.

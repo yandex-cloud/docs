@@ -1,177 +1,194 @@
 ---
-title: Getting started with a serial console
-description: Follow this guide to learn how to work with a serial console.
+title: Managing serial console access in {{ compute-full-name }}
+description: Follow this guide to learn how to enable and disable access to the serial console of {{ compute-full-name }} VM instances.
 ---
 
-# Getting started with a serial console
+# Managing serial console access
 
+The [serial console](../../concepts/serial-console.md) allows you to access a [VM instance](../../concepts/vm.md) no matter what the [network](../../../vpc/concepts/network.md#network) or OS state currently is.
 
-A serial console enables accessing a [VM](../../concepts/vm.md) regardless of the [network](../../../vpc/concepts/network.md#network) or OS state. For example, you can use the console to troubleshoot your VM or when you have SSH access issues.
+{% include [serial-console-roles](../../../_includes/compute/serial-console-roles.md) %}
 
-To use the serial console, you need the `compute.admin` or `{{ roles-editor }}` [role](../../security/index.md).
-
-By default, serial console access is disabled.
+By default, access to the {{ compute-name }} VM serial console is disabled.
 
 {% include [sc-warning](../../../_includes/compute/serial-console-warning.md) %}
 
-## Getting started {#before-you-begin}
+## Enabling access to the serial console {#enable}
 
-Before you enable serial console access on a VM:
-1. Prepare a key pair (public and private keys) for SSH access to your VM. The serial console authenticates users with SSH keys.
-1. Create a text file, e.g., `sshkeys.txt`, and specify the following:
+You can enable access to the serial console either when creating a new VM instance or by updating the existing one.
 
-   ```txt
-   <username>:<public_SSH_key_for_user>
-   ```
+### Creating a new VM with serial console access enabled {#turn-on-for-new-instance}
 
-   Example of a text file for `yc-user`:
+To enable access to the serial console when creating a new VM instance based on a public [image](../images-with-pre-installed-software/get-list.md) from [{{ marketplace-full-name }}](../../../marketplace/index.yaml):
 
-   ```txt
-   yc-user:ssh-ed25519 AAAAB3Nza......OjbSMRX yc-user@example.com
-   ```
+{% list tabs group=instructions %}
 
-   By default, user SSH keys are stored in the user's `~/.ssh` folder. You can get a public key by running the `cat ~/.ssh/<public_key_name>.pub` command.
+- Management console {#console}
 
-## Enabling the console when creating a VM from a public image {#turn-on-for-new-instance}
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. In the left-hand panel, select ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select one of the {{ marketplace-full-name }} [images](../../concepts/image.md).
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) where your VM will reside.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select one of the preset configurations or create a custom one.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-To enable serial console access when creating a VM, set the `serial-port-enable` parameter in the [metadata](../../concepts/vm-metadata.md) to `1`.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM’s availability zone. Alternatively, select a [cloud network](../../../vpc/concepts/network.md#network) from the list.
 
-{% include [cli-install](../../../_includes/cli-install.md) %}
+          * Each network must have at least one [subnet](../../../vpc/concepts/network.md#subnet). If your network has no subnets, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+          * If there is no network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select the `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` address assignment method to assign a random IP address from the {{ yandex-cloud }} address pool.
+      * Select the [relevant security groups](../../../vpc/concepts/security-groups.md). If you leave this field empty, the default security group will be assigned to the VM.
+  1. {% include [section-access](../../../_includes/compute/create/section-access.md) %}
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a name for your VM:
 
-{% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+      {% include [name-format](../../../_includes/name-format.md) %}
 
-{% list tabs group=operating_system %}
+      {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-- Linux {#linux}
+  1. Expand the **{{ ui-key.yacloud.compute.instances.create.section_additional }}** section, and enable **{{ ui-key.yacloud.compute.instances.create.value_serial-port-enable }}** in the **{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}** field.
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-  1. See the description of the CLI command for creating a VM:
+  The VM will appear in the list. The new VM will get an [IP address](../../../vpc/concepts/address.md) and a [host name](../../../vpc/concepts/address.md#fqdn) (FQDN).
 
-     ```bash
-     yc compute instance create --help
-     ```
+- CLI {#cli}
 
-  1. Select a public Linux-based [image](../../concepts/image.md), e.g., Ubuntu.
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-     {% include [standard-images](../../../_includes/standard-images.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Create a VM in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
+  1. [Create](../vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the VM.
+  1. Create a VM in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). The example below creates a VM based on a public [image](../images-with-pre-installed-software/get-list.md) from [{{ marketplace-full-name }}](../../../marketplace/index.yaml) running [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-2404-lts-oslogin):
 
-     ```bash
-     yc compute instance create \
-       --name first-instance \
-       --zone {{ region-id }}-a \
-       --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
-       --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts \
-       --metadata-from-file ssh-keys=sshkeys.txt \
-       --metadata serial-port-enable=1
-     ```
+      ```bash
+      yc compute instance create \
+        --name sample-instance \
+        --zone {{ region-id }}-a \
+        --network-interface subnet-id=<subnet_ID>,nat-ip-version=ipv4 \
+        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2404-lts-oslogin,auto-delete=true \
+        --metadata enable-oslogin=false,serial-port-enable=1,ssh-keys='<username>:<public_SSH_key>'
+      ```
 
-     This command will create a VM with the following parameters:
-     * OS: [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os)
-     * Name: `first-instance`
-     * [Availability zone](../../../overview/concepts/geo-scope.md): `{{ region-id }}-a`
-     * Serial console: Active
+      Where:
 
-     A user named `yc-user` with the specified public key will be automatically created in the VM OS.
+      * `--name`: VM name. The naming requirements are as follows:
+
+          {% include [name-format](../../../_includes/name-format.md) %}
+
+          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+
+      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) to create the VM in.
+      * `--network-interface`: Network settings of the new VM:
+
+          * `subnet-id`: [ID of the subnet](../../../vpc/operations/subnet-get-info.md) in the availability zone the VM is created in.
+      * `--metadata`: VM [metadata](../../concepts/vm-metadata.md):
+
+          * `enable-oslogin`: Parameter responsible for access to the VM instance via [{{ oslogin }}](../../../organization/concepts/os-login.md). The possible values are:
+
+              * `true`: To enable access to the VM via {{ oslogin }}. This will block access to the VM with the SSH key set via the metadata.
+              * `false`: To disable access to the VM via {{ oslogin }}. Access the VM will only be possible with the SSH key set via the metadata.
+          * `serial-port-enable=1`: Parameter enabling access to the VM via the serial console.
+          * `ssh-keys`: Name of the local VM user and the contents of the [public SSH key](../vm-connect/ssh.md#creating-ssh-keys) that will allow this user to connect to the VM over SSH.
+
+      For more information about the `yc compute instance create` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/create.md).
+
+{% endlist %}
+
+### Enabling access to the serial console for an existing VM {#turn-on-for-current-instance}
+
+To enable access to the serial console for an existing VM: 
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the VM instance resides in.
+
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+
+  1. In the left-hand panel, select ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+
+  1. Find the VM row in the VM list, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg), and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
+
+     1. Expand the **{{ ui-key.yacloud.compute.instances.create.section_additional }}** section, and enable **{{ ui-key.yacloud.compute.instances.create.value_serial-port-enable }}** in the **{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}** field.
+     1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Update the VM by specifying its [name or ID](../vm-info/get-info.md#outside-instance) in the command below:
+
+      ```bash
+      yc compute instance update <VM_name_or_ID> \
+        --metadata enable-oslogin=<true|false>,serial-port-enable=1,ssh-keys='<username>:<public_SSH_key>'
+      ```
+
+      Where `--metadata` is the VM [metadata](../../concepts/vm-metadata.md):
+
+      * `enable-oslogin`: Parameter responsible for access to the VM instance via [{{ oslogin }}](../../../organization/concepts/os-login.md). The possible values are:
+
+          * `true`: To enable access to the VM via {{ oslogin }}. This will block access to the VM with the SSH key set via the metadata.
+          * `false`: To disable access to the VM via {{ oslogin }}. Access the VM will only be possible with the SSH key set via the metadata.
+      * `serial-port-enable=1`: Parameter enabling access to the VM via the serial console.
+      * `ssh-keys`: Name of the local VM user and the contents of the [public SSH key](../vm-connect/ssh.md#creating-ssh-keys) that will allow this user to connect to the VM over SSH.
+
+     For more information about the `yc compute instance update` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/update.md).
 
 {% endlist %}
 
-## Enabling the console when updating a VM {#turn-on-for-current-instance}
+## Disabling access to the serial console {#disable}
 
-To enable serial console access when updating a VM, set the `serial-port-enable` parameter in the metadata to `1`.
-1. Get a list of VMs in the default folder:
+Access to the serial console for all newly created {{ compute-name }} VMs is disabled by default.
 
-   {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
+To disable serial console access for an existing VM: 
 
-1. Select `ID` or `NAME` of the VM, e.g., `first-instance`.
+{% list tabs group=instructions %}
 
-1. Set `serial-port-enable=1` in the VM metadata:
+- Management console {#console}
 
-   ```bash
-   yc compute instance add-metadata \
-     --name first-instance \
-     --metadata-from-file ssh-keys=sshkeys.txt \
-     --metadata serial-port-enable=1
-   ```
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the VM instance resides in.
 
-   The command will start activating the serial console on the VM named `first-instance`.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
 
-## Configuring a VM to enable serial port access {#configuration}
+  1. In the left-hand panel, select ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 
-To configure serial console access, a VM must have a [public IP address](../../../vpc/concepts/address.md#public-addresses). You can look up the address in the [management console]({{ link-console-main }}) in the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** section, the **{{ ui-key.yacloud.compute.instances_jsoza }}** page. If you created a VM without a public IP address, you can [assign one](../vm-control/vm-attach-public-ip.md). Once the configuration is complete, you can unassign the address as you will not need it for connecting via the serial console.
+  1. Find the VM row in the VM list, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg), and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
 
-For the serial console to be accessible from the OS side, configure the OS accordingly.
+     1. Expand the **{{ ui-key.yacloud.compute.instances.create.section_additional }}** section, and enable **{{ ui-key.yacloud.compute.instances.create.value_serial-port-enable }}** in the **{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}** field.
+     1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
-### Linux {#linux-configuration}
+- CLI {#cli}
 
-To connect to a Linux serial console, make sure [SSH password authentication is disabled](#ssh-pass-off) and [set a password](#create-pass) for the OS user, if required.
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-#### Disable SSH password authentication {#ssh-pass-off}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-{% include [vm-connect-ssh-linux-note](../../../_includes/vm-connect-ssh-linux-note.md) %}
+  1. Update the VM by specifying its [name or ID](../vm-info/get-info.md#outside-instance) in the command below:
 
-If you are using a custom image, make sure SSH access with a username and password is disabled.
+      ```bash
+      yc compute instance update <VM_name_or_ID> \
+        --metadata enable-oslogin=<true|false>,serial-port-enable=0,ssh-keys='<username>:<public_SSH_key>'
+      ```
 
-To disable SSH password authentication:
-1. Open the SSH server configuration file (`/etc/ssh/sshd_config` by default). Only a superuser has read and write permissions for the file.
-1. Set `PasswordAuthentication` to `no`.
-1. Restart the SSH server:
+      Where `--metadata` is the VM [metadata](../../concepts/vm-metadata.md):
 
-   ```bash
-   sudo systemctl restart ssh*
-   ```
+      * `enable-oslogin`: Parameter responsible for access to the VM instance via [{{ oslogin }}](../../../organization/concepts/os-login.md). The possible values are:
 
-#### Creating a password for a Linux user {#create-pass}
+          * `true`: To enable access to the VM via {{ oslogin }}. This will block access to the VM with the SSH key set via the metadata.
+          * `false`: To disable access to the VM via {{ oslogin }}. Access the VM will only be possible with the SSH key set via the metadata.
+      * `serial-port-enable=1`: Parameter disabling access to the VM via the serial console.
+      * `ssh-keys`: Name of the local VM user and the contents of the [public SSH key](../vm-connect/ssh.md#creating-ssh-keys) that will allow this user to connect to the VM over SSH.
 
-Some operating systems may prompt you for your user credentials to access the VM. So, before connecting to VMs running on such systems, create a local password for the default user.
-
-To create a local password, use the CLI.
-1. Get a list of VMs in the default folder:
-
-   {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
-
-1. Select `ID` or `NAME` of the VM, e.g., `first-instance`.
-1. Get the public IP address of your VM:
-
-   ```bash
-   yc compute instance get first-instance
-   ```
-
-   In the command output, find the VM address in the `one_to_one_nat` section:
-
-   ```bash
-   ...
-   one_to_one_nat:
-     address: <public_IP_address>
-     ip_version: IPV4
-   ...
-   ```
-
-1. Connect to the VM. For more information, see [{#T}](../vm-connect/ssh.md#vm-connect).
-1. Create a local password. In Linux, you can set a password using the `passwd` command:
-
-   ```bash
-   sudo passwd <username>
-   ```
-
-   Example for `yc-user`:
-
-   ```bash
-   sudo passwd yc-user
-   ```
-
-1. Terminate the SSH session by running `exit`.
-
-#### Enable the authorization method you need {#ssh-authorization}
-
-{% list tabs %}
-
-- SSH key
-
-  {% include [enable-metadata-serial-console-auth](../../../_includes/compute/enable-metadata-serial-console-auth.md) %}
-
-- {{ oslogin }}
-
-  {% include [enable-os-login-serial-console-auth](../../../_includes/compute/enable-os-login-serial-console-auth.md) %}
+      For more information about the `yc compute instance update` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/update.md).
 
 {% endlist %}
+
+#### See also {#see-also}
+
+* [{#T}](../../concepts/serial-console.md)
+* [{#T}](./connect-ssh.md)
+* [{#T}](./windows-sac.md)

@@ -20,6 +20,7 @@ description: In this article, you will learn how to work with {{ baremetal-full-
 * [{#T}](./servers/reinstall-os-from-marketplace.md)
 * [{#T}](./servers/reinstall-os-from-own-image.md)
 * [{#T}](./servers/set-up-tagged-vlan.md)
+* [{#T}](./servers/switch-network-type.md)
 * [{#T}](./servers/set-up-mc-lag.md)
 * [{#T}](./servers/reset-password.md)
 * [{#T}](./servers/switch-raid-member.md)
@@ -32,4 +33,5 @@ description: In this article, you will learn how to work with {{ baremetal-full-
 * [{#T}](./network-create.md)
 * [{#T}](./subnet-create.md)
 * [{#T}](./reserve-public-subnet.md)
+* [{#T}](./delete-public-subnet.md)
 * [{#T}](./create-vpc-connection.md)

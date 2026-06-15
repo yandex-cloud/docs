@@ -1,10 +1,16 @@
-Enable {{ oslogin }} authorization for the VM when connecting to the serial console by specifying the VM name:
+Enable {{ oslogin }} authorization when connecting to the serial console:
 
 ```bash
-yc compute instance update \
-  --name <VM_name> \
-  --serial-port-settings ssh-authorization=OS_LOGIN
+yc compute instance update <VM_name_or_ID> \
+  --serial-port-settings ssh-authorization=OS_LOGIN \
+  --metadata enable-oslogin=true,serial-port-enable=1,ssh-keys='<username>:<public_SSH_key>'
 ```
+
+Where:
+* `<VM_name_or_ID>`: To learn how to find out the VM name or ID, see [{#T}](../../compute/operations/vm-info/get-info.md).
+* `--metadata`: VM [metadata](../../compute/concepts/vm-metadata.md):
+
+    * `ssh-keys`: Name of the local VM user and the contents of the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) that will allow this user to connect to the VM over SSH if access via {{ oslogin }} is disabled for this VM later.
 
 Result:
 
@@ -55,6 +61,8 @@ hardware_generation:
   legacy_features:
     pci_topology: PCI_TOPOLOGY_V1
 ```
+
+For more information about the `yc compute instance update` command, see the [CLI reference](../../cli/cli-ref/compute/cli-ref/instance/update.md).
 
 {% note info %}
 

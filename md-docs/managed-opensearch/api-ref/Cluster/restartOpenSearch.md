@@ -1,5 +1,7 @@
 # Managed Service for OpenSearch API, REST: Cluster.RestartOpenSearch
 
+(-- api-linter: yc::1705::custom-method-colon=disabled
+Required for backward compatibility with old clients. --)
 Restarts OpenSearch on specified host.
 
 ## HTTP request

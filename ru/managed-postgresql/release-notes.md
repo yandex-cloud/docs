@@ -77,7 +77,7 @@ index: 1
 
 ## Ноябрь 2025 {#nov-2025}
 
-* Добавлена роль `managed-postgresql.restorer`, позволяющая восстанавливать кластеры из резервных копий. Подробнее см. в разделе [Управление доступом](security/index.md#managed-postgresql-restorer).
+* Добавлена роль `managed-postgresql.restorer`, позволяющая восстанавливать кластеры из резервных копий. Подробнее в разделе [Управление доступом](security/index.md#managed-postgresql-restorer).
 * [Прекращена](https://www.postgresql.org/about/news/postgresql-181-177-1611-1515-1420-and-1323-released-3171/) поддержка {{ PG }} версии 13.
 
 ## Октябрь 2025 {#oct-2025}
@@ -122,7 +122,7 @@ index: 1
 
 ## Сентябрь 2024 {#sep-2024}
 
-* Добавлена поддержка {{ PG }} [версии 17]({{ pg.docs.org }}/release/17.0/). О том, как обновить кластер, см. в разделе [{#T}](operations/cluster-version-update.md).
+* Добавлена поддержка {{ PG }} [версии 17]({{ pg.docs.org }}/release/17.0/). О том, как обновить кластер, читайте в разделе [{#T}](operations/cluster-version-update.md).
 * Добавлена поддержка расширения [postgresql_anonymizer](https://gitlab.com/dalibo/postgresql_anonymizer) (`anon`) для анонимизации данных.
 
 ## Май 2024 {#may-2024}
@@ -154,9 +154,9 @@ index: 1
 * Добавлена настройка логической репликации с реплики.
 * Новые кластеры версии 16 используют локали ICU вместо libc.
 
-О том, как обновить кластер, см. в разделе [{#T}](operations/cluster-version-update.md).
+О том, как обновить кластер, читайте в разделе [{#T}](operations/cluster-version-update.md).
 
-Подробнее об изменениях {{ PG }} версии 16 см. в [документации {{ PG }}]({{ pg.docs.org }}/release/16.0/).
+Подробнее об изменениях {{ PG }} версии 16 в [документации {{ PG }}]({{ pg.docs.org }}/release/16.0/).
 
 ## III квартал 2023 {#q3-2023}
 
@@ -178,9 +178,9 @@ index: 1
     * Добавлена возможность указать [ICU]({{ pg.docs.org }}/15/locale.html#id-1.6.11.3.7) для базы данных по умолчанию.
     * Увеличена производительность, особенно для сортировок в памяти и на диске.
 
-    О том, как обновить кластер, см. в разделе [{#T}](operations/cluster-version-update.md).
+    О том, как обновить кластер, читайте в разделе [{#T}](operations/cluster-version-update.md).
 
-    Подробнее об изменениях {{ PG }} версии 15 см. в [документации {{ PG }}]({{ pg.docs.org }}/release/15.0/).
+    Подробнее об изменениях {{ PG }} версии 15 в [документации {{ PG }}]({{ pg.docs.org }}/release/15.0/).
 
 * Добавлена поддержка расширений [pgaudit](https://www.pgaudit.org/) и [pg_prewarm]({{ pg-docs }}/pgprewarm.html).
 * Добавлена возможность восстановить кластер из резервной копии в другом каталоге с помощью любого интерфейса.
@@ -188,7 +188,7 @@ index: 1
 ## III квартал 2022 {#q3-2022}
 
 * На вкладке [мониторинга кластера](operations/monitoring.md#monitoring-cluster) добавлены графики `Inode usage`, `Memory usage` и `Free space`.
-* [Прекращена](https://www.postgresql.org/about/news/postgresql-143-137-1211-1116-and-1021-released-2449/) поддержка {{ PG }} версии 10. С 15 августа недоступно создание новых кластеров этой версии, а с 1 сентября запланировано автоматическое обновление кластеров в рамках окна обслуживания. О том, как обновить кластер самостоятельно, см. в разделе [{#T}](operations/cluster-version-update.md).
+* [Прекращена](https://www.postgresql.org/about/news/postgresql-143-137-1211-1116-and-1021-released-2449/) поддержка {{ PG }} версии 10. С 15 августа недоступно создание новых кластеров этой версии, а с 1 сентября запланировано автоматическое обновление кластеров в рамках окна обслуживания. О том, как обновить кластер самостоятельно, читайте в разделе [{#T}](operations/cluster-version-update.md).
 * Создание базы из шаблона теперь доступно в CLI и {{ TF }}.
 * Добавлена поддержка [расширения](operations/extensions/pg_cron.md) `pg_cron`.
 * Установлено [обновление версии 14.4]({{ pg.docs.org }}/release/14.4/), где исправлены проблемы с коррупцией индексов.
@@ -198,7 +198,7 @@ index: 1
 * Установлены [обновления](https://www.postgresql.org/about/news/postgresql-143-137-1211-1116-and-1021-released-2449/) из версий 14.3, 13.7, 12.11, 11.16 и 10.21.
 * Доступно создание кластера версии 13 и 14 для 1С.
 * Добавлена возможность обновления с версии 13 на 14.
-* Добавлена роль `mdb_monitor`, которая включает в себя привилегии системной роли [pg_monitor](https://www.postgresql.org/docs/10/default-roles.html). Подробнее см. в разделе [Назначение ролей](concepts/roles.md#mdb-monitor).
+* Добавлена роль `mdb_monitor`, которая включает в себя привилегии системной роли [pg_monitor](https://www.postgresql.org/docs/10/default-roles.html). Подробнее в разделе [Назначение ролей](concepts/roles.md#mdb-monitor).
 * В конфигурационных файлах {{ TF }} упразднены секции `database` и `user`, добавлены новые ресурсы `yandex_mdb_postgresql_database` и `yandex_mdb_postgresql_user`.
 * Доступна версия [Odyssey 1.3](https://www.postgresql.org/about/news/odyssey-13-released-2476/): поддержка подготовленных выражений (prepared statements) в режиме пулинга транзакций. С помощью настройки `pool_reserve_prepared_statement` можно активировать пул подготовленных выражений для базы данных, в котором Odyssey подготовит выражения для сессий в случае необходимости.
 * Добавлены настройки `max_logical_replication_workers` и `max_replication_slots`.

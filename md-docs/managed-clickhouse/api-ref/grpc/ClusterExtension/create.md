@@ -1,5 +1,7 @@
 # Managed Service for ClickHouse API, gRPC: ClusterExtensionService.Create
 
+Installs a new extension in the specified cluster.
+
 ## gRPC request
 
 **rpc Create ([CreateClusterExtensionRequest](#yandex.cloud.mdb.clickhouse.v1.CreateClusterExtensionRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
@@ -20,12 +22,12 @@
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field.
+Required field. ID of the ClickHouse cluster.
 
 The maximum string length in characters is 50. ||
 || extension_spec | **[ExtensionSpec](#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)**
 
-Required field. ||
+Required field. Specification of the extension to create. ||
 |#
 
 ## ExtensionSpec {#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec}
@@ -34,10 +36,12 @@ Required field. ||
 ||Field | Description ||
 || name | **string**
 
-Required field.
+Required field. Name of the extension.
 
 The maximum string length in characters is 63. ||
-|| version | **string** ||
+|| version | **string**
+
+Version of the extension. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

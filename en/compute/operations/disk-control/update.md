@@ -217,6 +217,16 @@ You can also increase the size of any VM disk without restarting the VM. The wor
      ssh <username>@<VM_public_IP_address>
      ```
 
+  1. Make sure the `growpart` package is installed:
+
+     ```bash
+     # Debian/Ubuntu
+     sudo apt-get install -y cloud-utils
+
+     # RHEL/CentOS/AlmaLinux
+     sudo yum install -y cloud-utils-growpart
+     ```
+
   1. See the disks attached to the VM:
 
      ```bash
@@ -236,11 +246,11 @@ You can also increase the size of any VM disk without restarting the VM. The wor
 
      Disk partitions are listed under `NAME`. If the `MOUNTPOINTS` column contains a value for the partition you need, it means the partition is mounted.
 
-  1. (Optional) Check and recover the file system.
+  1. Optionally, check and recover the file system.
 
      {% note info %}
 
-     Skip this step if you want to increase the root partition.
+     Skip this step if you want to increase the root partition. You cannot unmount the root partition (`/`) on a running VM; therefore, `e2fsck` is not accessible to it. Use `growpart` and `resize2fs` directly without checking first.
 
      {% endnote %}
 
@@ -332,6 +342,16 @@ You can also increase the size of any VM disk without restarting the VM. The wor
      ssh <username>@<VM_public_IP_address>
      ```
 
+  1. Make sure the `growpart` package is installed:
+
+     ```bash
+     # Debian/Ubuntu
+     sudo apt-get install -y cloud-utils
+
+     # RHEL/CentOS/AlmaLinux
+     sudo yum install -y cloud-utils-growpart
+     ```
+
   1. See the disks attached to the VM:
 
      ```bash
@@ -405,6 +425,55 @@ You can also increase the size of any VM disk without restarting the VM. The wor
      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
      vdb    252:16   0  64G  0 disk
      └─vdb1 252:17   0  64G  0 part /data
+     ```
+
+- LVM
+
+  If the disk uses LVM, extend the physical volume, logical volume, and file system.
+
+  1. [Connect](../../operations/vm-connect/ssh.md) to the VM over SSH:
+
+     ```bash
+     ssh <username>@<VM_public_IP_address>
+     ```
+
+  1. View the current LVM configuration:
+
+     ```bash
+     sudo pvs && sudo vgs && sudo lvs
+     ```
+
+  1. Extend the physical volume to the new disk size:
+
+     ```bash
+     sudo pvresize /dev/vdb
+     ```
+
+  1. Extend the logical volume to entire available space:
+
+     ```bash
+     sudo lvextend -l +100%FREE /dev/<group_name>/<volume_name>
+     ```
+
+  1. Extend the file system on the logical volume. The command depends on the file system type:
+
+     * For ext4:
+
+       ```bash
+       sudo resize2fs /dev/<group_name>/<volume_name>
+       ```
+
+     * For xfs:
+
+       ```bash
+       sudo xfs_growfs /dev/<group_name>/<volume_name>
+       ```
+
+  1. Make sure the logical volume and the file system have increased in size:
+
+     ```bash
+     sudo lvs
+     df -h
      ```
 
 {% endlist %}

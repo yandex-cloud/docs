@@ -32,7 +32,7 @@
 * Использование привилегий предопределенных ролей:
   * `pg_monitor`
   * `pg_signal_backend`
-    Подробнее о предопределенных ролях см. в [документации](https://www.postgresql.org/docs/current/predefined-roles.html) PostgreSQL.
+    Подробнее о предопределенных ролях в [документации](https://www.postgresql.org/docs/current/predefined-roles.html) PostgreSQL.
 * Использование подписки для логической репликации (`CREATE | DROP | ALTER SUBSCRIPTION`).
 * Использование расширений:
   * `dblink`

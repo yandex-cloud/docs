@@ -430,6 +430,12 @@
 
  - [List](api-ref/grpc/ResourcePreset/list.md)
 
+#### Versions
+
+ - [Overview](api-ref/grpc/Versions/index.md)
+
+ - [List](api-ref/grpc/Versions/list.md)
+
 ### REST (англ.)
 
  - [Overview](api-ref/index.md)
@@ -535,6 +541,12 @@
  - [Get](api-ref/ResourcePreset/get.md)
 
  - [List](api-ref/ResourcePreset/list.md)
+
+#### Versions
+
+ - [Overview](api-ref/Versions/index.md)
+
+ - [List](api-ref/Versions/list.md)
 
  - [Метрики Monitoring](metrics.md)
 

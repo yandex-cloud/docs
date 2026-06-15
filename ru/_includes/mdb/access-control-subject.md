@@ -12,4 +12,4 @@
     * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
     * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
 
-Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).

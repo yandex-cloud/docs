@@ -6,6 +6,6 @@
 
 С помощью SQL-запросов создать роль нельзя.
 
-В {{ PG }} роль — это пользователь или группа пользователей БД. [Создать пользователя](../../managed-postgresql/operations/cluster-users.md#adduser) в {{ mpg-name }} можно только с помощью консоли управления, {{ yandex-cloud }} CLI, {{ TF }} или API. Подробнее о создании пользователей см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/sql-createuser.html).
+В {{ PG }} роль — это пользователь или группа пользователей БД. [Создать пользователя](../../managed-postgresql/operations/cluster-users.md#adduser) в {{ mpg-name }} можно только с помощью консоли управления, {{ yandex-cloud }} CLI, {{ TF }} или API. Подробнее о создании пользователей читайте в [документации {{ PG }}](https://www.postgresql.org/docs/current/sql-createuser.html).
 
 Вы можете [назначить пользователю привилегии](../../managed-postgresql/operations/grant.md), которые определяют доступные для него действия с объектами БД.

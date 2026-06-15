@@ -5,6 +5,23 @@ description: This section contains the {{ serverless-containers-name }} release 
 
 # {{ serverless-containers-full-name }} release notes
 
+## April 2026 {#april-2026}
+
+### Fixes and improvements {#fixes-improvements}
+
+* The `batch_cutoff` parameter for triggers in {{ TF }} is now optional. `terraform plan` does not suggest null values for grouping settings anymore.
+
+## March 2026 {#march-2026}
+
+### Updates {#updates}
+
+* Added transferring the container metadata service parameters to {{ at-name }} audit logs.
+
+### Fixes and improvements {#fixes-improvements}
+
+* Fixed the {{ container-registry-name }} trigger set off by changes in Docker image tags: now the trigger’s message communicates the name of the tag you are adding or deleting.
+* Updated the {{ at-name }} audit logs of {{ objstorage-name }} and {{ yds-name }} triggers: fixed proto-validation errors in the `request_parameters.rule` and `details.trigger_rule` fields.
+
 ## February 2026 {#february-2026}
 
 ### Updates {#updates}
@@ -69,7 +86,7 @@ description: This section contains the {{ serverless-containers-name }} release 
 
 ### Updates {#updates}
 
-* Added support for editing all trigger parameters in {{ TF }}.
+* Added support for editing all trigger settings in {{ TF }}.
 * [{{ objstorage-full-name }}](concepts/mounting.md) bucket mounting to a container is now at the [General Availability](../overview/concepts/launch-stages.md) stage.
 
 ### Fixes and improvements {#fixes-improvements}

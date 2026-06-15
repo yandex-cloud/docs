@@ -23,7 +23,7 @@ DataSphere поддерживает работу с кластерами Yandex 
 
 Для корректной интеграции с DataSphere через коннектор Spark развернутый кластер Yandex Data Processing должен иметь [версию образа](../../data-proc/concepts/environment.md) не ниже `2.0` с включенными сервисами `LIVY`, `SPARK` и `YARN`.
 
-Подробнее о работе с коннекторами Spark см. в [инструкции](../operations/data/spark-connectors.md).
+Подробнее о работе с коннекторами Spark читайте в [инструкции](../operations/data/spark-connectors.md).
 
 ### Запуск Python-кода в кластере {#run-code-with-spark-connector}
 
@@ -86,7 +86,7 @@ DataSphere поддерживает работу с кластерами Yandex 
 * `%create_livy_session --cluster <имя_кластера> --id <идентификатор_сессии>` — создание сессии;
 * `%delete_livy_session --cluster <имя_кластера> --id <идентификатор_сессии>` — удаление сессии.
 
-Например, следующая команда создаст в кластере `my-new-cluster` сессию `ses1`, которая позволит каждому процессу использовать максимум 4 ядра CPU в кластере и 4 ГБ RAM (подробнее см. в [документации Spark](https://spark.apache.org/docs/latest/configuration.html)):
+Например, следующая команда создаст в кластере `my-new-cluster` сессию `ses1`, которая позволит каждому процессу использовать максимум 4 ядра CPU в кластере и 4 ГБ RAM (подробнее читайте в [документации Spark](https://spark.apache.org/docs/latest/configuration.html)):
 
 ```python
 %create_livy_session --cluster my-new-cluster --id ses1 --conf spark.cores.max=4 --conf spark.executor.memory=4g
@@ -119,7 +119,7 @@ DataSphere поддерживает работу с кластерами Yandex 
 | `--heartbeatTimeoutInSecond` | `int`    | Время бездействия до завершения сеанса     |
 | `--ttl`                      | `string` | Время ожидания неактивного сеанса          |
 
-Подробнее о параметрах livy-сессии см. в [официальной документации](https://livy.incubator.apache.org/docs/latest/rest-api.html).
+Подробнее о параметрах livy-сессии читайте в [официальной документации](https://livy.incubator.apache.org/docs/latest/rest-api.html).
 
 ### Ограничения сессий Yandex Data Processing {#restrictions}
 
@@ -203,7 +203,7 @@ df = spark.sql("SELECT * FROM animals;")
 df
 ```
 
-Подробнее о синтаксисе SQL-запросов и работе с библиотекой Spark SQL см. в [официальной документации](https://spark.apache.org/docs/latest/sql-ref-syntax-qry-select.html).
+Подробнее о синтаксисе SQL-запросов и работе с библиотекой Spark SQL читайте в [официальной документации](https://spark.apache.org/docs/latest/sql-ref-syntax-qry-select.html).
 
 ## См. также {#see-also}
 

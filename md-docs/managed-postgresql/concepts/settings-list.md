@@ -44,7 +44,7 @@
 
   Минимальное значение — `10000`, максимальное значение — `86400000`, по умолчанию — `30000`.
 
-  Подробнее см. в описании настройки `archive_timeout` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-ARCHIVE-TIMEOUT).
+  Подробнее в описании настройки `archive_timeout` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-ARCHIVE-TIMEOUT).
 
 - **Array nulls**{#setting-array-nulls} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -52,7 +52,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `array_nulls` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-ARRAY-NULLS).
+  Подробнее в описании настройки `array_nulls` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-ARRAY-NULLS).
 
 - **Auto explain log analyze**{#setting-auto-explain-log-analyze} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -60,7 +60,7 @@
 
   По умолчанию настройка выключена (статистика плана запроса не выводится в лог).
 
-  Подробнее см. в описании настройки `auto_explain.log_analyze` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
+  Подробнее в описании настройки `auto_explain.log_analyze` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
 
 - **Auto explain log buffers**{#setting-auto-explain-log-buffers} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -68,7 +68,7 @@
 
   По умолчанию настройка выключена (статистика использования буферного кеша не выводится в лог).
 
-  Подробнее см. в описании настройки `auto_explain.log_buffers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
+  Подробнее в описании настройки `auto_explain.log_buffers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
 
 - **Auto explain log format**{#setting-auto-explain-log-format} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -81,7 +81,7 @@
 
   Значение по умолчанию — `text`.
 
-  Подробнее см. в описании настройки `auto_explain.log_format` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html#AUTO-EXPLAIN-CONFIGURATION-PARAMETERS-LOG-FORMAT).
+  Подробнее в описании настройки `auto_explain.log_format` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html#AUTO-EXPLAIN-CONFIGURATION-PARAMETERS-LOG-FORMAT).
 
 - **Auto explain log min duration**{#setting-auto-explain-log-min-duration} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -89,7 +89,7 @@
 
   Минимальное значение — `-1` (логирование отключено), максимальное значение — `2147483647`, по умолчанию — `-1`. При значении `0` логируются планы всех запросов независимо от времени их выполнения.
 
-  Подробнее см. в описании настройки `auto_explain.log_min_duration` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
+  Подробнее в описании настройки `auto_explain.log_min_duration` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
 
 - **Auto explain log nested statements**{#setting-auto-explain-log-nested-statements} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -97,7 +97,7 @@
 
   По умолчанию настройка выключена (логируются только планы верхнеуровневых запросов).
 
-  Подробнее см. в описании настройки `auto_explain.log_nested_statements` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
+  Подробнее в описании настройки `auto_explain.log_nested_statements` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
 
 - **Auto explain log timing**{#setting-auto-explain-log-timing} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -105,7 +105,7 @@
 
   По умолчанию настройка выключена (время выполнения отдельных этапов не логируется).
 
-  Подробнее см. в описании настройки `auto_explain.log_timing` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
+  Подробнее в описании настройки `auto_explain.log_timing` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
 
 - **Auto explain log triggers**{#setting-auto-explain-log-triggers} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -113,7 +113,7 @@
 
   По умолчанию настройка выключена (статистика выполнения триггеров не выводится).
 
-  Подробнее см. в описании настройки `auto_explain.log_triggers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
+  Подробнее в описании настройки `auto_explain.log_triggers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
 
 - **Auto explain log verbose**{#setting-auto-explain-log-verbose} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -121,7 +121,7 @@
 
   По умолчанию настройка выключена (логи не детализируются).
 
-  Подробнее см. в описании настройки `auto_explain.log_verbose` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
+  Подробнее в описании настройки `auto_explain.log_verbose` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
 
 - **Auto explain sample rate**{#setting-auto-explain-sample-rate} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -129,7 +129,7 @@
 
   Минимальное значение — `0.0` (никакие запросы не логируются), максимальное значение — `1.0` (логируются все запросы), по умолчанию — `1.0`.
 
-  Подробнее см. в описании настройки `auto_explain.sample_rate` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
+  Подробнее в описании настройки `auto_explain.sample_rate` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
 
 - **Autovacuum analyze scale factor**{#setting-autovacuum-analyze-scale-factor} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -137,7 +137,7 @@
 
   Минимальное значение — `0.0`, максимальное значение — `1.0`, по умолчанию — `0.0001`.
 
-  Подробнее см. в описании настройки `autovacuum_analyze_scale_factor` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-ANALYZE-SCALE-FACTOR).
+  Подробнее в описании настройки `autovacuum_analyze_scale_factor` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-ANALYZE-SCALE-FACTOR).
 
 - **Autovacuum max workers**{#setting-autovacuum-max-workers} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>CLI</small></b></code>
 
@@ -145,7 +145,7 @@
 
   Минимальное значение — `1`, максимальное значение — `32`. Значение по умолчанию [зависит от выбранного класса хостов](#settings-instance-dependent) и равно количеству vCPU на одном хосте, но не может быть меньше `3`.
 
-  Подробнее см. в описании настройки `autovacuum_max_workers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-MAX-WORKERS).
+  Подробнее в описании настройки `autovacuum_max_workers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-MAX-WORKERS).
 
 - **Autovacuum naptime**{#setting-autovacuum-naptime} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -153,7 +153,7 @@
 
   Минимальное значение — `1000`, максимальное значение — `86400000`, по умолчанию — `15000`.
 
-  Подробнее см. в описании настройки `autovacuum_naptime` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-NAPTIME).
+  Подробнее в описании настройки `autovacuum_naptime` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-NAPTIME).
 
 - **Autovacuum vacuum cost delay**{#setting-autovacuum-vacuum-cost-delay} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -168,7 +168,7 @@
     55 - 5 × <количество_vCPU_на_одном_хосте>
     ```
 
-  Подробнее см. в описании настройки `autovacuum_vacuum_cost_delay` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-DELAY).
+  Подробнее в описании настройки `autovacuum_vacuum_cost_delay` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-DELAY).
 
 - **Autovacuum vacuum cost limit**{#setting-autovacuum-vacuum-cost-limit} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -187,7 +187,7 @@
   s2.small | 4 | `150 × 4 + 400 = 1000`
   m2.medium| 6 | `150 × 6 + 400 = 1300`
 
-  Подробнее см. в описании настройки `autovacuum_vacuum_cost_limit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-LIMIT).
+  Подробнее в описании настройки `autovacuum_vacuum_cost_limit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-LIMIT).
 
 - **Autovacuum vacuum insert scale factor**{#setting-autovacuum-vacuum-insert-scale-factor} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -197,7 +197,7 @@
 
   Функциональность поддерживается в PostgreSQL начиная с версии 13.
 
-  Подробнее см. в описании настройки `autovacuum_vacuum_insert_scale_factor` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-INSERT-SCALE-FACTOR).
+  Подробнее в описании настройки `autovacuum_vacuum_insert_scale_factor` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-INSERT-SCALE-FACTOR).
 
 - **Autovacuum vacuum insert threshold**{#setting-autovacuum-vacuum-insert-threshold} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -207,7 +207,7 @@
 
   Функциональность поддерживается в PostgreSQL начиная с версии 13.
 
-  Подробнее см. в описании настройки `autovacuum_vacuum_insert_threshold` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-INSERT-THRESHOLD).
+  Подробнее в описании настройки `autovacuum_vacuum_insert_threshold` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-INSERT-THRESHOLD).
 
 - **Autovacuum vacuum scale factor**{#setting-autovacuum-vacuum-scale-factor} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -215,7 +215,7 @@
 
   Минимальное значение — `0.0` (настройка не применяется), максимальное значение — `1.0`, по умолчанию — `0.00001`.
 
-  Подробнее см. в описании настройки `autovacuum_vacuum_scale_factor` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-SCALE-FACTOR).
+  Подробнее в описании настройки `autovacuum_vacuum_scale_factor` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-SCALE-FACTOR).
 
 - **Autovacuum work mem**{#setting-autovacuum-work-mem} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>CLI</small></b></code>
 
@@ -223,7 +223,7 @@
 
   Минимальное значение — `-1` (настройка не применяется), максимальное значение — `2147483647`, по умолчанию — `-1`.
 
-  Подробнее см. в описании настройки `autovacuum_work_mem` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-AUTOVACUUM-WORK-MEM).
+  Подробнее в описании настройки `autovacuum_work_mem` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-AUTOVACUUM-WORK-MEM).
 
 - **Backend flush after**{#setting-backend-flush-after} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -231,7 +231,7 @@
 
   Минимальное значение — `0` (настройка не применяется), максимальное значение — `2048`, по умолчанию — `0`.
 
-  Подробнее см. в описании настройки `backend_flush_after` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BACKEND-FLUSH-AFTER).
+  Подробнее в описании настройки `backend_flush_after` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BACKEND-FLUSH-AFTER).
 
 - **Backslash quote**{#setting-backslash-quote} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -246,7 +246,7 @@
 
   Значение по умолчанию — `safe_encoding`.
 
-  Подробнее см. в описании настройки `backslash_quote` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-BACKSLASH-QUOTE).
+  Подробнее в описании настройки `backslash_quote` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-BACKSLASH-QUOTE).
 
 - **Bgwriter delay**{#setting-bgwriter-delay} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -254,7 +254,7 @@
 
   Минимальное значение — `10`, максимальное значение — `10000`, по умолчанию — `200`.
 
-  Подробнее см. в описании настройки `bgwriter_delay` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-DELAY).
+  Подробнее в описании настройки `bgwriter_delay` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-DELAY).
 
 - **Bgwriter flush after**{#setting-bgwriter-flush-after} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -262,7 +262,7 @@
 
   Минимальное значение — `0`, максимальное значение — `2048`, по умолчанию — `512`.
 
-  Подробнее см. в описании настройки `bgwriter_flush_after` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-FLUSH-AFTER).
+  Подробнее в описании настройки `bgwriter_flush_after` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-FLUSH-AFTER).
 
 - **Bgwriter lru maxpages**{#setting-bgwriter-lru-maxpages} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -270,7 +270,7 @@
 
   Минимальное значение — `0`, максимальное значение — `1073741823`, по умолчанию — `100`.
 
-  Подробнее см. в описании настройки `bgwriter_lru_maxpages` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-LRU-MAXPAGES).
+  Подробнее в описании настройки `bgwriter_lru_maxpages` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-LRU-MAXPAGES).
 
 - **Bgwriter lru multiplier**{#setting-bgwriter-lru-multiplier} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -278,7 +278,7 @@
 
   Минимальное значение — `0`, максимальное значение — `10`, по умолчанию — `2`.
 
-  Подробнее см. в описании настройки `bgwriter_lru_multiplier` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-LRU-MULTIPLIER).
+  Подробнее в описании настройки `bgwriter_lru_multiplier` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-LRU-MULTIPLIER).
 
 - **Bytea output**{#setting-bytea-output} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -289,7 +289,7 @@
 
   Значение по умолчанию — `hex`.
 
-  Подробнее см. в [документации PostgreSQL](https://www.postgresql.org/docs/current/datatype-binary.html).
+  Подробнее в [документации PostgreSQL](https://www.postgresql.org/docs/current/datatype-binary.html).
 
 - **Checkpoint completion target**{#setting-checkpoint-completion-target} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -297,7 +297,7 @@
 
   Минимальное значение — `0.0`, максимальное значение — `1.0`, по умолчанию — `0.5`.
 
-  Подробнее см. в описании настройки `checkpoint_completion_target` в [документации PostgreSQL](https://www.postgresql.org/docs/current/wal-configuration.html).
+  Подробнее в описании настройки `checkpoint_completion_target` в [документации PostgreSQL](https://www.postgresql.org/docs/current/wal-configuration.html).
 
 - **Checkpoint flush after**{#setting-checkpoint-flush-after} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -305,7 +305,7 @@
 
   Минимальное значение — `0`, максимальное значение — `2048`, по умолчанию — `256`.
 
-  Подробнее см. в описании настройки `checkpoint_flush_after` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-CHECKPOINT-FLUSH-AFTER).
+  Подробнее в описании настройки `checkpoint_flush_after` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-CHECKPOINT-FLUSH-AFTER).
 
 - **Checkpoint timeout**{#setting-checkpoint-timeout} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -313,7 +313,7 @@
 
   Минимальное значение — `30000`, максимальное значение — `86400000`, по умолчанию — `300000`.
 
-  Подробнее см. в описании настройки `checkpoint_timeout` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-CHECKPOINT-TIMEOUT).
+  Подробнее в описании настройки `checkpoint_timeout` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-CHECKPOINT-TIMEOUT).
 
 - **Client connection check interval**{#setting-client-connection-check-interval} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
 
@@ -323,7 +323,7 @@
 
   Функциональность поддерживается в PostgreSQL начиная с версии 14.
 
-  Подробнее см. в описании настройки `client_connection_check_interval` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-CLIENT-CONNECTION-CHECK-INTERVAL).
+  Подробнее в описании настройки `client_connection_check_interval` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-CLIENT-CONNECTION-CHECK-INTERVAL).
 
 - **Client min messages**{#setting-client-min-messages} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -331,7 +331,7 @@
 
   Значение по умолчанию — `NOTICE`.
 
-  Подробнее см. в описании настройки `client_min_messages` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-CLIENT-MIN-MESSAGES).
+  Подробнее в описании настройки `client_min_messages` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-CLIENT-MIN-MESSAGES).
 
 - **Constraint exclusion**{#setting-constraint-exclusion} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -345,7 +345,7 @@
 
   Значение по умолчанию — `partition`.
 
-  Подробнее см. в описании настройки `constraint_exclusion` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-CONSTRAINT-EXCLUSION).
+  Подробнее в описании настройки `constraint_exclusion` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-CONSTRAINT-EXCLUSION).
 
 - **Cursor tuple fraction**{#setting-cursor-tuple-fraction} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -353,7 +353,7 @@
 
   Минимальное значение — `0.0`, максимальное значение — `1.0`, по умолчанию — `0.1`.
 
-  Подробнее см. в описании настройки `cursor_tuple_fraction` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-CURSOR-TUPLE-FRACTION).
+  Подробнее в описании настройки `cursor_tuple_fraction` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-CURSOR-TUPLE-FRACTION).
 
 - **Deadlock timeout**{#setting-deadlock-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>CLI</small></b></code>
 
@@ -361,7 +361,7 @@
 
   Минимальное значение — `1`, максимальное значение — `2147483647`, по умолчанию — `1000`.
 
-  Подробнее см. в описании настройки `deadlock_timeout` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-DEADLOCK-TIMEOUT).
+  Подробнее в описании настройки `deadlock_timeout` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-DEADLOCK-TIMEOUT).
 
 - **Debug parallel query**{#setting-debug-parallel-query} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -375,7 +375,7 @@
 
   Значение по умолчанию — `off`.
 
-  Подробнее см. в описании настройки `debug_parallel_query` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-developer.html#GUC-DEBUG-PARALLEL-QUERY).
+  Подробнее в описании настройки `debug_parallel_query` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-developer.html#GUC-DEBUG-PARALLEL-QUERY).
 
 - **Default statistics target**{#setting-default-statistics-target} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -385,7 +385,7 @@
 
   Минимальное значение — `1`, максимальное значение — `10000`, по умолчанию — `1000`.
 
-  Подробнее см. в описании настройки `default_statistics_target` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-DEFAULT-STATISTICS-TARGET).
+  Подробнее в описании настройки `default_statistics_target` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-DEFAULT-STATISTICS-TARGET).
 
 - **Default transaction isolation**{#setting-default-transaction-isolation} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -400,7 +400,7 @@
 
   Значение по умолчанию — `read committed`.
 
-  Подробнее об уровнях изоляции см. [в документации PostgreSQL](https://www.postgresql.org/docs/current/transaction-iso.html).
+  Подробнее об уровнях изоляции читайте [в документации PostgreSQL](https://www.postgresql.org/docs/current/transaction-iso.html).
 
   Настройка действует на уровне кластера Managed Service for PostgreSQL, но ее можно [переопределить на уровне пользователя](settings-list.md#dbms-user-settings).
 
@@ -410,7 +410,7 @@
 
   По умолчанию настройка выключена (допускается чтение и запись).
 
-  Подробнее см. в описании настройки `default_transaction_read_only` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-DEFAULT-TRANSACTION-READ-ONLY).
+  Подробнее в описании настройки `default_transaction_read_only` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-DEFAULT-TRANSACTION-READ-ONLY).
 
 - **Default with oids**{#setting-default-with-oids} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -423,7 +423,7 @@
 
   Функциональность не поддерживается в PostgreSQL начиная с версии `12`. Используйте настройку только для совместимости со старыми приложениями.
 
-  Подробнее см. в описании настройки `default_with_oids` в [документации PostgreSQL](https://www.postgresql.org/docs/11/runtime-config-compatible.html#GUC-DEFAULT-WITH-OIDS).
+  Подробнее в описании настройки `default_with_oids` в [документации PostgreSQL](https://www.postgresql.org/docs/11/runtime-config-compatible.html#GUC-DEFAULT-WITH-OIDS).
 
 - **Effective cache size**{#setting-effective-cache-size} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -431,7 +431,7 @@
 
   Минимальное значение — `0`, максимальное значение — `549755813888` (512 ГБ), по умолчанию — `107374182400` (100 ГБ).
 
-  Подробнее см. в описании настройки `effective_cache_size` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-EFFECTIVE-CACHE-SIZE).
+  Подробнее в описании настройки `effective_cache_size` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-EFFECTIVE-CACHE-SIZE).
 
 - **Effective io concurrency**{#setting-effective-io-concurrency} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -439,7 +439,7 @@
 
   Минимальное значение — `0`, максимальное значение — `1000`, по умолчанию — `1`.
 
-  Подробнее см. в описании настройки `effective_io_concurrency` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-EFFECTIVE-IO-CONCURRENCY).
+  Подробнее в описании настройки `effective_io_concurrency` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-EFFECTIVE-IO-CONCURRENCY).
 
 - **Enable async append**{#setting-enable-async-append} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
 
@@ -449,7 +449,7 @@
 
   Функциональность поддерживается в PostgreSQL начиная с версии 14.
 
-  Подробнее см. в описании настройки `enable_async_append` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-ASYNC-APPEND).
+  Подробнее в описании настройки `enable_async_append` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-ASYNC-APPEND).
 
 - **Enable bitmapscan**{#setting-enable-bitmapscan} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -465,7 +465,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_bitmapscan` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-BITMAPSCAN).
+  Подробнее в описании настройки `enable_bitmapscan` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-BITMAPSCAN).
 
 - **Enable gathermerge**{#setting-enable-gathermerge} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
 
@@ -475,7 +475,7 @@
 
   Функциональность поддерживается в PostgreSQL начиная с версии 14.
 
-  Подробнее см. в описании настройки `enable_gathermerge` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-GATHERMERGE).
+  Подробнее в описании настройки `enable_gathermerge` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-GATHERMERGE).
 
 - **Enable group by reordering**{#setting-enable-group-by-reordering} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -485,7 +485,7 @@
 
   Если настройка выключена, планировщик запросов создаст план, в котором ключи в блоке `GROUP BY` будут отсортированы в соответствии с предложениями в блоке `ORDER BY` при его наличии. При отсутствии блока `ORDER BY` ключи в блоке `GROUP BY` не сортируются (используется тот порядок, что задан в `GROUP BY`).
 
-  Подробнее см. в описании настройки `enable_group_by_reordering` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-GROUPBY-REORDERING).
+  Подробнее в описании настройки `enable_group_by_reordering` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-GROUPBY-REORDERING).
 
 - **Enable hashagg**{#setting-enable-hashagg} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -493,7 +493,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_hashagg` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-HASHAGG).
+  Подробнее в описании настройки `enable_hashagg` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-HASHAGG).
 
 - **Enable hashjoin**{#setting-enable-hashjoin} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -501,7 +501,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_hashjoin` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-HASHJOIN).
+  Подробнее в описании настройки `enable_hashjoin` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-HASHJOIN).
 
 - **Enable incremental sort**{#setting-enable-incremental-sort} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -511,7 +511,7 @@
 
   Функциональность поддерживается в PostgreSQL начиная с версии 13.
 
-  Подробнее см. в описании настройки `enable_incremental_sort` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-INCREMENTAL-SORT).
+  Подробнее в описании настройки `enable_incremental_sort` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-INCREMENTAL-SORT).
 
 - **Enable indexonlyscan**{#setting-enable-indexonlyscan} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -519,7 +519,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_indexonlyscan` в [документации PostgreSQL](https://www.postgresql.org/docs/current/indexes-index-only-scans.html).
+  Подробнее в описании настройки `enable_indexonlyscan` в [документации PostgreSQL](https://www.postgresql.org/docs/current/indexes-index-only-scans.html).
 
 - **Enable indexscan**{#setting-enable-indexscan} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -527,7 +527,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_indexscan` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-INDEXSCAN).
+  Подробнее в описании настройки `enable_indexscan` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-INDEXSCAN).
 
 - **Enable material**{#setting-enable-material} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -535,7 +535,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_material` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-MATERIAL).
+  Подробнее в описании настройки `enable_material` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-MATERIAL).
 
 - **Enable memoize**{#setting-enable-memoize} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -543,7 +543,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_memoize` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-MEMOIZE).
+  Подробнее в описании настройки `enable_memoize` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-MEMOIZE).
 
 - **Enable mergejoin**{#setting-enable-mergejoin} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -551,7 +551,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_mergejoin` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-MERGEJOIN).
+  Подробнее в описании настройки `enable_mergejoin` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-MERGEJOIN).
 
 - **Enable nestloop**{#setting-enable-nestloop} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -559,7 +559,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_nestloop` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-NESTLOOP).
+  Подробнее в описании настройки `enable_nestloop` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-NESTLOOP).
 
 - **Enable parallel append**{#setting-enable-parallel-append} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -567,7 +567,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_parallel_append` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARALLEL-APPEND).
+  Подробнее в описании настройки `enable_parallel_append` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARALLEL-APPEND).
 
 - **Enable parallel hash**{#setting-enable-parallel-hash} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -575,7 +575,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_parallel_hash` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARALLEL-HASH).
+  Подробнее в описании настройки `enable_parallel_hash` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARALLEL-HASH).
 
 - **Enable partition pruning**{#setting-enable-partition-pruning} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -583,7 +583,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_partition_pruning` в [документации PostgreSQL](https://www.postgresql.org/docs/current/ddl-partitioning.html#DDL-PARTITION-PRUNING).
+  Подробнее в описании настройки `enable_partition_pruning` в [документации PostgreSQL](https://www.postgresql.org/docs/current/ddl-partitioning.html#DDL-PARTITION-PRUNING).
 
 - **Enable partitionwise aggregate**{#setting-enable-partitionwise-aggregate} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -591,7 +591,7 @@
 
   По умолчанию настройка выключена (планировщик не учитывает партиционирование).
 
-  Подробнее см. в описании настройки `enable_partitionwise_aggregate` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARTITIONWISE-AGGREGATE).
+  Подробнее в описании настройки `enable_partitionwise_aggregate` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARTITIONWISE-AGGREGATE).
 
 - **Enable partitionwise join**{#setting-enable-partition-join} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -599,7 +599,7 @@
 
   По умолчанию настройка выключена (планировщик не учитывает партиционирование).
 
-  Подробнее см. в описании настройки `enable_partitionwise_join` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARTITIONWISE-JOIN).
+  Подробнее в описании настройки `enable_partitionwise_join` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARTITIONWISE-JOIN).
 
 - **Enable seqscan**{#setting-enable-seqscan} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -607,7 +607,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_seqscan` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#RUNTIME-CONFIG-QUERY-ENABLE).
+  Подробнее в описании настройки `enable_seqscan` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#RUNTIME-CONFIG-QUERY-ENABLE).
 
 - **Enable sort**{#setting-enable-sort} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -615,7 +615,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_sort` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-SORT).
+  Подробнее в описании настройки `enable_sort` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-SORT).
 
 - **Enable tidscan**{#setting-enable-tidscan} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -623,7 +623,7 @@
 
   По умолчанию настройка включена (планировщик выполняет сканирование TID).
 
-  Подробнее см. в описании настройки `enable_tidscan` в [документации PostgreSQL](https://www.postgresql.org/docs/current/ddl-system-columns.html).
+  Подробнее в описании настройки `enable_tidscan` в [документации PostgreSQL](https://www.postgresql.org/docs/current/ddl-system-columns.html).
 
 - **Escape string warning**{#setting-escape-string-warning} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -631,7 +631,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `escape_string_warning` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-ESCAPE-STRING-WARNING).
+  Подробнее в описании настройки `escape_string_warning` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-ESCAPE-STRING-WARNING).
 
 - **Exit on error**{#setting-exit-on-error} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -639,7 +639,7 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в описании настройки `exit_on_error` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-error-handling.html).
+  Подробнее в описании настройки `exit_on_error` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-error-handling.html).
 
 - **Force parallel mode**{#setting-force-parallel-mode} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -653,7 +653,7 @@
 
   Значение по умолчанию — `off`.
 
-  Подробнее см. в описании настройки `force_parallel_mode` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-developer.html).
+  Подробнее в описании настройки `force_parallel_mode` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-developer.html).
 
 - **From collapse limit**{#setting-from-collapse-limit} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -661,7 +661,7 @@
 
   Минимальное значение — `1`, максимальное значение — `2147483647`, по умолчанию — `8`.
 
-  Подробнее см. в описании настройки `from_collapse_limit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-FROM-COLLAPSE-LIMIT).
+  Подробнее в описании настройки `from_collapse_limit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-FROM-COLLAPSE-LIMIT).
 
 - **Geqo**{#setting-geqo} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
@@ -669,7 +669,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `geqo` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO).
+  Подробнее в описании настройки `geqo` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO).
 
 - **Geqo effort**{#setting-geqo-effort} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
@@ -679,7 +679,7 @@
 
   Минимальное значение — `1`, максимальное значение — `10`, значение по умолчанию — `5`.
 
-  Подробнее см. в описании настройки `geqo_effort` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-EFFORT).
+  Подробнее в описании настройки `geqo_effort` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-EFFORT).
 
 - **Geqo generations**{#setting-geqo-generations} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
@@ -689,7 +689,7 @@
 
   Если значение настройки равно `0` (по умолчанию), то количество итераций алгоритма выбирается на основании настройки [**Geqo pool size**](#setting-geqo-pool-size).
 
-  Подробнее см. в описании настройки `geqo_generations` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-GENERATIONS).
+  Подробнее в описании настройки `geqo_generations` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-GENERATIONS).
 
 - **Geqo pool size**{#setting-geqo-pool-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
@@ -699,7 +699,7 @@
 
   Если значение настройки равно `0` (по умолчанию), то количество особей выбирается в зависимости от настройки [**Geqo effort**](#setting-geqo-effort) и количества таблиц в запросе.
 
-  Подробнее см. в описании настройки `geqo_pool_size` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-POOL-SIZE).
+  Подробнее в описании настройки `geqo_pool_size` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-POOL-SIZE).
 
 - **Geqo seed**{#setting-geqo-seed} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
@@ -709,7 +709,7 @@
 
   Минимальное значение — `0`, максимальное значение — `1`, значение по умолчанию — `0`.
 
-  Подробнее см. в описании настройки `geqo_seed` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-SEED).
+  Подробнее в описании настройки `geqo_seed` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-SEED).
 
 - **Geqo selection bias**{#setting-geqo-selection-bias} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
@@ -717,7 +717,7 @@
 
   Минимальное значение — `1.50`, максимальное значение — `2.00`, значение по умолчанию — `2.00`.
 
-  Подробнее см. в описании настройки `geqo_selection_bias` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-SELECTION-BIAS).
+  Подробнее в описании настройки `geqo_selection_bias` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-SELECTION-BIAS).
 
 - **Geqo threshold**{#setting-geqo-threshold} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
@@ -727,7 +727,7 @@
 
   Минимальное значение — `2`, максимальное значение — `2147483647`, значение по умолчанию — `12`.
 
-  Подробнее см. в описании настройки `geqo_threshold` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-THRESHOLD).
+  Подробнее в описании настройки `geqo_threshold` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-THRESHOLD).
 
 - **Gin pending list limit**{#setting-gin-list-limit} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -735,7 +735,7 @@
 
   Минимальное значение — `64`, максимальное значение — `2147483647` (2 ГБ), по умолчанию — `4194304`.
 
-  Подробнее см. в описании настройки `gin_pending_list_limit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-GIN-PENDING-LIST-LIMIT).
+  Подробнее в описании настройки `gin_pending_list_limit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-GIN-PENDING-LIST-LIMIT).
 
 - **Hash mem multiplier**{#setting-hash-mem-multiplier} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -745,7 +745,7 @@
 
   Функциональность поддерживается в PostgreSQL начиная с версии 13.
 
-  Подробнее см. в описании настройки `hash_mem_multiplier` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-HASH-MEM-MULTIPLIER).
+  Подробнее в описании настройки `hash_mem_multiplier` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-HASH-MEM-MULTIPLIER).
 
 - **Idle in transaction session timeout**{#setting-idle-session-timeout} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -753,7 +753,7 @@
 
   Минимальное значение — `0`, максимальное значение — `2147483647`, по умолчанию — `0`.
 
-  Подробнее см. в описании настройки `idle_in_transaction_session_timeout` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT).
+  Подробнее в описании настройки `idle_in_transaction_session_timeout` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT).
 
 - **Jit**{#setting-jit} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -761,7 +761,7 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в описании настройки `jit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-JIT).
+  Подробнее в описании настройки `jit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-JIT).
 
 - **Join collapse limit**{#setting-join-collapse-limit} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -769,7 +769,7 @@
 
   Минимальное значение — `1`, максимальное значение — `2147483647`, по умолчанию — `8`.
 
-  Подробнее см. в описании настройки `join_collapse_limit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-JOIN-COLLAPSE-LIMIT).
+  Подробнее в описании настройки `join_collapse_limit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-JOIN-COLLAPSE-LIMIT).
 
 - **Lo compat privileges**{#setting-lo-compat-privileges} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -777,7 +777,7 @@
 
   По умолчанию настройка выключена (проверки прав доступа включены).
 
-  Подробнее см. в описании настройки `lo_compat_privileges` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-LO-COMPAT-PRIVILEGES).
+  Подробнее в описании настройки `lo_compat_privileges` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-LO-COMPAT-PRIVILEGES).
 
 - **Lock timeout**{#setting-lock-timeout} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -785,7 +785,7 @@
 
   Минимальное значение — `0` (контроль длительности отключен, ожидать получения блокировки можно сколь угодно долго), максимальное значение — `2147483647`, по умолчанию — `0`.
 
-  Подробнее см. в описании настройки `lock_timeout` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LOCK-TIMEOUT).
+  Подробнее в описании настройки `lock_timeout` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LOCK-TIMEOUT).
 
   Настройка действует на уровне кластера Managed Service for PostgreSQL, но ее можно [переопределить на уровне пользователя](settings-list.md#dbms-user-settings).
 
@@ -797,7 +797,7 @@
 
   Значение по умолчанию — `1000`.
 
-  Подробнее см. в описании настройки `log_autovacuum_min_duration` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-AUTOVACUUM-MIN-DURATION).
+  Подробнее в описании настройки `log_autovacuum_min_duration` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-AUTOVACUUM-MIN-DURATION).
 
 - **Log checkpoints**{#setting-log-checkpoints} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -805,7 +805,7 @@
 
   По умолчанию настройка выключена (логирование не ведется).
 
-  Подробнее см. в описании настройки `log_checkpoints` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-CHECKPOINTS).
+  Подробнее в описании настройки `log_checkpoints` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-CHECKPOINTS).
 
 - **Log connections**{#setting-log-connections} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -813,7 +813,7 @@
 
   По умолчанию настройка выключена (логирование не ведется).
 
-  Подробнее см. в описании настройки `log_connections` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-CONNECTIONS).
+  Подробнее в описании настройки `log_connections` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-CONNECTIONS).
 
 - **Log disconnections**{#setting-log-disconnections} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -821,7 +821,7 @@
 
   По умолчанию настройка выключена (логирование не ведется).
 
-  Подробнее см. в описании настройки `log_disconnections` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-DISCONNECTIONS).
+  Подробнее в описании настройки `log_disconnections` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-DISCONNECTIONS).
 
 - **Log duration**{#setting-log-duration} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -829,7 +829,7 @@
 
   По умолчанию настройка выключена (логирование не выполняется).
 
-  Подробнее см. в описании настройки `log_duration` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-DURATION).
+  Подробнее в описании настройки `log_duration` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-DURATION).
 
 - **Log error verbosity**{#setting-log-error-verbosity} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -839,7 +839,7 @@
   - `default` (`LOG_ERROR_VERBOSITY_DEFAULT` для Terraform, CLI и API). По умолчанию.
   - `verbose` (`LOG_ERROR_VERBOSITY_VERBOSE` для Terraform, CLI и API). В сообщение об ошибке включается код ошибки `SQLSTATE`, а также имя файла с исходным кодом, имя функции и номер строки, сгенерировавшей ошибку.
 
-  Подробнее см. в описании настройки `log_error_verbosity` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-ERROR-VERBOSITY).
+  Подробнее в описании настройки `log_error_verbosity` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-ERROR-VERBOSITY).
 
 - **Log lock waits**{#setting-log-lock-waits} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -847,7 +847,7 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в описании настройки `log_lock_waits` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LOCK-WAITS).
+  Подробнее в описании настройки `log_lock_waits` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LOCK-WAITS).
 
 - **Log min duration sample**{#setting-log-min-duration-sample} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -859,7 +859,7 @@
 
   Функциональность поддерживается в PostgreSQL начиная с версии 13.
 
-  Подробнее см. в описании настройки `log_min_duration_sample` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-SAMPLE).
+  Подробнее в описании настройки `log_min_duration_sample` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-SAMPLE).
 
 - **Log min duration statement**{#setting-log-min-duration-statement} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -869,7 +869,7 @@
 
   Минимальное значение — `-1` (отключает логирование времени работы), максимальное значение — `2147483647`, по умолчанию — `-1`.
 
-  Подробнее см. в описании настройки `log_min_duration_statement` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-STATEMENT).
+  Подробнее в описании настройки `log_min_duration_statement` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-STATEMENT).
 
   Настройка действует на уровне кластера Managed Service for PostgreSQL, но ее можно [переопределить на уровне пользователя](settings-list.md#dbms-user-settings).
 
@@ -881,7 +881,7 @@
 
   Чтобы отключить запись большинства команд с ошибками, выберите значение `PANIC`.
 
-  Подробнее см. в описании настройки `log_min_error_statement` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-ERROR-STATEMENT).
+  Подробнее в описании настройки `log_min_error_statement` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-ERROR-STATEMENT).
 
 - **Log min messages**{#setting-log-min-messages} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -891,7 +891,7 @@
 
   Чтобы отключить запись большинства сообщений, выберите значение `PANIC`.
 
-  Подробнее см. в описании настройки `log_min_messages` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES).
+  Подробнее в описании настройки `log_min_messages` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES).
 
 - **Log parameter max length**{#setting-log-parameter-max-length} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -903,7 +903,7 @@
 
   Функциональность поддерживается в PostgreSQL начиная с версии 13.
 
-  Подробнее см. в описании настройки `log_parameter_max_length` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-PARAMETER-MAX-LENGTH).
+  Подробнее в описании настройки `log_parameter_max_length` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-PARAMETER-MAX-LENGTH).
 
 - **Log parameter max length on error**{#setting-log-parameter-max-length} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -915,7 +915,7 @@
 
   Функциональность поддерживается в PostgreSQL начиная с версии 13.
 
-  Подробнее см. в описании настройки `log_parameter_max_length_on_error` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-PARAMETER-MAX-LENGTH-ON-ERROR).
+  Подробнее в описании настройки `log_parameter_max_length_on_error` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-PARAMETER-MAX-LENGTH-ON-ERROR).
 
 - **Log recovery conflict waits**{#setting-log-recovery-conflict-waits} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
 
@@ -925,7 +925,7 @@
 
   Функциональность поддерживается в PostgreSQL начиная с версии 14.
 
-  Подробнее см. в описании настройки `log_recovery_conflict_waits` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-RECOVERY-CONFLICT-WAITS).
+  Подробнее в описании настройки `log_recovery_conflict_waits` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-RECOVERY-CONFLICT-WAITS).
 
 - **Log replication commands**{#setting-log-replication-commands} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -933,7 +933,7 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в описании настройки `log_replication_commands` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-REPLICATION-COMMANDS).
+  Подробнее в описании настройки `log_replication_commands` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-REPLICATION-COMMANDS).
 
 - **Log statement**{#setting-log-statement} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -946,7 +946,7 @@
 
   Значение по умолчанию — `none`.
 
-  Подробнее см. в описании настройки `log_statement` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html).
+  Подробнее в описании настройки `log_statement` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html).
 
   Настройка действует на уровне кластера Managed Service for PostgreSQL, но ее можно [переопределить на уровне пользователя](settings-list.md#dbms-user-settings).
 
@@ -958,7 +958,7 @@
 
   Функциональность поддерживается в PostgreSQL начиная с версии 13.
 
-  Подробнее см. в описании настройки `log_statement_sample_rate` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-STATEMENT-SAMPLE-RATE).
+  Подробнее в описании настройки `log_statement_sample_rate` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-STATEMENT-SAMPLE-RATE).
 
 - **Log temp files**{#setting-log-temp-files} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -966,7 +966,7 @@
 
   Минимальное значение — `-1` (информация об удаленных файлах не логируется), максимальное значение — `2147483647` (2 ГБ), при значении `0` в лог записываются размеры и имена всех временных файлов. По умолчанию — `-1`.
 
-  Подробнее см. в описании настройки `log_temp_files` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-TEMP-FILES).
+  Подробнее в описании настройки `log_temp_files` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-TEMP-FILES).
 
 - **Log transaction sample rate**{#setting-log-transaction-sample-rate} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -976,7 +976,7 @@
 
   Функциональность поддерживается в PostgreSQL начиная с версии 12.
 
-  Подробнее см. в описании настройки `log_transaction_sample_rate` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-TRANSACTION-SAMPLE-RATE).
+  Подробнее в описании настройки `log_transaction_sample_rate` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-TRANSACTION-SAMPLE-RATE).
 
 - **Logical decoding work mem**{#setting-logical-decoding-work-mem} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -986,7 +986,7 @@
 
   Функциональность поддерживается в PostgreSQL начиная с версии 13.
 
-  Подробнее см. в описании настройки `logical_decoding_work_mem` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-LOGICAL-DECODING-WORK-MEM).
+  Подробнее в описании настройки `logical_decoding_work_mem` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-LOGICAL-DECODING-WORK-MEM).
 
 - **Maintenance io concurrency**{#setting-maintenance-io-concurrency} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -996,7 +996,7 @@
 
   Функциональность поддерживается в PostgreSQL начиная с версии 13.
 
-  Подробнее см. в описании настройки `maintenance_io_concurrency` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-IO-CONCURRENCY).
+  Подробнее в описании настройки `maintenance_io_concurrency` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-IO-CONCURRENCY).
 
 - **Maintenance work mem**{#setting-maintenance-work-mem} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1004,7 +1004,7 @@
 
   Минимальное значение — `1048576` (1 МБ), максимальное значение — `137438953472` (128 ГБ), по умолчанию — `67108864` (64 МБ).
 
-  Подробнее см. в описании настройки `maintenance_work_mem` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM).
+  Подробнее в описании настройки `maintenance_work_mem` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM).
 
 - **Max connections**{#setting-max-connections} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -1026,7 +1026,7 @@
   
   {% endnote %}
 
-  Подробнее см. в описании настройки `max_connections` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-MAX-CONNECTIONS).
+  Подробнее в описании настройки `max_connections` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-MAX-CONNECTIONS).
 
 - **Max locks per transaction**{#setting-max-locks-transaction} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -1034,7 +1034,7 @@
 
   Минимальное значение — `10`, максимальное значение — `2147483647`, по умолчанию — `64`.
 
-  Подробнее см. в описании настройки `max_locks_per_transaction` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-MAX-LOCKS-PER-TRANSACTION).
+  Подробнее в описании настройки `max_locks_per_transaction` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-MAX-LOCKS-PER-TRANSACTION).
 
 - **Max logical replication workers**{#setting-max-logical-replication-workers} <code><b><small>Консоль управления</small></b></code>
 
@@ -1042,7 +1042,7 @@
 
   Минимальное значение — `4`, максимальное значение — `100`. По умолчанию установлено минимальное значение.
 
-  Подробнее см. в описании настройки `max_logical_replication_workers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-LOGICAL-REPLICATION-WORKERS).
+  Подробнее в описании настройки `max_logical_replication_workers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-LOGICAL-REPLICATION-WORKERS).
 
 - **Max parallel maintenance workers**{#setting-max-parallel-maintenance-workers} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1050,7 +1050,7 @@
 
   Минимальное значение — `0`, максимальное значение — `1024`, по умолчанию — `2`.
 
-  Подробнее см. в описании настройки `max_parallel_maintenance_workers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-MAINTENANCE-WORKERS).
+  Подробнее в описании настройки `max_parallel_maintenance_workers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-MAINTENANCE-WORKERS).
 
 - **Max parallel workers**{#setting-max-parallel-workers} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1058,7 +1058,7 @@
 
   Минимальное значение — `0`, максимальное значение — `1024`, по умолчанию — `8`.
 
-  Подробнее см. в описании настройки `max_parallel_workers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS).
+  Подробнее в описании настройки `max_parallel_workers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS).
 
 - **Max parallel workers per gather**{#setting-max-parallel-workers-gather} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1066,7 +1066,7 @@
 
   Минимальное значение — `0`, максимальное значение — `1024`, по умолчанию — `2`.
 
-  Подробнее см. в описании настройки `max_parallel_workers_per_gather` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS-PER-GATHER).
+  Подробнее в описании настройки `max_parallel_workers_per_gather` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS-PER-GATHER).
 
 - **Max pred locks per transaction**{#setting-max-pred-locks-transaction} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -1074,7 +1074,7 @@
 
   Минимальное значение — `10`, максимальное значение — `2147483647` (2 ГБ), по умолчанию — `64`.
 
-  Подробнее см. в описании настройки `max_pred_locks_per_transaction` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-MAX-PRED-LOCKS-PER-TRANSACTION).
+  Подробнее в описании настройки `max_pred_locks_per_transaction` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-MAX-PRED-LOCKS-PER-TRANSACTION).
 
 - **Max prepared transactions**{#setting-max-prepared-transactions} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -1082,7 +1082,7 @@
 
   Минимальное значение — `0`, максимальное значение — `262143`, по умолчанию — `0`.
 
-  Подробнее см. в описании настройки `max_prepared_transactions` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS).
+  Подробнее в описании настройки `max_prepared_transactions` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS).
 
 - **Max replication slots**{#setting-max-replication-slots} <code><b><small>Консоль управления</small></b></code>
 
@@ -1090,7 +1090,7 @@
 
   Минимальное значение — `20`, максимальное значение — `100`. По умолчанию установлено минимальное значение.
 
-  Подробнее см. в описании настройки `max_replication_slots` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-REPLICATION-SLOTS).
+  Подробнее в описании настройки `max_replication_slots` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-REPLICATION-SLOTS).
 
 - **Max slot wal keep size**{#setting-max-slot-wal-keep-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -1100,7 +1100,7 @@
 
   Функциональность поддерживается в PostgreSQL начиная с версии 13.
 
-  Подробнее см. в описании настройки `max_slot_wal_keep_size` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-SLOT-WAL-KEEP-SIZE).
+  Подробнее в описании настройки `max_slot_wal_keep_size` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-SLOT-WAL-KEEP-SIZE).
 
 - **Max stack depth**{#setting-max-stack-depth} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1108,7 +1108,7 @@
 
   Минимальное значение — `65536`, максимальное — `134217728`, по умолчанию — `2097152` (2 МБ).
 
-  Подробнее см. в описании настройки `max_stack_depth` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-STACK-DEPTH).
+  Подробнее в описании настройки `max_stack_depth` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-STACK-DEPTH).
 
 - **Max standby streaming delay**{#setting-max-standby-streaming-delay} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1116,7 +1116,7 @@
 
   Минимальное значение — `-1` (время ожидания не ограничено), максимальное значение — `2147483647`, по умолчанию — `30000` (30 секунд).
 
-  Подробнее см. в описании настройки `max_standby_streaming_delay` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-STANDBY-STREAMING-DELAY).
+  Подробнее в описании настройки `max_standby_streaming_delay` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-STANDBY-STREAMING-DELAY).
 
 - **Max standby archive delay**{#setting-max-standby-archive-delay} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1124,7 +1124,7 @@
 
   Минимальное значение — `-1` (время ожидания не ограничено), максимальное значение — `2147483647`, по умолчанию — `30000` (30 секунд).
 
-  Подробнее см. в описании настройки `max_standby_archive_delay` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-STANDBY-ARCHIVE-DELAY).
+  Подробнее в описании настройки `max_standby_archive_delay` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-STANDBY-ARCHIVE-DELAY).
 
 - **Max wal senders**{#setting-max-wal-senders} <code><b><small>Консоль управления</small></b></code>
 
@@ -1132,7 +1132,7 @@
 
   Минимальное значение — `20`, максимальное значение — `100`. По умолчанию установлено минимальное значение.
 
-  Подробнее см. в описании настройки `max_wal_senders` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-WAL-SENDERS).
+  Подробнее в описании настройки `max_wal_senders` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-WAL-SENDERS).
 
 - **Max wal size**{#setting-max-wal-size} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1140,7 +1140,7 @@
 
   Минимальное значение — `2`, максимальное значение [зависит от размера хранилища](#settings-instance-dependent) и равно 10% от этой величины, но не более `8589934592` (8 ГБ). По умолчанию установлено максимальное значение.
 
-  Подробнее см. в описании настройки `max_wal_size` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-MAX-WAL-SIZE).
+  Подробнее в описании настройки `max_wal_size` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-MAX-WAL-SIZE).
 
 - **Max worker processes**{#setting-max-worker-processes} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -1148,7 +1148,7 @@
 
   Минимальное значение — `0`, максимальное значение — `1024`, по умолчанию — `8`.
 
-  Подробнее см. в описании настройки `max_worker_processes` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES).
+  Подробнее в описании настройки `max_worker_processes` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES).
 
 - **Min wal size**{#setting-min-wal-size} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1156,7 +1156,7 @@
 
   Минимальное значение — `2`, максимальное значение [зависит от размера хранилища](#settings-instance-dependent) и равно 5% от этой величины, но не более `1073741824` (1 ГБ). По умолчанию установлено максимальное значение.
 
-  Подробнее см. в описании настройки `min_wal_size` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-MIN-WAL-SIZE).
+  Подробнее в описании настройки `min_wal_size` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-MIN-WAL-SIZE).
 
 - **Old snapshot threshold**{#setting-old-snapshot-threshold} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -1164,7 +1164,7 @@
 
   Минимальное значение — `-1` (не ограничено), максимальное значение — `86400000` (24 часа), по умолчанию — `-1`.
 
-  Подробнее см. в описании настройки `old_snapshot_threshold` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-OLD-SNAPSHOT-THRESHOLD).
+  Подробнее в описании настройки `old_snapshot_threshold` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-OLD-SNAPSHOT-THRESHOLD).
 
 - **Online analyze enable**{#setting-online-analyze} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
@@ -1182,7 +1182,7 @@
 
   Функциональность не поддерживается в PostgreSQL начиная с версии `14`.
 
-  Подробнее см. в описании настройки `operator_precedence_warning` в [документации PostgreSQL](https://www.postgresql.org/docs/13/runtime-config-compatible.html#GUC-OPERATOR-PRECEDENCE-WARNING).
+  Подробнее в описании настройки `operator_precedence_warning` в [документации PostgreSQL](https://www.postgresql.org/docs/13/runtime-config-compatible.html#GUC-OPERATOR-PRECEDENCE-WARNING).
 
 - **Parallel leader participation**{#setting-parallel-leader-participation} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1190,7 +1190,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `parallel_leader_participation` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-PARALLEL-LEADER-PARTICIPATION).
+  Подробнее в описании настройки `parallel_leader_participation` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-PARALLEL-LEADER-PARTICIPATION).
 
 - **Password encryption**{#setting-password-encryption} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1204,7 +1204,7 @@
   * для версий PostgreSQL `16` и ниже — `md5`;
   * для версий PostgreSQL `17` и выше — `scram-sha-256`.
 
-  Подробнее см. в описании настройки `password_encryption` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-PASSWORD-ENCRYPTION).
+  Подробнее в описании настройки `password_encryption` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-PASSWORD-ENCRYPTION).
 
 - **Pg hint plan debug print**{#setting-pghint-plan-debug} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -1283,7 +1283,7 @@
 
   Значение должно быть в диапазоне от `0` до `1`, по умолчанию — `0.3`.
 
-  Подробнее см. в описании настройки `pg_trgm.similarity_threshold` в [документации PostgreSQL](https://www.postgresql.org/docs/current/pgtrgm.html#GUC-PGTRGM-SIMILARITY-THRESHOLD).
+  Подробнее в описании настройки `pg_trgm.similarity_threshold` в [документации PostgreSQL](https://www.postgresql.org/docs/current/pgtrgm.html#GUC-PGTRGM-SIMILARITY-THRESHOLD).
 
 - **Pg trgm strict word similarity threshold**{#setting-pg-trgm-strict-word-similarity-threshold} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1291,7 +1291,7 @@
 
   Значение должно быть в диапазоне от `0` до `1`, по умолчанию — `0.5`.
 
-  Подробнее см. в описании настройки `pg_trgm.strict_word_similarity_threshold` в [документации PostgreSQL](https://www.postgresql.org/docs/current/pgtrgm.html#GUC-PGTRGM-STRICT-WORD-SIMILARITY-THRESHOLD).
+  Подробнее в описании настройки `pg_trgm.strict_word_similarity_threshold` в [документации PostgreSQL](https://www.postgresql.org/docs/current/pgtrgm.html#GUC-PGTRGM-STRICT-WORD-SIMILARITY-THRESHOLD).
 
 - **Pg trgm word similarity threshold**{#setting-pg-trgm-word-similarity-threshold} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1299,7 +1299,7 @@
 
   Значение должно быть в диапазоне от `0` до `1`, по умолчанию — `0.6`.
 
-  Подробнее см. в описании настройки `pg_trgm.word_similarity_threshold` в [документации PostgreSQL](https://www.postgresql.org/docs/current/pgtrgm.html#GUC-PGTRGM-WORD-SIMILARITY-THRESHOLD).
+  Подробнее в описании настройки `pg_trgm.word_similarity_threshold` в [документации PostgreSQL](https://www.postgresql.org/docs/current/pgtrgm.html#GUC-PGTRGM-WORD-SIMILARITY-THRESHOLD).
 
 - **Plan cache mode**{#setting-plan-cache-mode} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -1313,7 +1313,7 @@
 
   Функциональность поддерживается в PostgreSQL начиная с версии 12.
 
-  Подробнее см. в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-PLAN-CACHE_MODE).
+  Подробнее в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-PLAN-CACHE_MODE).
 
 - **Plantuner fix empty table**{#setting-plantuner-fix-empty-table} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
@@ -1329,7 +1329,7 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в описании настройки `quote_all_identifiers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-QUOTE-ALL-IDENTIFIERS).
+  Подробнее в описании настройки `quote_all_identifiers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-QUOTE-ALL-IDENTIFIERS).
 
 - **Random page cost**{#setting-random-page-cost} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1337,7 +1337,7 @@
 
   Минимальное значение — `0`, по умолчанию — `1`.
 
-  Подробнее см. в описании настройки `random_page_cost` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-RANDOM-PAGE-COST).
+  Подробнее в описании настройки `random_page_cost` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-RANDOM-PAGE-COST).
 
 - **Row security**{#setting-row-security} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1345,7 +1345,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `row_security` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-ROW-SECURITY).
+  Подробнее в описании настройки `row_security` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-ROW-SECURITY).
 
 - **Search path**{#setting-search-path} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1353,7 +1353,7 @@
 
   Значение по умолчанию — `$user, public` (схема текущего пользователя и схема `public`).
 
-  Подробнее см. в описании настройки `search_path` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SEARCH-PATH).
+  Подробнее в описании настройки `search_path` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SEARCH-PATH).
 
 - **Seq page cost**{#setting-seq-page-cost} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1361,7 +1361,7 @@
 
   Минимальное значение — `0`, по умолчанию — `1`.
 
-  Подробнее см. в описании настройки `seq_page_cost` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#RUNTIME-CONFIG-QUERY-CONSTANTS).
+  Подробнее в описании настройки `seq_page_cost` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#RUNTIME-CONFIG-QUERY-CONSTANTS).
 
 - **Session duration timeout**{#setting-session-duration-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
 
@@ -1373,7 +1373,7 @@
 
   Минимальное значение — `0` (нет ограничений на время жизни активной сессии/транзакции), максимальное значение — `2147483647`. Минимальная гранулярность изменения настройки — `1000`.
 
-  Подробнее о возможных статусах сессии см. в [документации PostgreSQL](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
+  Подробнее о возможных статусах сессии в [документации PostgreSQL](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
 
 - **Shared buffers**{#setting-shared-buffers} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -1381,13 +1381,13 @@
 
   Минимальное значение — `131072` (128 КБ), максимальное значение [зависит от выбранного класса хостов](#settings-instance-dependent) и равно 80% от общего размера RAM хоста кластера Managed Service for PostgreSQL. По умолчанию установлено значение 25% от общего размера RAM, но не более 8 ГБ.
 
-  Подробнее см. в описании настройки `shared_buffers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-SHARED-BUFFERS).
+  Подробнее в описании настройки `shared_buffers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-SHARED-BUFFERS).
 
 - **Shared preload libraries**{#setting-shared-libraries} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
   Разделенные запятыми имена библиотек общего пользования (shared libraries), которые будут загружаться при запуске сервера PostgreSQL. Библиотеки требуются для работы некоторых [расширений PostgreSQL](../operations/extensions/cluster-extensions.md).
 
-  Подробнее см. в описании настройки `shared_preload_libraries` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES).
+  Подробнее в описании настройки `shared_preload_libraries` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES).
 
 - **Standard conforming strings**{#setting-standard-strings} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -1395,7 +1395,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `standard_conforming_strings` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-STANDARD-CONFORMING-STRINGS).
+  Подробнее в описании настройки `standard_conforming_strings` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-STANDARD-CONFORMING-STRINGS).
 
 - **Statement timeout**{#setting-statement-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -1403,7 +1403,7 @@
 
   Минимальное значение — `0`, максимальное значение — `2147483647`, по умолчанию — `0`.
 
-  Подробнее см. в описании настройки `statement_timeout` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-STATEMENT-TIMEOUT).
+  Подробнее в описании настройки `statement_timeout` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-STATEMENT-TIMEOUT).
 
 - **Synchronize seqscans**{#setting-synchronize-seqscans} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1411,7 +1411,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `synchronize_seqscans` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-SYNCHRONIZE-SEQSCANS).
+  Подробнее в описании настройки `synchronize_seqscans` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-SYNCHRONIZE-SEQSCANS).
 
 - **Synchronous commit**{#setting-synchronous-commit} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1453,7 +1453,7 @@
 
   {% endlist %}
 
-  Подробнее см. в описании настройки `synchronous_commit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT).
+  Подробнее в описании настройки `synchronous_commit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT).
 
   Настройка действует на уровне кластера Managed Service for PostgreSQL, но ее можно [переопределить на уровне пользователя](settings-list.md#dbms-user-settings).
 
@@ -1463,7 +1463,7 @@
 
   Минимальное значение — `100`, максимальное значение — `1073741823` (1 ГБ), по умолчанию — `8388608` (8 МБ).
 
-  Подробнее см. в описании настройки `temp_buffers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-TEMP-BUFFERS).
+  Подробнее в описании настройки `temp_buffers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-TEMP-BUFFERS).
 
 - **Temp file limit**{#setting-temp-file-limit} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -1473,7 +1473,7 @@
 
   Минимальное значение — `-1` (нет ограничений), максимальное значение — `2147483647` (2 ГБ), по умолчанию — `-1`.
 
-  Подробнее см. в описании настройки `temp_file_limit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-TEMP-FILE-LIMIT).
+  Подробнее в описании настройки `temp_file_limit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-TEMP-FILE-LIMIT).
 
   Настройка действует на уровне кластера Managed Service for PostgreSQL, но ее можно [переопределить на уровне пользователя](settings-list.md#dbms-user-settings).
 
@@ -1483,7 +1483,7 @@
 
   Значение по умолчанию — `Europe/Moscow`.
 
-  Подробнее см. в описании настройки `timezone` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-TIMEZONE).
+  Подробнее в описании настройки `timezone` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-TIMEZONE).
 
 - **Track activity query size**{#setting-track-activity-query-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -1491,7 +1491,7 @@
 
   Минимальное значение — `100`, максимальное значение — `102400`, по умолчанию — `1024`.
 
-  Подробнее см. в описании настройки `track_activity_query_size` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-ACTIVITY-QUERY-SIZE).
+  Подробнее в описании настройки `track_activity_query_size` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-ACTIVITY-QUERY-SIZE).
 
 - **Track commit timestamp**{#setting-track-commit-timestamp} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1499,7 +1499,7 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в описании настройки `track_commit_timestamp` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-TRACK-COMMIT-TIMESTAMP).
+  Подробнее в описании настройки `track_commit_timestamp` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-TRACK-COMMIT-TIMESTAMP).
 
 - **Transform null equals**{#setting-transform-null-equals} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1507,7 +1507,7 @@
 
   По умолчанию настройка выключена (действует стандарт SQL).
 
-  Подробнее см. в описании настройки `transform_null_equals` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-TRANSFORM-NULL-EQUALS).
+  Подробнее в описании настройки `transform_null_equals` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-TRANSFORM-NULL-EQUALS).
 
 - **Vacuum cleanup index scale factor**{#setting-vacuum-index-scale-factor} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1517,15 +1517,15 @@
 
   Функциональность не поддерживается в PostgreSQL начиная с версии `14`.
 
-  Подробнее см. в описании настройки `vacuum_cleanup_index_scale_factor` в [документации PostgreSQL](https://www.postgresql.org/docs/12/runtime-config-client.html#GUC-VACUUM-CLEANUP-INDEX-SCALE-FACTOR).
+  Подробнее в описании настройки `vacuum_cleanup_index_scale_factor` в [документации PostgreSQL](https://www.postgresql.org/docs/12/runtime-config-client.html#GUC-VACUUM-CLEANUP-INDEX-SCALE-FACTOR).
 
 - **Vacuum cost delay**{#setting-vacuum-cost-delay} <code><b><small>Все интерфейсы</small></b></code>
 
-  Время (в миллисекундах), в течение которого будет простаивать процесс выполнения команд `VACUUM` и `ANALYZE`, превысивший предел стоимости (см. настройку [Vacuum cost limit](#setting-vacuum-cost-limit)).
+  Время (в миллисекундах), в течение которого будет простаивать процесс выполнения команд `VACUUM` и `ANALYZE`, превысивший предел стоимости (описан в настройке [Vacuum cost limit](#setting-vacuum-cost-limit)).
 
   Минимальное значение — `0`, максимальное значение — `100`, по умолчанию — `0`.
 
-  Подробнее см. в описании настройки `vacuum_cost_delay` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#RUNTIME-CONFIG-RESOURCE-VACUUM-COST).
+  Подробнее в описании настройки `vacuum_cost_delay` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#RUNTIME-CONFIG-RESOURCE-VACUUM-COST).
 
 - **Vacuum cost limit**{#setting-vacuum-cost-limit} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1533,7 +1533,7 @@
 
   Минимальное значение — `1`, максимальное значение — `10000`, по умолчанию — `200`.
 
-  Подробнее см. в описании настройки `vacuum_cost_limit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-LIMIT).
+  Подробнее в описании настройки `vacuum_cost_limit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-LIMIT).
 
 - **Vacuum cost page dirty**{#setting-vacuum-cost-page-dirty} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1541,7 +1541,7 @@
 
   Минимальное значение — `0`, максимальное значение — `10000`, по умолчанию — `20`.
 
-  Подробнее см. в описании настройки `vacuum_cost_page_dirty` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-DIRTY).
+  Подробнее в описании настройки `vacuum_cost_page_dirty` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-DIRTY).
 
 - **Vacuum cost page hit**{#setting-vacuum-cost-page-hit} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1549,7 +1549,7 @@
 
   Минимальное значение — `0`, максимальное значение — `10000`, по умолчанию — `1`.
 
-  Подробнее см. в описании настройки `vacuum_cost_page_hit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-HIT).
+  Подробнее в описании настройки `vacuum_cost_page_hit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-HIT).
 
 - **Vacuum cost page miss**{#setting-vacuum-cost-page-miss} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1557,7 +1557,7 @@
 
   Минимальное значение — `0`, максимальное значение — `10000`, по умолчанию — `10`.
 
-  Подробнее см. в описании настройки `vacuum_cost_page_miss` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-MISS).
+  Подробнее в описании настройки `vacuum_cost_page_miss` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-MISS).
 
 - **Vacuum failsafe age**{#setting-vacuum-failsafe-age} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
 
@@ -1567,7 +1567,7 @@
 
   Функциональность поддерживается в PostgreSQL начиная с версии 14.
 
-  Подробнее см. в описании настройки `vacuum_failsafe_age` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-VACUUM-FAILSAFE-AGE).
+  Подробнее в описании настройки `vacuum_failsafe_age` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-VACUUM-FAILSAFE-AGE).
 
 - **Vacuum multixact failsafe age**{#setting-vacuum-multixact-failsafe-age} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
 
@@ -1577,7 +1577,7 @@
 
   Функциональность поддерживается в PostgreSQL начиная с версии 14.
 
-  Подробнее см. в описании настройки `vacuum_multixact_failsafe_age` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-VACUUM-MULTIXACT-FAILSAFE-AGE).
+  Подробнее в описании настройки `vacuum_multixact_failsafe_age` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-VACUUM-MULTIXACT-FAILSAFE-AGE).
 
 - **Wal keep size**{#setting-wal-keep-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -1587,7 +1587,7 @@
 
   Функциональность поддерживается в PostgreSQL начиная с версии 13.
 
-  Подробнее см. в описании настройки `wal_keep_size` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-WAL-KEEP-SIZE).
+  Подробнее в описании настройки `wal_keep_size` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-WAL-KEEP-SIZE).
 
 - **Work mem**{#setting-work-mem} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1595,7 +1595,7 @@
 
   Минимальное значение — `64`, максимальное значение — `2147483647` (2 ГБ), по умолчанию — `4194304` (4 МБ).
 
-  Подробнее см. в описании настройки `work_mem` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-WORK-MEM).
+  Подробнее в описании настройки `work_mem` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-WORK-MEM).
 
 - **Xmlbinary**{#setting-xmlbinary} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1606,7 +1606,7 @@
 
   Значение по умолчанию — `base64`.
 
-  Подробнее см. в описании настройки `xmlbinary` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-XMLBINARY).
+  Подробнее в описании настройки `xmlbinary` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-XMLBINARY).
 
 - **Xmloption**{#setting-xmloption} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1617,7 +1617,7 @@
 
   Значение по умолчанию — `content`.
 
-  Подробнее см. в описании настройки `xmloption` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-XMLOPTION).
+  Подробнее в описании настройки `xmloption` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-XMLOPTION).
 
 ## Настройки на уровне пользователя {#dbms-user-settings}
 
@@ -1705,7 +1705,7 @@
 
   Можно выбрать несколько значений. По умолчанию логи аудита для пользователя отключены.
 
-  Подробнее о настройке логов для аудита см. в разделе [Использование pgaudit](../operations/extensions/pgaudit.md).
+  Подробнее о настройке логов для аудита читайте в разделе [Использование pgaudit](../operations/extensions/pgaudit.md).
 
 - **Pooling mode**{#setting-pooling-mode} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code>
 

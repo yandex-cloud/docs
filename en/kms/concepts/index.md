@@ -9,7 +9,7 @@ description: '{{ kms-name }} is a service to create and manage encryption keys i
 
 Modern encryption algorithms are public. The knowledge of the ciphertext and encryption algorithm is not enough to decrypt data unless you have access to keys. Therefore, secure data storage means secure storage of encryption keys.
 
-There are various types of encrypted data: from passwords, OAuth tokens, and SSH keys to data arrays that are several GB in size. They may require different types of access (random or sequential) and different types of storage. The optimal encryption algorithms are selected depending on all these factors. With a large amount of data, it is equally important to control access to it in a consistent manner and to consider the specifics of each data type.
+There are various types of encrypted data: from passwords and SSH keys to data arrays that are several GB in size. They may require different types of access (random or sequential) and different types of storage. The optimal encryption algorithms are selected depending on all these factors. With a large amount of data, it is equally important to control access to it in a consistent manner and to consider the specifics of each data type.
 
 {{ kms-name }} meets the above objectives and provides secure and centralized storage for encryption keys.
 
@@ -25,9 +25,9 @@ To work with {{ kms-short-name }}, you can use:
 
 A [symmetric encryption key](key.md) is a {{ kms-short-name }} resource and a collection of versions of cryptographic material that can be used to encrypt or decrypt data. Control the lifecycle of crypto material by managing keys:
 * [Create a key](../operations/key.md#create).
-* [Rotate keys](../operations/key.md#rotate).
-* [Update keys](../operations/key.md#update).
-* [Destroy keys](../operations/key.md#delete).
+* [Rotate a key](../operations/key.md#rotate).
+* [Update a key](../operations/key.md#update).
+* [Delete a key](../operations/key.md#delete).
 
 ## Managing asymmetric encryption key pairs {#asymmetric-encryption-keys-control}
 
@@ -47,12 +47,12 @@ An [asymmetric digital signature key pair](asymmetric-signature-key.md) is a {{ 
 
 You can use {{ kms-short-name }} keys:
 * In {{ yandex-cloud }} services:
-  * [Managed Service for Kubernetes](../../managed-kubernetes/)
-  * [Certificate Manager](../../certificate-manager/)
+  * [Managed Service for Kubernetes](../../managed-kubernetes/).
+  * [Certificate Manager](../../certificate-manager/).
 * When working with [{{ TF }}](../tutorials/terraform-key.md).
 * In cryptographic libraries:
-  * [AWS Encryption SDK](../tutorials/encrypt/aws-encryption-sdk.md)
-  * [Google Tink](../tutorials/encrypt/google-tink.md)
+  * [AWS Encryption SDK](../tutorials/encrypt/aws-encryption-sdk.md).
+  * [Google Tink](../tutorials/encrypt/google-tink.md).
 
 ### Secure key storage {#keys-storage}
 

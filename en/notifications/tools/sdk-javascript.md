@@ -1,3 +1,8 @@
+---
+title: How to get started with the AWS SDK for JavaScript in {{ cns-full-name }}
+description: Follow this guide to learn how to use the AWS SDK for JavaScript in {{ cns-full-name }}.
+---
+
 # How to get started with the AWS SDK for JavaScript in {{ cns-full-name }}
 
 {% include [preview-stage](../../_includes/notifications/preview-stage.md) %}
@@ -176,9 +181,9 @@ Where:
 
 Where:
 
-* `message`: Message
-* `TargetArn`: Mobile endpoint ID (ARN)
-* `MessageStructure`: Message format
+* `message`: Message.
+* `TargetArn`: Mobile endpoint ARN.
+* `MessageStructure`: Message format.
 
 
 ### Silent notifications (Silent Push) {#silent-push}
@@ -230,9 +235,9 @@ Where:
 
 Where:
 
-* `message`: Message
-* `TargetArn`: Mobile endpoint ID (ARN)
-* `MessageStructure`: Message format
+* `message`: Message.
+* `TargetArn`: Mobile endpoint ARN.
+* `MessageStructure`: Message format.
 
 
 ### Text message {#sms-messages}

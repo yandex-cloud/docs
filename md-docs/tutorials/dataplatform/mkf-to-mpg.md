@@ -60,6 +60,7 @@
             * [группы безопасности](../../vpc/concepts/security-groups.md) для подключения к кластерам;
             * кластер-источник Managed Service for Apache Kafka®;
             * кластер-приемник Managed Service for PostgreSQL;
+            * эндпоинт для источника;
             * эндпоинт для приемника;
             * трансфер.
 
@@ -163,111 +164,107 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/kafka.md) типа `Apache Kafka®` и задайте для него:
+{% list tabs group=instructions %}
 
-    * **Полное имя топика** — `sensors`.
-    * Правила конвертации типа `json`. В поле **Схема данных** выберите `JSON-спецификация` и в открывшуюся форму скопируйте следующую спецификацию полей:
+- Вручную {#manual}
 
-    {% cut "sensors-specification" %}
+    1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/kafka.md) типа `Apache Kafka®` и задайте для него:
 
-    ```json
-    [
-        {
-            "name": "device_id",
-            "type": "utf8",
-            "key": true
-        },
-        {
-            "name": "datetime",
-            "type": "utf8"
-        },
-        {
-            "name": "latitude",
-            "type": "double"
-        },
-        {
-            "name": "longitude",
-            "type": "double"
-        },
-        {
-            "name": "altitude",
-            "type": "double"
-        },
-        {
-            "name": "speed",
-            "type": "double"
-        },
-        {
-            "name": "battery_voltage",
-            "type": "double"
-        },
-        {
-            "name": "cabin_temperature",
-            "type": "uint16"
-        },
-        {
-            "name": "fuel_level",
-            "type": "uint16"
-        }
-    ]
-    ```
+        * **Полное имя топика** — `sensors`.
+        * Правила конвертации типа `json`. В поле **Схема данных** выберите `JSON-спецификация` и в открывшуюся форму скопируйте следующую спецификацию полей:
 
-    {% endcut %}
+        {% cut "sensors-specification" %}
 
-1. Создайте эндпоинт-приемник и трансфер:
+        ```json
+        [
+            {
+                "name": "device_id",
+                "type": "utf8",
+                "key": true
+            },
+            {
+                "name": "datetime",
+                "type": "utf8"
+            },
+            {
+                "name": "latitude",
+                "type": "double"
+            },
+            {
+                "name": "longitude",
+                "type": "double"
+            },
+            {
+                "name": "altitude",
+                "type": "double"
+            },
+            {
+                "name": "speed",
+                "type": "double"
+            },
+            {
+                "name": "battery_voltage",
+                "type": "double"
+            },
+            {
+                "name": "cabin_temperature",
+                "type": "uint16"
+            },
+            {
+                "name": "fuel_level",
+                "type": "uint16"
+            }
+        ]
+        ```
 
-    {% list tabs group=instructions %}
+        {% endcut %}
 
-    - Вручную {#manual}
+    1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/postgresql.md) типа `PostgreSQL` и укажите в нем параметры подключения к кластеру:
 
-        1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/postgresql.md) типа `PostgreSQL` и укажите в нем параметры подключения к кластеру:
+        * **Тип инсталляции** — `Кластер Managed Service for PostgreSQL`.
+        * **Кластер Managed Service for PostgreSQL** — `<имя_кластера-приемника_PostgreSQL>` из выпадающего списка.
+        * **База данных** — `db1`.
+        * **Пользователь** — `pg-user`.
+        * **Пароль** — `<пароль_пользователя>`.
 
-            * **Тип инсталляции** — `Кластер Managed Service for PostgreSQL`.
-            * **Кластер Managed Service for PostgreSQL** — `<имя_кластера-приемника_PostgreSQL>` из выпадающего списка.
-            * **База данных** — `db1`.
-            * **Пользователь** — `pg-user`.
-            * **Пароль** — `<пароль_пользователя>`.
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_Репликация_**, использующий созданные эндпоинты.
-        1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **Реплицируется**.
+    1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_Репликация_**, использующий созданные эндпоинты.
+    1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **Реплицируется**.
 
-    - Terraform {#tf}
+- Terraform {#tf}
 
-        1. Укажите в файле `kafka-postgresql.tf` переменные:
+    1. Укажите в файле `kafka-postgresql.tf` значение `1` для переменной `transfer_enabled`, чтобы создать эндпоинты и трансфер.
 
-            * `kf_source_endpoint_id` — значение идентификатора эндпоинта для источника;
-            * `transfer_enabled` — значение `1` для создания эндпоинта-приемника и трансфера.
+    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
-        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+        ```bash
+        terraform validate
+        ```
 
-            ```bash
-            terraform validate
-            ```
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
-            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+    1. Создайте необходимую инфраструктуру:
 
-        1. Создайте необходимую инфраструктуру:
+        1. Выполните команду для просмотра планируемых изменений:
+        
+           ```bash
+           terraform plan
+           ```
+        
+           Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
+        
+        1. Если вас устраивают планируемые изменения, внесите их:
+           1. Выполните команду:
+        
+              ```bash
+              terraform apply
+              ```
+        
+           1. Подтвердите изменение ресурсов.
+           1. Дождитесь завершения операции.
 
-            1. Выполните команду для просмотра планируемых изменений:
-            
-               ```bash
-               terraform plan
-               ```
-            
-               Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
-            
-            1. Если вас устраивают планируемые изменения, внесите их:
-               1. Выполните команду:
-            
-                  ```bash
-                  terraform apply
-                  ```
-            
-               1. Подтвердите изменение ресурсов.
-               1. Дождитесь завершения операции.
+    1. Трансфер активируется автоматически. Дождитесь его перехода в статус **Реплицируется**.
 
-        1. Трансфер активируется автоматически. Дождитесь его перехода в статус **Реплицируется**.
-
-    {% endlist %}
+{% endlist %}
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
@@ -308,39 +305,36 @@
 
 Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
-1. [Удалите эндпоинт-источник](../../data-transfer/operations/endpoint/index.md#delete).
-1. Остальные ресурсы удалите в зависимости от способа их создания:
+{% list tabs group=instructions %}
 
-    {% list tabs group=instructions %}
+- Вручную {#manual}
 
-    - Вручную {#manual}
+    1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
+    1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete).
+    1. [Удалите кластер Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-delete.md).
+    1. [Удалите кластер Managed Service for PostgreSQL](../../managed-postgresql/operations/cluster-delete.md).
 
-        1. [Удалите эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
-        1. [Удалите кластер Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-delete.md).
-        1. [Удалите кластер Managed Service for PostgreSQL](../../managed-postgresql/operations/cluster-delete.md).
+- Terraform {#tf}
 
-    - Terraform {#tf}
+    1. В терминале перейдите в директорию с планом инфраструктуры.
+    
+        {% note warning %}
+    
+        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+    
+        {% endnote %}
+    
+    1. Удалите ресурсы:
+    
+        1. Выполните команду:
+    
+            ```bash
+            terraform destroy
+            ```
+    
+        1. Подтвердите удаление ресурсов и дождитесь завершения операции.
+    
+        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
-        1. В терминале перейдите в директорию с планом инфраструктуры.
-        
-            {% note warning %}
-        
-            Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
-        
-            {% endnote %}
-        
-        1. Удалите ресурсы:
-        
-            1. Выполните команду:
-        
-                ```bash
-                terraform destroy
-                ```
-        
-            1. Подтвердите удаление ресурсов и дождитесь завершения операции.
-        
-            Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
-
-    {% endlist %}
+{% endlist %}
 ```

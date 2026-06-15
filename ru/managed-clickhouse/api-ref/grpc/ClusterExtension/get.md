@@ -4,6 +4,8 @@ editable: false
 
 # Managed Service for ClickHouse API, gRPC: ClusterExtensionService.Get
 
+Returns the specified cluster extension.
+
 ## gRPC request
 
 **rpc Get ([GetClusterExtensionRequest](#yandex.cloud.mdb.clickhouse.v1.GetClusterExtensionRequest)) returns ([ClusterExtension](#yandex.cloud.mdb.clickhouse.v1.ClusterExtension))**
@@ -21,12 +23,12 @@ editable: false
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field.
+Required field. ID of the ClickHouse cluster.
 
 The maximum string length in characters is 50. ||
 || extension_name | **string**
 
-Required field.
+Required field. Name of the extension.
 
 The maximum string length in characters is 63. ||
 |#

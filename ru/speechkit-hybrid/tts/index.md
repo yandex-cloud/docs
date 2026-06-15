@@ -15,7 +15,7 @@ description: Из статьи вы узнаете, как начать рабо
 
 1. [Аутентифицируйтесь]({{ link-docs }}/container-registry/operations/authentication) в Container Registry.
 
-Рекомендуемую конфигурацию оборудования см. в разделе [{#T}](../system-requirements.md).
+Рекомендуемую конфигурацию оборудования читайте в разделе [{#T}](../system-requirements.md).
 
 ## Установка и настройка сервиса синтеза речи {#installing}
 

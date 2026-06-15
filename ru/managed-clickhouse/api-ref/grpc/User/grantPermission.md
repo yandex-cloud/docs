@@ -5,6 +5,7 @@ editable: false
 # Managed Service for ClickHouse API, gRPC: UserService.GrantPermission
 
 Grants a permission to the specified ClickHouse user.
+(-- api-linter: yc::1702::method-verb-prefix=disabled --)
 
 ## gRPC request
 
@@ -35,7 +36,7 @@ The maximum string length in characters is 50. ||
 Required field. Name of the user to grant the permission to.
 To get the name of the user, use a [UserService.List](/docs/managed-clickhouse/api-ref/grpc/User/list#List) request.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
+The maximum string length in characters is 63. ||
 || permission | **[Permission](#yandex.cloud.mdb.clickhouse.v1.Permission)**
 
 Required field. Permission that should be granted to the specified user. ||

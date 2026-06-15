@@ -1,3 +1,8 @@
+---
+title: How to get started with the AWS SDK for Kotlin in {{ cns-full-name }}
+description: Follow this guide to learn how to use the AWS SDK for Kotlin in {{ cns-full-name }}.
+---
+
 # How to get started with the AWS SDK for Kotlin in {{ cns-full-name }}
 
 {% include [preview-stage](../../_includes/notifications/preview-stage.md) %}
@@ -65,7 +70,7 @@ To work with RuStore Android notifications, see [this RuStore SDK article](https
 
    You can replace `1.4.0` with the [latest version of the SDK for Kotlin](https://github.com/awslabs/aws-sdk-kotlin/releases).
 
-1. Copy the following code to the `gradle/libs.versions.toml` file:
+1. Paste the following code to the `gradle/libs.versions.toml` file:
 
     ```text
     [versions]
@@ -78,7 +83,7 @@ To work with RuStore Android notifications, see [this RuStore SDK article](https
     kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version = "2.1.0" }
     ```
 
-1. Copy the following code to the `app/build.gradle.kts` file:
+1. Paste the following code to the `app/build.gradle.kts` file:
 
     ```text
     plugins {
@@ -277,9 +282,9 @@ To work with RuStore Android notifications, see [this RuStore SDK article](https
 
     Where:
 
-    * `targetArn`: Mobile endpoint ID (ARN)
-    * `message`: Message
-    * `messageStructure`: Message format
+    * `targetArn`: Mobile endpoint ARN.
+    * `message`: Message.
+    * `messageStructure`: Message format.
 
 
 ### Silent notifications (Silent Push) {#silent-push}
@@ -324,9 +329,9 @@ To work with RuStore Android notifications, see [this RuStore SDK article](https
 
     Where:
 
-    * `targetArn`: Mobile endpoint ID (ARN)
-    * `message`: Message
-    * `messageStructure`: Message format
+    * `targetArn`: Mobile endpoint ARN.
+    * `message`: Message.
+    * `messageStructure`: Message format.
 
 
 ### Text message {#sms-messages}

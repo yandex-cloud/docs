@@ -428,6 +428,18 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [Overview](api-ref/grpc/index.md)
 
+#### BackupRetentionPolicy
+
+ - [Overview](api-ref/grpc/BackupRetentionPolicy/index.md)
+
+ - [List](api-ref/grpc/BackupRetentionPolicy/list.md)
+
+ - [ListByFolder](api-ref/grpc/BackupRetentionPolicy/listByFolder.md)
+
+ - [Create](api-ref/grpc/BackupRetentionPolicy/create.md)
+
+ - [Delete](api-ref/grpc/BackupRetentionPolicy/delete.md)
+
 #### Backup
 
  - [Overview](api-ref/grpc/Backup/index.md)
@@ -536,9 +548,27 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [RevokePermission](api-ref/grpc/User/revokePermission.md)
 
+#### Versions
+
+ - [Overview](api-ref/grpc/Versions/index.md)
+
+ - [List](api-ref/grpc/Versions/list.md)
+
 ### REST (англ.)
 
  - [Overview](api-ref/index.md)
+
+#### BackupRetentionPolicy
+
+ - [Overview](api-ref/BackupRetentionPolicy/index.md)
+
+ - [List](api-ref/BackupRetentionPolicy/list.md)
+
+ - [ListByFolder](api-ref/BackupRetentionPolicy/listByFolder.md)
+
+ - [Create](api-ref/BackupRetentionPolicy/create.md)
+
+ - [Delete](api-ref/BackupRetentionPolicy/delete.md)
 
 #### Backup
 
@@ -647,6 +677,12 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
  - [GrantPermission](api-ref/User/grantPermission.md)
 
  - [RevokePermission](api-ref/User/revokePermission.md)
+
+#### Versions
+
+ - [Overview](api-ref/Versions/index.md)
+
+ - [List](api-ref/Versions/list.md)
 
  - [Метрики Monitoring](metrics.md)
 

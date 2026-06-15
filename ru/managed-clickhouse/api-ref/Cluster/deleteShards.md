@@ -36,6 +36,7 @@ apiPlayground:
 # Managed Service for ClickHouse API, REST: Cluster.DeleteShards
 
 Deletes the specified shards (one or more).
+(-- api-linter: yc::1705::http-method-mapping=disabled --)
 
 ## HTTP request
 

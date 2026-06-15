@@ -5,6 +5,8 @@ description: Follow this guide to create a broker.
 
 # Creating a broker
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 {% include [note-pp](../../../_includes/iot-core/note-pp.md) %}
 
 {% list tabs group=instructions %}
@@ -33,14 +35,14 @@ description: Follow this guide to create a broker.
 
       * To add a file:
 
-          1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
+          1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
           1. Click **Attach file**.
           1. Select the file with the public key of the certificate and click **Open**.
           1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
       * To add text:
 
-          1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
+          1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
           1. Paste the certificate's public key to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
           1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
@@ -130,7 +132,7 @@ description: Follow this guide to create a broker.
 
   To create a broker:
      
-  1. In the configuration file, describe the parameters of the resource to create:
+  1. In the configuration file, describe the resource you want to create:
 
      * `yandex_iot_core_broker`: Broker parameters:
        * `name`: Broker name.
@@ -162,18 +164,18 @@ description: Follow this guide to create a broker.
       For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
 
   1. Make sure the configuration files are correct.
-      1. In the command line, navigate to the directory where you created the configuration file.
+      1. In the terminal, navigate to the directory where you created your configuration file.
       1. Run a check using this command:
 
           ```
           terraform plan
           ```
 
-      If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
+      If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
   1. Deploy the cloud resources.
 
-      1. If the configuration does not contain any errors, run this command:
+      1. If the configuration is correct, run this command:
 
           ```
           terraform apply

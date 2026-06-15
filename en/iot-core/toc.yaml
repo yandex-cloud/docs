@@ -1,6 +1,8 @@
 title: Yandex IoT Core
 href: index.yaml
 items:
+  - name: Service closure
+    href: sunset.md
   - name: Getting started
     items:
       - name: Overview
@@ -135,7 +137,7 @@ items:
         href: tutorials/data-recording.md
       - name: Monitoring the status of geographically distributed devices
         href: tutorials/datalens.md
-      - name: Sensor reading monitoring and event notifications
+      - name: Monitoring sensor readings and event notifications
         href: tutorials/monitoring.md
       - name: Testing message delivery
         href: tutorials/message-delivery-check.md

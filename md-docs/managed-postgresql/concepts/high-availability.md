@@ -18,7 +18,7 @@
 
 Кластер с тремя и более хостами, расположенными в трех разных зонах доступности, считается высокодоступным и на него распространяется [SLA](https://yandex.ru/legal/cloud_sla_mdb/ru/#klastera-servisa-upravlyaemogo-mysql-\/-yandex-managed-service-for-mysql,-popadayushie-pod-dejstvie-urovnya-obsluzhivaniya). Подходит для production-окружений, в которых предъявляются повышенные требования к доступности и производительности.
 
-Подробнее см. в разделе [Планирование топологии кластера](planning-cluster-topology.md).
+Подробнее в разделе [Планирование топологии кластера](planning-cluster-topology.md).
 
 ## Настройки репликации {#replication-settings}
 

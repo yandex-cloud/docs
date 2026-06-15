@@ -473,6 +473,12 @@ items:
                 href: api-ref/grpc/User/update.md
               - name: Delete
                 href: api-ref/grpc/User/delete.md
+          - name: Versions
+            items:
+              - name: Overview
+                href: api-ref/grpc/Versions/index.md
+              - name: List
+                href: api-ref/grpc/Versions/list.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -591,6 +597,12 @@ items:
                 href: api-ref/User/update.md
               - name: Delete
                 href: api-ref/User/delete.md
+          - name: Versions
+            items:
+              - name: Overview
+                href: api-ref/Versions/index.md
+              - name: List
+                href: api-ref/Versions/list.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}

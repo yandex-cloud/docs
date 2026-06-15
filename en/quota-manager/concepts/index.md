@@ -1,4 +1,10 @@
-# {{ quota-manager-name }} concepts
+---
+title: '{{ quota-manager-name }} concepts'
+description: In this article, you will learn about {{ quota-manager-name }} concepts.
+---
+
+
+# Concepts {{ quota-manager-name }}
 
 {% include [preview-quota](../../_includes/quota-manager/preview-quota.md) %}
 

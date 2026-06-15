@@ -20,7 +20,7 @@ Managed Service for ClickHouse® поддерживает работу с Yandex
 
 {% endnote %}
 
-См. также [Примеры работы с объектами](#examples).
+Примеры: [работа с объектами](#examples).
 
 
 Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше. Она нужна в следующих случаях:

@@ -23,7 +23,7 @@
 
 Для корректной интеграции с {{ ml-platform-name }} через коннектор Spark развернутый кластер {{ dataproc-name }} должен иметь [версию образа](../../data-proc/concepts/environment.md) не ниже `2.0` с включенными сервисами `LIVY`, `SPARK` и `YARN`.
 
-Подробнее о работе с коннекторами Spark см. в [инструкции](../operations/data/spark-connectors.md).
+Подробнее о работе с коннекторами Spark читайте в [инструкции](../operations/data/spark-connectors.md).
 
 ### Запуск Python-кода в кластере {#run-code-with-spark-connector}
 
@@ -126,7 +126,7 @@ df = spark.sql("SELECT * FROM animals;")
 df
 ```
 
-Подробнее о синтаксисе SQL-запросов и работе с библиотекой Spark SQL см. в [официальной документации](https://spark.apache.org/docs/latest/sql-ref-syntax-qry-select.html).
+Подробнее о синтаксисе SQL-запросов и работе с библиотекой Spark SQL читайте в [официальной документации](https://spark.apache.org/docs/latest/sql-ref-syntax-qry-select.html).
 
 ## См. также {#see-also}
 

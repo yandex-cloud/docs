@@ -1,5 +1,7 @@
 # Managed Service for OpenSearch API, gRPC: ClusterService.AddDashboardsNodeGroup
 
+(-- api-linter: yc::1705::custom-method-colon=disabled
+Required for backward compatibility with old clients. --)
 Creates a Dashboards type host group.
 
 ## gRPC request

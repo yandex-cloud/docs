@@ -10,7 +10,7 @@
 
 1. [Аутентифицируйтесь](../../container-registry/operations/authentication.md) в Container Registry.
 
-Рекомендуемую конфигурацию оборудования см. в разделе [Системные требования](../system-requirements.md).
+Рекомендуемую конфигурацию оборудования читайте в разделе [Системные требования](../system-requirements.md).
 
 ## Установка и настройка сервиса синтеза речи {#installing}
 

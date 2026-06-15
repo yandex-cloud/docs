@@ -5,6 +5,8 @@ description: Follow this guide to send messages to {{ iot-full-name }} resources
 
 # Sending messages
 
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
 The service provides two resource management models:
 * When using a broker, you can send and receive messages in random topics that do not start with `$`.
 * When registries and devices are used, the selection of topics is limited.

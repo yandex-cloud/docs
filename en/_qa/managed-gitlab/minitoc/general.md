@@ -23,3 +23,5 @@
 * [Can I change instance type or disk size after the instance has been created?](#change-type-size)
 
 * [What should I do if I cannot connect to the system hook on `localhost`?](#system-hooks-localhost)
+
+* [What should I do to fix the `EOF fatal` error on a worker?](#eof-fatal-error)

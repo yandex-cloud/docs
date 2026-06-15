@@ -7,7 +7,7 @@ description: This article describes how to work with a VM created from a public 
 
 ## Connecting to a VM {#ways-to-connect}
 
-You can connect to a [virtual machine](../../concepts/vm.md) via SSH using an SSH key pair, [via {{ oslogin }}](../vm-connect/os-login.md), or via the [serial console](../serial-console/index.md).
+You can connect to a [virtual machine](../../concepts/vm.md) via SSH using an SSH key pair, [via {{ oslogin }}](../vm-connect/os-login.md), or via the [serial console](../../concepts/serial-console.md).
 
 ### Connecting over SSH {#connect}
 

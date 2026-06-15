@@ -421,7 +421,7 @@ When invoking a function using the {{ api-gw-name }} extension, the function rec
 * [{#T}](../tutorials/java-servlet-todo-list.md)
 * [{#T}](../tutorials/serverless-url-shortener/index.md)
 * [{#T}](../tutorials/slack-bot-serverless.md)
-* [{#T}](../tutorials/telegram-bot-serverless.md)
+* [{#T}](../tutorials/telegram-bot-serverless/index.md)
 * [{#T}](../tutorials/websocket-app.md)
 
 ## Invoking functions using {{ monitoring-short-name }} events {#monitoring}

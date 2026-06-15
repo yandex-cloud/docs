@@ -49,6 +49,8 @@
 
 ## {{ iot-full-name }} {#iot}
 
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
   * Innovation in international insurance: Effective trends for the Russian market, 2025. Read our [article](https://yandex.cloud/ru/blog/innovations-in-insurance).
   * How technology is driving change in the construction sector, 2025. Read our [article](https://yandex.cloud/ru/blog/posts/2025/04/technologies-in-construction).
   * Internet of Things: How digital technologies are transforming business and everyday life, 2025. Read our [article](https://yandex.cloud/ru/blog/posts/2025/04/iot-guide).

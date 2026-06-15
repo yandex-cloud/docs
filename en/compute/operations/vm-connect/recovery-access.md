@@ -52,14 +52,14 @@ If you lost your private SSH key for Linux or your Windows user password:
       }
       ```
 
-      For more information about the `yandex_compute_disk` resource, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_instance).
+      For more information about the `yandex_compute_disk` resource, see [this provider guide]({{ tf-provider-resources-link }}/compute_instance).
 
     {% endlist %}
 
-1. Connect to the VM via [SSH](./ssh.md) or [RDP](./rdp.md) using the new credentials.
+1. Connect to the VM over [SSH](./ssh.md) or [RDP](./rdp.md) using the new credentials.
 1. Once you know that the new VM is up and running, [delete](../vm-control/vm-delete.md) the old VM and the disk [snapshot](../snapshot-control/delete.md).
 
-    If you do not delete them, they will remain billable, and {{ yandex-cloud }} will continue to charge for them.
+    Otherwise, they will remain billable, and {{ yandex-cloud }} will continue to charge you for them.
 
 If the 'cloud-init' or [network](../../../vpc/concepts/network.md#network) configuration was changed for the VM, the described method may not work. In this case, see [VM failure to start](#os-recovery).
 
@@ -105,14 +105,14 @@ If you cannot access the serial console, follow these steps to recover the publi
 
    {% endnote %}
 
-1. [Connect](../vm-connect/ssh.md) to the new VM via SSH.
+1. [Connect](../vm-connect/ssh.md) to the new VM over SSH.
 1. [Delete the disk snapshot](../snapshot-control/delete.md) and [delete](../vm-control/vm-delete.md) the auxiliary and old VMs.
 
-    If you do not delete them, they will remain billable, and {{ yandex-cloud }} will continue to charge for them.
+    Otherwise, they will remain billable, and {{ yandex-cloud }} will continue to charge you for them.
 
 ## SSH connection failure {#serial-console}
 
-The problem may occur due to an error in the SSH, [security group](../../../vpc/concepts/security-groups.md), or network settings. To recover access, connect to the VM using the [serial console](../serial-console/index.md) and adjust the settings as appropriate.
+The problem may occur due to an error in the SSH, [security group](../../../vpc/concepts/security-groups.md), or network settings. To recover access, connect to the VM using the [serial console](../../concepts/serial-console.md) and adjust the settings as appropriate.
 
 {% list tabs group=operating_system %}
 
@@ -124,10 +124,10 @@ The problem may occur due to an error in the SSH, [security group](../../../vpc/
 
   {% endnote %}
 
-  1. [Enable access](../serial-console/index.md#turn-on-for-current-instance) to the VM serial console.
-  1. [Connect](../serial-console/connect-cli.md#connect-to-serial-console) to the VM serial console.
+  1. [Enable access](../serial-console/index.md#enable) to the VM serial console.
+  1. [Connect](../serial-console/connect-ssh.md) to the VM serial console.
   1. Change the SSH or network settings. If you have security groups configured, make sure their rules allow incoming TCP traffic on port 22.
-  1. Connect to the VM via SSH.
+  1. Connect to the VM over SSH.
 
 {% endlist %}
 
@@ -144,4 +144,4 @@ If a VM fails to start, follow these steps to get access to the disk data:
 1. Modify the configuration files affecting the VM startup or copy essential data.
 1. [Detach the disk](../vm-control/vm-detach-disk.md) from the auxiliary VM.
 1. If you troubleshot the issue preventing your VM from starting, create a new VM. When creating a VM, go to the **{{ ui-key.yacloud.compute.instances.create.section_image }}** tab under **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** and select the fixed disk as the boot disk.
-1. After restoring access to the VM, do not forget to delete unused resources: [VMs](../vm-control/vm-delete.md), [disks](../disk-control/delete.md), and [disk snapshots](../snapshot-control/delete.md). If you do not delete them, they will remain billable, and {{ yandex-cloud }} will continue to charge for them.
+1. After restoring access to the VM, do not forget to delete unused resources: [VMs](../vm-control/vm-delete.md), [disks](../disk-control/delete.md), and [disk snapshots](../snapshot-control/delete.md). Otherwise, they will remain billable, and {{ yandex-cloud }} will continue to charge you for them.

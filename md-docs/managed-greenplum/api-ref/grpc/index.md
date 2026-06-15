@@ -16,4 +16,5 @@ Actions are performed by making RPC calls. For more information about API archit
 || [ResourceGroup](ResourceGroup/index.md) |  ||
 || [ResourcePreset](ResourcePreset/index.md) | A set of methods for managing resource presets. ||
 || [User](User/index.md) |  ||
+|| [Versions](Versions/index.md) |  ||
 |#

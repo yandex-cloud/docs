@@ -94,13 +94,7 @@ To create a new [security group](../concepts/security-groups.md):
 
      Here is an example of the configuration file structure:
 
-     ```
-     provider "yandex" {
-       token     = "<OAuth_or_static_key_of_service_account>"
-       folder_id = "<folder_ID>"
-       zone      = "{{ region-id }}-a"
-     }
-
+     ```hcl
      resource "yandex_vpc_security_group" "test-sg" {
        name        = "Test security group"
        description = "Description for security group"

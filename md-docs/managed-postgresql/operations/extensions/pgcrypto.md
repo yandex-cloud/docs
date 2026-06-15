@@ -12,7 +12,7 @@
 
 {% endnote %}
 
-Подробнее о расширении `pgcrypto` см. в [официальной документации](https://www.postgresql.org/docs/current/static/pgcrypto.html).
+Подробнее о расширении `pgcrypto` в [официальной документации](https://www.postgresql.org/docs/current/static/pgcrypto.html).
 
 ## Примеры использования
 

@@ -26,7 +26,7 @@ A set of methods for managing ClickHouse clusters.
 || [AddHosts](addHosts.md) | Creates new hosts for a cluster. ||
 || [UpdateHosts](updateHosts.md) | Updates the specified hosts. ||
 || [DeleteHosts](deleteHosts.md) | Deletes the specified hosts for a cluster. ||
-|| [RestartHosts](restartHosts.md) |  ||
+|| [RestartHosts](restartHosts.md) | Restarts the specified hosts. ||
 || [GetShard](getShard.md) | Returns the specified shard. ||
 || [ListShards](listShards.md) | Retrieves a list of shards that belong to the specified cluster. ||
 || [AddShard](addShard.md) | Creates a new shard in the specified cluster. ||

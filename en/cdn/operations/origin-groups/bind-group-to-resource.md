@@ -143,25 +143,18 @@ To add an [origin group](../../concepts/origins.md#groups) to a [resource](../..
 
      Here is an example of the configuration file structure:
 
-     ```
-     provider "yandex" {
-       token     = "<OAuth_token>"
-       cloud_id  = "<cloud_ID>"
-       folder_id = "<folder_ID>"
-       zone      = "<default_availability_zone>"
-     }
-
+     ```hcl
      resource "yandex_cdn_resource" "my_resource" {
-       cname = "<resource_domain_name>"
-       active = true
+       cname           = "<resource_domain_name>"
+       active          = true
        origin_protocol = "https"
-	    origin_group_id = <origin_group_ID>
+       origin_group_id = <origin_group_ID>
      }
      ```
 
      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cdn_origin_group).
 
-  1. Check if the settings are correct.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 

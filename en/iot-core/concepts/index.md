@@ -5,6 +5,8 @@ description: The main {{ iot-full-name }} elements are device, registry, and bro
 
 # Resource relationships in {{ iot-name }}
 
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
 The service provides two resource management models: brokers and device registries. The main service elements are [devices](index.md#device), [registries](index.md#registry), and [brokers](index.md#broker). They can exchange various data and commands using the [MQTT server](index.md#mqtt-server).
 
 Registries and devices are related to each other in a way that devices can exchange data with the registry in which they are created. The broker is not related to registries or devices and implements a separate messaging management model.

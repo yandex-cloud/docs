@@ -82,7 +82,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
          * `user_hash`: Any string to identify the function version. When you change the function, update this string as well. Updating this string triggers a function update.
          * `runtime`: Function [runtime](../../concepts/runtime/index.md).
          * `entrypoint`: Entry point in `<file_name_without_extension>.<handler_name>` format.
-         * `memory`: Amount of memory allocated to the function, in MB.
+         * `memory`: Amount of memory allocated for the function, in MB.
          * `execution_timeout`: Maximum function execution time before timeout.
          * `service_account_id`: ID of the service account you want to use to invoke the function.
          * `content`: Function source code.
@@ -96,33 +96,27 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
         Here is an example of the configuration file structure:
 
-        ```
-        provider "yandex" {
-            token     = "<service_account_OAuth_token_or_static_key>"
-            folder_id = "<folder_ID>"
-            zone      = "{{ region-id }}-a"
-        }
-
+        ```hcl
         resource "yandex_function" "test-function" {
-            name               = "<function_name>"
-            user_hash          = "<hash>"
-            runtime            = "<runtime>"
-            entrypoint         = "<entry_point>"
-            memory             = "128"
-            execution_timeout  = "10"
-            service_account_id = "<service_account_ID>"
-            content {
-                zip_filename = "<path_to_ZIP_archive>"
-            }
+          name               = "<function_name>"
+          user_hash          = "<hash>"
+          runtime            = "<runtime>"
+          entrypoint         = "<entry_point>"
+          memory             = "128"
+          execution_timeout  = "10"
+          service_account_id = "<service_account_ID>"
+          content {
+            zip_filename = "<path_to_ZIP_archive>"
+          }
         }
 
         resource "yandex_function_scaling_policy" "my_scaling_policy" {
-            function_id = "<function_ID>"
-            policy {
-                tag = "$latest"
-                zone_instances_limit = 2
-                zone_requests_limit  = 1
-            }
+          function_id = "<function_ID>"
+          policy {
+            tag = "$latest"
+            zone_instances_limit = 2
+            zone_requests_limit  = 1
+          }
         }
         ```
 
@@ -130,13 +124,13 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
     1. Validate your configuration using this command:
         
-       ```
+       ```bash
        terraform validate
        ```
 
        If the configuration is valid, you will get this message:
         
-       ```
+       ```text
        Success! The configuration is valid.
        ```
 
@@ -150,14 +144,14 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
     1. Apply the configuration changes:
 
-       ```
+       ```bash
        terraform apply
        ```
     1. Type `yes` and press **Enter** to confirm the changes.
 
     You can check that the scaling settings are added using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
     
-    ```
+    ```bash
     yc serverless function list-scaling-policies <function_name_or_ID>
     ```
 

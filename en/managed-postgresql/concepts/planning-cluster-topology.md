@@ -37,7 +37,7 @@ Advantages:
 
 Disadvantages:
 
-* Single-host clusters are not covered by the [Service level agreement (SLA)](https://yandex.ru/legal/cloud_sla_mdb/).
+* Single-host clusters are not covered by the [Service level agreement (SLA)](https://yandex.com/legal/cloud_sla_mdb/en/).
 * A single-host cluster is not fault tolerant. If the master host VM fails, your cluster will be unavailable for reading and writing until the VM recovers completely.
 * In the event of a major incident on the master host, your data will be restored from [backups](backup.md). This means you may lose data written between the last backup and master host failure.
 
@@ -48,7 +48,7 @@ Disadvantages:
 
 ### Two-host cluster {#two-hosts-cluster}
 
-A two-host cluster meets the high availability criteria and is subject to the [SLA](https://yandex.ru/legal/cloud_sla_mdb/). This option is suitable for medium-sized applications in a production environment.
+A two-host cluster meets the high availability criteria and is subject to the [SLA](https://yandex.com/legal/cloud_sla_mdb/en/). This option is suitable for medium-sized applications in a production environment.
 
 Compared to a single-host cluster, a cluster with two hosts offers the following advantages:
 
@@ -64,7 +64,7 @@ Compared to a single-host cluster, a cluster with two hosts offers the following
 
 ### Cluster with three or more hosts {#three-or-more-hosts-cluster} 
 
-A cluster with three or more hosts meets the high availability criteria and is subject to the [SLA](https://yandex.ru/legal/cloud_sla_mdb/). This option is the best choice for production environments with high requirements to availability and performance.
+A cluster with three or more hosts meets the high availability criteria and is subject to the [SLA](https://yandex.com/legal/cloud_sla_mdb/en/). This option is the best choice for production environments with high requirements to availability and performance.
 
 Compared to two-host clusters, a cluster with three or more hosts offers the following advantages:
 

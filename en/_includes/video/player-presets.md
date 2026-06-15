@@ -2,6 +2,7 @@ _Player presets_ allow you to configure video player appearance and features for
 
 * Configure widgets: a playlist, description, and summary. Enable the widgets you need and set their position in the player interface.
 * Set player and widget styles: configure a color scheme, element sizes, and other visual settings.
+* Add a video logo, i.e., an image to display over the video. You can make your logo clickable by linking a URL to it.
 
 ### Default presets {#default-presets}
 

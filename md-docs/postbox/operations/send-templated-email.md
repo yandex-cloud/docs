@@ -34,9 +34,9 @@
                }
             ],
             "TemplateContent": {
-               "Subject": "Greetings, not_var{{name}}!",
-               "Text": "Dear not_var{{name}},\r\nYour favorite animal is not_var{{favoriteanimal}}.",
-               "Html": "<h1>Hello not_var{{name}},</h1><p>Your favorite animal is not_var{{favoriteanimal}}.</p>"
+               "Subject": "Greetings, {{name}}!",
+               "Text": "Dear {{name}},\r\nYour favorite animal is {{favoriteanimal}}.",
+               "Html": "<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>"
             },
             "TemplateData": "{ \"name\":\"Bob\", \"favoriteanimal\": \"bobcat\" }"
          }

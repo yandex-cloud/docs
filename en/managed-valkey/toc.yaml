@@ -93,13 +93,15 @@ items:
             items:
               - name: Before June 20, 2023
                 href: concepts/instance-types-archive/instance-types-20062023.md
+      - name: High availability clusters
+        href: concepts/high-availability.md
       - name: Networking in {{ mrd-name }}
         href: concepts/network.md
       - name: Sharding
         href: concepts/sharding.md
       - name: Backups
         href: concepts/backup.md
-      - name: Replication and fault tolerance
+      - name: Replication and persistence
         href: concepts/replication.md
       - name: Supported clients
         href: concepts/supported-clients.md
@@ -471,6 +473,12 @@ items:
                 href: api-ref/grpc/User/update.md
               - name: Delete
                 href: api-ref/grpc/User/delete.md
+          - name: Versions
+            items:
+              - name: Overview
+                href: api-ref/grpc/Versions/index.md
+              - name: List
+                href: api-ref/grpc/Versions/list.md
       - name: REST
         items:
           - name: Overview
@@ -589,6 +597,12 @@ items:
                 href: api-ref/User/update.md
               - name: Delete
                 href: api-ref/User/delete.md
+          - name: Versions
+            items:
+              - name: Overview
+                href: api-ref/Versions/index.md
+              - name: List
+                href: api-ref/Versions/list.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'

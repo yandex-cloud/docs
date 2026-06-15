@@ -59,7 +59,7 @@
      ```sql
      SELECT Category, Month, ROUND(SUM(Sales))
      FROM samples.SampleLite
-     WHERE Category in not_var{{category}} -- переменная, используемая в селекторе
+     WHERE Category in {{category}} -- переменная, используемая в селекторе
      GROUP BY Category, Month -- группировка по категории и месяцу
      ORDER BY Category, Month -- сортировка по категории и месяцу
      ```
@@ -146,7 +146,7 @@
 
 ## Добавление параметров селектора {#selector-parameters}
 
-Для [QL-чартов](../../concepts/chart/index.md#sql-charts) в области редактирования чарта на вкладке **Параметры** можно управлять параметрами селектора, а на вкладке **Запрос** указывать переменную в самом запросе в формате `not_var{{variable}}`.
+Для [QL-чартов](../../concepts/chart/index.md#sql-charts) в области редактирования чарта на вкладке **Параметры** можно управлять параметрами селектора, а на вкладке **Запрос** указывать переменную в самом запросе в формате `{{variable}}`.
 
 Чтобы добавить параметр:
 
@@ -179,7 +179,7 @@
 ```sql
 SELECT toDate(Date) as datedate, count ('Oreder ID')
 FROM samples.SampleLite
-WHERE not_var{{interval_from}} < datedate AND datedate < not_var{{interval_to}}
+WHERE {{interval_from}} < datedate AND datedate < {{interval_to}}
 GROUP BY datedate
 ORDER BY datedate
 ```
@@ -200,7 +200,7 @@ ORDER BY datedate
 ```sql
 SELECT sum (Sales) as Sales, Category
 FROM samples.SampleLite
-WHERE Category in not_var{{category}} 
+WHERE Category in {{category}} 
 GROUP BY Category
 ORDER BY Category
 ```
@@ -214,7 +214,7 @@ ORDER BY Category
 ```sql
 SELECT sum (Sales) as Sales, Category
 FROM samples.SampleLite
-WHERE Category = not_var{{category}} 
+WHERE Category = {{category}} 
 GROUP BY Category
 ORDER BY Category
 ```
@@ -230,8 +230,8 @@ ORDER BY Category
 ```sql
 AND
 CASE
-    WHEN LENGTH(not_var{{param}}::VARCHAR)=0 THEN TRUE
-    ELSE column IN not_var{{param}}
+    WHEN LENGTH({{param}}::VARCHAR)=0 THEN TRUE
+    ELSE column IN {{param}}
 END
 ```
 

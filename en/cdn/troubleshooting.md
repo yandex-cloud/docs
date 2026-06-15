@@ -5,7 +5,7 @@ Below is the list of common issues with {{ cdn-name }} and ways to fix them.
 * [CDN responds to file requests with 3xx codes (redirect)](#responses-3xx)
 * [CDN responds to file requests with 4xx codes (client error)](#responses-4xx)
 * [CDN responds to file requests with 5xx codes (server error)](#responses-5xx)
-* [POST requests are not available to users](#post-responses)
+* [Requests with the POST, PUT, PATCH, and DELETE methods are not available to users](#post-responses)
 * [Updated settings failed to apply to the resource](#changes-not-applied)
 * [CDN resource has the `Not active` status, preventing content delivery to users](#resource-not-active)
 * [Unable to configure the TLS certificate](#tls-certificate)
@@ -45,9 +45,10 @@ Make sure that:
   * With the specified value of the `Host` HTTP header and other headers. 
   
 Also, check the {{ cdn-name }} status [here](https://status.yandex.cloud/en/dashboard?service=cloud%20cdn).
-## POST requests are not available to users {#post-responses}
 
-By default, the `POST` method is not available in client requests. To enable the method, contact [support]({{ link-console-support }}). When contacting, describe your use case.
+## Requests with the POST, PUT, PATCH, and DELETE methods are not available to users {#post-responses}
+
+By default, the `POST`, `PUT`, `PATCH`, and `DELETE` methods are not available in client requests. To enable these methods, contact [support]({{ link-console-support }}). When contacting, describe your use case.
 
 ## Updated settings failed to apply to the resource {#changes-not-applied}
 

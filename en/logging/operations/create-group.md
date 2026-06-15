@@ -79,22 +79,15 @@ description: In this guide, you will learn how to create a log group in {{ cloud
 
           {% include [name-format](../../_includes/name-format.md) %}
 
-     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional setting. It defaults to the value defined by the provider.
+     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional setting. It defaults to the value specified in the provider settings.
 
      * `retention_period`: Retention period for log group records. This is an optional setting.
 
          {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
-     Here is the configuration file example:
+     Here is an example of the configuration file structure:
 
      ```hcl
-     provider "yandex" {
-       token     = "<OAuth_token>"
-       cloud_id  = "<cloud_ID>"
-       folder_id = "<folder_ID>"
-       zone      = "{{ region-id }}-a"
-     }
-
      resource "yandex_logging_group" "group1" {
        name             = "<log_group_name>"
        folder_id        = "<folder_ID>"
@@ -102,28 +95,28 @@ description: In this guide, you will learn how to create a log group in {{ cloud
      }
      ```
 
-     For more information about the `yandex_logging_group` settings, see this [{{ TF }} guide]({{ tf-provider-resources-link }}/logging_group).
+     For more information about `yandex_logging_group` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/logging_group).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
   1. Deploy the cloud resources.
 
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
      This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 

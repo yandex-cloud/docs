@@ -19,7 +19,7 @@
 
    * [Настройки подключения](#connection). Когда вы подключаетесь к базе данных с помощью утилиты [clickhouse-client](connect/clients.md#clickhouse-client), в команде для подключения можно передать настройки ClickHouse® с помощью флагов. Так можно задать настройки в кластере с любой конфигурацией, но они будут действовать только для установленного подключения.
 
-      Вы можете также указать настройки подключения в различных драйверах для ClickHouse® либо передать настройки в виде URL-параметров при отправке запросов HTTP API ClickHouse®. Подробнее об этих способах см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/interfaces/overview).
+      Вы можете также указать настройки подключения в различных драйверах для ClickHouse® либо передать настройки в виде URL-параметров при отправке запросов HTTP API ClickHouse®. Подробнее об этих способах в [документации ClickHouse®](https://clickhouse.com/docs/ru/interfaces/overview).
 
 ## Получить список настроек ClickHouse® на уровне запроса {#get-list}
 
@@ -88,7 +88,7 @@
 
    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Как создать такой файл, описано в разделе [Создание кластера](cluster-create.md).
 
    1. В описании пользователя кластера Managed Service for ClickHouse®, в блоке `settings`, измените значения параметров:
 
@@ -134,7 +134,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-   Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_user.md).
+   Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_user.md).
 
 
 - REST API {#api}
@@ -282,7 +282,7 @@
          SETTINGS idle_connection_timeout = 60 MIN 5 MAX 120;
       ```
 
-      Подробнее о создании пользователей см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/user).
+      Подробнее о создании пользователей в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/user).
 
 {% endlist %}
 
@@ -299,7 +299,7 @@
       ALTER USER <имя_пользователя> SETTINGS <список_настроек_ClickHouse®>;
       ```
 
-      Подробнее об изменении учетных записей см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/alter/user).
+      Подробнее об изменении учетных записей в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/alter/user).
 
 {% endlist %}
 
@@ -336,7 +336,7 @@
          TO <имя_пользователя>;
       ```
 
-      Подробнее о создании профилей настроек см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/settings-profile).
+      Подробнее о создании профилей настроек в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/settings-profile).
 
 {% endlist %}
 
@@ -354,7 +354,7 @@
          SETTINGS <список_настроек_ClickHouse®>;
       ```
 
-      В этом запросе можно задать граничные значения настроек и привязать профиль к пользователю. Подробнее об изменении профилей настроек см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/alter/settings-profile).
+      В этом запросе можно задать граничные значения настроек и привязать профиль к пользователю. Подробнее об изменении профилей настроек в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/alter/settings-profile).
 
 {% endlist %}
 

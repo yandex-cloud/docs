@@ -132,7 +132,7 @@
               * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
               * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
           
-          Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
 
   1. Проверьте список ролей, назначенных на кластер, выполнив команду:
 
@@ -144,7 +144,7 @@
   
   1. Откройте актуальный конфигурационный файл с описанием кластера Managed Service for ClickHouse®.
   
-      О том, как создать такой файл, см. в разделе [Создание кластера ClickHouse®](cluster-create.md).
+      Как создать такой файл, описано в разделе [Создание кластера ClickHouse®](cluster-create.md).
   
   1. Добавьте описание ресурса:
     
@@ -182,7 +182,7 @@
             * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
             * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
         
-        Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+        Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -215,7 +215,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
       
-      Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster_iam_binding.md).
+      Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster_iam_binding.md).
 
   1. Проверьте список ролей, назначенных на кластер, выполнив команду [CLI](../../cli/index.md):
     
@@ -275,7 +275,7 @@
               * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
               * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
           
-          Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
 
@@ -343,7 +343,7 @@
               * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
               * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
           
-          Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
 
@@ -410,13 +410,13 @@
               * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
               * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
           
-          Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
 
 - Terraform {#tf}
 
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
   
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Как создать такой файл, описано в разделе [Создание кластера](cluster-create.md).
 
   1. Добавьте описание ресурсов:
     
@@ -460,7 +460,7 @@
             * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
             * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
         
-        Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+        Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -493,7 +493,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
       
-      Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster_iam_binding.md).
+      Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster_iam_binding.md).
 
   1. Проверьте список ролей, назначенных на кластер, выполнив команду [CLI](../../cli/index.md):
     
@@ -571,7 +571,7 @@
               * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
               * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
           
-          Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation).
 
@@ -657,7 +657,7 @@
               * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
               * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
           
-          Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation).
 
@@ -717,13 +717,13 @@
               * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
               * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
           
-          Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
  
 - Terraform {#tf}
 
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
   
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Как создать такой файл, описано в разделе [Создание кластера](cluster-create.md).
 
   1. Найдите описание ресурса с ролью, которую вы хотите отозвать, и удалите его:
     
@@ -766,7 +766,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
       
-      Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster_iam_binding.md).
+      Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster_iam_binding.md).
 
   1. Проверьте список ролей, назначенных на кластер, выполнив команду [CLI](../../cli/index.md):
     
@@ -826,7 +826,7 @@
               * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
               * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
           
-          Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
 
@@ -894,7 +894,7 @@
               * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../organization/concepts/organization.md).
               * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
           
-          Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
   
@@ -935,7 +935,7 @@
 
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Как создать такой файл, описано в разделе [Создание кластера](cluster-create.md).
 
   1. Добавьте описание ресурсов:
 

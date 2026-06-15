@@ -5,6 +5,7 @@ editable: false
 # Managed Service for ClickHouse API, gRPC: ClusterService.RescheduleMaintenance
 
 Reschedules planned maintenance operation.
+(-- api-linter: yc::1702::method-verb-prefix=disabled --)
 
 ## gRPC request
 

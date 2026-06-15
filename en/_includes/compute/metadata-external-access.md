@@ -15,7 +15,7 @@
   * **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** gives information on the VM [access permissions](../../iam/concepts/access-control/index.md).
   * **{{ ui-key.yacloud.common.operations-key-value }}** lists operations on the VM and its resources, such as disks.
   * **{{ ui-key.yacloud.common.monitoring }}** shows information about VM resource consumption. You can only get this info from the management console or from within the VM.
-  * **{{ ui-key.yacloud.compute.instance.switch_console }}** provides access to the [serial console](../../compute/operations/serial-console/index.md) if enabled when [creating](../../compute/operations/index.md#vm-create) the VM.
+  * **{{ ui-key.yacloud.compute.instance.switch_console }}** provides access to the [serial console](../../compute/concepts/serial-console.md) if enabled when [creating](../../compute/operations/index.md#vm-create) the VM.
   * **{{ ui-key.yacloud.compute.instance.switch_service-console }}** provides information that the VM outputs to the serial port. To get this information via the API or CLI, follow [{#T}](../../compute/operations/vm-info/get-serial-port-output.md).
 
 - CLI {#cli}
@@ -50,7 +50,7 @@
 
   {% include [terraform-install](../terraform-install.md) %}
 
-  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
 
      ```hcl
      data "yandex_compute_instance" "my_instance" {
@@ -68,12 +68,12 @@
      * `output "instance_external_ip"`: [Public IP address](../../vpc/concepts/address.md#public-addresses) of the VM to return in the output:
        * `value`: Return value.
 
-     For more information about the `yandex_compute_instance` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_instance).
+     For more information about the `yandex_compute_instance` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_instance).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+     {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
      ```bash
      terraform output instance_external_ip

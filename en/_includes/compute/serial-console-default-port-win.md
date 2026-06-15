@@ -1,0 +1,1 @@
+By default, serial port `COM2` is used on Windows VMs. To use a different port, configure it manually on your VM OS side.

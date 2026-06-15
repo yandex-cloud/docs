@@ -1,5 +1,4 @@
 title: Cloud Apps
-stage: preview
 href: index.yaml
 editable: false
 items:
@@ -21,6 +20,8 @@ items:
           Creating a website in Ghost CMS High Availability using {{
           cloud-apps-name }}
         href: tutorials/ghost-cms-cloudapp.md
+  - name: Access management
+    href: security/index.md
   - name: '{{ at-name }} events'
     href: at-ref.md
 path: en/cloud-apps/toc.yaml

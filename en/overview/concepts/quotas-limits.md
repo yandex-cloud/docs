@@ -295,9 +295,25 @@ There are no limits for {{ metadata-hub-full-name }}.
 
 {% include [monitoring-limits.md](../../_includes/monitoring/monitoring-limits.md) %}
 
+
 ### {{ monium-name }} {#monium}
 
+#### Quotas {#monium-quotas}
+
+{% include [monium-quotas.md](../../_includes/monium/monium-quotas.md) %}
+
+#### Metric and alert limits {#limits-metrics-alerts}
+
 {% include [monium-limits.md](../../_includes/monium/monium-limits.md) %}
+
+#### Log limits {#limits-logs}
+
+{% include [logging-limits.md](../../_includes/monium/limits-logs.md) %}
+
+#### Trace limits {#limits-traces}
+
+{% include [traces-limits.md](../../_includes/monium/limits-traces.md) %}
+
 
 ### {{ network-load-balancer-full-name }} {#load-balancer}
 

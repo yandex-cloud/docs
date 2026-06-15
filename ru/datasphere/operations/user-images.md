@@ -107,7 +107,7 @@
 
 Поделиться Docker-образом в сообществе может только администратор сообщества, и только если образ был размещен в {{ ml-platform-name }}.
 
-Подробнее о ролях, действующих в {{ ml-platform-name }}, см. в разделе [{#T}](../../datasphere/security/index.md).
+Подробнее о ролях, действующих в {{ ml-platform-name }}, читайте в разделе [{#T}](../../datasphere/security/index.md).
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![docker](../../_assets/console-icons/logo-docker.svg)**{{ ui-key.yc-ui-datasphere.resources.docker }}**.

@@ -4,6 +4,8 @@ editable: false
 
 # Managed Service for ClickHouse API, gRPC: ExtensionService.Get
 
+Returns the specified extension.
+
 ## gRPC request
 
 **rpc Get ([GetExtensionRequest](#yandex.cloud.mdb.clickhouse.v1.GetExtensionRequest)) returns ([Extension](#yandex.cloud.mdb.clickhouse.v1.Extension))**
@@ -21,10 +23,12 @@ editable: false
 ||Field | Description ||
 || extension_name | **string**
 
-Required field.
+Required field. Name of the extension.
 
 The maximum string length in characters is 63. ||
 || folder_id | **string**
+
+ID of the folder.
 
 The maximum string length in characters is 50. ||
 |#
@@ -66,5 +70,6 @@ Required field. Required. Version ID. ||
 Is default version. ||
 || deprecated | **bool**
 
-Is version deprecated. ||
+Is version deprecated.
+(-- api-linter: yc::1703::deprecated-annotation=disabled --) ||
 |#

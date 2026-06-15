@@ -1,6 +1,6 @@
 # Мониторинг сервисов SpeechKit Hybrid
 
-SpeechKit Hybrid собирает и хранит метрики в формате [Prometheus](https://prometheus.io). Подробнее о типах метрик см. в [документации Prometheus](https://prometheus.io/docs/concepts/metric_types/).
+SpeechKit Hybrid собирает и хранит метрики в формате [Prometheus](https://prometheus.io). Подробнее о типах метрик читайте в [документации Prometheus](https://prometheus.io/docs/concepts/metric_types/).
 
 Метрики сервисов SpeechKit Hybrid доступны по URL-адресу:
 
@@ -16,7 +16,7 @@ SpeechKit Hybrid собирает и хранит метрики в формат
 
 | Метрика       | Тип     | Описание                                                                                                                                                                                                                                            |
 |:--------------|:--------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `grpc_code_*` | COUNTER | Количество ответов с определенным кодом протокола gRPC. Каждому коду соответствует отдельная метрика: `grpc_code_ok`, `grpc_code_canceled` и т. д. Список кодов см. в [документации gRPC](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) |
+| `grpc_code_*` | COUNTER | Количество ответов с определенным кодом протокола gRPC. Каждому коду соответствует отдельная метрика: `grpc_code_ok`, `grpc_code_canceled` и т. д. Список кодов приведен в [документации gRPC](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) |
 
 ## Метрики синтеза речи {#tts-metrics}
 

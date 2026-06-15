@@ -33,7 +33,15 @@ Files from responses with other status codes are not cached.
 
 ## Cookies and query parameters {#cookie-and-query}
 
-Requests to the CDN server may contain the same path in the URI but different cookies (the `Set-Cookie` HTTP header) and/or different query parameters. In the resource settings, you can specify how to cache files corresponding to such requests: save one file copy for all requests (that is, ignore cookies and/or query parameters) or consider them different and cache the file separately for each request.
+Requests to the CDN server may contain the same path in the URI but different cookies (the `Cookie` HTTP header) and/or different query parameters.
+
+In the resource settings, you can specify how to cache files that match such requests:
+
+#|
+|| Argument | **{{ ui-key.yacloud.cdn.label_ignore }}** disabled | **{{ ui-key.yacloud.cdn.label_ignore }}** disabled ||
+|| Query parameters | Uses the query string as part of the object key in the cache. Each unique set of parameters is a separate copy of the file. | Ignores the query string. One copy of the file is saved for all options. ||
+|| Cookie | Does not cache any responses to requests with the `Cookie` header. When receiving a request, requests the file from the source again. | Caches responses to requests with the `Cookie` header. When receiving a request, uses the file from the cache. ||
+|#
 
 ## Cache prefetching {#prefetch}
 

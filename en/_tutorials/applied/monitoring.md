@@ -1,9 +1,11 @@
-# Sensor reading monitoring and event notifications
+# Monitoring sensor readings and event notifications
+
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
 
 
 In this tutorial, you will set up monitoring and notifications for changes in readings of the sensors connected to [{{ iot-name }}](../../iot-core/). To emulate sensors, we will use [{{ sf-full-name }}](../../functions/). If you have any connected sensors, use them.
 
-You do not need to create or configure [VMs](../../compute/concepts/vm.md), as all steps in this tutorial are entirely based on serverless computing in {{ sf-name }}. For the source code discussed in the tutorial, visit [GitHub](https://github.com/yandex-cloud-examples/yc-server-room-iot-monitoring).
+You do not need to create or configure [VMs](../../compute/concepts/vm.md), as all steps in this tutorial are entirely based on serverless computing in {{ sf-name }}. The source code for this guide is available on [GitHub](https://github.com/yandex-cloud-examples/yc-server-room-iot-monitoring).
 
 To configure monitoring of sensor readings in the server room:
 1. [Get your cloud ready](#before-you-begin).
@@ -116,9 +118,9 @@ The emulator sends data from device sensors and processes data for monitoring an
 
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, specify `device-emulator.handler`.
       1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10`
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
-          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `my-emulator-function-service-account`
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `my-emulator-function-service-account`.
           * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
               Key | Description | Value
               :--- | :--- | :---
@@ -254,9 +256,9 @@ Optionally, to get detailed information from the sensors, [subscribe](../../iot-
 
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, specify `monitoring.msgHandler`.
       1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10`
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
-          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `my-metrics-function-service-account`
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `my-metrics-function-service-account`.
           * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
               Key | Description | Value
@@ -336,8 +338,8 @@ The trigger will invoke the function when a message appears in the [device topic
       * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_device }}**: `my-device`.
       * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_mqtt-topic }}**: `$devices/<device_ID>/events`, where `<device_ID>` is the device ID in **{{ iot-name }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, enter the parameters previously set for the function:
-      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function }}**: `my-monitoring-func`
-      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}**: `$latest`
+      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function }}**: `my-monitoring-func`.
+      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}**: `$latest`.
       * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }}**: `my-metrics-function-service-account`
   1. Optionally, configure the **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}** and **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}** sections to protect data against loss.
       * **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}** enable automatic retries if the current function invocation fails.

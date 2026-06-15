@@ -1,6 +1,6 @@
 # Системные требования
 
-Для установки SpeechKit Hybrid вам необходим сервер с ОС Linux, который поддерживает Docker Engine. Список поддерживаемых ОС см. в [официальной документации Docker](https://docs.docker.com/engine/install/#server).
+Для установки SpeechKit Hybrid вам необходим сервер с ОС Linux, который поддерживает Docker Engine. Список поддерживаемых ОС приведен в [официальной документации Docker](https://docs.docker.com/engine/install/#server).
 
 {% note warning %}
 
@@ -113,7 +113,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 || echo No AVX2
 
 ## Программные требования {#software}
 
-На выделенном для работы SpeechKit Hybrid сервере должны быть установлены [драйверы NVIDIA LTS 535](https://www.nvidia.com/ru-ru/drivers/unix/) и [NVIDIA Container Toolkit 1.15](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) или выше. Подробнее о драйверах см. в [официальной документации NVIDIA](https://docs.nvidia.com/datacenter/tesla/drivers/index.html#lifecycle). Устанавливать CUDA Toolkit не требуется, поскольку они входят в состав образов SpeechKit Hybrid.
+На выделенном для работы SpeechKit Hybrid сервере должны быть установлены [драйверы NVIDIA LTS 535](https://www.nvidia.com/ru-ru/drivers/unix/) и [NVIDIA Container Toolkit 1.15](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) или выше. Подробнее о драйверах читайте в [официальной документации NVIDIA](https://docs.nvidia.com/datacenter/tesla/drivers/index.html#lifecycle). Устанавливать CUDA Toolkit не требуется, поскольку они входят в состав образов SpeechKit Hybrid.
 
 Для установки и настройки сервисов SpeechKit Hybrid понадобятся интерфейс командной строки Yandex Cloud и реестр в Yandex Container Registry.
 

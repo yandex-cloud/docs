@@ -4,6 +4,8 @@ editable: false
 
 # Managed Service for ClickHouse API, gRPC: ClusterExtensionService.Delete
 
+Deletes the specified extension from the cluster.
+
 ## gRPC request
 
 **rpc Delete ([DeleteClusterExtensionRequest](#yandex.cloud.mdb.clickhouse.v1.DeleteClusterExtensionRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
@@ -21,12 +23,12 @@ editable: false
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field.
+Required field. ID of the ClickHouse cluster.
 
 The maximum string length in characters is 50. ||
 || extension_name | **string**
 
-Required field.
+Required field. Name of the extension to delete.
 
 The maximum string length in characters is 63. ||
 |#

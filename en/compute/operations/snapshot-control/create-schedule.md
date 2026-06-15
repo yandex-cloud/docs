@@ -18,29 +18,14 @@ To set up an automatic [disk snapshot](../../concepts/snapshot.md) [schedule](..
   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. In the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab, click **{{ ui-key.yacloud.compute.snapshots-schedules.button_create-snapshot-schedule }}**.
-  1. Configure schedule parameters:
-     * Enter a name for your schedule in the following format:
-
-       {% include [name-format](../../../_includes/name-format.md) %}
-
-     * Provide a description for the schedule, if required.
-     * Select the disks to create scheduled snapshots for. You can add multiple disks to a single schedule, and you can add a single disk to multiple schedules as long as you stay within the [limits](../../concepts/limits.md#compute-limits-snapshot-schedule).
-
-       {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
-
-     * In the **{{ ui-key.yacloud.compute.components.ScheduleSection.label_repeat-type_7fBWj }}** field, select the snapshot frequency: `{{ ui-key.yacloud.compute.components.ScheduleSection.label_daily_o3t6f }}`, `{{ ui-key.yacloud.compute.components.ScheduleSection.label_weekly_pB4YE }}`, `{{ ui-key.yacloud.compute.components.ScheduleSection.label_monthly_dJYSn }}`, [or `{{ ui-key.yacloud.compute.components.ScheduleSection.label_cron_kZwc5 }}`](../../concepts/snapshot-schedule.md#cron). The snapshot creation time is specified in [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
-     * In the **{{ ui-key.yacloud.compute.components.ScheduleSection.label_start-date_pbnDp }}** field, set the start date for your schedule.
-     * Select the snapshot retention policy:
-       * **{{ ui-key.yacloud.compute.components.SnapshotScheduleFormContent.label_empty-retention-policy_voaWW }}**: Enable to retain all snapshots created by this schedule.
-       * **{{ ui-key.yacloud.compute.snapshot-schedule-form-next.active-retention-policy-field.message_store-last-begin_few }}**: Specify the number of the latest snapshots to retain or the number of days for which you want to retain the snapshots. Any other snapshots created by this schedule will be deleted automatically.
-
-       {% note info %}
-
-       There are [quotas](../../concepts/limits.md#compute-quotas) on the number and total size of snapshots in the cloud.
-
-       {% endnote %}
-
+  1. {% include [section-schedule](../../_includes_service/schedule/section-schedule.md) %}
+  1. {% include [section-storage](../../_includes_service/schedule/section-storage.md) %}
+  1. {% include [section-general](../../_includes_service/schedule/section-general.md) %}
+  1. {% include [section-snapshot](../../_includes_service/schedule/section-snapshot.md) %}
   1. Click **{{ ui-key.yacloud.common.create }}**.
+      Wait until the schedule is created.
+
+  1. On the page that opens, under **{{ ui-key.yacloud.compute.snapshots-schedules.title_snapshot-schedule-disks }}**, click **{{ ui-key.yacloud.compute.snapshots-schedules.action_attach-disk }}**. In the window that opens, select a disk to add to the schedule and click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -55,11 +40,44 @@ To set up an automatic [disk snapshot](../../concepts/snapshot.md) [schedule](..
      yc compute snapshot-schedule create --help
      ```
 
-  1. Create a schedule using a [cron expression](../../concepts/snapshot-schedule.md#cron):
+  1. Create a schedule:
 
      ```bash
      yc compute snapshot-schedule create <schedule_name> \
-       --expression <cron_expression>
+       --expression "<cron_expression>" \
+       --start-at "<start_date_and_time>" \
+       --retention-period "<snapshot_retention_period>" \
+       --description "<schedule_description>" \
+       --labels "<schedule_labels>" \
+       --snapshot-description "<snapshot_description>" \
+       --snapshot-labels "<snapshot_labels>"
+     ```
+
+     Where:
+     * `--expression`: [Cron expression](../../concepts/snapshot-schedule.md#cron). This is a required setting.
+     * `--start-at`: Schedule start date and time in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
+     * `--retention-period`: Snapshot retention period. Specified in duration format, e.g., `300ms`, `1.5h`, or `2h45m`. Use either `--retention-period` or `--snapshot-count`.
+     * `--snapshot-count`: Maximum number of snapshots per [disk](../../concepts/disk.md). Use either `--snapshot-count` or `--retention-period`.
+     * `--description`: Schedule description.
+     * `--labels`: Schedule [labels](../../../overview/concepts/services.md#labels) in `key=value` format.
+     * `--snapshot-description`: Snapshot description.
+     * `--snapshot-labels`: Snapshot labels in `key=value` format.
+
+     Result:
+
+     ```text
+     id: fd8uhc5qcinv********
+     folder_id: b1g681qpemb4********
+     created_at: "2026-05-25T21:03:22Z"
+     name: my-schedule
+     description: for my disks
+     status: ACTIVE
+     schedule_policy:
+       start_at: "2027-01-02T15:04:05Z"
+       expression: 30 0 * * *
+     retention_period: 3600s
+     snapshot_spec:
+       description: my snapshot
      ```
 
      {% note info %}
@@ -68,15 +86,7 @@ To set up an automatic [disk snapshot](../../concepts/snapshot.md) [schedule](..
 
      {% endnote %}
 
-     If you need to configure a [snapshot retention](../../concepts/snapshot-schedule.md#retention) policy, specify the `--snapshot-count` or `--retention-period` parameter, such as follows:
-     * `--snapshot-count 5`: Retain 5 latest snapshots.
-     * `--retention-period 72h`: Retain snapshots for the last 3 days.
-
-     To add the start date for a schedule, specify the `--start-at` parameter. Here is an example:
-     * `--start-at "2022-12-31T16:39:00+05:00"`: Schedule starts at 16:39 UTC+5 on December 31, 2022.
-     * `--start-at "2h"`: Schedule starts two hours before the current time point.
-
-     For more information about the `yc compute snapshot-schedule create` command, see this [CLI reference](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/create.md).
+     For more information about the `yc compute snapshot-schedule create` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/create.md).
   1. To add disks to your schedule, get [disk](../../concepts/disk.md) IDs:
 
      ```bash
@@ -94,6 +104,8 @@ To set up an automatic [disk snapshot](../../concepts/snapshot.md) [schedule](..
          - fhm1c7u23aiq********
        disk_placement_policy: {}
      ```
+
+     {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
   1. Add disks to the schedule:
 
@@ -118,21 +130,25 @@ To set up an automatic [disk snapshot](../../concepts/snapshot.md) [schedule](..
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the {{ TF }} configuration file, define the parameters of the resource you want to create:
+  1. In the {{ TF }} configuration file, describe the resource you want to create:
 
      ```hcl
      resource "yandex_compute_snapshot_schedule" "default" {
-       name = "<schedule_name>"
-
        schedule_policy {
          expression = "<cron_expression>"
+         start_at   = "<start_date_and_time>"
        }
 
-       snapshot_count = <number_of_snapshots_per_disk>
+       retention_period = "<snapshot_retention_period>"
+       name             = "<schedule_name>"
+       description      = "<schedule_description>"
+       labels           = {
+         <schedule_label_key> = "<schedule_label_value>"
+       }
 
        snapshot_spec {
          description = "<snapshot_description>"
-         labels = {
+         labels      = {
            <snapshot_label_key> = "<snapshot_label_value>"
          }
        }
@@ -142,15 +158,34 @@ To set up an automatic [disk snapshot](../../concepts/snapshot.md) [schedule](..
      ```
 
      Where:
-     * `name`: Schedule name. This is a required setting.
-     * `schedule_policy`: Section with schedule parameters. It contains the `expression` field with a [cron expression](../../concepts/snapshot-schedule.md#cron). This is a required setting.
-     * `snapshot_count`: Maximum number of snapshots per [disk](../../concepts/disk.md). This is an optional setting.
-     * `snapshot_spec`: Section with additional snapshot parameters. This is an optional setting. It may contain the following fields:
-       * `description`: Snapshot description.
-       * `labels`: Snapshot [label](../../../overview/concepts/services.md#labels) in `<key> = "<value>"` format.
-     * `disk_ids`: IDs of disks to create snapshots for. This is a required setting.
+     * `schedule_policy`: Schedule properties:
+       * `expression`: [Cron expression](../../concepts/snapshot-schedule.md#cron). This is a required setting.
+       * `start_at`: Date and time in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format from which the schedule will run.
+     * `retention_period`: Snapshot retention period specified in duration format, e.g., `"300ms"`, `"1.5h"`, or `"2h45m"`. Any other snapshots created by this schedule will be deleted automatically. Use either `retention_period` or `snapshot_count`.
+     * `snapshot_count`: Maximum number of snapshots per [disk](../../concepts/disk.md). Use either `snapshot_count` or `retention_period`.
 
-     For more information about the `yandex_compute_snapshot_schedule` settings, see [this {{ TF }} guide]({{ tf-provider-resources-link }}/compute_snapshot_schedule).
+        {% note info %}
+
+        There are [quotas](../../concepts/limits.md#compute-quotas) on the number and total size of snapshots in the cloud.
+
+        {% endnote %}
+
+     * `name`: Schedule in the following format:
+
+        {% include [name-format](../../../_includes/name-format.md) %}
+
+     * `description`: Schedule description.
+     * `labels`: Schedule [labels](../../../overview/concepts/services.md#labels) in `<key> = "<value>"` format.
+     * `snapshot_spec`: Properties of snapshots that will be created according to the schedule:
+        * `description`: Snapshot description.
+        * `labels`: Snapshot labels in `<key> = "<value>"` format.
+
+     * `disk_ids`: IDs of disks to create snapshots for.
+
+     {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
+
+     Learn more about the `yandex_compute_snapshot_schedule` resource properties in the [{{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_snapshot_schedule).
+
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

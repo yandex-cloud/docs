@@ -24,10 +24,12 @@ Set the list of cluster extensions. Not specified extensions will be deleted.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field.
+Required field. ID of the ClickHouse cluster.
 
 The maximum string length in characters is 50. ||
-|| extension_specs[] | **[ExtensionSpec](#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)** ||
+|| extension_specs[] | **[ExtensionSpec](#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)**
+
+Specifications of the cluster extensions to set. ||
 |#
 
 ## ExtensionSpec {#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec}
@@ -36,10 +38,12 @@ The maximum string length in characters is 50. ||
 ||Field | Description ||
 || name | **string**
 
-Required field.
+Required field. Name of the extension.
 
 The maximum string length in characters is 63. ||
-|| version | **string** ||
+|| version | **string**
+
+Version of the extension. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

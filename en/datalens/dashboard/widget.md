@@ -43,6 +43,7 @@ For more information about JS selectors, see [{#T}](../charts/editor/widgets/con
 Text widget. A text-only dashboard element for links, captions, and other similar content. Supports [Markdown](https://ru.wikipedia.org/wiki/Markdown).
 For more information about Markdown markup, see [{#T}](./markdown.md).
 
-## Title {#title}
+## Header {#title}
 
 Heading widget. You can use it to separate similarly themed charts, group them within a single dashboard page, and create a table of contents for the dashboard. Only for text data.
+

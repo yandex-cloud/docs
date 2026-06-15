@@ -1,5 +1,7 @@
 # Testing message delivery
 
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
 When sending a message, you may need to verify that it was delivered. A message may fail to reach the MQTT server, e.g., if [it is sent](../../iot-core/operations/publish.md):
 
 * To a non-existing [device topic](../../iot-core/concepts/topic/devices-topic.md).
@@ -339,7 +341,7 @@ Result example:
 
 ### Make sure the registry has received the message from the device {#check}
 
-If the message is delivered, the subscribe to device command outputs the result. Example:
+If the message is delivered, the subscribe to device command outputs the result. Here is an example:
 
 {% list tabs group=instructions %}
 

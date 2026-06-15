@@ -4,7 +4,7 @@ Create an instance group using [Instance Groups](../concepts/instance-groups/ind
 
 ## Getting started {#before-you-begin}
 
-1. Log in to the [management console]({{ link-console-main }}) or sign up. If not signed up yet, navigate to the management console and follow the instructions.
+1. Log in to the [management console]({{ link-console-main }}) or sign up. If you have not signed up yet, navigate to the management console and follow the instructions.
 1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../resource-manager/operations/folder/create.md).
 
@@ -58,11 +58,11 @@ To create an instance group:
      * Select the [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one.
      * If you selected a Linux-based public image:
        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
-       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file. You need to create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection on your own.
+       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection on your own.
      * If you selected a Windows-based public image:
        * In the **{{ ui-key.yacloud.common.password }}** field, set a password for the `Administrator` user. A user named `Administrator` is created automatically.
      * Click **{{ ui-key.yacloud.common.add }}**.
-     * Enable [serial console](../operations/serial-console/index.md) access, if required.
+     * Enable [serial console](../concepts/serial-console.md) access, if required.
    * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
 1. Under **{{ ui-key.yacloud.compute.groups.create.section_deploy }}**, specify:
    * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-expansion }}**: Maximum number of instances the group size can be scaled up by.

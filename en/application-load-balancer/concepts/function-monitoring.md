@@ -1,3 +1,8 @@
+---
+title: Monitoring charts
+description: Monitoring charts give the real-time status of your load balancer and related metrics. Use them for anomaly detection and performance analysis.
+---
+
 # Monitoring charts
 
 {% note info %}

@@ -1,3 +1,8 @@
+---
+title: Configuring data exchange between CDN servers and origins
+description: 'You can select a protocol for communication between CDN servers and origins: always HTTP, always HTTPS, or the protocol used by the CDN server to communicate with the client.'
+---
+
 # Configuring data exchange between CDN servers and origins
 
 {% include [ipv4-note](../../_includes/cdn/ipv4-note.md) %}

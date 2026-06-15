@@ -4,6 +4,8 @@ With {{ video-name }}, you can upload _videos_ to your [channel](index.md#channe
 
 {% include [video-characteristic](../../_includes/video/video-characteristic-multiple.md) %}
 
+By default, video playback starts only after processing if the browser supports the source file. You can change this in the channel settings. Then the source file will be played immediately, without changes, and will contain the original metadata.
+
 {% include [video-multi-soundtracks](../../_includes/video/video-multi-soundtracks.md) %}
 
 {% include [video-resolution-limits](../../_includes/video/video-resolution-limits.md) %}

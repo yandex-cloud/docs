@@ -2,6 +2,12 @@
 
 Чтобы удалить облако, у вас должна быть роль [resource-manager.editor](../../security/index.md#resource-manager-editor) или выше на это облако. Если вы не можете выполнить эту операцию, обратитесь к [владельцу облака](../../concepts/resources-hierarchy.md#owner).
 
+{% note info %}
+
+Удаление облака может быть запрещено, если для этого облака или [организации](*organization), к которой оно относится, создана [политика авторизации](*access_policies) `resourceManager.denyCloudRemoval`. Такой запрет действует даже в том случае, если пользователю назначена [роль](*roles), разрешающая удаление облаков.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -163,3 +169,9 @@
 {% endnote %}
 
 После завершения подготовки к удалению и срока удаления облако переходит в статус `DELETING`. В этом статусе происходит процесс необратимого удаления, занимающий до 72 часов. В результате вместе с облаком будут удалены все его ресурсы.
+
+[*organization]: [Подробнее](../../../organization/concepts/organization.md) об организациях в Yandex Cloud.
+
+[*roles]: [Подробнее](../../security/index.md) о ролях, действующих в сервисе Yandex Resource Manager.
+
+[*access_policies]: _Политики авторизации_ — это механизм контроля доступа Yandex Identity and Access Management, который позволяет управлять разрешениями на выполнение определенных операций с [ресурсами Yandex Cloud](../../../overview/roles-and-resources.md). Политики дополняют систему [ролей](../../../iam/concepts/access-control/roles.md) и позволяют сделать [управление доступом](../../../iam/concepts/access-control/index.md) более гибким. [Подробнее](../../../iam/concepts/access-control/access-policies.md) о политиках авторизации в Yandex Cloud.

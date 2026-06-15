@@ -125,7 +125,7 @@ _Схема формата_ данных (format schema) описывает фо
 
 {% endnote %}
 
-Подробнее о форматах данных см. [в документации ClickHouse®](https://clickhouse.com/docs/ru/interfaces/formats).
+Подробнее о форматах данных [в документации ClickHouse®](https://clickhouse.com/docs/ru/interfaces/formats).
 
 ## Пример работы со схемой формата при вставке данных {#example}
 

@@ -1,15 +1,17 @@
 ---
 title: '{{ TF }} reference for {{ iot-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ iot-name }}.
+description: This page lists {{ TF }} provider resources and data sources supported by {{ iot-name }}.
 ---
 
 # {{ TF }} reference for {{ iot-full-name }}
+
+{% include [iot-sunset-warning](../_includes/iot-core/sunset-warning.md) %}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ iot-name }}:
+{{ iot-name }} supports the following {{ TF }} provider resources:
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |

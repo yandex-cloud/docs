@@ -199,7 +199,7 @@ subcluster_name | Имя подкластера
 | `postgres_wait_event_IO_WALInitSync`<br/>`DGAUGE`, штуки | Количество процессов, ожидающих инициализации и синхронизации WAL-файлов.<br/>Специальные метки:<ul><li>`database` — имя БД.</li><li>`user` — имя пользователя.</li></ul> |
 | `postgres_wait_event_IO_WALSync`<br/>`DGAUGE`, штуки | Количество процессов, ожидающих fsync/синхронизации WAL-файлов.<br/>Специальные метки:<ul><li>`database` — имя БД.</li><li>`user` — имя пользователя.</li></ul> |
 | `postgres_wait_event_LWLock_WALWrite`<br/>`DGAUGE`, штуки | Количество процессов, ожидающих блокировки LWLock на запись в WAL.<br/>Специальные метки:<ul><li>`database` — имя БД.</li><li>`user` — имя пользователя.</li></ul> |
-| `postgres_wal_rate_bytes`<br/>`DGAUGE`, байт/с | Скорость записи в журнал упреждающей записи. |
+| `postgres_wal_rate_bytes`<br/>`DGAUGE`, байт за 30 секунд | Скорость записи в журнал упреждающей записи. |
 | `postgres_xid_left_percent`<br/>`DGAUGE`, % | Доля оставшихся счетчиков транзакций. |
 | `postgres_xid_left`<br/>`DGAUGE`, штуки | Количество оставшихся счетчиков транзакций. |
 | `postgres_xid_used_percent`<br/>`DGAUGE`, % | Доля использованных счетчиков транзакций. |

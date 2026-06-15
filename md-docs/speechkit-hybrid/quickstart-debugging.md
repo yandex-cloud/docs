@@ -62,7 +62,7 @@
       sudo apt install net-tools
       ```
 
-   1. Убедитесь, что сервисы SpeechKit Hybrid готовы обслуживать сетевые соединения на выделенных им портах. Список портов см. в файле `docker-compose.yaml`. Он хранится в файле [node-deploy.tf](https://github.com/yandex-cloud-examples/yc-speechkit-hybrid-deployment/blob/main/node-deploy.tf), в переменной `COMPOSE_A100_STT_TTS`.
+   1. Убедитесь, что сервисы SpeechKit Hybrid готовы обслуживать сетевые соединения на выделенных им портах. Список портов приведен в файле `docker-compose.yaml`. Он хранится в файле [node-deploy.tf](https://github.com/yandex-cloud-examples/yc-speechkit-hybrid-deployment/blob/main/node-deploy.tf), в переменной `COMPOSE_A100_STT_TTS`.
 
       Выполните команду, чтобы получить информацию о сетевых соединениях сервисов:
 

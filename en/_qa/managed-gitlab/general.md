@@ -76,3 +76,22 @@ If you cannot connect to the system hook, use the `127.0.0.1` IP address instead
 
 1. In the system hook settings (**Admin area** → **System Hooks**), change the **URL** value to `http://127.0.0.1:24080/default`.
 1. In the {{ GL }} settings that allow sending messages to the local network (**Admin area** → **Settings** → **Network** → **Expand outbound requests**, the CIDR input field), add `http://127.0.0.1:24080` to the list of IP addresses and domain names.
+
+#### What must I do if I get the EOF fatal error on a worker? {#eof-fatal-error}
+
+Complete error message:
+
+```text
+EOF fatal: early EOF fatal: fetch-pack: invalid index-pack output
+```
+
+You can fix the error only in a runner deployed manually on the VM. Do it by applying these settings:
+
+```bash
+sysctl -w net.core.rmem_max=26214400
+sysctl -w net.core.rmem_default=6250000
+sysctl -w net.core.wmem_max=26214400
+sysctl -w net.core.wmem_default=6250000
+sysctl -w net.ipv4.tcp_rmem='4096 6250000 26214400'
+sysctl -w net.ipv4.tcp_wmem='4096 6250000 26214400'
+```

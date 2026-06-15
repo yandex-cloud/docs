@@ -5,6 +5,7 @@ editable: false
 # Managed Service for ClickHouse API, gRPC: ClusterService.DeleteExternalDictionary
 
 Deletes the specified external dictionary.
+(-- api-linter: yc::1705::http-method-mapping=disabled --)
 
 ## gRPC request
 

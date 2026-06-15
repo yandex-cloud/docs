@@ -15,7 +15,6 @@ description: Various use cases for machine learning and artificial intelligence 
 * [{#T}](mlflow-datasphere.md)
 * [{#T}](models-fine-tuning.md)
 
-
 ## Deployment in {{ ml-platform-full-name }} {#datasphere-deployment}
 
 * [{#T}](node-from-model.md)
@@ -23,7 +22,6 @@ description: Various use cases for machine learning and artificial intelligence 
 * [{#T}](node-from-docker-fast-api.md)
 * [{#T}](grpc-node.md)
 * [{#T}](stable-diffusion.md)
-
 
 ## Analytics with {{ ml-platform-full-name }} {#datasphere-analytics}
 

@@ -5,6 +5,8 @@ description: This page describes all registry topics available in {{ iot-name }}
 
 # Registry topics
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 Registry topics available in the service: 
 * `$registries/<registry_ID>/events`: Topic for receiving telemetry data.
 * `$registries/<registry_ID>/state`: Permanent topic for receiving telemetry data.

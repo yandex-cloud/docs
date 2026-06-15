@@ -151,7 +151,7 @@ To add another network interface to your VM:
 
       * `index`: Network interface number. Specify any number between `0` and `15` except the ones already used. By default, the first network interface gets `0`.
       * `subnet_id`: [Subnet](../../../vpc/concepts/network.md#subnet) ID.
-      * `allow_stopping_for_update`: Parameter to allow the VM to stop for updates.
+      * `allow_stopping_for_update`: Parameter to allow your VM to stop for updates.
 
       For more information about `yandex_compute_instance` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/compute_instance).
 
@@ -336,17 +336,17 @@ Now your VM features a new network interface. The new interface is currently ina
 
 To make it active, [restart](./vm-stop-and-start.md#restart) the VM. The only way to activate a network interface in a Windows VM is to restart that VM.
 
-If your VM is running Linux and you cannot restart it, you can activate the network interface without restarting the VM. To avoid network connectivity loss, configure settings from the [serial console](../serial-console/index.md):
+If your VM is on Linux and you cannot restart it, you can activate the network interface without restarting the VM. To avoid network connectivity loss, configure settings from the [serial console](../../concepts/serial-console.md):
 
 {% list tabs group=operating_system %}
 
 - Linux {#linux}
 
-  1. [Enable](../serial-console/index.md#turn-on-for-current-instance) access to the serial console on your VM.
+  1. [Enable](../serial-console/index.md#enable) access to the serial console on your VM.
 
       When creating a user for authenticating on the VM through the serial console, add this user to the `sudo` group using the `sudo usermod -a -G sudo <username>` command.
 
-  1. Connect to the VM serial console [using the CLI](../serial-console/connect-cli.md#connect-to-serial-console) or [over SSH](../serial-console/connect-ssh.md#connect-to-serial-console).
+  1. [Connect](../serial-console/connect-ssh.md) to the VM serial console using the {{ yandex-cloud }} CLI or over SSH.
 
   1. Activate the network interface you added:
 
@@ -368,7 +368,7 @@ If your VM is running Linux and you cannot restart it, you can activate the netw
       sudo ip route del default dev <interface_name>
       ```
 
-  1. [Disable](../serial-console/disable.md) access to the VM serial console if you no longer need it.
+  1. [Disable](../serial-console/index.md#disable) access to the VM serial console if you no longer need it.
 
 {% endlist %}
 

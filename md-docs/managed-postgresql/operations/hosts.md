@@ -183,9 +183,9 @@
   Чтобы создать хост:
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-     О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+     Инструкцию по созданию такого файла читайте в разделе [Создание кластера](cluster-create.md).
 
-     Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
+     Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL вы найдете в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
   1. Добавьте к описанию кластера Managed Service for PostgreSQL блок `host`.
 
      ```hcl
@@ -322,7 +322,7 @@
      * `priority` — приоритет хоста среди всех хостов.
      * `configSpec.postgresqlConfig_<версия_PostgreSQL>` — набор настроек PostgreSQL. Укажите каждую настройку на отдельной строке через запятую.
 
-       Список версий PostgreSQL, доступных для параметра, см. в [описании метода](../api-ref/Cluster/addHosts.md#yandex.cloud.mdb.postgresql.v1.AddClusterHostsRequest). Описание и возможные значения настроек см. в разделе [Настройки PostgreSQL](../concepts/settings-list.md).
+       Список версий PostgreSQL, доступных для параметра, вы найдете в [описании метода](../api-ref/Cluster/addHosts.md#yandex.cloud.mdb.postgresql.v1.AddClusterHostsRequest). Описание и возможные значения настроек в разделе [Настройки PostgreSQL](../concepts/settings-list.md).
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -391,7 +391,7 @@
      * `priority` — приоритет хоста среди всех хостов.
      * `config_spec.postgresql_config_<версия_PostgreSQL>` — набор настроек PostgreSQL. Укажите каждую настройку на отдельной строке через запятую.
 
-       Список версий PostgreSQL, доступных для параметра, см. в [описании метода](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec). Описание и возможные значения настроек см. в разделе [Настройки PostgreSQL](../concepts/settings-list.md).
+       Список версий PostgreSQL, доступных для параметра, вы найдете в [описании метода](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec). Описание и возможные значения настроек в разделе [Настройки PostgreSQL](../concepts/settings-list.md).
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -464,9 +464,9 @@
   Чтобы изменить параметры хоста в кластере:
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-     О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+     Инструкцию по созданию такого файла читайте в разделе [Создание кластера](cluster-create.md).
 
-     Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
+     Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL вы найдете в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
   1. Измените в описании кластера Managed Service for PostgreSQL атрибуты блока `host`, соответствующего изменяемому хосту.
 
      ```hcl
@@ -603,7 +603,7 @@
      * `priority` — приоритет хоста среди всех хостов.
      * `configSpec.postgresqlConfig_<версия_PostgreSQL>` — набор настроек PostgreSQL. Укажите каждую настройку на отдельной строке через запятую.
 
-       Список версий PostgreSQL, доступных для параметра, см. в [описании метода](../api-ref/Cluster/updateHosts.md#yandex.cloud.mdb.postgresql.v1.UpdateClusterHostsRequest). Описание и возможные значения настроек см. в разделе [Настройки PostgreSQL](../concepts/settings-list.md).
+       Список версий PostgreSQL, доступных для параметра, вы найдете в [описании метода](../api-ref/Cluster/updateHosts.md#yandex.cloud.mdb.postgresql.v1.UpdateClusterHostsRequest). Описание и возможные значения настроек в разделе [Настройки PostgreSQL](../concepts/settings-list.md).
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -697,7 +697,7 @@
      * `priority` — приоритет хоста среди всех хостов.
      * `config_spec.postgresql_config_<версия_PostgreSQL>` — набор настроек PostgreSQL. Укажите каждую настройку на отдельной строке через запятую.
 
-       Список версий PostgreSQL, доступных для параметра, см. в [описании метода](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec). Описание и возможные значения настроек см. в разделе [Настройки PostgreSQL](../concepts/settings-list.md).
+       Список версий PostgreSQL, доступных для параметра, вы найдете в [описании метода](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec). Описание и возможные значения настроек в разделе [Настройки PostgreSQL](../concepts/settings-list.md).
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -748,9 +748,9 @@
   Чтобы удалить хост из кластера:
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-     О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+     Инструкцию по созданию такого файла читайте в разделе [Создание кластера](cluster-create.md).
 
-     Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
+     Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL вы найдете в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
   1. Удалите из описания кластера Managed Service for PostgreSQL блок `host`, соответствующий удаляемому хосту.
   1. Проверьте корректность настроек.
 

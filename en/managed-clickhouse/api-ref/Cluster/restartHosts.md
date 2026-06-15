@@ -33,6 +33,8 @@ apiPlayground:
 
 # Managed Service for ClickHouse API, REST: Cluster.RestartHosts
 
+Restarts the specified hosts.
+
 ## HTTP request
 
 ```

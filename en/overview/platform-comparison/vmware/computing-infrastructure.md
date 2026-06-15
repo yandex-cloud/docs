@@ -107,7 +107,7 @@ vNUMA allows you to inform the guest OS in a VM of a virtual NUMA topology for m
 
 The NUMA virtual architecture, which requires virtual hardware version 8 or later, can in some cases provide significant performance benefits for wide virtual machines, i.e., virtual machines with more virtual CPUs than the number of cores in each physical NUMA node. However, such benefits are highly dependent on the level of NUMA optimization in the guest operating system and applications.
 
-Starting with vSphere version 6.5 and later, vNUMA processing is improved to automatically determine the correct vNUMA topology to represent the guest OS based on the underlying ESXi host. In cases where VMs on multiple NUMA nodes have an odd number of cores, the performance of the guest service drops sharply, and it is hard for the hypervisor sсheduler to manage CPU resources.
+Starting with vSphere version 6.5 and later, vNUMA processing is improved to automatically determine the correct vNUMA topology to represent the guest OS based on the underlying ESXi host. In cases where VMs on multiple NUMA nodes have an odd number of cores, the performance of the guest service drops sharply, and it is hard for the hypervisor scheduler to manage CPU resources.
 
 In addition, it is important to note that vNUMA is not applicable to VMs with the vCPU Hot Add option enabled, and in situations where VM resources extend beyond a single NUMA node. In these situations, there may be performance issues with the guest OS, negatively impacting neighboring VMs.
 
@@ -171,5 +171,5 @@ The table below shows VM placement by NUMA topology for different platforms:
 You can access the local console via VMware Remote Console (VMRC). In this case, access to the hypervisor is not required, you only need to log in to Cloud Director, and, if successful, Remote Console Proxy will broadcast the local VM console, which simplifies troubleshooting of the guest OS in case of failure. 
 | In {{ yandex-cloud }}, there is no support for broadcasting the console or a utility to display it on the user's computer. This is because the QEMU/KVM hypervisor requires direct access to the host the VM is running on in order to transmit the image from the local "screen" via the broadcasting service.
 
-Instead, {{ yandex-cloud }} offers a [serial console](../../../compute/operations/serial-console/index.md) for local VM access as a tool for local text access to VMs. In this scenario, troubleshooting the OS is less straightforward, but still possible. ||
+Instead, {{ yandex-cloud }} offers a [serial console](../../../compute/concepts/serial-console.md) for local VM access as a tool for local text access to VMs. In this scenario, troubleshooting the OS is less straightforward, but still possible. ||
 |#

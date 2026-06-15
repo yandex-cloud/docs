@@ -8,6 +8,6 @@ editable: false
 
 #|
 ||Method | Description ||
-|| [Get](get.md) |  ||
-|| [List](list.md) |  ||
+|| [Get](get.md) | Returns the specified extension. ||
+|| [List](list.md) | Lists extensions available in the specified folder. ||
 |#

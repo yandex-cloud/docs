@@ -3638,7 +3638,7 @@ default:
         label_credit-cudCredit: Скидка на резервируемое потребление
         label_credit-monetaryGrantCredit: Грант
         label_credit-volumeIncentiveCredit: Скидка за объём потребления
-        value_empty_clouds: Все облака и каталоги
+        value_empty_clouds_folders: Все облака и каталоги
         value_empty_service_instances: Все рабочие пространства
       billing-widget:
         activate_promocode: Активировать промокод
@@ -6293,7 +6293,6 @@ default:
             label_cron_kZwc5: Cron
             label_daily_o3t6f: Каждый день
             label_monthly_dJYSn: По месяцам
-            label_repeat-type_7fBWj: Создавать снимки
             label_start-date_pbnDp: Начало действия
             label_weekly_pB4YE: По дням недели
             section_schedule_ro4p7: Расписание запуска
@@ -7043,7 +7042,7 @@ default:
         label-vacuum-timeout: Таймаут VACUUM
         LoggingSection:
           commandCenter_e9fKV: Логи командного центра
-          greenplum_pN6jU: Логи Greenplum
+          greenplum_pN6jU: Логи Yandex MPP Analytics for PostgreSQL
         perf-diag:
           label_query-status-canceled: Canceled
           label_query-status-error: Error
@@ -7758,7 +7757,6 @@ default:
         label_licenses: Подписки
         label_product-filter-search-placeholder: Поиск продукта
         label_service-name: Marketplace
-        label_service-short-description: Готовые решения
         label_tariff-type: Тип тарификации
         section_tariff-section: Способ тарификации
       mdb:

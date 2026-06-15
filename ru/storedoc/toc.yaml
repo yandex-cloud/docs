@@ -531,6 +531,12 @@ items:
                 href: api-ref/grpc/User/grantPermission.md
               - name: RevokePermission
                 href: api-ref/grpc/User/revokePermission.md
+          - name: Versions
+            items:
+              - name: Overview
+                href: api-ref/grpc/Versions/index.md
+              - name: List
+                href: api-ref/grpc/Versions/list.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -667,6 +673,12 @@ items:
                 href: api-ref/User/grantPermission.md
               - name: RevokePermission
                 href: api-ref/User/revokePermission.md
+          - name: Versions
+            items:
+              - name: Overview
+                href: api-ref/Versions/index.md
+              - name: List
+                href: api-ref/Versions/list.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}

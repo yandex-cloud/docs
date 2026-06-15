@@ -2,7 +2,7 @@
 
 В DataSphere все основные операции по работе с ресурсами и ноутбуками доступны не только из пользовательского интерфейса, но и через API.
 
-Для управления ресурсами в [API Yandex Cloud](https://github.com/yandex-cloud/cloudapi) определены наборы вызовов [gRPC](grpc/index.md) и методов [REST](index.md). Особенности их реализации и взаимодействия см. в [Документации API Yandex Cloud](../../api-design-guide/concepts/standard-methods.md).
+Для управления ресурсами в [API Yandex Cloud](https://github.com/yandex-cloud/cloudapi) определены наборы вызовов [gRPC](grpc/index.md) и методов [REST](index.md). Особенности их реализации и взаимодействия приведены в [Документации API Yandex Cloud](../../api-design-guide/concepts/standard-methods.md).
 
 ## Работа с сообществом {#community}
 
@@ -40,7 +40,7 @@
       --data '{ "organizationId": "<идентификатор_организации>" }'
     ```
 
-  Подробную информацию о методах `Community` см. в [API-документации](Community/index.md).
+  Подробную информацию о методах `Community` читайте в [API-документации](Community/index.md).
 
 - gRPC API {#grpc-api}
 
@@ -64,7 +64,7 @@
       yandex.cloud.datasphere.v2.CommunityService/List
     ```
 
-  Подробную информацию о вызовах `CommunityService` см. в [API-документации](grpc/Community/index.md).
+  Подробную информацию о вызовах `CommunityService` читайте в [API-документации](grpc/Community/index.md).
 
 {% endlist %}
 
@@ -105,7 +105,7 @@
       --data '{ "communityId": "<идентификатор_сообщества>" }'
     ```
 
-  Подробную информацию о методах `Project` см. в [API-документации](Project/index.md).
+  Подробную информацию о методах `Project` читайте в [API-документации](Project/index.md).
 
 - gRPC API {#grpc-api}
 
@@ -129,7 +129,7 @@
       yandex.cloud.datasphere.v2.ProjectService/List
     ```
 
-  Подробную информацию о вызовах `ProjectService` см. в [API-документации](grpc/Project/index.md).
+  Подробную информацию о вызовах `ProjectService` читайте в [API-документации](grpc/Project/index.md).
 
 {% endlist %}
 
@@ -158,7 +158,7 @@
 
   Чтобы получить идентификатор ноутбука, воспользуйтесь инструкцией [Получить идентификатор ноутбука](../operations/projects/get-notebook-cell-ids.md).
 
-  Подробную информацию о методах `Project` см. в [API-документации](Project/index.md).
+  Подробную информацию о методах `Project` читайте в [API-документации](Project/index.md).
 
 - gRPC API {#grpc-api}
 
@@ -174,7 +174,7 @@
 
   Чтобы получить идентификатор ноутбука, воспользуйтесь инструкцией [Получить идентификатор ноутбука](../operations/projects/get-notebook-cell-ids.md).
 
-  Подробную информацию о вызовах `ProjectService` см. в [API-документации](grpc/Project/index.md).
+  Подробную информацию о вызовах `ProjectService` читайте в [API-документации](grpc/Project/index.md).
 
 {% endlist %}
 
@@ -216,7 +216,7 @@
       --data "{ \"datasetId\": \"<идентификатор_датасета>\", \"projectId\": \"<идентификатор_проекта>\" }"
     ```
 
-  Подробную информацию о методах `Dataset` см. в [API-документации](Dataset/index.md).
+  Подробную информацию о методах `Dataset` читайте в [API-документации](Dataset/index.md).
 
 - gRPC API {#grpc-api}
 
@@ -240,7 +240,7 @@
       yandex.cloud.datasphere.v2.DatasetService/Deactivate
     ```
 
-  Подробную информацию о вызовах `DatasetService` см. в [API-документации](grpc/Dataset/index.md).
+  Подробную информацию о вызовах `DatasetService` читайте в [API-документации](grpc/Dataset/index.md).
 
 {% endlist %}
 
@@ -281,7 +281,7 @@
       --data "{ \"projectId\": \"<идентификатор_проекта>\" }"
     ```
 
-  Подробную информацию о методах `Project` см. в [API-документации](Project/index.md).
+  Подробную информацию о методах `Project` читайте в [API-документации](Project/index.md).
 
 - gRPC API {#grpc-api}
 
@@ -305,7 +305,7 @@
       yandex.cloud.datasphere.v2.ProjectService/RemoveResource
     ```
 
-  Подробную информацию о вызовах `ProjectService` см. в [API-документации](grpc/Project/index.md).
+  Подробную информацию о вызовах `ProjectService` читайте в [API-документации](grpc/Project/index.md).
 
 {% endlist %}
 
@@ -344,7 +344,7 @@
       "https://datasphere.api.cloud.yandex.net/datasphere/v2/communities/<идентификатор_ресурса>:accessBindings"
     ```
 
-  Подробную информацию о методах см. в API-документации [Project](Project/index.md) и [Community](Community/index.md).
+  Подробную информацию о методах читайте в API-документации [Project](Project/index.md) и [Community](Community/index.md).
 
 - gRPC API {#grpc-api}
 
@@ -368,7 +368,7 @@
       yandex.cloud.datasphere.v2.CommunityService/ListAccessBindings
     ```
 
-  Подробную информацию о методах см. в API-документации [ProjectService](grpc/Project/index.md) и [CommunityService](grpc/Community/index.md).
+  Подробную информацию о методах читайте в API-документации [ProjectService](grpc/Project/index.md) и [CommunityService](grpc/Community/index.md).
 
 {% endlist %}
 
@@ -394,7 +394,7 @@
       "https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/<идентификатор_проекта>:unitBalance"
     ```
 
-  Подробную информацию о методах `Project` см. в [API-документации](Project/index.md).
+  Подробную информацию о методах `Project` читайте в [API-документации](Project/index.md).
 
 - gRPC API {#grpc-api}
 
@@ -408,6 +408,6 @@
       yandex.cloud.datasphere.v2.ProjectService/GetUnitBalance
     ```
 
-  Подробную информацию о вызовах `ProjectService` см. в [API-документации](grpc/Project/index.md).
+  Подробную информацию о вызовах `ProjectService` читайте в [API-документации](grpc/Project/index.md).
 
 {% endlist %}

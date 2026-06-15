@@ -5,6 +5,8 @@ description: To get started with {{ iot-name }}, create an X.509 certificate, re
 
 # Getting started with {{ iot-name }} device registries
 
+{% include [iot-sunset-warning](../_includes/iot-core/sunset-warning.md) %}
+
 To start using the {{ iot-name }} service, create the following:
 
 1. [X.509 certificates](#create-ca)
@@ -61,14 +63,14 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
 
         * To add a file:
 
-            1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
+            1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
             1. Click **Attach file**.
             1. Select the file with the public key of the certificate and click **Open**.
             1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
         * To add text:
 
-            1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
+            1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
             1. Paste the certificate's public key to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
             1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
@@ -140,14 +142,14 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
 
         * To add a file:
 
-            1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
+            1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
             1. Click **Attach file**.
             1. Select the file with the public key of the certificate and click **Open**.
             1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
         * To add text:
 
-            1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
+            1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
             1. Paste the certificate's public key to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
             1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 

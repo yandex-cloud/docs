@@ -19,4 +19,5 @@ This API reference is organized by resource. Actions are performed by sending HT
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [ResourcePreset](ResourcePreset/index.md) | A set of methods for managing ResourcePreset resources. ||
 || [User](User/index.md) | A set of methods for managing PostgreSQL User resources. ||
+|| [Versions](Versions/index.md) |  ||
 |#

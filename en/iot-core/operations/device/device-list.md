@@ -1,5 +1,7 @@
 # Getting information about devices
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 To find out the unique ID or name of a device, [get](#device-list) a list of devices in a registry.
 
 ## Getting a list of devices in a registry {#device-list}

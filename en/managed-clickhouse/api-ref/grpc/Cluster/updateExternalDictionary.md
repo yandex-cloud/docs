@@ -5,6 +5,7 @@ editable: false
 # Managed Service for ClickHouse API, gRPC: ClusterService.UpdateExternalDictionary
 
 Updates an external dictionary for the specified ClickHouse cluster.
+(-- api-linter: yc::1705::http-method-mapping=disabled --)
 
 ## gRPC request
 

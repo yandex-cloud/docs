@@ -138,23 +138,23 @@ GROUP BY col1
 
 ```python
 myQuery = "select * from Departments"
-%yq not_var{{myQuery}}
+%yq {{myQuery}}
 ```
 
-Mustache-строка `not_var{{myQuery}}` будет интерпретирована как название переменной, откуда нужно взять текст. При этом в Query будет отправлен для исполнения текст `select * from Departments`.
+Mustache-строка `{{myQuery}}` будет интерпретирована как название переменной, откуда нужно взять текст. При этом в Query будет отправлен для исполнения текст `select * from Departments`.
 
 Использование mustache-шаблонов упрощает интеграцию между Jupyter и Query. Например, у вас есть Python list `lst=["Academy", "Physics"]`, содержащий названия департаментов, данные из которых вы хотите обработать. Без поддержки mustache-синтаксиса в Query вам предварительно нужно было бы превратить Python list в строку и передать ее в SQL запрос. Пример запроса:
 
 ```python
 var lstStr = ",".join(lst)
 sqlQuery = f'select "Academy" in ListCreate({lstStr});
-%yq not_var{{sqlQuery}}
+%yq {{sqlQuery}}
 ```
 
 То есть для работы со сложными типами данных нужно знать детали синтаксиса SQL Query. При использовании mustache-синтаксиса запрос можно написать проще:
 
 ```sql
-%yq select "Academy" in not_var{{lst}}
+%yq select "Academy" in {{lst}}
 ```
 
 При этом `lst` будет распознан как Python list и будет автоматически вставлена правильная SQL-конструкция для работы со списками. В данном случае в результате всех преобразований в Query будет отправлен следующий текст запроса:
@@ -177,7 +177,7 @@ sqlQuery = f'select "Academy" in ListCreate({lstStr});
 
 ```python
 {% for user in users %}
-    command = "select * from users where name='not_var{{ user }}'"
+    command = "select * from users where name='{{ user }}'"
 {% endfor %}
 ```
 
@@ -185,9 +185,9 @@ sqlQuery = f'select "Academy" in ListCreate({lstStr});
 
 ```python
 {% if student.department == "Academy" %}
-    not_var{{ student.department|upper }}
+    {{ student.department|upper }}
 {% elif  upper(student.department) != "MATHS DEPARTMENT" %}
-    not_var{{ student.department|capitalize }}
+    {{ student.department|capitalize }}
 {% endif %}
 ```
 
@@ -195,7 +195,7 @@ sqlQuery = f'select "Academy" in ListCreate({lstStr});
 
 ```sql
 %%yq --jinja2
-select "Academy" in not_var{{lst|to_yq}}
+select "Academy" in {{lst|to_yq}}
 ```
 
 В случаях, когда нужно отключить шаблонизацию, используйте аргумент `--no-var-expansion`:
@@ -214,7 +214,7 @@ lst=["Academy", "Physics"]
 ```
 
 ```sql
-%yq select "Academy" in not_var{{lst}}
+%yq select "Academy" in {{lst}}
 ```
 
 #### Использование переменных Pandas DataFrame {#capture-dataframe}
@@ -239,7 +239,7 @@ lst=["Academy", "Physics"]
     SELECT
         *
     FROM mytable
-    INNER JOIN not_var{{df}}
+    INNER JOIN {{df}}
         ON mytable.id=df._int
     ```
 
@@ -275,7 +275,7 @@ lst=["Academy", "Physics"]
 
     ```sql
     %%yq
-    SELECT "a" in not_var{{dct}}
+    SELECT "a" in {{dct}}
     ```
 
 Таблица соответствия типов Python dict и типов Query:
@@ -309,7 +309,7 @@ df = pandas.DataFrame(dct)
 
     ```sql
     %%yq
-    SELECT 1 IN not_var{{lst}}
+    SELECT 1 IN {{lst}}
     ```
 
 Таблица соответствия типов Python list и типов Query:
@@ -347,7 +347,7 @@ df = pandas.DataFrame(lst,
     ```sql
     %%yq <другие_параметры> --jinja2
 
-    SELECT "not_var{{name}}"
+    SELECT "{{name}}"
     ```
 
     Параметры:
@@ -362,7 +362,7 @@ df = pandas.DataFrame(lst,
 
 ```sql
 %%yq --jinja2
-select "Academy" in not_var{{lst}}
+select "Academy" in {{lst}}
 ```
 
 В результате исполнения мы получим ошибку `Unexpected token '['`. Ошибка возникает из-за того, что шаблонизатор Jinja конвертирует переменную `lst` в строку `["Academy", "Physics"]` по правилам Python, без учета специфики SQL-запросов в Yandex Query.
@@ -371,7 +371,7 @@ select "Academy" in not_var{{lst}}
 
 ```sql
 %%yq --jinja2
-select "Academy" in not_var{{lst|to_yq}}
+select "Academy" in {{lst|to_yq}}
 ```
 
 Jinja-фильтр `to_yq` выполняет преобразование данных в синтаксис Yandex Query полностью аналогично [встроенным mustache-шаблонам](#embedded_mustache).

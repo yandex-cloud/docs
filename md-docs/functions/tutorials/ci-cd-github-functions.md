@@ -357,13 +357,13 @@
               id: sls-func
               uses: yc-actions/yc-sls-function@v3.1.0
               with:
-                yc-sa-id: $not_var{{env.SA_ID}}
-                folder-id: $not_var{{env.FOLDER_ID}}
-                function-name: $not_var{{env.FUNCTION_NAME}}
-                runtime: $not_var{{env.FUNCTION_RUNTIME}}
-                entrypoint: $not_var{{env.FUNCTION_ENTRYPOINT}}
-                memory: $not_var{{env.FUNCTION_MEMORY}}
-                source-root: $not_var{{env.FUNCTION_SOURCEROOT}}
+                yc-sa-id: ${{env.SA_ID}}
+                folder-id: ${{env.FOLDER_ID}}
+                function-name: ${{env.FUNCTION_NAME}}
+                runtime: ${{env.FUNCTION_RUNTIME}}
+                entrypoint: ${{env.FUNCTION_ENTRYPOINT}}
+                memory: ${{env.FUNCTION_MEMORY}}
+                source-root: ${{env.FUNCTION_SOURCEROOT}}
                 include: |
                   **/*.json
                   **/*.js
@@ -406,13 +406,13 @@
               id: sls-func
               uses: yc-actions/yc-sls-function@v3.1.0
               with:
-                yc-sa-id: $not_var{{env.SA_ID}}
-                folder-id: $not_var{{env.FOLDER_ID}}
-                function-name: $not_var{{env.FUNCTION_NAME}}
-                runtime: $not_var{{env.FUNCTION_RUNTIME}}
-                entrypoint: $not_var{{env.FUNCTION_ENTRYPOINT}}
-                memory: $not_var{{env.FUNCTION_MEMORY}}
-                source-root: $not_var{{env.FUNCTION_SOURCEROOT}}
+                yc-sa-id: ${{env.SA_ID}}
+                folder-id: ${{env.FOLDER_ID}}
+                function-name: ${{env.FUNCTION_NAME}}
+                runtime: ${{env.FUNCTION_RUNTIME}}
+                entrypoint: ${{env.FUNCTION_ENTRYPOINT}}
+                memory: ${{env.FUNCTION_MEMORY}}
+                source-root: ${{env.FUNCTION_SOURCEROOT}}
                 include: |
                   **/*.json
                   **/*.js
@@ -455,13 +455,13 @@
               id: sls-func
               uses: yc-actions/yc-sls-function@v3.1.0
               with:
-                yc-sa-id: $not_var{{env.SA_ID}}
-                folder-id: $not_var{{env.FOLDER_ID}}
-                function-name: $not_var{{env.FUNCTION_NAME}}
-                runtime: $not_var{{env.FUNCTION_RUNTIME}}
-                entrypoint: $not_var{{env.FUNCTION_ENTRYPOINT}}
-                memory: $not_var{{env.FUNCTION_MEMORY}}
-                source-root: $not_var{{env.FUNCTION_SOURCEROOT}}
+                yc-sa-id: ${{env.SA_ID}}
+                folder-id: ${{env.FOLDER_ID}}
+                function-name: ${{env.FUNCTION_NAME}}
+                runtime: ${{env.FUNCTION_RUNTIME}}
+                entrypoint: ${{env.FUNCTION_ENTRYPOINT}}
+                memory: ${{env.FUNCTION_MEMORY}}
+                source-root: ${{env.FUNCTION_SOURCEROOT}}
                 include: |
                   **/*.json
                   **/*.js

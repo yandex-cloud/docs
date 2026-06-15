@@ -17,7 +17,7 @@
         Credential helper is configured in '/home/<user>/.docker/config.json'
         ```
 
-        Settings are saved in the current user's profile.
+        The current user’s profile stores the settings.
 
         {% note warning %}
 
@@ -37,13 +37,15 @@
 
    - OAuth token {#oauth-token}
 
+     {% include [oauth-token-deprecated-soon](../../../_includes/oauth-token-deprecated-soon.md) %}
+
      1. If you do not have an [OAuth token](../../../iam/concepts/authorization/oauth-token.md) yet, get one at [this link]({{ link-cloud-oauth }}).
      1. Run this command:
 
         ```bash
         echo <OAuth_token> | docker login --username oauth --password-stdin {{ registry }}
         ```
-
+ 
         Result:
 
         ```text

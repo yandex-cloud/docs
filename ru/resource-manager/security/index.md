@@ -18,6 +18,12 @@ description: Управление доступом в сервисе, позво
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
+{% note info %}
+
+{% include [access-control-vs-roles-notice](../../_includes/iam/access-control-vs-roles-notice.md) %}
+
+{% endnote %}
+
 ## Какие роли действуют в сервисе {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}

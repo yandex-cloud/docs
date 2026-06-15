@@ -1,13 +1,13 @@
 ---
 title: Resource relationships in {{ mrd-full-name }}
-description: '{{ VLK }} is a high-performance in-memory DBMS for storing key-value data. {{ mrd-name }} allows you to easily create {{ VLK }} host clusters with a high level of fault tolerance. The main entity {{ mrd-name }} operates is a database cluster.'
+description: '{{ VLK }} is a high-performance in-memory DBMS for storing key-value data. With {{ mrd-name }}, you can easily create high-availability {{ VLK }} host clusters. The main entity {{ mrd-name }} operates is a database cluster.'
 ---
 
 # Resource relationships in {{ mrd-name }}
 
 
 
-{{ VLK }} is a high-performance in-memory DBMS for storing key-value data. {{ mrd-name }} allows you to easily create {{ VLK }} host clusters with a high level of fault tolerance.
+{{ VLK }} is a high-performance in-memory DBMS for storing key-value data. With {{ mrd-name }}, you can easily create high-availability {{ VLK }} host clusters.
 
 {{ yandex-cloud }} is an active contributor to both the core {{ VLK }} project and its [custom implementations](./update-policy.md#compatibility-table). Such deep involvement allows the {{ mrd-name }} team to:
 
@@ -23,9 +23,7 @@ The main entity in {{ mrd-name }} is a _database cluster_.
 
 Each cluster consists of one or multiple _database hosts_, which are virtual machines with deployed DBMS servers. Cluster hosts may reside in different availability zones and even different availability regions. You can learn more about the {{ yandex-cloud }} availability zones in [Platform overview](../../overview/concepts/geo-scope.md).
 
-* A cluster with three or more hosts is natively fault-tolerant because its hosts can step in for one another as the cluster’s primary replica.
-
-* A cluster of one or two hosts is cheaper, but it does not guarantee fault tolerance.
+[The high availability of a {{ mrd-name }} cluster](high-availability.md) depends on the number and placement of its hosts, replication settings, and other cluster parameters.
 
 When creating a cluster, specify:
 * _Host class_: VM template for deploying cluster hosts. For a list of available host classes and their specs, see [Host classes](instance-types.md).

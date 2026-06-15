@@ -22,12 +22,6 @@ Documents are exchanged through electronic document management operators. They c
 * [Kontur.Diadoc (SKB Kontur)](https://www.diadoc.ru/)
 * [SBIS (Tensor)](https://sbis.ru/)
 
-{% note warning %}
-
-{{ yandex-cloud }} does not support roaming due to the specifics of document management. If you change the provider, electronic document management is terminated automatically and the document exchange is resumed using the standard method.
-
-{% endnote %}
-
 ## What documents can be received via electronic document management {#document}
 
 You can receive the following closing documents via electronic document management:

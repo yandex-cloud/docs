@@ -173,7 +173,7 @@
   
     {% note info %}
 
-    Подробнее об объектах Znode, Ephemeral node и Watch см. в [документации ZooKeeper](https://zookeeper.apache.org/doc/current/zookeeperOver.html). {#zookeeper-objects}
+    Подробнее об объектах Znode, Ephemeral node и Watch в [документации ZooKeeper](https://zookeeper.apache.org/doc/current/zookeeperOver.html). {#zookeeper-objects}
 
     {% endnote %}
 
@@ -312,7 +312,7 @@
       * **Managed Service for ClickHouse® — ZooKeeper** для настройки алертов хостов ZooKeeper.
       * **Managed Service for ClickHouse® — Host Overview** для настройки алертов хостов.
   1. На нужном графике с показателями нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Создать алерт**.
-  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов [см. в документации Yandex Monitoring](../../monitoring/concepts/querying.md).
+  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов в [документации Yandex Monitoring](../../monitoring/concepts/querying.md).
   1. Задайте значения порогов `Alarm` и `Warning` для срабатывания алерта.
   1. Нажмите кнопку **Создать алерт**.
 
@@ -346,7 +346,7 @@
 * `Alarm` — `102005473280` байт (95%).
 * `Warning` — `85899345920` байт (75%).
 
-Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик см. в [документации Monitoring](../../monitoring/metrics-ref/managed-clickhouse-ref.md).
+Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик приведен в [документации Monitoring](../../monitoring/metrics-ref/managed-clickhouse-ref.md).
 
 
 ## Состояние и статус кластера {#cluster-health-and-status}
