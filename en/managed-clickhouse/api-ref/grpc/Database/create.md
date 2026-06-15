@@ -48,8 +48,8 @@ The maximum string length in characters is 63. Value must match the regular expr
 
 Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
 
-- `DATABASE_ENGINE_ATOMIC`
-- `DATABASE_ENGINE_REPLICATED` ||
+- `DATABASE_ENGINE_ATOMIC`: Atomic database engine.
+- `DATABASE_ENGINE_REPLICATED`: Replicated database engine. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

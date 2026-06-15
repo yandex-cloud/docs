@@ -55,8 +55,6 @@ The price covers one month of use. The minimum billing unit is 1 GB per hour, e.
 
 ### Example of instance cost calculation {#example}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 The cost of using an instance with the following properties for 30 days:
 
 * **Instance type**: `s2.micro` (2 vCPUs, Intel Cascade Lake, 8 GB RAM).

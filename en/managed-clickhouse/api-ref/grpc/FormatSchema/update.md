@@ -34,8 +34,10 @@ The maximum string length in characters is 50. ||
 Required field. Format schema name.
 To get a format schema name, use the [FormatSchemaService.List](/docs/managed-clickhouse/api-ref/grpc/FormatSchema/list#List) method.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
-|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
+The maximum string length in characters is 63. ||
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+
+Field mask that specifies which attributes of the format schema should be updated. ||
 || uri | **string**
 
 [Link to the file](/docs/managed-clickhouse/operations/s3-access#get-link-to-object) of a format schema in Yandex Object Storage. Managed Service for ClickHouse works only with format schemas imported to Object Storage. ||

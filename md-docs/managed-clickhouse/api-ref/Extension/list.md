@@ -1,5 +1,7 @@
 # Managed Service for ClickHouse API, REST: Extension.List
 
+Lists extensions available in the specified folder.
+
 ## HTTP request
 
 ```
@@ -12,11 +14,17 @@ GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/extensions
 ||Field | Description ||
 || pageSize | **string** (int64)
 
+Maximum number of extensions to return per response.
+
 The maximum value is 1000. ||
 || pageToken | **string**
 
+Token for fetching the next page of results.
+
 The maximum string length in characters is 100. ||
 || folderId | **string**
+
+ID of the folder.
 
 The maximum string length in characters is 50. ||
 |#
@@ -45,8 +53,12 @@ The maximum string length in characters is 50. ||
 
 #|
 ||Field | Description ||
-|| extensions[] | **[Extension](#yandex.cloud.mdb.clickhouse.v1.Extension)** ||
-|| nextPageToken | **string** ||
+|| extensions[] | **[Extension](#yandex.cloud.mdb.clickhouse.v1.Extension)**
+
+Requested extensions. ||
+|| nextPageToken | **string**
+
+Token to retrieve the next page of results. ||
 |#
 
 ## Extension {#yandex.cloud.mdb.clickhouse.v1.Extension}
@@ -73,5 +85,6 @@ Required field. Required. Version ID. ||
 Is default version. ||
 || deprecated | **boolean**
 
-Is version deprecated. ||
+Is version deprecated.
+(-- api-linter: yc::1703::deprecated-annotation=disabled --) ||
 |#

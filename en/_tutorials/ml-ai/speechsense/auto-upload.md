@@ -5,7 +5,7 @@
 {% include [workflows-preview-note](../../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
 
-You can configure automatic loading of dialog files and their metadata from the {{ objstorage-name }} bucket to [{{ speechsense-name }} space]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space). Supported formats are:
+You can configure automatic loading of dialog files and their metadata from the {{ objstorage-full-name }} bucket to a [{{ speechsense-name }} space]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space). Supported formats are:
 
   * `MP3`, `WAV`, and `OggOpus`: For audio files.
   * `JSON`: For chat conversations.
@@ -14,10 +14,10 @@ You can configure automatic loading of dialog files and their metadata from the 
 
 On the diagram:
 
-1. [Trigger](../../../functions/concepts/trigger/os-trigger.md) for {{ objstorage-name }} monitors for new JSON files with metadata as may appear in the selected [bucket](../../../storage/concepts/bucket.md) directory or any of its subdirectories.
-1. When new files appear in the directory, the trigger calls the `workflow-call` [function](../../../functions/concepts/function.md), which starts the [{{ sw-name }}](../../../serverless-integrations/concepts/workflows/workflow.md) workflow.
+1. [Trigger](../../../functions/concepts/trigger/os-trigger.md) for {{ objstorage-name }} monitors for newly-appearing JSON files with metadata in the selected [bucket](../../../storage/concepts/bucket.md) directory or any of its subdirectories.
+1. When new files appear in the directory, the trigger calls the `workflow-call` [function](../../../functions/concepts/function.md), which starts the [{{ sw-name }}-enabled workflow](../../../serverless-integrations/concepts/workflows/workflow.md).
 1. The workflow retrieves the contents of JSON metadata files and checks their syntax using the `verify-file` function.
-1. The workflow gets the {{ speechsense-name }} connection parameters from the relevant [{{ lockbox-name }}](../../../lockbox/concepts/secret.md) secret.
+1. The workflow gets the {{ speechsense-name }} connection settings from the relevant [{{ lockbox-full-name }} secret](../../../lockbox/concepts/secret.md).
 1. The path to the audio or text file and its metadata are provided to the `speechsense-upload` upload function.
 1. `speechsense-upload` uploads the files and their metadata into the {{ speechsense-name }} space.
 1. At runtime, the workflow accesses the database with metadata:
@@ -28,7 +28,7 @@ On the diagram:
     1. Logging the file metadata and unique identifier in {{ speechsense-name }} space once the file is successfully uploaded.
 1. {{ websql-name }} provides access to the metadata DB. One database user is used for browsing, and another one for uploading files.
 
-You can set up automatic data upload for several [{{ speechsense-name }}]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#connection) connections at once.
+You can set up automatic data upload for several [{{ speechsense-name }} connections]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#connection) at once.
 
 To automate uploading data to {{ speechsense-name }}, follow these steps:
 
@@ -50,10 +50,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-* Fee for data storage in a bucket and data operations (see [{{ objstorage-full-name }} pricing](../../../storage/pricing.md)).
-* Cluster usage fee (see [{{ mpg-full-name }} pricing](../../../managed-postgresql/pricing.md)).
-* Fee for invoking functions (see [{{ sf-full-name }} pricing](../../../functions/pricing.md)).
-* Fee for storing the secret and requests to the secret (see [{{ lockbox-full-name }} pricing](../../../lockbox/pricing.md)).
+* {{ speechsense-name }}: duration of each two-channel audio file or number of characters in each chat transcript (see [{{ speechsense-name }} pricing]({{ link-docs-ai }}speechsense/pricing)).
+* {{ objstorage-name }} buckets: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* {{ mpg-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* {{ sf-full-name }} instance: number of function calls, idle time of provisioned instances, and computing resources allocated for the function (see [{{ sf-name }} pricing](../../../functions/pricing.md)).
+* {{ lockbox-name }} secret: number of stored secret versions and requests to them (see [{{ lockbox-name }} pricing](../../../lockbox/pricing.md)).
 
 ### Create service accounts {#create-sa}
 
@@ -70,7 +71,7 @@ Create two service accounts:
   1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Name the [service account](../../../iam/concepts/users/service-accounts.md): `deploy-sa`.
+  1. Enter a name for the [service account](../../../iam/concepts/users/service-accounts.md): `deploy-sa`.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the following roles: [functions.admin](../../../functions/security/index.md#functions-admin), [storage.editor](../../../storage/security/index.md#storage-editor), [iam.editor](../../../iam/roles-reference.md#iam-editor), [mdb.admin](../../../iam/roles-reference.md#mdb-admin), and `serverless.workflows.admin`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
   1. Repeat the above steps and create a service account named `speechsense-sa` with the following roles: [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadViewer), and `serverless.workflows.executor`.
@@ -112,7 +113,7 @@ Create two service accounts:
 
       For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
-      If you will be creating a {{ lockbox-name }} secret through the {{ yandex-cloud }} CLI under the `deploy-sa` service account, also assign the [lockbox.editor](../../../lockbox/security/index.md#lockbox-editor) role to that account.
+      If you intend to create a {{ lockbox-name }} secret through the {{ yandex-cloud }} CLI under the `deploy-sa` service account, also assign the [lockbox.editor](../../../lockbox/security/index.md#lockbox-editor) role to that account.
 
   1. Repeat the above steps and create a service account named `speechsense-sa` with the following roles: [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadViewer), and `serverless.workflows.executor`.
 
@@ -328,7 +329,7 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 
     - {{ yandex-cloud }} CLI {#cli}
 
-      1. Create an [authorized key](../../../iam/concepts/authorization/key.md) for the `deploy-sa` service account and save that key to the file:
+      1. Create an [authorized key](../../../iam/concepts/authorization/key.md) for the `deploy-sa` service account and save it to the file:
       
           ```bash
           yc iam key create --output <key_file_path> --service-account-name deploy-sa
@@ -443,6 +444,7 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 
   
   To create a secret, use the [create](../../../lockbox/api-ref/Secret/create.md) REST API method for the [Secret](../../../lockbox/api-ref/Secret/index.md) resource or the [SecretService.Create](../../../lockbox/api-ref/grpc/Secret/create.md) gRPC API call.
+
 
 {% endlist %}
 

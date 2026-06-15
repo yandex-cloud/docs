@@ -88,9 +88,9 @@ Security group configurations differ for sharded and non-sharded clusters.
 
 {% note info %}
 
-You can specify more granular security group rules, such as allowing traffic only in specific subnets.
+You can specify more granular rules for your security groups, e.g., to allow traffic only in specific subnets.
 
-Make sure to properly configure security groups for all subnets where the cluster hosts will reside. With incomplete or incorrect security group settings, you may lose access to the cluster if a [manual](../failover.md) or [automatic](../../concepts/replication.md#availability) master failover occurs.
+Make sure to properly configure security groups for all subnets where the cluster hosts will reside. With incomplete or incorrect security group settings, you may lose access to the cluster if a [manual](../failover.md) or [automatic](../../concepts/replication.md#master-failover) master failover occurs.
 
 {% endnote %}
 

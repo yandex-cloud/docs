@@ -4,6 +4,8 @@ editable: false
 
 # Managed Service for ClickHouse API, gRPC: ExtensionService.List
 
+Lists extensions available in the specified folder.
+
 ## gRPC request
 
 **rpc List ([ListExtensionsRequest](#yandex.cloud.mdb.clickhouse.v1.ListExtensionsRequest)) returns ([ListExtensionsResponse](#yandex.cloud.mdb.clickhouse.v1.ListExtensionsResponse))**
@@ -22,11 +24,17 @@ editable: false
 ||Field | Description ||
 || page_size | **int64**
 
+Maximum number of extensions to return per response.
+
 The maximum value is 1000. ||
 || page_token | **string**
 
+Token for fetching the next page of results.
+
 The maximum string length in characters is 100. ||
 || folder_id | **string**
+
+ID of the folder.
 
 The maximum string length in characters is 50. ||
 |#
@@ -53,8 +61,12 @@ The maximum string length in characters is 50. ||
 
 #|
 ||Field | Description ||
-|| extensions[] | **[Extension](#yandex.cloud.mdb.clickhouse.v1.Extension)** ||
-|| next_page_token | **string** ||
+|| extensions[] | **[Extension](#yandex.cloud.mdb.clickhouse.v1.Extension)**
+
+Requested extensions. ||
+|| next_page_token | **string**
+
+Token to retrieve the next page of results. ||
 |#
 
 ## Extension {#yandex.cloud.mdb.clickhouse.v1.Extension}
@@ -81,5 +93,6 @@ Required field. Required. Version ID. ||
 Is default version. ||
 || deprecated | **bool**
 
-Is version deprecated. ||
+Is version deprecated.
+(-- api-linter: yc::1703::deprecated-annotation=disabled --) ||
 |#

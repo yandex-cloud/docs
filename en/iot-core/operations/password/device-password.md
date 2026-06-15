@@ -1,5 +1,7 @@
 # Managing device passwords
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 For devices and registries to begin exchanging data and commands, you need to [log in](../../concepts/authorization.md). This section describes how to manage device passwords for the appropriate authorization method.
 
 {% include [pass-priority-note](../../../_includes/iot-core/pass-priority-note.md) %}
@@ -103,7 +105,7 @@ You can add a password to an already created device or set it when creating a de
       terraform validate
       ```
      
-      If the configuration is correct, you will get this message:
+      If the configuration is valid, you will get this message:
      
       ```bash
       Success! The configuration is valid.
@@ -115,8 +117,8 @@ You can add a password to an already created device or set it when creating a de
       terraform plan
       ```
   
-      You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-  1. Apply the changes:
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply
@@ -338,7 +340,7 @@ You can add a password to an already created device or set it when creating a de
       terraform validate
       ```
      
-      If the configuration is correct, you will get this message:
+      If the configuration is valid, you will get this message:
      
       ```bash
       Success! The configuration is valid.
@@ -350,8 +352,8 @@ You can add a password to an already created device or set it when creating a de
       terraform plan
       ```
   
-      You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-  1. Apply the changes:
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply

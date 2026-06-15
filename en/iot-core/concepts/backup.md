@@ -1,9 +1,11 @@
 ---
-title: Backups in {{ iot-full-name }}
+title: Backing up to {{ iot-full-name }}
 description: Data in {{ iot-full-name }} is stored securely and replicated within the {{ yandex-cloud }} infrastructure. You can view lists of registries, registry certificates, and registry devices, information about registries and devices, and lists of device certificates and aliases.
 ---
 
-# Backups in {{ iot-name }}
+# Backing up to {{ iot-name }}
+
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
 
 Data in {{ iot-name }} is stored securely and replicated within the {{ yandex-cloud }} infrastructure. You can view:
 * [Lists of registries](#registry-list).

@@ -1,0 +1,136 @@
+# Managed Service for MySQL API, REST: BackupRetentionPolicy.ListByFolder
+
+List all retention policies for all clusters in a folder.
+
+## HTTP request
+
+```
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/folders/{folderId}/retention_policies
+```
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| folderId | **string**
+
+Required field. ID of the folder to list retention policies in.
+To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request.
+
+The maximum string length in characters is 50. ||
+|#
+
+## Query parameters {#yandex.cloud.mdb.mysql.v1.ListBackupRetentionPoliciesByFolderRequest}
+
+#|
+||Field | Description ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page to return. If the number of available
+results is larger than `pageSize`, the service returns a [ListBackupRetentionPoliciesResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListBackupRetentionPoliciesResponse)
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
+|| pageToken | **string**
+
+Page token. To get the next page of results, set `pageToken`
+to the [ListBackupRetentionPoliciesResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListBackupRetentionPoliciesResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
+|#
+
+## Response {#yandex.cloud.mdb.mysql.v1.ListBackupRetentionPoliciesResponse}
+
+**HTTP Code: 200 - OK**
+
+```json
+{
+  "policies": [
+    {
+      "policyId": "string",
+      "clusterId": "string",
+      "policyName": "string",
+      "createdAt": "string",
+      "cron": {
+        "dayOfMonth": "string",
+        "month": "string",
+        "dayOfWeek": "string"
+      },
+      "retainForDays": "string",
+      "description": "string"
+    }
+  ],
+  "nextPageToken": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| policies[] | **[BackupRetentionPolicy](#yandex.cloud.mdb.v1.BackupRetentionPolicy)**
+
+List of [BackupRetentionPolicy](#yandex.cloud.mdb.v1.BackupRetentionPolicy) associated with the cluster. ||
+|| nextPageToken | **string**
+
+This token allows you to get the next page of results for list requests. If the number of results
+is larger than [ListBackupRetentionPoliciesRequest.pageSize](list.md#yandex.cloud.mdb.mysql.v1.ListBackupRetentionPoliciesRequest), use the `nextPageToken` as the value
+for the [ListBackupRetentionPoliciesRequest.pageToken](list.md#yandex.cloud.mdb.mysql.v1.ListBackupRetentionPoliciesRequest) query parameter in the next list request.
+Each subsequent list request will have its own `nextPageToken` to continue paging through the results. ||
+|#
+
+## BackupRetentionPolicy {#yandex.cloud.mdb.v1.BackupRetentionPolicy}
+
+Message to describe a retention policy for cluster backups.
+
+#|
+||Field | Description ||
+|| policyId | **string**
+
+Required field. Required. Policy ID. ||
+|| clusterId | **string**
+
+Required field. Cluster ID.
+
+The maximum string length in characters is 50. ||
+|| policyName | **string**
+
+Required field. Required. Policy name. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| cron | **[CronTab](#yandex.cloud.mdb.v1.CronTab)**
+
+CronTab schedule. ||
+|| retainForDays | **string** (int64)
+
+Retention duration. ||
+|| description | **string**
+
+Human-readable description. ||
+|#
+
+## CronTab {#yandex.cloud.mdb.v1.CronTab}
+
+Message to describe a crontab schedule.
+
+#|
+||Field | Description ||
+|| dayOfMonth | **string**
+
+Day of month in cron format. Valid values: 1-31, *, ranges (1-15), steps (*/2, 1-15/3), lists (1,15,28).
+Defaults to "*". ||
+|| month | **string**
+
+Month in cron format. Valid values: 1-12, *, ranges (1-6), steps (*/3), lists (1,6,12).
+Defaults to "*". ||
+|| dayOfWeek | **string**
+
+Day of week in cron format. Valid values: 0-7 (0 and 7 both mean Sunday), *, ranges (1-5), steps (0-6/2), lists (1,3,5).
+Defaults to "*". ||
+|#

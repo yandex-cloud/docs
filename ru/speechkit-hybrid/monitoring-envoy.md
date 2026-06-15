@@ -1,8 +1,8 @@
 # Мониторинг сервисов Envoy
 
-Сервисы Envoy – это собирательное название компонентов {{ sk-hybrid-name }} Envoy и License server. Подробнее о компонентах {{ sk-hybrid-name }} см. в [{#T}](architecture.md).
+Сервисы Envoy – это собирательное название компонентов {{ sk-hybrid-name }} Envoy и License server. Подробнее о компонентах {{ sk-hybrid-name }} читайте в [{#T}](architecture.md).
 
-Сервисы Envoy собирают и хранят метрики в формате Prometheus. Подробнее о типах метрик см. в [документации Prometheus](https://prometheus.io/docs/concepts/metric_types/).
+Сервисы Envoy собирают и хранят метрики в формате Prometheus. Подробнее о типах метрик читайте в [документации Prometheus](https://prometheus.io/docs/concepts/metric_types/).
 
 ## Метрики License server {#license-metrics}
 
@@ -58,7 +58,7 @@
 
 * `<IP-адрес>` — IP-адрес сервиса Envoy {{ sk-hybrid-name }} в вашей сети.
 
-Подробнее об интерфейсе см. в [документации Envoy](https://www.envoyproxy.io/docs/envoy/latest/operations/admin).
+Подробнее об интерфейсе читайте в [документации Envoy](https://www.envoyproxy.io/docs/envoy/latest/operations/admin).
 
 Метрики Envoy в формате Prometheus доступны через административный интерфейс по URL-адресу:
 

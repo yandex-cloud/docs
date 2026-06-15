@@ -1,5 +1,7 @@
 # Using topics
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 You can subscribe devices and registries to the `$<devices_or_registries>/<device_or_registry_ID>/events` and `$<devices_or_registries>/<device_or_registry_ID>/commands` topics.
 
 If you have devices whose sensor readings require your quick response, and your network is potentially vulnerable to connection failures between your devices and the MQTT server, subscribe your devices and registries to the `$<devices_or_registries>/<device_or_registry_ID>/state` and `$<devices_or_registries>/<device_or_registry_ID>/config` permanent topics. A permanent topic stores the last message sent to it and shows this message when the connection is restored (even if no devices or registries are writing data to the topic at the time of reconnection). After the connection is restored, permanent topics work like regular topics and information appears in them when a device or registry writes data to them.

@@ -125,6 +125,8 @@ Creates one or more shards in the specified cluster.
               "lightweight_mutation_projection_mode": "LightweightMutationProjectionMode",
               "replicated_deduplication_window": "google.protobuf.Int64Value",
               "replicated_deduplication_window_seconds": "google.protobuf.Int64Value",
+              "replicated_deduplication_window_for_async_inserts": "google.protobuf.Int64Value",
+              "replicated_deduplication_window_seconds_for_async_inserts": "google.protobuf.Int64Value",
               "fsync_after_insert": "google.protobuf.BoolValue",
               "fsync_part_directory": "google.protobuf.BoolValue",
               "min_compressed_bytes_to_fsync_after_fetch": "google.protobuf.Int64Value",
@@ -1353,6 +1355,20 @@ The number of seconds after which the hash sums of the inserted blocks are remov
 Default value: **3600** (1 hour) for versions 25.10 and higher, **604800** (7 days) for versions 25.9 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window_seconds). ||
+|| replicated_deduplication_window_for_async_inserts | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The number of most recently async inserted blocks for which ClickHouse Keeper stores hash sums to check for duplicates.
+
+Default value: **10000**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window_for_async_inserts). ||
+|| replicated_deduplication_window_seconds_for_async_inserts | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The number of seconds after which the hash sums of the async inserts are removed from ClickHouse Keeper.
+
+Default value: **604800** (7 days).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window_seconds_for_async_inserts). ||
 || fsync_after_insert | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Do fsync for every inserted part. Significantly decreases performance of inserts, not recommended to use with wide parts.

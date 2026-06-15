@@ -15,7 +15,7 @@
 
 {% note info %}
 
-Значение настройки [Max server memory usage](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#max_server_memory_usage) нельзя изменять напрямую. Managed Service for ClickHouse® выставляет для нее значение автоматически в зависимости от объема оперативной памяти хостов ClickHouse®. Чтобы изменить значение настройки, [измените класс хостов ClickHouse®](#change-resource-preset). Подробнее см. в разделе [Управление памятью](../concepts/memory-management.md).
+Значение настройки [Max server memory usage](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#max_server_memory_usage) нельзя изменять напрямую. Managed Service for ClickHouse® выставляет для нее значение автоматически в зависимости от объема оперативной памяти хостов ClickHouse®. Чтобы изменить значение настройки, [измените класс хостов ClickHouse®](#change-resource-preset). Подробнее в разделе [Управление памятью](../concepts/memory-management.md).
 
 {% endnote %}
 
@@ -66,7 +66,7 @@
 
    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Как создать такой файл, описано в разделе [Создание кластера](cluster-create.md).
 
    1. В описании кластера Managed Service for ClickHouse®, в блоке `clickhouse.config`, измените значения параметров:
 
@@ -155,7 +155,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-   Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+   Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
    {% note warning "Ограничения по времени" %}
    
@@ -227,7 +227,7 @@
       Где:
 
       * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
-      * `configSpec.clickhouse.config` — настройки ClickHouse® на уровне сервера. Возможные параметры и их значения см. в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterRequest).
+      * `configSpec.clickhouse.config` — настройки ClickHouse® на уровне сервера. Возможные параметры и их значения в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterRequest).
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -306,7 +306,7 @@
       Где:
 
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
-      * `config_spec.clickhouse.config` — настройки ClickHouse® на уровне сервера. Возможные параметры и их значения см. в [описании метода](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterRequest).
+      * `config_spec.clickhouse.config` — настройки ClickHouse® на уровне сервера. Возможные параметры и их значения в [описании метода](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterRequest).
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -372,7 +372,7 @@
             merge_with_recompression_ttl_timeout = 15000;
          ```
 
-      Подробнее о создании таблиц MergeTree см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-creating-a-table).
+      Подробнее о создании таблиц MergeTree в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-creating-a-table).
 
    {% endlist %}
 

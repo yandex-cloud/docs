@@ -101,32 +101,15 @@ To configure the allowed HTTP client requests methods for a resource:
   1. In the configuration file, describe the properties of the CDN resource to create:
 
       ```hcl
-      terraform {
-        required_providers {
-          yandex = {
-            source  = "yandex-cloud/yandex"
-            version = "0.69.0"
-          }
-        }
-      }
-
-      provider "yandex" {
-        token     = "<OAuth_token>"
-        cloud_id  = "<cloud_ID>"
-        folder_id = "<folder_ID>"
-        zone      = "<availability_zone>"
-      }
-
       resource "yandex_cdn_resource" "my_resource" {
-          cname               = "cdn1.yandex-example.ru"
-          active              = false
-          origin_protocol     = "https"
-          secondary_hostnames = ["cdn-example-1.yandex.ru", "cdn-example-2.yandex.ru"]
-          origin_group_id     = yandex_cdn_origin_group.my_group.id
-          options {
-            allowed_http_methods = ["GET","PUT"]
-          }
-
+        cname               = "cdn1.yandex-example.ru"
+        active              = false
+        origin_protocol     = "https"
+        secondary_hostnames = ["cdn-example-1.yandex.ru", "cdn-example-2.yandex.ru"]
+        origin_group_id     = yandex_cdn_origin_group.my_group.id
+        options {
+          allowed_http_methods = ["GET","HEAD","OPTIONS"]
+        }
       }
       ```
 

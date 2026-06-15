@@ -5,6 +5,13 @@ description: This section contains the {{ postbox-name }} release notes.
 
 # {{ postbox-full-name }} release notes
 
+## April 2026 {#april-2026}
+
+### Updates {#updates}
+
+* Added support for the full-cycle processing of email complaints: accepting complaints from internet service providers, parsing these complaints, identifying the sender, and sending a [complaint notification](concepts/notification.md#complaint) to the user. Added a dedicated complaints metric to the [statistics](concepts/statistics.md) on sent emails in the management console.
+* Added support for [viewing](operations/messages.md) information about sent emails in the management console.
+
 ## February 2026 {#february-2026}
 
 ### Updates {#updates}
@@ -44,7 +51,7 @@ description: This section contains the {{ postbox-name }} release notes.
 
 ### Updates {#updates}
 
-* Added support for {{ TF }}: you can now create addresses and check custom domain ownership using {{ TF }}. For more information, see [{#T}](tutorials/domain-identity-creating.md)
+* Added support for {{ TF }}: you can now create addresses and check custom domain ownership using {{ TF }}. For more information, see [{#T}](tutorials/domain-identity-creating.md).
 
 ## March 2025 {#march-2025}
 

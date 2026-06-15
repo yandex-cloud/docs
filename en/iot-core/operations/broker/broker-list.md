@@ -5,6 +5,8 @@ description: Follow this guide to get information about a broker.
 
 # Getting information about a broker
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 {% include [note-pp](../../../_includes/iot-core/note-pp.md) %}
 
 To find out the ID or name of a [broker](../../concepts/index.md#broker), get a list of brokers in a folder.

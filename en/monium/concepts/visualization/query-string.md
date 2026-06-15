@@ -21,11 +21,11 @@ You can select tokens using the cursor or by entering their names. Use the follo
 
 * **Cmd/Ctrl + →** and **Cmd/Ctrl + ←** to switch between tokens.
 * **Option/Alt + →** and **Option/Alt + ←** to switch between token fields.
-* **Сmd/Ctrl + Delete** to delete the current token.
-* **Сmd/Ctrl + Z** to cancel an action.
-* **Сmd + Shift + Z** or **Ctrl + Y** to repeat an action.
+* **Cmd/Ctrl + Delete** to delete the current token.
+* **Cmd/Ctrl + Z** to cancel an action.
+* **cmd + Shift + Z** or **Ctrl + Y** to repeat an action.
 * **Shift + Space** to go to the label value.
-* **Сmd/Ctrl + I** to open the suggestion menu.
+* **Cmd/Ctrl + I** to open the suggestion menu.
 * **Escape** to close the suggestion menu. Press again to remove focus.
 * **Enter** to select a suggestion. If the suggestion menu is closed, press it to finish entering the current token and go to the next one.
 * **|**: Pipe mode; only used in label value.
@@ -38,7 +38,7 @@ A query string in text mode looks like this:
 
 ![Query string in text mode](../../../_assets/monium/query_string_text_2026.png "Query string in text mode")
 
-In text mode, queries to monitoring are written as functions. Function arguments are tokens, outputs of other functions, and other queries. Syntax highlighting is supported: function names, key words, and label values are highlighted in different colors.
+In text mode, queries are written as functions. Function arguments are tokens, outputs of other functions, and other queries. Syntax highlighting is supported: function names, key words, and label values are highlighted in different colors.
 
 ## Working with a query string {#query-working}
 

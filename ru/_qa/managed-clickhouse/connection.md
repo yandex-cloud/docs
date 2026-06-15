@@ -26,7 +26,7 @@
 
 #### Можно ли подключиться к публичному кластеру без SSL? {#without-ssl}
 
-Нет, к публичным хостам подключиться можно только используя SSL-соединение. Подробнее см. в [документации](../../managed-clickhouse/operations/connect/index.md).
+Нет, к публичным хостам подключиться можно только используя SSL-соединение. Подробнее в [документации](../../managed-clickhouse/operations/connect/index.md).
 
 #### Почему при подключении возникает ошибка `UNEXPECTED_PACKET_FROM_SERVER`? {#unexpected-packet}
 
@@ -42,7 +42,7 @@ Unexpected packet from server <FQDN_хоста>.mdb.yandexcloud.net:9440
 
 Убедитесь, что при подключении через порт 9440 вы указываете параметр `--secure`.
 
-Подробнее о способах подключения см. в разделе [Подключение к кластеру {{ CH }}](../../managed-clickhouse/operations/connect/clients.md).
+Подробнее о способах подключения в разделе [Подключение к кластеру {{ CH }}](../../managed-clickhouse/operations/connect/clients.md).
 
 #### Можно ли подключиться к хостам кластера по SSH или получить на хостах права суперпользователя? {#connect-ssh}
 

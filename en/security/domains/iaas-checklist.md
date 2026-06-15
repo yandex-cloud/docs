@@ -7,7 +7,7 @@ description: This article presents a security checklist for a {{ yandex-cloud }}
 
 ## VM security {#vm-security}
 
-&#x2713; **Disable the serial console**: Do not use the serial console; if you still have to, evaluate your risks and [disable](../../compute/operations/serial-console/disable.md) it as soon as you are done.
+&#x2713; **Disable the serial console**: Do not use the serial console; if you still have to, evaluate your risks and [disable](../../compute/operations/serial-console/index.md#disable) it as soon as you are done.
 
 &#x2713; **Disable password authentication**: Password authentication in {{ yandex-cloud }} is disabled by default. Do not enable password-based access unless you have to.
 

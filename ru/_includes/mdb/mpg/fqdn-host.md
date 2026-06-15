@@ -1,1 +1,1 @@
-О том, как получить FQDN хоста, см. [инструкцию](../../../managed-postgresql/operations/connect/fqdn.md).
+О том, как получить FQDN хоста, читайте в [инструкции](../../../managed-postgresql/operations/connect/fqdn.md).

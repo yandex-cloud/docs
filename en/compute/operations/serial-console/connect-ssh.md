@@ -1,102 +1,113 @@
-# Connecting to a VM serial console over SSH
+---
+title: Connecting to a Linux VM serial console
+description: Follow this guide to connect to the serial console of a {{ compute-full-name }} VM instance running Linux.
+---
 
-{% include [key-without-password-alert](../../../_includes/compute/key-without-password-alert.md) %}
-
-After [enabling access](./index.md), you can connect to the serial console to manage your [VM](../../concepts/vm.md). Before connecting to a serial console, carefully read the [security](#security) section.
-
-## Security {#security}
+# Connecting to a Linux VM serial console
 
 {% include [sc-warning](../../../_includes/compute/serial-console-warning.md) %}
 
-For remote access, it is important to ensure protection against [MITM attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). To do that, you can use client/server encryption.
+To connect to the [serial console](../../concepts/serial-console.md) of a VM instance, first [enable access](./index.md#enable) to the serial console.
 
-To establish a secure connection, you can use the following methods:
-* Download the current [SHA256 fingerprint](https://{{ s3-storage-host }}/cloud-certs/serialssh-fingerprint.txt) of the SSH key before each VM connection.
+You can connect to the serial console through the [management console]({{ link-console-main }}), as well as using the standard SSH client or via [{{ oslogin }}](../../../organization/concepts/os-login.md).
 
-  The first time you connect to a VM, the client shows the SSH key fingerprint and awaits confirmation to establish a connection:
-  * `YES`: Establish a connection.
-  * `NO`: Reject.
+Before connecting to the serial console, carefully read this section: [{#T}](../../concepts/serial-console.md#security).
 
-  Make sure the fingerprint from the link matches the fingerprint given by the client.
-* Download the host's public [SSH key](https://{{ s3-storage-host }}/serialssh-certs/serialssh-knownhosts) before each serial console connection.
+## Getting started {#before-you-begin}
 
-  Use the public SSH key you got when connecting to the serial console.
+Some operating systems may request local user data to access the VM serial console. Therefore, before connecting to the serial console of a VM running such an OS, create a local user password.
 
-  Recommended startup options:
+In the example below, you will create a new local Linux user account with password protection:
 
-  ```bash
-  ssh -o ControlPath=none -o IdentitiesOnly=yes -o CheckHostIP=no -o StrictHostKeyChecking=yes -o UserKnownHostsFile=./serialssh-knownhosts -p 9600 -i ~/.ssh/<private_SSH_key_name> <VM_ID>.<username>@{{ serial-ssh-host }}
-  ```
+1. Connect to the VM [over SSH](../vm-connect/ssh.md) or [via {{ oslogin }}](../vm-connect/os-login.md).
+1. Create a new local user account with password protection:
 
-  The host's public SSH key may be changed in the future.
+    ```bash
+    export NEW_USERNAME=<new_username>
+    sudo useradd -m -d /home/$NEW_USERNAME -s /bin/bash $NEW_USERNAME \
+    && sudo passwd $NEW_USERNAME
+    ```
 
-Regularly check the specified files. Download them only via HTTPS after verifying the validity of the `https://{{ s3-storage-host }}` website certificate. If the website cannot securely encrypt your data due to certificate issues, your browser will display a warning.
+    The system will prompt you to enter and confirm the password for the new user:
 
-## Connecting to a serial console {#connect-to-serial-console}
+    ```text
+    New password:
+    Retype new password:
+    passwd: password updated successfully
+    ```
 
-{% note info %}
+{% include [serial-console-os-dependency-warn](../../../_includes/compute/serial-console-os-dependency-warn.md) %}
 
-How a serial console works depends on how the operating system is set up. {{ compute-name }} provides a communication channel between the user and the VM COM port; however, it does not guarantee that the console works properly on your OS.
-
-{% endnote %}
-
-To connect to a VM, you need its ID. For info on how to get the VM ID, see [{#T}](../vm-info/get-info.md).
-
-Your next steps depend on whether [{{ oslogin }}](../../../organization/concepts/os-login.md) access is enabled for the VM. With OS Login access [enabled](../vm-connect/enable-os-login.md), you can connect to the serial console using the exported SSH certificate. To connect to VMs with {{ oslogin }} access disabled, use SSH keys.
-
-Some operating systems may prompt you for your user credentials to access the VM. So, before connecting to the serial console of VMs running on such systems, create a local user password.
+## Connecting via the management console {#connect-via-console}
 
 {% list tabs %}
 
-- With an SSH key
+- Management console
 
-  1. {% include [cli-install](../../../_includes/cli-install.md) %}
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the VM instance resides in.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. In the left-hand panel, select ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** and select the VM instance from the list that opens.
+  1. In the left-hand menu, select **{{ ui-key.yacloud.compute.instance.switch_console }}**.
+  1. In the drop-down list at the top of the screen, select the [serial port](../../concepts/serial-console.md#serial-ports) used by the serial console for VM connections.
 
-      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+      {% include [serial-console-default-port-linux](../../../_includes/compute/serial-console-default-port-linux.md) %}
 
-  1. Create a local user password on the VM:
-      1. [Connect](../vm-connect/ssh.md) to the VM over SSH.
-      1. {% include [create-serial-console-user](../../../_includes/compute/create-serial-console-user.md) %}
-      1. Disconnect from the VM. To do this, enter the `logout` command.
+  1. In the serial console window that opens, enter the username and password you set [earlier](#before-you-begin).
+
+{% endlist %}
+
+{% note warning %}
+
+{% include [disable-serial-console-tip](../../../_includes/compute/disable-serial-console-tip.md) %}
+
+{% endnote %}
+
+## Connecting using a standard SSH client {#connect-with-ssh-client}
+
+{% note alert %}
+
+{% include [key-without-password-alert](../../../_includes/compute/key-without-password-alert.md) %}
+
+{% endnote %}
+
+Make sure you have the [{{ yandex-cloud }} CLI](../../../cli/index.yaml) installed and configured on your machine.
+
+{% include [cli-install](../../../_includes/cli-install.md) %}
+
+{% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+Your next steps depend on whether [{{ oslogin }}](../../../organization/concepts/os-login.md) access is enabled for the VM. With {{ oslogin }} access [enabled](../vm-connect/enable-os-login.md), you can connect to the serial console using the exported SSH certificate. To connect to VMs with {{ oslogin }} access disabled, use SSH keys.
+
+{% list tabs group=os_login_type %}
+
+- Connecting with an SSH key {#ssh-key}
 
   1. {% include [enable-metadata-serial-console-auth](../../../_includes/compute/enable-metadata-serial-console-auth.md) %}
-
-  1. Connect to the VM.
-
-      Here is a connection command example:
+  1. Connect to the VM's serial console:
 
       ```bash
-      ssh -t -p 9600 -o IdentitiesOnly=yes -i <path_to_private_SSH_key> <VM_ID>.<username>@{{ serial-ssh-host }}
+      ssh -t \
+        -p 9600 \
+        -o IdentitiesOnly=yes \
+        -i <path_to_private_SSH_key> \
+        <VM_ID>.<username>.port=1@{{ serial-ssh-host }}
       ```
 
-      Where: 
-      * `private_SSH_key_path`: Path to the private part of the [SSH key](../vm-connect/ssh.md#creating-ssh-keys) obtained when [creating the VM](../vm-create/create-linux-vm.md).
-      * `VM_ID`: VM ID. For info on how to get the VM ID, see [{#T}](../vm-info/get-info.md).
-      * `username`: Admin name specified when creating the VM.
+      Where:
 
-      ```bash
-      ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519 fhm0b28lgfp4********.yc-user@{{ serial-ssh-host }}
-      ```
+      * `private_SSH_key_path`: Path to the private part of the [SSH key](../vm-connect/ssh.md#creating-ssh-keys) you use to access the VM.
+      * `VM_ID`: VM ID.
+      * `user_name`: Username for SSH connections, as stated in the VM metadata.
+      * `port=1`: Number of the [serial port](../../concepts/serial-console.md#serial-ports) used by the serial console for VM connections.
 
-      When connecting, the system may prompt you for a login and password to authenticate to the VM. Enter the username and password you created earlier to gain access to the serial console.
+          {% include [serial-console-default-port-linux](../../../_includes/compute/serial-console-default-port-linux.md) %}
 
-- With an SSH certificate via {{ oslogin }}
+      When connecting, the system may prompt you for a login and password to authenticate to the VM. Enter the username and password you created [earlier](#before-you-begin) to gain access to the VM instance.
+  1. {% include [serial-console-endgame](../../../_includes/compute/serial-console-endgame.md) %}
 
-  1. {% include [cli-install](../../../_includes/cli-install.md) %}
-
-      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-  1. Create a local user password on the VM:
-      1. [Connect](../vm-connect/os-login.md) to the VM via {{ oslogin }}.
-      1. {% include [create-serial-console-user](../../../_includes/compute/create-serial-console-user.md) %}
-      1. Disconnect from the VM. To do this, enter the `logout` command.
-
-  1. Get a list of VMs in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
-
-      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
+- Using a certificate via {{ oslogin }} {#ssh-cert}
 
   1. {% include [enable-os-login-serial-console-auth](../../../_includes/compute/enable-os-login-serial-console-auth.md) %}
-
   1. [Export](../vm-connect/os-login-export-certificate.md) the {{ oslogin }} certificate by specifying your organization [ID](../../../organization/operations/organization-get-id.md):
 
       ```bash
@@ -112,53 +123,137 @@ Some operating systems may prompt you for your user credentials to access the VM
       ```
 
       The exported certificate is valid for one hour.
-
-  1. Connect to the VM.
-
-      Here is a connection command example:
+  1. Connect to the VM's serial console:
 
       ```bash
-      ssh -t -p 9600 -i <SSH_certificate_path> <VM_ID>.<OS_Login_username>@{{ serial-ssh-host }}
+      ssh -t \
+        -p 9600 \
+        -i <SSH_certificate_path> \
+        <VM_ID>.<OS_Login_username>.port=1@{{ serial-ssh-host }}
       ```
 
       Where:
-      * `<SSH_certificate_path>`: Path to the exported SSH certificate, the value of the `Identity` field.
-      * `<VM_ID>`: ID of the virtual machine whose serial console you want to connect to.
-      * `<OS_Login_username>`: {{ oslogin }} user ID in the organization. You can find the {{ oslogin }} username at the end of the exported certificate name, after the organization [ID](../../../organization/operations/organization-get-id.md).
+      * `<SSH_certificate_path>`: Path to the SSH certificate (`Identity`) you exported earlier.
+      * `<VM_ID>`: VM ID.
+      * `<OS_Login_username>`: {{ oslogin }} username in the organization. You can find the {{ oslogin }} username at the end of the exported certificate name, after the organization [ID](../../../organization/operations/organization-get-id.md).
 
           You can also get the username using the `yc organization-manager os-login profile list` [{{ yandex-cloud }} CLI](../../../cli/cli-ref/organization-manager/cli-ref/oslogin/profile/list.md) command or in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}) in the user profile on the **{{ ui-key.yacloud_org.user.title_oslogin-profiles }}** tab.
 
           {% note info %}
-
+          
           {% include [os-login-profile-tab-access-notice](../../../_includes/organization/os-login-profile-tab-access-notice.md) %}
 
           {% endnote %}
 
-      Example for a user with the `yid-orgusername` username and a VM with the `epd22a2tj3gd********` ID:
+      * `port=1`: Number of the [serial port](../../concepts/serial-console.md#serial-ports) used by the serial console for VM connections.
 
-      ```bash
-      ssh -p 9600 -i /home/myuser/.ssh/yc-organization-id-bpfaidqca8vd********-yid-orgusername epd22a2tj3gd********.yid-orgusername@{{ serial-ssh-host }}
-      ```
+          {% include [serial-console-default-port-linux](../../../_includes/compute/serial-console-default-port-linux.md) %}
 
-      When connecting, the system may prompt you for a login and password to authenticate to the VM. Enter the username and password you created earlier to gain access to the serial console.
+      When connecting, the system may prompt you for a login and password to authenticate to the VM. Enter the username and password you created [earlier](#before-you-begin) to gain access to the VM instance.
+  1. {% include [serial-console-endgame](../../../_includes/compute/serial-console-endgame.md) %}
 
 {% endlist %}
 
-You can also connect to the serial console using [SSH keys for other users](../vm-connect/ssh.md#vm-authorized-keys).
+{% note warning %}
 
+{% include [disable-serial-console-tip](../../../_includes/compute/disable-serial-console-tip.md) %}
 
-### Troubleshooting {#troubleshooting}
+{% endnote %}
+
+## Connecting via the {{ yandex-cloud }} CLI {#connect-with-yc-cli}
+
+{% note alert %}
+
+{% include [key-without-password-alert](../../../_includes/compute/key-without-password-alert.md) %}
+
+{% endnote %}
+
+Make sure you have the [{{ yandex-cloud }} CLI](../../../cli/index.yaml) installed and configured on your machine.
+
+{% include [cli-install](../../../_includes/cli-install.md) %}
+
+{% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+Your next steps depend on whether [{{ oslogin }}](../../../organization/concepts/os-login.md) access is enabled for the VM. With {{ oslogin }} access [enabled](../vm-connect/enable-os-login.md), you can connect to the serial console using short-lived SSH certificates. To connect to VMs with {{ oslogin }} access disabled, use SSH keys.
+
+{% list tabs group=os_login_type %}
+
+- Connecting with an SSH key {#ssh-key}
+
+  1. See the description of the CLI command for connecting to a serial console:
+
+      ```bash
+      yc compute connect-to-serial-port --help
+      ```
+  1. {% include [enable-metadata-serial-console-auth](../../../_includes/compute/enable-metadata-serial-console-auth.md) %}
+  1. Connect to the VM's serial console:
+
+      ```bash
+      yc compute connect-to-serial-port \
+        --instance-name <VM_name> \
+        --ssh-key <path_to_private_SSH_key> \
+        --port 1
+      ```
+
+      Where:
+      * `--instance-name`: VM name. Instead of the VM name, you can provide its ID in the `--instance-id` parameter.
+      * `--ssh-key`: Path to the private key for SSH access to the VM, e.g., `~/.ssh/id_ed25519`.
+      * `--port`: Number of the [serial port](../../concepts/serial-console.md#serial-ports) used by the serial console for VM connections.
+
+          {% include [serial-console-default-port-linux](../../../_includes/compute/serial-console-default-port-linux.md) %}
+
+      When connecting, the system may prompt you for a login and password to authenticate to the VM. Enter the username and password you created earlier to gain access to the VM instance.
+
+      For more information about the `yc compute connect-to-serial-port` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/connect-to-serial-port.md).
+  1. {% include [serial-console-endgame](../../../_includes/compute/serial-console-endgame.md) %}
+
+- Using a certificate via {{ oslogin }} {#ssh-cert}
+
+  1. See the description of the CLI command for connecting to a serial console:
+
+      ```bash
+      yc compute connect-to-serial-port --help
+      ```
+  1. {% include [enable-os-login-serial-console-auth](../../../_includes/compute/enable-os-login-serial-console-auth.md) %}
+  1. Connect to the VM's serial console:
+
+      ```bash
+      yc compute connect-to-serial-port \
+        --instance-name <VM_name> \
+        --port 1
+      ```
+
+      Where:
+      
+      * `--instance-name`: VM name. Instead of the VM name, you can provide its ID in the `--instance-id` parameter.
+      * `--port`: Number of the [serial port](../../concepts/serial-console.md#serial-ports) used by the serial console for VM connections.
+
+          {% include [serial-console-default-port-linux](../../../_includes/compute/serial-console-default-port-linux.md) %}
+
+      When connecting, the system may prompt you for a login and password to authenticate to the VM. Enter the username and password you created earlier to gain access to the VM instance.
+
+      For more information about the `yc compute connect-to-serial-port` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/connect-to-serial-port.md).
+  1. {% include [serial-console-endgame](../../../_includes/compute/serial-console-endgame.md) %}
+
+{% endlist %}
+
+{% note warning %}
+
+{% include [disable-serial-console-tip](../../../_includes/compute/disable-serial-console-tip.md) %}
+
+{% endnote %}
+
+## Troubleshooting connection issues {#troubleshooting-ssh}
 
 * If you connect to the serial console and nothing appears on the screen:
-  * Press **Enter**.
-  * Restart the VM (for VMs created before February 22, 2019).
+    * Press **Enter**.
+    * Restart the VM (for VMs created before February 22, 2019).
 * If you get the `Warning: remote host identification has changed!` error when connecting with an SSH key, run the `ssh-keygen -R <VM_IP_address>` command.
 * If you get the `Permission denied (publickey).` error when connecting with an SSH certificate, make sure {{ oslogin }} authorization is enabled on the VM for serial console connections and the certificate is valid. Enable {{ oslogin }} authorization on the VM for serial console connections or re-export the SSH certificate as required.
 * If you get the `Connection closed by 2a0d:d6c1:0:**::*** port 9600` error when connecting using an SSH certificate, open the `known_hosts` file on your local machine and delete all lines that start with `[serialssh.cloud.yandex.net]:9600`. Then try connecting again and respond with `yes` to `Are you sure you want to continue connecting (yes/no/[fingerprint])?`.
 
+#### See also {#see-also}
 
-## Disconnecting from a serial console {#turn-off-serial-console}
-
-To disconnect from a serial console:
-1. Press **Enter**.
-1. Enter `~.` in succession.
+* [{#T}](../../concepts/serial-console.md)
+* [{#T}](./index.md)
+* [{#T}](./windows-sac.md)

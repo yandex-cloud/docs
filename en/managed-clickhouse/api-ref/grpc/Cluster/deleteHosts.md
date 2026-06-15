@@ -5,6 +5,7 @@ editable: false
 # Managed Service for ClickHouse API, gRPC: ClusterService.DeleteHosts
 
 Deletes the specified hosts for a cluster.
+(-- api-linter: yc::1705::http-method-mapping=disabled --)
 
 ## gRPC request
 

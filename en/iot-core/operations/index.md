@@ -5,6 +5,8 @@ description: In this article, you will learn how to work with {{ iot-full-name }
 
 # Step-by-step guides for {{ iot-name }}
 
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
 * [{#T}](publish.md)
 * [{#T}](subscribe.md)
 * [{#T}](logs.md)

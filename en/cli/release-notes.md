@@ -7,6 +7,14 @@ description: This page presents CLI releases and their updates.
 
 ## Current version {#latest-release}
 
+### Version 1.10.0 (25/05/26) {#v-1-10-0}
+
+#### {{ mos-name }} {#v-1-10-0-mos-name}
+
+* Added support for the `WARM` and `INGEST` roles for host groups.
+
+## Previous releases {#previous-release}
+
 ### Version 1.9.0 (21/05/26) {#v-1-9-0}
 
 #### {{ dns-name }} {#v-1-9-0-dns-name}
@@ -24,8 +32,6 @@ description: This page presents CLI releases and their updates.
   * `yc dns inbound-endpoint add-access-binding`
   * `yc dns inbound-endpoint remove-access-binding`
   * `yc dns inbound-endpoint list-operations`
-
-## Previous releases {#previous-release}
 
 ### Version 1.8.1 (20/05/26) {#v-1-8-1}
 
@@ -45,13 +51,13 @@ description: This page presents CLI releases and their updates.
 
 #### {{ mpg-name }} {#v-1-8-1-managed-postgresql}
 
-* Added `folder-id` settings for creating connections and their secrets in the Connection Manager integration for {{ mpg-name }}:
+* Added options for configuring `folder-id` to create connections and their secrets in the Connection Manager integration for {{ mpg-name }}:
   * `yc managed-postgresql cluster create`
   * `yc managed-postgresql cluster restore`
   * `yc managed-postgresql cluster update`
   * `yc managed-postgresql user create`
 
-* Removed the deprecated `connection_manager` field from the output with single user details and replaced it with `ser_connection_manager`:
+* In the detailed output of one user, the deprecated `connection_manager` field has been removed and replaced with `ser_connection_manager`:
   * `yc managed-postgresql user get`
   * `yc managed-postgresql user list`
   * `yc managed-postgresql user create`
@@ -64,8 +70,8 @@ description: This page presents CLI releases and their updates.
 
 #### Changes to the CLI system commands {#v-1-8-0-yc}
 
-* In `yc`, added command trees for versions `v0` and `v1` at the service level. The `v1` subtree uses the new CLI interface. `v1` trees are available for `yc cic`, `yc cloudrouter`, `yc smartcaptcha`, and `yc smartwebsecurity`.
-* The `--syntax` flag has been removed and is no longer supported. For interface selection, use the `v0` and `v1` versions, as well as the `services.<service>.version` configuration setting.
+* Added command trees for versions `v0` and `v1` at the service level to `yc`. The `v1` subtree uses the new CLI interface. `v1` trees are available for `yc cic`, `yc cloudrouter`, `yc smartcaptcha`, and `yc smartwebsecurity`.
+* The `--syntax` flag has been removed and is no longer supported. To select the interface, use the `v0` and `v1` versions, as well as the setting in the `services.<service>.version` configuration.
 
 #### {{ mgp-name }} {#v-1-8-0-mgp-name}
 

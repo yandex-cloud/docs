@@ -9,7 +9,7 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field.
+            Required field. ID of the ClickHouse cluster.
             The maximum string length in characters is 50.
           type: string
       required:
@@ -21,12 +21,14 @@ apiPlayground:
         pageSize:
           description: |-
             **string** (int64)
+            Maximum number of extensions to return per response.
             The maximum value is 1000.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
+            Token for fetching the next page of results.
             The maximum string length in characters is 100.
           type: string
       additionalProperties: false
@@ -35,6 +37,8 @@ apiPlayground:
 ---
 
 # Managed Service for ClickHouse API, REST: ClusterExtension.List
+
+Lists extensions installed in the specified cluster.
 
 ## HTTP request
 
@@ -48,7 +52,7 @@ GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/extens
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.
+Required field. ID of the ClickHouse cluster.
 
 The maximum string length in characters is 50. ||
 |#
@@ -59,8 +63,12 @@ The maximum string length in characters is 50. ||
 ||Field | Description ||
 || pageSize | **string** (int64)
 
+Maximum number of extensions to return per response.
+
 The maximum value is 1000. ||
 || pageToken | **string**
+
+Token for fetching the next page of results.
 
 The maximum string length in characters is 100. ||
 |#
@@ -84,8 +92,12 @@ The maximum string length in characters is 100. ||
 
 #|
 ||Field | Description ||
-|| extensions[] | **[ClusterExtension](#yandex.cloud.mdb.clickhouse.v1.ClusterExtension)** ||
-|| nextPageToken | **string** ||
+|| extensions[] | **[ClusterExtension](#yandex.cloud.mdb.clickhouse.v1.ClusterExtension)**
+
+Requested extensions. ||
+|| nextPageToken | **string**
+
+Token to retrieve the next page of results. ||
 |#
 
 ## ClusterExtension {#yandex.cloud.mdb.clickhouse.v1.ClusterExtension}

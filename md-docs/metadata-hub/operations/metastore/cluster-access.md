@@ -132,7 +132,7 @@
               * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../../organization/concepts/organization.md).
               * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
           
-          Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
+          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
 
   1. Проверьте список ролей, назначенных на кластер, выполнив команду:
 
@@ -192,7 +192,7 @@
               * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../../organization/concepts/organization.md).
               * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
           
-          Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
+          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
 
@@ -260,7 +260,7 @@
               * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../../organization/concepts/organization.md).
               * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
           
-          Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
+          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
 
@@ -328,7 +328,7 @@
               * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../../organization/concepts/organization.md).
               * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
           
-          Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
+          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
 
 - REST API {#api}
 
@@ -400,7 +400,7 @@
               * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../../organization/concepts/organization.md).
               * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
           
-          Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
+          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation).
 
@@ -486,7 +486,7 @@
               * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../../organization/concepts/organization.md).
               * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
           
-          Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
+          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/grpc/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation).
 
@@ -547,7 +547,7 @@
               * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../../organization/concepts/organization.md).
               * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
           
-          Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
+          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
 
 - REST API {#api}
 
@@ -601,7 +601,7 @@
               * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../../organization/concepts/organization.md).
               * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
           
-          Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
+          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
 
@@ -669,7 +669,7 @@
               * `group:organization:<идентификатор_организации>:users` — все пользователи указанной [организации](../../../organization/concepts/organization.md).
               * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
           
-          Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
+          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
 

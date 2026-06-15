@@ -123,6 +123,8 @@ Creates a ClickHouse cluster in the specified folder.
           "lightweight_mutation_projection_mode": "LightweightMutationProjectionMode",
           "replicated_deduplication_window": "google.protobuf.Int64Value",
           "replicated_deduplication_window_seconds": "google.protobuf.Int64Value",
+          "replicated_deduplication_window_for_async_inserts": "google.protobuf.Int64Value",
+          "replicated_deduplication_window_seconds_for_async_inserts": "google.protobuf.Int64Value",
           "fsync_after_insert": "google.protobuf.BoolValue",
           "fsync_part_directory": "google.protobuf.BoolValue",
           "min_compressed_bytes_to_fsync_after_fetch": "google.protobuf.Int64Value",
@@ -362,6 +364,186 @@ Creates a ClickHouse cluster in the specified folder.
         },
         "builtin_dictionaries_reload_interval": "google.protobuf.Int64Value"
       },
+      "default_user_settings": {
+        "readonly": "google.protobuf.Int64Value",
+        "allow_ddl": "google.protobuf.BoolValue",
+        "allow_introspection_functions": "google.protobuf.BoolValue",
+        "connect_timeout": "google.protobuf.Int64Value",
+        "connect_timeout_with_failover": "google.protobuf.Int64Value",
+        "connect_timeout_with_failover_secure": "google.protobuf.Int64Value",
+        "connections_with_failover_max_tries": "google.protobuf.Int64Value",
+        "receive_timeout": "google.protobuf.Int64Value",
+        "send_timeout": "google.protobuf.Int64Value",
+        "idle_connection_timeout": "google.protobuf.Int64Value",
+        "timeout_before_checking_execution_speed": "google.protobuf.Int64Value",
+        "insert_quorum": "google.protobuf.Int64Value",
+        "insert_quorum_timeout": "google.protobuf.Int64Value",
+        "insert_quorum_parallel": "google.protobuf.BoolValue",
+        "select_sequential_consistency": "google.protobuf.BoolValue",
+        "replication_alter_partitions_sync": "google.protobuf.Int64Value",
+        "max_replica_delay_for_distributed_queries": "google.protobuf.Int64Value",
+        "fallback_to_stale_replicas_for_distributed_queries": "google.protobuf.BoolValue",
+        "distributed_product_mode": "DistributedProductMode",
+        "distributed_aggregation_memory_efficient": "google.protobuf.BoolValue",
+        "distributed_ddl_task_timeout": "google.protobuf.Int64Value",
+        "distributed_ddl_output_mode": "DistributedDdlOutputMode",
+        "skip_unavailable_shards": "google.protobuf.BoolValue",
+        "use_hedged_requests": "google.protobuf.BoolValue",
+        "hedged_connection_timeout_ms": "google.protobuf.Int64Value",
+        "load_balancing": "LoadBalancing",
+        "prefer_localhost_replica": "google.protobuf.BoolValue",
+        "compile_expressions": "google.protobuf.BoolValue",
+        "min_count_to_compile_expression": "google.protobuf.Int64Value",
+        "max_block_size": "google.protobuf.Int64Value",
+        "min_insert_block_size_rows": "google.protobuf.Int64Value",
+        "min_insert_block_size_bytes": "google.protobuf.Int64Value",
+        "max_insert_block_size": "google.protobuf.Int64Value",
+        "max_partitions_per_insert_block": "google.protobuf.Int64Value",
+        "min_bytes_to_use_direct_io": "google.protobuf.Int64Value",
+        "use_uncompressed_cache": "google.protobuf.BoolValue",
+        "merge_tree_max_rows_to_use_cache": "google.protobuf.Int64Value",
+        "merge_tree_max_bytes_to_use_cache": "google.protobuf.Int64Value",
+        "merge_tree_min_rows_for_concurrent_read": "google.protobuf.Int64Value",
+        "merge_tree_min_bytes_for_concurrent_read": "google.protobuf.Int64Value",
+        "max_bytes_before_external_group_by": "google.protobuf.Int64Value",
+        "max_bytes_ratio_before_external_group_by": "google.protobuf.DoubleValue",
+        "max_bytes_ratio_before_external_sort": "google.protobuf.DoubleValue",
+        "max_bytes_before_external_sort": "google.protobuf.Int64Value",
+        "group_by_two_level_threshold": "google.protobuf.Int64Value",
+        "group_by_two_level_threshold_bytes": "google.protobuf.Int64Value",
+        "deduplicate_blocks_in_dependent_materialized_views": "google.protobuf.BoolValue",
+        "local_filesystem_read_method": "LocalFilesystemReadMethod",
+        "remote_filesystem_read_method": "RemoteFilesystemReadMethod",
+        "priority": "google.protobuf.Int64Value",
+        "max_threads": "google.protobuf.Int64Value",
+        "max_insert_threads": "google.protobuf.Int64Value",
+        "max_memory_usage": "google.protobuf.Int64Value",
+        "max_memory_usage_for_user": "google.protobuf.Int64Value",
+        "memory_overcommit_ratio_denominator": "google.protobuf.Int64Value",
+        "memory_overcommit_ratio_denominator_for_user": "google.protobuf.Int64Value",
+        "memory_usage_overcommit_max_wait_microseconds": "google.protobuf.Int64Value",
+        "max_network_bandwidth": "google.protobuf.Int64Value",
+        "max_network_bandwidth_for_user": "google.protobuf.Int64Value",
+        "max_network_bytes": "google.protobuf.Int64Value",
+        "max_temporary_data_on_disk_size_for_query": "google.protobuf.Int64Value",
+        "max_temporary_data_on_disk_size_for_user": "google.protobuf.Int64Value",
+        "max_concurrent_queries_for_user": "google.protobuf.Int64Value",
+        "force_index_by_date": "google.protobuf.BoolValue",
+        "force_primary_key": "google.protobuf.BoolValue",
+        "max_rows_to_read": "google.protobuf.Int64Value",
+        "max_bytes_to_read": "google.protobuf.Int64Value",
+        "read_overflow_mode": "OverflowMode",
+        "max_rows_to_group_by": "google.protobuf.Int64Value",
+        "group_by_overflow_mode": "GroupByOverflowMode",
+        "max_rows_to_sort": "google.protobuf.Int64Value",
+        "max_bytes_to_sort": "google.protobuf.Int64Value",
+        "sort_overflow_mode": "OverflowMode",
+        "max_result_rows": "google.protobuf.Int64Value",
+        "max_result_bytes": "google.protobuf.Int64Value",
+        "result_overflow_mode": "OverflowMode",
+        "max_rows_in_distinct": "google.protobuf.Int64Value",
+        "max_bytes_in_distinct": "google.protobuf.Int64Value",
+        "distinct_overflow_mode": "OverflowMode",
+        "max_rows_to_transfer": "google.protobuf.Int64Value",
+        "max_bytes_to_transfer": "google.protobuf.Int64Value",
+        "transfer_overflow_mode": "OverflowMode",
+        "max_execution_time": "google.protobuf.Int64Value",
+        "timeout_overflow_mode": "OverflowMode",
+        "max_rows_in_set": "google.protobuf.Int64Value",
+        "max_bytes_in_set": "google.protobuf.Int64Value",
+        "set_overflow_mode": "OverflowMode",
+        "max_rows_in_join": "google.protobuf.Int64Value",
+        "max_bytes_in_join": "google.protobuf.Int64Value",
+        "join_overflow_mode": "OverflowMode",
+        "max_columns_to_read": "google.protobuf.Int64Value",
+        "max_temporary_columns": "google.protobuf.Int64Value",
+        "max_temporary_non_const_columns": "google.protobuf.Int64Value",
+        "max_query_size": "google.protobuf.Int64Value",
+        "max_ast_depth": "google.protobuf.Int64Value",
+        "max_ast_elements": "google.protobuf.Int64Value",
+        "max_expanded_ast_elements": "google.protobuf.Int64Value",
+        "max_parser_depth": "google.protobuf.Int64Value",
+        "min_execution_speed": "google.protobuf.Int64Value",
+        "min_execution_speed_bytes": "google.protobuf.Int64Value",
+        "input_format_values_interpret_expressions": "google.protobuf.BoolValue",
+        "input_format_defaults_for_omitted_fields": "google.protobuf.BoolValue",
+        "input_format_null_as_default": "google.protobuf.BoolValue",
+        "input_format_with_names_use_header": "google.protobuf.BoolValue",
+        "output_format_json_quote_64bit_integers": "google.protobuf.BoolValue",
+        "output_format_json_quote_denormals": "google.protobuf.BoolValue",
+        "date_time_input_format": "DateTimeInputFormat",
+        "date_time_output_format": "DateTimeOutputFormat",
+        "low_cardinality_allow_in_native_format": "google.protobuf.BoolValue",
+        "empty_result_for_aggregation_by_empty_set": "google.protobuf.BoolValue",
+        "format_regexp": "string",
+        "format_regexp_escaping_rule": "FormatRegexpEscapingRule",
+        "format_regexp_skip_unmatched": "google.protobuf.BoolValue",
+        "input_format_parallel_parsing": "google.protobuf.BoolValue",
+        "input_format_import_nested_json": "google.protobuf.BoolValue",
+        "format_avro_schema_registry_url": "string",
+        "data_type_default_nullable": "google.protobuf.BoolValue",
+        "http_connection_timeout": "google.protobuf.Int64Value",
+        "http_receive_timeout": "google.protobuf.Int64Value",
+        "http_send_timeout": "google.protobuf.Int64Value",
+        "enable_http_compression": "google.protobuf.BoolValue",
+        "send_progress_in_http_headers": "google.protobuf.BoolValue",
+        "http_headers_progress_interval": "google.protobuf.Int64Value",
+        "add_http_cors_header": "google.protobuf.BoolValue",
+        "cancel_http_readonly_queries_on_client_close": "google.protobuf.BoolValue",
+        "max_http_get_redirects": "google.protobuf.Int64Value",
+        "http_max_field_name_size": "google.protobuf.Int64Value",
+        "http_max_field_value_size": "google.protobuf.Int64Value",
+        "quota_mode": "QuotaMode",
+        "async_insert": "google.protobuf.BoolValue",
+        "wait_for_async_insert": "google.protobuf.BoolValue",
+        "wait_for_async_insert_timeout": "google.protobuf.Int64Value",
+        "async_insert_max_data_size": "google.protobuf.Int64Value",
+        "async_insert_busy_timeout": "google.protobuf.Int64Value",
+        "async_insert_use_adaptive_busy_timeout": "google.protobuf.BoolValue",
+        "log_query_threads": "google.protobuf.BoolValue",
+        "log_query_views": "google.protobuf.BoolValue",
+        "log_queries_probability": "google.protobuf.DoubleValue",
+        "log_processors_profiles": "google.protobuf.BoolValue",
+        "use_query_cache": "google.protobuf.BoolValue",
+        "enable_reads_from_query_cache": "google.protobuf.BoolValue",
+        "enable_writes_to_query_cache": "google.protobuf.BoolValue",
+        "query_cache_min_query_runs": "google.protobuf.Int64Value",
+        "query_cache_min_query_duration": "google.protobuf.Int64Value",
+        "query_cache_ttl": "google.protobuf.Int64Value",
+        "query_cache_max_entries": "google.protobuf.Int64Value",
+        "query_cache_max_size_in_bytes": "google.protobuf.Int64Value",
+        "query_cache_tag": "string",
+        "query_cache_share_between_users": "google.protobuf.BoolValue",
+        "query_cache_nondeterministic_function_handling": "QueryCacheNondeterministicFunctionHandling",
+        "query_cache_system_table_handling": "QueryCacheSystemTableHandling",
+        "count_distinct_implementation": "CountDistinctImplementation",
+        "joined_subquery_requires_alias": "google.protobuf.BoolValue",
+        "join_use_nulls": "google.protobuf.BoolValue",
+        "transform_null_in": "google.protobuf.BoolValue",
+        "insert_null_as_default": "google.protobuf.BoolValue",
+        "join_algorithm": [
+          "JoinAlgorithm"
+        ],
+        "any_join_distinct_right_table_keys": "google.protobuf.BoolValue",
+        "allow_suspicious_low_cardinality_types": "google.protobuf.BoolValue",
+        "flatten_nested": "google.protobuf.BoolValue",
+        "memory_profiler_step": "google.protobuf.Int64Value",
+        "memory_profiler_sample_probability": "google.protobuf.DoubleValue",
+        "max_final_threads": "google.protobuf.Int64Value",
+        "max_read_buffer_size": "google.protobuf.Int64Value",
+        "insert_keeper_max_retries": "google.protobuf.Int64Value",
+        "do_not_merge_across_partitions_select_final": "google.protobuf.BoolValue",
+        "ignore_materialized_views_with_dropped_target_table": "google.protobuf.BoolValue",
+        "enable_analyzer": "google.protobuf.BoolValue",
+        "s3_use_adaptive_timeouts": "google.protobuf.BoolValue",
+        "final": "google.protobuf.BoolValue",
+        "use_hive_partitioning": "google.protobuf.BoolValue",
+        "show_data_lake_catalogs_in_system_tables": "google.protobuf.BoolValue",
+        "compile": "google.protobuf.BoolValue",
+        "min_count_to_compile": "google.protobuf.Int64Value",
+        "async_insert_threads": "google.protobuf.Int64Value",
+        "async_insert_stale_timeout": "google.protobuf.Int64Value"
+      },
       "resources": {
         "resource_preset_id": "string",
         "disk_size": "int64",
@@ -433,6 +615,8 @@ Creates a ClickHouse cluster in the specified folder.
         "allow_introspection_functions": "google.protobuf.BoolValue",
         "connect_timeout": "google.protobuf.Int64Value",
         "connect_timeout_with_failover": "google.protobuf.Int64Value",
+        "connect_timeout_with_failover_secure": "google.protobuf.Int64Value",
+        "connections_with_failover_max_tries": "google.protobuf.Int64Value",
         "receive_timeout": "google.protobuf.Int64Value",
         "send_timeout": "google.protobuf.Int64Value",
         "idle_connection_timeout": "google.protobuf.Int64Value",
@@ -485,6 +669,7 @@ Creates a ClickHouse cluster in the specified folder.
         "memory_usage_overcommit_max_wait_microseconds": "google.protobuf.Int64Value",
         "max_network_bandwidth": "google.protobuf.Int64Value",
         "max_network_bandwidth_for_user": "google.protobuf.Int64Value",
+        "max_network_bytes": "google.protobuf.Int64Value",
         "max_temporary_data_on_disk_size_for_query": "google.protobuf.Int64Value",
         "max_temporary_data_on_disk_size_for_user": "google.protobuf.Int64Value",
         "max_concurrent_queries_for_user": "google.protobuf.Int64Value",
@@ -751,6 +936,8 @@ Creates a ClickHouse cluster in the specified folder.
               "lightweight_mutation_projection_mode": "LightweightMutationProjectionMode",
               "replicated_deduplication_window": "google.protobuf.Int64Value",
               "replicated_deduplication_window_seconds": "google.protobuf.Int64Value",
+              "replicated_deduplication_window_for_async_inserts": "google.protobuf.Int64Value",
+              "replicated_deduplication_window_seconds_for_async_inserts": "google.protobuf.Int64Value",
               "fsync_after_insert": "google.protobuf.BoolValue",
               "fsync_part_directory": "google.protobuf.BoolValue",
               "min_compressed_bytes_to_fsync_after_fetch": "google.protobuf.Int64Value",
@@ -1137,6 +1324,9 @@ Configuration performance diagnostics ||
 || config | **[ClickhouseConfig](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig)**
 
 Configuration for a ClickHouse server. ||
+|| default_user_settings | **[UserSettings](#yandex.cloud.mdb.clickhouse.v1.UserSettings)**
+
+Default user settings. ||
 || resources | **[Resources](#yandex.cloud.mdb.clickhouse.v1.Resources)**
 
 Resources allocated to ClickHouse hosts. ||
@@ -2030,6 +2220,20 @@ The number of seconds after which the hash sums of the inserted blocks are remov
 Default value: **3600** (1 hour) for versions 25.10 and higher, **604800** (7 days) for versions 25.9 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window_seconds). ||
+|| replicated_deduplication_window_for_async_inserts | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The number of most recently async inserted blocks for which ClickHouse Keeper stores hash sums to check for duplicates.
+
+Default value: **10000**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window_for_async_inserts). ||
+|| replicated_deduplication_window_seconds_for_async_inserts | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The number of seconds after which the hash sums of the async inserts are removed from ClickHouse Keeper.
+
+Default value: **604800** (7 days).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window_seconds_for_async_inserts). ||
 || fsync_after_insert | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Do fsync for every inserted part. Significantly decreases performance of inserts, not recommended to use with wide parts.
@@ -2879,180 +3083,6 @@ or a certificate chain ordered as leaf -> intermediates -> self-signed root.
 Change of the setting is applied with restart. ||
 |#
 
-## Resources {#yandex.cloud.mdb.clickhouse.v1.Resources}
-
-#|
-||Field | Description ||
-|| resource_preset_id | **string**
-
-ID of the preset for computational resources available to a host (CPU, memory etc.).
-All available presets are listed in the [documentation](../../../concepts/instance-types.md) ||
-|| disk_size | **int64**
-
-Volume of the storage available to a host, in bytes. ||
-|| disk_type_id | **string**
-
-Type of the storage environment for the host.
-Possible values:
-* network-hdd - network HDD drive,
-* network-ssd - network SSD drive,
-* local-ssd - local SSD storage. ||
-|#
-
-## DiskSizeAutoscaling {#yandex.cloud.mdb.clickhouse.v1.DiskSizeAutoscaling}
-
-#|
-||Field | Description ||
-|| planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
-
-Acceptable values are 0 to 100, inclusive. ||
-|| emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
-
-Acceptable values are 0 to 100, inclusive. ||
-|| disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Limit on how large the storage for database instances can automatically grow, in bytes. ||
-|#
-
-## Zookeeper {#yandex.cloud.mdb.clickhouse.v1.ConfigSpec.Zookeeper}
-
-#|
-||Field | Description ||
-|| resources | **[Resources](#yandex.cloud.mdb.clickhouse.v1.Resources)**
-
-Resources allocated to ZooKeeper hosts. If not set, minimal available resources will be used.
-All available resource presets can be retrieved with a [ResourcePresetService.List](../ResourcePreset/list.md#List) request. ||
-|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.clickhouse.v1.DiskSizeAutoscaling)**
-
-Disk size autoscaling settings. ||
-|#
-
-## Access {#yandex.cloud.mdb.clickhouse.v1.Access}
-
-#|
-||Field | Description ||
-|| data_lens | **bool**
-
-Allow to export data from the cluster to DataLens. ||
-|| web_sql | **bool**
-
-Allow SQL queries to the cluster databases from the management console.
-See [SQL queries in the management console](../../../operations/web-sql-query.md) for more details. ||
-|| metrika | **bool**
-
-Allow to import data from Yandex Metrica and AppMetrica to the cluster.
-See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. ||
-|| serverless | **bool**
-
-Allow access to cluster for Serverless. ||
-|| data_transfer | **bool**
-
-Allow access for DataTransfer ||
-|| yandex_query | **bool**
-
-Allow access for Query ||
-|#
-
-## CloudStorage {#yandex.cloud.mdb.clickhouse.v1.CloudStorage}
-
-#|
-||Field | Description ||
-|| enabled | **bool**
-
-Whether to use Object Storage for storing ClickHouse data. ||
-|| move_factor | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
-
-The share of available free space on local storage. If the space becomes less, the data will start transferring
-to Object Storage. For transfer, chunks are sorted by size from larger to smaller (descending) and chunks whose
-total size is sufficient to meet the move_factor condition are selected, if the total size of all chunks is
-insufficient, all chunks will be moved.
-
-Default value: **0.01**.
-
-Acceptable values are 0 to 1, inclusive. ||
-|| data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
-
-Enables or disables caching Object Storage data on file system. ||
-|| data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Limits the maximum size of Object Storage data cache. ||
-|| prefer_not_to_merge | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
-
-Disables or enables merging date parts storing in Object Storage. ||
-|#
-
-## PerformanceDiagnostics {#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics}
-
-#|
-||Field | Description ||
-|| enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
-
-Whether to use Performance Diagnostics service in cluster. ||
-|| processes_refresh_interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
-
-Time interval to collect data from system.processes table. ||
-|#
-
-## DatabaseSpec {#yandex.cloud.mdb.clickhouse.v1.DatabaseSpec}
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Required field. Name of the ClickHouse database. 1-63 characters long.
-
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z_][a-zA-Z0-9_-]* `. ||
-|| engine | enum **DatabaseEngine**
-
-Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
-
-- `DATABASE_ENGINE_ATOMIC`
-- `DATABASE_ENGINE_REPLICATED` ||
-|#
-
-## UserSpec {#yandex.cloud.mdb.clickhouse.v1.UserSpec}
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Required field. User name.
-
-The maximum string length in characters is 64. ||
-|| password | **string**
-
-User password.
-
-The maximum string length in characters is 128. ||
-|| generate_password | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
-
-Enable or disable password generation using Connection Manager.
-
-Default value: **false**. ||
-|| permissions[] | **[Permission](#yandex.cloud.mdb.clickhouse.v1.Permission)**
-
-Set of permissions to grant to the user. If not set, it's granted permissions to access all databases. ||
-|| settings | **[UserSettings](#yandex.cloud.mdb.clickhouse.v1.UserSettings)**
-
-User settings ||
-|| quotas[] | **[UserQuota](#yandex.cloud.mdb.clickhouse.v1.UserQuota)**
-
-Quotas assigned to the user. ||
-|#
-
-## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission}
-
-#|
-||Field | Description ||
-|| database_name | **string**
-
-Name of the database that the permission grants access to. ||
-|#
-
 ## UserSettings {#yandex.cloud.mdb.clickhouse.v1.UserSettings}
 
 ClickHouse user settings. Supported settings are a subset of settings described
@@ -3100,6 +3130,22 @@ Applies only if the cluster uses sharding and replication. If unsuccessful, seve
 Default value: **1000** (1 second).
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connect_timeout_with_failover_ms). ||
+|| connect_timeout_with_failover_secure | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The timeout in milliseconds for connecting to a remote server for a Distributed table engine, for secure connections.
+
+Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.
+
+Default value: **1000** (1 second).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connect_timeout_with_failover_secure_ms). ||
+|| connections_with_failover_max_tries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum number of connection attempts with each replica for the Distributed table engine.
+
+Default value: **3**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connections_with_failover_max_tries). ||
 || receive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Receive timeout in milliseconds.
@@ -3586,14 +3632,22 @@ The maximum speed of data exchange over the network in bytes per second for a qu
 
 Default value: **0**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max-network-bandwidth). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bandwidth). ||
 || max_network_bandwidth_for_user | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum speed of data exchange over the network in bytes per second for all concurrently running user queries. **0** means unlimited.
 
 Default value: **0**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max-network-bandwidth-for-user). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bandwidth_for_user). ||
+|| max_network_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Limits the data volume (in bytes) that is received or transmitted over the network when executing a query.
+This setting applies to every individual query.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bytes). ||
 || max_temporary_data_on_disk_size_for_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running queries. **0** means unlimited.
@@ -4277,6 +4331,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 || query_cache_min_query_duration | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Minimum duration in milliseconds a query needs to run for its result to be stored in the query cache.
+(-- api-linter: yc::1701::duration-required=disabled --)
 
 Default value: **0**.
 
@@ -4526,6 +4581,180 @@ The setting is deprecated and has no effect. ||
 The setting is deprecated and has no effect. ||
 |#
 
+## Resources {#yandex.cloud.mdb.clickhouse.v1.Resources}
+
+#|
+||Field | Description ||
+|| resource_preset_id | **string**
+
+ID of the preset for computational resources available to a host (CPU, memory etc.).
+All available presets are listed in the [documentation](../../../concepts/instance-types.md) ||
+|| disk_size | **int64**
+
+Volume of the storage available to a host, in bytes. ||
+|| disk_type_id | **string**
+
+Type of the storage environment for the host.
+Possible values:
+* network-hdd - network HDD drive,
+* network-ssd - network SSD drive,
+* local-ssd - local SSD storage. ||
+|#
+
+## DiskSizeAutoscaling {#yandex.cloud.mdb.clickhouse.v1.DiskSizeAutoscaling}
+
+#|
+||Field | Description ||
+|| planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
+|| emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
+|| disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Limit on how large the storage for database instances can automatically grow, in bytes. ||
+|#
+
+## Zookeeper {#yandex.cloud.mdb.clickhouse.v1.ConfigSpec.Zookeeper}
+
+#|
+||Field | Description ||
+|| resources | **[Resources](#yandex.cloud.mdb.clickhouse.v1.Resources)**
+
+Resources allocated to ZooKeeper hosts. If not set, minimal available resources will be used.
+All available resource presets can be retrieved with a [ResourcePresetService.List](../ResourcePreset/list.md#List) request. ||
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.clickhouse.v1.DiskSizeAutoscaling)**
+
+Disk size autoscaling settings. ||
+|#
+
+## Access {#yandex.cloud.mdb.clickhouse.v1.Access}
+
+#|
+||Field | Description ||
+|| data_lens | **bool**
+
+Allow to export data from the cluster to DataLens. ||
+|| web_sql | **bool**
+
+Allow SQL queries to the cluster databases from the management console.
+See [SQL queries in the management console](../../../operations/web-sql-query.md) for more details. ||
+|| metrika | **bool**
+
+Allow to import data from Yandex Metrica and AppMetrica to the cluster.
+See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. ||
+|| serverless | **bool**
+
+Allow access to cluster for Serverless. ||
+|| data_transfer | **bool**
+
+Allow access for DataTransfer ||
+|| yandex_query | **bool**
+
+Allow access for Query ||
+|#
+
+## CloudStorage {#yandex.cloud.mdb.clickhouse.v1.CloudStorage}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Whether to use Object Storage for storing ClickHouse data. ||
+|| move_factor | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+
+The share of available free space on local storage. If the space becomes less, the data will start transferring
+to Object Storage. For transfer, chunks are sorted by size from larger to smaller (descending) and chunks whose
+total size is sufficient to meet the move_factor condition are selected, if the total size of all chunks is
+insufficient, all chunks will be moved.
+
+Default value: **0.01**.
+
+Acceptable values are 0 to 1, inclusive. ||
+|| data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables or disables caching Object Storage data on file system. ||
+|| data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Limits the maximum size of Object Storage data cache. ||
+|| prefer_not_to_merge | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Disables or enables merging date parts storing in Object Storage. ||
+|#
+
+## PerformanceDiagnostics {#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics}
+
+#|
+||Field | Description ||
+|| enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Whether to use Performance Diagnostics service in cluster. ||
+|| processes_refresh_interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+
+Time interval to collect data from system.processes table. ||
+|#
+
+## DatabaseSpec {#yandex.cloud.mdb.clickhouse.v1.DatabaseSpec}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Name of the ClickHouse database. 1-63 characters long.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z_][a-zA-Z0-9_-]* `. ||
+|| engine | enum **DatabaseEngine**
+
+Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
+
+- `DATABASE_ENGINE_ATOMIC`: Atomic database engine.
+- `DATABASE_ENGINE_REPLICATED`: Replicated database engine. ||
+|#
+
+## UserSpec {#yandex.cloud.mdb.clickhouse.v1.UserSpec}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. User name.
+
+The maximum string length in characters is 64. ||
+|| password | **string**
+
+User password.
+
+The maximum string length in characters is 128. ||
+|| generate_password | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enable or disable password generation using Connection Manager.
+
+Default value: **false**. ||
+|| permissions[] | **[Permission](#yandex.cloud.mdb.clickhouse.v1.Permission)**
+
+Set of permissions to grant to the user. If not set, it's granted permissions to access all databases. ||
+|| settings | **[UserSettings](#yandex.cloud.mdb.clickhouse.v1.UserSettings)**
+
+User settings ||
+|| quotas[] | **[UserQuota](#yandex.cloud.mdb.clickhouse.v1.UserQuota)**
+
+Quotas assigned to the user. ||
+|#
+
+## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission}
+
+#|
+||Field | Description ||
+|| database_name | **string**
+
+Name of the database that the permission grants access to. ||
+|#
+
 ## UserQuota {#yandex.cloud.mdb.clickhouse.v1.UserQuota}
 
 ClickHouse quota representation. Each quota associated with an user and limits it resource usage for an interval.
@@ -4535,7 +4764,8 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 ||Field | Description ||
 || interval_duration | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Duration of interval for quota in milliseconds. ||
+Duration of interval for quota in milliseconds.
+(-- api-linter: yc::1701::duration-required=disabled --) ||
 || queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The total number of queries. **0** means unlimited. ||
@@ -4631,13 +4861,13 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `MON`
-- `TUE`
-- `WED`
-- `THU`
-- `FRI`
-- `SAT`
-- `SUN` ||
+- `MON`: Monday.
+- `TUE`: Tuesday.
+- `WED`: Wednesday.
+- `THU`: Thursday.
+- `FRI`: Friday.
+- `SAT`: Saturday.
+- `SUN`: Sunday. ||
 || hour | **int64**
 
 Hour of the day in UTC (in `HH` format).

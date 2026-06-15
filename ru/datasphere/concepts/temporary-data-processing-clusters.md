@@ -20,7 +20,7 @@ description: Из статьи вы узнаете про особенности
 
 ВМ ноутбука будет остановлена, если на ней не будет вычислений в течение времени, указанного в параметре **{{ ui-key.yc-ui-datasphere.edit-project-page.dedicated-vm-inactivity-timeout }}**. Вы также можете принудительно остановить ВМ ноутбука.
 
-Подробнее о работе с коннекторами Spark см. в [инструкции](../operations/data/spark-connectors.md).
+Подробнее о работе с коннекторами Spark читайте в [инструкции](../operations/data/spark-connectors.md).
 
 ## Шаблоны {{ dataproc-name }} {#template}
 
@@ -30,7 +30,7 @@ description: Из статьи вы узнаете про особенности
 
 Вы также можете делиться шаблонами {{ dataproc-name }} с другими пользователями.
 
-Подробнее о работе с шаблонами {{ dataproc-name }} см. в [инструкции](../operations/data-processing-template.md).
+Подробнее о работе с шаблонами {{ dataproc-name }} читайте в [инструкции](../operations/data-processing-template.md).
 
 #### См. также {#see-also}
 

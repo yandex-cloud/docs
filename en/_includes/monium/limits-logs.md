@@ -1,5 +1,3 @@
-### Limits {#loggs-limits}
-
 Type of limit | Value
 --------------- | --------
 Maximum size of one log batch | 8 MB

@@ -130,35 +130,18 @@ To configure the caching parameters of a resource:
   1. In the configuration file, describe the properties of the `yandex_cdn_resource` CDN resource you want to create:
 
       ```hcl
-      terraform {
-        required_providers {
-          yandex = {
-            source  = "yandex-cloud/yandex"
-            version = "0.69.0"
-          }
-        }
-      }
-
-      provider "yandex" {
-        token     = "<OAuth_token>"
-        cloud_id  = "<cloud_ID>"
-        folder_id = "<folder_ID>"
-        zone      = "<availability_zone>"
-      }
-
       resource "yandex_cdn_resource" "my_resource" {
-          cname               = "cdn1.yandex-example.ru"
-          active              = false
-          origin_protocol     = "https"
-          secondary_hostnames = ["cdn-example-1.yandex.ru", "cdn-example-2.yandex.ru"]
-          origin_group_id     = yandex_cdn_origin_group.my_group.id
-          options {
-            edge_cache_settings    = "345600"
-            browser_cache_settings = "1800"
-            ignore_cookie          = true
-            ignore_query_params    = false
-          }
-
+        cname               = "cdn1.yandex-example.ru"
+        active              = false
+        origin_protocol     = "https"
+        secondary_hostnames = ["cdn-example-1.yandex.ru", "cdn-example-2.yandex.ru"]
+        origin_group_id     = yandex_cdn_origin_group.my_group.id
+        options {
+          edge_cache_settings    = "345600"
+          browser_cache_settings = "1800"
+          ignore_cookie          = true
+          ignore_query_params    = false
+        }
       }
       ```
 
@@ -175,7 +158,7 @@ To configure the caching parameters of a resource:
          * `ignore_query_params`: Ignore query parameters. This is an optional setting. The default value is `false`.
          * `ignore_cookie`: Ignore cookies. This is an optional setting. The default value is `false`.
 
-      For more information about the `yandex_cdn_resource` properties in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
+      For more information about the `yandex_cdn_resource` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cdn_resource).
 
   1. In the command line, go to the directory with the {{ TF }} configuration file.
 

@@ -1,5 +1,7 @@
 # Updating a device
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 You can update the [name](device-update.md#update-name) or [description](device-update.md#update-description) of a device.
 
 To access a device, use its unique ID or name. For information about how to get its unique ID or name, see [{#T}](device-list.md).
@@ -59,7 +61,7 @@ To access a device, use its unique ID or name. For information about how to get 
       }
       ```
 
-      For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_device).
+      For more information about `yandex_iot_core_device` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_device).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -67,7 +69,7 @@ To access a device, use its unique ID or name. For information about how to get 
       terraform validate
       ```
 
-      If the configuration is correct, you will get this message:
+      If the configuration is valid, you will get this message:
      
       ```bash
       Success! The configuration is valid.
@@ -79,8 +81,8 @@ To access a device, use its unique ID or name. For information about how to get 
       terraform plan
       ```
 
-      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
-  1. Apply the changes:
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply
@@ -157,7 +159,7 @@ To access a device, use its unique ID or name. For information about how to get 
       }
       ```
 
-      For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_device).
+      For more information about `yandex_iot_core_device` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_device).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -165,7 +167,7 @@ To access a device, use its unique ID or name. For information about how to get 
       terraform validate
       ```
 
-      If the configuration is correct, you will get this message:
+      If the configuration is valid, you will get this message:
      
       ```bash
       Success! The configuration is valid.
@@ -177,8 +179,8 @@ To access a device, use its unique ID or name. For information about how to get 
       terraform plan
       ```
 
-      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
-  1. Apply the changes:
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply

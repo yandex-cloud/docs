@@ -13,7 +13,7 @@ You can mount [buckets](../../storage/concepts/bucket.md) and one ephemeral disk
 
 ## Mounting buckets {#mount-backet}
 
-Mounting buckets allows you to access them through the file system interface. In the function [version settings](function.md#version), you can specify one or more mount points. Use this path to access the directory in which the bucket is mounted: `/function/storage/<mount_point>`.
+Mounting buckets allows you to access them through the file system interface. In the function [version settings](function.md#version), you can specify one or more mount points. The directory with the mounted bucket will be accessible at `/function/storage/<mount_point>`.
 
 You can mount the whole bucket or a specific [folder](../../storage/concepts/object.md#folder).
 

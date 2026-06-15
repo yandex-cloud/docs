@@ -229,10 +229,10 @@ Dashboards configuration. ||
 Access policy for external services. ||
 || snapshotManagement | **[SnapshotManagement](#yandex.cloud.mdb.opensearch.v1.SnapshotManagement)**
 
-Snapshot management configuration ||
-|| auditLog | **[AuditLog](#yandex.cloud.mdb.opensearch.v1.AuditLog)**
+Snapshot management configuration. ||
+|| auditLog | **[AuditLog](#yandex.cloud.mdb.opensearch.v1.config.AuditLog)**
 
-Audit log settings ||
+Audit log settings. ||
 |#
 
 ## OpenSearchCreateSpec {#yandex.cloud.mdb.opensearch.v1.OpenSearchCreateSpec}
@@ -248,6 +248,8 @@ Names of the cluster plugins. ||
 
 OpenSearch type host groups of the cluster. ||
 || opensearchConfig_2 | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)**
+
+OpenSearch server configuration settings.
 
 Includes only one of the fields `opensearchConfig_2`. ||
 || keystoreSettings[] | **[KeystoreSetting](#yandex.cloud.mdb.opensearch.v1.KeystoreSetting)**
@@ -564,36 +566,40 @@ The minute of the hour at which the backup should be created.
 Acceptable values are 0 to 59, inclusive. ||
 |#
 
-## AuditLog {#yandex.cloud.mdb.opensearch.v1.AuditLog}
+## AuditLog {#yandex.cloud.mdb.opensearch.v1.config.AuditLog}
 
-Audit log settings.
+OpenSearch audit logs settings.
 
 #|
 ||Field | Description ||
 || complianceEnabled | **boolean**
 
-Enable compliance audit logging. ||
+Enables audit logging on changes to a security index, such as changes to roles mappings and role creation or deletion.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/security/audit-logs/index/#audit-user-account-manipulation). ||
 || logRequestBody | **boolean**
 
-Log request body in audit logs. ||
+Includes the body of the request (if available) for both REST and the transport layer.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/security/audit-logs/index/#disable-request-body-logging). ||
 || logSearchQueries | **boolean**
 
-Log search queries in audit logs. ||
+Enables indices data read requests logging. ||
 || logDataModifications | **boolean**
 
-Log data modifications in audit logs. ||
+Enables indices data write request logging. ||
 || logIndexMetadataAccess | **boolean**
 
-Log index metadata access in audit logs. ||
+Enables indices metadata requests logging. ||
 || logMonitoringChecks | **boolean**
 
-Log monitoring checks in audit logs. ||
+Enables monitoring data requests logging. ||
 || logIndexMaintenance | **boolean**
 
-Log index maintenance operations in audit logs. ||
+Enables indices maintenance requests logging, such as indices refreshes, flushes and merges. ||
 || logBackupOperations | **boolean**
 
-Log backup operations in audit logs. ||
+Enables snapshots and repositories requests logging. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow}

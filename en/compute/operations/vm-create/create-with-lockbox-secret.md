@@ -14,7 +14,7 @@ Just like other user data, {{ lockbox-name }} secrets are provided in the `user-
 To provide a {{ lockbox-name }} secret to a VM via metadata:
 
 1. [Create](../../../lockbox/operations/secret-create.md) a {{ lockbox-name }} secret.
-1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) it the `lockbox.payloadViewer` [role](../../../lockbox/security/index.md#lockbox-payloadViewer).
+1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) the `lockbox.payloadViewer` [role](../../../lockbox/security/index.md#lockbox-payloadViewer) to it.
 1. Create a file named `metadata.yaml` and paste into it the following metadata configuration for the new VM:
 
     **metadata.yaml**
@@ -61,8 +61,8 @@ To provide a {{ lockbox-name }} secret to a VM via metadata:
       1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
       1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
       1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-2404-lts-oslogin) image.
-      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../../overview/concepts/geo-scope.md) where your VM will reside.
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-2404-lts-oslogin).
+      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) where your VM will reside.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, in the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM's availability zone or select a [cloud network](../../../vpc/concepts/network.md#network) from the list.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
@@ -162,7 +162,7 @@ To provide a {{ lockbox-name }} secret to a VM via metadata:
 
       {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-      1. In the configuration file, describe the properties of resources you want to create:
+      1. In the configuration file, specify the properties of the resources you want to create:
 
           ```hcl
           # Creating a boot disk for the VM

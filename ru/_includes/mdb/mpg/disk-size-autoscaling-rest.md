@@ -17,4 +17,4 @@
 
   {% endnote %}
 
-    Подробнее об условиях для увеличения хранилища см. в [соответствующем разделе](../../../managed-postgresql/concepts/storage.md#auto-rescale). 
+    Подробнее об условиях для увеличения хранилища читайте в [соответствующем разделе](../../../managed-postgresql/concepts/storage.md#auto-rescale).

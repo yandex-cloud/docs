@@ -18,8 +18,7 @@ apiPlayground:
             **string**
             Required field. Name of the user to grant the permission to.
             To get the name of the user, use a [UserService.List](/docs/managed-clickhouse/api-ref/User/list#List) request.
-            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-          pattern: '[a-zA-Z0-9_]*'
+            The maximum string length in characters is 63.
           type: string
       required:
         - clusterId
@@ -51,6 +50,7 @@ apiPlayground:
 # Managed Service for ClickHouse API, REST: User.GrantPermission
 
 Grants a permission to the specified ClickHouse user.
+(-- api-linter: yc::1702::method-verb-prefix=disabled --)
 
 ## HTTP request
 
@@ -73,7 +73,7 @@ The maximum string length in characters is 50. ||
 Required field. Name of the user to grant the permission to.
 To get the name of the user, use a [UserService.List](/docs/managed-clickhouse/api-ref/User/list#List) request.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
+The maximum string length in characters is 63. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.clickhouse.v1.GrantUserPermissionRequest}

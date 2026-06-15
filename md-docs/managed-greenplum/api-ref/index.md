@@ -16,4 +16,5 @@ This API reference is organized by resource. Actions are performed by sending HT
 || [ResourceGroup](ResourceGroup/index.md) |  ||
 || [ResourcePreset](ResourcePreset/index.md) | A set of methods for managing resource presets. ||
 || [User](User/index.md) |  ||
+|| [Versions](Versions/index.md) |  ||
 |#

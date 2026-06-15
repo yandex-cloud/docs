@@ -5,6 +5,8 @@ description: Follow this guide to update a broker.
 
 # Updating a broker
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 {% include [note-pp](../../../_includes/iot-core/note-pp.md) %}
 
 You can change the [name](broker-update.md#update-name) and [description](broker-update.md#update-description) of a broker as well as [manage broker labels](broker-update.md#manage-label).
@@ -65,7 +67,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more information about `yandex_iot_core_broker` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -73,7 +75,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
       terraform validate
       ```
 
-      If the configuration is correct, you will get this message:
+      If the configuration is valid, you will get this message:
      
       ```bash
       Success! The configuration is valid.
@@ -85,8 +87,8 @@ To access a broker, use its unique ID or name. For info on how to get the unique
       terraform plan
       ```
 
-      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
-  1. Apply the changes:
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply
@@ -163,7 +165,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more information about `yandex_iot_core_broker` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -171,7 +173,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
       terraform validate
       ```
 
-      If the configuration is correct, you will get this message:
+      If the configuration is valid, you will get this message:
      
       ```bash
       Success! The configuration is valid.
@@ -183,8 +185,8 @@ To access a broker, use its unique ID or name. For info on how to get the unique
       terraform plan
       ```
 
-      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
-  1. Apply the changes:
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply
@@ -255,7 +257,7 @@ You can perform the following actions with broker labels:
 
   To add a label to a broker created using {{ TF }}:
 
-  1. In the configuration file, describe the parameters of the resource to create:
+  1. In the configuration file, describe the resource you want to create:
 
      * `yandex_iot_core_broker`: Broker parameters:
        * `name`: Broker name.
@@ -275,7 +277,7 @@ You can perform the following actions with broker labels:
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more information about `yandex_iot_core_broker` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -283,7 +285,7 @@ You can perform the following actions with broker labels:
       terraform validate
       ```
 
-      If the configuration is correct, you will get this message:
+      If the configuration is valid, you will get this message:
      
       ```bash
       Success! The configuration is valid.
@@ -295,8 +297,8 @@ You can perform the following actions with broker labels:
       terraform plan
       ```
 
-      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
-  1. Apply the changes:
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply
@@ -376,7 +378,7 @@ You can perform the following actions with broker labels:
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more information about `yandex_iot_core_broker` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -384,7 +386,7 @@ You can perform the following actions with broker labels:
       terraform validate
       ```
 
-      If the configuration is correct, you will get this message:
+      If the configuration is valid, you will get this message:
      
       ```bash
       Success! The configuration is valid.
@@ -396,8 +398,8 @@ You can perform the following actions with broker labels:
       terraform plan
       ```
 
-      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
-  1. Apply the changes:
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply
@@ -473,7 +475,7 @@ You can perform the following actions with broker labels:
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more information about `yandex_iot_core_broker` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -481,7 +483,7 @@ You can perform the following actions with broker labels:
       terraform validate
       ```
 
-      If the configuration is correct, you will get this message:
+      If the configuration is valid, you will get this message:
      
       ```bash
       Success! The configuration is valid.
@@ -493,8 +495,8 @@ You can perform the following actions with broker labels:
       terraform plan
       ```
 
-      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
-  1. Apply the changes:
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply

@@ -385,6 +385,22 @@ apiPlayground:
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window_seconds).
             type: string
             format: int64
+          replicatedDeduplicationWindowForAsyncInserts:
+            description: |-
+              **string** (int64)
+              The number of most recently async inserted blocks for which ClickHouse Keeper stores hash sums to check for duplicates.
+              Default value: **10000**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window_for_async_inserts).
+            type: string
+            format: int64
+          replicatedDeduplicationWindowSecondsForAsyncInserts:
+            description: |-
+              **string** (int64)
+              The number of seconds after which the hash sums of the async inserts are removed from ClickHouse Keeper.
+              Default value: **604800** (7 days).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window_seconds_for_async_inserts).
+            type: string
+            format: int64
           fsyncAfterInsert:
             description: |-
               **boolean**
@@ -2255,295 +2271,6 @@ apiPlayground:
             deprecated: true
             type: string
             format: int64
-      Resources:
-        type: object
-        properties:
-          resourcePresetId:
-            description: |-
-              **string**
-              ID of the preset for computational resources available to a host (CPU, memory etc.).
-              All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types)
-            type: string
-          diskSize:
-            description: |-
-              **string** (int64)
-              Volume of the storage available to a host, in bytes.
-            type: string
-            format: int64
-          diskTypeId:
-            description: |-
-              **string**
-              Type of the storage environment for the host.
-              Possible values:
-              * network-hdd - network HDD drive,
-              * network-ssd - network SSD drive,
-              * local-ssd - local SSD storage.
-            type: string
-      DiskSizeAutoscaling:
-        type: object
-        properties:
-          plannedUsageThreshold:
-            description: |-
-              **string** (int64)
-              Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
-              Acceptable values are 0 to 100, inclusive.
-            type: string
-            format: int64
-          emergencyUsageThreshold:
-            description: |-
-              **string** (int64)
-              Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
-              Acceptable values are 0 to 100, inclusive.
-            type: string
-            format: int64
-          diskSizeLimit:
-            description: |-
-              **string** (int64)
-              Limit on how large the storage for database instances can automatically grow, in bytes.
-            type: string
-            format: int64
-      Clickhouse:
-        type: object
-        properties:
-          config:
-            description: |-
-              **[ClickhouseConfig](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig)**
-              Configuration for a ClickHouse server.
-            $ref: '#/definitions/ClickhouseConfig'
-          resources:
-            description: |-
-              **[Resources](#yandex.cloud.mdb.clickhouse.v1.Resources)**
-              Resources allocated to ClickHouse hosts.
-            $ref: '#/definitions/Resources'
-          diskSizeAutoscaling:
-            description: |-
-              **[DiskSizeAutoscaling](#yandex.cloud.mdb.clickhouse.v1.DiskSizeAutoscaling)**
-              Disk size autoscaling settings.
-            $ref: '#/definitions/DiskSizeAutoscaling'
-      Zookeeper:
-        type: object
-        properties:
-          resources:
-            description: |-
-              **[Resources](#yandex.cloud.mdb.clickhouse.v1.Resources)**
-              Resources allocated to ZooKeeper hosts. If not set, minimal available resources will be used.
-              All available resource presets can be retrieved with a [ResourcePresetService.List](/docs/managed-clickhouse/api-ref/ResourcePreset/list#List) request.
-            $ref: '#/definitions/Resources'
-          diskSizeAutoscaling:
-            description: |-
-              **[DiskSizeAutoscaling](#yandex.cloud.mdb.clickhouse.v1.DiskSizeAutoscaling)**
-              Disk size autoscaling settings.
-            $ref: '#/definitions/DiskSizeAutoscaling'
-      TimeOfDay:
-        type: object
-        properties:
-          hours:
-            description: |-
-              **integer** (int32)
-              Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
-              to allow the value "24:00:00" for scenarios like business closing time.
-            type: integer
-            format: int32
-          minutes:
-            description: |-
-              **integer** (int32)
-              Minutes of hour of day. Must be from 0 to 59.
-            type: integer
-            format: int32
-          seconds:
-            description: |-
-              **integer** (int32)
-              Seconds of minutes of the time. Must normally be from 0 to 59. An API may
-              allow the value 60 if it allows leap-seconds.
-            type: integer
-            format: int32
-          nanos:
-            description: |-
-              **integer** (int32)
-              Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
-            type: integer
-            format: int32
-      Access:
-        type: object
-        properties:
-          dataLens:
-            description: |-
-              **boolean**
-              Allow to export data from the cluster to DataLens.
-            type: boolean
-          webSql:
-            description: |-
-              **boolean**
-              Allow SQL queries to the cluster databases from the management console.
-              See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details.
-            type: boolean
-          metrika:
-            description: |-
-              **boolean**
-              Allow to import data from Yandex Metrica and AppMetrica to the cluster.
-              See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details.
-            type: boolean
-          serverless:
-            description: |-
-              **boolean**
-              Allow access to cluster for Serverless.
-            type: boolean
-          dataTransfer:
-            description: |-
-              **boolean**
-              Allow access for DataTransfer
-            type: boolean
-          yandexQuery:
-            description: |-
-              **boolean**
-              Allow access for Query
-            type: boolean
-      CloudStorage:
-        type: object
-        properties:
-          enabled:
-            description: |-
-              **boolean**
-              Whether to use Object Storage for storing ClickHouse data.
-            type: boolean
-          moveFactor:
-            description: |-
-              **number** (double)
-              The share of available free space on local storage. If the space becomes less, the data will start transferring
-              to Object Storage. For transfer, chunks are sorted by size from larger to smaller (descending) and chunks whose
-              total size is sufficient to meet the move_factor condition are selected, if the total size of all chunks is
-              insufficient, all chunks will be moved.
-              Default value: **0.01**.
-              Acceptable values are 0 to 1, inclusive.
-            default: null
-            type: number
-            format: double
-          dataCacheEnabled:
-            description: |-
-              **boolean**
-              Enables or disables caching Object Storage data on file system.
-            type: boolean
-          dataCacheMaxSize:
-            description: |-
-              **string** (int64)
-              Limits the maximum size of Object Storage data cache.
-            type: string
-            format: int64
-          preferNotToMerge:
-            description: |-
-              **boolean**
-              Disables or enables merging date parts storing in Object Storage.
-            type: boolean
-      PerformanceDiagnostics:
-        type: object
-        properties:
-          enabled:
-            description: |-
-              **boolean**
-              Whether to use Performance Diagnostics service in cluster.
-            type: boolean
-          processesRefreshInterval:
-            description: |-
-              **string** (duration)
-              Time interval to collect data from system.processes table.
-            type: string
-            format: duration
-      ConfigSpec:
-        type: object
-        properties:
-          version:
-            description: |-
-              **string**
-              Version of the ClickHouse server software.
-            type: string
-          clickhouse:
-            description: |-
-              **[Clickhouse](#yandex.cloud.mdb.clickhouse.v1.ConfigSpec.Clickhouse)**
-              Configuration and resources for a ClickHouse server.
-            $ref: '#/definitions/Clickhouse'
-          zookeeper:
-            description: |-
-              **[Zookeeper](#yandex.cloud.mdb.clickhouse.v1.ConfigSpec.Zookeeper)**
-              Configuration and resources for a ZooKeeper server.
-            $ref: '#/definitions/Zookeeper'
-          backupWindowStart:
-            description: |-
-              **[TimeOfDay](#google.type.TimeOfDay)**
-              Time to start the daily backup, in the UTC timezone.
-            $ref: '#/definitions/TimeOfDay'
-          access:
-            description: |-
-              **[Access](#yandex.cloud.mdb.clickhouse.v1.Access)**
-              Access policy for external services.
-              If you want a specific service to access the ClickHouse cluster, then set the necessary values in this policy.
-            $ref: '#/definitions/Access'
-          cloudStorage:
-            description: |-
-              **[CloudStorage](#yandex.cloud.mdb.clickhouse.v1.CloudStorage)**
-              Cloud storage configuration.
-            $ref: '#/definitions/CloudStorage'
-          sqlDatabaseManagement:
-            description: |-
-              **boolean**
-              Whether database management through SQL commands is enabled.
-            type: boolean
-          sqlUserManagement:
-            description: |-
-              **boolean**
-              Whether user management through SQL commands is enabled.
-            type: boolean
-          adminPassword:
-            description: |-
-              **string**
-              Password for user 'admin' that has SQL user management access.
-            type: string
-          embeddedKeeper:
-            description: |-
-              **boolean**
-              Whether cluster should use embedded Keeper instead of Zookeeper
-            type: boolean
-          backupRetainPeriodDays:
-            description: |-
-              **string** (int64)
-              Retain period of automatically created backup in days
-            type: string
-            format: int64
-          performanceDiagnostics:
-            description: |-
-              **[PerformanceDiagnostics](#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics)**
-              Configuration performance diagnostics
-            $ref: '#/definitions/PerformanceDiagnostics'
-      DatabaseSpec:
-        type: object
-        properties:
-          name:
-            description: |-
-              **string**
-              Required field. Name of the ClickHouse database. 1-63 characters long.
-              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z_][a-zA-Z0-9_-]* `.
-            pattern: '[a-zA-Z_][a-zA-Z0-9_-]*'
-            type: string
-          engine:
-            description: |-
-              **enum** (DatabaseEngine)
-              Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
-              - `DATABASE_ENGINE_ATOMIC`
-              - `DATABASE_ENGINE_REPLICATED`
-            type: string
-            enum:
-              - DATABASE_ENGINE_UNSPECIFIED
-              - DATABASE_ENGINE_ATOMIC
-              - DATABASE_ENGINE_REPLICATED
-        required:
-          - name
-      Permission:
-        type: object
-        properties:
-          databaseName:
-            description: |-
-              **string**
-              Name of the database that the permission grants access to.
-            type: string
       UserSettings:
         type: object
         properties:
@@ -2587,6 +2314,23 @@ apiPlayground:
               Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.
               Default value: **1000** (1 second).
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connect_timeout_with_failover_ms).
+            type: string
+            format: int64
+          connectTimeoutWithFailoverSecure:
+            description: |-
+              **string** (int64)
+              The timeout in milliseconds for connecting to a remote server for a Distributed table engine, for secure connections.
+              Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.
+              Default value: **1000** (1 second).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connect_timeout_with_failover_secure_ms).
+            type: string
+            format: int64
+          connectionsWithFailoverMaxTries:
+            description: |-
+              **string** (int64)
+              The maximum number of connection attempts with each replica for the Distributed table engine.
+              Default value: **3**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connections_with_failover_max_tries).
             type: string
             format: int64
           receiveTimeout:
@@ -3109,7 +2853,7 @@ apiPlayground:
               **string** (int64)
               The maximum speed of data exchange over the network in bytes per second for a query. **0** means unlimited.
               Default value: **0**.
-              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max-network-bandwidth).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bandwidth).
             type: string
             format: int64
           maxNetworkBandwidthForUser:
@@ -3117,7 +2861,16 @@ apiPlayground:
               **string** (int64)
               The maximum speed of data exchange over the network in bytes per second for all concurrently running user queries. **0** means unlimited.
               Default value: **0**.
-              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max-network-bandwidth-for-user).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bandwidth_for_user).
+            type: string
+            format: int64
+          maxNetworkBytes:
+            description: |-
+              **string** (int64)
+              Limits the data volume (in bytes) that is received or transmitted over the network when executing a query.
+              This setting applies to every individual query.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bytes).
             type: string
             format: int64
           maxTemporaryDataOnDiskSizeForQuery:
@@ -3878,6 +3631,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Minimum duration in milliseconds a query needs to run for its result to be stored in the query cache.
+              (-- api-linter: yc::1701::duration-required=disabled --)
               Default value: **0**.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_min_query_duration).
             type: string
@@ -4171,6 +3925,300 @@ apiPlayground:
             deprecated: true
             type: string
             format: int64
+      Resources:
+        type: object
+        properties:
+          resourcePresetId:
+            description: |-
+              **string**
+              ID of the preset for computational resources available to a host (CPU, memory etc.).
+              All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types)
+            type: string
+          diskSize:
+            description: |-
+              **string** (int64)
+              Volume of the storage available to a host, in bytes.
+            type: string
+            format: int64
+          diskTypeId:
+            description: |-
+              **string**
+              Type of the storage environment for the host.
+              Possible values:
+              * network-hdd - network HDD drive,
+              * network-ssd - network SSD drive,
+              * local-ssd - local SSD storage.
+            type: string
+      DiskSizeAutoscaling:
+        type: object
+        properties:
+          plannedUsageThreshold:
+            description: |-
+              **string** (int64)
+              Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+              Acceptable values are 0 to 100, inclusive.
+            type: string
+            format: int64
+          emergencyUsageThreshold:
+            description: |-
+              **string** (int64)
+              Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+              Acceptable values are 0 to 100, inclusive.
+            type: string
+            format: int64
+          diskSizeLimit:
+            description: |-
+              **string** (int64)
+              Limit on how large the storage for database instances can automatically grow, in bytes.
+            type: string
+            format: int64
+      Clickhouse:
+        type: object
+        properties:
+          config:
+            description: |-
+              **[ClickhouseConfig](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig)**
+              Configuration for a ClickHouse server.
+            $ref: '#/definitions/ClickhouseConfig'
+          defaultUserSettings:
+            description: |-
+              **[UserSettings](#yandex.cloud.mdb.clickhouse.v1.UserSettings)**
+              Default user settings.
+            $ref: '#/definitions/UserSettings'
+          resources:
+            description: |-
+              **[Resources](#yandex.cloud.mdb.clickhouse.v1.Resources)**
+              Resources allocated to ClickHouse hosts.
+            $ref: '#/definitions/Resources'
+          diskSizeAutoscaling:
+            description: |-
+              **[DiskSizeAutoscaling](#yandex.cloud.mdb.clickhouse.v1.DiskSizeAutoscaling)**
+              Disk size autoscaling settings.
+            $ref: '#/definitions/DiskSizeAutoscaling'
+      Zookeeper:
+        type: object
+        properties:
+          resources:
+            description: |-
+              **[Resources](#yandex.cloud.mdb.clickhouse.v1.Resources)**
+              Resources allocated to ZooKeeper hosts. If not set, minimal available resources will be used.
+              All available resource presets can be retrieved with a [ResourcePresetService.List](/docs/managed-clickhouse/api-ref/ResourcePreset/list#List) request.
+            $ref: '#/definitions/Resources'
+          diskSizeAutoscaling:
+            description: |-
+              **[DiskSizeAutoscaling](#yandex.cloud.mdb.clickhouse.v1.DiskSizeAutoscaling)**
+              Disk size autoscaling settings.
+            $ref: '#/definitions/DiskSizeAutoscaling'
+      TimeOfDay:
+        type: object
+        properties:
+          hours:
+            description: |-
+              **integer** (int32)
+              Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+              to allow the value "24:00:00" for scenarios like business closing time.
+            type: integer
+            format: int32
+          minutes:
+            description: |-
+              **integer** (int32)
+              Minutes of hour of day. Must be from 0 to 59.
+            type: integer
+            format: int32
+          seconds:
+            description: |-
+              **integer** (int32)
+              Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+              allow the value 60 if it allows leap-seconds.
+            type: integer
+            format: int32
+          nanos:
+            description: |-
+              **integer** (int32)
+              Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+            type: integer
+            format: int32
+      Access:
+        type: object
+        properties:
+          dataLens:
+            description: |-
+              **boolean**
+              Allow to export data from the cluster to DataLens.
+            type: boolean
+          webSql:
+            description: |-
+              **boolean**
+              Allow SQL queries to the cluster databases from the management console.
+              See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details.
+            type: boolean
+          metrika:
+            description: |-
+              **boolean**
+              Allow to import data from Yandex Metrica and AppMetrica to the cluster.
+              See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details.
+            type: boolean
+          serverless:
+            description: |-
+              **boolean**
+              Allow access to cluster for Serverless.
+            type: boolean
+          dataTransfer:
+            description: |-
+              **boolean**
+              Allow access for DataTransfer
+            type: boolean
+          yandexQuery:
+            description: |-
+              **boolean**
+              Allow access for Query
+            type: boolean
+      CloudStorage:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              Whether to use Object Storage for storing ClickHouse data.
+            type: boolean
+          moveFactor:
+            description: |-
+              **number** (double)
+              The share of available free space on local storage. If the space becomes less, the data will start transferring
+              to Object Storage. For transfer, chunks are sorted by size from larger to smaller (descending) and chunks whose
+              total size is sufficient to meet the move_factor condition are selected, if the total size of all chunks is
+              insufficient, all chunks will be moved.
+              Default value: **0.01**.
+              Acceptable values are 0 to 1, inclusive.
+            default: null
+            type: number
+            format: double
+          dataCacheEnabled:
+            description: |-
+              **boolean**
+              Enables or disables caching Object Storage data on file system.
+            type: boolean
+          dataCacheMaxSize:
+            description: |-
+              **string** (int64)
+              Limits the maximum size of Object Storage data cache.
+            type: string
+            format: int64
+          preferNotToMerge:
+            description: |-
+              **boolean**
+              Disables or enables merging date parts storing in Object Storage.
+            type: boolean
+      PerformanceDiagnostics:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              Whether to use Performance Diagnostics service in cluster.
+            type: boolean
+          processesRefreshInterval:
+            description: |-
+              **string** (duration)
+              Time interval to collect data from system.processes table.
+            type: string
+            format: duration
+      ConfigSpec:
+        type: object
+        properties:
+          version:
+            description: |-
+              **string**
+              Version of the ClickHouse server software.
+            type: string
+          clickhouse:
+            description: |-
+              **[Clickhouse](#yandex.cloud.mdb.clickhouse.v1.ConfigSpec.Clickhouse)**
+              Configuration and resources for a ClickHouse server.
+            $ref: '#/definitions/Clickhouse'
+          zookeeper:
+            description: |-
+              **[Zookeeper](#yandex.cloud.mdb.clickhouse.v1.ConfigSpec.Zookeeper)**
+              Configuration and resources for a ZooKeeper server.
+            $ref: '#/definitions/Zookeeper'
+          backupWindowStart:
+            description: |-
+              **[TimeOfDay](#google.type.TimeOfDay)**
+              Time to start the daily backup, in the UTC timezone.
+            $ref: '#/definitions/TimeOfDay'
+          access:
+            description: |-
+              **[Access](#yandex.cloud.mdb.clickhouse.v1.Access)**
+              Access policy for external services.
+              If you want a specific service to access the ClickHouse cluster, then set the necessary values in this policy.
+            $ref: '#/definitions/Access'
+          cloudStorage:
+            description: |-
+              **[CloudStorage](#yandex.cloud.mdb.clickhouse.v1.CloudStorage)**
+              Cloud storage configuration.
+            $ref: '#/definitions/CloudStorage'
+          sqlDatabaseManagement:
+            description: |-
+              **boolean**
+              Whether database management through SQL commands is enabled.
+            type: boolean
+          sqlUserManagement:
+            description: |-
+              **boolean**
+              Whether user management through SQL commands is enabled.
+            type: boolean
+          adminPassword:
+            description: |-
+              **string**
+              Password for user 'admin' that has SQL user management access.
+            type: string
+          embeddedKeeper:
+            description: |-
+              **boolean**
+              Whether cluster should use embedded Keeper instead of Zookeeper
+            type: boolean
+          backupRetainPeriodDays:
+            description: |-
+              **string** (int64)
+              Retain period of automatically created backup in days
+            type: string
+            format: int64
+          performanceDiagnostics:
+            description: |-
+              **[PerformanceDiagnostics](#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics)**
+              Configuration performance diagnostics
+            $ref: '#/definitions/PerformanceDiagnostics'
+      DatabaseSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the ClickHouse database. 1-63 characters long.
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z_][a-zA-Z0-9_-]* `.
+            pattern: '[a-zA-Z_][a-zA-Z0-9_-]*'
+            type: string
+          engine:
+            description: |-
+              **enum** (DatabaseEngine)
+              Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
+              - `DATABASE_ENGINE_ATOMIC`: Atomic database engine.
+              - `DATABASE_ENGINE_REPLICATED`: Replicated database engine.
+            type: string
+            enum:
+              - DATABASE_ENGINE_UNSPECIFIED
+              - DATABASE_ENGINE_ATOMIC
+              - DATABASE_ENGINE_REPLICATED
+        required:
+          - name
+      Permission:
+        type: object
+        properties:
+          databaseName:
+            description: |-
+              **string**
+              Name of the database that the permission grants access to.
+            type: string
       UserQuota:
         type: object
         properties:
@@ -4178,6 +4226,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Duration of interval for quota in milliseconds.
+              (-- api-linter: yc::1701::duration-required=disabled --)
             type: string
             format: int64
           queries:
@@ -4313,13 +4362,13 @@ apiPlayground:
             description: |-
               **enum** (WeekDay)
               Day of the week (in `DDD` format).
-              - `MON`
-              - `TUE`
-              - `WED`
-              - `THU`
-              - `FRI`
-              - `SAT`
-              - `SUN`
+              - `MON`: Monday.
+              - `TUE`: Tuesday.
+              - `WED`: Wednesday.
+              - `THU`: Thursday.
+              - `FRI`: Friday.
+              - `SAT`: Saturday.
+              - `SUN`: Sunday.
             type: string
             enum:
               - WEEK_DAY_UNSPECIFIED
@@ -4520,6 +4569,8 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
           "lightweightMutationProjectionMode": "string",
           "replicatedDeduplicationWindow": "string",
           "replicatedDeduplicationWindowSeconds": "string",
+          "replicatedDeduplicationWindowForAsyncInserts": "string",
+          "replicatedDeduplicationWindowSecondsForAsyncInserts": "string",
           "fsyncAfterInsert": "boolean",
           "fsyncPartDirectory": "boolean",
           "minCompressedBytesToFsyncAfterFetch": "string",
@@ -4759,6 +4810,186 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
         },
         "builtinDictionariesReloadInterval": "string"
       },
+      "defaultUserSettings": {
+        "readonly": "string",
+        "allowDdl": "boolean",
+        "allowIntrospectionFunctions": "boolean",
+        "connectTimeout": "string",
+        "connectTimeoutWithFailover": "string",
+        "connectTimeoutWithFailoverSecure": "string",
+        "connectionsWithFailoverMaxTries": "string",
+        "receiveTimeout": "string",
+        "sendTimeout": "string",
+        "idleConnectionTimeout": "string",
+        "timeoutBeforeCheckingExecutionSpeed": "string",
+        "insertQuorum": "string",
+        "insertQuorumTimeout": "string",
+        "insertQuorumParallel": "boolean",
+        "selectSequentialConsistency": "boolean",
+        "replicationAlterPartitionsSync": "string",
+        "maxReplicaDelayForDistributedQueries": "string",
+        "fallbackToStaleReplicasForDistributedQueries": "boolean",
+        "distributedProductMode": "string",
+        "distributedAggregationMemoryEfficient": "boolean",
+        "distributedDdlTaskTimeout": "string",
+        "distributedDdlOutputMode": "string",
+        "skipUnavailableShards": "boolean",
+        "useHedgedRequests": "boolean",
+        "hedgedConnectionTimeoutMs": "string",
+        "loadBalancing": "string",
+        "preferLocalhostReplica": "boolean",
+        "compileExpressions": "boolean",
+        "minCountToCompileExpression": "string",
+        "maxBlockSize": "string",
+        "minInsertBlockSizeRows": "string",
+        "minInsertBlockSizeBytes": "string",
+        "maxInsertBlockSize": "string",
+        "maxPartitionsPerInsertBlock": "string",
+        "minBytesToUseDirectIo": "string",
+        "useUncompressedCache": "boolean",
+        "mergeTreeMaxRowsToUseCache": "string",
+        "mergeTreeMaxBytesToUseCache": "string",
+        "mergeTreeMinRowsForConcurrentRead": "string",
+        "mergeTreeMinBytesForConcurrentRead": "string",
+        "maxBytesBeforeExternalGroupBy": "string",
+        "maxBytesRatioBeforeExternalGroupBy": "number",
+        "maxBytesRatioBeforeExternalSort": "number",
+        "maxBytesBeforeExternalSort": "string",
+        "groupByTwoLevelThreshold": "string",
+        "groupByTwoLevelThresholdBytes": "string",
+        "deduplicateBlocksInDependentMaterializedViews": "boolean",
+        "localFilesystemReadMethod": "string",
+        "remoteFilesystemReadMethod": "string",
+        "priority": "string",
+        "maxThreads": "string",
+        "maxInsertThreads": "string",
+        "maxMemoryUsage": "string",
+        "maxMemoryUsageForUser": "string",
+        "memoryOvercommitRatioDenominator": "string",
+        "memoryOvercommitRatioDenominatorForUser": "string",
+        "memoryUsageOvercommitMaxWaitMicroseconds": "string",
+        "maxNetworkBandwidth": "string",
+        "maxNetworkBandwidthForUser": "string",
+        "maxNetworkBytes": "string",
+        "maxTemporaryDataOnDiskSizeForQuery": "string",
+        "maxTemporaryDataOnDiskSizeForUser": "string",
+        "maxConcurrentQueriesForUser": "string",
+        "forceIndexByDate": "boolean",
+        "forcePrimaryKey": "boolean",
+        "maxRowsToRead": "string",
+        "maxBytesToRead": "string",
+        "readOverflowMode": "string",
+        "maxRowsToGroupBy": "string",
+        "groupByOverflowMode": "string",
+        "maxRowsToSort": "string",
+        "maxBytesToSort": "string",
+        "sortOverflowMode": "string",
+        "maxResultRows": "string",
+        "maxResultBytes": "string",
+        "resultOverflowMode": "string",
+        "maxRowsInDistinct": "string",
+        "maxBytesInDistinct": "string",
+        "distinctOverflowMode": "string",
+        "maxRowsToTransfer": "string",
+        "maxBytesToTransfer": "string",
+        "transferOverflowMode": "string",
+        "maxExecutionTime": "string",
+        "timeoutOverflowMode": "string",
+        "maxRowsInSet": "string",
+        "maxBytesInSet": "string",
+        "setOverflowMode": "string",
+        "maxRowsInJoin": "string",
+        "maxBytesInJoin": "string",
+        "joinOverflowMode": "string",
+        "maxColumnsToRead": "string",
+        "maxTemporaryColumns": "string",
+        "maxTemporaryNonConstColumns": "string",
+        "maxQuerySize": "string",
+        "maxAstDepth": "string",
+        "maxAstElements": "string",
+        "maxExpandedAstElements": "string",
+        "maxParserDepth": "string",
+        "minExecutionSpeed": "string",
+        "minExecutionSpeedBytes": "string",
+        "inputFormatValuesInterpretExpressions": "boolean",
+        "inputFormatDefaultsForOmittedFields": "boolean",
+        "inputFormatNullAsDefault": "boolean",
+        "inputFormatWithNamesUseHeader": "boolean",
+        "outputFormatJsonQuote_64bitIntegers": "boolean",
+        "outputFormatJsonQuoteDenormals": "boolean",
+        "dateTimeInputFormat": "string",
+        "dateTimeOutputFormat": "string",
+        "lowCardinalityAllowInNativeFormat": "boolean",
+        "emptyResultForAggregationByEmptySet": "boolean",
+        "formatRegexp": "string",
+        "formatRegexpEscapingRule": "string",
+        "formatRegexpSkipUnmatched": "boolean",
+        "inputFormatParallelParsing": "boolean",
+        "inputFormatImportNestedJson": "boolean",
+        "formatAvroSchemaRegistryUrl": "string",
+        "dataTypeDefaultNullable": "boolean",
+        "httpConnectionTimeout": "string",
+        "httpReceiveTimeout": "string",
+        "httpSendTimeout": "string",
+        "enableHttpCompression": "boolean",
+        "sendProgressInHttpHeaders": "boolean",
+        "httpHeadersProgressInterval": "string",
+        "addHttpCorsHeader": "boolean",
+        "cancelHttpReadonlyQueriesOnClientClose": "boolean",
+        "maxHttpGetRedirects": "string",
+        "httpMaxFieldNameSize": "string",
+        "httpMaxFieldValueSize": "string",
+        "quotaMode": "string",
+        "asyncInsert": "boolean",
+        "waitForAsyncInsert": "boolean",
+        "waitForAsyncInsertTimeout": "string",
+        "asyncInsertMaxDataSize": "string",
+        "asyncInsertBusyTimeout": "string",
+        "asyncInsertUseAdaptiveBusyTimeout": "boolean",
+        "logQueryThreads": "boolean",
+        "logQueryViews": "boolean",
+        "logQueriesProbability": "number",
+        "logProcessorsProfiles": "boolean",
+        "useQueryCache": "boolean",
+        "enableReadsFromQueryCache": "boolean",
+        "enableWritesToQueryCache": "boolean",
+        "queryCacheMinQueryRuns": "string",
+        "queryCacheMinQueryDuration": "string",
+        "queryCacheTtl": "string",
+        "queryCacheMaxEntries": "string",
+        "queryCacheMaxSizeInBytes": "string",
+        "queryCacheTag": "string",
+        "queryCacheShareBetweenUsers": "boolean",
+        "queryCacheNondeterministicFunctionHandling": "string",
+        "queryCacheSystemTableHandling": "string",
+        "countDistinctImplementation": "string",
+        "joinedSubqueryRequiresAlias": "boolean",
+        "joinUseNulls": "boolean",
+        "transformNullIn": "boolean",
+        "insertNullAsDefault": "boolean",
+        "joinAlgorithm": [
+          "string"
+        ],
+        "anyJoinDistinctRightTableKeys": "boolean",
+        "allowSuspiciousLowCardinalityTypes": "boolean",
+        "flattenNested": "boolean",
+        "memoryProfilerStep": "string",
+        "memoryProfilerSampleProbability": "number",
+        "maxFinalThreads": "string",
+        "maxReadBufferSize": "string",
+        "insertKeeperMaxRetries": "string",
+        "doNotMergeAcrossPartitionsSelectFinal": "boolean",
+        "ignoreMaterializedViewsWithDroppedTargetTable": "boolean",
+        "enableAnalyzer": "boolean",
+        "s3UseAdaptiveTimeouts": "boolean",
+        "final": "boolean",
+        "useHivePartitioning": "boolean",
+        "showDataLakeCatalogsInSystemTables": "boolean",
+        "compile": "boolean",
+        "minCountToCompile": "string",
+        "asyncInsertThreads": "string",
+        "asyncInsertStaleTimeout": "string"
+      },
       "resources": {
         "resourcePresetId": "string",
         "diskSize": "string",
@@ -4835,6 +5066,8 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
         "allowIntrospectionFunctions": "boolean",
         "connectTimeout": "string",
         "connectTimeoutWithFailover": "string",
+        "connectTimeoutWithFailoverSecure": "string",
+        "connectionsWithFailoverMaxTries": "string",
         "receiveTimeout": "string",
         "sendTimeout": "string",
         "idleConnectionTimeout": "string",
@@ -4887,6 +5120,7 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
         "memoryUsageOvercommitMaxWaitMicroseconds": "string",
         "maxNetworkBandwidth": "string",
         "maxNetworkBandwidthForUser": "string",
+        "maxNetworkBytes": "string",
         "maxTemporaryDataOnDiskSizeForQuery": "string",
         "maxTemporaryDataOnDiskSizeForUser": "string",
         "maxConcurrentQueriesForUser": "string",
@@ -5153,6 +5387,8 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
               "lightweightMutationProjectionMode": "string",
               "replicatedDeduplicationWindow": "string",
               "replicatedDeduplicationWindowSeconds": "string",
+              "replicatedDeduplicationWindowForAsyncInserts": "string",
+              "replicatedDeduplicationWindowSecondsForAsyncInserts": "string",
               "fsyncAfterInsert": "boolean",
               "fsyncPartDirectory": "boolean",
               "minCompressedBytesToFsyncAfterFetch": "string",
@@ -5539,6 +5775,9 @@ Configuration performance diagnostics ||
 || config | **[ClickhouseConfig](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig)**
 
 Configuration for a ClickHouse server. ||
+|| defaultUserSettings | **[UserSettings](#yandex.cloud.mdb.clickhouse.v1.UserSettings)**
+
+Default user settings. ||
 || resources | **[Resources](#yandex.cloud.mdb.clickhouse.v1.Resources)**
 
 Resources allocated to ClickHouse hosts. ||
@@ -6432,6 +6671,20 @@ The number of seconds after which the hash sums of the inserted blocks are remov
 Default value: **3600** (1 hour) for versions 25.10 and higher, **604800** (7 days) for versions 25.9 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window_seconds). ||
+|| replicatedDeduplicationWindowForAsyncInserts | **string** (int64)
+
+The number of most recently async inserted blocks for which ClickHouse Keeper stores hash sums to check for duplicates.
+
+Default value: **10000**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window_for_async_inserts). ||
+|| replicatedDeduplicationWindowSecondsForAsyncInserts | **string** (int64)
+
+The number of seconds after which the hash sums of the async inserts are removed from ClickHouse Keeper.
+
+Default value: **604800** (7 days).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window_seconds_for_async_inserts). ||
 || fsyncAfterInsert | **boolean**
 
 Do fsync for every inserted part. Significantly decreases performance of inserts, not recommended to use with wide parts.
@@ -7281,204 +7534,6 @@ or a certificate chain ordered as leaf -> intermediates -> self-signed root.
 Change of the setting is applied with restart. ||
 |#
 
-## Resources {#yandex.cloud.mdb.clickhouse.v1.Resources}
-
-#|
-||Field | Description ||
-|| resourcePresetId | **string**
-
-ID of the preset for computational resources available to a host (CPU, memory etc.).
-All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) ||
-|| diskSize | **string** (int64)
-
-Volume of the storage available to a host, in bytes. ||
-|| diskTypeId | **string**
-
-Type of the storage environment for the host.
-Possible values:
-* network-hdd - network HDD drive,
-* network-ssd - network SSD drive,
-* local-ssd - local SSD storage. ||
-|#
-
-## DiskSizeAutoscaling {#yandex.cloud.mdb.clickhouse.v1.DiskSizeAutoscaling}
-
-#|
-||Field | Description ||
-|| plannedUsageThreshold | **string** (int64)
-
-Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
-
-Acceptable values are 0 to 100, inclusive. ||
-|| emergencyUsageThreshold | **string** (int64)
-
-Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
-
-Acceptable values are 0 to 100, inclusive. ||
-|| diskSizeLimit | **string** (int64)
-
-Limit on how large the storage for database instances can automatically grow, in bytes. ||
-|#
-
-## Zookeeper {#yandex.cloud.mdb.clickhouse.v1.ConfigSpec.Zookeeper}
-
-#|
-||Field | Description ||
-|| resources | **[Resources](#yandex.cloud.mdb.clickhouse.v1.Resources)**
-
-Resources allocated to ZooKeeper hosts. If not set, minimal available resources will be used.
-All available resource presets can be retrieved with a [ResourcePresetService.List](/docs/managed-clickhouse/api-ref/ResourcePreset/list#List) request. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.clickhouse.v1.DiskSizeAutoscaling)**
-
-Disk size autoscaling settings. ||
-|#
-
-## TimeOfDay {#google.type.TimeOfDay}
-
-Represents a time of day. The date and time zone are either not significant
-or are specified elsewhere. An API may choose to allow leap seconds. Related
-types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
-
-#|
-||Field | Description ||
-|| hours | **integer** (int32)
-
-Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
-to allow the value "24:00:00" for scenarios like business closing time. ||
-|| minutes | **integer** (int32)
-
-Minutes of hour of day. Must be from 0 to 59. ||
-|| seconds | **integer** (int32)
-
-Seconds of minutes of the time. Must normally be from 0 to 59. An API may
-allow the value 60 if it allows leap-seconds. ||
-|| nanos | **integer** (int32)
-
-Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. ||
-|#
-
-## Access {#yandex.cloud.mdb.clickhouse.v1.Access}
-
-#|
-||Field | Description ||
-|| dataLens | **boolean**
-
-Allow to export data from the cluster to DataLens. ||
-|| webSql | **boolean**
-
-Allow SQL queries to the cluster databases from the management console.
-See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. ||
-|| metrika | **boolean**
-
-Allow to import data from Yandex Metrica and AppMetrica to the cluster.
-See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. ||
-|| serverless | **boolean**
-
-Allow access to cluster for Serverless. ||
-|| dataTransfer | **boolean**
-
-Allow access for DataTransfer ||
-|| yandexQuery | **boolean**
-
-Allow access for Query ||
-|#
-
-## CloudStorage {#yandex.cloud.mdb.clickhouse.v1.CloudStorage}
-
-#|
-||Field | Description ||
-|| enabled | **boolean**
-
-Whether to use Object Storage for storing ClickHouse data. ||
-|| moveFactor | **number** (double)
-
-The share of available free space on local storage. If the space becomes less, the data will start transferring
-to Object Storage. For transfer, chunks are sorted by size from larger to smaller (descending) and chunks whose
-total size is sufficient to meet the move_factor condition are selected, if the total size of all chunks is
-insufficient, all chunks will be moved.
-
-Default value: **0.01**.
-
-Acceptable values are 0 to 1, inclusive. ||
-|| dataCacheEnabled | **boolean**
-
-Enables or disables caching Object Storage data on file system. ||
-|| dataCacheMaxSize | **string** (int64)
-
-Limits the maximum size of Object Storage data cache. ||
-|| preferNotToMerge | **boolean**
-
-Disables or enables merging date parts storing in Object Storage. ||
-|#
-
-## PerformanceDiagnostics {#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics}
-
-#|
-||Field | Description ||
-|| enabled | **boolean**
-
-Whether to use Performance Diagnostics service in cluster. ||
-|| processesRefreshInterval | **string** (duration)
-
-Time interval to collect data from system.processes table. ||
-|#
-
-## DatabaseSpec {#yandex.cloud.mdb.clickhouse.v1.DatabaseSpec}
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Required field. Name of the ClickHouse database. 1-63 characters long.
-
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z_][a-zA-Z0-9_-]* `. ||
-|| engine | **enum** (DatabaseEngine)
-
-Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
-
-- `DATABASE_ENGINE_ATOMIC`
-- `DATABASE_ENGINE_REPLICATED` ||
-|#
-
-## UserSpec {#yandex.cloud.mdb.clickhouse.v1.UserSpec}
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Required field. User name.
-
-The maximum string length in characters is 64. ||
-|| password | **string**
-
-User password.
-
-The maximum string length in characters is 128. ||
-|| generatePassword | **boolean**
-
-Enable or disable password generation using Connection Manager.
-
-Default value: **false**. ||
-|| permissions[] | **[Permission](#yandex.cloud.mdb.clickhouse.v1.Permission)**
-
-Set of permissions to grant to the user. If not set, it's granted permissions to access all databases. ||
-|| settings | **[UserSettings](#yandex.cloud.mdb.clickhouse.v1.UserSettings)**
-
-User settings ||
-|| quotas[] | **[UserQuota](#yandex.cloud.mdb.clickhouse.v1.UserQuota)**
-
-Quotas assigned to the user. ||
-|#
-
-## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission}
-
-#|
-||Field | Description ||
-|| databaseName | **string**
-
-Name of the database that the permission grants access to. ||
-|#
-
 ## UserSettings {#yandex.cloud.mdb.clickhouse.v1.UserSettings}
 
 ClickHouse user settings. Supported settings are a subset of settings described
@@ -7526,6 +7581,22 @@ Applies only if the cluster uses sharding and replication. If unsuccessful, seve
 Default value: **1000** (1 second).
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connect_timeout_with_failover_ms). ||
+|| connectTimeoutWithFailoverSecure | **string** (int64)
+
+The timeout in milliseconds for connecting to a remote server for a Distributed table engine, for secure connections.
+
+Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.
+
+Default value: **1000** (1 second).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connect_timeout_with_failover_secure_ms). ||
+|| connectionsWithFailoverMaxTries | **string** (int64)
+
+The maximum number of connection attempts with each replica for the Distributed table engine.
+
+Default value: **3**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connections_with_failover_max_tries). ||
 || receiveTimeout | **string** (int64)
 
 Receive timeout in milliseconds.
@@ -8012,14 +8083,22 @@ The maximum speed of data exchange over the network in bytes per second for a qu
 
 Default value: **0**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max-network-bandwidth). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bandwidth). ||
 || maxNetworkBandwidthForUser | **string** (int64)
 
 The maximum speed of data exchange over the network in bytes per second for all concurrently running user queries. **0** means unlimited.
 
 Default value: **0**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max-network-bandwidth-for-user). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bandwidth_for_user). ||
+|| maxNetworkBytes | **string** (int64)
+
+Limits the data volume (in bytes) that is received or transmitted over the network when executing a query.
+This setting applies to every individual query.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bytes). ||
 || maxTemporaryDataOnDiskSizeForQuery | **string** (int64)
 
 The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running queries. **0** means unlimited.
@@ -8703,6 +8782,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 || queryCacheMinQueryDuration | **string** (int64)
 
 Minimum duration in milliseconds a query needs to run for its result to be stored in the query cache.
+(-- api-linter: yc::1701::duration-required=disabled --)
 
 Default value: **0**.
 
@@ -8952,6 +9032,204 @@ The setting is deprecated and has no effect. ||
 The setting is deprecated and has no effect. ||
 |#
 
+## Resources {#yandex.cloud.mdb.clickhouse.v1.Resources}
+
+#|
+||Field | Description ||
+|| resourcePresetId | **string**
+
+ID of the preset for computational resources available to a host (CPU, memory etc.).
+All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) ||
+|| diskSize | **string** (int64)
+
+Volume of the storage available to a host, in bytes. ||
+|| diskTypeId | **string**
+
+Type of the storage environment for the host.
+Possible values:
+* network-hdd - network HDD drive,
+* network-ssd - network SSD drive,
+* local-ssd - local SSD storage. ||
+|#
+
+## DiskSizeAutoscaling {#yandex.cloud.mdb.clickhouse.v1.DiskSizeAutoscaling}
+
+#|
+||Field | Description ||
+|| plannedUsageThreshold | **string** (int64)
+
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
+|| emergencyUsageThreshold | **string** (int64)
+
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
+|| diskSizeLimit | **string** (int64)
+
+Limit on how large the storage for database instances can automatically grow, in bytes. ||
+|#
+
+## Zookeeper {#yandex.cloud.mdb.clickhouse.v1.ConfigSpec.Zookeeper}
+
+#|
+||Field | Description ||
+|| resources | **[Resources](#yandex.cloud.mdb.clickhouse.v1.Resources)**
+
+Resources allocated to ZooKeeper hosts. If not set, minimal available resources will be used.
+All available resource presets can be retrieved with a [ResourcePresetService.List](/docs/managed-clickhouse/api-ref/ResourcePreset/list#List) request. ||
+|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.clickhouse.v1.DiskSizeAutoscaling)**
+
+Disk size autoscaling settings. ||
+|#
+
+## TimeOfDay {#google.type.TimeOfDay}
+
+Represents a time of day. The date and time zone are either not significant
+or are specified elsewhere. An API may choose to allow leap seconds. Related
+types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+
+#|
+||Field | Description ||
+|| hours | **integer** (int32)
+
+Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+to allow the value "24:00:00" for scenarios like business closing time. ||
+|| minutes | **integer** (int32)
+
+Minutes of hour of day. Must be from 0 to 59. ||
+|| seconds | **integer** (int32)
+
+Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+allow the value 60 if it allows leap-seconds. ||
+|| nanos | **integer** (int32)
+
+Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. ||
+|#
+
+## Access {#yandex.cloud.mdb.clickhouse.v1.Access}
+
+#|
+||Field | Description ||
+|| dataLens | **boolean**
+
+Allow to export data from the cluster to DataLens. ||
+|| webSql | **boolean**
+
+Allow SQL queries to the cluster databases from the management console.
+See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. ||
+|| metrika | **boolean**
+
+Allow to import data from Yandex Metrica and AppMetrica to the cluster.
+See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. ||
+|| serverless | **boolean**
+
+Allow access to cluster for Serverless. ||
+|| dataTransfer | **boolean**
+
+Allow access for DataTransfer ||
+|| yandexQuery | **boolean**
+
+Allow access for Query ||
+|#
+
+## CloudStorage {#yandex.cloud.mdb.clickhouse.v1.CloudStorage}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Whether to use Object Storage for storing ClickHouse data. ||
+|| moveFactor | **number** (double)
+
+The share of available free space on local storage. If the space becomes less, the data will start transferring
+to Object Storage. For transfer, chunks are sorted by size from larger to smaller (descending) and chunks whose
+total size is sufficient to meet the move_factor condition are selected, if the total size of all chunks is
+insufficient, all chunks will be moved.
+
+Default value: **0.01**.
+
+Acceptable values are 0 to 1, inclusive. ||
+|| dataCacheEnabled | **boolean**
+
+Enables or disables caching Object Storage data on file system. ||
+|| dataCacheMaxSize | **string** (int64)
+
+Limits the maximum size of Object Storage data cache. ||
+|| preferNotToMerge | **boolean**
+
+Disables or enables merging date parts storing in Object Storage. ||
+|#
+
+## PerformanceDiagnostics {#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Whether to use Performance Diagnostics service in cluster. ||
+|| processesRefreshInterval | **string** (duration)
+
+Time interval to collect data from system.processes table. ||
+|#
+
+## DatabaseSpec {#yandex.cloud.mdb.clickhouse.v1.DatabaseSpec}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Name of the ClickHouse database. 1-63 characters long.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z_][a-zA-Z0-9_-]* `. ||
+|| engine | **enum** (DatabaseEngine)
+
+Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
+
+- `DATABASE_ENGINE_ATOMIC`: Atomic database engine.
+- `DATABASE_ENGINE_REPLICATED`: Replicated database engine. ||
+|#
+
+## UserSpec {#yandex.cloud.mdb.clickhouse.v1.UserSpec}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. User name.
+
+The maximum string length in characters is 64. ||
+|| password | **string**
+
+User password.
+
+The maximum string length in characters is 128. ||
+|| generatePassword | **boolean**
+
+Enable or disable password generation using Connection Manager.
+
+Default value: **false**. ||
+|| permissions[] | **[Permission](#yandex.cloud.mdb.clickhouse.v1.Permission)**
+
+Set of permissions to grant to the user. If not set, it's granted permissions to access all databases. ||
+|| settings | **[UserSettings](#yandex.cloud.mdb.clickhouse.v1.UserSettings)**
+
+User settings ||
+|| quotas[] | **[UserQuota](#yandex.cloud.mdb.clickhouse.v1.UserQuota)**
+
+Quotas assigned to the user. ||
+|#
+
+## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission}
+
+#|
+||Field | Description ||
+|| databaseName | **string**
+
+Name of the database that the permission grants access to. ||
+|#
+
 ## UserQuota {#yandex.cloud.mdb.clickhouse.v1.UserQuota}
 
 ClickHouse quota representation. Each quota associated with an user and limits it resource usage for an interval.
@@ -8961,7 +9239,8 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 ||Field | Description ||
 || intervalDuration | **string** (int64)
 
-Duration of interval for quota in milliseconds. ||
+Duration of interval for quota in milliseconds.
+(-- api-linter: yc::1701::duration-required=disabled --) ||
 || queries | **string** (int64)
 
 The total number of queries. **0** means unlimited. ||
@@ -9050,13 +9329,13 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `MON`
-- `TUE`
-- `WED`
-- `THU`
-- `FRI`
-- `SAT`
-- `SUN` ||
+- `MON`: Monday.
+- `TUE`: Tuesday.
+- `WED`: Wednesday.
+- `THU`: Thursday.
+- `FRI`: Friday.
+- `SAT`: Saturday.
+- `SUN`: Sunday. ||
 || hour | **string** (int64)
 
 Hour of the day in UTC (in `HH` format).

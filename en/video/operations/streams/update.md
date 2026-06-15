@@ -19,6 +19,10 @@ description: Follow this guide to edit a {{ video-full-name }} broadcast.
       {% include [push-pull](../../../_includes/video/push-pull.md) %}
 
   1. If you selected the `Pull` stream type, enter the address of your broadcast server in the **{{ ui-key.yacloud_video.stream-lines.label_url }}** field.
+  1. Select **{{ ui-key.yacloud_video.streams.field_segment-duration }}**, which sets the time between video capture at the source and its playback for viewers:
+     
+     * **{{ ui-key.yacloud_video.streams.option_segment-duration-standart }}** (15-20 seconds): Ensures high image quality and resilience to unstable connections. Suitable for broadcasts without active real-time viewer interaction.
+     * **{{ ui-key.yacloud_video.streams.option_segment-duration-low }}** (4-5 seconds): Suitable for scenarios with active viewer interaction but more sensitive to network quality.
   1. Enable **{{ ui-key.yacloud_video.streams.label_auto-publish-streams }}** to publish episodes automatically upon receiving an input signal.
   1. Click **{{ ui-key.yacloud_video.common.action_accept }}**.
 

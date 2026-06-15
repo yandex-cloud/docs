@@ -66,8 +66,8 @@ index: 1
 
 ## Ноябрь 2025 {#nov-2025}
 
-* Сервис координации ClickHouse® Keeper теперь доступен всем пользователям Managed Service for ClickHouse® и используется по умолчанию в новых кластерах. Также добавлена возможность создавать в кластере отдельные хосты с ClickHouse® Keeper. Подробнее о ClickHouse® Keeper см. в разделе [Репликация](concepts/replication.md#ck).
-* Добавлена роль `managed-clickhouse.restorer`, позволяющая восстанавливать кластеры из резервных копий. Подробнее см. в разделе [Управление доступом](security.md#managed-clickhouse-restorer).
+* Сервис координации ClickHouse® Keeper теперь доступен всем пользователям Managed Service for ClickHouse® и используется по умолчанию в новых кластерах. Также добавлена возможность создавать в кластере отдельные хосты с ClickHouse® Keeper. Подробнее о ClickHouse® Keeper в разделе [Репликация](concepts/replication.md#ck).
+* Добавлена роль `managed-clickhouse.restorer`, позволяющая восстанавливать кластеры из резервных копий. Подробнее в разделе [Управление доступом](security.md#managed-clickhouse-restorer).
 * Удалена настройка СУБД **Kafka topics**, позволявшая задавать параметры аутентификации на уровне топиков для [интеграции с Apache Kafka®](https://clickhouse.com/docs/ru/engines/table-engines/integrations/kafka).
 * Доступны новые версии ClickHouse®: [25.8](https://clickhouse.com/blog/clickhouse-release-25-08), [25.9](https://clickhouse.com/blog/clickhouse-release-25-09) и [25.10](https://clickhouse.com/blog/clickhouse-release-25-10).
 
@@ -186,7 +186,7 @@ index: 1
 ## II квартал 2022 {#q2-2022}
 
 * Доступна новая версия ClickHouse® 22.5 ([список изменений](https://clickhouse.com/docs/ru/whats-new/changelog/2022#-clickhouse-release-225-2022-05-19)).
-* Добавлена поддержка запроса `SYSTEM UNFREEZE`. Запрос полностью удаляет резервную копию кластера из облачного хранилища, включая данные таблиц, которые могут занимать место в хранилище после удаления. Подробнее см. на [GitHub](https://github.com/ClickHouse/ClickHouse/pull/36424).
+* Добавлена поддержка запроса `SYSTEM UNFREEZE`. Запрос полностью удаляет резервную копию кластера из облачного хранилища, включая данные таблиц, которые могут занимать место в хранилище после удаления. Подробнее на [GitHub](https://github.com/ClickHouse/ClickHouse/pull/36424).
 * Сокращено время восстановления кластера из резервной копии.
 * Исправлена ошибка, в результате которой при редактировании списка подключений к топикам Apache Kafka® могли удаляться уже настроенные пароли доступа к топикам.
 * Добавлена возможность выдавать пользователям права на системные таблицы (`_system`).

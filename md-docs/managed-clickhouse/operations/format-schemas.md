@@ -18,7 +18,7 @@ _Схема формата_ данных (format schema) описывает фо
 
 {% endnote %}
 
-Подробнее о форматах данных см. [в документации ClickHouse®](https://clickhouse.com/docs/ru/interfaces/formats).
+Подробнее о форматах данных [в документации ClickHouse®](https://clickhouse.com/docs/ru/interfaces/formats).
 
 Примеры работы с форматами Cap'n Proto и Protobuf при вставке данных в кластер приведены в разделе [Добавление данных в кластер](../tutorials/insert.md).
 
@@ -190,7 +190,7 @@ _ClickHouse® является зарегистрированным товарн
 
 Managed Service for ClickHouse® работает только со схемами формата данных, которые загружены в Yandex Object Storage и к которым предоставлен доступ на чтение. Перед подключением схемы к кластеру:
 
-1. Подготовьте файл со схемой формата (см. документацию [Cap'n Proto](https://capnproto.org/language.html) и [Protobuf](https://developers.google.com/protocol-buffers/docs/tutorials?hl=ru)).
+1. Подготовьте файл со схемой формата. Для подготовки используйте документацию [Cap'n Proto](https://capnproto.org/language.html) и [Protobuf](https://developers.google.com/protocol-buffers/docs/tutorials?hl=ru).
 
 
 1. Для привязки [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) к кластеру [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
@@ -246,7 +246,7 @@ Managed Service for ClickHouse® работает только со схемам
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Добавьте к описанию кластера Managed Service for ClickHouse® блок `format_schema`:
 
@@ -294,7 +294,7 @@ Managed Service for ClickHouse® работает только со схемам
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
     {% note warning "Ограничения по времени" %}
     
@@ -447,7 +447,7 @@ Managed Service for ClickHouse® не отслеживает изменения 
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Измените в описании кластера Managed Service for ClickHouse® значение параметра `uri` в блоке `format_schema`:
 
@@ -493,7 +493,7 @@ Managed Service for ClickHouse® не отслеживает изменения 
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+        Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
         {% note warning "Ограничения по времени" %}
         
@@ -676,7 +676,7 @@ Managed Service for ClickHouse® не отслеживает изменения 
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Удалите из описания кластера Managed Service for ClickHouse® блок описания нужной схемы формата данных `format_schema`.
 
@@ -711,7 +711,7 @@ Managed Service for ClickHouse® не отслеживает изменения 
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
     {% note warning "Ограничения по времени" %}
     

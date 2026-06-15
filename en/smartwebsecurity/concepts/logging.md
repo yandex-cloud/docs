@@ -1,3 +1,8 @@
+---
+title: Logging in {{ sws-full-name }}
+description: In this guide, you will learn how {{ sws-name }} logs and analyzes data on requests and rules they trigger.
+---
+
 # Logging
 
 {% include [logging-preview](../../_includes/smartwebsecurity/logging-preview.md) %}

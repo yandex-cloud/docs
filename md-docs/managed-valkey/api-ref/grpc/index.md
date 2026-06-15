@@ -14,4 +14,5 @@ Actions are performed by making RPC calls. For more information about API archit
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [ResourcePreset](ResourcePreset/index.md) | A set of methods for working with resource presets. ||
 || [User](User/index.md) | A set of methods for managing Redis User resources. ||
+|| [Versions](Versions/index.md) |  ||
 |#

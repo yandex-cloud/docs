@@ -14,6 +14,7 @@ description: Follow this guide to set up a {{ video-full-name }} channel and man
   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
   1. Select a channel.
   1. In the right-hand panel, select **{{ ui-key.yacloud_video.channels.title_settings }}**.
+  1. Enable the **{{ ui-key.yacloud_video.channels.label_show-source-file-before-transcoding }}** option for playback to start as soon as the video is loaded without waiting for end of processing. In which case the video and metadata will be taken from the source file without transcoding. This feature works only in browsers supporting the source file format.
   1. Under **{{ ui-key.yacloud_video.channels.label_advertisement }}**, specify the ad settings for all videos on your channel.
   1. Under **{{ ui-key.yacloud_video.channels.label_allowed-domains }}**, add the addresses of websites that can play back videos from this channel. Videos will not be played on other websites.
      1. Enable **{{ ui-key.yacloud_video.channels.label_domains-status }}**.

@@ -10,9 +10,9 @@
 
   По умолчанию выполнение DDL-запросов разрешено.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/permissions-for-queries#settings_allow_ddl).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/permissions-for-queries#settings_allow_ddl).
 
-  См. также: настройка [Readonly](#setting-readonly).
+  Связано с настройкой [Readonly](#setting-readonly).
 
 * **Allow introspection functions**{#setting-allow-introspection-functions} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
@@ -25,7 +25,7 @@
 
   Значение по умолчанию — `0`.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-allow_introspection_functions).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-allow_introspection_functions).
 
 * **Allow suspicious low cardinality types**{#setting-allow-suspicious-low-cardinality-types} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
@@ -38,7 +38,7 @@
 
   Значение по умолчанию — `0`.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#allow_suspicious_low_cardinality_types).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#allow_suspicious_low_cardinality_types).
 
 * **Any join distinct right table keys**{#setting-any-join-distinct-right-table-keys} {{ tag-con }} {{ tag-sql }}
 
@@ -46,7 +46,7 @@
 
   По умолчанию устаревшее поведение операции `JOIN` выключено.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#any_join_distinct_right_table_keys).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#any_join_distinct_right_table_keys).
 
 * **Async insert**{#setting-async-insert} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
@@ -61,7 +61,7 @@
 
   Значение по умолчанию — `0`.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#async-insert).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#async-insert).
 
 * **Async insert busy timeout**{#setting-async-insert-busy-timeout} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
@@ -69,7 +69,7 @@
 
   Значение по умолчанию — `200`. Если указан `0`, ожидание отключено.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#async-insert-busy-timeout-ms).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#async-insert-busy-timeout-ms).
 
 * **Async insert max data size**{#setting-async-insert-max-data-size} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
@@ -77,7 +77,7 @@
 
   Значение по умолчанию — `1000000`. Если указан `0`, асинхронные вставки будут отключены.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#async-insert-max-data-size).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#async-insert-max-data-size).
 
 * **Async insert stale timeout**{#setting-async-insert-stale-timeout} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
@@ -85,7 +85,7 @@
 
   Значение по умолчанию — `0`. Если указан `0`, ожидание отключено.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#async-insert-stale-timeout-ms).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#async-insert-stale-timeout-ms).
 
 * **Async insert threads**{#setting-async-insert-threads} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
@@ -93,7 +93,7 @@
 
   Значение по умолчанию — `16`. Если указан `0`, асинхронные вставки будут отключены.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#async-insert-threads).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#async-insert-threads).
 
 * **Async insert use adaptive busy timeout**{#setting-async-insert-use-adaptive-busy-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -101,7 +101,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#async_insert_use_adaptive_busy_timeout).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#async_insert_use_adaptive_busy_timeout).
 
 * **Cancel HTTP readonly queries on client close**{#setting-cancel-http-readonly-queries-on-client-close} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
@@ -109,7 +109,7 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#cancel-http-readonly-queries-on-client-close).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#cancel-http-readonly-queries-on-client-close).
 
 * **Compile expressions**{#setting-compile-expressions} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -133,7 +133,7 @@
 
   Значение по умолчанию — `50`.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#connect-timeout-with-failover-ms).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#connect-timeout-with-failover-ms).
 
 * **Count distinct implementation**{#setting-count-distinct-implementation} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -146,7 +146,7 @@
 
   По умолчанию используется функция `uniqExact`.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#count_distinct_implementation).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#count_distinct_implementation).
 
 * **Data type default nullable**{#setting-data-type-default-nullable} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -154,7 +154,7 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#data_type_default_nullable).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#data_type_default_nullable).
 
 * **Date time input format**{#setting-date-time-input-format} {{ tag-con }} {{ tag-sql }}
 
@@ -164,7 +164,7 @@
 
   По умолчанию используется базовый парсер (`basic`).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-date_time_input_format).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-date_time_input_format).
 
 * **Date time output format**{#setting-date-time-output-format} {{ tag-con }} {{ tag-sql }}
 
@@ -175,7 +175,7 @@
 
   По умолчанию используется простой формат (`simple`).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-date_time_output_format).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-date_time_output_format).
 
 * **Deduplicate blocks in dependent materialized views**{#setting-deduplicate-blocks-in-dependent-materialized-views} {{ tag-con }} {{ tag-sql }}
 
@@ -183,7 +183,7 @@
 
   По умолчанию проверка выключена (`0`).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-deduplicate-blocks-in-dependent-materialized-views).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-deduplicate-blocks-in-dependent-materialized-views).
 
 * **Distinct overflow mode**{#setting-distinct-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -201,7 +201,7 @@
 
   По умолчанию режим экономии памяти выключен.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/select/group-by#select-group-by-in-external-memory).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/select/group-by#select-group-by-in-external-memory).
 
 * **Distributed ddl task timeout**{#setting-distributed-ddl-task-timeout} {{ tag-all }}
 
@@ -222,7 +222,7 @@
 
   По умолчанию значение не выбрано (эквивалентно `deny`).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#distributed-product-mode).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#distributed-product-mode).
 
 * **Do not merge across partitions select final** {#setting-do-not-merge-across-partitions-select-final} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -230,7 +230,7 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/guides/replacing-merge-tree#exploiting-partitions-with-replacingmergetree).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/guides/replacing-merge-tree#exploiting-partitions-with-replacingmergetree).
 
 * **Empty result for aggregation by empty set**{#setting-empty-result-for-aggregation-by-empty-set} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -249,7 +249,7 @@
 
   По умолчанию сжатие данных в ответе на HTTP-запрос выключено.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/interfaces/http).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/interfaces/http).
 
 * **Enable reads from query cache**{#setting-enable-reads-from-query-cache} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -257,9 +257,9 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#enable_reads_from_query_cache).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#enable_reads_from_query_cache).
 
-  См. также настройку [Use query cache](#setting-use-query-cache).
+  Связано с настройкой [Use query cache](#setting-use-query-cache).
 
 * **Enable writes to query cache**{#setting-enable-writes-to-query-cache} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -267,9 +267,9 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#enable_writes_to_query_cache).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#enable_writes_to_query_cache).
 
-  См. также настройку [Use query cache](#setting-use-query-cache).
+  Связано с настройкой [Use query cache](#setting-use-query-cache).
 
 * **Fallback to stale replicas for distributed queries**{#setting-fallback-to-stale-replicas-for-distributed-queries} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -279,9 +279,9 @@
 
   По умолчанию форсирование запроса включено.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-fallback_to_stale_replicas_for_distributed_queries).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-fallback_to_stale_replicas_for_distributed_queries).
 
-  См. также настройку [Max replica delay for distributed queries](#setting-max-replica-delay-for-distributed-queries).
+  Связано с настройкой [Max replica delay for distributed queries](#setting-max-replica-delay-for-distributed-queries).
 
 * **Flatten nested**{#setting-flatten-nested} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
@@ -294,7 +294,7 @@
 
   Значение по умолчанию: `1`.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#flatten-nested).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#flatten-nested).
 
 * **Force index by date**{#setting-force-index-by-date} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -302,7 +302,7 @@
 
   По умолчанию настройка выключена (выполнение запросов разрешено).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-force_index_by_date).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-force_index_by_date).
 
 * **Force primary key**{#setting-force-primary-key} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -310,13 +310,13 @@
 
   По умолчанию настройка выключена (выполнение запросов разрешено).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-force_primary_key).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-force_primary_key).
 
 * **Format avro schema registry url**{#setting-format-avro-schema-registry-url} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
   URL реестра схем Confluent для формата AvroConfluent.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/formats#format_avro_schema_registry_url).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/formats#format_avro_schema_registry_url).
 
 * **Format regexp**{#setting-format-regexp} {{ tag-con }} {{ tag-sql }}
 
@@ -369,7 +369,7 @@
 
   Значение по умолчанию — `50`.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#hedged_connection_timeout_ms).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#hedged_connection_timeout_ms).
 
 * **HTTP connection timeout**{#setting-http-connection-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -389,7 +389,7 @@
 
   Значение по умолчанию — `131072`.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#http_max_field_name_size).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#http_max_field_name_size).
 
 * **HTTP max field value size**{#setting-http-max-field-value-size} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -397,7 +397,7 @@
 
   Значение по умолчанию — `131072`.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#http_max_field_value_size).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#http_max_field_value_size).
 
 * **HTTP receive timeout**{#setting-http-receive-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -419,7 +419,7 @@
 
   Значение по умолчанию — `360000` (шесть минут).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#idle_connection_timeout).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#idle_connection_timeout).
 
 * **Ignore materialized views with dropped target table**{#setting-ignore-materialized-views-with-dropped-target-table} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -427,7 +427,7 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#ignore_materialized_views_with_dropped_target_table).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#ignore_materialized_views_with_dropped_target_table).
 
 * **Input format defaults for omitted fields**{#setting-input-format-defaults-for-omitted-fields} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -435,7 +435,7 @@
 
   По умолчанию замена включена.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#session_settings-input_format_defaults_for_omitted_fields).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#session_settings-input_format_defaults_for_omitted_fields).
 
 * **Input format import nested json**{#setting-input-format-import-nested-json} {{ tag-con }}
 
@@ -443,7 +443,7 @@
 
   По умолчанию такая вставка данных выключена.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-input_format_import_nested_json).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-input_format_import_nested_json).
 
 * **Input format null as default**{#setting-input-format-null-as-default} {{ tag-con }} {{ tag-sql }}
 
@@ -451,7 +451,7 @@
 
   По умолчанию настройка включена (ячейки `NULL` заполняются значениями по умолчанию).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-input-format-null-as-default).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-input-format-null-as-default).
 
 * **Input format parallel parsing**{#setting-input-format-parallel-parsing} {{ tag-con }}
 
@@ -459,7 +459,7 @@
 
   По умолчанию такая разбивка входящих данных включена.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#input-format-parallel-parsing).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#input-format-parallel-parsing).
 
 * **Input format values interpret expressions**{#setting-input-format-values-interpret-expressions} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -471,7 +471,7 @@
 
   По умолчанию парсер SQL включен.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-input_format_values_interpret_expressions).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-input_format_values_interpret_expressions).
 
 * **Input format with names use header**{#setting-input-format-with-names-use-header} {{ tag-con }} {{ tag-sql }}
 
@@ -479,7 +479,7 @@
 
   По умолчанию проверка включена.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-input-format-with-names-use-header).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-input-format-with-names-use-header).
 
 * **Insert keeper max retries**{#setting-insert-keeper-max-retries} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -487,7 +487,7 @@
 
   Минимальное значение — `0` (повторные попытки отключены), по умолчанию — `20`.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#insert_keeper_max_retries).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#insert_keeper_max_retries).
 
 * **Insert null as default**{#setting-insert-null-as-default} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
@@ -500,7 +500,7 @@
 
   Значение по умолчанию — `1`.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#insert_null_as_default).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#insert_null_as_default).
 
 * **Insert quorum**{#setting-insert-quorum} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -514,7 +514,7 @@
 
   По умолчанию кворумная запись выключена (`0`).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-insert_quorum).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-insert_quorum).
 
 * **Insert quorum parallel**{#setting-insert-quorum-parallel} {{ tag-con }} {{ tag-sql }}
 
@@ -543,7 +543,7 @@
 
   По умолчанию для версий {{ CH }} 24.11 и ниже выбрано значение `direct,auto`, а для 24.12 и выше – `direct,parallel_hash,hash`. Доступный алгоритм будет выбран для конкретного запроса в зависимости от типа и движка таблицы.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-join_algorithm).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-join_algorithm).
 
 * **Join overflow mode**{#setting-join-overflow-mode} {{ tag-all }}
 
@@ -563,7 +563,7 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#join_use_nulls).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#join_use_nulls).
 
 * **Joined subquery requires alias**{#setting-joined-subquery-requires-alias} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -607,7 +607,7 @@
 
   * `round_robin` — запрос отправляется в соответствии с политикой [Round-Robin](https://ru.wikipedia.org/wiki/Round-robin_(алгоритм)). Относится только к запросам, которые поддерживают эту политику.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-load_balancing).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-load_balancing).
 
 * **Local filesystem read method**{#setting-local-filesystem-read-method} {{ tag-con }}
 
@@ -628,7 +628,7 @@
 
   По умолчанию настройка выключена. Изменение настройки приводит к перезапуску серверов {{ CH }} на хостах кластера.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#log_processors_profiles).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#log_processors_profiles).
 
 * **Log queries probability**{#setting-log-queries-probability} {{ tag-cli }} {{ tag-sql }}
 
@@ -636,7 +636,7 @@
 
   Значение настройки — положительное число с плавающей запятой в диапазоне [0..1]. Например, если указано значение `0,5`, то примерно половина запросов регистрируется в системных таблицах. При значении `0` запросы не регистрируются в системных таблицах. При значении `1` (по умолчанию) все запросы регистрируются в системных таблицах.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#log_queries_probability).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#log_queries_probability).
 
 * **Log query threads**{#setting-log-query-threads} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
@@ -646,7 +646,7 @@
 
   Настройку можно применить только для части пользователей или запросов.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-log-query-threads).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-log-query-threads).
 
 * **Log query views**{#setting-log-query-views} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -654,7 +654,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#log_query_views).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#log_query_views).
 
 * **Low cardinality allow in native format**{#setting-low-cardinality-allow-in-native-format} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -706,9 +706,9 @@
 
   При использовании агрегации во внешней памяти рекомендуется задать значение этой настройки в два раза меньше значения настройки [Max memory usage](#setting-max-memory-usage) (по умолчанию максимальное использование памяти ограничено десятью гигабайтами).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/select/group-by#select-group-by-in-external-memory).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/select/group-by#select-group-by-in-external-memory).
 
-  См. также настройку [Distributed aggregation memory efficient](#setting-distributed-aggregation-memory-efficient).
+  Связано с настройкой [Distributed aggregation memory efficient](#setting-distributed-aggregation-memory-efficient).
 
 * **Max bytes before external sort**{#setting-max-bytes-before-external-sort} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -794,7 +794,7 @@
 
   Минимальное значение `0` (нет ограничения), по умолчанию — `450`.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings#max-concurrent-queries-for-user).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings#max-concurrent-queries-for-user).
 
 * **Max execution time**{#setting-max-execution-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -818,7 +818,7 @@
 
   По умолчанию выбрано значение, равное значению настройки [Max threads](#setting-max-threads).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#max-final-threads).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#max-final-threads).
 
 * **Max HTTP get redirects**{#setting-max-http-get-redirects} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
@@ -828,7 +828,7 @@
 
   Значение по умолчанию — `0`.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#setting-max_http_get_redirects).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#setting-max_http_get_redirects).
 
 * **Max insert block size**{#setting-max-insert-block-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -836,7 +836,7 @@
 
   По умолчанию выбрано значение `1048576`.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-max_insert_block_size).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-max_insert_block_size).
 
 * **Max insert threads**{#setting-max-insert-threads} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
@@ -848,17 +848,17 @@
 
   Чем больше значение настройки **Max insert threads**, тем выше потребление оперативной памяти кластера.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-max-insert-threads).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-max-insert-threads).
 
 * **Max memory usage**{#setting-max-memory-usage} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
   Максимальный объем оперативной памяти (в байтах) для выполнения запроса на одном сервере. Настройка не учитывает объем свободной памяти или общий объем памяти на машине. Ограничение действует на один запрос в пределах одного сервера.
 
-  Минимальное значение и значение по умолчанию — `0` (нет ограничения). Максимальное значение ограничено настройкой Max server memory usage, значение которой нельзя изменить напрямую. Подробнее см. в разделе [{#T}](../../managed-clickhouse/concepts/memory-management.md). Если задано значение больше, чем Max server memory usage, то применяется значение Max server memory usage.
+  Минимальное значение и значение по умолчанию — `0` (нет ограничения). Максимальное значение ограничено настройкой Max server memory usage, значение которой нельзя изменить напрямую. Подробнее в разделе [{#T}](../../managed-clickhouse/concepts/memory-management.md). Если задано значение больше, чем Max server memory usage, то применяется значение Max server memory usage.
 
   Если вы используете настройки [Max bytes before external `GROUP BY`](#setting-max-bytes-before-external-group-by) или [Max bytes before external sort](#setting-max-bytes-before-external-sort), рекомендуется задать им значения в два раза меньше значения Max memory usage.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#settings_max_memory_usage).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#settings_max_memory_usage).
 
 * **Max memory usage for user**{#setting-max-memory-usage-for-user} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -886,7 +886,7 @@
 
   Минимальное значение — `0` (глубина рекурсии не ограничена), по умолчанию — `1000`.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#max_parser_depth).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#max_parser_depth).
 
 * **Max partitions per insert block**{#setting-partitions-per-insert-block} {{ tag-con }} {{ tag-sql }}
 
@@ -894,7 +894,7 @@
 
   Минимальное значение — `0` (количество разделов не ограничено), по умолчанию — `100`.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#max-partitions-per-insert-block).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#max-partitions-per-insert-block).
 
 * **Max query size**{#setting-max-query-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -914,7 +914,7 @@
 
   Минимальное значение — `1000` (1 секунда), по умолчанию — `300000` (5 минут).
 
-  См. также описание настройки [Fallback to stale replicas for distributed queries](#setting-fallback-to-stale-replicas-for-distributed-queries).
+  Связано с настройкой [Fallback to stale replicas for distributed queries](#setting-fallback-to-stale-replicas-for-distributed-queries).
 
 * **Max result bytes**{#setting-max-result-bytes} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -940,7 +940,7 @@
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#settings-max_rows_in_join).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#settings-max_rows_in_join).
 
 * **Max rows in set**{#setting-max-rows-in-set} {{ tag-all }}
 
@@ -984,7 +984,7 @@
 
   Минимальное значение — `0` (нет ограничения).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_query).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_query).
 
 * **Max temporary data on disk size for user**{#setting-max-temporary-data-on-disk-size-for-user} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -992,7 +992,7 @@
 
   Минимальное значение — `0` (нет ограничения).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_user).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_user).
 
 * **Max temporary non const columns**{#setting-max-temporary-non-const-columns} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -1006,7 +1006,7 @@
 
   Минимальное значение и значение по умолчанию — `0` (вычислять значение автоматически как количество процессорных ядер без учета Hyper-Threading).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-max_threads).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-max_threads).
 
 * **Memory overcommit ratio denominator**{#setting-memory-overcommit-ratio-denominator} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -1014,7 +1014,7 @@
 
   Минимальное значение — `0` (нет лимита). Значение по умолчанию — `1`.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#memory_overcommit_ratio_denominator).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#memory_overcommit_ratio_denominator).
 
 * **Memory overcommit ratio denominator for user**{#setting-memory-overcommit-ratio-denominator-for-user} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -1022,7 +1022,7 @@
 
   Минимальное значение — `0` (нет лимита). Значение по умолчанию — `1`.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#memory_overcommit_ratio_denominator_for_user).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#memory_overcommit_ratio_denominator_for_user).
 
 * **Memory profiler sample probability**{#setting-memory-profiler-sample-probability} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
@@ -1042,7 +1042,7 @@
 
   По умолчанию выбрано значение `5000000` (5 секунд).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#memory_usage_overcommit_max_wait_microseconds).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#memory_usage_overcommit_max_wait_microseconds).
 
 * **Merge tree max bytes to use cache**{#setting-merge-tree-max-bytes-to-use-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -1112,7 +1112,7 @@
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#min-execution-speed).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#min-execution-speed).
 
 * **Min execution speed bytes**{#setting-min-execution-speed-bytes} {{ tag-all }}
 
@@ -1122,7 +1122,7 @@
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#min-execution-speed-bytes).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#min-execution-speed-bytes).
 
 * **Min insert block size bytes**{#setting-min-insert-block-size-bytes} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -1162,7 +1162,7 @@
 
   {% endnote %}
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-prefer-localhost-replica).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-prefer-localhost-replica).
 
 * **Priority**{#setting-priority} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -1183,9 +1183,9 @@
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_max_entries).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_max_entries).
 
-  См. также настройку [Use query cache](#setting-use-query-cache).
+  Связано с настройкой [Use query cache](#setting-use-query-cache).
 
 * **Query cache max size in bytes**{#setting-query-cache-max-size-in-bytes} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -1193,9 +1193,9 @@
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_max_size_in_bytes).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_max_size_in_bytes).
 
-  См. также настройку [Use query cache](#setting-use-query-cache).
+  Связано с настройкой [Use query cache](#setting-use-query-cache).
 
 * **Query cache min query duration**{#setting-query-cache-min-query-duration} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -1203,9 +1203,9 @@
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_min_query_duration).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_min_query_duration).
 
-  См. также настройку [Use query cache](#setting-use-query-cache).
+  Связано с настройкой [Use query cache](#setting-use-query-cache).
 
 * **Query cache min query runs**{#setting-query-cache-min-query-runs} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -1213,9 +1213,9 @@
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_min_query_runs).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_min_query_runs).
 
-  См. также настройку [Use query cache](#setting-use-query-cache).
+  Связано с настройкой [Use query cache](#setting-use-query-cache).
 
 * **Query cache nondeterministic function handling**{#setting-query-cache-nondeterministic-function-handling} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -1229,9 +1229,9 @@
 
   По умолчанию значение не выбрано (эквивалентно `throw`).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_nondeterministic_function_handling).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_nondeterministic_function_handling).
 
-  См. также настройку [Use query cache](#setting-use-query-cache).
+  Связано с настройкой [Use query cache](#setting-use-query-cache).
 
 * **Query cache share between users**{#setting-query-cache-share-between-users} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -1239,17 +1239,17 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_share_between_users).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_share_between_users).
 
-  См. также настройку [Use query cache](#setting-use-query-cache).
+  Связано с настройкой [Use query cache](#setting-use-query-cache).
 
 * **Query cache tag**{#setting-query-cache-tag} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
   Строка, которая служит меткой для записей кеша запросов. Настройка позволяет кешировать несколько результатов одного и того же запроса. Запросы с разными тегами считаются разными.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_tag).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_tag).
 
-  См. также настройку [Use query cache](#setting-use-query-cache).
+  Связано с настройкой [Use query cache](#setting-use-query-cache).
 
 * **Query cache ttl**{#setting-query-cache-ttl} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -1257,9 +1257,9 @@
 
   Значение по умолчанию — `60`.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_ttl).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_ttl).
 
-  См. также настройку [Use query cache](#setting-use-query-cache).
+  Связано с настройкой [Use query cache](#setting-use-query-cache).
 
 * **Quota mode**{#setting-quota-mode} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -1270,7 +1270,7 @@
 
   По умолчанию значение не выбрано (эквивалентно `default`).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/quotas).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/quotas).
 
 * **Read overflow mode**{#setting-read-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -1289,7 +1289,7 @@
 
   Настройка не влияет на возможность выполнения DDL-запросов. Чтобы разрешить или запретить выполнение DDL-запросов, используйте настройку [Allow DDL](#setting-allow-ddl). 
 
-  См. также: [пример создания пользователя с правами «только чтение»](../../managed-clickhouse/operations/cluster-users.md#example-create-readonly-user).
+  Пример: [создание пользователя с правами «только чтение»](../../managed-clickhouse/operations/cluster-users.md#example-create-readonly-user).
 
 * **Receive timeout**{#setting-receive-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -1315,7 +1315,7 @@
   * `1` — ждать выполнения только у себя (значение по умолчанию).
   * `2` — ждать всех.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/alter#synchronicity-of-alter-queries).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/alter#synchronicity-of-alter-queries).
 
 * **Result overflow mode**{#setting-result-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -1331,7 +1331,7 @@
 
   По умолчанию последовательная консистентность не обеспечивается.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-select_sequential_consistency).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-select_sequential_consistency).
 
 * **Send progress in HTTP headers**{#setting-send-progress-in-http-headers} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -1384,7 +1384,7 @@
 
   Значение по умолчанию — `60000` (1 минута).
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#timeout-before-checking-execution-speed).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#timeout-before-checking-execution-speed).
 
 * **Timeout overflow mode**{#setting-timeout-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -1408,7 +1408,7 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#transform_null_in).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#transform_null_in).
 
 * **Use hedged requests**{#setting-use-hedged-requests} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
@@ -1420,7 +1420,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#use_hedged_requests).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#use_hedged_requests).
 
 * **Use hive partitioning**{#setting-use-hive-partitioning} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -1439,9 +1439,11 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#use_query_cache).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#use_query_cache).
 
-  См. также настройки [Enable reads from query cache](#setting-enable-reads-from-query-cache) и [Enable writes to query cache](#setting-enable-writes-to-query-cache).
+  Связано с настройками:
+  * [Enable reads from query cache](#setting-enable-reads-from-query-cache)
+  * [Enable writes to query cache](#setting-enable-writes-to-query-cache)
 
 * **Use uncompressed cache**{#setting-use-uncompressed-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -1449,9 +1451,11 @@
 
   По умолчанию кеш не используется.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#setting-use_uncompressed_cache).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#setting-use_uncompressed_cache).
 
-  См. также настройки [Merge tree max bytes to use cache](#setting-merge-tree-max-bytes-to-use-cache) и [Merge tree max rows to use cache](#setting-merge-tree-max-rows-to-use-cache).
+  Связано с настройками:
+  * [Merge tree max bytes to use cache](#setting-merge-tree-max-bytes-to-use-cache)
+  * [Merge tree max rows to use cache](#setting-merge-tree-max-rows-to-use-cache)
 
 * **Wait for async insert**{#setting-wait-for-async-insert} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
@@ -1464,7 +1468,7 @@
 
   Значение по умолчанию — `1`.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#wait-for-async-insert).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#wait-for-async-insert).
 
 * **Wait for async insert timeout**{#setting-wait-for-async-insert-timeout} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
@@ -1472,4 +1476,4 @@
 
   Значение по умолчанию — `120`. Если указан `0`, ожидание отключено.
 
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#wait-for-async-insert-timeout).
+  Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings#wait-for-async-insert-timeout).

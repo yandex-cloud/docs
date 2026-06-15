@@ -5,6 +5,8 @@ description: Aliases are linked to specific devices. To delete an alias, you nee
 
 # Deleting an alias
 
+{% include [iot-sunset-warning](../../../../_includes/iot-core/sunset-warning.md) %}
+
 Aliases are linked to specific devices. To delete an alias, you need to [find the device ID or name](../device-list.md).
 
 {% list tabs group=instructions %}
@@ -67,7 +69,7 @@ Aliases are linked to specific devices. To delete an alias, you need to [find th
       }
       ```
 
-      For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_device).
+      For more information about `yandex_iot_core_device` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_device).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -75,7 +77,7 @@ Aliases are linked to specific devices. To delete an alias, you need to [find th
       terraform validate
       ```
 
-      If the configuration is correct, you will get this message:
+      If the configuration is valid, you will get this message:
      
       ```bash
       Success! The configuration is valid.
@@ -87,8 +89,8 @@ Aliases are linked to specific devices. To delete an alias, you need to [find th
       terraform plan
       ```
 
-      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
-  1. Apply the changes:
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply

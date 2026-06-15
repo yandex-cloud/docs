@@ -418,6 +418,12 @@ items:
                 href: api-ref/grpc/ResourcePreset/get.md
               - name: List
                 href: api-ref/grpc/ResourcePreset/list.md
+          - name: Versions
+            items:
+              - name: Overview
+                href: api-ref/grpc/Versions/index.md
+              - name: List
+                href: api-ref/grpc/Versions/list.md
       - name: REST
         items:
           - name: Overview
@@ -524,6 +530,12 @@ items:
                 href: api-ref/ResourcePreset/get.md
               - name: List
                 href: api-ref/ResourcePreset/list.md
+          - name: Versions
+            items:
+              - name: Overview
+                href: api-ref/Versions/index.md
+              - name: List
+                href: api-ref/Versions/list.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'

@@ -1,5 +1,7 @@
 # Managing device certificates
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 For devices and registries to begin exchanging data and commands, you need to [log in](../../concepts/authorization.md). This section describes how to manage device certificates for the relevant authorization method.
 
 {% include [pass-priority-note](../../../_includes/iot-core/pass-priority-note.md) %}
@@ -31,14 +33,14 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
       - To add a file:
 
-         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
+         1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
          1. Click **Attach file**.
          1. Specify the certificate file on your computer and click **Open**.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
       - To add text:
 
-         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
+         1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
          1. Insert the certificate body in the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
@@ -73,7 +75,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
   To add a certificate to a device created using {{ TF }}:
   
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
      * `yandex_iot_core_device`: Device properties:
        * `registry_id`: [ID of the registry](../registry/registry-list.md#registry-list) where the device will be created.
@@ -104,7 +106,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       terraform validate
       ```
 
-      If the configuration is correct, you will get this message:
+      If the configuration is valid, you will get this message:
      
       ```bash
       Success! The configuration is valid.
@@ -116,8 +118,8 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       terraform plan
       ```
 
-      You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-  1. Apply the changes:
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply
@@ -212,7 +214,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       terraform validate
       ```
 
-      If the configuration is correct, you will get this message:
+      If the configuration is valid, you will get this message:
      
       ```bash
       Success! The configuration is valid.
@@ -224,8 +226,8 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       terraform plan
       ```
 
-      You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-  1. Apply the changes:
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply

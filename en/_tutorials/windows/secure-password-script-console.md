@@ -279,7 +279,7 @@ Create a Windows VM and add the administrator and user accounts to it.
      1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name, e.g., `win-test`.
      1. Under **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}**, specify the VM access credentials:
          * Select the `win-secret-sa` [service account](../../iam/concepts/index.md#sa).
-         * Grant it access to the [serial console](../../compute/operations/serial-console/index.md).
+         * Grant it access to the [serial console](../../compute/concepts/serial-console.md).
      1. Under **{{ ui-key.yacloud.common.metadata }}**:
          * In the **{{ ui-key.yacloud.component.key-values-input.label_key }}** field, specify `user-data`.
          * In the **{{ ui-key.yacloud.component.key-values-input.label_value }}** field, paste the contents of the `init.ps1` file.

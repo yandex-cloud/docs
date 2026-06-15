@@ -24,7 +24,7 @@ To get started:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) and [{{ roles.mpg.editor }}](security/index.md#managed-postgresql-editor) roles for the folder to your {{ yandex-cloud }} account. These roles provide the permissions needed to create a cluster.
+1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) and [{{ roles.mpg.editor }}](security/index.md#managed-postgresql-editor) roles for the folder to your {{ yandex-cloud }} account. These roles enable you to create a cluster.
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
@@ -65,7 +65,7 @@ To get started:
 
 1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**:
 
-    1. Select the cloud network you [created before you started out](#before-you-begin).
+    1. Select the [cloud network you created before you started out](#before-you-begin).
     1. Select the default security group or create a new one.
 
 1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, specify the availability zones and subnets for the hosts that will be created together with the cluster.

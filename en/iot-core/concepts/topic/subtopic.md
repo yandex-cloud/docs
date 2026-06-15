@@ -1,5 +1,7 @@
 # Subtopic
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 A _subtopic_ is a custom topic created within existing device and registry topics. You do not need to create a subtopic, just start sending messages to it.
 
 Everything that comes after a device or registry topic and separated by `/` is considered a subtopic:  

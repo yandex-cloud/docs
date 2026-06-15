@@ -20,7 +20,7 @@ The `computeMetadata` folder contains the following main keys:
 || **Key name (path)** | **Description** | **Value example** ||
 || instance/attributes/enable-oslogin | Key responsible for access to the VM instance via [{{ oslogin }}](../../../organization/concepts/os-login.md). The possible values are:</br>- `true`: Access enabled.</br>- `false`: Access disabled. | `true` ||
 || instance/attributes/install-unified-agent | Key responsible for installing the [{{ unified-agent-short-name }}](../../../monitoring/concepts/data-collection/unified-agent/index.md) on the VM instance. The possible values are:</br>- `1`: Agent installed.</br>- `0`: Agent not installed. | `0` ||
-|| instance/attributes/serial-port-enable | Key responsible for access to the VM instance via the [serial console](../../operations/serial-console/index.md). The possible values are:</br>- `1`: Access enabled.</br>- `0`: Access disabled. | `0` ||
+|| instance/attributes/serial-port-enable | Key responsible for access to the VM instance via the [serial console](../serial-console.md). The possible values are:</br>- `1`: Access enabled.</br>- `0`: Access disabled. | `0` ||
 || instance/description | VM description. | `VM description` ||
 || instance/hostname | Full internal VM name ([FQDN](../network.md#hostname)). | `my-vm.{{ region-id }}.internal` ||
 || instance/id | VM ID. | `epdhfouo8bgq********` ||

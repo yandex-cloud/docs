@@ -52,6 +52,7 @@ apiPlayground:
 # Managed Service for ClickHouse API, REST: Cluster.RescheduleMaintenance
 
 Reschedules planned maintenance operation.
+(-- api-linter: yc::1702::method-verb-prefix=disabled --)
 
 ## HTTP request
 

@@ -209,7 +209,7 @@
 
 **Единица измерения**: мегабайты
 
-**Формат легенды**: `Node:not_var{{Hostname}} GPU:not_var{{gpu}} MIG:not_var{{GPU_I_PROFILE}} ID:not_var{{GPU_I_ID}}`
+**Формат легенды**: `Node:{{Hostname}} GPU:{{gpu}} MIG:{{GPU_I_PROFILE}} ID:{{GPU_I_ID}}`
 
 #### 14. Memory Usage (bar gauge)
 
@@ -231,7 +231,7 @@
 
 **Единица измерения**: доля от 0 до 1 (0% до 100%)
 
-**Формат легенды**: `Node:not_var{{Hostname}} GPU:not_var{{gpu}} MIG:not_var{{GPU_I_PROFILE}} ID:not_var{{GPU_I_ID}}`
+**Формат легенды**: `Node:{{Hostname}} GPU:{{gpu}} MIG:{{GPU_I_PROFILE}} ID:{{GPU_I_ID}}`
 
 #### 16. Tensor Utilization
 
@@ -241,7 +241,7 @@
 
 **Единица измерения**: доля от 0 до 1 (0% до 100%)
 
-**Формат легенды**: `Node:not_var{{Hostname}} GPU:not_var{{gpu}} MIG:not_var{{GPU_I_PROFILE}} ID:not_var{{GPU_I_ID}}`
+**Формат легенды**: `Node:{{Hostname}} GPU:{{gpu}} MIG:{{GPU_I_PROFILE}} ID:{{GPU_I_ID}}`
 
 #### 17. Memory Utilization
 
@@ -251,7 +251,7 @@
 
 **Единица измерения**: доля от 0 до 1 (0% до 100%)
 
-**Формат легенды**: `Node:not_var{{Hostname}} GPU:not_var{{gpu}} MIG:not_var{{GPU_I_PROFILE}} ID:not_var{{GPU_I_ID}}`
+**Формат легенды**: `Node:{{Hostname}} GPU:{{gpu}} MIG:{{GPU_I_PROFILE}} ID:{{GPU_I_ID}}`
 
 #### 18. Allocation Table
 

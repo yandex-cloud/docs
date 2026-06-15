@@ -1,5 +1,7 @@
 # Monitoring the status of geographically distributed devices
 
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
 
 In this tutorial, you will configure status monitoring for devices, e.g., vending machines, connected to [{{ iot-full-name }}](../../iot-core/index.yaml) scattered around the city. You can monitor the status of vending machines on the [{{ datalens-full-name }}](../../datalens/index.yaml) map and charts. To emulate sensors, we will use [{{ sf-full-name }}](../../functions/index.yaml). If you have any connected sensors, use them. [{{ mpg-full-name }}](../../managed-postgresql/index.yaml) will be used to store data.
 
@@ -53,7 +55,7 @@ The example is based on the minimum values of [host](../../managed-postgresql/co
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Specify a name for the cluster, e.g., `my-pg-database`.
   1. From the **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** list, select `PRODUCTION`.
-  1. From the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** list, select `15`.
+  1. From the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** list, select `17`.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, specify:
 
       * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}**: `Intel Ice Lake`.
@@ -199,9 +201,9 @@ To run the emulator, create a [function](../../functions/concepts/function.md) t
 
       1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
 
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10`
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
-          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `my-emulator-function-service-account`
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `my-emulator-function-service-account`.
           * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
               Key | Description | Value
@@ -538,7 +540,7 @@ To monitor the state of your devices, configure a [connection](../../datalens/co
   1. Select `MyPGConnection`.
   1. In the left-hand menu, select the `public.iot_events` and `public.iot_position` tables and drag them to the right.
   1. Click **Save**.
-  1. In the window that opens, enter `My-pg-dataset` and click **Create**.
+  1. In the window that opens, specify `My-pg-dataset` as the dataset name and click **Create**.
 
       The dataset will appear in the list.
 

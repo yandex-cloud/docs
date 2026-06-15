@@ -1,3 +1,8 @@
+---
+title: How to get started with the AWS SDK for .NET in {{ cns-full-name }}
+description: Follow this guide to learn how to use the AWS SDK for .NET in {{ cns-full-name }}.
+---
+
 # How to get started with the AWS SDK for .NET in {{ cns-full-name }}
 
 {% include [preview-stage](../../_includes/notifications/preview-stage.md) %}
@@ -226,9 +231,9 @@ Where:
 
 Where:
 
-* `TargetArn`: Mobile endpoint ID (ARN)
-* `Message`: Message
-* `MessageStructure`: Message format
+* `TargetArn`: Mobile endpoint ARN.
+* `Message`: Message.
+* `MessageStructure`: Message format.
 
 
 ### Silent notifications (Silent Push) {#silent-push}
@@ -296,9 +301,9 @@ Where:
 
 Where:
 
-* `TargetArn`: Mobile endpoint ID (ARN)
-* `Message`: Message
-* `MessageStructure`: Message format
+* `TargetArn`: Mobile endpoint ARN.
+* `Message`: Message.
+* `MessageStructure`: Message format.
 
 
 ### Text message {#sms-messages}

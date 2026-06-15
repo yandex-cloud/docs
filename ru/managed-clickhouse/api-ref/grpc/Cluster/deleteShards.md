@@ -5,6 +5,7 @@ editable: false
 # Managed Service for ClickHouse API, gRPC: ClusterService.DeleteShards
 
 Deletes the specified shards (one or more).
+(-- api-linter: yc::1705::http-method-mapping=disabled --)
 
 ## gRPC request
 

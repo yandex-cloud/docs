@@ -5,7 +5,7 @@
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [container](../../serverless-containers/concepts/container.md).
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Click **{{ ui-key.yacloud.serverless-containers.button_create-container }}**.
-  1. Enter a name and a description for the container. Follow these naming requirements:
+  1. Enter a name and description for the container. The name format is as follows:
 
      {% include [name-format](../../_includes/name-format.md) %}
 
@@ -49,52 +49,45 @@
   {% endnote %}
 
   1. In the configuration file, describe the resources you want to create:
-     * `name`: Container name. This is a required parameter. Follow these naming requirements:
+     * `name`: Container name. This is a required setting. Follow these naming requirements:
 
        {% include [name-format](../../_includes/name-format.md) %}
 
-     * `memory`: Amount of memory allocated to a container, MB. The default value is 128 MB.
+     * `memory`: Amount of memory allocated to the container, in MB. The default value is 128 MB.
      * `service_account_id`: [Service account](../../iam/concepts/users/service-accounts.md) ID.
      * `url`: URL of the [Docker image](../../container-registry/concepts/docker-image.md) in [{{ container-registry-full-name }}](../../container-registry/).
 
      >Here is an example of the configuration file structure:
      >
      >```hcl
-     >provider "yandex" {
-     >  token     = "<OAuth_token>"
-     >  cloud_id  = "<cloud_ID>"
-     >  folder_id = "<folder_ID>"
-     >  zone      = "{{ region-id }}-a"
-     >}
-     >
      >resource "yandex_serverless_container" "test-container" {
-     >   name               = "<container_name>"
-     >   memory             = <memory_size>
-     >   service_account_id = "<service_account_ID>"
-     >   image {
-     >       url = "<Docker_image_URL>"
-     >   }
+     >  name               = "<container_name>"
+     >  memory             = <memory_size>
+     >  service_account_id = "<service_account_ID>"
+     >  image {
+     >    url = "<Docker_image_URL>"
+     >  }
      >}
      >```
 
-     For more information about the `yandex_serverless_container` settings, see this [{{ TF }} guide]({{ tf-provider-resources-link }}/serverless_container).
+     For more information about `yandex_serverless_container` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
   1. Make sure the configuration files are correct.
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
   1. Deploy the cloud resources.
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
         This will create all the resources you need in the specified [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 

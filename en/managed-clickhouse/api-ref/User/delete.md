@@ -18,8 +18,7 @@ apiPlayground:
             **string**
             Required field. Name of the user to delete.
             To get the name of the user, use a [UserService.List](/docs/managed-clickhouse/api-ref/User/list#List) request.
-            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-          pattern: '[a-zA-Z0-9_]*'
+            The maximum string length in characters is 63.
           type: string
       required:
         - clusterId
@@ -55,7 +54,7 @@ The maximum string length in characters is 50. ||
 Required field. Name of the user to delete.
 To get the name of the user, use a [UserService.List](/docs/managed-clickhouse/api-ref/User/list#List) request.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
+The maximum string length in characters is 63. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

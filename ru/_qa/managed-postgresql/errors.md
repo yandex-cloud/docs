@@ -199,7 +199,7 @@ cluster should have at least 2 HA hosts to use cascade host
 
 Для обеспечения [высокой доступности](../../architecture/fault-tolerance.md#mdb-ha) в кластере должна быть хотя бы одна реплика без источника репликации. Во время технического обслуживания или при сбое хоста-мастера роль мастера переключится на эту реплику.
 
-Подробнее о репликации см. в [соответствующем разделе](../../managed-postgresql/concepts/replication.md).
+Подробнее о репликации читайте в [соответствующем разделе](../../managed-postgresql/concepts/replication.md).
 
 #### Почему возникает ошибка `cannot execute <SQL-команда> in a read-only transaction`? {#read-only-error}
 
@@ -231,7 +231,7 @@ ERROR: cannot execute INSERT in a read-only transaction
 
 * При подключении укажите параметр `target_session_attrs=read-write` и перечислите все хосты кластера. Так вы подключитесь к хосту-мастеру с возможностью чтения и записи.
 
-Подробнее о способах подключения к хосту-мастеру см. в разделе [Подключение к базе данных](../../managed-postgresql/operations/connect/fqdn.md#automatic-master-host-selection).
+Подробнее о способах подключения к хосту-мастеру читайте в разделе [Подключение к базе данных](../../managed-postgresql/operations/connect/fqdn.md#automatic-master-host-selection).
 
 #### Что делать, если в логах отображается ошибка `too many connections for role "monitor"`? {#monitor-role-error}
 

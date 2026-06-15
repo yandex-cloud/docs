@@ -286,6 +286,113 @@ The maximum string length in characters is 1000. ||
           }
         },
         // end of the list of possible fields
+        "dbmsConfigSet": {
+          "effectiveConfig": {
+            "maxConnections": "string",
+            "maxSlotWalKeepSize": "string",
+            "gpWorkfileLimitPerSegment": "string",
+            "gpWorkfileLimitPerQuery": "string",
+            "gpWorkfileLimitFilesPerQuery": "string",
+            "maxPreparedTransactions": "string",
+            "gpWorkfileCompression": "boolean",
+            "maxStatementMem": "string",
+            "logStatement": "string",
+            "logConnections": "boolean",
+            "logDisconnections": "boolean",
+            "logHostname": "boolean",
+            "logErrorVerbosity": "string",
+            "logMinDurationStatement": "string",
+            "logMinMessages": "string",
+            "logStatementStats": "boolean",
+            "masterSharedBuffers": "string",
+            "segmentSharedBuffers": "string",
+            "maxLocksPerTransaction": "string",
+            "gpEnableGlobalDeadlockDetector": "boolean",
+            "gpGlobalDeadlockDetectorPeriod": "string",
+            "gpMaxSlices": "string",
+            "gpCachedSegworkersThreshold": "string",
+            "lockTimeout": "string",
+            "idleInTransactionSessionTimeout": "string",
+            "runawayDetectorActivationPercent": "string",
+            "gpVmemProtectSegworkerCacheLimit": "string",
+            "gpEnableZstdMemoryAccounting": "boolean",
+            "gpMaxPlanSize": "string",
+            "gpAutostatsMode": "string",
+            "gpAutostatsOnChangeThreshold": "string",
+            "gpResourceGroupMemoryLimit": "number",
+            "gpAddColumnInheritsTableSetting": "boolean"
+          },
+          "userConfig": {
+            "maxConnections": "string",
+            "maxSlotWalKeepSize": "string",
+            "gpWorkfileLimitPerSegment": "string",
+            "gpWorkfileLimitPerQuery": "string",
+            "gpWorkfileLimitFilesPerQuery": "string",
+            "maxPreparedTransactions": "string",
+            "gpWorkfileCompression": "boolean",
+            "maxStatementMem": "string",
+            "logStatement": "string",
+            "logConnections": "boolean",
+            "logDisconnections": "boolean",
+            "logHostname": "boolean",
+            "logErrorVerbosity": "string",
+            "logMinDurationStatement": "string",
+            "logMinMessages": "string",
+            "logStatementStats": "boolean",
+            "masterSharedBuffers": "string",
+            "segmentSharedBuffers": "string",
+            "maxLocksPerTransaction": "string",
+            "gpEnableGlobalDeadlockDetector": "boolean",
+            "gpGlobalDeadlockDetectorPeriod": "string",
+            "gpMaxSlices": "string",
+            "gpCachedSegworkersThreshold": "string",
+            "lockTimeout": "string",
+            "idleInTransactionSessionTimeout": "string",
+            "runawayDetectorActivationPercent": "string",
+            "gpVmemProtectSegworkerCacheLimit": "string",
+            "gpEnableZstdMemoryAccounting": "boolean",
+            "gpMaxPlanSize": "string",
+            "gpAutostatsMode": "string",
+            "gpAutostatsOnChangeThreshold": "string",
+            "gpResourceGroupMemoryLimit": "number",
+            "gpAddColumnInheritsTableSetting": "boolean"
+          },
+          "defaultConfig": {
+            "maxConnections": "string",
+            "maxSlotWalKeepSize": "string",
+            "gpWorkfileLimitPerSegment": "string",
+            "gpWorkfileLimitPerQuery": "string",
+            "gpWorkfileLimitFilesPerQuery": "string",
+            "maxPreparedTransactions": "string",
+            "gpWorkfileCompression": "boolean",
+            "maxStatementMem": "string",
+            "logStatement": "string",
+            "logConnections": "boolean",
+            "logDisconnections": "boolean",
+            "logHostname": "boolean",
+            "logErrorVerbosity": "string",
+            "logMinDurationStatement": "string",
+            "logMinMessages": "string",
+            "logStatementStats": "boolean",
+            "masterSharedBuffers": "string",
+            "segmentSharedBuffers": "string",
+            "maxLocksPerTransaction": "string",
+            "gpEnableGlobalDeadlockDetector": "boolean",
+            "gpGlobalDeadlockDetectorPeriod": "string",
+            "gpMaxSlices": "string",
+            "gpCachedSegworkersThreshold": "string",
+            "lockTimeout": "string",
+            "idleInTransactionSessionTimeout": "string",
+            "runawayDetectorActivationPercent": "string",
+            "gpVmemProtectSegworkerCacheLimit": "string",
+            "gpEnableZstdMemoryAccounting": "boolean",
+            "gpMaxPlanSize": "string",
+            "gpAutostatsMode": "string",
+            "gpAutostatsOnChangeThreshold": "string",
+            "gpResourceGroupMemoryLimit": "number",
+            "gpAddColumnInheritsTableSetting": "boolean"
+          }
+        },
         "pool": {
           "effectiveConfig": {
             "mode": "string",
@@ -749,7 +856,14 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 ||Field | Description ||
 || greenplumConfigSet_6 | **[GreenplumConfigSet6](#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6)**
 
-Includes only one of the fields `greenplumConfigSet_6`. ||
+Includes only one of the fields `greenplumConfigSet_6`.
+
+Deprecated: use dbms_config_set instead
+
+Configuration set for the Greenplum Database. ||
+|| dbmsConfigSet | **[DBMSConfigSet](#yandex.cloud.mdb.greenplum.v1.DBMSConfigSet)**
+
+Configuration set for the Greenplum & Cloudberry. ||
 || pool | **[ConnectionPoolerConfigSet](#yandex.cloud.mdb.greenplum.v1.ConnectionPoolerConfigSet)**
 
 Odyssey® pool settings. ||
@@ -995,6 +1109,249 @@ https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/
 - `ERROR`
 - `FATAL`
 - `PANIC` ||
+|#
+
+## DBMSConfigSet {#yandex.cloud.mdb.greenplum.v1.DBMSConfigSet}
+
+#|
+||Field | Description ||
+|| effectiveConfig | **[DBMSConfig](#yandex.cloud.mdb.greenplum.v1.DBMSConfig)**
+
+Required field. Effective settings for a Greenplum/Cloudberry (a combination of settings defined
+in `userConfig` and `defaultConfig`). ||
+|| userConfig | **[DBMSConfig](#yandex.cloud.mdb.greenplum.v1.DBMSConfig)**
+
+User-defined settings for a Greenplum/Cloudberry. ||
+|| defaultConfig | **[DBMSConfig](#yandex.cloud.mdb.greenplum.v1.DBMSConfig)**
+
+Default configuration for a Greenplum/Cloudberry. ||
+|#
+
+## DBMSConfig {#yandex.cloud.mdb.greenplum.v1.DBMSConfig}
+
+#|
+||Field | Description ||
+|| maxConnections | **string** (int64)
+
+The maximum number of concurrent connections to the database server.
+https://cloudberry.apache.org/docs/config-params-guc-list/#max_connections
+
+Acceptable values are 50 to 1000, inclusive. ||
+|| maxSlotWalKeepSize | **string** (int64)
+
+Sets the maximum size in megabytes of Write-Ahead Logging (WAL) files on disk per segment instance that can be reserved
+when Cloudberry streams data to the mirror segment instance or standby coordinator to keep it synchronized
+with the corresponding primary segment instance or coordinator.
+https://www.postgresql.org/docs/14/runtime-config-replication.html#GUC-MAX-SLOT-WAL-KEEP-SIZE
+
+Acceptable values are 0 to 214748364800, inclusive. ||
+|| gpWorkfileLimitPerSegment | **string** (int64)
+
+Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
+The default value is 0, which means a limit is not enforced.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment
+
+The minimum value is 0. ||
+|| gpWorkfileLimitPerQuery | **string** (int64)
+
+Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
+The default value is 0, which means a limit is not enforced.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query
+
+Acceptable values are 0 to 1099511627776, inclusive. ||
+|| gpWorkfileLimitFilesPerQuery | **string** (int64)
+
+Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
+Spill files are created when executing a query that requires more memory than it is allocated.
+The current query is terminated when the limit is exceeded.
+Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query
+Default value is 10000
+
+Acceptable values are 0 to 100000, inclusive. ||
+|| maxPreparedTransactions | **string** (int64)
+
+Sets the maximum number of transactions that can be in the "prepared" state simultaneously
+https://www.postgresql.org/docs/14/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS
+
+Acceptable values are 50 to 10000, inclusive. ||
+|| gpWorkfileCompression | **boolean**
+
+Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression ||
+|| maxStatementMem | **string** (int64)
+
+Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high.
+Taking into account the configuration of a single segment host, calculate max_statement_mem as follows:
+(seghost_physical_memory) / (average_number_concurrent_queries)
+When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-config_params-guc-list.html#max_statement_mem
+Default value is 2097152000 (2000MB)
+
+Acceptable values are 134217728 to 1099511627776, inclusive. ||
+|| logStatement | **enum** (LogStatement)
+
+Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands.
+MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM.
+PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type.
+https://www.postgresql.org/docs/14/runtime-config-logging.html#GUC-LOG-STATEMENT
+Default value is ddl
+
+- `NONE`: None statements are logged.
+- `DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.
+- `MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.
+- `ALL`: Logs all statements. ||
+|| logConnections | **boolean**
+
+This outputs a line to the server log detailing each successful connection. Some client programs, like psql,
+attempt to connect twice while determining if a password is required, so duplicate "connection received" messages
+do not always indicate a problem.
+https://www.postgresql.org/docs/14/runtime-config-logging.html#GUC-LOG-CONNECTIONS ||
+|| logDisconnections | **boolean**
+
+This outputs a line in the server log at termination of a client session, and includes the duration of the session.
+https://www.postgresql.org/docs/14/runtime-config-logging.html#GUC-LOG-DISCONNECTIONS ||
+|| logHostname | **boolean**
+
+By default, connection log messages only show the IP address of the connecting host.
+Turning on this option causes logging of the host name as well. Note that depending on your host name
+resolution setup this might impose a non-negligible performance penalty.
+https://www.postgresql.org/docs/14/runtime-config-logging.html#GUC-LOG-HOSTNAME ||
+|| logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+Controls the amount of detail written in the server log for each message that is logged.
+https://www.postgresql.org/docs/14/runtime-config-logging.html#GUC-LOG-ERROR-VERBOSITY
+
+- `TERSE`
+- `DEFAULT`
+- `VERBOSE` ||
+|| logMinDurationStatement | **string** (int64)
+
+Logs the statement and its duration on a single log line if its duration is greater than or equal
+to the specified number of milliseconds. Setting this to 0 will print all statements and their durations.
+-1 deactivates the feature. For example, if you set it to 250 then all SQL statements that run 250ms or longer will be logged.
+Enabling this option can be useful in tracking down unoptimized queries in your applications.
+https://www.postgresql.org/docs/14/runtime-config-logging.html#GUC-LOG-MIN-DURATION-STATEMENT ||
+|| logMinMessages | **enum** (LogLevelMessage)
+
+Controls which message levels are written to the server log.
+Each level includes all the levels that follow it. The later the level, the fewer messages are sent to the log.
+https://www.postgresql.org/docs/14/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES
+
+- `DEBUG5`
+- `DEBUG4`
+- `DEBUG3`
+- `DEBUG2`
+- `DEBUG1`
+- `INFO`
+- `NOTICE`
+- `WARNING`
+- `ERROR`
+- `FATAL`
+- `PANIC` ||
+|| logStatementStats | **boolean**
+
+For each query, write total performance statistics of the query parser, planner, and executor to the server log.
+This is a crude profiling instrument.
+https://www.postgresql.org/docs/14/runtime-config-statistics.html#RUNTIME-CONFIG-STATISTICS-MONITOR ||
+|| masterSharedBuffers | **string** (int64)
+
+Sets the amount of memory a Cloudberry Database coordinator instance uses for shared memory buffers.
+https://www.postgresql.org/docs/14/runtime-config-resource.html#GUC-SHARED-BUFFERS
+
+The minimum value is 1048576. ||
+|| segmentSharedBuffers | **string** (int64)
+
+Sets the amount of memory a Cloudberry Database segment instance uses for shared memory buffers.
+https://www.postgresql.org/docs/14/runtime-config-resource.html#GUC-SHARED-BUFFERS
+
+The minimum value is 1048576. ||
+|| maxLocksPerTransaction | **string** (int64)
+
+The shared lock table is created with room to describe locks on max_locks_per_transaction * (max_connections + max_prepared_transactions) objects,
+so no more than this many distinct objects can be locked at any one time.
+This is not a hard limit on the number of locks taken by any one transaction, but rather a maximum average value.
+https://www.postgresql.org/docs/14/runtime-config-locks.html#GUC-MAX-LOCKS-PER-TRANSACTION
+
+Acceptable values are 128 to 2048, inclusive. ||
+|| gpEnableGlobalDeadlockDetector | **boolean**
+
+Controls whether the Cloudberry Database Global Deadlock Detector is enabled to manage concurrent UPDATE and DELETE operations on heap tables to improve performance. See Inserting, Updating, and Deleting Datain the Cloudberry Database Administrator Guide. The default is off, the Global Deadlock Detector is deactivated.
+If the Global Deadlock Detector is deactivated (the default), Cloudberry Database runs concurrent update and delete operations on a heap table serially.
+If the Global Deadlock Detector is enabled, concurrent updates are permitted and the Global Deadlock Detector determines when a deadlock exists, and breaks the deadlock by cancelling one or more backend processes associated with the youngest transaction(s) involved.
+https://cloudberry.apache.org/docs/operate-with-data/transactional-concurrency-control#global-deadlock-detector ||
+|| gpGlobalDeadlockDetectorPeriod | **string** (int64)
+
+Specifies the executing interval (in seconds) of the global deadlock detector background worker process.
+https://cloudberry.apache.org/docs/operate-with-data/transactional-concurrency-control#global-deadlock-detector
+
+Acceptable values are 5 to 2147483647, inclusive. ||
+|| gpMaxSlices | **string** (int64)
+
+Max amount of slice-processes for one query in one segment.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_max_slices
+
+Acceptable values are 10 to 100, inclusive. ||
+|| gpCachedSegworkersThreshold | **string** (int64)
+
+Define amount of working processes in segment, that keeping in warm cash after end of query for usage again in next queries.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_cached_segworkers_threshold
+
+Acceptable values are 1 to 10, inclusive. ||
+|| lockTimeout | **string** (int64)
+
+Max time (in ms) which query will wait lock free on object
+https://www.postgresql.org/docs/14/runtime-config-client.html#GUC-LOCK-TIMEOUT
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| idleInTransactionSessionTimeout | **string** (int64)
+
+Max time (in ms) which session can idle in open transaction
+https://postgrespro.ru/docs/postgrespro/current/runtime-config-client#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| runawayDetectorActivationPercent | **string** (int64)
+
+Percent of utilized Cloudberry Database vmem that triggers the termination of queries.
+https://cloudberry.apache.org/docs/performance/manage-resources-using-resource-groups#configure-automatic-query-termination-based-on-memory-usage
+
+Acceptable values are 0 to 100, inclusive. ||
+|| gpVmemProtectSegworkerCacheLimit | **string** (int64)
+
+Set memory limit (in MB) for working process. If a query executor process consumes more than this configured amount, then the process will not be cached for use in subsequent queries after the process completes.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_vmem_protect_segworker_cache_limit
+
+Acceptable values are 0 to 4096, inclusive. ||
+|| gpEnableZstdMemoryAccounting | **boolean**
+
+Forces ZSTD lib use Greenplum memory allocation system. ||
+|| gpMaxPlanSize | **string** (int64)
+
+Specifies the total maximum uncompressed size of a query execution plan multiplied by the number of Motion operators (slices) in the plan.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_max_plan_size
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| gpAutostatsMode | **enum** (GPAutostatsMode)
+
+Specifies the mode for triggering automatic statistics collection after DML.
+https://cloudberry.apache.org/docs/performance/update-stats-using-analyze#configure-automatic-statistics-collection
+
+- `GP_AUTOSTATS_MODE_NONE`: Disable auto-ANALYZE completely. Stats will be updated only via manual ANALYZE calls.
+- `GP_AUTOSTATS_MODE_ON_CHANGE`: Run ANALYZE when data changes exceed threshold (e.g., after INSERT/UPDATE/DELETE).
+- `GP_AUTOSTATS_MODE_ON_NO_STATS`: Run ANALYZE only if no stats exist (e.g., new or cleared table). ||
+|| gpAutostatsOnChangeThreshold | **string** (int64)
+
+Specifies the threshold for automatic statistics collection when gp_autostats_mode is set to on_change.
+https://cloudberry.apache.org/docs/performance/update-stats-using-analyze#configure-automatic-statistics-collection
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| gpResourceGroupMemoryLimit | **number** (double)
+
+Identifies the maximum percentage of system memory resources to allocate to resource groups on each Greenplum Database segment node.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_resource_group_memory_limit ||
+|| gpAddColumnInheritsTableSetting | **boolean**
+
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting ||
 |#
 
 ## ConnectionPoolerConfigSet {#yandex.cloud.mdb.greenplum.v1.ConnectionPoolerConfigSet}

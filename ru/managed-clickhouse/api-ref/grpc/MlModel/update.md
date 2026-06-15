@@ -33,8 +33,10 @@ The maximum string length in characters is 50. ||
 
 Required field. Name of the the model to update.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
-|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
+The maximum string length in characters is 63. ||
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+
+Field mask that specifies which attributes of the model should be updated. ||
 || uri | **string**
 
 The new model file URL. You can only use models stored in Object Storage. ||

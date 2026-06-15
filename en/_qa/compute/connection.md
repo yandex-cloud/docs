@@ -87,7 +87,7 @@ If you cannot access the VM you created from the snapshot either, see [How do I 
 
 #### How do I use a serial console? How do I connect to my VM directly? {#connection-linux-via-console}
 
-If you have issues while connecting to your VM over a network, you can use the serial console. For more information about a serial console, see [{#T}](../../compute/operations/serial-console/index.md).
+If you have issues while connecting to your VM over a network, you can use the serial console. For more information about a serial console, see [{#T}](../../compute/concepts/serial-console.md).
 
 You can enable serial console access when creating or updating your VM. The serial console will be available in the {{ yandex-cloud }} [management console]({{ link-console-main }}) from the VM menu.
 

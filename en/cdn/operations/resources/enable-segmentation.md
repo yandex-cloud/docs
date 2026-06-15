@@ -99,32 +99,15 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
   1. In the configuration file, describe the properties of the CDN resource to create:
 
       ```hcl
-      terraform {
-        required_providers {
-          yandex = {
-            source  = "yandex-cloud/yandex"
-            version = "0.69.0"
-          }
-        }
-      }
-
-      provider "yandex" {
-        token     = "<OAuth_token>"
-        cloud_id  = "<cloud_ID>"
-        folder_id = "<folder_ID>"
-        zone      = "<availability_zone>"
-      }
-
       resource "yandex_cdn_resource" "my_resource" {
-          cname               = "cdn1.yandex-example.ru"
-          active              = false
-          origin_protocol     = "https"
-          secondary_hostnames = ["cdn-example-1.yandex.ru", "cdn-example-2.yandex.ru"]
-          origin_group_id     = yandex_cdn_origin_group.my_group.id
-          options {
-            slice = true
-          }
-
+        cname               = "cdn1.yandex-example.ru"
+        active              = false
+        origin_protocol     = "https"
+        secondary_hostnames = ["cdn-example-1.yandex.ru", "cdn-example-2.yandex.ru"]
+        origin_group_id     = yandex_cdn_origin_group.my_group.id
+        options {
+          slice = true
+        }
       }
       ```
 
@@ -138,7 +121,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
       * The `options` section contains additional parameters of CDN resources:
          * `slice`: Flag indicating whether segmentation will be used. This is an optional setting. The default value is `false`.
 
-      For more information about the `yandex_cdn_resource` properties in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
+      For more information about the `yandex_cdn_resource` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cdn_resource).
 
   1. In the command line, go to the directory with the {{ TF }} configuration file.
 
@@ -147,7 +130,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
      terraform validate
      ```
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```
      Success! The configuration is valid.
@@ -158,9 +141,9 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
      ```
      terraform apply
      ```

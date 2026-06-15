@@ -9,7 +9,7 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field.
+            Required field. ID of the ClickHouse cluster.
             The maximum string length in characters is 50.
           type: string
       required:
@@ -20,7 +20,9 @@ apiPlayground:
       type: object
       properties:
         extensionSpecs:
-          description: '**[ExtensionSpec](#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)**'
+          description: |-
+            **[ExtensionSpec](#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)**
+            Specifications of the cluster extensions to set.
           type: array
           items:
             $ref: '#/definitions/ExtensionSpec'
@@ -32,11 +34,13 @@ apiPlayground:
           name:
             description: |-
               **string**
-              Required field.
+              Required field. Name of the extension.
               The maximum string length in characters is 63.
             type: string
           version:
-            description: '**string**'
+            description: |-
+              **string**
+              Version of the extension.
             type: string
         required:
           - name
@@ -58,7 +62,7 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/exten
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.
+Required field. ID of the ClickHouse cluster.
 
 The maximum string length in characters is 50. ||
 |#
@@ -78,7 +82,9 @@ The maximum string length in characters is 50. ||
 
 #|
 ||Field | Description ||
-|| extensionSpecs[] | **[ExtensionSpec](#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)** ||
+|| extensionSpecs[] | **[ExtensionSpec](#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)**
+
+Specifications of the cluster extensions to set. ||
 |#
 
 ## ExtensionSpec {#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec}
@@ -87,10 +93,12 @@ The maximum string length in characters is 50. ||
 ||Field | Description ||
 || name | **string**
 
-Required field.
+Required field. Name of the extension.
 
 The maximum string length in characters is 63. ||
-|| version | **string** ||
+|| version | **string**
+
+Version of the extension. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

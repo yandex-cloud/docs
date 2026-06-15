@@ -25,10 +25,10 @@
 
 ```yaml
 # Простая интерполяция
-name: "not_var{{ input.environment }}-server"
+name: "{{ input.environment }}-server"
 
 # Смешанный текст с выражениями
-description: "Сервер для окружения not_var{{ input.environment }} в регионе not_var{{ input.region }}"
+description: "Сервер для окружения {{ input.environment }} в регионе {{ input.region }}"
 
 # Экранирование
 template: "Используйте \{{ variable \}} для подстановки значений"
@@ -129,9 +129,9 @@ resource.<тип_ресурса>.<имя_ресурса>.<атрибут>
 
 ```yaml
 # Примеры
-vpc_id: "not_var{{ resource.yandex_vpc_network.main.id }}"
+vpc_id: "{{ resource.yandex_vpc_network.main.id }}"
 subnet_cidr: "{{ resource.yandex_vpc_subnet.private.v4_cidr_blocks[0] }}"
-instance_ip: "not_var{{ resource.yandex_compute_instance.web_server.network_interface.0.nat_ip_address }}"
+instance_ip: "{{ resource.yandex_compute_instance.web_server.network_interface.0.nat_ip_address }}"
 ```
 
 ### Источники данных (Data Sources) {#data-sources}
@@ -144,9 +144,9 @@ data.<тип_источника>.<имя_источника>.<атрибут>
 
 ```yaml
 # Примеры
-image_id: "not_var{{ data.yandex_compute_image.ubuntu.id }}"
-zone_id: "not_var{{ data.yandex_dns_zone.main.zone_id }}"
-folder_id: "not_var{{ data.yandex_resourcemanager_folder.current.folder_id }}"
+image_id: "{{ data.yandex_compute_image.ubuntu.id }}"
+zone_id: "{{ data.yandex_dns_zone.main.zone_id }}"
+folder_id: "{{ data.yandex_resourcemanager_folder.current.folder_id }}"
 ```
 
 ### Входные параметры {#inputs}
@@ -159,9 +159,9 @@ input.<имя_параметра>
 
 ```yaml
 # Примеры
-environment: "not_var{{ input.environment }}"
-region: "not_var{{ input.deployment_region }}"
-instance_count: "not_var{{ input.replica_count }}"
+environment: "{{ input.environment }}"
+region: "{{ input.deployment_region }}"
+instance_count: "{{ input.replica_count }}"
 ```
 
 ### Артефакты {#artifacts}
@@ -174,8 +174,8 @@ artifact.<имя_артефакта>
 
 ```yaml
 # Примеры
-container_image: "not_var{{ artifact.web_app_image }}"
-deployment_package: "not_var{{ artifact.application_archive }}"
+container_image: "{{ artifact.web_app_image }}"
+deployment_package: "{{ artifact.application_archive }}"
 ```
 
 ### Атрибуты приложения {#app-attributes}
@@ -188,9 +188,9 @@ deployment_package: "not_var{{ artifact.application_archive }}"
 
 ```yaml
 # Примеры
-app_id: "not_var{{ application.id }}"
-folder_id: "not_var{{ application.folderId }}"
-service_account: "not_var{{ application.serviceAccountId }}"
+app_id: "{{ application.id }}"
+folder_id: "{{ application.folderId }}"
+service_account: "{{ application.serviceAccountId }}"
 ```
 
 ### Цепочки доступа {#hierarchy-chains}
@@ -211,7 +211,7 @@ service_account: "not_var{{ application.serviceAccountId }}"
 
 ```yaml
 # Доступ к вложенным полям через точку
-network_id: "not_var{{ resource.yandex_compute_instance.resources.cores }}"
+network_id: "{{ resource.yandex_compute_instance.resources.cores }}"
 
 # Доступ к элементам массива через квадратные скобки
 first_ip: "{{ resource.yandex_vpc_subnet.public.v4_cidr_blocks[0] }}"
@@ -229,8 +229,8 @@ instance_zone: "{{ resource.yandex_compute_instance_group.web.instances[0].zone_
 
 ```yaml
 # Примеры
-min_cpu: "not_var{{ min(input.cpu_request, 4, input.cpu_limit) }}"
-min_memory: "not_var{{ min(1, input.memory_gb) }}"
+min_cpu: "{{ min(input.cpu_request, 4, input.cpu_limit) }}"
+min_memory: "{{ min(1, input.memory_gb) }}"
 ```
 
 ### max() {#max}
@@ -239,8 +239,8 @@ min_memory: "not_var{{ min(1, input.memory_gb) }}"
 
 ```yaml
 # Примеры
-max_cpu: "not_var{{ max(input.cpu_request, 2) }}"
-max_replicas: "not_var{{ max(input.min_replicas, 1, input.desired_replicas) }}"
+max_cpu: "{{ max(input.cpu_request, 2) }}"
+max_replicas: "{{ max(input.min_replicas, 1, input.desired_replicas) }}"
 ```
 
 ## Фильтры {#filters}
@@ -252,7 +252,7 @@ max_replicas: "not_var{{ max(input.min_replicas, 1, input.desired_replicas) }}"
 Абсолютное значение числа:
 
 ```yaml
-positive_value: "not_var{{ input.offset | abs }}"
+positive_value: "{{ input.offset | abs }}"
 # input: -5 -> output: 5
 ```
 
@@ -261,7 +261,7 @@ positive_value: "not_var{{ input.offset | abs }}"
 Декодирование из [Base64](https://ru.wikipedia.org/wiki/Base64):
 
 ```yaml
-decoded_data: "not_var{{ input.encoded_config | base64decode }}"
+decoded_data: "{{ input.encoded_config | base64decode }}"
 ```
 
 ### base64encode {#base64-encode}
@@ -269,7 +269,7 @@ decoded_data: "not_var{{ input.encoded_config | base64decode }}"
 Кодирование строки в [Base64](https://ru.wikipedia.org/wiki/Base64):
 
 ```yaml
-encoded_data: "not_var{{ input.user_data | base64encode }}"
+encoded_data: "{{ input.user_data | base64encode }}"
 ```
 
 ### capitalize {#capitalize}
@@ -277,7 +277,7 @@ encoded_data: "not_var{{ input.user_data | base64encode }}"
 Все слова в строке с заглавной буквы без преобразования строки в нижний регистр:
 
 ```yaml
-label: "not_var{{ input.type | capitalize }}"
+label: "{{ input.type | capitalize }}"
 # input: "dataBase" -> output: "DataBase"
 ```
 
@@ -295,7 +295,7 @@ region: "{{ input.region | default('ru-central1-a') }}"
 Добавление пробелов в начало строки:
 
 ```yaml
-value: "not_var{{ input.data | ident(2) }}"
+value: "{{ input.data | ident(2) }}"
 # input: "some: 3" -> output: "  some: 3"
 ```
 
@@ -304,7 +304,7 @@ value: "not_var{{ input.data | ident(2) }}"
 Длина строки или массива:
 
 ```yaml
-name_length: "not_var{{ input.service_name | length }}"
+name_length: "{{ input.service_name | length }}"
 # input: "webapp" -> output: 6
 ```
 
@@ -313,7 +313,7 @@ name_length: "not_var{{ input.service_name | length }}"
 Преобразование строки в нижний регистр:
 
 ```yaml
-resource_name: "not_var{{ input.service_name | lower }}"
+resource_name: "{{ input.service_name | lower }}"
 # input: "WebApp" -> output: "webapp"
 ```
 
@@ -332,7 +332,7 @@ safe_name: "{{ input.display_name | replace(' ', '-') | lower }}"
 Вычисление хеша [SHA256](https://ru.wikipedia.org/wiki/SHA-2):
 
 ```yaml
-config_hash: "not_var{{ input.configuration | sha256 }}"
+config_hash: "{{ input.configuration | sha256 }}"
 ```
 
 ### title {#title}
@@ -340,7 +340,7 @@ config_hash: "not_var{{ input.configuration | sha256 }}"
 Преобразование строки в нижний регистр, затем все слова с заглавной буквы:
 
 ```yaml
-display_name: "not_var{{ input.service_name | title }}"
+display_name: "{{ input.service_name | title }}"
 # input: "weB serVice" -> output: "Web Service"
 ```
 
@@ -349,7 +349,7 @@ display_name: "not_var{{ input.service_name | title }}"
 Удаление пробелов в начале и конце строки:
 
 ```yaml
-clean_name: "not_var{{ input.name | trim }}"
+clean_name: "{{ input.name | trim }}"
 # input: "  app  " -> output: "app"
 ```
 
@@ -358,7 +358,7 @@ clean_name: "not_var{{ input.name | trim }}"
 Преобразование строки в верхний регистр:
 
 ```yaml
-env_name: "not_var{{ input.environment | upper }}"
+env_name: "{{ input.environment | upper }}"
 # input: "prod" -> output: "PROD"
 ```
 
@@ -384,7 +384,7 @@ final_name: "{{ input.custom_name | default('default-app') | upper }}"
   - type: resource.yandex_compute_instance
     name: web_server
     config:
-      name: "my-best-application-not_var{{ application.id }}"
+      name: "my-best-application-{{ application.id }}"
       ...
 ```
 
@@ -396,31 +396,31 @@ final_name: "{{ input.custom_name | default('default-app') | upper }}"
   - type: resource.yandex_compute_instance
     name: web_server
     config:
-      name: "not_var{{ input.environment }}-web-not_var{{ input.instance_number | default(1) }}-not_var{{ application.id }}"
-      hostname: "{{ input.service_name | lower | replace(' ', '-') }}.not_var{{ input.domain }}"
-      cores: "not_var{{ min(input.cpu_cores, 2) }}"
+      name: "{{ input.environment }}-web-{{ input.instance_number | default(1) }}-{{ application.id }}"
+      hostname: "{{ input.service_name | lower | replace(' ', '-') }}.{{ input.domain }}"
+      cores: "{{ min(input.cpu_cores, 2) }}"
       memory: "{{ input.memory_gb * 1024 }}"
 
       boot_disk:
-        image_id: "not_var{{ data.yandex_compute_image.ubuntu.id }}"
-        size: "not_var{{ input.disk_size | default(20) }}"
+        image_id: "{{ data.yandex_compute_image.ubuntu.id }}"
+        size: "{{ input.disk_size | default(20) }}"
 
       network_interface:
-        subnet_id: "not_var{{ resource.yandex_vpc_subnet.main.id }}"
+        subnet_id: "{{ resource.yandex_vpc_subnet.main.id }}"
         nat: "{{ input.environment != 'prod' }}"
 
       metadata:
         user-data: |
           users:
-            - name: not_var{{ input.username }}
+            - name: {{ input.username }}
               sudo: 'ALL=(ALL) NOPASSWD:ALL'
               shell: /bin/bash
               ssh_authorized_keys:
-              - not_var{{ input.public_key  }}
+              - {{ input.public_key  }}
 
       labels:
-        environment: "not_var{{ input.environment }}"
-        project: "not_var{{ application.id }}"
+        environment: "{{ input.environment }}"
+        project: "{{ application.id }}"
         cost-center: "{{ input.cost_center | default('default') | upper }}"
 ```
 
@@ -430,7 +430,7 @@ final_name: "{{ input.custom_name | default('default-app') | upper }}"
   - type: resource.yandex_mdb_postgresql_cluster
     name: main_db
     config:
-      name: "not_var{{ input.project_name | lower }}-not_var{{ input.environment }}-db-not_var{{ application.id }}"
+      name: "{{ input.project_name | lower }}-{{ input.environment }}-db-{{ application.id }}"
 
       # Размер инстанса зависит от окружения
       resources:
@@ -439,13 +439,13 @@ final_name: "{{ input.custom_name | default('default-app') | upper }}"
         disk_type_id: "{{ input.environment == 'prod' ? 'network-ssd' : 'network-hdd' }}"
 
       # Сеть
-      network_id: "not_var{{ resource.yandex_vpc_network.main.id }}"
+      network_id: "{{ resource.yandex_vpc_network.main.id }}"
 
       # Конфигурация доступа
       config:
         access:
           web_sql: "{{ input.environment == 'dev' }}"
-          serverless: "not_var{{ input.enable_functions | default(false) }}"
+          serverless: "{{ input.enable_functions | default(false) }}"
 
 ```
 
@@ -455,8 +455,8 @@ final_name: "{{ input.custom_name | default('default-app') | upper }}"
   - type: resource.yandex_vpc_security_group
     name: web_sg
     config:
-      name: "not_var{{ input.project_name }}-web-sg-not_var{{ application.id }}"
-      network_id: "not_var{{ resource.yandex_vpc_network.main.id }}"
+      name: "{{ input.project_name }}-web-sg-{{ application.id }}"
+      network_id: "{{ resource.yandex_vpc_network.main.id }}"
 
       ingress:
         # HTTP доступ
@@ -489,7 +489,7 @@ region: "{{ input.region | default('ru-central1-a') }}"
 
 ```yaml
 # Используйте условные выражения для валидации
-cpu_cores: "not_var{{ max(min(input.cpu_cores, 32), 1) }}"
+cpu_cores: "{{ max(min(input.cpu_cores, 32), 1) }}"
 memory_gb: "{{ input.memory_gb >= 1 ? input.memory_gb : 1 }}"
 ```
 
@@ -497,7 +497,7 @@ memory_gb: "{{ input.memory_gb >= 1 ? input.memory_gb : 1 }}"
 
 ```yaml
 # Создавайте понятные имена ресурсов
-name: "{{ input.project_name | lower | replace(' ', '-') }}-not_var{{ input.environment }}-not_var{{ input.component }}"
+name: "{{ input.project_name | lower | replace(' ', '-') }}-{{ input.environment }}-{{ input.component }}"
 ```
 
 ### Условная логика для окружений {#env-conditioning}

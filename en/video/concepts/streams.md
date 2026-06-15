@@ -55,6 +55,8 @@ You can change the following basic playback settings for broadcast episodes when
 
 {% include [iframe-settings](../../_includes/video/iframe-settings.md) %}
 
+By default, there is a 15–20 second delay between the source and playback of the stream, which ensures high image quality and resilience to unstable connections. For scenarios with active viewer interaction, you can reduce the latency to 4-5 seconds, but this will require a high-quality network.
+
 ## See also {#see-also}
 
 * [Getting started with a video broadcast](../streaming.md)

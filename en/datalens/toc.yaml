@@ -66,7 +66,7 @@ items:
             href: tutorials/data-from-appmetrica-visualization.md
           - name: 'AppMetrica: data export, post-processing, and visualization'
             href: tutorials/data-from-appmetrica-yc-visualization.md
-          - name: 'Bitrix24: direct connection'
+          - name: 'Bitrix24: Direct connection'
             href: tutorials/data-from-bitrix24-visualization.md
           - name: '{{ tracker-full-name }}: Data export and visualization'
             href: tutorials/data-from-tracker.md
@@ -888,6 +888,8 @@ items:
             href: operations/dashboard/add-text.md
           - name: Adding a header to a dashboard
             href: operations/dashboard/add-title.md
+          - name: Adding Neuroanalyst to the dashboard
+            href: operations/dashboard/add-ai.md
           - name: Copying widgets on a dashboard
             href: operations/dashboard/copying-widgets.md
           - name: Adding dashboard info
@@ -950,7 +952,15 @@ items:
             href: concepts/organizations.md
           - name: Switching between {{ datalens-name }} instances
             href: operations/organizations/change-organization.md
-      - name: Object access
+      - name: Access to objects in workbooks and collections
+        items:
+          - name: Overview
+            href: security/workbooks-access.md
+          - name: Basic setup
+            href: security/workbooks-access-basic.md
+          - name: Advanced setup (shared objects)
+            href: security/workbooks-access-advanced.md
+      - name: Access to objects in directories
         items:
           - name: Access permissions
             href: security/manage-access.md

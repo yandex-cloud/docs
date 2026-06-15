@@ -4,7 +4,7 @@
 
 
 
-Подробнее о размерах и производительности разных типов дисков см. в [документации {{ compute-full-name }}](../../compute/concepts/limits.md#compute-limits-disks).
+Подробнее о размерах и производительности разных типов дисков в [документации {{ compute-full-name }}](../../compute/concepts/limits.md#compute-limits-disks).
 
 
 {% endnote %}

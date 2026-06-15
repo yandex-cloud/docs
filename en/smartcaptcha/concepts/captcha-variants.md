@@ -1,3 +1,8 @@
+---
+title: Challenge options
+description: In this article, you will learn about captcha display rules, traffic conditions, and metadata.
+---
+
 # Challenge options
 
 {% include [note-preview-captcha-variants](../../_includes/smartcaptcha/note-preview-captcha-variants.md) %}
@@ -146,6 +151,6 @@ Additional data transmitted from the frontend in `key: value` format, where:
 * `key`: Parameter key.
 * `value`: Specific value, value prefix, or PIRE library regular expression.
 
-For example, `user_type: premium` or `risk_score: high`.
+Examples: `user_type: premium` or `risk_score: high`.
 | _and_ ||
 |#

@@ -79,7 +79,7 @@ By default, usage details show the cost of consumed resources. Details in consum
   
   {% include [usage-details-change-period](../../billing/_includes/usage-details-change-period.md) %}
 
-  To get usage details over a specific period, for certain clouds and folders, select the required spaces from the **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_clouds }}** list; for specific products and labels, click **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-products-all }}** or **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-labels-all }}**, set the necessary values, and click **{{ ui-key.yacloud_billing.billing.account.overview.button_bind-card-apply }}**.
+  To get usage details over a specific period, for certain clouds and folders, select the required spaces from the **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_clouds_folders }}** list; for specific products and labels, click **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-products-all }}** or **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-labels-all }}**, set the necessary values, and click **{{ ui-key.yacloud_billing.billing.account.overview.button_bind-card-apply }}**.
 
 {% endlist %}
 

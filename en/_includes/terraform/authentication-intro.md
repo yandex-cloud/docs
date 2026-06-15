@@ -1,0 +1,1 @@
+The authentication procedure is based on getting a temporary IAM token with the help of the Yandex CLI and delivering it to {{ TF }}. This makes your {{ TF }} configuration universal and secure, because the IAM token is not saved in configuration files, and the code describes only the resource creation logic without being associated with a particular cloud or folder.

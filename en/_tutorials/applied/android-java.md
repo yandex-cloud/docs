@@ -1,4 +1,6 @@
-# Working with {{ iot-full-name }} from an Android device in Java
+# Working with {{ iot-full-name }} from an Android device using Java
+
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
 
 In this tutorial, you will learn how to connect to {{ iot-full-name }} from an Android device using the [Paho](https://www.eclipse.org/paho/) library and Java. To use this tutorial, you must know how to develop Android apps in Java using Android Studio.
 

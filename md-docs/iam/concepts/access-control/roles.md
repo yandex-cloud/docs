@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Даже если [операция](../../../api-design-guide/concepts/about-async.md) с ресурсами [сервисов](../../../overview/concepts/services.md) Yandex Cloud разрешена [ролью](roles.md), ее выполнение может быть заблокировано, если на [организацию](../../../organization/concepts/organization.md), [облако](../../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) назначена [политика авторизации](access-policies.md), запрещающая эту операцию.
+Даже если [операция](../../../api-design-guide/concepts/about-async.md) с ресурсами [сервисов](../../../overview/concepts/services.md) Yandex Cloud разрешена [ролью](roles.md), ее выполнение может быть заблокировано, если для [организации](../../../organization/concepts/organization.md), [облака](../../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) создана [политика авторизации](access-policies.md), запрещающая эту операцию.
 
 {% endnote %}
 

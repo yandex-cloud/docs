@@ -22,7 +22,7 @@ The maximum string length in characters is 50. ||
 
 Required field. Name of the the model to update.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+The maximum string length in characters is 63. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.clickhouse.v1.UpdateMlModelRequest}

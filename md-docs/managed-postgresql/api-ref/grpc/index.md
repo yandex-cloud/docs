@@ -16,4 +16,5 @@ Actions are performed by making RPC calls. For more information about API archit
 || [PerformanceDiagnostics](PerformanceDiagnostics/index.md) | A set of methods for PostgreSQL performance diagnostics. ||
 || [ResourcePreset](ResourcePreset/index.md) | A set of methods for managing ResourcePreset resources. ||
 || [User](User/index.md) | A set of methods for managing PostgreSQL User resources. ||
+|| [Versions](Versions/index.md) |  ||
 |#

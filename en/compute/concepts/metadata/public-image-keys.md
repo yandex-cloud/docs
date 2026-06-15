@@ -11,11 +11,11 @@ The list of keys processed by the [metadata service](../vm-metadata.md) in {{ ya
 
 - Linux {#linux}
 
-  * `serial-port-enable`: Key responsible for access to [serial console](../../operations/serial-console/index.md) of the VM instance: The possible values are:
-      * `0`: Access to serial console disabled. Default value.
+  * `serial-port-enable`: Key responsible for access to [serial console](../serial-console.md) of the VM instance: The possible values are:
+      * `0`: Access to serial console disabled. This is a default value.
       * `1`: Access to serial console enabled.
   * `enable-oslogin`: Key responsible for access to the VM instance via [{{ oslogin }}](../../operations/vm-connect/os-login.md). The possible values are:
-      * `false`: Access via {{ oslogin }} disabled. Default value.
+      * `false`: Access via {{ oslogin }} disabled. This is a default value.
       * `true`: Access via {{ oslogin }} enabled.
   * `user-data`: Key containing a string with the user metadata that will be processed by the [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) agent running on the VM instance.
 

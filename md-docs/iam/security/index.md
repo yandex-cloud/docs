@@ -22,7 +22,7 @@
 
 {% note info %}
 
-Даже если [операция](../../api-design-guide/concepts/about-async.md) с ресурсами [сервисов](../../overview/concepts/services.md) Yandex Cloud разрешена [ролью](../concepts/access-control/roles.md), ее выполнение может быть заблокировано, если на [организацию](../../organization/concepts/organization.md), [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) назначена [политика авторизации](../concepts/access-control/access-policies.md), запрещающая эту операцию.
+Даже если [операция](../../api-design-guide/concepts/about-async.md) с ресурсами [сервисов](../../overview/concepts/services.md) Yandex Cloud разрешена [ролью](../concepts/access-control/roles.md), ее выполнение может быть заблокировано, если для [организации](../../organization/concepts/organization.md), [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) создана [политика авторизации](../concepts/access-control/access-policies.md), запрещающая эту операцию.
 
 {% endnote %}
 
@@ -355,7 +355,7 @@ flowchart BT
 
 Вместо примитивных ролей мы рекомендуем использовать роли сервисов. Такой подход позволит более гранулярно управлять доступом и обеспечить соблюдение [принципа минимальных привилегий](../../security/standard/all.md#min-privileges).
 
-Подробнее о примитивных ролях см. в [справочнике ролей Yandex Cloud](../roles-reference.md#primitive-roles).
+Подробнее о примитивных ролях в [справочнике ролей Yandex Cloud](../roles-reference.md#primitive-roles).
 
 ## Какие роли мне необходимы {#choosing-roles}
 

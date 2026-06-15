@@ -1,5 +1,7 @@
 # Topic
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 A _topic_ is a channel for messaging between devices, registries, and broker clients.
 
 Using the broker, you can send and receive messages in any topics allowed by the MQTT specification, except for topics starting with `$`.

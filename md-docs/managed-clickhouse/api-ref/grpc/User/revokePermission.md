@@ -1,6 +1,7 @@
 # Managed Service for ClickHouse API, gRPC: UserService.RevokePermission
 
 Revokes a permission from the specified ClickHouse user.
+(-- api-linter: yc::1702::method-verb-prefix=disabled --)
 
 ## gRPC request
 
@@ -29,12 +30,12 @@ The maximum string length in characters is 50. ||
 Required field. Name of the user to revoke a permission from.
 To get the name of the user, use a [UserService.List](list.md#List) request.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
+The maximum string length in characters is 63. ||
 || database_name | **string**
 
 Required field. Name of the database that the user should lose access to.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+The maximum string length in characters is 63. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

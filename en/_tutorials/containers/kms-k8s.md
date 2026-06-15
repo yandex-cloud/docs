@@ -66,7 +66,7 @@ The cost of support for the described solution includes a {{ kms-name }} fee: nu
      }
      ```
 
-  1. Validate your configuration files.
+  1. Make sure the configuration files are correct.
 
      {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
 

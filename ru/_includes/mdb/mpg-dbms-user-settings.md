@@ -80,7 +80,7 @@
 
   Можно выбрать несколько значений. По умолчанию логи аудита для пользователя отключены.
 
-  Подробнее о настройке логов для аудита см. в разделе [Использование pgaudit](../../managed-postgresql/operations/extensions/pgaudit.md).
+  Подробнее о настройке логов для аудита читайте в разделе [Использование pgaudit](../../managed-postgresql/operations/extensions/pgaudit.md).
 
 - **Pooling mode**{#setting-pooling-mode} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 

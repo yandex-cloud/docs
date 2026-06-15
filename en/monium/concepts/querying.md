@@ -57,7 +57,7 @@ The query language supports the following data types:
    Example of a `timeseries_vector` type object. The following expression will return a metric vector with different values of the `host` label:
 
     ```json
-    {service='compute', host='*', name='exceptionCount'}
+    {service='__compute__', host='*', name='exceptionCount'}
     ```
 
 * **Bool**: For metrics, `true` or `false`.
@@ -67,9 +67,9 @@ The query language supports the following data types:
 {% include [query-operations](../../_includes/monium/query-operations.md) %}
 
 
-### Data filtering expressions {#expressions}
+### Data filter expressions {#expressions}
 
-The query language is used to describe filters for telemetry data and provides common constructs for different types of data (metrics, logs, traces). There are also differences due to the features of the data model for each data type.
+The query language is used to describe filters for telemetry data and provides common constructs for different types of data (metrics, logs, traces). There are also some differences due to the specifics of the data model for each data type.
 
 Top-level fields, such as `message` and `level`, are treated as labels. A selector consists of a label name, an operator, and an expression describing a set of label values. Conditions inside a selector are joined with `AND`.
 
@@ -106,45 +106,23 @@ When searching for traces or spans, you can use additional keys:
 * `span.name`: Span name; supports all string operators.
 * `span.id`: Span ID; supports the `=` and `!=` operators.
 * `span.status`: Span status, `OK`, `ERROR` or `UNKNOWN`; supports the `=` and `!=` operators.
-* `span.duration`: Span duration; supports the `>`, `>=`, `<`, and `<=` comparison operators with duration literals, e.g., `500ms` or `2s`.
-* `span.critical_path`: Whether or not the span belongs to the critical path, `PRESENT` or `ABSENT`; supports the `=` operator.
-* `trace.id`: Trace ID (to search for logs by trace).
+* `span.duration`: Span duration; supports the `>`, `>=`, `<`, and `<=` comparison operators with duration literals, such as `500ms` or `2s`.
+* `span.critical_path`: Specifies whether the span is on the critical path, `PRESENT` or `ABSENT`; supports the `=` operator.
+* `trace.id`: Trace ID (for searching logs by trace).
 
-For more information about searching for traces, see [{#T}](../traces/operations/traces-explorer.md).
+For more information about searching traces, see [{#T}](../traces/operations/traces-explorer.md).
 
 The {{ monium-name }} query language is used for conversion of metrics when configuring [dashboards](./visualization/dashboard.md) and [alerts](./alerting.md), as well as in the [MetricsData.read](../api-ref/MetricsData/read.md) API method.
-
-## Uploading metrics {#selectors}
-
-Select multiple metrics using the metric name and selectors to filter label values (for more information, see [{#T}](./data-model.md#label)). You can use the sets of metrics you created in alerts or transmit them to a function as an argument.
-
-Here is an example of a metric query:
-
-```
-cpu_usage{project="folder__zoeu2rgjpqak********", service="compute"}
-```
-
-This query will return metrics named `cpu_usage` for all {{ compute-full-name }} VMs in the project (folder) with the `zoeu2rgjpqak********` ID.
-
-{% note warning %}
-
-Consider the following for the `project` label:
-
-* The label value must always match the selected project (folder). You cannot request data from other projects. This applies to all the query language use cases: when creating charts, dashboards, alerts, or calling API methods.
-
-* For API calls, provide the label value in the `x-monium-project` header, not the query body.
-
-{% endnote %}
 
 ## Using query names as variables {#query-name-as-variable}
 
 The query language supports links to the results of executing other queries as to names of variables.
 
-Here is an example:
+For example:
 
-A: `"temperature"{project="folder__my_folder_id", service="custom", room="bedroom", building="home", sensor="sensor1" }`
+A: `{project="folder__my_folder_id", cluster="default", service="custom", room="bedroom", building="home", sensor="sensor1" }`
 
-B: `"temperature"{project="folder__my_folder_id", service="custom", room="bedroom", building="home", sensor="sensor2" }`
+B: `{project="folder__my_folder_id", cluster="default", service="custom", room="bedroom", building="home", sensor="sensor2" }`
 
 C: `(A + B) / 2`
 

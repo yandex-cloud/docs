@@ -100,3 +100,5 @@ To set up network connectivity between {{ baremetal-name }} [servers](./servers.
 * [{#T}](../operations/subnet-create.md)
 * [{#T}](../operations/create-vpc-connection.md)
 * [{#T}](../operations/create-static-route.md)
+* [{#T}](../operations/servers/set-up-tagged-vlan.md)
+* [{#T}](../operations/servers/switch-network-type.md)

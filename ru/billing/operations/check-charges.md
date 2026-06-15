@@ -99,7 +99,7 @@ description: Следуя данной инструкции, вы сможете
   
   {% include [usage-details-change-period](../../billing/_includes/usage-details-change-period.md) %}
 
-  Для получения детализации в указанный период по определенным облакам и каталогам, в списке **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_clouds }}** отметьте необходимые пространства, по определенным продуктам и меткам — нажмите **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-products-all }}** или **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-labels-all }}**, укажите необходимые значения и нажмите **{{ ui-key.yacloud_billing.billing.account.overview.button_bind-card-apply }}**.
+  Для получения детализации в указанный период по определенным облакам и каталогам, в списке **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_clouds_folders }}** отметьте необходимые пространства, по определенным продуктам и меткам — нажмите **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-products-all }}** или **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-labels-all }}**, укажите необходимые значения и нажмите **{{ ui-key.yacloud_billing.billing.account.overview.button_bind-card-apply }}**.
 
 {% endlist %}
 

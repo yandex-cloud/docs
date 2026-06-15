@@ -1,6 +1,6 @@
 # {{ baremetal-full-name }} overview
 
-In {{ baremetal-full-name }}, you can [lease](../operations/servers/server-lease.md) a physical server with all its hardware resources provisioned for your individual use. 
+In {{ baremetal-full-name }}, you can [rent](../operations/servers/server-lease.md) a physical server with all its hardware resources provisioned for your individual use. 
 
 To create and conveniently operate an infrastructure relying on leased physical servers, {{ baremetal-name }} provides users with all the required tools to manage the servers and their network’s settings.
 
@@ -18,13 +18,13 @@ You can order servers of the following configurations:
   [Building a custom server configuration](server-custom-configurations.md)
 * On-request configuration: If looking for a server for a variety of scenarios and workloads, apply for an on-request configuration.
 
-  [Learn more about on-request configurations](server-individual-configurations.md).
+  [Learn more about on-request configuration](server-individual-configurations.md).
 
-You can rent [servers](servers.md) for a period from one day to one year. When ordering a server, you can install an OS from ready-made Marketplace [images](images.md) or use your own distribution for installation by [uploading](../operations/image-upload.md) it to [{{ objstorage-full-name }}](../../storage/). You can also configure public and private IP addressing, SSH access, and server backup policies using [{{ backup-full-name }}](../../backup/).
+You can rent [servers](servers.md) for a period from one day to one year. When ordering a server, you can install an OS from ready-made Marketplace [images](images.md) or use your own distribution for installation by [uploading](../operations/image-upload.md) it to [{{ objstorage-full-name }}](../../storage/index.yaml). You can also configure public and private IP addressing, SSH access, and server backup policies using [{{ backup-full-name }}](../../backup/index.yaml).
 
 ## Network {#network}
 
-All servers have multiple physical network interfaces connected to the [public internet](./public-network.md) and to a [private network](./private-network.md) through different, independent switches which make up a single IP fabric with the spine-leaf topology.
+All servers have several physical [network interfaces](./servers.md#network-interfaces) that you can connect to the [public internet](./public-network.md) and to a [private network](./private-network.md) through different, independent switches assembled into a single IP fabric with the `spine-leaf` topology.
 
 In the public network, each server is allocated one public IPv4 address free of charge. You can also lease blocks of [dedicated public subnets](./public-network.md#public-subnet) of varying sizes and use them to assign addresses to servers. For servers with 10 and 25 Gbps network cards, you can select a daily internet traffic package.
 
@@ -38,7 +38,7 @@ To ensure stable operation of all networks, {{ baremetal-name }} has a number of
 
 You can access the server using a [KVM console](../operations/servers/server-kvm.md) or over SSH. You can also manage servers using the [CLI](../cli-ref/) and [API](../api-ref/).
 
-To configure, manage, and audit actions with objects, {{ baremetal-name }} provides the following tools: the {{ yandex-cloud }} management console, [CLI](../cli-ref/), and [API](../api-ref). You can get audit logs of your operations using [{{ at-name }}](../../audit-trails/), and manage roles and accesses via [{{ iam-name }}](../../iam/).
+To configure, manage, and audit actions with objects, {{ baremetal-name }} provides the following interfaces: the {{ yandex-cloud }} management console, [CLI](../cli-ref/index.md), and [API](../api-ref/index.md). You can get audit logs of your operations using [{{ at-name }}](../../audit-trails/index.yaml), and manage roles and accesses via [{{ iam-name }}](../../iam/index.yaml).
 
 ## Quotas and limits {#quotas-and-limits}
 

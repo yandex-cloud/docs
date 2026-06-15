@@ -14,10 +14,10 @@ To unlink a subscription:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder the [subscription](../../concepts/users/subscription.md) is in.
-    1. At the top of the screen, click the panel with ready-made solutions for {{ marketplace-name }}.
-    1. In the left-hand panel, select ![image](../../../_assets/console-icons/file-ruble.svg) **{{ ui-key.yacloud.marketplace-v2.label_licenses }}**.
-    1. In the line with the subscription, click ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.marketplace-v2.action_detach-subscription }}**.
-    1. In the window that opens, click **{{ ui-key.yacloud.common.continue }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where the [subscription](../../concepts/users/subscription.md) is located.
+  1. At the top of the screen, click ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.marketplace-v2.label_service-name }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/file-ruble.svg) **{{ ui-key.yacloud.marketplace-v2.label_licenses }}**.
+  1. In the line with the subscription, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.marketplace-v2.action_detach-subscription }}**.
+  1. In the window that opens, click **{{ ui-key.yacloud.common.continue }}**.
 
 {% endlist %}

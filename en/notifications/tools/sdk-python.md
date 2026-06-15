@@ -1,3 +1,8 @@
+---
+title: Getting started with the AWS SDK for Python (boto3) in {{ cns-full-name }}
+description: Follow this guide to learn how to use the AWS SDK for Python (boto3) in {{ cns-full-name }}.
+---
+
 # Getting started with the AWS SDK for Python (boto3) in {{ cns-full-name }}
 
 {% include [preview-stage](../../_includes/notifications/preview-stage.md) %}
@@ -133,7 +138,7 @@ You will get the list of notification channels located in the same folder as the
 {% endlist %}
 
 Where:
-* `TargetArn`: Mobile endpoint ID (ARN).
+* `TargetArn`: Mobile endpoint ARN.
 * `MessageStructure`: Message format.
 * `Message`: Message.
 
@@ -147,7 +152,7 @@ print ("Message id:", response["MessageId"])
 ```
 
 Where:
-* `TargetArn`: Mobile endpoint ID (ARN).
+* `TargetArn`: Mobile endpoint ARN.
 * `Message`: Message.
 
 ## Examples {#examples}

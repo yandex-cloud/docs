@@ -4,7 +4,7 @@
 
 Процесс автоочистки запускается не по времени, а по достижении значений, заданных в [настройках](../../managed-postgresql/concepts/settings-list.md#dbms-cluster-settings) — например, когда доля измененных или удаленных записей в таблице равна значению настройки **Autovacuum vacuum scale factor**.
 
-Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/11/runtime-config-autovacuum.html).
+Подробнее читайте в [документации {{ PG }}](https://www.postgresql.org/docs/11/runtime-config-autovacuum.html).
 
 #### Какие значения LC_COLLATE и LC_CTYPE по умолчанию выставляются для баз данных? {#lc-default}
 

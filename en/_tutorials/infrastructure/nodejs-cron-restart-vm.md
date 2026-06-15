@@ -107,7 +107,7 @@ The infrastructure support costs include:
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
         * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Select the previously created service account with permissions to call the function.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-          * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you want to start the stopped VMs.
+          * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you want to start the stopped VM.
           * `INSTANCE_ID`: [ID of the VM](../../compute/operations/vm-info/get-info.md#outside-instance) you want to start at interruption.
         * If you want to avoid logging and paying for {{ cloud-logging-name }}, disable logging by selecting `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}` in the **{{ ui-key.yacloud.logging.label_title }}** field under **{{ ui-key.yacloud.logging.label_destination }}**.
      1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
@@ -154,7 +154,7 @@ The infrastructure support costs include:
      * `--entrypoint`: Entry point.
      * `--service-account-id`: [ID](../../iam/operations/sa/get-id.md) of the service account with permissions to invoke the function.
      * `--environment`: Environment variables:
-       * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you want to start the stopped VMs.
+       * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you want to start the stopped VM.
        * `INSTANCE_ID`: [ID of the VM](../../compute/operations/vm-info/get-info.md#outside-instance) you want to start at interruption.
      * `--source-path`: Path to the `function-js.zip` archive you created earlier.
      * Optionally, set the `--no-logging` flag to avoid logging and paying for {{ cloud-logging-name }}.

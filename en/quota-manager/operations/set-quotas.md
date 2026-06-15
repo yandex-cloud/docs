@@ -1,5 +1,6 @@
 ---
 title: How to change quotas
+description: Follow this guide to request a quota change, as well as check the status of your request or cancel it.
 ---
 
 # Changing quotas
@@ -36,7 +37,7 @@ You can view the default quotas in the relevant documentation:
 
 There is no reset to default values in {{ quota-manager-name }}.
 
-## Viewing the quota update request status and operations {#list-operation-request}
+## Viewing the quota update request status and operations {#view-request-status}
 
 {% list tabs group=instructions %}
 

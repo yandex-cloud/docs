@@ -30,7 +30,7 @@ Create a Linux [VM](../concepts/vm.md) in the {{ yandex-cloud }} management cons
 
 ## Configure the serial console {#serial-console}
 
-A [serial console](../operations/serial-console/index.md), enables accessing a VM regardless of the [network](../../vpc/concepts/network.md#network) or OS state, when experiencing boot or SSH access issues.
+A [serial console](../concepts/serial-console.md), enables accessing a VM regardless of the [network](../../vpc/concepts/network.md#network) or OS state, when experiencing boot or SSH access issues.
 
 Make sure you configure access to the VM via the serial console in advance.
 

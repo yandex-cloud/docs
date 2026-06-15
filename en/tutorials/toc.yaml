@@ -1579,7 +1579,7 @@ items:
                 href: datalens/data-from-appmetrica-visualization.md
               - name: 'AppMetrica: data export, post-processing, and visualization'
                 href: datalens/data-from-appmetrica-yc-visualization.md
-              - name: 'Bitrix24: direct connection'
+              - name: 'Bitrix24: Direct connection'
                 href: datalens/data-from-bitrix24-visualization.md
               - name: '{{ tracker-name }}: Data export and visualization'
                 href: datalens/data-from-tracker.md
@@ -1672,7 +1672,13 @@ items:
           - name: Developing a Slack bot
             href: serverless/slack-bot-serverless.md
           - name: Developing a Telegram bot
-            href: serverless/telegram-bot-serverless.md
+            items:
+              - name: Overview
+                href: serverless/telegram-bot-serverless/index.md
+              - name: Management console
+                href: serverless/telegram-bot-serverless/console.md
+              - name: '{{ TF }}'
+                href: serverless/telegram-bot-serverless/terraform.md
           - name: >-
               Creating a Telegram bot for text recognition in images, speech
               synthesis, and audio recognition

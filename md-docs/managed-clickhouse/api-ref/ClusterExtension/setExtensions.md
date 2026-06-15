@@ -14,7 +14,7 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.
+Required field. ID of the ClickHouse cluster.
 
 The maximum string length in characters is 50. ||
 |#
@@ -34,7 +34,9 @@ The maximum string length in characters is 50. ||
 
 #|
 ||Field | Description ||
-|| extensionSpecs[] | **[ExtensionSpec](#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)** ||
+|| extensionSpecs[] | **[ExtensionSpec](#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)**
+
+Specifications of the cluster extensions to set. ||
 |#
 
 ## ExtensionSpec {#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec}
@@ -43,10 +45,12 @@ The maximum string length in characters is 50. ||
 ||Field | Description ||
 || name | **string**
 
-Required field.
+Required field. Name of the extension.
 
 The maximum string length in characters is 63. ||
-|| version | **string** ||
+|| version | **string**
+
+Version of the extension. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -1,3 +1,8 @@
+---
+title: How to set up a custom disk image
+description: You can use your own file with a Linux VM disk image. Once your image is set up, upload it to {{ compute-name }}.
+---
+
 # Setting up a custom disk image
 
 {% note info %}
@@ -122,7 +127,7 @@ Follow the steps below to check if the drivers are installed in your OS. If not,
 
 ### Configure the serial console {#serial-console}
 
-A [serial console](../serial-console/index.md) enables accessing a VM regardless of the [network](../../../vpc/concepts/network.md#network) or OS state. Use the serial console to troubleshoot your VM or when you have SSH access issues. For more information, see [{#T}](../serial-console/index.md).
+A [serial console](../../concepts/serial-console.md) enables accessing a VM regardless of the [network](../../../vpc/concepts/network.md#network) or OS state. Use the serial console to troubleshoot your VM or when you have SSH access issues. For more information, see [{#T}](../../concepts/serial-console.md).
 
 To enable serial console access to your VM, configure the image to use `ttyS0` (COM1) as the system console:
 1. In the `/etc/default/grub` file with GRUB settings, add `console=ttyS0` to the `GRUB_CMDLINE_LINUX` parameter value. The line with this parameter should look like this:
@@ -165,7 +170,7 @@ To enable serial console access to your VM, configure the image to use `ttyS0` (
 
 1. Reboot the OS.
 
-After [creating a VM from your image](upload.md#create-vm-from-user-image), you need to additionally [configure it for using the serial console](../serial-console/index.md). 
+After [creating a VM from your image](upload.md#create-vm-from-user-image), you need to additionally [configure it for using the serial console](../../concepts/serial-console.md).
 
 ## Disable cloud platform verification when creating an image in Amazon EC2 {#ec2}
 

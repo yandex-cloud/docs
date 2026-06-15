@@ -4,7 +4,7 @@
 * `%create_livy_session --cluster <имя_кластера> --id <идентификатор_сессии>` — создание сессии;
 * `%delete_livy_session --cluster <имя_кластера> --id <идентификатор_сессии>` — удаление сессии.
 
-Например, следующая команда создаст в кластере `my-new-cluster` сессию `ses1`, которая позволит каждому процессу использовать максимум 4 ядра CPU в кластере и 4 ГБ RAM (подробнее см. в [документации Spark](https://spark.apache.org/docs/latest/configuration.html)):
+Например, следующая команда создаст в кластере `my-new-cluster` сессию `ses1`, которая позволит каждому процессу использовать максимум 4 ядра CPU в кластере и 4 ГБ RAM (подробнее читайте в [документации Spark](https://spark.apache.org/docs/latest/configuration.html)):
 
 ```python
 %create_livy_session --cluster my-new-cluster --id ses1 --conf spark.cores.max=4 --conf spark.executor.memory=4g
@@ -37,4 +37,4 @@
 | `--heartbeatTimeoutInSecond` | `int`    | Время бездействия до завершения сеанса     |
 | `--ttl`                      | `string` | Время ожидания неактивного сеанса          |
 
-Подробнее о параметрах livy-сессии см. в [официальной документации](https://livy.incubator.apache.org/docs/latest/rest-api.html).
+Подробнее о параметрах livy-сессии читайте в [официальной документации](https://livy.incubator.apache.org/docs/latest/rest-api.html).

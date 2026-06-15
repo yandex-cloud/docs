@@ -1,5 +1,7 @@
 # Managed Service for ClickHouse API, REST: ClusterExtension.Update
 
+Updates the specified cluster extension.
+
 ## HTTP request
 
 ```
@@ -12,7 +14,7 @@ PATCH https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.
+Required field. ID of the ClickHouse cluster.
 
 The maximum string length in characters is 50. ||
 |#
@@ -32,7 +34,7 @@ The maximum string length in characters is 50. ||
 ||Field | Description ||
 || extensionSpec | **[ExtensionSpec](#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)**
 
-Required field. ||
+Required field. New specification of the extension. ||
 |#
 
 ## ExtensionSpec {#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec}
@@ -41,10 +43,12 @@ Required field. ||
 ||Field | Description ||
 || name | **string**
 
-Required field.
+Required field. Name of the extension.
 
 The maximum string length in characters is 63. ||
-|| version | **string** ||
+|| version | **string**
+
+Version of the extension. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

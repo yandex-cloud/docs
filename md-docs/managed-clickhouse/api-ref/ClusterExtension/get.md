@@ -1,5 +1,7 @@
 # Managed Service for ClickHouse API, REST: ClusterExtension.Get
 
+Returns the specified cluster extension.
+
 ## HTTP request
 
 ```
@@ -12,12 +14,12 @@ GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.
+Required field. ID of the ClickHouse cluster.
 
 The maximum string length in characters is 50. ||
 || extensionName | **string**
 
-Required field.
+Required field. Name of the extension.
 
 The maximum string length in characters is 63. ||
 |#

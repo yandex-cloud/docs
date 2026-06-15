@@ -41,6 +41,12 @@ The connector requests data from {{ KF }} on a regular basis and uploads it to S
 
 For more on how S3 Sink transfers data, see the [connector's guide](https://github.com/aiven/s3-connector-for-apache-kafka).
 
+### Iceberg Sink {#iceberg-sink}
+
+The **Iceberg Sink** connector is used to transfer data from {{ KF }} topics to {{ IBRG }} tables.
+
+For more on how Iceberg Sink transfers data, see the [connector guide](https://iceberg.apache.org/docs/nightly/kafka-connect/).
+
 
 ## Use cases {#examples}
 

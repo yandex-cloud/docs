@@ -1,5 +1,7 @@
 # Sending a message using Mosquitto
 
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
 You can send the following types of messages:
 
 - Send data from a device to a registry using the `$devices/<device_ID>/events` or `$registries/<registry_ID>/events` topics.

@@ -1,4 +1,9 @@
-# Creating an {{ KF }} cluster
+---
+title: How to create a {{ KF }} cluster
+description: In this tutorial, you will learn how to create a {{ KF }} cluster.
+---
+
+# Creating a cluster {{ KF }}
 
 
 
@@ -305,7 +310,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-     This will create all the resources you need in the specified folder, and the terminal will display the [FQDNs of the {{ mkf-name }} cluster hosts](../concepts/network.md#hostname). You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder, and the terminal will display the [FQDNs of the {{ mkf-name }} cluster hosts](../concepts/network.md#hostname). You can check the new resources and their settings in the [management console]({{ link-console-main }}).
 
   For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
@@ -313,7 +318,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1005,7 +1010,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-     This will create all the resources you need in the specified folder, and the terminal will display the [FQDNs of the {{ mkf-name }} cluster hosts](../concepts/network.md#hostname). You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder, and the terminal will display the [FQDNs of the {{ mkf-name }} cluster hosts](../concepts/network.md#hostname). You can check the new resources and their settings in the [management console]({{ link-console-main }}).
 
   For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
@@ -1013,7 +1018,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

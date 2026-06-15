@@ -1,18 +1,12 @@
-#### Quotas {#monitoring-quotas}
+**General limits**
 
-#|
-|| Type of limit | Value ||
-|| Number of alerts per project | 30,000 ||
-|| Number of metrics per service in the folder | 1,000,000 ||
-|#
-
-#### General limits {#monitoring-common-limits}
 Type of limit | Value
 ----- | -----
 Number of labels per metric<br/>(including required ones) | 16
 Number of values per label | 1,000
 
-#### API limits {#monitoring-api-limits}
+**API limits**
+
 Type of limit | Value
 ----- | -----
 Maximum number of metrics returned in the data export API request | 500
@@ -21,7 +15,8 @@ Minimum number of samples returned in the data export API request | 10
 Maximum number of samples returned in the data export API request | 10,000
 Minimum time interval for exporting metrics | 1 second
 
-#### Alerting limits {#monitoring-alerting-limits}
+**Alerting limits**
+
 Type of limit | Value
 ----- | -----
 Number of metrics per alert | {{ alerting-metrics-limit }}

@@ -1,5 +1,7 @@
 # Managed Service for ClickHouse API, gRPC: ClusterService.RestartHosts
 
+Restarts the specified hosts.
+
 ## gRPC request
 
 **rpc RestartHosts ([RestartClusterHostsRequest](#yandex.cloud.mdb.clickhouse.v1.RestartClusterHostsRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**

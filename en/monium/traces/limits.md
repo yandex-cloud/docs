@@ -1,11 +1,11 @@
 ---
-title: Limitations
+title: Limits
 description: '{{ traces-name }} limits and quotas: storage, writes, and reads. Incoming span validation.'
 ---
 
 # Limitations
 
-## Limits {#traces-limits}
+There are [configurable quotas](../concepts/limits.md) and permanent limits in {{ traces-name }}.
 
 {% include [limits-traces.md](../../_includes/monium/limits-traces.md) %}
 

@@ -5,6 +5,7 @@ editable: false
 # Managed Service for ClickHouse API, gRPC: ClusterService.UpdateHosts
 
 Updates the specified hosts.
+(-- api-linter: yc::1705::http-method-mapping=disabled --)
 
 ## gRPC request
 

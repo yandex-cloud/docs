@@ -4,6 +4,8 @@ editable: false
 
 # Managed Service for OpenSearch API, gRPC: ClusterService.RestartOpenSearch
 
+(-- api-linter: yc::1705::custom-method-colon=disabled
+Required for backward compatibility with old clients. --)
 Restarts OpenSearch on specified host.
 
 ## gRPC request

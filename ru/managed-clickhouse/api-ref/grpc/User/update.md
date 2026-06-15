@@ -29,6 +29,8 @@ Updates the specified ClickHouse user.
     "allow_introspection_functions": "google.protobuf.BoolValue",
     "connect_timeout": "google.protobuf.Int64Value",
     "connect_timeout_with_failover": "google.protobuf.Int64Value",
+    "connect_timeout_with_failover_secure": "google.protobuf.Int64Value",
+    "connections_with_failover_max_tries": "google.protobuf.Int64Value",
     "receive_timeout": "google.protobuf.Int64Value",
     "send_timeout": "google.protobuf.Int64Value",
     "idle_connection_timeout": "google.protobuf.Int64Value",
@@ -81,6 +83,7 @@ Updates the specified ClickHouse user.
     "memory_usage_overcommit_max_wait_microseconds": "google.protobuf.Int64Value",
     "max_network_bandwidth": "google.protobuf.Int64Value",
     "max_network_bandwidth_for_user": "google.protobuf.Int64Value",
+    "max_network_bytes": "google.protobuf.Int64Value",
     "max_temporary_data_on_disk_size_for_query": "google.protobuf.Int64Value",
     "max_temporary_data_on_disk_size_for_user": "google.protobuf.Int64Value",
     "max_concurrent_queries_for_user": "google.protobuf.Int64Value",
@@ -210,7 +213,8 @@ Updates the specified ClickHouse user.
       "execution_time": "google.protobuf.Int64Value"
     }
   ],
-  "generate_password": "google.protobuf.BoolValue"
+  "generate_password": "google.protobuf.BoolValue",
+  "auth_method": "AuthMethod"
 }
 ```
 
@@ -227,7 +231,7 @@ The maximum string length in characters is 50. ||
 Required field. Name of the user to be updated.
 To get the name of the user, use a [UserService.List](/docs/managed-clickhouse/api-ref/grpc/User/list#List) request.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
+The maximum string length in characters is 63. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which attributes of the ClickHouse user should be updated. ||
@@ -248,6 +252,12 @@ New user quotas. ||
 || generate_password | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Generate password using Connection Manager. ||
+|| auth_method | enum **AuthMethod**
+
+User authentication method.
+
+- `AUTH_METHOD_PASSWORD`: Authentication using a password stored in the cluster.
+- `AUTH_METHOD_IAM`: Authentication using an IAM token via the IAM authentication proxy. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission}
@@ -306,6 +316,22 @@ Applies only if the cluster uses sharding and replication. If unsuccessful, seve
 Default value: **1000** (1 second).
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connect_timeout_with_failover_ms). ||
+|| connect_timeout_with_failover_secure | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The timeout in milliseconds for connecting to a remote server for a Distributed table engine, for secure connections.
+
+Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.
+
+Default value: **1000** (1 second).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connect_timeout_with_failover_secure_ms). ||
+|| connections_with_failover_max_tries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum number of connection attempts with each replica for the Distributed table engine.
+
+Default value: **3**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connections_with_failover_max_tries). ||
 || receive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Receive timeout in milliseconds.
@@ -792,14 +818,22 @@ The maximum speed of data exchange over the network in bytes per second for a qu
 
 Default value: **0**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max-network-bandwidth). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bandwidth). ||
 || max_network_bandwidth_for_user | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum speed of data exchange over the network in bytes per second for all concurrently running user queries. **0** means unlimited.
 
 Default value: **0**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max-network-bandwidth-for-user). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bandwidth_for_user). ||
+|| max_network_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Limits the data volume (in bytes) that is received or transmitted over the network when executing a query.
+This setting applies to every individual query.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bytes). ||
 || max_temporary_data_on_disk_size_for_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running queries. **0** means unlimited.
@@ -1483,6 +1517,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 || query_cache_min_query_duration | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Minimum duration in milliseconds a query needs to run for its result to be stored in the query cache.
+(-- api-linter: yc::1701::duration-required=disabled --)
 
 Default value: **0**.
 
@@ -1741,7 +1776,8 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 ||Field | Description ||
 || interval_duration | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Duration of interval for quota in milliseconds. ||
+Duration of interval for quota in milliseconds.
+(-- api-linter: yc::1701::duration-required=disabled --) ||
 || queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The total number of queries. **0** means unlimited. ||

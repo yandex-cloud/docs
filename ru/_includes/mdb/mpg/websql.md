@@ -29,4 +29,4 @@
     
 {% endlist %}
 
-Подробнее о работе с {{ websql-name }} см. в [документации сервиса](../../../websql/operations/index.md).
+Подробнее о работе с {{ websql-name }} читайте в [документации сервиса](../../../websql/operations/index.md).

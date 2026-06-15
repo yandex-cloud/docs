@@ -113,24 +113,24 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with a [subnet](
      
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the directory you created the configuration file in.
+     1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration.
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
   
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` and press **Enter**.
+     1. To confirm resource creation, type `yes` and press **Enter**.
 
 - API {#api}
 
@@ -223,7 +223,7 @@ Your gateway will need a static [public IP address](../../vpc/concepts/address.m
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** option, and specify the VM access credentials:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other OS-reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `usergate-firewall`.
@@ -330,17 +330,17 @@ Your gateway will need a static [public IP address](../../vpc/concepts/address.m
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration. 
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
   1. Deploy the cloud resources.
   
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` and press **Enter**.
+     1. To confirm resource creation, type `yes` and press **Enter**.
 
 - API {#api}
 
@@ -578,24 +578,24 @@ Create a [static route](../../vpc/concepts/routing.md):
 
   1. Make sure your configuration files are correct.
 
-     1. In the command line, navigate to the directory you created the configuration file in.
+     1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
 
         ```hcl
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration. 
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
   1. Deploy the cloud resources.
 
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```hcl
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` and press **Enter**.
+     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
         This will create all the resources you need in the specified folder. You can see their detailed description using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
@@ -613,8 +613,8 @@ To test the firewall, we will create a test web service and check whether we can
 
 ### Set up a test VM {#test-vm-prepare}
 
-1. [Create](../../compute/operations/vm-create/create-linux-vm) a VM from a public Linux image in the `usergate-subnet-{{ region-id }}-d` subnet and enable the [serial console](../../compute/operations/serial-console/index.md) in its settings.
-1. Connect to the VM by running the following [CLI](../../compute/operations/serial-console/connect-cli.md) command:
+1. [Create](../../compute/operations/vm-create/create-linux-vm) a VM from a public Linux image in the `usergate-subnet-{{ region-id }}-d` subnet and enable the [serial console](../../compute/concepts/serial-console.md) in its settings.
+1. [Connect](../../compute/operations/serial-console/connect-ssh.md) to the VM by running the following {{ yandex-cloud }} CLI command:
 
    ```bash
    yc compute connect-to-serial-port --instance-name <VM_name>

@@ -1,6 +1,6 @@
 ---
 title: '{{ PG }} cluster maintenance'
-description: In this guide, you will learn how to view the {{ PG }} cluster’s scheduled and completed maintenance jobs and schedule new maintenance windows.
+description: Follow this guide to view the {{ PG }} cluster’s scheduled and completed maintenance jobs and schedule a maintenance window.
 ---
 
 # {{ PG }} cluster maintenance
@@ -14,7 +14,7 @@ You can manage the [technical maintenance](../concepts/maintenance.md) of a {{ m
 
 To view maintenance jobs with a specific status, click **{{ ui-key.yacloud.mdb.maintenance.label_task-status }}** above the maintenance list and select the status you want from the drop-down menu. You can also find a maintenance job by its ID or job name using the search field above the list.
 
-Click an ID to see how the maintenance job affects cluster availability. Look up **{{ ui-key.yacloud.mdb.maintenance.title_task-details }}** to see how the maintenance job affects users.
+Click an ID to see [how the maintenance job affects cluster availability](../concepts/maintenance.md#impact-on-cluster). Look up **{{ ui-key.yacloud.mdb.maintenance.title_task-details }}** to see how the maintenance job affects users.
 
 ## Getting maintenance-related cluster logs {#maintenance-logs}
 
@@ -137,7 +137,7 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
 
      The timestamp must be in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`. When selecting the `NEXT_AVAILABLE_WINDOW` reschedule type, you do not need to specify `delayed_until`.
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure your request was successful.
 
@@ -202,7 +202,7 @@ If necessary, you can run a maintenance job with the **{{ ui-key.yacloud.mdb.mai
                 }'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -230,7 +230,7 @@ If necessary, you can run a maintenance job with the **{{ ui-key.yacloud.mdb.mai
        yandex.cloud.mdb.postgresql.v1.ClusterService.RescheduleMaintenance
      ```
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure your request was successful.
 
@@ -255,7 +255,7 @@ When you select a new maintenance window, any scheduled maintenance that does no
   1. Click ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
   1. In the window that opens:
      * To allow maintenance at any time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}**, which is also the default option.
-     * To allow weekly maintenance at a specific time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** and specify the weekday and UTC time interval.
+     * To allow weekly maintenance at a specific time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** and specify the weekday and hour in UTC.
 
 - CLI {#cli}
 
@@ -275,7 +275,7 @@ When you select a new maintenance window, any scheduled maintenance that does no
       {{ yc-mdb-pg }} cluster update <cluster_name_or_ID> \
          --maintenance-window type=<maintenance_type>,`
                              `day=<day_of_week>,`
-                             `hour=<sequence_number_of_hour_interval>
+                             `hour=<hour>
       ```
 
       Where `type` is the maintenance type:
@@ -325,7 +325,7 @@ When you select a new maintenance window, any scheduled maintenance that does no
                  "maintenanceWindow": {
                    "weeklyMaintenanceWindow": {
                      "day": "<day_of_week>",
-                     "hour": "<sequence_number_of_hour_interval>"
+                     "hour": "<hour>"
                    }
                  }
                }'
@@ -337,17 +337,15 @@ When you select a new maintenance window, any scheduled maintenance that does no
 
        Here, we provide only one setting.
 
-     * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of these two parameters:
+     * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. In `maintenanceWindow`, provide one of these two parameters:
 
-       * `anytime`: Maintenance takes place at any time.
-       * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
+       * `anytime`: Maintenance can be scheduled for any time.
+       * `weeklyMaintenanceWindow`: Maintenance can only be scheduled for a specific day of week and hour:
 
-         * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-         * `hour`: Sequence number of UTC hour interval, from `1` to `24`.
-           
-           > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+         * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+         * `hour`: UTC hour in `HH` format, from `1` to `24`.
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -377,7 +375,7 @@ When you select a new maintenance window, any scheduled maintenance that does no
              "maintenance_window": {
                "weekly_maintenance_window": {
                  "day": "<day_of_week>",
-                 "hour": "<sequence_number_of_hour_interval>"
+                 "hour": "<hour>"
                }
              }
            }' \
@@ -391,17 +389,15 @@ When you select a new maintenance window, any scheduled maintenance that does no
 
        Here, we provide only one setting.
 
-     * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of these two parameters:
+     * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. In `maintenance_window`, provide one of these two parameters:
 
-       * `anytime`: Maintenance takes place at any time.
-       * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
+       * `anytime`: Maintenance can be scheduled for any time.
+       * `weekly_maintenance_window`: Maintenance can only be scheduled for a specific day of week and hour:
 
-         * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-         * `hour`: Sequence number of UTC hour interval, from `1` to `24`.
-           
-           > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+         * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+         * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure your request was successful.
 

@@ -98,7 +98,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-     О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+     О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
   1. Добавьте в конфигурационный файл три подсети в разные зоны доступности:
 
@@ -186,7 +186,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -207,7 +207,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [instance-type-change](../../_includes/mdb/mch/instance-type-change.md) %}
 
-Минимальное количество ядер для одного хоста {{ ZK }} зависит от суммарного количества ядер хостов {{ CH }}. Подробнее см. в разделе [Сервисы координации](../concepts/coordination-system.md#zk).
+Минимальное количество ядер для одного хоста {{ ZK }} зависит от суммарного количества ядер хостов {{ CH }}. Подробнее в разделе [Сервисы координации](../concepts/coordination-system.md#zk).
 
 {% list tabs group=instructions %}
 
@@ -268,7 +268,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-     О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+     О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
   1. В блоке с конфигурацией {{ ZK }} укажите новый класс хоста, тип диска и размер хранилища.
 
@@ -298,7 +298,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -497,7 +497,7 @@ description: Следуя данной инструкции, вы сможете
 
    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
    1. Удалите хост с типом `{{ ZK }}` из блока `hosts`.
    1. Проверьте корректность настроек.
@@ -508,7 +508,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+   Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 

@@ -76,7 +76,7 @@ description: Use this tutorial to create a Linux VM.
      * `--create-boot-disk`: VM boot disk settings:
          * `auto-delete`: Auto-delete the boot disk together with the VM. See [{#T}](../../concepts/disk.md#autodelete-disks).
          * `image-family`: [Image family](../../concepts/image.md#family), e.g., `centos-7`. This option allows you to install the latest version of the OS from the specified family.
-         * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted boot disk. This is an optional parameter.
+         * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted boot disk. This is an optional setting.
 
            {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
 
@@ -96,7 +96,7 @@ description: Use this tutorial to create a Linux VM.
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the properties of resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      resource "yandex_compute_disk" "boot-disk" {
@@ -150,7 +150,7 @@ description: Use this tutorial to create a Linux VM.
        * `name`: Disk name.
        * `type`: Disk type.
        * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
-       * `size`: Disk size in GB.
+       * `size`: Disk size, in GB.
        * `image_id`: ID of the image to create the VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
 
          {% include [id-info](../../../_includes/compute/id-info.md) %}
@@ -179,7 +179,7 @@ description: Use this tutorial to create a Linux VM.
 
      {% endnote %}
 
-     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -283,7 +283,7 @@ description: Use this tutorial to create a Linux VM.
      * `zoneId`: Availability zone matching the selected subnet.
      * `platformId`: [Platform](../../concepts/vm-platforms.md).
      * `resourcesSpec`: Resources available to the VM. The values must match the selected platform.
-     * `metadata`: In metadata, provide the public key for accessing the VM via SSH. Learn more in [{#T}](../../concepts/vm-metadata.md).
+     * `metadata`: In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
      * `bootDiskSpec`: Boot disk settings. Specify the selected image ID and disk size.
      * `autoDelete`: Auto-delete the boot disk together with the VM. See [{#T}](../../concepts/disk.md#autodelete-disks).
 

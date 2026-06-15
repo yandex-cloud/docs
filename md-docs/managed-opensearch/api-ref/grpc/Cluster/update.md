@@ -169,7 +169,7 @@ Access policy for external services. ||
 || snapshot_management | **[SnapshotManagement](#yandex.cloud.mdb.opensearch.v1.SnapshotManagement)**
 
 Snapshot management configuration ||
-|| audit_log | **[AuditLog](#yandex.cloud.mdb.opensearch.v1.AuditLog)**
+|| audit_log | **[AuditLog](#yandex.cloud.mdb.opensearch.v1.config.AuditLog)**
 
 Audit log settings ||
 |#
@@ -182,6 +182,8 @@ Audit log settings ||
 
 Names of the cluster plugins. ||
 || opensearch_config_2 | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)**
+
+OpenSearch server configuration settings.
 
 Includes only one of the fields `opensearch_config_2`. ||
 || set_keystore_settings[] | **[KeystoreSetting](#yandex.cloud.mdb.opensearch.v1.KeystoreSetting)**
@@ -380,36 +382,40 @@ The minute of the hour at which the backup should be created.
 Acceptable values are 0 to 59, inclusive. ||
 |#
 
-## AuditLog {#yandex.cloud.mdb.opensearch.v1.AuditLog}
+## AuditLog {#yandex.cloud.mdb.opensearch.v1.config.AuditLog}
 
-Audit log settings.
+OpenSearch audit logs settings.
 
 #|
 ||Field | Description ||
 || compliance_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Enable compliance audit logging. ||
+Enables audit logging on changes to a security index, such as changes to roles mappings and role creation or deletion.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/security/audit-logs/index/#audit-user-account-manipulation). ||
 || log_request_body | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Log request body in audit logs. ||
+Includes the body of the request (if available) for both REST and the transport layer.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/security/audit-logs/index/#disable-request-body-logging). ||
 || log_search_queries | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Log search queries in audit logs. ||
+Enables indices data read requests logging. ||
 || log_data_modifications | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Log data modifications in audit logs. ||
+Enables indices data write request logging. ||
 || log_index_metadata_access | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Log index metadata access in audit logs. ||
+Enables indices metadata requests logging. ||
 || log_monitoring_checks | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Log monitoring checks in audit logs. ||
+Enables monitoring data requests logging. ||
 || log_index_maintenance | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Log index maintenance operations in audit logs. ||
+Enables indices maintenance requests logging, such as indices refreshes, flushes and merges. ||
 || log_backup_operations | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Log backup operations in audit logs. ||
+Enables snapshots and repositories requests logging. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow}

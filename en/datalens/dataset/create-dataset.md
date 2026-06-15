@@ -79,8 +79,8 @@ You can use SQL queries for database sources only.
 
      {% note warning %}
 
-     * The maximum number of tables in a single dataset is 32.
-     * The maximum number of fields in a single dataset is 1,200.
+     * The maximum number of tables per dataset is 32.
+     * The maximum number of fields per dataset is 1,200.
 
      {% endnote %}
 
@@ -331,7 +331,13 @@ Parameters added at the dataset level are available in all charts created based 
 
    
    * **Allow use in source settings**. Enable the option if you plan to use the parameter to access the [dataset source](./parametrization.md).
-   * **Value validation**. This setting will be available if you enable the **Allow use in source settings** option. The default value vallidation is as follows: `^[a-zA-Z0-9а-яА-ЯёЁ_\s\(\)\.\'\=\-\+\*\/\,\<\>\!]+$`. You can customize validation with a Python regular expression.
+   * **Value validation**. This setting will be available if you enable **Allow use in source settings**. The default value validation is as follows: `[a-zA-Z0-9]*`. You can customize validation with a Python regular expression. Set the **Value validation** field to `Regular expression` and enter one in the field below.
+
+     {% note warning %}
+
+     Regular expressions can compromise your system security: they allow injecting unwanted code into queries from the chart.
+
+     {% endnote %}
 
 
 1. Click **Add**.
@@ -390,8 +396,8 @@ Before assigning access permissions to a user, [add](../security/add-new-user.md
 
      {% include [datalens-workbooks-collections-access-note](../../_includes/datalens/operations/datalens-workbooks-collections-access-note.md) %}
 
-  1. (Optional) Write a comment for the user you are granting permissions to.
-  1. Specify the appropriate permissions and click **Add**.
+  1. Optionally, write a comment for the user you are granting permissions to.
+  1. Specify the required permissions and click **Add**.
 
      {% include [multi-access-note](../../_includes/datalens/datalens-multi-access-note.md) %}
 
