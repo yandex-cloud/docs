@@ -42,7 +42,7 @@ description: Следуя данной инструкции, вы сможете
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
-    1. В разделе **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** выберите нужный сервисный аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md). Подробнее о настройке сервисного аккаунта см. в разделе [{#T}](s3-access.md).
+    1. В разделе **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** выберите нужный сервисный аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md). Подробнее о настройке сервисного аккаунта в разделе [{#T}](s3-access.md).
 
 {% endlist %}
 
@@ -66,9 +66,9 @@ description: Следуя данной инструкции, вы сможете
 
 Вы также можете [изменить класс хостов у отдельного шарда](shards.md#shard-update).
 
-Класс хостов влияет на количество оперативной памяти, доступной для использования {{ CH }}. Подробнее см. в разделе [Управление памятью](../concepts/memory-management.md).
+Класс хостов влияет на количество оперативной памяти, доступной для использования {{ CH }}. Подробнее в разделе [Управление памятью](../concepts/memory-management.md).
 
-Минимальное количество ядер для одного хоста {{ ZK }} зависит от суммарного количества ядер хостов {{ CH }}. Подробнее см. в разделе [Сервисы координации](../concepts/coordination-system.md#zk).
+Минимальное количество ядер для одного хоста {{ ZK }} зависит от суммарного количества ядер хостов {{ CH }}. Подробнее в разделе [Сервисы координации](../concepts/coordination-system.md#zk).
 
 {% list tabs group=instructions %}
 
@@ -127,7 +127,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Измените в описании кластера {{ mch-name }} значение параметра `resource_preset_id` в блоках `clickhouse.resources` и `zookeeper.resources` для хостов {{ CH }} и {{ ZK }} соответственно:
 
@@ -157,7 +157,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -313,7 +313,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% note info %}
 
-В кластерах с поддержкой {{ CK }} хосты {{ ZK }} не используются. Подробнее см. в разделе [Сервисы координации](../concepts/coordination-system.md).
+В кластерах с поддержкой {{ CK }} хосты {{ ZK }} не используются. Подробнее в разделе [Сервисы координации](../concepts/coordination-system.md).
 
 {% endnote %}
 
@@ -387,7 +387,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Измените в описании кластера {{ mch-name }} значение параметра `disk_size` в блоке `clickhouse.resources` или `zookeeper.resources` для хостов {{ CH }} и {{ ZK }} соответственно:
 
@@ -417,7 +417,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -703,7 +703,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. {% include [Enable SQL user management with Terraform](../../_includes/mdb/mch/terraform/sql-management-users.md) %}
 
@@ -717,7 +717,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -896,12 +896,12 @@ description: Следуя данной инструкции, вы сможете
 
     * `--backup-retain-period-days` – срок хранения автоматических резервных копий (в днях).
 
-    * `--datalens-access` — разрешает доступ из {{ datalens-name }}. Значение по умолчанию — `false`. Подробнее о настройке подключения см. в разделе [Подключение из {{ datalens-name }}](datalens-connect.md).
+    * `--datalens-access` — разрешает доступ из {{ datalens-name }}. Значение по умолчанию — `false`. Подробнее о настройке подключения в разделе [Подключение из {{ datalens-name }}](datalens-connect.md).
 
     
     * `--metrika-access` — разрешает [импорт данных из AppMetrika в кластер](https://appmetrica.yandex.ru/docs/common/cloud/about.html). Значение по умолчанию — `false`.
 
-    * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
+    * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
 
     * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
@@ -928,7 +928,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Чтобы изменить время начала резервного копирования, добавьте к описанию кластера {{ mch-name }} блок `backup_window_start`.
 
@@ -988,7 +988,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -1273,7 +1273,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](./cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](./cluster-create.md).
 
     1. Измените или добавьте в описании кластера {{ mch-name }} значение параметра `folder_id`:
 
@@ -1292,7 +1292,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -1392,7 +1392,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Измените значение параметра `security_group_ids` в описании кластера:
 
@@ -1411,7 +1411,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 

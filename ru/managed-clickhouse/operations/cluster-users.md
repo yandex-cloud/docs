@@ -150,7 +150,7 @@ description: Из статьи вы узнаете, как управлять п
      1. Настройте [{{ CH }}](../concepts/settings-list.md#user-level-settings) в разделе **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }} → Settings**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-button_add }}**.
 
-  См. также: [пример создания пользователя с правами «только чтение»](#example-create-readonly-user).
+  Пример: [создание пользователя с правами «только чтение»](#example-create-readonly-user).
 
 - CLI {#cli}
 
@@ -196,14 +196,14 @@ description: Из статьи вы узнаете, как управлять п
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  См. также: [пример создания пользователя с правами «только чтение»](#example-create-readonly-user).
+  Пример: [создание пользователя с правами «только чтение»](#example-create-readonly-user).
 
 
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Добавьте ресурс `yandex_mdb_clickhouse_user`:
 
@@ -257,7 +257,7 @@ description: Из статьи вы узнаете, как управлять п
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
 
 
 - REST API {#api}
@@ -326,7 +326,7 @@ description: Из статьи вы узнаете, как управлять п
 
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/create.md#responses).
 
-    См. также: [пример создания пользователя с правами «только чтение»](#example-create-readonly-user).
+    Пример: [создание пользователя с правами «только чтение»](#example-create-readonly-user).
 
 - gRPC API {#grpc-api}
 
@@ -401,7 +401,7 @@ description: Из статьи вы узнаете, как управлять п
 
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation).
 
-    См. также: [пример создания пользователя с правами «только чтение»](#example-create-readonly-user).
+    Пример: [создание пользователя с правами «только чтение»](#example-create-readonly-user).
 
 - SQL {#sql}
 
@@ -414,7 +414,7 @@ description: Из статьи вы узнаете, как управлять п
 
       {% include [sql-user-name-and-password-limits](../../_includes/mdb/mch/note-sql-info-user-name-and-pass-limits.md) %}
 
-  Подробнее о создании пользователей см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/user).
+  Подробнее о создании пользователей — в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/user).
 
 {% endlist %}
 
@@ -478,7 +478,7 @@ description: Из статьи вы узнаете, как управлять п
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Найдите ресурс `yandex_mdb_clickhouse_user` нужного пользователя.
 
@@ -515,7 +515,7 @@ description: Из статьи вы узнаете, как управлять п
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
 
 
 - REST API {#api}
@@ -670,7 +670,7 @@ description: Из статьи вы узнаете, как управлять п
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Измените значение поля `admin_password`:
 
@@ -692,7 +692,7 @@ description: Из статьи вы узнаете, как управлять п
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
 
 
 - REST API {#api}
@@ -868,7 +868,7 @@ description: Из статьи вы узнаете, как управлять п
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Найдите ресурс `yandex_mdb_clickhouse_user` нужного пользователя.
 
@@ -933,7 +933,7 @@ description: Из статьи вы узнаете, как управлять п
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
 
 
 - REST API {#api}
@@ -1117,7 +1117,7 @@ description: Из статьи вы узнаете, как управлять п
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Удалите ресурс `yandex_mdb_clickhouse_user` с описанием нужного пользователя.
 
@@ -1129,7 +1129,7 @@ description: Из статьи вы узнаете, как управлять п
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
 
 
 - REST API {#api}
@@ -1189,7 +1189,7 @@ description: Из статьи вы узнаете, как управлять п
       DROP USER <имя_пользователя>;
       ```
 
-  Подробнее об удалении объектов см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/drop).
+  Подробнее об удалении объектов — в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/drop).
 
 {% endlist %}
 
@@ -1246,7 +1246,7 @@ description: Из статьи вы узнаете, как управлять п
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Добавьте ресурс `yandex_mdb_clickhouse_user`.
 

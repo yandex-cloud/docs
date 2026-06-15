@@ -30,7 +30,7 @@ Follow the vendor guide to install the AV solution.
 
 #### 3.2 The serial console is either controlled or not used {#serial-console}
 
-On VMs, access to the serial console is disabled by default. For risks of using the serial console, see [{#T}](../../../compute/operations/serial-console/index.md) in the {{ compute-full-name }} documentation.
+On VMs, access to the serial console is disabled by default. For risks of using the serial console, see [{#T}](../../../compute/concepts/serial-console.md) in the {{ compute-full-name }} documentation.
 
 When working with a serial console:
 

@@ -5,6 +5,8 @@ description: To get started with {{ iot-name }}, create an X.509 certificate and
 
 # Getting started with {{ iot-name }} brokers
 
+{% include [iot-sunset-warning](../_includes/iot-core/sunset-warning.md) %}
+
 To get started with {{ iot-name }}:
 
 1. [Create an X.509 certificate](#create-ca).
@@ -56,14 +58,14 @@ If you have a certificate, add it to the broker after [creation](#create-broker)
 
       * To add a file:
 
-         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
+         1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
          1. Click **Attach file**.
          1. Select the file with the public key of the certificate and click **Open**.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
       * To add text:
 
-         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
+         1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
          1. Paste the certificate's public key to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 

@@ -1,5 +1,7 @@
 # Managing registry passwords
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 For devices and registries to begin exchanging data and commands, you need to [log in](../../concepts/authorization.md). This section describes how to manage registry passwords for the appropriate authorization method.
 
 {% include [pass-priority-note](../../../_includes/iot-core/pass-priority-note.md) %}
@@ -69,7 +71,7 @@ You can add a password to an already created registry or set it when creating a 
 
   To add a password to a registry created using {{ TF }}:
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
      * `yandex_iot_core_registry`: Registry parameters:
        * `name`: Registry name.
@@ -91,7 +93,7 @@ You can add a password to an already created registry or set it when creating a 
       }
       ```
 
-      For more information about `yandex_iot_core_registry` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
+      For more information about `yandex_iot_core_registry` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -99,7 +101,7 @@ You can add a password to an already created registry or set it when creating a 
       terraform validate
       ```
      
-      If the configuration is correct, you will get this message:
+      If the configuration is valid, you will get this message:
      
       ```bash
       Success! The configuration is valid.
@@ -111,8 +113,8 @@ You can add a password to an already created registry or set it when creating a 
       terraform plan
       ```
   
-      You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-  1. Apply the changes:
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply
@@ -308,7 +310,7 @@ You can add a password to an already created registry or set it when creating a 
       }
       ```
 
-      For more information about `yandex_iot_core_registry` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
+      For more information about `yandex_iot_core_registry` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -316,7 +318,7 @@ You can add a password to an already created registry or set it when creating a 
       terraform validate
       ```
      
-      If the configuration is correct, you will get this message:
+      If the configuration is valid, you will get this message:
      
       ```bash
       Success! The configuration is valid.
@@ -328,8 +330,8 @@ You can add a password to an already created registry or set it when creating a 
       terraform plan
       ```
   
-      You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-  1. Apply the changes:
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply

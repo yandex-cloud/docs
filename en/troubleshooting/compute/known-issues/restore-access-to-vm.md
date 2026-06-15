@@ -22,4 +22,4 @@ If the above method did not solve the issue, follow these steps:
 
 If you previously set a password for the Linux user on your VM, you can use the serial console. For detailed information, follow [this guide](../../../compute/operations/serial-console/index.md).
 
-After enabling the serial console, connect to the VM in question. We recommend [connecting through the CLI](../../../compute/operations/serial-console/connect-cli.md).
+After enabling the serial console, connect to the VM in question. We recommend [connecting through the CLI](../../../compute/operations/serial-console/connect-ssh.md#connect-with-yc-cli).

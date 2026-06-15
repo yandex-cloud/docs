@@ -389,19 +389,19 @@ Cоздайте два [сервисных аккаунта](../../iam/concepts/
             uses: yc-actions/yc-iam-token@v1
             with:
               # в secrets храните JSON ключ авторизованного ключа SA
-              yc-sa-json-credentials: $not_var{{ secrets.YC_SA_JSON_CREDENTIALS }}
+              yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
 
           - name: Start Review Workflow
             uses: fjogeleit/http-request-action@v1
             with:
               url: 'https://serverless-workflows.api.cloud.yandex.net/workflows/v1/execution/start'
               method: 'POST'
-              bearerToken: "$not_var{{ steps.issue-iam-token.outputs.token }}"
+              bearerToken: "${{ steps.issue-iam-token.outputs.token }}"
               data: |
                 {
                   "workflowId": "<идентификатор_рабочего_процесса>",
                   "input": {
-                    "inputJson": "$not_var{{ github.event.pull_request.number }}"
+                    "inputJson": "${{ github.event.pull_request.number }}"
                   }
                 }
     ```

@@ -5,6 +5,22 @@ description: This section contains the {{ api-gw-name }} release notes.
 
 # {{ api-gw-full-name }} release notes
 
+## April 2026 {#april-2026}
+
+### Fixes and improvements {#fixes-improvements}
+
+* Fixed the processing of URLs with special characters in the `x-yc-apigateway-integration:http` extension: objects in query parameters are now correctly proxied to the target backend without distortions.
+* The `batch_cutoff` parameter for triggers in {{ TF }} is now optional. `terraform plan` does not suggest null values for grouping settings anymore.
+
+## March 2026 {#march-2026}
+
+### Fixes and improvements {#fixes-improvements}
+
+* Fixed the service account permission check in specification extensions: the `iam.serviceAccounts.tokenCreator` role is now processed correctly, not just the `iam.serviceAccounts.user` role.
+* Fixed {{ at-name }} audit logs for the API gateway update operation (`UpdateApiGateway`): the `details` and `request_parameters` fields now contain up-to-date values as of the end of the operation.
+* Fixed the {{ container-registry-name }} trigger set off by changes in Docker image tags: now the trigger’s message communicates the name of the tag you are adding or deleting.
+* Updated the {{ at-name }} audit logs of {{ objstorage-name }} and {{ yds-name }} triggers: fixed proto-validation errors in the `request_parameters.rule` and `details.trigger_rule` fields.
+
 ## February 2026 {#february-2026}
 
 ### Updates {#updates}

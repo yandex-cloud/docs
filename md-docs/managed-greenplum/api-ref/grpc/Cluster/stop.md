@@ -220,6 +220,113 @@ The maximum string length in characters is 50. ||
         }
       },
       // end of the list of possible fields
+      "dbms_config_set": {
+        "effective_config": {
+          "max_connections": "google.protobuf.Int64Value",
+          "max_slot_wal_keep_size": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_segment": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_query": "google.protobuf.Int64Value",
+          "gp_workfile_limit_files_per_query": "google.protobuf.Int64Value",
+          "max_prepared_transactions": "google.protobuf.Int64Value",
+          "gp_workfile_compression": "google.protobuf.BoolValue",
+          "max_statement_mem": "google.protobuf.Int64Value",
+          "log_statement": "LogStatement",
+          "log_connections": "google.protobuf.BoolValue",
+          "log_disconnections": "google.protobuf.BoolValue",
+          "log_hostname": "google.protobuf.BoolValue",
+          "log_error_verbosity": "LogErrorVerbosity",
+          "log_min_duration_statement": "google.protobuf.Int64Value",
+          "log_min_messages": "LogLevelMessage",
+          "log_statement_stats": "google.protobuf.BoolValue",
+          "master_shared_buffers": "google.protobuf.Int64Value",
+          "segment_shared_buffers": "google.protobuf.Int64Value",
+          "max_locks_per_transaction": "google.protobuf.Int64Value",
+          "gp_enable_global_deadlock_detector": "google.protobuf.BoolValue",
+          "gp_global_deadlock_detector_period": "google.protobuf.Int64Value",
+          "gp_max_slices": "google.protobuf.Int64Value",
+          "gp_cached_segworkers_threshold": "google.protobuf.Int64Value",
+          "lock_timeout": "google.protobuf.Int64Value",
+          "idle_in_transaction_session_timeout": "google.protobuf.Int64Value",
+          "runaway_detector_activation_percent": "google.protobuf.Int64Value",
+          "gp_vmem_protect_segworker_cache_limit": "google.protobuf.Int64Value",
+          "gp_enable_zstd_memory_accounting": "google.protobuf.BoolValue",
+          "gp_max_plan_size": "google.protobuf.Int64Value",
+          "gp_autostats_mode": "GPAutostatsMode",
+          "gp_autostats_on_change_threshold": "google.protobuf.Int64Value",
+          "gp_resource_group_memory_limit": "google.protobuf.DoubleValue",
+          "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue"
+        },
+        "user_config": {
+          "max_connections": "google.protobuf.Int64Value",
+          "max_slot_wal_keep_size": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_segment": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_query": "google.protobuf.Int64Value",
+          "gp_workfile_limit_files_per_query": "google.protobuf.Int64Value",
+          "max_prepared_transactions": "google.protobuf.Int64Value",
+          "gp_workfile_compression": "google.protobuf.BoolValue",
+          "max_statement_mem": "google.protobuf.Int64Value",
+          "log_statement": "LogStatement",
+          "log_connections": "google.protobuf.BoolValue",
+          "log_disconnections": "google.protobuf.BoolValue",
+          "log_hostname": "google.protobuf.BoolValue",
+          "log_error_verbosity": "LogErrorVerbosity",
+          "log_min_duration_statement": "google.protobuf.Int64Value",
+          "log_min_messages": "LogLevelMessage",
+          "log_statement_stats": "google.protobuf.BoolValue",
+          "master_shared_buffers": "google.protobuf.Int64Value",
+          "segment_shared_buffers": "google.protobuf.Int64Value",
+          "max_locks_per_transaction": "google.protobuf.Int64Value",
+          "gp_enable_global_deadlock_detector": "google.protobuf.BoolValue",
+          "gp_global_deadlock_detector_period": "google.protobuf.Int64Value",
+          "gp_max_slices": "google.protobuf.Int64Value",
+          "gp_cached_segworkers_threshold": "google.protobuf.Int64Value",
+          "lock_timeout": "google.protobuf.Int64Value",
+          "idle_in_transaction_session_timeout": "google.protobuf.Int64Value",
+          "runaway_detector_activation_percent": "google.protobuf.Int64Value",
+          "gp_vmem_protect_segworker_cache_limit": "google.protobuf.Int64Value",
+          "gp_enable_zstd_memory_accounting": "google.protobuf.BoolValue",
+          "gp_max_plan_size": "google.protobuf.Int64Value",
+          "gp_autostats_mode": "GPAutostatsMode",
+          "gp_autostats_on_change_threshold": "google.protobuf.Int64Value",
+          "gp_resource_group_memory_limit": "google.protobuf.DoubleValue",
+          "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue"
+        },
+        "default_config": {
+          "max_connections": "google.protobuf.Int64Value",
+          "max_slot_wal_keep_size": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_segment": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_query": "google.protobuf.Int64Value",
+          "gp_workfile_limit_files_per_query": "google.protobuf.Int64Value",
+          "max_prepared_transactions": "google.protobuf.Int64Value",
+          "gp_workfile_compression": "google.protobuf.BoolValue",
+          "max_statement_mem": "google.protobuf.Int64Value",
+          "log_statement": "LogStatement",
+          "log_connections": "google.protobuf.BoolValue",
+          "log_disconnections": "google.protobuf.BoolValue",
+          "log_hostname": "google.protobuf.BoolValue",
+          "log_error_verbosity": "LogErrorVerbosity",
+          "log_min_duration_statement": "google.protobuf.Int64Value",
+          "log_min_messages": "LogLevelMessage",
+          "log_statement_stats": "google.protobuf.BoolValue",
+          "master_shared_buffers": "google.protobuf.Int64Value",
+          "segment_shared_buffers": "google.protobuf.Int64Value",
+          "max_locks_per_transaction": "google.protobuf.Int64Value",
+          "gp_enable_global_deadlock_detector": "google.protobuf.BoolValue",
+          "gp_global_deadlock_detector_period": "google.protobuf.Int64Value",
+          "gp_max_slices": "google.protobuf.Int64Value",
+          "gp_cached_segworkers_threshold": "google.protobuf.Int64Value",
+          "lock_timeout": "google.protobuf.Int64Value",
+          "idle_in_transaction_session_timeout": "google.protobuf.Int64Value",
+          "runaway_detector_activation_percent": "google.protobuf.Int64Value",
+          "gp_vmem_protect_segworker_cache_limit": "google.protobuf.Int64Value",
+          "gp_enable_zstd_memory_accounting": "google.protobuf.BoolValue",
+          "gp_max_plan_size": "google.protobuf.Int64Value",
+          "gp_autostats_mode": "GPAutostatsMode",
+          "gp_autostats_on_change_threshold": "google.protobuf.Int64Value",
+          "gp_resource_group_memory_limit": "google.protobuf.DoubleValue",
+          "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue"
+        }
+      },
       "pool": {
         "effective_config": {
           "mode": "PoolMode",
@@ -703,7 +810,14 @@ Delay time for the maintenance operation. ||
 ||Field | Description ||
 || greenplum_config_set_6 | **[GreenplumConfigSet6](#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6)**
 
-Includes only one of the fields `greenplum_config_set_6`. ||
+Includes only one of the fields `greenplum_config_set_6`.
+
+Deprecated: use dbms_config_set instead
+
+Configuration set for the Greenplum Database. ||
+|| dbms_config_set | **[DBMSConfigSet](#yandex.cloud.mdb.greenplum.v1.DBMSConfigSet)**
+
+Configuration set for the Greenplum & Cloudberry. ||
 || pool | **[ConnectionPoolerConfigSet](#yandex.cloud.mdb.greenplum.v1.ConnectionPoolerConfigSet)**
 
 Odyssey® pool settings. ||
@@ -949,6 +1063,249 @@ https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/
 - `ERROR`
 - `FATAL`
 - `PANIC` ||
+|#
+
+## DBMSConfigSet {#yandex.cloud.mdb.greenplum.v1.DBMSConfigSet}
+
+#|
+||Field | Description ||
+|| effective_config | **[DBMSConfig](#yandex.cloud.mdb.greenplum.v1.DBMSConfig)**
+
+Required field. Effective settings for a Greenplum/Cloudberry (a combination of settings defined
+in `user_config` and `default_config`). ||
+|| user_config | **[DBMSConfig](#yandex.cloud.mdb.greenplum.v1.DBMSConfig)**
+
+User-defined settings for a Greenplum/Cloudberry. ||
+|| default_config | **[DBMSConfig](#yandex.cloud.mdb.greenplum.v1.DBMSConfig)**
+
+Default configuration for a Greenplum/Cloudberry. ||
+|#
+
+## DBMSConfig {#yandex.cloud.mdb.greenplum.v1.DBMSConfig}
+
+#|
+||Field | Description ||
+|| max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum number of concurrent connections to the database server.
+https://cloudberry.apache.org/docs/config-params-guc-list/#max_connections
+
+Acceptable values are 50 to 1000, inclusive. ||
+|| max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Sets the maximum size in megabytes of Write-Ahead Logging (WAL) files on disk per segment instance that can be reserved
+when Cloudberry streams data to the mirror segment instance or standby coordinator to keep it synchronized
+with the corresponding primary segment instance or coordinator.
+https://www.postgresql.org/docs/14/runtime-config-replication.html#GUC-MAX-SLOT-WAL-KEEP-SIZE
+
+Acceptable values are 0 to 214748364800, inclusive. ||
+|| gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
+The default value is 0, which means a limit is not enforced.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment
+
+The minimum value is 0. ||
+|| gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
+The default value is 0, which means a limit is not enforced.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query
+
+Acceptable values are 0 to 1099511627776, inclusive. ||
+|| gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
+Spill files are created when executing a query that requires more memory than it is allocated.
+The current query is terminated when the limit is exceeded.
+Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query
+Default value is 10000
+
+Acceptable values are 0 to 100000, inclusive. ||
+|| max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Sets the maximum number of transactions that can be in the "prepared" state simultaneously
+https://www.postgresql.org/docs/14/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS
+
+Acceptable values are 50 to 10000, inclusive. ||
+|| gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression ||
+|| max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high.
+Taking into account the configuration of a single segment host, calculate max_statement_mem as follows:
+(seghost_physical_memory) / (average_number_concurrent_queries)
+When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-config_params-guc-list.html#max_statement_mem
+Default value is 2097152000 (2000MB)
+
+Acceptable values are 134217728 to 1099511627776, inclusive. ||
+|| log_statement | enum **LogStatement**
+
+Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands.
+MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM.
+PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type.
+https://www.postgresql.org/docs/14/runtime-config-logging.html#GUC-LOG-STATEMENT
+Default value is ddl
+
+- `NONE`: None statements are logged.
+- `DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.
+- `MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.
+- `ALL`: Logs all statements. ||
+|| log_connections | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+This outputs a line to the server log detailing each successful connection. Some client programs, like psql,
+attempt to connect twice while determining if a password is required, so duplicate "connection received" messages
+do not always indicate a problem.
+https://www.postgresql.org/docs/14/runtime-config-logging.html#GUC-LOG-CONNECTIONS ||
+|| log_disconnections | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+This outputs a line in the server log at termination of a client session, and includes the duration of the session.
+https://www.postgresql.org/docs/14/runtime-config-logging.html#GUC-LOG-DISCONNECTIONS ||
+|| log_hostname | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+By default, connection log messages only show the IP address of the connecting host.
+Turning on this option causes logging of the host name as well. Note that depending on your host name
+resolution setup this might impose a non-negligible performance penalty.
+https://www.postgresql.org/docs/14/runtime-config-logging.html#GUC-LOG-HOSTNAME ||
+|| log_error_verbosity | enum **LogErrorVerbosity**
+
+Controls the amount of detail written in the server log for each message that is logged.
+https://www.postgresql.org/docs/14/runtime-config-logging.html#GUC-LOG-ERROR-VERBOSITY
+
+- `TERSE`
+- `DEFAULT`
+- `VERBOSE` ||
+|| log_min_duration_statement | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Logs the statement and its duration on a single log line if its duration is greater than or equal
+to the specified number of milliseconds. Setting this to 0 will print all statements and their durations.
+-1 deactivates the feature. For example, if you set it to 250 then all SQL statements that run 250ms or longer will be logged.
+Enabling this option can be useful in tracking down unoptimized queries in your applications.
+https://www.postgresql.org/docs/14/runtime-config-logging.html#GUC-LOG-MIN-DURATION-STATEMENT ||
+|| log_min_messages | enum **LogLevelMessage**
+
+Controls which message levels are written to the server log.
+Each level includes all the levels that follow it. The later the level, the fewer messages are sent to the log.
+https://www.postgresql.org/docs/14/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES
+
+- `DEBUG5`
+- `DEBUG4`
+- `DEBUG3`
+- `DEBUG2`
+- `DEBUG1`
+- `INFO`
+- `NOTICE`
+- `WARNING`
+- `ERROR`
+- `FATAL`
+- `PANIC` ||
+|| log_statement_stats | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+For each query, write total performance statistics of the query parser, planner, and executor to the server log.
+This is a crude profiling instrument.
+https://www.postgresql.org/docs/14/runtime-config-statistics.html#RUNTIME-CONFIG-STATISTICS-MONITOR ||
+|| master_shared_buffers | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Sets the amount of memory a Cloudberry Database coordinator instance uses for shared memory buffers.
+https://www.postgresql.org/docs/14/runtime-config-resource.html#GUC-SHARED-BUFFERS
+
+The minimum value is 1048576. ||
+|| segment_shared_buffers | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Sets the amount of memory a Cloudberry Database segment instance uses for shared memory buffers.
+https://www.postgresql.org/docs/14/runtime-config-resource.html#GUC-SHARED-BUFFERS
+
+The minimum value is 1048576. ||
+|| max_locks_per_transaction | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The shared lock table is created with room to describe locks on max_locks_per_transaction * (max_connections + max_prepared_transactions) objects,
+so no more than this many distinct objects can be locked at any one time.
+This is not a hard limit on the number of locks taken by any one transaction, but rather a maximum average value.
+https://www.postgresql.org/docs/14/runtime-config-locks.html#GUC-MAX-LOCKS-PER-TRANSACTION
+
+Acceptable values are 128 to 2048, inclusive. ||
+|| gp_enable_global_deadlock_detector | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Controls whether the Cloudberry Database Global Deadlock Detector is enabled to manage concurrent UPDATE and DELETE operations on heap tables to improve performance. See Inserting, Updating, and Deleting Datain the Cloudberry Database Administrator Guide. The default is off, the Global Deadlock Detector is deactivated.
+If the Global Deadlock Detector is deactivated (the default), Cloudberry Database runs concurrent update and delete operations on a heap table serially.
+If the Global Deadlock Detector is enabled, concurrent updates are permitted and the Global Deadlock Detector determines when a deadlock exists, and breaks the deadlock by cancelling one or more backend processes associated with the youngest transaction(s) involved.
+https://cloudberry.apache.org/docs/operate-with-data/transactional-concurrency-control#global-deadlock-detector ||
+|| gp_global_deadlock_detector_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Specifies the executing interval (in seconds) of the global deadlock detector background worker process.
+https://cloudberry.apache.org/docs/operate-with-data/transactional-concurrency-control#global-deadlock-detector
+
+Acceptable values are 5 to 2147483647, inclusive. ||
+|| gp_max_slices | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Max amount of slice-processes for one query in one segment.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_max_slices
+
+Acceptable values are 10 to 100, inclusive. ||
+|| gp_cached_segworkers_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Define amount of working processes in segment, that keeping in warm cash after end of query for usage again in next queries.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_cached_segworkers_threshold
+
+Acceptable values are 1 to 10, inclusive. ||
+|| lock_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Max time (in ms) which query will wait lock free on object
+https://www.postgresql.org/docs/14/runtime-config-client.html#GUC-LOCK-TIMEOUT
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| idle_in_transaction_session_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Max time (in ms) which session can idle in open transaction
+https://postgrespro.ru/docs/postgrespro/current/runtime-config-client#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| runaway_detector_activation_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Percent of utilized Cloudberry Database vmem that triggers the termination of queries.
+https://cloudberry.apache.org/docs/performance/manage-resources-using-resource-groups#configure-automatic-query-termination-based-on-memory-usage
+
+Acceptable values are 0 to 100, inclusive. ||
+|| gp_vmem_protect_segworker_cache_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Set memory limit (in MB) for working process. If a query executor process consumes more than this configured amount, then the process will not be cached for use in subsequent queries after the process completes.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_vmem_protect_segworker_cache_limit
+
+Acceptable values are 0 to 4096, inclusive. ||
+|| gp_enable_zstd_memory_accounting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Forces ZSTD lib use Greenplum memory allocation system. ||
+|| gp_max_plan_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Specifies the total maximum uncompressed size of a query execution plan multiplied by the number of Motion operators (slices) in the plan.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_max_plan_size
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| gp_autostats_mode | enum **GPAutostatsMode**
+
+Specifies the mode for triggering automatic statistics collection after DML.
+https://cloudberry.apache.org/docs/performance/update-stats-using-analyze#configure-automatic-statistics-collection
+
+- `GP_AUTOSTATS_MODE_NONE`: Disable auto-ANALYZE completely. Stats will be updated only via manual ANALYZE calls.
+- `GP_AUTOSTATS_MODE_ON_CHANGE`: Run ANALYZE when data changes exceed threshold (e.g., after INSERT/UPDATE/DELETE).
+- `GP_AUTOSTATS_MODE_ON_NO_STATS`: Run ANALYZE only if no stats exist (e.g., new or cleared table). ||
+|| gp_autostats_on_change_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Specifies the threshold for automatic statistics collection when gp_autostats_mode is set to on_change.
+https://cloudberry.apache.org/docs/performance/update-stats-using-analyze#configure-automatic-statistics-collection
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| gp_resource_group_memory_limit | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+
+Identifies the maximum percentage of system memory resources to allocate to resource groups on each Greenplum Database segment node.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_resource_group_memory_limit ||
+|| gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting ||
 |#
 
 ## ConnectionPoolerConfigSet {#yandex.cloud.mdb.greenplum.v1.ConnectionPoolerConfigSet}

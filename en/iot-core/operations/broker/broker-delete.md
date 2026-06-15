@@ -5,6 +5,8 @@ description: In this tutorial, you will learn how to delete a broker in {{ iot-f
 
 # Deleting a broker
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 {% include [note-pp](../../../_includes/iot-core/note-pp.md) %}
 
 To access a [broker](../../concepts/index.md#broker), use its unique ID or name. For info on how to get the unique broker ID or name, see [{#T}](broker-list.md).
@@ -66,7 +68,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
         }
         ```
 
-        For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+        For more information about `yandex_iot_core_broker` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
     1. In the command line, change to the folder where you edited the configuration file.
     1. Make sure the configuration file is correct using this command:
 
@@ -74,7 +76,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
         terraform validate
         ```
        
-        If the configuration is correct, you will get this message:
+        If the configuration is valid, you will get this message:
        
         ```bash
         Success! The configuration is valid.
@@ -86,8 +88,8 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
         terraform plan
         ```
     
-        You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
-    1. Apply the changes:
+        You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+    1. Apply the configuration changes:
 
         ```bash
         terraform apply
@@ -95,7 +97,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
        
     1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-        You can check the updates in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+        You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
         ```bash
         yc iot broker list

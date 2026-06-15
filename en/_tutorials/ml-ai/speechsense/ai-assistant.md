@@ -17,13 +17,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-The user must [have](../../../billing/security/index.md#set-role) the `billing.accounts.editor`, `billing.accounts.admin`, or `billing.accounts.owner` role for the billing account to manage it.
+The user must have the `billing.accounts.editor`, `billing.accounts.admin`, or `billing.accounts.owner` role [assigned](../../../billing/security/index.md#set-role) to the billing account to manage it.
 
 {% include [note-managing-roles](../../../_includes/mdb/note-managing-roles.md) %}
 
 ### Required paid resources {#paid-resources}
 
-* {{ speechsense-name }}: Number of characters in each text conversation (see [{{ speechsense-name }} pricing]({{ link-docs-ai }}speechsense/pricing)).
+* {{ speechsense-name }}: Number of characters in each chat transcript and conversation analysis by your AI assistant (see [{{ speechsense-name }} pricing]({{ link-docs-ai }}/speechsense/pricing)).
 
 ## Set up your infrastructure {#infrastructure-prepare}
 
@@ -34,9 +34,9 @@ The user must [have](../../../billing/security/index.md#set-role) the `billing.a
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+    1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-    1. Name the [service account](../../../iam/concepts/users/service-accounts.md), e.g., `speechsense`.
+    1. Enter a name for the [service account](../../../iam/concepts/users/service-accounts.md), e.g., `speechsense`.
     1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
@@ -48,7 +48,7 @@ The user must [have](../../../billing/security/index.md#set-role) the `billing.a
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Select the `speechsense` service account.
   1. In the top panel, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
@@ -74,7 +74,7 @@ The user must [have](../../../billing/security/index.md#set-role) the `billing.a
     1. Click **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**.
     1. Enter a name for the [space]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space).
     1. Click **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
-    1. [Link a billing account]({{ link-docs-ai }}speechsense/operations/space/link-ba) к пространству для оплаты {{ speechsense-name }} to the space to pay for {{ speechsense-name }}.
+    1. [Link a billing account]({{ link-docs-ai }}speechsense/operations/space/link-ba) to the space to pay for {{ speechsense-name }}.
 
 {% endlist %}
 
@@ -333,7 +333,7 @@ Below the dialog line, you will see a line indicating the `Guided Tours` subject
 
 - REST API {#api}
 
-    Call the [Assistants.List]({{ link-docs-ai }}speechsense/api-ref/Assistants/list) method and run the following request, e.g., via {{ api-examples.rest.tool }}:
+    Call the [Assistants.List]({{ link-docs-ai }}speechsense/api-ref/Assistants/list) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
     ```bash
     curl \

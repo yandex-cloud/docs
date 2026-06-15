@@ -9,7 +9,7 @@ apiPlayground:
         extensionName:
           description: |-
             **string**
-            Required field.
+            Required field. Name of the extension.
             The maximum string length in characters is 63.
           type: string
       required:
@@ -21,6 +21,7 @@ apiPlayground:
         folderId:
           description: |-
             **string**
+            ID of the folder.
             The maximum string length in characters is 50.
           type: string
       additionalProperties: false
@@ -29,6 +30,8 @@ apiPlayground:
 ---
 
 # Managed Service for ClickHouse API, REST: Extension.Get
+
+Returns the specified extension.
 
 ## HTTP request
 
@@ -42,7 +45,7 @@ GET https://{{ api-host-mdb }}/managed-clickhouse/v1/extensions/{extensionName}
 ||Field | Description ||
 || extensionName | **string**
 
-Required field.
+Required field. Name of the extension.
 
 The maximum string length in characters is 63. ||
 |#
@@ -52,6 +55,8 @@ The maximum string length in characters is 63. ||
 #|
 ||Field | Description ||
 || folderId | **string**
+
+ID of the folder.
 
 The maximum string length in characters is 50. ||
 |#
@@ -95,5 +100,6 @@ Required field. Required. Version ID. ||
 Is default version. ||
 || deprecated | **boolean**
 
-Is version deprecated. ||
+Is version deprecated.
+(-- api-linter: yc::1703::deprecated-annotation=disabled --) ||
 |#

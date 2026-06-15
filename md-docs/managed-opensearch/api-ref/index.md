@@ -13,4 +13,5 @@ This API reference is organized by resource. Actions are performed by sending HT
 || [Extension](Extension/index.md) |  ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [ResourcePreset](ResourcePreset/index.md) | A set of methods for managing resource presets. ||
+|| [Versions](Versions/index.md) |  ||
 |#

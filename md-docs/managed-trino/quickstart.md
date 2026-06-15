@@ -71,7 +71,7 @@
            * **Тип подключения** — `On-premise`.
            * **URL** — `jdbc:postgresql://<FQDN_хоста>:6432/<имя_БД>`.
 
-             О том, как получить FQDN хоста, см. [инструкцию](../managed-postgresql/operations/connect/fqdn.md).
+             О том, как получить FQDN хоста, читайте в [инструкции](../managed-postgresql/operations/connect/fqdn.md).
 
            * **Имя пользователя** — имя пользователя в кластере Managed Service for PostgreSQL.
            * **Пароль** — пароль пользователя.

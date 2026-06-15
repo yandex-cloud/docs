@@ -264,7 +264,7 @@
 
       ```sql
       SELECT * FROM samples.MS_SalesFacts
-      WHERE not_var{{custom_where}}
+      WHERE {{custom_where}}
       ```
 
       ![image](../../_assets/datalens/dataset-parametrization/dataset-parameter-sql.png)

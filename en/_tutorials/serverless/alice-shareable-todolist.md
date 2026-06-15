@@ -14,7 +14,7 @@ To deploy a project:
 1. [Create resources](#create-resources).
 1. [Set the project variables](#set-variables).
 1. [Deploy the project](#deploy).
-1. [Register a skill for Alice](#register-skill).
+1. [Register your skill for Alice](#register-skill).
 1. [Test the skill](#test-skill).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -70,9 +70,9 @@ The infrastructure support costs include:
      * [AWS CLI](../../storage/tools/aws-cli.md)
      * [jq](https://stedolan.github.io/jq/download/)
      * [Node.js](https://nodejs.org/en/download/package-manager/)
-     * [npm package manager](https://{{ lang }}.wikipedia.org/wiki/Npm)
+     * [npm](https://{{ lang }}.wikipedia.org/wiki/Npm)
      * [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md)
-     * [Go programming language](https://go.dev/doc/install)
+     * [Go](https://go.dev/doc/install)
 
   1. Optionally, to finalize the project, additionally install:
 
@@ -151,9 +151,9 @@ Create a {{ ydb-short-name }} database in [Serverless mode](../../ydb/concepts/s
 
   1. Go to the [Yandex OAuth website]({{ ya-oauth-url }}) and log in.
   1. Click **Create app**.
-  1. Specify the appropriate app name and upload an icon.
-  1. Under **Platforms**, select `Web services` and click **Save and continue**.
-  1. Under **Platforms**, specify the following URIs in the **Redirect URI** field:
+  1. Specify an appropriate app name and upload an icon.
+  1. Under **Target platforms**, select `Web services` and click **Save and continue**.
+  1. Under **Application platforms**, specify the following URIs in the **Redirect URI** field:
 
       * `https://social.yandex.net/broker/redirect`
       * `<API_gateway_service_domain>/receive-token`.
@@ -181,7 +181,7 @@ Create a file named `secure-config.json` with secrets:
 
 - Bash {#bash}
 
-  1. To create a file from the `secure-config-template.json` template, navigate to the `yc-serverless-alice-shareable-todolist` project files folder and run this command:
+  1. To create a file from the `secure-config-template.json` template, navigate to the `yc-serverless-alice-shareable-todolist` directory with project files and run this command:
 
       ```bash
       cp secure-config-template.json secure-config.json
@@ -212,7 +212,7 @@ Create a file named `variables.json` with the project deployment configuration:
 
 - Bash {#bash}
 
-  1. To create a file from the `variables-template.json` template, navigate to the project files folder and run this command:
+  1. To create a file from the `variables-template.json` template, navigate to the project files directory and run this command:
 
       ```bash
       cp variables-template.json variables.json
@@ -238,14 +238,14 @@ Create a file named `variables.json` with the project deployment configuration:
 
 {% endlist %}
 
-## Deploy your project {#deploy}
+## Deploy the project {#deploy}
 
 Transfer the project files to {{ yandex-cloud }} and update the configuration.
 
 
 ### Apply a data schema {#deploy-schema}
 
-To create tables in the database, navigate to the project files folder and run this command:
+To create tables in the database, navigate to the project files directory and run this command:
 
 {% list tabs group=programming_language %}
 
@@ -256,14 +256,6 @@ To create tables in the database, navigate to the project files folder and run t
   ```
 
 {% endlist %}
-
-
-### Get an OAuth token {#get-oauth-token}
-
-Get an [OAuth token](../../iam/concepts/authorization/oauth-token.md):
-
-1. [Go](../../console/operations/select-service.md#select-service) to [{{ yandex-oauth }}]({{ link-cloud-oauth }}). Before issuing a token, the service may request data access.
-1. Save the token: you will need it for uploading code.
 
 
 ### Upload the backend code to {{ sf-name }} {#deploy-backend}
@@ -278,7 +270,7 @@ Use {{ TF }} to automate your operations. Before you start, [initialize it](../.
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Run the following command in the folder with the `app.tf` configuration file:
+  1. Run the following command in the directory with the `app.tf` configuration file:
 
       ```bash
       terraform init
@@ -286,14 +278,14 @@ Use {{ TF }} to automate your operations. Before you start, [initialize it](../.
 
       {% note info %}
 
-      If you encounter a `permission denied` error during {{ TF }} provider initialization, run the `sudo chown $(whoami) ~/yc-serverless-alice-shareable-todolist` command to edit current user's access permissions for the project folder.
+      If you encounter a `permission denied` error during {{ TF }} provider initialization, run the `sudo chown $(whoami) ~/yc-serverless-alice-shareable-todolist` command to edit current user's access permissions for the project directory.
 
       {% endnote %}
 
-  1. Following successful initialization, create resources by providing the OAuth token for {{ yandex-cloud }} authentication:
+  1. Following successful initialization, create resources and provide the IAM token for {{ yandex-cloud }} authentication:
 
       ```bash
-      terraform apply -var-file ./variables.json -var yc-token=<OAuth_token>
+      terraform apply -var-file ./variables.json -var yc-token="$(yc iam create-token)"
       ```
 
       As a result, {{ TF }} will automatically create or update the required resources.
@@ -309,16 +301,16 @@ To deploy the frontend web app, compile the static files and upload them to {{ o
 
 - Bash {#bash}
 
-  1. Before compiling static files, make sure you have **Node.js** and the **npm** package manager [installed](#prepare).
+  1. Before compiling static files, make sure you have **Node.js** and **npm** [installed](#prepare).
   1. Navigate to the `yc-serverless-alice-shareable-todolist/frontend` directory and run the following command:
 
       ```bash
       npm run build
       ```
 
-      If during the compilation you get:
+      If during the compilation you get this error:
 
-      * `ERR_OSSL_EVP_UNSUPPORTED` error, create the `NODE_OPTIONS` variable:
+      * `ERR_OSSL_EVP_UNSUPPORTED`, create the `NODE_OPTIONS` variable:
 
          ```bash
          export NODE_OPTIONS=--openssl-legacy-provider
@@ -431,7 +423,7 @@ To upload the current specification to {{ api-gw-name }}, run this command:
   1. Click **Create dialog** and select the `Skill` type.
   1. In the **Skill name** field, specify `To-do lists`.
   1. Under **Backend**, enable **Yandex Cloud function** and from the list, select the `todolist-alice` function you created earlier in {{ sf-name }}.
-  1. Enable **Use data storage in the skill**.
+  1. Enable **Use data storage for the skill**.
   1. Fill in the required fields under **Publication in folder**. Configure the other settings as needed. For example, you can specify various word forms to trigger the skill, select a voice, or set access type.
   1. Click **Save** at the bottom of the page.
 
@@ -500,29 +492,29 @@ To debug the skill, use the **Testing** tab in the [Yandex Dialogs](https://dia
   ```text
   Let me help you with your lists!
 
-    Hi Alice. Create a Groceries list.
+    Hi Alice, create a Groceries list.
 
   Done, I created a Groceries list.
 
     Add milk to Groceries.
 
-  Done, I added "milk" to Groceries.
+  Done, I added milk to Groceries.
 
     Add bread.
 
-  What list should I add "bread" to?
+  Which list would you like me to add bread to?
 
     Groceries.
 
-  Done, I added "bread" to Groceries.
+  Done, I added bread to Groceries.
 
     Add eggs.
 
-  What list should I add "eggs" to?
+  Which list would you like me to add eggs to?
 
     Groceries.
 
-  Done, I added "eggs" to Groceries.
+  Done, I added eggs to Groceries.
 
     Alice, tell me what's on the Groceries list.
 

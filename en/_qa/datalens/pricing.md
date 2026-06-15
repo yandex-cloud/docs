@@ -4,10 +4,9 @@
 
 * [General questions](#overview)
 * [Managing seats](#manage-seats)
-* [Migrating to a new plan](#process-of-changing)
 * [Queries from embedded private objects](#embeds)
 
-## General questions about {#overview}
+## General questions {#overview}
 
 ### Is {{ datalens-name }} not free? {#for-free}
 

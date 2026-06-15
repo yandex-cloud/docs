@@ -42,7 +42,7 @@
 
 ## Метрики Triton {#triton}
 
-Подробнее о метриках Triton см. в [документации](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/metrics.html) производителя.
+Подробнее о метриках Triton читайте в [документации](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/metrics.html) производителя.
 
 
 ### Метрики инференса {#inference}

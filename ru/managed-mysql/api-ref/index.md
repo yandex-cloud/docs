@@ -12,6 +12,7 @@ This API reference is organized by resource. Actions are performed by sending HT
 
 #|
 ||Service | Description ||
+|| [BackupRetentionPolicy](BackupRetentionPolicy/index.md) | A set of methods for managing MySQL Cluster backup retention policies. ||
 || [Backup](Backup/index.md) | A set of methods for managing MySQL backups.
 See [the documentation](/docs/managed-mysql/operations/cluster-backups) for details. ||
 || [Cluster](Cluster/index.md) | A set of methods for managing MySQL clusters. ||
@@ -22,4 +23,5 @@ See [the documentation](/docs/managed-mysql/operations/databases) for details. |
 See [the documentation](/docs/managed-mysql/concepts/instance-types) for details. ||
 || [User](User/index.md) | A set of methods for managing MySQL users.
 See [the documentation](/docs/managed-mysql/operations/cluster-users) for details. ||
+|| [Versions](Versions/index.md) |  ||
 |#

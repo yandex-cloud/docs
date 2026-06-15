@@ -24,6 +24,12 @@
 
 Роль можно назначить на [организацию](../../organization/concepts/organization.md), [облако](../concepts/resources-hierarchy.md#cloud) и [каталог](../concepts/resources-hierarchy.md#folder). Роли, назначенные на организацию, облако или каталог, действуют и на вложенные ресурсы.
 
+{% note info %}
+
+Даже если [операция](../../api-design-guide/concepts/about-async.md) с ресурсами [сервисов](../../overview/concepts/services.md) Yandex Cloud разрешена [ролью](../../iam/concepts/access-control/roles.md), ее выполнение может быть заблокировано, если для [организации](../../organization/concepts/organization.md), [облака](../concepts/resources-hierarchy.md#cloud) или [каталога](../concepts/resources-hierarchy.md#folder) создана [политика авторизации](../../iam/concepts/access-control/access-policies.md), запрещающая эту операцию.
+
+{% endnote %}
+
 ## Какие роли действуют в сервисе {#roles-list}
 
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
@@ -149,7 +155,7 @@ resource-manager.clouds.member --> resource-manager.clouds.owner
 
 Вместо примитивных ролей мы рекомендуем использовать роли сервисов. Такой подход позволит более гранулярно управлять доступом и обеспечить соблюдение [принципа минимальных привилегий](../../security/standard/all.md#min-privileges).
 
-Подробнее о примитивных ролях см. в [справочнике ролей Yandex Cloud](../../iam/roles-reference.md#primitive-roles).
+Подробнее о примитивных ролях в [справочнике ролей Yandex Cloud](../../iam/roles-reference.md#primitive-roles).
 
 ## Какие роли мне необходимы {#required-roles}
 

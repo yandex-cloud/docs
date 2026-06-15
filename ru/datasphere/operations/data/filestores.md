@@ -41,7 +41,7 @@
 
 {% include [zones](../../../_includes/datasphere/zones.md) %}
 
-Чтобы поделиться файловым хранилищем в сообществе, понадобятся роли `Editor` в проекте и `Developer` в сообществе. Подробнее о ролях, действующих в {{ ml-platform-name }}, см. в разделе [{#T}](../../security/index.md).
+Чтобы поделиться файловым хранилищем в сообществе, понадобятся роли `Editor` в проекте и `Developer` в сообществе. Подробнее о ролях, действующих в {{ ml-platform-name }}, читайте в разделе [{#T}](../../security/index.md).
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![filestore](../../../_assets/console-icons/cube.svg) **{{ ui-key.yc-ui-datasphere.resources.filestore }}**.

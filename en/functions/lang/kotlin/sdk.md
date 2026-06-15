@@ -1,11 +1,11 @@
 ---
-title: 'Using the SDK for Kotlin functions in {{ sf-full-name }}: Overview'
+title: 'Using the SDK for a Kotlin function in {{ sf-full-name }}: Overview'
 description: You can manage Kotlin functions in {{ sf-name }} using the SDK.
 ---
 
-# Using the SDK for Kotlin functions
+# Using the SDK for a function in Kotlin
 
-The [runtime environment](../../concepts/runtime/index.md) does not have a pre-installed library for accessing the [{{ yandex-cloud }} API](../../../api-design-guide/). To use the library, add a [dependency](dependencies.md) to your Kotlin application. The library source code is available on [GitHub](https://github.com/yandex-cloud/java-sdk).
+The [runtime](../../concepts/runtime/index.md) does not have a pre-installed library for accessing the [{{ yandex-cloud }} API](../../../api-design-guide/). To use it, add a [dependency](dependencies.md) to your Kotlin application. The library source code is available on [GitHub](https://github.com/yandex-cloud/java-sdk).
 
 {% note warning %}
 
@@ -13,11 +13,11 @@ From the `java-sdk-serverless` and `java-sdk-functions` modules, only `java-sdk-
 
 {% endnote %}
 
-The [SDK (Software Development Kit)](https://en.wikipedia.org/wiki/Software_development_kit) helps you manage {{ yandex-cloud }} resources on behalf of the [service account](../../operations/function-sa.md) specified in the function parameters.
+The [SDK (Software Development Kit)](https://en.wikipedia.org/wiki/Software_development_kit) helps you manage {{ yandex-cloud }} resources using the [service account](../../operations/function-sa.md) specified in the function parameters.
 
 ## Example {#example}
 
-The following function gets the folder ID (`folderId`) as an input, gets authorized in the SDK, retrieves a list of all {{ compute-name }} VMs in the specified folder, and restarts those that are stopped. As a result, it returns a message with the number of running instances.
+The following function gets the folder ID (`folderId`), gets authorized in the SDK, retrieves a list of all {{ compute-name }} VMs in the specified folder, and restarts those that are stopped. As a result, it returns a message with the number of running VMs.
 
 {% note warning %}
 

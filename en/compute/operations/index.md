@@ -175,9 +175,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 
 * [{#T}](serial-console/index.md)
 * [{#T}](serial-console/connect-ssh.md)
-* [{#T}](serial-console/connect-cli.md)
 * [{#T}](serial-console/windows-sac.md)
-* [{#T}](serial-console/disable.md)
 
 ## Creating an instance group {#ig-create}
 

@@ -24,11 +24,7 @@ If you no longer need the image you created, [delete it](#clear-out).
 ### Configure the environment and infrastructure {#prepare-environment}
 
 1. [Create](../../vpc/quickstart.md) a cloud network with a single subnet in your folder.
-1. Depending on the type of account you are working under, you will get:
-
-    * [OAuth token]({{ link-cloud-oauth }}) for a [Yandex account](../../iam/concepts/users/accounts.md#passport).
-    * [IAM token](../../iam/concepts/authorization/iam-token.md) of a [federated](../../iam/concepts/users/accounts.md#saml-federation), [local](../../iam/concepts/users/accounts.md#local), or [service](../../iam/concepts/users/accounts.md#sa) account.
-
+1. Get an [IAM token](../../iam/operations/iam-token/create.md).
 1. Make sure your account has enough permissions to create resources in {{ compute-name }}. The minimum [role](../../compute/security/index.md#compute-editor) you need for the folder is `compute.editor`.
 
     If working under a service account, [assign](../../iam/operations/roles/grant.md#cloud-or-folder) the `compute.editor` role for the folder to it.
@@ -210,7 +206,7 @@ To configure the [plugin](https://developer.hashicorp.com/packer/plugins/builder
       "builders": [
         {
           "type":      "yandex",
-          "token":     "<OAuth_token_or_IAM_token>",
+          "token":     "<IAM_token>",
           "folder_id": "<folder_ID>",
           "zone":      "<availability_zone>",
 
@@ -246,7 +242,7 @@ To configure the [plugin](https://developer.hashicorp.com/packer/plugins/builder
 
     Where:
 
-    * `token`: OAuth token for a Yandex account or an IAM token for a federated or service account.
+    * `token`: [IAM token](../../iam/concepts/authorization/iam-token.md).
     * `folder_id`: ID of the folder where you are going to create the VM and its image.
     * `zone`: Availability zone the VM will be created in, e.g., `{{ region-id }}-d`.
     * `subnet_id`: ID of the subnet where you are going to create the VM and its image.
@@ -313,7 +309,7 @@ Make sure you created the image:
 
 ### Delete the resources you created {#clear-out}
 
-To stop incurring charges for the resources you created:
+To stop paying for the resources you created:
 
 * [Delete](../../compute/operations/image-control/delete.md) the image you created.
 * Delete the [subnet](../../vpc/operations/subnet-delete.md) and [cloud network](../../vpc/operations/network-delete.md) if created specifically for the purpose of this tutorial.

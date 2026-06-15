@@ -41,7 +41,7 @@
 
     * **Select from system db requires grant**{#setting-select-from-system-db-requires-grant} — определяет, требует ли запрос `SELECT * FROM system.<table>` каких-либо разрешений и может ли запрос выполняться любым пользователем. Значение по умолчанию — `false`. При значении `true` для выполнения запроса требуется разрешение `GRANT SELECT ON system.<table>`, как и для обычных таблиц.
 
-    Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#access_control_improvements).
+    Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#access_control_improvements).
 
 * **Asynchronous insert log enabled**{#setting-asynchronous-insert-log-enabled} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
@@ -49,7 +49,7 @@
 
     По умолчанию выбрано значение `false`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-    Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/system-tables/asynchronous_insert_log).
+    Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/system-tables/asynchronous_insert_log).
 
 * **Asynchronous insert log retention size**{#setting-asynchronous-insert-log-retention-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
@@ -69,7 +69,7 @@
 
     По умолчанию выбрано значение `false`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-    Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/system-tables/asynchronous_metric_log).
+    Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/system-tables/asynchronous_metric_log).
 
 * **Asynchronous metric log retention size**{#setting-asynchronous-metric-log-retention-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
@@ -89,7 +89,7 @@
 
     Минимальное значение — `1`, по умолчанию — `16`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-    Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#background_buffer_flush_schedule_pool_size).
+    Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#background_buffer_flush_schedule_pool_size).
 
 * **Background common pool size**{#setting-background-common-pool-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
@@ -97,7 +97,7 @@
 
     Минимальное значение — `1`, по умолчанию — `8`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-    Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#background_common_pool_size).
+    Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#background_common_pool_size).
 
 * **Background distributed schedule pool size**{#setting-background-distributed-schedule-pool-size} <code><b><small>Консоль управления</small></b></code>
 
@@ -105,7 +105,7 @@
 
     Минимальное значение — `1`, по умолчанию — `16`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-    Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#background_distributed_schedule_pool_size).
+    Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#background_distributed_schedule_pool_size).
 
 * **Background fetches pool size**{#setting-background-fetches-pool-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
@@ -113,7 +113,7 @@
 
     Минимальное значение — `1`, по умолчанию для версий ClickHouse® 24.12 и ниже выбрано значение `16`, а для 25.1 и выше – `32`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-    Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#background_fetches_pool_size).
+    Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#background_fetches_pool_size).
 
 * **Background merges mutations concurrency ratio**{#setting-background-merges-mutations-concurrency-ratio} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
@@ -121,7 +121,7 @@
 
     По умолчанию выбрано значение `2`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-    Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#background_merges_mutations_concurrency_ratio).
+    Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#background_merges_mutations_concurrency_ratio).
 
 * **Background message broker schedule pool size**{#setting-background-message-broker-schedule-pool-size} <code><b><small>Консоль управления</small></b></code>
 
@@ -129,7 +129,7 @@
 
     Минимальное значение — `1`, по умолчанию — `16`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-    Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#background_message_broker_schedule_pool_size).
+    Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#background_message_broker_schedule_pool_size).
 
 * **Background move pool size**{#setting-background-move-pool-size} <code><b><small>Консоль управления</small></b></code>
 
@@ -137,7 +137,7 @@
 
     Минимальное значение — `1`, по умолчанию — `8`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-    Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#background_move_pool_size).
+    Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#background_move_pool_size).
 
 * **Background pool size**{#setting-background-pool-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -145,7 +145,7 @@
 
     Минимальное значение — `1`, по умолчанию — `16`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-    Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#background_pool_size).
+    Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#background_pool_size).
 
 * **Background schedule pool size**{#setting-background-schedule-pool-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -166,11 +166,11 @@
 
     Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-    Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings).
+    Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings).
 
 * **Default database**{#setting-default-database} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
-    База данных по умолчанию. Инструкцию о получении списка баз данных в кластере см. в разделе [Управление базами данных](../operations/databases.md#list-db).
+    База данных по умолчанию. Инструкция о получении списка баз данных в кластере в разделе [Управление базами данных](../operations/databases.md#list-db).
 
     Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
@@ -182,7 +182,7 @@
 
     По умолчанию для версий ClickHouse® 24.12 и ниже настройка выключена, а для 25.1 и выше – включена.
 
-    Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#server_configuration_parameters-dictionaries_lazy_load).
+    Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#server_configuration_parameters-dictionaries_lazy_load).
 
 * **Geobase enabled**{#setting-geobase-enabled} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
@@ -216,7 +216,7 @@
     * **Value column name** — столбец со значением метрики. Значение по умолчанию — `Value`.
     * **Version column name** — столбец с версией метрики. Значение по умолчанию — `Timestamp`.
 
-    Подробнее о поддержке Graphite см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree).
+    Подробнее о поддержке Graphite в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree).
 
 * **Jdbc bridge**{#setting-jdbc-bridge} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -224,18 +224,18 @@
 
     Изменение настроек приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-    Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/integrations/jdbc/jdbc-with-clickhouse).
+    Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/integrations/jdbc/jdbc-with-clickhouse).
 
 * **Kafka**{#setting-kafka} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
     Глобальные настройки аутентификации для [интеграции с Apache Kafka®](https://clickhouse.com/docs/ru/engines/table-engines/integrations/kafka):
 
-    * **Auto offset reset** — начальная позиция, откуда начинается чтение сообщений [потребителем](../../managed-kafka/concepts/producers-consumers.md). С этой позиции потребитель добавляет сдвиги для новых сообщений по мере того, как движется и читает поступаемые сообщения. По умолчанию значение не выбрано (эквивалентно `latest`). Подробнее см. в [документации Confluent](https://docs.confluent.io/platform/current/clients/consumer.html#offset-management).
+    * **Auto offset reset** — начальная позиция, откуда начинается чтение сообщений [потребителем](../../managed-kafka/concepts/producers-consumers.md). С этой позиции потребитель добавляет сдвиги для новых сообщений по мере того, как движется и читает поступаемые сообщения. По умолчанию значение не выбрано (эквивалентно `latest`). Подробнее в [документации Confluent](https://docs.confluent.io/platform/current/clients/consumer.html#offset-management).
     * **Batch size** — максимальный суммарный размер всех сообщений в пакете (MessageSet), включая накладные данные протокола.
     
       Возможные значения от `1` до `2147483647` байт. Значение по умолчанию — `1000000`.
 
-    * **Debug** — контекст для отладки. По умолчанию значение не выбрано. В настройке можно указать только одно значение. Список доступных значений см. в документации библиотеки `librdkafka` на [GitHub](https://github.com/confluentinc/librdkafka/blob/master/CONFIGURATION.md).
+    * **Debug** — контекст для отладки. По умолчанию значение не выбрано. В настройке можно указать только одно значение. Список доступных значений в документации библиотеки `librdkafka` на [GitHub](https://github.com/confluentinc/librdkafka/blob/master/CONFIGURATION.md).
     * **Enable ssl certificate verification** — определяет, будет ли проводиться проверка SSL-сертификата. По умолчанию выбрано значение `false`.
     * **Max poll interval ms** — максимальный интервал (в миллисекундах) между вызовами для получения сообщений высокоуровневых потребителей. При превышении интервала пользователь удаляется из группы и запускается перебалансировка. По умолчанию значение не задано (эквивалентно `300000` — 5 минут).
     * **Message max bytes** — максимальный размер сообщения в запросе по протоколу Apache Kafka®.
@@ -284,7 +284,7 @@
     1. `DEBUG` — системная информация для последующего использования в отладке;
     1. `TRACE` — вся доступная информация о работе кластера.
 
-    Подробнее об уровнях логирования см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#server_configuration_parameters-logger).
+    Подробнее об уровнях логирования в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#server_configuration_parameters-logger).
 
 * **Mark cache size**{#setting-mark-cache-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -326,19 +326,19 @@
 
         По умолчанию выбрано значение `true`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/integrations/s3#disable-zero-copy-replication).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/integrations/s3#disable-zero-copy-replication).
 
     * **Check sample column is correct** — при создании таблицы включает проверку, что тип данных столбца является верным для сэмплирования или выражений сэмплирования.
 
         По умолчанию проверка включена. Вы можете ее отключить, если у вас уже есть таблицы с некорректными выражениями сэмплирования. Тогда не будет возникать ложных срабатываний и исключений при запуске сервера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#check_sample_column_is_correct).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#check_sample_column_is_correct).
 
     * **Cleanup delay period** — интервал времени (в секундах) между запусками [распределенных DDL-запросов](https://clickhouse.com/docs/ru/sql-reference/distributed-ddl) для очистки устаревших данных.
 
         По умолчанию выбрано значение `30`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#server-settings-distributed_ddl).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#server-settings-distributed_ddl).
 
     * **Deduplicate merge projection mode** <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> — определяет поведение фоновых слияний для таблиц с проекциями:
 
@@ -349,19 +349,19 @@
 
         По умолчанию значение не выбрано (эквивалентно `throw`). Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#deduplicate_merge_projection_mode).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#deduplicate_merge_projection_mode).
 
     * **Inactive parts to delay insert** — количество неактивных кусков данных таблицы, при превышении которого ClickHouse® будет искусственно уменьшать скорость вставки данных в таблицу.
 
         По умолчанию ограничение скорости выключено (`0`). Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#inactive-parts-to-delay-insert).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#inactive-parts-to-delay-insert).
 
     * **Inactive parts to throw insert** — количество неактивных кусков данных таблицы, при превышении которого ClickHouse® отправляет исключение `Too many inactive parts ...`.
 
         По умолчанию отправка исключений выключена (`0`). Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#inactive-parts-to-throw-insert).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#inactive-parts-to-throw-insert).
 
     * **Lightweight mutation projection mode** <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> — определяет поведение упрощенных удалений для таблиц с проекциями:
 
@@ -371,7 +371,7 @@
 
         По умолчанию значение не выбрано (эквивалентно `throw`). Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#lightweight_mutation_projection_mode).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#lightweight_mutation_projection_mode).
 
     * **Materialize ttl recalculate only** <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> — включает применение измененных правил TTL таблиц или строк только при явном указании `MATERIALIZE TTL` в запросе.
 
@@ -382,7 +382,7 @@
 
         Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#materialize_ttl_recalculate_only).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#materialize_ttl_recalculate_only).
 
     * **Max avg part size for too many parts** — максимальный средний размер активных кусков данных таблицы (в байтах) для выполнения проверок **Parts to delay insert** и **Parts to throw insert**. При превышении указанного значения вставки данных в таблицу не будут замедлены или отклонены.
 
@@ -392,13 +392,13 @@
 
         По умолчанию выбрано значение `161061273600` (150 ГБ). Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#max-bytes-to-merge-at-max-space-in-pool).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#max-bytes-to-merge-at-max-space-in-pool).
 
     * **Max bytes to merge at min space in pool** — максимальный общий размер кусков данных для слияния, когда в фоновом пуле минимум свободных ресурсов.
 
         По умолчанию выбрано значение `1048576` (1 МБ). Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#max-bytes-to-merge-at-min-space-in-pool).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#max-bytes-to-merge-at-min-space-in-pool).
 
     * **Max cleanup delay period** — максимальный период в секундах для очистки устаревших данных: логов запросов, хешей блоков и кусков данных.
 
@@ -420,7 +420,7 @@
 
         По умолчанию для версий ClickHouse® 25.1 и ниже выбрано значение `100000`, а для 25.2 и выше – `20000`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#max-parts-in-total).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#max-parts-in-total).
 
     * **Max replicated merges in queue** — максимальное количество задач слияния, которые могут одновременно находиться в очереди `ReplicatedMergeTree`.
 
@@ -432,37 +432,37 @@
 
         Значение по умолчанию — `8192`.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#merge-max-block-size).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#merge-max-block-size).
 
     * **Merge selecting sleep ms** — время ожидания (в миллисекундах) для слияния выборки, если ни один кусок не выбран.
 
         По умолчанию выбрано значение `5000` (5 секунд). Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#merge_selecting_sleep_ms).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#merge_selecting_sleep_ms).
 
     * **Merge with recompression TTL timeout** — минимальное время (в секундах) между слияниями для повторного сжатия данных с истекшим TTL.
 
         По умолчанию выбрано значение `14400` (4 часа). Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/guides/developer/ttl#triggering-ttl-events).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/guides/developer/ttl#triggering-ttl-events).
 
     * **Merge with TTL timeout** — минимальное время (в секундах) между слияниями для удаления данных с истекшим TTL.
 
         По умолчанию выбрано значение `14400` (4 часа). Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/guides/developer/ttl#triggering-ttl-events).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/guides/developer/ttl#triggering-ttl-events).
 
     * **Min age to force merge on partition only** — определяет, применять ли объединение из настройки **Min age to force merge seconds** только к [партициям](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/custom-partitioning-key).
 
         По умолчанию применение только к партициям отключено. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#min_age_to_force_merge_on_partition_only).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#min_age_to_force_merge_on_partition_only).
 
     * **Min age to force merge seconds** — минимальное время (в секундах) существования кусков данных для объединения.
 
         По умолчанию выбрано значение `0` (объединение отключено). Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds).
 
     * **Min bytes for wide part** — минимальное количество байтов в куске данных, который может храниться в формате `Wide`. Можно задать одновременно с параметром **Min rows for wide part**.
 
@@ -470,7 +470,7 @@
 
         Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree#mergetree-data-storage).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree#mergetree-data-storage).
 
     * **Min rows for wide part** — минимальное количество строк в куске данных, который может храниться в формате `Wide`. Можно задать одновременно с параметром **Min bytes for wide part**.
 
@@ -478,13 +478,13 @@
 
         Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree#mergetree-data-storage).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree#mergetree-data-storage).
 
     * **Number of free entries in pool to execute mutation** — предельное значение свободных записей в пуле. Если количество записей в пуле становится меньше этого значения, ClickHouse® перестает выполнять операции [мутаций](https://clickhouse.com/docs/ru/sql-reference/statements/alter#mutations). Это позволяет оставлять свободные потоки для слияний и избежать исключения `Too many parts ...`.
 
         По умолчанию выбрано значение `20`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#number-of-free-entries-in-pool-to-execute-mutation).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#number-of-free-entries-in-pool-to-execute-mutation).
 
     * **Number of free entries in pool to lower max size of merge** — предельное значение свободных записей в пуле. Если количество записей в пуле становится меньше этого значения, ClickHouse® уменьшает максимальный размер куска данных для слияния. Это позволяет быстрее обрабатывать небольшие слияния.
 
@@ -494,25 +494,25 @@
 
         По умолчанию для версий ClickHouse® 24.12 и ниже выбрано значение `150`, а для 25.1 и выше – `1000`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#parts-to-delay-insert).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#parts-to-delay-insert).
 
     * **Parts to throw insert** — предельное число активных кусков данных таблицы, при превышении которого ClickHouse® отправляет исключение `Too many parts ...`
 
         По умолчанию для версий ClickHouse® 24.12 и ниже выбрано значение `300`, а для 25.1 и выше – `3000`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#parts-to-throw-insert).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#parts-to-throw-insert).
 
     * **Replicated deduplication window** — число блоков последних вставок хешей, которые ZooKeeper будет хранить. Дедупликация работает только для последних вставленных данных. Старые блоки будут удалены.
 
         По умолчанию выбрано значение `100`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#replicated-deduplication-window).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#replicated-deduplication-window).
 
     * **Replicated deduplication window seconds** — время, в течение которого ZooKeeper хранит блоки последних вставок хешей. Дедупликация работает только для последних вставленных данных. Старые блоки будут удалены.
 
         По умолчанию выбрано значение `604800`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#replicated-deduplication-window-seconds).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#replicated-deduplication-window-seconds).
 
     * **TTL only drop parts** — определяет режим удаления данных по TTL:
 
@@ -521,7 +521,7 @@
 
         По умолчанию выбрано значение `false`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-        Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#ttl_only_drop_parts).
+        Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#ttl_only_drop_parts).
 
 * **Metric log enabled**{#setting-metric-log-enabled} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -547,7 +547,7 @@
 
     По умолчанию выбрано значение `false`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-    Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/opentelemetry).
+    Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/opentelemetry).
 
 * **Opentelemetry span log retention size**{#setting-opentelemetry-span-log-retention-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
@@ -607,7 +607,7 @@
     * **Max entry size in rows** — максимальное число строк, которое можно выделить в кеше каждому результату выполнения запроса `SELECT`. Значение по умолчанию — `30000000`.
     * **Max size in bytes** — максимальный размер кеша в байтах. Если указать `0`, кеш запросов будет отключен. Значение по умолчанию — `1073741824` (один гигабайт).
 
-    Подробнее о настройках см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#server_configuration_parameters_query-cache).
+    Подробнее о настройках в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#server_configuration_parameters_query-cache).
 
 * **Query log retention size**{#setting-query-log-retention-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -637,7 +637,7 @@
 
     По умолчанию выбрано значение `true`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-    Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/system-tables/query_thread_log).
+    Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/system-tables/query_thread_log).
 
 * **Query thread log retention size**{#setting-query-thread-log-retention-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -657,7 +657,7 @@
 
     По умолчанию выбрано значение `false`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-    Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/system-tables/query_views_log).
+    Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/system-tables/query_views_log).
 
 * **Query views log retention size**{#setting-query-views-log-retention-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
@@ -687,7 +687,7 @@
 
     По умолчанию выбрано значение `false`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-    Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/system-tables/session_log).
+    Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/system-tables/session_log).
 
 * **Session log retention size**{#setting-session-log-retention-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
@@ -737,7 +737,7 @@
 
     Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-    Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#server_configuration_parameters-timezone).
+    Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#server_configuration_parameters-timezone).
 
 * **Total memory profiler step**{#setting-total-memory-profiler-step} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
@@ -745,7 +745,7 @@
 
     По умолчанию выбрано значение `4194304` (4 МБ). Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-    Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#total-memory-profiler-step).
+    Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#total-memory-profiler-step).
 
 * **Total memory tracker sample probability**{#setting-total-memory-tracker-sample-probability} <code><b><small>Консоль управления</small></b></code>
 
@@ -753,7 +753,7 @@
 
     По умолчанию запись случайных выделений и освобождений памяти выключена (`0`). Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-    Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#total-memory-tracker-sample-probability).
+    Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#total-memory-tracker-sample-probability).
 
 * **Trace log enabled**{#setting-trace-log-enabled} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -785,7 +785,7 @@
 
     По умолчанию выбрано значение `false`. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-    Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/system-tables/zookeeper_log).
+    Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/system-tables/zookeeper_log).
 
 * **Zookeeper log retention size**{#setting-zookeeper-log-retention-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
@@ -825,9 +825,9 @@
 
   По умолчанию выполнение DDL-запросов разрешено.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/permissions-for-queries#settings_allow_ddl).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/permissions-for-queries#settings_allow_ddl).
 
-  См. также: настройка [Readonly](#setting-readonly).
+  Связано с настройкой [Readonly](#setting-readonly).
 
 * **Allow introspection functions**{#setting-allow-introspection-functions} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -840,7 +840,7 @@
 
   Значение по умолчанию — `0`.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-allow_introspection_functions).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-allow_introspection_functions).
 
 * **Allow suspicious low cardinality types**{#setting-allow-suspicious-low-cardinality-types} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -853,7 +853,7 @@
 
   Значение по умолчанию — `0`.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#allow_suspicious_low_cardinality_types).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#allow_suspicious_low_cardinality_types).
 
 * **Any join distinct right table keys**{#setting-any-join-distinct-right-table-keys} <code><b><small>Консоль управления</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -861,7 +861,7 @@
 
   По умолчанию устаревшее поведение операции `JOIN` выключено.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#any_join_distinct_right_table_keys).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#any_join_distinct_right_table_keys).
 
 * **Async insert**{#setting-async-insert} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -876,7 +876,7 @@
 
   Значение по умолчанию — `0`.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#async-insert).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#async-insert).
 
 * **Async insert busy timeout**{#setting-async-insert-busy-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -884,7 +884,7 @@
 
   Значение по умолчанию — `200`. Если указан `0`, ожидание отключено.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#async-insert-busy-timeout-ms).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#async-insert-busy-timeout-ms).
 
 * **Async insert max data size**{#setting-async-insert-max-data-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -892,7 +892,7 @@
 
   Значение по умолчанию — `1000000`. Если указан `0`, асинхронные вставки будут отключены.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#async-insert-max-data-size).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#async-insert-max-data-size).
 
 * **Async insert stale timeout**{#setting-async-insert-stale-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -900,7 +900,7 @@
 
   Значение по умолчанию — `0`. Если указан `0`, ожидание отключено.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#async-insert-stale-timeout-ms).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#async-insert-stale-timeout-ms).
 
 * **Async insert threads**{#setting-async-insert-threads} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -908,7 +908,7 @@
 
   Значение по умолчанию — `16`. Если указан `0`, асинхронные вставки будут отключены.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#async-insert-threads).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#async-insert-threads).
 
 * **Async insert use adaptive busy timeout**{#setting-async-insert-use-adaptive-busy-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -916,7 +916,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#async_insert_use_adaptive_busy_timeout).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#async_insert_use_adaptive_busy_timeout).
 
 * **Cancel HTTP readonly queries on client close**{#setting-cancel-http-readonly-queries-on-client-close} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -924,7 +924,7 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#cancel-http-readonly-queries-on-client-close).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#cancel-http-readonly-queries-on-client-close).
 
 * **Compile expressions**{#setting-compile-expressions} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -948,7 +948,7 @@
 
   Значение по умолчанию — `50`.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#connect-timeout-with-failover-ms).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#connect-timeout-with-failover-ms).
 
 * **Count distinct implementation**{#setting-count-distinct-implementation} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
@@ -961,7 +961,7 @@
 
   По умолчанию используется функция `uniqExact`.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#count_distinct_implementation).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#count_distinct_implementation).
 
 * **Data type default nullable**{#setting-data-type-default-nullable} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -969,7 +969,7 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#data_type_default_nullable).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#data_type_default_nullable).
 
 * **Date time input format**{#setting-date-time-input-format} <code><b><small>Консоль управления</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -979,7 +979,7 @@
 
   По умолчанию используется базовый парсер (`basic`).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-date_time_input_format).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-date_time_input_format).
 
 * **Date time output format**{#setting-date-time-output-format} <code><b><small>Консоль управления</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -990,7 +990,7 @@
 
   По умолчанию используется простой формат (`simple`).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-date_time_output_format).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-date_time_output_format).
 
 * **Deduplicate blocks in dependent materialized views**{#setting-deduplicate-blocks-in-dependent-materialized-views} <code><b><small>Консоль управления</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -998,7 +998,7 @@
 
   По умолчанию проверка выключена (`0`).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-deduplicate-blocks-in-dependent-materialized-views).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-deduplicate-blocks-in-dependent-materialized-views).
 
 * **Distinct overflow mode**{#setting-distinct-overflow-mode} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1016,7 +1016,7 @@
 
   По умолчанию режим экономии памяти выключен.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/select/group-by#select-group-by-in-external-memory).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/select/group-by#select-group-by-in-external-memory).
 
 * **Distributed ddl task timeout**{#setting-distributed-ddl-task-timeout} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1037,7 +1037,7 @@
 
   По умолчанию значение не выбрано (эквивалентно `deny`).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#distributed-product-mode).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#distributed-product-mode).
 
 * **Do not merge across partitions select final** {#setting-do-not-merge-across-partitions-select-final} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1045,7 +1045,7 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/guides/replacing-merge-tree#exploiting-partitions-with-replacingmergetree).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/guides/replacing-merge-tree#exploiting-partitions-with-replacingmergetree).
 
 * **Empty result for aggregation by empty set**{#setting-empty-result-for-aggregation-by-empty-set} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1064,7 +1064,7 @@
 
   По умолчанию сжатие данных в ответе на HTTP-запрос выключено.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/interfaces/http).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/interfaces/http).
 
 * **Enable reads from query cache**{#setting-enable-reads-from-query-cache} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1072,9 +1072,9 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#enable_reads_from_query_cache).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#enable_reads_from_query_cache).
 
-  См. также настройку [Use query cache](#setting-use-query-cache).
+  Связано с настройкой [Use query cache](#setting-use-query-cache).
 
 * **Enable writes to query cache**{#setting-enable-writes-to-query-cache} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1082,9 +1082,9 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#enable_writes_to_query_cache).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#enable_writes_to_query_cache).
 
-  См. также настройку [Use query cache](#setting-use-query-cache).
+  Связано с настройкой [Use query cache](#setting-use-query-cache).
 
 * **Fallback to stale replicas for distributed queries**{#setting-fallback-to-stale-replicas-for-distributed-queries} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1094,9 +1094,9 @@
 
   По умолчанию форсирование запроса включено.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-fallback_to_stale_replicas_for_distributed_queries).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-fallback_to_stale_replicas_for_distributed_queries).
 
-  См. также настройку [Max replica delay for distributed queries](#setting-max-replica-delay-for-distributed-queries).
+  Связано с настройкой [Max replica delay for distributed queries](#setting-max-replica-delay-for-distributed-queries).
 
 * **Flatten nested**{#setting-flatten-nested} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1109,7 +1109,7 @@
 
   Значение по умолчанию: `1`.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#flatten-nested).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#flatten-nested).
 
 * **Force index by date**{#setting-force-index-by-date} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1117,7 +1117,7 @@
 
   По умолчанию настройка выключена (выполнение запросов разрешено).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-force_index_by_date).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-force_index_by_date).
 
 * **Force primary key**{#setting-force-primary-key} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1125,13 +1125,13 @@
 
   По умолчанию настройка выключена (выполнение запросов разрешено).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-force_primary_key).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-force_primary_key).
 
 * **Format avro schema registry url**{#setting-format-avro-schema-registry-url} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
 
   URL реестра схем Confluent для формата AvroConfluent.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/formats#format_avro_schema_registry_url).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/formats#format_avro_schema_registry_url).
 
 * **Format regexp**{#setting-format-regexp} <code><b><small>Консоль управления</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1184,7 +1184,7 @@
 
   Значение по умолчанию — `50`.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#hedged_connection_timeout_ms).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#hedged_connection_timeout_ms).
 
 * **HTTP connection timeout**{#setting-http-connection-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1204,7 +1204,7 @@
 
   Значение по умолчанию — `131072`.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#http_max_field_name_size).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#http_max_field_name_size).
 
 * **HTTP max field value size**{#setting-http-max-field-value-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1212,7 +1212,7 @@
 
   Значение по умолчанию — `131072`.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#http_max_field_value_size).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#http_max_field_value_size).
 
 * **HTTP receive timeout**{#setting-http-receive-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1234,7 +1234,7 @@
 
   Значение по умолчанию — `360000` (шесть минут).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#idle_connection_timeout).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#idle_connection_timeout).
 
 * **Ignore materialized views with dropped target table**{#setting-ignore-materialized-views-with-dropped-target-table} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1242,7 +1242,7 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#ignore_materialized_views_with_dropped_target_table).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#ignore_materialized_views_with_dropped_target_table).
 
 * **Input format defaults for omitted fields**{#setting-input-format-defaults-for-omitted-fields} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1250,7 +1250,7 @@
 
   По умолчанию замена включена.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#session_settings-input_format_defaults_for_omitted_fields).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#session_settings-input_format_defaults_for_omitted_fields).
 
 * **Input format import nested json**{#setting-input-format-import-nested-json} <code><b><small>Консоль управления</small></b></code>
 
@@ -1258,7 +1258,7 @@
 
   По умолчанию такая вставка данных выключена.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-input_format_import_nested_json).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-input_format_import_nested_json).
 
 * **Input format null as default**{#setting-input-format-null-as-default} <code><b><small>Консоль управления</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1266,7 +1266,7 @@
 
   По умолчанию настройка включена (ячейки `NULL` заполняются значениями по умолчанию).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-input-format-null-as-default).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-input-format-null-as-default).
 
 * **Input format parallel parsing**{#setting-input-format-parallel-parsing} <code><b><small>Консоль управления</small></b></code>
 
@@ -1274,7 +1274,7 @@
 
   По умолчанию такая разбивка входящих данных включена.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#input-format-parallel-parsing).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#input-format-parallel-parsing).
 
 * **Input format values interpret expressions**{#setting-input-format-values-interpret-expressions} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1286,7 +1286,7 @@
 
   По умолчанию парсер SQL включен.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-input_format_values_interpret_expressions).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-input_format_values_interpret_expressions).
 
 * **Input format with names use header**{#setting-input-format-with-names-use-header} <code><b><small>Консоль управления</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1294,7 +1294,7 @@
 
   По умолчанию проверка включена.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-input-format-with-names-use-header).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-input-format-with-names-use-header).
 
 * **Insert keeper max retries**{#setting-insert-keeper-max-retries} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
@@ -1302,7 +1302,7 @@
 
   Минимальное значение — `0` (повторные попытки отключены), по умолчанию — `20`.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#insert_keeper_max_retries).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#insert_keeper_max_retries).
 
 * **Insert null as default**{#setting-insert-null-as-default} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1315,7 +1315,7 @@
 
   Значение по умолчанию — `1`.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#insert_null_as_default).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#insert_null_as_default).
 
 * **Insert quorum**{#setting-insert-quorum} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1329,7 +1329,7 @@
 
   По умолчанию кворумная запись выключена (`0`).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-insert_quorum).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-insert_quorum).
 
 * **Insert quorum parallel**{#setting-insert-quorum-parallel} <code><b><small>Консоль управления</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1358,7 +1358,7 @@
 
   По умолчанию для версий ClickHouse® 24.11 и ниже выбрано значение `direct,auto`, а для 24.12 и выше – `direct,parallel_hash,hash`. Доступный алгоритм будет выбран для конкретного запроса в зависимости от типа и движка таблицы.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-join_algorithm).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-join_algorithm).
 
 * **Join overflow mode**{#setting-join-overflow-mode} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1378,7 +1378,7 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#join_use_nulls).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#join_use_nulls).
 
 * **Joined subquery requires alias**{#setting-joined-subquery-requires-alias} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1422,7 +1422,7 @@
 
   * `round_robin` — запрос отправляется в соответствии с политикой [Round-Robin](https://ru.wikipedia.org/wiki/Round-robin_(алгоритм)). Относится только к запросам, которые поддерживают эту политику.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-load_balancing).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-load_balancing).
 
 * **Local filesystem read method**{#setting-local-filesystem-read-method} <code><b><small>Консоль управления</small></b></code>
 
@@ -1443,7 +1443,7 @@
 
   По умолчанию настройка выключена. Изменение настройки приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#log_processors_profiles).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#log_processors_profiles).
 
 * **Log queries probability**{#setting-log-queries-probability} <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1451,7 +1451,7 @@
 
   Значение настройки — положительное число с плавающей запятой в диапазоне [0..1]. Например, если указано значение `0,5`, то примерно половина запросов регистрируется в системных таблицах. При значении `0` запросы не регистрируются в системных таблицах. При значении `1` (по умолчанию) все запросы регистрируются в системных таблицах.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#log_queries_probability).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#log_queries_probability).
 
 * **Log query threads**{#setting-log-query-threads} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1461,7 +1461,7 @@
 
   Настройку можно применить только для части пользователей или запросов.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-log-query-threads).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-log-query-threads).
 
 * **Log query views**{#setting-log-query-views} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1469,7 +1469,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#log_query_views).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#log_query_views).
 
 * **Low cardinality allow in native format**{#setting-low-cardinality-allow-in-native-format} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1521,9 +1521,9 @@
 
   При использовании агрегации во внешней памяти рекомендуется задать значение этой настройки в два раза меньше значения настройки [Max memory usage](#setting-max-memory-usage) (по умолчанию максимальное использование памяти ограничено десятью гигабайтами).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/select/group-by#select-group-by-in-external-memory).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/select/group-by#select-group-by-in-external-memory).
 
-  См. также настройку [Distributed aggregation memory efficient](#setting-distributed-aggregation-memory-efficient).
+  Связано с настройкой [Distributed aggregation memory efficient](#setting-distributed-aggregation-memory-efficient).
 
 * **Max bytes before external sort**{#setting-max-bytes-before-external-sort} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1609,7 +1609,7 @@
 
   Минимальное значение `0` (нет ограничения), по умолчанию — `450`.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#max-concurrent-queries-for-user).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#max-concurrent-queries-for-user).
 
 * **Max execution time**{#setting-max-execution-time} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1633,7 +1633,7 @@
 
   По умолчанию выбрано значение, равное значению настройки [Max threads](#setting-max-threads).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#max-final-threads).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#max-final-threads).
 
 * **Max HTTP get redirects**{#setting-max-http-get-redirects} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1643,7 +1643,7 @@
 
   Значение по умолчанию — `0`.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#setting-max_http_get_redirects).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#setting-max_http_get_redirects).
 
 * **Max insert block size**{#setting-max-insert-block-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1651,7 +1651,7 @@
 
   По умолчанию выбрано значение `1048576`.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-max_insert_block_size).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-max_insert_block_size).
 
 * **Max insert threads**{#setting-max-insert-threads} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1663,17 +1663,17 @@
 
   Чем больше значение настройки **Max insert threads**, тем выше потребление оперативной памяти кластера.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-max-insert-threads).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-max-insert-threads).
 
 * **Max memory usage**{#setting-max-memory-usage} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
   Максимальный объем оперативной памяти (в байтах) для выполнения запроса на одном сервере. Настройка не учитывает объем свободной памяти или общий объем памяти на машине. Ограничение действует на один запрос в пределах одного сервера.
 
-  Минимальное значение и значение по умолчанию — `0` (нет ограничения). Максимальное значение ограничено настройкой Max server memory usage, значение которой нельзя изменить напрямую. Подробнее см. в разделе [Управление памятью в Managed Service for ClickHouse®](memory-management.md). Если задано значение больше, чем Max server memory usage, то применяется значение Max server memory usage.
+  Минимальное значение и значение по умолчанию — `0` (нет ограничения). Максимальное значение ограничено настройкой Max server memory usage, значение которой нельзя изменить напрямую. Подробнее в разделе [Управление памятью в Managed Service for ClickHouse®](memory-management.md). Если задано значение больше, чем Max server memory usage, то применяется значение Max server memory usage.
 
   Если вы используете настройки [Max bytes before external `GROUP BY`](#setting-max-bytes-before-external-group-by) или [Max bytes before external sort](#setting-max-bytes-before-external-sort), рекомендуется задать им значения в два раза меньше значения Max memory usage.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/query-complexity#settings_max_memory_usage).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/query-complexity#settings_max_memory_usage).
 
 * **Max memory usage for user**{#setting-max-memory-usage-for-user} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1701,7 +1701,7 @@
 
   Минимальное значение — `0` (глубина рекурсии не ограничена), по умолчанию — `1000`.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#max_parser_depth).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#max_parser_depth).
 
 * **Max partitions per insert block**{#setting-partitions-per-insert-block} <code><b><small>Консоль управления</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1709,7 +1709,7 @@
 
   Минимальное значение — `0` (количество разделов не ограничено), по умолчанию — `100`.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/query-complexity#max-partitions-per-insert-block).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/query-complexity#max-partitions-per-insert-block).
 
 * **Max query size**{#setting-max-query-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1729,7 +1729,7 @@
 
   Минимальное значение — `1000` (1 секунда), по умолчанию — `300000` (5 минут).
 
-  См. также описание настройки [Fallback to stale replicas for distributed queries](#setting-fallback-to-stale-replicas-for-distributed-queries).
+  Связано с настройкой [Fallback to stale replicas for distributed queries](#setting-fallback-to-stale-replicas-for-distributed-queries).
 
 * **Max result bytes**{#setting-max-result-bytes} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1755,7 +1755,7 @@
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/query-complexity#settings-max_rows_in_join).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/query-complexity#settings-max_rows_in_join).
 
 * **Max rows in set**{#setting-max-rows-in-set} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1799,7 +1799,7 @@
 
   Минимальное значение — `0` (нет ограничения).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_query).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_query).
 
 * **Max temporary data on disk size for user**{#setting-max-temporary-data-on-disk-size-for-user} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
@@ -1807,7 +1807,7 @@
 
   Минимальное значение — `0` (нет ограничения).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_user).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_user).
 
 * **Max temporary non const columns**{#setting-max-temporary-non-const-columns} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1821,7 +1821,7 @@
 
   Минимальное значение и значение по умолчанию — `0` (вычислять значение автоматически как количество процессорных ядер без учета Hyper-Threading).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-max_threads).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-max_threads).
 
 * **Memory overcommit ratio denominator**{#setting-memory-overcommit-ratio-denominator} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
@@ -1829,7 +1829,7 @@
 
   Минимальное значение — `0` (нет лимита). Значение по умолчанию — `1`.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#memory_overcommit_ratio_denominator).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#memory_overcommit_ratio_denominator).
 
 * **Memory overcommit ratio denominator for user**{#setting-memory-overcommit-ratio-denominator-for-user} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
@@ -1837,7 +1837,7 @@
 
   Минимальное значение — `0` (нет лимита). Значение по умолчанию — `1`.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#memory_overcommit_ratio_denominator_for_user).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#memory_overcommit_ratio_denominator_for_user).
 
 * **Memory profiler sample probability**{#setting-memory-profiler-sample-probability} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1857,7 +1857,7 @@
 
   По умолчанию выбрано значение `5000000` (5 секунд).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#memory_usage_overcommit_max_wait_microseconds).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#memory_usage_overcommit_max_wait_microseconds).
 
 * **Merge tree max bytes to use cache**{#setting-merge-tree-max-bytes-to-use-cache} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1927,7 +1927,7 @@
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/query-complexity#min-execution-speed).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/query-complexity#min-execution-speed).
 
 * **Min execution speed bytes**{#setting-min-execution-speed-bytes} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -1937,7 +1937,7 @@
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/query-complexity#min-execution-speed-bytes).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/query-complexity#min-execution-speed-bytes).
 
 * **Min insert block size bytes**{#setting-min-insert-block-size-bytes} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1977,7 +1977,7 @@
 
   {% endnote %}
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-prefer-localhost-replica).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-prefer-localhost-replica).
 
 * **Priority**{#setting-priority} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -1998,9 +1998,9 @@
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#query_cache_max_entries).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#query_cache_max_entries).
 
-  См. также настройку [Use query cache](#setting-use-query-cache).
+  Связано с настройкой [Use query cache](#setting-use-query-cache).
 
 * **Query cache max size in bytes**{#setting-query-cache-max-size-in-bytes} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -2008,9 +2008,9 @@
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#query_cache_max_size_in_bytes).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#query_cache_max_size_in_bytes).
 
-  См. также настройку [Use query cache](#setting-use-query-cache).
+  Связано с настройкой [Use query cache](#setting-use-query-cache).
 
 * **Query cache min query duration**{#setting-query-cache-min-query-duration} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -2018,9 +2018,9 @@
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#query_cache_min_query_duration).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#query_cache_min_query_duration).
 
-  См. также настройку [Use query cache](#setting-use-query-cache).
+  Связано с настройкой [Use query cache](#setting-use-query-cache).
 
 * **Query cache min query runs**{#setting-query-cache-min-query-runs} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -2028,9 +2028,9 @@
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#query_cache_min_query_runs).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#query_cache_min_query_runs).
 
-  См. также настройку [Use query cache](#setting-use-query-cache).
+  Связано с настройкой [Use query cache](#setting-use-query-cache).
 
 * **Query cache nondeterministic function handling**{#setting-query-cache-nondeterministic-function-handling} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -2044,9 +2044,9 @@
 
   По умолчанию значение не выбрано (эквивалентно `throw`).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#query_cache_nondeterministic_function_handling).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#query_cache_nondeterministic_function_handling).
 
-  См. также настройку [Use query cache](#setting-use-query-cache).
+  Связано с настройкой [Use query cache](#setting-use-query-cache).
 
 * **Query cache share between users**{#setting-query-cache-share-between-users} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -2054,17 +2054,17 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#query_cache_share_between_users).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#query_cache_share_between_users).
 
-  См. также настройку [Use query cache](#setting-use-query-cache).
+  Связано с настройкой [Use query cache](#setting-use-query-cache).
 
 * **Query cache tag**{#setting-query-cache-tag} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
 
   Строка, которая служит меткой для записей кеша запросов. Настройка позволяет кешировать несколько результатов одного и того же запроса. Запросы с разными тегами считаются разными.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#query_cache_tag).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#query_cache_tag).
 
-  См. также настройку [Use query cache](#setting-use-query-cache).
+  Связано с настройкой [Use query cache](#setting-use-query-cache).
 
 * **Query cache ttl**{#setting-query-cache-ttl} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -2072,9 +2072,9 @@
 
   Значение по умолчанию — `60`.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#query_cache_ttl).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#query_cache_ttl).
 
-  См. также настройку [Use query cache](#setting-use-query-cache).
+  Связано с настройкой [Use query cache](#setting-use-query-cache).
 
 * **Quota mode**{#setting-quota-mode} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -2085,7 +2085,7 @@
 
   По умолчанию значение не выбрано (эквивалентно `default`).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/quotas).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/quotas).
 
 * **Read overflow mode**{#setting-read-overflow-mode} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -2104,7 +2104,7 @@
 
   Настройка не влияет на возможность выполнения DDL-запросов. Чтобы разрешить или запретить выполнение DDL-запросов, используйте настройку [Allow DDL](#setting-allow-ddl). 
 
-  См. также: [пример создания пользователя с правами «только чтение»](../operations/cluster-users.md#example-create-readonly-user).
+  Пример: [создание пользователя с правами «только чтение»](../operations/cluster-users.md#example-create-readonly-user).
 
 * **Receive timeout**{#setting-receive-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -2130,7 +2130,7 @@
   * `1` — ждать выполнения только у себя (значение по умолчанию).
   * `2` — ждать всех.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/alter#synchronicity-of-alter-queries).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/alter#synchronicity-of-alter-queries).
 
 * **Result overflow mode**{#setting-result-overflow-mode} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -2146,7 +2146,7 @@
 
   По умолчанию последовательная консистентность не обеспечивается.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-select_sequential_consistency).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#settings-select_sequential_consistency).
 
 * **Send progress in HTTP headers**{#setting-send-progress-in-http-headers} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -2199,7 +2199,7 @@
 
   Значение по умолчанию — `60000` (1 минута).
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/query-complexity#timeout-before-checking-execution-speed).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/query-complexity#timeout-before-checking-execution-speed).
 
 * **Timeout overflow mode**{#setting-timeout-overflow-mode} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -2223,7 +2223,7 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#transform_null_in).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#transform_null_in).
 
 * **Use hedged requests**{#setting-use-hedged-requests} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -2235,7 +2235,7 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#use_hedged_requests).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#use_hedged_requests).
 
 * **Use hive partitioning**{#setting-use-hive-partitioning} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -2254,9 +2254,11 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#use_query_cache).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#use_query_cache).
 
-  См. также настройки [Enable reads from query cache](#setting-enable-reads-from-query-cache) и [Enable writes to query cache](#setting-enable-writes-to-query-cache).
+  Связано с настройками:
+  * [Enable reads from query cache](#setting-enable-reads-from-query-cache)
+  * [Enable writes to query cache](#setting-enable-writes-to-query-cache)
 
 * **Use uncompressed cache**{#setting-use-uncompressed-cache} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -2264,9 +2266,11 @@
 
   По умолчанию кеш не используется.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#setting-use_uncompressed_cache).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#setting-use_uncompressed_cache).
 
-  См. также настройки [Merge tree max bytes to use cache](#setting-merge-tree-max-bytes-to-use-cache) и [Merge tree max rows to use cache](#setting-merge-tree-max-rows-to-use-cache).
+  Связано с настройками:
+  * [Merge tree max bytes to use cache](#setting-merge-tree-max-bytes-to-use-cache)
+  * [Merge tree max rows to use cache](#setting-merge-tree-max-rows-to-use-cache)
 
 * **Wait for async insert**{#setting-wait-for-async-insert} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -2279,7 +2283,7 @@
 
   Значение по умолчанию — `1`.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#wait-for-async-insert).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#wait-for-async-insert).
 
 * **Wait for async insert timeout**{#setting-wait-for-async-insert-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>SQL</small></b></code>
 
@@ -2287,7 +2291,7 @@
 
   Значение по умолчанию — `120`. Если указан `0`, ожидание отключено.
 
-  Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#wait-for-async-insert-timeout).
+  Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings#wait-for-async-insert-timeout).
 
 ### Пользовательские настройки {#custom-settings}
 
@@ -2306,7 +2310,7 @@ ClickHouse® также использует квоты для учета пот
 Для каждого пользователя есть квота по умолчанию, которая учитывает потребление всех ресурсов за каждый час, но не накладывает никаких ограничений.
 Сведения об уровне потребления ресурсов записываются в лог сервера ClickHouse®.
 
-Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/quotas).
+Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/quotas).
 
 Доступны следующие настройки квот:
 

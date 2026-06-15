@@ -41,15 +41,21 @@ To lease a server in a stock configuration:
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. {% include [server-lease-cli-step1](../../../_includes/baremetal/instruction-steps/server-lease-cli-step1.md) %}
+  1. {% include [server-lease-cli-step1](../../../_includes/baremetal/instruction-steps/server-lease-cli-step1.md) %}
+  1. {% include [server-lease-cli-step2](../../../_includes/baremetal/instruction-steps/server-lease-cli-step2.md) %}
+  1. Get detailed info about a configuration by stating its ID or name:
 
-   1. {% include [server-lease-cli-step2](../../../_includes/baremetal/instruction-steps/server-lease-cli-step2.md) %}
+      ```bash
+      yc baremetal configuration get <configuration_ID_or_name>
+      ```
 
-   1. {% include [server-lease-cli-step3](../../../_includes/baremetal/instruction-steps/server-lease-cli-step3.md) %}
+      {% include [conf-get-cli-output](../../../_includes/baremetal/instruction-steps/conf-get-cli-output.md) %}
+
+  1. {% include [server-lease-cli-step3](../../../_includes/baremetal/instruction-steps/server-lease-cli-step3.md) %}
 
       Where:
       * {% include [server-lease-cli-pool-id](../../../_includes/baremetal/instruction-steps/server-lease-cli-pool-id.md) %}
@@ -57,11 +63,11 @@ To lease a server in a stock configuration:
       * {% include [server-lease-cli-storage](../../../_includes/baremetal/instruction-steps/server-lease-cli-storage.md) %}
       * {% include [server-lease-cli-os](../../../_includes/baremetal/instruction-steps/server-lease-cli-os.md) %}
 
-        {% include [server-lease-step7-iso](../../../_includes/baremetal/instruction-steps/server-lease-step7-iso.md) %}
+          {% include [server-lease-step7-iso](../../../_includes/baremetal/instruction-steps/server-lease-step7-iso.md) %}
 
       * {% include [server-lease-cli-rental-period](../../../_includes/baremetal/instruction-steps/server-lease-cli-rental-period.md) %}
 
-        {% include [server-lease-step6-period](../../../_includes/baremetal/instruction-steps/server-lease-step6-period.md) %}
+          {% include [server-lease-step6-period](../../../_includes/baremetal/instruction-steps/server-lease-step6-period.md) %}
 
       * {% include [server-lease-cli-network](../../../_includes/baremetal/instruction-steps/server-lease-cli-network.md) %}
 
@@ -75,7 +81,7 @@ To lease a server in a stock configuration:
 
 - API {#api}
 
-  To lease a server, use the [create](../../api-ref/Server/create.md) REST API method for the [Server](../../api-ref/Server/index.md) resource or the [ServerService/Create](../../api-ref/grpc/Server/create.md) gRPC API call.
+  To rent a server, use the [create](../../api-ref/Server/create.md) REST API method for the [Server](../../api-ref/Server/index.md) resource or the [ServerService/Create](../../api-ref/grpc/Server/create.md) gRPC API call.
 
 {% endlist %}
 

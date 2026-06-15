@@ -50,19 +50,19 @@
 
 Перенести БД или таблицу можно с помощью сервиса Data Transfer или утилиты [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html).
 
-Подробнее о миграции с помощью Data Transfer см. в руководстве [Миграция базы данных](../tutorials/outbound-replication.md).
+Подробнее о миграции с помощью Data Transfer читайте в руководстве [Миграция базы данных](../tutorials/outbound-replication.md).
 
 #### Как перенести данные между кластерами в разных каталогах или облаках? {#transfer-data}
 
 Перенести данные можно с помощью сервиса Data Transfer или утилиты [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html).
 
-Подробнее о миграции с помощью Data Transfer см. в руководстве [Миграция базы данных](../tutorials/outbound-replication.md).
+Подробнее о миграции с помощью Data Transfer читайте в руководстве [Миграция базы данных](../tutorials/outbound-replication.md).
 
 #### Как перенести кластер в другое облако? {#transfer-cluster}
 
 Перенести кластер можно с помощью сервиса Data Transfer или утилиты [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html).
 
-Подробнее о миграции с помощью Data Transfer см. в руководстве [Миграция базы данных](../tutorials/outbound-replication.md).
+Подробнее о миграции с помощью Data Transfer читайте в руководстве [Миграция базы данных](../tutorials/outbound-replication.md).
 
 #### Как восстановить резервную копию в существующий кластер? {#restore-existing-cluster}
 

@@ -1,6 +1,8 @@
 # Viewing operations with {{ iot-name }} resources
 
-The system logs all actions with {{ iot-name }} resources as a list of operations. Each operation gets its own unique ID.
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
+The system logs all actions with {{ iot-name }} resources as a list of operations. Each operation gets an ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -8,7 +10,7 @@ The system logs all actions with {{ iot-name }} resources as a list of operation
 
 - Management console {#console}
 
-  You can get a list of operations for a specific resource. The steps below describe how you can do this for a registry. The same steps apply to other resources as well.
+  You can get a list of operations for a specific resource. The steps below describe how you can do this for a registry. The same steps apply to other resources.
 
   1. In the [management console]({{ link-console-main }}), open the folder the registry is in.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -28,9 +30,9 @@ The system logs all actions with {{ iot-name }} resources as a list of operation
 
 ## Getting operation details {#get-operations-info}
 
-1. [Get a list of operations](#get-operations) for the resource.
+1. [Get the list of operations](#get-operations) for the resource.
 1. Copy the operation ID.
-1. Get operation details:
+1. Get the operation details:
 
     {% list tabs group=instructions %}
 

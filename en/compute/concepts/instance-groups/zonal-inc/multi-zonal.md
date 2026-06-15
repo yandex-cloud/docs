@@ -1,3 +1,8 @@
+---
+title: Multi-zonal {{ compute-full-name }} instance group with instances in the incident zone
+description: To compensate for lost capacity from instances in the affected zone, we recommend you initially set your instance group size with a performance buffer. Otherwise, temporarily increase the size of instance groups in the healthy zones during the incident.
+---
+
 # Multi-zonal {{ compute-full-name }} instance group with instances in the incident zone
 
 {% note tip %}
@@ -29,7 +34,7 @@ If the number of instances in a group is divisible by the number of zones, the i
 
 If the number of instances is not divisible by the number of zones, the remaining instances will be distributed only among healthy zones. If instance distribution across zones is uneven, instances will be added to the zone with the fewest instances to restore balance even if the zone is not operational.
 
-> Here is an example: Group instances are distributed across three zones, `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d`, one instance per zone.
+> For example: Group instances are distributed across three zones, `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d`, one instance per zone.
 >
 > When there is no incident, if you add two instances to the group, they will be distributed across zones as follows:
 > * `{{ region-id }}-a`: Two instances

@@ -16,4 +16,4 @@ _Схема формата_ данных (format schema) описывает фо
 
 {% endnote %}
 
-Подробнее о форматах данных см. [в документации {{ CH }}]({{ ch.docs }}{{ lang }}/interfaces/formats).
+Подробнее о форматах данных [в документации {{ CH }}]({{ ch.docs }}{{ lang }}/interfaces/formats).

@@ -370,7 +370,7 @@ To disable read-only mode:
                  "maintenanceWindow": {
                    "weeklyMaintenanceWindow": {
                      "day": "<day_of_week>",
-                     "hour": "<sequence_number_of_hour_interval>"
+                     "hour": "<hour>"
                    }
                  }
                }'
@@ -395,11 +395,11 @@ To disable read-only mode:
      * `maintenanceWindow`: Maintenance window schedule. This setting is required only if `plannedUsageThreshold` is set. Contains the following:
 
        * `weeklyMaintenanceWindow.day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-       * `weeklyMaintenanceWindow.hour`: Sequence number of UTC hour interval, from `1` to `24`.
+       * `weeklyMaintenanceWindow.hour`: UTC hour, from `1` to `24`.
            
          > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -439,7 +439,7 @@ To disable read-only mode:
              "maintenance_window": {
                "weekly_maintenance_window": {
                  "day": "<day_of_week>",
-                 "hour": "<sequence_number_of_hour_interval>"
+                 "hour": "<hour>"
                }
              }
            }' \
@@ -462,11 +462,11 @@ To disable read-only mode:
      * `maintenance_window`: Maintenance window schedule. This setting is required only if `planned_usage_threshold` is set. Contains the following:
 
        * `weekly_maintenance_window.day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-       * `weekly_maintenance_window.hour`: Sequence number of UTC hour interval, from `1` to `24`.
+       * `weekly_maintenance_window.hour`: UTC hour, from `1` to `24`.
            
          > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure your request was successful.
 

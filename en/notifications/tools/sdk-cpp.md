@@ -1,3 +1,8 @@
+---
+title: How to get started with the AWS SDK for C++ in {{ cns-full-name }}
+description: Follow this guide to learn how to use the AWS SDK for C++ in {{ cns-full-name }}.
+---
+
 # How to get started with the AWS SDK for C++ in {{ cns-full-name }}
 
 {% include [preview-stage](../../_includes/notifications/preview-stage.md) %}
@@ -366,9 +371,9 @@ As a result, you will get a mobile endpoint ID (ARN).
 
 Where:
 
-* `targetArn`: Mobile endpoint ID (ARN)
-* `message`: Message
-* `messageStructure`: Message format
+* `targetArn`: Mobile endpoint ARN.
+* `message`: Message.
+* `messageStructure`: Message format.
 
 
 ### Silent notifications (Silent Push) {#silent-push}
@@ -435,9 +440,9 @@ Where:
 
 Where:
 
-* `targetArn`: Mobile endpoint ID (ARN)
-* `message`: Message
-* `messageStructure`: Message format
+* `targetArn`: Mobile endpoint ARN.
+* `message`: Message.
+* `messageStructure`: Message format.
 
 ### Text message {#sms-messages}
 

@@ -5,6 +5,26 @@ description: This section contains the {{ sf-name }} release notes.
 
 # {{ sf-full-name }} release notes
 
+## April 2026 {#april-2026}
+
+### Fixes and improvements {#fixes-improvements}
+
+* Fixed the `Too many files to list` error due to too many files in the function, which made it impossible to change the function version or open the editor in the management console.
+* The `batch_cutoff` parameter for triggers in {{ TF }} is now optional. `terraform plan` does not suggest null values for grouping settings anymore.
+
+## March 2026 {#march-2026}
+
+### Updates {#updates}
+
+* Added transferring the function metadata service parameters to {{ at-name }} audit logs.
+
+### Fixes and improvements {#fixes-improvements}
+
+* Fixed an error where a function call could be processed by an instance with an obsolete runtime version after a new runtime version release.
+
+* Fixed the {{ container-registry-name }} trigger set off by changes in Docker image tags: now the trigger’s message communicates the name of the tag you are adding or deleting.
+* Updated the {{ at-name }} audit logs of {{ objstorage-name }} and {{ yds-name }} triggers: fixed proto-validation errors in the `request_parameters.rule` and `details.trigger_rule` fields.
+
 ## February 2026 {#february-2026}
 
 ### Updates {#updates}
@@ -53,13 +73,13 @@ description: This section contains the {{ sf-name }} release notes.
 * Added support for [long-lived functions](concepts/long-lived-functions.md).
 * Added support for sending [function termination notifications](concepts/termination-notifications.md).
 * Added support for [mounting ephemeral disks](concepts/mounting.md#mount-ephemeral-storage).
-* Added support for [concurrent function calls of a single instance](concepts/function.md#concurrency).
+* Added support for [concurrent calls to a single function instance](concepts/function.md#concurrency).
 
 ## August 2024 {#august-2024}
 
 ### Updates {#updates}
 
-* Added support for the [Kotlin](lang/kotlin/index.md) runtime environment.
+* Added support for the [Kotlin](lang/kotlin/index.md) runtime.
 
 ## May – June 2024 {#may-june-2024}
 
@@ -69,7 +89,7 @@ description: This section contains the {{ sf-name }} release notes.
 
 ### Fixes and improvements {#fixes-improvements}
 
-* Fixed the error that occurred when creating function versions with the `golang` runtime environment that use the [opentracing-go](https://github.com/opentracing/opentracing-go) package.
+* Fixed the error that occurred when creating function versions with the `golang` runtime that use the [opentracing-go](https://github.com/opentracing/opentracing-go) package.
 
 ## April 2024 {#april-2024}
 
@@ -80,14 +100,14 @@ description: This section contains the {{ sf-name }} release notes.
 ### Fixes and improvements {#fixes-improvements}
 
 * Fixed the `yandex_function_scaling_policy` import error in {{ TF }}.
-* Removed the [user network](concepts/networking.md#user-network) requirement to have a subnet in the `ru-central1-c` availability zone because [this zone is discontinued](../overview/concepts/region.md).
+* Removed the [user network](concepts/networking.md#user-network) requirement to have a subnet in the `ru-central1-c` availability zone since [this zone is discontinued](../overview/concepts/region.md).
 
 ## March 2024 {#march-2024}
 
 ### Updates {#updates}
 
-* Added support for editing all trigger parameters in {{ TF }}.
-* [{{ objstorage-full-name }} bucket mounting](concepts/mounting.md) to a function is now at the [General Availability](../overview/concepts/launch-stages.md) stage.
+* Added support for editing all trigger settings in {{ TF }}.
+* [{{ objstorage-full-name }} bucket mounting](concepts/mounting.md) in functions is now at the [General Availability](../overview/concepts/launch-stages.md) stage.
 
 ### Fixes and improvements {#fixes-improvements}
 
@@ -97,7 +117,7 @@ description: This section contains the {{ sf-name }} release notes.
 
 ### Updates {#updates}
 
-* Added support for [mounting {{ objstorage-full-name }} buckets](concepts/mounting.md) to a function via the CLI and {{ TF }}.
+* Added support for [mounting {{ objstorage-full-name }} buckets](concepts/mounting.md) in functions via the CLI and {{ TF }}.
 * Added support for function logging settings in {{ TF }}.
 
 ### Fixes and improvements {#fixes-improvements}

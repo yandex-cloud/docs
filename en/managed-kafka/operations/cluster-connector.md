@@ -7,8 +7,9 @@ You can:
 * [Get a list of connectors](#list).
 * [Get detailed information about a connector](#get).
 * [Create a connector](#create) of the right type:
-    * [MirrorMaker](#settings-mm2)
-    * [S3 Sink](#settings-s3)
+    * [MirrorMaker](#settings-mm2).
+    * [S3 Sink](#settings-s3).
+    * [Iceberg Sink](#settings-iceberg).
 * [Edit a connector](#update).
 * [Pause a connector](#pause).
 * [Resume a connector](#resume).
@@ -208,7 +209,7 @@ You can:
         <cluster_alias>.<key_body>:<value>
         ```
 
-    1. Select the connector type, [MirrorMaker](#settings-mm2) or [S3 Sink](#settings-s3), and set up its configuration.
+    1. Select the connector type, [MirrorMaker](#settings-mm2), [S3 Sink](#settings-s3), or [Iceberg Sink](#settings-iceberg), and set up its configuration.
 
         For more information about the supported connector types, see [{#T}](../concepts/connectors.md).
 
@@ -269,6 +270,33 @@ You can:
 
       ```bash
       {{ yc-mdb-kf }} connector-s3-sink create <connector_name> \
+         --cluster-name=<cluster_name> \
+         --tasks-max=<task_limit> \
+         --properties=<advanced_properties> \
+         --topics=<topic_pattern> \
+         --file-compression-type=<compression_codec> \
+         --file-max-records=<file_max_records> \
+         --bucket-name=<bucket_name> \
+         --access-key-id=<AWS_compatible_static_key_ID> \
+         --secret-access-key=<AWS_compatible_static_key_contents> \
+         --storage-endpoint=<S3_compatible_storage_endpoint> \
+         --region=<S3_compatible_storage_region>
+      ```
+
+     You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  To create an [Iceberg Sink](#settings-iceberg) connector:
+
+  1. See the description of the CLI command for creating a connector:
+
+      ```bash
+      {{ yc-mdb-kf }} connector-iceberg-sink create --help
+      ```
+
+  1. Create a connector:
+
+      ```bash
+      {{ yc-mdb-kf }} connector-iceberg-sink create <connector_name> \
          --cluster-name=<cluster_name> \
          --tasks-max=<task_limit> \
          --properties=<advanced_properties> \
@@ -351,8 +379,60 @@ You can:
           }
         }
         ```
+    
+    1. To create an Iceberg Sink connector, add the `yandex_mdb_kafka_connector` resource with the `connector_config_iceberg_sink` configuration section:
+       
+       ```hcl
+       resource "yandex_mdb_kafka_connector" "<connector_name>" {
+          cluster_id = "<cluster_ID>"
+          name       = "<connector_name>"
+          tasks_max  = <task_limit>
+          properties = {
+            <advanced_properties>
+          }
+          connector_config_iceberg_sink {
+            topics        = "<comma_separated_list_of_topics>"
+            control_topic = "<management_topic_name>"
 
-    1. Validate your configuration.
+            metastore_connection {
+              catalog_uri = "<URI_for_connecting_to_Metastore_cluster>"
+              warehouse   = "<root_directory_for_storing_managed_table_data_in_S3>"
+            }
+
+            s3_connection {
+              external_s3 {
+                endpoint          = "<S3_compatible_storage_endpoint>"
+                access_key_id     = "<AWS_compatible_static_key_ID>"
+                secret_access_key = "<AWS_compatible_static_key_contents>"
+                region            = "<region_name>"
+             }
+            }
+
+            static_tables {
+              tables = "comma_separated_table_names"
+            }
+
+            tables_config {
+              default_commit_branch    = "<default_branch_name>"
+              default_id_columns       = "<comma_separated_default_column_list>"
+              default_partition_by     = "<list_of_columns_or_transformation_expressions>"
+              evolve_schema_enabled    = <automatically_update_Iceberg_table_schema>
+              schema_force_optional    = <make_Iceberg_table_schema_fields_optional>
+              schema_case_insensitive  = <ignore_case_when_matching_fields>
+            }
+
+            control_config {
+              group_id_prefix      = "<prefix_for_Consumer_Group_ID>"
+              commit_interval_ms   = <Iceberg_table_data_commit_interval>
+              commit_timeout_ms    = <how_long_the_coordinator_waits_for_confirmation>
+              commit_threads       = <number_of_threads_for_committing_data_to_Iceberg_table>
+              transactional_prefix = "<prefix_for_Transactional_ID>"
+            }
+          }
+       }
+       ```
+
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -542,7 +622,7 @@ Specify the MirrorMaker connector parameters as follows:
         * `ingress`: For a target cluster.
         * `egress`: For a source cluster.
 
-    * `--tasks-max`: Number of concurrent tasks. To distribute replication load evenly, we recommend a value of at least `2`.
+    * `--tasks-max`: Maximum number of concurrently running connector tasks.
     * `--properties`: Comma-separated list of additional connector settings in `<key>:<value>` format. Here are some examples of keys:
 
         * `key.converter`
@@ -572,17 +652,19 @@ Specify the MirrorMaker connector parameters as follows:
 
 - {{ TF }} {#tf}
 
-    * **properties**: Comma-separated list of additional connector settings in `<key>:<value>` format. Here are some examples of keys:
+  * **properties**: Comma-separated list of additional connector settings in `<key>:<value>` format. Here are some examples of keys:
 
-        * `key.converter`
-        * `value.converter`
+     * `key.converter`
+     * `value.converter`
 
-      For the list of general connector settings, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
-
-    * **topics**: Pattern for selecting topics to replicate. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
-    * **replication_factor**: Number of replicas the cluster stores for each topic.
-    * **source_cluster** and **target_cluster**: Parameters for connecting to the source and target clusters:
-        * **alias**: Cluster prefix in the connector settings.
+     For the list of general connector settings, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
+  
+   * **connector_config_mirrormaker**: MirrorMaker connector settings:
+      
+      * **replication_factor**: Number of replicas the cluster stores for each topic.
+      * **topics**: Pattern for selecting topics to replicate. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
+      * **source_cluster** and **target_cluster**: Parameters for connecting to the source and target clusters:
+         * **alias**: Cluster prefix in the connector settings.
 
             {% note info %}
 
@@ -590,8 +672,7 @@ Specify the MirrorMaker connector parameters as follows:
 
             {% endnote %}
 
-        * **this_cluster**: Option to use the current cluster as the source or target.
-        * **external_cluster**: Parameters for connecting to the external cluster:
+         * **external_cluster**: Parameters for connecting to the external cluster:
             * **bootstrap_servers**: Comma-separated list of the FQDNs of the cluster broker hosts with the port numbers for connection.
 
                {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
@@ -600,9 +681,10 @@ Specify the MirrorMaker connector parameters as follows:
             * **sasl_password**: User password for the connector to access the cluster.
             * **sasl_mechanism**: Authentication mechanism for username and password validation.
             * **security_protocol**: Connection protocol for the connector:
-                * `PLAINTEXT`, `SASL_PLAINTEXT`: To connect without SSL.
-                * `SSL`, `SASL_SSL`: To connect with SSL.
+               * `PLAINTEXT`, `SASL_PLAINTEXT`: To connect without SSL.
+               * `SSL`, `SASL_SSL`: To connect with SSL.
             * **ssl_truststore_certificates**: PEM certificate contents.
+         * **this_cluster**: Option to use the current cluster as the source or target.
 
 - REST API {#api}
 
@@ -714,7 +796,7 @@ Specify the S3 Sink connector parameters as follows:
 - CLI {#cli}
 
     * `--cluster-name`: Cluster name.
-    * `--tasks-max`: Number of concurrent tasks. To distribute replication load evenly, we recommend a value of at least `2`.
+    * `--tasks-max`: Maximum number of concurrently running connector tasks.
     * `--properties`: Comma-separated list of additional connector settings in `<key>:<value>` format. Here are some examples of keys:
 
       * `key.converter`
@@ -745,25 +827,26 @@ Specify the S3 Sink connector parameters as follows:
 
 - {{ TF }} {#tf}
 
-    * **properties**: Comma-separated list of additional connector settings in `<key>:<value>` format. Here are some examples of keys:
+  * **properties**: Comma-separated list of additional connector settings in `<key>:<value>` format. Here are some examples of keys:
 
-        * `key.converter`
-        * `value.converter`
-        * `value.converter.schemas.enable`
-        * `format.output.type`
+     * `key.converter`
+     * `value.converter`
+     * `value.converter.schemas.enable`
+     * `format.output.type`
 
-      For the list of all connector settings, see [this connector guide](https://github.com/aiven/s3-connector-for-apache-kafka). For the list of general connector settings, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
+   For the list of all connector settings, see [this connector guide](https://github.com/aiven/s3-connector-for-apache-kafka). For the list of general connector settings, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
-    * **topics**: Pattern for selecting topics to replicate. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
-    * **file_compression_type**: Message compression codec. You cannot change this setting after the cluster is created. Valid values:
+  * **connector_config_s3_sink**: S3 Sink connector settings:
+     * **file_compression_type**: Message compression codec. You cannot change this setting after the cluster is created. Valid values:
 
         * `none` (default): No compression
         * `gzip`: [gzip](https://www.gzip.org/) codec
         * `snappy`: [snappy](https://github.com/google/snappy) codec
         * `zstd`: [zstd](https://facebook.github.io/zstd/) codec
 
-    * **file_max_records**: Maximum number of records that can be written to a single file in an S3-compatible storage.
-    * **s3_connection**: S3-compatible storage connection parameters:
+     * **topics**: Pattern for selecting topics to replicate. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
+     * **file_max_records**: Maximum number of records that can be written to a single file in an S3-compatible storage.
+     * **s3_connection**: S3-compatible storage connection parameters:
 
         * **bucket_name**: Name of the bucket to write data to.
         * **external_s3**: External S3-compatible storage connection parameters:
@@ -829,6 +912,224 @@ Specify the S3 Sink connector parameters as follows:
 
 {% endlist %}
 
+### Iceberg Sink {#settings-iceberg}
+
+Specify the Iceberg Sink connector parameters as follows:
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  * **{{ ui-key.yacloud.kafka.field_connector-control-topic }}**: Select or create a management topic. This topic will be used for coordination and managing the data writing process to Iceberg tables.
+  * **{{ ui-key.yacloud.kafka.field_connector-topics-source }}**: Select the topic source from which the data will be transferred to Iceberg tables:
+     * **Topic list**: Comma-separated topic names.
+     * **Topic Regex**: A regular expression for selecting topics. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
+  * **{{ ui-key.yacloud.kafka.field_connector-table-routing }}**: Select a rule for routing each message from an {{ KF }} topic to Iceberg tables:
+     * **{{ ui-key.yacloud.kafka.field_connector-table-routing-static }}**: Destination tables are predetermined. Each topic, along with all its messages, will be routed to a separate Iceberg table. 
+        
+        In the **{{ ui-key.yacloud.kafka.field_connector-static-tables }}** field, list the names of the Iceberg tables separated by commas.
+    
+     * **{{ ui-key.yacloud.kafka.field_connector-table-routing-dynamic }}**: The destination table is determined by the content of the message itself.
+       
+       In the **{{ ui-key.yacloud.kafka.field_connector-route-field }}** field, specify the field in the message whose value determines the target table.
+  * Under **{{ ui-key.yacloud.kafka.field_connector-metastore-connection }}**, specify the {{ metastore-name }} connection properties:
+     * **{{ ui-key.yacloud.kafka.field_connector-catalog-uri }}**: URI for connection to the {{ metastore-name }} cluster in `thrift://<host>:<port>` format.
+     * **{{ ui-key.yacloud.kafka.field_connector-warehouse }}**: Root directory for storing managed table data in S3 in `s3a://bucket-name/path/to/warehouse` format.
+  * Under **{{ ui-key.yacloud.kafka.field_connector-s3-connection }}**, specify the storage connection parameters:
+     * **{{ ui-key.yacloud.kafka.field_connector-endpoint }}**: Endpoint for storage access. Get it from your storage provider.
+     * **{{ ui-key.yacloud.kafka.field_connector-region }}**: Region name. This is an optional setting. The default value is `{{ region-id }}`. You can find the list of available regions [here](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+
+        {% include [basic-aws-region](../../_includes/basic-aws-region.md) %}
+
+     * **{{ ui-key.yacloud.kafka.field_connector-access-key-id }}**, **{{ ui-key.yacloud.kafka.field_connector-secret-access-key }}**: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md). 
+
+  * Optionally, under **{{ ui-key.yacloud.kafka.section_iceberg-optional-settings }}**:
+     * **{{ ui-key.yacloud.kafka.section_iceberg-tables-config }}** section:
+        * The default branch name is **{{ ui-key.yacloud.kafka.field_connector-default-commit-branch }}**. The connector will commit data to this branch of the Iceberg table. The default value is `main`.
+        * **{{ ui-key.yacloud.kafka.field_connector-default-id-columns }}**: Comma-separated list of default columns that define the ID row in Iceberg tables (primary key). This parameter is required when UPSERT mode is enabled.
+        * **{{ ui-key.yacloud.kafka.field_connector-default-partition-by }}**: Comma-separated list of columns or transformation expressions for partitioning data in the Iceberg table. It defines the physical placement of data to streamline queries, e.g., `date`, `year`, `month`, `year (timestamp)`, `month (timestamp)`, `days (timestamp)`, and `bucket (16, user_id)`.
+        * **{{ ui-key.yacloud.kafka.field_connector-evolve-schema-enabled }}**: This setting specifies whether the connector should automatically update the Iceberg table schema if the schema of incoming messages from {{ KF }} changes.
+        * **{{ ui-key.yacloud.kafka.field_connector-schema-force-optional }}**: This setting indicates whether to make all fields of the Iceberg table schema `nullable`, regardless of how they are defined in the incoming message schema.
+        * **{{ ui-key.yacloud.kafka.field_connector-schema-case-insensitive }}**: This setting specifies whether the connector should ignore case when matching the fields of an incoming message to the columns of the Iceberg table.
+
+     * Section **{{ ui-key.yacloud.kafka.section_iceberg-control-config }}**:
+        * **{{ ui-key.yacloud.kafka.field_connector-group-id-prefix }}**: Prefix for the `Consumer Group ID` that the connector uses when reading from {{ KF }} topics. The default value is `cg-control`.
+        * **{{ ui-key.yacloud.kafka.field_connector-commit-interval-ms }}**: Specifies how often the connector commits data to the Iceberg table, milliseconds. The default value is `300000`.
+        * **{{ ui-key.yacloud.kafka.field_connector-commit-timeout-ms }}**: Specifies how long the coordinator waits for confirmation from all workers before considering the commit failed, milliseconds. The default value is `30000`.
+        * **{{ ui-key.yacloud.kafka.field_connector-commit-threads }}**: Number of threads used to commit data to the Iceberg table.
+        * **{{ ui-key.yacloud.kafka.field_connector-transactional-prefix }}**: Prefix for the `Transactional ID` that the connector uses when writing to {{ KF }} within transactions.
+
+- CLI {#cli}
+
+  * `--cluster-id`: Cluster ID.
+  * `--cluster-name`: Cluster name.
+  * `--tasks-max`: Maximum number of concurrently running connector tasks.
+  * `--properties`: Comma-separated list of additional connector settings in `<key>:<value>` format. Here are some examples of keys:
+
+     * `key.converter`
+     * `value.converter`
+     * `value.converter.schemas.enable`
+
+     For the list of general connector settings, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
+
+  * `--topics`: Comma-separated list of topics whose data will be transferred to Iceberg tables.
+  * `--topics-regex`: Regular expression to select topics whose data will be transferred to Iceberg tables. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
+  * `--control-topic`: Name of the management topic used for coordinating and managing data writing to Iceberg tables.
+  * `--catalog-uri`: URI for connection to the {{ metastore-name }} cluster in `thrift://<host>:<port>` format.
+  * `--warehouse`: Root directory for storing managed table data in S3 in `s3a://bucket-name/path/to/warehouse` format.
+  * `--access-key-id`, `--secret-access-key`: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
+  * `--storage-endpoint`: Endpoint for storage access (get it from your storage provider), e.g., `{{ s3-storage-host }}`.
+  * `--region`: Region where the S3-compatible storage bucket resides. The default value is `{{ region-id }}`. You can find the list of available regions [here](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+
+     {% include [basic-aws-region](../../_includes/basic-aws-region.md) %}
+  
+  * `--tables`: Comma-separated names of Iceberg tables for static table routing.
+  * `--route-field`: Field in the message that determines the target table for dynamic routing.
+  * The default branch name is `--default-commit-branch`. The connector will commit data to this branch of the Iceberg table. The default value is `main`.
+  * `--default-id-columns`: Comma-separated list of default columns that define the ID row in Iceberg tables (primary key). This parameter is required when UPSERT mode is enabled.
+  * `--default-partition-by`: Comma-separated list of columns or transformation expressions for partitioning data in the Iceberg table. It defines the physical placement of data to streamline queries, e.g., `date`, `year`, `month`, `year (timestamp)`, `month (timestamp)`, `days (timestamp)`, and `bucket (16, user_id)`.
+  * `--evolve-schema-enabled`: This setting specifies whether the connector should automatically update the Iceberg table schema if the schema of incoming messages from {{ KF }} changes. The default value is `false`.
+  * `--schema-force-optional`: This setting indicates whether to make all fields of the Iceberg table schema `nullable`, regardless of how they are defined in the incoming message schema. The default value is `false`.
+  * `--schema-case-insensitive`: This setting specifies whether the connector should ignore case when matching the fields of an incoming message to the columns of the Iceberg table. The default value is `false`.
+  * `--group-id-prefix`: Prefix for the `Consumer Group ID` that the connector uses when reading from {{ KF }} topics. The default value is `cg-control`.
+  * `--commit-interval-ms`: Specifies how often the connector commits data to the Iceberg table, milliseconds. The default value is `300000`.
+  * `--commit-timeout-ms`: Specifies how long the coordinator waits for confirmation from all workers before considering the commit failed, milliseconds. The default value is `30000`.
+  * `--commit-threads`: Number of threads used to commit data to the Iceberg table. The default value is `vCPU × 2`.
+  * `--transactional-prefix`: Prefix for the `Transactional ID` that the connector uses when writing to {{ KF }} within transactions.
+
+- {{ TF }} {#tf}
+
+  * **properties**: Comma-separated list of additional connector settings in `<key>:<value>` format. Here are some examples of keys:
+
+     * `key.converter`
+     * `value.converter`
+     * `value.converter.schemas.enable`
+
+     For the list of general connector settings, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
+
+  * **tasks_max**: Maximum number of concurrently running connector tasks.
+  * **connector_config_iceberg_sink**: Section with the Iceberg Sink connector configuration:
+     * **control_topic**: Management topic name used for coordinating and managing data writing to Iceberg tables.
+     * **topics**: Comma-separated list of topics whose data will be transferred to Iceberg tables.
+     * **topics_regex**: Regular expression to select topics whose data will be transferred to Iceberg tables. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
+     * `secrets`: Section with additional settings:
+        * **commit_interval_ms**: Specifies how often the connector commits data to the Iceberg table, milliseconds. The default value is `300000`.
+        * **commit_threads**: Number of threads used to commit data to the Iceberg table. The default value is `vCPU × 2`.
+        * **commit_timeout_ms**: Specifies how long the coordinator waits for confirmation from all workers before considering the commit failed, milliseconds. The default value is `30000`.
+        * **group_id_prefix**: Prefix for the `Consumer Group ID` that the connector uses when reading from {{ KF }} topics. The default value is `cg-control`.
+        * **transactional_prefix**: Prefix for the `Transactional ID` that the connector uses when writing to {{ KF }} within transactions.
+     * **dynamic_tables**: Section with settings for dynamic table routing:
+        * **route_field**: Field in the message that determines the target table for dynamic routing.
+     * **metastore_connection**: Section with {{ metastore-name }} connection settings:
+        * **catalog_uri**: URI for connection to the {{ metastore-name }} cluster in `thrift://<host>:<port>` format.
+        * **warehouse**: Root directory for storing managed table data in S3 in `s3a://bucket-name/path/to/warehouse` format.
+     * **s3_connection**: Section with S3-compatible storage connection settings:
+        * **external_s3**: Section with S3-compatible storage connection settings:
+           * **endpoint**: Endpoint for storage access (get it from your storage provider). Example: `{{ s3-storage-host }}`.
+           * **region**: Region where the S3-compatible storage bucket resides. The default value is `{{ region-id }}`. You can find the list of available regions [here](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+
+              {% include [basic-aws-region](../../_includes/basic-aws-region.md) %}
+
+           * **access_key_id**, **secret_access_key**: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
+
+     * **static_tables**: Section with settings for static table routing:
+        * **tables**: Comma-separated names of Iceberg tables for static table routing.
+     * **tables_config**: Section with table settings:
+        * **default_commit_branch**: Default branch name. The connector will commit data to this branch of the Iceberg table. The default value is `main`.
+        * **default_id_columns**: Comma-separated list of default columns that define the ID row in Iceberg tables (primary key). This parameter is required when UPSERT mode is enabled.
+        * **default_partition_by**: Comma-separated list of columns or transformation expressions for partitioning data in the Iceberg table. It defines the physical placement of data to streamline queries, e.g., `date`, `year`, `month`, `year (timestamp)`, `month (timestamp)`, `days (timestamp)`, and `bucket (16, user_id)`.
+        * **evolve_schema_enabled**: This setting specifies whether the connector should automatically update the Iceberg table schema if the schema of incoming messages from {{ KF }} changes. The default value is `false`.
+        * **schema_case_insensitive**: This setting specifies whether the connector should ignore case when matching the fields of an incoming message to the columns of the Iceberg table. The default value is `false`.
+        * **schema_force_optional**: This setting indicates whether to make all fields of the Iceberg table schema `nullable`, regardless of how they are defined in the incoming message schema. The default value is `false`.
+
+- REST API {#api}
+
+  The Iceberg Sink connector settings are configured in the `connectorSpec.connectorConfigIcebergSink` parameter:
+
+  * `topics`: Comma-separated list of topics whose data will be transferred to Iceberg tables.
+  * `topicsRegex`: Regular expression to select topics whose data will be transferred to Iceberg tables. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
+
+  To select topics, use either the `topics`or `topicsRegex` parameter.
+    
+  * `controlTopic`: Name of the management topic used for coordinating and managing data writing to Iceberg tables.
+  * `metastoreConnection`: {{ metastore-name }} connection settings:
+      * `catalogUri`: URI for connection to the {{ metastore-name }} cluster in `thrift://<host>:<port>` format.
+      * `warehouse`: Root directory for storing managed table data in S3 in `s3a://bucket-name/path/to/warehouse` format.
+  * `s3Connection`: S3-compatible storage connection parameters:
+      * `externalS3`: External storage parameters:
+          * `endpoint`: Endpoint for storage access (get it from your storage provider). Example: `{{ s3-storage-host }}`.
+          * `region`: Region where the S3-compatible storage bucket resides. The default value is `{{ region-id }}`. You can find the list of available regions [here](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+
+             {% include [basic-aws-region](../../_includes/basic-aws-region.md) %}
+
+          * `accessKeyId`, `secretAccessKey`: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
+  
+  * `staticTables`: Section with settings for static table routing:
+      * `--tables`: Comma-separated names of Iceberg tables for static table routing.
+  * `dynamicTables`: Section with settings for dynamic table routing:
+      * `routeField`: Field in the message that determines the target table for dynamic routing.
+
+  To set up table routing, use either the `staticTables` or `dynamicTables` parameter.
+
+  * `tablesConfig`: Section with table settings:
+      * The default branch name is `defaultCommitBranch`. The connector will commit data to this branch of the Iceberg table. The default value is `main`.
+      * `defaultIdColumns`: Comma-separated list of default columns that define the ID row in Iceberg tables (primary key). This parameter is required when UPSERT mode is enabled.
+      * `defaultPartitionBy`: Comma-separated list of columns or transformation expressions for partitioning data in the Iceberg table. It defines the physical placement of data to streamline queries, e.g., `date`, `year`, `month`, `year (timestamp)`, `month (timestamp)`, `days (timestamp)`, and `bucket (16, user_id)`.
+      * `evolveSchemaEnabled`: This setting specifies whether the connector should automatically update the Iceberg table schema if the schema of incoming messages from {{ KF }} changes. The default value is `false`.
+      * `schemaForceOptional`: This setting indicates whether to make all fields of the Iceberg table schema `nullable`, regardless of how they are defined in the incoming message schema. The default value is `false`.
+      * `schemaCaseInsensitive`: This setting specifies whether the connector should ignore case when matching the fields of an incoming message to the columns of the Iceberg table. The default value is `false`.
+  * `controlConfig`: Section with additional settings:
+      * `groupIdPrefix`: Prefix for the `Consumer Group ID` that the connector uses when reading from {{ KF }} topics. The default value is `cg-control`.
+      * `commitIntervalMs`: Specifies how often the connector commits data to the Iceberg table, milliseconds. The default value is `300000`.
+      * `commitTimeoutMs`: Specifies how long the coordinator waits for confirmation from all workers before considering the commit failed, milliseconds. The default value is `30000`.
+      * `commitThreads`: Number of threads used to commit data to the Iceberg table. The default value is `vCPU × 2`.
+      * `transactionalPrefix`: Prefix for the `Transactional ID` that the connector uses when writing to {{ KF }} within transactions.
+
+- gRPC API {#grpc-api}
+
+  The Iceberg Sink connector settings are configured the `connector_spec.connector_config_iceberg_sink` parameter:
+
+  * `topics`: Comma-separated list of topics whose data will be transferred to Iceberg tables.
+  * `topics_regex`: Regular expression to select topics whose data will be transferred to Iceberg tables. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
+
+  To select topics, use either the `topics` or `topics_regex` parameter.
+    
+  * `control_topic`: Name of the management topic used for coordinating and managing data writing to Iceberg tables.
+  * `metastore_connection`: {{ metastore-name }} connection settings:
+      * `catalog_uri`: URI for connection to the {{ metastore-name }} cluster in `thrift://<host>:<port>` format.
+      * `warehouse`: Root directory for storing managed table data in S3 in `s3a://bucket-name/path/to/warehouse` format.
+    * `s3_connection`: S3-compatible storage connection parameters:
+        * `externalS3`: External storage parameters:
+            * `endpoint`: Endpoint for storage access (get it from your storage provider). Example: `{{ s3-storage-host }}`.
+            * `region`: Region where the S3-compatible storage bucket resides. The default value is `{{ region-id }}`. You can find the list of available regions [here](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+
+                {% include [basic-aws-region](../../_includes/basic-aws-region.md) %}
+
+            * `access_key_id`, `secret_access_key`: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
+  
+    * `static_tables`: Section with settings for static table routing:
+       * `--tables`: Comma-separated names of Iceberg tables for static table routing.
+    * `dynamic_tables`: Section with settings for dynamic table routing:
+       * `route_field`: Field in the message that determines the target table for dynamic routing.
+
+    To set up table routing, use either the `static_tables` or `dynamic_tables` parameter.
+
+    * `tables_config`: Section with table settings:
+       * The default branch name is `default_commit_branch`. The connector will commit data to this branch of the Iceberg table. The default value is `main`.
+       * `default_id_columns`: Comma-separated list of default columns that define the ID row in Iceberg tables (primary key). This parameter is required when UPSERT mode is enabled.
+       * `default_partition_by`: Comma-separated list of columns or transformation expressions for partitioning data in the Iceberg table. It defines the physical placement of data to streamline queries, e.g., `date`, `year`, `month`, `year (timestamp)`, `month (timestamp)`, `days (timestamp)`, and `bucket (16, user_id)`.
+       * `evolve_schema_enabled`: This setting specifies whether the connector should automatically update the Iceberg table schema if the schema of incoming messages from {{ KF }} changes. The default value is `false`.
+       * `schema_force_optional`: This setting indicates whether to make all fields of the Iceberg table schema `nullable`, regardless of how they are defined in the incoming message schema. The default value is `false`.
+       * `schema_case_insensitive`: This setting specifies whether the connector should ignore case when matching the fields of an incoming message to the columns of the Iceberg table. The default value is `false`.
+    * `control_config`: Section with additional settings:
+       * `group_id_prefix`: Prefix for the `Consumer Group ID` that the connector uses when reading from {{ KF }} topics. The default value is `cg-control`.
+       * `commit_interval_ms`: Specifies how often the connector commits data to the Iceberg table, milliseconds. The default value is `300000`.
+       * `commit_timeout_ms`: Specifies how long the coordinator waits for confirmation from all workers before considering the commit failed, milliseconds. The default value is `30000`.
+       * `commit_threads`: Number of threads used to commit data to the Iceberg table. The default value is `vCPU × 2`.
+       * `transactional_prefix`: Prefix for the `Transactional ID` that the connector uses when writing to {{ KF }} within transactions.
+
+{% endlist %}
+
 ## Editing a connector {#update}
 
 {% list tabs group=instructions %}
@@ -887,9 +1188,27 @@ Specify the S3 Sink connector parameters as follows:
 
         You can get the connector name with the [list of cluster connectors](#list), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+    To update an [Iceberg Sink](#settings-iceberg) connector:
+
+    1. View the description of the CLI command to edit a connector:
+
+        ```bash
+        {{ yc-mdb-kf }} connector-iceberg-sink update --help
+        ```
+
+    1. Run an operation, e.g., the task limit update operation:
+
+        ```bash
+        {{ yc-mdb-kf }} connector-iceberg-sink update <connector_name> \
+           --cluster-name=<cluster_name> \
+           --tasks-max=<new_task_limit>
+        ```
+
+        You can get the connector name with the [list of cluster connectors](#list) and the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
 - {{ TF }} {#tf}
 
-    1. Check the list of [MirrorMaker](#settings-mm2) and [S3 Sink](#settings-s3) connector settings.
+    1. Check the list of [MirrorMaker](#settings-mm2), [S3 Sink](#settings-s3), and [Iceberg Sink](#settings-iceberg) connector settings.
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
@@ -953,8 +1272,56 @@ Specify the S3 Sink connector parameters as follows:
               }
             }
             ```
+          
+        * For an Iceberg Sink connector:
 
-    1. Validate your configuration.
+           ```hcl
+           resource "yandex_mdb_kafka_connector" "<connector_name>" {
+             cluster_id = "<cluster_ID>"
+             name       = "<connector_name>"
+             tasks_max  = <task_limit>
+             properties = {
+               <advanced_properties>
+             }
+             connector_config_iceberg_sink {
+               topics             = "<topic_list>"
+               control_topic = "<management_topic_name>"
+
+               metastore_connection {
+                 catalog_uri = "<URI_for_connecting_to_Metastore_cluster>"
+                 warehouse   = "<root_directory_for_storing_managed_table_data_in_S3>"
+               }
+
+               s3_connection {
+                 external_s3 {
+                   endpoint          = "<S3_compatible_storage_endpoint>"
+                   access_key_id     = "<AWS_compatible_static_key_ID>"
+                   secret_access_key = "<AWS_compatible_static_key_contents>"
+                   region            = "<region_name>"
+                 }
+               }
+
+               tables_config {
+                 default_commit_branch    = "<default_branch_name>"
+                 default_id_columns       = "<comma_separated_default_column_list>"
+                 default_partition_by     = "<list_of_columns_or_transformation_expressions>"
+                 evolve_schema_enabled    = <automatically_update_Iceberg_table_schema>
+                 schema_force_optional    = <make_Iceberg_table_schema_fields_optional>
+                 schema_case_insensitive  = <ignore_case_when_matching_fields>
+               }
+
+               control_config {
+                 group_id_prefix      = "<prefix_for_Consumer_Group_ID>"
+                 commit_interval_ms   = <Iceberg_table_data_commit_interval>
+                 commit_timeout_ms    = <how_long_the_coordinator_waits_for_confirmation>
+                 commit_threads       = <number_of_threads_for_committing_data_to_Iceberg_table>
+                 transactional_prefix = "<prefix_for_Transactional_ID>"
+               }
+             }
+           }
+           ```
+
+    1. Make sure the settings are correct.
 
        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -980,7 +1347,7 @@ Specify the S3 Sink connector parameters as follows:
          --header "Authorization: Bearer $IAM_TOKEN" \
          --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/connectors/<connector_name>' \
          --data '{
-                   "updateMask": "connectorSpec.tasksMax,connectorSpec.properties,connectorSpec.connectorConfigMirrormaker.<Mirrormaker_1_connector_setting>,...,connectorSpec.connectorConfigMirrormaker.<Mirrormaker_N_connector_setting>,connectorSpec.connectorConfigS3Sink.<S3_Sink_1_connector_setting>,...,connectorSpec.connectorConfigS3Sink.<S3_Sink_N_connector_setting>",
+                   "updateMask": "connectorSpec.tasksMax,connectorSpec.properties,connectorSpec.connectorConfigMirrormaker.<Mirrormaker_1_connector_setting>,...,connectorSpec.connectorConfigMirrormaker.<Mirrormaker_N_connector_setting>,connectorSpec.connectorConfigS3Sink.<S3_Sink_1_connector_setting>,...,connectorSpec.connectorConfigS3Sink.<S3_Sink_N_connector_setting>,connectorSpec.connectorConfigIcebergSink.<IcebergSink_1_connector_setting>,...,connectorSpec.connectorConfigIcebergSink.<IcebergSink_N_connector_setting>",
                    "connectorSpec": {
                      "tasksMax": "<task_limit>"
                      "properties": "<advanced_connector_properties>"
@@ -989,7 +1356,10 @@ Specify the S3 Sink connector parameters as follows:
                      },
                      "connectorConfigS3Sink": {
                        <S3_Sink_connector_settings>
-                     }
+                     },
+                     "connectorConfigIcebergSink": {
+                        <IcebergSink_connector_settings>
+                      }
                    }
                  }'
        ```
@@ -1003,8 +1373,9 @@ Specify the S3 Sink connector parameters as follows:
             * `connectorSpec.properties`: To change the connector’s advanced properties.
             * `connectorSpec.connectorConfigMirrormaker.<configuring_Mirrormaker_connector>`: To update the [Mirrormaker](#settings-mm2) connector settings.
             * `connectorSpec.connectorConfigS3Sink.<configuring_S3_Sink_connector>`: To update the [S3 Sink](#settings-s3) connector settings.
+            * `connectorSpec.connectorConfigIcebergSink.<IcebergSink_connector_configuration_setup>`: To update the [Iceberg Sink](#settings-iceberg) connector settings.
 
-       * `connectorSpec`: Specify the MirrorMaker or S3 Sink connector settings.
+       * `connectorSpec`: Specify the MirrorMaker, S3 Sink, or Iceberg Sink connector settings.
 
        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters), and the connector name, with the [list of connectors in the cluster](#list).
 
@@ -1041,7 +1412,10 @@ Specify the S3 Sink connector parameters as follows:
                     "connector_spec.connector_config_mirrormaker.<Mirrormaker_N_connector_setting>",
                     "connector_spec.connector_config_s3_sink.<S3_Sink_1_connector_setting>",
                     ...,
-                    "connector_spec.connector_config_s3_sink.<S3-Sink_N_connector_setting>"
+                    "connector_spec.connector_config_s3_sink.<S3-Sink_N_connector_setting>",
+                    "connector_spec.connector_config_iceberg_sink.<IcebergSink_1_setting>",
+                    ...,
+                    "connector_spec.connector_config_iceberg_sink.<IcebergSink_N_connector_setting>"
                   ]
                 },
                 "connector_spec": {
@@ -1054,6 +1428,9 @@ Specify the S3 Sink connector parameters as follows:
                   },
                   "connector_config_s3_sink": {
                     <S3_Sink_connector_settings>
+                  },
+                  "connector_config_iceberg_sink": {
+                    <IcebergSink_connector_settings>
                   }
                 }
               }' \
@@ -1070,6 +1447,7 @@ Specify the S3 Sink connector parameters as follows:
             * `connector_spec.properties`: To change the connector’s advanced properties.
             * `connector_spec.connector_config_mirrormaker.<configuring_Mirrormaker_connector>`: To update the [Mirrormaker](#settings-mm2) connector settings.
             * `connector_spec.connector_config_s3_sink.<configuring_S3_Sink_connector>`: To update the [S3 Sink](#settings-s3) connector settings.
+            * `connector_spec.connector_config_iceberg_sink.<IcebergSink_connector_configuration_setup>`: To update the [Iceberg Sink](#settings-iceberg) connector settings.
         * `connector_spec`: Specify the MirrorMaker or S3 Sink connector settings.
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters), and the connector name, with the [list of connectors in the cluster](#list).
@@ -1289,7 +1667,7 @@ You can import the existing connectors to manage them with {{ TF }}.
         For information about creating this file, see [{#T}](cluster-create.md).
 
     1. Delete the `yandex_mdb_kafka_connector` resource with the connector description.
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

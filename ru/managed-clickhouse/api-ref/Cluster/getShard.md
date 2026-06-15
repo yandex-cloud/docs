@@ -175,6 +175,8 @@ The maximum string length in characters is 63. ||
             "lightweightMutationProjectionMode": "string",
             "replicatedDeduplicationWindow": "string",
             "replicatedDeduplicationWindowSeconds": "string",
+            "replicatedDeduplicationWindowForAsyncInserts": "string",
+            "replicatedDeduplicationWindowSecondsForAsyncInserts": "string",
             "fsyncAfterInsert": "boolean",
             "fsyncPartDirectory": "boolean",
             "minCompressedBytesToFsyncAfterFetch": "string",
@@ -519,6 +521,8 @@ The maximum string length in characters is 63. ||
             "lightweightMutationProjectionMode": "string",
             "replicatedDeduplicationWindow": "string",
             "replicatedDeduplicationWindowSeconds": "string",
+            "replicatedDeduplicationWindowForAsyncInserts": "string",
+            "replicatedDeduplicationWindowSecondsForAsyncInserts": "string",
             "fsyncAfterInsert": "boolean",
             "fsyncPartDirectory": "boolean",
             "minCompressedBytesToFsyncAfterFetch": "string",
@@ -863,6 +867,8 @@ The maximum string length in characters is 63. ||
             "lightweightMutationProjectionMode": "string",
             "replicatedDeduplicationWindow": "string",
             "replicatedDeduplicationWindowSeconds": "string",
+            "replicatedDeduplicationWindowForAsyncInserts": "string",
+            "replicatedDeduplicationWindowSecondsForAsyncInserts": "string",
             "fsyncAfterInsert": "boolean",
             "fsyncPartDirectory": "boolean",
             "minCompressedBytesToFsyncAfterFetch": "string",
@@ -2061,6 +2067,20 @@ The number of seconds after which the hash sums of the inserted blocks are remov
 Default value: **3600** (1 hour) for versions 25.10 and higher, **604800** (7 days) for versions 25.9 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window_seconds). ||
+|| replicatedDeduplicationWindowForAsyncInserts | **string** (int64)
+
+The number of most recently async inserted blocks for which ClickHouse Keeper stores hash sums to check for duplicates.
+
+Default value: **10000**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window_for_async_inserts). ||
+|| replicatedDeduplicationWindowSecondsForAsyncInserts | **string** (int64)
+
+The number of seconds after which the hash sums of the async inserts are removed from ClickHouse Keeper.
+
+Default value: **604800** (7 days).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window_seconds_for_async_inserts). ||
 || fsyncAfterInsert | **boolean**
 
 Do fsync for every inserted part. Significantly decreases performance of inserts, not recommended to use with wide parts.

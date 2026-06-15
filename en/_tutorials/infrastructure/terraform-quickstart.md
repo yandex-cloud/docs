@@ -31,13 +31,19 @@ The cost of support for the infrastructure deployed through {{ TF }} in this tut
 
 ## Get the authentication credentials {#get-credentials}
 
-{% include [terraform-credentials-sa](../../_tutorials/_tutorials_includes/terraform-credentials-sa.md) %}
+To authenticate and manage your {{ yandex-cloud }} infrastructure, you can use {{ TF }} under a [service account](../../iam/concepts/users/service-accounts.md) or user accounts (a [Yandex account](../../iam/concepts/users/accounts.md#passport), a [federated account](../../iam/concepts/users/accounts.md#saml-federation), or a [local user](../../iam/concepts/users/accounts.md#local)).
 
-{% cut "Managing resources under a Yandex account or a federated account" %}
+{% list tabs group=authentication %}
 
-{% include [terraform-credentials-user](../../_tutorials/_tutorials_includes/terraform-credentials-user.md) %}
+- Service account {#service-account}
 
-{% endcut %}
+  {% include [authentication-sa](../../_includes/terraform/authentication-sa.md) %}
+
+- Yandex account, federated user, or local user {#yandex-account}
+
+  {% include [authentication-users](../../_includes/terraform/authentication-users.md) %}
+
+{% endlist %}
 
 ## Create a {{ TF }} configuration file {#configure-terraform}
 
@@ -49,7 +55,7 @@ The cost of support for the infrastructure deployed through {{ TF }} in this tut
 
 ## Prepare an infrastructure plan {#prepare-plan}
 
-With {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type: VMs, [disks](../../compute/concepts/disk.md), [images](../../compute/concepts/image.md), etc. For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
+With {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type: VMs, [disks](../../compute/concepts/disk.md), [images](../../compute/concepts/image.md), etc. For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
 
 To create a resource, specify a set of required and optional parameters that define the resource properties. Such resource descriptions make up the infrastructure plan.
 

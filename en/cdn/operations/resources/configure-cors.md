@@ -105,33 +105,16 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
   1. In the configuration file, describe the properties of the CDN resource to create:
 
       ```hcl
-      terraform {
-        required_providers {
-          yandex = {
-            source  = "yandex-cloud/yandex"
-            version = "0.69.0"
-          }
-        }
-      }
-
-      provider "yandex" {
-        token     = "<OAuth_token>"
-        cloud_id  = "<cloud_ID>"
-        folder_id = "<folder_ID>"
-        zone      = "<availability_zone>"
-      }
-
       resource "yandex_cdn_resource" "my_resource" {
-          cname               = "cdn1.yandex-example.ru"
-          active              = false
-          origin_protocol     = "https"
-          secondary_hostnames = ["cdn-example-1.yandex.ru", "cdn-example-2.yandex.ru"]
-          origin_group_id     = yandex_cdn_origin_group.my_group.id
-          options {
-            allowed_http_methods = ["GET","PUT"]
-            cors                 = ["*"]
-          }
-
+        cname               = "cdn1.yandex-example.ru"
+        active              = false
+        origin_protocol     = "https"
+        secondary_hostnames = ["cdn-example-1.yandex.ru", "cdn-example-2.yandex.ru"]
+        origin_group_id     = yandex_cdn_origin_group.my_group.id
+        options {
+          allowed_http_methods = ["GET","PUT"]
+          cors                 = ["*"]
+        }
       }
       ```
 
@@ -146,7 +129,7 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
          * `cors`: Value the CDN will send in the `Access-Control-Allow-Origin` header in response to a [CORS request](../../concepts/cors.md).
          * `allowed_http_methods`: HTTP methods allowed for your CDN content. By default, the following methods are allowed: `GET`, `HEAD`, `POST`, `PUT`, `PATCH`, `DELETE`, and `OPTIONS`. If the user is not allowed to use any method, they will get the `405` _Method Not Allowed_ response. For methods that are not supported, the user will get `501` (_Not Implemented_). This is an optional setting. Its default values are `GET`, `HEAD`, `POST`, and `OPTIONS`.
 
-      For more information about the `yandex_cdn_resource` properties in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
+      For more information about the `yandex_cdn_resource` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cdn_resource).
 
   1. In the command line, go to the directory with the {{ TF }} configuration file.
 
@@ -155,7 +138,7 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
      terraform validate
      ```
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```
      Success! The configuration is valid.
@@ -166,9 +149,9 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
      ```
      terraform apply
      ```

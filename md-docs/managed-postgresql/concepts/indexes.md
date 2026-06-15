@@ -60,7 +60,7 @@ ORDER BY distance
 LIMIT 5;
 ```
 
-Подробнее о типах индексов см. в [документации PostgreSQL](https://www.postgresql.org/docs/current/indexes-types.html).
+Подробнее о типах индексов в [документации PostgreSQL](https://www.postgresql.org/docs/current/indexes-types.html).
 
 ## Разрастание индексов {#index-bloating}
 
@@ -128,7 +128,7 @@ REINDEX INDEX idx_orders_status;
 
 ### Расширение pg_repack {#pg-repack}
 
-Расширение [pg_repack](https://github.com/reorg/pg_repack) обеспечивает реорганизацию таблиц и индексов без длительных блокировок. О том, как установить и запустить `pg_repack` в кластере Managed Service for PostgreSQL, см. в разделе [Использование pg_repack](../operations/extensions/pg_repack.md).
+Расширение [pg_repack](https://github.com/reorg/pg_repack) обеспечивает реорганизацию таблиц и индексов без длительных блокировок. Инструкция по установке и запуску `pg_repack` в кластере Managed Service for PostgreSQL находится в разделе [Использование pg_repack](../operations/extensions/pg_repack.md).
 
 ## Примеры использования {#examples}
 

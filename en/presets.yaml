@@ -3635,7 +3635,7 @@ default:
         label_credit-cudCredit: Committed use discount
         label_credit-monetaryGrantCredit: Grant
         label_credit-volumeIncentiveCredit: Volume incentive credit
-        value_empty_clouds: All clouds and folders
+        value_empty_clouds_folders: All clouds and folders
         value_empty_service_instances: All workspaces
       billing-widget:
         activate_promocode: Activate promo code
@@ -6288,7 +6288,6 @@ default:
             label_cron_kZwc5: Cron
             label_daily_o3t6f: Daily
             label_monthly_dJYSn: By month
-            label_repeat-type_7fBWj: Create snapshots
             label_start-date_pbnDp: Start date
             label_weekly_pB4YE: By day of week
             section_schedule_ro4p7: Launch schedule
@@ -7036,7 +7035,7 @@ default:
         label-vacuum-timeout: VACUUM timeout
         LoggingSection:
           commandCenter_e9fKV: Command Center logs
-          greenplum_pN6jU: Greenplum logs
+          greenplum_pN6jU: Yandex MPP Analytics for PostgreSQL logs
         perf-diag:
           label_query-status-canceled: Canceled
           label_query-status-error: Error
@@ -7751,7 +7750,6 @@ default:
         label_licenses: Subscriptions
         label_product-filter-search-placeholder: Product search
         label_service-name: Marketplace
-        label_service-short-description: Ready-made solutions
         label_tariff-type: Pricing type
         section_tariff-section: Pricing method
       mdb:

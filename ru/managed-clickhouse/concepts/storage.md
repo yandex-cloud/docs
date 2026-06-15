@@ -45,7 +45,7 @@ description: Из статьи вы узнаете, какие типы диск
         MODIFY SETTING storage_policy = '<тип_политики_хранения>';
         ```
 
-Пример см. в практическом руководстве [Использование гибридного хранилища](../tutorials/hybrid-storage.md).
+Пример в практическом руководстве [Использование гибридного хранилища](../tutorials/hybrid-storage.md).
 
 Чтобы отслеживать, какой объем занимают куски таблиц [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) в {{ objstorage-full-name }}, [воспользуйтесь метрикой](../tutorials/hybrid-storage.md#metrics) `ch_s3_disk_parts_size` в сервисе {{ monitoring-full-name }}. Она доступна только для кластеров {{ mch-name }} с настроенным гибридным хранилищем.
 
@@ -88,7 +88,7 @@ SELECT *
 FROM system.storage_policies;
 ```
 
-Подробнее о политиках хранения и их настройках см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes).
+Подробнее о политиках хранения и их настройках в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes).
 
 ### Настройки гибридного хранилища {#hybrid-storage-settings}
 
@@ -110,7 +110,7 @@ FROM system.storage_policies;
 
 Задать настройки гибридного хранилища можно при [создании](../operations/cluster-create.md) или [изменении](../operations/update.md#change-hybrid-storage) кластера.
 
-Подробнее о настройках гибридного хранилища см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes).
+Подробнее о настройках гибридного хранилища в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes).
 
 ## Выбор типа дисков при создании кластера {#storage-type-selection}
 
@@ -128,7 +128,7 @@ FROM system.storage_policies;
     * сетевые SSD-диски (`network-ssd`);
     * сверхбыстрые сетевые SSD-диски с тремя репликами (`network-ssd-io-m3`).
 
-Подробнее об ограничениях на количество хостов в кластере см. в разделе [Квоты и лимиты](./limits.md).
+Ограничения на количество хостов в кластере описаны в разделе [Квоты и лимиты](./limits.md).
 
 
 

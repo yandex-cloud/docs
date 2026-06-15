@@ -1,0 +1,4 @@
+The cost of supporting the Telegram bot infrastructure includes:
+* Fee for [function calls](../../../functions/concepts/function.md), computing resources allocated for the function, and outgoing traffic (see [{{ sf-name }} pricing](../../../functions/pricing.md)).
+* Fee for [data storage](../../../storage/operations/index.md) in {{ objstorage-name }}, [operations](../../../storage/concepts/bucket.md) with data, and outgoing traffic (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* Fee for the number of requests to the [API gateway](../../../api-gateway/concepts/index.md) and outgoing traffic (see [{{ api-gw-full-name }} pricing](../../../api-gateway/pricing.md)).

@@ -544,6 +544,12 @@
 
  - [RevokePermission](api-ref/grpc/User/revokePermission.md)
 
+#### Versions
+
+ - [Overview](api-ref/grpc/Versions/index.md)
+
+ - [List](api-ref/grpc/Versions/list.md)
+
 ### REST (англ.)
 
  - [Overview](api-ref/index.md)
@@ -679,6 +685,12 @@
  - [GrantPermission](api-ref/User/grantPermission.md)
 
  - [RevokePermission](api-ref/User/revokePermission.md)
+
+#### Versions
+
+ - [Overview](api-ref/Versions/index.md)
+
+ - [List](api-ref/Versions/list.md)
 
  - [Метрики Monitoring](metrics.md)
 

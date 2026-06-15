@@ -7,7 +7,7 @@ description: In this article, you will learn about disk types in {{ mrd-name }} 
 
 
 
-{{ mrd-name }} allows you to use network and local storage drives for database clusters. Network disks are based on network blocks, i.e., virtual disks in the {{ yandex-cloud }} infrastructure. Local drives are physically located on the database host servers.
+{{ mrd-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, i.e., virtual drives in the {{ yandex-cloud }} infrastructure. Local drives are physically located on the database host servers.
 
 {% include [storage-type](../../_includes/mdb/mvk/storage-type.md) %}
 
@@ -36,24 +36,18 @@ To monitor the cluster storage usage, set up alerts in {{ monitoring-full-name }
 1. [Create a notification channel](../../monitoring/operations/alert/create-channel.md).
 1. [Create an alert](../../monitoring/operations/alert/create-alert.md) with the following properties:
 
-  1. **{{ ui-key.yacloud_monitoring.alert.section_metrics }}**: Configure the following metric settings:
+   * Metric expression: `disk.used_bytes / disk.total_bytes * 100`.
 
-      * Cloud.
-      * Folder.
-      * **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-      * `disk.free_bytes` label.
-      * {{ mrd-short-name }} cluster of interest. You can get the cluster name and ID with the [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
+   * **{{ ui-key.yacloud_monitoring.alert.title_conditions }}**: Set alert trigger conditions:
 
-  1. **{{ ui-key.yacloud_monitoring.alert.title_conditions }}**: Set the condition for free disk space usage to trigger the alert:
-
-      * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**: `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}` (metric’s minimum value over the period).
-      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}**: `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
+      * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**: `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}` (maximum metric value over the period).
+      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}**: `{{ ui-key.yacloud_monitoring.alert.title_comparison-gte }}`.
       * **{{ ui-key.yacloud_monitoring.alert.status_warn }}**: `90` (90 % of storage size).
       * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}**: `95` (95 % of storage size).
-      * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}**: Preferred metric update period.
-      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.time-shift }}**: Preferred time shift backward, in seconds. It allows to keep the alert from triggering when multiple metrics are specified and collected at different intervals. To learn more about the calculation delay, see this [{{ monitoring-full-name }} guide](../../monitoring/concepts/alerting/alert.md#evaluation-delay).
+      * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}**: Metric value calculation period.
+      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.time-shift }}**: Preferred time shift backward, in seconds. Allows to exclude incorrectly triggered alerts with several metrics collected at different time intervals. To learn more about the calculation delay, see [this {{ monitoring-full-name }} guide](../../monitoring/concepts/alerting/alert.md#evaluation-delay).
 
-  1. **Notifications**: Add the notification channel you created earlier.
+   * **Notifications**: Add the notification channel you created earlier.
 
 ### Automatic storage expansion {#auto-rescale}
 

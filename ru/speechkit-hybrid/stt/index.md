@@ -11,7 +11,7 @@ description: Из статьи вы узнаете, как начать рабо
 
 1. [Аутентифицируйтесь]({{ link-docs }}/container-registry/operations/authentication) в {{ container-registry-name }}.
 
-Рекомендуемую конфигурацию оборудования см. в разделе [{#T}](../system-requirements.md).
+Рекомендуемая конфигурация оборудования приведена в разделе [{#T}](../system-requirements.md).
 
 ## Установка и настройка сервиса потокового распознавания {#installing}
 

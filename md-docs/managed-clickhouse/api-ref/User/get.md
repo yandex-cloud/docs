@@ -24,7 +24,7 @@ The maximum string length in characters is 50. ||
 Required field. Name of the ClickHouse User resource to return.
 To get the name of the user, use a [UserService.List](list.md#List) request.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
+The maximum string length in characters is 63. ||
 |#
 
 ## Response {#yandex.cloud.mdb.clickhouse.v1.User}
@@ -46,6 +46,8 @@ The maximum string length in characters is 63. Value must match the regular expr
     "allowIntrospectionFunctions": "boolean",
     "connectTimeout": "string",
     "connectTimeoutWithFailover": "string",
+    "connectTimeoutWithFailoverSecure": "string",
+    "connectionsWithFailoverMaxTries": "string",
     "receiveTimeout": "string",
     "sendTimeout": "string",
     "idleConnectionTimeout": "string",
@@ -98,6 +100,7 @@ The maximum string length in characters is 63. Value must match the regular expr
     "memoryUsageOvercommitMaxWaitMicroseconds": "string",
     "maxNetworkBandwidth": "string",
     "maxNetworkBandwidthForUser": "string",
+    "maxNetworkBytes": "string",
     "maxTemporaryDataOnDiskSizeForQuery": "string",
     "maxTemporaryDataOnDiskSizeForUser": "string",
     "maxConcurrentQueriesForUser": "string",
@@ -229,7 +232,8 @@ The maximum string length in characters is 63. Value must match the regular expr
   ],
   "connectionManager": {
     "connectionId": "string"
-  }
+  },
+  "authMethod": "string"
 }
 ```
 
@@ -255,6 +259,12 @@ Quotas assigned to the user. ||
 || connectionManager | **[ConnectionManager](#yandex.cloud.mdb.clickhouse.v1.ConnectionManager)**
 
 Connection Manager connection configuration. ||
+|| authMethod | **enum** (AuthMethod)
+
+User authentication method.
+
+- `AUTH_METHOD_PASSWORD`: Authentication using a password stored in the cluster.
+- `AUTH_METHOD_IAM`: Authentication using an IAM token via the IAM authentication proxy. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission}
@@ -313,6 +323,22 @@ Applies only if the cluster uses sharding and replication. If unsuccessful, seve
 Default value: **1000** (1 second).
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connect_timeout_with_failover_ms). ||
+|| connectTimeoutWithFailoverSecure | **string** (int64)
+
+The timeout in milliseconds for connecting to a remote server for a Distributed table engine, for secure connections.
+
+Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.
+
+Default value: **1000** (1 second).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connect_timeout_with_failover_secure_ms). ||
+|| connectionsWithFailoverMaxTries | **string** (int64)
+
+The maximum number of connection attempts with each replica for the Distributed table engine.
+
+Default value: **3**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connections_with_failover_max_tries). ||
 || receiveTimeout | **string** (int64)
 
 Receive timeout in milliseconds.
@@ -799,14 +825,22 @@ The maximum speed of data exchange over the network in bytes per second for a qu
 
 Default value: **0**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max-network-bandwidth). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bandwidth). ||
 || maxNetworkBandwidthForUser | **string** (int64)
 
 The maximum speed of data exchange over the network in bytes per second for all concurrently running user queries. **0** means unlimited.
 
 Default value: **0**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max-network-bandwidth-for-user). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bandwidth_for_user). ||
+|| maxNetworkBytes | **string** (int64)
+
+Limits the data volume (in bytes) that is received or transmitted over the network when executing a query.
+This setting applies to every individual query.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bytes). ||
 || maxTemporaryDataOnDiskSizeForQuery | **string** (int64)
 
 The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running queries. **0** means unlimited.
@@ -1490,6 +1524,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 || queryCacheMinQueryDuration | **string** (int64)
 
 Minimum duration in milliseconds a query needs to run for its result to be stored in the query cache.
+(-- api-linter: yc::1701::duration-required=disabled --)
 
 Default value: **0**.
 
@@ -1748,7 +1783,8 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 ||Field | Description ||
 || intervalDuration | **string** (int64)
 
-Duration of interval for quota in milliseconds. ||
+Duration of interval for quota in milliseconds.
+(-- api-linter: yc::1701::duration-required=disabled --) ||
 || queries | **string** (int64)
 
 The total number of queries. **0** means unlimited. ||

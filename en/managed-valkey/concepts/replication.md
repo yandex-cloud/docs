@@ -1,15 +1,15 @@
 ---
-title: '{{ VLK }} replication and fault tolerance'
-description: '{{ mrd-name }} uses native {{ VLK }} replication and provides high availability of cluster data using {{ VLK }} Sentinel.'
+title: Replication and persistence in {{ mrd-name }}
+description: '{{ mrd-name }} uses standard {{ VLK }} replication in conjunction with the rdsync host state management agent.'
 keywords:
   - Valkey replication
   - Valkey
   - Valkey DBMS
 ---
 
-# Replication and fault tolerance
+# Replication and persistence in {{ mrd-name }}
 
-{{ mrd-name }} uses native {{ VLK }} replication and provides high availability of cluster data using [rdsync](https://github.com/yandex/rdsync), a host status management agent.
+{{ mrd-name }} uses standard {{ VLK }} replication in conjunction with the [rdsync](https://github.com/yandex/rdsync) host state management agent, as well as data persistence presets.
 
 ## Replication {#replication}
 
@@ -21,21 +21,23 @@ Due to limited resources, **b1**, **b2**, and **b3** class hosts are not replica
 
 For more information on how replication works in {{ VLK }}, see the [{{ PG }} documentation](https://valkey.io/topics/replication/).
 
-## Fault tolerance {#availability}
+### rdsync host state management agent {#rdsync}
 
-To ensure fault tolerance, [rdsync](https://github.com/yandex/rdsync), a host status management agent from Yandex, was integrated into the {{ mrd-name }} architecture.
+The {{ mrd-name }} architecture integrates [rdsync](https://github.com/yandex/rdsync), a host status management agent by Yandex.
 
 Host status is stored in the distributed configuration management system. If the connection to the DCS (distributed configuration store, e.g., {{ ZK }}, etcd, or Consul) is lost, the agent switches the host to [protected mode](https://valkey.io/topics/security/#protected-mode) and terminates client connections. When selecting a new master, if the replica host with the highest priority requires full data resync, the agent stops the replication process and selects a host with the least lag behind the master.
 
 Thanks to the `rdsync` agent in {{ mrd-name }} cluster:
 
-* Configurations that consist of an even number of hosts (for non-sharded clusters) or one or two shards (for sharded clusters) are fault-tolerant.
-
 * The [client request](https://valkey.io/topics/sentinel-clients/) for the name of the host available for writes is processed in alignment with the `rdsync` agent and provides up-to-date information to clients, because the statuses of all hosts are known.
 
 * The risk of losing data can be reduced by using the `WAIT` command with `N/2` available replicas, where `N` is the number of cluster hosts.
 
-Sharded clusters with the **local-ssd** disk type and only one host per shard are not considered fault-tolerant. You cannot create such a cluster.
+{% note info %}
+
+You cannot create a **local-ssd**-based sharded cluster with one host per shard.
+
+{% endnote %}
 
 ### Assigning a different host as a master if the primary master fails {#master-failover}
 
@@ -50,7 +52,7 @@ You can set host priority:
 
 Minimum value (lowest priority): `0`. A host with such priority value can become a master only if there are no other hosts suitable for the role. Default priority value: `100`. You can specify a value higher than `100`.
 
-A master host can be changed either automatically, as a result of a failure, or [manually](../operations/failover.md). Manual master switching is available both for [sharded](./sharding.md#failover) and unsharded clusters.
+A master host can be changed either automatically, as a result of a failure, or [manually](../operations/failover.md).
 
 ## Persistence {#persistence}
 

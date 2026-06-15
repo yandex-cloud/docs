@@ -33,7 +33,7 @@ The maximum string length in characters is 50. ||
 Required field. Name of the ClickHouse Database resource to return.
 To get the name of the database, use a [DatabaseService.List](/docs/managed-clickhouse/api-ref/grpc/Database/list#List) request.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+The maximum string length in characters is 63. ||
 |#
 
 ## Database {#yandex.cloud.mdb.clickhouse.v1.Database}
@@ -61,6 +61,6 @@ Required field. ID of the ClickHouse cluster that the database belongs to. ||
 
 Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
 
-- `DATABASE_ENGINE_ATOMIC`
-- `DATABASE_ENGINE_REPLICATED` ||
+- `DATABASE_ENGINE_ATOMIC`: Atomic database engine.
+- `DATABASE_ENGINE_REPLICATED`: Replicated database engine. ||
 |#

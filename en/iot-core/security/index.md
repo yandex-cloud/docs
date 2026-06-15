@@ -5,22 +5,24 @@ description: Managing access to a {{ iot-full-name }} cloud MQTT server. This se
     
 # Access management in {{ iot-name }}
 
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
 In this section, you will learn about:
 
-* [What resources you can assign a role for](#resources).
-* [What roles exist in this service](#roles-list).
+* [Resources supporting role assignment](#resources).
+* [Roles available in the service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
 {% include [roles-assign](../../_includes/iam/roles-assign.md) %}
 
-## Resources you can assign a role for {#resources}
+## Resources supporting role assignment {#resources}
 
 You can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). These roles also apply to nested resources.
 
 ## Roles this service has {#roles-list}
 
-The list below shows all roles used for access control in {{ iot-short-name }}.
+The list below shows all the roles used for access control in {{ iot-short-name }}.
 
 {% include [iot-core](../../_mermaid/roles/iot-core.md) %}
 

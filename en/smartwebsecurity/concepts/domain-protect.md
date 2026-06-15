@@ -85,3 +85,4 @@ To make sure your website or application gets only verified and secure requests 
 
 * Block all incoming requests.
 * Add only [{{ sws-name }} addresses](../../overview/concepts/public-ips.md#sws-ips) to the list of allowed ones. The list of addresses will also be available in domain parameters under **How to activate protection**.
+* Add a trusted HTTP header with a unique key-value pair to every request. Configure its validation on your server to accept traffic only from a specific proxy, not from all addresses in the trusted range. To enable this option, [contact support]({{ link-console-support }}).

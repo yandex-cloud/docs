@@ -1,6 +1,6 @@
 # Системные требования к серверам на базе CPU
 
-Для установки SpeechKit Hybrid вам необходим сервер с ОС Linux, который поддерживает Docker Engine. Список поддерживаемых ОС см. в [официальной документации Docker](https://docs.docker.com/engine/install/#server).
+Для установки SpeechKit Hybrid вам необходим сервер с ОС Linux, который поддерживает Docker Engine. Список поддерживаемых ОС приведен в [официальной документации Docker](https://docs.docker.com/engine/install/#server).
 
 {% note warning %}
 

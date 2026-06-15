@@ -14,7 +14,7 @@ Managed Service for Sharded PostgreSQL позволяет использоват
 
 
 
-Подробнее о размерах и производительности разных типов дисков см. в [документации Yandex Compute Cloud](../../compute/concepts/limits.md#compute-limits-disks).
+Подробнее о размерах и производительности разных типов дисков в [документации Yandex Compute Cloud](../../compute/concepts/limits.md#compute-limits-disks).
 
 
 {% endnote %}

@@ -44,7 +44,7 @@
 
 Когда вы создаете кластер {{ CH }} из 2 и более хостов, {{ mch-short-name }} автоматически создает 3 хоста сервиса координации ({{ CK }} или {{ ZK }}, в зависимости от выбора пользователя) для управления репликацией и высокой доступностью. Эти хосты учитываются в расчете использованной [квоты ресурсов]({{ link-console-quotas }}) в облаке и в расчете стоимости кластера. По умолчанию хосты {{ CK }} или {{ ZK }} создаются с минимальным [классом хостов](../../managed-clickhouse/concepts/instance-types.md).
 
-Подробнее об использовании {{ ZK }} см. [документацию {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication).
+Подробнее об использовании {{ ZK }} в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication).
 
 #### Как происходит удаление данных по TTL в {{ CH }}? {#how-ttl-data-processing-works}
 
@@ -72,7 +72,7 @@ SET allow_experimental_object_type=1;
 
 {% endnote %}
 
-Подробную информацию см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/data-types/newjson).
+Подробная информация в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/data-types/newjson).
 
 #### Почему кластер работает медленно, хотя вычислительные ресурсы использованы не до предела? {#throttling}
 

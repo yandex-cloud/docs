@@ -11,4 +11,4 @@
 Логи аудита станут доступны при [просмотре логов кластера](../cluster-logs.md).
 
 
-Подробнее о расширении `pgaudit` см. в [официальной документации](https://github.com/pgaudit/pgaudit/blob/master/README.md).
+Подробнее о расширении `pgaudit` в [официальной документации](https://github.com/pgaudit/pgaudit/blob/master/README.md).

@@ -68,7 +68,7 @@
 
     {% include [pg-provider-disclaimer](../../_includes/mdb/mpg/terraform/pg-provider-disclaimer.md) %}
 
-    Подробнее о выдаче привилегий см. в разделе [{#T}](../../managed-postgresql/operations/grant.md#grant-privilege).
+    Подробнее о выдаче привилегий читайте в разделе [{#T}](../../managed-postgresql/operations/grant.md#grant-privilege).
 
     Допустим, существует кластер `mypg` с пользователем `user1` в роли владельца. Чтобы добавить в него нового пользователя `user2` с доступом только на чтение из таблиц в схеме `public` базы данных `db1`:
 

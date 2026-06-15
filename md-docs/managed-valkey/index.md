@@ -493,6 +493,12 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [Delete](api-ref/grpc/User/delete.md)
 
+#### Versions
+
+ - [Overview](api-ref/grpc/Versions/index.md)
+
+ - [List](api-ref/grpc/Versions/list.md)
+
 ### REST (англ.)
 
  - [Overview](api-ref/index.md)
@@ -610,6 +616,12 @@ Yandex Managed Service for Valkey™ часто используется, что
  - [Update](api-ref/User/update.md)
 
  - [Delete](api-ref/User/delete.md)
+
+#### Versions
+
+ - [Overview](api-ref/Versions/index.md)
+
+ - [List](api-ref/Versions/list.md)
 
  - [Метрики Monitoring](metrics.md)
 

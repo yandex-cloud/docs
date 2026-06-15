@@ -107,7 +107,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
 
-Подробнее о лимитах см. в разделе [Квоты и лимиты](../concepts/limits.md).
+Подробнее о лимитах в разделе [Квоты и лимиты](../concepts/limits.md).
 
 {% list tabs group=instructions %}
 
@@ -168,7 +168,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Добавьте ресурс `yandex_mdb_clickhouse_database`:
 
@@ -216,7 +216,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_database).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_database).
 
 
 - REST API {#api}
@@ -307,7 +307,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
-  Подробнее о создании баз данных см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/database).
+  Подробнее о создании баз данных в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/database).
 
 {% endlist %}
 
@@ -342,7 +342,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Удалите ресурс `yandex_mdb_clickhouse_database` с именем удаляемой базы данных.
 
@@ -354,7 +354,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_database).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_database).
 
 
 - REST API {#api}
@@ -413,7 +413,7 @@ description: Следуя данной инструкции, вы сможете
       DROP DATABASE <имя_БД>;
       ```
 
-  Подробнее об удалении объектов см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/drop).
+  Подробнее об удалении объектов в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/drop).
 
 {% endlist %}
 

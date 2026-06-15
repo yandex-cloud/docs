@@ -6,6 +6,6 @@
 
 {% note alert %}
 
-Если удалить ключ, которым был зашифрован диск, или его [версию](../../kms/concepts/version.md), то доступ к данным будет безвозвратно потерян. Подробнее см. в [документации {{ kms-name }}](../../kms/concepts/version.md#version-distruct).
+Если удалить ключ, которым был зашифрован диск, или его [версию](../../kms/concepts/version.md), то доступ к данным будет безвозвратно потерян. Подробнее в [документации {{ kms-name }}](../../kms/concepts/version.md#version-distruct).
 
 {% endnote %}

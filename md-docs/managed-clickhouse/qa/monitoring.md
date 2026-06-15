@@ -41,7 +41,7 @@
 
 #### Как отслеживать объем, занимаемый данными в гибридном хранилище? {#hybrid}
 
-Воспользуйтесь метрикой `ch_s3_disk_parts_size` в сервисе Yandex Monitoring. Она показывает, какой объем занимают куски таблиц [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree) в сервисе Object Storage. Метрика доступна только для кластеров Managed Service for ClickHouse® с настроенным [гибридным хранилищем](../concepts/storage.md#hybrid-storage-features). Подробнее о том, как выполнить запрос с метрикой, см. в [руководстве](../tutorials/hybrid-storage.md#metrics).
+Воспользуйтесь метрикой `ch_s3_disk_parts_size` в сервисе Yandex Monitoring. Она показывает, какой объем занимают куски таблиц [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree) в сервисе Object Storage. Метрика доступна только для кластеров Managed Service for ClickHouse® с настроенным [гибридным хранилищем](../concepts/storage.md#hybrid-storage-features). Подробнее о том, как выполнить запрос с метрикой, в [руководстве](../tutorials/hybrid-storage.md#metrics).
 
 #### Как настроить алерт, который срабатывает при заполнении определенного процента дискового пространства? {#disk-space-percentage}
 

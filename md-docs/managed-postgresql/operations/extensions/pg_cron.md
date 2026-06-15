@@ -31,4 +31,4 @@
     * `unschedule` — удаляет задачу.
     * `alter_job` — изменяет задачу.
 
-Подробнее о расширении `pg_cron` см. в [официальной документации](https://github.com/citusdata/pg_cron).
+Подробнее о расширении `pg_cron` в [официальной документации](https://github.com/citusdata/pg_cron).

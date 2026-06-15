@@ -17,7 +17,7 @@ Parameter | Type | Description
 
 The `ErrorObjectSettings` object may contain the following parameters:
 
-Parameter | Type | Description
+Argument | Type | Description
 ----|----|----
 `object` | `string` | [Object](../../../storage/concepts/object.md) name. The parameters are subsituted into `object`.
 `statusCode` | `number` |  Returned response code.
@@ -49,4 +49,4 @@ Specification example:
 
 * [{#T}](../../tutorials/java-servlet-todo-list.md)
 * [{#T}](../../tutorials/serverless-url-shortener/index.md)
-* [{#T}](../../tutorials/telegram-bot-serverless.md)
+* [{#T}](../../tutorials/telegram-bot-serverless/index.md)

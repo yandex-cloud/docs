@@ -1,0 +1,1 @@
+By default, serial port `COM1` is used on Linux VMs. To use a different port, configure it manually on your VM OS side.

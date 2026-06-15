@@ -463,22 +463,22 @@ Helm, в отличие от Docker, корректно поддерживает
 
         ```
         {{- define "<название_Helm-чарта>.access_key_id" -}}
-        not_var{{- if .Values.saAccessKeyFile -}}
+        {{- if .Values.saAccessKeyFile -}}
         {{- $key := .Values.saAccessKeyFile | fromJson -}}
         {{- $key.access_key.key_id -}}
-        not_var{{- else }}
+        {{- else }}
         {{- .Values.<значение_поля_name_из_спецификации>_generated.accessKeyID -}}
-        not_var{{- end }}
-        not_var{{- end }}
+        {{- end }}
+        {{- end }}
 
         {{- define "<название_Helm-чарта>.access_key_secret" -}}
-        not_var{{- if .Values.saAccessKeyFile -}}
+        {{- if .Values.saAccessKeyFile -}}
         {{- $key := .Values.saAccessKeyFile | fromJson -}}
         {{- $key.secret -}}
-        not_var{{- else }}
+        {{- else }}
         {{- .Values.<значение_поля_name_из_спецификации>_generated.secretAccessKey -}}
-        not_var{{- end }}
-        not_var{{- end }}
+        {{- end }}
+        {{- end }}
         ```
 
         Пример использования значений в шаблоне объекта `Secret`:

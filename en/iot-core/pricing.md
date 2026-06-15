@@ -6,6 +6,8 @@ editable: false
 
 # {{ iot-name }} pricing policy
 
+{% include [iot-sunset-warning](../_includes/iot-core/sunset-warning.md) %}
+
 
 
 

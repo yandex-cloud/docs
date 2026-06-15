@@ -5,6 +5,8 @@ description: This page describes all device topics available in {{ iot-name }}.
 
 # Device topics
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 Device topics available in the service:
 * `$devices/<device_ID>/events`: Topic for sending telemetry data.  
 * `$devices/<device_ID>/state`: Permanent topic for sending telemetry data.
@@ -34,7 +36,7 @@ The device and registry that are subscribed to the monitoring topic will receive
 * `registry_id`: ID of the registry where the device is located.
 * `device_id`: Device ID.
 
-Time is specified in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). New messages are sent to registries or devices that are subscribed to the topic every time the device is accessed over MQTT. The quality of service (QoS) level is [at most once](../index.md#qos). If the message failed to arrive within the expected time period, we recommend waiting about two minutes before reacting.
+Time is specified in (https://en.wikipedia.org/wiki/Coordinated_Universal_Time). New messages are sent to registries or devices that are subscribed to the topic every time the device is accessed over MQTT. The quality of service (QoS) level is [at most once](../index.md#qos). If the message failed to arrive within the expected time period, we recommend waiting about two minutes before reacting.
 
 ### Example of monitoring data {#example}
 

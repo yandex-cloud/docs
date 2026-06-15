@@ -2,7 +2,7 @@
 
 {{ mpg-name }} предоставляет встроенный инструмент для диагностики производительности кластера СУБД. Этот инструмент помогает анализировать метрики производительности {{ PG }} для [сессий](#get-sessions) и [запросов](#get-queries).
 
-О том, как выявить и устранить проблемы с производительностью кластера, см. в разделах [Анализ производительности и оптимизация](../tutorials/profiling.md) и [Поиск проблем с производительностью кластера](../tutorials/performance-problems.md).
+Инструкции по выявлению и устранению проблем с производительностью кластера приведены в разделах [Анализ производительности и оптимизация](../tutorials/profiling.md) и [Поиск проблем с производительностью кластера](../tutorials/performance-problems.md).
 
 ## Активировать сбор статистики {#activate-stats-collector}
 
@@ -44,9 +44,9 @@
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Инструкцию по созданию такого файла читайте в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+        Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} вы найдете в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
     1. {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
 
@@ -270,7 +270,7 @@
 
 {% endlist %}
 
-Подробнее про отображаемые сведения см. [в документации {{ PG }}](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
+Подробнее про отображаемые сведения [в документации {{ PG }}](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
 
 ## Получить статистику по запросам {#get-queries}
 
@@ -330,7 +330,7 @@
 
 {% endlist %}
 
-Подробнее про отображаемые сведения см. в документации расширений [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html) и [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache/blob/master/README.rst).
+Подробнее про отображаемые сведения в документации расширений [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html) и [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache/blob/master/README.rst).
 
 ## Получить информацию о плане выполнения запроса {#auto-explain-enable}
 

@@ -9,13 +9,13 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field.
+            Required field. ID of the ClickHouse cluster.
             The maximum string length in characters is 50.
           type: string
         extensionName:
           description: |-
             **string**
-            Required field.
+            Required field. Name of the extension.
             The maximum string length in characters is 63.
           type: string
       required:
@@ -29,6 +29,8 @@ apiPlayground:
 
 # Managed Service for ClickHouse API, REST: ClusterExtension.Get
 
+Returns the specified cluster extension.
+
 ## HTTP request
 
 ```
@@ -41,12 +43,12 @@ GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/extens
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.
+Required field. ID of the ClickHouse cluster.
 
 The maximum string length in characters is 50. ||
 || extensionName | **string**
 
-Required field.
+Required field. Name of the extension.
 
 The maximum string length in characters is 63. ||
 |#

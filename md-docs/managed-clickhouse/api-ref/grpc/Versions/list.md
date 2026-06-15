@@ -80,7 +80,8 @@ ID of the version. ||
 Name of the version. ||
 || deprecated | **bool**
 
-Whether version is deprecated. ||
+Whether version is deprecated.
+(-- api-linter: yc::1703::deprecated-annotation=disabled --) ||
 || updatable_to[] | **string**
 
 List of versions that can be updated from current. ||

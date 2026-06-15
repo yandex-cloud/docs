@@ -1,5 +1,7 @@
 # Working with {{ iot-full-name }} in Java
 
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
 In this scenario, you will learn how to connect to {{ iot-full-name }} using the [Paho](https://www.eclipse.org/paho/clients/java/) library written in Java. It assumes that you know how to develop in Java.
 
 {% note info %}
@@ -20,7 +22,7 @@ To connect to {{ iot-full-name }} and start messaging:
   * [Create a device and add a certificate to it](#device).
 * [Connect to {{ iot-full-name }}](#configure).
 * [Authenticate in {{ iot-full-name }}](#auth):
-  * [Authentication using certificates](#certs).
+  * [Authentication with certificates](#certs).
   * [Authentication by username and password](#log-pass).
 * [Establish a connection](#connect).
 * [Subscribe to a topic and receive messages](#subscribe).
@@ -127,7 +129,7 @@ There are two [authentication](../../iot-core/concepts/authorization.md) methods
 * [Using X.509 certificates](#certs).
 * [Using a username and password](#log-pass).
 
-### Authentication using certificates {#certs}
+### Authentication with certificates {#certs}
 
 When authenticating with X.509 certificates, use [PKCS#12](https://ru.wikipedia.org/wiki/PKCS12) certificates (.p12 files). To generate this certificate from PEM certificates, run the command:
 

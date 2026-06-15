@@ -46,6 +46,8 @@ items:
                 href: operations/servers/reinstall-os-from-own-image.md
           - name: Setting up a secondary private subnet
             href: operations/servers/set-up-tagged-vlan.md
+          - name: Switching the type of a network connected to a network interface
+            href: operations/servers/switch-network-type.md
           - name: Configuring the MC-LAG aggregation group
             href: operations/servers/set-up-mc-lag.md
           - name: Resetting a password on the server
@@ -66,6 +68,8 @@ items:
             href: operations/subnet-create.md
           - name: Ordering a dedicated public subnet
             href: operations/reserve-public-subnet.md
+          - name: Deleting a dedicated public subnet
+            href: operations/delete-public-subnet.md
           - name: Creating a private connection to cloud networks
             href: operations/create-vpc-connection.md
           - name: Creating a static route

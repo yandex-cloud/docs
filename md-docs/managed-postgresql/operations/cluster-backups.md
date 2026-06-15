@@ -832,9 +832,9 @@
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Инструкцию по созданию такого файла читайте в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL вы найдете в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
 
     1. Добавьте к описанию кластера Managed Service for PostgreSQL блок `backup_window_start` в секции `config`:
 
@@ -1086,9 +1086,9 @@
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Инструкцию по созданию такого файла читайте в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL вы найдете в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
 
     1. Добавьте к описанию кластера Managed Service for PostgreSQL блок `backup_retain_period_days` в секции `config`:
 

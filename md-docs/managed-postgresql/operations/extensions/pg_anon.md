@@ -20,7 +20,7 @@
 
     Имя владельца можно запросить со [списком баз данных в кластере](../databases.md#list-db).
 
-Подробнее о расширении `postgresql_anonymizer` см. в [официальной документации](https://postgresql-anonymizer.readthedocs.io/en/stable/).
+Подробнее о расширении `postgresql_anonymizer` в [официальной документации](https://postgresql-anonymizer.readthedocs.io/en/stable/).
 
 ## Пример использования {#usage-example}
 

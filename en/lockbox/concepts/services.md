@@ -14,7 +14,7 @@ You can use {{ lockbox-name }} [secrets](./secret.md) in the following {{ yandex
 
 ## {{ sf-full-name }} {#functions}
 
-If a {{ sf-name }} [function](../../functions/concepts/function.md) requires sensitive data to operate, e.g., database passwords, [static access keys](../../iam/concepts/authorization/access-key.md), or an [OAuth token](../../iam/concepts/authorization/oauth-token.md), use {{ lockbox-name }} secrets to transfer such data to the function. This will prevent unauthorized third-party access to sensitive data.
+If a {{ sf-name }} [function](../../functions/concepts/function.md) requires sensitive data, e.g., database passwords or [static access keys](../../iam/concepts/authorization/access-key.md), use {{ lockbox-name }} secrets to provide such data to the function. This will prevent unauthorized third-party access to sensitive data.
 
 For a {{ sf-name }} function to access the data stored in a {{ lockbox-name }} secret, assign the `lockbox.payloadViewer` [role](../security/index.md#lockbox-payloadViewer) for the relevant secret to the [service account](../../iam/concepts/users/service-accounts.md) you will use to invoke the function.
 

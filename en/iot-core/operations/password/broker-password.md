@@ -5,6 +5,8 @@ description: In this tutorial, you will learn how to get a list of broker passwo
 
 # Managing broker passwords
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 {% include [note-pp](../../../_includes/iot-core/note-pp.md) %}
 
 To start exchanging messages between broker clients, you must [log in](../../concepts/authorization.md). This section describes how to manage broker passwords for the relevant authorization method.

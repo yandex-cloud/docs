@@ -10,7 +10,7 @@ The server can be provided to the user in one of the [stock configurations](./se
 
 ## Renting servers {#server-lease}
 
-You can rent a stock configuration server for one day, one month, three months, six months, or one year. You can view the configurations available for rent in each [pool](#server-pools) when ordering a server in the [management console]({{ link-console-main }}).
+You can rent a stock configuration server for one day, one month, three months, six months, or one year. You can view rentable configurations in each [pool](#server-pools) when ordering a server in the [management console]({{ link-console-main }}).
 
 You can rent a [custom-configured](./server-custom-configurations.md) server for one month, six months, or one year.
 
@@ -38,12 +38,21 @@ When leasing a sever, you can select your configurations based on redundant powe
 
 ## Server network interfaces {#network-interfaces}
 
-Any {{ baremetal-name }} server [configuration](./server-configurations.md) includes at least two [network interfaces](https://en.wikipedia.org/wiki/Network_interface_controller):
+Any {{ baremetal-name }} server [configuration](./server-configurations.md) includes at least two [network interfaces](https://en.wikipedia.org/wiki/Network_interface_controller) which can have the following connection options:
 
-* [Public](./public-network.md) network interface.
-* [Private](./private-network.md) network interface.
+* Only to [private](./private-network.md#private-subnet) subnets (`PRIVATE`).
+* Only to [public](./public-network.md) subnets (`PUBLIC`).
+* Both to private and public subnets (`PUBLIC,PRIVATE`).
 
-In total, there may be more than two network interfaces:
+In each {{ baremetal-name }} server:
+* One of the network interfaces is always capable of connecting to public subnets.
+* One of the network interfaces is always capable of connecting to private subnets.
+
+If a server network interface supports connection both to private and public networks, you can switch between these network types for that interface. For more on changing network type for a network interface, see [{#T}](../operations/servers/switch-network-type.md).
+
+{% include [switch-iface-network-type-ddos-warn](../../_includes/baremetal/switch-iface-network-type-ddos-warn.md) %}
+
+A server can have more than two network interfaces:
 * In configurations with 10 Gbps and 25 Gbp NICs, in addition to the primary (high-speed) network interfaces, server diagnostic tools may display two more (inactive) network interfaces.
 
     These inactive interfaces belong to the integrated NICs of the server motherboard. They are not connected to any networks and do not require any configuration.
@@ -51,11 +60,7 @@ In total, there may be more than two network interfaces:
 
     Network interfaces connected to the same network are combined into aggregation groups at the OS level, which increases the network connection speed and ensures fault tolerance.
 
-{% note info %}
-
-You can [attach](../operations/servers/set-up-tagged-vlan.md) several [private subnets](./private-network.md#private-subnet) to the server's network interface (or MC-LAG aggregation group) connected to a [private network](./private-network.md) at the same time.
-
-{% endnote %}
+You can [attach](../operations/servers/set-up-tagged-vlan.md) several [private subnets](./private-network.md#private-subnet) to the server's network interface (or MC-LAG aggregation group) connected to a [private network](./private-network.md) at the same time. For more on adding additional private subnets, see [{#T}](../operations/servers/set-up-tagged-vlan.md).
 
 ## Server statuses {#server-status}
 
@@ -76,7 +81,7 @@ A server can have one of the following statuses:
 
 ## Quarantine {#quarantine}
 
-Quarantine: A transition state before server lease is fully terminated. In this state, the server is still listed in the user's directory. Users cannot access quarantined servers over the network or through a KVM console, but the server retains all user data and settings. The quarantine period is 72 hours. Following this period, the settings and data get completely deleted from the server, and the server itself gets removed from the user's directory.
+Quarantine: A transition state before server rent is fully terminated. In this state, the server is still listed in the user's directory. Users cannot access quarantined servers over the network or through a KVM console, but the server retains all user data and settings. The quarantine period is 72 hours. Following this period, the settings and data get completely deleted from the server, and the server itself gets removed from the user's directory.
 
 At any time during the quarantine period, you can restore the server for further use. For more information, see [support]({{ link-console-support }}).
 

@@ -234,7 +234,7 @@ Managed Service for ClickHouse® работает только с моделям
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Добавьте к описанию кластера Managed Service for ClickHouse® блок `ml_model` с описанием подключаемой модели машинного обучения:
 
@@ -280,7 +280,7 @@ Managed Service for ClickHouse® работает только с моделям
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
     {% note warning "Ограничения по времени" %}
     
@@ -457,7 +457,7 @@ Managed Service for ClickHouse® не отслеживает изменения 
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Измените в описании кластера Managed Service for ClickHouse® значение параметра `uri` в блоке `ml_model`:
 
@@ -503,7 +503,7 @@ Managed Service for ClickHouse® не отслеживает изменения 
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
     {% note warning "Ограничения по времени" %}
     
@@ -686,7 +686,7 @@ Managed Service for ClickHouse® не отслеживает изменения 
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Удалите из описания кластера Managed Service for ClickHouse® блок описания нужной модели `ml_model`.
 
@@ -721,7 +721,7 @@ Managed Service for ClickHouse® не отслеживает изменения 
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
     {% note warning "Ограничения по времени" %}
     

@@ -1,5 +1,7 @@
 # Emulating multiple IoT devices
 
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
 
 In this scenario, you will learn to emulate multiple [devices](../../iot-core/concepts/index.md#device) that send messages to MQTT [topics](../../iot-core/concepts/topic/index.md). The example shows the emulation of air sensors that measure the following parameters:
 * Temperature
@@ -7,7 +9,7 @@ In this scenario, you will learn to emulate multiple [devices](../../iot-core/co
 * Pressure
 * CO<sub>2</sub> level
 
-Each sensor sends its readings in JSON format. Here is an example:
+Each sensor sends its readings in JSON format. For example:
 
 ```json
 {
@@ -50,7 +52,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Install {{ TF }} {#install-terraform}
 
-Using {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type, such as [VMs](../../compute/concepts/vm.md), [disks](../../compute/concepts/disk.md), or [images](../../compute/concepts/image.md). For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
+Using {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type, such as [VMs](../../compute/concepts/vm.md), [disks](../../compute/concepts/disk.md), or [images](../../compute/concepts/image.md). For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
 
 {% include [terraform_install](../_tutorials_includes/terraform-install.md) %}
 
@@ -121,7 +123,7 @@ Using {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type
    terraform plan
    ```
 
-   You will see a list of resources and their properties. This is a verification step: no resources will be created. {{ TF }} will show any errors in the configuration.
+   You will see a list of resources and their properties. This is a verification step: no resources will be created. Otherwise, {{ TF }} will show any detected errors.
 
    {% note alert %}
 
@@ -135,7 +137,7 @@ Using {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type
    terraform apply
    ```
 
-1. Confirm creating the resources: type `yes` and press **Enter**.
+1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
    Result:
 
@@ -148,7 +150,7 @@ Using {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type
    trigger = "a1sva8sse.......7kf6"
    ```
 
-   {{ TF }} will create all the required resources, and the terminal will display the IDs of the resources created. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+   {{ TF }} will create all the required resources, and the terminal will display the IDs of the resources created. You can check the new resources and their settings in the [management console]({{ link-console-main }}).
 
 ## Delete the resources you created {#clear-out}
 

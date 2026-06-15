@@ -1,5 +1,7 @@
 # Managing registry certificates
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 For devices and registries to begin exchanging data and commands, you need to [log in](../../concepts/authorization.md). This section describes how to manage registry certificates for the appropriate authorization method.
 
 {% include [pass-priority-note](../../../_includes/iot-core/pass-priority-note.md) %}
@@ -29,14 +31,14 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
       - To add a file:
 
-         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
+         1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
          1. Click **Attach file**.
          1. Specify the certificate file on your computer and click **Open**.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
       - To add text:
 
-         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
+         1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
          1. Insert the certificate body in the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
@@ -71,7 +73,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
   To add a certificate to a registry created using {{ TF }}:
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
      * `yandex_iot_core_registry`: Registry parameters:
        * `name`: Registry name.
@@ -93,7 +95,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       }
       ```
 
-      For more information about `yandex_iot_core_registry` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
+      For more information about `yandex_iot_core_registry` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -101,7 +103,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       terraform validate
       ```
      
-      If the configuration is correct, you will get this message:
+      If the configuration is valid, you will get this message:
      
       ```bash
       Success! The configuration is valid.
@@ -113,8 +115,8 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       terraform plan
       ```
   
-      You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-  1. Apply the changes:
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply
@@ -199,7 +201,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       }
       ```
 
-      For more information about `yandex_iot_core_registry` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
+      For more information about `yandex_iot_core_registry` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -207,7 +209,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       terraform validate
       ```
      
-      If the configuration is correct, you will get this message:
+      If the configuration is valid, you will get this message:
      
       ```bash
       Success! The configuration is valid.
@@ -219,8 +221,8 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       terraform plan
       ```
   
-      You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-  1. Apply the changes:
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply

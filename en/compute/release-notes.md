@@ -5,6 +5,24 @@ description: This section contains the {{ compute-name }} release notes.
 
 # {{ compute-full-name }} release notes
 
+## Q1 2026 {#q1-2026}
+
+* Added [maintenance management features for VMs with GPUs](./concepts/gpus-maintenance.md).
+* Added new types of [dedicated hosts](./concepts/dedicated-host.md#host-types) with larger disks:
+  * `intel-6338-c108-m958-n6400x6`
+  * `intel-6354-c56-m938-n6400x6`
+* [CLI](../cli/quickstart.md):
+  * Added the `--os-nvidia-driver` property to the [yc compute image create](./cli-ref/image/create.md) command for the Nvidia driver version in the image.
+  * The [yc compute instance create](./cli-ref/instance/create.md) and [yc compute instance create-with-container](./cli-ref/instance/create-with-container.md) commands now have the `kms-key-id` and `kms-key-name` options available for the `--attach-local-disk` property to connect encrypted local disks to a new VM created on a dedicated host.
+* [{{ TF }}](../terraform/quickstart.md): Added the `kms_key_id` option for the [yandex_compute_instance](../terraform/resources/compute_instance.md) resource under `local_disks` to connect encrypted local disks to a new VM created on a dedicated host.
+* Added the following [{{ at-name }} management events](./at-ref.md#control-plane-events):
+  * `CreateDiskPlacementGroup`: Creating a [disk placement group](./concepts/disk-placement-group.md).
+  * `CreatePlacementGroup`: Creating a [VM placement group](./concepts/placement-groups.md).
+  * `DeleteDiskPlacementGroup`: Deleting a disk placement group.
+  * `DeletePlacementGroup`: Deleting a VM placement group.
+  * `UpdateDiskPlacementGroup`: Updating a disk placement group.
+  * `UpdatePlacementGroup`: Updating a VM placement group.
+
 ## Q3–Q4 2025 {#q3-q4-2025}
 
 * New VM [platforms](./concepts/vm-platforms.md) are now available:

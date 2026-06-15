@@ -75,7 +75,7 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
      * `--preemptible`: For a [preemptible](../../concepts/preemptible-vm.md) VM.
      * `--network-interface`: VM [network interface](../../concepts/network.md) settings:
          * `subnet-name`: Name of the selected subnet.
-         * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, omit this parameter.
+         * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, do not include this setting.
 
          {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
 
@@ -220,5 +220,5 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
 
 #### See also {#see-also}
 
-* [Update the VM configuration](../vm-control/vm-update-resources.md)
+* [Changing VM configuration](../vm-control/vm-update-resources.md)
 * [Questions about GPUs](../../../compute/qa/gpu.md)

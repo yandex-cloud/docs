@@ -552,7 +552,7 @@ $$
 
 **alias**(*source: timeseries_vector*, *arg1: string*): *timeseries_vector*
 
-Переименовывает метрики. В аргументе можно использовать [mustache-шаблонизацию](https://mustache.github.io/) в формате `not_var{{label}}`, чтобы подставить в новое имя метрики значение метки.
+Переименовывает метрики. В аргументе можно использовать [mustache-шаблонизацию](https://mustache.github.io/) в формате `{{label}}`, чтобы подставить в новое имя метрики значение метки.
 
 ### constant_line
 

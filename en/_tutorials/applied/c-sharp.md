@@ -1,5 +1,7 @@
 # Working with {{ iot-full-name }} in C#
 
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
 In this tutorial, you will learn how to connect to {{ iot-full-name }} using the [Paho](https://www.eclipse.org/paho/clients/dotnet/) library written in C#. The tutorial assumes that you know how to develop apps on .NET in C\#.
 
 {% note info %}
@@ -20,7 +22,7 @@ To connect to {{ iot-full-name }} and start messaging:
   * [Create a device and add a certificate to it](#device).
 * [Connect to {{ iot-full-name }}](#connect).
 * [Authenticate in {{ iot-full-name }}](#auth):
-  * [Authentication using certificates](#certs).
+  * [Authentication with certificates](#certs).
   * [Authentication by username and password](#log-pass).
 * [Establish a connection](#establish-connection).
 * [Subscribe to a topic and receive messages](#subscribe).
@@ -149,7 +151,7 @@ There are two [authentication](../../iot-core/concepts/authorization.md) methods
 * [Using X.509 certificates](#certs).
 * [Using a username and password](#log-pass).
 
-### Authentication using certificates {#certs}
+### Authentication with certificates {#certs}
 
 When authenticating with X.509 certificates, it is most convenient to use [PKCS#12](https://ru.wikipedia.org/wiki/PKCS12) certificates in PFX format. To generate a certificate in PKCS#12 format from PEM certificates, run the command:
 

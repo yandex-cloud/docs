@@ -41,7 +41,7 @@
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
     1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
     1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
-    1. В разделе **Сервисные настройки** выберите нужный сервисный аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md). Подробнее о настройке сервисного аккаунта см. в разделе [Настройка доступа к Object Storage из кластера ClickHouse®](s3-access.md).
+    1. В разделе **Сервисные настройки** выберите нужный сервисный аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md). Подробнее о настройке сервисного аккаунта в разделе [Настройка доступа к Object Storage из кластера ClickHouse®](s3-access.md).
 
 {% endlist %}
 
@@ -65,9 +65,9 @@
 
 Вы также можете [изменить класс хостов у отдельного шарда](shards.md#shard-update).
 
-Класс хостов влияет на количество оперативной памяти, доступной для использования ClickHouse®. Подробнее см. в разделе [Управление памятью](../concepts/memory-management.md).
+Класс хостов влияет на количество оперативной памяти, доступной для использования ClickHouse®. Подробнее в разделе [Управление памятью](../concepts/memory-management.md).
 
-Минимальное количество ядер для одного хоста ZooKeeper зависит от суммарного количества ядер хостов ClickHouse®. Подробнее см. в разделе [Сервисы координации](../concepts/coordination-system.md#zk).
+Минимальное количество ядер для одного хоста ZooKeeper зависит от суммарного количества ядер хостов ClickHouse®. Подробнее в разделе [Сервисы координации](../concepts/coordination-system.md#zk).
 
 {% list tabs group=instructions %}
 
@@ -126,7 +126,7 @@
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Измените в описании кластера Managed Service for ClickHouse® значение параметра `resource_preset_id` в блоках `clickhouse.resources` и `zookeeper.resources` для хостов ClickHouse® и ZooKeeper соответственно:
 
@@ -179,7 +179,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
     {% note warning "Ограничения по времени" %}
     
@@ -395,7 +395,7 @@
 
 {% note info %}
 
-В кластерах с поддержкой ClickHouse® Keeper хосты ZooKeeper не используются. Подробнее см. в разделе [Сервисы координации](../concepts/coordination-system.md).
+В кластерах с поддержкой ClickHouse® Keeper хосты ZooKeeper не используются. Подробнее в разделе [Сервисы координации](../concepts/coordination-system.md).
 
 {% endnote %}
 
@@ -473,7 +473,7 @@
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Измените в описании кластера Managed Service for ClickHouse® значение параметра `disk_size` в блоке `clickhouse.resources` или `zookeeper.resources` для хостов ClickHouse® и ZooKeeper соответственно:
 
@@ -526,7 +526,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
     {% note warning "Ограничения по времени" %}
     
@@ -872,7 +872,7 @@
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Чтобы включить [управление пользователями через SQL](../concepts/user-access-rights.md#sql-user-management), добавьте к описанию кластера поле `sql_user_management` со значением `true` и поле `admin_password` с паролем пользователя `admin`:
        
@@ -930,7 +930,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
     {% note warning "Ограничения по времени" %}
     
@@ -1129,7 +1129,7 @@
 
      * **Начало резервного копирования (UTC)** — промежуток времени, в течение которого начинается резервное копирование кластера. Время указывается по UTC в 24-часовом формате. По умолчанию — `22:00 - 23:00` UTC.
      
-     * **Срок хранения автоматических резервных копий, дней** — время, в течение которого нужно хранить созданные автоматически резервные копии (в днях). Если для такой копии истекает срок хранения, то она удаляется. Значение по умолчанию — 7 дней. Подробнее см. в разделе [Резервные копии](../concepts/backup.md#storage).
+     * **Срок хранения автоматических резервных копий, дней** — время, в течение которого нужно хранить созданные автоматически резервные копии (в днях). Если для такой копии истекает срок хранения, то она удаляется. Значение по умолчанию — 7 дней. Подробнее в разделе [Резервные копии](../concepts/backup.md#storage).
      
          Изменение срока хранения затрагивает как новые автоматические резервные копии, так и уже существующие. Например, изначальный срок хранения был 7 дней, оставшееся время жизни отдельной автоматической резервной копии — 1 день. При увеличении срока хранения до 9 дней оставшееся время жизни этой резервной копии будет уже 3 дня.
      
@@ -1141,7 +1141,7 @@
         Операции по техническому обслуживанию проводятся для включенных и выключенных кластеров. Они могут включать в себя: обновление СУБД, применение патчей и так далее.
      
      
-     * **Сервисный аккаунт** — аккаунт, от имени которого пользовательские программы могут управлять кластером. Подробнее см. в документации [Управление доступом в Managed Service for ClickHouse®](../security.md).
+     * **Сервисный аккаунт** — аккаунт, от имени которого пользовательские программы могут управлять кластером. Подробнее в документации [Управление доступом в Managed Service for ClickHouse®](../security.md).
      
      * **Шифрование дисков** — опция включает шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md). Задайте ключ одним из способов:
      
@@ -1149,7 +1149,7 @@
      
         * Чтобы использовать созданный ранее ключ, выберите его в поле **Ключ KMS**.
      
-        Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+        Подробнее о шифровании дисков в разделе [Хранилище](../concepts/storage.md#disk-encryption).
      
      
      * **Доступ из DataLens** — опция разрешает анализировать данные из кластера в сервисе [Yandex DataLens](../../datalens/concepts/index.md).
@@ -1162,7 +1162,7 @@
      
      * **Доступ из Метрики и AppMetrica** — опция разрешает [импортировать данные из AppMetrica](https://appmetrica.yandex.ru/docs/common/cloud/about.html) в кластер.
      
-     * **Доступ из Serverless** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса [Yandex Cloud Functions](../../functions/concepts/index.md). Подробнее о настройке доступа см. в документации [Cloud Functions](../../functions/operations/database-connection.md).
+     * **Доступ из Serverless** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса [Yandex Cloud Functions](../../functions/concepts/index.md). Подробнее о настройке доступа в документации [Cloud Functions](../../functions/operations/database-connection.md).
      
      
      * **Доступ из Yandex Query** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса [Yandex Query](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
@@ -1218,12 +1218,12 @@
 
     * `--backup-retain-period-days` – срок хранения автоматических резервных копий (в днях).
 
-    * `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения см. в разделе [Подключение из DataLens](datalens-connect.md).
+    * `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения в разделе [Подключение из DataLens](datalens-connect.md).
 
     
     * `--metrika-access` — разрешает [импорт данных из AppMetrika в кластер](https://appmetrica.yandex.ru/docs/common/cloud/about.html). Значение по умолчанию — `false`.
 
-    * `--serverless-access` — разрешает доступ к кластеру из сервиса [Yandex Cloud Functions](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [Cloud Functions](../../functions/operations/database-connection.md).
+    * `--serverless-access` — разрешает доступ к кластеру из сервиса [Yandex Cloud Functions](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа в документации [Cloud Functions](../../functions/operations/database-connection.md).
 
 
     * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления Yandex Cloud с помощью сервиса Yandex WebSQL. Значение по умолчанию — `false`.
@@ -1283,7 +1283,7 @@
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Чтобы изменить время начала резервного копирования, добавьте к описанию кластера Managed Service for ClickHouse® блок `backup_window_start`.
 
@@ -1388,7 +1388,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
     {% note warning "Ограничения по времени" %}
     
@@ -1497,14 +1497,14 @@
 
             * `configSpec.access` — настройки, которые разрешают доступ к кластеру из других сервисов и [выполнение SQL-запросов из консоли управления](web-sql-query.md) с помощью Yandex WebSQL:
 
-                * `dataLens` — разрешить доступ из DataLens: `true` или `false`. Значение по умолчанию — `false`. Подробнее о настройке подключения см. в разделе [Подключение из DataLens](datalens-connect.md).
+                * `dataLens` — разрешить доступ из DataLens: `true` или `false`. Значение по умолчанию — `false`. Подробнее о настройке подключения в разделе [Подключение из DataLens](datalens-connect.md).
                 
                 * `webSql` — разрешить [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления Yandex Cloud с помощью сервиса Yandex WebSQL: `true` или `false`. Значение по умолчанию — `false`.
                 
                 
                 * `metrika` — разрешить [импорт данных из AppMetrika в кластер](https://appmetrica.yandex.ru/docs/common/cloud/about.html): `true` или `false`. Значение по умолчанию — `false`.
                 
-                * `serverless` — разрешить доступ к кластеру из сервиса [Yandex Cloud Functions](../../functions/concepts/index.md): `true` или `false`. Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [Cloud Functions](../../functions/operations/database-connection.md).
+                * `serverless` — разрешить доступ к кластеру из сервиса [Yandex Cloud Functions](../../functions/concepts/index.md): `true` или `false`. Значение по умолчанию — `false`. Подробнее о настройке доступа в документации [Cloud Functions](../../functions/operations/database-connection.md).
                 
                 * `dataTransfer` — разрешить доступ к кластеру из сервиса [Yandex Data Transfer](../../data-transfer/concepts/index.md) в Serverless-режиме: `true` или `false`. Значение по умолчанию — `false`.
                 
@@ -1692,14 +1692,14 @@
 
             * `config_spec.access` — настройки, которые разрешают доступ к кластеру из других сервисов и [выполнение SQL-запросов из консоли управления](web-sql-query.md) с помощью Yandex WebSQL:
 
-                * `data_lens` — разрешить доступ из DataLens: `true` или `false`. Значение по умолчанию — `false`. Подробнее о настройке подключения см. в разделе [Подключение из DataLens](datalens-connect.md).
+                * `data_lens` — разрешить доступ из DataLens: `true` или `false`. Значение по умолчанию — `false`. Подробнее о настройке подключения в разделе [Подключение из DataLens](datalens-connect.md).
                 
                 * `web_sql` — разрешить [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления Yandex Cloud с помощью сервиса Yandex WebSQL: `true` или `false`. Значение по умолчанию — `false`.
                 
                 
                 * `metrika` — разрешить [импорт данных из AppMetrika в кластер](https://appmetrica.yandex.ru/docs/common/cloud/about.html): `true` или `false`. Значение по умолчанию — `false`.
                 
-                * `serverless` — разрешить доступ к кластеру из сервиса [Yandex Cloud Functions](../../functions/concepts/index.md): `true` или `false`. Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [Cloud Functions](../../functions/operations/database-connection.md).
+                * `serverless` — разрешить доступ к кластеру из сервиса [Yandex Cloud Functions](../../functions/concepts/index.md): `true` или `false`. Значение по умолчанию — `false`. Подробнее о настройке доступа в документации [Cloud Functions](../../functions/operations/database-connection.md).
                 
                 * `data_transfer` — разрешить доступ к кластеру из сервиса [Yandex Data Transfer](../../data-transfer/concepts/index.md) в Serverless-режиме: `true` или `false`. Значение по умолчанию — `false`.
                 
@@ -1851,7 +1851,7 @@
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Измените или добавьте в описании кластера Managed Service for ClickHouse® значение параметра `folder_id`:
 
@@ -1893,7 +1893,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
     {% note warning "Ограничения по времени" %}
     
@@ -2030,7 +2030,7 @@
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
     1. Измените значение параметра `security_group_ids` в описании кластера:
 
@@ -2072,7 +2072,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
     {% note warning "Ограничения по времени" %}
     

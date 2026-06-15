@@ -34,7 +34,7 @@ Yandex MPP Analytics for PostgreSQL позволяет использовать 
 
 
 
-Подробнее о размерах и производительности разных типов дисков см. в [документации Yandex Compute Cloud](../../compute/concepts/limits.md#compute-limits-disks).
+Подробнее о размерах и производительности разных типов дисков в [документации Yandex Compute Cloud](../../compute/concepts/limits.md#compute-limits-disks).
 
 
 {% endnote %}

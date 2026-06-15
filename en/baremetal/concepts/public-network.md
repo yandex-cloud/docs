@@ -46,9 +46,9 @@ You can [order](../operations/reserve-public-subnet.md) a dedicated public subne
 ^1^ You can order a public subnet of size `/31` only by [converting](../operations/reserve-public-subnet.md#transform-ephemeral-to-dedicated) an [ephemeral public subnet](#ephemeral-public-subnet).
 ^2^ To order public subnets with sizes `/27`, `/26`, `/25`, and `/24`, [contact]({{ link-console-support }}/tickets/create) support.
 
-When you cancel the lease of a server which has a dedicated public subnet assigned to it, its public IPv4 address is released back to the dedicated public subnet’s address pool so you can later use it for another server.
+When you cancel the rent of a server which has a dedicated public subnet assigned to it, its public IPv4 address is released back to the dedicated public subnet’s address pool so you can later use it for another server.
 
-In {{ baremetal-full-name }}, dedicated public subnets are [billable](../pricing.md). The minimum lease period for a dedicated public subnet is one month, so you cannot delete such a subnet during the first month after the order date.
+In {{ baremetal-full-name }}, dedicated public subnets are [billable](../pricing.md). The minimum rent period for a dedicated public subnet is one month, so you cannot delete such a subnet during the first month after the order date.
 
 {% note info %}
 
@@ -97,3 +97,5 @@ Within a dedicated public subnet range, IP addresses are distributed as follows:
 * [{#T}](./dhcp.md)
 * [{#T}](./mc-lag.md)
 * [{#T}](../operations/reserve-public-subnet.md)
+* [{#T}](../operations/servers/set-up-tagged-vlan.md)
+* [{#T}](../operations/servers/switch-network-type.md)

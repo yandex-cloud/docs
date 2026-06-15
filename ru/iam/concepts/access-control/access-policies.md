@@ -53,6 +53,7 @@ _Политики авторизации_ (политики) — это меха
 * [iam.denyServiceAccountImpersonation](#iam-denyServiceAccountImpersonation)
 * [organization.denyMemberInvitation](#organization-denyMemberInvitation)
 * [organization.denyUserListing](#organization-denyUserListing)
+* [resourceManager.denyCloudRemoval](#resourceManager-denyCloudRemoval)
 
 {% include [backup-access-policies](../../../_includes/backup/backup-access-policies.md) %}
 
@@ -93,7 +94,15 @@ _Политики авторизации_ (политики) — это меха
 
 #### organization.denyUserListing {#organization-denyUserListing}
 
-Политика запрещает просматривать список пользователей [организации](../../../organization/concepts/organization.md). Политика может быть создана только для [организации](../../../organization/concepts/organization.md).
+Политика запрещает просматривать список пользователей [организации](../../../organization/concepts/organization.md). Политика может быть создана только для организации.
+
+#### resourceManager.denyCloudRemoval {#resourceManager-denyCloudRemoval}
+
+Политика запрещает удалять [облака](../../../resource-manager/concepts/resources-hierarchy.md#cloud) в {{ yandex-cloud }}:
+
+* если политика создана для [организации](../../../organization/concepts/organization.md), запрет относится ко всем облакам в этой организации;
+* если политика создана для облака, запрет относится только к данному облаку;
+* если политика создана для [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), запрет не будет установлен.
 
 ### Шаблоны с параметрами {#customizable}
 

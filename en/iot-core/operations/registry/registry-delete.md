@@ -5,6 +5,8 @@ description: Follow this guide to delete a {{ iot-short-name }}.
 
 # Deleting a registry
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 {% note warning %}
 
 You can only delete an empty registry. Make sure to [delete devices from the registry](../device/device-delete.md) before deleting the registry itself.
@@ -69,7 +71,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       }
       ```
 
-      For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
+      For more information about `yandex_iot_core_registry` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -77,7 +79,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       terraform validate
       ```
 
-      If the configuration is correct, you will get this message:
+      If the configuration is valid, you will get this message:
      
       ```bash
       Success! The configuration is valid.
@@ -89,8 +91,8 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       terraform plan
       ```
 
-      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
-  1. Apply the changes:
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply

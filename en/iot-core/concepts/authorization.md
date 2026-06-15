@@ -5,6 +5,8 @@ description: You can authenticate with X.509 certificates, your username and pas
 
 # Authentication
 
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
 There are two authentication methods:
 * [Using X.509 certificates](#certs).
 * [Using a username and password](#log-pass).
@@ -20,7 +22,7 @@ You can use both X.509 certificates and passwords at the same time. Note that pa
 | Correct, <br>but for a different device | Correct | Authentication is performed on behalf of the device, the ID of which is specified in the username. |
 
 
-## Authentication using certificates {#certs}
+## Authentication with certificates {#certs}
 
 When authenticating with X.509 certificates, private keys and certificates stored as .pem files are used. They are stored on a device or in a registry.
 * For a private key, you specify the path to the .pem file when sending messages or subscribing to receive messages.

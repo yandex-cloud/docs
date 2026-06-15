@@ -37,7 +37,7 @@ Yandex Managed Service for Valkey™ позволяет использовать
 
 
 
-Подробнее о размерах и производительности разных типов дисков см. в [документации Yandex Compute Cloud](../../compute/concepts/limits.md#compute-limits-disks).
+Подробнее о размерах и производительности разных типов дисков в [документации Yandex Compute Cloud](../../compute/concepts/limits.md#compute-limits-disks).
 
 
 {% endnote %}
@@ -123,7 +123,7 @@ Yandex Managed Service for Valkey™ позволяет использовать
 
 {% note alert %}
 
-Если удалить ключ, которым был зашифрован диск, или его [версию](../../kms/concepts/version.md), то доступ к данным будет безвозвратно потерян. Подробнее см. в [документации Key Management Service](../../kms/concepts/version.md#version-distruct).
+Если удалить ключ, которым был зашифрован диск, или его [версию](../../kms/concepts/version.md), то доступ к данным будет безвозвратно потерян. Подробнее в [документации Key Management Service](../../kms/concepts/version.md#version-distruct).
 
 {% endnote %}
 

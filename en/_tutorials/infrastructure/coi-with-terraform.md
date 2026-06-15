@@ -233,9 +233,8 @@ Run the {{ coi }} VM using the {{ TF }} configuration.
 
 1. Save the `example.tf` configuration file to the `~/cloud-terraform` directory:
 
-   ```
+   ```hcl
    provider "yandex" {
-     token     = "<IAM_token>"
      cloud_id  = "<cloud_ID>"
      folder_id = "<folder_ID>"
      zone      = "{{ region-id }}-a"
@@ -288,7 +287,6 @@ Run the {{ coi }} VM using the {{ TF }} configuration.
 
    Where:
 
-   * `token`: [IAM token](../../iam/concepts/authorization/iam-token.md) for access to {{ yandex-cloud }}.
    * `name`: Instance group name.
    * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
    * `instance_template.network_interface.network_id`: [Network](../../vpc/concepts/network.md) ID.

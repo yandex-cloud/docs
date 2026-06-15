@@ -1,3 +1,8 @@
+---
+title: How to get started with the AWS SDK for Go in {{ cns-full-name }}
+description: Follow this guide to learn how to use the AWS SDK for Go in {{ cns-full-name }}.
+---
+
 # How to get started with the AWS SDK for Go in {{ cns-full-name }}
 
 {% include [preview-stage](../../_includes/notifications/preview-stage.md) %}
@@ -202,9 +207,9 @@ Where:
 
 Where:
 
-* `targetArn`: Mobile endpoint ID (ARN)
-* `messageStructure`: Message format
-* `message`: Message
+* `targetArn`: Mobile endpoint ARN.
+* `messageStructure`: Message format.
+* `message`: Message.
 
 
 ### Silent notifications (Silent Push) {#silent-push}
@@ -255,9 +260,9 @@ Where:
 
 Where:
 
-* `targetArn`: Mobile endpoint ID (ARN)
-* `message`: Message
-* `messageStructure`: Message format
+* `targetArn`: Mobile endpoint ARN.
+* `message`: Message.
+* `messageStructure`: Message format.
 
 
 ### Text message {#sms-messages}

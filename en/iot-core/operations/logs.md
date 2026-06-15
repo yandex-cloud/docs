@@ -1,5 +1,7 @@
 # Viewing the connection log
 
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
 The log contains information about connecting/disconnecting devices and errors. You can view connection logs for the [registry](#registry) and [devices](#device). Time is specified in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 
 ## View the registry connection log {#registry}

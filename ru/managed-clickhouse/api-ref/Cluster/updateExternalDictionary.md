@@ -628,6 +628,7 @@ apiPlayground:
 # Managed Service for ClickHouse API, REST: Cluster.UpdateExternalDictionary
 
 Updates an external dictionary for the specified ClickHouse cluster.
+(-- api-linter: yc::1705::http-method-mapping=disabled --)
 
 ## HTTP request
 

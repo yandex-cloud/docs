@@ -32,7 +32,7 @@ yc managed-clickhouse user update <имя_пользователя> \
   --settings="join_use_nulls=1"
 ```
 
-Подробнее см. в [документации](../operations/cluster-users.md#update-settings).
+Подробнее в [документации](../operations/cluster-users.md#update-settings).
 
 #### Будет ли кластер недоступен во время обновления? {#update-availability}
 
@@ -56,7 +56,7 @@ yc managed-clickhouse user update <имя_пользователя> \
   --settings="readonly=1"
 ```
 
-Подробнее см. в [документации](../operations/cluster-users.md#update-settings).
+Подробнее в [документации](../operations/cluster-users.md#update-settings).
 
 #### Как увеличить лимит памяти (memory limit)? {#memory-limit}
 

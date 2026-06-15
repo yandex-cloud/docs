@@ -234,7 +234,7 @@ Managed Service for ClickHouse® позволяет [получить фрагм
 
         * `filter` — фильтр логов. Можно отфильтровать логи так, чтобы поток логов содержал только нужные логи.
 
-            Подробнее о фильтрах и их синтаксисе см. в [справочнике API](../api-ref/Cluster/streamLogs.md#query_params).
+            Подробнее о фильтрах и их синтаксисе в [справочнике API](../api-ref/Cluster/streamLogs.md#query_params).
 
             {% note tip %}
             
@@ -323,7 +323,7 @@ Managed Service for ClickHouse® позволяет [получить фрагм
             * `message.hostname` — фильтрация по имени хоста.
             * `message.severity` — фильтрация по уровню логирования.
 
-            Подробнее о фильтрах и их синтаксисе см. в [справочнике API](../api-ref/grpc/Cluster/streamLogs.md).
+            Подробнее о фильтрах и их синтаксисе в [справочнике API](../api-ref/grpc/Cluster/streamLogs.md).
 
         
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).

@@ -1,0 +1,297 @@
+blocks:
+  - type: content-layout-block
+    textContent:
+      title: Средства защиты, доступные пользователям облачных сервисов
+      text: ''
+    size: l
+  - type: card-layout-block
+    title: Защита сетевого доступа
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+    background: ''
+    children:
+      - type: basic-card
+        title: Virtual Private Cloud
+        text: Группы безопасности в облачных сервисах
+        icon: _assets/icons/vpc.svg
+        centered: true
+        size: s
+        url: https://yandex.cloud/ru/docs/vpc/
+        animated: false
+      - type: basic-card
+        title: "Yandex DDoS\_protection"
+        text: Защита облачных ресурсов от DDoS-атак
+        icon: _assets/icons/shield-check.svg
+        centered: true
+        size: s
+        url: https://yandex.cloud/ru/docs/vpc/ddos-protection/
+        animated: false
+      - type: basic-card
+        title: Cloud Interconnect
+        text: Выделенные сетевые соединения
+        icon: _assets/icons/interconnect.svg
+        centered: true
+        size: s
+        url: https://yandex.cloud/ru/docs/interconnect/
+        animated: false
+      - type: basic-card
+        title: GOST Gateway
+        text: NAT-шлюз, маршрутизация интернет-трафика
+        icon: _assets/icons/branches-right-arrow-right.svg
+        centered: true
+        size: s
+        url: https://yandex.cloud/ru/docs/vpc/operations/create-nat-gateway
+        animated: false
+  - type: card-layout-block
+    title: Управление доступом
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+    background: ''
+    children:
+      - type: basic-card
+        title: "Identity and Access\_Management"
+        text: Идентификатор и контроль доступа к облачным ресурсам
+        icon: _assets/icons/iam.svg
+        centered: true
+        size: s
+        url: https://yandex.cloud/ru/docs/iam/
+        animated: false
+      - type: basic-card
+        title: "Yandex Identity\_Hub"
+        text: Централизованное управление учетными данными и единый доступ
+        icon: _assets/icons/identity-hub.svg
+        centered: true
+        size: s
+        url: https://yandex.cloud/ru/docs/organization/
+        animated: false
+      - type: basic-card
+        title: "Resource\_Manager"
+        text: Управление ресурсами в каталогах и облаках
+        icon: _assets/icons/resource-manager.svg
+        centered: true
+        size: s
+        url: https://yandex.cloud/ru/docs/resource-manager/
+        animated: false
+      - type: basic-card
+        title: "Yandex\_Cloud Desktop"
+        text: Управление виртуальной инфраструктурой рабочих столов
+        icon: _assets/icons/cloud-desktop.svg
+        centered: true
+        size: s
+        url: https://yandex.cloud/ru/docs/cloud-desktop/
+        animated: false
+      - type: basic-card
+        title: SSO для внешних приложений
+        text: Единый вход в приложения
+        icon: _assets/icons/lock-fill.svg
+        centered: true
+        size: s
+        url: https://yandex.cloud/ru/docs/organization/tutorials/single-sign-on/
+        animated: false
+      - type: basic-card
+        title: MFA в Identity Hub
+        text: >-
+          Настройте многофакторную аутентификацию для пользователей вашей
+          организации
+        icon: _assets/icons/shield.svg
+        centered: true
+        size: s
+        url: >-
+          https://yandex.cloud/ru/docs/organization/concepts/mfa?utm_referrer=about%3Ablank
+        animated: false
+  - type: card-layout-block
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+    background: ''
+    animated: false
+    title: Защита приложений и данных пользователей
+    children:
+      - type: basic-card
+        title: SmartCaptcha
+        text: Верификация запросов
+        url: https://yandex.cloud/ru/docs/smartcaptcha/
+        centered: true
+        size: s
+        animated: false
+        icon: _assets/icons/smart-captcha.svg
+      - type: basic-card
+        title: Smart Web Security
+        text: Защита Веб-приложений
+        url: https://yandex.cloud/ru/docs/smartwebsecurity/
+        centered: true
+        size: s
+        animated: false
+        icon: _assets/icons/smart-web-security.svg
+      - type: basic-card
+        title: Контроль данных (DSPM)
+        text: "Инвентаризация и обнаружение чувствительных данных в бакетах Object\_Storage и Яндекс Диск 360"
+        url: https://yandex.cloud/ru/docs/security-deck/concepts/dspm
+        centered: true
+        size: s
+        animated: false
+        icon: _assets/icons/dsmp.svg
+      - type: basic-card
+        title: "Cloud\_Backup"
+        text: Автоматическое резервное копирование виртуальных машин
+        url: https://yandex.cloud/ru/docs/backup/
+        centered: true
+        size: s
+        animated: false
+        icon: _assets/icons/cloud-backup.svg
+  - type: card-layout-block
+    title: Шифрование и защита секретов
+    size: xs
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+    background: ''
+    children:
+      - type: basic-card
+        title: Key Management Service
+        text: Управление ключами шифрования
+        icon: _assets/icons/kms.svg
+        centered: true
+        size: s
+        url: https://yandex.cloud/ru/docs/kms/
+        animated: false
+      - type: basic-card
+        title: Шифрование дисков ВМ
+        text: "Шифрование в Compute\_Cloud"
+        icon: _assets/icons/shield.svg
+        centered: true
+        size: s
+        url: https://yandex.cloud/ru/docs/compute/concepts/encryption
+        animated: false
+      - type: basic-card
+        title: "Шифрование бакета Object\_storage"
+        text: "Шифрование для бакета Object\_Storage на стороне сервера"
+        icon: _assets/icons/bucket.svg
+        centered: true
+        size: s
+        url: https://yandex.cloud/ru/docs/tutorials/security/server-side-encryption
+        animated: false
+      - type: basic-card
+        title: Шифрование в Kubernetes®
+        text: Многоуровневое шифрование данных в Managed Service for Kubernetes®
+        icon: _assets/icons/shield.svg
+        centered: true
+        size: s
+        url: https://yandex.cloud/ru/docs/managed-kubernetes/concepts/encryption
+        animated: false
+      - type: basic-card
+        title: Yandex Lockbox
+        text: Хранение секретов
+        icon: _assets/icons/lockbox.svg
+        centered: true
+        size: s
+        url: https://yandex.cloud/ru/docs/lockbox/
+        animated: false
+      - type: basic-card
+        title: Certificate Manager
+        text: Управление TLS-сертификатами
+        icon: _assets/icons/certificate-manager.svg
+        centered: true
+        size: s
+        url: https://yandex.cloud/ru/docs/certificate-manager/
+        animated: false
+      - type: basic-card
+        title: Аппаратный модуль безопасности (HSM)
+        text: Выполнения криптооперации с высоким уровнем защищённости
+        icon: _assets/icons/key.svg
+        centered: true
+        size: s
+        url: https://yandex.cloud/ru/docs/kms/concepts/hsm
+        animated: false
+  - type: card-layout-block
+    title: Мониторинг и аудит
+    size: xs
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+    background: ''
+    children:
+      - type: basic-card
+        title: Audit Trails
+        text: Сбор и выгрузка аудитных логов
+        icon: _assets/icons/audit-trails.svg
+        centered: true
+        size: s
+        url: https://yandex.cloud/ru/docs/audit-trails/
+        animated: false
+      - type: basic-card
+        title: Access Transparency
+        text: "Отслеживания действий команды Yandex\_Cloud с ресурсами пользователя"
+        icon: _assets/icons/at.svg
+        centered: true
+        size: s
+        url: >-
+          https://yandex.cloud/ru/docs/security-deck/concepts/access-transparency
+        animated: false
+      - type: basic-card
+        title: Yandex SIEM
+        text: "SIEM-система Yandex\_Cloud"
+        icon: _assets/icons/binoculars.svg
+        centered: true
+        size: s
+        url: https://yandex.cloud/ru/docs/yandex-siem/
+        animated: false
+      - type: basic-card
+        title: Обнаружение угроз (TD)
+        text: Обнаружение подозрительной активности и уведомления об угрозах
+        icon: _assets/icons/td.svg
+        centered: true
+        size: s
+        url: https://yandex.cloud/ru/docs/security-deck/concepts/threat-detector
+        animated: false
+  - type: card-layout-block
+    title: Управление уязвимостями и соответствие требованиям
+    size: xs
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+    background: ''
+    children:
+      - type: basic-card
+        title: Контроль конфигурации (CSPM)
+        text: Проверка безопасности инфраструктуры на соответствие требованиям
+        url: https://yandex.cloud/ru/docs/security-deck/concepts/cspm
+        centered: true
+        size: s
+        icon: _assets/icons/cspm.svg
+        animated: false
+      - type: basic-card
+        title: Контроль Kubernetes® (KSPM)
+        text: Безопасность использования контейнеризированных приложений
+        url: https://yandex.cloud/ru/docs/security-deck/concepts/kspm
+        centered: true
+        size: s
+        icon: _assets/icons/kspm.svg
+        animated: false
+      - type: basic-card
+        title: Управление уязвимостями (VM)
+        text: Сканирование контейнерных образов на уязвимости
+        url: >-
+          https://yandex.cloud/ru/docs/security-deck/concepts/vulnerability-management
+        centered: true
+        size: s
+        icon: _assets/icons/vm.svg
+        animated: false
+      - type: basic-card
+        title: Cloud Registry
+        text: Безопасное хранение и управление артефактами разработки
+        url: https://yandex.cloud/ru/docs/cloud-registry/
+        centered: true
+        size: s
+        icon: _assets/icons/cloud-registry.svg
+        animated: false
+links: []
+meta: {}

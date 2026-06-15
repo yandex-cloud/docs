@@ -1,5 +1,7 @@
 # Managed Service for ClickHouse API, REST: ClusterExtension.Delete
 
+Deletes the specified extension from the cluster.
+
 ## HTTP request
 
 ```
@@ -12,12 +14,12 @@ DELETE https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterI
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.
+Required field. ID of the ClickHouse cluster.
 
 The maximum string length in characters is 50. ||
 || extensionName | **string**
 
-Required field.
+Required field. Name of the extension to delete.
 
 The maximum string length in characters is 63. ||
 |#

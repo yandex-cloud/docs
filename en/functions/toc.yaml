@@ -458,7 +458,13 @@ items:
           - name: Developing a Slack bot
             href: tutorials/slack-bot-serverless.md
           - name: Developing a Telegram bot
-            href: tutorials/telegram-bot-serverless.md
+            items:
+              - name: Overview
+                href: tutorials/telegram-bot-serverless/index.md
+              - name: Management console
+                href: tutorials/telegram-bot-serverless/console.md
+              - name: '{{ TF }}'
+                href: tutorials/telegram-bot-serverless/terraform.md
           - name: Developing a Telegram bot for text and audio recognition
             href: tutorials/recognizer-bot.md
       - name: Serverless-based ETL

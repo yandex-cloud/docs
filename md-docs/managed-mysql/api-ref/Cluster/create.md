@@ -403,7 +403,19 @@ POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters
     }
     // end of the list of possible fields
   },
-  "diskEncryptionKeyId": "string"
+  "diskEncryptionKeyId": "string",
+  "retentionPolicies": [
+    {
+      "policyName": "string",
+      "cron": {
+        "dayOfMonth": "string",
+        "month": "string",
+        "dayOfWeek": "string"
+      },
+      "retainForDays": "string",
+      "description": "string"
+    }
+  ]
 }
 ```
 
@@ -471,6 +483,9 @@ Window of maintenance operations. ||
 || diskEncryptionKeyId | **string**
 
 ID of the key to encrypt cluster disks. ||
+|| retentionPolicies[] | **[BackupRetentionPolicySpec](#yandex.cloud.mdb.v1.BackupRetentionPolicySpec)**
+
+Backup long-term retention policies setting. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.mysql.v1.ConfigSpec}
@@ -2541,6 +2556,46 @@ Day of the week (in `DDD` format).
 Hour of the day in UTC (in `HH` format).
 
 Acceptable values are 1 to 24, inclusive. ||
+|#
+
+## BackupRetentionPolicySpec {#yandex.cloud.mdb.v1.BackupRetentionPolicySpec}
+
+Message to describe a new retention policy for cluster backups.
+
+#|
+||Field | Description ||
+|| policyName | **string**
+
+Required field. Required. Policy name. ||
+|| cron | **[CronTab](#yandex.cloud.mdb.v1.CronTab)**
+
+CronTab schedule. ||
+|| retainForDays | **string** (int64)
+
+Retention duration. ||
+|| description | **string**
+
+Human-readable description. ||
+|#
+
+## CronTab {#yandex.cloud.mdb.v1.CronTab}
+
+Message to describe a crontab schedule.
+
+#|
+||Field | Description ||
+|| dayOfMonth | **string**
+
+Day of month in cron format. Valid values: 1-31, *, ranges (1-15), steps (*/2, 1-15/3), lists (1,15,28).
+Defaults to "*". ||
+|| month | **string**
+
+Month in cron format. Valid values: 1-12, *, ranges (1-6), steps (*/3), lists (1,6,12).
+Defaults to "*". ||
+|| dayOfWeek | **string**
+
+Day of week in cron format. Valid values: 0-7 (0 and 7 both mean Sunday), *, ranges (1-5), steps (0-6/2), lists (1,3,5).
+Defaults to "*". ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

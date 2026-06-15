@@ -1,6 +1,6 @@
 ## Get your cloud ready {#before-you-begin}
 
-1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet. For information on how to get started with {{ yandex-cloud }}, see [Getting started with {{ yandex-cloud }}](../../../getting-started/).
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }}, or sign up if you have not already. For information on how to get started with {{ yandex-cloud }}, see [Getting started with {{ yandex-cloud }}](../../../getting-started/).
 1. Accept the user agreement.
 1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../../../billing/concepts/billing-account.md) linked and its status is `ACTIVE`. If you do not have a billing account yet, [create one](../../../billing/quickstart/index.md#create_billing_account). If your billing account has the `TRIAL_ACTIVE` status, [activate its paid version](../../../billing/operations/activate-commercial.md).
 1. [Assign](../../../iam/operations/roles/grant.md) the `speech-sense.spaces.creator` role to your {{ yandex-cloud }} account.
@@ -9,20 +9,20 @@
 
 ### Required paid resources {#paid-resources}
 
-The cost of the infrastructure for integration with external systems includes a {{ speechsense-name }} fee for the duration of each two-channel audio file (see [{{ speechsense-name }} pricing]({{ link-docs-ai }}speechsense/pricing))).
+The cost of the infrastructure for integration with external systems includes the {{ speechsense-name }} fee: duration of each two-channel audio file (see [{{ speechsense-name }} pricing]({{ link-docs-ai }}speechsense/pricing)).
 
 ### Create a service account {#create-sa}
 
-Create a service account with the `speech-sense.data.editor` [role]({{ link-docs-ai }}speechsense/security/#speechsense-data-editor) for amoCRM access to the {{ speechsense-name }} project.
+Create a service account with the `speech-sense.data.editor` [role]({{ link-docs-ai }}speechsense/security/#speechsense-data-editor) for amoCRM to access the {{ speechsense-name }} project.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder.
-  1. [Go](../../../console/operations/select-service.md#select-service)  to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Name the [service account](../../../iam/concepts/users/service-accounts.md): `speechsense`.
+  1. Name the [service account]({{ link-docs }}/iam/concepts/users/service-accounts): `speechsense`.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `speech-sense.data.editor`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 

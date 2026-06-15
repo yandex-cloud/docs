@@ -10,7 +10,7 @@ items:
   - name: Меры безопасности на стороне {{ yandex-cloud }}
     href: standarts.md
   - name: Средства защиты, доступные пользователям облачных сервисов
-    href: user-side.md
+    href: user-side.yaml
   - name: Рекомендации по защите облачной инфраструктуры
     items:
       - name: Все рекомендации

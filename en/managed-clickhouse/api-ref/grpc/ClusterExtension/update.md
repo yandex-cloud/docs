@@ -4,6 +4,8 @@ editable: false
 
 # Managed Service for ClickHouse API, gRPC: ClusterExtensionService.Update
 
+Updates the specified cluster extension.
+
 ## gRPC request
 
 **rpc Update ([UpdateClusterExtensionRequest](#yandex.cloud.mdb.clickhouse.v1.UpdateClusterExtensionRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
@@ -24,12 +26,12 @@ editable: false
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field.
+Required field. ID of the ClickHouse cluster.
 
 The maximum string length in characters is 50. ||
 || extension_spec | **[ExtensionSpec](#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)**
 
-Required field. ||
+Required field. New specification of the extension. ||
 |#
 
 ## ExtensionSpec {#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec}
@@ -38,10 +40,12 @@ Required field. ||
 ||Field | Description ||
 || name | **string**
 
-Required field.
+Required field. Name of the extension.
 
 The maximum string length in characters is 63. ||
-|| version | **string** ||
+|| version | **string**
+
+Version of the extension. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

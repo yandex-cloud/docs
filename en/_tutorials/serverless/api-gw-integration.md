@@ -7,7 +7,7 @@ Custom integration is a [function](../../functions/concepts/function.md) in {{ s
 
 You can configure a function or container in the [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification)-based [{{ api-gw-name }}](../../api-gateway/concepts/) specification to handle certain HTTP requests.
 
-Develop a {{ ydb-full-name }} integration function for [{{ ydb-short-name }}](../../ydb/concepts/#ydb) operations. The function will communicate with {{ ydb-name }} and handle external HTTP requests via an API gateway using the [Amazon DynamoDB](https://aws.amazon.com/dynamodb/)-compatible [HTTP API](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html). The function is written in TypeScript and runs on Node.js 16.
+Develop a {{ ydb-full-name }} integration function to use [{{ ydb-short-name }}](../../ydb/concepts/#ydb). The function will communicate with {{ ydb-name }} and handle external HTTP requests via an API gateway using the [Amazon DynamoDB](https://aws.amazon.com/dynamodb/)-compatible [HTTP API](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html). The function is written in TypeScript and runs on Node.js 16.
 
 We will use this integration to implement a [CRUD API](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) for accessing the movie database deployed in {{ ydb-full-name }}.
 
@@ -188,8 +188,8 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-
 
 The `src` directory contains these source files for creating a function:
 * [event.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/event.ts): `Event` code describing the [request structure](../../api-gateway/concepts/extensions/cloud-functions.md#request_v1) and `RequestContext` code.
-* [dynamodb.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/dynamodb.ts): Code to process function invocation and basic commands.
-* [iam.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/iam.ts): Code to retrieve [IAM tokens](../../iam/concepts/authorization/iam-token.md) for {{ ydb-short-name }} request authorization.
+* [dynamodb.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/dynamodb.ts): Code for handling function invocation and core commands.
+* [iam.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/iam.ts): Code for retrieving [IAM tokens](../../iam/concepts/authorization/iam-token.md) required for {{ ydb-short-name }} request authentication.
 
 When invoking a function defined in [dynamodb.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/dynamodb.ts), provide the operation context in the `requestContext.apiGateway.operationContext` field of the `event` object.
 
@@ -201,7 +201,7 @@ In case of [container](../../serverless-containers/concepts/container.md)-based 
 
 {% endnote %}
 
-[event.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/event.ts) defines interfaces for basic Amazon DynamoDB commands and command parameters to implement in this integration. This helps specify the operation context’s format and how the function handles it.
+[event.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/event.ts) defines interfaces for basic Amazon DynamoDB commands and command parameters to implement in this integration. This helps specify the operation context format and how the function handles it.
 
 ## Compile a function {#compile-function}
 
@@ -236,10 +236,10 @@ In case of [container](../../serverless-containers/concepts/container.md)-based 
 
 ## Set up a resource configuration for the integration {#prepare-configuration}
 
-To deploy the CRUD API via the integration function, use [{{ TF }}](https://www.terraform.io).
+To deploy a CRUD API via the integration function, use [{{ TF }}](https://www.terraform.io).
 
 A special [{{ TF }} module](https://github.com/yandex-cloud-examples/yc-serverless-ydb-api) developed for this integration scenario will help you easily configure your {{ yandex-cloud }} resources. You will use {{ TF }} to create the following resources:
-* Serverless {{ ydb-short-name }}-enabled database.
+* Serverless {{ ydb-short-name }} database.
 * Integration function.
 * Service account the function will use to access the database.
 * API gateway.
@@ -273,14 +273,12 @@ To set up configuration files for {{ TF }}:
 1. Create a file named `main.tf` and paste the {{ TF }} module configuration into it. Set the following properties for the new resources:
    * `cloud_id`: Cloud ID.
    * `folder_id`: Folder ID.
-   * `token`: IAM token or authorized key.
    * `database_connector_bucket`: Name of the integration function bucket.
 
    ```hcl
    locals {
      cloud_id    = "<cloud_ID>"
      folder_id   = "<folder_ID>"
-     token       = "<IAM_token_or_authorized_key>"
      zone        = "{{ region-id }}-d"
    }
 
@@ -311,7 +309,6 @@ To set up configuration files for {{ TF }}:
    }
 
    provider "yandex" {
-     token     = local.token
      cloud_id  = local.cloud_id
      folder_id = local.folder_id
      zone      = local.zone
@@ -573,7 +570,7 @@ To test the new CRUD API, send the following HTTP requests:
    ```bash
    curl \
      --location \
-     --request POST 'https://<domain_address_of_CRUD_API>/movies' \
+     --request POST 'https://<CRUD_API_domain_address>/movies' \
      --header 'Content-Type: application/json' \
      --data-raw '{
        "id": "301",
@@ -595,7 +592,7 @@ To test the new CRUD API, send the following HTTP requests:
    ```bash
    curl \
      --location \
-     --request PUT 'https://<domain_address_of_CRUD_API>/movies/301' \
+     --request PUT 'https://<CRUD_API_domain_address>/movies/301' \
      --header 'Content-Type: application/json' \
      --data-raw '{
        "title": "The Matrix"
@@ -607,7 +604,7 @@ To test the new CRUD API, send the following HTTP requests:
    ```bash
    curl \
      --location \
-     --request POST 'https://<domain_address_of_CRUD_API>/movies' \
+     --request POST 'https://<CRUD_API_domain_address>/movies' \
      --header 'Content-Type: application/json' \
      --data-raw '{
        "id": "299",
@@ -643,4 +640,4 @@ To stop paying for the resources you created:
   ```
 
   Confirm deleting the resources by typing `yes` in the terminal and pressing **Enter**.
-* [Delete](../../storage/operations/buckets/delete.md) the function file bucket.
+* [Delete](../../storage/operations/buckets/delete.md) the bucket with the function file.

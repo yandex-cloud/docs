@@ -400,7 +400,19 @@ Creates a cluster in a folder.
     }
     // end of the list of possible fields
   },
-  "disk_encryption_key_id": "google.protobuf.StringValue"
+  "disk_encryption_key_id": "google.protobuf.StringValue",
+  "retention_policies": [
+    {
+      "policy_name": "string",
+      "cron": {
+        "day_of_month": "string",
+        "month": "string",
+        "day_of_week": "string"
+      },
+      "retain_for_days": "int64",
+      "description": "string"
+    }
+  ]
 }
 ```
 
@@ -468,6 +480,9 @@ Window of maintenance operations. ||
 || disk_encryption_key_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
 ID of the key to encrypt cluster disks. ||
+|| retention_policies[] | **[BackupRetentionPolicySpec](#yandex.cloud.mdb.v1.BackupRetentionPolicySpec)**
+
+Backup long-term retention policies setting. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.mysql.v1.ConfigSpec}
@@ -2521,6 +2536,46 @@ Day of the week (in `DDD` format).
 Hour of the day in UTC (in `HH` format).
 
 Acceptable values are 1 to 24, inclusive. ||
+|#
+
+## BackupRetentionPolicySpec {#yandex.cloud.mdb.v1.BackupRetentionPolicySpec}
+
+Message to describe a new retention policy for cluster backups.
+
+#|
+||Field | Description ||
+|| policy_name | **string**
+
+Required field. Required. Policy name. ||
+|| cron | **[CronTab](#yandex.cloud.mdb.v1.CronTab)**
+
+CronTab schedule. ||
+|| retain_for_days | **int64**
+
+Retention duration. ||
+|| description | **string**
+
+Human-readable description. ||
+|#
+
+## CronTab {#yandex.cloud.mdb.v1.CronTab}
+
+Message to describe a crontab schedule.
+
+#|
+||Field | Description ||
+|| day_of_month | **string**
+
+Day of month in cron format. Valid values: 1-31, *, ranges (1-15), steps (*/2, 1-15/3), lists (1,15,28).
+Defaults to "*". ||
+|| month | **string**
+
+Month in cron format. Valid values: 1-12, *, ranges (1-6), steps (*/3), lists (1,6,12).
+Defaults to "*". ||
+|| day_of_week | **string**
+
+Day of week in cron format. Valid values: 0-7 (0 and 7 both mean Sunday), *, ranges (1-5), steps (0-6/2), lists (1,3,5).
+Defaults to "*". ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
