@@ -1,3 +1,8 @@
+---
+title: Creating a data ingestion
+description: Follow this guide to create a data upload in {{ data-catalog-full-name }}.
+---
+
 # Creating a data ingestion
 
 

@@ -320,7 +320,7 @@ Recommended threshold values for selected metrics:
 
 | Metric                                      | Internal metric name                                        | `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}`                      | `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}`                    |
 |----------------------------------------------|:--------------------------------------------------:|:----------------------------:|:----------------------------:|
-| Maximum number of data parts per partition   | `ch_system_async_metrics_MaxPartCountForPartition` | `250`                        | `150`                        |
+| Maximum number of data parts per partition   | `ch_system_async_metrics_MaxPartCountForPartition` | `2500`                        | `1500`                        |
 | Number of failed queries | `ch_system_events_FailedQuery_rate`                | 20% of the total number of queries | 10% of the total number of queries |
 | Storage space used             | `disk.used_bytes`                                  | 95% of the storage size     | 80% of the storage size     |
 | Number of healthy hosts            | `is_alive`                                         | `<number_of_hosts> - 2`    | `<number_of_hosts> - 1`    |
@@ -330,7 +330,7 @@ To determine the thresholds for the `ch_system_events_FailedQuery_rate` metric, 
 For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}` and `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}` thresholds are only set in bytes. For example, the recommended values for a 100 GB disk are as follows:
 
 * `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}`: `102,005,473,280` bytes (95%)
-* `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}`: `85,899,345,920` bytes (80%)
+* `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}`: `85,899,345,920` bytes (75%)
 
 You can check the current storage size in the [cluster details](cluster-list.md#get-cluster). For a complete list of supported metrics, see [this {{ monitoring-name }} guide](../../monitoring/metrics-ref/managed-clickhouse-ref.md).
 

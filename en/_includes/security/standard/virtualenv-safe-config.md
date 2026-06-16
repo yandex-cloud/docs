@@ -24,7 +24,7 @@ Make sure to provide anti-malware protection within your scope of responsibility
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Follow the vendor guide to install the AV solution.
 
@@ -84,7 +84,7 @@ We do not recommend using access to the serial console unless it is absolutely n
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 If you don't intend to use serial console on the VM, disable it.
 
@@ -138,7 +138,7 @@ When deploying virtual machines, we recommend:
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 1. Find out why these VM disks use an image different from the benchmark one.
 1. Recreate the VMs with the appropriate image.
@@ -246,7 +246,7 @@ The {{ yandex-cloud }} Certified Security Specialist certification exam evaluate
 | --- | --- |
 | ENV39 | Informational |
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 1. See the [description of competencies](https://yandex.cloud/ru/certification/security-specialist-competencies) tested during the {{ yandex-cloud }} Certified Security Specialist exam.
 1. Study the [materials](https://yandex.cloud/ru/certification/security-specialist-prerequisites) to help you pass the exam.
@@ -308,7 +308,7 @@ With ACLs, you can grant access to an object bypassing {{ iam-short-name }} veri
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 If public access is enabled, [remove](../../../iam/operations/roles/revoke.md) it or perform access control (grant permission to access public data consciously).
 
@@ -349,7 +349,7 @@ We recommend making sure that your {{ objstorage-name }} bucket uses at least on
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 [Enable](../../../storage/concepts/policy.md#config-examples) the required policy.
 
@@ -403,7 +403,7 @@ The storage period of critical data in a bucket is determined by the customer's 
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 If public access is enabled, remove it or use access control (by only enabling it when necessary and if approved).
 
@@ -421,7 +421,7 @@ You can also analyze {{ objstorage-name }} logs in {{ datalens-short-name }}. Fo
 | --- | --- |
 | ENV10 | Low |
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 You can check if logging is enabled only via {{ TF }}/API by following [this guide](../../../storage/operations/buckets/enable-logging.md).
 
@@ -444,7 +444,7 @@ If you need [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_r
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 [Set up](../../../storage/s3/api-ref/cors/xml-config.md) CORS. 
 
@@ -466,7 +466,7 @@ Temporary {{ sts-name }} keys inherit the access permissions of the service acco
 | --- | --- |
 | ENV12 | Low |
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 [Create](../../../iam/operations/sa/create-sts-key.md) a temporary access key using {{ sts-name }}.
 
@@ -487,7 +487,7 @@ We recommend using pre-signed URLs to users who are not authorized in the [cloud
 | --- | --- |
 | ENV13 | Low |
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 [Create](../../../storage/concepts/pre-signed-urls.md#creating-presigned-url) a pre-signed URL and communicate it to the user.
 
@@ -544,7 +544,7 @@ We recommend prohibiting internet access to databases that contain critical data
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 If any databases without security groups are found, assign them or enable the **Default security group** [functionality](../../../vpc/concepts/security-groups.md#default-security-group.md).
 
@@ -589,13 +589,13 @@ Assigning a public IP to a managed database raises information security risks. W
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Disable public access if it is not required.
 
 #### 3.17 The deletion protection feature is enabled {#deletion-protection}
 
-In {{ yandex-cloud }} managed databases, you can enable deletion protection. The deletion protection feature safeguards the cluster against accidental deletion by a user. Even with cluster deletion protection enabled, one can still connect to the cluster manually and delete its data.
+In {{ yandex-cloud }} managed databases, you can enable deletion protection. The deletion protection feature safeguards the cluster against accidental deletion by a user. Even with cluster deletion protection enabled, you can still connect to the cluster manually and delete the data.
 
 | Requirement ID | Severity |
 | --- | --- |
@@ -634,7 +634,7 @@ In {{ yandex-cloud }} managed databases, you can enable deletion protection. The
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 1. In the management console, select the cloud or folder to enable deletion protection in.
 1. In the list of services, select a service or services with managed databases.
@@ -682,7 +682,7 @@ Do not enable access to databases containing critical data from the management c
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 1. In the management console, select the cloud or folder to disable access from {{ datalens-short-name }} in.
 1. In the list of services, select a service or services with managed databases.
@@ -805,7 +805,7 @@ We recommend that you enable this type of access only if needed, because it rais
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 1. In the management console, select the cloud or folder to disable access from the management console in.
 1. In the list of services, select a service or services with managed databases.
@@ -866,7 +866,7 @@ You can only specify a single network for functions, containers, and API gateway
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 1. Select the cloud or folder to check the functions in.
 1. Select **{{ sf-name }}** in the list of services.
@@ -882,9 +882,9 @@ In cases where the use of public functions is not explicitly required, we recomm
 
 A [service account](../../../iam/concepts/users/service-accounts.md) is an account that can be used by programs or functions to manage resources in {{ yandex-cloud }}. If the function version was created with a service account, you can [get](../../../functions/operations/function-sa.md) an IAM token for service account from the function invocation context.
 
-Make sure to assign [roles](../../../iam/concepts/access-control/roles.md) to the service account. A role is a set of permissions that defines the allowed scope of operations with cloud resources. A function automatically inherits roles assigned for a folder, cloud, or organization. However, they do not appear in the list of assigned roles.
+Make sure to assign [roles](../../../iam/concepts/access-control/roles.md) to the service account. A role is a set of permissions that defines the allowed scope of operations with cloud resources. A function automatically inherits roles assigned for a folder, cloud, or organization. However, they are not displayed in the list of assigned roles.
 
-Do not store secrets and sensitive data in the function code and environment variables. Use [{{ lockbox-full-name }}](../../../lockbox/index.yaml) to store and rotate secrets. You can transmit a {{ lockbox-name }} secret to a function in the environment variable.
+Do not store secrets and sensitive data in the function code and environment variables. Use [{{ lockbox-full-name }}](../../../lockbox/index.yaml) to store and rotate secrets. You can provide a {{ lockbox-name }} secret to a function via an environment variable.
 
 For a function to get access to a secret, edit its parameters to specify a service account with the following roles assigned:
 
@@ -905,7 +905,7 @@ You can access the DB cluster hosts from the function only via the [SSL protocol
 | --- | --- |
 | ENV20 | Medium |
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 * [Disable](../../../functions/operations/function/function-private.md) public access to a function.
 * [View](../../../functions/operations/function/role-list.md) a list of roles assigned to a function.
@@ -1009,7 +1009,7 @@ When setting up database permissions, use the principle of least privilege.
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Disable public access if it is not required.
 
@@ -1102,7 +1102,7 @@ We recommend that you limit access to your {{ container-registry-short-name }} t
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Specify the IP addresses for registry access.
 
@@ -1122,7 +1122,7 @@ Specify the IP addresses for registry access.
 
 {% include [scan-docker-upload.md](scan-docker-upload-test.md) %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 [Guide on scanning Docker images on push](../../../container-registry/operations/scanning-docker-image.md#automatically).
 
@@ -1191,7 +1191,7 @@ We do not recommend that you use privileged containers to run loads that process
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 1. In the management console, select the cloud or folder to check the VMs in.
 1. In the list of services, select **{{ compute-short-name }}**.
@@ -1246,7 +1246,7 @@ We recommend that you update certificates in advance if they are not [updated au
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Update the certificate or set up auto updates.
 
@@ -1290,9 +1290,9 @@ When working with {{ mgl-name }}, make sure you use built-in GitLab security mec
 
 With [{{ mgl-full-name }}](../../../managed-gitlab/index.yaml), you can flexibly set up required [approval rules](../../../managed-gitlab/concepts/approval-rules.md) before the code can be added to the target project branch. This feature is an alternative to the GitLab Enterprise Edition’s [Approval Rules](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/rules.html) tool and is available regardless of the GitLab [version](https://about.gitlab.com/pricing).
 
-If a [{{ GL }} instance](../../../managed-gitlab/concepts/index.md#instance) has the approval rules enabled, {{ mgl-name }} analyzes approvals from reviewers for compliance with the specified rules. If there are not enough approvals, a thread is created in a merge request that blocks it from being merged to the target branch. Editing the merge request creates or updates a comment in the thread with its current compliance status. Once all the required approvals are obtained, the thread is closed.
+If a [{{ GL }} instance](../../../managed-gitlab/concepts/index.md#instance) has the approval rules enabled, {{ mgl-name }} analyzes approvals from reviewers for compliance with the specified rules. If there are not enough approvals, a thread is created in a merge request that blocks it from being merged to the target branch. When the merge request is updated, a comment with the current compliance status is created or updated in the thread. Once all required approvals are obtained, the thread is resolved.
 
-If you close a thread manually, it will be created again. If a merge request is approved regardless of the existing rules, users with the `Maintainer` role or higher will receive an email notification about the violated code approval workflow.
+If you manually resolve the thread, it will be recreated. If the merge request is approved regardless of the existing rules, users with the `Maintainer` role or higher will receive an email notification about the violated approval workflow.
 
 | Requirement ID | Severity |
 | --- | --- |
@@ -1309,7 +1309,7 @@ If you close a thread manually, it will be created again. If a merge request is 
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 [Enabling approval rules in the {{ GL }} instance](../../../managed-gitlab/operations/approval-rules.md#enable)
 
@@ -1333,7 +1333,7 @@ Thus, you can easily manage access to virtual machines and {{ k8s }} nodes by as
 | --- | --- |
 | ENV33 | Low |
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 * [Enabling {{ oslogin }} access at the organization level](../../../organization/operations/os-login-access.md).
 * [Setting up {{ oslogin }} access on an existing VM](../../../compute/operations/vm-connect/enable-os-login.md).
@@ -1442,7 +1442,7 @@ Make sure that the {{ yandex-cloud }} user has access to the [{{ api-gw-name }}]
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud and folder to check the API gateway access in.
-  1. Click the **Access permissions** tab.
+  1. Select the **Access permissions** tab.
   1. Make sure that users have the roles required to access the gateway.
 
 {% endlist %}
@@ -1477,7 +1477,7 @@ If you specify a network in the API gateway settings, this will create an auxili
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 If the API gateway does not require access to resources from the specified cloud network, delete it from the gateway settings. For more information, see [{#T}](../../../api-gateway/operations/api-gw-update.md).
 

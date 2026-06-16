@@ -11,6 +11,6 @@ canonical: '{{ link-docs }}/tutorials/routing/nat-instance/terraform'
 
 {% include [nat-instance-terraform](../../../_tutorials/routing/nat-instance-terraform.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](console.md)

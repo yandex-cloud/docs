@@ -271,6 +271,6 @@
 1. [Удалите](../../operations/security-group-delete.md) группу безопасности.
 1. [Удалите](../../operations/address-delete.md) статический публичный IP-адрес, если вы его зарезервировали.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Маршрутизация через NAT-инстанс с помощью Terraform](terraform.md)

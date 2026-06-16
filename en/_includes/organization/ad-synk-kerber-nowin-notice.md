@@ -1,0 +1,1 @@
+You can currently use the Kerberos protocol only if you install the synchronization agent on a server running Linux.

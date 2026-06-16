@@ -3,8 +3,10 @@
 
 Пользователи с этой ролью могут:
 * просматривать информацию о [кластерах](../../metadata-hub/concepts/metastore.md) {{ metastore-name }};
+* просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к кластерам {{ metastore-name }};
+* просматривать информацию о заданиях на техническое обслуживание кластеров {{ metastore-name }};
 * просматривать логи кластеров {{ metastore-name }};
 * просматривать информацию о квотах сервисов управляемых баз данных {{ yandex-cloud }};
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-Включает разрешения, предоставляемые ролью `managed-metastore.auditor`.
+Включает разрешения, предоставляемые ролями `managed-metastore.auditor` и `managed-metastore.maintenanceTask.viewer`.

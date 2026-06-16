@@ -1,4 +1,4 @@
-The `postbox.editor` role allows you to manage Yandex Cloud Postbox addresses and send emails.
+The `postbox.editor` role allows you to manage {{ postbox-name }} addresses and send emails.
 
 Users with this role can:
 * Create, modify, and delete [addresses](../../postbox/concepts/glossary.md#adress) and their [configurations](../../postbox/concepts/glossary.md#configuration).

@@ -1,3 +1,5 @@
+# Best practices for monitoring and audit
+
 ## Monitoring and audit
 
 ### Organization users who last logged in more than 30 days ago are blocked {#Y360-5}

@@ -245,9 +245,9 @@
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch см. в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
 
     1. Чтобы создать группу хостов `OpenSearch`, добавьте блок `node_groups` в блок `opensearch`:
 
@@ -727,9 +727,9 @@
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch см. в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
 
     1. Чтобы изменить конфигурацию группы хостов `OpenSearch`, измените параметры нужного блока `node_groups` в блоке `opensearch`:
 
@@ -1180,9 +1180,9 @@
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        О том, как создать такой файл, в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch см. в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
 
     1. Чтобы удалить группу хостов `OpenSearch`, удалите блок `node_groups`, который соответствует удаляемой группе хостов, из блока `opensearch`.
 

@@ -36,6 +36,6 @@
 * [Интеграция Cloud DNS и корпоративного сервиса DNS](../tutorials/dns-integration.md)
 * [Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для подключения защиты Yandex Smart Web Security](../tutorials/migration-from-nlb-to-alb/index.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Балансировщики нагрузки в облаке: повышение доступности и отказоустойчивости](https://yandex.cloud/ru/blog/posts/2025/04/load-balancers-guide)

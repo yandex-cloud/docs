@@ -11,6 +11,6 @@ canonical: '{{ link-docs }}/tutorials/web/load-balancer-website/console'
 
 {% include [load-balancer-website](../../../_tutorials/web/load-balancer-website-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md)

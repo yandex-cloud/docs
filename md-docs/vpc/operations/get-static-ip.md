@@ -106,7 +106,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_address` в Terraform см. в [документации провайдера](../../terraform/resources/vpc_address.md).
+     Подробнее о параметрах ресурса `yandex_vpc_address` в Terraform в [документации провайдера](../../terraform/resources/vpc_address.md).
 
   1. Создайте ресурсы:
 

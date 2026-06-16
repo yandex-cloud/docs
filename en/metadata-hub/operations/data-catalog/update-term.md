@@ -1,3 +1,8 @@
+---
+title: Updating a term
+description: Follow this guide to update a term in {{ data-catalog-full-name }}.
+---
+
 # Updating a term
 
 

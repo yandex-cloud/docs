@@ -1,3 +1,8 @@
+---
+title: Delete domain
+description: Follow this guide to delete a domain in {{ data-catalog-full-name }}.
+---
+
 # Deleting a domain
 
 

@@ -1,3 +1,8 @@
+---
+title: Metadata search
+description: Follow this guide to search for metadata in {{ data-catalog-full-name }}.
+---
+
 # Metadata search
 
 {% note info %}

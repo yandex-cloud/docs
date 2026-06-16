@@ -1,6 +1,6 @@
 ---
 title: How to update {{ CH }} cluster settings in {{ mch-full-name }}
-description: In this tutorial, you will learn how to update {{ CH }} cluster settings.
+description: Follow this guide to update {{ CH }} cluster settings.
 ---
 
 # Updating {{ CH }} cluster settings
@@ -21,7 +21,7 @@ Learn more about other cluster updates:
 
 * [Setting up maintenance](cluster-maintenance.md).
 * [Migrating a cluster to a different availability zone](host-migration.md).
-* [Configuring {{ CH }} servers](change-server-level-settings.md) as per [{{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings).
+* [Configuring {{ CH }} servers](change-server-level-settings.md) as described in [this {{ CH }} article]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings).
 * [Changing {{ CH }} settings at the query level](change-query-level-settings.md).
 
 
@@ -469,7 +469,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
         * `configSpec.zookeeper.resources.diskSize`: {{ ZK }} host storage size, in bytes.
         * `configSpec.zookeeper.resources.diskTypeId`: Disk type of {{ ZK }} hosts.
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure your request was successful.
 
@@ -538,7 +538,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
         * `config_spec.zookeeper.resources.disk_size`: {{ ZK }} host storage size, in bytes.
         * `config_spec.zookeeper.resources.disk_type_id`: Disk type of {{ ZK }} hosts.
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -635,7 +635,7 @@ You can turn on the {{ CK }} or {{ ZK }} [coordination service](#enable-coordina
 
 ## Enabling user and database management via SQL {#SQL-management}
 
-In {{ mch-name }}, you can manage cluster [users](./cluster-users.md#sql-user-management) and [databases](./databases.md#sql-database-management) via SQL.
+In {{ mch-name }}, you can manage cluster [users](../concepts/user-access-rights.md#sql-user-management) and [databases](databases.md#sql-database-management) via SQL.
 
 {% note alert %}
 
@@ -653,8 +653,8 @@ You cannot disable settings for user or database management via SQL once they ar
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
   1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
-  1. To [manage users via SQL](./cluster-users.md#sql-user-management), enable **{{ ui-key.yacloud.mdb.forms.section_settings }}** under **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** and specify the `admin` password.
-  1. To [manage databases via SQL](./databases.md#sql-database-management), enable **{{ ui-key.yacloud.mdb.forms.section_settings }}** and **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** under **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** and specify the `admin` password.
+  1. To [manage users via SQL](../concepts/user-access-rights.md#sql-user-management), enable **{{ ui-key.yacloud.mdb.forms.section_settings }}** under **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** and specify the `admin` password.
+  1. To [manage databases via SQL](databases.md#sql-database-management), enable **{{ ui-key.yacloud.mdb.forms.section_settings }}** and **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** under **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** and specify the `admin` password.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -663,7 +663,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. To enable [user management via SQL](./cluster-users.md#sql-user-management):
+    1. To enable [user management via SQL](../concepts/user-access-rights.md#sql-user-management):
 
         * Set `--enable-sql-user-management` to `true`.
         * Set a password for `admin` in the `--admin-password` parameter.
@@ -675,7 +675,7 @@ You cannot disable settings for user or database management via SQL once they ar
            --admin-password "<admin_user_password>"
         ```
 
-    1. To enable [database management via SQL](./databases.md#sql-database-management):
+    1. To enable [database management via SQL](databases.md#sql-database-management):
 
         * Set `--enable-sql-user-management` and `--enable-sql-database-management` to `true`.
         * Set a password for `admin` in the `--admin-password` parameter.
@@ -685,7 +685,7 @@ You cannot disable settings for user or database management via SQL once they ar
            ...
            --enable-sql-user-management true \
            --enable-sql-database-management true \
-           --admin-password "<admin_user_password>"
+           --admin-password "<admin_password>"
         ```
 
 
@@ -754,7 +754,7 @@ You cannot disable settings for user or database management via SQL once they ar
         * `configSpec.sqlUserManagement`: User management via SQL, `true` or `false`.
         * `configSpec.sqlDatabaseManagement`: Database management via SQL, `true` or `false`. For that, you also need to enable user management via SQL.
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure your request was successful.
 
@@ -812,7 +812,7 @@ You cannot disable settings for user or database management via SQL once they ar
         * `config_spec.sql_user_management`: User management via SQL, `true` or `false`.
         * `config_spec.sql_database_management`: Database management via SQL, `true` or `false`. For that, you also need to enable user management via SQL.
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1081,7 +1081,7 @@ You cannot disable settings for user or database management via SQL once they ar
               --data '@body.json'
             ```
 
-            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure your request was successful.
 
@@ -1179,7 +1179,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
         1. Run this request:
 
@@ -1308,7 +1308,7 @@ The following resources will be created for each database user:
 
         Where `destinationFolderId` is the ID of the destination folder to move your cluster to. You can get this ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/move.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1339,7 +1339,7 @@ The following resources will be created for each database user:
 
         Where `destination_folder_id` is the ID of the destination folder to move your cluster to. You can get this ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/move.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1446,7 +1446,7 @@ The following resources will be created for each database user:
 
             {% endnote %}
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure your request was successful.
 
@@ -1499,7 +1499,7 @@ The following resources will be created for each database user:
 
             {% endnote %}
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1591,7 +1591,7 @@ You may need to additionally [configure security groups](connect/index.md#config
 
             {% include [rest-cloud-storage-settings](../../_includes/mdb/mch/api/rest-cloud-storage-settings.md) %}
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure your request was successful.
 
@@ -1642,7 +1642,7 @@ You may need to additionally [configure security groups](connect/index.md#config
 
             {% include [grpc-cloud-storage-settings](../../_includes/mdb/mch/api/grpc-cloud-storage-settings.md) %}
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

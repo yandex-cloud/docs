@@ -1,3 +1,8 @@
+---
+title: Getting started as a metadata analyst
+description: Using {{ data-catalog-full-name }} as a metadata analyst, you can analyze and visualize metadata on {{ yandex-cloud }} objects and links between them.
+---
+
 # Getting started as a metadata analyst
 
 
@@ -18,7 +23,7 @@ To get started:
 
 ## Getting started {#before-you-begin}
 
-1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if you do not have an account yet.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }}, or sign up if you have not already.
 
 1. Contact your working cloud or organization administrator for access to the resource catalog the metadata is processed in.
 

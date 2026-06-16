@@ -1,11 +1,5 @@
 # Управление шардами Sharded PostgreSQL
 
-{% note info %}
-
-Сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 ## Создать шард {#create-shard}
 
 Шарды Sharded PostgreSQL создаются на основе существующих кластеров Yandex Managed Service for PostgreSQL, расположенных в том же каталоге и в той же облачной сети, что и кластер Sharded PostgreSQL.

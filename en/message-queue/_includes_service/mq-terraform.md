@@ -8,12 +8,11 @@
             
      Sample configuration file for a standard queue:
 
-     ```
+     ```hcl
      provider "yandex" {
-         token     = "<service_account_static_key>"
-         folder_id = "<folder_ID>"
-         zone      = "{{ region-id }}-a"
-       }
+       folder_id = "<folder_ID>"
+       zone      = "{{ region-id }}-a"
+     }
 
      resource "yandex_message_queue" "example_queue" {
        name                        = "mq-terraform-example"
@@ -27,12 +26,11 @@
 
      Sample configuration file for a FIFO queue:
 
-     ```
+     ```hcl
      provider "yandex" {
-         token     = "<service_account_static_key>"
-         folder_id = "<folder_ID>"
-         zone      = "{{ region-id }}-a"
-       }
+       folder_id = "<folder_ID>"
+       zone      = "{{ region-id }}-a"
+     }
 
      resource "yandex_message_queue" "example-fifo-queue" {
        name                        = "mq-terraform-example.fifo"
@@ -47,12 +45,11 @@
 
      Example of a configuration file for a queue with a redirect policy for moving undelivered messages to a DLQ named `mq_terraform_deadletter_example`:
 
-     ```
+     ```hcl
      provider "yandex" {
-         token     = "<service_account_static_key>"
-         folder_id = "<folder_ID>"
-         zone      = "{{ region-id }}-a"
-       }
+       folder_id = "<folder_ID>"
+       zone      = "{{ region-id }}-a"
+     }
 
      resource "yandex_message_queue" "example_fifo_queue" {
        name                        = "mq-terraform-example"

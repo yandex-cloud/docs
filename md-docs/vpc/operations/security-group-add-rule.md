@@ -33,7 +33,7 @@
         * `Группа безопасности`. Выберите вариант:
 
            * `Текущая` — правило будет применено к ВМ из текущей группы.
-           * `Из списка` — правило будет применено к ВМ из выбранной группы. IP-адреса источника или назначения при обмене трафиком должны быть из [частных диапазонов](../concepts/network.md#subnet). Подробнее см. в разделе [Концепции](../concepts/security-groups.md#groups).
+           * `Из списка` — правило будет применено к ВМ из выбранной группы. IP-адреса источника или назначения при обмене трафиком должны быть из [частных диапазонов](../concepts/network.md#subnet). Подробнее в разделе [Концепции](../concepts/security-groups.md#groups).
 
         * `Проверки состояния балансировщика` — правило, разрешающее проверки состояния ресурсов от [Network Load Balancer](../../network-load-balancer/concepts/health-check.md) или [Application Load Balancer](../../application-load-balancer/concepts/backend-group.md#health-checks).
 
@@ -148,7 +148,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_security_group` в Terraform см. в [документации провайдера](../../terraform/resources/vpc_security_group.md).
+     Подробнее о параметрах ресурса `yandex_vpc_security_group` в Terraform в [документации провайдера](../../terraform/resources/vpc_security_group.md).
 
   1. Проверьте конфигурацию командой:
 
@@ -228,7 +228,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_security_group_rule` в Terraform см. в [документации провайдера](../../terraform/resources/vpc_security_group_rule.md).
+     Подробнее о параметрах ресурса `yandex_vpc_security_group_rule` в Terraform в [документации провайдера](../../terraform/resources/vpc_security_group_rule.md).
 
   1. Проверьте конфигурацию командой:
 

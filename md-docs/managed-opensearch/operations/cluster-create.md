@@ -2,11 +2,11 @@
 
 
 
-[Кластер](../../glossary/cluster.md) Managed Service for OpenSearch — это группа из нескольких связанных друг с другом хостов OpenSearch и [Dashboards](https://opensearch.org/docs/latest/dashboards/index/). Кластер обеспечивает высокую производительность поиска путем распределения задач поиска и индексации по всем хостам кластера с ролью `DATA`. Подробнее о ролях в кластере см. в разделе [Роли хостов](../concepts/host-roles.md).
+[Кластер](../../glossary/cluster.md) Managed Service for OpenSearch — это группа из нескольких связанных друг с другом хостов OpenSearch и [Dashboards](https://opensearch.org/docs/latest/dashboards/index/). Кластер обеспечивает высокую производительность поиска путем распределения задач поиска и индексации по всем хостам кластера с ролью `DATA`. Подробнее о ролях в кластере в разделе [Роли хостов](../concepts/host-roles.md).
 
 Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
 
-Подробнее см. в разделе [Взаимосвязь ресурсов сервиса](../concepts/index.md).
+Подробнее в разделе [Взаимосвязь ресурсов сервиса](../concepts/index.md).
 
 
 ## Роли для создания кластера {#roles}
@@ -76,7 +76,7 @@
 
           * Чтобы использовать созданный ранее ключ, выберите его в поле **Ключ KMS**.
 
-          Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+          Подробнее о шифровании дисков в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
 
       1. (Опционально) Настройте автоматическое увеличение размера диска:
@@ -122,7 +122,7 @@
 
           {% note tip %}
           
-          OpenSearch Dashboards можно воспользоваться, даже если публичный доступ к хостам запросить невозможно (например, из соображений безопасности). Для этого настройте проксирование соединений через виртуальную машину в Yandex Compute Cloud, которая находится в той же [сети](../../vpc/concepts/network.md#network), что и кластер. Подробнее см. в разделе [Подключение к OpenSearch Dashboards](connect/clients.md#dashboards).
+          OpenSearch Dashboards можно воспользоваться, даже если публичный доступ к хостам запросить невозможно (например, из соображений безопасности). Для этого настройте проксирование соединений через виртуальную машину в Yandex Compute Cloud, которая находится в той же [сети](../../vpc/concepts/network.md#network), что и кластер. Подробнее в разделе [Подключение к OpenSearch Dashboards](connect/clients.md#dashboards).
           
           {% endnote %}
 
@@ -146,7 +146,7 @@
           
           {% note tip %}
           
-          Для выполнения повседневных задач рекомендуется создавать отдельных пользователей. Подробнее см. в разделе [Управление пользователями OpenSearch](cluster-users.md).
+          Для выполнения повседневных задач рекомендуется создавать отдельных пользователей. Подробнее в разделе [Управление пользователями OpenSearch](cluster-users.md).
           
           {% endnote %}
 
@@ -160,7 +160,7 @@
               Операции по техническому обслуживанию проводятся для включенных и выключенных кластеров. Они могут включать в себя: обновление СУБД, применение патчей и так далее.
           
           
-          * **Сервисный аккаунт** — аккаунт для [доступа к Yandex Object Storage](s3-access.md) в качестве репозитория [снапшотов](../../glossary/snapshot.md) OpenSearch. Подробнее о сервисных аккаунтах см. в [документации Yandex Identity and Access Management](../../iam/concepts/users/service-accounts.md).
+          * **Сервисный аккаунт** — аккаунт для [доступа к Yandex Object Storage](s3-access.md) в качестве репозитория [снапшотов](../../glossary/snapshot.md) OpenSearch. Подробнее о сервисных аккаунтах в [документации Yandex Identity and Access Management](../../iam/concepts/users/service-accounts.md).
           
           
           
@@ -235,7 +235,7 @@
           * `prestable` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
 
       
-      * `--service-account-name` — имя сервисного аккаунта для [доступа к Yandex Object Storage](s3-access.md) в качестве репозитория [снапшотов](../../glossary/snapshot.md) OpenSearch. Подробнее о сервисных аккаунтах см. в [документации Yandex Identity and Access Management](../../iam/concepts/users/service-accounts.md).
+      * `--service-account-name` — имя сервисного аккаунта для [доступа к Yandex Object Storage](s3-access.md) в качестве репозитория [снапшотов](../../glossary/snapshot.md) OpenSearch. Подробнее о сервисных аккаунтах в [документации Yandex Identity and Access Management](../../iam/concepts/users/service-accounts.md).
 
 
       * `--deletion-protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
@@ -252,7 +252,7 @@
       
       * `--disk-encryption-key-id` — шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md).
 
-          Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+          Подробнее о шифровании дисков в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
 
       * `--read-admin-password` — пароль пользователя `admin`. Если указать параметр в команде, после ее ввода будет предложено ввести пароль.
@@ -270,7 +270,7 @@
           
           {% note tip %}
           
-          Для выполнения повседневных задач рекомендуется создавать отдельных пользователей. Подробнее см. в разделе [Управление пользователями OpenSearch](cluster-users.md).
+          Для выполнения повседневных задач рекомендуется создавать отдельных пользователей. Подробнее в разделе [Управление пользователями OpenSearch](cluster-users.md).
           
           {% endnote %}
 
@@ -281,9 +281,9 @@
       * `--plugins` — [плагины OpenSearch](../concepts/plugins.md), которые нужно установить в кластер.
       * `--advanced-params` — дополнительные параметры кластера. Возможные значения:
 
-          * `max-clause-count` — максимально допустимое количество булевых выражений (boolean clauses) в запросе. Подробнее см. в [документации OpenSearch](https://opensearch.org/docs/latest/query-dsl/compound/bool/).
-          * `fielddata-cache-size` — объем кучи JVM, который выделен для структуры данных fielddata. Можно указать абсолютное значение или проценты, например, `512mb` или `50%`. Подробнее см. в [документации OpenSearch](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings).
-          * `reindex-remote-whitelist` — список удаленных хостов, из индекса которых нужно скопировать документы для переиндексации. Укажите значение параметра в формате `<адрес_хоста>:<порт>`. Если нужно указать несколько хостов, перечислите значения через запятую. Подробнее см. в [документации OpenSearch](https://opensearch.org/docs/latest/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
+          * `max-clause-count` — максимально допустимое количество булевых выражений (boolean clauses) в запросе. Подробнее в [документации OpenSearch](https://opensearch.org/docs/latest/query-dsl/compound/bool/).
+          * `fielddata-cache-size` — объем кучи JVM, который выделен для структуры данных fielddata. Можно указать абсолютное значение или проценты, например, `512mb` или `50%`. Подробнее в [документации OpenSearch](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings).
+          * `reindex-remote-whitelist` — список удаленных хостов, из индекса которых нужно скопировать документы для переиндексации. Укажите значение параметра в формате `<адрес_хоста>:<порт>`. Если нужно указать несколько хостов, перечислите значения через запятую. Подробнее в [документации OpenSearch](https://opensearch.org/docs/latest/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
 
       * `--opensearch-node-group` — конфигурация группы хостов `OpenSearch`, где:
       
@@ -416,7 +416,7 @@
       * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
       * `disk_encryption_key_id` — шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md).
 
-          Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+          Подробнее о шифровании дисков в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
       * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
@@ -437,7 +437,7 @@
         
         {% note tip %}
         
-        Для выполнения повседневных задач рекомендуется создавать отдельных пользователей. Подробнее см. в разделе [Управление пользователями OpenSearch](cluster-users.md).
+        Для выполнения повседневных задач рекомендуется создавать отдельных пользователей. Подробнее в разделе [Управление пользователями OpenSearch](cluster-users.md).
         
         {% endnote %}
 
@@ -450,7 +450,7 @@
           * `day` — день недели для типа `WEEKLY` в формате `DDD`. Например, `MON`.
           * `hour` — час дня по UTC для типа `WEEKLY` в формате `HH`. Например, `21`.
 
-      Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch см. в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
+      Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
 
   1. Проверьте корректность настроек.
 
@@ -648,7 +648,7 @@
             
             {% note tip %}
             
-            Для выполнения повседневных задач рекомендуется создавать отдельных пользователей. Подробнее см. в разделе [Управление пользователями OpenSearch](cluster-users.md).
+            Для выполнения повседневных задач рекомендуется создавать отдельных пользователей. Подробнее в разделе [Управление пользователями OpenSearch](cluster-users.md).
             
             {% endnote %}
 
@@ -871,7 +871,7 @@
             
             {% note tip %}
             
-            Для выполнения повседневных задач рекомендуется создавать отдельных пользователей. Подробнее см. в разделе [Управление пользователями OpenSearch](cluster-users.md).
+            Для выполнения повседневных задач рекомендуется создавать отдельных пользователей. Подробнее в разделе [Управление пользователями OpenSearch](cluster-users.md).
             
             {% endnote %}
 

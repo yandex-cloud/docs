@@ -32,8 +32,8 @@ Terraform распространяется под лицензией [Business S
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры, разворачиваемой через Terraform в этом руководстве, входят:
-* плата за постоянно запущенные [виртуальные машины](../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование динамических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* плата за постоянно запущенные [виртуальные машины](../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за использование динамических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Установите Terraform {#install-terraform}
 
@@ -314,7 +314,7 @@ export PATH=$PATH:/path/to/terraform
    }
    ```
 
-   Подробнее о настройках зеркал см. в [документации](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
+   Подробнее о настройках зеркал в [документации](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
 1. В начале конфигурационного файла `.tf` добавьте следующие блоки:
 
    
@@ -359,11 +359,11 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
 
 Если вы использовали [модули Terraform](terraform-modules.md), сначала выполните `terraform init`, затем удалите lock-файл, а затем выполните команду `terraform providers lock`.
 
-Более подробную информацию о команде `terraform providers lock` см. в [документации Terraform](https://developer.hashicorp.com/terraform/cli/commands/providers/lock).
+Подробнее о команде `terraform providers lock` в [документации Terraform](https://developer.hashicorp.com/terraform/cli/commands/providers/lock).
 
 ## Подготовьте план инфраструктуры {#prepare-plan}
 
-С помощью Terraform в Yandex Cloud можно создавать облачные ресурсы всех типов: ВМ, [диски](../../compute/concepts/disk.md), [образы](../../compute/concepts/image.md) и т. д. Подробную информацию о ресурсах, создающихся с помощью Terraform, см. в [документации провайдера](../../terraform/index.md).
+С помощью Terraform в Yandex Cloud можно создавать облачные ресурсы всех типов: ВМ, [диски](../../compute/concepts/disk.md), [образы](../../compute/concepts/image.md) и т. д. Подробнее о ресурсах, создающихся с помощью Terraform, в [документации провайдера](../../terraform/index.md).
 
 Для создания ресурса необходимо указать набор обязательных и опциональных параметров, определяющих свойства ресурса. Такие описания ресурсов составляют план инфраструктуры.
 
@@ -868,7 +868,7 @@ resource "yandex_compute_instance" "vm-1" {
 
 Проверить удаление ресурсов можно в [консоли управления](https://console.yandex.cloud).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Загрузка состояний Terraform в Object Storage](terraform-state-storage.md).
 * [Блокировка состояний Terraform с помощью Managed Service for YDB](terraform-state-lock.md).

@@ -1,3 +1,8 @@
+---
+title: Analyzing links between metadata
+description: Follow this guide to analyze links between tables from all sources of a selected metadata catalog.
+---
+
 # Analyzing links between metadata
 
 {% note info %}

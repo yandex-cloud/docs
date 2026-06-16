@@ -1,10 +1,8 @@
 # История изменений в Yandex Managed Service for Sharded PostgreSQL
 
-{% note info %}
+## Июнь 2026 {#jun-2026}
 
-Сервис находится на стадии [Preview](../overview/concepts/launch-stages.md).
-
-{% endnote %}
+* Сервис Yandex Managed Service for Sharded PostgreSQL перешел на стадию [General Availability](../overview/concepts/launch-stages.md).
 
 ## Январь 2026 {#jan-2026}
 

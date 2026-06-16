@@ -9,7 +9,7 @@ description: '{{ data-transfer-full-name }} considers the specifics of sources a
 
 ## {{ CH }} {#clickhouse}
 
-The {{ dt-type-copy }} and {{ dt-type-copy-repl }} type transfers (at the copying stage) _from {{ CH }} to {{ CH }}_ do not support `VIEW`. In source endpoints of the {{ CH }} type, `VIEW` objects must be on the "List of excluded tables" if the "List of included tables" is empty or not specified. If the "List of included tables" is not empty, it must not contain `VIEW` objects.
+The {{ dt-type-copy }} and {{ dt-type-copy-repl }} type transfers (at the copying stage) _from {{ CH }} to {{ CH }}_ do not support `VIEW`. In a {{ CH }} type source endpoint, `VIEW` must be included in **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTableFilter.exclude_tables.title }}** if **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTableFilter.include_tables.title }}** is empty or not specified. If **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTableFilter.include_tables.title }}** is not empty, it must not contain `VIEW` objects.
 
 The source supports `MATERIALIZED VIEW` objects but handles them as regular tables. This means that in _{{ CH }} to {{ CH }}_ transfers, `MATERIALIZED VIEW` items are transferred as tables, not as `MATERIALIZED VIEW` objects.
 
@@ -54,14 +54,14 @@ The {{ MY }} target ignores the source schema name and creates tables in the sch
 
 The source treats `FOREIGN TABLE` as a regular view and handles them using the general algorithm for views.
 
-If the source of a transfer _from {{ PG }} to {{ PG }}_ has a non-empty "List of included tables" specified, user-defined data types in these tables are not transferred. If this is the case, transfer your custom data types manually.
+If the source of transfer _from {{ PG }} to {{ PG }}_ has a non-empty **{{ ui-key.yc-data-transfer.data-transfer.console.form.migration.console.form.migration.PostgresMigrationTablesFilter.include_tables.title }}** specified, user-defined data types in these tables are not transferred. If this is the case, transfer your custom data types manually.
 
 When transferring [partitioned tables](https://www.postgresql.org/docs/current/ddl-partitioning.html), take the following into account:
 
 * **For tables partitioned with declarative partitioning:**
 
     * The user needs access to the master table and all its partitions on the source.
-    * The transfer is performed based on the <q>as is</q> principle: all partitions and the master table will be created on the target.
+    * The transfer is performed "as-is": all partitions and the master table will be created on the target.
     * At the copying stage, partitions are transferred to the target independently of each other. To speed up their transfer, configure [parallel copy](sharded.md).
     * At the replication stage, data will automatically be placed into the required partitions.
     * If new partitions are created on the source after the transfer has entered the replication stage, you need to transfer them to the target manually.
@@ -75,10 +75,27 @@ When transferring [partitioned tables](https://www.postgresql.org/docs/current/d
     * At the replication stage, data will automatically be placed into the required child tables or the parent table if inheritance is not used for partitioning.
     * If the child tables are created on the source after the transfer has entered the replication stage, you need to transfer them to the target manually.
 
-    When migrating a database from {{ PG }} to another DBMS, the user can enable the [Merge inherited tables](../operations/endpoint/source/postgresql.md#additional-settings) option in the source endpoint. In which case:
+    When migrating a database from {{ PG }} to another DBMS, the user can enable the [Merge inherited tables](../operations/endpoint/source/postgresql.md#additional-settings) option in the source endpoint. The transfer behavior depends on this option and the tables specified in **{{ ui-key.yc-data-transfer.data-transfer.console.form.migration.console.form.migration.PostgresMigrationTablesFilter.include_tables.title }}**.
 
-    * Only the parent table will be transferred to the target, and it will contain the data of those child tables which were explicitly specified in the list of tables to be transferred.
-    * The user can still speed up the transfer because child tables from the source are concurrently copied to the common table on the target. To speed up the transfer, enable [parallel copy](sharded.md).
+    * The option is on:
+
+        | **Specified tables** | **Transfer behavior** |
+        |-------------------|---------------------|
+        | Parent table only | Transfers the parent table with data from all child tables |
+        | All or some child tables | Transfers the parent table with data from specified child tables |
+        | Parent table and all child tables | Transfers the parent table with data from all child tables |
+        | Parent table and some child tables | The transfer will fail with an error |
+
+    * The option is off:
+
+        | **Specified tables** | **Transfer behavior** |
+        |-------------------|---------------------|
+        | Parent table only | Transfers all child tables of the specified parent table |
+        | All or some child tables | Transfers only specified child tables |
+        | Parent table and all child tables | Transfers all child tables of the specified parent table |
+        | Parent table and some child tables | The transfer will fail with an error |
+
+    To accelerate the transfer, set up [parallel copying](sharded.md).
 
 ### Data transfer rate {#postgresql-speed}
 

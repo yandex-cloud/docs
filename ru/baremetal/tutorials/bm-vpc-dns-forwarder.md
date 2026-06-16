@@ -30,10 +30,10 @@ canonical: '{{ link-docs }}/tutorials/routing/bm-vpc-dns-forwarder'
 
 В стоимость поддержки решения входят:
 
-* плата за использование виртуальной машины и диска (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование кластера {{ mpg-name }} (см. [тарифы {{ mpg-full-name }}](../../managed-postgresql/pricing.md));
-* плата за аренду серверов {{ baremetal-name }} (см. [тарифы {{ baremetal-full-name }}](../../baremetal/pricing.md));
-* плата за использование ресурсов {{ interconnect-full-name }} (см. [тарифы {{ interconnect-full-name }}](../../interconnect/pricing.md)).
+* плата за использование виртуальной машины и диска ([тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование кластера {{ mpg-name }} ([тарифы {{ mpg-full-name }}](../../managed-postgresql/pricing.md));
+* плата за аренду серверов {{ baremetal-name }} ([тарифы {{ baremetal-full-name }}](../../baremetal/pricing.md));
+* плата за использование ресурсов {{ interconnect-full-name }} ([тарифы {{ interconnect-full-name }}](../../interconnect/pricing.md)).
 
 ### Создайте кластер {{ mpg-name }} {#create-postgresql-cluster}
 

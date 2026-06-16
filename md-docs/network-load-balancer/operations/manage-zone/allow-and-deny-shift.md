@@ -94,7 +94,7 @@
         <имя_или_идентификатор_балансировщика>
       ```
 
-  Более подробную информацию о параметрах ресурса `yandex_lb_network_load_balancer` см. в [документации провайдера](../../../terraform/data-sources/lb_network_load_balancer.md).
+  Подробнее о параметрах ресурса `yandex_lb_network_load_balancer` в [документации провайдера](../../../terraform/data-sources/lb_network_load_balancer.md).
 
 - API {#api}
 
@@ -191,7 +191,7 @@
         <имя_или_идентификатор_балансировщика>
       ```
 
-  Более подробную информацию о параметрах ресурса `yandex_lb_network_load_balancer` см. в [документации провайдера](../../../terraform/data-sources/lb_network_load_balancer.md).
+  Подробнее о параметрах ресурса `yandex_lb_network_load_balancer` в [документации провайдера](../../../terraform/data-sources/lb_network_load_balancer.md).
 
 - API {#api}
 

@@ -222,7 +222,7 @@
 
         * `filter` — фильтр логов. Можно отфильтровать логи так, чтобы поток логов содержал только нужные логи.
 
-            Подробнее о фильтрах и их синтаксисе см. в [справочнике API](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.mongodb.v1.StreamClusterLogsRequest).
+            Подробнее о фильтрах и их синтаксисе читайте в [справочнике API](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.mongodb.v1.StreamClusterLogsRequest).
 
             {% include [stream-logs-filter](../../_includes/mdb/api/stream-logs-filter.md) %}
 
@@ -279,7 +279,7 @@
 
         * `filter` — фильтр логов. Можно отфильтровать логи так, чтобы поток логов содержал только нужные логи.
 
-          Подробнее о фильтрах и их синтаксисе см. в [справочнике API](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.mongodb.v1.StreamClusterLogsRequest).
+          Подробнее о фильтрах и их синтаксисе читайте в [справочнике API](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.mongodb.v1.StreamClusterLogsRequest).
 
           {% include [stream-logs-filter](../../_includes/mdb/api/stream-logs-filter.md) %}
 

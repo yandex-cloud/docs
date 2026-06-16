@@ -95,7 +95,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_subnet` в Terraform см. в [документации провайдера](../../terraform/resources/vpc_subnet.md).
+     Подробнее о параметрах ресурса `yandex_vpc_subnet` в Terraform в [документации провайдера](../../terraform/resources/vpc_subnet.md).
 
   1. Проверьте конфигурацию командой:
 

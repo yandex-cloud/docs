@@ -1,3 +1,5 @@
+# Recommendations for data encryption and protection
+
 ## Data encryption and protection
 
 ### Every domain user has a linked phone number (secure phone) {#Y360-4}

@@ -230,7 +230,7 @@
   
         {% endnote %}
   
-     Более подробную информацию о параметрах ресурса `yandex_vpc_private_endpoint` см. в [документации провайдера](../../../terraform/resources/vpc_private_endpoint.md).
+     Подробнее о параметрах ресурса `yandex_vpc_private_endpoint` в [документации провайдера](../../../terraform/resources/vpc_private_endpoint.md).
   
   1. Создайте ресурсы:
   

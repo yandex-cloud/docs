@@ -27,7 +27,7 @@
 
 ## Ноябрь 2025 {#nov-2025}
 
-Добавлена роль `managed-opensearch.restorer`, позволяющая восстанавливать кластеры из резервных копий. Подробнее см. в разделе [Управление доступом](security/index.md#managed-opensearch-restorer).
+Добавлена роль `managed-opensearch.restorer`, позволяющая восстанавливать кластеры из резервных копий. Подробнее в разделе [Управление доступом](security/index.md#managed-opensearch-restorer).
 
 ## Октябрь 2025 {#oct-2025}
 

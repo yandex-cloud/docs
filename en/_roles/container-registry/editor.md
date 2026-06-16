@@ -9,7 +9,7 @@ Users with this role can:
 * View info on [repositories](../../container-registry/concepts/repository.md) and the access permissions granted for them, as well as create and delete repositories.
 * View the list of the Docker image auto-delete [policies](../../container-registry/concepts/lifecycle-policy.md) and info on them, as well as create, modify, and delete such policies.
 * [Test](../../container-registry/operations/lifecycle-policy/lifecycle-policy-dry-run.md) the Docker image auto-delete policies, view the list of testing results and the info on such results.
-* View info on the Container Registry [quotas](../../container-registry/concepts/limits.md#container-registry-quotas).
+* View info on the {{ container-registry-name }} [quotas](../../container-registry/concepts/limits.md#container-registry-quotas).
 * View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 This role includes the `container-registry.viewer` permissions.

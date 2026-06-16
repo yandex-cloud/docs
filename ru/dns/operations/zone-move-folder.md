@@ -78,7 +78,7 @@ description: Следуя данной инструкции, вы сможете
         --destination-folder-id b1g66mft1vop********
       ```
 
-      Подробнее о команде `yc dns zone move` см. в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/move.md).
+      Подробнее о команде `yc dns zone move` в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/move.md).
 
 - {{ TF }} {#tf}
 
@@ -109,7 +109,7 @@ description: Следуя данной инструкции, вы сможете
       * `public` — видимость зоны: публичная или внутренняя.
       * `folder_id` — идентификатор каталога, в котором должна размещаться зона DNS (по умолчанию указывается из [переменной окружения](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials)).
 
-      Более подробную информацию о параметрах ресурса `yandex_dns_zone` см. в [документации провайдера]({{ tf-provider-resources-link }}/dns_zone).
+      Подробнее о параметрах ресурса `yandex_dns_zone` в [документации провайдера]({{ tf-provider-resources-link }}/dns_zone).
 
   1. Примените новую конфигурацию:
 
@@ -287,6 +287,6 @@ description: Следуя данной инструкции, вы сможете
     * `response` — обновленная зона DNS после переноса.
     * `done` — статус завершения операции.
 
-    Подробное описание метода см. в [справочнике gRPC API](../api-ref/grpc/DnsZone/move.md).
+    Подробное описание метода в [справочнике gRPC API](../api-ref/grpc/DnsZone/move.md).
 
 {% endlist %}

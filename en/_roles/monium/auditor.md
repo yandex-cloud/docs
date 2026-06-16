@@ -1,4 +1,4 @@
-The `monium.auditor` role enables viewing information on Monium resources. However, it does not allow reading the telemetry data.
+The `monium.auditor` role enables viewing information on {{ monium-name }} resources. However, it does not allow reading the telemetry data.
 
 Users with this role can:
 * View info on [projects](../../monium/concepts/glossary.md#project) and [access permissions](../../iam/concepts/access-control/index.md) assigned to them.
@@ -13,6 +13,6 @@ Users with this role can:
 * View info on alert notifications and [escalations](../../monium/concepts/alerting/escalations.md).
 * View [mutes](../../monium/alerts/mutes.md), i.e., rules for temporarily disabling alert [notifications](../../monium/concepts/alerting/notification-channel.md).
 * View [labels](../../monium/traces/operations/traces-explorer.md) assigned to log errors.
-* View info on the Yandex Managed Service for Prometheus® [rules](../../monium/operations/prometheus/recording-rules.md).
+* View info on the {{ managed-prometheus-full-name }} [rules](../../monium/operations/prometheus/recording-rules.md).
 
 This role includes the `monium.dashboards.viewer`, `monium.shards.viewer`, `monium.contextLinks.viewer`, `monium.quickLinks.viewer`, `monium.alerts.viewer`, `monium.serviceLevelObjectives.viewer`, `monium.channels.viewer`, `monium.escalationPolicies.viewer`, `monium.escalations.viewer`, `monium.mutes.viewer`, and `monium.logErrorLabels.viewer` permissions.

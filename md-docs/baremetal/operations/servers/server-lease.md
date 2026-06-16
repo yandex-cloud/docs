@@ -130,7 +130,7 @@
           1. Выберите [политику резервного копирования](../../../backup/concepts/policy.md) или [создайте](../../../backup/operations/policy-vm/create.md) новую.
           1. Выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с назначенными ролями [`baremetal.editor`](../../security/index.md#baremetal-editor) и [`backup.user`](../../../backup/security/index.md#backup-user) или [создайте](../../../iam/operations/sa/create.md) новый.
 
-          Подробнее см. в инструкции [Арендовать сервер Yandex BareMetal с подключением к Cloud Backup](../../../backup/operations/backup-baremetal/lease-server-with-backup.md).
+          Подробнее в инструкции [Арендовать сервер Yandex BareMetal с подключением к Cloud Backup](../../../backup/operations/backup-baremetal/lease-server-with-backup.md).
       1. В блоке **Информация о сервере**:
          
            1. В поле **Имя** введите имя сервера. Требования к имени:
@@ -301,7 +301,7 @@
 
 {% endlist %}
 
-После того как вы арендуете сервер, вы в любой момент сможете установить или переустановить на нем операционную систему из публичного образа в Cloud Marketplace или из собственного ISO-образа. Подробнее см. в инструкциях [Переустановить операционную систему из образа Marketplace](reinstall-os-from-marketplace.md) и [Переустановить операционную систему из своего ISO-образа](reinstall-os-from-own-image.md).
+После того как вы арендуете сервер, вы в любой момент сможете установить или переустановить на нем операционную систему из публичного образа в Cloud Marketplace или из собственного ISO-образа. Подробнее в инструкциях [Переустановить операционную систему из образа Marketplace](reinstall-os-from-marketplace.md) и [Переустановить операционную систему из своего ISO-образа](reinstall-os-from-own-image.md).
 
 ## Пример {#example}
 
@@ -645,6 +645,6 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Арендовать сервер в своей конфигурации](custom-server-lease.md)

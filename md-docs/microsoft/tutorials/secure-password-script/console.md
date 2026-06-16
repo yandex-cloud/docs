@@ -436,6 +436,6 @@
 * [Удалите](../../../lockbox/operations/secret-delete.md) секрет.
 * [Удалите](../../../kms/operations/key.md#delete) ключ.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Безопасная передача пароля в скрипт инициализации с помощью Terraform](terraform.md)

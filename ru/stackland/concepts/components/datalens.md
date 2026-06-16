@@ -74,7 +74,7 @@
   * `requests` — минимальные требования к ресурсам.
   * `limits` — максимальные ограничения ресурсов.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../operations/datalens/install-images.md)
 * [{#T}](../../operations/datalens/configure.md)

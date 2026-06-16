@@ -1,3 +1,5 @@
+# Tips for integration and third-party services
+
 ## Integrations and third-party services
 
 ### The organization does not use portal accounts {#Y360-7}

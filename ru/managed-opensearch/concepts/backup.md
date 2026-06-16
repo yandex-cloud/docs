@@ -31,7 +31,7 @@
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
 
     
-    Подробнее см. в разделе [Правила тарификации для {{ mos-name }}](../pricing.md#rules-storage).
+    Подробнее в разделе [Правила тарификации для {{ mos-name }}](../pricing.md#rules-storage).
 
 
 ## Проверка восстановления из резервной копии {#capabilities}

@@ -722,6 +722,9 @@ default:
       auditor: managed-metastore.auditor
       editor: managed-metastore.editor
       integrationProvider: managed-metastore.integrationProvider
+      maintenanceTask:
+        editor: managed-metastore.maintenanceTask.editor
+        viewer: managed-metastore.maintenanceTask.viewer
       viewer: managed-metastore.viewer
     mgp:
       admin: managed-greenplum.admin
@@ -4335,6 +4338,7 @@ default:
           oauth_field_client_id: ClientID
           oauth_field_open_id: OpenID Configuration
           oauth_field_redirect_uri: Redirect URI
+          oauth_field_scopes: Атрибуты пользователей
           oauth_field_token_endpoint: Token endpoint
           oauth_field_user_info_endpoint: Userinfo endpoint
           oauth_idp_section_title: Конфигурация поставщика удостоверений (IdP)

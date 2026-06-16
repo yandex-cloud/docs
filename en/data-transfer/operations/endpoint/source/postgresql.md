@@ -222,7 +222,7 @@ For OnPremise, all fields are filled in manually.
 
             Double quotes are not supported in schema names.
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.collapse_inherit_table.title }}**: Select to merge the contents of tables. For more information, see [Specifics of working with endpoints](../../../concepts/work-with-endpoints.md#postgresql).
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.collapse_inherit_table.title }}**: Select to merge the contents of tables. The transfer behavior will also depend on the **Included tables** setting. For more information, see [Specifics of working with endpoints](../../../concepts/work-with-endpoints.md#postgresql).
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.snapshot_table_sharding_settings.title }}**: If required, specify detailed settings for [parallel copying of tables](../../../../data-transfer/concepts/sharded.md) (if parallel copying parameters are set in the transfer):
 

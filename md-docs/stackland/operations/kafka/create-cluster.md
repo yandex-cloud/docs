@@ -61,7 +61,7 @@
       * **Версия Kafka**, выберите из списка доступных версий.
       * **Количество реплик** сервиса обработки сообщений.
       * **Вычислительные ресурсы**, где **Лимиты** — верхняя граница, **Запросы** — нижняя граница.
-      * **Хранилище**, где **Тип диска** — это Storage Class (`stackland-nvme`, `stackland-ssd`, `stackland-hdd`, `stackland-other`). Подробнее о Storage Classes см. в разделе [Дисковая подсистема](../../concepts/components/disk-storage.md#storage-classes). Можно включить **Автоматическое увеличение размера хранилища**.
+      * **Хранилище**, где **Тип диска** — это Storage Class (`stackland-nvme`, `stackland-ssd`, `stackland-hdd`, `stackland-other`). Подробнее о Storage Classes в разделе [Дисковая подсистема](../../concepts/components/disk-storage.md#storage-classes). Можно включить **Автоматическое увеличение размера хранилища**.
       * **Количество реплик** сервиса координации.
       * **Вычислительные ресурсы**, где **Лимиты** — верхняя граница, **Запросы** — нижняя граница.
       * **Хранилище**, где **Тип диска** — это Storage Class (`stackland-nvme`, `stackland-ssd`, `stackland-hdd`, `stackland-other`).

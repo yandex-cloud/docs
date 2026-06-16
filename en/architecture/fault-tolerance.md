@@ -13,7 +13,7 @@ keywords:
 # Recommendations on fault tolerance in {{ yandex-cloud }}
 
 Fault tolerance is the capability of a system to continue its operation in case of any fault in one or multiple components. 
-Faults can be either total or partial. A partial fault is intermediate between a fully operational state and a total fault, manifested by a partial rather than full loss of the system’s capacity to perform its functions. Example: 50% loss of network packages during transmission via communication circuits is a partial fault.
+Faults can be either total or partial. A partial fault is intermediate between a fully operational state and a total fault, manifested by a partial rather than full loss of the system’s capacity to perform its functions. Here is an example: 50% loss of network packages during transmission via communication circuits is a partial fault.
 
 Below are recommendations on designing a fault-tolerant infrastructure in {{ yandex-cloud }}.
 
@@ -146,7 +146,7 @@ Placement of platform service hosts in different availability zones is the key m
 ### High availability managed databases (MDB) {#mdb-ha}
 
 
-According to the [SLA](https://yandex.com/legal/cloud_sla_mdb/en/), a high availability configuration is one with a `DB cluster consisting of two or more DB hosts located in different availability zones`. It is optimal to put DB cluster nodes in three availability zones, because high availability is ensured by systems based on quorum algorithms. At the same time, different services may have specific high-availability requirements. Some MDB services are subject to special SLAs:
+According to the [SLA](https://yandex.com/legal/cloud_sla_mdb/en/#klastera-servisa-upravlyaemogo-mysql-%5C/-yandex-managed-service-for-mysql,-popadayushie-pod-dejstvie-urovnya-obsluzhivaniya), a high availability configuration is one with a `DB cluster consisting of two or more DB hosts located in different availability zones`. It is optimal to put DB cluster nodes in three availability zones, because high availability is ensured by systems based on quorum algorithms. At the same time, different services may have specific high-availability requirements. Some MDB services are subject to special SLAs:
 
 * [{{ mkf-name }}]({{ link-sla-kafka }}).
 * [{{ mgp-name }}]({{ link-sla-greenplum }}).

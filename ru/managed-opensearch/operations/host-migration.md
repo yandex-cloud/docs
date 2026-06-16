@@ -35,4 +35,4 @@ description: Следуя данной инструкции, вы сможете
 
    {% include [reactivate-a-transfer](../../_includes/data-transfer/reactivate-a-transfer.md) %}
 
-Подробнее см. в разделе [{#T}](../../data-transfer/operations/endpoint/migration-to-an-availability-zone.md).
+Подробнее в разделе [{#T}](../../data-transfer/operations/endpoint/migration-to-an-availability-zone.md).

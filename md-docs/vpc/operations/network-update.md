@@ -101,7 +101,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_network` в Terraform см. в [документации провайдера](../../terraform/resources/vpc_network.md).
+     Подробнее о параметрах ресурса `yandex_vpc_network` в Terraform в [документации провайдера](../../terraform/resources/vpc_network.md).
 
   1. Примените изменения:
 

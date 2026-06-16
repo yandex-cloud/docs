@@ -187,7 +187,7 @@
 
 {% endnote %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Резервирование сетевого подключения BareMetal с помощью технологии MC-LAG](../../concepts/mc-lag.md)
 * [Сеть](../../concepts/network.md)

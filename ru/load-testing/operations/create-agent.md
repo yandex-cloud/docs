@@ -36,7 +36,7 @@ description: Из статьи вы узнаете, как создать аге
    1. На вкладке ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** нажмите **{{ ui-key.yacloud.load-testing.button_create-test }}**.
    1. В секции **{{ ui-key.yacloud.load-testing.label_agents-list }}** нажмите **{{ ui-key.yacloud.load-testing.label_agent-temporal-selector }}**.
    1. В блоке **{{ ui-key.yacloud.load-testing.title_temporal-agent-field }}**:
-      * Выберите подходящий тип агента. Подробнее см. в разделе [Производительность агентов](../../load-testing/concepts/agent.md#benchmark).
+      * Выберите подходящий тип агента. Подробнее в разделе [Производительность агентов](../../load-testing/concepts/agent.md#benchmark).
 
       {% note warning %}
 

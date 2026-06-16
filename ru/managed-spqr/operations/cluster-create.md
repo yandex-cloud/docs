@@ -9,8 +9,6 @@ keywords:
 
 # Создание кластера {{ SPQR }}
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 
 ## Создать кластер {#create-cluster}
 

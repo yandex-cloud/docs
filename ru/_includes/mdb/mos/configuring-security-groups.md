@@ -60,4 +60,4 @@
 
 {% endnote %}
 
-Подробнее о группах безопасности см. в разделе [{#T}](../../../managed-opensearch/concepts/network.md#security-groups).
+Подробнее о группах безопасности в разделе [{#T}](../../../managed-opensearch/concepts/network.md#security-groups).

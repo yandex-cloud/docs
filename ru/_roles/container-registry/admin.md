@@ -11,7 +11,7 @@
 * просматривать информацию о назначенных правах доступа к репозиториям и изменять такие права доступа; 
 * просматривать список [политик](../../container-registry/concepts/lifecycle-policy.md) автоматического удаления Docker-образов и информацию о таких политиках, а также создавать, изменять и удалять такие политики;
 * запускать [тестирование](../../container-registry/operations/lifecycle-policy/lifecycle-policy-dry-run.md) политик автоматического удаления Docker-образов, просматривать список результатов тестирования и информацию о таких результатах;
-* просматривать информацию о [квотах](../../container-registry/concepts/limits.md#container-registry-quotas) сервиса Container Registry;
+* просматривать информацию о [квотах](../../container-registry/concepts/limits.md#container-registry-quotas) сервиса {{ container-registry-name }};
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 Включает разрешения, предоставляемые ролью `container-registry.editor`.

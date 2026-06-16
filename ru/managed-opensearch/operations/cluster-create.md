@@ -11,11 +11,11 @@ keywords:
 
 
 
-[Кластер](../../glossary/cluster.md) {{ mos-name }} — это группа из нескольких связанных друг с другом хостов {{ OS }} и [Dashboards]({{ os.docs }}/dashboards/index/). Кластер обеспечивает высокую производительность поиска путем распределения задач поиска и индексации по всем хостам кластера с ролью `DATA`. Подробнее о ролях в кластере см. в разделе [Роли хостов](../concepts/host-roles.md).
+[Кластер](../../glossary/cluster.md) {{ mos-name }} — это группа из нескольких связанных друг с другом хостов {{ OS }} и [Dashboards]({{ os.docs }}/dashboards/index/). Кластер обеспечивает высокую производительность поиска путем распределения задач поиска и индексации по всем хостам кластера с ролью `DATA`. Подробнее о ролях в кластере в разделе [Роли хостов](../concepts/host-roles.md).
 
 Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
 
-Подробнее см. в разделе [Взаимосвязь ресурсов сервиса](../concepts/index.md).
+Подробнее в разделе [Взаимосвязь ресурсов сервиса](../concepts/index.md).
 
 
 ## Роли для создания кластера {#roles}
@@ -79,7 +79,7 @@ keywords:
 
           * Чтобы использовать созданный ранее ключ, выберите его в поле **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}**.
 
-          Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+          Подробнее о шифровании дисков в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
 
       1. (Опционально) Настройте автоматическое увеличение размера диска:
@@ -188,7 +188,7 @@ keywords:
           * `prestable` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
 
       
-      * `--service-account-name` — имя сервисного аккаунта для [доступа к {{ objstorage-full-name }}](s3-access.md) в качестве репозитория [снапшотов](../../glossary/snapshot.md) {{ OS }}. Подробнее о сервисных аккаунтах см. в [документации {{ iam-full-name }}](../../iam/concepts/users/service-accounts.md).
+      * `--service-account-name` — имя сервисного аккаунта для [доступа к {{ objstorage-full-name }}](s3-access.md) в качестве репозитория [снапшотов](../../glossary/snapshot.md) {{ OS }}. Подробнее о сервисных аккаунтах в [документации {{ iam-full-name }}](../../iam/concepts/users/service-accounts.md).
 
 
       * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
@@ -205,7 +205,7 @@ keywords:
       
       * `--disk-encryption-key-id` — шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md).
 
-          Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+          Подробнее о шифровании дисков в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
 
       * `--read-admin-password` — пароль пользователя `admin`. Если указать параметр в команде, после ее ввода будет предложено ввести пароль.
@@ -221,9 +221,9 @@ keywords:
       * `--plugins` — [плагины {{ OS }}](../concepts/plugins.md), которые нужно установить в кластер.
       * `--advanced-params` — дополнительные параметры кластера. Возможные значения:
 
-          * `max-clause-count` — максимально допустимое количество булевых выражений (boolean clauses) в запросе. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/query-dsl/compound/bool/).
-          * `fielddata-cache-size` — объем кучи JVM, который выделен для структуры данных fielddata. Можно указать абсолютное значение или проценты, например, `512mb` или `50%`. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings).
-          * `reindex-remote-whitelist` — список удаленных хостов, из индекса которых нужно скопировать документы для переиндексации. Укажите значение параметра в формате `<адрес_хоста>:<порт>`. Если нужно указать несколько хостов, перечислите значения через запятую. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
+          * `max-clause-count` — максимально допустимое количество булевых выражений (boolean clauses) в запросе. Подробнее в [документации {{ OS }}]({{ os.docs }}/query-dsl/compound/bool/).
+          * `fielddata-cache-size` — объем кучи JVM, который выделен для структуры данных fielddata. Можно указать абсолютное значение или проценты, например, `512mb` или `50%`. Подробнее в [документации {{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings).
+          * `reindex-remote-whitelist` — список удаленных хостов, из индекса которых нужно скопировать документы для переиндексации. Укажите значение параметра в формате `<адрес_хоста>:<порт>`. Если нужно указать несколько хостов, перечислите значения через запятую. Подробнее в [документации {{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
 
       {% include [cli-for-os-and-dashboards-groups](../../_includes/managed-opensearch/cli-for-os-and-dashboards-groups.md) %}
 
@@ -318,7 +318,7 @@ keywords:
       * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
       * `disk_encryption_key_id` — шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md).
 
-          Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+          Подробнее о шифровании дисков в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
       * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
@@ -339,7 +339,7 @@ keywords:
           * `day` — день недели для типа `WEEKLY` в формате `DDD`. Например, `MON`.
           * `hour` — час дня по UTC для типа `WEEKLY` в формате `HH`. Например, `21`.
 
-      Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
+      Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
 
   1. Проверьте корректность настроек.
 

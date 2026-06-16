@@ -1225,6 +1225,8 @@ items:
         href: dataplatform/opensearch-yandex-lemmer.md
       - name: Sending email notifications in {{ mos-name }}
         href: dataplatform/opensearch-email-notifications.md
+      - name: Connecting an MCP client to an {{ OS }} cluster
+        href: dataplatform/mos-mcp.md
       - name: Creating a {{ PG }} cluster for 1C:Enterprise
         href: dataplatform/1c-postgresql.md
       - name: Searching for the {{ mpg-name }} cluster performance issues

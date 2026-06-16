@@ -43,7 +43,7 @@
 
       {% endnote %}
 
-   Более подробную информацию о параметрах ресурса `yandex_vpc_private_endpoint` см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_private_endpoint).
+   Подробнее о параметрах ресурса `yandex_vpc_private_endpoint` в [документации провайдера]({{ tf-provider-resources-link }}/vpc_private_endpoint).
 
 1. Создайте ресурсы:
 

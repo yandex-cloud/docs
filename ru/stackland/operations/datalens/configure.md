@@ -2,7 +2,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. Убедитесь, что образы {{ datalens-name }} загружены в локальный реестр кластера. Подробнее см. в разделе [{#T}](install-images.md).
+1. Убедитесь, что образы {{ datalens-name }} загружены в локальный реестр кластера. Подробнее в разделе [{#T}](install-images.md).
 1. Убедитесь, что компоненты {{ mpg-name }} и {{ iam-name }} включены в кластере.
 
 ## Включить компонент {#enable}
@@ -69,4 +69,4 @@
 kubectl edit datalensconfig main
 ```
 
-Подробнее о параметрах конфигурации см. в разделе [{{ datalens-name }}](../../concepts/components/datalens.md#configuration).
+Подробнее о параметрах конфигурации в разделе [{{ datalens-name }}](../../concepts/components/datalens.md#configuration).

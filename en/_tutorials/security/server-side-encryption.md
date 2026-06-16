@@ -79,7 +79,6 @@ You can create a new bucket or use an existing one. To create a bucket, run:
       locals {
         cloud_id    = "<cloud_ID>"
         folder_id   = "<folder_ID>"
-        oauth       = "<OAuth>"
         zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
@@ -98,7 +97,6 @@ You can create a new bucket or use an existing one. To create a bucket, run:
       }
 
       provider "yandex" {
-        token     = local.oauth
         cloud_id  = local.cloud_id
         folder_id = local.folder_id
         zone      = local.zone
@@ -133,13 +131,13 @@ You can create a new bucket or use an existing one. To create a bucket, run:
 
       1. In the terminal, navigate to the directory where you created your configuration file.
 
-      1. Run a check using the following command:
+      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-        If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
+        If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 
@@ -211,7 +209,6 @@ Create a new key or use an existing one. To create a key:
       locals {
         cloud_id    = "<cloud_ID>"
         folder_id   = "<folder_ID>"
-        oauth       = "<OAuth>"
         zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
@@ -233,7 +230,6 @@ Create a new key or use an existing one. To create a key:
       }
 
       provider "yandex" {
-        token     = local.oauth
         cloud_id  = local.cloud_id
         folder_id = local.folder_id
         zone      = local.zone
@@ -273,13 +269,13 @@ Create a new key or use an existing one. To create a key:
 
       1. In the terminal, navigate to the directory where you created your configuration file.
 
-      1. Run a check using the following command:
+      1. Run a check using this command:
 
           ```bash
           terraform plan
           ```
 
-          If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
+          If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 
@@ -352,16 +348,12 @@ To enable bucket encryption with a {{ kms-short-name }} key:
       locals {
         cloud_id    = "<cloud_ID>"
         folder_id   = "<folder_ID>"
-        oauth       = "<OAuth>"
         zone        = "{{ region-id }}-a"
-
         sa_name     = "new-buckets-account"
         sa_desc     = "Account for managing {{ objstorage-name }} buckets"
         sa_key_desc = "Static key for ${local.sa_name}"
-
         key_name    = "bucket-key" # KMS key name
         key_desc    = "Bucket encryption key"
-
         bucket_name = "Bucket name" # Bucket name.
       }
 
@@ -374,7 +366,6 @@ To enable bucket encryption with a {{ kms-short-name }} key:
       }
 
       provider "yandex" {
-        token     = local.oauth
         cloud_id  = local.cloud_id
         folder_id = local.folder_id
         zone      = local.zone
@@ -422,13 +413,13 @@ To enable bucket encryption with a {{ kms-short-name }} key:
 
       1. In the terminal, navigate to the directory where you created your configuration file.
 
-      1. Run a check using the following command:
+      1. Run a check using this command:
 
           ```bash
           terraform plan
           ```
 
-          If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
+          If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 
@@ -494,16 +485,12 @@ After you disable bucket encryption, previously uploaded objects will be stored 
       locals {
         cloud_id    = "<cloud_ID>"
         folder_id   = "<folder_ID>"
-        oauth       = "<OAuth>"
         zone        = "{{ region-id }}-a"
-
         sa_name     = "new-buckets-account"
         sa_desc     = "Account for managing {{ objstorage-name }} buckets"
         sa_key_desc = "Static key for ${local.sa_name}"
-
         key_name    = "bucket-key"
         key_desc    = "Bucket encryption key"
-
         bucket_name = "Bucket name"
       }
 
@@ -516,7 +503,6 @@ After you disable bucket encryption, previously uploaded objects will be stored 
       }
 
       provider "yandex" {
-        token     = local.oauth
         cloud_id  = local.cloud_id
         folder_id = local.folder_id
         zone      = local.zone
@@ -565,13 +551,13 @@ After you disable bucket encryption, previously uploaded objects will be stored 
   1. Make sure the configuration files are correct.
 
       1. In the terminal, navigate to the directory where you created your configuration file.
-      1. Run a check using the following command:
+      1. Run a check using this command:
 
           ```bash
           terraform plan
           ```
 
-          If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
+          If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 

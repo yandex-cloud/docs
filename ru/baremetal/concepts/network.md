@@ -52,7 +52,7 @@ MAC-адреса сетевых интерфейсов сервера {{ baremet
 
 {% include [bms-backup-free-traffic](../../_includes/baremetal/bms-backup-free-traffic.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./public-network.md)
 * [{#T}](./private-network.md)

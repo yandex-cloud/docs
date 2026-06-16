@@ -1,1 +1,1 @@
-The `iot.editor` role allows users to create, edit, and delete all Yandex IoT Core resources.
+The `iot.editor` role allows users to create, edit, and delete all {{ iot-full-name }} resources.

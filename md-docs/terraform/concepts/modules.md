@@ -29,6 +29,6 @@ module "vpc" {
 
 В этом примере мы вызываем модуль `vpc`, который находится в файле `./modules/vpc`. Модуль принимает входной параметр `cidr_block`, который определяет диапазон IP-адресов для облачной сети.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 ![](../../_assets/overview/solution-library-icon.svg)[Модули Terraform от Yandex Cloud](https://github.com/terraform-yc-modules)

@@ -924,12 +924,18 @@ items:
                 href: operations/dashboard/edit-alias.md
           - name: Настройки внешнего вида
             items:
-              - name: Добавление оглавления на дашборд
-                href: operations/dashboard/add-contents.md
+              - name: Настройка фона дашборда
+                href: operations/dashboard/add-dashboard-background.md
+              - name: Настройка фона и прозрачности виджетов на дашборде
+                href: operations/dashboard/add-widget-background.md
+              - name: Настройка скругления на дашборде
+                href: operations/dashboard/add-rounding.md
               - name: Настройка отступов на дашборде
                 href: operations/dashboard/add-margins.md
               - name: Настройка заголовка дашборда
                 href: operations/dashboard/add-title-dashboard.md
+              - name: Добавление оглавления на дашборд
+                href: operations/dashboard/add-contents.md
           - name: Управление вкладками дашборда
             items:
               - name: Настройка вкладок дашборда

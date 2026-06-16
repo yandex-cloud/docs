@@ -1,4 +1,4 @@
-Роль `postbox.editor` позволяет управлять адресами Yandex Cloud Postbox и отправлять письма.
+Роль `postbox.editor` позволяет управлять адресами {{ postbox-name }} и отправлять письма.
 
 Пользователи с этой ролью могут:
 * создавать, изменять и удалять [адреса](../../postbox/concepts/glossary.md#adress) и их [конфигурации](../../postbox/concepts/glossary.md#configuration);

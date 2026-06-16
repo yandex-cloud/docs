@@ -191,7 +191,7 @@ SMART отражает состояние здоровья диска, но не
 
 Подробнее о замене дисков в серверах BareMetal читайте в разделе [Заменить диск в RAID-массиве](../operations/servers/switch-raid-member.md#request-swap).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Проанализировать состояние сервера BareMetal с помощью утилиты HWCheck](../operations/servers/use-hwatcher.md)
 * [Заменить диск в RAID-массиве](../operations/servers/switch-raid-member.md)

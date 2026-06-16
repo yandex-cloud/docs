@@ -1,4 +1,9 @@
-# Creating a {{ mgp-name }} cluster
+---
+title: How to create a {{ mgp-name }} cluster
+description: In this tutorial, you will learn how to create a {{ mgp-full-name }} cluster.
+---
+
+# Creating a cluster {{ mgp-name }}
 
 
 A {{ mgp-name }} cluster consists of master hosts that get client queries and segment hosts that process and store data.
@@ -648,7 +653,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
