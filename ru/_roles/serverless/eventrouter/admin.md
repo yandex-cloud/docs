@@ -10,6 +10,6 @@
 * отправлять пользовательские события в шины с помощью вызова gRPC API [EventService/Send](../../../serverless-integrations/eventrouter/api-ref/grpc/Event/send.md);
 * отправлять пользовательские события в шины с помощью вызова gRPC API [EventService/Put](../../../serverless-integrations/eventrouter/api-ref/grpc/Event/put.md);
 * передавать события аудита;
-* просматривать информацию о [квотах](../../../serverless-integrations/concepts/limits.md#eventrouter) EventRouter.
+* просматривать информацию о [квотах](../../../serverless-integrations/concepts/limits.md#eventrouter) {{ er-name }}.
 
 Включает разрешения, предоставляемые ролью `serverless.eventrouter.editor`.

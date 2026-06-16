@@ -226,7 +226,7 @@ resource "yandex_vpc_security_group" "db_sg" {
 
 #### Группы безопасности и инструменты Application Load Balancer для Managed Service for Kubernetes {#security-groups-and-alb-for-k8s}
 
-Для корректной работы [Ingress-контроллера](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) или [Gateway API](https://github.com/kubernetes-sigs/gateway-api) настройте группы безопасности [кластера](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и [групп узлов](../../managed-kubernetes/concepts/index.md#node-group) Managed Service for Kubernetes, а также [L7-балансировщика нагрузки](../../application-load-balancer/concepts/application-load-balancer.md) Application Load Balancer. Подробнее см. в [инструкции](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
+Для корректной работы [Ingress-контроллера](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) или [Gateway API](https://github.com/kubernetes-sigs/gateway-api) настройте группы безопасности [кластера](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и [групп узлов](../../managed-kubernetes/concepts/index.md#node-group) Managed Service for Kubernetes, а также [L7-балансировщика нагрузки](../../application-load-balancer/concepts/application-load-balancer.md) Application Load Balancer. Подробнее в [инструкции](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
 
 {% note alert %}
 

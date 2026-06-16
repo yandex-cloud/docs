@@ -90,7 +90,7 @@ _Приватная подсеть_ — это [виртуальная сеть 
 
 [Статические маршруты](#static-routes), созданные в VRF, могут анонсироваться в {{ vpc-name }}. Для этого при [настройке](../operations/create-static-route.md) статического маршрута в VRF должна быть включена опция **{{ ui-key.yacloud.baremetal.vrfs.VrfStaticRoutesField.column_is-console-enabled_hiCs9 }}**.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./network.md)
 * [{#T}](./public-network.md)

@@ -117,7 +117,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
   
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Инструкция по созданию такого файла приведена в разделе [Создание кластера](cluster-create.md).
   
   1. Измените в описании кластера {{ mmg-name }} значение параметра `resource_preset_id` для ресурсов `resources_mongod`, `resources_mongoinfra`, `resources_mongos` или `resources_mongocfg`. Тип ресурса зависит от [типа шардирования](../concepts/sharding.md#shard-management).
 
@@ -141,7 +141,7 @@ description: Следуя данной инструкции, вы сможете
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
  
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
+  Подробнее читайте в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
@@ -325,7 +325,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Инструкция по созданию такого файла приведена в разделе [Создание кластера](cluster-create.md).
 
   1. Измените в описании кластера {{ mmg-name }} значения параметров `disk_type_id` и `disk_size` для ресурсов `resources_mongod`, `resources_mongoinfra`, `resources_mongos` или `resources_mongocfg`. Тип ресурса зависит от [типа шардирования](../concepts/sharding.md#shard-management).
 
@@ -350,7 +350,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
+    Подробнее читайте в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
@@ -646,7 +646,7 @@ description: Следуя данной инструкции, вы сможете
 
     * `--backup-retain-period` — срок хранения автоматических резервных копий (в днях).
       
-      Значение параметра `<срок_хранения>` задается в диапазоне от {{ mmg-backup-retention-min }} до {{ mmg-backup-retention-max }} (по умолчанию — {{ mmg-backup-retention }}). Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Подробнее см. в разделе [Резервные копии](../concepts/backup.md).
+      Значение параметра `<срок_хранения>` задается в диапазоне от {{ mmg-backup-retention-min }} до {{ mmg-backup-retention-max }} (по умолчанию — {{ mmg-backup-retention }}). Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Подробнее читайте в разделе [Резервные копии](../concepts/backup.md).
 
 
       Изменение срока хранения затрагивает как новые автоматические резервные копии, так и уже существующие.
@@ -672,7 +672,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
       
-       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+       Инструкция по созданию такого файла приведена в разделе [Создание кластера](cluster-create.md).
 
     1. Чтобы изменить время начала резервного копирования, добавьте к описанию кластера {{ mmg-name }} блок `backup_window_start` в секции `cluster_config`:
   
@@ -715,7 +715,7 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
+  Подробнее читайте в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
@@ -942,7 +942,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](./cluster-create.md).
+        Инструкция по созданию такого файла приведена в разделе [Создание кластера](./cluster-create.md).
 
     1. Измените или добавьте в описании кластера {{ mmg-name }} значение параметра `folder_id`:
 
@@ -961,7 +961,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
+    Подробнее читайте в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
@@ -1061,7 +1061,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
       
-       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+       Инструкция по созданию такого файла приведена в разделе [Создание кластера](cluster-create.md).
 
     1. Измените в описании кластера {{ mmg-name }} значение параметра `security_group_ids`:
   
@@ -1081,7 +1081,7 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
+  Подробнее читайте в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 

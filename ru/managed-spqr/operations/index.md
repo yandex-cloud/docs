@@ -8,8 +8,6 @@ keywords:
 
 # Пошаговые инструкции для {{ mspqr-name }}
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 ## Кластеры
 
 * [Получение информации об имеющихся кластерах](cluster-list.md)

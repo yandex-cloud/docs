@@ -147,7 +147,7 @@ items:
                 href: operations/applications/saml-create.md
               - name: Updating an app
                 href: operations/applications/saml-update.md
-              - name: Setting up access for app users
+              - name: Setting up access to the application
                 href: operations/applications/saml-set-access-bindings.md
               - name: Getting app information
                 href: operations/applications/saml-get.md
@@ -159,7 +159,7 @@ items:
                 href: operations/applications/oidc-create.md
               - name: Updating an app
                 href: operations/applications/oidc-update.md
-              - name: Setting up access for app users
+              - name: Setting up access to the application
                 href: operations/applications/oidc-set-access-bindings.md
               - name: Getting a list of apps
                 href: operations/applications/oidc-list.md

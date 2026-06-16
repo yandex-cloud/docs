@@ -5,6 +5,6 @@ Users with this role can:
 * Create, modify, delete, run and stop load tests and load [test data](../../load-testing/concepts/payload.md) into them.
 * View info on load test configurations, as well as create, modify, and delete such configurations.
 * View info on [agents](../../load-testing/concepts/agent.md) and create, modify, delete, run, restart, and stop them.
-* View info on Yandex Object Storage [buckets](../../storage/concepts/bucket.md) used in load tests, upload test data to them, and create, modify, and delete buckets.
+* View info on {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md) used in load tests, upload test data to them, and create, modify, and delete buckets.
 * View info on [regression dashboards](../../load-testing/concepts/load-test-regressions.md#dashbordy-regressij), as well as create, modify, and delete such dashboards.
 * View information on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).

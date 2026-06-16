@@ -18,6 +18,12 @@ To configure [branding](../concepts/branding.md):
   1. In the left-hand panel, select ![brush](../../_assets/console-icons/brush.svg) **{{ ui-key.yacloud_org.pages.organization-branding }}**.
   1. Under **{{ ui-key.yacloud_org.organization.branding.AuthBrandingForm.styleSection.title }}**, configure the dark and light color themes separately:
 
+     {% note info %}
+     
+     With our built-in editor, you can prepare your logo or favicon for upload: crop out excess background, rescale, and adjust the layout.
+     
+     {% endnote %}
+
      1. **{{ ui-key.yacloud_org.organization.branding.AuthBrandingThemeBlock.backgroundName }}**: Select the page background image (up to 3840×2160 px, max 4 MB).
      1. **{{ ui-key.yacloud_org.organization.branding.AuthBrandingThemeBlock.logoName }}**: Select an image for the top of the form (from 1920×1920 px, max 512 KB).
      1. **{{ ui-key.yacloud_org.organization.branding.AuthBrandingThemeBlock.faviconName }}**: Select an image for the browser tab next to the website name (up to 512×512 px, max 512 KB).

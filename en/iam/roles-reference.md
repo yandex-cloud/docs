@@ -94,6 +94,39 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 For more information, see [Managing access in the {{ yandex-cloud }} partner program](../partner/security/index.md).
 
 
+## {{ metastore-full-name }} {#metastore-roles}
+
+#### {{ roles.metastore.maintenanceTask.viewer }} {#managed-metastore-maintenanceTask-viewer}
+
+{% include [managed-metastore.maintenanceTask.viewer](../_roles/managed-metastore/maintenanceTask/viewer.md) %}
+
+#### {{ roles.metastore.maintenanceTask.editor }} {#managed-metastore-maintenanceTask-editor}
+
+{% include [managed-metastore.maintenanceTask.editor](../_roles/managed-metastore/maintenanceTask/editor.md) %}
+
+#### {{ roles.metastore.auditor }} {#managed-metastore-auditor}
+
+{% include [managed-metastore.auditor](../_roles/managed-metastore/auditor.md) %}
+
+#### {{ roles.metastore.viewer }} {#managed-metastore-viewer}
+
+{% include [managed-metastore.viewer](../_roles/managed-metastore/viewer.md) %}
+
+#### {{ roles.metastore.editor }} {#managed-metastore-editor}
+
+{% include [managed-metastore.editor](../_roles/managed-metastore/editor.md) %}
+
+#### {{ roles.metastore.admin }} {#managed-metastore-admin}
+
+{% include [managed-metastore.admin](../_roles/managed-metastore/admin.md) %}
+
+#### {{ roles.metastore.integrationProvider }} {#managed-metastore-integrationProvider}
+
+{% include [managed-metastore.integrationProvider](../_roles/managed-metastore/integrationProvider.md) %}
+
+For more information, see [{#T}](../metadata-hub/security/metastore-roles.md).
+
+
 ## {{ api-gw-full-name }} {#api-gateway-roles}
 
 #### api-gateway.auditor {#api-gateway-auditor}
@@ -897,6 +930,211 @@ Learn more in [Access management in {{ connection-manager-name }}](../metadata-h
 For more information, see [{#T}](../container-registry/security/index.md).
 
 
+## {{ data-catalog-full-name }} {#data-catalog-roles}
+
+#### {{ roles.data-catalog.auditor }} {#data-catalog-auditor}
+
+{% include [data-catalog.auditor](../_roles/data-catalog/auditor.md) %}
+
+#### {{ roles.data-catalog.viewer }} {#data-catalog-viewer}
+
+{% include [data-catalog.viewer](../_roles/data-catalog/viewer.md) %}
+
+#### {{ roles.data-catalog.editor }} {#data-catalog-editor}
+
+{% include [data-catalog.editor](../_roles/data-catalog/editor.md) %}
+
+#### {{ roles.data-catalog.admin }} {#data-catalog-admin}
+
+{% include [data-catalog.admin](../_roles/data-catalog/admin.md) %}
+
+#### {{ roles.data-catalog.dataSteward }} {#data-catalog-dataSteward}
+
+{% include [data-catalog.dataSteward](../_roles/data-catalog/dataSteward.md) %}
+
+#### {{ roles.data-catalog.dataConsumer }} {#data-catalog-dataConsumer}
+
+{% include [data-catalog.dataConsumer](../_roles/data-catalog/dataConsumer.md) %}
+
+#### {{ roles.data-catalog.user }} {#data-catalog-user}
+
+{% include [data-catalog.user](../_roles/data-catalog/user.md) %}
+
+#### {{ roles.data-catalog.catalogs.auditor }} {#data-catalog-catalogs-auditor}
+
+{% include [data-catalog.catalogs.auditor](../_roles/data-catalog/catalogs/auditor.md) %}
+
+#### {{ roles.data-catalog.catalogs.viewer }} {#data-catalog-catalogs-viewer}
+
+{% include [data-catalog.catalogs.viewer](../_roles/data-catalog/catalogs/viewer.md) %}
+
+#### {{ roles.data-catalog.catalogs.editor }} {#data-catalog-catalogs-editor}
+
+{% include [data-catalog.catalogs.editor](../_roles/data-catalog/catalogs/editor.md) %}
+
+#### {{ roles.data-catalog.catalogs.admin }} {#data-catalog-catalogs-admin}
+
+{% include [data-catalog.catalogs.admin](../_roles/data-catalog/catalogs/admin.md) %}
+
+#### {{ roles.data-catalog.assets.auditor }} {#data-catalog-assets-auditor}
+
+{% include [data-catalog.assets.auditor](../_roles/data-catalog/assets/auditor.md) %}
+
+#### {{ roles.data-catalog.assets.viewer }} {#data-catalog-assets-viewer}
+
+{% include [data-catalog.assets.viewer](../_roles/data-catalog/catalogs/viewer.md) %}
+
+#### {{ roles.data-catalog.assets.editor }} {#data-catalog-assets-editor}
+
+{% include [data-catalog.assets.editor](../_roles/data-catalog/assets/editor.md) %}
+
+#### {{ roles.data-catalog.assets.admin }} {#data-catalog-assets-admin}
+
+{% include [data-catalog.assets.admin](../_roles/data-catalog/catalogs/admin.md) %}
+
+#### {{ roles.data-catalog.classifications.auditor }} {#data-catalog-classifications-auditor}
+
+{% include [data-catalog.classifications.auditor](../_roles/data-catalog/classifications/auditor.md) %}
+
+#### {{ roles.data-catalog.classifications.viewer }} {#data-catalog-classifications-viewer}
+
+{% include [data-catalog.classifications.viewer](../_roles/data-catalog/classifications/viewer.md) %}
+
+#### {{ roles.data-catalog.classifications.editor }} {#data-catalog-classifications-editor}
+
+{% include [data-catalog.classifications.editor](../_roles/data-catalog/classifications/editor.md) %}
+
+#### {{ roles.data-catalog.classifications.admin }} {#data-catalog-classifications-admin}
+
+{% include [data-catalog.classifications.admin](../_roles/data-catalog/classifications/admin.md) %}
+
+#### {{ roles.data-catalog.classificationTags.auditor }} {#data-catalog-classificationTags-auditor}
+
+{% include [data-catalog.classificationTags.auditor](../_roles/data-catalog/classificationTags/auditor.md) %}
+
+#### {{ roles.data-catalog.classificationTags.viewer }} {#data-catalog-classificationTags-viewer}
+
+{% include [data-catalog.classificationTags.viewer](../_roles/data-catalog/classificationTags/viewer.md) %}
+
+#### {{ roles.data-catalog.classificationTags.user }} {#data-catalog-classificationTags-user}
+
+{% include [data-catalog.classificationTags.user](../_roles/data-catalog/classificationTags/user.md) %}
+
+#### {{ roles.data-catalog.classificationTags.editor }} {#data-catalog-classificationTags-editor}
+
+{% include [data-catalog.classificationTags.editor](../_roles/data-catalog/classificationTags/editor.md) %}
+
+#### {{ roles.data-catalog.classificationTags.admin }} {#data-catalog-classificationTags-admin}
+
+{% include [data-catalog.classificationTags.admin](../_roles/data-catalog/classificationTags/admin.md) %}
+
+#### {{ roles.data-catalog.domains.auditor }} {#data-catalog-domains-auditor}
+
+{% include [data-catalog.domains.auditor](../_roles/data-catalog/domains/auditor.md) %}
+
+#### {{ roles.data-catalog.domains.viewer }} {#data-catalog-domains-viewer}
+
+{% include [data-catalog.domains.viewer](../_roles/data-catalog/domains/viewer.md) %}
+
+#### {{ roles.data-catalog.domains.user }} {#data-catalog-domains-user}
+
+{% include [data-catalog.domains.user](../_roles/data-catalog/domains/user.md) %}
+
+#### {{ roles.data-catalog.domains.editor }} {#data-catalog-domains-editor}
+
+{% include [data-catalog.domains.editor](../_roles/data-catalog/domains/editor.md) %}
+
+#### {{ roles.data-catalog.domains.admin }} {#data-catalog-domains-admin}
+
+{% include [data-catalog.domains.admin](../_roles/data-catalog/domains/admin.md) %}
+
+#### {{ roles.data-catalog.glossaries.auditor }} {#data-catalog-glossaries-auditor}
+
+{% include [data-catalog.glossaries.auditor](../_roles/data-catalog/glossaries/auditor.md) %}
+
+#### {{ roles.data-catalog.glossaries.viewer }} {#data-catalog-glossaries-viewer}
+
+{% include [data-catalog.glossaries.viewer](../_roles/data-catalog/glossaries/viewer.md) %}
+
+#### {{ roles.data-catalog.glossaries.editor }} {#data-catalog-glossaries-editor}
+
+{% include [data-catalog.glossaries.editor](../_roles/data-catalog/glossaries/editor.md) %}
+
+#### {{ roles.data-catalog.glossaries.admin }} {#data-catalog-glossaries-admin}
+
+{% include [data-catalog.glossaries.admin](../_roles/data-catalog/glossaries/admin.md) %}
+
+#### {{ roles.data-catalog.glossaryTerms.auditor }} {#data-catalog-glossaryTerms-auditor}
+
+{% include [data-catalog.glossaryTerms.auditor](../_roles/data-catalog/glossaryTerms/auditor.md) %}
+
+#### {{ roles.data-catalog.glossaryTerms.viewer }} {#data-catalog-glossaryTerms-viewer}
+
+{% include [data-catalog.glossaryTerms.viewer](../_roles/data-catalog/glossaryTerms/viewer.md) %}
+
+#### {{ roles.data-catalog.glossaryTerms.user }} {#data-catalog-glossaryTerms-user}
+
+{% include [data-catalog.glossaryTerms.user](../_roles/data-catalog/glossaryTerms/user.md) %}
+
+#### {{ roles.data-catalog.glossaryTerms.editor }} {#data-catalog-glossaryTerms-editor}
+
+{% include [data-catalog.glossaryTerms.editor](../_roles/data-catalog/glossaryTerms/editor.md) %}
+
+#### {{ roles.data-catalog.glossaryTerms.admin }} {#data-catalog-glossaryTerms-admin}
+
+{% include [data-catalog.glossaryTerms.admin](../_roles/data-catalog/glossaryTerms/admin.md) %}
+
+#### {{ roles.data-catalog.ingestions.auditor }} {#data-catalog-ingestions-auditor}
+
+{% include [data-catalog.ingestions.auditor](../_roles/data-catalog/ingestions/auditor.md) %}
+
+#### {{ roles.data-catalog.ingestions.viewer }} {#data-catalog-ingestions-viewer}
+
+{% include [data-catalog.ingestions.viewer](../_roles/data-catalog/ingestions/viewer.md) %}
+
+#### {{ roles.data-catalog.ingestions.editor }} {#data-catalog-ingestions-editor}
+
+{% include [data-catalog.ingestions.editor](../_roles/data-catalog/ingestions/editor.md) %}
+
+#### {{ roles.data-catalog.ingestions.admin }} {#data-catalog-ingestions-admin}
+
+{% include [data-catalog.ingestions.admin](../_roles/data-catalog/ingestions/admin.md) %}
+
+#### {{ roles.data-catalog.ingestionSources.auditor }} {#data-catalog-ingestionSources-auditor}
+
+{% include [data-catalog.ingestionSources.auditor](../_roles/data-catalog/ingestionSources/auditor.md) %}
+
+#### {{ roles.data-catalog.ingestionSources.viewer }} {#data-catalog-ingestionSources-viewer}
+
+{% include [data-catalog.ingestionSources.viewer](../_roles/data-catalog/ingestionSources/viewer.md) %}
+
+#### {{ roles.data-catalog.ingestionSources.editor }} {#data-catalog-ingestionSources-editor}
+
+{% include [data-catalog.ingestionSources.editor](../_roles/data-catalog/ingestionSources/editor.md) %}
+
+#### {{ roles.data-catalog.ingestionSources.admin }} {#data-catalog-ingestionSources-admin}
+
+{% include [data-catalog.ingestionSources.admin](../_roles/data-catalog/ingestionSources/admin.md) %}
+
+#### {{ roles.data-catalog.lineages.auditor }} {#data-catalog-lineages-auditor}
+
+{% include [data-catalog.lineages.auditor](../_roles/data-catalog/lineages/auditor.md) %}
+
+#### {{ roles.data-catalog.lineages.viewer }} {#data-catalog-lineages-viewer}
+
+{% include [data-catalog.lineages.viewer](../_roles/data-catalog/lineages/viewer.md) %}
+
+#### {{ roles.data-catalog.lineages.editor }} {#data-catalog-lineages-editor}
+
+{% include [data-catalog.lineages.editor](../_roles/data-catalog/lineages/editor.md) %}
+
+#### {{ roles.data-catalog.lineages.admin }} {#data-catalog-lineages-admin}
+
+{% include [data-catalog.lineages.admin](../_roles/data-catalog/lineages/admin.md) %}
+
+For more information, see [{#T}](../metadata-hub/security/data-catalog-roles.md).
+
+
 ## {{ datalens-full-name }} {#datalens-roles}
 
 #### datalens.workbooks.limitedViewer {#datalens-workbooks-limitedViewer}
@@ -1007,26 +1245,6 @@ For more information, see [{#T}](../datalens/security/roles.md).
 #### mdb.dataproc.agent {#mdb-dataproc-agent}
 
 {% include [mdb.dataproc.agent](../_roles/mdb/dataproc/agent.md) %}
-
-#### {{ roles.metastore.auditor }} {#managed-metastore-auditor}
-
-{% include [managed-metastore.auditor](../_roles/managed-metastore/auditor.md) %}
-
-#### {{ roles.metastore.viewer }} {#managed-metastore-viewer}
-
-{% include [managed-metastore.viewer](../_roles/managed-metastore/viewer.md) %}
-
-#### {{ roles.metastore.editor }} {#managed-metastore-editor}
-
-{% include [managed-metastore.editor](../_roles/managed-metastore/editor.md) %}
-
-#### {{ roles.metastore.admin }} {#managed-metastore-admin}
-
-{% include [managed-metastore.admin](../_roles/managed-metastore/admin.md) %}
-
-#### {{ roles.metastore.integrationProvider }} {#managed-metastore-integrationProvider}
-
-{% include [managed-metastore.integrationProvider](../_roles/managed-metastore/integrationProvider.md) %}
 
 For more information, see [{#T}](../data-proc/security/index.md).
 
@@ -2315,6 +2533,27 @@ For more information, see [{#T}](../query/security/index.md).
 {% include [resourcemanager-clouds-owner](../_roles/resource-manager/clouds/owner.md) %}
 
 For more information, see [{#T}](../resource-manager/security/index.md).
+
+
+## {{ schema-registry-full-name }} {#schema-registry-roles}
+
+#### schema-registry.auditor {#schema-registry-auditor}
+
+{% include [schema-registry.auditor](../_roles/schema-registry/auditor.md) %}
+
+#### schema-registry.viewer {#schema-registry-viewer}
+
+{% include [schema-registry.viewer](../_roles/schema-registry/viewer.md) %}
+
+#### schema-registry.editor {#schema-registry-editor}
+
+{% include [schema-registry.editor](../_roles/schema-registry/editor.md) %}
+
+#### schema-registry.admin {#schema-registry-admin}
+
+{% include [schema-registry.admin](../_roles/schema-registry/admin.md) %}
+
+For more information, see [{#T}](../metadata-hub/security/schema-registry-roles.md).
 
 
 ## {{ search-api-full-name }} {#search-api-roles}

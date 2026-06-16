@@ -45,7 +45,7 @@
 
     **Хранилище**
 
-    * **Класс хранилища** — Storage Class (`stackland-nvme`, `stackland-ssd`, `stackland-hdd`, `stackland-other`). Подробнее о Storage Classes см. в разделе [Дисковая подсистема](../../concepts/components/disk-storage.md#storage-classes).
+    * **Класс хранилища** — Storage Class (`stackland-nvme`, `stackland-ssd`, `stackland-hdd`, `stackland-other`). Подробнее о Storage Classes в разделе [Дисковая подсистема](../../concepts/components/disk-storage.md#storage-classes).
     * **Размер хранилища** — размер диска для хранения данных. После создания размер диска можно только увеличить.
 
     **Настройки** (раскрывающийся раздел)
@@ -175,6 +175,6 @@ kubectl get clickhousecluster <название_кластера> -n <назва
 
 Внутренние FQDN имеют формат `<название_ресурса>.<название_проекта>.svc.{{ cluster-domain }}` и доступны только внутри кластера Kubernetes.
 
-Внешние FQDN создаются автоматически для сервисов типа `LoadBalancer` и доступны извне кластера. Подробнее о DNS см. в разделе [DNS](../../concepts/components/dns.md).
+Внешние FQDN создаются автоматически для сервисов типа `LoadBalancer` и доступны извне кластера. Подробнее о DNS в разделе [DNS](../../concepts/components/dns.md).
 
 {% endnote %}

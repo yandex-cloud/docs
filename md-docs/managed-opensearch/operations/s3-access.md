@@ -1,7 +1,7 @@
 # Настройка доступа к Object Storage из кластера OpenSearch
 
 
-Managed Service for OpenSearch поддерживает работу с Yandex Object Storage в качестве репозитория [снапшотов](../../glossary/snapshot.md) OpenSearch. Это позволяет использовать Object Storage для [хранения резервных копий](cluster-backups.md). Подробнее о репозитории снапшотов см. в [документации OpenSearch](https://opensearch.org/docs/latest/opensearch/snapshots/snapshot-restore/).
+Managed Service for OpenSearch поддерживает работу с Yandex Object Storage в качестве репозитория [снапшотов](../../glossary/snapshot.md) OpenSearch. Это позволяет использовать Object Storage для [хранения резервных копий](cluster-backups.md). Подробнее о репозитории снапшотов в [документации OpenSearch](https://opensearch.org/docs/latest/opensearch/snapshots/snapshot-restore/).
 
 
 Для доступа к данным в бакете Object Storage из кластера:

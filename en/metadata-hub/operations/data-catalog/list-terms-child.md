@@ -1,3 +1,8 @@
+---
+title: Getting a list of child terms
+description: Follow this guide to get a list of child terms in {{ data-catalog-full-name }}.
+---
+
 # Getting a list of child terms
 
 

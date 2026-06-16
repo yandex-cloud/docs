@@ -56,6 +56,6 @@
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 [Структура ресурсов {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md)

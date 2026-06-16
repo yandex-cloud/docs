@@ -40,7 +40,7 @@
      * **{{ ui-key.yacloud.mongodb.EnableShardingForm.option_sharding-type-standard_ezqnu }}** — с использованием хостов `MONGOINFRA`.
      * **{{ ui-key.yacloud.mongodb.EnableShardingForm.option_sharding-type-extended_8Vip4 }}** — с использованием хостов `MONGOS` и `MONGOCFG`.
 
-       Подробнее см. в разделе [Шардирование](../concepts/sharding.md).
+       Подробнее читайте в разделе [Шардирование](../concepts/sharding.md).
 
      {% note warning %}
 
@@ -228,7 +228,7 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
+  Подробнее читайте в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
 - REST API {#api}
 
@@ -509,7 +509,7 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
+  Подробнее читайте в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
 - REST API {#api}
 
@@ -678,7 +678,7 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
+  Подробнее читайте в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
 - REST API {#api}
 

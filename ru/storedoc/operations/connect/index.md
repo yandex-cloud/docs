@@ -89,7 +89,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-Подробнее см. в разделе [{#T}](../../concepts/network.md#security-groups).
+Подробнее читайте в разделе [{#T}](../../concepts/network.md#security-groups).
 
 
 ## Получение SSL-сертификата {#get-ssl-cert}

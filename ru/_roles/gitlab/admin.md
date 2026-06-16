@@ -1,10 +1,11 @@
-Роль `gitlab.admin` позволяет управлять инстансами Managed Service for GitLab и переносить их в другую зону доступности.
+
+Роль `gitlab.admin` позволяет управлять инстансами {{ mgl-name }} и переносить их в другую зону доступности.
 
 Пользователи с этой ролью могут:
-* просматривать информацию об [инстансах](../../managed-gitlab/concepts/index.md#instance) Managed Service for GitLab, а также создавать, изменять и удалять инстансы;
+* просматривать информацию об [инстансах](../../managed-gitlab/concepts/index.md#instance) {{ mgl-name }}, а также создавать, изменять и удалять инстансы;
 * переносить инстансы в другую [зону доступности](../../overview/concepts/geo-scope.md);
-* просматривать информацию о [квотах](../../managed-gitlab/concepts/limits.md#quotas) сервиса Managed Service for GitLab.
+* просматривать информацию о [квотах](../../managed-gitlab/concepts/limits.md#quotas) сервиса {{ mgl-name }}.
 
 Включает разрешения, предоставляемые ролью `gitlab.editor`.
 
-Для создания инстансов Managed Service for GitLab дополнительно необходима роль `vpc.user`.
+Для создания инстансов {{ mgl-name }} дополнительно необходима роль `vpc.user`.

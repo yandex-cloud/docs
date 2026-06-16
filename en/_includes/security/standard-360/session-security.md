@@ -1,3 +1,5 @@
+# Session and cookie security recommendations
+
 ## Session and cookie security
 
 ### Cookie lifetime is limited according to the information security policy of your organization {#Y360-2}

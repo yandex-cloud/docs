@@ -58,7 +58,7 @@
 
      Где `ddos_protection_provider` — параметр, включающий защиту от DDoS-атак. Возможные значения: `qrator`.
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_address` в Terraform см. в [документации провайдера](../../terraform/resources/vpc_address.md).
+     Подробнее о параметрах ресурса `yandex_vpc_address` в Terraform в [документации провайдера](../../terraform/resources/vpc_address.md).
 
   1. Проверьте конфигурацию командой:
 

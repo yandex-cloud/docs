@@ -26,6 +26,8 @@ editable: false
 
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
+{% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
+
 ## Из чего складывается стоимость использования {{ mrd-short-name }} {#rules}
 
 Расчет стоимости использования {{ mrd-name }} учитывает:

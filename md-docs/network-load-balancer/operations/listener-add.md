@@ -93,7 +93,7 @@
        * `external_address_spec` — спецификация обработчика для внешнего балансировщика:
          * `ip_version` — описание внешнего IP-адреса. Укажите версию IP-адреса: `ipv4` или `ipv6`. По умолчанию `ipv4`.
 
-     Более подробную информацию о параметрах ресурса `yandex_lb_network_load_balancer` в Terraform, см. в [документации провайдера](../../terraform/resources/lb_network_load_balancer.md).
+     Подробнее о параметрах ресурса `yandex_lb_network_load_balancer` в Terraform в [документации провайдера](../../terraform/resources/lb_network_load_balancer.md).
 
   1. Проверьте корректность настроек.
 
@@ -178,7 +178,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../terraform/resources/lb_network_load_balancer.md).
+     Подробнее о ресурсах, которые вы можете создать с помощью Terraform, в [документации провайдера](../../terraform/resources/lb_network_load_balancer.md).
 
   1. Проверьте корректность настроек.
 

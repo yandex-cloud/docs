@@ -95,7 +95,7 @@ spec:
   * `requests` — минимальные требования к ресурсам.
   * `limits` — максимальные ограничения ресурсов.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Загрузить образы DataLens](../../operations/datalens/install-images.md)
 * [Включить DataLens](../../operations/datalens/configure.md)

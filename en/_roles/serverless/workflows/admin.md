@@ -5,6 +5,6 @@ Users with this role can:
 * View info on [access permissions](../../../iam/concepts/access-control/index.md) assigned to workflows and modify such permissions.
 * Execute, pause, resume, and stop workflows.
 * View the history of workflow [executions](../../../serverless-integrations/concepts/workflows/execution.md).
-* View info on Yandex Workflows [quotas](../../../serverless-integrations/concepts/limits.md#workflows).
+* View info on {{ sw-full-name }} [quotas](../../../serverless-integrations/concepts/limits.md#workflows).
 
 This role includes the `serverless.workflows.editor` permissions.

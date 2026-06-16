@@ -125,7 +125,7 @@
 
 {% endnote %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Подключить сервер Yandex BareMetal к Cloud Backup](../../backup/tutorials/backup-baremetal.md)
 * [Облачный сервер: архитектура и возможности](https://yandex.cloud/ru/blog/cloud-server)

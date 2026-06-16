@@ -133,6 +133,8 @@ items:
             href: tutorials/single-sign-on/saml-opensearch.md
           - name: Настройка единого входа в MWS по стандарту OIDC
             href: tutorials/single-sign-on/oidc-mws.md
+          - name: Настройка единого входа с помощью NetBird по стандарту OIDC
+            href: tutorials/single-sign-on/oidc-netbird.md
           - name: Настройка единого входа в {{ OS }} по стандарту SAML
             href: tutorials/single-sign-on/saml-opensearch-self-managed.md
           - name: OpenVPN

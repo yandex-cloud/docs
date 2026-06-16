@@ -1,1 +1,1 @@
-О том, как получить FQDN хоста, см. [инструкцию](../../../managed-opensearch/operations/connect/fqdn.md).
+О том, как получить FQDN хоста, в [инструкции](../../../managed-opensearch/operations/connect/fqdn.md).

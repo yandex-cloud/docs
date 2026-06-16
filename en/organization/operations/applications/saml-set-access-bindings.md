@@ -3,12 +3,16 @@ title: How to grant access to a SAML app in {{ org-full-name }}
 description: In this article, you will learn how to set up access to a SAML app in {{ org-full-name }}.
 ---
 
-# Setting up access for SAML app users in {{ org-full-name }}
+# Setting up access to an SAML app in {{ org-full-name }}
 
 
 To grant access to a [SAML app](../../concepts/applications.md#saml), assign [roles](../../../iam/concepts/access-control/roles.md) to subjects. [Learn](../../security/index.md#roles-list) what roles the service has and assign the required ones.
 
 {% list tabs group=instructions %}
+
+- {{ cloud-center }} UI {#cloud-center}
+
+  {% include [app-set-access-bindings-ui](../../../_includes/organization/app-set-access-bindings-ui.md) %}
 
 - CLI {#cli}
 

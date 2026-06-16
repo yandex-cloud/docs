@@ -6,7 +6,7 @@ description: Из статьи вы узнаете, как настроить д
 # Настройка доступа к {{ objstorage-name }} из кластера {{ OS }}
 
 
-{{ mos-name }} поддерживает работу с {{ objstorage-full-name }} в качестве репозитория [снапшотов](../../glossary/snapshot.md) {{ OS }}. Это позволяет использовать {{ objstorage-name }} для [хранения резервных копий](cluster-backups.md). Подробнее о репозитории снапшотов см. в [документации {{ OS }}]({{ os.docs }}/opensearch/snapshots/snapshot-restore/).
+{{ mos-name }} поддерживает работу с {{ objstorage-full-name }} в качестве репозитория [снапшотов](../../glossary/snapshot.md) {{ OS }}. Это позволяет использовать {{ objstorage-name }} для [хранения резервных копий](cluster-backups.md). Подробнее о репозитории снапшотов в [документации {{ OS }}]({{ os.docs }}/opensearch/snapshots/snapshot-restore/).
 
 
 Для доступа к данным в бакете {{ objstorage-name }} из кластера:

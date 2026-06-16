@@ -94,7 +94,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_network` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_network).
+     Подробнее о параметрах ресурса `yandex_vpc_network` в {{ TF }} в [документации провайдера]({{ tf-provider-resources-link }}/vpc_network).
 
   1. Примените изменения:
 

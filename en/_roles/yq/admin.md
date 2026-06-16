@@ -1,4 +1,5 @@
-The `yq.admin` role allows you to manage any Yandex Query resources, including those labeled as private.
+
+The `yq.admin` role allows you to manage any {{ yq-full-name }} resources, including those labeled as private.
 
 Users with this role can:
 * View info on [queries](../../query/concepts/glossary.md#query) and query [runs](../../query/concepts/glossary.md#jobs), view query texts and results.

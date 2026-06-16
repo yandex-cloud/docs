@@ -9,7 +9,7 @@
 
 [Политики доступа (bucket policy)](../../storage/concepts/policy.md) устанавливают права на действия с [бакетами](../../storage/concepts/bucket.md), [объектами](../../storage/concepts/object.md) и группами объектов.
 
-Минимально необходимая роль для применения или изменения политики доступа — `storage.configurer`. См. [описание роли](../../storage/security/index.md#storage-configurer).
+Минимально необходимая роль для применения или изменения политики доступа — `storage.configurer`. Описание роли в разделе [Управление доступом](../../storage/security/index.md#storage-configurer).
 
 Чтобы назначить политику доступа в Object Storage для [сервисного подключения](../concepts/private-endpoint.md):
 

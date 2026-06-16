@@ -172,7 +172,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/mc-lag.md)
 * [{#T}](../../concepts/network.md)

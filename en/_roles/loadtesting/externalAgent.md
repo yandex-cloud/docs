@@ -1,7 +1,8 @@
-The `loadtesting.externalAgent` role enables registering external agents in Load Testing, as well as creating, modifying, and running load tests using an agent.
+
+The `loadtesting.externalAgent` role enables registering external agents in {{ load-testing-name }}, as well as creating, modifying, and running load tests using an agent.
 
 Users with this role can:
-* Register external [agents](../../load-testing/concepts/agent.md) in Load Testing.
+* Register external [agents](../../load-testing/concepts/agent.md) in {{ load-testing-name }}.
 * Create, edit, and run load tests.
 * Create and edit load test configurations.
 * Upload the test [result](../../load-testing/concepts/load-test-results.md) data to the storage.

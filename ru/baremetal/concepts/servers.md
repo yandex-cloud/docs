@@ -101,7 +101,7 @@
 
 {% endnote %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../backup/tutorials/backup-baremetal.md)
 * [Облачный сервер: архитектура и возможности](https://yandex.cloud/ru/blog/cloud-server)

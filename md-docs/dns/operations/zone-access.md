@@ -89,7 +89,7 @@
       * `role` — назначаемая [роль](../security/index.md#roles-list).
       * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-       Подробнее о параметрах ресурса `yandex_dns_zone_iam_binding` см. в [документации провайдера](../../terraform/resources/dns_zone_iam_binding.md).
+       Подробнее о параметрах ресурса `yandex_dns_zone_iam_binding` в [документации провайдера](../../terraform/resources/dns_zone_iam_binding.md).
 
   1. Создайте ресурсы:
 
@@ -222,7 +222,7 @@
       * `role` — назначаемая [роль](../security/index.md#roles-list).
       * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-      Подробнее о параметрах ресурса `yandex_dns_zone_iam_binding` см. в [документации провайдера](../../terraform/resources/dns_zone_iam_binding.md).
+      Подробнее о параметрах ресурса `yandex_dns_zone_iam_binding` в [документации провайдера](../../terraform/resources/dns_zone_iam_binding.md).
 
   1. Создайте ресурсы:
 

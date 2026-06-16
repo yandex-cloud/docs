@@ -1,3 +1,5 @@
+# Recommendations for authentication and access management
+
 ## Authentication and access management
 
 ### Number of organization administrators is minimal {#Y360-1}
@@ -18,7 +20,7 @@
 
 - Checking via the API {#API}
 
-  To view a list of employees, use the [UserService_List](https://yandex.ru/dev/api360/doc/ru/ref/UserService/UserService_List) REST API method for the [UserService](https://yandex.ru/dev/api360/doc/ru/ref/UserService/) resource. To find users with admin permissions, filter the results by this parameter: `isAdmin: true`.
+  To view a list of employees, use the [UserService_List](https://yandex.ru/dev/api360/doc/ru/ref/UserService/UserService_List) REST API method for the [UserService](https://yandex.ru/dev/api360/doc/ru/ref/UserService/) resource. To find users with admin permissions, filter the results by the `isAdmin: true` parameter.
 
 {% endlist %}
 
@@ -94,7 +96,7 @@ An organization must have an active password management policy which requires us
    {"changeFrequency":180,"enabled":true}
    ```
   
-  If the response returns `enabled: false` or `changeFrequency > 180`, the policy does not comply with Y360-6.
+  If `enabled: false` or `changeFrequency > 180`, the policy does not comply with Y360-6.
 
 {% endlist %}
 

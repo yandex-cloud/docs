@@ -395,6 +395,6 @@
 1. [Удалите](../../../vpc/operations/address-delete.md) зарезервированный статический публичный IP-адрес.
 1. Если вы использовали Cloud DNS, то [удалите](../../operations/resource-record-delete.md) DNS-записи и [удалите](../../operations/zone-delete.md) DNS-зону.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Терминирование TLS-соединений с помощью Terraform](terraform.md).

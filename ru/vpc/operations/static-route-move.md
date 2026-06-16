@@ -79,7 +79,7 @@
      name: table-1
      network_id: encb4ubvmief********
      ```
-     Подробнее о команде `yc vpc route-table move` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/route-table/move.md).
+     Подробнее о команде `yc vpc route-table move` в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/route-table/move.md).
 
 - API {#api}
 
@@ -113,7 +113,7 @@
 {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](network-move.md)
 * [{#T}](subnet-move.md)

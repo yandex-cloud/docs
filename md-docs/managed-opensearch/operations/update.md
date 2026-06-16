@@ -38,7 +38,7 @@
     1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
     1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
-    1. В поле **Сервисный аккаунт** выберите аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md). Подробнее о настройке сервисного аккаунта см. в разделе [Настройка доступа к Object Storage](s3-access.md).
+    1. В поле **Сервисный аккаунт** выберите аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md). Подробнее о настройке сервисного аккаунта в разделе [Настройка доступа к Object Storage](s3-access.md).
     1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
@@ -56,7 +56,7 @@
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-    Подробнее о настройке сервисного аккаунта см. в разделе [Настройка доступа к Object Storage](s3-access.md).
+    Подробнее о настройке сервисного аккаунта в разделе [Настройка доступа к Object Storage](s3-access.md).
 
 - Terraform {#tf}
 
@@ -64,7 +64,7 @@
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch см. в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
 
     1. Укажите в поле `service_account_id` идентификатор сервисного аккаунта:
 
@@ -75,7 +75,7 @@
         }
         ```
 
-        Подробнее о настройке сервисного аккаунта см. в разделе [Настройка доступа к Object Storage](s3-access.md).
+        Подробнее о настройке сервисного аккаунта в разделе [Настройка доступа к Object Storage](s3-access.md).
 
     1. Проверьте корректность настроек.
 
@@ -280,7 +280,7 @@
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch см. в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
 
     1. Измените в описании кластера значение поля `admin_password` в блоке `config`:
 
@@ -490,9 +490,9 @@
 
     Настройки в команде:
 
-    * `--max-clause-count` — максимально допустимое количество булевых выражений (boolean clauses) в запросе. Подробнее см. в [документации OpenSearch](https://opensearch.org/docs/latest/query-dsl/compound/bool/).
-    * `--fielddata-cache-size` — объем кучи JVM, который выделен для структуры данных fielddata. Можно указать абсолютное значение или проценты, например, `512mb` или `50%`. Подробнее см. в [документации OpenSearch](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings).
-    * `--reindex-remote-whitelist` — список удаленных хостов, из индекса которых нужно скопировать документы для переиндексации. Укажите значение параметра в формате `<адрес_хоста>:<порт>`. Если нужно указать несколько хостов, перечислите значения через запятую. Подробнее см. в [документации OpenSearch](https://opensearch.org/docs/latest/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
+    * `--max-clause-count` — максимально допустимое количество булевых выражений (boolean clauses) в запросе. Подробнее в [документации OpenSearch](https://opensearch.org/docs/latest/query-dsl/compound/bool/).
+    * `--fielddata-cache-size` — объем кучи JVM, который выделен для структуры данных fielddata. Можно указать абсолютное значение или проценты, например, `512mb` или `50%`. Подробнее в [документации OpenSearch](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings).
+    * `--reindex-remote-whitelist` — список удаленных хостов, из индекса которых нужно скопировать документы для переиндексации. Укажите значение параметра в формате `<адрес_хоста>:<порт>`. Если нужно указать несколько хостов, перечислите значения через запятую. Подробнее в [документации OpenSearch](https://opensearch.org/docs/latest/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
 
 - REST API {#api}
 
@@ -535,11 +535,11 @@
         * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
         * `configSpec.opensearchSpec.opensearchConfig_2` — настройки OpenSearch:
 
-            * `maxClauseCount` — новое максимально допустимое количество булевых выражений. Подробнее см. в [документации OpenSearch](https://opensearch.org/docs/latest/query-dsl/compound/bool/).
+            * `maxClauseCount` — новое максимально допустимое количество булевых выражений. Подробнее в [документации OpenSearch](https://opensearch.org/docs/latest/query-dsl/compound/bool/).
 
-            * `fielddataCacheSize` — новый объем кучи JVM, выделенный для структуры данных fielddata. Можно указать абсолютное значение или проценты, например, `512mb` или `50%`. Подробнее см. в [документации OpenSearch](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/).
+            * `fielddataCacheSize` — новый объем кучи JVM, выделенный для структуры данных fielddata. Можно указать абсолютное значение или проценты, например, `512mb` или `50%`. Подробнее в [документации OpenSearch](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/).
 
-            * `reindexRemoteWhitelist` — новый список удаленных хостов, из индекса которых нужно скопировать документы для переиндексации. Укажите [FQDN хоста](connect/fqdn.md) и через двоеточие порт 9200. Чтобы указать несколько хостов, перечислите их через запятую, указанную после порта. Подробнее см. в [документации OpenSearch](https://opensearch.org/docs/latest/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
+            * `reindexRemoteWhitelist` — новый список удаленных хостов, из индекса которых нужно скопировать документы для переиндексации. Укажите [FQDN хоста](connect/fqdn.md) и через двоеточие порт 9200. Чтобы указать несколько хостов, перечислите их через запятую, указанную после порта. Подробнее в [документации OpenSearch](https://opensearch.org/docs/latest/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -621,11 +621,11 @@
 
         * `config_spec.opensearch_spec.opensearch_config_2` — настройки OpenSearch:
 
-            * `max_clause_count` — новое максимально допустимое количество булевых выражений. Подробнее см. в [документации OpenSearch](https://opensearch.org/docs/latest/query-dsl/compound/bool/).
+            * `max_clause_count` — новое максимально допустимое количество булевых выражений. Подробнее в [документации OpenSearch](https://opensearch.org/docs/latest/query-dsl/compound/bool/).
 
-            * `fielddata_cache_size` — новый объем кучи JVM, выделенный для структуры данных fielddata. Можно указать абсолютное значение или проценты, например, `512mb` или `50%`. Подробнее см. в [документации OpenSearch](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/).
+            * `fielddata_cache_size` — новый объем кучи JVM, выделенный для структуры данных fielddata. Можно указать абсолютное значение или проценты, например, `512mb` или `50%`. Подробнее в [документации OpenSearch](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/).
 
-            * `reindex_remote_whitelist` — новый список удаленных хостов, из индекса которых нужно скопировать документы для переиндексации. Укажите [FQDN хоста](connect/fqdn.md) и через двоеточие порт 9200. Чтобы указать несколько хостов, перечислите их через запятую, указанную после порта. Подробнее см. в [документации OpenSearch](https://opensearch.org/docs/latest/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
+            * `reindex_remote_whitelist` — новый список удаленных хостов, из индекса которых нужно скопировать документы для переиндексации. Укажите [FQDN хоста](connect/fqdn.md) и через двоеточие порт 9200. Чтобы указать несколько хостов, перечислите их через запятую, указанную после порта. Подробнее в [документации OpenSearch](https://opensearch.org/docs/latest/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -698,7 +698,7 @@
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch см. в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
 
     1. Чтобы изменить время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), укажите настройки в параметре `maintenance_window`:
 
@@ -971,7 +971,7 @@
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch см. в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
 
     1. В поле `security_group_ids` перечислите через запятую идентификаторы групп безопасности:
 

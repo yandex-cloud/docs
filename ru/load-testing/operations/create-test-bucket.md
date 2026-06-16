@@ -114,7 +114,7 @@ description: Следуя данной инструкции, вы сможете
          * `s3bucket` — имя бакета, в котором хранятся тестовые данные.
          * `s3file` — имя файла с тестовыми данными в бакете.
 
-     Подробнее о создании теста с помощью CLI см. в [репозитории Yandex Cloud Examples](https://github.com/yandex-cloud-examples/yc-load-testing-start-test).
+     Подробнее о создании теста с помощью CLI в [репозитории Yandex Cloud Examples](https://github.com/yandex-cloud-examples/yc-load-testing-start-test).
 
   1. Для того чтобы просмотреть список тестов в каталоге для тестирования с помощью CLI, воспользуйтесь следующей командой:
 
@@ -122,7 +122,7 @@ description: Следуя данной инструкции, вы сможете
      yc loadtesting test list
      ```
 
-     Подробнее о выводе тестов с помощью CLI см. в [репозитории Yandex Cloud Examples](https://github.com/yandex-cloud-examples/yc-load-testing-list-tests).
+     Подробнее о выводе тестов с помощью CLI в [репозитории Yandex Cloud Examples](https://github.com/yandex-cloud-examples/yc-load-testing-list-tests).
     
 
 {% endlist %}

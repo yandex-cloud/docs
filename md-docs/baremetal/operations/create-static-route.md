@@ -37,6 +37,6 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Статические маршруты](../concepts/private-network.md#static-routes)

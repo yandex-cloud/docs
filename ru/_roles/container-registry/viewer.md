@@ -7,5 +7,5 @@
 * просматривать список результатов [тестирования](../../container-registry/operations/lifecycle-policy/lifecycle-policy-dry-run.md) политик автоматического удаления Docker-образов и информацию о таких результатах;
 * просматривать список Docker-образов в реестре и информацию о них, а также скачивать Docker-образы из реестра;
 * просматривать историю сканирования Docker-образов на уязвимости и информацию о результатах такого сканирования;
-* просматривать информацию о [квотах](../../container-registry/concepts/limits.md#container-registry-quotas) сервиса Container Registry;
+* просматривать информацию о [квотах](../../container-registry/concepts/limits.md#container-registry-quotas) сервиса {{ container-registry-name }};
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).

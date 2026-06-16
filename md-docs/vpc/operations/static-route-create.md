@@ -181,7 +181,7 @@
 
      Чтобы добавить, изменить или удалить таблицу маршрутизации, используйте ресурс `yandex_vpc_route_table` с указанием на сеть в поле `network_id` (например, `network_id = yandex_vpc_network.test_route_table.id`).
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_route_table` в Terraform см. в [документации провайдера](../../terraform/resources/vpc_route_table.md).
+     Подробнее о параметрах ресурса `yandex_vpc_route_table` в Terraform в [документации провайдера](../../terraform/resources/vpc_route_table.md).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -309,7 +309,7 @@
       }
       ```
 
-      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../terraform/resources/vpc_route_table.md).
+      Подробнее о ресурсах, которые вы можете создать с помощью Terraform в [документации провайдера](../../terraform/resources/vpc_route_table.md).
 
   1. Проверьте корректность настроек.
 

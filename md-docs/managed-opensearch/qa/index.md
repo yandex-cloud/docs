@@ -44,7 +44,7 @@
 * изменение класса хостов и объема хранилища;
 * другие сервисные работы Managed Service for OpenSearch.
 
-Подробнее см. в разделе [Техническое обслуживание](../concepts/maintenance.md).
+Подробнее в разделе [Техническое обслуживание](../concepts/maintenance.md).
 
 #### Включено ли резервное копирование кластеров по умолчанию? {#default-backup}
 
@@ -54,7 +54,7 @@
 
 #### Какую версию OpenSearch использует Managed Service for OpenSearch? {#dbms-version}
 
-В Managed Service for OpenSearch доступны версии OpenSearch, поддерживаемые производителем. Подробнее см. в разделе [Политика работы с версиями OpenSearch](../concepts/update-policy.md).
+В Managed Service for OpenSearch доступны версии OpenSearch, поддерживаемые производителем. Подробнее в разделе [Политика работы с версиями OpenSearch](../concepts/update-policy.md).
 
 #### Что происходит, когда выпускается новая версия OpenSearch? {#new-version}
 

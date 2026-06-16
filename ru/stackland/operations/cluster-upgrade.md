@@ -136,7 +136,7 @@ spec:
 
     {% note info %}
 
-    Для обновления образов отдельно лицензируемых компонентов, таких как {{ speechsense-name }}, дополнительно выполните загрузку с `--image-bundle speechsense`. Подробнее см. в разделе [{#T}](speechsense/install-images.md).
+    Для обновления образов отдельно лицензируемых компонентов, таких как {{ speechsense-name }}, дополнительно выполните загрузку с `--image-bundle speechsense`. Подробнее в разделе [{#T}](speechsense/install-images.md).
 
     {% endnote %}
 

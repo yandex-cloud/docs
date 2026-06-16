@@ -145,7 +145,7 @@
           1. Выберите [политику резервного копирования](../../../backup/concepts/policy.md) или [создайте](../../../backup/operations/policy-vm/create.md) новую.
           1. Выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с назначенными ролями [`baremetal.editor`](../../security/index.md#baremetal-editor) и [`backup.user`](../../../backup/security/index.md#backup-user) или [создайте](../../../iam/operations/sa/create.md) новый.
 
-          Подробнее см. в инструкции [Арендовать сервер Yandex BareMetal с подключением к Cloud Backup](../../../backup/operations/backup-baremetal/lease-server-with-backup.md).
+          Подробнее в инструкции [Арендовать сервер Yandex BareMetal с подключением к Cloud Backup](../../../backup/operations/backup-baremetal/lease-server-with-backup.md).
       1. В блоке **Информация о сервере**:
          
            1. В поле **Имя** введите имя сервера. Требования к имени:

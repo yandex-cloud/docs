@@ -1,3 +1,8 @@
+---
+title: Getting a list of ingestions
+description: Follow this guide to get a list of ingestions in {{ data-catalog-full-name }}.
+---
+
 # Getting a list of ingestions
 
 

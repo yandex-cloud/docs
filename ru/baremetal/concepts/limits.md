@@ -14,6 +14,6 @@ editable: false
 
 {% include [baremetal-limits.md](../../_includes/baremetal-limits.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./network-restrictions.md)

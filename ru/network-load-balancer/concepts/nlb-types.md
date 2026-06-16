@@ -41,6 +41,6 @@ description: 'Сетевой балансировщик в {{ yandex-cloud }} м
 * [{#T}](../tutorials/dns-integration.md)
 * [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Балансировщики нагрузки в облаке: повышение доступности и отказоустойчивости](https://yandex.cloud/ru/blog/posts/2025/04/load-balancers-guide)

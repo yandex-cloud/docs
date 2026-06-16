@@ -76,7 +76,7 @@
 
     Добавляет фильтр [yandex-lemmer](#yandex-lemmer), который улучшает поиск текста на русском языке по документам {{ OS }}.
 
-Подробнее см. в [документации {{ OS }}]({{ os.docs }}/install-and-configure/plugins/#additional-plugins).
+Подробнее в [документации {{ OS }}]({{ os.docs }}/install-and-configure/plugins/#additional-plugins).
 
 ### Зачем использовать плагин yandex-lemmer {#yandex-lemmer}
 

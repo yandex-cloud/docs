@@ -6,7 +6,7 @@
 * изменение класса хостов и объема хранилища;
 * другие сервисные работы {{ mos-short-name }}.
 
-Подробнее см. в разделе [Техническое обслуживание](../../managed-opensearch/concepts/maintenance.md).
+Подробнее в разделе [Техническое обслуживание](../../managed-opensearch/concepts/maintenance.md).
 
 #### Включено ли резервное копирование кластеров по умолчанию? {#default-backup}
 
@@ -16,7 +16,7 @@
 
 #### Какую версию {{ OS }} использует {{ mos-short-name }}? {#dbms-version}
 
-В {{ mos-short-name }} доступны версии {{ OS }}, поддерживаемые производителем. Подробнее см. в разделе [{#T}](../../managed-opensearch/concepts/update-policy.md).
+В {{ mos-short-name }} доступны версии {{ OS }}, поддерживаемые производителем. Подробнее в разделе [{#T}](../../managed-opensearch/concepts/update-policy.md).
 
 #### Что происходит, когда выпускается новая версия {{ OS }}? {#new-version}
 

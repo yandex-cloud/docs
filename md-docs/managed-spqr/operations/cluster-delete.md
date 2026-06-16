@@ -1,11 +1,5 @@
 # Удаление кластера Sharded PostgreSQL
 
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 Вы можете удалить кластер Sharded PostgreSQL, если он вам больше не нужен.
 
 ## Удалить кластер {#delete}

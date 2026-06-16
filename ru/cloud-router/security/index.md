@@ -27,7 +27,7 @@ description: Управление доступом в сервисе {{ cr-name 
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-Подробнее о назначении ролей см. в документации сервиса [{{ iam-full-name }}](../../iam/operations/roles/grant.md).
+Подробнее о назначении ролей в документации сервиса [{{ iam-full-name }}](../../iam/operations/roles/grant.md).
 
 ## На какие ресурсы можно назначить роль {#resources}
 

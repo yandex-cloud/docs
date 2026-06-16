@@ -1,11 +1,5 @@
 # Управление резервными копиями в Yandex Managed Service for Sharded PostgreSQL
 
-{% note info %}
-
-Сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 Вы можете [создавать](#create-backup) резервные копии и [восстанавливать](#restore) кластеры из существующих резервных копий.
 
 Также Managed Service for Sharded PostgreSQL ежедневно создает автоматическую резервную копию. Вы можете [задать время начала](#set-backup-window) резервного копирования и [установить срок хранения](#set-backup-retain) автоматических резервных копий.

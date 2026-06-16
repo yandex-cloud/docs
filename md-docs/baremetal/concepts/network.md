@@ -55,7 +55,7 @@ MAC-адреса сетевых интерфейсов сервера BareMetal 
 
 Трафик, передаваемый между Yandex BareMetal и сервисом [Yandex Cloud Backup](../../backup/index.md), не тарифицируется.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Публичная сеть](public-network.md)
 * [Приватная сеть](private-network.md)

@@ -1,11 +1,5 @@
 # Создание кластера Sharded PostgreSQL
 
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 
 ## Создать кластер {#create-cluster}
 

@@ -32,7 +32,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](private-endpoint-get-info.md)
 * [{#T}](private-endpoint-delete.md)

@@ -1,3 +1,8 @@
+---
+title: Starting and stopping an ingestion
+description: Follow this guide to start and stop your ingestions in {{ data-catalog-full-name }}.
+---
+
 # Starting and stopping an ingestion
 
 

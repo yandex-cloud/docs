@@ -1,3 +1,8 @@
+---
+title: Deleting an ingestion
+description: Follow this guide to delete an ingestion in {{ data-catalog-full-name }}.
+---
+
 # Deleting an ingestion
 
 

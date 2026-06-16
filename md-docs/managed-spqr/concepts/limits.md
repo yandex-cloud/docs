@@ -1,11 +1,5 @@
 # Квоты и лимиты в Managed Service for Sharded PostgreSQL
 
-{% note info %}
-
-Сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 
 В сервисе Managed Service for Sharded PostgreSQL действуют следующие ограничения:
 

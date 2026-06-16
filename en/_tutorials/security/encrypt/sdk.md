@@ -34,10 +34,10 @@ Before you start, you need to add dependencies.
 
 ## Authentication {#auth}
 
-You can authenticate using: 
+You can authenticate using:
 * [Service account linked to the {{ yandex-cloud }}](#vm) VM.
 * [Any service account](#sa).
-* [Yandex account](#yandex-acc).
+* [User account](#yandex-acc).
 
 ### Authentication using the service account linked to the {{ yandex-cloud }} VM {#vm}
 
@@ -90,30 +90,35 @@ You can authenticate using:
 {% endlist %}
 
 
-### Authentication using a Yandex account {#yandex-acc}
+### Authentication under a user account {#yandex-acc}
 
-The `token` variable is your [OAuth token](../../../iam/concepts/authorization/oauth-token.md).
+A user account is a [Yandex account](../../../iam/concepts/users/accounts.md#passport), a [federated account](../../../iam/concepts/users/accounts.md#saml-federation), or a [local account](../../../iam/concepts/users/accounts.md#local).
+
+{% note warning %}
+
+Authentication with a user account may be insecure. We recommend using a service account.
+
+{% endnote %}
+
+The `token` variable is your [IAM token](../../../iam/concepts/authorization/iam-token.md). For more information about getting an IAM token, see this [{{ iam-full-name }} guide](../../../iam/operations/iam-token/create.md).
 
 {% list tabs group=programming_language %}
 
 - Java {#java}
 
-    Authenticate using a Yandex account:
-
     ```java
-    CredentialProvider credentialProvider = Auth.oauthTokenBuilder().build();
+    CredentialProvider credentialProvider = Auth.iamTokenBuilder()
+            .token(token)
+            .build();
     ```
 
 - Go {#go}
 
-    Authenticate using a Yandex account:
-
     ```Go
-    credentials := ycsdk.OAuthToken(token)
+    credentials := ycsdk.NewIAMTokenCredentials(token)
     ```
 
 {% endlist %}
-
 
 ## Data encryption and decryption {#enc-dec}
 

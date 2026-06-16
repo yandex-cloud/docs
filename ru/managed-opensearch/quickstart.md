@@ -109,7 +109,7 @@ description: В этой инструкции вы научитесь созда
    1. На приветственном экране {{ OS }} Dashboards нажмите кнопку **Add sample data**.
    1. Нажмите кнопку **View data** для интересующего набора данных.
 
-Подробнее о работе с {{ OS }} Dashboards см. в [документации {{ OS }}]({{ os.docs }}/dashboards/index/).
+Подробнее о работе с {{ OS }} Dashboards в [документации {{ OS }}]({{ os.docs }}/dashboards/index/).
 
 ## Что дальше {#whats-next}
 

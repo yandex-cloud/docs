@@ -45,7 +45,7 @@
           yc storage bucket create --name <имя_бакета>
           ```
 
-          Где `--name` — имя бакета. Обязательный параметр. Подробнее см. [Правила именования бакетов](../../storage/concepts/bucket.md#naming).
+          Где `--name` — имя бакета. Обязательный параметр. Подробнее в [Правилах именования бакетов](../../storage/concepts/bucket.md#naming).
 
           Результат:
 
@@ -59,7 +59,7 @@
           resource_id: e3e9neva43dl********
           ```
 
-          Подробнее о команде `yc storage bucket create` см. в [Справочнике Yandex Cloud CLI](../../cli/cli-ref/storage/cli-ref/bucket/create.md).
+          Подробнее о команде `yc storage bucket create` в [Справочнике Yandex Cloud CLI](../../cli/cli-ref/storage/cli-ref/bucket/create.md).
 
     {% endlist %}
 
@@ -71,7 +71,7 @@
 
       {% note info %}
 
-      Через консоль управления нельзя загрузить объекты размером более 5 ГБ (см. [Квоты и лимиты в Object Storage](../../storage/concepts/limits.md)). Для загрузки больших объектов используйте другие [инструменты](../../storage/tools/index.md).
+      Через консоль управления нельзя загрузить объекты размером более 5 ГБ. Подробнее в разделе [Квоты и лимиты в Object Storage](../../storage/concepts/limits.md). Для загрузки больших объектов используйте другие [инструменты](../../storage/tools/index.md).
 
       {% endnote %}
 
@@ -104,7 +104,7 @@
           etag: '"87740887a5159e2685500c02********"'
           request_id: 300dceee********
           ```
-      Подробнее о команде `yc storage s3api put-object` см. в [Справочнике Yandex Cloud CLI](../../cli/cli-ref/storage/cli-ref/s3api/put-object.md).
+      Подробнее о команде `yc storage s3api put-object` в [Справочнике Yandex Cloud CLI](../../cli/cli-ref/storage/cli-ref/s3api/put-object.md).
 
     {% endlist %}
 

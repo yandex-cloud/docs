@@ -70,7 +70,7 @@ keywords:
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
 
-    Подробнее см. в разделе [Правила тарификации](../pricing.md#rules-storage).
+    Подробнее читайте в разделе [Правила тарификации](../pricing.md#rules-storage).
 
 ## Проверка восстановления из резервной копии {#capabilities}
 

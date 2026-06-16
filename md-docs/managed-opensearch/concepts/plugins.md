@@ -76,7 +76,7 @@ Managed Service for OpenSearch содержит ряд [предустановл
 
     Добавляет фильтр [yandex-lemmer](#yandex-lemmer), который улучшает поиск текста на русском языке по документам OpenSearch.
 
-Подробнее см. в [документации OpenSearch](https://opensearch.org/docs/latest/install-and-configure/plugins/#additional-plugins).
+Подробнее в [документации OpenSearch](https://opensearch.org/docs/latest/install-and-configure/plugins/#additional-plugins).
 
 ### Зачем использовать плагин yandex-lemmer {#yandex-lemmer}
 

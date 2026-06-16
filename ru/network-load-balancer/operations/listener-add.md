@@ -85,7 +85,7 @@ description: Следуя данной инструкции, вы сможете
        * `external_address_spec` — спецификация обработчика для внешнего балансировщика:
          * `ip_version` — описание внешнего IP-адреса. Укажите версию IP-адреса: `ipv4` или `ipv6`. По умолчанию `ipv4`.
 
-     Более подробную информацию о параметрах ресурса `yandex_lb_network_load_balancer` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+     Подробнее о параметрах ресурса `yandex_lb_network_load_balancer` в {{ TF }} в [документации провайдера]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
   1. Проверьте корректность настроек.
 
@@ -147,7 +147,7 @@ description: Следуя данной инструкции, вы сможете
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+     Подробнее о ресурсах, которые вы можете создать с помощью {{ TF }}, в [документации провайдера]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
   1. Проверьте корректность настроек.
 

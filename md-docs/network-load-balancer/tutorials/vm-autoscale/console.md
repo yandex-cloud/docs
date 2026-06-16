@@ -552,6 +552,6 @@
 1. [Удалите](../../operations/load-balancer-delete.md) сетевой балансировщик.
 1. [Удалите](../../../compute/operations/instance-groups/delete.md) группу ВМ.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Работа с группой виртуальных машин с автоматическим масштабированием с помощью Terraform](terraform.md)

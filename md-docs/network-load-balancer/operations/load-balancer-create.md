@@ -208,7 +208,7 @@
 
         * `healthcheck` — описание параметров проверки состояния. Укажите имя, порт из диапазона от `1` до `32767` и путь, по которому будут выполняться проверки.
 
-     Более подробную информацию о параметрах ресурса `yandex_lb_network_load_balancer` в Terraform см. в [документации провайдера](../../terraform/resources/lb_network_load_balancer.md).
+     Подробнее о параметрах ресурса `yandex_lb_network_load_balancer` в Terraform в [документации провайдера](../../terraform/resources/lb_network_load_balancer.md).
 
   1. Проверьте корректность настроек.
 
@@ -273,7 +273,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../terraform/resources/lb_network_load_balancer.md).
+     Подробнее о ресурсах, которые вы можете создать с помощью Terraform, в [документации провайдера](../../terraform/resources/lb_network_load_balancer.md).
 
   1. Проверьте корректность настроек.
 
@@ -398,7 +398,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../terraform/resources/lb_network_load_balancer.md).
+     Подробнее о ресурсах, которые вы можете создать с помощью Terraform, в [документации провайдера](../../terraform/resources/lb_network_load_balancer.md).
 
   1. Проверьте корректность настроек.
 

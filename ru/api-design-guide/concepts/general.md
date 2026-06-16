@@ -30,7 +30,7 @@ API {{ yandex-cloud }} спроектированы на основе механ
 - API сервисов искусственного интеллекта [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/api), [{{ speechkit-full-name }}]({{ link-docs-ai }}speechkit/concepts/api), [{{ translate-full-name }}]({{ link-docs-ai }}translate/api-ref/grpc/) и [{{ vision-full-name }}]({{ link-docs-ai }}vision/ocr/api-ref/grpc/). Их API не оперирует ресурсами {{ yandex-cloud }}, запросы не идемпотентны.
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 - [Ссылка на .proto-спецификации API {{ yandex-cloud }}](https://github.com/yandex-cloud/cloudapi)
 
 

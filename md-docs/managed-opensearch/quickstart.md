@@ -66,7 +66,7 @@
 
     {% note tip %}
     
-    OpenSearch Dashboards можно воспользоваться, даже если публичный доступ к хостам запросить невозможно (например, из соображений безопасности). Для этого настройте проксирование соединений через виртуальную машину в Yandex Compute Cloud, которая находится в той же [сети](../vpc/concepts/network.md#network), что и кластер. Подробнее см. в разделе [Подключение к OpenSearch Dashboards](operations/connect/clients.md#dashboards).
+    OpenSearch Dashboards можно воспользоваться, даже если публичный доступ к хостам запросить невозможно (например, из соображений безопасности). Для этого настройте проксирование соединений через виртуальную машину в Yandex Compute Cloud, которая находится в той же [сети](../vpc/concepts/network.md#network), что и кластер. Подробнее в разделе [Подключение к OpenSearch Dashboards](operations/connect/clients.md#dashboards).
     
     {% endnote %}
 
@@ -139,7 +139,7 @@
 
 {% endnote %}
 
-Подробнее о группах безопасности см. в разделе [Группы безопасности](concepts/network.md#security-groups).
+Подробнее о группах безопасности в разделе [Группы безопасности](concepts/network.md#security-groups).
 
 
 ## Подключитесь к кластеру {#connect}
@@ -218,7 +218,7 @@
    1. На приветственном экране OpenSearch Dashboards нажмите кнопку **Add sample data**.
    1. Нажмите кнопку **View data** для интересующего набора данных.
 
-Подробнее о работе с OpenSearch Dashboards см. в [документации OpenSearch](https://opensearch.org/docs/latest/dashboards/index/).
+Подробнее о работе с OpenSearch Dashboards в [документации OpenSearch](https://opensearch.org/docs/latest/dashboards/index/).
 
 ## Что дальше {#whats-next}
 

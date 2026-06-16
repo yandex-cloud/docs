@@ -8,6 +8,6 @@
 * просматривать информацию о каналах [SMS-уведомлений](../../notifications/concepts/sms.md), а также создавать, изменять и удалять их;
 * просматривать информацию о [шаблонах](../../notifications/concepts/sms.md#templates) SMS и [тестовых](../../notifications/concepts/sms.md#sandbox) телефонных номерах, а также изменять их;
 * отправлять уведомления во все топики и каналы;
-* просматривать информацию о [квотах](../../notifications/concepts/limits.md) сервиса Cloud Notification Service.
+* просматривать информацию о [квотах](../../notifications/concepts/limits.md) сервиса {{ cns-name }}.
 
 Включает разрешения, предоставляемые ролями `notifications.viewer` и `notifications.publisher`.

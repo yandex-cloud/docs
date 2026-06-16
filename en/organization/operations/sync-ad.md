@@ -34,7 +34,7 @@ You can install the [synchronization agent](../concepts/ad-sync.md#sync-agent) o
 
 If you are installing a sync agent on a {{ compute-full-name }} [VM](../../compute/concepts/vm.md), [connect](../../compute/operations/vm-control/vm-connect-sa.md) the service account you created [earlier](#prepare-org) to that VM.
 
-Before you start syncing, open the following [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) ports for incoming and outgoing network traffic on the server you are going to run the synchronization agent on:
+Before you start syncing, open the following network ports for incoming and outgoing network traffic on the server you are going to run the synchronization agent on:
 
 * To access the {{ yandex-cloud }} API:
 
@@ -43,6 +43,14 @@ Before you start syncing, open the following [TCP](https://en.wikipedia.org/wiki
 * To access the {{ microsoft-idp.ad-short }} domain controller:
 
     {% include [ad-synk-ports](../../_includes/organization/ad-synk-ports.md) %}
+
+If you plan to use the [Kerberos](https://en.wikipedia.org/wiki/Kerberos_(protocol)) protocol for authentication on the {{ microsoft-idp.ad-short }} side, you should manually install the components required by this protocol and create the encryption keys file named `keytab`.
+
+{% note info %}
+
+{% include [ad-synk-kerber-nowin-notice](../../_includes/organization/ad-synk-kerber-nowin-notice.md) %}
+
+{% endnote %}
 
 To start syncing users and groups:
 
@@ -76,17 +84,48 @@ To start syncing users and groups:
       ```bash
       nano /etc/yc-identityhub-sync-agent/config.yaml
       ```
-  1. Specify the synchronization agent's configuration in the YAML file:
+  1. Specify the synchronization agent's configuration in the file that opens. The configuration depends on the authentication type used by the agent on the {{ microsoft-idp.ad-short }} side and uses the following format in the [YAML](https://yaml.org/) file:
 
-      {% include [ad-synk-yaml-config](../../_includes/organization/ad-synk-yaml-config.md) %}
+      {% list tabs group=authentication %}
 
-      {% include [ad-synk-yaml-config-legend](../../_includes/organization/ad-synk-yaml-config-legend.md) %}
+      - Authenticating by username and password {#password}
+
+        {% include [ad-synk-yaml-config](../../_includes/organization/ad-synk-yaml-config.md) %}
+
+        Where:
+
+        {% include [ad-synk-yaml-config-legend-part1](../../_includes/organization/ad-synk-yaml-config-legend-part1.md) %}
+
+        {% include [ad-synk-yaml-config-legend-passw](../../_includes/organization/ad-synk-yaml-config-legend-passw.md) %}
+
+        {% include [ad-synk-yaml-config-legend-part3](../../_includes/organization/ad-synk-yaml-config-legend-part3.md) %}
+
+      - Kerberos authentication {#kerberos}
+
+        {% note info %}
+
+        {% include [ad-synk-kerber-nowin-notice](../../_includes/organization/ad-synk-kerber-nowin-notice.md) %}
+
+        {% endnote %}
+
+        {% include [ad-synk-yaml-config-kerberos](../../_includes/organization/ad-synk-yaml-config-kerberos.md) %}
+
+        Where:
+
+        {% include [ad-synk-yaml-config-legend-part1](../../_includes/organization/ad-synk-yaml-config-legend-part1.md) %}
+
+        {% include [ad-synk-yaml-config-legend-kerber](../../_includes/organization/ad-synk-yaml-config-legend-kerber.md) %}
+
+        {% include [ad-synk-yaml-config-legend-part3](../../_includes/organization/ad-synk-yaml-config-legend-part3.md) %}
+
+      {% endlist %}
+
   1. Run the {{ ad-sync-agent }} to start syncing:
 
       ```bash
       sudo systemctl start yc-identityhub-sync-agent
       ```
-  1. To make sure syncing is in progress, look up the agent's log file. For example:
+  1. To make sure syncing is in progress, look up the agent's log file. Here is an example:
 
       ```bash
       sudo cat /etc/yc-identityhub-sync-agent/identity_hub.log
@@ -131,7 +170,13 @@ To start syncing users and groups:
 
       {% include [ad-synk-yaml-config](../../_includes/organization/ad-synk-yaml-config.md) %}
 
-      {% include [ad-synk-yaml-config-legend](../../_includes/organization/ad-synk-yaml-config-legend.md) %}
+      Where:
+
+      {% include [ad-synk-yaml-config-legend-part1](../../_includes/organization/ad-synk-yaml-config-legend-part1.md) %}
+
+      {% include [ad-synk-yaml-config-legend-passw](../../_includes/organization/ad-synk-yaml-config-legend-passw.md) %}
+
+      {% include [ad-synk-yaml-config-legend-part3](../../_includes/organization/ad-synk-yaml-config-legend-part3.md) %}
 
   1. Start the synchronization agent's service:
 
@@ -158,7 +203,7 @@ To start syncing users and groups:
 
 ## Test the agent configuration changes {#dry-run}
 
-{{ ad-sync-agent }} agents can be [dry run](../concepts/ad-sync.md#dry-run). Use this mode to try out the changes you make to the agent's configuration before applying them.
+{{ ad-sync-agent }} agents can be [dry run](../concepts/ad-sync.md#dry-run). Use this mode to verify that the changes made to the agent configuration are correct before applying them in production.
 
 To dry-run an agent:
 

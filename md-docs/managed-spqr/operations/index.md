@@ -1,11 +1,5 @@
 # Пошаговые инструкции для Managed Service for Sharded PostgreSQL
 
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 ## Кластеры
 
 * [Получение информации об имеющихся кластерах](cluster-list.md)

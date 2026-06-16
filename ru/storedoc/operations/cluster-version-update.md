@@ -68,7 +68,7 @@
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
   
-       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+       Инструкция по созданию такого файла приведена в разделе [Создание кластера](cluster-create.md).
   
     1. Добавьте к описанию кластера {{ mmg-name }} поле `version` или измените его значение, если оно уже существует:
   
@@ -89,7 +89,7 @@
   
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
+   Подробнее читайте в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
@@ -232,7 +232,7 @@
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
   
-       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+       Инструкция по созданию такого файла приведена в разделе [Создание кластера](cluster-create.md).
   
     1. Добавьте к описанию кластера {{ mmg-name }} поле `feature_compatibility_version` или измените его значение, если оно уже существует:
   
@@ -253,7 +253,7 @@
   
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
+   Подробнее читайте в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 

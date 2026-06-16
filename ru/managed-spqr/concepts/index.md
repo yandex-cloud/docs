@@ -10,8 +10,6 @@ keywords:
 
 # Взаимосвязь ресурсов в {{ mspqr-full-name }}
 
-{% include [preview](../../_includes/note-service-preview.md) %}
-
 
 
 {{ SPQR }} — система для горизонтального масштабирования {{ PG }} через [шардирование](../../glossary/sharding.md). Фактически это несколько кластеров {{ PG }}, объединенных в один кластер {{ SPQR }}.

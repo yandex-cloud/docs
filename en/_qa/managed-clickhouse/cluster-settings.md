@@ -4,7 +4,9 @@ Follow [this guide](../../managed-clickhouse/operations/cluster-users.md#example
 
 #### How do I grant a user permissions to create and delete tables or databases? {#create-delete-role}
 
-Go to the cluster settings, enable [{#T}](../../managed-clickhouse/operations/cluster-users.md#sql-user-management), and grant the user the appropriate permissions [using the `GRANT` statement]({{ ch.docs }}{{ lang }}/sql-reference/statements/grant).
+[Enable managing users via SQL](../../managed-clickhouse/operations/update.md#SQL-management) and grant the user the required permissions using the `GRANT` command.
+
+For more information about the `GRANT` command, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/grant).
 
 #### How do I find out the internal_replication setting value? {#internal-replication}
 
@@ -22,7 +24,7 @@ would use 14.10 GiB (attempt to allocate chunk of 4219924 bytes), maximum: 14.10
 
 To [increase](../../managed-clickhouse/operations/cluster-users.md#update-settings) the maximum amount of RAM, use the [Max memory usage](../../managed-clickhouse/concepts/settings-list.md#setting-max-memory-usage) parameter.
 
-If [user management via SQL](../../managed-clickhouse/operations/cluster-users.md#sql-user-management) is enabled for the cluster, you can set the `Max memory usage` parameter:
+If [user management via SQL](../../managed-clickhouse/concepts/user-access-rights.md#sql-user-management) is enabled for the cluster, you can set the `Max memory usage` parameter:
 
 * For the current user session by running this query:
 

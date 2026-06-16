@@ -467,6 +467,89 @@
 Подробнее см. [Управление доступом в партнерской программе Yandex Cloud](../partner/security/index.md).
 
 
+## Apache Hive™ Metastore {#metastore-roles}
+
+#### managed-metastore.maintenanceTask.viewer {#managed-metastore-maintenanceTask-viewer}
+
+Роль `managed-metastore.maintenanceTask.viewer` позволяет просматривать информацию о [кластерах Apache Hive™ Metastore](../metadata-hub/concepts/metastore.md) и назначенных [правах доступа](concepts/access-control/index.md) к ним, о заданиях на техническое обслуживание таких кластеров, а также о квотах сервисов управляемых баз данных Yandex Cloud.
+
+#### managed-metastore.maintenanceTask.editor {#managed-metastore-maintenanceTask-editor}
+
+Роль `managed-metastore.maintenanceTask.editor` позволяет просматривать информацию о заданиях на техническое обслуживание [кластеров Apache Hive™ Metastore](../metadata-hub/concepts/metastore.md) и изменять такие задания, просматривать информацию о кластерах Apache Hive™ Metastore и назначенных [правах доступа](concepts/access-control/index.md) к ним, а также о квотах сервисов управляемых баз данных Yandex Cloud.
+
+Включает разрешения, предоставляемые ролью `managed-metastore.maintenanceTask.viewer`.
+
+#### managed-metastore.auditor {#managed-metastore-auditor}
+
+Роль `managed-metastore.auditor` позволяет просматривать информацию о [кластерах](../metadata-hub/concepts/metastore.md) Apache Hive™ Metastore и квотах сервисов управляемых баз данных Yandex Cloud.
+
+#### managed-metastore.viewer {#managed-metastore-viewer}
+
+Роль `managed-metastore.viewer` позволяет просматривать информацию о кластерах Apache Hive™ Metastore и логи их работы, а также информацию о квотах сервисов управляемых баз данных Yandex Cloud.
+
+Пользователи с этой ролью могут:
+* просматривать информацию о [кластерах](../metadata-hub/concepts/metastore.md) Apache Hive™ Metastore;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к кластерам Apache Hive™ Metastore;
+* просматривать информацию о заданиях на техническое обслуживание кластеров Apache Hive™ Metastore;
+* просматривать логи кластеров Apache Hive™ Metastore;
+* просматривать информацию о квотах сервисов управляемых баз данных Yandex Cloud;
+* просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролями `managed-metastore.auditor` и `managed-metastore.maintenanceTask.viewer`.
+
+#### managed-metastore.editor {#managed-metastore-editor}
+
+Роль `managed-metastore.editor` позволяет управлять кластерами Apache Hive™ Metastore, а также просматривать логи их работы и информацию о квотах сервисов управляемых баз данных Yandex Cloud.
+
+Пользователи с этой ролью могут:
+* просматривать информацию о [кластерах](../metadata-hub/concepts/metastore.md) Apache Hive™ Metastore, а также создавать, изменять, запускать, останавливать и удалять такие кластеры;
+* [экспортировать и импортировать](../metadata-hub/operations/metastore/export-and-import.md) кластеры Apache Hive™ Metastore;
+* просматривать логи кластеров Apache Hive™ Metastore;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к кластерам Apache Hive™ Metastore;
+* просматривать информацию о заданиях на техническое обслуживание кластеров Apache Hive™ Metastore и изменять такие задания;
+* просматривать информацию о квотах сервисов управляемых баз данных Yandex Cloud;
+* просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролями `managed-metastore.viewer` и `managed-metastore.maintenanceTask.editor`.
+
+Для создания кластеров дополнительно необходима [роль](../vpc/security/index.md#vpc-user) `vpc.user`.
+
+#### managed-metastore.admin {#managed-metastore-admin}
+
+Роль `managed-metastore.admin` позволяет управлять кластерами Apache Hive™ Metastore, а также просматривать логи их работы и информацию о квотах сервисов управляемых баз данных Yandex Cloud.
+
+Пользователи с этой ролью могут:
+* просматривать информацию о [кластерах](../metadata-hub/concepts/metastore.md) Apache Hive™ Metastore, а также создавать, изменять, запускать, останавливать и удалять такие кластеры;
+* [экспортировать и импортировать](../metadata-hub/operations/metastore/export-and-import.md) кластеры Apache Hive™ Metastore;
+* просматривать логи кластеров Apache Hive™ Metastore;
+* просматривать информацию о квотах сервисов управляемых баз данных Yandex Cloud;
+* просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролью `managed-metastore.editor`.
+
+Для создания кластеров дополнительно необходима [роль](../vpc/security/index.md#vpc-user) `vpc.user`.
+
+#### managed-metastore.integrationProvider {#managed-metastore-integrationProvider}
+
+Роль `managed-metastore.integrationProvider` позволяет кластеру Apache Hive™ Metastore взаимодействовать от имени сервисного аккаунта с пользовательскими ресурсами, необходимыми для работы кластера. Роль назначается сервисному аккаунту, привязанному к кластеру Apache Hive™ Metastore.
+
+Пользователи с этой ролью могут:
+* добавлять записи в [лог-группы](../logging/concepts/log-group.md);
+* просматривать информацию о лог-группах;
+* просматривать информацию о приемниках логов;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к ресурсам сервиса Cloud Logging;
+* просматривать информацию о выгрузках логов;
+* просматривать информацию о [метриках](../monitoring/concepts/data-model.md#metric) Monitoring и их [метках](../monitoring/concepts/data-model.md#label), а также загружать и выгружать метрики;
+* просматривать список [дашбордов](../monitoring/concepts/visualization/dashboard.md) и [виджетов](../monitoring/concepts/visualization/widget.md) Monitoring и информацию о них, а также создавать, изменять и удалять дашборды и виджеты;
+* просматривать историю [уведомлений](../monitoring/concepts/alerting/notification-channel.md) Monitoring;
+* просматривать информацию о [квотах](../monitoring/concepts/limits.md#monitoring-quotas) сервиса Monitoring;
+* просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролями `logging.writer` и `monitoring.editor`.
+
+Подробнее см. [Сервисные роли для работы с метаданными в кластере Apache Hive™ Metastore](../metadata-hub/security/metastore-roles.md).
+
+
 ## Yandex AI Studio {#fm-roles}
 
 #### ai.playground.user {#ai-playground-user}
@@ -2793,6 +2876,379 @@
 Подробнее см. [Управление доступом в Container Registry](../container-registry/security/index.md).
 
 
+## Yandex Data Catalog {#data-catalog-roles}
+
+#### data-catalog.auditor {#data-catalog-auditor}
+
+Роль `data-catalog.auditor` позволяет просматривать информацию о ресурсах и квотах Data Catalog.
+
+Пользователи с этой ролью могут:
+* просматривать информацию о каталогах в Data Catalog и назначенных [правах доступа](concepts/access-control/index.md) к ним;
+* просматривать информацию о [доменах](../metadata-hub/concepts/data-catalog.md#domains-and-subdomains) в Data Catalog и назначенных правах доступа к ним;
+* просматривать информацию об [источниках и загрузках](../metadata-hub/concepts/data-catalog.md#metadata-upload) в Data Catalog;
+* просматривать информацию о данных и связях данных в Data Catalog;
+* просматривать информацию о [глоссариях и терминах](../metadata-hub/concepts/data-catalog.md#glossaries-and-terms) в Data Catalog;
+* просматривать информацию о [классификациях и тегах](../metadata-hub/concepts/data-catalog.md#classifications-and-tags) в Data Catalog;
+* просматривать информацию о [квотах](../metadata-hub/concepts/limits.md#data-catalog-quota) Data Catalog.
+
+Включает разрешения, предоставляемые ролями `data-catalog.catalogs.auditor`, `data-catalog.domains.auditor`, `data-catalog.ingestionSources.auditor`, `data-catalog.ingestions.auditor`, `data-catalog.assets.auditor`, `data-catalog.lineages.auditor`, `data-catalog.glossaries.auditor`, `data-catalog.glossaryTerms.auditor`, `data-catalog.classifications.auditor` и `data-catalog.classificationTags.auditor`.
+
+#### data-catalog.viewer {#data-catalog-viewer}
+
+Роль `data-catalog.viewer` позволяет просматривать информацию о ресурсах и квотах Data Catalog.
+
+Пользователи с этой ролью могут:
+* просматривать информацию о каталогах в Data Catalog и назначенных [правах доступа](concepts/access-control/index.md) к ним;
+* просматривать информацию о [доменах](../metadata-hub/concepts/data-catalog.md#domains-and-subdomains) в Data Catalog и назначенных правах доступа к ним;
+* просматривать информацию об [источниках и загрузках](../metadata-hub/concepts/data-catalog.md#metadata-upload) в Data Catalog;
+* просматривать информацию о данных и связях данных в Data Catalog;
+* просматривать информацию о [глоссариях и терминах](../metadata-hub/concepts/data-catalog.md#glossaries-and-terms) в Data Catalog;
+* просматривать информацию о [классификациях и тегах](../metadata-hub/concepts/data-catalog.md#classifications-and-tags) в Data Catalog;
+* просматривать информацию о [квотах](../metadata-hub/concepts/limits.md#data-catalog-quota) Data Catalog.
+
+Включает разрешения, предоставляемые ролью `data-catalog.auditor`.
+
+#### data-catalog.editor {#data-catalog-editor}
+
+Роль `data-catalog.editor` позволяет управлять ресурсами Data Catalog.
+
+Пользователи с этой ролью могут:
+* просматривать информацию о каталогах в Data Catalog и назначенных [правах доступа](concepts/access-control/index.md) к ним, а также создавать, изменять и удалять такие каталоги;
+* просматривать информацию о [доменах](../metadata-hub/concepts/data-catalog.md#domains-and-subdomains) в Data Catalog и назначенных правах доступа к ним, а также создавать, использовать, изменять и удалять такие домены;
+* просматривать информацию об [источниках](../metadata-hub/concepts/data-catalog.md#metadata-upload) в Data Catalog, а также создавать, изменять и удалять их;
+* просматривать информацию о [загрузках](../metadata-hub/concepts/data-catalog.md#metadata-upload) в Data Catalog, а также создавать, изменять и удалять их;
+* просматривать информацию о данных в Data Catalog, а также создавать, изменять и удалять такие данные;
+* просматривать информацию о связях данных в Data Catalog, а также создавать, изменять и удалять такие связи;
+* просматривать информацию о [глоссариях](../metadata-hub/concepts/data-catalog.md#glossaries-and-terms) в Data Catalog, а также создавать, изменять и удалять их;
+* просматривать информацию о [терминах](../metadata-hub/concepts/data-catalog.md#glossaries-and-terms) в Data Catalog, а также создавать, использовать, изменять и удалять их;
+* просматривать информацию о [классификациях](../metadata-hub/concepts/data-catalog.md#classifications-and-tags) в Data Catalog, а также создавать, изменять и удалять их;
+* просматривать информацию о [тегах](../metadata-hub/concepts/data-catalog.md#classifications-and-tags) в Data Catalog, а также создавать, использовать, изменять и удалять их;
+* просматривать информацию о [квотах](../metadata-hub/concepts/limits.md#data-catalog-quota) Data Catalog.
+
+Включает разрешения, предоставляемые ролями `data-catalog.catalogs.editor`, `data-catalog.domains.editor`, `data-catalog.ingestionSources.editor`, `data-catalog.ingestions.editor`, `data-catalog.assets.editor`, `data-catalog.lineages.editor`, `data-catalog.glossaries.editor`, `data-catalog.glossaryTerms.editor`, `data-catalog.classifications.editor` и `data-catalog.classificationTags.editor`.
+
+#### data-catalog.admin {#data-catalog-admin}
+
+Роль `data-catalog.admin` позволяет управлять ресурсами Data Catalog и доступом к ним.
+
+Пользователи с этой ролью могут:
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к каталогам в Data Catalog и изменять такие права доступа;
+* просматривать информацию о каталогах в Data Catalog, а также создавать, изменять и удалять такие каталоги;
+* просматривать информацию о назначенных правах доступа к доменам в Data Catalog и изменять такие права доступа;
+* просматривать информацию о [доменах](../metadata-hub/concepts/data-catalog.md#domains-and-subdomains) в Data Catalog, а также создавать, использовать, изменять и удалять такие домены;
+* просматривать информацию об [источниках](../metadata-hub/concepts/data-catalog.md#metadata-upload) в Data Catalog, а также создавать, изменять и удалять их;
+* просматривать информацию о [загрузках](../metadata-hub/concepts/data-catalog.md#metadata-upload) в Data Catalog, а также создавать, запускать, останавливать, изменять и удалять их;
+* просматривать информацию о данных в Data Catalog, а также создавать, изменять и удалять такие данные;
+* просматривать информацию о связях данных в Data Catalog, а также создавать, изменять и удалять такие связи;
+* просматривать информацию о [глоссариях](../metadata-hub/concepts/data-catalog.md#glossaries-and-terms) в Data Catalog, а также создавать, изменять и удалять их;
+* просматривать информацию о [терминах](../metadata-hub/concepts/data-catalog.md#glossaries-and-terms) в Data Catalog, а также создавать, использовать, изменять и удалять их;
+* просматривать информацию о [классификациях](../metadata-hub/concepts/data-catalog.md#classifications-and-tags) в Data Catalog, а также создавать, изменять и удалять их;
+* просматривать информацию о [тегах](../metadata-hub/concepts/data-catalog.md#classifications-and-tags) в Data Catalog, а также создавать, использовать, изменять и удалять их;
+* просматривать информацию о [квотах](../metadata-hub/concepts/limits.md#data-catalog-quota) Data Catalog.
+
+Включает разрешения, предоставляемые ролями `data-catalog.catalogs.admin`, `data-catalog.domains.admin`, `data-catalog.ingestionSources.admin`, `data-catalog.ingestions.admin`, `data-catalog.assets.admin`, `data-catalog.lineages.admin`, `data-catalog.glossaries.admin`, `data-catalog.glossaryTerms.admin`, `data-catalog.classifications.admin` и `data-catalog.classificationTags.admin`.
+
+#### data-catalog.dataSteward {#data-catalog-dataSteward}
+
+Роль `data-catalog.dataSteward` позволяет просматривать информацию о ресурсах Data Catalog, использовать и изменять такие ресурсы, а также управлять загрузками Data Catalog.
+
+Пользователи с этой ролью могут:
+* просматривать информацию о каталогах в Data Catalog и назначенных [правах доступа](concepts/access-control/index.md) к ним;
+* просматривать информацию о [доменах](../metadata-hub/concepts/data-catalog.md#domains-and-subdomains) в Data Catalog и назначенных правах доступа к ним, а также использовать и изменять такие домены;
+* просматривать информацию об [источниках](../metadata-hub/concepts/data-catalog.md#metadata-upload) в Data Catalog и изменять их;
+* просматривать информацию об [загрузках](../metadata-hub/concepts/data-catalog.md#metadata-upload) в Data Catalog, а также запускать, останавливать и изменять их;
+* просматривать информацию о данных и связях данных в Data Catalog, а также изменять такие данные и связи данных;
+* просматривать информацию о [глоссариях](../metadata-hub/concepts/data-catalog.md#glossaries-and-terms) в Data Catalog и изменять их;
+* просматривать информацию о [терминах](../metadata-hub/concepts/data-catalog.md#glossaries-and-terms) в Data Catalog, а также использовать и изменять их;
+* просматривать информацию о [классификациях](../metadata-hub/concepts/data-catalog.md#classifications-and-tags) в Data Catalog и изменять их;
+* просматривать информацию о [тегах](../metadata-hub/concepts/data-catalog.md#classifications-and-tags) в Data Catalog, а также использовать и изменять их;
+* просматривать информацию о [квотах](../metadata-hub/concepts/limits.md#data-catalog-quota) Data Catalog.
+
+Включает разрешения, предоставляемые ролью `data-catalog.dataConsumer`.
+
+#### data-catalog.dataConsumer {#data-catalog-dataConsumer}
+
+Роль `data-catalog.dataConsumer` позволяет просматривать информацию о ресурсах Data Catalog, а также использовать и изменять их.
+
+Роль не позволяет изменять источники и управлять загрузками Data Catalog.
+
+Пользователи с этой ролью могут:
+* просматривать информацию о каталогах в Data Catalog и назначенных [правах доступа](concepts/access-control/index.md) к ним;
+* просматривать информацию о [доменах](../metadata-hub/concepts/data-catalog.md#domains-and-subdomains) в Data Catalog и назначенных правах доступа к ним, а также использовать и изменять такие домены;
+* просматривать информацию об [источниках и загрузках](../metadata-hub/concepts/data-catalog.md#metadata-upload) в Data Catalog;
+* просматривать информацию о данных и связях данных в Data Catalog, а также изменять такие данные и связи данных;
+* просматривать информацию о [глоссариях](../metadata-hub/concepts/data-catalog.md#glossaries-and-terms) в Data Catalog и изменять их;
+* просматривать информацию о [терминах](../metadata-hub/concepts/data-catalog.md#glossaries-and-terms) в Data Catalog, а также использовать и изменять их;
+* просматривать информацию о [классификациях](../metadata-hub/concepts/data-catalog.md#classifications-and-tags) в Data Catalog и изменять их;
+* просматривать информацию о [тегах](../metadata-hub/concepts/data-catalog.md#classifications-and-tags) в Data Catalog, а также использовать и изменять их;
+* просматривать информацию о [квотах](../metadata-hub/concepts/limits.md#data-catalog-quota) Data Catalog.
+
+Включает разрешения, предоставляемые ролями `data-catalog.viewer` и `data-catalog.user`.
+
+#### data-catalog.user {#data-catalog-user}
+
+Роль `data-catalog.user` позволяет просматривать информацию о [доменах](../metadata-hub/concepts/data-catalog.md#domains-and-subdomains), [тегах](../metadata-hub/concepts/data-catalog.md#classifications-and-tags) и [терминах](../metadata-hub/concepts/data-catalog.md#glossaries-and-terms) в Data Catalog, а также использовать такие домены, теги и термины.
+
+Включает разрешения, предоставляемые ролями `data-catalog.domains.user`, `data-catalog.classificationTags.user` и `data-catalog.glossaryTerms.user`.
+
+#### data-catalog.catalogs.auditor {#data-catalog-catalogs-auditor}
+
+Роль `data-catalog.catalogs.auditor` позволяет просматривать информацию о каталогах в Data Catalog и назначенных [правах доступа](concepts/access-control/index.md) к ним, а также о [квотах](../metadata-hub/concepts/limits.md#data-catalog-quota) Data Catalog.
+
+#### data-catalog.catalogs.viewer {#data-catalog-catalogs-viewer}
+
+Роль `data-catalog.catalogs.viewer` позволяет просматривать информацию о каталогах в Data Catalog и назначенных [правах доступа](concepts/access-control/index.md) к ним, а также о [квотах](../metadata-hub/concepts/limits.md#data-catalog-quota) Data Catalog.
+
+Включает разрешения, предоставляемые ролью `data-catalog.catalogs.auditor`.
+
+#### data-catalog.catalogs.editor {#data-catalog-catalogs-editor}
+
+Роль `data-catalog.catalogs.editor` позволяет просматривать информацию о каталогах в Data Catalog и управлять ими.
+
+Пользователи с этой ролью могут:
+* просматривать информацию о каталогах в Data Catalog, а также создавать, изменять и удалять их;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к каталогам в Data Catalog;
+* просматривать информацию о [квотах](../metadata-hub/concepts/limits.md#data-catalog-quota) Data Catalog.
+
+Включает разрешения, предоставляемые ролью `data-catalog.catalogs.viewer`.
+
+#### data-catalog.catalogs.admin {#data-catalog-catalogs-admin}
+
+Роль `data-catalog.catalogs.admin` позволяет управлять каталогами в Data Catalog и доступом к ним.
+
+Пользователи с этой ролью могут:
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к каталогам в Data Catalog и изменять такие права доступа;
+* просматривать информацию о каталогах в Data Catalog, а также создавать, изменять и удалять такие каталоги;
+* просматривать информацию о [квотах](../metadata-hub/concepts/limits.md#data-catalog-quota) Data Catalog.
+
+Включает разрешения, предоставляемые ролью `data-catalog.catalogs.editor`.
+
+#### data-catalog.assets.auditor {#data-catalog-assets-auditor}
+
+Роль `data-catalog.assets.auditor` позволяет просматривать информацию о данных в Data Catalog.
+
+#### data-catalog.assets.viewer {#data-catalog-assets-viewer}
+
+Роль `data-catalog.catalogs.viewer` позволяет просматривать информацию о каталогах в Data Catalog и назначенных [правах доступа](concepts/access-control/index.md) к ним, а также о [квотах](../metadata-hub/concepts/limits.md#data-catalog-quota) Data Catalog.
+
+Включает разрешения, предоставляемые ролью `data-catalog.catalogs.auditor`.
+
+#### data-catalog.assets.editor {#data-catalog-assets-editor}
+
+Роль `data-catalog.assets.editor` позволяет просматривать информацию о данных в Data Catalog, а также создавать, изменять и удалять такие данные.
+
+Включает разрешения, предоставляемые ролью `data-catalog.assets.viewer`.
+
+#### data-catalog.assets.admin {#data-catalog-assets-admin}
+
+Роль `data-catalog.catalogs.admin` позволяет управлять каталогами в Data Catalog и доступом к ним.
+
+Пользователи с этой ролью могут:
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к каталогам в Data Catalog и изменять такие права доступа;
+* просматривать информацию о каталогах в Data Catalog, а также создавать, изменять и удалять такие каталоги;
+* просматривать информацию о [квотах](../metadata-hub/concepts/limits.md#data-catalog-quota) Data Catalog.
+
+Включает разрешения, предоставляемые ролью `data-catalog.catalogs.editor`.
+
+#### data-catalog.classifications.auditor {#data-catalog-classifications-auditor}
+
+Роль `data-catalog.classifications.auditor` позволяет просматривать информацию о [классификациях](../metadata-hub/concepts/data-catalog.md#classifications-and-tags) в Data Catalog.
+
+#### data-catalog.classifications.viewer {#data-catalog-classifications-viewer}
+
+Роль `data-catalog.classifications.viewer` позволяет просматривать информацию о [классификациях](../metadata-hub/concepts/data-catalog.md#classifications-and-tags) в Data Catalog.
+
+Включает разрешения, предоставляемые ролью `data-catalog.classifications.auditor`.
+
+#### data-catalog.classifications.editor {#data-catalog-classifications-editor}
+
+Роль `data-catalog.classifications.editor` позволяет просматривать информацию о [классификациях](../metadata-hub/concepts/data-catalog.md#classifications-and-tags) в Data Catalog, а также создавать, изменять и удалять такие классификации.
+
+Включает разрешения, предоставляемые ролью `data-catalog.classifications.viewer`.
+
+#### data-catalog.classifications.admin {#data-catalog-classifications-admin}
+
+Роль `data-catalog.classifications.admin` позволяет просматривать информацию о [классификациях](../metadata-hub/concepts/data-catalog.md#classifications-and-tags) в Data Catalog, а также создавать, изменять и удалять такие классификации.
+
+Включает разрешения, предоставляемые ролью `data-catalog.classifications.editor`.
+
+#### data-catalog.classificationsTags.auditor {#data-catalog-classificationTags-auditor}
+
+Роль `data-catalog.classificationTags.auditor` позволяет просматривать информацию о [тегах](../metadata-hub/concepts/data-catalog.md#classifications-and-tags) в Data Catalog.
+
+#### data-catalog.classificationsTags.viewer {#data-catalog-classificationTags-viewer}
+
+Роль `data-catalog.classificationTags.viewer` позволяет просматривать информацию о [тегах](../metadata-hub/concepts/data-catalog.md#classifications-and-tags) в Data Catalog.
+
+Включает разрешения, предоставляемые ролью `data-catalog.classificationTags.auditor`.
+
+#### data-catalog.classificationsTags.user {#data-catalog-classificationTags-user}
+
+Роль `data-catalog.classificationTags.user` позволяет просматривать информацию о [тегах](../metadata-hub/concepts/data-catalog.md#classifications-and-tags) в Data Catalog и использовать такие теги.
+
+#### data-catalog.classificationsTags.editor {#data-catalog-classificationTags-editor}
+
+Роль `data-catalog.classificationTags.editor` позволяет просматривать информацию о [тегах](../metadata-hub/concepts/data-catalog.md#classifications-and-tags) в Data Catalog, а также создавать, использовать, изменять и удалять такие теги.
+
+Включает разрешения, предоставляемые ролями `data-catalog.classificationTags.viewer` и `data-catalog.classificationTags.user`.
+
+#### data-catalog.classificationsTags.admin {#data-catalog-classificationTags-admin}
+
+Роль `data-catalog.classificationTags.admin` позволяет просматривать информацию о [тегах](../metadata-hub/concepts/data-catalog.md#classifications-and-tags) в Data Catalog, а также создавать, использовать, изменять и удалять такие теги.
+
+Включает разрешения, предоставляемые ролью `data-catalog.classificationTags.editor`.
+
+#### data-catalog.domains.auditor {#data-catalog-domains-auditor}
+
+Роль `data-catalog.domains.auditor` позволяет просматривать информацию о [доменах](../metadata-hub/concepts/data-catalog.md#domains-and-subdomains) в Data Catalog, а также о назначенных [правах доступа](concepts/access-control/index.md) к ним.
+
+#### data-catalog.domains.viewer {#data-catalog-domains-viewer}
+
+Роль `data-catalog.domains.viewer` позволяет просматривать информацию о [доменах](../metadata-hub/concepts/data-catalog.md#domains-and-subdomains) в Data Catalog, а также о назначенных [правах доступа](concepts/access-control/index.md) к ним.
+
+Включает разрешения, предоставляемые ролью `data-catalog.domains.auditor`.
+
+#### data-catalog.domains.user {#data-catalog-domains-user}
+
+Роль `data-catalog.domains.user` позволяет просматривать информацию о [доменах](../metadata-hub/concepts/data-catalog.md#domains-and-subdomains) в Data Catalog и использовать их.
+
+#### data-catalog.domains.editor {#data-catalog-domains-editor}
+
+Роль `data-catalog.domains.editor` позволяет просматривать информацию о доменах в Data Catalog и управлять ими.
+
+Пользователи с этой ролью могут:
+* просматривать информацию о [доменах](../metadata-hub/concepts/data-catalog.md#domains-and-subdomains) в Data Catalog, а также создавать, использовать, изменять и удалять такие домены;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к доменам в Data Catalog.
+
+Включает разрешения, предоставляемые ролями `data-catalog.domains.viewer` и `data-catalog.domains.user`.
+
+#### data-catalog.domains.admin {#data-catalog-domains-admin}
+
+Роль `data-catalog.domains.admin` позволяет управлять доменами в Data Catalog и доступом к ним.
+
+Пользователи с этой ролью могут:
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к доменам в Data Catalog и изменять такие права доступа;
+* просматривать информацию о [доменах](../metadata-hub/concepts/data-catalog.md#domains-and-subdomains) в Data Catalog, а также создавать, использовать, изменять и удалять такие домены.
+
+Включает разрешения, предоставляемые ролью `data-catalog.domains.editor`.
+
+#### data-catalog.glossaries.auditor {#data-catalog-glossaries-auditor}
+
+Роль `data-catalog.glossaries.auditor` позволяет просматривать информацию о [глоссариях](../metadata-hub/concepts/data-catalog.md#glossaries-and-terms) в Data Catalog.
+
+#### data-catalog.glossaries.viewer {#data-catalog-glossaries-viewer}
+
+Роль `data-catalog.glossaries.viewer` позволяет просматривать информацию о [глоссариях](../metadata-hub/concepts/data-catalog.md#glossaries-and-terms) в Data Catalog.
+
+Включает разрешения, предоставляемые ролью `data-catalog.glossaries.auditor`.
+
+#### data-catalog.glossaries.editor {#data-catalog-glossaries-editor}
+
+Роль `data-catalog.glossaries.editor` позволяет просматривать информацию о [глоссариях](../metadata-hub/concepts/data-catalog.md#glossaries-and-terms) в Data Catalog, а также создавать, изменять и удалять их.
+
+Включает разрешения, предоставляемые ролью `data-catalog.glossaries.viewer`.
+
+#### data-catalog.glossaries.admin {#data-catalog-glossaries-admin}
+
+Роль `data-catalog.glossaries.admin` позволяет просматривать информацию о [глоссариях](../metadata-hub/concepts/data-catalog.md#glossaries-and-terms) в Data Catalog, а также создавать, изменять и удалять их.
+
+Включает разрешения, предоставляемые ролью `data-catalog.glossaries.editor`.
+
+#### data-catalog.glossaryTerms.auditor {#data-catalog-glossaryTerms-auditor}
+
+Роль `data-catalog.glossaryTerms.auditor` позволяет просматривать информацию о [терминах](../metadata-hub/concepts/data-catalog.md#glossaries-and-terms) в Data Catalog.
+
+#### data-catalog.glossaryTerms.viewer {#data-catalog-glossaryTerms-viewer}
+
+Роль `data-catalog.glossaryTerms.viewer` позволяет просматривать информацию о [терминах](../metadata-hub/concepts/data-catalog.md#glossaries-and-terms) в Data Catalog.
+
+Включает разрешения, предоставляемые ролью `data-catalog.glossaryTerms.auditor`.
+
+#### data-catalog.glossaryTerms.user {#data-catalog-glossaryTerms-user}
+
+Роль `data-catalog.glossaryTerms.user` позволяет просматривать информацию о [терминах](../metadata-hub/concepts/data-catalog.md#glossaries-and-terms) в Data Catalog и использовать их.
+
+#### data-catalog.glossaryTerms.editor {#data-catalog-glossaryTerms-editor}
+
+Роль `data-catalog.glossaryTerms.editor` позволяет просматривать информацию о [терминах](../metadata-hub/concepts/data-catalog.md#glossaries-and-terms) в Data Catalog, а также создавать, использовать, изменять и удалять их.
+
+Включает разрешения, предоставляемые ролями `data-catalog.glossaryTerms.viewer` и `data-catalog.glossaryTerms.user`.
+
+#### data-catalog.glossaryTerms.admin {#data-catalog-glossaryTerms-admin}
+
+Роль `data-catalog.glossaryTerms.admin` позволяет просматривать информацию о [терминах](../metadata-hub/concepts/data-catalog.md#glossaries-and-terms) в Data Catalog, а также создавать, использовать, изменять и удалять их.
+
+Включает разрешения, предоставляемые ролью `data-catalog.glossaryTerms.editor`.
+
+#### data-catalog.ingestions.auditor {#data-catalog-ingestions-auditor}
+
+Роль `data-catalog.ingestions.auditor` позволяет просматривать информацию о [загрузках](../metadata-hub/concepts/data-catalog.md#metadata-upload) в Data Catalog.
+
+#### data-catalog.ingestions.viewer {#data-catalog-ingestions-viewer}
+
+Роль `data-catalog.ingestions.viewer` позволяет просматривать информацию о [загрузках](../metadata-hub/concepts/data-catalog.md#metadata-upload) в Data Catalog.
+
+Включает разрешения, предоставляемые ролью `data-catalog.ingestions.auditor`.
+
+#### data-catalog.ingestions.editor {#data-catalog-ingestions-editor}
+
+Роль `data-catalog.ingestions.editor` позволяет просматривать информацию о [загрузках](../metadata-hub/concepts/data-catalog.md#metadata-upload) в Data Catalog, а также создавать, изменять и удалять их.
+
+Включает разрешения, предоставляемые ролью `data-catalog.ingestions.viewer`.
+
+#### data-catalog.ingestions.admin {#data-catalog-ingestions-admin}
+
+Роль `data-catalog.ingestions.admin` позволяет просматривать информацию о [загрузках](../metadata-hub/concepts/data-catalog.md#metadata-upload) в Data Catalog, а также создавать, запускать, останавливать, изменять и удалять их.
+
+Включает разрешения, предоставляемые ролью `data-catalog.ingestions.editor`.
+
+#### data-catalog.ingestionSources.auditor {#data-catalog-ingestionSources-auditor}
+
+Роль `data-catalog.ingestionSources.auditor` позволяет просматривать информацию об [источниках](../metadata-hub/concepts/data-catalog.md#metadata-upload) в Data Catalog.
+
+#### data-catalog.ingestionSources.viewer {#data-catalog-ingestionSources-viewer}
+
+Роль `data-catalog.ingestionSources.viewer` позволяет просматривать информацию об [источниках](../metadata-hub/concepts/data-catalog.md#metadata-upload) в Data Catalog.
+
+Включает разрешения, предоставляемые ролью `data-catalog.ingestionSources.auditor`.
+
+#### data-catalog.ingestionSources.editor {#data-catalog-ingestionSources-editor}
+
+Роль `data-catalog.ingestionSources.editor` позволяет просматривать информацию об [источниках](../metadata-hub/concepts/data-catalog.md#metadata-upload) в Data Catalog, а также создавать, изменять и удалять их.
+
+Включает разрешения, предоставляемые ролью `data-catalog.ingestionSources.viewer`.
+
+#### data-catalog.ingestionSources.admin {#data-catalog-ingestionSources-admin}
+
+Роль `data-catalog.ingestionSources.admin` позволяет просматривать информацию об [источниках](../metadata-hub/concepts/data-catalog.md#metadata-upload) в Data Catalog, а также создавать, изменять и удалять их.
+
+Включает разрешения, предоставляемые ролью `data-catalog.ingestionSources.editor`.
+
+#### data-catalog.lineages.auditor {#data-catalog-lineages-auditor}
+
+Роль `data-catalog.lineages.auditor` позволяет просматривать информацию о связях данных в Data Catalog.
+
+#### data-catalog.lineages.viewer {#data-catalog-lineages-viewer}
+
+Роль `data-catalog.lineages.viewer` позволяет просматривать информацию о связях данных в Data Catalog.
+
+Включает разрешения, предоставляемые ролью `data-catalog.lineages.auditor`.
+
+#### data-catalog.lineages.editor {#data-catalog-lineages-editor}
+
+Роль `data-catalog.lineages.editor` позволяет просматривать информацию о связях данных в Data Catalog, а также создавать, изменять и удалять такие связи.
+
+Включает разрешения, предоставляемые ролью `data-catalog.lineages.viewer`.
+
+#### data-catalog.lineages.admin {#data-catalog-lineages-admin}
+
+Роль `data-catalog.lineages.admin` позволяет просматривать информацию о связях данных в Data Catalog, а также создавать, изменять и удалять такие связи.
+
+Включает разрешения, предоставляемые ролью `data-catalog.lineages.editor`.
+
+Подробнее см. [Сервисные роли для работы с метаданными в Yandex Data Catalog](../metadata-hub/security/data-catalog-roles.md).
+
+
 ## Yandex DataLens {#datalens-roles}
 
 #### datalens.workbooks.limitedViewer {#datalens-workbooks-limitedViewer}
@@ -3143,70 +3599,6 @@
 Роль назначается сервисному аккаунту, привязанному к кластеру Yandex Data Processing.
 
 Эта роль недоступна. Используйте роль `dataproc.agent`.
-
-#### managed-metastore.auditor {#managed-metastore-auditor}
-
-Роль `managed-metastore.auditor` позволяет просматривать информацию о [кластерах](../metadata-hub/concepts/metastore.md) Apache Hive™ Metastore и квотах сервисов управляемых баз данных Yandex Cloud.
-
-#### managed-metastore.viewer {#managed-metastore-viewer}
-
-Роль `managed-metastore.viewer` позволяет просматривать информацию о кластерах Apache Hive™ Metastore и логи их работы, а также информацию о квотах сервисов управляемых баз данных Yandex Cloud.
-
-Пользователи с этой ролью могут:
-* просматривать информацию о [кластерах](../metadata-hub/concepts/metastore.md) Apache Hive™ Metastore;
-* просматривать логи кластеров Apache Hive™ Metastore;
-* просматривать информацию о квотах сервисов управляемых баз данных Yandex Cloud;
-* просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
-
-Включает разрешения, предоставляемые ролью `managed-metastore.auditor`.
-
-#### managed-metastore.editor {#managed-metastore-editor}
-
-Роль `managed-metastore.editor` позволяет управлять кластерами Apache Hive™ Metastore, а также просматривать логи их работы и информацию о квотах сервисов управляемых баз данных Yandex Cloud.
-
-Пользователи с этой ролью могут:
-* просматривать информацию о [кластерах](../metadata-hub/concepts/metastore.md) Apache Hive™ Metastore, а также создавать, изменять, запускать, останавливать и удалять такие кластеры;
-* [экспортировать и импортировать](../metadata-hub/operations/metastore/export-and-import.md) кластеры Apache Hive™ Metastore;
-* просматривать логи кластеров Apache Hive™ Metastore;
-* просматривать информацию о квотах сервисов управляемых баз данных Yandex Cloud;
-* просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
-
-Включает разрешения, предоставляемые ролью `managed-metastore.viewer`.
-
-Для создания кластеров дополнительно необходима [роль](../vpc/security/index.md#vpc-user) `vpc.user`.
-
-#### managed-metastore.admin {#managed-metastore-admin}
-
-Роль `managed-metastore.admin` позволяет управлять кластерами Apache Hive™ Metastore, а также просматривать логи их работы и информацию о квотах сервисов управляемых баз данных Yandex Cloud.
-
-Пользователи с этой ролью могут:
-* просматривать информацию о [кластерах](../metadata-hub/concepts/metastore.md) Apache Hive™ Metastore, а также создавать, изменять, запускать, останавливать и удалять такие кластеры;
-* [экспортировать и импортировать](../metadata-hub/operations/metastore/export-and-import.md) кластеры Apache Hive™ Metastore;
-* просматривать логи кластеров Apache Hive™ Metastore;
-* просматривать информацию о квотах сервисов управляемых баз данных Yandex Cloud;
-* просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
-
-Включает разрешения, предоставляемые ролью `managed-metastore.editor`.
-
-Для создания кластеров дополнительно необходима [роль](../vpc/security/index.md#vpc-user) `vpc.user`.
-
-#### managed-metastore.integrationProvider {#managed-metastore-integrationProvider}
-
-Роль `managed-metastore.integrationProvider` позволяет кластеру Apache Hive™ Metastore взаимодействовать от имени сервисного аккаунта с пользовательскими ресурсами, необходимыми для работы кластера. Роль назначается сервисному аккаунту, привязанному к кластеру Apache Hive™ Metastore.
-
-Пользователи с этой ролью могут:
-* добавлять записи в [лог-группы](../logging/concepts/log-group.md);
-* просматривать информацию о лог-группах;
-* просматривать информацию о приемниках логов;
-* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к ресурсам сервиса Cloud Logging;
-* просматривать информацию о выгрузках логов;
-* просматривать информацию о [метриках](../monitoring/concepts/data-model.md#metric) Monitoring и их [метках](../monitoring/concepts/data-model.md#label), а также загружать и выгружать метрики;
-* просматривать список [дашбордов](../monitoring/concepts/visualization/dashboard.md) и [виджетов](../monitoring/concepts/visualization/widget.md) Monitoring и информацию о них, а также создавать, изменять и удалять дашборды и виджеты;
-* просматривать историю [уведомлений](../monitoring/concepts/alerting/notification-channel.md) Monitoring;
-* просматривать информацию о [квотах](../monitoring/concepts/limits.md#monitoring-quotas) сервиса Monitoring;
-* просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
-
-Включает разрешения, предоставляемые ролями `logging.writer` и `monitoring.editor`.
 
 Подробнее см. [Управление доступом в Yandex Data Processing](../data-proc/security/index.md).
 
@@ -6642,6 +7034,41 @@
 Включает разрешения, предоставляемые ролями `admin` и `resource-manager.clouds.member`.
 
 Подробнее см. [Управление доступом в Resource Manager](../resource-manager/security/index.md).
+
+
+## Yandex Schema Registry {#schema-registry-roles}
+
+#### schema-registry.auditor {#schema-registry-auditor}
+
+Роль `schema-registry.auditor` позволяет просматривать информацию о [пространствах имен](../metadata-hub/concepts/schema-registry.md#namespace).
+
+#### schema-registry.viewer {#schema-registry-viewer}
+
+Роль `schema-registry.viewer` позволяет просматривать информацию о [схемах](../metadata-hub/concepts/schema-registry.md#schema) и [пространствах имен](../metadata-hub/concepts/schema-registry.md#namespace), а также сравнивать версии схем.
+
+Включает разрешения, предоставляемые ролью `schema-registry.auditor`.
+
+#### schema-registry.editor {#schema-registry-editor}
+
+Роль `schema-registry.editor` позволяет управлять схемами и пространствами имен.
+
+Пользователи с этой ролью могут:
+* просматривать информацию о [схемах](../metadata-hub/concepts/schema-registry.md#schema), создавать, изменять и удалять схемы, а также сравнивать версии схем;
+* просматривать информацию о [пространствах имен](../metadata-hub/concepts/schema-registry.md#namespace), а также создавать, изменять и удалять их.
+
+Включает разрешения, предоставляемые ролью `schema-registry.viewer`.
+
+#### schema-registry.admin {#schema-registry-admin}
+
+Роль `schema-registry.admin` позволяет управлять сервисом Schema Registry, а также схемами и пространствами имен.
+
+Пользователи с этой ролью могут:
+* просматривать информацию о [схемах](../metadata-hub/concepts/schema-registry.md#schema), создавать, изменять и удалять схемы, а также сравнивать версии схем;
+* просматривать информацию о [пространствах имен](../metadata-hub/concepts/schema-registry.md#namespace), а также создавать, изменять и удалять их.
+
+Включает разрешения, предоставляемые ролью `schema-registry.editor`.
+
+Подробнее см. [Сервисные роли для управления схемами данных с помощью Schema Registry](../metadata-hub/security/schema-registry-roles.md).
 
 
 ## Yandex Search API {#search-api-roles}

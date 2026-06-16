@@ -234,6 +234,7 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
 1. Click **Test connection ...**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
 1. Click **Done** to save the database connection settings.
 
+
 ## Connecting to a cluster from your browser {#browser}
 
 To run SQL queries from your browser, use:

@@ -92,7 +92,7 @@ description: Следуя данной инструкции, вы сможете
      status: ACTIVE
      ```
 
-     Подробнее о команде `yc vpc security-group move` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/move.md).
+     Подробнее о команде `yc vpc security-group move` в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/move.md).
 
 - API {#api}
 
@@ -141,7 +141,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](network-move.md)
 

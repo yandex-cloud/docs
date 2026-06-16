@@ -77,7 +77,7 @@
 
 {% endnote %}
 
-Подробнее о группах безопасности см. в разделе [Группы безопасности](../../concepts/network.md#security-groups).
+Подробнее о группах безопасности в разделе [Группы безопасности](../../concepts/network.md#security-groups).
 
 
 ## Получение SSL-сертификата {#ssl-certificate}
