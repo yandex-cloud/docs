@@ -6,8 +6,8 @@ Users with this role can:
 * View the list of [triggers](../../functions/concepts/trigger/index.md) and info on them, as well as create, stop, run, modify, and delete them.
 * View the list of database connections and the info on them, as well as create, modify, and delete database connections and connect to databases through functions.
 * Create, modify, and delete [API gateways](../../api-gateway/concepts/index.md).
-* View info on granted [access permissions](../../iam/concepts/access-control/index.md) for Cloud Functions resources.
-* View info on Cloud Functions [quotas](../../functions/concepts/limits.md#functions-quotas).
+* View info on granted [access permissions](../../iam/concepts/access-control/index.md) for {{ sf-name }} resources.
+* View info on {{ sf-name }} [quotas](../../functions/concepts/limits.md#functions-quotas).
 * View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 

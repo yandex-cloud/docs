@@ -87,7 +87,7 @@ description: Следуя данной инструкции, вы настрои
       * `role` — назначаемая [роль](../security/index.md#roles-list).
       * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-       Подробнее о параметрах ресурса `yandex_dns_zone_iam_binding` см. в [документации провайдера]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
+       Подробнее о параметрах ресурса `yandex_dns_zone_iam_binding` в [документации провайдера]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
 
   1. Создайте ресурсы:
 
@@ -187,7 +187,7 @@ description: Следуя данной инструкции, вы настрои
       * `role` — назначаемая [роль](../security/index.md#roles-list).
       * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-      Подробнее о параметрах ресурса `yandex_dns_zone_iam_binding` см. в [документации провайдера]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
+      Подробнее о параметрах ресурса `yandex_dns_zone_iam_binding` в [документации провайдера]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
 
   1. Создайте ресурсы:
 

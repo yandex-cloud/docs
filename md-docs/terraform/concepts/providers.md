@@ -29,7 +29,7 @@
 
 
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Начало работы с Terraform](../quickstart.md)
 * [Руководства по работе с Terraform в Yandex Cloud](../tutorials/index.md)

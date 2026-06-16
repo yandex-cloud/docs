@@ -2,7 +2,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. Убедитесь, что образы DataLens загружены в локальный реестр кластера. Подробнее см. в разделе [Загрузить образы DataLens](install-images.md).
+1. Убедитесь, что образы DataLens загружены в локальный реестр кластера. Подробнее в разделе [Загрузить образы DataLens](install-images.md).
 1. Убедитесь, что компоненты Managed Service for PostgreSQL и Identity and Access Management включены в кластере.
 
 ## Включить компонент {#enable}
@@ -69,4 +69,4 @@
 kubectl edit datalensconfig main
 ```
 
-Подробнее о параметрах конфигурации см. в разделе [DataLens](../../concepts/components/datalens.md#configuration).
+Подробнее о параметрах конфигурации в разделе [DataLens](../../concepts/components/datalens.md#configuration).

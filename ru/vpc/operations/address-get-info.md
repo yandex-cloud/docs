@@ -71,7 +71,7 @@ title: Как получить информацию об IP-адресе в {{ v
      * `output "addr"` — выходная переменная, которая содержит информацию об IP-адресе:
        * `value` — возвращаемое значение.
 
-     Вместо `external_ipv4_address` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_vpc_address` см. в [документации провайдера]({{ tf-provider-datasources-link }}/vpc_address).
+     Вместо `external_ipv4_address` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_vpc_address` в [документации провайдера]({{ tf-provider-datasources-link }}/vpc_address).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

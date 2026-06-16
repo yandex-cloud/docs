@@ -36,9 +36,9 @@ To set up Auto Unseal:
 
         An authorized key is used for authentication. For more information about how to use authorized keys, see [{#T}](../../iam/operations/iam-token/create-for-sa.md#via-cli).
 
-    - Yandex account or federated account {#yandex-account}
+    - Federated, local, or Yandex account {#yandex-account}
 
-        Authentication is done using an [OAuth token](../../iam/concepts/authorization/oauth-token.md) or [{{ iam-short-name }} token](../../iam/concepts/authorization/iam-token.md).
+        Authentication will use an [{{ iam-short-name }} token](../../iam/concepts/authorization/iam-token.md).
 
         {% note tip %}
 
@@ -82,9 +82,9 @@ If Vault has already been initialized, you have to run a [migration procedure](h
 
       In the `service_account_key_file` parameter, specify the path to the file with the service account's authorized key.
 
-    - Yandex account or federated account {#yandex-account}
+    - Federated, local, or Yandex account {#yandex-account}
 
-      If using a Yandex account, specify the OAuth token in the `oauth_token` parameter. For a federated account, specify the IAM token.
+      Specify the IAM token.
 
     {% endlist %}
 
@@ -95,7 +95,6 @@ If Vault has already been initialized, you have to run a [migration procedure](h
 You can use environment variables instead of the configuration file to set parameter values:
 * `YANDEXCLOUD_KMS_KEY_ID` instead of the `kms_key_id` configuration file parameter.
 * `YANDEXCLOUD_SERVICE_ACCOUNT_KEY_FILE` instead of the `service_account_key_file` parameter.
-* `YANDEXCLOUD_OAUTH_TOKEN` instead of the `oauth_token` parameter.
 
 The environment variable values prevail over those from the configuration file.
 
@@ -128,13 +127,13 @@ The environment variable values prevail over those from the configuration file.
 
     Where `service_account_key_file` is the path to the JSON file with the authorized key.
 
-- Yandex account or federated account {#yandex-account}
+- Federated, local, or Yandex account {#yandex-account}
 
     ```json
     ...
     seal "yandexcloudkms" {
       kms_key_id  = "<KMS_key_ID>"
-      oauth_token = "<user_token>"
+      iam_token = "<user_token>"
     }
     ...
     ```
@@ -151,7 +150,7 @@ This way you can rotate the Vault master key through [key rotation in {{ kms-sho
 
 ## How to delete the resources you created {#clear-out}
 
-To stop incurring charges for the resources you created:
+To stop paying for the resources you created:
 * [Delete the VM](../../compute/operations/vm-control/vm-delete.md) if you created one to run Vault.
 * [Delete the static public IP](../../vpc/operations/address-delete.md) if you reserved one.
 * [Delete the {{ kms-name }} key](../../kms/operations/key.md#delete).

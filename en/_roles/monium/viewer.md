@@ -1,9 +1,9 @@
-The `monium.viewer` role enables viewing information on Monium resources. It also enables reading all types of telemetry data.
+The `monium.viewer` role enables viewing information on {{ monium-name }} resources. It also enables reading all types of telemetry data.
 
 Users with this role can:
 
 * View info on [projects](../../monium/concepts/glossary.md#project) and [access permissions](../../iam/concepts/access-control/index.md) assigned to them.
-* Read all types of Monium telemetry, such as [metrics](../../monium/metrics/quickstart.md), [logs](../../monium/logs/quickstart.md), and [distributed tracing](../../monium/traces/index.md).
+* Read all types of {{ monium-name }} telemetry, such as [metrics](../../monium/metrics/quickstart.md), [logs](../../monium/logs/quickstart.md), and [distributed tracing](../../monium/traces/index.md).
 * View [dashboards](../../monium/concepts/visualization/dashboard.md) and their [widgets](../../monium/concepts/visualization/widget.md).
 * View the set-up context links on dashboard [charts](../../monium/concepts/visualization/widget.md#chart).
 * View the list of the set-up [quick links](../../monium/concepts/glossary.md#project-menu) and info on them in the project menu.
@@ -15,7 +15,7 @@ Users with this role can:
 * View info on alert notifications and [escalations](../../monium/concepts/alerting/escalations.md).
 * View [mutes](../../monium/alerts/mutes.md), i.e., rules for temporarily disabling alert [notifications](../../monium/concepts/alerting/notification-channel.md).
 * View [labels](../../monium/traces/operations/traces-explorer.md) assigned to log errors.
-* View info on the Yandex Managed Service for Prometheus® [rules](../../monium/operations/prometheus/recording-rules.md).
+* View info on the {{ managed-prometheus-full-name }} [rules](../../monium/operations/prometheus/recording-rules.md).
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 This role includes the `monium.auditor` and `monium.telemetry.reader` permissions.

@@ -2,7 +2,7 @@
 
 ## Политика поддержки версий {#versioning-policy}
 
-Managed Service for OpenSearch работает только с теми версиями OpenSearch, которые поддерживает производитель. Информацию о сроках прекращения поддержки отдельных версий см. в [календаре производителя](https://opensearch.org/releases.html).
+Managed Service for OpenSearch работает только с теми версиями OpenSearch, которые поддерживает производитель. Информация о сроках прекращения поддержки отдельных версий в [календаре производителя](https://opensearch.org/releases.html).
 
 Managed Service for OpenSearch использует два типа версий OpenSearch:
 

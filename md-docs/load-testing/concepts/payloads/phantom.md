@@ -113,4 +113,4 @@
 
 {% endnote %}
 
-Примеры генераторов тестовых данных в этом формате см. в [документации](https://yandextank.readthedocs.io/en/latest/ammo_generators.html) инструмента для нагрузочного тестирования.
+Примеры генераторов тестовых данных в этом формате в [документации](https://yandextank.readthedocs.io/en/latest/ammo_generators.html) инструмента для нагрузочного тестирования.

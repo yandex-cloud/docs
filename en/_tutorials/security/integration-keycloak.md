@@ -532,10 +532,10 @@ To follow the steps in this section, you will need:​
 
       {% include [organizationmanager_saml_federation-tf](../../_includes/organization/organizationmanager_saml_federation-tf.md) %}
 
-  1. Validate your configuration files.
+  1. Make sure the configuration files are correct.
 
       1. In the terminal, navigate to the directory where you created your configuration file.
-      1. Run a check using the following command:
+      1. Run a check using this command:
 
           ```bash
           terraform plan
@@ -743,9 +743,9 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
       1. In the SAML application **Keys** tab, enable **Encrypt Assertions** and disable **Client Signature Required**.
 
-      1. Select the **Import** method for **Client Signature Required**.
+      1. In the **Select method** field, select **Import**.
 
-      1. In the **Archive Format** field, select **Certificate PEM**. (You may need to generate certificates first so that clicking **Import key** makes the **Certificate PEM** option available.)
+      1. In the **Archive Format** field, select **Certificate PEM**. If there is no **Certificate PEM** item, close the window, click **Regenerate** → **Yes** → **Import key**. The item will appear in the list.
       {#signature}
       1. Click **Browse** and select the {{ yandex-cloud }} SAML certificate you downloaded earlier to sign authentication requests. If you did not download a SAML certificate when creating the federation, you can download it on the {{ org-full-name }} federation info page by clicking ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}** in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
 
@@ -854,7 +854,7 @@ Following user authentication, the IdP server will send the user a SAML message 
 
 * User attributes such as a list of roles, the user's full name, and email address.
 
-You can set up a mapping between the SAML message attributes and the personal data stored on the IdP server. Proceed as follows:
+You can set up a mapping between the SAML message attributes and the personal data stored on the IdP server. Follow these steps:
 
 1. Enable the option for mapping the identity provider roles and {{ org-full-name }}:
 

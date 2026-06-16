@@ -1,0 +1,1 @@
+The `managed-metastore.maintenanceTask.viewer` role enables viewing info on [{{ metastore-name }} clusters](../../../metadata-hub/concepts/metastore.md), [access permissions](../../../iam/concepts/access-control/index.md) granted for them, their maintenance tasks, and on the quotas for {{ yandex-cloud }} managed DB services.

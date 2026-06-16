@@ -307,7 +307,7 @@ description: Следуя данной инструкции, вы сможете
     Installation finished. No error reported.
     ```
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./use-hwatcher.md)
 * [{#T}](./rescue-boot.md)

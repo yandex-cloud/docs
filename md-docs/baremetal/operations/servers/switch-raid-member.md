@@ -302,7 +302,7 @@
     Installation finished. No error reported.
     ```
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Проанализировать состояние сервера BareMetal с помощью утилиты HWCheck](use-hwatcher.md)
 * [Воспользоваться диском восстановления и диагностики Rescue-CD](rescue-boot.md)

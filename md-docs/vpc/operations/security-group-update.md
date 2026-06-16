@@ -48,7 +48,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_security_group` в Terraform см. в [документации провайдера](../../terraform/resources/vpc_security_group.md).
+     Подробнее о параметрах ресурса `yandex_vpc_security_group` в Terraform в [документации провайдера](../../terraform/resources/vpc_security_group.md).
 
      {% note info %}
 

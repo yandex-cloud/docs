@@ -42,6 +42,6 @@
 
 ^1^ Квота определяется автоматически. Для увеличения квоты обратитесь в [службу поддержки](https://center.yandex.cloud/support).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Ограничения в сетях BareMetal](network-restrictions.md)

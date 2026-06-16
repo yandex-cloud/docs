@@ -5,5 +5,5 @@
 * просматривать информацию о конфигурации нагрузочных тестов;
 * просматривать информацию о [дашбордах регрессий](../../load-testing/concepts/load-test-regressions.md#dashbordy-regressij) нагрузочных тестов;
 * просматривать информацию об [агентах](../../load-testing/concepts/agent.md);
-* просматривать информацию о [бакетах](../../storage/concepts/bucket.md) Yandex Object Storage, использующихся в нагрузочных тестах;
+* просматривать информацию о [бакетах](../../storage/concepts/bucket.md) {{ objstorage-full-name }}, использующихся в нагрузочных тестах;
 * просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).

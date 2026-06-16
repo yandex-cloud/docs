@@ -242,6 +242,8 @@
 
  - [MWS](security/single-sign-on/oidc-mws.md)
 
+ - [NetBird](security/single-sign-on/oidc-netbird.md)
+
  - [OpenSearch](security/single-sign-on/saml-opensearch-self-managed.md)
 
 #### OpenVPN

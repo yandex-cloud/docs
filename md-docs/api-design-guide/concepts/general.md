@@ -26,5 +26,5 @@ API Yandex Cloud спроектированы на основе механизм
 - API сервисов искусственного интеллекта [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/api), [Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/api), [Yandex Translate](https://aistudio.yandex.ru/docs/ru/translate/api-ref/grpc/) и [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/ocr/api-ref/grpc/). Их API не оперирует ресурсами Yandex Cloud, запросы не идемпотентны.
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 - [Ссылка на .proto-спецификации API Yandex Cloud](https://github.com/yandex-cloud/cloudapi)

@@ -119,7 +119,7 @@
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Инструкция по созданию такого файла приведена в разделе [Создание кластера](cluster-create.md).
 
     1. Добавьте ресурс `yandex_mdb_mongodb_database`:
 
@@ -140,7 +140,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_database).
+    Подробнее читайте в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_database).
 
 - REST API {#api}
 
@@ -237,7 +237,7 @@
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Инструкция по созданию такого файла приведена в разделе [Создание кластера](cluster-create.md).
 
     1. Удалите ресурс `yandex_mdb_mongodb_database` с именем удаляемой базы данных.
 
@@ -249,7 +249,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_database).
+    Подробнее читайте в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_database).
 
 - REST API {#api}
 

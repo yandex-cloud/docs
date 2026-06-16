@@ -102,7 +102,7 @@ description: Следуя данной инструкции, вы сможете
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_address` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_address).
+     Подробнее о параметрах ресурса `yandex_vpc_address` в {{ TF }} в [документации провайдера]({{ tf-provider-resources-link }}/vpc_address).
 
   1. Создайте ресурсы:
 

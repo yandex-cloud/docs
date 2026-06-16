@@ -87,7 +87,7 @@
      status: ACTIVE
      ```
 
-     Подробнее о команде `yc vpc security-group move` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/move.md).
+     Подробнее о команде `yc vpc security-group move` в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/move.md).
 
 - API {#api}
 
@@ -136,6 +136,6 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Переместить облачную сеть в другой каталог](network-move.md)

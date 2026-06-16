@@ -10,6 +10,6 @@ Users with this role can:
 * Send user events to buses using the [EventService/Send](../../../serverless-integrations/eventrouter/api-ref/grpc/Event/send.md) gRPC API call.
 * Send user events to buses using the [EventService/Put](../../../serverless-integrations/eventrouter/api-ref/grpc/Event/put.md) gRPC API call.
 * Transmit audit events.
-* View info on the EventRouter [quotes](../../../serverless-integrations/concepts/limits.md#eventrouter).
+* View info on the {{ er-name }} [quotes](../../../serverless-integrations/concepts/limits.md#eventrouter).
 
 This role includes the `serverless.eventrouter.editor` permissions.

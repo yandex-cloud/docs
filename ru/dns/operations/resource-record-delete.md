@@ -355,6 +355,6 @@ description: Следуя данной инструкции, вы сможете
   * `metadata` — метаданные операции.
   * `response.deletions` — список удаленных записей.
 
-  Подробное описание метода см. в [справочнике gRPC API](../api-ref/grpc/DnsZone/upsertRecordSets.md).
+  Подробное описание метода в [справочнике gRPC API](../api-ref/grpc/DnsZone/upsertRecordSets.md).
 
   {% endlist %}

@@ -1,3 +1,8 @@
+---
+title: Metadata markup
+description: Follow this guide to mark up metadata in {{ data-catalog-full-name }}.
+---
+
 # Metadata markup
 
 {% note info %}

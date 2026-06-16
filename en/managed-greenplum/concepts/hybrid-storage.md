@@ -41,6 +41,16 @@ When accessing cold storage data, throughput is limited to 1 GB per second from 
 
 Learn more about hybrid storage architecture from [this Habr article](https://habr.com/en/companies/yandex_cloud_and_infra/articles/831780/). The article also provides performance tests for different types of storage.
 
+## Hybrid storage cleanup {#storage-vacuum}
+
+For AO and AOCO tables in a hybrid storage, the `VACUUM` and `VACUUM FULL` operations are performed the same way as for similar tables in the cluster storage. However, cold storage data not being affected by the cleanup process, the following procedure is performed to automatically delete unnecessary segment files:
+
+1. When you run the `VACUUM` and `VACUUM FULL` operations for hybrid storage tables, the list of segment files in cold storage gets updated. Only the files containing the current table rows remain in the list.
+1. {{ YZ }} saves the names of unlisted files and the time of the operation in a service table. These files become candidates for deletion.
+1. Independently of the cleanup operations, {{ YZ }} checks the entries in this service table on a weekly basis. If a file record is created earlier than the oldest automatic [backup](backup.md), the file gets deleted from the {{ objstorage-name }} service bucket to the _recycle bin_, and its record gets removed from the service table. After a week's time, the file gets deleted from the _recycle bin_.
+
+This procedure ensures that files required for recovery from a hybrid storage cluster backup are not deleted from cold storage.
+
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/yezzey.md)

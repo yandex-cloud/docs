@@ -9,8 +9,6 @@ keywords:
 
 # Удаление кластера {{ SPQR }}
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 Вы можете удалить кластер {{ SPQR }}, если он вам больше не нужен.
 
 ## Удалить кластер {#delete}

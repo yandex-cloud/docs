@@ -3,6 +3,8 @@
 
     * `Replicating Directory Changes`
     * `Replicating Directory Changes All`
-1. On the domain controller, open the [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) network ports for incoming traffic from the IP address of the server hosting {{ ad-sync-agent }}:
+1. On the domain controller, open the network ports for incoming traffic from the IP address of the server hosting {{ ad-sync-agent }}:
 
     {% include [ad-synk-ports](./ad-synk-ports.md) %}
+
+1. Optionally, if you intend to set up authentication using the [Kerberos] protocol (https://en.wikipedia.org/wiki/Kerberos_(protocol)), set up [SPN](https://learn.microsoft.com/en-us/windows/win32/ad/service-principal-names).

@@ -15,6 +15,7 @@
 * [Managed Service for GitLab](saml-managed-gitlab.md)
 * [Managed Service for OpenSearch](saml-opensearch.md)
 * [MWS](oidc-mws.md)
+* [NetBird](oidc-netbird.md)
 * [OpenSearch](saml-opensearch-self-managed.md)
 * OpenVPN
     * [OpenVPN Access Server](saml-ovpn.md)

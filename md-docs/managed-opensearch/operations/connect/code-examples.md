@@ -83,7 +83,7 @@ go get github.com/opensearch-project/opensearch-go
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](fqdn.md).
+О том, как получить FQDN хоста, в [инструкции](fqdn.md).
 
 ## Python {#python}
   
@@ -131,4 +131,4 @@ pip3 install opensearch-py
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](fqdn.md).
+О том, как получить FQDN хоста, в [инструкции](fqdn.md).

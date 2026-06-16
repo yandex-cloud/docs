@@ -1,19 +1,23 @@
-#### What metrics and processes can be tracked using monitoring? {#monitoring}
+#### What metrics and processes can be monitored? {#monitoring}
 
-For all DBMS types, you can track:
+For all DBMS types, you can monitor:
 
-* CPU, memory, network, or disk usage, in absolute terms.
-* Memory, network, or disk usage as a percentage of the set limits for the corresponding cluster host class.
-* Amount of data in the DB cluster and the remaining free space in the data storage.
+* CPU, memory, network, and disk utilization, in absolute terms.
+* Memory, network, and disk utilization as a percentage of the set limits for the cluster’s host class.
+* Total cluster data size and available storage space remaining.
 
-For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ GP }}, you can track:
+For DB hosts, you can monitor metrics specific to their DBMS type. For example, for {{ GP }}, you can track:
 
 * Average query execution time.
-* Number of requests per second.
+* Number of queries per second.
 * Number of errors in logs.
 
-You can monitor with a minimum resolution of 5 seconds.
+You can monitor metrics with a minimum granularity of five seconds.
 
-For more information about monitoring, see [Monitoring cluster and host state](../../managed-greenplum/operations/monitoring.md).
+For more information, see [Monitoring the cluster and host state](../../managed-greenplum/operations/monitoring.md).
+
+#### Which charts reflect the state of hybrid storage? {#hybrid-storage-monitoring}
+
+On the **Hybrid Storage** graph, you can track the number of files in cold storage and their total size. The number and total size of files may decrease over time due to the hybrid storage cleanup procedure. For more information, see [{#T}](../../managed-greenplum/concepts/hybrid-storage.md)
 
 {% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}

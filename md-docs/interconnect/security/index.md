@@ -34,7 +34,7 @@
 1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль в облаке.
 1. Нажмите кнопку **Сохранить**.
 
-Подробнее о назначении ролей см. в документации сервиса [Yandex Identity and Access Management](../../iam/operations/roles/grant.md).
+Подробнее о назначении ролей в документации сервиса [Yandex Identity and Access Management](../../iam/operations/roles/grant.md).
 
 ## На какие ресурсы можно назначить роль {#resources}
 

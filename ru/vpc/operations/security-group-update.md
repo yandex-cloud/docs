@@ -41,7 +41,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_security_group` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_security_group).
+     Подробнее о параметрах ресурса `yandex_vpc_security_group` в {{ TF }} в [документации провайдера]({{ tf-provider-resources-link }}/vpc_security_group).
 
      {% note info %}
 

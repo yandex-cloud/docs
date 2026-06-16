@@ -289,6 +289,8 @@ items:
             href: tutorials/single-sign-on/saml-opensearch.md
           - name: MWS
             href: tutorials/single-sign-on/oidc-mws.md
+          - name: NetBird
+            href: tutorials/single-sign-on/oidc-netbird.md
           - name: '{{ OS }}'
             href: tutorials/single-sign-on/saml-opensearch-self-managed.md
           - name: Selectel

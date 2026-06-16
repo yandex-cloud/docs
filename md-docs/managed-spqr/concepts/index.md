@@ -1,11 +1,5 @@
 # Взаимосвязь ресурсов в Yandex Managed Service for Sharded PostgreSQL
 
-{% note info %}
-
-Сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 
 
 Sharded PostgreSQL — система для горизонтального масштабирования PostgreSQL через [шардирование](../../glossary/sharding.md). Фактически это несколько кластеров PostgreSQL, объединенных в один кластер Sharded PostgreSQL.

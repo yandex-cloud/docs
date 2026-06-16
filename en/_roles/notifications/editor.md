@@ -8,6 +8,6 @@ Users with this role can:
 * View info on [text message (SMS) notification](../../notifications/concepts/sms.md) channels, as well as create, modify, and delete them.
 * View info on text message (SMS) [templates](../../notifications/concepts/sms.md#templates) and [test](../../notifications/concepts/sms.md#sandbox) phone numbers, as well as modify them.
 * Send notifications to all topics and channels.
-* View info on Cloud Notification Service [quotas](../../notifications/concepts/limits.md).
+* View info on {{ cns-name }} [quotas](../../notifications/concepts/limits.md).
 
 This role includes the `notifications.viewer` and `notifications.publisher` permissions.

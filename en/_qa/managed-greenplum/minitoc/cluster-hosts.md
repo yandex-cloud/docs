@@ -11,3 +11,5 @@
 * [Why is my cluster slow even though the computing resources are not fully utilized?](#throttling)
 
 * [Why do I get a minimum memory error for {{ mgp-name }} processes?](#memory-limit)
+
+* [What time does it take for deleted objects to get irreversibly removed from a hybrid storage?](#hybrid-storage-vacuum)

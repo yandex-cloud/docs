@@ -14,16 +14,24 @@ Authentication pages can be branded only if signing in via SSO to external [appl
 
 {% note info %}
 
-This functionality is available only to organizations that have paid for their [limit](../pricing.md) of {{ org-full-name }} users authenticating via SSO to external applications. If the the limit had been paid earlier but not in the new billing month, branding will stop working.
+This functionality is available only to organizations that have paid for their [limit](../pricing.md) of {{ org-full-name }} users authenticating via SSO to external applications. If the limit was paid earlier but not in the new billing month, branding will stop working.
 
 {% endnote %}
 
 Branding can be configured only by users with the `organization-manager.admin` or `organization-manager.organizations.owner` [role](../security/index.md). The following settings can be customized separately for the light and dark color themes:
 
+* Editing images for logos and favicons before uploading.
 * Uploading of custom images in `WebP`, `PNG`, `JPEG`, `JPG` format:
   * Background image (up to 3840×2160 px, max 4 MB)
   * Logo for the top of the form (minimum 1920×1920 px, max 512 KB)
   * Favicon (up to 512×512 px, max 512 KB)
+  
+  {% note info %}
+  
+  With our built-in editor, you can prepare your logo or favicon for upload: crop out excess background, rescale, and adjust the layout.
+  
+  {% endnote %}
+
 * Button and text field border colors
 * Welcome message text
 * Email template used as a prompt in the email input field

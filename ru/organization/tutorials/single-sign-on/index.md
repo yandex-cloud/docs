@@ -20,6 +20,7 @@ description: Настройка интеграции {{ org-full-name }} с вн
 * [{{ mgl-name }}](./saml-managed-gitlab.md)
 * [{{ mos-name }}](./saml-opensearch.md)
 * [MWS](./oidc-mws.md)
+* [NetBird](./oidc-netbird.md)
 * [{{ OS }}](./saml-opensearch-self-managed.md)
 * OpenVPN
     * [OpenVPN Access Server](./saml-ovpn.md)

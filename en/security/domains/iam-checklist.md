@@ -9,10 +9,7 @@ This section provides recommendations for protecting authentication, authorizati
 
 ## Accounts {#accounts}
 
-&#x2713; **Protect your Yandex accounts**:
-
-   * Enable [two-factor authentication](https://yandex.ru/support/passport/authorization/twofa.html) for your [Yandex ID](../../iam/concepts/users/accounts.md#passport) and for user accounts within the organization.
-   * Store your [OAuth token](../../iam/concepts/authorization/oauth-token.md) in a secret. If your token has been compromised, [revoke it](https://yandex.ru/dev/oauth/doc/dg/reference/token-invalidate-docpage/) and issue a new one. Where possible, use an IAM token: it is valid for {{ iam-token-lifetime }}, whereas an OAuth token, for one year.
+&#x2713; **Protect your Yandex accounts**: Enable [two-factor authentication](https://yandex.ru/support/passport/authorization/twofa.html) for your [Yandex ID](../../iam/concepts/users/accounts.md#passport) and for user accounts within the organization.
 
 &#x2713; **Configure MFA for federated and local accounts**: Enable [multi-factor authentication](../../organization/concepts/mfa.md) (MFA) for [federated](../../iam/concepts/users/accounts.md#saml-federation) and [local](../../iam/concepts/users/accounts.md#local) accounts and set requirements in MFA policies.
 
@@ -68,7 +65,7 @@ This section provides recommendations for protecting authentication, authorizati
 
 ## Secrets {#secrets}
 
-&#x2713; **Track {{ yandex-cloud }} secrets in public sources**: The service allows detecting API keys, {{ iam-short-name }} cookies, IAM tokens, static access keys, OAuth tokens, and {{ captcha-full-name }} server keys. [Read more](../operations/search-secrets.md).
+&#x2713; **Track {{ yandex-cloud }} secrets in public sources**: The service allows detecting API keys, {{ iam-short-name }} cookies, IAM tokens, static access keys, and {{ captcha-full-name }} server keys. [Read more](../operations/search-secrets.md).
 
 &#x2713; **Revoke publicly exposed secrets**: Revoke and reissue them, check for unauthorized actions, delete redundant resources, and report incidents to [support]({{ link-console-support }}). [Read more](../../iam/operations/compromised-credentials.md).
 

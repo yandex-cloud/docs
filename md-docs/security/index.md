@@ -124,6 +124,8 @@
 
  - [Настройка единого входа в MWS по стандарту OIDC](tutorials/single-sign-on/oidc-mws.md)
 
+ - [Настройка единого входа с помощью NetBird по стандарту OIDC](tutorials/single-sign-on/oidc-netbird.md)
+
  - [Настройка единого входа в OpenSearch по стандарту SAML](tutorials/single-sign-on/saml-opensearch-self-managed.md)
 
 #### OpenVPN

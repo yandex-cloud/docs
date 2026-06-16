@@ -1,0 +1,1 @@
+Роль `managed-metastore.maintenanceTask.viewer` позволяет просматривать информацию о [кластерах {{ metastore-name }}](../../../metadata-hub/concepts/metastore.md) и назначенных [правах доступа](../../../iam/concepts/access-control/index.md) к ним, о заданиях на техническое обслуживание таких кластеров, а также о квотах сервисов управляемых баз данных {{ yandex-cloud }}.

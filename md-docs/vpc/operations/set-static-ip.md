@@ -93,7 +93,7 @@
 
 Количество статических публичных IP-адресов [ограничено](../concepts/limits.md#vpc-quotas). Если установленного квотой количества вам недостаточно, направьте запрос на увеличение квоты в [техническую поддержку](https://center.yandex.cloud/support).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Привязать к виртуальной машине публичный IP-адрес](../../compute/operations/vm-control/vm-attach-public-ip.md)
 * [Сделать публичный IP-адрес виртуальной машины статическим](../../compute/operations/vm-control/vm-set-static-ip.md)

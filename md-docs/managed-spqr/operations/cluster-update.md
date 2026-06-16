@@ -1,11 +1,5 @@
 # Изменение кластера Sharded PostgreSQL
 
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 После создания кластера вы можете изменить его основные и дополнительные настройки.
 
 {% list tabs group=instructions %}

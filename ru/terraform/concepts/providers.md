@@ -29,7 +29,7 @@
 
 
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../quickstart.md)
 * [{#T}](../tutorials/index.md)

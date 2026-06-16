@@ -1,4 +1,4 @@
-Роль `monium.auditor` позволяет просматривать информацию о ресурсах платформы Monium без возможности чтения телеметрии.
+Роль `monium.auditor` позволяет просматривать информацию о ресурсах платформы {{ monium-name }} без возможности чтения телеметрии.
 
 Пользователи с этой ролью могут:
 * просматривать информацию о [проектах](../../monium/concepts/glossary.md#project) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
@@ -13,6 +13,6 @@
 * просматривать информацию об уведомлениях и [эскалациях](../../monium/concepts/alerting/escalations.md) для алертов;
 * просматривать [мьюты](../../monium/alerts/mutes.md) — правила временного отключения [уведомлений](../../monium/concepts/alerting/notification-channel.md) для алертов;
 * просматривать [лейблы](../../monium/traces/operations/traces-explorer.md), привязанные к ошибкам в логах;
-* просматривать информацию о [правилах](../../monium/operations/prometheus/recording-rules.md) Yandex Managed Service for Prometheus®.
+* просматривать информацию о [правилах](../../monium/operations/prometheus/recording-rules.md) {{ managed-prometheus-full-name }}.
 
 Включает разрешения, предоставляемые ролями `monium.dashboards.viewer`, `monium.shards.viewer`, `monium.contextLinks.viewer`, `monium.quickLinks.viewer`, `monium.alerts.viewer`, `monium.serviceLevelObjectives.viewer`, `monium.channels.viewer`, `monium.escalationPolicies.viewer`, `monium.escalations.viewer`, `monium.mutes.viewer` и `monium.logErrorLabels.viewer`.

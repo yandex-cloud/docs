@@ -11,8 +11,6 @@ keywords:
 
 # Квоты и лимиты в {{ mspqr-name }}
 
-{% include [preview](../../_includes/note-service-preview.md) %}
-
 
 В сервисе {{ mspqr-name }} действуют следующие ограничения:
 

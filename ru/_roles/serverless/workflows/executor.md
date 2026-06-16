@@ -1,1 +1,1 @@
-Роль `serverless.workflows.executor` позволяет запускать, приостанавливать, возобновлять и останавливать [рабочие процессы](../../../serverless-integrations/concepts/workflows/workflow.md) Yandex Workflows.
+Роль `serverless.workflows.executor` позволяет запускать, приостанавливать, возобновлять и останавливать [рабочие процессы](../../../serverless-integrations/concepts/workflows/workflow.md) {{ sw-full-name }}.

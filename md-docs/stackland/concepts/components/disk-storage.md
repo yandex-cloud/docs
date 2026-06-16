@@ -72,7 +72,7 @@ spec:
       storage: 10Gi
 ```
 
-Если `storageClassName` не указан, используется Storage Class по умолчанию, определенный в `StacklandClusterConfig.spec.storage.defaultStorageClass`. Подробнее см. в разделе [Начальная конфигурация](../../quickstart.md#configuration).
+Если `storageClassName` не указан, используется Storage Class по умолчанию, определенный в `StacklandClusterConfig.spec.storage.defaultStorageClass`. Подробнее в разделе [Начальная конфигурация](../../quickstart.md#configuration).
 
 ## Ресурс VolumeGroup {#volumegroup}
 

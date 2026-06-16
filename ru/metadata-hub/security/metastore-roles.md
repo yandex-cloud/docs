@@ -4,6 +4,14 @@
 
 {% include [roles-metastore](../../_mermaid/roles/metastore.md) %}
 
+## {{ roles.metastore.maintenanceTask.viewer }} {#managed-metastore-maintenanceTask-viewer}
+
+{% include [managed-metastore.maintenanceTask.viewer](../../_roles/managed-metastore/maintenanceTask/viewer.md) %}
+
+## {{ roles.metastore.maintenanceTask.editor }} {#managed-metastore-maintenanceTask-editor}
+
+{% include [managed-metastore.maintenanceTask.editor](../../_roles/managed-metastore/maintenanceTask/editor.md) %}
+
 ## {{ roles.metastore.auditor }} {#managed-metastore-auditor}
 
 {% include [managed-metastore.auditor](../../_roles/managed-metastore/auditor.md) %}

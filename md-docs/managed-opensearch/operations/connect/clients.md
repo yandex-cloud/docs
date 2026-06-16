@@ -1,6 +1,6 @@
 # Подключение к кластеру OpenSearch из приложений
 
-В этом разделе представлены настройки для подключения к хостам кластера Managed Service for OpenSearch с помощью [инструментов командной строки](#command-line-tools), [OpenSearch Dashboards](#dashboards) и из [Docker-контейнера](#connection-docker). О подключении из кода вашего приложения см. [Примеры кода](code-examples.md).
+В этом разделе представлены настройки для подключения к хостам кластера Managed Service for OpenSearch с помощью [инструментов командной строки](#command-line-tools), [OpenSearch Dashboards](#dashboards) и из [Docker-контейнера](#connection-docker). Примеры подключения из приложения — в разделе [Примеры кода](code-examples.md).
 
 ## Инструменты командной строки {#command-line-tools}
 
@@ -21,7 +21,7 @@
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](fqdn.md).
+О том, как получить FQDN хоста, в [инструкции](fqdn.md).
 
 ### Windows (PowerShell) {#powershell}
 
@@ -38,7 +38,7 @@
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](fqdn.md).
+О том, как получить FQDN хоста, в [инструкции](fqdn.md).
 
 ## Подключение к OpenSearch Dashboards {#dashboards}
 

@@ -1,3 +1,8 @@
+---
+title: Getting started as a metadata steward
+description: When using {{ data-catalog-full-name }} as a metadata steward, you can collect and organize metadata on {{ yandex-cloud }} objects and links between them.
+---
+
 # Getting started as a metadata steward
 
 
@@ -29,7 +34,7 @@ The cost of infrastructure support includes a fee for {{ mpg-full-name }} cluste
 
 ## Getting started {#before-you-begin}
 
-1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if you do not have an account yet.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }}, or sign up if you have not already.
 
 1. If you do not have a resource folder, create one:
 

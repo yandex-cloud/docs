@@ -67,7 +67,7 @@ description: Следуя данной инструкции, вы сможете
         <имя_или_идентификатор_балансировщика>
       ```
 
-  Более подробную информацию о параметрах ресурса `yandex_lb_network_load_balancer` см. в [документации провайдера]({{ tf-provider-datasources-link }}/lb_network_load_balancer).
+  Подробнее о параметрах ресурса `yandex_lb_network_load_balancer` в [документации провайдера]({{ tf-provider-datasources-link }}/lb_network_load_balancer).
 
 - API {#api}
 
@@ -131,7 +131,7 @@ description: Следуя данной инструкции, вы сможете
         <имя_или_идентификатор_балансировщика>
       ```
 
-  Более подробную информацию о параметрах ресурса `yandex_lb_network_load_balancer` см. в [документации провайдера]({{ tf-provider-datasources-link }}/lb_network_load_balancer).
+  Подробнее о параметрах ресурса `yandex_lb_network_load_balancer` в [документации провайдера]({{ tf-provider-datasources-link }}/lb_network_load_balancer).
 
 - API {#api}
 

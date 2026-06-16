@@ -66,3 +66,9 @@ To fix the error, do one of the following:
 
 * Reduce the `max_connections` value.
 * Increase the memory size by changing the [segment host class](../../managed-greenplum/concepts/instance-types.md).
+
+#### What time does it take for deleted objects to get irreversibly removed from hybrid storage? {#hybrid-storage-vacuum}
+
+Deleted files are stored in the service bucket for one week, then moved to the _recycle bin_ and permanently deleted after another week.
+
+For more information, see [{#T}](../../managed-greenplum/concepts/hybrid-storage.md#storage-vacuum).

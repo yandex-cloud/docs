@@ -293,7 +293,7 @@
    }
    ```
 
-   Подробнее о настройках зеркал см. в [документации](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
+   Подробнее о настройках зеркал в [документации](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
 1. В начале конфигурационного файла `.tf` добавьте следующие блоки:
 
    
@@ -338,7 +338,7 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
 
 Если вы использовали [модули Terraform](../../tutorials/infrastructure-management/terraform-modules.md), сначала выполните `terraform init`, затем удалите lock-файл, а затем выполните команду `terraform providers lock`.
 
-Более подробную информацию о команде `terraform providers lock` см. в [документации Terraform](https://developer.hashicorp.com/terraform/cli/commands/providers/lock).
+Подробнее о команде `terraform providers lock` в [документации Terraform](https://developer.hashicorp.com/terraform/cli/commands/providers/lock).
 
 ## Опишите источник данных {#prepare-plan}
 

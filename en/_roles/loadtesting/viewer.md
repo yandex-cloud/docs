@@ -5,5 +5,5 @@ Users with this role can:
 * View info on load test configurations.
 * View info on load test [regression dashboards](../../load-testing/concepts/load-test-regressions.md#dashbordy-regressij).
 * View info on [agents](../../load-testing/concepts/agent.md).
-* View info on Yandex Object Storage [buckets](../../storage/concepts/bucket.md) used in load tests.
+* View info on {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md) used in load tests.
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).

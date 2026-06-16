@@ -16,17 +16,25 @@ User and group synchronization is performed by the {{ ad-sync-agent }}, which ca
 
 How synchronization works:
 
-![ad-sync-agent](../../_assets/organization/ad-sync-agent.svg)
+{% include [sync-agent](../../_mermaid/other/identity-hub/sync-agent.md) %}
 
-On the server the synchronization agent is [running](../operations/sync-ad.md) on, the following [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) ports must be open for incoming and outgoing traffic:
+On the server the synchronization agent is [running](../operations/sync-ad.md) on, the following network ports must be open for incoming and outgoing traffic:
 
 * To access the {{ yandex-cloud }} API:
 
-    * `443`: For [HTTPS](https://en.wikipedia.org/wiki/HTTPS).
+    * `443 (TCP)`: For [HTTPS](https://en.wikipedia.org/wiki/HTTPS).
 
 * To access the {{ microsoft-idp.ad-short }} domain controller:
 
     {% include [ad-synk-ports](../../_includes/organization/ad-synk-ports.md) %}
+
+If you plan to use the [Kerberos](https://en.wikipedia.org/wiki/Kerberos_(protocol)) protocol for authentication on the {{ microsoft-idp.ad-short }} side, you should manually install the components required by this protocol and create the encryption keys file named `keytab`.
+
+{% note info %}
+
+{% include [ad-synk-kerber-nowin-notice](../../_includes/organization/ad-synk-kerber-nowin-notice.md) %}
+
+{% endnote %}
 
 ## Synchronization objects {#sync-objects}
 
@@ -102,14 +110,26 @@ For the synchronization [agent](#sync-agent) to work correctly on the {{ yandex-
 
 {{ ad-sync-agent }} reads user and user group data in the [selected](#agent-config) Organization Units (OU) in the {{ microsoft-idp.ad-short }} folder and syncs it with user and user group data in the {{ org-full-name }} [pool](./user-pools.md).
 
-On the {{ microsoft-idp.ad-short }} side, the synchronization agent gets user and group data as the user [created](#dc-setup) in the {{ microsoft-idp.ad-short }} domain. To get this data, the agent uses the [LDAP](https://learn.microsoft.com/en-us/windows/win32/api/_ldap/) and [DRSR](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-drsr/) protocols. The requests go to the {{ microsoft-idp.ad-short }} domain controller address specified in the agent [configuration](#agent-config).
-
-On the {{ yandex-cloud }} side, the synchronization agent manages users and user groups as a [service account](../../iam/concepts/users/service-accounts.md) with [permissions](#yc-setup) for syncing. Requests to {{ yandex-cloud }} go to public endpoint `https://organization-manager.{{ api-host }}` over [HTTPS](https://en.wikipedia.org/wiki/HTTPS). To authenticate in the {{ yandex-cloud }} API, the agent uses a service account authorized key or, only if installed on a {{ compute-name }} VM instance, a service account [IAM token](../../iam/concepts/authorization/iam-token.md) [obtained](../../compute/operations/vm-metadata/get-vm-metadata.md#example5) via the VM [metadata service](../../compute/concepts/vm-metadata.md).
-
 The synchronization agent installation script is available for the following operation systems:
 
 * [Linux]({{ ad-sync-agent-linuxlink }})
 * [Windows]({{ ad-sync-agent-windowslink }}).
+
+### Authenticating to {{ microsoft-idp.ad-short }} {#agent-ad-auth}
+
+On the {{ microsoft-idp.ad-short }} side, the synchronization agent gets user and group data as the user [created](#dc-setup) in the {{ microsoft-idp.ad-short }} domain. To get this data, the agent uses the [LDAP](https://learn.microsoft.com/en-us/windows/win32/api/_ldap/) and [DRSR](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-drsr/) protocols. The requests go to the {{ microsoft-idp.ad-short }} domain controller address specified in the agent [configuration](#agent-config).
+
+To authenticate your synchronization agent to {{ microsoft-idp.ad-short }}, you can use either the domain user name and password or Kerberos version 5.
+
+{% note info %}
+
+{% include [ad-synk-kerber-nowin-notice](../../_includes/organization/ad-synk-kerber-nowin-notice.md) %}
+
+{% endnote %}
+
+### Authenticating to {{ yandex-cloud }} {#agent-yc-auth}
+
+On the {{ yandex-cloud }} side, the synchronization agent manages users and user groups as a [service account](../../iam/concepts/users/service-accounts.md) with [permissions](#yc-setup) for syncing. Requests to {{ yandex-cloud }} go to public endpoint `https://organization-manager.{{ api-host }}` over [HTTPS](https://en.wikipedia.org/wiki/HTTPS). To authenticate in the {{ yandex-cloud }} API, the agent uses a service account authorized key or, only if installed on a {{ compute-name }} VM instance, a service account [IAM token](../../iam/concepts/authorization/iam-token.md) [obtained](../../compute/operations/vm-metadata/get-vm-metadata.md#example5) via the VM [metadata service](../../compute/concepts/vm-metadata.md).
 
 ### Synchronization process {#sync-process}
 
@@ -164,9 +184,11 @@ During continuous synchronization, the agent tracks the following changes in {{ 
 
 {{ ad-sync-agent }} logs the events taking place during synchronization.
 
-By default, the event and error info is fed into the [standard stream](https://en.wikipedia.org/wiki/Standard_streams) named `stdout`. As an alternative, you can configure saving logs to files in the agent's [configuration](#agent-config).
+By default, the event and error info is fed into the [standard stream](https://en.wikipedia.org/wiki/Standard_streams) named `stdout`. You can configure saving logs to files in the agent's [configuration](#agent-config).
 
-By default, the event info is output in text format, but you can change it to [JSON](https://en.wikipedia.org/wiki/JSON) in the agent's configuration.
+By default, the event info is output in text format, whether using the standard output stream or a file, but you can change it to [JSON](https://en.wikipedia.org/wiki/JSON) in the agent's configuration.
+
+In the agent's [configuration](#agent-config), you can also configure log export to a {{ cloud-logging-full-name }} [log group](../../logging/concepts/log-group.md).
 
 Additionally, you can set the following logging conditions in the agent's configuration:
 
@@ -174,13 +196,43 @@ Additionally, you can set the following logging conditions in the agent's config
 
 ### Agent configuration {#agent-config}
 
-The synchronization agent's configuration is set in a [YAML](https://yaml.org/) file in the following format:
+The synchronization agent's configuration depends on the authentication type the agent uses in {{ microsoft-idp.ad-short }} and is set in a [YAML](https://yaml.org/) file in the following format:
 
-{% include [ad-synk-yaml-config](../../_includes/organization/ad-synk-yaml-config.md) %}
+{% list tabs group=authentication %}
 
-{% include [ad-synk-yaml-config-legend](../../_includes/organization/ad-synk-yaml-config-legend.md) %}
+- Authenticating by username and password {#password}
+
+  {% include [ad-synk-yaml-config](../../_includes/organization/ad-synk-yaml-config.md) %}
+
+  Where:
+
+  {% include [ad-synk-yaml-config-legend-part1](../../_includes/organization/ad-synk-yaml-config-legend-part1.md) %}
+
+  {% include [ad-synk-yaml-config-legend-passw](../../_includes/organization/ad-synk-yaml-config-legend-passw.md) %}
+
+  {% include [ad-synk-yaml-config-legend-part3](../../_includes/organization/ad-synk-yaml-config-legend-part3.md) %}
+
+- Kerberos authentication {#kerberos}
+
+  {% note info %}
+
+  {% include [ad-synk-kerber-nowin-notice](../../_includes/organization/ad-synk-kerber-nowin-notice.md) %}
+
+  {% endnote %}
+
+  {% include [ad-synk-yaml-config-kerberos](../../_includes/organization/ad-synk-yaml-config-kerberos.md) %}
+
+  Where:
+
+  {% include [ad-synk-yaml-config-legend-part1](../../_includes/organization/ad-synk-yaml-config-legend-part1.md) %}
+
+  {% include [ad-synk-yaml-config-legend-kerber](../../_includes/organization/ad-synk-yaml-config-legend-kerber.md) %}
+
+  {% include [ad-synk-yaml-config-legend-part3](../../_includes/organization/ad-synk-yaml-config-legend-part3.md) %}
+
+{% endlist %}
+
 
 #### See also {#see-also}
 
 * [{#T}](../operations/sync-ad.md)
-

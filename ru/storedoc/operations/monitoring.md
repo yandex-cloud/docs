@@ -308,7 +308,7 @@ description: Следуя данной инструкции, вы сможете
 * `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` — `96636764160` байт (90%).
 * `{{ ui-key.yacloud_monitoring.alert.status_warn }}` — `75161927680` байт (70%).
 
-Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/managed-mongodb-ref.md).
+Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик приведен в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/managed-mongodb-ref.md).
 
 
 ### Отслеживание перехода в режим <q>только чтение</q> {#read-only-alert}

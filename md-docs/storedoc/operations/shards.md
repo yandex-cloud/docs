@@ -40,7 +40,7 @@
      * **Стандартное** — с использованием хостов `MONGOINFRA`.
      * **Расширенное** — с использованием хостов `MONGOS` и `MONGOCFG`.
 
-       Подробнее см. в разделе [Шардирование](../concepts/sharding.md).
+       Подробнее читайте в разделе [Шардирование](../concepts/sharding.md).
 
      {% note warning %}
 
@@ -283,7 +283,7 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_cluster.md).
+  Подробнее читайте в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_cluster.md).
 
 - REST API {#api}
 
@@ -639,7 +639,7 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_cluster.md).
+  Подробнее читайте в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_cluster.md).
 
 - REST API {#api}
 
@@ -841,7 +841,7 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_cluster.md).
+  Подробнее читайте в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_cluster.md).
 
 - REST API {#api}
 

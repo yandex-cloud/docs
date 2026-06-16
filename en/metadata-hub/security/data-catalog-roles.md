@@ -1,3 +1,8 @@
+---
+title: Service roles to manage metadata in {{ data-catalog-full-name }}
+description: You can view information on metadata catalogs and manage their resources using {{ data-catalog-full-name }} service roles on different levels.
+---
+
 # Service roles to manage metadata in {{ data-catalog-full-name }}
 
 
@@ -248,9 +253,9 @@ To view information about metadata catalogs and manage their resources, you can 
 
 {% include [data-catalog.lineages.admin](../../_roles/data-catalog/lineages/admin.md) %}
 
-## What roles do I need {#choosing-roles}
+## Required roles {#choosing-roles}
 
-The table below lists the roles required for specific actions. You can always assign a role with more permissions. For example, you can assign the `editor` role instead of `viewer`.
+The table below lists the roles required for specific actions. You can always assign a role with more permissions, e.g., `editor` instead of `viewer`.
 
 | Action                                                       | Required roles                                      |
 |----------------------------------------------------------------|-------------------------------------------------------|

@@ -1,8 +1,8 @@
-The `monium.editor` role enables managing Monium resources, as well as reading and writing all types of telemetry.
+The `monium.editor` role enables managing {{ monium-name }} resources, as well as reading and writing all types of telemetry.
 
 Users with this role can:
 * View info on [projects](../../monium/concepts/glossary.md#project) and [access permissions](../../iam/concepts/access-control/index.md) assigned to them, as well as set up projects.
-* Read and write all types of Monium telemetry, such as [metrics](../../monium/metrics/quickstart.md), [logs](../../monium/logs/quickstart.md), and [distributed tracing](../../monium/traces/index.md).
+* Read and write all types of {{ monium-name }} telemetry, such as [metrics](../../monium/metrics/quickstart.md), [logs](../../monium/logs/quickstart.md), and [distributed tracing](../../monium/traces/index.md).
 * View [dashboards](../../monium/concepts/visualization/dashboard.md) and their [widgets](../../monium/concepts/visualization/widget.md), as well as create, modify, and delete dashboards.
 * View the set-up context links on dashboard [charts](../../monium/concepts/visualization/widget.md#chart), as well as create, edit, and delete such links.
 * View the list of the set-up [quick links](../../monium/concepts/glossary.md#project-menu) and info on them in the [project](../../monium/concepts/glossary.md#project) menu, as well as create, modify, and delete such links.
@@ -14,7 +14,7 @@ Users with this role can:
 * View info on alert notifications and [escalations](../../monium/concepts/alerting/escalations.md), as well as create, modify, and delete escalations.
 * View, create, edit, and delete [mutes](../../monium/alerts/mutes.md), i.e., rules for temporarily disabling alert [notifications](../../monium/concepts/alerting/notification-channel.md).
 * View, add new, edit, and delete the existing [labels](../../monium/traces/operations/traces-explorer.md) to log errors.
-* View info on the Yandex Managed Service for Prometheus® [rules](../../monium/operations/prometheus/recording-rules.md), as well as create, modify, and delete such rules.
+* View info on the {{ managed-prometheus-full-name }} [rules](../../monium/operations/prometheus/recording-rules.md), as well as create, modify, and delete such rules.
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 This role includes the `monium.viewer`, `monium.telemetry.writer`, `monium.dashboards.editor`, `monium.shards.editor`, `monium.contextLinks.editor`, `monium.quickLinks.editor`, `monium.alerts.editor`, `monium.serviceLevelObjectives.editor`, `monium.channels.editor`, `monium.escalationPolicies.editor`, `monium.escalations.editor`, `monium.mutes.editor`, and `monium.logErrorLabels.editor` permissions.

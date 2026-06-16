@@ -221,6 +221,6 @@
 1. [Удалите](../../../compute/operations/instance-groups/delete.md) группу ВМ.
 1. [Удалите](../../../vpc/operations/address-delete.md) статический публичный IP-адрес, если вы его зарезервировали.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Отказоустойчивый сайт с балансировкой нагрузки через Yandex Network Load Balancer с помощью Terraform](terraform.md)

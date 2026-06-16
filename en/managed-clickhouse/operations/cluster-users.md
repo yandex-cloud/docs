@@ -3,43 +3,33 @@ title: Managing {{ CH }} cluster users in {{ mch-full-name }}
 description: In this guide, you will learn how to manage {{ mch-name }} cluster users.
 ---
 
-# Managing {{ CH }} users
+# User management {{ CH }}
 
-{{ mch-name }} provides two methods for managing users and their individual settings:
+{{ mch-name }} provides two methods to manage users and their individual settings:
 
-* Native {{ yandex-cloud }} interfaces, such as the management console, CLI, {{ TF }}, or API. Select this method to create, edit, and delete users and custom user settings using the {{ mch-full-name }} features.
-* Using SQL queries against the cluster. Select this method to use your own solutions to create and manage users or if you are using [RBAC](https://en.wikipedia.org/wiki/Role-based_access_control).
-
-{% note warning %}
-
-In a {{ mch-name }} cluster, you can only employ one user management method at a time: either via native interfaces or via SQL queries.
-
-{% endnote %}
-
-{% note info %}
-
-Creating a {{ CH }} cluster automatically creates service users to administer and monitor the service.
-
-{% endnote %}
-
-## User management via SQL {#sql-user-management}
+* Via {{ yandex-cloud }} interfaces ([management console]({{ link-console-main }}), [CLI](../../cli/index.yaml), {{ TF }}, and API).
+* Via SQL.
 
 
-To enable this management method, select **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** when [creating](cluster-create.md) or [reconfiguring](update.md#SQL-management) your cluster.
+Concurrent management via {{ yandex-cloud }} interfaces and via SQL is not supported.
 
-{% note warning %}
+You can choose the management method:
 
-You cannot disable **User management via SQL** once it is enabled.
+* Via {{ yandex-cloud }} interfaces: only when [creating a cluster](../operations/cluster-create.md).
+* Via SQL: when [creating a cluster](../operations/cluster-create.md) or [updating its settings](../operations/update.md#SQL-management).
 
-{% endnote %}
 
-In a cluster with **User management via SQL** enabled:
+[Learn more about managing users and access permissions in {{ mch-name }}](../concepts/user-access-rights.md).
 
-* User management via the native {{ yandex-cloud }} interfaces, such as the management console, CLI, {{ TF }}, and API, is unavailable.
-* The existing users as well as user settings created with the native {{ yandex-cloud }} interfaces will remain unchanged.
-* Users are managed by the `admin` account. You set the `admin` password when selecting the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** option.
+When managing users, you have access to the following actions:
 
-For more information about managing users via SQL, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/access-rights).
+* [Getting a list of users](#list-users).
+* [Creating a user](#adduser).
+* [Changing a password](#updateuser).
+* [Changing the admin user password](#admin-password-change).
+* [Updating user settings](#update-settings).
+* [Deleting a user](#removeuser).
+
 
 ## Getting a list of users {#list-users}
 
@@ -109,7 +99,7 @@ For more information about managing users via SQL, see [this {{ CH }} guide]({{ 
             yandex.cloud.mdb.clickhouse.v1.UserService.List
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/User/list.md#yandex.cloud.mdb.clickhouse.v1.ListUsersResponse) to make sure your request was successful.
 
@@ -332,7 +322,7 @@ For more information about managing users via SQL, see [this {{ CH }} guide]({{ 
               --data '@body.json'
             ```
 
-            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/User/create.md#responses) to make sure your request was successful.
 
@@ -392,7 +382,7 @@ For more information about managing users via SQL, see [this {{ CH }} guide]({{ 
 
             * `quotas`: Array of [quota settings](../concepts/settings-list.md#quota-settings). Each array element contains settings for a single quota.
 
-            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
         1. Run this request:
 
@@ -573,7 +563,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
            To view passwords, you need the `lockbox.payloadViewer` role.
 
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/User/update.md#responses) to make sure your request was successful.
 
@@ -639,7 +629,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
            To view passwords, you need the `lockbox.payloadViewer` role.
 
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -687,7 +677,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
         ```hcl
         resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
           ...
-          admin_password = "<admin_user_password>"
+          admin_password = "<admin_password>"
           ...
         }
         ```
@@ -739,7 +729,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
             The password must be from 8 to 128 characters long.
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
 
@@ -787,7 +777,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
             The password must be from 8 to 128 characters long.
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1000,7 +990,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
             {% endnote %}
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/User/update.md#responses) to make sure your request was successful.
 
@@ -1069,7 +1059,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
             {% endnote %}
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1157,7 +1147,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/users/<username>'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/User/delete.md#responses) to make sure your request was successful.
 
@@ -1186,7 +1176,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
             yandex.cloud.mdb.clickhouse.v1.UserService.Delete
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/grpc/User/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

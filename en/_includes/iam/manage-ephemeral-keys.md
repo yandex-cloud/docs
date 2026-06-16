@@ -50,6 +50,10 @@ To create an ephemeral access key, the user needs the `iam.serviceAccounts.ephem
 
   1. Save `access_key_id`, the `secret` key, and `session_token`. You will not be able to get these values again.
 
+- API {#api}
+
+    Use the [createEphemeral](../../iam/awscompatibility/api-ref/TemporaryAccessKey/createEphemeral.md) REST API method for the [TemporaryAccessKey](../../iam/awscompatibility/api-ref/TemporaryAccessKey/index.md) resource or the [TemporaryAccessKeyService/CreateEphemeral](../../iam/awscompatibility/api-ref/grpc/TemporaryAccessKey/createEphemeral.md) gRPC API call.
+
 {% endlist %}
 
 

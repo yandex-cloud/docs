@@ -224,7 +224,7 @@
   
         {% endnote %}
   
-     Более подробную информацию о параметрах ресурса `yandex_vpc_private_endpoint` см. в [документации провайдера](../../terraform/resources/vpc_private_endpoint.md).
+     Подробнее о параметрах ресурса `yandex_vpc_private_endpoint` в [документации провайдера](../../terraform/resources/vpc_private_endpoint.md).
   
   1. Создайте ресурсы:
   
@@ -268,7 +268,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Получить информацию о сервисном подключении](private-endpoint-get-info.md)
 * [Удалить сервисное подключение](private-endpoint-delete.md)

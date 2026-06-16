@@ -133,6 +133,6 @@
 
     {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Работа с операциями](../../api-design-guide/concepts/about-async.md)

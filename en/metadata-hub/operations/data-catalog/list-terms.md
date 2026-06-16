@@ -1,3 +1,8 @@
+---
+title: Getting a list of terms
+description: Follow this guide to get a list of terms in {{ data-catalog-full-name }}.
+---
+
 # Getting a list of terms
 
 

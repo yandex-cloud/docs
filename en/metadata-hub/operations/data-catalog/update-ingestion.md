@@ -1,3 +1,8 @@
+---
+title: Updating a data ingestion
+description: In this tutorial, you will learn how to update a data ingestion in {{ data-catalog-full-name }}.
+---
+
 # Updating a data ingestion
 
 

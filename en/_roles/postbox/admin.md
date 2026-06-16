@@ -1,4 +1,4 @@
-The `postbox.admin` role enables managing Yandex Cloud Postbox addresses, sending emails, and viewing info on sent emails as well as their statistics.
+The `postbox.admin` role enables managing {{ postbox-name }} addresses, sending emails, and viewing info on sent emails as well as their statistics.
 
 Users with this role can:
 * Create, modify, and delete [addresses](../../postbox/concepts/glossary.md#adress) and their [configurations](../../postbox/concepts/glossary.md#configuration).

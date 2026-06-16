@@ -1,1 +1,1 @@
-Роль `yds.writer` позволяет записывать данные в [потоки Data Streams](../../data-streams/concepts/glossary.md#stream-concepts), а также устанавливать соединения c [базами данных YDB](../../ydb/concepts/resources.md#database).
+Роль `yds.writer` позволяет записывать данные в [потоки {{ yds-name }}](../../data-streams/concepts/glossary.md#stream-concepts), а также устанавливать соединения c [базами данных {{ ydb-short-name }}](../../ydb/concepts/resources.md#database).

@@ -1,11 +1,5 @@
 # Как начать работать с Managed Service for Sharded PostgreSQL
 
-{% note info %}
-
-Сервис находится на стадии [Preview](../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 Сервис Managed Service for Sharded PostgreSQL позволяет создавать и поддерживать кластеры шардированного PostgreSQL ([SPQR](https://pg-sharding.tech/welcome)) в инфраструктуре Yandex Cloud. Sharded PostgreSQL использует протокол PostgreSQL, поэтому настраивать правила шардирования и выполнять запросы к базе данных можно с помощью клиента `psql`. Настройка правил шардирования выполняется через консоль администратора (SPQR router admin console). При подключении к консоли администратора укажите имя пользователя `spqr-console` и имя базы данных `spqr-console`.
 
 Чтобы начать работу с сервисом:

@@ -5,12 +5,12 @@ description: This document comprises a list of sections with recommendations on 
 
 {% include [overview](../../_includes/security/standard-360/overview.md) %}
 
-{% include [authentication](../../_includes/security/standard-360/authentication.md) %}
+{% include notitle [authentication](../../_includes/security/standard-360/authentication.md) %}
 
-{% include [session-security](../../_includes/security/standard-360/session-security.md) %}
+{% include notitle [session-security](../../_includes/security/standard-360/session-security.md) %}
 
-{% include [monitoring](../../_includes/security/standard-360/monitoring.md) %}
+{% include notitle [monitoring](../../_includes/security/standard-360/monitoring.md) %}
 
-{% include [encryption-data-protection](../../_includes/security/standard-360/encryption-data-protection.md) %}
+{% include notitle [encryption-data-protection](../../_includes/security/standard-360/encryption-data-protection.md) %}
 
-{% include [integrations](../../_includes/security/standard-360/integrations.md) %}
+{% include notitle [integrations](../../_includes/security/standard-360/integrations.md) %}

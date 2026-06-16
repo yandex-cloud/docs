@@ -30,10 +30,10 @@
 
 В стоимость поддержки решения входят:
 
-* плата за использование виртуальной машины и диска (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование кластера Managed Service for PostgreSQL (см. [тарифы Yandex Managed Service for PostgreSQL](../../managed-postgresql/pricing.md));
-* плата за аренду серверов BareMetal (см. [тарифы Yandex BareMetal](../pricing.md));
-* плата за использование ресурсов Yandex Cloud Interconnect (см. [тарифы Yandex Cloud Interconnect](../../interconnect/pricing.md)).
+* плата за использование виртуальной машины и диска ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за использование кластера Managed Service for PostgreSQL ([тарифы Yandex Managed Service for PostgreSQL](../../managed-postgresql/pricing.md));
+* плата за аренду серверов BareMetal ([тарифы Yandex BareMetal](../pricing.md));
+* плата за использование ресурсов Yandex Cloud Interconnect ([тарифы Yandex Cloud Interconnect](../../interconnect/pricing.md)).
 
 ### Создайте кластер Managed Service for PostgreSQL {#create-postgresql-cluster}
 

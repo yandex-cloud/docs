@@ -75,22 +75,22 @@ You can always assign a role offering more permissions (e.g., `admin` instead of
 | Getting metadata on transfers and endpoints                              | `data-transfer.viewer`       |
 | Getting information about {{ data-transfer-name }} quotas               | `data-transfer.viewer`       |
 | Getting information about transfers and endpoints                               | `data-transfer.viewer`       |
-| Creating an endpoint in {{ yandex-cloud }}                                       | `data-transfer.editor` |
-| Updating an endpoint in {{ yandex-cloud }}                                      | `data-transfer.editor` |
-| Deleting an endpoint in {{ yandex-cloud }}                                       | `data-transfer.editor` |
+| Creating an endpoint in {{ yandex-cloud }}                                       | `data-transfer.privateAdmin` |
+| Updating an endpoint in {{ yandex-cloud }}                                      | `data-transfer.privateAdmin` |
+| Deleting an endpoint in {{ yandex-cloud }}                                       | `data-transfer.privateAdmin` |
 | Creating a data transfer in {{ yandex-cloud }}                    | `data-transfer.privateAdmin` |
 | Updating a data transfer in {{ yandex-cloud }}                   | `data-transfer.privateAdmin` |
 | Activating a data transfer in {{ yandex-cloud }}               | `data-transfer.privateAdmin` |
 | Deactivating a data transfer in {{ yandex-cloud }}             | `data-transfer.privateAdmin` |
-| Deleting a data transfer in {{ yandex-cloud }}                    | `data-transfer.editor` |
-| Creating an endpoint in or outside {{ yandex-cloud }}                  | `data-transfer.editor`        |
-| Updating an endpoint in or outside {{ yandex-cloud }}                 | `data-transfer.editor`        |
-| Deleting an endpoint in or outside {{ yandex-cloud }}                  | `data-transfer.editor`        |
+| Deleting a data transfer in {{ yandex-cloud }}                    | `data-transfer.privateAdmin` |
+| Creating an endpoint in or outside {{ yandex-cloud }}                  | `data-transfer.admin`        |
+| Updating an endpoint in or outside {{ yandex-cloud }}                 | `data-transfer.admin`        |
+| Deleting an endpoint in or outside {{ yandex-cloud }}                  | `data-transfer.admin`        |
 | Creating a data transfer to {{ yandex-cloud }} or over the internet | `data-transfer.admin`        |
 | Updating a data transfer to {{ yandex-cloud }} or over the internet | `data-transfer.admin`       |
 | Activating a data transfer to {{ yandex-cloud }} or over the internet | `data-transfer.admin`   |
 | Deactivating a data transfer to {{ yandex-cloud }} or over the internet | `data-transfer.admin` |
-| Deleting a data transfer to {{ yandex-cloud }} or over the internet | `data-transfer.editor`        |
+| Deleting a data transfer to {{ yandex-cloud }} or over the internet | `data-transfer.admin`        |
 
 ## What's next {#whats-next}
 

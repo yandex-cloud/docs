@@ -42,7 +42,7 @@
      1. Укажите имя агента, например `agent-008`.
      1. Укажите ту же [зону доступности](../../overview/concepts/geo-scope.md), в которой находится цель тестирования.
      1. В блоке **Агент**:
-        * Выберите подходящий тип агента. Подробнее см. в разделе [Производительность агентов](../concepts/agent.md#benchmark).
+        * Выберите подходящий тип агента. Подробнее в разделе [Производительность агентов](../concepts/agent.md#benchmark).
         * Укажите [подсеть](../../vpc/concepts/network.md#subnet), в которой находится цель тестирования. В подсети должен быть создан и [настроен NAT-шлюз](../../vpc/operations/create-nat-gateway.md).
         * Если вам доступны [группы безопасности](../../vpc/concepts/security-groups.md), выберите заранее настроенную группу безопасности агента.
      1. В блоке **Доступ** укажите данные для доступа к агенту:
@@ -165,7 +165,7 @@
         * `--service-account-id` — идентификатор сервисного аккаунта.
         * `--metadata-from-file` — пара `<ключ>=<значение>` с именем файла, содержащим путь к публичному SSH-ключу. Пример содержимого файла конфигурации `metadata.yaml` можно посмотреть в разделе [Метаданные виртуальной машины](../../compute/concepts/vm-metadata.md#how-to-send-metadata).
 
-        Подробнее о создании агента с помощью CLI см. в [репозитории Yandex Cloud Examples](https://github.com/yandex-cloud-examples/yc-load-testing-create-agent).
+        Подробнее о создании агента с помощью CLI в [репозитории Yandex Cloud Examples](https://github.com/yandex-cloud-examples/yc-load-testing-create-agent).
 
    {% endlist %}
 
@@ -222,7 +222,7 @@
      placement_policy: {}
      ```
    
-     Подробнее о команде `yc compute instance add-one-to-one-nat` см. в [справочнике CLI](../../cli/cli-ref/compute/cli-ref/instance/add-one-to-one-nat.md).
+     Подробнее о команде `yc compute instance add-one-to-one-nat` в [справочнике CLI](../../cli/cli-ref/compute/cli-ref/instance/add-one-to-one-nat.md).
 
    {% endlist %}
 
@@ -237,7 +237,7 @@
    1. На вкладке ![image](../../_assets/load-testing/test.svg) **Тесты** нажмите **Создать тест**.
    1. В секции **Агенты** нажмите **Временный**.
    1. В блоке **Настройки временного агента**:
-      * Выберите подходящий тип агента. Подробнее см. в разделе [Производительность агентов](../concepts/agent.md#benchmark).
+      * Выберите подходящий тип агента. Подробнее в разделе [Производительность агентов](../concepts/agent.md#benchmark).
 
       {% note warning %}
 

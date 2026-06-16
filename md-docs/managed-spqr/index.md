@@ -4,11 +4,11 @@
 
 SPQR (Stateless Postgres Query Router) — это система горизонтального масштабирования PostgreSQL через шардирование, основанная на технологиях <a href="https://opensource.yandex/projects/">Yandex Open Source</a>.
 
-Сервис находится на стадии <a href="../overview/concepts/launch-stages.md">Preview</a>. Запросить доступ можно на <a href="https://yandex.cloud/ru/services/managed-spqr">странице сервиса</a>.
-
 Инфраструктура Yandex Cloud <a href="../security/conform.md">защищена</a> в соответствии со следующими стандартами:
 
 <ul> <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>
+
+Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href="https://yandex.ru/legal/cloud_sla_mdb">Уровень обслуживания Yandex Managed Databases</a>.
 
 # Yandex Managed Service for Sharded PostgreSQL
 

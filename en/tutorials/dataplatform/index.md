@@ -120,6 +120,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](opensearch-saml-keycloak.md)
 * [{#T}](opensearch-yandex-lemmer.md)
 * [{#T}](opensearch-email-notifications.md)
+* [{#T}](mos-mcp.md)
 
 ## {{ PG }} {#postgresql}
 

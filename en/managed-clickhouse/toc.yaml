@@ -234,6 +234,8 @@ items:
         href: concepts/sharding.md
       - name: Maintenance
         href: concepts/maintenance.md
+      - name: Managing users and access permissions
+        href: concepts/user-access-rights.md
       - name: Supported clients
         href: concepts/supported-clients.md
       - name: Memory management

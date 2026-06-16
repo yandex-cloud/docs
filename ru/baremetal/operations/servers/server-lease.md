@@ -35,7 +35,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% include [server-lease-step11](../../../_includes/baremetal/instruction-steps/server-lease-step11.md) %}
 
-          Подробнее см. в инструкции [{#T}](../../../backup/operations/backup-baremetal/lease-server-with-backup.md).
+          Подробнее в инструкции [{#T}](../../../backup/operations/backup-baremetal/lease-server-with-backup.md).
       1. {% include [server-lease-step12](../../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
       1. {% include [server-lease-step13](../../../_includes/baremetal/instruction-steps/server-lease-step13.md) %}
 
@@ -85,7 +85,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-После того как вы арендуете сервер, вы в любой момент сможете установить или переустановить на нем операционную систему из публичного образа в {{ marketplace-name }} или из собственного ISO-образа. Подробнее см. в инструкциях [{#T}](./reinstall-os-from-marketplace.md) и [{#T}](./reinstall-os-from-own-image.md).
+После того как вы арендуете сервер, вы в любой момент сможете установить или переустановить на нем операционную систему из публичного образа в {{ marketplace-name }} или из собственного ISO-образа. Подробнее в инструкциях [{#T}](./reinstall-os-from-marketplace.md) и [{#T}](./reinstall-os-from-own-image.md).
 
 ## Пример {#example}
 
@@ -344,6 +344,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./custom-server-lease.md)

@@ -72,7 +72,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% include [server-lease-step11](../../../_includes/baremetal/instruction-steps/server-lease-step11.md) %}
 
-          Подробнее см. в инструкции [{#T}](../../../backup/operations/backup-baremetal/lease-server-with-backup.md).
+          Подробнее в инструкции [{#T}](../../../backup/operations/backup-baremetal/lease-server-with-backup.md).
       1. {% include [server-lease-step12](../../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
       1. {% include [server-lease-step13](../../../_includes/baremetal/instruction-steps/server-lease-step13.md) %}
 

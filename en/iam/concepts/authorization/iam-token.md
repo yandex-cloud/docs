@@ -2,11 +2,11 @@
 
 An IAM token is a unique sequence of characters issued to a user after authentication. This is the preferred authentication method for both users and applications (using [service accounts](../users/service-accounts.md)). IAM tokens are issued for [Yandex accounts](../../operations/iam-token/create.md), [service accounts](../../operations/iam-token/create-for-sa.md), [federated accounts](../../operations/iam-token/create-for-federation.md), and [local accounts](../../operations/iam-token/create-for-local.md).
 
-IAM token authentication is supported for most operations, except in individual services or APIs where other types of credentials are required.
+IAM token authentication is supported for most operations, except in some services or APIs where other types of credentials are required.
 
 ## Using the token {#use}
 
-IAM tokens are used for authentication in {{ yandex-cloud }} services as well as authentication of [Docker](../../../container-registry/operations/authentication.md) and [Helm](../../../container-registry/operations/helm-chart/helm-chart-push.md) clients in {{ container-registry-full-name }}.
+IAM tokens serve to authenticate in {{ yandex-cloud }} services and [Docker](../../../container-registry/operations/authentication.md) and [Helm](../../../container-registry/operations/helm-chart/helm-chart-push.md) clients in {{ container-registry-full-name }}.
 
 If you are using the management console or the command line interface (CLI), you do not need to do anything to get or use a token.
 
@@ -16,7 +16,7 @@ You can use IAM tokens for authentication when making API calls to {{ yandex-clo
 Authorization: Bearer <IAM_token>
 ```
 
-To work with {{ TF }}, [add an IAM token to environment variables](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) or specify it in the [provider configuration file](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider):
+To work with {{ TF }}, [add an IAM token to environment variables](../../../terraform/authentication.md) or specify it in the [provider configuration file](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider):
 
 ```hcl
 provider "yandex" {

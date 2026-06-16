@@ -26,7 +26,7 @@
    kubectl get volumegroups -A -o wide
    ```
 
-Подробнее о доступных классах хранилища см. в разделе [Дисковая подсистема](../../concepts/components/disk-storage.md#storage-classes).
+Подробнее о доступных классах хранилища в разделе [Дисковая подсистема](../../concepts/components/disk-storage.md#storage-classes).
 
 ## Смена класса хранилища по умолчанию {#change-default}
 
@@ -103,7 +103,7 @@ spec:
   # ...
 ```
 
-Подробнее о создании кластера см. в разделе [Создать кластер PostgreSQL](../postgresql/create-cluster.md).
+Подробнее о создании кластера в разделе [Создать кластер PostgreSQL](../postgresql/create-cluster.md).
 
 ### {{ CH }} {#clickhouse}
 
@@ -126,7 +126,7 @@ spec:
       storageClass: "stackland-ssd"
 ```
 
-Подробнее о создании кластера см. в разделе [Создать кластер {{ mch-name }}](../clickhouse/create-cluster.md).
+Подробнее о создании кластера в разделе [Создать кластер {{ mch-name }}](../clickhouse/create-cluster.md).
 
 ### {{ KF }} {#kafka}
 
@@ -149,7 +149,7 @@ spec:
   # ...
 ```
 
-Подробнее о создании кластера см. в разделе [Создать кластер](../kafka/create-cluster.md).
+Подробнее о создании кластера в разделе [Создать кластер](../kafka/create-cluster.md).
 
 ## Переключение класса хранилища для системных компонентов {#system-components}
 

@@ -5,6 +5,6 @@
 * создавать, изменять и удалять рабочие процессы;
 * запускать, приостанавливать, возобновлять и останавливать рабочие процессы;
 * просматривать историю [запусков](../../../serverless-integrations/concepts/workflows/execution.md) рабочих процессов;
-* просматривать информацию о [квотах](../../../serverless-integrations/concepts/limits.md#workflows) Yandex Workflows.
+* просматривать информацию о [квотах](../../../serverless-integrations/concepts/limits.md#workflows) {{ sw-full-name }}.
 
 Включает разрешения, предоставляемые ролями `serverless.workflows.viewer` и `serverless.workflows.executor`.
