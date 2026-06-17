@@ -21,7 +21,7 @@
 
 * [{#T}](../../tutorials/serverless-trigger-budget-vm.md)
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../../serverless-containers/concepts/trigger/budget-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/budget-trigger.md)

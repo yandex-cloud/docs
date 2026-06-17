@@ -4,7 +4,7 @@ Transfer status details are available in the management console:
 
 * Detailed diagnostic information is presented as charts. You can view them in the **{{ ui-key.yacloud.data-transfer.label_monitoring }}** tab of the transfer management page or in [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
 
-You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }} to receive notifications about transfer failures. In {{ monitoring-full-name }}, there are two alert thresholds: `Warning` and `Alarm`. If the specified threshold is exceeded, you will receive alerts via the configured [notification channels](../../monitoring/concepts/alerting.md#notification-channel).
+You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }} to receive notifications about transfer failures. In {{ monitoring-full-name }}, there are two trigger thresholds: `Warning` and `Alarm`. If the specified threshold is exceeded, you will get alerts via the configured [notification channels](../../monitoring/concepts/alerting.md#notification-channel).
 
 You can also use the {{ yandex-cloud }} [mobile app](/mobile-app) to monitor transfer statuses and get their logs.
 
@@ -26,8 +26,8 @@ Some errors you may see on the selected transfer timeline:
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}).
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. Open the [folder dashboard]({{ link-console-main }}).
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
   1. Click the transfer name and open the ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.data-transfer.label_monitoring }}** tab.
   1. To get started with {{ monitoring-full-name }} metrics, dashboards, or alerts, click **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** in the top panel.
@@ -94,11 +94,11 @@ Type of the operation in progress: `1`, meaning the task is active.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with the transfer you want to set up alerts for.
-  1. [Go to](../../console/operations/select-service.md#select-service) ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. Go to ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.value_data-transfer }}**.
   1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
-  1. If the chart shows multiple metrics, select the data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
-  1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` thresholds to trigger the alert.
+  1. If the chart displays multiple metrics, select the data query for the relevant metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
+  1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` alert thresholds.
   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
@@ -192,7 +192,7 @@ Alert parameters:
     * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**: `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}`.
     * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}**: `1 minute`.
 
-### Read {#reading}
+### Reading {#reading}
 
 Alert triggering means that no bytes of data were read from the source during the evaluation window.
 
@@ -222,3 +222,4 @@ Alert parameters:
 ## Working with alerts {#alert-specifics}
 
 * To determine the causes of the transfer failure, check all available alerts. Information about which alerts worked and which did not will enable you to determine the cause more accurately. For example, if the [Number of source events](#source-change-items) alert has fired, and the [Number of target events](#target-change-items) alert has not, in all probability the problem is not on the source.
+

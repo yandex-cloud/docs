@@ -2,6 +2,6 @@
 
 {% include notitle [Migration with Data Transfer](../../../_tutorials/dataplatform/datatransfer/managed-mysql.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](logical-dump-migration.md).

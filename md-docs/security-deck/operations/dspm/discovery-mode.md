@@ -112,7 +112,7 @@
 {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Модуль контроля данных (DSPM)](../../concepts/dspm.md)
 * [Окружения Security Deck](../../concepts/workspace.md)

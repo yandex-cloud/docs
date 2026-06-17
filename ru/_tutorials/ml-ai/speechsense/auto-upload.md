@@ -50,11 +50,11 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Сервис {{ speechsense-name }}: длительность каждого двухканального аудиофайла или количество символов в каждом текстовом диалоге (см. [тарифы {{ speechsense-name }}]({{ link-docs-ai }}speechsense/pricing)).
-* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
-* Кластер {{ mpg-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
-* Функция {{ sf-full-name }}: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы (см. [тарифы {{ sf-name }}](../../../functions/pricing.md)).
-* Секрет {{ lockbox-name }}: количество хранимых версий секрета и запросы к ним (см. [тарифы {{ lockbox-name }}](../../../lockbox/pricing.md)).
+* Сервис {{ speechsense-name }}: длительность каждого двухканального аудиофайла или количество символов в каждом текстовом диалоге ([тарифы {{ speechsense-name }}]({{ link-docs-ai }}speechsense/pricing)).
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
+* Кластер {{ mpg-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
+* Функция {{ sf-full-name }}: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы ([тарифы {{ sf-name }}](../../../functions/pricing.md)).
+* Секрет {{ lockbox-name }}: количество хранимых версий секрета и запросы к ним ([тарифы {{ lockbox-name }}](../../../lockbox/pricing.md)).
 
 ### Создайте сервисные аккаунты {#create-sa}
 
@@ -346,7 +346,7 @@
           key_algorithm: RSA_2048
           ```
       
-          Подробнее о команде `yc iam key create` см. в [справочнике CLI](../../../cli/cli-ref/iam/cli-ref/service-account/create.md).
+          Подробнее о команде `yc iam key create` смотрите в [справочнике CLI](../../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
        1. Создайте профиль, который будет использоваться для выполнения операций от имени сервисного аккаунта `deploy-sa`:
 
@@ -771,3 +771,4 @@
     1. На панели слева выберите ![GraphNode](../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
     1. В строке с рабочим процессом `wf-speechsense-upload` нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
     1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.delete }}**.
+

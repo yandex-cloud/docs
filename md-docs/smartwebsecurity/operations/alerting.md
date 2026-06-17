@@ -189,7 +189,7 @@
 1. В блоке **Уведомления** добавьте канал для отправки уведомления.
 1. Нажмите **Создать**.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Справочник метрик Yandex Monitoring](../metrics.md)
 * [Строка запроса](../../monitoring/concepts/visualization/query-string.md)

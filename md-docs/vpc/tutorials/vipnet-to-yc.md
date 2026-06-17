@@ -87,9 +87,9 @@ VPN-туннель работает между двумя решениями ViP
 ## Необходимые платные ресурсы {#paid-resources}
 
 В стоимость инфраструктуры входит:
-* Плата за вычислительные ресурсы, диски и образы ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за хранение данных в бакете и операции с ними (см. [тарифы Yandex Object Storage](../../storage/pricing.md)).
-* Плата за публичный IP-адрес и исходящий трафик (см. [тарифы Yandex Virtual Private Cloud](../pricing.md)).
+* Плата за вычислительные ресурсы, диски и образы ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за хранение данных в бакете и операции с ними ([тарифы Yandex Object Storage](../../storage/pricing.md)).
+* Плата за публичный IP-адрес и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../pricing.md)).
 
 
 ## Подготовьте окружение {#environment-preparing}

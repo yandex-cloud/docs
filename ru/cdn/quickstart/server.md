@@ -95,7 +95,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [quickstart-check-cdn-working](../../_includes/cdn/quickstart-check-cdn-working.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./bucket.md)
 * [{#T}](../concepts/index.md)
@@ -103,3 +103,4 @@ description: Следуя данной инструкции, вы сможете
 * [Аренда сервера {{ baremetal-name }} в готовой конфигурации](../../baremetal/operations/servers/server-lease.md)
 * [Создание сайта на LAMP- или LEMP-стеке](../../tutorials/web/lamp-lemp/index.md)
 * [Настройка веб-сервера](../tutorials/protected-access-to-content/console.md#setup-web-server)
+* [Вебинар: как с помощью Cloud CDN разгрузить высоконагруженную инфраструктуру](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)

@@ -46,8 +46,8 @@ X-Amz-Date: <время_в_формате_ISO_8601>
 В запросе нужно передать один из заголовков для аутентификации:
 
 * `X-YaCloud-SubjectToken` — содержит IAM-токен сервисного аккаунта. Подробнее об [аутентификации через IAM-токен](../api-ref/authentication.md).
-* `Authorization` — содержит статический ключ доступа и подпись запроса. Она нужна, если вы используете API напрямую, без [AWS CLI](../tools/aws-cli.md) и приложений. {{ postbox-name }} поддерживает подпись [Amazon Signature Version 4](https://docs.amazonaws.cn/en_us/IAM/latest/UserGuide/reference_aws-signing.html). Подробнее см. в [описании заголовка](signing-requests.md#authorization-header) `Authorization`.
+* `Authorization` — содержит статический ключ доступа и подпись запроса. Она нужна, если вы используете API напрямую, без [AWS CLI](../tools/aws-cli.md) и приложений. {{ postbox-name }} поддерживает подпись [Amazon Signature Version 4](https://docs.amazonaws.cn/en_us/IAM/latest/UserGuide/reference_aws-signing.html). Подробнее в [описании заголовка](signing-requests.md#authorization-header) `Authorization`.
 
-   Отрабатывать создание подписи вы можете с помощью AWS CLI в режиме отладки. Для этого к команде `aws` добавляйте флаг `--debug`. Подробнее см. в [примере отладки](signing-requests.md#debugging).
+   Отрабатывать создание подписи вы можете с помощью AWS CLI в режиме отладки. Для этого к команде `aws` добавляйте флаг `--debug`. Подробнее в [примере отладки](signing-requests.md#debugging).
 
-   Чтобы не составлять подпись вручную, вы можете использовать утилиту [cURL](https://curl.se/) — она автоматически подписывает запросы к API Amazon. Подробнее см. в [примере использования API](#ses-api-example).
+   Чтобы не составлять подпись вручную, вы можете использовать утилиту [cURL](https://curl.se/) — она автоматически подписывает запросы к API Amazon. Подробнее в [примере использования API](#ses-api-example).

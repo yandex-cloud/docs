@@ -368,6 +368,8 @@
 
 {% endlist %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 ## Убедитесь в корректной работе приложения {#validate}
 
 Чтобы убедиться в корректной работе OIDC-приложения и интеграции с MWS, выполните аутентификацию в MWS от имени одного из добавленных в приложение пользователей.

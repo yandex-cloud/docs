@@ -24,6 +24,6 @@ description: Под техническим обслуживанием в {{ maf-
 
 {% endnote %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Управление техническим обслуживанием в кластере {{ maf-name }}](../operations/cluster-maintenance.md)

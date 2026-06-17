@@ -7,7 +7,7 @@
 * `kms.keys.decrypter` — для чтения ключа, [расшифровки](../../../kms/security/index.md#kms-keys-decrypter) и скачивания объектов;
 * `kms.keys.encrypterDecrypter` — включает [разрешения](../../../kms/security/index.md#kms-keys-encrypterDecrypter), предоставляемые ролями `kms.keys.encrypter` и `kms.keys.decrypter`.
 
-Подробнее см. [Сервисные роли Key Management Service](../../../kms/security/index.md#service-roles).
+Подробнее смотрите [Сервисные роли Key Management Service](../../../kms/security/index.md#service-roles).
 
 
 Помимо Yandex Cloud CLI и AWS CLI для переименования и перемещения объектов вы можете воспользоваться [поддерживаемыми инструментами](../../tools/index.md), например файловым браузером.

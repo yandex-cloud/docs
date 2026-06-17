@@ -7,7 +7,7 @@
 [GetBucketAcl](acl/bucketget.md) | Возвращает список управления доступом для бакета.
 [PutBucketAcl](acl/bucketput.md) | Загружает список управления доступом для бакета.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Начало работы с AWS S3 API в Yandex Object Storage](../s3-api-quickstart.md)
 

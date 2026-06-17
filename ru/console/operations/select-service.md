@@ -53,7 +53,7 @@ keywords:
 
   ![image](../../_assets/console/create-resource-dashboard.png)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](search.md)
 * [{#T}](ai-assistant.md)

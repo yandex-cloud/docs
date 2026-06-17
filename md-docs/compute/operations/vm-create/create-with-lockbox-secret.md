@@ -301,7 +301,7 @@
 
 Другие примеры конфигурации для ключа `user-data` приведены в разделе [Примеры](create-with-cloud-init-scripts.md#examples).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Метаданные виртуальной машины](../../concepts/vm-metadata.md)
 * [Создать виртуальную машину с метаданными из переменных окружения](create-with-env-variables.md)

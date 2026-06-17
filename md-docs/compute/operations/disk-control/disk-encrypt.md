@@ -6,7 +6,7 @@
 
 {% note alert %}
 
-Если удалить ключ или его [версию](../../../kms/concepts/version.md), которыми были зашифрованы диск, снимок или образ, то доступ к данным будет безвозвратно потерян. Подробнее см. [Удаление версии ключа](../../../kms/concepts/version.md#version-distruct).
+Если удалить ключ или его [версию](../../../kms/concepts/version.md), которыми были зашифрованы диск, снимок или образ, то доступ к данным будет безвозвратно потерян. Подробнее смотрите [Удаление версии ключа](../../../kms/concepts/version.md#version-distruct).
 
 {% endnote %}
 
@@ -14,7 +14,7 @@
 
 - Консоль управления {#console}
 
-  1. [Создайте](../../../kms/operations/key.md#create) ключ шифрования Yandex Key Management Service. Подробнее см. [Шифрование в Compute Cloud](../../concepts/encryption.md).
+  1. [Создайте](../../../kms/operations/key.md#create) ключ шифрования Yandex Key Management Service. Подробнее смотрите [Шифрование в Compute Cloud](../../concepts/encryption.md).
   1. [Создайте](../image-create/create-from-disk.md) образ из диска, который вы хотите зашифровать.
   1. Создайте зашифрованный диск из образа:
 
@@ -294,7 +294,7 @@
 {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Шифрование в Compute Cloud](../../concepts/encryption.md)
 * [Зашифровать образ](../image-control/encrypt.md)

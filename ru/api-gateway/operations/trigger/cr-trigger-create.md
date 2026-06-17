@@ -113,7 +113,7 @@
 
 {% include [check-result](../../../_includes/api-gateway/check-result.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для {{ container-registry-name }}, который вызывает функцию {{ sf-name }}](../../../functions/operations/trigger/cr-trigger-create.md)
 * [Триггер для {{ container-registry-name }}, который вызывает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/cr-trigger-create.md)

@@ -78,7 +78,7 @@ description: Следуя данной инструкции, вы сможете
 * [Решение проблем при входе](troubleshooting.md)
 * [Управление способами подтверждения входа](../manage-account.md#manage-mfa)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/my-account.md)
 * [{#T}](../../concepts/mfa.md)

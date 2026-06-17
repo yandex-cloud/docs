@@ -53,4 +53,4 @@ aws sns create-platform-application \
 
 В результате вы получите идентификатор (ARN) канала уведомлений. Сохраните его для использования в дальнейшем.
 
-Подробнее о команде `aws sns create-platform-application` см. в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-platform-application.html).
+Подробнее о команде `aws sns create-platform-application` смотрите в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-platform-application.html).

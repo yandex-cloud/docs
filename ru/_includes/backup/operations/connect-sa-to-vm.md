@@ -61,7 +61,7 @@
 
       {{ TF }} изменит все требуемые ресурсы. Проверить изменение ресурсов можно в [консоли управления]({{ link-console-main }}).
 
-  Более подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера]({{ tf-provider-datasources-link }}/compute_instance).
+  Более подробную информацию о параметрах ресурса `yandex_compute_instance` смотрите в [документации провайдера]({{ tf-provider-datasources-link }}/compute_instance).
 
 - API {#api}
 
@@ -69,4 +69,4 @@
 
 {% endlist %}
 
-Подробности см. в разделе [{#T}](../../../compute/operations/vm-control/vm-update.md).
+Подробности в разделе [{#T}](../../../compute/operations/vm-control/vm-update.md).

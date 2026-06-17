@@ -220,7 +220,7 @@ SQL-запросы работают только с базами данных. F
 
    ![image](../../_assets/datalens/sql-chart/selector-data-2-values.png)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 - [{#T}](../../datalens/operations/dashboard/add-chart.md)
 - [{#T}](../../datalens/operations/dashboard/add-selector.md)

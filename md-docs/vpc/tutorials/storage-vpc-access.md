@@ -3,7 +3,7 @@
 
 {% note tip %}
 
-Помимо решения, описанного в статье, доступ в Object Storage от ресурсов облачной сети без доступа в интернет также можно реализовать с помощью [сервисного подключения VPC](../concepts/private-endpoint.md). Подробнее см. на странице [Доступ в бакет с помощью сервисного подключения из VPC](../../storage/operations/buckets/access-via-vpc.md).
+Помимо решения, описанного в статье, доступ в Object Storage от ресурсов облачной сети без доступа в интернет также можно реализовать с помощью [сервисного подключения VPC](../concepts/private-endpoint.md). Подробнее на странице [Доступ в бакет с помощью сервисного подключения из VPC](../../storage/operations/buckets/access-via-vpc.md).
 
 {% endnote %}
 
@@ -104,10 +104,10 @@ warp get \
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за использование Object Storage (см. [тарифы Yandex Object Storage](../../storage/pricing.md)).
-* плата за использование сетевого балансировщика (см. [тарифы Network Load Balancer](../../network-load-balancer/pricing.md)).
-* плата за постоянно работающие ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы Yandex Virtual Private Cloud](../pricing.md)).
+* плата за использование Object Storage ([тарифы Yandex Object Storage](../../storage/pricing.md)).
+* плата за использование сетевого балансировщика ([тарифы Network Load Balancer](../../network-load-balancer/pricing.md)).
+* плата за постоянно работающие ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* плата за использование публичных IP-адресов и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../pricing.md)).
 
 ## Подготовьте среду для развертывания ресурсов {#setup-environment}
 
@@ -151,7 +151,7 @@ warp get \
     cd yc-s3-private-endpoint
     ```
 
-1. Настройте окружение для аутентификации в Terraform (подробнее см. [Начало работы с Terraform](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials)):
+1. Настройте окружение для аутентификации в Terraform (подробнее в разделе [Начало работы с Terraform](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials)):
 
     ```bash
     export YC_TOKEN=$(yc iam create-token)

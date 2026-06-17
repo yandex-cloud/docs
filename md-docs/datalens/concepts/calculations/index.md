@@ -124,7 +124,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создать поля](../../dataset/create-dataset.md#create-fields)
 * [Управление доступом на уровне строк данных (RLS)](../../security/row-level-security.md)

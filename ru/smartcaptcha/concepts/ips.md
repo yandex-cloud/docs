@@ -7,7 +7,7 @@ description: Для корректной работы с сервисом {{ cap
 
 {% include [ips.md](../../_includes/smartcaptcha-ips.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../vpc/concepts/ips.md)
 * [Диапазоны IP-адресов, используемых Яндексом]({{ link-yandex }}/ips)

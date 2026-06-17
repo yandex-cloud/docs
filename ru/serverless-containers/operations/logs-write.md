@@ -152,7 +152,7 @@ description: Следуя данной инструкции, вы сможете
             * `folder_id` — идентификатор каталога.
             * `min_level` — минимальный уровень логирования. Необязательный параметр.
 
-        Более подробную информацию о параметрах ресурса `yandex_serverless_container` см. в [документации провайдера]({{ tf-provider-resources-link }}/serverless_container).
+        Подробнее о параметрах ресурса `yandex_serverless_container` в [документации провайдера]({{ tf-provider-resources-link }}/serverless_container).
 
     1. Создайте ресурсы:
 

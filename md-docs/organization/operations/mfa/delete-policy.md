@@ -114,7 +114,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создать политику MFA](create-policy.md)
 * [Изменить политику MFA](update-policy.md)

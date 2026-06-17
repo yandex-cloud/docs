@@ -39,6 +39,6 @@ mount -t ext4 /dev/mapper/vg1-disk /storage -o rw,noatime
 
 В этом случае запись `access time (atime)` на диск не ведется и проверка файлов антивирусом не влияет на резервное копирование.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Методы резервного копирования](../../glossary/backup.md#backup-methods)

@@ -20,7 +20,7 @@
 
 {% include [preferences](../../_includes/datasphere/settings-for-data-processing.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](data-processing-template.md)
 * [{#T}](../tutorials/data-processing-integration.md)

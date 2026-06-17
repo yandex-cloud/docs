@@ -10,7 +10,7 @@
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
 
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../operations/connect/clients.md)
 * [{#T}](../operations/connect/code-examples.md)

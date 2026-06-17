@@ -13,7 +13,7 @@ description: Из статьи вы узнаете про SDK видеоплее
 
 В будущем также будет добавлен SDK для Android.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Справочник CloudVideoPlayerSDK](./CloudVideoPlayerSDK/Environment.md) — справочник основной библиотеки iOS SDK;
 * [Справочник CloudVideoPlayerSDKUI](./CloudVideoPlayerSDKUI/VideoView.md) — справочник библиотеки интерфейсных элементов iOS SDK;

@@ -49,7 +49,7 @@
 
     Минимальное значение и значение по умолчанию — `1`. Максимальное значение равно количеству хостов-брокеров в кластере.
 
-    См. также описание настройки уровня топика [Replication factor](#settings-topic-replication-factor).
+    Смотрите также описание настройки уровня топика [Replication factor](#settings-topic-replication-factor).
 
     Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_default.replication.factor).
 
@@ -103,7 +103,7 @@
 
     Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.retention.bytes).
 
-    См. также настройку [Log retention ms](#settings-log-retention-ms).
+    Смотрите также настройку [Log retention ms](#settings-log-retention-ms).
 
 * **Log retention hours** <code><b><small>Все интерфейсы</small></b></code> {#settings-log-retention-hours}
 
@@ -137,7 +137,7 @@
 
     Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.retention.ms).
 
-    См. также настройку [Log retention bytes](#settings-log-retention-bytes).
+    Смотрите также настройку [Log retention bytes](#settings-log-retention-bytes).
 
 * **Log segment bytes** <code><b><small>Все интерфейсы</small></b></code> {#settings-log-segment-bytes}
 
@@ -170,7 +170,7 @@
 
     Минимальное значение и значение по умолчанию — `1`.
 
-    См. также описание настройки уровня топика [Num partitions](#settings-topic-num-partitions).
+    Смотрите также описание настройки уровня топика [Num partitions](#settings-topic-num-partitions).
 
     Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_num.partitions).
 
@@ -272,7 +272,7 @@
 
     Время (в миллисекундах), в течение которого нужно хранить tombstone-маркеры удаления для топиков со сжатым логом. Эта настройка применяется только в том случае, если [политика очистки лога](#settings-topic-cleanup-policy) установлена в режим `Compact` или `CompactAndDelete`.
 
-    Полное описание настройки см. [в документации Apache Kafka®](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_delete.retention.ms).
+    Полное описание настройки читайте [в документации Apache Kafka®](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_delete.retention.ms).
 
 * **Flush messages** <code><b><small>Все интерфейсы</small></b></code> {#settings-topic-flush-messages}
 

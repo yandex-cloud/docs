@@ -32,8 +32,8 @@
 
 В стоимость использования виртуального роутера и тестовой ВМ входят:
 
-* плата за диски и постоянно запущенные виртуальные машины (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование публичного IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
+* плата за диски и постоянно запущенные виртуальные машины ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за использование публичного IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
 
 
 ## Создайте ВМ с Mikrotik Cloud Hosted Router {#create-router}

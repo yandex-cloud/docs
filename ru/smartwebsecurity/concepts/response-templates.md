@@ -164,7 +164,7 @@ _Тело ответа_ — контент страницы, которая бу
 
 {% include [rules-for-template](../../_includes/smartwebsecurity/rules-for-template.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/template-create.md)
 * [{#T}](../operations/template-attach.md)

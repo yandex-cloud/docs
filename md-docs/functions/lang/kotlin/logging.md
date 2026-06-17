@@ -13,7 +13,7 @@
 
 {% endnote %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Спецификация форматирования строк в документации Kotlin](https://kotlinlang.org/docs/strings.html#string-formatting)
 * [Просмотр логов функции](../../operations/function/function-logs.md)

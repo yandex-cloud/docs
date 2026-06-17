@@ -36,7 +36,7 @@ description: Следуя данной инструкции, вы сможете
           1. В поле **Идентификатор чата** укажите идентификатор чата или имя канала в формате `@channelusername`.
           1. В поле **Текст** введите текст сообщения, который нужно отправить.
           1. (Опционально) В поле **Ответить на сообщение** укажите идентификатор сообщения, на которое нужно ответить.
-          1. (Опционально) В поле **Режим форматирования** выберите режим форматирования сообщения. Подробнее см. [документацию Telegram Bot API](https://core.telegram.org/bots/api#formatting-options).
+          1. (Опционально) В поле **Режим форматирования** выберите режим форматирования сообщения. Подробнее в [документации Telegram Bot API](https://core.telegram.org/bots/api#formatting-options).
 
       1. {% include [integrations-step-timeout](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-timeout.md) %}
       1. {% include [integrations-step-retry-policy](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-retry-policy.md) %}
@@ -46,7 +46,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Спецификация YaWL](../../../concepts/workflows/yawl/integration/telegrambot.md)
 * [{#T}](../workflow/create-constructor.md)

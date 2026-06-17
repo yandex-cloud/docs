@@ -7,7 +7,7 @@ description: В данном руководстве вы развернете в
 
 {% include [terraform](../../../_tutorials/archive/integrate-nextcloud/terraform.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./coi-based.md)
 * [{#T}](./fault-tolerant.md)

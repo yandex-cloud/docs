@@ -156,7 +156,7 @@
        * `retained_top` — количество Docker-образов, которые не будут удалены, даже если подходят под правила политики удаления.
        * `expire_period` — время, через которое Docker-образ попадает под политику удаления. Формат параметра — число и единица измерения `s`, `m`, `h` или `d` (секунды, минуты, часы или дни). `expire_period` должен быть кратен 24 часам.
 
-     Более подробную информацию о параметрах ресурса `yandex_container_repository_lifecycle_policy` в Terraform, см. в [документации провайдера](../../../terraform/resources/container_repository_lifecycle_policy.md).
+     Подробнее о параметрах ресурса `yandex_container_repository_lifecycle_policy` в [документации провайдера](../../../terraform/resources/container_repository_lifecycle_policy.md).
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.

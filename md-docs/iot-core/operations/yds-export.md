@@ -95,6 +95,6 @@
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Экспорт в Data Streams](../concepts/topic/usage.md#yds-export)

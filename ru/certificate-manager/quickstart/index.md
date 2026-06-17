@@ -155,7 +155,7 @@
 {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 - [{#T}](../concepts/managed-certificate.md)
 - [{#T}](../concepts/challenges.md)

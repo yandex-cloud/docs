@@ -34,6 +34,6 @@
 | `queue.messages.sent_count_per_second`<br>`DGAUGE`, сообщения/с | Количество сообщений, отправленных в очередь в секунду. |
 | `queue.messages.stored_count`<br>`DGAUGE`, штуки | Количество сообщений в очереди в текущий момент. |
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Мониторинг процессов в очереди](operations/monitoring.md).

@@ -399,7 +399,7 @@ pire_regex_not_match = f.*
 {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создать профиль безопасности](profile-create.md)
 * [Изменить основные параметры профиля безопасности](profile-update.md)

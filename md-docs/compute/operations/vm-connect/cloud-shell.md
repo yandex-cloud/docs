@@ -29,7 +29,7 @@
 * [Узнайте, как работать с Yandex Cloud изнутри ВМ](auth-inside-vm.md).
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Подключиться к виртуальной машине Windows по RDP](rdp.md)
 * [Подключиться к виртуальной машине Windows через PowerShell](powershell.md)

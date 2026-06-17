@@ -194,7 +194,7 @@ POST /v2/email/outbound-emails HTTP/2
 || `429 LimitExceededException` | При вызове запроса превышен [лимит](../../concepts/limits.md). ||
 |#
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Как пользоваться Amazon S3 API для работы с {{ postbox-name }}](../index.md)
 * [Аутентификация в API {{ postbox-full-name }}](../../api-ref/authentication.md)

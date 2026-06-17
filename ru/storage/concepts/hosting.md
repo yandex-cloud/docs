@@ -115,7 +115,7 @@ http(s)://{{ s3-web-host }}/<имя_бакета>
 
 {% include [public-link](../../_includes/storage/public-link.md) %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/hosting/setup.md)
 * [{#T}](../operations/hosting/own-domain.md)

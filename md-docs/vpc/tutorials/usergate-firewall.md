@@ -31,9 +31,9 @@
 
 В стоимость поддержки шлюза UserGate входит:
 
-* плата за постоянно запущенную ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за постоянно запущенную ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
 * плата за использование [UserGate NGFW](https://yandex.cloud/ru/marketplace/products/usergate/ngfw);
-* плата за использование публичного статического IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../pricing.md)).
+* плата за использование публичного статического IP-адреса ([тарифы Yandex Virtual Private Cloud](../pricing.md)).
 
 ## Создайте облачную сеть и подсеть {#create-network}
 
@@ -70,7 +70,7 @@
      default_security_group_id: enpbsnnop4ak********
      ```
 
-     Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
+     Подробнее о команде `yc vpc network create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
   1. Создайте подсеть `usergate-subnet-ru-central1-d` в зоне доступности `ru-central1-d`:
 
@@ -94,7 +94,7 @@
      - 10.1.0.0/16
      ```
 
-     Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
+     Подробнее о команде `yc vpc subnet create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 
 
@@ -115,7 +115,7 @@
      }
      ```
 
-     Подробнее см. в описаниях ресурсов [yandex_vpc_network](../../terraform/resources/vpc_network.md) и [yandex_vpc_subnet](../../terraform/resources/vpc_subnet.md) в документации провайдера Terraform.
+     Подробнее в описаниях ресурсов [yandex_vpc_network](../../terraform/resources/vpc_network.md) и [yandex_vpc_subnet](../../terraform/resources/vpc_subnet.md) в документации провайдера Terraform.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -181,7 +181,7 @@
   reserved: true
   ```
 
-  Подробнее о команде `yc vpc address create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/address/create.md).
+  Подробнее о команде `yc vpc address create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/address/create.md).
 
 - Terraform {#tf}
 
@@ -196,7 +196,7 @@
   }
   ```
 
-  Подробнее см. описание ресурса [vpc_address](../../terraform/resources/vpc_address.md) в документации провайдера Terraform.
+  Подробнее смотрите описание ресурса [vpc_address](../../terraform/resources/vpc_address.md) в документации провайдера Terraform.
 
 {% endlist %}
 
@@ -303,7 +303,7 @@
      placement_policy: {}
      ```
 
-     Подробнее о команде `yc compute instance create` см. в [справочнике CLI](../../cli/cli-ref/compute/cli-ref/instance/create.md).
+     Подробнее о команде `yc compute instance create` смотрите в [справочнике CLI](../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
 - Terraform {#tf}
 
@@ -341,7 +341,7 @@
        }
      ```
 
-     Подробнее см. в описании ресурса [yandex_compute_instance](../../terraform/resources/compute_instance.md) в документации провайдера Terraform.
+     Подробнее смотрите в описании ресурса [yandex_compute_instance](../../terraform/resources/compute_instance.md) в документации провайдера Terraform.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -600,7 +600,7 @@
 
      Чтобы добавить, изменить или удалить таблицу маршрутизации, используйте ресурс `yandex_vpc_route_table` с указанием на сеть в поле `netword id` (например, `network_id = "${yandex_vpc_network.lab-net.id}"`).
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_route_table` в Terraform см. в [документации провайдера](../../terraform/resources/vpc_route_table.md).
+     Подробнее о параметрах ресурса `yandex_vpc_route_table` в Terraform смотрите в [документации провайдера](../../terraform/resources/vpc_route_table.md).
 
   1. Проверьте корректность конфигурационных файлов.
 

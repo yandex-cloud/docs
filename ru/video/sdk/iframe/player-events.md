@@ -343,7 +343,7 @@ window.addEventListener('message', function(event) {
 });
 ```
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./index.md)
 * [{#T}](./initialization.md)

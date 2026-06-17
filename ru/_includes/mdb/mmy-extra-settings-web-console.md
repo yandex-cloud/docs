@@ -10,7 +10,7 @@
 
 - **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}** — разрешает анализировать данные из кластера в сервисе [{{ datalens-full-name }}](../../datalens/concepts/index.md).
   
-  Подробнее о настройке подключения см. в разделе [Подключение к {{ datalens-name }}](../../managed-mysql/operations/datalens-connect.md).
+  Подробнее о настройке подключения читайте в разделе [Подключение к {{ datalens-name }}](../../managed-mysql/operations/datalens-connect.md).
 
 
 - **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** — разрешает [выполнять SQL-запросы](../../managed-mysql/operations/web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.

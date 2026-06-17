@@ -27,10 +27,10 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы Compute Cloud](../../../compute/pricing.md)).
-* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for PostgreSQL](../../pricing.md)).
-* Плата за исходящий трафик (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
-* Публичные [DNS-запросы](../../../glossary/dns.md) и [зоны DNS](../../../dns/concepts/dns-zone.md) (см. [тарифы Cloud DNS](../../../dns/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Compute Cloud](../../../compute/pricing.md)).
+* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../pricing.md)).
+* Плата за исходящий трафик ([тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
+* Публичные [DNS-запросы](../../../glossary/dns.md) и [зоны DNS](../../../dns/concepts/dns-zone.md) ([тарифы Cloud DNS](../../../dns/pricing.md)).
 
 
 ## Создайте и настройте облачную сеть {#setup-network}
@@ -513,6 +513,6 @@ ns1.yandexcloud.net.
 1. [Удалите](../../../vpc/operations/subnet-delete.md) подсети `joomla-subnet-a`, `joomla-subnet-b` и `joomla-subnet-d`.
 1. [Удалите](../../../vpc/operations/network-delete.md) облачную сеть `joomla-network`.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создание сайта на базе Joomla с базой данных PostgreSQL с помощью Terraform](terraform.md).

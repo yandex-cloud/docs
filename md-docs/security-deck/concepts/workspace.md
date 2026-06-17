@@ -89,7 +89,7 @@ _Окружение Security Deck_ — это контейнер, который
 
     Список алертов содержит текстовые описания алертов, их источники и статусы, а также индикаторы уровня критичности.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создать окружение Security Deck](../operations/workspaces/create.md)
 * [Посмотреть дашборд и операции с окружением Security Deck](../operations/workspaces/view-dashboard.md)

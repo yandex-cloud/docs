@@ -108,7 +108,7 @@ CDN-ресурс начинает корректно работать через
 * [{#T}](../tutorials/protected-access-to-content/index.md)
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Инструкции по работе с ресурсами](../operations/index.md#resources).
 * [Инструкция по работе с основными настройками ресурса](../operations/resources/configure-basics.md).

@@ -25,7 +25,7 @@
      
      Где `name` — произвольное имя топика, должно быть уникальным в Cloud Notification Service.
      
-     Подробнее о команде `aws sns create-topic` см. в [документации AWS](https://docs.amazonaws.cn/en_us/sns/latest/dg/sns-create-topic.html).
+     Подробнее о команде `aws sns create-topic` смотрите в [документации AWS](https://docs.amazonaws.cn/en_us/sns/latest/dg/sns-create-topic.html).
 
 - AWS SDK для Python {#python}
 

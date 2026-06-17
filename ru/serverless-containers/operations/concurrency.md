@@ -91,7 +91,7 @@
         * `concurrency` — максимальное количество одновременных вызовов одного экземпляра контейнера.
         * `url` — URL [Docker-образа](../../container-registry/concepts/docker-image.md).
        
-       Более подробную информацию о параметрах ресурса `yandex_serverless_container` см. в [документации провайдера]({{ tf-provider-resources-link }}/serverless_container).
+       Подробнее о параметрах ресурса `yandex_serverless_container` в [документации провайдера]({{ tf-provider-resources-link }}/serverless_container).
 
     1. Выполните проверку с помощью команды:
 

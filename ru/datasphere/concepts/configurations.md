@@ -4,7 +4,7 @@
 
 {% include [configurations](../../_includes/datasphere/migration/configurations.md) %}
 
-#### См. также
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/projects/control-compute-resources.md)
 * [{#T}](../../compute/concepts/performance-levels.md)

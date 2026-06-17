@@ -67,7 +67,7 @@ _Сервисные агенты_ — это специальные систем
 
 {% include [service-control-access](../../_includes/iam/service-control-access.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/service-control/list-get.md)
 * [{#T}](../operations/service-control/enable-disable.md)

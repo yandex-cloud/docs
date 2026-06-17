@@ -62,6 +62,6 @@
    
    {% endnote %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация Falco](https://falco.org/docs/).

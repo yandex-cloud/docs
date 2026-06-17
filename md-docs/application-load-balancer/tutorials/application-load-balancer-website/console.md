@@ -29,10 +29,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
-* плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование динамического [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
-* плата за балансировку трафика (см. [тарифы Application Load Balancer](../../pricing.md));
-* плата за публичные [DNS-запросы](../../../glossary/dns.md) и [зоны DNS](../../../dns/concepts/dns-zone.md), если вы используете [Yandex Cloud DNS](../../../dns/index.md) (см. [тарифы Cloud DNS](../../../dns/pricing.md)).
+* плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за использование динамического [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
+* плата за балансировку трафика ([тарифы Application Load Balancer](../../pricing.md));
+* плата за публичные [DNS-запросы](../../../glossary/dns.md) и [зоны DNS](../../../dns/concepts/dns-zone.md), если вы используете [Yandex Cloud DNS](../../../dns/index.md) ([тарифы Cloud DNS](../../../dns/pricing.md)).
 
 ## Создайте облачную сеть {#create-network}
 
@@ -331,6 +331,6 @@
 1. [Удалите](../../../compute/operations/instance-groups/delete.md) группу ВМ `website-vm-group`.
 1. Если вы использовали Yandex Cloud DNS, то [удалите](../../../dns/operations/resource-record-delete.md) DNS-записи и [удалите](../../../dns/operations/zone-delete.md) DNS-зону.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Отказоустойчивый сайт с балансировкой нагрузки через Yandex Application Load Balancer с помощью Terraform](terraform.md)

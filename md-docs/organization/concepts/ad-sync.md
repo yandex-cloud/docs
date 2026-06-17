@@ -806,6 +806,6 @@ flowchart TB
 {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Синхронизировать пользователей и группы с Microsoft Active Directory](../operations/sync-ad.md)

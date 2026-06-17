@@ -54,9 +54,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование динамического или статического [внешнего IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
-* плата за количество активных версий {{ kms-short-name }}-ключа и число выполненных криптографических операций (см. [тарифы {{ vpc-full-name }}](../../kms/pricing.md)).
+* плата за постоянно запущенную ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование динамического или статического [внешнего IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
+* плата за количество активных версий {{ kms-short-name }}-ключа и число выполненных криптографических операций ([тарифы {{ vpc-full-name }}](../../kms/pricing.md)).
 
 ## Настройте Auto Unseal {#setup}
 
@@ -155,7 +155,7 @@
 * [удалите статический публичный IP-адрес](../../vpc/operations/address-delete.md), если вы его зарезервировали;
 * [удалите {{ kms-name }}-ключ](../../kms/operations/key.md#delete).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 * [HashiCorp Vault](https://www.vaultproject.io/)
 * [Seal/Unseal в Vault](https://www.vaultproject.io/docs/concepts/seal)
 * [Seal-конфигурация в Vault](https://www.vaultproject.io/docs/configuration/seal)

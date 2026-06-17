@@ -49,7 +49,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Создайте первую версию продукта {#create-version}
 
-О том, как создать первую версию продукта в кабинете партнера {{ marketplace-name }}, см. на странице [{#T}](operations/create-new-version.md).
+О том, как создать первую версию продукта в кабинете партнера {{ marketplace-name }}, читайте на странице [{#T}](operations/create-new-version.md).
 
 ## Пройдите модерацию версии {#moderate-version}
 

@@ -23,7 +23,7 @@ LIMIT 10
 Рассмотрите пример в блоке справа и нажмите кнопку ![run](../../_assets/console-icons/play-fill.svg) **Выполнить**.
 Результат выполнения запроса отобразится на вкладке **Результат** в виде таблицы или схемы.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * Оператор [SELECT](https://ydb.tech/docs/ru//yql/reference/syntax/select)
 * [Типы данных YQL](https://ydb.tech/docs/ru//yql/reference/types/)

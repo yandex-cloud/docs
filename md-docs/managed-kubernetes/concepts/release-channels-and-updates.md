@@ -125,7 +125,7 @@ _Информацию о поддерживаемых версиях Kubernetes 
 
   Выполнение операции для группы узлов может замедлиться или полностью остановиться, если не хватает ресурсов для расширения группы.
 
-  При расширении группы узлов будет взиматься плата за созданные узлы. Подробнее см. в разделе [Правила тарификации для Managed Service for Kubernetes](../pricing.md).
+  При расширении группы узлов будет взиматься плата за созданные узлы. Подробнее в разделе [Правила тарификации для Managed Service for Kubernetes](../pricing.md).
 
   {% endnote %}
 
@@ -216,7 +216,7 @@ _Информацию о поддерживаемых версиях Kubernetes 
 
 Подробнее см. в инструкции [Работа с обязательными обновлениями](../operations/update-kubernetes.md#necessary-update).
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Поддержка версий Kubernetes в Yandex Managed Service for Kubernetes](k8s-supported-versions.md)
 * [История изменений в Yandex Managed Service for Kubernetes](../release-notes.md)

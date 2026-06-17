@@ -16,6 +16,6 @@ description: В этом руководстве с помощью консоли
 
 {% include [cdn-storage-integration-console](../../../_tutorials/infrastructure/cdn-storage-integration-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./terraform.md)

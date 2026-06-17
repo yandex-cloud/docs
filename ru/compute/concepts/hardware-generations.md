@@ -64,6 +64,6 @@ UUID `C12A7328-F81F-`
 
 {% endnote %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/vm-create/create-gen2-vm.md)

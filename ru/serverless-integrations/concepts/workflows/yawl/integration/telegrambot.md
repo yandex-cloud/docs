@@ -4,7 +4,7 @@
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание
 --- | --- |--- | --- | --- | ---
-`token`| `string` | Да | Нет | Да | Токен бота. Подробнее см. [документацию Telegram Bot Features](https://core.telegram.org/bots/features#creating-a-new-bot).
+`token`| `string` | Да | Нет | Да | Токен бота. Подробнее в [документации Telegram Bot Features](https://core.telegram.org/bots/features#creating-a-new-bot).
 `sendMessage`| [TelegramBotSendMessage](#TelegramBotSendMessage) | Да | Нет | Нет | Описание действия отправки сообщения.
 
 ### TelegramBotSendMessage {#TelegramBotSendMessage}
@@ -13,7 +13,7 @@
 --- | --- |--- | --- | --- | ---
 `chatId`| `string` | Да | Нет | Да | Идентификатор чата или имя канала в формате `@channelusername`.
 `text`| `string` | Да | Нет | Да | Текст сообщения, который нужно отправить.
-`parseMode`| `string` | Нет | Нет | Нет | Режим форматирования сообщения. Доступные режимы: `UNSPECIFIED`, `MARKDOWN`, `MARKDOWNV2` и `HTML`. Подробнее см. [документацию Telegram Bot API](https://core.telegram.org/bots/api#formatting-options).
+`parseMode`| `string` | Нет | Нет | Нет | Режим форматирования сообщения. Доступные режимы: `UNSPECIFIED`, `MARKDOWN`, `MARKDOWNV2` и `HTML`. Подробнее в [документации Telegram Bot API](https://core.telegram.org/bots/api#formatting-options).
 `replyTo`| `string` | Нет | Нет | Да | Идентификатор сообщения, на которое нужно ответить.
 
 ## Пример спецификации

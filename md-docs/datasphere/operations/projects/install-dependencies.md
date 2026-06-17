@@ -1,6 +1,6 @@
 # Установить зависимости
 
-Популярные пакеты для [анализа данных](../../../glossary/data-analytics.md) и машинного обучения уже предустановлены и готовы к использованию, см. [список](../../concepts/preinstalled-packages.md).
+Популярные пакеты для [анализа данных](../../../glossary/data-analytics.md) и машинного обучения уже предустановлены и готовы к использованию, смотрите [список](../../concepts/preinstalled-packages.md).
 
 Вы можете установить недостающие пакеты с помощью пакетного менеджера pip.
 
@@ -28,7 +28,7 @@
     %pip install seaborn
     ```
 
-    Вы можете использовать различные опции, которые поддерживает команда [pip install](https://pip.pypa.io/en/stable/cli/pip_install/). См. [примеры использования](https://pip.pypa.io/en/stable/cli/pip_install/#pip-install-examples) этой команды.
+    Вы можете использовать различные опции, которые поддерживает команда [pip install](https://pip.pypa.io/en/stable/cli/pip_install/). Смотрите [примеры использования](https://pip.pypa.io/en/stable/cli/pip_install/#pip-install-examples) этой команды.
 1. Выполните ячейку. Для этого нажмите значок ![Run](../../../_assets/datasphere/jupyterlab/run.svg).
 
     Результат установки пакета отобразится под ячейкой.

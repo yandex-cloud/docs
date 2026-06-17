@@ -44,7 +44,7 @@ description: Следуя данной инструкции, вы сможете
               1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_message_properties_simple_view_spec_layout_title }}** укажите текст сообщения для отображения письма в почтовых клиентах, не поддерживающих HTML.
               1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_message_properties_simple_properties_charset_view_spec_layout_title }}** выберите кодировку отправляемого сообщения.
 
-          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_message_properties_raw_view_spec_layout_title }}`, чтобы задать содержимое письма в виде шаблона. Подробнее см. в [документации {{ postbox-name }}](../../../../postbox/aws-compatible-api/api-ref/send-email.md).
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_message_properties_raw_view_spec_layout_title }}`, чтобы задать содержимое письма в виде шаблона. Подробнее в [документации {{ postbox-name }}](../../../../postbox/aws-compatible-api/api-ref/send-email.md).
 
       1. {% include [integrations-step-timeout](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-timeout.md) %}
       1. {% include [integrations-step-retry-policy](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-retry-policy.md) %}
@@ -54,7 +54,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Спецификация YaWL](../../../concepts/workflows/yawl/integration/postbox.md)
 * [{#T}](../workflow/create-constructor.md)

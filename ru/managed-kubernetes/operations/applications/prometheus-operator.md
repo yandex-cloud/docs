@@ -8,7 +8,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [install-prometheus-operator](../../../_includes/managed-kubernetes/install-prometheus-operator.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{{ monitoring-full-name }}](/services/monitoring)
 * [{{ managed-prometheus-full-name }}](../../../monitoring/operations/prometheus/index.md)

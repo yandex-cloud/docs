@@ -86,8 +86,9 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [quickstart-check-cdn-working](../../_includes/cdn/quickstart-check-cdn-working.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./server.md)
 * [{#T}](../concepts/index.md)
 * [{#T}](../../storage/operations/buckets/create.md)
+* [Вебинар: как с помощью Cloud CDN разгрузить высоконагруженную инфраструктуру](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)

@@ -29,7 +29,7 @@ description: Из статьи вы узнаете, что такое тригг
 {% include [yds-format](../../../_includes/functions/yds-format.md) %}
 
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../../functions/concepts/trigger/data-streams-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/data-streams-trigger.md)

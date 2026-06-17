@@ -36,10 +36,10 @@
 
 В стоимость поддержки Telegram-бота входят:
 
-* плата за генерацию текста (см. [тарифы Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing));
-* плата за хранение секрета и запросы к нему (см. [тарифы Yandex Lockbox](../../lockbox/pricing.md));
-* плата за объем хранилища, занятый данными, количество операций с данными и исходящий трафик (см. [тарифы Yandex Object Storage](../../storage/pricing.md));
-* плата за получение и хранение логов (см. [тарифы Yandex Cloud Logging](../../logging/pricing.md)).
+* плата за генерацию текста ([тарифы Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing));
+* плата за хранение секрета и запросы к нему ([тарифы Yandex Lockbox](../../lockbox/pricing.md));
+* плата за объем хранилища, занятый данными, количество операций с данными и исходящий трафик ([тарифы Yandex Object Storage](../../storage/pricing.md));
+* плата за получение и хранение логов ([тарифы Yandex Cloud Logging](../../logging/pricing.md)).
 
 
 ## Зарегистрируйте Telegram-бота {#create-bot}

@@ -78,7 +78,7 @@
 
      Где `environment` — переменные окружения в формате `key="value"`. Можно указать несколько пар.
 
-	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера](../../terraform/resources/serverless_container.md).
+	 Подробнее о параметрах ресурса `yandex_serverless_container` в [документации провайдера](../../terraform/resources/serverless_container.md).
 
   1. Проверьте конфигурацию командой:
      ```
@@ -117,6 +117,6 @@
 
 {% endlist %}
 
-## См. также
+## Полезные ссылки {#see-also}
 
 * [Переменные окружения](../concepts/runtime.md#environment-variables).

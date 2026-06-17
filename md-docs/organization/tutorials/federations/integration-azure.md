@@ -235,7 +235,7 @@
 
           * `force-authn` — по истечении сессии в Yandex Cloud поставщик удостоверений запросит у пользователя повторную аутентификацию. Необязательный параметр.
 
-      Более подробную информацию о параметрах ресурса `yandex_organizationmanager_saml_federation` см. в [документации провайдера](../../../terraform/resources/organizationmanager_saml_federation.md).
+      Более подробную информацию о параметрах ресурса `yandex_organizationmanager_saml_federation` смотрите в [документации провайдера](../../../terraform/resources/organizationmanager_saml_federation.md).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -492,9 +492,9 @@
 
 {% note info %}
 
-Для доступа пользователя к [консоли управления](https://console.yandex.cloud), назначьте ему роль на [облако](../../security/index.md#access-binding-cloud) или [организацию](../../security/index.md#access-binding-organization). Для безопасности вы можете назначить одну из ролей с минимальными привилегиями, например `resource-manager.clouds.member`, но также можно назначить и другие роли, если вы знаете, какие права вы хотите предоставить приглашенным пользователям.
+Для доступа пользователя к [консоли управления](https://console.yandex.cloud), назначьте ему роль на [облако](../../security/index.md#access-binding-cloud). Для безопасности вы можете назначить одну из ролей с минимальными привилегиями, например `resource-manager.clouds.member`, но также можно назначить и другие роли, если вы знаете, какие права вы хотите предоставить приглашенным пользователям.
 
-Чтобы дать эти права сразу всем пользователям в организации, назначьте роль [системной группе](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers) `All users in organization X`. При работе с CLI или API назначение дополнительных ролей не требуется.
+Чтобы дать эти права сразу всем пользователям в организации, назначьте роль [системной группе](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers) `All users in organization X`. При работе с CLI, API или Terraform назначение дополнительных ролей не требуется.
 
 {% endnote %}
 

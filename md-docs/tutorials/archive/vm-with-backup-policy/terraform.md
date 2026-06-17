@@ -22,10 +22,10 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за вычислительные ресурсы ВМ (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md#prices-instance-resources));
-* плата за диски ВМ (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md#prices-storage));
-* плата за использование динамического внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip));
-* плата за подключенные к сервису Cloud Backup ВМ и объем резервных копий (см. [тарифы Yandex Cloud Backup](../../../backup/pricing.md#rules)).
+* плата за вычислительные ресурсы ВМ ([тарифы Yandex Compute Cloud](../../../compute/pricing.md#prices-instance-resources));
+* плата за диски ВМ ([тарифы Yandex Compute Cloud](../../../compute/pricing.md#prices-storage));
+* плата за использование динамического внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip));
+* плата за подключенные к сервису Cloud Backup ВМ и объем резервных копий ([тарифы Yandex Cloud Backup](../../../backup/pricing.md#rules)).
 
 ## Активируйте сервис {#service-activate}
 
@@ -337,7 +337,7 @@ Terraform распространяется под лицензией [Business S
 
     {% endlist %}
 
-    Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+    Подробнее о параметрах используемых ресурсов в Terraform смотрите в документации провайдера:
 
     * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../../terraform/resources/iam_service_account.md).
     * Назначение [роли](../../../iam/concepts/access-control/roles.md) сервисному аккаунту — [yandex_resourcemanager_folder_iam_member](../../../terraform/resources/resourcemanager_folder_iam_member.md).
@@ -430,6 +430,6 @@ Terraform распространяется под лицензией [Business S
     
     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Автоматическая привязка политики резервного копирования Yandex Cloud Backup к ВМ с помощью консоли управления, CLI или API](console.md)

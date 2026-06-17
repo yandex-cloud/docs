@@ -4,4 +4,4 @@ Yandex Cloud Video — сервис для организации потоков
 
 Начните работу с [хостингом видео](hosting.md) или [видеотрансляциями](streaming.md). Об элементах сервиса читайте в разделе [Обзор сервиса Yandex Cloud Video](concepts/index.md).
 
-О том, как работать с сервисом с помощью API, см. на странице [Как начать работать с API Yandex Cloud Video](api-ref/quickstart.md).
+О том, как работать с сервисом с помощью API, смотрите на странице [Как начать работать с API Yandex Cloud Video](api-ref/quickstart.md).

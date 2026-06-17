@@ -328,6 +328,6 @@ subcluster_name | Имя подкластера
 | `postgres_autovacuum.total_wraparound_workers`<br/>`DGAUGE`, штуки | Количество активных autovacuum-процессов, запущенных для предотвращения [wraparound](https://www.postgresql.org/docs/current/routine-vacuuming.html#VACUUM-FOR-WRAPAROUND). |
 | `postgres_autovacuum.vacuumed_pct`<br/>`DGAUGE`, % | Процент строк в таблице, очищенных процессом autovacuum. |
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Мониторинг состояния кластера PostgreSQL и хостов](operations/monitoring.md)

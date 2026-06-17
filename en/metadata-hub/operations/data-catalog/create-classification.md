@@ -1,6 +1,6 @@
 ---
-title: Creating a classification
-description: Follow this guide to create a classification in {{ data-catalog-full-name }}.
+title: Creating a classification in {{ data-catalog-full-name }}
+description: Follow this guide to create a classification in {{ data-catalog-name }}.
 ---
 
 # Creating a classification

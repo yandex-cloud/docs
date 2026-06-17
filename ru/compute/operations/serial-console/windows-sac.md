@@ -231,7 +231,7 @@ description: Следуя данной инструкции, вы научите
 
 {% endnote %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/serial-console.md)
 * [{#T}](./index.md)

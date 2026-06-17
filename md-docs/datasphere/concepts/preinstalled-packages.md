@@ -913,7 +913,7 @@
 
 {% endnote %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Установить зависимости](../operations/projects/install-dependencies.md)
 * [Конфигурации вычислительных ресурсов](configurations.md)

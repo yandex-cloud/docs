@@ -375,6 +375,8 @@ contains(groups[*], 'grafana-users') && 'Editor' || 'Viewer'
 
 {% endlist %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 ## Убедитесь в корректной работе приложения {#validate}
 
 Чтобы убедиться в корректной работе OIDC-приложения и интеграции с Grafana OSS, выполните аутентификацию в Grafana OSS от имени одного из добавленных в приложение пользователей.

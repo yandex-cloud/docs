@@ -38,10 +38,10 @@
 
 В стоимость поддержки Telegram-бота входят:
 
-* плата за использование SpeechKit (см. [тарифы SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/pricing));
-* плата за использование Vision OCR (см. [тарифы для Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/pricing));
-* плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы для Cloud Functions](../../functions/pricing.md));
-* плата за количество запросов к созданному API-шлюзу и исходящий трафик (см. [тарифы API Gateway](../../api-gateway/pricing.md)).
+* плата за использование SpeechKit ([тарифы SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/pricing));
+* плата за использование Vision OCR ([тарифы для Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/pricing));
+* плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы для Cloud Functions](../../functions/pricing.md));
+* плата за количество запросов к созданному API-шлюзу и исходящий трафик ([тарифы API Gateway](../../api-gateway/pricing.md)).
 
 ## Подготовьте ресурсы {#prepare}
 
@@ -384,7 +384,7 @@
      * `environment` — переменные окружения.
      * `package` — имя бакета, в который загружен ZIP-архив `index.zip` с исходным кодом функции.
 
-     Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера](../../terraform/resources/function.md).
+     Подробнее о параметрах ресурса `yandex_function` смотрите в [документации провайдера](../../terraform/resources/function.md).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -535,7 +535,7 @@
      * `name` — имя API-шлюза.
      * `spec` — спецификация API-шлюза.
 
-     Более подробную информацию о параметрах ресурсов в Terraform см. в [документации провайдера](../../terraform/resources/api_gateway.md).
+     Подробнее о параметрах ресурсов в Terraform смотрите в [документации провайдера](../../terraform/resources/api_gateway.md).
 
   1. Проверьте корректность конфигурационных файлов.
 

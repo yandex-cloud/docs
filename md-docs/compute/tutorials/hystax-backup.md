@@ -39,16 +39,16 @@
 * ВМ для «Хайстекс Акура — Система резервного копирования» использует 8 ядер vCPU, 16 ГБ памяти и диск на 200 ГБ.
 * Вспомогательные ВМ облачного агента Хайстекс используют 2 ядра vCPU, 4 ГБ памяти и диск на 10 ГБ. Одна ВМ облачного агента Хайстекс может одновременно обслуживать до 6 реплицируемых дисков. В случае, если дисков больше 6, автоматически будут созданы дополнительные ВМ облачных агентов Хайстекс.
 
-Подробные системные требования см. в [документации Хайстекс](https://xn--q1ach.xn--p1ai/cdn/TechDocs/Deployment-requirements.pdf).
+Подробные системные требования смотрите в [документации Хайстекс](https://xn--q1ach.xn--p1ai/cdn/TechDocs/Deployment-requirements.pdf).
 
 {% endnote %}
 
 В стоимость ресурсов для использования «Хайстекс Акура — Система резервного копирования» входят:
-* Плата за вычислительные ресурсы ВМ (см. [тарифы Yandex Compute Cloud](../pricing.md#prices-instance-resources)).
-* Плата за диски ВМ (см. [тарифы Yandex Compute Cloud](../pricing.md#prices-storage)).
-* Плата за использование динамического или статического внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Плата за хранение данных в бакете и операции с ними (см. [тарифы Yandex Object Storage](../../storage/pricing.md)).
-* Плата за использование «Хайстекс Акура — Система резервного копирования» (см. [описание продукта](https://yandex.cloud/ru/marketplace/products/hystax/hystax-acura-backup) в Cloud Marketplace).
+* Плата за вычислительные ресурсы ВМ ([тарифы Yandex Compute Cloud](../pricing.md#prices-instance-resources)).
+* Плата за диски ВМ ([тарифы Yandex Compute Cloud](../pricing.md#prices-storage)).
+* Плата за использование динамического или статического внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Плата за хранение данных в бакете и операции с ними ([тарифы Yandex Object Storage](../../storage/pricing.md)).
+* Плата за использование «Хайстекс Акура — Система резервного копирования» (смотрите [описание продукта](https://yandex.cloud/ru/marketplace/products/hystax/hystax-acura-backup) в Cloud Marketplace).
 
 
 ### Создайте сервисный аккаунт и ключи доступа {#create-sa}
@@ -401,7 +401,7 @@
 1. В блоке **Machines Groups** разверните группу ВМ, например `Default`.
 1. В списке ВМ справа нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg).
 1. В меню **Edit replication settings** настройте расписание репликации для группы ВМ по часам, дням, неделям или беспрерывную защиту, в разделе **Volume type** укажите тип диска для восстановления: `network-hdd`, `network-ssd` или `network-ssd-nonreplicated`. 
-1. В меню **Edit retention settings** укажите срок хранения резервных копий. Подробнее см. в [документации Хайстекс](https://xn--q1ach.xn--p1ai/documentation/disaster-recovery-and-cloud-backup/dr_overview.html#edit-replication-schedule).
+1. В меню **Edit retention settings** укажите срок хранения резервных копий. Подробнее в [документации Хайстекс](https://xn--q1ach.xn--p1ai/documentation/disaster-recovery-and-cloud-backup/dr_overview.html#edit-replication-schedule).
 1. Выберите **Start Protection**.
 
 Начнется процесс репликации ВМ. Реплика ВМ будет включать в себя все данные исходной ВМ, поэтому репликация может занять продолжительное время (зависит от размера диска исходной ВМ). Статус репликации будет отображаться в столбце **Status** блока **Machines Groups**. После окончания процесса они будут переведены в статус `Protected`.

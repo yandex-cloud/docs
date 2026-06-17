@@ -27,11 +27,11 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* Плата за вычислительные ресурсы ВМ (см. [тарифы Compute Cloud](../pricing.md#prices-instance-resources)).
-* Плата за [диски](../concepts/disk.md) ВМ (см. [тарифы Compute Cloud](../pricing.md#prices-storage)).
-* Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы Cloud Functions](../../functions/pricing.md)).
-* Плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) (см. [тарифы Yandex Cloud Logging](../../logging/pricing.md)), если вы используете сервис [Cloud Logging](../../logging/index.md).
+* Плата за вычислительные ресурсы ВМ ([тарифы Compute Cloud](../pricing.md#prices-instance-resources)).
+* Плата за [диски](../concepts/disk.md) ВМ ([тарифы Compute Cloud](../pricing.md#prices-storage)).
+* Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы Cloud Functions](../../functions/pricing.md)).
+* Плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) ([тарифы Yandex Cloud Logging](../../logging/pricing.md)), если вы используете сервис [Cloud Logging](../../logging/index.md).
 
 ## Подготовьте окружение {#prepare}
 

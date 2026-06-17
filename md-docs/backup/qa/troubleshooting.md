@@ -108,7 +108,7 @@ Not all of the items are mapped. Please, check your goal instance and its volume
 
 {% note info %}
 
-Чтобы избежать ошибок при восстановлении из резервной копии, перед восстановлением рекомендуется сопоставить параметры дисков и разделов резервной копии с параметрами дисков и разделов [ВМ](../../compute/concepts/vm.md) или [сервера](../../baremetal/concepts/servers.md) Yandex BareMetal. Подробнее см. в разделе [Посмотреть параметры дисков и разделов в резервной копии](../operations/backup-vm/view-disk-layout.md).
+Чтобы избежать ошибок при восстановлении из резервной копии, перед восстановлением рекомендуется сопоставить параметры дисков и разделов резервной копии с параметрами дисков и разделов [ВМ](../../compute/concepts/vm.md) или [сервера](../../baremetal/concepts/servers.md) Yandex BareMetal. Подробнее в разделе [Посмотреть параметры дисков и разделов в резервной копии](../operations/backup-vm/view-disk-layout.md).
 
 {% endnote %}
 

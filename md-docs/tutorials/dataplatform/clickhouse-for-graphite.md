@@ -37,8 +37,8 @@ Yandex Managed Service for ClickHouse® можно использовать ка
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки БД ClickHouse® для Graphite входит:
-* плата за вычислительные ресурсы кластера, объем хранилища и резервных копий (см. [тарифы Yandex Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md));
-* плата за запущенную ВМ для управления БД (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* плата за вычислительные ресурсы кластера, объем хранилища и резервных копий ([тарифы Yandex Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md));
+* плата за запущенную ВМ для управления БД ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 
 
 ## Создайте кластер {#cluster-create}

@@ -20,7 +20,7 @@ description: Из статьи вы узнаете, как можно перен
 
     {% include [ig-delete-in-zone.md](../../../_includes/compute/ig-delete-in-zone.md) %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](move-group-with-nlb.md)
 * [{#T}](move-group-with-alb.md)

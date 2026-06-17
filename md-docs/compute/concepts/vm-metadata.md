@@ -35,7 +35,7 @@ _Метаданные виртуальной машины_ — это метаи
 * [Безопасная передача пароля в скрипт инициализации](../tutorials/secure-password-script/index.md)
 * [Безопасное хранение паролей для GitLab CI в виде секретов Yandex Lockbox](../../tutorials/security/gitlab-lockbox-integration.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Каталоги метаданных](metadata/directories.md)
 * [Ключи, обрабатываемые в публичных образах Yandex Cloud](metadata/public-image-keys.md)

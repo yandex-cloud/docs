@@ -28,8 +28,8 @@
 
 В стоимость поддержки NAT-инстанса входят:
 
-* плата за постоянно запущенные ВМ (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование динамического или статического внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md)).
+* плата за постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за использование динамического или статического внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md)).
 
 
 ### Подготовьте инфраструктуру {#deploy-infrastructure}
@@ -271,6 +271,6 @@
 1. [Удалите](../../../vpc/operations/security-group-delete.md) группу безопасности.
 1. [Удалите](../../../vpc/operations/address-delete.md) статический публичный IP-адрес, если вы его зарезервировали.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Маршрутизация через NAT-инстанс с помощью Terraform](terraform.md)

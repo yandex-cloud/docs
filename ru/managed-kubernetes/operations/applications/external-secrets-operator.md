@@ -72,7 +72,7 @@ External Secrets Operator с поддержкой {{ lockbox-name }} позво�
 
 * [{#T}](../../tutorials/kubernetes-lockbox-secrets.md).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Описание External Secrets Operator](https://external-secrets.io/v0.8.1/provider/yandex-lockbox/).
 * [Документация {{ lockbox-name }}](../../../lockbox/).

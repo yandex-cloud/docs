@@ -8,7 +8,7 @@
 Чтобы начать работать c Marketplace Metering API:
 
 1. Получите идентификаторы вашего продукта (`productId`) и SKU (`skuId`). Идентификаторы указаны на странице продукта в [кабинете партнера Marketplace](https://partners.yandex.cloud/).
-1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) сервисному аккаунту, от имени которого вы будете аутентифицироваться в Marketplace Metering API и отправлять метрики, роль `marketplace.meteringAgent` на ваш [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Подробнее см. в разделе [Управление доступом](../security/index.md).
+1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) сервисному аккаунту, от имени которого вы будете аутентифицироваться в Marketplace Metering API и отправлять метрики, роль `marketplace.meteringAgent` на ваш [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Подробнее в разделе [Управление доступом](../security/index.md).
 1. [Получите](../../iam/concepts/authorization/iam-token.md) IAM-токен для того же сервисного аккаунта.
 
 Чтобы воспользоваться примерами, установите:

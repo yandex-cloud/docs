@@ -311,8 +311,14 @@ items:
       - name: Deploying a web application using the Java Servlet API
         href: tutorials/java-servlet-todo-list.md
       - name: Developing a Telegram bot
-        href: tutorials/telegram-bot-serverless.md
-      - name: Replicating logs to {{ objstorage-name }} using Fluent Bit
+        items:
+          - name: Overview
+            href: tutorials/telegram-bot-serverless/index.md
+          - name: Management console
+            href: tutorials/telegram-bot-serverless/console.md
+          - name: '{{ TF }}'
+            href: tutorials/telegram-bot-serverless/terraform.md
+      - name: "Replicating logs to {{ objstorage-name }} using Fluent\_Bit"
         href: tutorials/replicate-logs-to-storage.md
       - name: Replicating logs to {{ objstorage-name }} using {{ yds-name }}
         href: tutorials/replicate-logs-to-storage-via-data-streams.md
@@ -346,7 +352,7 @@ items:
         href: tutorials/billing.md
       - name: >-
           Deploying a web app with JWT authorization in {{ api-gw-name }} and
-          authentication in Firebase
+          Firebase authentication
         href: tutorials/jwt-authorizer-firebase.md
       - name: Searching for {{ yandex-cloud }} events in {{ yq-full-name }}
         href: tutorials/search-events-query.md

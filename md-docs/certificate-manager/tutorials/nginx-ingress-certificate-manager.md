@@ -4,7 +4,7 @@
 
 {% note alert %}
 
-Поддержка контроллера Ingress NGINX прекращается в марте 2026 года. Подробнее см. на странице [Ingress NGINX Retirement: What You Need to Know](https://kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/).
+Поддержка контроллера Ingress NGINX прекращается в марте 2026 года. Подробнее читайте на странице [Ingress NGINX Retirement: What You Need to Know](https://kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/).
 
 Рекомендуется [перейти](../../managed-kubernetes/alb-ref/nginx-gwin-migration.md) на новый контроллер [Yandex Cloud Gwin](../../managed-kubernetes/alb-ref/gwin-index.md).
 
@@ -53,10 +53,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
-* Использование [мастера Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#master) и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Использование [узлов](../../managed-kubernetes/concepts/index.md#node-group) кластера Managed Service for Kubernetes (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Использование [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Входящий трафик, обработанный балансировщиком, и использование [сетевого балансировщика](../../network-load-balancer/concepts/index.md) (см. [тарифы Yandex Network Load Balancer](../../network-load-balancer/pricing.md)).
+* Использование [мастера Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#master) и исходящий трафик ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Использование [узлов](../../managed-kubernetes/concepts/index.md#node-group) кластера Managed Service for Kubernetes ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Использование [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Входящий трафик, обработанный балансировщиком, и использование [сетевого балансировщика](../../network-load-balancer/concepts/index.md) ([тарифы Yandex Network Load Balancer](../../network-load-balancer/pricing.md)).
 
 ## Добавьте сертификат в Certificate Manager
 

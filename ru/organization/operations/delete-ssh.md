@@ -119,7 +119,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/add-ssh.md)
 * [{#T}](../operations/os-login-access.md)

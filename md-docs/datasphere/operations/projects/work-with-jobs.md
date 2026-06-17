@@ -213,7 +213,7 @@
 
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [DataSphere Jobs](../../concepts/jobs/index.md)
 * [GitHub-репозиторий](https://github.com/yandex-cloud-examples/yc-datasphere-jobs-examples) с примерами для запуска заданий

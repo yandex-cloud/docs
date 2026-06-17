@@ -11,7 +11,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость инфраструктуры для миграции входит плата за каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
+В стоимость инфраструктуры для миграции входит плата за каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -30,6 +30,6 @@
 
 {% include notitle [MySQL migration with Data Transfer](datatransfer/managed-mysql-to-mysql.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 Другие способы миграции описаны в [документации {{ mmy-full-name }}](../../managed-mysql/tutorials/index.md).

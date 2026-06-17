@@ -4,4 +4,4 @@
 * **{{ ui-key.yacloud.greenplum.cluster.user-auth.title_column-address }}** — FQDN хоста или диапазон IP-адресов в нотации CIDR, с которых будет выполняться подключение к базе данных.
 * **{{ ui-key.yacloud.greenplum.cluster.user-auth.title_column-method }}** — метод аутентификации.
 
-Подробнее о параметрах см. в разделе [Настройки правил аутентификации](../../../managed-greenplum/concepts/user-authentication.md#auth-settings).
+Подробнее о параметрах читайте в разделе [Настройки правил аутентификации](../../../managed-greenplum/concepts/user-authentication.md#auth-settings).

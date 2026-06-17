@@ -31,10 +31,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для терминирования TLS-соединений входят:
-* плата за постоянно запущенные [ВМ](../../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../../compute/pricing.md));
-* плата за использование [публичного статического IP-адреса](../../../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../../../vpc/pricing.md));
-* плата за использование вычислительных ресурсов [L7-балансировщика](../../../../application-load-balancer/concepts/index.md) (см. [тарифы Application Load Balancer](../../../../application-load-balancer/pricing.md));
-* плата за публичные [DNS-запросы](../../../../glossary/dns.md) и [зоны DNS](../../../../dns/concepts/dns-zone.md), если вы используете [Yandex Cloud DNS](../../../../dns/index.md) (см. [тарифы Cloud DNS](../../../../dns/pricing.md)).
+* плата за постоянно запущенные [ВМ](../../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../../compute/pricing.md));
+* плата за использование [публичного статического IP-адреса](../../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../../vpc/pricing.md));
+* плата за использование вычислительных ресурсов [L7-балансировщика](../../../../application-load-balancer/concepts/index.md) ([тарифы Application Load Balancer](../../../../application-load-balancer/pricing.md));
+* плата за публичные [DNS-запросы](../../../../glossary/dns.md) и [зоны DNS](../../../../dns/concepts/dns-zone.md), если вы используете [Yandex Cloud DNS](../../../../dns/index.md) ([тарифы Cloud DNS](../../../../dns/pricing.md)).
 
 ### Создайте облачную сеть {#create-network}
 
@@ -395,6 +395,6 @@
 1. [Удалите](../../../../vpc/operations/address-delete.md) зарезервированный статический публичный IP-адрес.
 1. Если вы использовали Cloud DNS, то [удалите](../../../../dns/operations/resource-record-delete.md) DNS-записи и [удалите](../../../../dns/operations/zone-delete.md) DNS-зону.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Терминирование TLS-соединений с помощью Terraform](terraform.md).

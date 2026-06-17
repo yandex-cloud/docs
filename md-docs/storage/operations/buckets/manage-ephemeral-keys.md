@@ -30,8 +30,8 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за хранение данных в бакете (см. [тарифы Object Storage](../../pricing.md#prices-storage));
-* плата за операции с данными (см. [тарифы Object Storage](../../pricing.md#prices-operations)).
+* плата за хранение данных в бакете ([тарифы Object Storage](../../pricing.md#prices-storage));
+* плата за операции с данными ([тарифы Object Storage](../../pricing.md#prices-operations)).
 
 
 
@@ -113,7 +113,7 @@
 * `kms.keys.decrypter` — для чтения ключа, [расшифровки](../../../kms/security/index.md#kms-keys-decrypter) и скачивания объектов;
 * `kms.keys.encrypterDecrypter` — включает [разрешения](../../../kms/security/index.md#kms-keys-encrypterDecrypter), предоставляемые ролями `kms.keys.encrypter` и `kms.keys.decrypter`.
 
-Подробнее см. [Сервисные роли Key Management Service](../../../kms/security/index.md#service-roles).
+Подробнее смотрите [Сервисные роли Key Management Service](../../../kms/security/index.md#service-roles).
 
 
 ## Подготовьте скрипт для создания эфемерного ключа доступа {#prepare-script}
@@ -269,7 +269,7 @@
 * [удалите бакет](delete.md).
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Обзор способов управления доступом в Object Storage](../../security/overview.md)
 * [Доступ в бакет с помощью Security Token Service](create-sts-key.md)

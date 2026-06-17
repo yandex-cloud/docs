@@ -30,13 +30,13 @@
 
   **Почему возникла ошибка**: некорректное имя Docker-образа.
 
-  **Как исправить**: имя репозитория должно представлять собой [URI](https://ru.wikipedia.org/wiki/URI), частью которого является имя Docker-образа. Имя Docker-образа должно быть задано в определенном формате. Подробнее см. в спецификации [OCI Distribution Specification](https://github.com/opencontainers/distribution-spec/blob/main/spec.md#pull).
+  **Как исправить**: имя репозитория должно представлять собой [URI](https://ru.wikipedia.org/wiki/URI), частью которого является имя Docker-образа. Имя Docker-образа должно быть задано в определенном формате. Подробнее в спецификации [OCI Distribution Specification](https://github.com/opencontainers/distribution-spec/blob/main/spec.md#pull).
 
 * `invalid reference format`
 
   **Почему возникла ошибка**: некорректный тег Docker-образа.
   
-  **Как исправить**: имя репозитория должно представлять собой [URI](https://ru.wikipedia.org/wiki/URI), частью которого является тег Docker-образа. Тег должен быть задан в определенном формате. Подробнее см. в спецификации [OCI Distribution Specification](https://github.com/opencontainers/distribution-spec/blob/main/spec.md#pull).
+  **Как исправить**: имя репозитория должно представлять собой [URI](https://ru.wikipedia.org/wiki/URI), частью которого является тег Docker-образа. Тег должен быть задан в определенном формате. Подробнее в спецификации [OCI Distribution Specification](https://github.com/opencontainers/distribution-spec/blob/main/spec.md#pull).
 
 * `Error response from daemon: unauthorized: Authentication problem ; requestId = <идентификатор_запроса>`
   

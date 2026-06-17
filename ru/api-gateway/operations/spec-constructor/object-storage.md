@@ -27,6 +27,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [constructor-result](../../../_includes/api-gateway/constructor-result.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Расширение x-yc-apigateway-integration:object_storage](../../concepts/extensions/object-storage.md)

@@ -24,7 +24,7 @@
 1. Выполните ячейку. Для этого нажмите значок ![Run](../../../_assets/datasphere/jupyterlab/run.svg).
 1. Результат выполнения кода отобразится под ячейкой.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Подключение к Яндекс Диску](../data/connect-to-ya-disk.md)
 * [Подключение к Google Drive](../data/connect-to-google-drive.md)

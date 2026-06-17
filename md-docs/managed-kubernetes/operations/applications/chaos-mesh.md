@@ -176,6 +176,6 @@
 
 {% endnote %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация Chaos Mesh](https://chaos-mesh.org/docs/).

@@ -21,6 +21,6 @@ description: 'Для выполнения операций через API {{ mon
 
 {% endnote %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [{#T}](../../iam/concepts/users/accounts.md)

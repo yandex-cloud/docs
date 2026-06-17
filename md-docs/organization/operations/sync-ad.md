@@ -1130,6 +1130,6 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Синхронизация пользователей и групп с Microsoft Active Directory](../concepts/ad-sync.md)

@@ -36,6 +36,6 @@ description: В данном разделе описана опция CDN-рес
 * `X-Internal-*` — любые внутренние заголовки.
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/resources/hiding-headers.md)

@@ -119,6 +119,8 @@
 
 {% endlist %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 #### Добавьте пользователей в Selectel {#add-users-sp}
 
 Перед тем как добавить пользователя в Selectel, скопируйте его ID из сервиса {{ org-full-name }}:

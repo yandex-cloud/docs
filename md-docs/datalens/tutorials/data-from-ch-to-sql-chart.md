@@ -292,7 +292,7 @@ SQL-запросы работают только с базами данных. F
 
    ![image](../../_assets/datalens/sql-chart/selector-data-2-values.png)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 - [Добавление чарта на дашборд в Yandex DataLens](../operations/dashboard/add-chart.md)
 - [Добавление селектора на дашборд в Yandex DataLens](../operations/dashboard/add-selector.md)

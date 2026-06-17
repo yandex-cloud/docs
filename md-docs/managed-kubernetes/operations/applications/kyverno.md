@@ -109,6 +109,6 @@
 
 * [Настройка Kyverno & Kyverno Policies](../../tutorials/marketplace/kyverno.md).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация Kyverno](https://kyverno.io/docs/).

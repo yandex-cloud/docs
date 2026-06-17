@@ -35,7 +35,7 @@
 
 Сессия завершается и автоматически пропадает из списка сессий пользователя по истечении срока ее жизни, а также когда пользователь выходит из своего аккаунта, нажав кнопку ![arrow-right-from-square](../../_assets/console-icons/arrow-right-from-square.svg) **Выйти из аккаунта**.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Cookie](../../iam/concepts/authorization/cookie.md)
 * [Управлять сессиями пользователей](../operations/manage-sessions.md)

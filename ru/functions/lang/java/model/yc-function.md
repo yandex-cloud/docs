@@ -28,7 +28,7 @@ public class Handler implements YcFunction<Integer, String> {
 import yandex.cloud.sdk.functions.YcFunction;
 import yandex.cloud.sdk.functions.Context;
 // у YcFunction указан лишь один тип параметра
-// у Handler не должно быть типов-параметров (см. требования к обработчику)
+// у Handler не должно быть типов-параметров (подробнее в требованиях к обработчику)
 public class Handler<T> implements YcFunction<T, Integer> {
   @Override
   public Integer handle(T i, Context c) {

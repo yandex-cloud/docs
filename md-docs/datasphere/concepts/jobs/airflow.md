@@ -133,7 +133,7 @@ run()
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [DataSphere Jobs](index.md)
 * [Повторный запуск заданий DataSphere Jobs](fork.md)

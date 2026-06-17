@@ -201,7 +201,7 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{{ yandex-cloud }} Java SDK](https://github.com/yandex-cloud/java-sdk).
 * [Примеры работы с {{ kms-short-name }} с помощью Java SDK](https://github.com/yandex-cloud/java-sdk/tree/master/java-sdk-examples/src/main/java/yandex/cloud/sdk/examples/kms).

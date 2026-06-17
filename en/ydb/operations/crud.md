@@ -13,7 +13,7 @@ To run queries, you will need to create a [database](manage-databases.md) and a 
 
 To query a database in SQL from the management console:
 1. In the [management console]({{ link-console-main }}), select the folder containing your database.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
 1. Select your database from the list.
 1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
 1. Click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** and enter the query text. When making queries, you can use templates:

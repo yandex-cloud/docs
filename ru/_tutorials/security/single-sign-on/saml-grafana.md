@@ -221,6 +221,8 @@
 
     {% endlist %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 ## Убедитесь в корректной работе приложения {#validate}
 
 Чтобы убедиться в корректной работе SAML-приложения и интеграции с Grafana Cloud, выполните аутентификацию в Grafana Cloud от имени одного из добавленных в приложение пользователей. Для этого:
@@ -233,6 +235,6 @@
 1. Если вы настроили сопоставление ролей, перейдите в профиль пользователя в Grafana Cloud и убедитесь, что в блоке **Organization** отображается соответствующая роль.  
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{{ org-full-name }}: как настроить единый вход в Grafana Cloud через SAML](https://yandex.cloud/ru/blog/how-to-identity-hub)

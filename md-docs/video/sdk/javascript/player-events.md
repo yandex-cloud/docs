@@ -211,6 +211,6 @@ player.on('TextTracksChange', ({ textTracks }) => {
 });
 ```
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Interface: PlayerSdkEventHandlers](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) в справочнике API

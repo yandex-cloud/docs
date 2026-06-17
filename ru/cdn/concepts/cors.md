@@ -13,6 +13,6 @@
 {% include [cors-note](../../_includes/cdn/cors-note.md) %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Инструкция по настройке CORS](../operations/resources/configure-cors.md).

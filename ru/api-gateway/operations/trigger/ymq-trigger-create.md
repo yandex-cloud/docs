@@ -125,7 +125,7 @@
 {% endlist %}
 
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для {{ message-queue-name }}, который передает сообщения в функцию {{ sf-name }}](../../../functions/operations/trigger/ymq-trigger-create.md)
 * [Триггер для {{ message-queue-name }}, который передает сообщения в контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/ymq-trigger-create.md)

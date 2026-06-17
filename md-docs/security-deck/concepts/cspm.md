@@ -107,7 +107,7 @@
 
 Чтобы отменить заданные исключением ограничения для проверок на соответствие правилам, [удалите](../operations/cspm/manage-exceptions.md#delete-exception) это исключение.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Окружения Security Deck](workspace.md)
 * [Посмотреть правила контроля безопасности модуля CSPM и их нарушения](../operations/cspm/view-rules.md)

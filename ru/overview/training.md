@@ -16,7 +16,7 @@
 {% include [training-courses](../_includes/training/training-courses.md) %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{{ src-name }} открывает библиотеку курсов и запускает лигу IT-преподавателей](https://yandex.cloud/ru/blog/sourcecraft-library)
 * [Академия {{ ai-studio-full-name }}: образовательный проект для тех, кто использует ИИ в бизнесе](https://yandex.cloud/ru/blog/ai-academy-ai-studio)

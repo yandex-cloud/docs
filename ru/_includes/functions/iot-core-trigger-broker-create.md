@@ -124,7 +124,7 @@
 
 {% include [check-result](check-result.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../serverless-containers/operations/iot-core-trigger-broker-create.md)
 * [{#T}](../../api-gateway/operations/trigger/iot-core-trigger-broker-create.md)

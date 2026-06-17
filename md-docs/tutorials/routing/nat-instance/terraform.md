@@ -24,8 +24,8 @@
 
 В стоимость поддержки NAT-инстанса входят:
 
-* плата за постоянно запущенные ВМ (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование динамического или статического внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md)).
+* плата за постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за использование динамического или статического внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md)).
 
 
 ## Создайте инфраструктуру {#deploy}
@@ -279,7 +279,7 @@ Terraform распространяется под лицензией [Business S
 
     {% endlist %}
 
-    Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+    Подробнее о параметрах используемых ресурсов в Terraform смотрите в документации провайдера:
 
     * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../../terraform/resources/vpc_network.md).
     * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet](../../../terraform/resources/vpc_subnet.md).
@@ -294,7 +294,7 @@ Terraform распространяется под лицензией [Business S
     * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
     * `vm_user` — имя пользователя ВМ.
     * `vm_user_nat` — имя пользователя ВМ с NAT.
-    * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [Создание пары ключей SSH](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее в разделе [Создание пары ключей SSH](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 1. Создайте ресурсы:
 
@@ -401,6 +401,6 @@ Terraform распространяется под лицензией [Business S
     
     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Маршрутизация через NAT-инстанс с помощью консоли управления](console.md)

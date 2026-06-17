@@ -13,9 +13,9 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за вычислительные ресурсы кластера {{ mkf-name }} и объем хранилища (см. [тарифы {{ mkf-name }}](../../../managed-kafka/pricing.md));
-* плата за вычислительные ресурсы и диски [ВМ](../../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md));
-* плата за использование [публичного IP-адреса](../../../vpc/concepts/ips.md) (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
+* плата за вычислительные ресурсы кластера {{ mkf-name }} и объем хранилища ([тарифы {{ mkf-name }}](../../../managed-kafka/pricing.md));
+* плата за вычислительные ресурсы и диски [ВМ](../../../compute/concepts/vm.md) ([тарифы {{ compute-full-name }}](../../../compute/pricing.md));
+* плата за использование [публичного IP-адреса](../../../vpc/concepts/ips.md) ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

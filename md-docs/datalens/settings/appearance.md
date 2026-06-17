@@ -139,6 +139,10 @@
 
    {% endlist %}
 
+
+
+<iframe width="560" height="315" src="https://runtime.strm.yandex.ru/player/video/vplvxiuedcdgw4lpq4ao?autoplay=0&mute=0" allow="autoplay; fullscreen; accelerometer; gyroscope; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
 ### Изменить цветовую палитру {#edit-palette}
 
 Чтобы изменить цветовую палитру:

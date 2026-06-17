@@ -186,7 +186,7 @@
          * `batch_cutoff` — максимальное время ожидания. Необязательный параметр. Допустимые значения от 0 до 20 секунд, значение по умолчанию — 10 секунд. Триггер группирует сообщения не дольше `batch-cutoff` и отправляет их в контейнер. Число сообщений при этом не превышает `batch-size`.
          * `batch_size` — размер группы сообщений. Необязательный параметр. Допустимые значения от 1 до 1000, значение по умолчанию — 1.
 
-     Более подробную информацию о параметрах ресурса `yandex_function_trigger` см. в [документации провайдера](../../terraform/resources/function_trigger.md).
+     Подробнее о параметрах ресурса `yandex_function_trigger` в [документации провайдера](../../terraform/resources/function_trigger.md).
 
   1. Создайте ресурсы:
 
@@ -250,7 +250,7 @@
 {% endlist %}
 
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Создать триггер для Message Queue, который передает сообщения в функцию Cloud Functions](../../functions/operations/trigger/ymq-trigger-create.md)
 * [Создать триггер для Message Queue, который отправляет сообщения в WebSocket-соединения](../../api-gateway/operations/trigger/ymq-trigger-create.md)

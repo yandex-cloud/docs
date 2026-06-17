@@ -68,7 +68,7 @@
       
       Рекомендуется использовать ресурс `yandex_lockbox_secret_version_hashed`, он хранит в состоянии Terraform значения в хешированном виде. Поддержка ресурса `yandex_lockbox_secret_version` остается.
       
-      Более подробную информацию о ресурсе `yandex_lockbox_secret_version_hashed` см. в [документации провайдера](../../terraform/resources/lockbox_secret_version_hashed.md).
+      Более подробную информацию о ресурсе `yandex_lockbox_secret_version_hashed` смотрите в [документации провайдера](../../terraform/resources/lockbox_secret_version_hashed.md).
       
       {% endnote %}
 
@@ -476,6 +476,6 @@
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Секреты в Yandex Lockbox](../concepts/secret.md)

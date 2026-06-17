@@ -1,7 +1,25 @@
 # Пошаговые инструкции для Cloud Registry
 
-* [Создание реестра](registry/create.md)
-* [Создание политики жизненного цикла](lifecycle-policy/create.md)
+## Управление реестром {#registry}
+
+### Создание реестра {#create-registry}
+
+* [Создать локальный реестр](registry/local.md)
+* [Создать удаленный реестр](registry/remote.md)
+* [Создать виртуальный реестр](registry/virtual.md)
+
+### Управление правами доступа к реестру {#access-registry}
+
+* [Просмотреть роли, назначенные на реестр](registry/list-role.md)
+* [Назначить роль](registry/add-role.md)
+* [Отозвать роль](registry/remove-role.md)
+
+### Политика доступа для IP-адресов {#ip}
+
+* [Получить информацию о политике доступа](registry/list-access-policy.md)
+* [Настроить политику доступа](registry/create-access-policy.md)
+* [Удалить политику доступа](registry/remove-access-policy.md)
+
 
 ## Управление артефактами {#artifact}
 
@@ -10,15 +28,15 @@
 * [Установить и настроить Docker](docker/installation.md)
 * [Аутентифицировать в Cloud Registry](docker/authentication.md)
 * [Создать Docker-образ](docker/create.md)
-* [Загрузить Docker-образ в реестр](docker/push.md)
-* [Скачать Docker-образ из реестра](docker/pull.md)
+* [Загрузить Docker-образ](docker/push.md)
+* [Скачать Docker-образ](docker/pull.md)
 
 ### Helm {#helm}
 
 * [Получить информацию об имеющихся Helm-чартах](helm/list.md)
-* [Загрузить Helm-чарт в реестр](helm/push.md)
-* [Скачать Helm-чарт из реестра](helm/pull.md)
-* [Удалить Helm-чарт из реестра](helm/delete.md)
+* [Загрузить Helm-чарт](helm/push.md)
+* [Скачать Helm-чарт](helm/pull.md)
+* [Удалить Helm-чарт](helm/delete.md)
 
 ### Java {#java}
 
@@ -36,12 +54,23 @@
 
 * [Настроить PyPI](pypi/installation.md)
 * [Создать Python-пакет](pypi/create.md)
-* [Загрузить Python-пакет в реестр](pypi/push.md)
-* [Скачать Python-пакет из реестра](pypi/pull.md)
-* [Удалить Python-пакет из реестра](pypi/delete.md)
+* [Загрузить Python-пакет](pypi/push.md)
+* [Скачать Python-пакет](pypi/pull.md)
 * [Примеры работы с PyPI-реестрами](pypi/examples.md)
 
 ### Binary {#binary}
 
 * [Загрузить binary-артефакт](binary/push.md)
 * [Скачать binary-артефакт](binary/pull.md)
+
+### Go {#go}
+
+* [Создать Go-модуль](go/create.md)
+* [Загрузить Go-модуль](go/push.md)
+* [Скачать Go-модуль](go/pull.md)
+
+
+## Другие инструкции {#other}
+
+* [Удаление артефакта из реестра](artifacts/delete.md)
+* [Создание политики жизненного цикла](lifecycle-policy/create.md)

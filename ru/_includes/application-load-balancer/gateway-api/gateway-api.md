@@ -1,12 +1,12 @@
 {% include [Gwin-with-preset](../ingress-to-gwin-tip-with-preset.md) %}
 
-{{ alb-name }} предоставляет инструмент для создания и управления балансировщиками нагрузки в [кластерах {{ managed-k8s-full-name }}](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) — Gateway API. Подробнее о проекте Gateway API см. на его [сайте](https://gateway-api.sigs.k8s.io/).
+{{ alb-name }} предоставляет инструмент для создания и управления балансировщиками нагрузки в [кластерах {{ managed-k8s-full-name }}](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) — Gateway API. Подробнее о проекте Gateway API на его [сайте](https://gateway-api.sigs.k8s.io/).
 
 После установки Gateway API вы сможете создать с его помощью ресурс `Gateway`, а также связанные с ним ресурсы `HTTPRoute` и `GRPCRoute`:
 * Ресурсом `Gateway` управляет оператор кластера. В этом ресурсе описывается прием входящего трафика и правила, по которым выбираются маршруты для этого трафика — ресурсы `HTTPRoute` и `GRPCRoute`. Для приема трафика по `Gateway` создается [L7-балансировщик](../../../application-load-balancer/concepts/application-load-balancer.md), а для маршрутизации к балансировщику привязываются [HTTP-роутеры](../../../application-load-balancer/concepts/http-router.md).
 * Ресурсами `HTTPRoute` и `GRPCRoute` управляют разработчики приложений — сервисов {{ k8s }}. `HTTPRoute` и `GRPCRoute` — описание маршрута для принятого входящего трафика. В соответствии с этим описанием трафик может быть отправлен в сервис {{ k8s }}, выполняющий роль бэкенда, или перенаправлен на другой URI. По `HTTPRoute` и `GRPCRoute` создаются виртуальные хосты и маршруты в HTTP-роутерах, а также [группы бэкендов](../../../application-load-balancer/concepts/backend-group.md).
 
-Полную конфигурацию ресурсов для Gateway API см. в следующих разделах:
+Полную конфигурацию ресурсов для Gateway API смотрите в следующих разделах:
 
 * [Gateway]({{ configuration-local-link }}/gateway.md) — правила приема входящего трафика и выбора маршрутов (`HTTPRoute`) для этого трафика.
 * [GatewayPolicy]({{ configuration-local-link }}/gateway-policy.md) — политика применения правил ресурса `Gateway`, конфигурация обработки входящего трафика.
@@ -142,7 +142,7 @@ spec:
 
 Установить Gateway API можно по [инструкции]({{ gateway-install-local-link }}).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Настройка групп безопасности]({{ alb-local-link }}/security-groups.md) для кластера {{ k8s }} и балансировщика.
 * [Сервисный аккаунт]({{ alb-local-link }}/service-account.md) для работы контроллера.

@@ -17,6 +17,6 @@ canonical: '{{ link-docs }}/tutorials/web/cdn-storage-integration/terraform'
 
 {% include [cdn-storage-integration-terraform](../../../_tutorials/infrastructure/cdn-storage-integration-terraform.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./console.md)

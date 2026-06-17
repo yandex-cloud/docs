@@ -311,7 +311,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also-dataset}
+#### Полезные ссылки {#see-also-dataset}
 
 * [Быстрый старт по созданию таблицы с подключением через датасет](quickstart/from-dataset.md)
 
@@ -354,7 +354,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also-database}
+#### Полезные ссылки {#see-also-database}
 
 * [Быстрый старт по созданию таблицы с подключением через SQl-запрос](quickstart/from-database.md)
 
@@ -398,7 +398,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also-api-connector}
+#### Полезные ссылки {#see-also-api-connector}
 
 * [Быстрый старт по созданию таблицы с подключением через API Connector](quickstart/from-api-connector.md)
 
@@ -620,7 +620,7 @@
 * Функциональность на текущий момент доступна для следующих типов чартов: [Селектор](widgets/controls.md), [Таблица](widgets/table.md) и [График (Gravity UI Charts)](widgets/gravity-ui.md).
 
 
-#### См. также {#see-also-activities}
+#### Полезные ссылки {#see-also-activities}
 
 * [Практическое руководство с примером использования вкладки Activities в Editor](../../tutorials/create-editor-activities.md)
 

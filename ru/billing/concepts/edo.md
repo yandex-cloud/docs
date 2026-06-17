@@ -47,6 +47,6 @@ description: Электронный документооборот (ЭДО) ис
      * Указан оператор ЭДО, если ЭДО подключен.
      * Доступна кнопка **{{ ui-key.yacloud_org.billing.account.button_enable-edm-action }}**, если ЭДО не подключен.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [{#T}](../operations/edo.md)

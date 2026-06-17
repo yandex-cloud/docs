@@ -24,10 +24,10 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за хранение созданных Docker-образов и сканер уязвимостей (см. [тарифы Container Registry](../../container-registry/pricing.md)).
-* Плата за использование [мастера Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#master) (см. [тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Плата за использование [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за хранение созданных Docker-образов и сканер уязвимостей ([тарифы Container Registry](../../container-registry/pricing.md)).
+* Плата за использование [мастера Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#master) ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Плата за использование [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 ## Перед началом работы {#before-begin}
 
@@ -45,7 +45,7 @@
   1. Если у вас еще нет [подсетей](../../vpc/concepts/network.md#subnet), [создайте их](../../vpc/operations/subnet-create.md) в [зонах доступности](../../overview/concepts/geo-scope.md), где будут созданы [кластер Yandex Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и [группа узлов](../../managed-kubernetes/concepts/index.md#node-group).
   1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md):
      * Для ресурсов с [ролями](../../iam/concepts/access-control/roles.md) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер Managed Service for Kubernetes. От его имени будут создаваться ресурсы, необходимые кластеру Managed Service for Kubernetes.
-     * Для узлов с ролями [container-registry.images.puller](../../container-registry/security/index.md#container-registry-images-puller) и [container-registry.images.pusher](../../container-registry/security/index.md#container-registry-images-pusher) на каталог с [реестром](../../container-registry/concepts/registry.md) [Docker-образов](../../container-registry/concepts/docker-image.md). От его имени узлы Managed Service for Kubernetes будут загружать в реестр собранные в GitLab Docker-образы, а также скачивать их для запуска [подов](../../managed-kubernetes/concepts/index.md#pod).
+     * Для узлов с ролями [container-registry.images.puller](../../container-registry/security/index.md#container-registry-images-puller), [container-registry.images.pusher](../../container-registry/security/index.md#container-registry-images-pusher) и [container-registry.images.scanner](../../container-registry/security/index.md#container-registry-images-scanner) на каталог с [реестром](../../container-registry/concepts/registry.md) [Docker-образов](../../container-registry/concepts/docker-image.md). От его имени узлы Managed Service for Kubernetes будут загружать в реестр собранные в GitLab Docker-образы, а также скачивать их для запуска [подов](../../managed-kubernetes/concepts/index.md#pod).
 
      {% note tip %}
 
@@ -143,8 +143,6 @@
 Для реальных приложений доступ сервисных аккаунтов кластера Managed Service for Kubernetes к загрузке Docker-образов в реестр должен быть ограничен по соображениям безопасности. В этом случае создайте отдельный сервисный аккаунт с ролью `container-registry.images.pusher` и указывайте его для развертывания приложений.
 
 {% endnote %}
-
-Дополнительно [назначьте](../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) сервисному аккаунту для узлов роль `container-registry.images.scanner`. Она позволяет сканировать Docker-образы на наличие уязвимостей.
 
 ### Установите дополнительные зависимости {#prepare}
 

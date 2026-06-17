@@ -134,7 +134,7 @@
 
 {% endlist %}
 
-Если в процессе установки CLI возникла ошибка, см. раздел [Решение проблем CLI](../error.md#failure-writing-output-to-destination).
+Если в процессе установки CLI возникла ошибка, смотрите раздел [Решение проблем CLI](../error.md#failure-writing-output-to-destination).
 
 Для дальнейшей работы с CLI [создайте профиль](profile/profile-create.md).
 
@@ -359,7 +359,7 @@
 Для дальнейшей работы с CLI [создайте профиль](profile/profile-create.md).
 
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Создание профиля](profile/profile-create.md)
 * [Обновление CLI](update-cli.md)

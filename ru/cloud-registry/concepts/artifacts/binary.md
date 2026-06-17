@@ -30,6 +30,6 @@ https://{{ cloud-registry }}/binaries/cn15fqbr806r********/sample-package/3.5.4/
 
 Удалить binary-артефакт вы можете в [консоли управления]({{ link-console-main }}). Перезаписать существующую версию binary-артефакта невозможно.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Поддерживаемые типы артефактов](./index.md#artifacts)

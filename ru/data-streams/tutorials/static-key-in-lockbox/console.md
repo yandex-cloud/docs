@@ -8,6 +8,6 @@ canonical: '{{ link-docs }}/tutorials/security/static-key-in-lockbox/console'
 
 {% include [static-key-in-lockbox-console](../../../_tutorials/security/static-key-in-lockbox-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md)

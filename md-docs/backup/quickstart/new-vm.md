@@ -7,8 +7,8 @@
 
 {% cut "В стоимость ресурсов для резервного копирования ВМ входят:" %}
 
-* плата за [вычислительные ресурсы](../../compute/concepts/vm-platforms.md) и [диски](../../compute/concepts/disk.md) ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за защищенные ВМ и хранение резервных копий (см. [тарифы Yandex Cloud Backup](../pricing.md)).
+* плата за [вычислительные ресурсы](../../compute/concepts/vm-platforms.md) и [диски](../../compute/concepts/disk.md) ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за защищенные ВМ и хранение резервных копий ([тарифы Yandex Cloud Backup](../pricing.md)).
 
 {% endcut %}
 
@@ -192,7 +192,7 @@
 * [Узнайте об особенностях сервиса](../concepts/index.md)
 * [Посмотрите другие инструкции по работе с сервисом](../operations/index.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Чем отличается резервная копия от снапшота](../../glossary/snapshot.md#backup-vs-snapshot)
 * [Создать снимок диска](../../compute/operations/disk-control/create-snapshot.md)

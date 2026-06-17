@@ -3,7 +3,7 @@ title: Создание локального реестра в {{ cloud-registry
 description: Следуя данной инструкции, вы сможете создать локальный реестр в {{ cloud-registry-name }}.
 ---
 
-# Создание локального реестра
+# Создать локальный реестр
 
 {% list tabs group=instructions %}
 

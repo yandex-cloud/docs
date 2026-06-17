@@ -458,7 +458,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% endcut %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](check-charges.md)
 * [{#T}](get-folder-report.md)

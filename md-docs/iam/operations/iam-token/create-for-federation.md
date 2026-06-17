@@ -132,6 +132,6 @@ Authorization: Bearer ${IAM_TOKEN}
    
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Отзыв IAM-токена](revoke-iam-token.md)

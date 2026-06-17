@@ -14,7 +14,7 @@
 
 {% note info %}
 
-Если вы используете политику с [опцией](policy.md#specification) быстрого резервного копирования `fastBackupEnabled`, и перед созданием [инкрементальной копии](backup.md#types) выполнялась антивирусная проверка, время резервного копирования может значительно увеличиться. Подробнее см. в [Взаимодействие с антивирусом](av-interaction.md).
+Если вы используете политику с [опцией](policy.md#specification) быстрого резервного копирования `fastBackupEnabled`, и перед созданием [инкрементальной копии](backup.md#types) выполнялась антивирусная проверка, время резервного копирования может значительно увеличиться. Подробнее в [Взаимодействие с антивирусом](av-interaction.md).
 
 {% endnote %}
 
@@ -78,7 +78,7 @@ C помощью Cloud Backup вы можете восстановить из р
 * [Подключить сервер Yandex BareMetal к Cloud Backup](../tutorials/backup-baremetal.md)
 * [Автоматическая привязка политики резервного копирования Yandex Cloud Backup к ВМ](../tutorials/vm-with-backup-policy/index.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Чем отличается резервная копия от снапшота](../../glossary/snapshot.md#backup-vs-snapshot)
 * [Создать снимок диска](../../compute/operations/disk-control/create-snapshot.md)

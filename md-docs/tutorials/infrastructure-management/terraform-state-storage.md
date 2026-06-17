@@ -37,11 +37,11 @@ Terraform распространяется под лицензией [Business S
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры для загрузки состояний Terraform в Yandex Object Storage входит плата за хранение данных (см. [тарифы Object Storage](../../storage/pricing.md#prices-storage)).
+В стоимость поддержки инфраструктуры для загрузки состояний Terraform в Yandex Object Storage входит плата за хранение данных ([тарифы Object Storage](../../storage/pricing.md#prices-storage)).
 
 В качестве примера инфраструктуры, разворачиваемой через Terraform, в руководстве будут созданы три [ВМ](../../compute/concepts/vm.md) с [публичными IP-адресами](../../vpc/concepts/address.md#public-addresses), виртуальная [сеть](../../vpc/concepts/network.md#network) и две [подсети](../../vpc/concepts/network.md#subnet). В стоимость поддержки этой инфраструктуры входят:
-* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за использование динамических публичных IP-адресов (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за использование динамических публичных IP-адресов ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Создайте сервисный аккаунт и статический ключ доступа {#create-service-account}
 
@@ -682,7 +682,7 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
 
 Чтобы удалить созданные ресурсы, выполните команду `terraform destroy` сначала во второй конфигурации, а затем в первой.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Начало работы с Terraform](terraform-quickstart.md).
 * [Блокировка состояний Terraform с помощью Managed Service for YDB](terraform-state-lock.md).

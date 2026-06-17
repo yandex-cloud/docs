@@ -83,7 +83,7 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](../../tutorials/cr-scanner-with-k8s-and-gitlab.md).
 * [{#T}](../../../managed-gitlab/tutorials/image-storage.md).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация {{ mgl-name }}](../../../managed-gitlab/).
 * [Документация {{ GL }}](https://docs.gitlab.com/).

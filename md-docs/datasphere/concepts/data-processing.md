@@ -51,7 +51,7 @@
 
 {% endnote %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Шаблоны Yandex Data Processing](data-processing-template.md)
 * [Интеграция с сервисом Yandex Data Processing](../tutorials/data-processing-integration.md)

@@ -3,7 +3,7 @@
 
 {% note tip %}
 
-Помимо решения, описанного в статье, доступ в {{ objstorage-name }} от ресурсов облачной сети без доступа в интернет также можно реализовать с помощью [сервисного подключения {{ vpc-short-name }}](../../vpc/concepts/private-endpoint.md). Подробнее см. на странице [Доступ в бакет с помощью сервисного подключения из {{ vpc-short-name }}](../../storage/operations/buckets/access-via-vpc.md).
+Помимо решения, описанного в статье, доступ в {{ objstorage-name }} от ресурсов облачной сети без доступа в интернет также можно реализовать с помощью [сервисного подключения {{ vpc-short-name }}](../../vpc/concepts/private-endpoint.md). Подробнее на странице [Доступ в бакет с помощью сервисного подключения из {{ vpc-short-name }}](../../storage/operations/buckets/access-via-vpc.md).
 
 {% endnote %}
 
@@ -98,10 +98,10 @@ warp get \
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за использование {{ objstorage-name }} (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
-* плата за использование сетевого балансировщика (см. [тарифы {{ network-load-balancer-name }}](../../network-load-balancer/pricing.md)).
-* плата за постоянно работающие ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* плата за использование {{ objstorage-name }} ([тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
+* плата за использование сетевого балансировщика ([тарифы {{ network-load-balancer-name }}](../../network-load-balancer/pricing.md)).
+* плата за постоянно работающие ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* плата за использование публичных IP-адресов и исходящий трафик ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ## Подготовьте среду для развертывания ресурсов {#setup-environment}
 
@@ -145,7 +145,7 @@ warp get \
     cd yc-s3-private-endpoint
     ```
 
-1. Настройте окружение для аутентификации в {{ TF }} (подробнее см. [Начало работы с {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials)):
+1. Настройте окружение для аутентификации в {{ TF }} (подробнее в разделе [Начало работы с {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials)):
 
     ```bash
     export YC_TOKEN=$(yc iam create-token)

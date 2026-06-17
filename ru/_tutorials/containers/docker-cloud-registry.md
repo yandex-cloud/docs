@@ -23,9 +23,9 @@
 
 В стоимость ресурсов для запуска Docker-образа входят:
 
-* Плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за хранение созданных образов (см. [тарифы {{ cloud-registry-full-name }}](../../cloud-registry/pricing.md)).
-* Плата за исходящий трафик из {{ yandex-cloud }} в интернет (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за постоянно запущенную ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за хранение созданных образов ([тарифы {{ cloud-registry-full-name }}](../../cloud-registry/pricing.md)).
+* Плата за исходящий трафик из {{ yandex-cloud }} в интернет ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 
 
 ### Создайте пару ключей SSH {#create-ssh}
@@ -542,7 +542,7 @@
 1. Удалите [реестр](../../cloud-registry/concepts/registry.md).
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Работа с {{ cloud-registry-name }}](../../cloud-registry/operations/index.md)
 * [Создание ВМ с {{ coi }}](../../cos/tutorials/vm-create.md)

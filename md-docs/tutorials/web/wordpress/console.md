@@ -26,9 +26,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки сайта на WordPress входит:
-* плата за постоянно запущенную ВМ (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование динамического или статического [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
-* плата за публичные [DNS-запросы](../../../glossary/dns.md) и [зоны DNS](../../../dns/concepts/dns-zone.md), если вы используете [Yandex Cloud DNS](../../../dns/index.md) (см. [тарифы Cloud DNS](../../../dns/pricing.md)).
+* плата за постоянно запущенную ВМ ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за использование динамического или статического [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
+* плата за публичные [DNS-запросы](../../../glossary/dns.md) и [зоны DNS](../../../dns/concepts/dns-zone.md), если вы используете [Yandex Cloud DNS](../../../dns/index.md) ([тарифы Cloud DNS](../../../dns/pricing.md)).
 
 ## Создайте группу безопасности {#create-security-group}
 
@@ -241,6 +241,6 @@ ns1.yandexcloud.net.
 1. [Удалите](../../../vpc/operations/address-delete.md) статический публичный IP-адрес, если вы зарезервировали его специально для этой ВМ.
 1. [Удалите](../../../dns/operations/resource-record-delete.md) DNS-записи и [удалите](../../../dns/operations/zone-delete.md) DNS-зону, если вы использовали Cloud DNS.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создание сайта на WordPress с помощью Terraform](terraform.md).

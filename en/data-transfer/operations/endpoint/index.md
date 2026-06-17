@@ -8,8 +8,8 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}).
-  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. Open the [folder dashboard]({{ link-console-main }}).
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
 
 - CLI {#cli}
@@ -38,8 +38,8 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}).
-    1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
     1. Click the required endpoint name.
 
@@ -77,8 +77,8 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}).
-  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. Open the [folder dashboard]({{ link-console-main }}).
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
   1. Click **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
   1. In the **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** field, select **{{ ui-key.yacloud.data-transfer.forms.label_source-type }}** or **{{ ui-key.yacloud.data-transfer.forms.label_target-type }}**.
@@ -157,7 +157,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -173,7 +173,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
   {% endnote %}
 
-  Use the [create](../../api-ref/Endpoint/create) API method and provide the following in the request:
+  Call the [create](../../api-ref/Endpoint/create) API method and provide the following in the request:
   * ID of the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to host the endpoint, in the `folderId` parameter.
   * Endpoint name in the `name` parameter.
   * Endpoint description in the `description` parameter.
@@ -199,8 +199,8 @@ You cannot change the endpoint type and the database type. For some endpoints, y
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}).
-  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. Open the [folder dashboard]({{ link-console-main }}).
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
   1. Select an endpoint and click ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** in the top panel.
   1. Edit the endpoint parameters:
@@ -249,7 +249,7 @@ You cannot change the endpoint type and the database type. For some endpoints, y
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -287,8 +287,8 @@ When cloning, you cannot change the endpoint type and the database type.
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}).
-  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. Open the [folder dashboard]({{ link-console-main }}).
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
   1. Select the endpoint to clone.
   1. Click **{{ ui-key.yacloud.common.clone }}** in the top panel.
@@ -314,8 +314,8 @@ To delete an endpoint:
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}).
-  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. Open the [folder dashboard]({{ link-console-main }}).
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
   1. Select the endpoint to delete.
   1. Click **{{ ui-key.yacloud.common.delete }}** in the top panel.

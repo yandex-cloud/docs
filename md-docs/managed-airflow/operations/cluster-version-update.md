@@ -385,7 +385,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Версионирование в Managed Service for Apache Airflow™](../concepts/versions.md)
 * [Политика работы с версиями Apache Airflow™](../concepts/update-policy.md)

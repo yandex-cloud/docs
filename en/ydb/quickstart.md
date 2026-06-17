@@ -37,7 +37,7 @@ For the Amazon DynamoDB compatibility mode, use a serverless database configurat
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder for your database.
-  1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. Enter a **{{ ui-key.yacloud.ydb.forms.label_field_name }}** for your database. The naming requirements are as follows:
 
@@ -107,7 +107,7 @@ For the Amazon DynamoDB compatibility mode, use a serverless database configurat
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder for your database.
-  1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. Enter a **{{ ui-key.yacloud.ydb.forms.label_field_name }}** for your database. The naming requirements are as follows:
 
@@ -239,10 +239,10 @@ For the Amazon DynamoDB compatibility mode, use a serverless database configurat
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with your database.
-  1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Select the database you created.
   1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
-  1. Click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** and enter the query text.
+  1. Click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** and enter the query text:
 
      ```yql
      SELECT 1;

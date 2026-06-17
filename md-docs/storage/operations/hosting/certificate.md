@@ -19,7 +19,7 @@
 
 Поддержка протокола TLS версий 1.0 и 1.1 в Object Storage прекращена с 1 августа 2025 года.
 
-Подробнее см. на странице [Протокол TLS](../../concepts/tls.md).
+Подробнее на странице [Протокол TLS](../../concepts/tls.md).
 
 {% endnote %}
 
@@ -207,7 +207,7 @@ cat domain.pem intermediate.pem rootca.pem > bundle.pem
 
 {% endnote %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Как исправить некорректный MIME-тип объектов при их загрузке в бакет?](../../qa.md#qa-mime-type)
 * [Настройка хостинга](setup.md)

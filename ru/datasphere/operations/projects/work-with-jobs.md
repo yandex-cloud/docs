@@ -214,7 +214,7 @@ description: Следуя данной инструкции, вы сможете
 
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/jobs/index.md)
 * [GitHub-репозиторий](https://github.com/yandex-cloud-examples/yc-datasphere-jobs-examples) с примерами для запуска заданий

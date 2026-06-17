@@ -109,7 +109,7 @@ description: Следуя данной инструкции, вы сможете
 
 * [Мониторинг кластера {{ managed-k8s-name }} с помощью Filebeat OSS](../../tutorials/filebeat-oss-monitoring.md).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация {{ mos-name }}](../../../managed-opensearch/).
 * [Документация Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/index.html).

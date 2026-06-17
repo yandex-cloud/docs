@@ -39,6 +39,6 @@ yc serverless function version create --source-path
 
 #### Я хочу увеличить квоты. Как определить подходящие значения для них? {#quotas}
 
-Подробнее о том, какие квоты увеличивать и насколько, см. в разделе [{#T}](../concepts/limits.md#related-quotas).
+Подробнее о том, какие квоты увеличивать и насколько, в разделе [{#T}](../concepts/limits.md#related-quotas).
 
 {% include [api-duration-format-qa](../../_qa/serverless/api-duration-format-qa.md) %}

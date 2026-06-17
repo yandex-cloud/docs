@@ -83,7 +83,7 @@
 
 Чтобы [посмотреть историю платежей](../../billing/operations/check-bill-history.md), нажмите кнопку ![image](../../_assets/console-icons/logo-yandex-cloud.svg) **Перейти в Yandex Cloud Billing**.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Правила тарификации](../pricing.md)
 * [Вопросы про тарификацию](../qa/pricing.md)

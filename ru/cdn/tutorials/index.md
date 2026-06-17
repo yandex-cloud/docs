@@ -12,3 +12,7 @@ description: Различные сценарии использования {{ c
 * [{#T}](protected-access-to-content/index.md)
 * [{#T}](migrate-to-yc-cdn.md)
 * [{#T}](cdn-hosting/index.md)
+
+#### Полезные ссылки {#see-also}
+
+* [Вебинар: как с помощью Cloud CDN разгрузить высоконагруженную инфраструктуру](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)

@@ -34,8 +34,8 @@
 
 В стоимость поддержки чат-бота входят:
 
-* плата за использование API-шлюза (см. тарифы [Yandex API Gateway](../../api-gateway/pricing.md));
-* плата за использование функций (см. тарифы [Yandex Cloud Functions](../pricing.md)).
+* плата за использование API-шлюза (тарифы [Yandex API Gateway](../../api-gateway/pricing.md));
+* плата за использование функций (тарифы [Yandex Cloud Functions](../pricing.md)).
 
 ## Подготовьте окружение {#prepare}
 

@@ -144,7 +144,7 @@ Authorization: Bearer ${IAM_TOKEN}
 {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Использовать IAM-токен в Helm-чарте](../../../container-registry/operations/helm-chart/helm-chart-push.md)
 * [Отозвать IAM-токен](revoke-iam-token.md)

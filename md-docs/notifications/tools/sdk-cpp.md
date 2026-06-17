@@ -215,7 +215,7 @@
     cmake --build .
     ```
 
-См. также [официальный пример Hello SNS](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns/hello_sns).
+Смотрите также [официальный пример Hello SNS](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns/hello_sns).
 
 
 ## Создайте канал уведомлений {#create-channel}
@@ -526,7 +526,7 @@ try {
 * `senderIdAttribute.SetStringValue` — текстовое имя отправителя.
 
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Начало работы](../quickstart.md)
 * [AWS CLI](aws-cli.md)

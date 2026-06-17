@@ -28,10 +28,10 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за постоянно запущенную ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
-* плата за использование Yandex Cloud Postbox (см. [тарифы Yandex Cloud Postbox](../pricing.md));
-* плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы создаете ресурсную запись в Cloud DNS (см. [тарифы Cloud DNS](../../dns/pricing.md)).
+* плата за постоянно запущенную ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
+* плата за использование Yandex Cloud Postbox ([тарифы Yandex Cloud Postbox](../pricing.md));
+* плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы создаете ресурсную запись в Cloud DNS ([тарифы Cloud DNS](../../dns/pricing.md)).
 
 
 ### Подготовьте ресурсы {#infrastructure}

@@ -169,7 +169,7 @@ cat domain.pem intermediate.pem rootca.pem > bundle.pem
 
 {% endnote %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](../../qa.md#qa-mime-type)
 * [{#T}](setup.md)

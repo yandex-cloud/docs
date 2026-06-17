@@ -510,6 +510,6 @@ instance | Имя [виртуальной машины](concepts/vm.md)
 - Фиксированный с&nbsp;тестом автоматического. ||
 |#
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Посмотреть метрики в Yandex Monitoring](operations/metrics-pull.md)

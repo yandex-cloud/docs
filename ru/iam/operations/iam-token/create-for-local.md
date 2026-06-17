@@ -47,6 +47,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [include](../../../_includes/iam/iam-token-usage-examples.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./revoke-iam-token.md)

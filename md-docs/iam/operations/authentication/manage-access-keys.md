@@ -295,7 +295,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Статические ключи доступа, совместимые с AWS API](../../concepts/authorization/access-key.md)
 * [Настройка инструментов для работы с Object Storage](../../../storage/tools/index.md)

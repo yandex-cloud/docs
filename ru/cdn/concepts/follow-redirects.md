@@ -22,7 +22,7 @@ description: В данном разделе описана опция CDN-рес
 * А/В-тестирование — при переключении трафика между версиями контента.
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/resources/setup-follow-redirects.md)
 * [{#T}](../operations/resources/enable-shielding.md)

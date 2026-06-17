@@ -36,8 +36,8 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за диски и постоянно запущенные ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
+* плата за диски и постоянно запущенные ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование внешнего IP-адреса ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
 
 ## Создайте пару ключей SSH {#create-ssh-keys}
 
@@ -92,7 +92,7 @@
       }
       ```
 
-      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/resourcemanager_folder).
+      Подробнее о параметрах ресурса `yandex_resourcemanager_folder` в {{ TF }} смотрите в [документации провайдера]({{ tf-provider-resources-link }}/resourcemanager_folder).
 
    1. Проверьте корректность конфигурационных файлов.
 

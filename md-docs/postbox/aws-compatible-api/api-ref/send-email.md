@@ -203,7 +203,7 @@ POST /v2/email/outbound-emails HTTP/2
 || `429 LimitExceededException` | При вызове запроса превышен [лимит](../../concepts/limits.md). ||
 |#
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Как пользоваться Amazon S3 API для работы с Yandex Cloud Postbox](../index.md)
 * [Аутентификация в API Yandex Cloud Postbox](../../api-ref/authentication.md)

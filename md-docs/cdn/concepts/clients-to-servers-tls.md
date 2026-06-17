@@ -34,7 +34,7 @@
 
 Настройка доступна с помощью API при [создании](../operations/resources/create-resource.md) и [изменении](../operations/resources/configure-basics.md) CDN-ресурса. Подробнее см. на странице [Настройка профиля безопасности TLS для CDN-ресурса](../operations/resources/configure-tls-profile.md).
 
-См. также [Введение в TLS: обзор принципов и основных характеристик](../../glossary/tls.md).
+Смотрите также [Введение в TLS: обзор принципов и основных характеристик](../../glossary/tls.md).
 
 ## Проверка прав на домен {#domain-name-challenge}
 

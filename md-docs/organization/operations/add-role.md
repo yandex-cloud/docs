@@ -160,7 +160,7 @@
 
 Аналогичным образом можно [назначить роль](../../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) на организацию сервисному аккаунту.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Настройка прав доступа к сервисному аккаунту](../../iam/operations/sa/set-access-bindings.md)
 * [Настройка прав доступа к облаку](../../resource-manager/operations/cloud/set-access-bindings.md)

@@ -49,7 +49,7 @@
 
 ^1^ Квота `Количество триггеров в одном облаке` — общая для сервисов API Gateway, Cloud Functions и Serverless Containers. В [консоли управления](https://console.yandex.cloud/cloud?section=quotas) она отображается в списке квот сервиса Cloud Functions.
 
-Подробнее о взаимосвязи квот см. в разделе [Взаимосвязь квот](limits.md#related-quotas).
+Подробнее о взаимосвязи квот читайте в разделе [Взаимосвязь квот](limits.md#related-quotas).
 
 #### Лимиты {#functions-limits}
 

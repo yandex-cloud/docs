@@ -4,7 +4,7 @@
 
 {% note alert %}
 
-Поддержка контроллера Ingress NGINX прекращается в марте 2026 года. Подробнее см. на странице [Ingress NGINX Retirement: What You Need to Know](https://kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/).
+Поддержка контроллера Ingress NGINX прекращается в марте 2026 года. Подробнее читайте на странице [Ingress NGINX Retirement: What You Need to Know](https://kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/).
 
 Рекомендуется [перейти](../../managed-kubernetes/alb-ref/nginx-gwin-migration.md) на новый контроллер [Yandex Cloud Gwin](../../managed-kubernetes/alb-ref/gwin-index.md).
 
@@ -26,11 +26,11 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за DNS-зону и DNS-запросы (см. [тарифы Cloud DNS](../../dns/pricing.md)).
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за сетевой балансировщик нагрузки (см. [тарифы Network Load Balancer](../../network-load-balancer/pricing.md)).
-* Плата за публичные IP-адреса, если они назначены узлам кластера, а также за публичный IP-адрес для сетевого балансировщика нагрузки (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Плата за DNS-зону и DNS-запросы ([тарифы Cloud DNS](../../dns/pricing.md)).
+* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
+* Плата за сетевой балансировщик нагрузки ([тарифы Network Load Balancer](../../network-load-balancer/pricing.md)).
+* Плата за публичные IP-адреса, если они назначены узлам кластера, а также за публичный IP-адрес для сетевого балансировщика нагрузки ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Перед началом работы {#before-begin}
@@ -282,7 +282,7 @@
      Normal  Generated  ...   cert-manager-certificates-key-manager      Stored new private key in temporary Secret resource...
    ```
    
-   Сертификаты [используются в связке с соответствующими им секретами Kubernetes](https://cert-manager.io/docs/), которые хранят пары ключей и служебную информацию. В случае отсутствия секрета сертификат перевыпускается автоматически с созданием нового секрета, о чем и сообщается в событиях. Подробнее о причинах, которые могут привести к перевыпуску сертификата, см. в [документации cert-manager](https://cert-manager.io/docs/faq/#when-do-certs-get-re-issued).
+   Сертификаты [используются в связке с соответствующими им секретами Kubernetes](https://cert-manager.io/docs/), которые хранят пары ключей и служебную информацию. В случае отсутствия секрета сертификат перевыпускается автоматически с созданием нового секрета, о чем и сообщается в событиях. Подробнее о причинах, которые могут привести к перевыпуску сертификата, смотрите в [документации cert-manager](https://cert-manager.io/docs/faq/#when-do-certs-get-re-issued).
    
    Поскольку сертификат выпускается впервые, то соответствующий ему секрет отсутствует. Наличие событий, сообщающих об этом, не является ошибкой.
 

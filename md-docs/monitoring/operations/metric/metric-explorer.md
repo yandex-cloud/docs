@@ -133,7 +133,7 @@
 1. Укажите [параметры алерта](../alert/create-alert.md).
 1. Нажмите **Создать**.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Создание и управление дашбордом в Monitoring](../dashboard/create.md)
 [Создание алерта](../alert/create-alert.md)

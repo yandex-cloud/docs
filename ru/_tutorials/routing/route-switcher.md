@@ -56,10 +56,10 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за постоянно работающие ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование {{ network-load-balancer-name }} (см. [тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md));
-* плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
-* плата за использование функции (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md));
+* плата за постоянно работающие ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование {{ network-load-balancer-name }} ([тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md));
+* плата за использование публичных IP-адресов и исходящий трафик ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
+* плата за использование функции ([тарифы {{ sf-full-name }}](../../functions/pricing.md));
 
 ## Настройте профиль CLI {#setup-profile}
 

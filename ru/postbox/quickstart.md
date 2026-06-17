@@ -59,7 +59,7 @@
 
 {% include [smtp-send-api](../_includes/postbox/smtp-send-api.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](concepts/notification.md)
 * [{#T}](operations/send-email.md)

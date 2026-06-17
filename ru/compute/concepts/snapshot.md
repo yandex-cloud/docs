@@ -64,7 +64,7 @@ _Снимок диска_ в {{ yandex-cloud }} — это копия файло
 * [{#T}](../../tutorials/testing/ci-for-snapshots.md)
 * [{#T}](../../tutorials/web/bitrix-website/index.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Инструкции для снимков дисков и расписаний](../operations/#snapshots)
 * [{#T}](../operations/disk-create/from-snapshot.md)

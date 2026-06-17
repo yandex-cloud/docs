@@ -101,7 +101,7 @@
 * [Запись данных с устройства в базу данных](../../tutorials/data-recording.md)
 * [Мониторинг показаний датчиков и уведомления о событиях](../../tutorials/monitoring.md)
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для Yandex IoT Core, который передает сообщения в контейнер Serverless Containers](../../../serverless-containers/concepts/trigger/iot-core-trigger.md)
 * [Триггер для Yandex IoT Core, который отправляет сообщения в WebSocket-соединения](../../../api-gateway/concepts/trigger/iot-core-trigger.md)

@@ -18,10 +18,10 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер {{ dataproc-name }} (см. [тарифы {{ dataproc-name }}](../../data-proc/pricing.md)).
-* Плата за NAT-шлюз (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
-* Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-* Плата за публичные IP-адреса для хостов кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Плата за кластер {{ dataproc-name }} ([тарифы {{ dataproc-name }}](../../data-proc/pricing.md)).
+* Плата за NAT-шлюз ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними ([тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Плата за публичные IP-адреса для хостов кластера ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

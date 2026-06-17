@@ -165,6 +165,6 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
    ```
 
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](operations/update-cli.md)

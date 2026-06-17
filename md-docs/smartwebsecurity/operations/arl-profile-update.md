@@ -103,7 +103,7 @@
 
 {% endlist %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Удалить профиль ARL](arl-profile-delete.md)
 * [Добавить правило в профиль ARL](arl-rule-add.md)

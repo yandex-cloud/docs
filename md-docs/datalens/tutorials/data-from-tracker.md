@@ -39,8 +39,8 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Постоянно запущенный кластер Managed Service for ClickHouse® (см. [тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md));
-* Использование функции Cloud Functions (см. [тарифы Cloud Functions](../../functions/pricing.md)).
+* Постоянно запущенный кластер Managed Service for ClickHouse® ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md));
+* Использование функции Cloud Functions ([тарифы Cloud Functions](../../functions/pricing.md)).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -69,7 +69,7 @@
     * Сервисные настройки:
         * **Доступ из DataLens** — `Включено`;
         * **Доступ из Serverless** — `Включено`.
-    Полный список настроек см. в разделе [Настройки Managed Service for ClickHouse®](../../managed-clickhouse/concepts/settings-list.md).
+    Полный список настроек смотрите в разделе [Настройки Managed Service for ClickHouse®](../../managed-clickhouse/concepts/settings-list.md).
 1. Нажмите кнопку **Создать кластер**. Дождитесь, когда статус созданного кластера сменится на `Alive`. 
 1. Скопируйте и сохраните имя хоста для дальнейшей настройки Cloud Functions.
 ![Вкладка Хосты](../../_assets/dl-tracker-host-name.png =680x372)
@@ -226,7 +226,7 @@
    1. В правом верхнем углу дашборда нажмите кнопку **Сохранить**.
    1. Введите название дашборда и нажмите **Создать**.
 
-   Подробнее о настройке дашбордов см. в разделе [Дашборд Yandex DataLens](../concepts/dashboard.md).
+   Подробнее о настройке дашбордов смотрите в разделе [Дашборд Yandex DataLens](../concepts/dashboard.md).
 
 {% cut "Пример дашборда на основе данных из таблицы `v_tracker_issues`" %}
 
@@ -247,7 +247,7 @@
 * [Удалите функцию Cloud Functions](../../functions/operations/function/function-delete.md).
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Аналитика задач в Яндекс Трекер: встроенные возможности и интеграция с Yandex DataLens](https://yandex.cloud/ru/blog/posts/2023/10/yandex-tracker-and-datalens)
 

@@ -65,7 +65,7 @@
       yc compute instance create --help
       ```
 
-  1. Подготовьте снимки нужных дисков, см. раздел [{#T}](../../compute/operations/disk-control/create-snapshot.md).
+  1. Подготовьте снимки нужных дисков, смотрите раздел [{#T}](../../compute/operations/disk-control/create-snapshot.md).
   1. Получите список снимков в каталоге по умолчанию:
 
       {% include [compute-snapshot-list](../../compute/_includes_service/compute-snapshot-list.md) %}

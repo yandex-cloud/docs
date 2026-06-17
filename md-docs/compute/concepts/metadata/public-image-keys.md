@@ -68,7 +68,7 @@
 * [Настройка сетевого взаимодействия ресурсов из разных каталогов](../../../tutorials/routing/multi-folder-vpc.md)
 * [Запуск Docker-образа на виртуальной машине](../../../tutorials/infrastructure-management/run-docker-on-vm/index.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Метаданные виртуальной машины](../vm-metadata.md)
 * [Каталоги метаданных](directories.md)

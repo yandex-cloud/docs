@@ -20,6 +20,6 @@ CDN-ресурсы поддерживают [метки](../../resource-manager/
 {% include [tags-restrictions](../../_includes/tags-restrictions.md) %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/resources/labeling.md)

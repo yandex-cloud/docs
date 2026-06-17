@@ -16,4 +16,4 @@
 `UpdateDatabase` | Изменение базы данных
 `UpdateUser` | Изменение пользователя базы данных
 
-^1^ Требуется дополнительная настройка на стороне {{ mpg-name }}. Подробнее см. в разделе [{#T}](../../../managed-postgresql/operations/extensions/pgaudit.md)
+^1^ Требуется дополнительная настройка на стороне {{ mpg-name }}. Подробнее в разделе [{#T}](../../../managed-postgresql/operations/extensions/pgaudit.md)

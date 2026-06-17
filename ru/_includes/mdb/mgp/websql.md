@@ -20,4 +20,4 @@
 
 Чтобы открыть редактор запросов, нажмите на созданное подключение на вкладке **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}**.
 
-Подробнее о работе с {{ websql-name }} см. в [документации сервиса](../../../websql/operations/index.md).
+Подробнее о работе с {{ websql-name }} читайте в [документации сервиса](../../../websql/operations/index.md).

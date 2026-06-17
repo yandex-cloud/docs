@@ -29,10 +29,10 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за хранение данных в Object Storage, операции с ними и исходящий трафик (см. [тарифы Object Storage](../../../storage/pricing.md));
-* плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы Application Load Balancer](../../../application-load-balancer/pricing.md));
-* плата за исходящий трафик с CDN-серверов (см. [тарифы Cloud CDN](../../pricing.md));
-* плата за публичные DNS-запросы и DNS-зоны, если вы используете Yandex Cloud DNS (см. [тарифы Cloud DNS](../../../dns/pricing.md)).
+* плата за хранение данных в Object Storage, операции с ними и исходящий трафик ([тарифы Object Storage](../../../storage/pricing.md));
+* плата за использование вычислительных ресурсов L7-балансировщика ([тарифы Application Load Balancer](../../../application-load-balancer/pricing.md));
+* плата за исходящий трафик с CDN-серверов ([тарифы Cloud CDN](../../pricing.md));
+* плата за публичные DNS-запросы и DNS-зоны, если вы используете Yandex Cloud DNS ([тарифы Cloud DNS](../../../dns/pricing.md)).
 
 ## Разверните инфраструктуру для интеграции L7-балансировщика с Cloud CDN и Object Storage {#deploy}
 
@@ -511,6 +511,6 @@ Terraform распространяется под лицензией [Business S
     
     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Интеграция L7-балансировщика с Cloud CDN и Object Storage с помощью консоли управления](console.md)

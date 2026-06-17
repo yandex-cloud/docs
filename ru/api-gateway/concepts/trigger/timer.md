@@ -21,7 +21,7 @@ _Таймер_ — это [триггер](../trigger/), который отпр
 
 {% include [timer-format](../../../_includes/functions/timer-format.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Таймер для запуска контейнера {{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/timer.md)
 * [Таймер для запуска функции {{ sf-name }}](../../../functions/concepts/trigger/timer.md)

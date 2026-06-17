@@ -30,8 +30,8 @@
 
 В стоимость реализации обучения модели с помощью данных из Object Storage входят:
 * Плата за использование [вычислительных ресурсов DataSphere](../../datasphere/pricing.md).
-* Плата за хранение данных в бакете (см. [тарифы Object Storage](../pricing.md#prices-storage)).
-* Плата за операции с данными (см. [тарифы Object Storage](../pricing.md#prices-operations)).
+* Плата за хранение данных в бакете ([тарифы Object Storage](../pricing.md#prices-storage)).
+* Плата за операции с данными ([тарифы Object Storage](../pricing.md#prices-operations)).
 
 ## Подготовьте инфраструктуру {#infra}
 
@@ -125,7 +125,7 @@
      secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI9hx*****
      ```
 
-     Подробнее о команде `yc iam access-key create` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/access-key/create.md).
+     Подробнее о команде `yc iam access-key create` смотрите в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/access-key/create.md).
   1. Сохраните идентификатор `key_id` и секретный ключ `secret`. Получить значение ключа снова будет невозможно.
 
 - API {#api}
@@ -209,7 +209,7 @@
      }
      ```
 
-     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации](../../terraform/resources/storage_bucket.md) провайдера Terraform.
+     Подробнее о ресурсе `yandex_storage_bucket` смотрите в [документации](../../terraform/resources/storage_bucket.md) провайдера Terraform.
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.

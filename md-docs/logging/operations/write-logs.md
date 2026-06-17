@@ -63,7 +63,7 @@
 {% endlist %}
 
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 - [Чтение записей](read-logs.md)
 - [Мониторинг](monitoring.md)

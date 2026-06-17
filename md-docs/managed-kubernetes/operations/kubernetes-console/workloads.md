@@ -78,6 +78,6 @@
 
 {% endlist %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Взаимосвязь ресурсов в Managed Service for Kubernetes](../../concepts/index.md)

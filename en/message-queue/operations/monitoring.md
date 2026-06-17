@@ -9,7 +9,7 @@ To view this information:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the message queue belongs to.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
 
   Sections with charts appear on the page.
@@ -46,9 +46,9 @@ To view this information:
 
 * **ReceiveMessages requests**: Total number of [ReceiveMessage](../api-ref/message/ReceiveMessage) requests and number of requests with empty responses.
 
-  An empty response to a request means that no messages available for reading have appeared within the specified waiting time (the `WaitTimeSeconds` attribute).
+  An empty response to a request indicates that there were no messages available for reading within the specified waiting time (the `WaitTimeSeconds` attribute).
     
-* **ReceiveMessages duration**: `ReceiveMessage` request execution time.
+* **ReceiveMessages duration**: Time it takes to execute a `ReceiveMessage` request.
 
   {% include [ymq-monitoring-query-duration.md](../../_includes/message-queue/ymq-monitoring-query-duration.md) %}
 
@@ -71,11 +71,11 @@ To view this information:
 **Delete messages stats** contains charts with information about deleting messages:
     
 * **Deleted messages, count**: Number of messages deleted from the queue in a unit of time using the [DeleteMessage](../api-ref/message/DeleteMessage) or [DeleteMessageBatch](../api-ref/message/DeleteMessageBatch) method.
-* **DeleteMessage duration**: `DeleteMessage` request execution time.
+* **DeleteMessage duration**: Time it takes to execute a `DeleteMessage` request.
 
   {% include [ymq-monitoring-query-duration.md](../../_includes/message-queue/ymq-monitoring-query-duration.md) %}
 
-* **DeleteMessageBatch duration**: `DeleteMessageBatch` request execution time.
+* **DeleteMessageBatch duration**: Time it takes to execute a `DeleteMessageBatch` request.
 
   {% include [ymq-monitoring-query-duration.md](../../_includes/message-queue/ymq-monitoring-query-duration.md) %}
 

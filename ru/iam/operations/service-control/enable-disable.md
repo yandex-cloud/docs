@@ -106,7 +106,7 @@ description: С помощью этой инструкции вы научите
 
 В результате [статус](../../concepts/service-control.md#access-status) сервиса в облаке изменится на `DISABLED`, [сервисные агенты](../../concepts/service-control.md#service-agent) этого сервиса в данном облаке будут удалены, а сервис потеряет доступ к ресурсам пользователя в этом облаке.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./list-get.md)
 * [{#T}](../../concepts/service-control.md)

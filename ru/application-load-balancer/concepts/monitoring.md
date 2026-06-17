@@ -134,7 +134,7 @@
 * `GRPC_UNAVAILABLE`||
 |#
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./function-monitoring.md)
 * [{#T}](../operations/application-load-balancer-manage-alerts.md)

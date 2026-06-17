@@ -2,4 +2,4 @@
 
 В правиле вы можете использовать регулярные выражения. 
 
-Подробнее см. в разделе [Правило Rewrite](../../cdn/concepts/http-rewrite.md#rewrite-rule).
+Подробнее в разделе [Правило Rewrite](../../cdn/concepts/http-rewrite.md#rewrite-rule).

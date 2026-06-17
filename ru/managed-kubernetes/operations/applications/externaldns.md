@@ -86,6 +86,6 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](../../tutorials/alb-ingress-controller-log-options.md).
 * [{#T}](../../tutorials/load-testing-grpc-autoscaling.md).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация ExternalDNS](https://github.com/kubernetes-sigs/external-dns/).

@@ -90,7 +90,7 @@
 
 {% include [check-result](../../../_includes/api-gateway/check-result.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для бюджетов, который вызывает функцию {{ sf-name }}](../../../functions/operations/trigger/budget-trigger-create.md)
 * [{#T}](../../../serverless-containers/operations/budget-trigger-create.md)

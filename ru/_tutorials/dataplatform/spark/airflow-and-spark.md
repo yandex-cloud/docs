@@ -28,10 +28,10 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ maf-name }}: вычислительные ресурсы компонентов кластера (см. [тарифы {{ maf-name }}](../../../managed-airflow/pricing.md)).
-* Кластер {{ metastore-name }}: вычислительные ресурсы компонентов кластера (см. [тарифы {{ metadata-hub-full-name }}](../../../metadata-hub/pricing.md#metastore)).
-* Бакеты {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
-* Сервис {{ cloud-logging-full-name }}: объем записываемых данных и время их хранения (см. [тарифы {{ cloud-logging-name }}](../../../logging/pricing.md)).
+* Кластер {{ maf-name }}: вычислительные ресурсы компонентов кластера ([тарифы {{ maf-name }}](../../../managed-airflow/pricing.md)).
+* Кластер {{ metastore-name }}: вычислительные ресурсы компонентов кластера ([тарифы {{ metadata-hub-full-name }}](../../../metadata-hub/pricing.md#metastore)).
+* Бакеты {{ objstorage-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
+* Сервис {{ cloud-logging-full-name }}: объем записываемых данных и время их хранения ([тарифы {{ cloud-logging-name }}](../../../logging/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#infra}

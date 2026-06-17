@@ -6,7 +6,7 @@
 
 {% note info %}
 
-Минимально необходимая роль, позволяющая просматривать список профилей OS Login пользователей — [роль](../security/index.md#organization-manager-osLogins-viewer) `organization-manager.osLogins.viewer`, назначенная на организацию. Информацию о других ролях, позволяющих просматривать список профилей OS Login, см. в разделе [Управление доступом в Yandex Identity Hub](../security/index.md#service-roles).
+Минимально необходимая роль, позволяющая просматривать список профилей OS Login пользователей — [роль](../security/index.md#organization-manager-osLogins-viewer) `organization-manager.osLogins.viewer`, назначенная на организацию. Информацию о других ролях, позволяющих просматривать список профилей OS Login, смотрите в разделе [Управление доступом в Yandex Identity Hub](../security/index.md#service-roles).
 
 {% endnote %}
 
@@ -154,7 +154,7 @@
 
 Создать профиль OS Login сервисного аккаунта можно только с помощью [Yandex Cloud CLI](../cli-ref/oslogin/profile/create.md) или [API](../api-ref/OsLogin/createProfile.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Включить доступ по OS Login](os-login-access.md)
 * [Добавить SSH-ключ](add-ssh.md)

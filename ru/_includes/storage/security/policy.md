@@ -10,7 +10,7 @@
 
 {% include [storage-note-empty-policy](../../../storage/_includes_service/storage-note-empty-policy.md) %}
 
-Политику доступа можно настроить в консоли управления или описать в формате JSON по [специальной схеме](../../../storage/s3/api-ref/policy/scheme.md), чтобы передать через один из программных инструментов — {{ yandex-cloud }} CLI, AWS CLI, {{ TF }} или API. Подробнее об управлении политикой см. в [инструкции](../../../storage/operations/buckets/policy.md).
+Политику доступа можно настроить в консоли управления или описать в формате JSON по [специальной схеме](../../../storage/s3/api-ref/policy/scheme.md), чтобы передать через один из программных инструментов — {{ yandex-cloud }} CLI, AWS CLI, {{ TF }} или API. Подробнее об управлении политикой смотрите в [инструкции](../../../storage/operations/buckets/policy.md).
 
 
 {% include [s3-with-policy-access](../s3-with-policy-access.md) %}
@@ -179,7 +179,7 @@
 
 Если условие не выполнено, сервис возвращает ошибку `403 Access Denied`.
 
-См. [примеры конфигураций](#conditional-writes-rules) для условной записи объектов через политику доступа.
+[Примеры конфигураций](#conditional-writes-rules) для условной записи объектов через политику доступа.
 
 ## Примеры конфигурации {#config-examples}
 
@@ -470,6 +470,6 @@
 }
 ```
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](../../../storage/operations/buckets/policy.md)

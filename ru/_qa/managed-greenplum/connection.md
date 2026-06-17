@@ -31,4 +31,4 @@ The revocation function was unable to check revocation for the certificate
 
 Настроить аутентификацию пользователей в {{ mgp-name }} можно с помощью [правил](../../managed-greenplum/operations/user-auth-rules.md).
 
-Подробнее см. в разделе [{#T}](../../managed-greenplum/concepts/user-authentication.md).
+Подробнее читайте в разделе [{#T}](../../managed-greenplum/concepts/user-authentication.md).

@@ -62,7 +62,7 @@ HTTP/1.1-only endpoint не подвержен описанной цепочке
 
 ### Разработчик {#vendor-CVE-2026-49975}
 
-Уязвимость затрагивает несколько независимых разработчиков веб-серверов и прокси (см. таблицу выше). Патчи для nginx, Apache `mod_http2` и Envoy уже выпущены. Для Microsoft IIS и Cloudflare Pingora публичные исправления на момент публикации бюллетеня отсутствуют.
+Уязвимость затрагивает несколько независимых разработчиков веб-серверов и прокси (смотрите таблицу выше). Патчи для nginx, Apache `mod_http2` и Envoy уже выпущены. Для Microsoft IIS и Cloudflare Pingora публичные исправления на момент публикации бюллетеня отсутствуют.
 
 ### Вектор атаки и уровень опасности согласно CVSS v.3.1 {#attack-vector-and-severity-level-CVE-2026-49975}
 
@@ -633,7 +633,7 @@ CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
 
 {% note alert %}
 
-Поддержка контроллера Ingress NGINX прекращается в марте 2026 года. Подробнее см. на странице [Ingress NGINX Retirement: What You Need to Know](https://kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/).
+Поддержка контроллера Ingress NGINX прекращается в марте 2026 года. Подробнее читайте на странице [Ingress NGINX Retirement: What You Need to Know](https://kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/).
 
 Рекомендуется [перейти](../../managed-kubernetes/alb-ref/nginx-gwin-migration.md) на новый контроллер [Yandex Cloud Gwin](../../managed-kubernetes/alb-ref/gwin-index.md).
 

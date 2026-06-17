@@ -143,7 +143,7 @@ spec:
 
   * `name` (`string`, обязательное)
 
-    Имя ресурса. Подробнее о формате см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Подробнее о формате смотрите в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
     Не является именем балансировщика в {{ alb-name }}.
   
@@ -157,7 +157,7 @@ spec:
 
   * `selector` (`LabelSelector`) — селектор по меткам для выбора ресурсов.
 
-  * `policy` (`Route`, обязательное) — облако-специфичная конфигурация маршрутов. Подробнее см. [ниже](#route).
+  * `policy` (`Route`, обязательное) — облако-специфичная конфигурация маршрутов. Подробности [ниже](#route).
 
 ## Route {#route}
 
@@ -178,7 +178,7 @@ host:
 
 * `rules` (`RouteRule`)
 
-  Общие настройки для всех правил маршрута. Подробнее см. [RouteRule](#routerule).
+  Общие настройки для всех правил маршрута. Подробнее смотрите [RouteRule](#routerule).
 
 * `rule` (`map[string]RouteRule`)
 
@@ -215,11 +215,11 @@ http:
 
 * `backends` (`Backend`)
 
-  Настройки группы бэкендов. Подробнее см. [Backend](#backend).
+  Настройки группы бэкендов. Подробнее смотрите [Backend](#backend).
 
 * `sessionAffinity` (`SessionAffinity`)
 
-  Параметры [привязки сессий](../../../application-load-balancer/concepts/backend-group.md#session-affinity). Подробнее см. [SessionAffinity](#sessionaffinity).
+  Параметры [привязки сессий](../../../application-load-balancer/concepts/backend-group.md#session-affinity). Подробнее смотрите [SessionAffinity](#sessionaffinity).
 
 * `securityProfileId` (`string`)
 
@@ -227,7 +227,7 @@ http:
 
 * `rbac` (`RBAC`)
 
-  Настройки RBAC. Подробнее см. [RBAC](#rbac).
+  Настройки RBAC. Подробнее смотрите [RBAC](#rbac).
 
 * `timeout` (`string`)
 
@@ -299,11 +299,11 @@ tls: <BackendTLS>
 
 * `hc` (`HealthCheck`)
 
-  Параметры health check. Подробнее см. [HealthCheck](#healthcheck).
+  Параметры health check. Подробнее смотрите [HealthCheck](#healthcheck).
 
 * `tls` (`BackendTLS`)
 
-  TLS-настройки для соединения с бэкендом. Подробнее см. [BackendTLS](#backendtls).
+  TLS-настройки для соединения с бэкендом. Подробнее смотрите [BackendTLS](#backendtls).
 
 ## HealthCheck {#healthcheck}
 

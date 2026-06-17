@@ -1,6 +1,6 @@
 ---
-title: Getting a list of classifications
-description: Follow this guide to get a list of classifications in {{ data-catalog-full-name }}.
+title: Getting a list of classifications in {{ data-catalog-full-name }}
+description: Follow this guide to get a list of classifications in {{ data-catalog-name }}.
 ---
 
 # Getting a list of classifications

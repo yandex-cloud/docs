@@ -103,6 +103,6 @@
    terraform init
    ```
 
-## См. также {see-also}
+## Полезные ссылки {see-also}
 
 Руководство [Управление ресурсами {{ k8s }} с помощью провайдера {{ TF }}](../../managed-kubernetes/tutorials/kubernetes-terraform-provider.md).

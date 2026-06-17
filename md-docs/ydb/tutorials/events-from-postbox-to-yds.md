@@ -35,11 +35,11 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за операции с YDB и хранение данных (см. [тарифы Yandex Managed Service for YDB](../pricing/serverless.md));
-* плата за хранение данных Data Streams (см. [тарифы Yandex Data Streams](../../data-streams/pricing.md));
-* плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы Cloud Functions](../../functions/pricing.md));
-* плата за использование Yandex Cloud Postbox (см. [тарифы Yandex Cloud Postbox](../../postbox/pricing.md));
-* плата за тариф DataLens (см. [тарифы Yandex DataLens](../../datalens/pricing.md)).
+* плата за операции с YDB и хранение данных ([тарифы Yandex Managed Service for YDB](../pricing/serverless.md));
+* плата за хранение данных Data Streams ([тарифы Yandex Data Streams](../../data-streams/pricing.md));
+* плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы Cloud Functions](../../functions/pricing.md));
+* плата за использование Yandex Cloud Postbox ([тарифы Yandex Cloud Postbox](../../postbox/pricing.md));
+* плата за тариф DataLens ([тарифы Yandex DataLens](../../datalens/pricing.md)).
 
 
 ## Создайте сервисные аккаунты {#service-accounts}

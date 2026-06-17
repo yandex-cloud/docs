@@ -33,4 +33,4 @@ The revocation function was unable to check revocation for the certificate
 
 Настроить аутентификацию пользователей в Yandex MPP Analytics for PostgreSQL можно с помощью [правил](../operations/user-auth-rules.md).
 
-Подробнее см. в разделе [Аутентификация пользователей](../concepts/user-authentication.md).
+Подробнее читайте в разделе [Аутентификация пользователей](../concepts/user-authentication.md).

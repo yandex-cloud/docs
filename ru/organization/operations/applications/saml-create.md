@@ -300,11 +300,13 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [saml-app-update-users-groups](../../../_includes/organization/saml-app-update-users-groups.md) %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 ## Убедитесь в корректной работе приложения {#validate}
 
 Чтобы убедиться в корректной работе SAML-приложения и интеграции с поставщиком услуг, выполните аутентификацию во внешнем приложении от имени одного из добавленных в приложение пользователей.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./saml-update.md)
 * [{#T}](./saml-deactivate-remove.md)

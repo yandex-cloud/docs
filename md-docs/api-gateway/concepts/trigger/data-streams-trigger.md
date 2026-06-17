@@ -36,7 +36,7 @@
 }
 ```
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для Data Streams, который запускает контейнер Serverless Containers](../../../serverless-containers/concepts/trigger/data-streams-trigger.md)
 * [Триггер для Data Streams, который запускает функцию Cloud Functions](../../../functions/concepts/trigger/data-streams-trigger.md)

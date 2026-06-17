@@ -58,8 +58,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры пользовательского воркера входят:
-* плата за диск и запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* плата за диск и запущенную ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование внешнего IP-адреса ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ## Разверните инфраструктуру {#infra}
 
@@ -213,7 +213,7 @@ CI/CD-процесс [настраивается]({{ link-src-docs }}/sourcecraf
 Конфигурация ВМ для пользовательского воркера задается в блоке переменных `env` в файле `.sourcecraft/ci.yaml`:
 * `COMPUTE_INSTANCE_NAME` — название и имя хоста ВМ, например `self-hosted-worker`.
 * `VPC_SUBNET_NAME` — название подсети, созданной ранее, в которой будет размещена ВМ, например `default-ru-central1-d`.
-* `CREATE_BOOT_DISK` — [образ диска](../../compute/concepts/image.md), из которого будет создана ВМ, например `image-folder-id=standard-images,image-family=ubuntu-2204-lts` (Ubuntu 22.04 LTS). См. также [Получить список публичных образов](../../compute/operations/images-with-pre-installed-software/get-list.md).
+* `CREATE_BOOT_DISK` — [образ диска](../../compute/concepts/image.md), из которого будет создана ВМ, например `image-folder-id=standard-images,image-family=ubuntu-2204-lts` (Ubuntu 22.04 LTS). Чтобы получить список публичных образов, воспользуйтесь [инструкцией](../../compute/operations/images-with-pre-installed-software/get-list.md).
 * `PLATFORM` — [платформа](../../compute/concepts/vm-platforms.md) ВМ, например `standard-v3`.
 * `MEMORY` — количество RAM, например `64GB`.
 * `CORES` — количество ядер vCPU, например `8`.
@@ -317,7 +317,7 @@ write_files:
 
 При необходимости удалите [сеть](../../vpc/operations/network-delete.md) и [подсеть](../../vpc/operations/subnet-delete.md).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Настроить пользовательский воркер для {{ src-name }}]({{ link-src-docs }}/sourcecraft/operations/self-hosted-worker)
 * [Создать виртуальную машину с пользовательским скриптом конфигурации](../../compute/operations/vm-create/create-with-cloud-init-scripts.md)

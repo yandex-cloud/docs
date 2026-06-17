@@ -21,9 +21,9 @@
 
 В стоимость поддержки резервного копирования с помощью Duplicati входит:
 
-* плата за хранение данных (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md#prices-storage));
-* плата за операции с данными (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md#prices-operations));
-* стоимость исходящего трафика из {{ yandex-cloud }} в интернет (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md#prices-traffic)).
+* плата за хранение данных ([тарифы {{ objstorage-full-name }}](../../storage/pricing.md#prices-storage));
+* плата за операции с данными ([тарифы {{ objstorage-full-name }}](../../storage/pricing.md#prices-operations));
+* стоимость исходящего трафика из {{ yandex-cloud }} в интернет ([тарифы {{ objstorage-full-name }}](../../storage/pricing.md#prices-traffic)).
 
 ## Создайте бакет {#create-bucket}
 
@@ -94,7 +94,7 @@
 1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Откройте бакет с резервными копиями и убедитесь, что все нужные файлы были скопированы.
 
-Подробности о восстановлении данных из резервной копии см. в [документации Duplicati](https://duplicati.readthedocs.io/en/latest/03-using-the-graphical-user-interface/#restoring-files-from-a-backup).   
+Подробности о восстановлении данных из резервной копии смотрите в [документации Duplicati](https://duplicati.readthedocs.io/en/latest/03-using-the-graphical-user-interface/#restoring-files-from-a-backup).   
 
 ## Как удалить созданные ресурсы {#clear-out}
 

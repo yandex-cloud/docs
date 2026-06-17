@@ -461,7 +461,7 @@ ARL позволяет устанавливать лимиты на количе
 {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создать профиль безопасности](operations/profile-create.md)
 * [Базовая настройка защиты в Smart Web Security](tutorials/sws-basic-protection.md)

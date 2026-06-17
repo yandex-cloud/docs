@@ -7,7 +7,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входит плата за сервис {{ kms-name }}: количество активных версий ключа (в статусах `Active` и `Scheduled For Destruction`) и выполненных криптографических операций (см. [тарифы {{ kms-name }}](../../kms/pricing.md)).
+В стоимость поддержки описываемого решения входит плата за сервис {{ kms-name }}: количество активных версий ключа (в статусах `Active` и `Scheduled For Destruction`) и выполненных криптографических операций ([тарифы {{ kms-name }}](../../kms/pricing.md)).
 
 
 {% list tabs group=instructions %}
@@ -84,7 +84,7 @@
 
 Взаимодействие {{ managed-k8s-name }} с {{ kms-name }} происходит с помощью [механизма провайдеров {{ kms-name }}](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/). {{ managed-k8s-name }} поддерживает плагин {{ kms-name }}, который используется для шифрования и расшифрования ключей шифрования данных (DEK) в {{ kms-name }}. Шифрование секретов осуществляется стандартными средствами {{ k8s }}.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Начало работы с {{ managed-k8s-name }}](../../managed-kubernetes/quickstart.md).
 * [{#T}](../../kms/concepts/envelope.md).

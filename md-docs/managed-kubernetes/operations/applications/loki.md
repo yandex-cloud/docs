@@ -101,6 +101,6 @@ kubectl get service -A | grep distributed-gateway
 test-namespace   loki-loki-distributed-gateway   ClusterIP   10.96.168.88   <none>   80/TCP    15m
 ```
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация Grafana Loki](https://grafana.com/docs/loki/latest/).

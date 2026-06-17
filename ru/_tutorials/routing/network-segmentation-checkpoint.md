@@ -51,8 +51,8 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за постоянно работающие ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* плата за постоянно работающие ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование публичных IP-адресов и исходящий трафик ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ### Необходимые квоты {#required-quotes}
 
@@ -269,7 +269,7 @@
       }
       ```
 
-      Подробнее о настройках зеркал см. в [документации {{ TF }}](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
+      Подробнее о настройках зеркал смотрите в [документации {{ TF }}](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
 
 ## Разверните ресурсы {#create-resources}
 

@@ -68,7 +68,7 @@
 
 * [Использование секрета Yandex Lockbox для хранения статического ключа доступа](../../tutorials/static-key-in-lockbox/index.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создать статический ключ доступа](../../operations/authentication/manage-access-keys.md#create-access-key)
 * [Как выбрать подходящий способ аутентификации в Yandex Cloud](index.md)

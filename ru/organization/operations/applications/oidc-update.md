@@ -380,7 +380,9 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [oidc-app-update-users-groups](../../../_includes/organization/oidc-app-update-users-groups.md) %}
 
-#### См. также {#see-also}
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./oidc-create.md)
 * [{#T}](./oidc-deactivate-remove.md)

@@ -92,7 +92,7 @@
 * Изучайте, как применяют Kanban в мировой практике. Перенимайте лучшие методики, кейсы. 
 
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Scrum или Kanban: что выбрать и как с ними работать в Яндекс Трекер](https://yandex.cloud/ru/blog/posts/2023/02/scrum-or-kanban).
 * [Ознакомьтесь с шаблонами Kanban в Яндекс Трекер](https://tracker.yandex.ru/pages/my).

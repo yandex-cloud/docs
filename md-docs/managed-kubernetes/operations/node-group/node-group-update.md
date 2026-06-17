@@ -44,7 +44,7 @@ yc managed-kubernetes node-group list
     
     Чтобы обеспечить доступ в интернет, [назначьте](node-group-update.md#node-internet-access) узлам публичный IP-адрес и [настройте](../connect/security-groups.md#rules-internal-nodegroup) группу безопасности. Также в качестве альтернативы публичным IP-адресам можно создать и настроить в подсети узлов [NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../../vpc/tutorials/nat-instance/index.md).
 
-    Подробнее см. в подразделе [Доступ в интернет для рабочих узлов кластера](../../concepts/network.md#nodes-internet).
+    Подробнее в подразделе [Доступ в интернет для рабочих узлов кластера](../../concepts/network.md#nodes-internet).
 
     {% endnote %}
 
@@ -106,7 +106,7 @@ yc managed-kubernetes node-group list
     
     Чтобы обеспечить узлам доступ в интернет, назначьте им публичный IP-адрес и [настройте](../connect/security-groups.md#rules-internal-nodegroup) группу безопасности. Также в качестве альтернативы публичным IP-адресам можно создать и настроить в подсети узлов [NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../../vpc/tutorials/nat-instance/index.md).
     
-    Если вы назначили узлам кластера публичные IP-адреса и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее см. в [документации Yandex Virtual Private Cloud](../../../vpc/concepts/routing.md#internet-routes).
+    Если вы назначили узлам кластера публичные IP-адреса и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее в [документации Yandex Virtual Private Cloud](../../../vpc/concepts/routing.md#internet-routes).
 
   * `--network-acceleration-type` — выбор типа [ускорения сети](../../../compute/concepts/software-accelerated-network.md):
     * `standard` — без ускорения.
@@ -339,7 +339,7 @@ yc managed-kubernetes node-group list
       * **Расширение размера группы, макс.** — максимальное количество узлов, на которое можно расширить группу при ее изменении или обновлении. Значение по умолчанию — `3`.
       * **Уменьшение размера группы, макс.** — максимальное количество узлов, которые могут быть недоступны в ходе изменения или обновления группы. Значение по умолчанию — `0`.
       
-      Подробнее см. в разделе [Политика развертывания группы узлов в Managed Service for Kubernetes](../../concepts/node-group/deploy-policy.md).
+      Подробнее в разделе [Политика развертывания группы узлов в Managed Service for Kubernetes](../../concepts/node-group/deploy-policy.md).
 
   1. Нажмите кнопку **Сохранить**.
 
@@ -369,7 +369,7 @@ yc managed-kubernetes node-group list
       * `--max-expansion` — максимальное количество узлов, на которое можно расширить группу при ее изменении или обновлении. Значение по умолчанию — `3`.
       * `--max-unavailable` — максимальное количество узлов, которые могут быть недоступны в ходе изменения или обновления группы. Значение по умолчанию — `0`.
       
-      Подробнее см. в разделе [Политика развертывания группы узлов в Managed Service for Kubernetes](../../concepts/node-group/deploy-policy.md).
+      Подробнее в разделе [Политика развертывания группы узлов в Managed Service for Kubernetes](../../concepts/node-group/deploy-policy.md).
 
       Имя группы узлов можно запросить со [списком групп узлов в каталоге](node-group-list.md#list).
 
@@ -398,7 +398,7 @@ yc managed-kubernetes node-group list
       * `max_expansion` — максимальное количество узлов, на которое можно расширить группу при ее изменении или обновлении. Значение по умолчанию — `3`.
       * `max_unavailable` — максимальное количество узлов, которые могут быть недоступны в ходе изменения или обновления группы. Значение по умолчанию — `0`.
       
-      Подробнее см. в разделе [Политика развертывания группы узлов в Managed Service for Kubernetes](../../concepts/node-group/deploy-policy.md).
+      Подробнее в разделе [Политика развертывания группы узлов в Managed Service for Kubernetes](../../concepts/node-group/deploy-policy.md).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -458,7 +458,7 @@ yc managed-kubernetes node-group list
   * Параметр `deployPolicy.maxExpansion` — максимальное количество узлов, на которое можно расширить группу при ее изменении или обновлении. Значение по умолчанию — `3`.
   * Параметр `deployPolicy.maxUnavailable` — максимальное количество узлов, которые могут быть недоступны в ходе изменения или обновления группы. Значение по умолчанию — `0`.
   
-  Подробнее см. в разделе [Политика развертывания группы узлов в Managed Service for Kubernetes](../../concepts/node-group/deploy-policy.md).
+  Подробнее в разделе [Политика развертывания группы узлов в Managed Service for Kubernetes](../../concepts/node-group/deploy-policy.md).
 
 {% endlist %}
 
@@ -468,7 +468,7 @@ yc managed-kubernetes node-group list
 
 Чтобы обеспечить узлам доступ в интернет, назначьте им публичный IP-адрес и [настройте](../connect/security-groups.md#rules-internal-nodegroup) группу безопасности. Также в качестве альтернативы публичным IP-адресам можно создать и настроить в подсети узлов [NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../../vpc/tutorials/nat-instance/index.md).
 
-Если вы назначили узлам кластера публичные IP-адреса и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее см. в [документации Yandex Virtual Private Cloud](../../../vpc/concepts/routing.md#internet-routes).
+Если вы назначили узлам кластера публичные IP-адреса и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее в [документации Yandex Virtual Private Cloud](../../../vpc/concepts/routing.md#internet-routes).
 
 {% list tabs group=instructions %}
 

@@ -19,7 +19,7 @@ description: Контроль {{ k8s }}® ({{ kspm-name }}) контролиру
 
 Подробнее см. на странице [{#T}](../operations/kspm/enable-kspm.md).
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](workspace.md)
 * [{#T}](cspm.md)

@@ -93,7 +93,7 @@ NYC Taxi and Limousine Commission (TLC):
 | --- | --- | --- | --- |
 | 1  | 2022-11-28T16:05:00.000000Z | 10 | 5675.542679843059 |
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Оператор HOP. Параметры окон в потоковой обработке данных](../concepts/stream-processing-windows.md)
 * [Агрегатные функции. Синтаксис YQL](https://ydb.tech/docs/ru//yql/reference/builtins/aggregation)

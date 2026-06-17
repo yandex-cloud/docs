@@ -25,6 +25,6 @@ https://registry.yandexcloud.net/binaries/cn15fqbr806r********/sample-package/3.
 
 Удалить binary-артефакт вы можете в [консоли управления](https://console.yandex.cloud). Перезаписать существующую версию binary-артефакта невозможно.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Поддерживаемые типы артефактов](index.md#artifacts)

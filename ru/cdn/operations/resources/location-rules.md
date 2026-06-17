@@ -86,7 +86,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/location-rules.md)
 * [{#T}](./configure-caching.md)

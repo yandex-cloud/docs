@@ -27,7 +27,7 @@ Cloud Backup автоматически поставляет метрики ко
 
 {% endnote %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Настроить алерты Yandex Monium для ресурсов Yandex Cloud Backup](configure-alerts.md)
 * [Справочник метрик Yandex Monitoring](../metrics.md)

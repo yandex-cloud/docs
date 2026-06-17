@@ -187,7 +187,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [after-changes-tip](../../../_includes/cdn/after-changes-tip.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/clients-to-servers.md)
 * [{#T}](../../concepts/servers-to-origins.md)

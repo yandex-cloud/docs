@@ -269,6 +269,6 @@ download: s3://bucket-name/path_style_prefix/textfile.txt to ./textfile.txt
 ```
 
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../quickstart/quickstart-aws-cli.md).

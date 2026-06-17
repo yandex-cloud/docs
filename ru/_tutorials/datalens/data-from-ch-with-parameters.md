@@ -263,7 +263,7 @@
 
          ![image](../../_assets/datalens/solution-parameters/chart-measure-select-pay.png)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../datalens/concepts/parameters.md)
 * [{#T}](../../datalens/operations/dashboard/add-parameters.md)

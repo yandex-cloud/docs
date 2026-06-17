@@ -17,8 +17,8 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам KRaft), и дискового пространства (см. [тарифы Managed Service for Apache Kafka®](../pricing.md)).
-* Плата за использование публичных IP-адресов для хостов кластеров (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам KRaft), и дискового пространства ([тарифы Managed Service for Apache Kafka®](../pricing.md)).
+* Плата за использование публичных IP-адресов для хостов кластеров ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Обновите версию кластера {#update-version}

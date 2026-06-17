@@ -35,9 +35,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* Плата за постоянно запущенные ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за хранение созданных образов (см. [тарифы Compute Cloud](../../compute/pricing.md#prices-storage)).
-* Плата за использование динамических публичных IP-адресов (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за хранение созданных образов ([тарифы Compute Cloud](../../compute/pricing.md#prices-storage)).
+* Плата за использование динамических публичных IP-адресов ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Создайте виртуальную машину для тестового приложения {#create-vm}
 

@@ -9,6 +9,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [bind-domain-vm-console](../../../_tutorials/applied/bind-domain-vm-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md).

@@ -86,7 +86,7 @@
             * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
             * `allUsers` — [любой пользователь](../../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
         
-        Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
+        Подробнее о типах субъектов смотрите в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
 
   1. Проверьте список ролей, назначенных на кластер, выполнив команду:
 
@@ -141,7 +141,7 @@
             * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
             * `allUsers` — [любой пользователь](../../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
         
-        Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
+        Подробнее о типах субъектов смотрите в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -244,7 +244,7 @@
               * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
               * `allUsers` — [любой пользователь](../../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
           
-          Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
+          Подробнее о типах субъектов смотрите в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
 
 - Terraform {#tf}
 
@@ -299,7 +299,7 @@
             * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
             * `allUsers` — [любой пользователь](../../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
         
-        Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
+        Подробнее о типах субъектов смотрите в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -395,7 +395,7 @@
             * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
             * `allUsers` — [любой пользователь](../../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
         
-        Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
+        Подробнее о типах субъектов смотрите в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
 
 
 - Terraform {#tf}

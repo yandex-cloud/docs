@@ -104,7 +104,7 @@
 
 {% include [check-result](../../_includes/serverless-containers/check-result.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../functions/operations/trigger/budget-trigger-create.md)
 * [{#T}](../../api-gateway/operations/trigger/budget-trigger-create.md)

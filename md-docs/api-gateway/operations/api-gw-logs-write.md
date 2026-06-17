@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Логирование тарифицируется. Подробнее см. в [документации Yandex Cloud Logging](../../logging/pricing.md).
+Логирование тарифицируется. Подробнее в [документации Yandex Cloud Logging](../../logging/pricing.md).
 
 {% endnote %}
 
@@ -138,7 +138,7 @@
         * `folder_id` — идентификатор каталога.
         * `min_level` — минимальный уровень логирования. Доступные уровни логирования: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`. Необязательный параметр.
 
-        Более подробную информацию о параметрах ресурса `yandex_api_gateway` в Terraform см. в [документации провайдера](../../terraform/resources/api_gateway.md).
+        Подробнее о параметрах ресурса `yandex_api_gateway` в Terraform в [документации провайдера](../../terraform/resources/api_gateway.md).
     
     1. Проверьте конфигурацию командой:
 

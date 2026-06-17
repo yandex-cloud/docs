@@ -51,18 +51,18 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* Плата за вычислительные ресурсы и диски ВМ, на базе которых разворачивается кластер Kubernetes, вспомогательной ВМ, а также узлов управляющего кластера Managed Service for Kubernetes (см. [тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы Yandex Application Load Balancer](../../application-load-balancer/pricing.md)).
-* Плата за использование мастера управляющего кластера Managed Service for Kubernetes и исходящий трафик (см. [тарифы Yandex Managed Service for Kubernetes](../pricing.md)).
-* Плата за [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses) для вспомогательной ВМ и управляющего кластера Managed Service for Kubernetes (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за использование [NAT-шлюза](../../vpc/concepts/gateways.md) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#nat-gateways)).
+* Плата за вычислительные ресурсы и диски ВМ, на базе которых разворачивается кластер Kubernetes, вспомогательной ВМ, а также узлов управляющего кластера Managed Service for Kubernetes ([тарифы Compute Cloud](../../compute/pricing.md)).
+* Плата за использование вычислительных ресурсов L7-балансировщика ([тарифы Yandex Application Load Balancer](../../application-load-balancer/pricing.md)).
+* Плата за использование мастера управляющего кластера Managed Service for Kubernetes и исходящий трафик ([тарифы Yandex Managed Service for Kubernetes](../pricing.md)).
+* Плата за [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses) для вспомогательной ВМ и управляющего кластера Managed Service for Kubernetes ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за использование [NAT-шлюза](../../vpc/concepts/gateways.md) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#nat-gateways)).
 
 #### Опциональные траты {#optional-expenses}
 
 * Если для узлов создаваемого кластера Kubernetes вы будете использовать собственный образ:
-  * Плата за хранение образа в бакете и операции с данными (см. [тарифы Yandex Object Storage](../../storage/pricing.md)).
-  * Плата за хранение образа в Compute Cloud (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Если для развертывания провайдера Yandex Cloud в управляющем кластере вы будете использовать собственный Docker-образ — плата за хранение Docker-образа в реестре и исходящий трафик (см. [тарифы Yandex Container Registry](../../container-registry/pricing.md)).
+  * Плата за хранение образа в бакете и операции с данными ([тарифы Yandex Object Storage](../../storage/pricing.md)).
+  * Плата за хранение образа в Compute Cloud ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Если для развертывания провайдера Yandex Cloud в управляющем кластере вы будете использовать собственный Docker-образ — плата за хранение Docker-образа в реестре и исходящий трафик ([тарифы Yandex Container Registry](../../container-registry/pricing.md)).
 
 ### Подготовьте инфраструктуру {#infra}
 
@@ -141,7 +141,7 @@
 
   1. [Соберите](https://image-builder.sigs.k8s.io/capi/capi) образ ОС с помощью утилиты [Image Builder](https://github.com/kubernetes-sigs/image-builder).
 
-      См. также [Подготовить образ диска для Compute Cloud](../../compute/operations/image-create/custom-image.md).
+      Смотрите также [Подготовить образ диска для Compute Cloud](../../compute/operations/image-create/custom-image.md).
   1. [Загрузите](../../compute/operations/image-create/upload.md) образ в Compute Cloud и сохраните его идентификатор.
 
 {% endlist %}

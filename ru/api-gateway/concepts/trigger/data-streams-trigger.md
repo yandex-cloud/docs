@@ -28,7 +28,7 @@ description: Из статьи вы узнаете о триггере для {{
 
 {% include [yds-format](../../../_includes/functions/yds-format.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для {{ yds-name }}, который запускает контейнер {{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/data-streams-trigger.md)
 * [Триггер для {{ yds-name }}, который запускает функцию {{ sf-name }}](../../../functions/concepts/trigger/data-streams-trigger.md)

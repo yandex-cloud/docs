@@ -107,7 +107,7 @@ description: Следуя данной инструкции, вы сможете
 
           Чтобы смонтировать в функцию одновременно несколько бакетов, задайте блок `mounts` необходимое количество раз.
 
-      Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-resources-link }}/function).
+      Подробнее о параметрах ресурса `yandex_function` в [документации провайдера]({{ tf-provider-resources-link }}/function).
 
   1. Примените изменения:
 
@@ -125,7 +125,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/mounting.md)
 * [{#T}](../../../serverless-containers/concepts/mounting.md)

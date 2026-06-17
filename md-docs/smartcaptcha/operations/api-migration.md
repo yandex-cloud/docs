@@ -147,7 +147,7 @@ exact_not_match = example.net
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создать капчу](create-captcha.md)
 * [Получить информацию о капче](get-info.md)

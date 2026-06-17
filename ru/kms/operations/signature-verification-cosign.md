@@ -104,6 +104,6 @@ client.go:183: Using IAM Token from 'YC_IAM_TOKEN' environment variable as crede
 Verified OK
 ```
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Подпись и проверка Docker-образов {{ container-registry-name }} в {{ managed-k8s-name }}](../../container-registry/tutorials/sign-cr-with-cosign.md).

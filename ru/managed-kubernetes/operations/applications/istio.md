@@ -68,6 +68,6 @@ Istio обеспечивает:
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация Istio](https://istio.io/latest/docs/).

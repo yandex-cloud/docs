@@ -28,8 +28,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для этого сценария входит:
-* Плата за использование функции (см. [тарифы Yandex Cloud Functions](../../functions/pricing.md)).
-* Плата за выполнение запросов к БД (см. [тарифы Managed Service for YDB](../pricing/serverless.md)).
+* Плата за использование функции ([тарифы Yandex Cloud Functions](../../functions/pricing.md)).
+* Плата за выполнение запросов к БД ([тарифы Managed Service for YDB](../pricing/serverless.md)).
 
 ## Создайте сервисный аккаунт {#create-sa}
 

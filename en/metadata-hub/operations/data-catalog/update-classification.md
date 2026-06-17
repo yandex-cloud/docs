@@ -1,6 +1,6 @@
 ---
-title: Updating a classification
-description: Follow this guide to update a classification in {{ data-catalog-full-name }}.
+title: Updating a classification in {{ data-catalog-full-name }}
+description: Follow this guide to update a classification in {{ data-catalog-name }}.
 ---
 
 # Updating a classification

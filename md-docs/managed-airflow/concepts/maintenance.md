@@ -20,6 +20,6 @@
 
 {% endnote %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Управление техническим обслуживанием в кластере Managed Service for Apache Airflow™](../operations/cluster-maintenance.md)

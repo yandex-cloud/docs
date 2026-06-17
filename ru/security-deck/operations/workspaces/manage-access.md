@@ -36,7 +36,7 @@ description: Из этой инструкции вы узнаете, как на
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/workspace.md)
 * [{#T}](./create.md)

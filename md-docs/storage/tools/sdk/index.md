@@ -10,4 +10,4 @@ Object Storage позволяет использовать SDK, предназн
 * [AWS SDK для PHP](../aws-sdk-php.md)
 * [AWS SDK для Go](../aws-sdk-go.md)
 
-Полный перечень SDK для работы с S3 API см. в [официальном репозитории AWS на GitHub](https://github.com/aws/aws-sdk).
+Полный перечень SDK для работы с S3 API смотрите в [официальном репозитории AWS на GitHub](https://github.com/aws/aws-sdk).

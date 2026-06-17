@@ -239,7 +239,7 @@ END
 
 При редактировании QL-чарта можно [отменить или повторно выполнить](../../concepts/chart/settings.md#undo-redo) внесенные изменения в пределах текущей версии.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Чарт в Yandex DataLens](../../concepts/chart/index.md)
 * [Добавление чарта на дашборд в Yandex DataLens](../dashboard/add-chart.md)

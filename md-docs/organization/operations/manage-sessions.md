@@ -65,7 +65,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Сессии](../concepts/sessions.md)
 * [Управление аккаунтом на портале «Мой аккаунт»](manage-account.md)

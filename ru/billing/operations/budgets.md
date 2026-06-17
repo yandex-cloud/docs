@@ -63,7 +63,7 @@
 {% endlist %}
 
 
-## См. также
+## Полезные ссылки {#see-also}
 
 * [{#T}](../tutorials/serverless-trigger-budget-vm.md).
 * [{#T}](../tutorials/serverless-trigger-budget-queue-vm-tg.md).

@@ -115,6 +115,6 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Правила тарификации в Yandex Identity Hub](../pricing.md)

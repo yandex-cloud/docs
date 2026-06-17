@@ -137,7 +137,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/instance-groups/disable-enable-zone.md)
 * [Отключить и включить зоны доступности в {{ network-load-balancer-full-name }}](../../../network-load-balancer/operations/manage-zone/disable-enable-zone.md)

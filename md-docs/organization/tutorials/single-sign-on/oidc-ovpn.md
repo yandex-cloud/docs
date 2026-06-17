@@ -34,8 +34,8 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за постоянно запущенную [виртуальную машину](../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование [OIDC-приложения](../../concepts/applications.md#oidc) (см. [тарифы Yandex Identity Hub](../../pricing.md)).
+* плата за постоянно запущенную [виртуальную машину](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за использование [OIDC-приложения](../../concepts/applications.md#oidc) ([тарифы Yandex Identity Hub](../../pricing.md)).
 
 ## Создайте инфраструктуру {#deploy}
 
@@ -440,6 +440,14 @@ sudo cp /etc/openvpn/easy-rsa/pki/dh.pem /etc/openvpn/
      ```
 
 {% endlist %}
+
+{% note tip %}
+
+Если вы хотите более тонко настроить аутентификацию пользователей в приложениях, в том числе разрешить аутентификацию только с определенных IP-адресов, используйте [политики аутентификации](*authentication_policies).
+
+{% endnote %}
+
+[*authentication_policies]: Политики аутентификации — это инструмент Yandex Identity Hub, позволяющий гибко настраивать доступ к приложениям, запрещая или разрешая аутентификацию определенным пользователям в определенных приложениях и/или с определенных IP-адресов. Подробнее читайте в разделе [Политики аутентификации в Yandex Identity Hub](../../concepts/authentication-policy.md).
 
 ## Установите и настройте плагин openvpn-auth-oauth2 {#setup-plugin}
 

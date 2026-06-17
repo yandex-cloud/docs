@@ -1,12 +1,12 @@
 ---
 title: Как начать работать с {{ connection-manager-name }}
-description: Управляйте подключениями к источникам данных {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }} и {{ TR }} с {{ connection-manager-full-name }}.
+description: Управляйте подключениями к источникам данных {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }}, {{ MG }}, {{ TR }}, {{ KF }} и {{ SD }} с {{ connection-manager-full-name }}.
 ---
 
 # Начало работы с {{ connection-manager-name }}
 
 
-Управляйте подключениями к источникам данных {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }}, {{ MG }}, {{ TR }} и {{ KF }} с {{ connection-manager-full-name }}.
+Управляйте подключениями к источникам данных {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }}, {{ MG }}, {{ TR }}, {{ KF }} и {{ SD }} с {{ connection-manager-full-name }}.
 
 ## Интеграция с сервисами управляемых баз данных {#mdb-integration}
 

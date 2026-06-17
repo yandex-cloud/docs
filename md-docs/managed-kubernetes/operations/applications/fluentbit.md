@@ -71,7 +71,7 @@
 
 * [Настройка Fluent Bit для работы с Yandex Cloud Logging](../../tutorials/fluent-bit-logging.md).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация Fluent Bit](https://docs.fluentbit.io/manual).
 * [Документация Cloud Logging](../../../logging/index.md).

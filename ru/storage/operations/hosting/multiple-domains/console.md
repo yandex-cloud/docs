@@ -303,6 +303,6 @@ description: Следуя данной инструкции, вы сможете
 {% include [website-multiple-domain-test](../../../../_includes/storage/website-multiple-domain-test.md) %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md)

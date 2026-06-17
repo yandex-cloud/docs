@@ -63,7 +63,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% cut "`{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_description_classify }}`" %}
 
-          1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_model_properties_custom_view_spec_layout_title }}** введите идентификатор дообученной модели. Подробнее см. в разделе [Модели классификаторов на базе {{ yagpt-name }}]({{ link-docs-ai }}ai-studio/concepts/classifier/models).
+          1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_model_properties_custom_view_spec_layout_title }}** введите идентификатор дообученной модели. Подробнее в разделе [Модели классификаторов на базе {{ yagpt-name }}]({{ link-docs-ai }}ai-studio/concepts/classifier/models).
           1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_few_shot_classify_properties_text_view_spec_layout_title }}** введите текстовое содержимое сообщения.
 
           {% endcut %}
@@ -92,7 +92,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Спецификация YaWL](../../../concepts/workflows/yawl/integration/foundationmodelscall.md)
 * [{#T}](../workflow/create-constructor.md)

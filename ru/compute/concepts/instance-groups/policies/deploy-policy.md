@@ -86,7 +86,7 @@ deploy_policy:
 
 * [{#T}](../../../tutorials/autoscale-monitoring.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](healing-policy.md)
 * [{#T}](scale-policy.md)

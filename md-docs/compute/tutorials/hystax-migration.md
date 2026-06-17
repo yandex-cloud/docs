@@ -36,10 +36,10 @@
 {% endnote %}
 
 В стоимость ресурсов для использования «Хайстекс Акура — Миграция» входят:
-* Плата за диски и постоянно запущенные ВМ (см. [тарифы Yandex Compute Cloud](../pricing.md)).
-* Плата за хранение образов (см. [тарифы Compute Cloud](../pricing.md)).
-* Плата за использование динамического или статического публичного IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за каждую проведенную миграцию (см. [описание продукта](https://yandex.cloud/ru/marketplace/products/hystax/hystax-acura-live-cloud-migration) в Cloud Marketplace).
+* Плата за диски и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../pricing.md)).
+* Плата за хранение образов ([тарифы Compute Cloud](../pricing.md)).
+* Плата за использование динамического или статического публичного IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за каждую проведенную миграцию (смотрите [описание продукта](https://yandex.cloud/ru/marketplace/products/hystax/hystax-acura-live-cloud-migration) в Cloud Marketplace).
 
 ## Создайте сервисный аккаунт и авторизованный ключ {#create-sa}
 

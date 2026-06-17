@@ -30,7 +30,7 @@ GeeseFS позволяет монтировать [бакет](../../storage/con
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки бакета входит плата за хранение данных в бакете и операции с ними (см. [тарифы Yandex Object Storage](../../storage/pricing.md)).
+В стоимость поддержки бакета входит плата за хранение данных в бакете и операции с ними ([тарифы Yandex Object Storage](../../storage/pricing.md)).
 
 
 ## Создайте бакет {#create-bucket}
@@ -150,7 +150,7 @@ GeeseFS позволяет монтировать [бакет](../../storage/con
 * `kms.keys.decrypter` — для чтения ключа, [расшифровки](../../kms/security/index.md#kms-keys-decrypter) и скачивания объектов;
 * `kms.keys.encrypterDecrypter` — включает [разрешения](../../kms/security/index.md#kms-keys-encrypterDecrypter), предоставляемые ролями `kms.keys.encrypter` и `kms.keys.decrypter`.
 
-Подробнее см. [Сервисные роли Key Management Service](../../kms/security/index.md#service-roles).
+Подробнее смотрите [Сервисные роли Key Management Service](../../kms/security/index.md#service-roles).
 
 {% endnote %}
 
@@ -276,7 +276,7 @@ GeeseFS позволяет монтировать [бакет](../../storage/con
   1. [Включите](https://github.com/macfuse/macfuse/wiki/Getting-Started#enabling-support-for-third-party-kernel-extensions-apple-silicon-macs) поддержку сторонних расширений ядра. Этот шаг необходим только при первом использовании MacFUSE на Apple Silicon Mac.
   1. [Разрешите](https://github.com/macfuse/macfuse/wiki/Getting-Started#allow-the-macfuse-kernel-extension-to-load-apple-silicon-and-intel-macs) загрузку расширения ядра MacFUSE (Apple Silicon и Intel Mac).
 
-      Подробнее об установке macFUSE см. в [инструкции по установке](https://github.com/osxfuse/osxfuse/wiki/FAQ#2-installuninstall-questions) в репозитории macFUSE на GitHub.
+      Подробнее об установке macFUSE смотрите в [инструкции по установке](https://github.com/osxfuse/osxfuse/wiki/FAQ#2-installuninstall-questions) в репозитории macFUSE на GitHub.
 
   1. Скачайте и установите GeeseFS:
 
@@ -304,7 +304,7 @@ GeeseFS позволяет монтировать [бакет](../../storage/con
 
 {% endlist %}
 
-Также вы можете самостоятельно собрать GeeseFS из исходного кода. Подробнее см. в [инструкции](https://github.com/yandex-cloud/geesefs#installation) в репозитории GeeseFS на GitHub.
+Также вы можете самостоятельно собрать GeeseFS из исходного кода. Подробнее в [инструкции](https://github.com/yandex-cloud/geesefs#installation) в репозитории GeeseFS на GitHub.
 
 
 ### Аутентифицируйте GeeseFS {#auth-geesefs}

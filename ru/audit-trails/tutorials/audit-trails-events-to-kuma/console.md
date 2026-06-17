@@ -6,7 +6,7 @@ canonical: '{{ link-docs }}/tutorials/security/audit-trails-events-to-kuma'
 
 {% include notitle [audit-trails-events-to-kuma-console](../../../_tutorials/security/audit-trails-events-to-kuma-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md)
 

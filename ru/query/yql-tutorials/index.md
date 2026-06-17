@@ -48,6 +48,6 @@
 
 1. [Выполнение запроса к данным реального времени](./streaming-query.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Синтаксис {{ yql-short-name }}]({{ ydb.docs }}/yql/reference/syntax/)

@@ -73,7 +73,7 @@
 * Версия v1 для сервиса `cloud-router` используется по умолчанию.
 
 * Изменены параметры команд:  
-  * `yc cloud-router routing-instance list` — добавлены `--filter`, `--page-token` и `--folder-id`;;
+  * `yc cloud-router routing-instance list` — добавлены `--filter`, `--page-token` и `--folder-id`;
   * `yc cloud-router routing-instance list-operations` — добавлен `--page-token`;
   * `yc cloud-router routing-instance move` — удален `--destination-folder-name`;
   * `yc cloud-router routing-instance update` — добавлен `--update-mask`;

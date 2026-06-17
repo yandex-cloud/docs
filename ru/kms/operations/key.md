@@ -378,6 +378,6 @@
 
 {% endnote %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Управление ключами {{ kms-name }} с {{ TF }}](../../kms/tutorials/terraform-key.md).

@@ -11,7 +11,7 @@
 
 Если запрос был отправлен с CORS-заголовками, то ответ может содержать [заголовки ответа](object/options.md#response-headers) на предварительный запрос `options`.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Начало работы с AWS S3 API в Yandex Object Storage](../s3-api-quickstart.md)
 

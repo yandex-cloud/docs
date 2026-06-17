@@ -1,6 +1,6 @@
 # Настроить канареечный релиз
 
-Настройка канареечного релиза возможна только для [спецификаций OpenAPI](https://ru.wikipedia.org/wiki/OpenAPI_(спецификация)) с переменными (см. раздел [Параметризация спецификации](../concepts/extensions/parametrization.md)).
+Настройка канареечного релиза возможна только для [спецификаций OpenAPI](https://ru.wikipedia.org/wiki/OpenAPI_(спецификация)) с переменными (подробнее в разделе [Параметризация спецификации](../concepts/extensions/parametrization.md)).
 
 {% list tabs group=instructions %}
 
@@ -72,7 +72,7 @@
      * `weight` — процент запросов, которые будут обработаны канареечным релизом.
      * `variables` — переменные для канареечного релиза в формате `ключ=значение`.
 
-     Более подробную информацию о параметрах ресурса `yandex_api_gateway` в Terraform см. в [документации провайдера](../../terraform/resources/api_gateway.md).
+     Подробнее о параметрах ресурса `yandex_api_gateway` в Terraform в [документации провайдера](../../terraform/resources/api_gateway.md).
   1. Проверьте конфигурацию командой:
 
      ```bash
@@ -112,7 +112,7 @@
 
 {% endlist %}
 
-## См. также
+## Полезные ссылки
 
 * [Что такое канареечный релиз](../concepts/extensions/canary.md).
 * [Канареечный релиз функции Cloud Functions](../tutorials/canary-release.md).

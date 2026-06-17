@@ -590,7 +590,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./vm-attach-public-ip.md)
 * [{#T}](./vm-set-static-ip.md)

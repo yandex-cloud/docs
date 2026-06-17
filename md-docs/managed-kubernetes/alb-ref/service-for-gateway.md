@@ -8,7 +8,7 @@
 
 {% endnote %}
 
-`Service` — стандартный ресурс Kubernetes. Ниже описаны поля и аннотации ресурса, с которыми работают инструменты Application Load Balancer для Managed Service for Kubernetes. Полное описание конфигурации ресурса см. в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).
+`Service` — стандартный ресурс Kubernetes. Ниже описаны поля и аннотации ресурса, с которыми работают инструменты Application Load Balancer для Managed Service for Kubernetes. Полное описание конфигурации ресурса смотрите в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).
 
 ## Service {#service}
 
@@ -80,7 +80,7 @@ ports:
 
 {% note warning %}
 
-Сервисы Kubernetes, используемые в качестве бэкендов (указанные в правилах `Ingress` напрямую или в `HttpBackendGroup`/`GrpcBackendGroup`), должны иметь тип `NodePort`. Подробнее об этом типе см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport).
+Сервисы Kubernetes, используемые в качестве бэкендов (указанные в правилах `Ingress` напрямую или в `HttpBackendGroup`/`GrpcBackendGroup`), должны иметь тип `NodePort`. Подробнее об этом типе читайте в [документации Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport).
 
 {% endnote %} ||
 || `ports`    | `[]ServicePort`      | **Обязательное**.
@@ -106,15 +106,15 @@ nodePort: <int32>
 
 Номер используется при указании сервиса в качестве бэкенда:
 
-* в `Ingress` — в поле `spec.rules.http.paths.backend.service.port.number` (см. [конфигурацию](ingress.md#backend));
-* в группе бэкендов `HttpBackendGroup` — в поле `spec.backends.service.port.number` (см. [конфигурацию](http-backend-group.md)).
+* в `Ingress` — в поле `spec.rules.http.paths.backend.service.port.number` (смотрите [конфигурацию](ingress.md#backend));
+* в группе бэкендов `HttpBackendGroup` — в поле `spec.backends.service.port.number` (смотрите [конфигурацию](http-backend-group.md)).
 ||
 || `name` | `string` | Имя порта внутри сервиса.
 
 Имя используется при указании сервиса в качестве бэкенда:
 
-* в `Ingress` — в поле `spec.rules.http.paths.backend.service.port.name` (см. [конфигурацию](ingress.md#backend));
-* в группе бэкендов `HttpBackendGroup` — в поле `spec.backends.service.port.name` (см. [конфигурацию](http-backend-group.md)).
+* в `Ingress` — в поле `spec.rules.http.paths.backend.service.port.name` (смотрите [конфигурацию](ingress.md#backend));
+* в группе бэкендов `HttpBackendGroup` — в поле `spec.backends.service.port.name` (смотрите [конфигурацию](http-backend-group.md)).
 ||
 || `protocol` | `TCP` | Сетевой протокол для порта. Только `TCP`. ||
 || `nodePort` | `int32` | Номер порта, открытого на узлах кластера, на которых развернут сервис. Балансировщик отправляет трафик на этот порт, а Kubernetes перенаправляет трафик сервису на его порт в параметре `port`.

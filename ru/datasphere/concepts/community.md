@@ -10,7 +10,7 @@ _Сообщества_ — это способ организации групп
 
 {% include [share-resources](../../_includes/datasphere/sharing-resources.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./resource-model.md)
 * [{#T}](../security/index.md)

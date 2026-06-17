@@ -32,7 +32,7 @@ _Сообщества_ — это способ организации групп
 
 {% endnote %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Взаимосвязь ресурсов в DataSphere](resource-model.md)
 * [Управление доступом в DataSphere](../security/index.md)

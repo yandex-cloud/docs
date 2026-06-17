@@ -39,10 +39,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит плата за следующие ресурсы:
-* [Диски](../../compute/concepts/disk.md) и постоянно запущенные [виртуальные машины](../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Использование динамического [публичного IP-адреса](../../vpc/concepts/ips.md) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Хранение созданных Docker-образов (см. [тарифы Container Registry](../pricing.md)).
-* Использование [мастера Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#master) (см. [тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* [Диски](../../compute/concepts/disk.md) и постоянно запущенные [виртуальные машины](../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Использование динамического [публичного IP-адреса](../../vpc/concepts/ips.md) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Хранение созданных Docker-образов ([тарифы Container Registry](../pricing.md)).
+* Использование [мастера Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#master) ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
 
 ### Подготовьте инфраструктуру {#deploy-infrastructure}
 
@@ -58,7 +58,7 @@
   1. Если у вас еще нет [подсетей](../../vpc/concepts/network.md#subnet), [создайте их](../../vpc/operations/subnet-create.md) в [зонах доступности](../../overview/concepts/geo-scope.md), где будут созданы [кластер Yandex Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и [группа узлов](../../managed-kubernetes/concepts/index.md#node-group).
   1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md):
      * Для ресурсов с [ролями](../../iam/concepts/access-control/roles.md) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер Managed Service for Kubernetes. От его имени будут создаваться ресурсы, необходимые кластеру Managed Service for Kubernetes.
-     * Для узлов с ролями [container-registry.images.puller](../security/index.md#container-registry-images-puller) и [container-registry.images.pusher](../security/index.md#container-registry-images-pusher) на каталог с [реестром](../concepts/registry.md) [Docker-образов](../concepts/docker-image.md). От его имени узлы Managed Service for Kubernetes будут загружать в реестр собранные в GitLab Docker-образы, а также скачивать их для запуска [подов](../../managed-kubernetes/concepts/index.md#pod).
+     * Для узлов с ролями [container-registry.images.puller](../security/index.md#container-registry-images-puller), [container-registry.images.pusher](../security/index.md#container-registry-images-pusher) и [container-registry.images.scanner](../security/index.md#container-registry-images-scanner) на каталог с [реестром](../concepts/registry.md) [Docker-образов](../concepts/docker-image.md). От его имени узлы Managed Service for Kubernetes будут загружать в реестр собранные в GitLab Docker-образы, а также скачивать их для запуска [подов](../../managed-kubernetes/concepts/index.md#pod).
 
      {% note tip %}
 
@@ -635,6 +635,6 @@
 
 1. [Удалите созданную ВМ GitLab](../../compute/operations/vm-control/vm-delete.md) или инстанс Managed Service for GitLab.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Создание тестовых ВМ через GitLab CI](../../tutorials/testing/ci-for-snapshots.md).

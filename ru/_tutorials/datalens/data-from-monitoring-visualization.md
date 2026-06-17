@@ -29,11 +29,11 @@
       
       {% note info %}
 
-      Для активации экземпляра {{ datalens-short-name }} пользователю нужна роль `admin` или `owner`. Подробнее про роли см. в разделе [{#T}](../../organization/security/index.md).
+      Для активации экземпляра {{ datalens-short-name }} пользователю нужна роль `admin` или `owner`. Подробнее про роли смотрите в разделе [{#T}](../../organization/security/index.md).
 
       {% endnote %}
 
-   * Если у вас есть облако, но нет организации, нажмите **Добавить новый DataLens**. В открывшемся окне введите название и описание организации и нажмите **Создать организацию и DataLens**. Подробнее о работе с организациями см. в разделе [Начало работы с организациями](../../organization/quickstart.md).
+   * Если у вас есть облако, но нет организации, нажмите **Добавить новый DataLens**. В открывшемся окне введите название и описание организации и нажмите **Создать организацию и DataLens**. Подробнее о работе с организациями смотрите в разделе [Начало работы с организациями](../../organization/quickstart.md).
 
    Если у вас возник технический вопрос по работе сервиса, обратитесь в [службу поддержки]({{ link-console-support }}) {{ yandex-cloud }}. Чтобы спросить совета, обсудить решение вашей задачи или лучшие практики работы сервиса, напишите в чат [{{ datalens-short-name }}](https://t.me/YandexDataLens) в Telegram. 
 
@@ -154,7 +154,7 @@
    
    ![image](../../_assets/datalens/monitoring-visualization/selector-2-values.png)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../datalens/operations/dashboard/add-chart.md)
 * [{#T}](../../datalens/operations/dashboard/add-selector.md)

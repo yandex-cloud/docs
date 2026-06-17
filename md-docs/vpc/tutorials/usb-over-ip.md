@@ -62,9 +62,9 @@
 
 В стоимость предлагаемого решения входят:
 
-* плата за использование [публичного IP-адреса](../concepts/address.md#public-addresses) виртуальной машины (см. [тарифы Yandex Virtual Private Cloud](../pricing.md));
-* плата за вычислительные ресурсы и диски [ВМ](../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за аренду сервера BareMetal (см. [тарифы Yandex BareMetal](../../baremetal/pricing.md)).
+* плата за использование [публичного IP-адреса](../concepts/address.md#public-addresses) виртуальной машины ([тарифы Yandex Virtual Private Cloud](../pricing.md));
+* плата за вычислительные ресурсы и диски [ВМ](../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за аренду сервера BareMetal ([тарифы Yandex BareMetal](../../baremetal/pricing.md)).
 
 
 ## Настройте облачную сеть {#setup-vpc}

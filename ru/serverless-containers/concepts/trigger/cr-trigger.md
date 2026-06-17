@@ -25,7 +25,7 @@
 
 {% include [cr-format](../../../_includes/functions/cr-format.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../../functions/concepts/trigger/cr-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/cr-trigger.md)

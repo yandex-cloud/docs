@@ -29,6 +29,6 @@ _Сервис_ — это [объект API Kubernetes (Service)](https://kubern
 
 Подробнее о типах сервисов читайте в [документации Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Обеспечение доступа к приложению, запущенному в кластере Kubernetes](../operations/create-load-balancer.md).

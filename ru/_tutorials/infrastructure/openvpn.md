@@ -40,8 +40,8 @@ keywords:
 
 В стоимость поддержки инфраструктуры OpenVPN входят:
 
-* плата за диски и постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
+* плата за диски и постоянно запущенные виртуальные машины ([тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование динамического или статического внешнего IP-адреса ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 * плата за лицензию OpenVPN Access Server (при использовании более двух подключений).
 
 ## Создайте подсети и тестовую ВМ {#create-environment}
@@ -240,7 +240,7 @@ keywords:
 * [Удалите](../../compute/operations/vm-control/vm-delete.md) ВМ `vpn-server` и тестовую ВМ.
 * Если вы зарезервировали публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [OpenVPN Project Wiki](https://community.openvpn.net/openvpn/wiki)
 * [{#T}](../../certificate-manager/operations/managed/cert-get-content.md)

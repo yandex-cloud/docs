@@ -143,7 +143,7 @@ paths:
 
 {% endlist %}
 
-## См. также
+## Полезные ссылки {#see-also}
 
 * [Как работает параметризация спецификации](../concepts/extensions/parametrization.md).
 * [Как изменить спецификацию API-шлюза](../operations/api-gw-update.md).

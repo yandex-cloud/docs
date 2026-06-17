@@ -105,7 +105,7 @@ run()
 
 {% include [dag-load-job-results](../../../_includes/datasphere/dag-load-job-results.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./index.md)
 * [{#T}](./fork.md)

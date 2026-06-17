@@ -143,6 +143,6 @@ description: Чтобы сделать резервное копирование
 
 Сохраненный [сертификат от Let's Encrypt](../concepts/managed-certificate.md) после восстановления станет [пользовательским](../concepts/imported-certificate.md). Для [обновления](../operations/import/cert-update.md) такого сертификата необходимо загружать новую версию самостоятельно.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](import/cert-create.md).

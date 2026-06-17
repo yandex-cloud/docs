@@ -64,7 +64,7 @@
         }
         ```
       
-        Более подробную информацию о параметрах ресурса `yandex_function_scaling_policy` см. в [документации провайдера](../../../terraform/resources/function_scaling_policy.md).
+        Подробнее о параметрах ресурса `yandex_function_scaling_policy` в [документации провайдера](../../../terraform/resources/function_scaling_policy.md).
       
     1. Проверьте конфигурацию командой:
         
@@ -106,6 +106,6 @@
 
 {% endlist %}
 
-## См. также
+## Полезные ссылки
 
 * [Масштабирование функции](../../concepts/function.md#scaling)

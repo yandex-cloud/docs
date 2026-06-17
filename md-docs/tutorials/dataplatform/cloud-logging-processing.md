@@ -112,6 +112,6 @@ LIMIT 2;
 
 {% endnote %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Чтение данных из Data Streams с помощью соединений в Query](../../query/sources-and-sinks/data-streams.md).

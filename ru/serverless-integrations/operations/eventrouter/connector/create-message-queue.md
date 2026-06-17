@@ -158,7 +158,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% include [connector-about-grouping](../../../../_includes/serverless-integrations/connector-about-grouping.md) %}
 
-      Более подробную информацию о параметрах ресурса `yandex_serverless_eventrouter_connector` см. в [документации провайдера]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
+      Подробнее о параметрах ресурса `yandex_serverless_eventrouter_connector` в [документации провайдера]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
 
   1. Создайте ресурсы:
 

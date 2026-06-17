@@ -32,10 +32,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для этого практического руководства входят:
-* Плата за использование функции (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md)).
-* Плата за генерацию текста (см. [тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing)).
-* Плата за хранение секрета и операции с ним (см. [тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md)).
-* Плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)), если вы используете сервис [{{ cloud-logging-name }}](../../logging/).
+* Плата за использование функции ([тарифы {{ sf-full-name }}](../../functions/pricing.md)).
+* Плата за генерацию текста ([тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing)).
+* Плата за хранение секрета и операции с ним ([тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md)).
+* Плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) ([тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)), если вы используете сервис [{{ cloud-logging-name }}](../../logging/).
 
 ## Автоматизированное развертывание AI-агента с использованием {{ src-name }} CI/CD {#automatic-sourcecraft-setup}
 

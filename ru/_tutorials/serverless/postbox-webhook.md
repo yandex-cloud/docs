@@ -28,10 +28,10 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за операции с {{ ydb-short-name }} и хранение данных (см. [тарифы {{ ydb-full-name }}](../../ydb/pricing/serverless.md));
-* плата за хранение данных {{ yds-short-name }} (см. [тарифы {{ yds-full-name }}](../../data-streams/pricing.md));
-* плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../../functions/pricing.md));
-* плата за использование {{ postbox-name }} (см. [тарифы {{ postbox-full-name }}](../../postbox/pricing.md)).
+* плата за операции с {{ ydb-short-name }} и хранение данных ([тарифы {{ ydb-full-name }}](../../ydb/pricing/serverless.md));
+* плата за хранение данных {{ yds-short-name }} ([тарифы {{ yds-full-name }}](../../data-streams/pricing.md));
+* плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы {{ sf-name }}](../../functions/pricing.md));
+* плата за использование {{ postbox-name }} ([тарифы {{ postbox-full-name }}](../../postbox/pricing.md)).
 
 
 ## Создайте сервисные аккаунты {#service-accounts}

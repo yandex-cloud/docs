@@ -29,7 +29,7 @@ description: Из статьи вы узнаете, как посмотреть 
 
 {% include [access-policies-view-assigned-org](../../../_includes/iam/access-policies-view-assigned-org.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/access-control/access-policies.md)
 * [{#T}](./list.md)

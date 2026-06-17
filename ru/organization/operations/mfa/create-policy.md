@@ -105,7 +105,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [mfa-policy-add-users-notice](../../../_includes/organization/mfa-policy-add-users-notice.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./update-policy.md)
 * [{#T}](./add-users.md)

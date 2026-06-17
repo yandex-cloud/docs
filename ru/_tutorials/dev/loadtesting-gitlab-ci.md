@@ -13,9 +13,9 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-1. Если [агент](../../load-testing/concepts/agent.md) размещается на платформе {{ yandex-cloud }}, взимается плата за вычислительные ресурсы (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+1. Если [агент](../../load-testing/concepts/agent.md) размещается на платформе {{ yandex-cloud }}, взимается плата за вычислительные ресурсы ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 
-1. Плата за хранение данных в бакете и операции с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+1. Плата за хранение данных в бакете и операции с ними ([тарифы {{ objstorage-name }}](../../storage/pricing.md)).
 
 ## Подготовьте инфраструктуру {#infrastructure-prepare}
 

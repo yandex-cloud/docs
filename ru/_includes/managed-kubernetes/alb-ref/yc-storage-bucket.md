@@ -25,7 +25,7 @@ spec: <YCStorageBucketSpec>
 
   * `name` (`string`, обязательное)
 
-    Имя ресурса. Подробнее о формате см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Подробнее о формате смотрите в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
   * `namespace` (`string`)
 
@@ -33,7 +33,7 @@ spec: <YCStorageBucketSpec>
 
 * `spec` (`YCStorageBucketSpec`, обязательное)
 
-  Спецификация ресурса. Подробнее см. [ниже](#spec).
+  Спецификация ресурса. Подробности [ниже](#spec).
 
 ## YCStorageBucketSpec {#spec}
 

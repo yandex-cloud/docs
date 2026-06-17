@@ -53,7 +53,7 @@ description: "Сервисный аккаунт\_— аккаунт, от име
 * [{#T}](../../tutorials/wlif-gitlab-integration.md)
 * [{#T}](../../tutorials/wlif-k8s-integration.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../quickstart-sa.md)
 * [{#T}](../../operations/sa/list-get.md)

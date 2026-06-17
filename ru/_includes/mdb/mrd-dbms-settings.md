@@ -4,7 +4,7 @@
 
     По умолчанию настройка выключена.
 
-    Подробнее см. в [документации {{ VLK }}](https://github.com/valkey-io/valkey/blob/8.0/valkey.conf#L2291).
+    Подробнее в [документации {{ VLK }}](https://github.com/valkey-io/valkey/blob/8.0/valkey.conf#L2291).
 
 * **Allow data loss**{#settings-allow-data-loss} {{ tag-all }}
 
@@ -32,7 +32,7 @@
     * **Soft limit** — мягкое ограничение объема буфера (в байтах). Соединение с клиентом будет прервано только если превышение указанного значения сохранялось в течение времени, заданного параметром **Soft seconds**. Минимальное значение — `0` (ограничение отсутствует). Значение по умолчанию — `<значение_Hard_limit>/2`. В консоли управления единицы измерения задаются параметром **Soft limit unit**.
     * **Soft seconds** — время (в секундах), в течение которого допустимо превышение мягкого ограничения объема буфера. Минимальное значение — `0`. Значение по умолчанию — `60`.
 
-    Подробную информацию о настройке см. в [документации {{ VLK }}](https://valkey.io/topics/clients/#output-buffer-limits).
+    Подробную информацию о настройке читайте в [документации {{ VLK }}](https://valkey.io/topics/clients/#output-buffer-limits).
 
 * **Client output buffer limit pubsub**{#settings-limit-pubsub} {{ tag-all }}
 
@@ -46,7 +46,7 @@
     * **Soft limit** — мягкое ограничение объема буфера (в байтах). Соединение с клиентом будет прервано только если превышение указанного значения сохранялось в течение времени, заданного параметром **Soft seconds**. Минимальное значение — `0` (ограничение отсутствует). Значение по умолчанию — `8388608` (8 МБ). В консоли управления единицы измерения задаются параметром **Soft limit unit**.
     * **Soft seconds** — время (в секундах), в течение которого допустимо превышение мягкого ограничения объема буфера. Минимальное значение — `0`, значение по умолчанию — `60`.
 
-    Подробную информацию о настройке см. в [документации {{ VLK }}](https://valkey.io/topics/clients/#output-buffer-limits).
+    Подробную информацию о настройке читайте в [документации {{ VLK }}](https://valkey.io/topics/clients/#output-buffer-limits).
 
 * **Cluster allow pubsubshard when down**{#settings-cluster-allow-pubsub} {{ tag-all }}
 
@@ -54,7 +54,7 @@
 
     По умолчанию настройка выключена.
 
-    Подробнее см. в [документации {{ VLK }}](https://github.com/valkey-io/valkey/blob/8.0/valkey.conf#L1762).
+    Подробнее в [документации {{ VLK }}](https://github.com/valkey-io/valkey/blob/8.0/valkey.conf#L1762).
 
 * **Cluster allow reads when down**{#settings-cluster-allow-reads} {{ tag-all }}
 
@@ -65,7 +65,7 @@
 
     По умолчанию настройка выключена.
 
-    Подробнее см. в [документации {{ VLK }}](https://github.com/valkey-io/valkey/blob/8.0/valkey.conf#L1746).
+    Подробнее в [документации {{ VLK }}](https://github.com/valkey-io/valkey/blob/8.0/valkey.conf#L1746).
 
 * **Cluster require full coverage**{#settings-cluster-require-full-coverage} {{ tag-all }}
 
@@ -73,7 +73,7 @@
 
     По умолчанию настройка выключена. Это значит, что доступные хосты кластера будут продолжать принимать запросы для той части хеш-слотов, которая остается доступной.
 
-    Подробнее см. в [документации {{ VLK }}](https://github.com/valkey-io/valkey/blob/8.0/valkey.conf#L1723).
+    Подробнее в [документации {{ VLK }}](https://github.com/valkey-io/valkey/blob/8.0/valkey.conf#L1723).
 
 * **Databases**{#settings-databases} {{ tag-all }}
 
@@ -83,7 +83,7 @@
 
     Минимальное значение — `1`, максимальное значение — `2147483647`, значение по умолчанию — `16`.
 
-    Подробнее см. в [документации {{ VLK }}](https://github.com/valkey-io/valkey/blob/8.0/valkey.conf#L379).
+    Подробнее в [документации {{ VLK }}](https://github.com/valkey-io/valkey/blob/8.0/valkey.conf#L379).
 
     {% note warning %}
 
@@ -97,7 +97,7 @@
 
     По умолчанию настройка выключена.
 
-    Подробнее см. в [документации {{ VLK }}](https://github.com/valkey-io/valkey/blob/8.0/valkey.conf#L1317).
+    Подробнее в [документации {{ VLK }}](https://github.com/valkey-io/valkey/blob/8.0/valkey.conf#L1317).
 
 * **Lfu decay time**{#settings-lfu-decay-time} {{ tag-all }}
 
@@ -105,7 +105,7 @@
 
     Минимальное значение — `0` (счетчик LFU никогда не уменьшается), значение по умолчанию — `1`.
 
-    Подробнее см. в [документации {{ VLK }}](https://valkey.io/topics/lru-cache/#the-lfu-mode).
+    Подробнее в [документации {{ VLK }}](https://valkey.io/topics/lru-cache/#the-lfu-mode).
 
 * **Lfu log factor**{#settings-lfu-log-factor} {{ tag-all }}
 
@@ -124,7 +124,7 @@
 
     Минимальное значение — `0`, значение по умолчанию — `10`.
 
-    Подробнее см. в [документации {{ VLK }}](https://valkey.io/topics/lru-cache/#the-lfu-mode).
+    Подробнее в [документации {{ VLK }}](https://valkey.io/topics/lru-cache/#the-lfu-mode).
 
 * **Lua time limit**{#settings-lua-time-limit} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -134,7 +134,7 @@
 
     При изменении не влияет на работу уже запущенного скрипта.
 
-    Подробнее см. в [документации {{ VLK }}](https://github.com/valkey-io/valkey/blob/9.0/valkey.conf#L1732).
+    Подробнее в [документации {{ VLK }}](https://github.com/valkey-io/valkey/blob/9.0/valkey.conf#L1732).
 
 * **Maxmemory percent**{#settings-maxmemory-percent} {{ tag-all }}
 
@@ -161,7 +161,7 @@
     * `allkeys-random` — удалять ключи вне зависимости от их срока жизни в произвольном порядке;
     * `noeviction` (по умолчанию) — не удалять ключи. Вернуть ошибку, если для вставки данных недостаточно памяти.
 
-    Подробнее см. в [документации {{ VLK }}](https://valkey.io/topics/lru-cache).
+    Подробнее в [документации {{ VLK }}](https://valkey.io/topics/lru-cache).
 
 * **Notify keyspace events**{#settings-notify-keyspace-events} {{ tag-all }}
 
@@ -169,13 +169,13 @@
 
     Значение — строка с модификаторами, которые управляют выводом уведомлений. Значение по умолчанию — пустая строка (вывод уведомлений отключен).
 
-    Полный список модификаторов см. в [документации {{ VLK }}](https://valkey.io/topics/notifications).
+    Полный список модификаторов смотрите в [документации {{ VLK }}](https://valkey.io/topics/notifications).
 
 * **Repl backlog size percent**{#settings-repl-backlog-size} {{ tag-all }}
 
     Размер лога репликации на мастере в процентах от размера диска. Чем больше размер лога, тем дольше реплика может оставаться работоспособной при сетевой недоступности мастера.
 
-    Подробнее см. в [документации {{ VLK }}](https://github.com/valkey-io/valkey/blob/8.0/valkey.conf#L740)
+    Подробнее в [документации {{ VLK }}](https://github.com/valkey-io/valkey/blob/8.0/valkey.conf#L740)
 
 * **Slowlog log slower than**{#settings-slowlog-slower-than} {{ tag-all }}
 
@@ -183,7 +183,7 @@
 
     Минимальное значение — `-1` (лог медленных запросов не ведется), максимальное значение — `9223372036854775807`, значение по умолчанию: `10000`.
 
-    Подробнее см. в [документации {{ VLK }}](https://valkey.io/commands/slowlog).
+    Подробнее в [документации {{ VLK }}](https://valkey.io/commands/slowlog).
 
 * **Slowlog max len**{#settings-slowlog-max-len} {{ tag-all }}
 
@@ -191,7 +191,7 @@
 
     Минимальное значение — `0` (лог медленных запросов не ведется), максимальное значение — `9223372036854775807`, значение по умолчанию — `1000`.
 
-    Подробнее см. в [документации {{ VLK }}](https://valkey.io/commands/slowlog).
+    Подробнее в [документации {{ VLK }}](https://valkey.io/commands/slowlog).
 
 * **Timeout**{#settings-timeout} {{ tag-all }}
 
@@ -199,7 +199,7 @@
 
     Минимальное значение и значение по умолчанию — `0` (соединения не закрываются), максимальное значение — `2147483647`.
 
-    Подробнее см. в [документации {{ VLK }}](https://valkey.io/topics/clients).
+    Подробнее в [документации {{ VLK }}](https://valkey.io/topics/clients).
 
 * **Turn before switchover**{#settings-turn-before-switchover} {{ tag-all }}
 
@@ -217,4 +217,4 @@
 
     Если количество элементов упорядоченного множества ([Sorted Set](https://valkey.io/topics/sorted-sets/)) меньше указанного числа, то к элементам массива будет применяться специальная кодировка для уменьшения занимаемого места.
 
-    Подробнее см. в [документации {{ VLK }}](https://github.com/valkey-io/valkey/blob/8.0/valkey.conf#L2047).
+    Подробнее в [документации {{ VLK }}](https://github.com/valkey-io/valkey/blob/8.0/valkey.conf#L2047).

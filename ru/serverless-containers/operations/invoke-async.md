@@ -105,7 +105,7 @@ description: Следуя данной инструкции, вы сможете
 
           * `service_account_id` — сервисный аккаунт, у которого есть [роль](../security/index.md#serverless-containers-containerinvoker) `serverless-containers.containerInvoker`.
 
-      Более подробную информацию о параметрах ресурса `yandex_serverless_container` см. в [документации провайдера]({{ tf-provider-resources-link }}/serverless_container).
+      Подробнее о параметрах ресурса `yandex_serverless_container` в [документации провайдера]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Примените изменения:
 
@@ -129,6 +129,6 @@ description: Следуя данной инструкции, вы сможете
 [Вызовите](invoke.md) контейнер по HTTP, указав при вызове заголовок `X-Ycf-Container-Integration-Type: async`.
 
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../concepts/invoke-async.md)

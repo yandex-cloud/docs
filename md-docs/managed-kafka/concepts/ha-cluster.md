@@ -58,6 +58,6 @@
 * [квоты и лимиты](limits.md).
 
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Рекомендации по отказоустойчивости в Yandex Cloud](../../architecture/fault-tolerance.md)

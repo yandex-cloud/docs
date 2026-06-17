@@ -135,7 +135,7 @@
 
     Настройки распределенной файловой системы.
 
-    Подробнее см. в [документации Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml).
+    Подробнее читайте в [документации Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml).
 
     * **Ha Automatic Failover Enabled**{#setting-ha-automatic-failover-enabled}
 
@@ -157,7 +157,7 @@
 
     Настройки службы ResourceManager, которая отслеживает ресурсы в кластере и планирует запуск приложений (например, заданий MapReduce).
 
-    Подробнее см. в [документации Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html).
+    Подробнее читайте в [документации Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html).
 
     * **Resourcemanager Ha Enabled**{#setting-resourcemanager-ha-enabled}
 

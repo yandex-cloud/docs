@@ -310,7 +310,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [disable-metadata-check](../../../_includes/compute/disable-metadata-check.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../image-create/custom-image.md)
 * [{#T}](../vm-connect/ssh.md)

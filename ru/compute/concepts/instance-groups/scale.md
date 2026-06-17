@@ -159,7 +159,7 @@ $$
 * [{#T}](../../tutorials/vm-autoscale/index.md)
 * [{#T}](../../tutorials/autoscale-monitoring.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](policies/scale-policy.md).
 * [{#T}](../../operations/instance-groups/create-fixed-group.md).

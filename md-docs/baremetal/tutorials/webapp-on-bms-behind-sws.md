@@ -49,12 +49,12 @@
 
 В стоимость поддержки инфраструктуры для развертывания веб-приложения на серверах BareMetal с L7-балансировщиком и защитой Smart Web Security входят:
 
-* плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) виртуальной машины (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
-* плата за вычислительные ресурсы и диски [ВМ](../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за аренду серверов BareMetal (см. [тарифы Yandex BareMetal](../pricing.md));
-* плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы Yandex Application Load Balancer](../../application-load-balancer/pricing.md));
-* плата за запросы, обработанные правилами профиля безопасности (см. [тарифы Yandex Smart Web Security](../../smartwebsecurity/pricing.md));
-* при использовании [лог-группы](../../logging/concepts/log-group.md) для записи логов балансировщика плата за запись и хранение данных (см. [тарифы Yandex Cloud Logging](../../logging/pricing.md)).
+* плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) виртуальной машины ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
+* плата за вычислительные ресурсы и диски [ВМ](../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за аренду серверов BareMetal ([тарифы Yandex BareMetal](../pricing.md));
+* плата за использование вычислительных ресурсов L7-балансировщика ([тарифы Yandex Application Load Balancer](../../application-load-balancer/pricing.md));
+* плата за запросы, обработанные правилами профиля безопасности ([тарифы Yandex Smart Web Security](../../smartwebsecurity/pricing.md));
+* при использовании [лог-группы](../../logging/concepts/log-group.md) для записи логов балансировщика плата за запись и хранение данных ([тарифы Yandex Cloud Logging](../../logging/pricing.md)).
 
 Трафик между приватными адресами Yandex BareMetal и Yandex Virtual Private Cloud, передаваемый в обоих направлениях через [Yandex Cloud Interconnect](../../interconnect/index.md), не тарифицируется.
 

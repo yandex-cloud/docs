@@ -14,7 +14,7 @@ To access the {{ yandex-cloud }} CLI, get authenticated using one of the followi
 
 - Yandex account {#yandex-account}
 
-  {% include [create-profile](../../_includes/cli/create-profile.md) %}
+  {% include [include](../../_includes/cli/passport-profile-create.md) %}
 
 - Federated account {#federated-account}
 
@@ -23,6 +23,10 @@ To access the {{ yandex-cloud }} CLI, get authenticated using one of the followi
 - Service account {#service-account}
 
   {% include [auth-as-sa](../../_includes/cli/auth-as-sa.md) %}
+
+- Local user account {#local-account}
+
+  {% include [auth-local-user](../../_includes/cli/auth-local-user.md) %}
 
 {% endlist %}
 

@@ -98,7 +98,7 @@ description: Следуя данной инструкции, вы сможете
 
 Подробнее о {{ k8s-ca }} см. в разделе [{#T}](../concepts/autoscale.md#ca). Параметры, используемые по умолчанию, приведены в [документации {{ k8s }}](https://github.com/kubernetes/autoscaler/blob/c6b754c359a8563050933a590f9a5dece823c836/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca).
 
-См. также раздел [{#T}](../qa/cluster-autoscaler.md).
+Смотрите также раздел [{#T}](../qa/cluster-autoscaler.md).
 
 ## Настройка горизонтального автомасштабирования подов {#hpa}
 

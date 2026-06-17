@@ -101,6 +101,6 @@
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Секреты в Yandex Lockbox](../concepts/secret.md)

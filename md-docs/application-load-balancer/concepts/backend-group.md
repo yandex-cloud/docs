@@ -180,6 +180,6 @@ L7‑балансировщик поддерживает [X.509‑сертифи
 * [Организация сине-зеленого и канареечного развертывания версий веб-сервиса](../tutorials/blue-green-canary-deployment.md)
 * [Запись логов балансировщика в PostgreSQL](../tutorials/logging.md)
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Рекомендации по настройке проверок состояния Yandex Application Load Balancer](best-practices.md)

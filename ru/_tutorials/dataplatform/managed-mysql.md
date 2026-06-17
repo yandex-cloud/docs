@@ -7,6 +7,6 @@
 
 {% include notitle [MySQL migration with Data Transfer](datatransfer/managed-mysql.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 Другие способы миграции описаны в [документации {{ mmy-full-name }}](../../managed-mysql/tutorials/data-migration/index.md).

@@ -99,6 +99,6 @@
 * [Передача логов с ВМ в Yandex Cloud Logging](../tutorials/vm-fluent-bit-logging.md)
 * [Привязка доменного имени к ВМ с веб-сервером](../tutorials/bind-domain-vm/index.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Как выбрать подходящий тип виртуальной машины в Yandex Cloud](https://yandex.cloud/ru/blog/posts/2025/03/vm-type-selection)

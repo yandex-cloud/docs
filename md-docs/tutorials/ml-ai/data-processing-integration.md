@@ -32,9 +32,9 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Yandex Data Processing: использование вычислительных ресурсов с наценкой за сервис Yandex Data Processing, использование сетевых дисков, получение и хранение логов, объем исходящего трафика (см. [тарифы Yandex Data Processing](../../data-proc/pricing.md)).
-* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Бакет Yandex Object Storage: использование хранилища и выполнение операций с данными (см. [тарифы Object Storage](../../storage/pricing.md)).
+* Кластер Yandex Data Processing: использование вычислительных ресурсов с наценкой за сервис Yandex Data Processing, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы Yandex Data Processing](../../data-proc/pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Бакет Yandex Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
 
 ## Подготовьте инфраструктуру {#infra}
 
@@ -379,7 +379,7 @@ Yandex Data Processing запустит операцию создания кла
 
 {% endnote %}
 
-Подробнее о запуске вычислений на кластерах Yandex Data Processing в DataSphere см. в [концепции](../../datasphere/concepts/data-processing.md#existing-clusters).
+Подробнее о запуске вычислений на кластерах Yandex Data Processing в DataSphere смотрите в [концепции](../../datasphere/concepts/data-processing.md#existing-clusters).
 
 ## Удалите созданные ресурсы {#clear-out}
 
@@ -401,6 +401,6 @@ Yandex Data Processing запустит операцию создания кла
 * [сеть](../../vpc/operations/network-delete.md);
 * [сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Временные кластеры Yandex Data Processing, развернутые в DataSphere](../../datasphere/concepts/data-processing-template.md)

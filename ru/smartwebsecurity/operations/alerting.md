@@ -184,7 +184,7 @@ description: Следуя данной инструкции, вы сможете
 1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** добавьте канал для отправки уведомления.
 1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../metrics.md)
 * [{#T}](../../monitoring/concepts/visualization/query-string.md)

@@ -2,9 +2,9 @@
 
 Ресурс `NetworkPolicy` используется для подключения к сервисам, опубликованным через {{ network-load-balancer-name }}, с определенных IP-адресов.
 
-`NetworkPolicy` — стандартный ресурс {{ k8s }}. В этом справочнике описаны поля и аннотации ресурса, которые поддерживают {{ network-load-balancer-name }} для {{ managed-k8s-name }}. Полный справочник ресурса см. в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/policy-resources/network-policy-v1/).
+`NetworkPolicy` — стандартный ресурс {{ k8s }}. В этом справочнике описаны поля и аннотации ресурса, которые поддерживают {{ network-load-balancer-name }} для {{ managed-k8s-name }}. Полный справочник ресурса смотрите в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/policy-resources/network-policy-v1/).
 
-Подробнее о сетевых политиках см. в разделе [{#T}](../../../managed-kubernetes/concepts/network-policy.md).
+Подробнее о сетевых политиках смотрите в разделе [{#T}](../../../managed-kubernetes/concepts/network-policy.md).
 
 ## NetworkPolicy {#network-policy}
 
@@ -82,7 +82,7 @@ ingress:
 || `podSelector`   | `LabelSelector` | **Обязательное**
 Правила фильтрации [подов](../../../managed-kubernetes/concepts/index.md#pod).
 
-См. [документацию {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/common-definitions/label-selector/#LabelSelector)
+Смотрите [документацию {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/common-definitions/label-selector/#LabelSelector)
 ||
 
 || `policyTypes`    | `[]Policy`      | **Обязательное**

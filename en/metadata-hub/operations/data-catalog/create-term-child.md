@@ -1,6 +1,6 @@
 ---
-title: Creating a child term
-description: Follow this guide to create a child term in {{ data-catalog-full-name }}.
+title: Creating a child term in {{ data-catalog-full-name }}
+description: Follow this guide to create a child term in a {{ data-catalog-name }} glossary.
 ---
 
 # Creating a child term

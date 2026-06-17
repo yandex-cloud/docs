@@ -155,7 +155,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создать виртуальную машину на Linux с подключением к Cloud Backup](../create-vm.md)
 * [Создать виртуальную машину Windows Server с подключением к Cloud Backup](../create-vm-windows.md)

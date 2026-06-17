@@ -28,8 +28,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость инфраструктуры входят:
-* плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы Compute Cloud](../../../compute/pricing.md));
-* плата за [сетевые балансировщики](../../../network-load-balancer/concepts/index.md) и балансировку трафика (см. [тарифы Network Load Balancer](../../../network-load-balancer/pricing.md)).
+* плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) ([тарифы Compute Cloud](../../../compute/pricing.md));
+* плата за [сетевые балансировщики](../../../network-load-balancer/concepts/index.md) и балансировку трафика ([тарифы Network Load Balancer](../../../network-load-balancer/pricing.md)).
 
 ## Создайте инфраструктуру {#deploy}
 
@@ -482,6 +482,6 @@ Terraform распространяется под лицензией [Business S
     
     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Работа с группой виртуальных машин с автоматическим масштабированием с помощью консоли управления, CLI и API](console.md)

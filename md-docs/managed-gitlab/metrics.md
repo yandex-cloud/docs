@@ -65,6 +65,6 @@
 | `sys.system.UpTimeRaw` | `DGAUGE` | Общее время с момента последнего запуска системы, в секундах. |
 | `sys.system.UserTime` | `DGAUGE` | Время выполнения пользовательских процессов, в % от общего процессорного времени. |
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Мониторинг состояния инстанса Managed Service for GitLab](operations/instance/monitoring.md)

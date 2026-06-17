@@ -36,8 +36,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость сборки образа ВМ с последующим созданием ВМ входит: 
-* плата за хранение собранных образов (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md#prices-storage));
-* плата за вычислительные ресурсы ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md#prices-instance-resources)).
+* плата за хранение собранных образов ([тарифы {{ compute-full-name }}](../../compute/pricing.md#prices-storage));
+* плата за вычислительные ресурсы ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md#prices-instance-resources)).
 
 ## Подготовьте рабочее окружение {#environment-prepare}
 

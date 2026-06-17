@@ -46,7 +46,7 @@ description: С помощью {{ cloud-shell-name }} вы можете поль
     {% endnote %}
 
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Управление {{ cloud-shell-name }}](../operations/cloud-shell-options.md)
 * [Лимиты {{ cloud-shell-name }}](../concepts/cloud-shell/limits.md)

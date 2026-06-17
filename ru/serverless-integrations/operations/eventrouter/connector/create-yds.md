@@ -140,7 +140,7 @@ description: Следуя данной инструкции, вы сможете
       * `consumer` — имя [выделенного потребителя данных](../../../../data-streams/concepts/glossary.md#consumers).
       * `service_account_id` — идентификатор [сервисного аккаунта](../../../../iam/concepts/users/service-accounts.md), у которого есть права на чтение из потока данных.
 
-      Более подробную информацию о параметрах ресурса `yandex_serverless_eventrouter_connector` см. в [документации провайдера]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
+      Подробнее о параметрах ресурса `yandex_serverless_eventrouter_connector` в [документации провайдера]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
 
   1. Создайте ресурсы:
 

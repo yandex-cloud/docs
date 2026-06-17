@@ -209,13 +209,13 @@ Application Load Balancer интегрирован с сервисом [Yandex C
 
 В стоимость поддержки инфраструктуры для веб-приложения входят:
 
-* плата за вычислительные ресурсы и диски ВМ, на базе которых развертывается кластер Kubernetes (см. [тарифы Compute Cloud](../compute/pricing.md));
-* плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы Yandex Application Load Balancer](../application-load-balancer/pricing.md));
-* плата за использование мастера управляющего кластера Managed Service for Kubernetes и исходящий трафик (см. [тарифы Yandex Managed Service for Kubernetes](../managed-kubernetes/pricing.md));
-* плата за использование [публичных IP-адресов](../vpc/concepts/address.md#public-addresses) и [NAT-шлюза](../vpc/concepts/gateways.md) (см. [тарифы Yandex Virtual Private Cloud](../vpc/pricing.md));
-* плата за постоянно запущенный кластер Managed Service for PostgreSQL (см. [тарифы Managed Service for PostgreSQL](../managed-postgresql/pricing.md));
-* плата за использование [публичной DNS-зоны](../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы (см. [тарифы Yandex Cloud DNS](../dns/pricing.md));
-* плата за запись и хранение логов в [лог-группе](../logging/concepts/log-group.md) (см. [тарифы Yandex Cloud Logging](../logging/pricing.md)).
+* плата за вычислительные ресурсы и диски ВМ, на базе которых развертывается кластер Kubernetes ([тарифы Compute Cloud](../compute/pricing.md));
+* плата за использование вычислительных ресурсов L7-балансировщика ([тарифы Yandex Application Load Balancer](../application-load-balancer/pricing.md));
+* плата за использование мастера управляющего кластера Managed Service for Kubernetes и исходящий трафик ([тарифы Yandex Managed Service for Kubernetes](../managed-kubernetes/pricing.md));
+* плата за использование [публичных IP-адресов](../vpc/concepts/address.md#public-addresses) и [NAT-шлюза](../vpc/concepts/gateways.md) ([тарифы Yandex Virtual Private Cloud](../vpc/pricing.md));
+* плата за постоянно запущенный кластер Managed Service for PostgreSQL ([тарифы Managed Service for PostgreSQL](../managed-postgresql/pricing.md));
+* плата за использование [публичной DNS-зоны](../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы ([тарифы Yandex Cloud DNS](../dns/pricing.md));
+* плата за запись и хранение логов в [лог-группе](../logging/concepts/log-group.md) ([тарифы Yandex Cloud Logging](../logging/pricing.md)).
  
 ## Создайте инфраструктуру {#deploy}
 

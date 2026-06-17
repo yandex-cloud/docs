@@ -143,7 +143,7 @@
 
 ^1^ При наличии у клиента прав на чтение из бакета-источника и запись в бакет-приемник.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Настройка прав доступа к бакету с помощью Identity and Access Management](../operations/buckets/iam-access.md)
 * [Редактирование ACL бакета](../operations/buckets/edit-acl.md)

@@ -29,7 +29,7 @@ description: Модуль {{ alerts-name }} позволяет получить 
 * Оценивать масштаб данных для анализа и разбора.
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/alerts/work.md)
 * [{#T}](../operations/alerts/view.md)

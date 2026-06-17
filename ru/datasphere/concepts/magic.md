@@ -29,7 +29,7 @@
 * `%%script`
 * `%%sh`
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/projects/install-dependencies.md)
 * [{#T}](configurations.md)

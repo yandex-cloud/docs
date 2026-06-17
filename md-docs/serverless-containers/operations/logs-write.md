@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Логирование тарифицируется. Подробнее см. в [документации Yandex Cloud Logging](../../logging/pricing.md).
+Логирование тарифицируется. Подробнее в [документации Yandex Cloud Logging](../../logging/pricing.md).
 
 {% endnote %}
 
@@ -160,7 +160,7 @@
             * `folder_id` — идентификатор каталога.
             * `min_level` — минимальный уровень логирования. Необязательный параметр.
 
-        Более подробную информацию о параметрах ресурса `yandex_serverless_container` см. в [документации провайдера](../../terraform/resources/serverless_container.md).
+        Подробнее о параметрах ресурса `yandex_serverless_container` в [документации провайдера](../../terraform/resources/serverless_container.md).
 
     1. Создайте ресурсы:
 

@@ -9,6 +9,6 @@ description: Следуя данному руководству, вы сможе
 
 {% include [static-key-in-lockbox-console](../../../_tutorials/security/static-key-in-lockbox-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md)

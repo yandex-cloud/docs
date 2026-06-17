@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Логирование тарифицируется. Подробнее см. в [документации Yandex Cloud Logging](../../logging/pricing.md).
+Логирование тарифицируется. Подробнее в [документации Yandex Cloud Logging](../../logging/pricing.md).
 
 {% endnote %}
 
@@ -33,6 +33,6 @@
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Создать конфигурацию](create-configuration.md)

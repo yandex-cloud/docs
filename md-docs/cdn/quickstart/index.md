@@ -5,3 +5,7 @@ Yandex Cloud CDN предоставляет разработчикам веб-с
 Чтобы начать работать с сервисом, выберите подходящую инструкцию:
 * [Создание CDN-ресурса с источником-бакетом Yandex Object Storage](bucket.md)
 * [Создание CDN-ресурса с источником-сервером в Yandex Cloud](server.md)
+
+#### Полезные ссылки {#see-also}
+
+* [Вебинар: как с помощью Cloud CDN разгрузить высоконагруженную инфраструктуру](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)

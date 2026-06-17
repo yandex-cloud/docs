@@ -17,7 +17,7 @@
 
 Настройка доступна с помощью API при [создании](../operations/resources/create-resource.md) и [изменении](../operations/resources/configure-basics.md) CDN-ресурса. Подробнее см. на странице [{#T}](../operations/resources/configure-tls-profile.md).
 
-См. также [{#T}](../../glossary/tls.md).
+Смотрите также [{#T}](../../glossary/tls.md).
 
 ## Проверка прав на домен {#domain-name-challenge}
 

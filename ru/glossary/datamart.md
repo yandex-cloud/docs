@@ -110,7 +110,7 @@ Data Mart или витрина данных — база данных, пред
 Чтобы начать работу с сервисами, войдите в свой аккаунт в {{ yandex-cloud }} или [зарегистрируйтесь]({{ link-console-billing }}/create-account).
 
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Пример создания аналитической витрины в {{ datalens-full-name }}](/blog/posts/2022/11/datalens-analytics-clickhouse)
 

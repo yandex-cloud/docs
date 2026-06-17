@@ -209,13 +209,13 @@ keywords:
 
 В стоимость поддержки инфраструктуры для веб-приложения входят:
 
-* плата за вычислительные ресурсы и диски ВМ, на базе которых развертывается кластер {{ k8s }} (см. [тарифы {{ compute-name }}](../compute/pricing.md));
-* плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы {{ alb-full-name }}](../application-load-balancer/pricing.md));
-* плата за использование мастера управляющего кластера {{ managed-k8s-name }} и исходящий трафик (см. [тарифы {{ managed-k8s-full-name }}](../managed-kubernetes/pricing.md));
-* плата за использование [публичных IP-адресов](../vpc/concepts/address.md#public-addresses) и [NAT-шлюза](../vpc/concepts/gateways.md) (см. [тарифы {{ vpc-full-name }}](../vpc/pricing.md));
-* плата за постоянно запущенный кластер {{ mpg-name }} (см. [тарифы {{ mpg-name }}](../managed-postgresql/pricing.md));
-* плата за использование [публичной DNS-зоны](../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы (см. [тарифы {{ dns-full-name }}](../dns/pricing.md));
-* плата за запись и хранение логов в [лог-группе](../logging/concepts/log-group.md) (см. [тарифы {{ cloud-logging-full-name }}](../logging/pricing.md)).
+* плата за вычислительные ресурсы и диски ВМ, на базе которых развертывается кластер {{ k8s }} ([тарифы {{ compute-name }}](../compute/pricing.md));
+* плата за использование вычислительных ресурсов L7-балансировщика ([тарифы {{ alb-full-name }}](../application-load-balancer/pricing.md));
+* плата за использование мастера управляющего кластера {{ managed-k8s-name }} и исходящий трафик ([тарифы {{ managed-k8s-full-name }}](../managed-kubernetes/pricing.md));
+* плата за использование [публичных IP-адресов](../vpc/concepts/address.md#public-addresses) и [NAT-шлюза](../vpc/concepts/gateways.md) ([тарифы {{ vpc-full-name }}](../vpc/pricing.md));
+* плата за постоянно запущенный кластер {{ mpg-name }} ([тарифы {{ mpg-name }}](../managed-postgresql/pricing.md));
+* плата за использование [публичной DNS-зоны](../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы ([тарифы {{ dns-full-name }}](../dns/pricing.md));
+* плата за запись и хранение логов в [лог-группе](../logging/concepts/log-group.md) ([тарифы {{ cloud-logging-full-name }}](../logging/pricing.md)).
  
 ## Создайте инфраструктуру {#deploy}
 

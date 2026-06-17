@@ -67,6 +67,6 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Каналы](../../concepts/index.md#channels)

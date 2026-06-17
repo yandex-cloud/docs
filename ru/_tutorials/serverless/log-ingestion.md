@@ -30,9 +30,9 @@
 
 В стоимость поддержки хранения журналов приложений входит:
 
-* плата за обслуживание потока данных (см. [тарифы {{ yds-full-name }}](../../data-streams/pricing.md));
-* плата за перенос данных между источниками и приемниками (см. [тарифы {{ data-transfer-full-name }}](../../data-transfer/pricing.md));
-* плата за хранение данных (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
+* плата за обслуживание потока данных ([тарифы {{ yds-full-name }}](../../data-streams/pricing.md));
+* плата за перенос данных между источниками и приемниками ([тарифы {{ data-transfer-full-name }}](../../data-transfer/pricing.md));
+* плата за хранение данных ([тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
 
 ## Настройте окружение {#setup}
 

@@ -88,7 +88,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Добавить шаблон страницы ответа к профилю или правилу](template-attach.md)
 * [Шаблоны страниц ответов](../concepts/response-templates.md)

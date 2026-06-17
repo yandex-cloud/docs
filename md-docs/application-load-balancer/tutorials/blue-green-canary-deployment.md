@@ -61,10 +61,10 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за хранение данных в Object Storage, операции с ними и исходящий трафик (см. [тарифы Object Storage](../../storage/pricing.md));
-* плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы Application Load Balancer](../pricing.md));
-* плата за исходящий трафик с CDN-серверов (см. [тарифы Cloud CDN](../../cdn/pricing.md));
-* плата за публичные DNS-запросы и DNS-зоны, если вы используете Yandex Cloud DNS (см. [тарифы Cloud DNS](../../dns/pricing.md)).
+* плата за хранение данных в Object Storage, операции с ними и исходящий трафик ([тарифы Object Storage](../../storage/pricing.md));
+* плата за использование вычислительных ресурсов L7-балансировщика ([тарифы Application Load Balancer](../pricing.md));
+* плата за исходящий трафик с CDN-серверов ([тарифы Cloud CDN](../../cdn/pricing.md));
+* плата за публичные DNS-запросы и DNS-зоны, если вы используете Yandex Cloud DNS ([тарифы Cloud DNS](../../dns/pricing.md)).
 
 ## Добавьте сертификат в Certificate Manager {#add-certificate}
 
@@ -112,7 +112,7 @@
      default_security_group_id: enpbsnnop4ak********
      ```
 
-     Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
+     Подробнее о команде `yc vpc network create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
   1. Создайте подсети во всех зонах доступности:
 
@@ -182,7 +182,7 @@
        - 10.3.0.0/16
        ```
 
-     Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
+     Подробнее о команде `yc vpc subnet create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 - Terraform {#tf}
 
@@ -220,7 +220,7 @@
      }
      ```
 
-     Подробнее см. в описаниях ресурсов [yandex_vpc_network](../../terraform/resources/vpc_network.md) и [yandex_vpc_subnet](../../terraform/resources/vpc_subnet.md) в документации провайдера Terraform.
+     Подробнее в описаниях ресурсов [yandex_vpc_network](../../terraform/resources/vpc_network.md) и [yandex_vpc_subnet](../../terraform/resources/vpc_subnet.md) в документации провайдера Terraform.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -344,7 +344,7 @@
      }
      ```
 
-     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации](../../terraform/resources/storage_bucket.md) провайдера Terraform.
+     Подробнее о ресурсе `yandex_storage_bucket` смотрите в [документации](../../terraform/resources/storage_bucket.md) провайдера Terraform.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -469,7 +469,7 @@
         }
         ```
 
-        Подробнее о ресурсе `yandex_storage_object` см. в [документации](../../terraform/resources/storage_object.md) провайдера Terraform.
+        Подробнее о ресурсе `yandex_storage_object` смотрите в [документации](../../terraform/resources/storage_object.md) провайдера Terraform.
 
      1. Проверьте корректность конфигурационных файлов.
 
@@ -595,7 +595,7 @@
     predefined_target: loadbalancer_healthchecks
   ```
 
-  Подробнее о команде `yc vpc security-group create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
+  Подробнее о команде `yc vpc security-group create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
 - Terraform {#tf}
 
@@ -632,7 +632,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурсов в Terraform см. в [документации провайдера](../../terraform/resources/vpc_security_group.md).
+     Подробнее о параметрах ресурсов в Terraform смотрите в [документации провайдера](../../terraform/resources/vpc_security_group.md).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -750,7 +750,7 @@
      created_at: "2021-11-03T10:31:41.027649223Z"
      ```
 
-     Подробнее о команде `yc alb http-router create` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/http-router/create.md).
+     Подробнее о команде `yc alb http-router create` сомтрите в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/http-router/create.md).
 
   1. Создайте виртуальный хост `canary-vh-production`:
 
@@ -769,7 +769,7 @@
      - cdn.yandexcloud.example
      ```
 
-     Подробнее о команде `yc alb virtual-host create` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/create.md).
+     Подробнее о команде `yc alb virtual-host create` смотрите в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/create.md).
 
   1. Создайте маршрут `canary-route-production` в виртуальном хосте `canary-vh-production`:
 
@@ -798,7 +798,7 @@
            backend_group_id: ds7pbm5fj2v0********
      ```
 
-     Подробнее о команде `yc alb virtual-host append-http-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
+     Подробнее о команде `yc alb virtual-host append-http-route` смотрите в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
 
   1. Создайте виртуальный хост `canary-vh-staging`:
 
@@ -886,7 +886,7 @@
      }
      ```
 
-     Подробнее см. в описаниях ресурсов [yandex_alb_http_router](../../terraform/resources/alb_http_router.md) и [yandex_alb_virtual_host](../../terraform/resources/alb_virtual_host.md) в документации провайдера Terraform.
+     Подробнее в описаниях ресурсов [yandex_alb_http_router](../../terraform/resources/alb_http_router.md) и [yandex_alb_virtual_host](../../terraform/resources/alb_virtual_host.md) в документации провайдера Terraform.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -962,7 +962,7 @@
      +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
      ```
 
-     Подробнее о команде `yc vpc network list-subnets` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/list-subnets.md).
+     Подробнее о команде `yc vpc network list-subnets` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/list-subnets.md).
 
   1. Получите идентификатор группы безопасности `canary-sg`:
 
@@ -976,7 +976,7 @@
      id: enpd133ngcnr********
      ```
 
-     Подробнее о команде `yc vpc security-group get` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/get.md).
+     Подробнее о команде `yc vpc security-group get` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/get.md).
 
   1. Создайте балансировщик `canary-balancer`:
 
@@ -1013,7 +1013,7 @@
      created_at: "2021-11-03T10:55:49.134935148Z"
      ```
 
-     Подробнее о команде `yc alb load-balancer create` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/create.md).
+     Подробнее о команде `yc alb load-balancer create` смотрите в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/create.md).
 
   1. Добавьте к балансировщику обработчик:
 
@@ -1060,7 +1060,7 @@
      created_at: "2021-11-03T10:55:49.134935148Z"
      ```
 
-     Подробнее о команде `yc alb load-balancer add-listener` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/add-listener.md).
+     Подробнее о команде `yc alb load-balancer add-listener` смотрите в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/add-listener.md).
 
 - Terraform {#tf}
 
@@ -1109,7 +1109,7 @@
      }
      ```
 
-     Подробнее о ресурсе `yandex_alb_load_balancer` см. в [документации](../../terraform/resources/alb_load_balancer.md) провайдера Terraform.
+     Подробнее о ресурсе `yandex_alb_load_balancer` смотрите в [документации](../../terraform/resources/alb_load_balancer.md) провайдера Terraform.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -1196,7 +1196,7 @@
         enabled: true
       ```
 
-      Подробнее о команде `yc cdn origin-group create` см. в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/origin-group/create.md).
+      Подробнее о команде `yc cdn origin-group create` смотрите в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/origin-group/create.md).
 
 
   1. Скопируйте идентификатор группы источников `origin_group_id` из предыдущего шага и создайте CDN-ресурс, выполнив команду:
@@ -1226,7 +1226,7 @@
       ...
       ```
 
-      Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/resource/create.md).
+      Подробнее о команде `yc cdn resource create` смотрите в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/resource/create.md).
 
   1. Включите переадресацию клиентов для ресурса:
 
@@ -1271,7 +1271,7 @@
       }
       ```
 
-      Подробнее см. в описаниях ресурсов [yandex_cdn_origin_group](../../terraform/resources/cdn_origin_group.md) и [yandex_cdn_resource](../../terraform/resources/cdn_resource.md) в документации провайдера Terraform.
+      Подробнее в описаниях ресурсов [yandex_cdn_origin_group](../../terraform/resources/cdn_origin_group.md) и [yandex_cdn_resource](../../terraform/resources/cdn_resource.md) в документации провайдера Terraform.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -1413,7 +1413,7 @@
         public_visibility: {}
         ```
 
-        Подробнее о команде `yc dns zone create` см. в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/create.md).
+        Подробнее о команде `yc dns zone create` смотрите в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/create.md).
 
      1. Создайте в зоне CNAME-записи для `cdn.yandexcloud.example` и `cdn-staging.yandexcloud.example` со скопированным значением вида `e1b83ae3********.topology.gslb.yccdn.ru`:
 
@@ -1424,7 +1424,7 @@
           --record "cdn-staging CNAME e1b83ae3********.topology.gslb.yccdn.ru"
         ```
 
-        Подробнее о команде `yc dns zone add-records` см. в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
+        Подробнее о команде `yc dns zone add-records` смотрите в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
 
    - Terraform {#tf}
 
@@ -1454,7 +1454,7 @@
         }
         ```
 
-        Подробнее см. в описаниях ресурсов [yandex_dns_zone](../../terraform/resources/dns_zone.md) и [yandex_dns_recordset](../../terraform/resources/dns_recordset.md) в документации провайдера Terraform.
+        Подробнее в описаниях ресурсов [yandex_dns_zone](../../terraform/resources/dns_zone.md) и [yandex_dns_recordset](../../terraform/resources/dns_recordset.md) в документации провайдера Terraform.
 
      1. Проверьте корректность конфигурационных файлов.
 
@@ -1542,7 +1542,7 @@
         +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
         ```
 
-        Подробнее о команде `yc cdn resource list` см. в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/resource/list.md).
+        Подробнее о команде `yc cdn resource list` смотрите в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/resource/list.md).
 
      1. Удалите файл из кеша:
 
@@ -1552,7 +1552,7 @@
           --path "/index.html"
         ```
 
-        Подробнее о команде `yc cdn cache purge` см. в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/cache/purge.md).
+        Подробнее о команде `yc cdn cache purge` смотрите в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/cache/purge.md).
 
    - API {#api}
 
@@ -1694,7 +1694,7 @@
         created_at: "2021-11-03T10:28:47.680825561Z"
         ```
 
-        Подробнее о команде `yc alb backend-group update-http-backend` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/backend-group/update-http-backend.md).
+        Подробнее о команде `yc alb backend-group update-http-backend` смотрите в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/backend-group/update-http-backend.md).
 
      1. Для бэкенда `canary-backend-green` установите вес 20 вместо 0:
 

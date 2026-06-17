@@ -14,13 +14,13 @@
 
     Чтобы группы успешно обновились, может потребоваться войти в ОС заново или перезагрузить компьютер.
 
-    Информацию о дополнительных настройках Docker в OS Linux см. в [документации разработчика](https://docs.docker.com/engine/install/linux-postinstall/).
+    Дополнительные настройки Docker в OS Linux описаны в [документации разработчика](https://docs.docker.com/engine/install/linux-postinstall/).
 
     Если вы работаете на компьютере с графическим интерфейсом, вы также можете [установить](https://docs.docker.com/desktop/install/linux-install/) Docker Desktop для Linux.
 
 - macOS {#macos}
 
-  [Скачайте](https://docs.docker.com/get-docker/) и установите дистрибутив Docker Desktop для macOS. Подробную информацию см. в [документации разработчика](https://docs.docker.com/desktop/install/mac-install/).
+  [Скачайте](https://docs.docker.com/get-docker/) и установите дистрибутив Docker Desktop для macOS. Подробная информация доступна в [документации разработчика](https://docs.docker.com/desktop/install/mac-install/).
 
 - Windows {#windows}
 
@@ -39,6 +39,6 @@
         1. Нажмите **ОК**.
     1. Запустите Docker Desktop и убедитесь, что статус приложения — `running`.
 
-    Информацию о дополнительных настройках Docker в OS Windows см. в [документации разработчика](https://docs.docker.com/desktop/install/windows-install/).
+    Дополнительные настройки Docker в ОС Windows описаны в [документации разработчика](https://docs.docker.com/desktop/install/windows-install/).
 
 {% endlist %}

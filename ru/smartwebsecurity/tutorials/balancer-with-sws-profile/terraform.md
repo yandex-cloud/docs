@@ -11,6 +11,6 @@ canonical: '{{ link-docs }}/tutorials/security/balancer-with-sws-profile/terrafo
 
 {% include [terraform](../../../_tutorials/_tutorials_includes/balancer-with-sws-profile/terraform.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](console.md)

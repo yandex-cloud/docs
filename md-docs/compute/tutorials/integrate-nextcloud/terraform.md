@@ -46,13 +46,13 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость предлагаемого решения входят: 
-* плата за [диски](../../concepts/disk.md), [снимки дисков](../../concepts/snapshot.md) и постоянно запущенные [ВМ](../../concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../pricing.md));
-* плата за использование [публичных IP-адресов](../../../vpc/concepts/address.md#public-addresses) и [NAT-шлюзов](../../../vpc/concepts/gateways.md#nat-gateway) (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
-* плата за [хранение данных](../../../storage/concepts/bucket.md) в Object Storage и [операции](../../../storage/operations/index.md) с ними (см. [тарифы Yandex Object Storage](../../../storage/pricing.md));
-* плата за использование управляемой БД MySQL® (см. [тарифы Managed Service for MySQL®](../../../managed-mysql/pricing.md));
-* при использовании Yandex Cloud DNS плата за [DNS-зоны](../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы (см. [тарифы Cloud DNS](../../../dns/pricing.md));
-* при использовании балансировщика нагрузки плата за количество ресурсных единиц [L7-балансировщика](../../../application-load-balancer/concepts/application-load-balancer.md) (см. [тарифы Yandex Application Load Balancer](../../../application-load-balancer/pricing.md));
-* при использовании [лог-группы](../../../logging/concepts/log-group.md) для записи логов балансировщика плата за запись и хранение данных (см. [тарифы Yandex Cloud Logging](../../../logging/pricing.md)).
+* плата за [диски](../../concepts/disk.md), [снимки дисков](../../concepts/snapshot.md) и постоянно запущенные [ВМ](../../concepts/vm.md) ([тарифы Yandex Compute Cloud](../../pricing.md));
+* плата за использование [публичных IP-адресов](../../../vpc/concepts/address.md#public-addresses) и [NAT-шлюзов](../../../vpc/concepts/gateways.md#nat-gateway) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
+* плата за [хранение данных](../../../storage/concepts/bucket.md) в Object Storage и [операции](../../../storage/operations/index.md) с ними ([тарифы Yandex Object Storage](../../../storage/pricing.md));
+* плата за использование управляемой БД MySQL® ([тарифы Managed Service for MySQL®](../../../managed-mysql/pricing.md));
+* при использовании Yandex Cloud DNS плата за [DNS-зоны](../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы ([тарифы Cloud DNS](../../../dns/pricing.md));
+* при использовании балансировщика нагрузки плата за количество ресурсных единиц [L7-балансировщика](../../../application-load-balancer/concepts/application-load-balancer.md) ([тарифы Yandex Application Load Balancer](../../../application-load-balancer/pricing.md));
+* при использовании [лог-группы](../../../logging/concepts/log-group.md) для записи логов балансировщика плата за запись и хранение данных ([тарифы Yandex Cloud Logging](../../../logging/pricing.md)).
 
 ## Разверните Nextcloud в базовой конфигурации {#the-basic-variant}
 
@@ -376,7 +376,7 @@ Terraform распространяется под лицензией [Business S
 
     {% endlist %}
 
-    Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+    Подробнее о параметрах используемых ресурсов в Terraform смотрите в документации провайдера:
     * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../../terraform/resources/vpc_network.md).
     * [NAT-шлюз](../../../vpc/concepts/gateways.md#nat-gateway) — [yandex_vpc_gateway](../../../terraform/resources/vpc_gateway.md).
     * [Таблица маршрутизации](../../../vpc/concepts/routing.md#rt-vpc) — [yandex_vpc_route_table](../../../terraform/resources/vpc_route_table.md).
@@ -394,7 +394,7 @@ Terraform распространяется под лицензией [Business S
 
 1. В файле `nextcloud-integrate-storage.auto.tfvars` задайте значения пользовательских переменных:
     * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
-    * `ssh_key_path` — путь к файлу с публичным SSH-ключом. Подробнее см. [Создание пары ключей SSH](../../operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `ssh_key_path` — путь к файлу с публичным SSH-ключом. Подробнее в разделе [Создание пары ключей SSH](../../operations/vm-connect/ssh.md#creating-ssh-keys).
     * `bucket_name` — имя бакета в соответствии с [правилами именования](../../../storage/concepts/bucket.md#naming).
     * `db_password` — пароль пользователя базы данных MySQL®.
     * `domain_name` — имя домена, на котором будет размещен экземпляр Nextcloud.
@@ -1181,7 +1181,7 @@ terraform output Secret_key
 
     {% endlist %}
 
-    Более подробную информацию о параметрах добавляемых ресурсов в Terraform см. в документации провайдера:
+    Подробнее о параметрах добавляемых ресурсов в Terraform смотрите в документации провайдера:
     * [Снимок диска](../../concepts/snapshot.md) — [yandex_compute_snapshot](../../../terraform/resources/compute_snapshot.md).
     * [DNS-зона](../../../dns/concepts/dns-zone.md) — [yandex_dns_zone](../../../terraform/resources/dns_zone.md).
     * [TLS-сертификат](../../../certificate-manager/concepts/managed-certificate.md) — [yandex_cm_certificate](../../../terraform/resources/cm_certificate.md).
@@ -1282,7 +1282,7 @@ terraform output Secret_key
     
     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Развертывание Nextcloud на виртуальной машине Compute Cloud из образа Container Optimized Image в интеграции с Yandex Object Storage](coi-based.md)
 * [Развертывание Nextcloud вручную на виртуальной машине или в группе виртуальных машин Compute Cloud в интеграции с Yandex Object Storage](fault-tolerant.md)

@@ -112,7 +112,7 @@
 
 * [Мониторинг кластера Managed Service for Kubernetes с помощью Filebeat OSS](../../tutorials/filebeat-oss-monitoring.md).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация Managed Service for OpenSearch](../../../managed-opensearch/index.md).
 * [Документация Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/index.html).

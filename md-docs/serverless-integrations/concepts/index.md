@@ -33,4 +33,4 @@ EventRouter находится на стадии [Preview](../../overview/concep
 
 ### API Gateway {#api-gateway}
 
-Создавайте API-шлюзы, которые поддерживают [спецификацию OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) и набор расширений для взаимодействия с сервисами Yandex Cloud. Подробнее см. [документацию API Gateway](../../api-gateway/index.md).
+Создавайте API-шлюзы, которые поддерживают [спецификацию OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) и набор расширений для взаимодействия с сервисами Yandex Cloud. Подробнее в [документации API Gateway](../../api-gateway/index.md).

@@ -617,7 +617,7 @@
       * `application_id` — идентификатор OIDC-приложения.
       * `subject_id` — идентификатор нужного пользователя или группы пользователей.
 
-      Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_oauth_application_assignment` см. в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_oauth_application_assignment.md).
+      Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_oauth_application_assignment` смотрите в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_oauth_application_assignment.md).
 
   1. Создайте ресурсы:
 
@@ -661,11 +661,19 @@
 
 {% endlist %}
 
+{% note tip %}
+
+Если вы хотите более тонко настроить аутентификацию пользователей в приложениях, в том числе разрешить аутентификацию только с определенных IP-адресов, используйте [политики аутентификации](*authentication_policies).
+
+{% endnote %}
+
+[*authentication_policies]: Политики аутентификации — это инструмент Yandex Identity Hub, позволяющий гибко настраивать доступ к приложениям, запрещая или разрешая аутентификацию определенным пользователям в определенных приложениях и/или с определенных IP-адресов. Подробнее читайте в разделе [Политики аутентификации в Yandex Identity Hub](../../concepts/authentication-policy.md).
+
 ## Убедитесь в корректной работе приложения {#validate}
 
 Чтобы убедиться в корректной работе OIDC-приложения и интеграции с поставщиком услуг, выполните аутентификацию во внешнем приложении от имени одного из добавленных в приложение пользователей.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Изменить OIDC-приложение в Yandex Identity Hub](oidc-update.md)
 * [Деактивировать и удалить OIDC-приложение в Yandex Identity Hub](oidc-deactivate-remove.md)

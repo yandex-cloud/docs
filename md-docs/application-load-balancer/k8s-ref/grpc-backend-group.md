@@ -100,9 +100,9 @@ spec:
 
   * `name` (`string`, обязательное)
 
-    Имя ресурса. Подробнее о формате см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Подробнее о формате смотрите в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
   
-    Это имя нужно указать в поле `spec.rules.http.paths.backend.resource.name` ресурса `Ingress` (см. [конфигурацию](ingress.md)).
+    Это имя нужно указать в поле `spec.rules.http.paths.backend.resource.name` ресурса `Ingress` (смотрите [конфигурацию](ingress.md)).
 
     Не является именем группы бэкендов в Application Load Balancer.
 
@@ -146,7 +146,7 @@ spec:
       
           Имя порта сервиса.
       
-          Имя должно совпадать с одним из имен портов, указанных в полях `spec.ports.name` ресурса `Service`. Подробнее см. в [спецификации ресурса](service-for-ingress.md).
+          Имя должно совпадать с одним из имен портов, указанных в полях `spec.ports.name` ресурса `Service`. Подробнее в [спецификации ресурса](service-for-ingress.md).
       
           Для порта сервиса должно быть указано либо имя, либо номер (`number`), но не оба одновременно.
       
@@ -154,7 +154,7 @@ spec:
       
           Номер порта сервиса.
       
-          Номер должен совпадать с одним из номеров портов, указанных в полях `spec.ports.port` ресурса `Service`. Подробнее см. в [спецификации ресурса](service-for-ingress.md).
+          Номер должен совпадать с одним из номеров портов, указанных в полях `spec.ports.port` ресурса `Service`. Подробнее в [спецификации ресурса](service-for-ingress.md).
       
           Для порта сервиса должен быть указан либо номер, либо имя (`name`), но не оба одновременно.
         

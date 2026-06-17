@@ -93,6 +93,6 @@ yq_operator = YQExecuteQueryOperator(task_id="yq_operator", sql="SELECT 'Hello, 
 | `EmptyDict` | `{}` |
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../tutorials/airflow-auto-tasks.md).

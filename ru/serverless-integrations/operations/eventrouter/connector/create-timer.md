@@ -134,7 +134,7 @@ description: Следуя данной инструкции, вы сможете
       * `timezone` — часовой пояс в формате [tz database](https://ru.wikipedia.org/wiki/Tz_database). Необязательный параметр.
       * `payload` — сообщение, которое будет передаваться в шину при срабатывании таймера. Необязательный параметр.
 
-      Более подробную информацию о параметрах ресурса `yandex_serverless_eventrouter_connector` см. в [документации провайдера]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
+      Подробнее о параметрах ресурса `yandex_serverless_eventrouter_connector` в [документации провайдера]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
 
   1. Создайте ресурсы:
 

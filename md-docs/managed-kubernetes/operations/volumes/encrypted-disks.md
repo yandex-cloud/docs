@@ -118,7 +118,7 @@
 
     После создания пода в [консоли управления](https://console.yandex.cloud) в сервисе **Compute Cloud** в разделе **Диски** появится новый зашифрованный диск с префиксом `k8s-csi` в имени.
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Том](../../concepts/volume.md)
 * [Шифрование в Managed Service for Kubernetes](../../concepts/encryption.md) 

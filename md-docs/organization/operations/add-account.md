@@ -10,9 +10,9 @@
 
 {% note info %}
 
-Для доступа пользователя к [консоли управления](https://console.yandex.cloud), назначьте ему роль на [облако](../security/index.md#access-binding-cloud) или [организацию](../security/index.md#access-binding-organization). Для безопасности вы можете назначить одну из ролей с минимальными привилегиями, например `resource-manager.clouds.member`, но также можно назначить и другие роли, если вы знаете, какие права вы хотите предоставить приглашенным пользователям.
+Для доступа пользователя к [консоли управления](https://console.yandex.cloud), назначьте ему роль на [облако](../security/index.md#access-binding-cloud). Для безопасности вы можете назначить одну из ролей с минимальными привилегиями, например `resource-manager.clouds.member`, но также можно назначить и другие роли, если вы знаете, какие права вы хотите предоставить приглашенным пользователям.
 
-Чтобы дать эти права сразу всем пользователям в организации, назначьте роль [системной группе](../../iam/concepts/access-control/system-group.md#allOrganizationUsers) `All users in organization X`. При работе с CLI или API назначение дополнительных ролей не требуется.
+Чтобы дать эти права сразу всем пользователям в организации, назначьте роль [системной группе](../../iam/concepts/access-control/system-group.md#allOrganizationUsers) `All users in organization X`. При работе с CLI, API или Terraform назначение дополнительных ролей не требуется.
 
 {% endnote %}
 
@@ -196,7 +196,7 @@
       * `federation_id` — идентификатор федерации для добавления пользователя.
       * `name_id` — Name ID пользователя.
 
-      Более подробную информацию о параметрах ресурса `yandex_organizationmanager_saml_federation_user_account` см. в [документации провайдера](../../terraform/resources/organizationmanager_saml_federation_user_account.md).
+      Более подробную информацию о параметрах ресурса `yandex_organizationmanager_saml_federation_user_account` смотрите в [документации провайдера](../../terraform/resources/organizationmanager_saml_federation_user_account.md).
 
   1. Создайте ресурсы:
 
@@ -377,7 +377,7 @@
      * `password` — пароль пользователя. Необязательный параметр. Если пароль не задан, он сгенерируется автоматически. Пользователь должен будет изменить этот пароль при первом входе в Yandex Cloud.
      * `is_active` — признак активации пользователя. Установите `true`, чтобы активировать пользователя.
  
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_user` см. в [документации провайдера](../../terraform/resources/organizationmanager_idp_user.md).
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_user` смотрите в [документации провайдера](../../terraform/resources/organizationmanager_idp_user.md).
  
   1. Создайте ресурсы:
  

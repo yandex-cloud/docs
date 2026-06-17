@@ -36,7 +36,7 @@ description: Следуя данной инструкции, вы сможете
 
           Если вы указали тип организации, в поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_organization_properties_cloud_view_spec_layout_title }}** укажите ее идентификатор.
 
-          Подробнее об организациях см. в [документации Yandex Tracker]({{ link-tracker-cloudless }}enable-tracker).
+          Подробнее об организациях в [документации Yandex Tracker]({{ link-tracker-cloudless }}enable-tracker).
       1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_action_view_spec_layout_title }}** выберите действие, которое нужно выполнить с задачами {{ tracker-name }}:
 
           {% cut "`{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_action_description_get_issue }}`" %}
@@ -234,7 +234,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Спецификация YaWL](../../../concepts/workflows/yawl/integration/tracker.md)
 * [{#T}](../workflow/create-constructor.md)

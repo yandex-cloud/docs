@@ -65,7 +65,7 @@
 
       Где:
       
-      * `--schedule-cron-expression` — cron-выражение, например: `"0 * * * * *"`. Подробнее о формате cron-выражений см. [Cron-выражения в Serverless Integrations](../../../concepts/cron.md).
+      * `--schedule-cron-expression` — cron-выражение, например: `"0 * * * * *"`. Подробнее о формате cron-выражений в [Cron-выражения в Serverless Integrations](../../../concepts/cron.md).
       * `--schedule-timezone` — часовой пояс, например `Europe/Moscow`.
 
       Результат:
@@ -169,7 +169,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Запуск рабочего процесса](../../../concepts/workflows/execution.md)
 * [Получить список запусков рабочего процесса](get-list.md)

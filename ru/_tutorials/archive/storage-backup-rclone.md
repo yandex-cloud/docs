@@ -72,7 +72,7 @@
       Now run "rclone config" for setup. Check https://rclone.org/docs/ for more details.
       ```
 
-      Подробнее о команде см. в [документации rclone](https://rclone.org/install/).
+      Подробнее о команде смотрите в [документации rclone](https://rclone.org/install/).
 
   1. Убедитесь, что утилита rclone установлена:
 

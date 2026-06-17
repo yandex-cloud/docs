@@ -104,8 +104,6 @@ If you delete from your [ice storage](./concepts/storage-class.md) an object tha
 
 ## Cost calculation examples {#price-example}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 ### Data storage {#prices-storage}
 
 #### Standard storage {#standard-storage}
@@ -171,8 +169,6 @@ The first 100 GB of outgoing traffic per month for {{ objstorage-name }} are fre
 
 
 ## Examples of storage class cost comparison {#comparison-examples}
-
-{% include [prices-difference](../_includes/prices-difference.md) %}
 
 **Example 1**
 

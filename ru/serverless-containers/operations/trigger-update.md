@@ -119,7 +119,7 @@ description: Из статьи вы узнаете, как изменить вс
 
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-      Более подробную информацию о параметрах ресурса `function_trigger` см. в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
+      Подробнее о параметрах ресурса `function_trigger` в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Создайте ресурсы:
 

@@ -95,7 +95,7 @@
   
      {% endnote %}
   
-     Более подробную информацию о параметрах ресурсов в Terraform см. в [документации провайдера](../../terraform/resources/kms_symmetric_key.md).
+     Более подробную информацию о параметрах ресурсов в Terraform смотрите в [документации провайдера](../../terraform/resources/kms_symmetric_key.md).
   
   1. Проверьте конфигурацию командой:
   
@@ -460,6 +460,6 @@
 
 {% endnote %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Управление ключами Key Management Service с Terraform](../tutorials/terraform-key.md).

@@ -24,7 +24,7 @@ Yandex Cloud Postbox ориентирован на отправку транза
 
 * [Передача событий Yandex Cloud Postbox в Yandex Data Streams и их анализ с помощью Yandex DataLens](../tutorials/events-from-postbox-to-yds.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Как начать работать с Yandex Cloud Postbox](../quickstart.md)
 * [Правила тарификации для Yandex Cloud Postbox](../pricing.md)

@@ -121,7 +121,7 @@ description: Следуя данной инструкции, вы сможете
   Воспользуйтесь методом REST API [Userpool.Create](../../idp/api-ref/Userpool/create.md) для ресурса [Userpool](../../idp/api-ref/Userpool/index.md) или вызовом gRPC API [UserpoolService/Create](../../idp/api-ref/grpc/Userpool/create.md).
 
 {% endlist %}
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../add-account.md#add-local-user)
 * [{#T}](add-domain.md)

@@ -10,6 +10,6 @@ description: В этом руководстве вы создадите отка
 
 {% include [application-load-balancer-website-terraform](../../../_tutorials/infrastructure/application-load-balancer-website-terraform.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](console.md)

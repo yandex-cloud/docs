@@ -13,7 +13,7 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-Также инфраструктуру для синхронизации секретов {{ lockbox-name }} с секретами кластера {{ managed-k8s-name }} можно развернуть через {{ TF }} с помощью готового файла конфигурации. Подробнее см. в подразделе [Создайте инфраструктуру](#deploy-infrastructure) на вкладке {{ TF }}.
+Также инфраструктуру для синхронизации секретов {{ lockbox-name }} с секретами кластера {{ managed-k8s-name }} можно развернуть через {{ TF }} с помощью готового файла конфигурации. Подробнее в подразделе [Создайте инфраструктуру](#deploy-infrastructure) на вкладке {{ TF }}.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -22,9 +22,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость ресурсов для синхронизации секретов входит:
-* Плата за использование [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за [вычислительные ресурсы](../../compute/concepts/vm-platforms.md) и [диски](../../compute/concepts/disk.md) [группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за хранение и операции с секретом (см. [тарифы {{ lockbox-name }}](../../lockbox/pricing.md)).
+* Плата за использование [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за [вычислительные ресурсы](../../compute/concepts/vm-platforms.md) и [диски](../../compute/concepts/disk.md) [группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group) ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за хранение и операции с секретом ([тарифы {{ lockbox-name }}](../../lockbox/pricing.md)).
 
 ### Создайте инфраструктуру {#deploy-infrastructure}
 

@@ -55,7 +55,7 @@ DataLens создает датасет на основе источника да
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Работа с датасетом в Yandex DataLens](create-dataset.md)
 * [Модель данных в Yandex DataLens](data-model.md)

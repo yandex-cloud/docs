@@ -315,7 +315,7 @@
 * метрики Kubernetes;
 * Flow logs Kubernetes.
 
-Подробнее о настройке сбора событий аудита на разных уровнях см. в разделе [Сбор, мониторинг и анализ аудитных логов Managed Service for Kubernetes](../domains/kubernetes.md#collection-monitoring-analysis-audit-logs).
+Подробнее о настройке сбора событий аудита на разных уровнях смотрите в разделе [Сбор, мониторинг и анализ аудитных логов Managed Service for Kubernetes](../domains/kubernetes.md#collection-monitoring-analysis-audit-logs).
 
 Managed Service for Kubernetes предоставляет возможность проводить аудит текущей ролевой модели в сервисе. Для этого в [консоли управления](https://console.yandex.cloud) откройте страницу кластера Kubernetes и перейдите на вкладку **Управление доступом**.
 

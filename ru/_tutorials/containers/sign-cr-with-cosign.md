@@ -15,9 +15,9 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за публичные IP-адреса, если они назначены узлам кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за публичные IP-адреса, если они назначены узлам кластера ([тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
 * Плата за [использование хранилища](../../container-registry/pricing) {{ container-registry-name }}.
 
 
@@ -390,7 +390,7 @@
 
       {% note info %}
 
-      По умолчанию при создании политики выполняется запрос проверки подписи в хранилище неизменяемых записей Transparency Log. Вы можете отключить его — для этого добавьте в элемент `keys` спецификации политики параметр `rekor: ignoreTlog: true`. Подробнее см. в [документации Kyverno](https://kyverno.io/docs/writing-policies/verify-images/sigstore/#ignoring-tlogs-and-sct-verification).
+      По умолчанию при создании политики выполняется запрос проверки подписи в хранилище неизменяемых записей Transparency Log. Вы можете отключить его — для этого добавьте в элемент `keys` спецификации политики параметр `rekor: ignoreTlog: true`. Подробнее в [документации Kyverno](https://kyverno.io/docs/writing-policies/verify-images/sigstore/#ignoring-tlogs-and-sct-verification).
 
       {% endnote %}
 

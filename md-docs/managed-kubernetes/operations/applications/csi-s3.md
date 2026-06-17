@@ -128,7 +128,7 @@
 `secret.secretKey` | Секретный ключ |
 `secret.endpoint` | Адрес S3-сервиса | `https://storage.yandexcloud.net`
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Спецификация CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md)
 * [Container Storage Interface для S3 с поддержкой Object Storage на GitHub](https://github.com/yandex-cloud/k8s-csi-s3)

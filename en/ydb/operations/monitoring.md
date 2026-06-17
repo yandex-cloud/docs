@@ -20,7 +20,7 @@ You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }
 To view detailed information about the {{ ydb-name }} database state:
 
 1. In the [management console]({{ link-console-main }}), select the folder the database resides in.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
 1. Click the database name and open the **{{ ui-key.yacloud.common.monitoring }}** tab.
 1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 

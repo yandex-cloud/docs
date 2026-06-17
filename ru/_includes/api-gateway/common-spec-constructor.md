@@ -1,2 +1,2 @@
-* **{{ ui-key.yc-serverless-apigw.dynamic-forms.path_name }}** — относительный путь к интеграции, который будет добавлен к URL-адресу {{ api-gw-name }}. Переменные указывайте в фигурных скобках, например `/static/{function_id}`. Подробнее см. спецификацию [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
+* **{{ ui-key.yc-serverless-apigw.dynamic-forms.path_name }}** — относительный путь к интеграции, который будет добавлен к URL-адресу {{ api-gw-name }}. Переменные указывайте в фигурных скобках, например `/static/{function_id}`. Подробнее в спецификации [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
 * **{{ ui-key.yc-serverless-apigw.dynamic-forms.http_method_name }}** — метод, который будет использоваться для взаимодействия с интеграцией.

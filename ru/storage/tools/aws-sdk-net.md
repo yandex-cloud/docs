@@ -156,6 +156,6 @@ namespace Example
 }
 ```
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Примеры использования AWS SDK для .NET в документации AWS](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/csharp_code_examples.html)

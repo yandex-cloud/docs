@@ -93,7 +93,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Google Tink](https://github.com/google/tink).
 * [Java-клиент для Tink](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-tink).

@@ -71,6 +71,6 @@ Istio обеспечивает:
    
    {% endnote %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация Istio](https://istio.io/latest/docs/).

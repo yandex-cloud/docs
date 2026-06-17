@@ -15,7 +15,7 @@ description: Для выполнения операций через API в се
 
 {% include [iam-token-usage](../../_includes/iam-token-usage.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [{#T}](../../iam/concepts/users/accounts.md)
 

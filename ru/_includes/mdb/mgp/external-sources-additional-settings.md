@@ -2,7 +2,7 @@
 
     Настройки файловой системы и правил безопасности.
 
-    Подробнее см. в [документации Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/core-default.xml).
+    Подробнее в [документации Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/core-default.xml).
 
     * **Default Fs**{#setting-default-fs}
 
@@ -64,4 +64,4 @@
 
     Хосты серверов ZooKeeper. Значения указываются в формате `<адрес>:<порт>`.
 
-    Подробнее см. в [документации Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/core-default.xml).
+    Подробнее в [документации Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/core-default.xml).

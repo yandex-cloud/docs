@@ -24,7 +24,7 @@ description: Следуя данной инструкции, вы сможете
 * [Узнайте, как работать с {{ yandex-cloud }} изнутри ВМ](auth-inside-vm.md).
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](rdp.md)
 * [{#T}](powershell.md)

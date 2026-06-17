@@ -93,7 +93,7 @@
      * `pull` — IP-адреса, с которых разрешено скачивание [Docker-образов](../../concepts/docker-image.md) из реестра. Необязательный параметр.
      * `push` — IP-адреса, с которых разрешена загрузка Docker-образов в реестр. Необязательный параметр.
 
-     Более подробную информацию о параметрах `yandex_container_registry_ip_permission` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/container_registry_ip_permission).
+     Подробнее о параметрах ресурса `yandex_container_registry_ip_permission` в [документации провайдера]({{ tf-provider-resources-link }}/container_registry_ip_permission).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

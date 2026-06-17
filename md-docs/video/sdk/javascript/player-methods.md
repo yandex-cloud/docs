@@ -260,6 +260,6 @@ player.off('StatusChange', handler);
 player.destroy();
 ```
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Interface: PlayerSdkApi](../../api-ref/javascript/interfaces/PlayerSdkApi.md) в справочнике API

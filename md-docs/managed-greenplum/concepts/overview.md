@@ -36,7 +36,7 @@ Yandex MPP Analytics for PostgreSQL берет на себя большую ча
 * Универсальная БД на замену Oracle DB, Microsoft SQL Server или IBM DB2. Yandex MPP Analytics for PostgreSQL можно использовать не только для аналитических задач, но и для выполнения множества коротких [OLTP-запросов](../../glossary/oltp.md), характерных для PostgreSQL.
 * Более производительная альтернатива для БД PostgreSQL. Поскольку доступные в сервисе СУБД основаны на PostgreSQL, сервис поддерживает многие инструменты для работы с PostgreSQL, например интерфейсы JDBC и ODBC, а также стандарт ANSI SQL:2008.
 
-## См. также {see-also}
+## Полезные ссылки {see-also}
 
 * [Официальная документация Greenplum®](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/landing-index.html)
 * [Официальная документация Apache Cloudberry™](https://cloudberry.apache.org/docs/)

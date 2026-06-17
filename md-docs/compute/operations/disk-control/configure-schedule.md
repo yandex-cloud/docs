@@ -271,7 +271,7 @@
 {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создать расписание, по которому будут создаваться снимки дисков](../snapshot-control/create-schedule.md)
 * [Изменить список дисков в расписании снимков](../snapshot-control/update-schedule.md#update-disk-list)

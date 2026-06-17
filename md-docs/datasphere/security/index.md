@@ -227,7 +227,7 @@ flowchart BT
 || [Выдача роли](#grant-role) в сообществе | `Admin` на сообщество ||
 |#
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Yandex Identity Hub](../../organization/index.md).
 * [Как устроено управление доступом в Yandex Cloud](../../iam/concepts/access-control/index.md).

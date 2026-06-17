@@ -138,7 +138,7 @@ description: С помощью инструкции вы сможете посм
 1. Укажите [параметры алерта](../alert/create-alert.md).
 1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [{#T}](../dashboard/create.md)
 [{#T}](../alert/create-alert.md)

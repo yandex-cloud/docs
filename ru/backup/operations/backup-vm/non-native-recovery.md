@@ -114,6 +114,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [non-native-bms-restore-connectivity-loss](../../../_includes/backup/operations/non-native-bms-restore-connectivity-loss.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](delete.md)

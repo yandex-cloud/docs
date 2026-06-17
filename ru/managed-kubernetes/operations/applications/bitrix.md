@@ -320,7 +320,7 @@ description: Следуя данной инструкции, вы сможете
    /scripts/commit-all.sh <описание commit>
    ```
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [1С-Битрикс: Веб-окружение](https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=32&LESSON_ID=29234&LESSON_PATH=3903.4862.29228.29234)
 * [Контейнерное окружение для Битрикс](https://github.com/bitrix-tools/env-docker)

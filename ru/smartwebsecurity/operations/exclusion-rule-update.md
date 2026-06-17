@@ -101,7 +101,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](exclusion-rule-add.md)
 * [{#T}](exclusion-rule-delete.md)

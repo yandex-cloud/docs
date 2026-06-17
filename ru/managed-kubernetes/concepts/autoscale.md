@@ -40,7 +40,7 @@ description: Автоматическое масштабирование в {{ m
 * [описание {{ k8s-ca }}](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler);
 * [параметры, используемые по умолчанию](https://github.com/kubernetes/autoscaler/blob/c6b754c359a8563050933a590f9a5dece823c836/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca);
 
-См. также раздел [{#T}](../qa/cluster-autoscaler.md).
+Смотрите также раздел [{#T}](../qa/cluster-autoscaler.md).
 
 ## Автоматическое масштабирование мастера {#master-autoscaler}
 

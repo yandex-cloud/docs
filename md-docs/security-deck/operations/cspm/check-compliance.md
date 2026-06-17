@@ -85,6 +85,6 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Интерфейс соответствия требованиям](../../concepts/standard-compliance/index.md)

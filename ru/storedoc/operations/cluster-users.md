@@ -270,7 +270,7 @@ description: Из статьи вы узнаете, как добавлять и
 
 {% endlist %}
 
-## Изменить пользователя {#updateuser}
+## Изменить пароль и роль пользователя {#updateuser}
 
 {% list tabs group=instructions %}
 
@@ -281,9 +281,16 @@ description: Из статьи вы узнаете, как добавлять и
 
   1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
 
-  1. Чтобы изменить пароль пользователя, нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
+  
+  1. Чтобы изменить пароль пользователя, нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**:
+  
+     * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}** — ввести свой пароль. Длина пароля — от 8 до 128 символов.
+     * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — сгенерировать пароль с помощью сервиса [{{ connection-manager-name }}](cluster-create.md#conn-man).
 
-     {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+        Чтобы увидеть новый сгенерированный пароль, на странице кластера выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
+
+     Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
 
   1. Чтобы изменить [роли](../concepts/users-and-roles.md) пользователя:
 

@@ -136,7 +136,7 @@ yc components update
    
          {% note warning %}
    
-         Если вы хотите сохранить для группы узлов значения других параметров сети, также укажите их в параметре `network-interface`. Иначе группа может быть пересоздана со значениями по умолчанию. Подробнее см. [Изменение группы узлов Managed Service for Kubernetes](../../managed-kubernetes/operations/node-group/node-group-update.md).
+         Если вы хотите сохранить для группы узлов значения других параметров сети, также укажите их в параметре `network-interface`. Иначе группа может быть пересоздана со значениями по умолчанию. Подробнее смотрите [Изменение группы узлов Managed Service for Kubernetes](../../managed-kubernetes/operations/node-group/node-group-update.md).
    
          {% endnote %}
    
@@ -550,7 +550,7 @@ yc components update
    
          {% note warning %}
    
-         Если вы хотите сохранить для группы узлов значения других параметров сети, также укажите их в параметре `network-interface`. Иначе группа может быть пересоздана со значениями по умолчанию. Подробнее см. [Изменение группы узлов Managed Service for Kubernetes](../../managed-kubernetes/operations/node-group/node-group-update.md).
+         Если вы хотите сохранить для группы узлов значения других параметров сети, также укажите их в параметре `network-interface`. Иначе группа может быть пересоздана со значениями по умолчанию. Подробнее смотрите [Изменение группы узлов Managed Service for Kubernetes](../../managed-kubernetes/operations/node-group/node-group-update.md).
    
          {% endnote %}
    

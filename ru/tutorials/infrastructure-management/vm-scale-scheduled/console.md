@@ -9,6 +9,6 @@ description: В этом руководстве вы создадите груп
 
 {% include [vm-scale-scheduled-console](../../../_tutorials/infrastructure/vm-scale-scheduled-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md).

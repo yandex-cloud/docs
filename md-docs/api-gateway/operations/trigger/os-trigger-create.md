@@ -138,7 +138,7 @@
 
 Проверьте, что триггер работает корректно. Для этого посмотрите [логи API-шлюза](../api-gw-logs.md), в них отображается информация об обращениях к нему.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для Object Storage, который вызывает функцию Cloud Functions](../../../functions/operations/trigger/os-trigger-create.md)
 * [Триггер для Object Storage, который вызывает контейнер Serverless Containers](../../../serverless-containers/operations/os-trigger-create.md)

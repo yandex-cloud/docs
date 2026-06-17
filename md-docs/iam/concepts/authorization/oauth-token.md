@@ -47,7 +47,7 @@ OAuth-токен недоступен для федеративных польз
 * [Запуск Docker-образа на виртуальной машине](../../../tutorials/infrastructure-management/run-docker-on-vm/index.md)
 * [Разработка CRUD API для сервиса фильмов](../../../serverless-containers/tutorials/movies-database.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Подробнее о сервисе Яндекс OAuth](https://yandex.ru/dev/oauth/).
 * [Изменения в поддержке OAuth‑токенов Яндекс ID в Yandex Cloud с 1 июня](https://yandex.cloud/ru/blog/oauth-deprecation).

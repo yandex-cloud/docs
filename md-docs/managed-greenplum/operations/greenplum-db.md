@@ -2,7 +2,7 @@
 
 Пакет Greenplum Database 6 содержит ряд полезных утилит для работы с базами данных [Greenplum® 6](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/client_tool_guides-tools-ref.html) и [Apache Cloudberry™](https://cloudberry.apache.org/docs/sys-utilities/). В частности:
 
-* [gpfdist](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/utility_guide-ref-gpfdist.html) — утилита для чтения и записи данных из файлов, расположенных на удаленных серверах. Подробную информацию см. в разделе [Подключение к внешнему файловому серверу](gpfdist/connect.md).
+* [gpfdist](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/utility_guide-ref-gpfdist.html) — утилита для чтения и записи данных из файлов, расположенных на удаленных серверах. Подробную информацию вы найдете в разделе [Подключение к внешнему файловому серверу](gpfdist/connect.md).
 * [gpload](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/utility_guide-ref-gpload.html) — утилита для запуска задач, описанных в управляющем YAML-файле.
 * [psql](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/utility_guide-ref-psql.html) — интерфейс командной строки для работы с базой данных.
 

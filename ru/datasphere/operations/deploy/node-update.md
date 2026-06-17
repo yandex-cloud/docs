@@ -19,6 +19,6 @@ description: Следуя данной инструкции, вы сможете
     * [Идентификаторы каталогов](../../../resource-manager/operations/folder/get-id.md), из которых можно подключаться к ноде (блок **ACL**).
 1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](node-delete.md)

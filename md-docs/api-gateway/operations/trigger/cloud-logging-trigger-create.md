@@ -147,7 +147,7 @@
 
 Проверьте, что триггер работает корректно. Для этого посмотрите [логи API-шлюза](../api-gw-logs.md), в них отображается информация об обращениях к нему.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для Cloud Logging, который вызывает функцию Cloud Functions](../../../functions/operations/trigger/cloud-logging-trigger-create.md)
 * [Триггер для Cloud Logging, который вызывает контейнер Serverless Containers](../../../serverless-containers/operations/cloud-logging-trigger-create.md)

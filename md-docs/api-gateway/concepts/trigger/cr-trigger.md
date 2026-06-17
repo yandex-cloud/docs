@@ -68,7 +68,7 @@ Docker-образ всегда загружается с тегом (если т
 }
 ```
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для Container Registry, который запускает контейнер Serverless Containers](../../../serverless-containers/concepts/trigger/cr-trigger.md)
 * [Триггер для Container Registry, который запускает функцию Cloud Functions](../../../functions/concepts/trigger/cr-trigger.md)

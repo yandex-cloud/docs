@@ -185,7 +185,7 @@ _Эволюция схемы_ — это изменение одного или 
 
 Вы также можете использовать это решение для сохранения совместимости JSON-схем при поставке данных в [{{ mkf-full-name }}](../../managed-kafka) через [{{ yds-full-name }}](../../data-streams/) [{{ data-transfer-full-name }}](../../data-transfer/). Подробнее о требуемых настройках эндпоинта {{ data-transfer-name }} — [инструкции](../../data-transfer/operations/endpoint/target/kafka.md#serializer).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Роберт Йокота — Понимание совместимости JSON-схем (англ.)](https://yokota.blog/2021/03/29/understanding-json-schema-compatibility/)
 * [Энди Котс — Эволюция JSON-схем, часть 1 (англ.)](https://www.creekservice.org/articles/2024/01/08/json-schema-evolution-part-1.html)

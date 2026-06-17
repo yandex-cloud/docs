@@ -20,10 +20,10 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
-* плата за использование {{ postbox-full-name }} (см. [тарифы {{ postbox-name }}](../../postbox/pricing.md));
-* плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы создаете ресурсную запись в {{ dns-name }} (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
+* плата за постоянно запущенную ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
+* плата за использование {{ postbox-full-name }} ([тарифы {{ postbox-name }}](../../postbox/pricing.md));
+* плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы создаете ресурсную запись в {{ dns-name }} ([тарифы {{ dns-name }}](../../dns/pricing.md)).
 
 
 ### Подготовьте ресурсы {#infrastructure}

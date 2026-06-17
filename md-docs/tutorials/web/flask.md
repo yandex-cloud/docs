@@ -40,8 +40,8 @@
 
 В стоимость поддержки создаваемого приложения входят:
 
-* плата за использование публичного IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
-* плата за вычислительные ресурсы и диски ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* плата за использование публичного IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
+* плата за вычислительные ресурсы и диски ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 
 Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
 1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.

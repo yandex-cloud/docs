@@ -63,7 +63,7 @@
 
 Вы можете комбинировать несколько метрик на одном графике и [настраивать свои дашборды](../../monitoring/operations/dashboard/create.md) в сервисе Monitoring.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Справочник метрик Yandex Monitoring](../metrics.md)
 * [Дашборд в Monitoring](../../monitoring/concepts/visualization/dashboard.md)

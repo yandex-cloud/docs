@@ -1656,7 +1656,7 @@
 
 - **Default transaction isolation**{#setting-user-default-transaction-isolation} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
 
-  См. описание настройки уровня кластера [Default transaction isolation](#setting-default-transaction-isolation).
+  Описание настройки уровня кластера [Default transaction isolation](#setting-default-transaction-isolation).
 
 - **Grants**{#setting-user-grants} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
@@ -1664,19 +1664,19 @@
 
 - **Lock timeout**{#setting-user-lock-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
 
-  См. описание настройки уровня кластера [Lock timeout](#setting-lock-timeout).
+  Описание настройки уровня кластера [Lock timeout](#setting-lock-timeout).
 
 - **Log min duration statement**{#setting-user-log-min-duration-statement} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
 
-  См. описание настройки уровня кластера [Log min duration statement](#setting-log-min-duration-statement).
+  Описание настройки уровня кластера [Log min duration statement](#setting-log-min-duration-statement).
 
   Рекомендуется определить для каждого сервиса и соответствующего ему пользователя, что считается медленным выполнением запроса, и логировать только такие запросы. Например, для веб-сервиса медленным может считаться запрос, выполняющийся более одной секунды, а для сервиса построения отчетов — запрос, выполняющийся более 10 минут.
 
-  Подробнее см. [в документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html).
+  Подробнее [в документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html).
 
 - **Log statement**{#setting-user-log-statement} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
 
-  См. описание настройки уровня кластера [Log statement](#setting-log-statement).
+  Описание настройки уровня кластера [Log statement](#setting-log-statement).
 
 - **Login**{#setting-user-login} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
 
@@ -1734,11 +1734,11 @@
 
 - **Synchronous commit**{#setting-user-synchronous-commit} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
 
-  См. описание настройки уровня кластера [Synchronous commit](#setting-synchronous-commit).
+  Описание настройки уровня кластера [Synchronous commit](#setting-synchronous-commit).
 
 - **Temp file limit**{#setting-temp-file-limit} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
 
-  См. описание настройки уровня кластера [Temp file limit](#setting-temp-file-limit).
+  Описание настройки уровня кластера [Temp file limit](#setting-temp-file-limit).
 
 - **Wal sender timeout**{#setting-wal-sender-timeout} <code><b><small>Консоль управления</small></b></code>
 

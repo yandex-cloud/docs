@@ -36,7 +36,7 @@
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [{#T}](../../managed-mysql/operations/cluster-create.md).
+      Как создать такой файл, описано в разделе [{#T}](../../managed-mysql/operations/cluster-create.md).
 
   1. Добавьте ресурс `yandex_mdb_mysql_user`:
 
@@ -61,6 +61,6 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mysql_user).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
 {% endlist %}

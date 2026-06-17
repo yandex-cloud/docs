@@ -121,7 +121,7 @@
 }
 ```
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для почты, который вызывает контейнер Serverless Containers](../../../serverless-containers/concepts/trigger/mail-trigger.md)
 * [Триггер для почты, который отправляет сообщения в веб-сокет WebSocket-соединения](../../../api-gateway/concepts/trigger/mail-trigger.md)

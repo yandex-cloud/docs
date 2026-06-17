@@ -71,7 +71,7 @@
 {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Модуль диагностики доступов (CIEM)](../../security-deck/concepts/ciem.md)
 * [Общие роли Yandex Security Deck](../../security-deck/security/index.md)

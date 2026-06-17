@@ -21,10 +21,10 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за вызовы функций и вычислительные ресурсы, выделенные для выполнения функций (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md));
-* плата за количество запросов к API-шлюзу (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md));
-* плата за операции с {{ ydb-short-name }} и хранение данных (см. [тарифы {{ ydb-full-name }}](../../ydb/pricing/serverless.md));
-* плата за запись и хранение логов (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md));
+* плата за вызовы функций и вычислительные ресурсы, выделенные для выполнения функций ([тарифы {{ sf-full-name }}](../../functions/pricing.md));
+* плата за количество запросов к API-шлюзу ([тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md));
+* плата за операции с {{ ydb-short-name }} и хранение данных ([тарифы {{ ydb-full-name }}](../../ydb/pricing/serverless.md));
+* плата за запись и хранение логов ([тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md));
 
 ## Установите необходимые утилиты {#install-utilities}
 

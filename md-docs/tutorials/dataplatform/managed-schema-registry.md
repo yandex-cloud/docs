@@ -13,9 +13,9 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за вычислительные ресурсы кластера Managed Service for Apache Kafka® и объем хранилища (см. [тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md));
-* плата за вычислительные ресурсы и диски [ВМ](../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование [публичного IP-адреса](../../vpc/concepts/ips.md) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* плата за вычислительные ресурсы кластера Managed Service for Apache Kafka® и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md));
+* плата за вычислительные ресурсы и диски [ВМ](../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за использование [публичного IP-адреса](../../vpc/concepts/ips.md) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

@@ -54,7 +54,7 @@ DataSphere позволяет обрабатывать большие объем
 
 Работа временных кластеров, созданных из шаблонов Yandex Data Processing, тарифицируется дополнительно по [правилам тарификации Yandex Data Processing](../../data-proc/pricing.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Как создать, изменить и удалить коннектор Spark](../operations/data/spark-connectors.md).
 * [Ошибки при работе коннектора Spark](../troubleshooting/troubles-with-spark.md)

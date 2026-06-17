@@ -37,12 +37,12 @@
 
 В стоимость поддержки приложения входит:
 
-* плата за постоянно запущенную ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за хранение секретов (см. [тарифы Yandex Lockbox](../../lockbox/pricing.md));
-* плата за хранение Docker-образа (см. [тарифы Yandex Container Registry](../../container-registry/pricing.md));
-* плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик (см. [тарифы Serverless Containers](../../serverless-containers/pricing.md));
-* плата за запросы к API-шлюзу (см. [тарифы Yandex API Gateway](../../api-gateway/pricing.md));
-* плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) (см. [тарифы Yandex Cloud Logging](../../logging/pricing.md)).
+* плата за постоянно запущенную ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за хранение секретов ([тарифы Yandex Lockbox](../../lockbox/pricing.md));
+* плата за хранение Docker-образа ([тарифы Yandex Container Registry](../../container-registry/pricing.md));
+* плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик ([тарифы Serverless Containers](../../serverless-containers/pricing.md));
+* плата за запросы к API-шлюзу ([тарифы Yandex API Gateway](../../api-gateway/pricing.md));
+* плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) ([тарифы Yandex Cloud Logging](../../logging/pricing.md)).
 
 
 ## Создайте сервисный аккаунт {#sa-create}

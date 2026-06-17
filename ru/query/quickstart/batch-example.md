@@ -102,7 +102,7 @@ Kind: AdaptiveWard Bins: 100 WeightsSum: 140151844.000 Min: -531231.000 Max: 436
 ░░░░░░░░░░░░░░░░░░░░░░░░░ P:     115.984 F:   22039.000
 ```
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Именованные выражения. Синтаксис YQL]({{ ydb.docs }}yql/reference/syntax/expressions#named-nodes)
 * [HISTOGRAM. Встроенные функции YQL]({{ ydb.docs }}yql/reference/builtins/aggregation#histogram)

@@ -37,7 +37,7 @@
 ```
 
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для Data Streams, который вызывает функцию Cloud Functions](../../../functions/concepts/trigger/data-streams-trigger.md)
 * [Триггер для Data Streams, который отправляет сообщения в WebSocket-соединения](../../../api-gateway/concepts/trigger/data-streams-trigger.md)

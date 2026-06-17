@@ -118,7 +118,7 @@ description: Создайте триггер для топика брокера 
 
 {% include [check-result](../../../_includes/api-gateway/check-result.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для {{ iot-name }}, который передает сообщения из топиков брокеров в функцию {{ sf-name }}](../../../functions/operations/trigger/iot-core-trigger-broker-create.md)
 * [Триггер для {{ iot-name }}, который передает сообщения из топиков брокеров в контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/iot-core-trigger-broker-create.md)

@@ -18,7 +18,7 @@
 
 #### Что такое перемещение лицензий? {#license-mobility}
 
-Перемещение лицензий — это преимущество, доступное клиентам с корпоративными лицензиями Microsoft на использование соответствующего серверного программного обеспечения по действующим договорам Microsoft Software Assurance (SA). Перемещение лицензий позволяет клиентам использовать соответствующее ПО Microsoft в работе со сторонними поставщиками облачных решений, такими как Yandex Cloud. См. дополнительные сведения на [сайте Microsoft](https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility).
+Перемещение лицензий — это преимущество, доступное клиентам с корпоративными лицензиями Microsoft на использование соответствующего серверного программного обеспечения по действующим договорам Microsoft Software Assurance (SA). Перемещение лицензий позволяет клиентам использовать соответствующее ПО Microsoft в работе со сторонними поставщиками облачных решений, такими как Yandex Cloud. Смотрите дополнительные сведения на [сайте Microsoft](https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility).
 
 #### Какое ПО Microsoft можно запускать на платформе Yandex Cloud? {#supported-soft}
 

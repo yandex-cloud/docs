@@ -66,6 +66,6 @@ folder_id | Идентификатор [каталога](../resource-manager/co
 * `99`. ||
 |#
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Просмотр статистики CDN-ресурса](operations/resources/get-stats.md)

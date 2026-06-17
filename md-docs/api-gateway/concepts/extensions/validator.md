@@ -64,7 +64,7 @@
 
 ## Расширение x-yc-apigateway-validators {#validators}
 
-Расширение `x-yc-apigateway-validators` позволяет описывать валидаторы в секции [components](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#components-object). На определенные таким образом валидаторы можно ссылаться с помощью параметра `$ref` в расширении `x-yc-apigateway-validator` и подключать одни и те же валидаторы к разным операциям или ко всему API-шлюзу (см. параметр `validator` [расширения `x-yc-apigateway`](index.md#top-level)).
+Расширение `x-yc-apigateway-validators` позволяет описывать валидаторы в секции [components](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#components-object). На определенные таким образом валидаторы можно ссылаться с помощью параметра `$ref` в расширении `x-yc-apigateway-validator` и подключать одни и те же валидаторы к разным операциям или ко всему API-шлюзу (параметр `validator` [расширения `x-yc-apigateway`](index.md#top-level)).
 
 ## Расширение x-yc-apigateway-validator {#validator}
 

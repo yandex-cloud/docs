@@ -68,7 +68,7 @@ description: Следуя данной инструкции, вы сможете
 
 * [{#T}](../../tutorials/fluent-bit-logging.md).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация Fluent Bit](https://docs.fluentbit.io/manual).
 * [Документация {{ cloud-logging-name }}](../../../logging/).

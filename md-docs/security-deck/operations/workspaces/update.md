@@ -171,7 +171,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Окружения Security Deck](../../concepts/workspace.md)
 * [Создать окружение Security Deck](create.md)

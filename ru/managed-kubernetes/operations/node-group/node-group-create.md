@@ -599,7 +599,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](./node-group-create-in-instance-pool.md)
 * [{#T}](../../concepts/index.md#node-group)

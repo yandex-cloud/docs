@@ -157,7 +157,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создать сканирование DSPM](create-scan.md)
 * [Модуль контроля данных (DSPM)](../../concepts/dspm.md)

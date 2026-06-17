@@ -7,7 +7,7 @@ description: С помощью {{ sts-name }} вы можете получить
 
 {% include notitle [create-sts-key](../../../_includes/iam/create-sts-key.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../security/overview.md)
 * [{#T}](manage-ephemeral-keys.md)

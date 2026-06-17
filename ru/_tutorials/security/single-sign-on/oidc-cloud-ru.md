@@ -307,6 +307,8 @@
 
 #### Добавьте пользователей в OIDC‑приложение {{ org-full-name }} {#add-app-users}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 {% list tabs group=instructions %}
 
 - Интерфейс {{ cloud-center }} {#cloud-center}

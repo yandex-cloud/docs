@@ -14,18 +14,18 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за мастер {{ managed-k8s-name }} (см. [тарифы {{ managed-k8s-full-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за стандартные узлы кластера {{ managed-k8s-name }} (при наличии): использование вычислительных ресурсов и хранилища (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за ВМ: использование вычислительных ресурсов и хранилища (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за мастер {{ managed-k8s-name }} ([тарифы {{ managed-k8s-full-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за стандартные узлы кластера {{ managed-k8s-name }} (при наличии): использование вычислительных ресурсов и хранилища ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за ВМ: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 
   {% note info %}
 
-  Использование операционной системы тарифицируется в зависимости от ее типа (см. [тарифы {{ compute-name }}](../../compute/pricing.md#instance-os)).
+  Использование операционной системы тарифицируется в зависимости от ее типа ([тарифы {{ compute-name }}](../../compute/pricing.md#instance-os)).
 
   {% endnote %}
 
-* Плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) для ВМ (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-* Плата за аренду сервера {{ baremetal-name }} (см. [тарифы {{ baremetal-full-name }}](../../baremetal/pricing.md)).
+* Плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) для ВМ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Плата за аренду сервера {{ baremetal-name }} ([тарифы {{ baremetal-full-name }}](../../baremetal/pricing.md)).
 
 
 Чтобы подключить сервер {{ baremetal-name }} как внешний узел к кластеру {{ managed-k8s-name }}:
@@ -34,7 +34,7 @@
 1. [Установите на сервер {{ baremetal-name }} системные компоненты](#node-setup)
 1. [Проверьте состояние внешнего узла](#check-status)
 
-См. также [Как отказаться от аренды и удалить ресурсы](#clear-out).
+Смотрите также [Как отказаться от аренды и удалить ресурсы](#clear-out).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -191,7 +191,7 @@
 * [Откажитесь](../../baremetal/operations/servers/server-lease-cancel.md) от продления аренды сервера {{ baremetal-name }}. После отказа от аренды сервер проработает до конца оплаченного периода, а затем будет удален.
 * [Удалите](../../baremetal/tutorials/bm-vrf-and-vpc-interconnect.md#clear-out) приватное соединение.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Подключение внешних узлов к кластеру](../../managed-kubernetes/operations/external-nodes-connect.md)
 * [Настройка WireGuard-шлюзов для подключения внешних узлов](../../managed-kubernetes/operations/external-nodes-connect-wireguard.md)

@@ -50,7 +50,7 @@
       
       {% note alert %}
       
-      Если удалить ключ или его [версию](../../kms/concepts/version.md), которыми были зашифрованы диск, снимок или образ, то доступ к данным будет безвозвратно потерян. Подробнее см. [Удаление версии ключа](../../kms/concepts/version.md#version-distruct).
+      Если удалить ключ или его [версию](../../kms/concepts/version.md), которыми были зашифрованы диск, снимок или образ, то доступ к данным будет безвозвратно потерян. Подробнее смотрите [Удаление версии ключа](../../kms/concepts/version.md#version-distruct).
       
       {% endnote %}
 
@@ -119,7 +119,7 @@
    
        * Разверните блок **Настройки DNS для внутренних адресов** и нажмите **Добавить запись**.
        * Укажите зону, FQDN и время жизни записи. При указании FQDN для зоны доступна опция `Определять автоматически`.
-         Вы можете добавить несколько записей во [внутренние зоны](../../dns/concepts/dns-zone.md) DNS. Подробнее см. [Интеграция Cloud DNS с Compute Cloud](../../dns/concepts/compute-integration.md).
+         Вы можете добавить несколько записей во [внутренние зоны](../../dns/concepts/dns-zone.md) DNS. Подробнее в разделе [Интеграция Cloud DNS с Compute Cloud](../../dns/concepts/compute-integration.md).
        * Чтобы создать еще одну запись, нажмите кнопку **Добавить запись**.
    
    Если вы хотите добавить на ВМ дополнительный [сетевой интерфейс](../concepts/network.md), нажмите кнопку **Добавить сетевой интерфейс** и в появившемся блоке настроек нового интерфейса повторите действия, описанные выше в этом шаге. На одну ВМ можно добавить до восьми сетевых интерфейсов.
@@ -205,7 +205,7 @@
 
 ВМ появится в списке. При создании ВМ назначаются [IP-адрес](../../vpc/concepts/address.md) и [имя хоста](../../vpc/concepts/address.md#fqdn) (FQDN).
 
-_© 2025 Linux Foundation. Все права защищены. Linux Foundation зарегистрировала товарные знаки и использует товарные знаки. Список товарных знаков Linux Foundation см. на странице [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage)._
+_© 2025 Linux Foundation. Все права защищены. Linux Foundation зарегистрировала товарные знаки и использует товарные знаки. Список товарных знаков Linux Foundation смотрите на странице [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage)._
 
 ## Подключитесь к ВМ {#connect-to-vm}
 
@@ -634,7 +634,7 @@ _© 2025 Linux Foundation. Все права защищены. Linux Foundation 
 
 * [Узнайте, как работать с Yandex Cloud изнутри ВМ](../operations/vm-connect/auth-inside-vm.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Подключиться к виртуальной машине Linux по SSH с помощью Yandex Cloud Shell](../operations/vm-connect/cloud-shell.md)
 * [Подключиться к виртуальной машине Windows по RDP](../operations/vm-connect/rdp.md)

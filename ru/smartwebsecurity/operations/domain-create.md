@@ -87,7 +87,7 @@ description: Следуя данной инструкции, вы сможете
 
 После добавления домена [создайте профиль безопасности](profile-create.md) и [подключите](host-connect.md) его к домену.
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](proxy-create.md)
 * [{#T}](profile-create.md)

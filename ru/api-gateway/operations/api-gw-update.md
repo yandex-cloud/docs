@@ -110,7 +110,7 @@ description: Следуя данной инструкции, вы сможете
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_api_gateway` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/api_gateway).
+     Подробнее о параметрах ресурса `yandex_api_gateway` в {{ TF }} в [документации провайдера]({{ tf-provider-resources-link }}/api_gateway).
   1. Проверьте конфигурацию командой:
 
      ```bash

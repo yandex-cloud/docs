@@ -30,9 +30,9 @@ description: Познакомьтесь с возможностями {{ yandex-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки ВМ, созданной с помощью SDK, входят:
-* плата за вычислительные ресурсы ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md#prices-instance-resources));
-* плата за диски ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md#prices-storage));
-* плата за использование динамического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
+* плата за вычислительные ресурсы ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md#prices-instance-resources));
+* плата за диски ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md#prices-storage));
+* плата за использование динамического внешнего IP-адреса ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
 
 ### Создайте сервисный аккаунт {#create-sa}
 
@@ -398,6 +398,6 @@ description: Познакомьтесь с возможностями {{ yandex-
 * [Java](https://github.com/yandex-cloud/java-sdk/tree/master/java-sdk-examples)
 * [.NET](https://github.com/yandex-cloud/dotnet-sdk/tree/master/Example)
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 [{#T}](../../compute/operations/vm-connect/ssh.md)

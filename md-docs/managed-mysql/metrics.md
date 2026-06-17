@@ -182,7 +182,7 @@ subcluster_name | Имя субкластера
 | `mysql.fileio.reads`<br/>`DGAUGE`, операций/с | Средняя скорость файловых операций чтения (в секунду).<br/>Дополнительная метка: `filetype`. | 
 | `mysql.fileio.write_bytes`<br/>`DGAUGE`, байт/с | Скорость записи данных.<br/>Дополнительная метка: `filetype`. | 
 | `mysql.fileio.writes`<br/>`DGAUGE`, операций/с | Средняя скорость файловых операций записи (в секунду).<br/>Дополнительная метка: `filetype`. | 
-| `mysql.handler`<br/>`DGAUGE`, штуки | Количество обработчиков различных операций. Подробнее см. в [документации MySQL®](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html). <br/>Дополнительная метка: `handler`. | 
+| `mysql.handler`<br/>`DGAUGE`, штуки | Количество обработчиков различных операций. Подробнее в [документации MySQL®](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html). <br/>Дополнительная метка: `handler`. | 
 | `mysql.session`<br/>`DGAUGE`, штуки | Количество сессий на определенной стадии. <br/>Дополнительная метка: `stage`. | 
 | `mysql_Aborted_connects_rate`<br/>`DGAUGE`, соединений/с | Количество неуспешных попыток соединения с БД. | 
 | `mysql_Binlog_cache_disk_use_rate`<br/>`DGAUGE`, транзакций/с | Количество транзакций, которые использовали кеш бинлога, но превысили его размер и задействовали временный файл на диске. | 
@@ -277,6 +277,6 @@ subcluster_name | Имя субкластера
 | `core_dump.count`<br/>`DGAUGE`, штуки | Количество дампов ядра. |
 | `n_unique_users`<br/>`DGAUGE`, пользователи | Количество уникальных пользователей или аккаунтов, взаимодействующих с системой. |
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Мониторинг состояния кластера MySQL® и хостов](operations/monitoring.md)

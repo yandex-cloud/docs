@@ -97,7 +97,7 @@ _Lookup-таблицы_ — это справочные таблицы для о
 
 Поля из датасетов и схемы базы можно вставить в запрос, выбрав нужное поле и нажав {{ ui-key.yacloud_org.security.ycdr.query-data-panel.schema-insert-action_iNs1A }}.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](queries.md).
 * [{#T}](../operations/investigations/index.md).

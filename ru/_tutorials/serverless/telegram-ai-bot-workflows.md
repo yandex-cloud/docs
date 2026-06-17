@@ -30,10 +30,10 @@
 
 В стоимость поддержки Telegram-бота входят:
 
-* плата за генерацию текста (см. [тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing));
-* плата за хранение секрета и запросы к нему (см. [тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md));
-* плата за объем хранилища, занятый данными, количество операций с данными и исходящий трафик (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md));
-* плата за получение и хранение логов (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
+* плата за генерацию текста ([тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing));
+* плата за хранение секрета и запросы к нему ([тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md));
+* плата за объем хранилища, занятый данными, количество операций с данными и исходящий трафик ([тарифы {{ objstorage-full-name }}](../../storage/pricing.md));
+* плата за получение и хранение логов ([тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
 
 
 ## Зарегистрируйте Telegram-бота {#create-bot}

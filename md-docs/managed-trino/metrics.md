@@ -54,6 +54,6 @@ component | Тип компонента: `coordinator`
 * **0.99**. ||
 |#
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Мониторинг состояния кластера Managed Service for Trino](operations/monitoring.md)

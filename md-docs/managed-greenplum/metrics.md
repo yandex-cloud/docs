@@ -1008,6 +1008,6 @@ PXF помечает все метрики, которые он возвраща
 | `yezzey.object_count`<br/>`DGAUGE`, штуки | Общее количество объектов во внешнем хранилище, управляемом Yezzey. |
 | `yezzey.object_size`<br/>`DGAUGE`, байты | Суммарный размер объектов во внешнем хранилище, управляемом Yezzey. |
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Мониторинг состояния кластера Yandex MPP Analytics for PostgreSQL и хостов](operations/monitoring.md)

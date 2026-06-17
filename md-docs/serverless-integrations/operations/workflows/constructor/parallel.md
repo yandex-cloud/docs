@@ -25,7 +25,7 @@
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Спецификация YaWL](../../../concepts/workflows/yawl/management/parallel.md)
 * [Создать рабочий процесс с помощью конструктора](../workflow/create-constructor.md)

@@ -21,7 +21,7 @@ description: Модуль {{ td-full-name }} ({{ td-name }}) позволяет 
 
 Исключения позволяют гибко настраивать, когда и для каких объектов нужно игнорировать результаты проверки на соответствие правилам контроля безопасности модуля {{ td-full-name }}. [Посмотреть список](../operations/td/manage-exceptions.md#view-exceptions-list) заданных для окружения исключений вы можете в [интерфейсе {{ sd-name }}]({{ link-sd-main }}) в разделе **{{ ui-key.yacloud_org.app.security.control_rules_rWmUV }}**.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./workspace.md)
 * [{#T}](./alerts.md)

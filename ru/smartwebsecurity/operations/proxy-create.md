@@ -44,6 +44,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](domain-create.md)

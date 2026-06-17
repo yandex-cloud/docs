@@ -14,7 +14,7 @@ To create a new message queue:
 - Management console {#console}
   
   1. In the [management console]({{ link-console-main }}), select the folder to create your queue in.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
   1. Click **{{ ui-key.yacloud.ymq.queues.button_create }}**.
   1. Under **{{ ui-key.yacloud.ymq.queue.form.section_base }}**, fill in the following fields:
       * **{{ ui-key.yacloud.common.name }}**: Enter a name for the queue.
@@ -30,7 +30,7 @@ To create a new message queue:
   1. To redirect undelivered messages to the [dead letter queue (DLQ)](../concepts/dlq.md), do the following under **{{ ui-key.yacloud.ymq.queue.form.section_message-settings }}**:
       * Enable **{{ ui-key.yacloud.ymq.queue.form.switch_redirect-messages }}**.
       * Specify **{{ ui-key.yacloud.ymq.queue.form.field_messages-queue }}**.
-      * Set **{{ ui-key.yacloud.ymq.queue.form.field_max-read-tries }}**.
+      * Set the **{{ ui-key.yacloud.ymq.queue.form.field_max-read-tries }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - AWS CLI {#cli}

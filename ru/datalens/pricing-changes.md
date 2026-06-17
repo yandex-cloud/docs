@@ -135,7 +135,7 @@ editable: false
 {% endcut %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Настройка тарифного плана {{ datalens-name }}](./settings/service-plan.md)
 * [Возможности тарифных планов](./concepts/service-plans-comparison.md)

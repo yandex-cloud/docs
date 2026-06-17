@@ -19,9 +19,9 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-1. Плата за постоянно работающие ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
+1. Плата за постоянно работающие ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md));
 
-1. Плата за запись и хранение логов в лог-группе (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
+1. Плата за запись и хранение логов в лог-группе ([тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
 
 ## Подготовьте инфраструктуру {#infrastructure-prepare}
 

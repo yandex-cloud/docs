@@ -73,7 +73,7 @@
         }
         ```
 
-        Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера](../../../terraform/resources/function.md).
+        Подробнее о параметрах ресурса `yandex_function` в [документации провайдера](../../../terraform/resources/function.md).
 
     1. Проверьте конфигурацию командой:
 
@@ -111,6 +111,6 @@
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Пользовательские файлы](../../concepts/runtime/environment-variables.md#files)

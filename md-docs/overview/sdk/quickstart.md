@@ -31,9 +31,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки ВМ, созданной с помощью SDK, входят:
-* плата за вычислительные ресурсы ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md#prices-instance-resources));
-* плата за диски ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md#prices-storage));
-* плата за использование динамического внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* плата за вычислительные ресурсы ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md#prices-instance-resources));
+* плата за диски ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md#prices-storage));
+* плата за использование динамического внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 ### Создайте сервисный аккаунт {#create-sa}
 
@@ -480,7 +480,7 @@
     ```
 
     Где:
-    * `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md), получаемый с помощью Yandex Cloud CLI. Подробнее о команде `yc iam create-token` см. в [справочнике CLI](../../iam/operations/iam-token/create-for-sa.md);
+    * `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md), получаемый с помощью Yandex Cloud CLI. Подробнее о команде `yc iam create-token` смотрите в [справочнике CLI](../../iam/operations/iam-token/create-for-sa.md);
     * `SSH_PUBLIC_KEY_PATH` — путь к файлу с публичным SSH-ключом.
     
     {% note info %}
@@ -497,7 +497,7 @@
     
     Где `ID` — идентификатор [операции](../../api-design-guide/concepts/about-async.md) создания ВМ.
     
-    Отслеживать статус операции вы можете в консоли управления, а также с помощью Yandex Cloud CLI и API. Подробнее см. на странице [Посмотреть операции с ресурсами сервиса Compute Cloud](../../compute/operations/operation-logs.md).
+    Отслеживать статус операции вы можете в консоли управления, а также с помощью Yandex Cloud CLI и API. Подробнее на странице [Посмотреть операции с ресурсами сервиса Compute Cloud](../../compute/operations/operation-logs.md).
     
     Когда ВМ будет создана, вы увидите следующее сообщение:
     
@@ -518,7 +518,7 @@
     ```
 
     Где:
-    * `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md), получаемый с помощью Yandex Cloud CLI. Подробнее о команде `yc iam create-token` см. в [справочнике CLI](../../iam/operations/iam-token/create-for-sa.md);
+    * `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md), получаемый с помощью Yandex Cloud CLI. Подробнее о команде `yc iam create-token` смотрите в [справочнике CLI](../../iam/operations/iam-token/create-for-sa.md);
     * `SSH_PUBLIC_KEY_PATH` — путь к файлу с публичным SSH-ключом.
     
     {% note info %}
@@ -535,7 +535,7 @@
     
     Где `ID` — идентификатор [операции](../../api-design-guide/concepts/about-async.md) создания ВМ.
     
-    Отслеживать статус операции вы можете в консоли управления, а также с помощью Yandex Cloud CLI и API. Подробнее см. на странице [Посмотреть операции с ресурсами сервиса Compute Cloud](../../compute/operations/operation-logs.md).
+    Отслеживать статус операции вы можете в консоли управления, а также с помощью Yandex Cloud CLI и API. Подробнее на странице [Посмотреть операции с ресурсами сервиса Compute Cloud](../../compute/operations/operation-logs.md).
     
     Когда ВМ будет создана, вы увидите следующее сообщение:
     
@@ -556,7 +556,7 @@
     ```
 
     Где:
-    * `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md), получаемый с помощью Yandex Cloud CLI. Подробнее о команде `yc iam create-token` см. в [справочнике CLI](../../iam/operations/iam-token/create-for-sa.md);
+    * `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md), получаемый с помощью Yandex Cloud CLI. Подробнее о команде `yc iam create-token` смотрите в [справочнике CLI](../../iam/operations/iam-token/create-for-sa.md);
     * `SSH_PUBLIC_KEY_PATH` — путь к файлу с публичным SSH-ключом.
 
     {% note info %}
@@ -659,7 +659,7 @@
         ```
 
         Где:
-        * `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md), получаемый с помощью Yandex Cloud CLI. Подробнее о команде `yc iam create-token` см. в [справочнике CLI](../../iam/operations/iam-token/create-for-sa.md);
+        * `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md), получаемый с помощью Yandex Cloud CLI. Подробнее о команде `yc iam create-token` смотрите в [справочнике CLI](../../iam/operations/iam-token/create-for-sa.md);
         * `SSH_PUBLIC_KEY_PATH` — путь к файлу с публичным SSH-ключом.
         
         {% note info %}
@@ -676,7 +676,7 @@
         
         Где `ID` — идентификатор [операции](../../api-design-guide/concepts/about-async.md) создания ВМ.
         
-        Отслеживать статус операции вы можете в консоли управления, а также с помощью Yandex Cloud CLI и API. Подробнее см. на странице [Посмотреть операции с ресурсами сервиса Compute Cloud](../../compute/operations/operation-logs.md).
+        Отслеживать статус операции вы можете в консоли управления, а также с помощью Yandex Cloud CLI и API. Подробнее на странице [Посмотреть операции с ресурсами сервиса Compute Cloud](../../compute/operations/operation-logs.md).
         
         Когда ВМ будет создана, вы увидите следующее сообщение:
         
@@ -723,7 +723,7 @@
 
     Где `ID` — идентификатор [операции](../../api-design-guide/concepts/about-async.md) создания ВМ.
     
-    Отслеживать статус операции вы можете в консоли управления, а также с помощью Yandex Cloud CLI и API. Подробнее см. на странице [Посмотреть операции с ресурсами сервиса Compute Cloud](../../compute/operations/operation-logs.md).
+    Отслеживать статус операции вы можете в консоли управления, а также с помощью Yandex Cloud CLI и API. Подробнее на странице [Посмотреть операции с ресурсами сервиса Compute Cloud](../../compute/operations/operation-logs.md).
 
 {% endlist %}
 
@@ -741,6 +741,6 @@
 * [Java](https://github.com/yandex-cloud/java-sdk/tree/master/java-sdk-examples)
 * [.NET](https://github.com/yandex-cloud/dotnet-sdk/tree/master/Example)
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 [Подключиться к виртуальной машине Linux по SSH](../../compute/operations/vm-connect/ssh.md)

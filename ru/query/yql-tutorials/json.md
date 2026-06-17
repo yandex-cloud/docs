@@ -47,7 +47,7 @@ VALUES
 
 Мы рекомендуем применять `raw string` и способ экранирования с помощью `\"`, так как он более нагляден.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * Оператор [SELECT]({{ ydb.docs }}/yql/reference/syntax/select)
 * Функция [JSON_EXISTS]({{ ydb.docs }}/yql/reference/builtins/json#json_exists)

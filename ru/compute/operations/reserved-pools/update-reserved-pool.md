@@ -137,7 +137,7 @@ description: Из статьи вы узнаете, как изменить пу
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./manage-pool-vms.md)
 * [{#T}](../../concepts/reserved-pools.md)
