@@ -30,6 +30,6 @@
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Покинуть организацию](../../../organization/operations/leave-organization.md)

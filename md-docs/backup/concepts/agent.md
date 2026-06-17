@@ -30,7 +30,7 @@
 * [Автоматическая привязка политики резервного копирования Yandex Cloud Backup к ВМ](../tutorials/vm-with-backup-policy/index.md)
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Подключить существующую виртуальную машину на Linux к Cloud Backup](../operations/connect-vm-linux.md)
 * [Подключить существующую виртуальную машину на Linux с OS Login к Cloud Backup](../operations/connect-vm-oslogin-linux.md)

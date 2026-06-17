@@ -29,7 +29,7 @@ description: '{{ postbox-full-name }} — облачный сервис для �
 
 * [{#T}](../tutorials/events-from-postbox-to-yds.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../quickstart.md)
 * [{#T}](../pricing.md)

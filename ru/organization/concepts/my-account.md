@@ -14,7 +14,7 @@ description: '[_Мой аккаунт_]({{ link-my-account }}) — это лич
 
 Доступность [функциональности](../operations/manage-account.md) портала «Мой аккаунт» зависит от [типа аккаунта](../../iam/concepts/users/accounts.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/manage-account.md)
 * [{#T}](../../iam/concepts/users/accounts.md)

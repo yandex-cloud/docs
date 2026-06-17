@@ -124,7 +124,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [check-result](../../../_includes/api-gateway/check-result.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для {{ yds-name }}, который вызывает функцию {{ sf-name }}](../../../functions/operations/trigger/data-streams-trigger-create.md)
 * [Триггер для {{ yds-name }}, который вызывает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/data-streams-trigger-create.md)

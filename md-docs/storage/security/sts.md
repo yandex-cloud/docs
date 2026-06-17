@@ -34,7 +34,7 @@ _Security Token Service_ — компонент сервиса Identity and Acce
 
 {% note warning %}
 
-Проверка доступа по [ACL](acl.md) объекта происходит после проверки политики Security Token Service. Поэтому если для сервисного аккаунта, через который вы получаете временные ключи доступа, настроены разрешения ACL на объекты в бакете, эти объекты станут доступны для запросов с временным ключом доступа, независимо от указанной политики. Подробнее см. на [схеме взаимодействия механизмов управления доступом](overview.md) в Object Storage.
+Проверка доступа по [ACL](acl.md) объекта происходит после проверки политики Security Token Service. Поэтому если для сервисного аккаунта, через который вы получаете временные ключи доступа, настроены разрешения ACL на объекты в бакете, эти объекты станут доступны для запросов с временным ключом доступа, независимо от указанной политики. Подробнее на [схеме взаимодействия механизмов управления доступом](overview.md) в Object Storage.
 
 {% endnote %}
 
@@ -49,7 +49,7 @@ _Security Token Service_ — компонент сервиса Identity and Acce
 
 Для работы с Security Token Service предусмотрен отдельный [эндпоинт API](../../api-design-guide/concepts/endpoints.md): `https://sts.yandexcloud.net`.
 
-Подробнее см. [Создать временный ключ доступа с помощью Security Token Service](../../iam/operations/sa/create-sts-key.md).
+Подробнее смотрите [Создать временный ключ доступа с помощью Security Token Service](../../iam/operations/sa/create-sts-key.md).
 
 {% note warning %}
 
@@ -60,7 +60,7 @@ _Security Token Service_ — компонент сервиса Identity and Acce
 {% endnote %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Обзор способов управления доступом в Object Storage](overview.md)
 * [Эфемерные ключи доступа, совместимые с AWS API](ephemeral-keys.md)

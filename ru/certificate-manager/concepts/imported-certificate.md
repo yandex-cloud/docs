@@ -49,6 +49,6 @@ description: Из статьи вы узнаете, что такое польз
 * [{#T}](../tutorials/virtual-hosting.md)
 * [{#T}](../tutorials/tls-termination/index.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Интеграция с сервисами {{ yandex-cloud }}](services.md)

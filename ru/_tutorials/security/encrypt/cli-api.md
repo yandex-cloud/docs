@@ -73,7 +73,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Интерфейс командной строки CLI](../../../cli).
 * [Симметричное шифрование в {{ kms-full-name }}](../../../kms/concepts/symmetric-encryption.md).

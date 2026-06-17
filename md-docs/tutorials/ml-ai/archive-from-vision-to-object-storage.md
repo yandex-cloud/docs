@@ -27,10 +27,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для распознавания изображений и хранения данных входят:
-* Плата за вычислительные ресурсы и [диски](../../compute/concepts/disk.md) [ВМ](../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за хранение данных в [бакете](../../storage/concepts/bucket.md) и [операции](../../storage/operations/index.md) с ними (см. [тарифы Object Storage](../../storage/pricing.md)).
-* Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за использование Vision OCR (см. [тарифы для Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/pricing)).
+* Плата за вычислительные ресурсы и [диски](../../compute/concepts/disk.md) [ВМ](../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за хранение данных в [бакете](../../storage/concepts/bucket.md) и [операции](../../storage/operations/index.md) с ними ([тарифы Object Storage](../../storage/pricing.md)).
+* Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за использование Vision OCR ([тарифы для Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/pricing)).
 
 ## Создайте бакет {#create-bucket}
 

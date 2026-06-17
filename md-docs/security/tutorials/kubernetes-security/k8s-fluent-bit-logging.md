@@ -10,10 +10,10 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../../compute/pricing.md)).
-* Плата за публичный IP-адрес, если он назначен узлам кластера (см. [тарифы Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
-* Плата за сервис Cloud Logging: запись и хранение данных (см. [тарифы Cloud Logging](../../../logging/pricing.md)).
+* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../../compute/pricing.md)).
+* Плата за публичный IP-адрес, если он назначен узлам кластера ([тарифы Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
+* Плата за сервис Cloud Logging: запись и хранение данных ([тарифы Cloud Logging](../../../logging/pricing.md)).
 
 
 ## Отправка логов мастера Managed Service for Kubernetes в Cloud Logging с помощью master logging {#master-logging}
@@ -187,10 +187,10 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../../compute/pricing.md)).
-* Плата за публичный IP-адрес, если он назначен узлам кластера (см. [тарифы Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
-* Плата за сервис Cloud Logging: запись и хранение данных (см. [тарифы Cloud Logging](../../../logging/pricing.md)).
+* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../../compute/pricing.md)).
+* Плата за публичный IP-адрес, если он назначен узлам кластера ([тарифы Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
+* Плата за сервис Cloud Logging: запись и хранение данных ([тарифы Cloud Logging](../../../logging/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -397,7 +397,7 @@
           fluentbit ./fluent-bit/
         ```
 
-        Актуальную версию Helm-чарта см. на [странице Yandex Cloud Marketplace](https://yandex.cloud/ru/marketplace/products/yc/fluent-bit).
+        Актуальная версия Helm-чарта на [странице Yandex Cloud Marketplace](https://yandex.cloud/ru/marketplace/products/yc/fluent-bit).
 
         Команда создаст новое пространство имен, необходимое для работы Fluent Bit.
 

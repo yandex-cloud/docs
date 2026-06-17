@@ -105,6 +105,13 @@
 * [Включить возможность использования refresh-токенов в Yandex Cloud CLI](enable-refresh-tokens.md)
 * [Включить требование двухфакторной аутентификации](enable-2fa-access.md)
 
+## Управление политиками аутентификации {#manage-authentication-policies}
+
+* [Создать политику аутентификации](authentication-policies/create.md)
+* [Активировать и деактивировать политику аутентификации](authentication-policies/activate-deactivate.md)
+* [Изменить политику аутентификации](authentication-policies/update.md)
+* [Удалить политику аутентификации](authentication-policies/delete.md)
+
 ## Работа с OS Login {#os-login}
 
 * [Включить доступ по OS Login](os-login-access.md)

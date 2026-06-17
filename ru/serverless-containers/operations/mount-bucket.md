@@ -107,7 +107,7 @@ description: Следуя данной инструкции, вы сможете
 
           Чтобы смонтировать в контейнер одновременно несколько бакетов, задайте блок `mounts` необходимое количество раз.
 
-      Более подробную информацию о параметрах ресурса `yandex_serverless_container` см. в [документации провайдера]({{ tf-provider-resources-link }}/serverless_container).
+      Подробнее о параметрах ресурса `yandex_serverless_container` в [документации провайдера]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Примените изменения:
 
@@ -125,7 +125,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../concepts/mounting.md)
 * [{#T}](../../functions/concepts/mounting.md)

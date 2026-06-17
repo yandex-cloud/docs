@@ -9,7 +9,7 @@ description: Следуя данной инструкции, вы сможете
 * `Subscription`, вам необходимо настроить интеграцию с [{{ license-manager }} API](../license-manager/api-ref/quickstart.md), чтобы подписка работала корректно.
 * `PAYG`, пользователь автоматически перейдет на этот тариф, когда отвяжет подписку от ресурса или срок действия подписки закончится. При необходимости вы можете настроить интеграцию с [{{ license-manager }} API](../license-manager/api-ref/quickstart.md).
 
-Чтобы настроить интеграцию с {{ license-manager }} SaaS API, см. [{#T}](../license-manager/saas/api-ref/quickstart.md).
+Как настроить интеграцию с {{ license-manager }} SaaS API, читайте в [{#T}](../license-manager/saas/api-ref/quickstart.md).
 
 {% list tabs group=service %}
 

@@ -27,7 +27,7 @@ description: В статье описаны поля для интеграцио
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание
 --- | --- | --- | --- | --- | ---
-`data` | `string` | Да | Нет | Да | Необработанный тип письма. Подробнее см. в [документации сервиса {{ postbox-name }}](../../../../../postbox/aws-compatible-api/api-ref/send-email.md).
+`data` | `string` | Да | Нет | Да | Необработанный тип письма. Подробнее в [документации сервиса {{ postbox-name }}](../../../../../postbox/aws-compatible-api/api-ref/send-email.md).
 
 ## SimpleMessage {#postbox-simplemessage}
 

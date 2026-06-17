@@ -56,7 +56,7 @@
      ...
      ```
 
-	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера](../../terraform/resources/serverless_container.md).
+	 Подробнее о параметрах ресурса `yandex_serverless_container` в [документации провайдера](../../terraform/resources/serverless_container.md).
 
   1. Проверьте конфигурацию командой:
      ```

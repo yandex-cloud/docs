@@ -1,10 +1,6 @@
 Для каждого правила в таблице отображается следующая информация:
 
-{% note tip %}
-
-При необходимости вы можете изменить отображаемые в таблице столбцы с информацией. Для этого в строке с заголовками столбцов таблицы нажмите значок ![gear](../../_assets/console-icons/gear.svg), выберите столбцы с необходимой вам информацией и нажмите кнопку **{{ ui-key.yacloud_org.common.apply }}**.
-
-{% endnote %}
+{% include [table-columns-tip](./table-columns-tip.md) %}
 
 * {% include [sec-rules-criticality-levels](./sec-rules-criticality-levels.md) %}
 * **{{ ui-key.yacloud_org.security.controls.rule-result.controlRule_kr2Bv }}** — название правила и его краткая суть. Чтобы [подробнее узнать](../../security-deck/operations/cspm/view-rules.md#detailed-info) о правиле, нажмите на строку таблицы с его именем.

@@ -5,7 +5,7 @@ description: В данном разделе приведены описания 
 
 # Справочник аудитных логов {{ at-full-name }}
 
-В {{ at-name }} поддерживается отслеживание событий уровня конфигурации (Control Plane) для {{ postbox-full-name }}. Подробнее см. [{#T}](../audit-trails/concepts/format.md).
+В {{ at-name }} поддерживается отслеживание событий уровня конфигурации (Control Plane) для {{ postbox-full-name }}. Подробнее в [{#T}](../audit-trails/concepts/format.md).
 
 Общий вид значения поля `event_type` (_тип события_):
 

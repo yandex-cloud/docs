@@ -152,12 +152,12 @@
             * `action` — действие при превышении лимита. Единственное возможное значение — `DENY`.
             * `limit` — максимальное количество разрешенных запросов за период.
             * `period` — период времени в секундах, в течение которого считается лимит.
-            * `condition` — [условие](../concepts/conditions.md) применения правила. Необязательный параметр. Описание условий см. в [документации провайдера](../../terraform/resources/sws_advanced_rate_limiter_profile.md), в разделе описания структуры `advanced_rate_limiter_rule.static_quota.condition`.
+            * `condition` — [условие](../concepts/conditions.md) применения правила. Необязательный параметр. Описание условий смотрите в [документации провайдера](../../terraform/resources/sws_advanced_rate_limiter_profile.md), в разделе описания структуры `advanced_rate_limiter_rule.static_quota.condition`.
           * `dynamic_quota` — способ подсчета запросов, при котором считаются группы запросов, объединенных одной или несколькими характеристиками. Может быть указан только один из блоков: `static_quota` или `dynamic_quota`.
             * `action` — действие при превышении лимита. Единственное возможное значение — `DENY`.
             * `limit` — максимальное количество разрешенных запросов за период.
             * `period` — период времени в секундах, в течение которого считается лимит.
-            * `condition` — условие применения правила. Необязательный параметр. Описание условий см. в [документации провайдера](../../terraform/resources/sws_advanced_rate_limiter_profile.md), в разделе описания структуры `advanced_rate_limiter_rule.dynamic_quota.condition`.
+            * `condition` — условие применения правила. Необязательный параметр. Описание условий смотрите в [документации провайдера](../../terraform/resources/sws_advanced_rate_limiter_profile.md), в разделе описания структуры `advanced_rate_limiter_rule.dynamic_quota.condition`.
             * `characteristic` - описание характеристик для группировки запросов. Может быть указан один из блоков: `simple_characteristic` или `key_characteristic`.
               * `case_insensitive`: `true` — не учитывать регистр, `false` — учитывать регистр. 
               * `key_characteristic` — блок параметров, для которых надо указать ключ (строку) для группировки запросов.
@@ -206,7 +206,7 @@
 
 {% endlist %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Изменить правило в профиле безопасности](rule-update.md)
 * [Удалить правило из профиля безопасности](rule-delete.md)

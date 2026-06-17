@@ -150,7 +150,7 @@ Y | Показатель. Может быть указано несколько 
 
 * Если вам нужно показать абсолютные значения переменных, используйте [диаграмму с областями](area-chart.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создание дашборда в Yandex DataLens](../operations/dashboard/create.md)
 * [Добавление чарта на дашборд в Yandex DataLens](../operations/dashboard/add-chart.md)

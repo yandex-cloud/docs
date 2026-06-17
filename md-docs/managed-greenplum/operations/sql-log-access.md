@@ -158,7 +158,7 @@ ORDER BY cnt DESC
 LIMIT 10;
 ```
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 - [Просмотр логов кластера Yandex MPP Analytics for PostgreSQL](cluster-logs.md)
 - [Передача логов кластера Yandex MPP Analytics for PostgreSQL в Yandex Cloud Logging](mgp-to-cloud-logging.md)

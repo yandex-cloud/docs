@@ -18,7 +18,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder for your database.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. Enter a **{{ ui-key.yacloud.ydb.forms.label_field_name }}** for your database. The naming requirements are as follows:
 
@@ -159,8 +159,8 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to update the database settings.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-  1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the row with the database in question and select **{{ ui-key.yacloud.ydb.overview.button_action-edit }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Find the database you need in the list, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in its row, and select **{{ ui-key.yacloud.ydb.overview.button_action-edit }}**.
   1. Configure the database:
       1. Change the database name, if required.
       1. Under **{{ ui-key.yacloud.ydb.overview.label_serverless-limits }}**, specify the [throughput capacity](../pricing/serverless.md#prices-ru) and [data size](../pricing/serverless.md#rules-storage).
@@ -283,9 +283,9 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder for your database.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-  1. Specify a **{{ ui-key.yacloud.ydb.forms.label_field_name }}** for the database. Follow these naming requirements:
+  1. Specify a **{{ ui-key.yacloud.ydb.forms.label_field_name }}** for the database. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -482,8 +482,8 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to update the database settings.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-  1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the row with the database in question and select **{{ ui-key.yacloud.ydb.overview.button_action-edit }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Find the database you need in the list, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in its row, and select **{{ ui-key.yacloud.ydb.overview.button_action-edit }}**.
   1. Configure the database:
       1. Change the database name, if required.
       1. Under **{{ ui-key.yacloud.ydb.forms.label_section-compute }}**, select the type and amount of [computing resources](../concepts/resources.md#resource-presets).
@@ -569,7 +569,7 @@ To move a database to a different availability zone, follow [this guide](migrati
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to get a list of databases for.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -598,7 +598,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the database resides in.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click the name of the database.
   1. Navigate to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. Select the group, user, or service account you want to grant access to the database to.
@@ -682,7 +682,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the database resides in.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click the name of the database.
   1. Navigate to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. Select the group, user, or service account you want to grant access to the database to.
@@ -782,8 +782,8 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to delete the database from.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-  1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the row with the database in question and select **{{ ui-key.yacloud.ydb.overview.button_action-delete }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Find the database you need in the list, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in its row, and select **{{ ui-key.yacloud.ydb.overview.button_action-delete }}**.
   1. Confirm the deletion.
 
 - {{ yandex-cloud }} CLI {#cli}

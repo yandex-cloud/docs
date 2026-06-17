@@ -8,7 +8,7 @@ description: В этом руководстве вы научитесь испо
 {% include [ephemeral-key-storage](../../_tutorials/security/ephemeral-key-storage.md) %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../storage/quickstart/quickstart-aws-cli.md)
 * [{#T}](../../iam/concepts/authorization/ephemeral-keys.md)

@@ -45,6 +45,6 @@
 
 {% endnote %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Добавить домен](domain-create.md)

@@ -89,9 +89,9 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за публичные IP-адреса, если они назначены узлам кластера (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
+* Плата за публичные IP-адреса, если они назначены узлам кластера ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 * Плата за [использование хранилища](../../container-registry/pricing.md) Container Registry.
 
 
@@ -308,7 +308,7 @@
 
 Для доступа к Container Registry узлам кластера должен быть назначен публичный IP-адрес. Либо в подсети узлов должен быть настроен [NAT-шлюз](../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../vpc/tutorials/nat-instance/index.md).
 
-Подробнее см. в разделе [Доступ в интернет для рабочих узлов кластера](../../managed-kubernetes/concepts/network.md#nodes-internet).
+Подробнее в разделе [Доступ в интернет для рабочих узлов кластера](../../managed-kubernetes/concepts/network.md#nodes-internet).
 
 {% endnote %}
 
@@ -533,7 +533,7 @@ yc container registry configure-docker
       yc container registry delete --name yc-auto-cr
       ```
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Docker-образ в Container Registry](../../container-registry/concepts/docker-image.md).
 * [Аутентифицироваться в Container Registry](../../container-registry/operations/authentication.md).

@@ -41,7 +41,7 @@
     {% endnote %}
 
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Управление Cloud Shell](../operations/cloud-shell-options.md)
 * [Лимиты Cloud Shell](../concepts/cloud-shell/limits.md)

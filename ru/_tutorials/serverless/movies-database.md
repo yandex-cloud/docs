@@ -26,9 +26,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость ресурсов для работы CRUD API входят:
-* Плата за операции с {{ ydb-short-name }} и хранение данных (см. [тарифы {{ ydb-name }} в бессерверном режиме](../../ydb/pricing/serverless.md)).
-* Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик (см. [тарифы {{ serverless-containers-name }}](../../serverless-containers/pricing.md)).
-* Плата за количество запросов к API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-name }}](../../api-gateway/pricing.md)).
+* Плата за операции с {{ ydb-short-name }} и хранение данных ([тарифы {{ ydb-name }} в бессерверном режиме](../../ydb/pricing/serverless.md)).
+* Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик ([тарифы {{ serverless-containers-name }}](../../serverless-containers/pricing.md)).
+* Плата за количество запросов к API-шлюзу и исходящий трафик ([тарифы {{ api-gw-name }}](../../api-gateway/pricing.md)).
 
 ## Настройте окружение {#setup-environment}
 
@@ -580,7 +580,7 @@ terraform destroy
 
 Подтвердите удаление ресурсов: введите в терминале `yes` и нажмите **Enter**.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [Справочник {{ TF }}. Провайдер {{ yandex-cloud }}]({{ tf-provider-link }}).

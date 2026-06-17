@@ -15,7 +15,7 @@
    * Логин — `admin`.
    * Пароль — пароль пользователя `admin`, который вы указали при создании кластера.
 
-Подробнее о работе в веб-интерфейсе см. [документацию Apache Airflow™](https://airflow.apache.org/docs/apache-airflow/stable/ui.html).
+Подробности о работе в веб-интерфейсе читайте в [документации Apache Airflow™](https://airflow.apache.org/docs/apache-airflow/stable/ui.html).
 
 ## Работа с API Apache Airflow™ {#rest-api}
 

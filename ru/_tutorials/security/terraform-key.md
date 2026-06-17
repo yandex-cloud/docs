@@ -20,7 +20,7 @@ resource "yandex_resourcemanager_folder_iam_member" "admin" {
 }
 ```
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [{#T}](../../kms/security/index.md).

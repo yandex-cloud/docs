@@ -54,6 +54,6 @@ NYC Taxi and Limousine Commission (TLC):
 
 1. [Выполнение запроса к данным реального времени](streaming-query.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Синтаксис YQL](https://ydb.tech/docs/ru//yql/reference/syntax/)

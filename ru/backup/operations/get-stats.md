@@ -32,7 +32,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](configure-alerts.md)
 * [{#T}](../metrics.md)

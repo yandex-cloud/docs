@@ -404,6 +404,6 @@ blocks:
 
 
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 [Квоты и лимиты в Object Storage](concepts/limits.md)

@@ -6,7 +6,7 @@
 
 Изменить установленную блокировку может только пользователь с [ролью `storage.admin`](../../../security/index.md). При изменении [управляемой блокировки](../../../concepts/object-lock.md#types) нужно использовать заголовок, подтверждающий обход блокировки (см. [ниже](#request-headers)). Строгую блокировку можно только продлить. Проверить блокировку можно с помощью метода [getObjectRetention](getobjectretention.md).
 
-Подробнее о подготовке к работе с API и общем виде запроса см. в разделе [Как пользоваться S3 API](../../index.md).
+Подробнее о подготовке к работе с API и общем виде запроса смотрите в разделе [Как пользоваться S3 API](../../index.md).
 
 ## Запрос {#request}
 
@@ -71,7 +71,7 @@ PUT /{bucket}/{key}?retention&versionId={versionId} HTTP/2
 
 * [Настройка блокировок версии объекта](../../../operations/objects/edit-object-lock.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
 

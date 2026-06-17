@@ -120,15 +120,14 @@ description: Follow this guide to configure cross-origin resource sharing (CORS)
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
      ```hcl
      provider "yandex" {
        cloud_id  = "<cloud_ID>"
        folder_id = "<folder_ID>"
        zone      = "<availability_zone>"
-       token     = "<OAuth_token>"
-       }
+     }
 
      resource "yandex_iam_service_account" "sa" {
        name = "<service_account_name>"
@@ -179,7 +178,7 @@ description: Follow this guide to configure cross-origin resource sharing (CORS)
      * `max_age_seconds`: Time it takes the browser to cashe the result of an object request, in seconds. This is an optional setting.
      * `server_side_encryption_configuration`: Bucket's server-side encryption configuration. This is an optional setting.
 
-     For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
+     For more information about `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Apply the changes:
 

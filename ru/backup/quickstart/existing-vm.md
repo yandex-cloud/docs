@@ -76,7 +76,7 @@ description: Следуя данной инструкции, вы сможете
 * [Узнайте об особенностях сервиса](../concepts/index.md)
 * [Посмотрите другие инструкции по работе с сервисом](../operations/index.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 {% include [see-also-snapshot](../../_includes/backup/see-also-snapshot.md) %}
 

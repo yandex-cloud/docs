@@ -8,6 +8,6 @@ canonical: '{{ link-docs }}/tutorials/infrastructure-management/vm-scale-schedul
 
 {% include [vm-scale-scheduled-console](../../../_tutorials/infrastructure/vm-scale-scheduled-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md).

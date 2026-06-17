@@ -1,6 +1,6 @@
 ---
-title: Updating a domain
-description: Follow this guide to update a domain in {{ data-catalog-full-name }}.
+title: How to update a domain in {{ data-catalog-full-name }}
+description: Follow this guide to update a domain in {{ data-catalog-name }}.
 ---
 
 # Updating a domain

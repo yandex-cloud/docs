@@ -103,7 +103,7 @@
    
    {% endnote %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация Velero](https://velero.io/docs/v1.11/examples/)
 * [Резервное копирование кластера Managed Service for Kubernetes в Object Storage](../../tutorials/kubernetes-backup.md)

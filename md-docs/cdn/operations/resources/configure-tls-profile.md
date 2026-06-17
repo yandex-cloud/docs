@@ -154,7 +154,7 @@
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Профили безопасности TLS](../../concepts/clients-to-servers-tls.md#tls-profiles)
 * [Аутентификация в API](../../api-ref/authentication.md)

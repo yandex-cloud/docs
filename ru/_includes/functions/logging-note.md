@@ -1,5 +1,5 @@
 {% note info %}
 
-Логирование тарифицируется. Подробнее см. в [документации {{ cloud-logging-full-name }}](../../logging/pricing.md).
+Логирование тарифицируется. Подробнее в [документации {{ cloud-logging-full-name }}](../../logging/pricing.md).
 
 {% endnote %}

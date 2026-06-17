@@ -9,6 +9,6 @@ description: В этом практическом руководстве мы р
 
 {% include [bitrix-website-console](../../../_tutorials/applied/bitrix-website-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md).

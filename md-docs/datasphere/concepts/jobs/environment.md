@@ -143,7 +143,7 @@ dpkg -l
 ls -la
 ```
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [DataSphere Jobs](index.md)
 * [DataSphere CLI](cli.md)

@@ -114,7 +114,7 @@ description: Следуя данной инструкции, вы сможете
        * `role` — роль, которую необходимо назначить.
        * `members` — идентификатор пользователя, группы или сервисного аккаунта, которому назначается роль.
 
-     Более подробную информацию о ресурсе `yandex_container_repository_iam_binding`, см. в [документации провайдера]({{ tf-provider-resources-link }}/container_repository_iam_binding).
+     Подробнее о параметрах ресурса `yandex_container_repository_iam_binding` в [документации провайдера]({{ tf-provider-resources-link }}/container_repository_iam_binding).
   
   1. {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

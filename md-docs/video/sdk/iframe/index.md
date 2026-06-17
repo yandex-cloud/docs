@@ -104,7 +104,7 @@ window.addEventListener('message', function(event) {
 });
 ```
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Параметры инициализации плеера](initialization.md)
 * [Методы плеера](player-methods.md)

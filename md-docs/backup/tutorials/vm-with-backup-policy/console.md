@@ -26,10 +26,10 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за вычислительные ресурсы ВМ (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md#prices-instance-resources));
-* плата за диски ВМ (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md#prices-storage));
-* плата за использование динамического внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip));
-* плата за подключенные к сервису Cloud Backup ВМ и объем резервных копий (см. [тарифы Yandex Cloud Backup](../../pricing.md#rules)).
+* плата за вычислительные ресурсы ВМ ([тарифы Yandex Compute Cloud](../../../compute/pricing.md#prices-instance-resources));
+* плата за диски ВМ ([тарифы Yandex Compute Cloud](../../../compute/pricing.md#prices-storage));
+* плата за использование динамического внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip));
+* плата за подключенные к сервису Cloud Backup ВМ и объем резервных копий ([тарифы Yandex Cloud Backup](../../pricing.md#rules)).
 
 ## Активируйте сервис {#service-activate}
 
@@ -137,7 +137,7 @@
       name: backup-sa
       ```
 
-      Подробнее о команде `yc iam service-account create` см. в [справочнике CLI](../../../cli/cli-ref/iam/cli-ref/service-account/create.md).
+      Подробнее о команде `yc iam service-account create` смотрите в [справочнике CLI](../../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
   1. Назначьте сервисному аккаунту роль `backup.user` на каталог:
 
@@ -160,7 +160,7 @@
               type: serviceAccount
       ```
 
-      Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
+      Подробнее о команде `yc resource-manager folder add-access-binding` смотрите в [справочнике CLI](../../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 - API {#api}
 
@@ -203,7 +203,7 @@
       default_security_group_id: enpbsnnop4ak********
       ```
 
-      Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../../cli/cli-ref/vpc/cli-ref/network/create.md).
+      Подробнее о команде `yc vpc network create` смотрите в [справочнике CLI](../../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
   1. Создайте подсеть `cloud-network-ru-central1-d` в зоне доступности `ru-central1-d`:
 
@@ -227,7 +227,7 @@
       - 10.1.0.0/16
       ```
 
-      Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
+      Подробнее о команде `yc vpc subnet create` смотрите в [справочнике CLI](../../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 - API {#api}
 
@@ -358,7 +358,7 @@
           - 0.0.0.0/0
   ```
 
-  Подробнее о команде `yc vpc security-group create` см. в [справочнике CLI](../../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
+  Подробнее о команде `yc vpc security-group create` смотрите в [справочнике CLI](../../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
 - API {#api}
 
@@ -529,7 +529,7 @@
 
       Сохраните идентификатор (`id`) политики.
 
-      Подробнее о команде `yc backup policy create` см. в [справочнике CLI](../../../cli/cli-ref/backup/cli-ref/policy/create.md).
+      Подробнее о команде `yc backup policy create` смотрите в [справочнике CLI](../../../cli/cli-ref/backup/cli-ref/policy/create.md).
 
 - API {#api}
 
@@ -619,7 +619,7 @@
       {"initialPolicies": ["<идентификатор_политики_weekly-backup>"]}
       ```
 
-      Подробности о получении идентификатора политики см. на странице [Получить информацию о политике резервного копирования](../../operations/policy-vm/get-info.md).
+      Подробности о получении идентификатора политики смотрите на странице [Получить информацию о политике резервного копирования](../../operations/policy-vm/get-info.md).
 
   1. Выполните команду:
 
@@ -633,7 +633,7 @@
         --service-account-name backup-sa
       ```
 
-      Подробнее о команде `yc compute instance create` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/create.md).
+      Подробнее о команде `yc compute instance create` смотрите в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
 - API {#api}
 
@@ -642,7 +642,7 @@
   В теле запроса передайте:
 
   * в поле `metadata`: объект `user-data`, содержащий конфигурацию пользовательских метаданных со скриптом для установки агента Cloud Backup;
-  * в поле `cloudbackup`: идентификатор политики резервного копирования. Подробности о получении идентификатора политики см. на странице [Получить информацию о политике резервного копирования](../../operations/policy-vm/get-info.md).
+  * в поле `cloudbackup`: идентификатор политики резервного копирования. Подробности о получении идентификатора политики смотрите на странице [Получить информацию о политике резервного копирования](../../operations/policy-vm/get-info.md).
 
   Используйте `\n` в качестве разделителя строк:
 
@@ -708,6 +708,6 @@
 1. [Удалите](../../../vpc/operations/address-delete.md) статический публичный IP-адрес, если вы его зарезервировали.
 1. Если для ВМ были созданы резервные копии, [удалите](../../operations/backup-vm/delete.md) их.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Автоматическая привязка политики резервного копирования Yandex Cloud Backup к ВМ с помощью Terraform](terraform.md)

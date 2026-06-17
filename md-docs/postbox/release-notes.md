@@ -46,7 +46,7 @@
 
 ### Обновления {#updates}
 
-* Добавлена поддержка Terraform — теперь можно создавать адреса и проверять владение пользовательским доменом с помощью Terraform. Подробнее см. [Создание адреса Yandex Cloud Postbox и проверка владения доменом с помощью Terraform](tutorials/domain-identity-creating.md)
+* Добавлена поддержка Terraform — теперь можно создавать адреса и проверять владение пользовательским доменом с помощью Terraform. Подробнее в [Создание адреса Yandex Cloud Postbox и проверка владения доменом с помощью Terraform](tutorials/domain-identity-creating.md)
 
 ## Март 2025 {#march-2025}
 

@@ -20,9 +20,9 @@
 
 В стоимость развертывания сервиса на основе Docker-образа входят:
 
-* плата за постоянно запущенные инстансы ноды (см. [тарифы {{ ml-platform-name }}](../../datasphere/pricing.md));
+* плата за постоянно запущенные инстансы ноды ([тарифы {{ ml-platform-name }}](../../datasphere/pricing.md));
 * плата за запуск ячеек с кодом для проверки работы развернутого сервиса;
-* объем хранилища, занятый данными {{ container-registry-full-name }} (см. [тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
+* объем хранилища, занятый данными {{ container-registry-full-name }} ([тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
 
 ## Подготовьте инфраструктуру {#infra}
 

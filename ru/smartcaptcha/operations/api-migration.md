@@ -152,7 +152,7 @@ exact_not_match = example.net
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](create-captcha.md)
 * [{#T}](get-info.md)

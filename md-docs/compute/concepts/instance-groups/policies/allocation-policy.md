@@ -91,7 +91,7 @@ allocation_policy:
 * [Работа с группой виртуальных машин с автоматическим масштабированием](../../../tutorials/vm-autoscale/index.md)
 * [Автоматическое масштабирование группы виртуальных машин для обработки сообщений из очереди Yandex Message Queue](../../../tutorials/autoscale-monitoring.md)
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Политика восстановления](healing-policy.md)
 * [Политика масштабирования](scale-policy.md)

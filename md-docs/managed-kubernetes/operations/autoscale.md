@@ -153,7 +153,7 @@
 
 Подробнее о Cluster Autoscaler см. в разделе [Автоматическое масштабирование кластера](../concepts/autoscale.md#ca). Параметры, используемые по умолчанию, приведены в [документации Kubernetes](https://github.com/kubernetes/autoscaler/blob/c6b754c359a8563050933a590f9a5dece823c836/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca).
 
-См. также раздел [Вопросы и ответы про автоматическое масштабирование группы узлов в Managed Service for Kubernetes](../qa/cluster-autoscaler.md).
+Смотрите также раздел [Вопросы и ответы про автоматическое масштабирование группы узлов в Managed Service for Kubernetes](../qa/cluster-autoscaler.md).
 
 ## Настройка горизонтального автомасштабирования подов {#hpa}
 

@@ -13,11 +13,11 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for ClickHouse®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства (см. [тарифы Managed Service for ClickHouse®](../pricing.md)).
-* Плата за кластер Yandex Data Processing: использование вычислительных ресурсов ВМ и сетевых дисков Compute Cloud, а также сервиса Cloud Logging для работы с логами (см. [тарифы Yandex Data Processing](../../data-proc/pricing.md)).
-* Плата за использование публичных IP-адресов для хостов кластера (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за бакеты Object Storage: хранение данных и выполнение операций с ними (см. [тарифы Object Storage](../../storage/pricing.md)).
-* Плата за NAT-шлюз (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за кластер Managed Service for ClickHouse®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Managed Service for ClickHouse®](../pricing.md)).
+* Плата за кластер Yandex Data Processing: использование вычислительных ресурсов ВМ и сетевых дисков Compute Cloud, а также сервиса Cloud Logging для работы с логами ([тарифы Yandex Data Processing](../../data-proc/pricing.md)).
+* Плата за использование публичных IP-адресов для хостов кластера ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за бакеты Object Storage: хранение данных и выполнение операций с ними ([тарифы Object Storage](../../storage/pricing.md)).
+* Плата за NAT-шлюз ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

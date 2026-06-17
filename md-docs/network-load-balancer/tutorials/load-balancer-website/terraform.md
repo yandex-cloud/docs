@@ -25,9 +25,9 @@
 
 В стоимость поддержки сайта входит:
 
-* плата за [диски](../../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование динамических или статических [внешних IP-адресов](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
-* плата за [сетевой балансировщик](../../concepts/index.md) и балансировку трафика (см. [тарифы Network Load Balancer](../../pricing.md)).
+* плата за [диски](../../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за использование динамических или статических [внешних IP-адресов](../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
+* плата за [сетевой балансировщик](../../concepts/index.md) и балансировку трафика ([тарифы Network Load Balancer](../../pricing.md)).
 
 
 ## Создайте инфраструктуру {#deploy}
@@ -185,7 +185,7 @@ Terraform распространяется под лицензией [Business S
 
     {% endlist %}
 
-    Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+    Подробнее о параметрах используемых ресурсов в Terraform смотрите в документации провайдера:
 
     * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../../terraform/resources/iam_service_account.md).
     * [Роль](../../../iam/concepts/access-control/roles.md) — [yandex_resourcemanager_folder_iam_member](../../../terraform/resources/resourcemanager_folder_iam_member.md).
@@ -196,7 +196,7 @@ Terraform распространяется под лицензией [Business S
 
 
 1. В блоке `variable` укажите значение переменной `folder_id` — идентификатор каталога, в котором создаются необходимые ресурсы.
-1. В блоке `metadata` укажите [метаданные](../../../compute/concepts/vm-metadata.md) для создания ВМ и содержимое SSH-ключа. Ключ указывается в формате `<любое_имя>:<содержимое_SSH-ключа>`. Указанное имя пользователя не играет роли, ключ будет присвоен пользователю, который задан в конфигурации образа LAMP (LEMP). В разных образах это разные пользователи. Подробнее см. в разделе [Ключи, обрабатываемые в публичных образах Yandex Cloud](../../../compute/concepts/metadata/public-image-keys.md).
+1. В блоке `metadata` укажите [метаданные](../../../compute/concepts/vm-metadata.md) для создания ВМ и содержимое SSH-ключа. Ключ указывается в формате `<любое_имя>:<содержимое_SSH-ключа>`. Указанное имя пользователя не играет роли, ключ будет присвоен пользователю, который задан в конфигурации образа LAMP (LEMP). В разных образах это разные пользователи. Подробнее в разделе [Ключи, обрабатываемые в публичных образах Yandex Cloud](../../../compute/concepts/metadata/public-image-keys.md).
 
     Пару [SSH-ключей](../../../glossary/ssh-keygen.md) необходимо [создать самостоятельно](../../../compute/operations/vm-connect/ssh.md).
 

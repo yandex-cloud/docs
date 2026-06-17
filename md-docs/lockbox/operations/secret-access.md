@@ -140,7 +140,7 @@
 
 {% endnote %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Секреты в Yandex Lockbox](../concepts/secret.md)
 * [Как устроено управление доступом в Yandex Cloud](../../iam/concepts/access-control/index.md)

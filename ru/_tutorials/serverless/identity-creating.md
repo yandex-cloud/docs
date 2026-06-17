@@ -23,8 +23,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для создания адреса, подтверждения владения доменом и отправки писем входят:
-* плата за отправленные [электронные письма](../../postbox/concepts/index.md) (см. тарифы [{{ postbox-name }}](../../postbox/pricing.md));
-* плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы используете [{{ dns-full-name }}](../../dns/) (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
+* плата за отправленные [электронные письма](../../postbox/concepts/index.md) (тарифы [{{ postbox-name }}](../../postbox/pricing.md));
+* плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы используете [{{ dns-full-name }}](../../dns/) ([тарифы {{ dns-name }}](../../dns/pricing.md)).
 
 
 ## Делегируйте домен сервису {{ dns-name }} {#delegate}

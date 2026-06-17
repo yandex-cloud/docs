@@ -3,14 +3,14 @@ title: How to upload a data schema to {{ yq-full-name }}
 description: Follow this guide to upload a data schema.
 ---
 
-# Uploading a data schema
+# Uploading a schema
 
 To simplify repetitive actions related to data schema setup and [data binding](../concepts/glossary.md#binding), you can prepare a file with data schemas and upload it. For this, follow these steps:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to change a data binding.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
-1. In the row with the binding, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yql.yq-binding-actions.edit-binding.menu-item-text }}**.
+1. In the line with the binding name, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yql.yq-binding-actions.edit-binding.menu-item-text }}**.
 1. Click **{{ ui-key.yql.yq-binding-form.action_upload-schema-file }}** and select the [data schema](#schema) file.
 1. Click **{{ ui-key.yql.yq-binding-form.binding-modify.button-text }}**.
 

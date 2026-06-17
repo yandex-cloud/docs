@@ -60,11 +60,11 @@ Workflows находится на стадии [Preview](../../overview/concepts
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Сервис SpeechSense: длительность каждого двухканального аудиофайла или количество символов в каждом текстовом диалоге (см. [тарифы SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/pricing)).
-* Бакет Object Storage: использование хранилища и выполнение операций с данными (см. [тарифы Object Storage](../../storage/pricing.md)).
-* Кластер Managed Service for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
-* Функция Yandex Cloud Functions: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы (см. [тарифы Cloud Functions](../../functions/pricing.md)).
-* Секрет Yandex Lockbox: количество хранимых версий секрета и запросы к ним (см. [тарифы Yandex Lockbox](../../lockbox/pricing.md)).
+* Сервис SpeechSense: длительность каждого двухканального аудиофайла или количество символов в каждом текстовом диалоге ([тарифы SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/pricing)).
+* Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
+* Кластер Managed Service for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
+* Функция Yandex Cloud Functions: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы ([тарифы Cloud Functions](../../functions/pricing.md)).
+* Секрет Yandex Lockbox: количество хранимых версий секрета и запросы к ним ([тарифы Yandex Lockbox](../../lockbox/pricing.md)).
 
 ### Создайте сервисные аккаунты {#create-sa}
 
@@ -356,7 +356,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
           key_algorithm: RSA_2048
           ```
       
-          Подробнее о команде `yc iam key create` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
+          Подробнее о команде `yc iam key create` смотрите в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
        1. Создайте профиль, который будет использоваться для выполнения операций от имени сервисного аккаунта `deploy-sa`:
 

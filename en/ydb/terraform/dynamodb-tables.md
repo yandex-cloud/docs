@@ -1,3 +1,8 @@
+---
+title: Creating document tables in a {{ ydb-full-name }} database using {{ TF }}
+description: Follow this tutorial to create document tables in a serverless {{ ydb-full-name }} database using the AWS {{ TF }} provider.
+---
+
 # Creating document tables in a database
 
 {% note warning %}

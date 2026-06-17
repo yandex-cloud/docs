@@ -8,6 +8,9 @@ description: Следуя данной инструкции, вы сможете
 {% include [dedicated-ip-condition.md](../../../_includes/cdn/dedicated-ip-condition.md) %}
 
 Чтобы получить [выделенный IP-адрес](../../concepts/dedicated-ip-addressing.md), закрепленный только за [CDN-ресурсами](../../concepts/resource.md) из конкретного каталога:
+
+{% include [pricing-for-dedicated-ip.md](../../../_includes/cdn/pricing-for-dedicated-ip.md) %}
+
 1. Убедитесь, что в каталоге, для которого запрашивается выделенная IP-адресация, уже есть как минимум один CDN-ресурс.
 1. [Направьте]({{ link-console-support }}/tickets/create) обращение в службу технической поддержки {{ yandex-cloud }}.
 
@@ -74,7 +77,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. Если вы уводили трафик с CDN-ресурса, восстановите исходную CNAME-запись.
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/dedicated-ip-addressing.md)
 * [{#T}](../../concepts/limits.md)

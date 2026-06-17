@@ -30,9 +30,9 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for Apache Airflow™: вычислительные ресурсы компонентов кластера (см. [тарифы Managed Service for Apache Airflow™](../../managed-airflow/pricing.md)).
-* Бакет Yandex Object Storage: использование хранилища и выполнение операций с данными (см. [тарифы Object Storage](../../storage/pricing.md)).
-* Секрет Yandex Lockbox: количество хранимых версий секрета и запросы к ним (см. [тарифы Yandex Lockbox](../../lockbox/pricing.md)).
+* Кластер Managed Service for Apache Airflow™: вычислительные ресурсы компонентов кластера ([тарифы Managed Service for Apache Airflow™](../../managed-airflow/pricing.md)).
+* Бакет Yandex Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
+* Секрет Yandex Lockbox: количество хранимых версий секрета и запросы к ним ([тарифы Yandex Lockbox](../../lockbox/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#create-infrastracture}

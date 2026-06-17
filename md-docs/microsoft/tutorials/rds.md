@@ -3,7 +3,7 @@
 
 {% note warning %}
 
-В Yandex Cloud продукты Microsoft можно использовать только с вашими собственными лицензиями и только на выделенных хостах. Подробнее см. [Использование своей лицензии для продуктов Microsoft](../byol.md).
+В Yandex Cloud продукты Microsoft можно использовать только с вашими собственными лицензиями и только на выделенных хостах. Подробнее читайте [Использование своей лицензии для продуктов Microsoft](../byol.md).
 
 {% endnote %}
 
@@ -51,9 +51,9 @@
 
 В стоимость инсталляции Microsoft Windows Server with Remote Desktop Services входят:
 
-* плата за постоянно запущенные виртуальные машины (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование динамических или статических публичных IP-адресов (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
-* стоимость исходящего трафика из Yandex Cloud в интернет (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* плата за постоянно запущенные виртуальные машины ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за использование динамических или статических публичных IP-адресов ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
+* стоимость исходящего трафика из Yandex Cloud в интернет ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 
 ## Создайте облачную сеть и подсети {#create-network}
 

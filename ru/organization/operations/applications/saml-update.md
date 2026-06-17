@@ -380,7 +380,9 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [saml-app-update-users-groups](../../../_includes/organization/saml-app-update-users-groups.md) %}
 
-#### См. также {#see-also}
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./saml-create.md)
 * [{#T}](./saml-deactivate-remove.md)

@@ -38,12 +38,12 @@ Terraform распространяется под лицензией [Business S
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для работы с состояниями Terraform входят:
-* Плата за хранение данных (см. [тарифы Object Storage](../pricing.md#prices-storage)).
-* Плата за выполнение запросов к БД (см. [тарифы Managed Service for YDB](../../ydb/pricing/serverless.md)).
+* Плата за хранение данных ([тарифы Object Storage](../pricing.md#prices-storage)).
+* Плата за выполнение запросов к БД ([тарифы Managed Service for YDB](../../ydb/pricing/serverless.md)).
 
 В стоимость поддержки инфраструктуры, разворачиваемой через Terraform в этом руководстве в качестве примера, входят:
-* Плата за постоянно запущенную [виртуальную машину](../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за использование динамического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за постоянно запущенную [виртуальную машину](../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за использование динамического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 Если вы разворачиваете ресурсы других сервисов Yandex Cloud, стоимость изменится в соответствии с [тарифами](https://yandex.cloud/ru/prices) этих сервисов.
 
@@ -624,7 +624,7 @@ member flag, but this is not recommended.
 1. [Удалите](../../ydb/operations/manage-databases.md#delete-db) БД `state-lock-db`.
 1. [Удалите](../operations/buckets/delete.md) бакет.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Начало работы с Terraform](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [Загрузка состояний Terraform в Object Storage](../../tutorials/infrastructure-management/terraform-state-storage.md).

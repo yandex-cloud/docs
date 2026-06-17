@@ -170,7 +170,7 @@ description: Следуя данной инструкции, вы научите
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/investigations.md).
 * [{#T}](../../concepts/queries.md).

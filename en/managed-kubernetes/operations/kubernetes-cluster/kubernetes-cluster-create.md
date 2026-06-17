@@ -1,6 +1,6 @@
 ---
 title: Creating a {{ managed-k8s-full-name }} cluster
-description: In this tutorial, you will learn how to create a {{ managed-k8s-name }} cluster.
+description: Follow this guide to create a {{ managed-k8s-name }} cluster.
 ---
 
 # Creating a {{ managed-k8s-name }} cluster
@@ -343,7 +343,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
         {% include [note-master-logging-log-group](../../../_includes/managed-kubernetes/note-master-logging-log-group.md) %}
 
      For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-cluster }}).
-  1. Validate your configuration files.
+  1. Make sure the configuration files are correct.
 
      {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}
 
@@ -512,7 +512,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
   }
 
   resource "yandex_kms_symmetric_key" "kms-key" {
-    # A {{ kms-full-name }} key for encrypting critical information, such as passwords, OAuth tokens, and SSH keys.
+    # {{ kms-full-name }} key for encryption of critical information, such as passwords and SSH keys.
     name              = "kms-key"
     default_algorithm = "AES_128"
     rotation_period   = "8760h" # 1 year.
@@ -720,7 +720,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
   }
 
   resource "yandex_kms_symmetric_key" "kms-key" {
-    # A {{ kms-full-name }} key for encrypting critical information, such as passwords, OAuth tokens, and SSH keys.
+    # {{ kms-full-name }} key for encryption of critical information, such as passwords and SSH keys.
     name              = "kms-key"
     default_algorithm = "AES_128"
     rotation_period   = "8760h" # 1 year.
@@ -905,7 +905,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
   }
 
   resource "yandex_kms_symmetric_key" "kms-key" {
-    # A {{ kms-full-name }} key for encrypting critical information, such as passwords, OAuth tokens, and SSH keys.
+    # {{ kms-full-name }} key for encryption of critical information, such as passwords and SSH keys.
     name              = "kms-key"
     default_algorithm = "AES_128"
     rotation_period   = "8760h" # 1 year.

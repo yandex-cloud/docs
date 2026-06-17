@@ -22,6 +22,6 @@
 {% endnote %}
 
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Вызвать контейнер асинхронно](../operations/invoke-async.md)

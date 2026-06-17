@@ -1,3 +1,8 @@
+---
+title: Example of using {{ message-queue-full-name }} in Python
+description: Examples of working with {{ message-queue-name }} message queues in Python using the boto3 SDK.
+---
+
 # Example of using {{ message-queue-full-name }} in Python
 
 {% note warning %}
@@ -6,7 +11,7 @@ To work with {{ message-queue-full-name }} from Python, use [boto3](https://aws.
 
 {% endnote %}
 
-## Installing {#install}
+## Installation {#install}
 
 To install boto, follow the instructions in the developer's repository: [boto3](https://github.com/boto/boto3/blob/develop/README.rst#quick-start), [boto](https://github.com/boto/boto#installation).
 

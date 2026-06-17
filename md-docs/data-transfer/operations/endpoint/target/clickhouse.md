@@ -114,7 +114,7 @@
 * Настройки подключения к [кластеру Yandex Managed Service for ClickHouse®](#managed-service) или [пользовательской инсталляции](#on-premise), в т. ч. на базе виртуальных машин Yandex Compute Cloud. Эти параметры обязательные.
 * [Дополнительные параметры](#additional-settings).
 
-См. также [рекомендации по настройке эндпоинта](#recommended-settings-queue) при [поставке данных в ClickHouse® из очередей](#scenarios).
+Смотрите также [рекомендации по настройке эндпоинта](#recommended-settings-queue) при [поставке данных в ClickHouse® из очередей](#scenarios).
 
 ### Кластер Managed Service for ClickHouse® {#managed-service}
 

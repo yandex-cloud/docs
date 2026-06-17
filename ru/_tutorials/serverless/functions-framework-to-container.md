@@ -34,8 +34,8 @@
 
 В стоимость поддержки создаваемой инфраструктуры входят:
 
-* плата за объем хранилища, объем исходящего трафика и использование сканера уязвимостей {{ container-registry-name }} (см. [тарифы {{ container-registry-full-name }}](../../container-registry/pricing.md));
-* плата за использование сервиса {{ serverless-containers-name }} (см. [тарифы {{ serverless-containers-full-name }}](../../serverless-containers/pricing.md)).
+* плата за объем хранилища, объем исходящего трафика и использование сканера уязвимостей {{ container-registry-name }} ([тарифы {{ container-registry-full-name }}](../../container-registry/pricing.md));
+* плата за использование сервиса {{ serverless-containers-name }} ([тарифы {{ serverless-containers-full-name }}](../../serverless-containers/pricing.md)).
 
 ### Настройте окружение {#setup-runtime}
 

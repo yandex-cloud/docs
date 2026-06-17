@@ -32,7 +32,7 @@
 
 - Другие ОС {#other}
 
-  1. Остановите виртуальную машину (см. раздел [{#T}](../../compute/operations/vm-control/vm-stop-and-start.md#stop)).
+  1. Остановите виртуальную машину (смотрите раздел [{#T}](../../compute/operations/vm-control/vm-stop-and-start.md#stop)).
   1. Дождитесь, когда статус машины изменится на `STOPPED`.
 
 {% endlist %}

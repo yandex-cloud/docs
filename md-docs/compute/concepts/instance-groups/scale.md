@@ -159,7 +159,7 @@ $$
 * [Работа с группой виртуальных машин с автоматическим масштабированием](../../tutorials/vm-autoscale/index.md)
 * [Автоматическое масштабирование группы виртуальных машин для обработки сообщений из очереди Yandex Message Queue](../../tutorials/autoscale-monitoring.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Политика масштабирования](policies/scale-policy.md).
 * [Создать группу виртуальных машин фиксированного размера](../../operations/instance-groups/create-fixed-group.md).

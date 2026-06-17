@@ -138,6 +138,6 @@ _Бакет_ — это выделенная часть хранилища {{ ob
 * [{#T}](../tutorials/batch-recognition-stt.md)
 * [{#T}](../tutorials/mgp-config-server-for-s3.md)
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](../security/overview.md)

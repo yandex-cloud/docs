@@ -10,6 +10,6 @@ description: Следуя данному руководству, вы сможе
 
 {% include [console](../../../_tutorials/_tutorials_includes/video-converting-queue/console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md)

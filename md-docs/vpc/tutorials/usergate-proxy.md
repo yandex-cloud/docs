@@ -33,9 +33,9 @@
 
 В стоимость поддержки шлюза UserGate входит:
 
-* плата за постоянно запущенную виртуальную машину (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за постоянно запущенную виртуальную машину ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
 * плата за использование [UserGate NGFW](https://yandex.cloud/ru/marketplace/products/usergate/ngfw);
-* плата за использование публичного статического IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../pricing.md)).
+* плата за использование публичного статического IP-адреса ([тарифы Yandex Virtual Private Cloud](../pricing.md)).
 
 ## Создайте облачную сеть и подсеть {#create-network}
 

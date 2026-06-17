@@ -102,7 +102,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../concepts/secret.md)
 * [{#T}](../../iam/concepts/access-control/index.md)

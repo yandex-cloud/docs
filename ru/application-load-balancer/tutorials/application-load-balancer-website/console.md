@@ -9,6 +9,6 @@ canonical: '{{ link-docs }}/tutorials/web/application-load-balancer-website/cons
 
 {% include [application-load-balancer-website-console](../../../_tutorials/infrastructure/application-load-balancer-website-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md)

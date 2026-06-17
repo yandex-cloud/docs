@@ -8,7 +8,7 @@
 
 Для полноценной работы с необработанными данными Яндекс Метрики и поддержки всего набора аналитических функций DataLens рекомендуем использовать выгрузку данных в ClickHouse®, которая доступна в рамках пакета [Метрика Про](https://yandex.ru/project/metrica/pro).
 
-Для пакета Метрика Про доступна потоковая передача данных в реальном времени. Подробнее см. в [инструкции](https://yandex.ru/support/metrica/ru/pro/data-work).
+Для пакета Метрика Про доступна потоковая передача данных в реальном времени. Подробнее в [инструкции](https://yandex.ru/support/metrica/ru/pro/data-work).
 
 {% endnote %}
 
@@ -71,9 +71,9 @@
 
 В стоимость развертывания инфраструктуры входят:
 
-* плата за вычислительные ресурсы кластера и объем хранилища (см. [тарифы Managed Service for ClickHouse®](../pricing.md));
-* плата за время вычислений (см. [тарифы DataSphere](../../datasphere/pricing.md));
-* плата за исходящий трафик (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* плата за вычислительные ресурсы кластера и объем хранилища ([тарифы Managed Service for ClickHouse®](../pricing.md));
+* плата за время вычислений ([тарифы DataSphere](../../datasphere/pricing.md));
+* плата за исходящий трафик ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## 1. Подключите ClickHouse® и DataSphere {#ch-datasphere-connection}
 

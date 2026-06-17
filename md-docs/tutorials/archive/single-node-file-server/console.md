@@ -23,9 +23,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки однонодового файлового сервера входит:
-* плата за постоянно запущенную [ВМ](../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование динамического или статического [публичного IP-адреса](../../../vpc/concepts/address.md#public-adresses) (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
-* плата за исходящий трафик (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-traffic)).
+* плата за постоянно запущенную [ВМ](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за использование динамического или статического [публичного IP-адреса](../../../vpc/concepts/address.md#public-adresses) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
+* плата за исходящий трафик ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-traffic)).
 
 ### Подготовьте сетевую инфраструктуру {#deploy-infrastructure}
 
@@ -334,6 +334,6 @@
 1. [Удалите ВМ](../../../compute/operations/vm-control/vm-delete.md).
 1. [Удалите статический публичный IP-адрес](../../../vpc/operations/address-delete.md), если вы его зарезервировали.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Однонодовый файловый сервер с помощью Terraform](terraform.md).

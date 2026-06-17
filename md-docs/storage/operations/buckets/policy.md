@@ -1,6 +1,6 @@
 # Управление политикой доступа (bucket policy)
 
-В Object Storage реализовано несколько механизмов для управления доступом к ресурсам. Алгоритм взаимодействия этих механизмов см. в [Обзор способов управления доступом в Object Storage](../../security/overview.md).
+В Object Storage реализовано несколько механизмов для управления доступом к ресурсам. Алгоритм взаимодействия этих механизмов смотрите в [Обзор способов управления доступом в Object Storage](../../security/overview.md).
 
 [Политики доступа (bucket policy)](../../concepts/policy.md) устанавливают права на действия с [бакетами](../../concepts/bucket.md), [объектами](../../concepts/object.md) и группами объектов.
 
@@ -9,7 +9,7 @@
 
 {% note warning %}
 
-Если вы хотите настроить политику доступа для бакета и подключаться к нему из кластера Apache Hive™ Metastore или Yandex Managed Service for Apache Airflow™, вам потребуется дополнительная настройка инфраструктуры. Подробнее см. в инструкциях для [Apache Hive™ Metastore](../../../metadata-hub/operations/metastore/s3-policy-connect.md) и [Managed Service for Apache Airflow™](../../../managed-airflow/operations/s3-policy-connect.md).
+Если вы хотите настроить политику доступа для бакета и подключаться к нему из кластера Apache Hive™ Metastore или Yandex Managed Service for Apache Airflow™, вам потребуется дополнительная настройка инфраструктуры. Подробнее в инструкциях для [Apache Hive™ Metastore](../../../metadata-hub/operations/metastore/s3-policy-connect.md) и [Managed Service for Apache Airflow™](../../../managed-airflow/operations/s3-policy-connect.md).
 
 {% endnote %}
 
@@ -233,7 +233,7 @@
   
   Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  По умолчанию для аутентификации в Object Storage Terraform использует IAM-токен. Кроме IAM-токена для аутентификации в Object Storage можно использовать сервисный аккаунт и статические ключи доступа. Более подробную информацию об особенностях аутентификации Terraform в Object Storage см. в [документации провайдера](../../../terraform/resources/storage_bucket.md).
+  По умолчанию для аутентификации в Object Storage Terraform использует IAM-токен. Кроме IAM-токена для аутентификации в Object Storage можно использовать сервисный аккаунт и статические ключи доступа. Более подробную информацию об особенностях аутентификации Terraform в Object Storage смотрите в [документации провайдера](../../../terraform/resources/storage_bucket.md).
 
 
   Для редактирования политики бакета вы можете использовать ресурсы:
@@ -545,7 +545,7 @@
   
   Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  По умолчанию для аутентификации в Object Storage Terraform использует IAM-токен. Кроме IAM-токена для аутентификации в Object Storage можно использовать сервисный аккаунт и статические ключи доступа. Более подробную информацию об особенностях аутентификации Terraform в Object Storage см. в [документации провайдера](../../../terraform/resources/storage_bucket.md).
+  По умолчанию для аутентификации в Object Storage Terraform использует IAM-токен. Кроме IAM-токена для аутентификации в Object Storage можно использовать сервисный аккаунт и статические ключи доступа. Более подробную информацию об особенностях аутентификации Terraform в Object Storage смотрите в [документации провайдера](../../../terraform/resources/storage_bucket.md).
 
 
   Политика доступа может быть задана ресурсами `yandex_storage_bucket_policy` и `yandex_storage_bucket` (устаревший способ).
@@ -672,6 +672,6 @@
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Примеры конфигурации](../../concepts/policy.md#config-examples)

@@ -42,7 +42,7 @@ description: В данном разделе вы узнаете, как в {{ sd
 
     {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./view-permissions.md)
 * [{#T}](../../concepts/ciem.md)

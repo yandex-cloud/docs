@@ -143,7 +143,7 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
 
 {% endlist %}
 
-Если в процессе установки CLI возникла ошибка, см. раздел [Решение проблем CLI](error.md#failure-writing-output-to-destination).
+Если в процессе установки CLI возникла ошибка, смотрите раздел [Решение проблем CLI](error.md#failure-writing-output-to-destination).
 
 ## Создание профиля {#initialize}
 
@@ -608,6 +608,6 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
    ```
 
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Обновление CLI](operations/update-cli.md)

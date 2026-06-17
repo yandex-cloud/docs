@@ -8,7 +8,7 @@ description: Из статьи вы узнаете, как создавать э
 {% include [manage-ephemeral-keys](../../../_includes/iam/manage-ephemeral-keys.md) %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../../storage/security/overview.md)
 * [{#T}](../sa/create-sts-key.md)

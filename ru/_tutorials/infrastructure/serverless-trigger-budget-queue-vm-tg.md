@@ -31,12 +31,12 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость ресурсов входят:
-* Плата за вычислительные ресурсы ВМ (см. [тарифы {{ compute-name }}](../../compute/pricing.md#prices-instance-resources)).
-* Плата за [диски](../../compute/concepts/disk.md) ВМ (см. [тарифы {{ compute-name }}](../../compute/pricing.md#prices-storage)).
-* Плата за использование динамического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
-* Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../../functions/pricing.md)).
-* Плата за количество запросов к очередям и исходящий трафик (см. [тарифы {{ message-queue-name }}](../../message-queue/pricing.md)).
-* Плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)), если вы используете сервис [{{ cloud-logging-name }}](../../logging/).
+* Плата за вычислительные ресурсы ВМ ([тарифы {{ compute-name }}](../../compute/pricing.md#prices-instance-resources)).
+* Плата за [диски](../../compute/concepts/disk.md) ВМ ([тарифы {{ compute-name }}](../../compute/pricing.md#prices-storage)).
+* Плата за использование динамического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы {{ sf-name }}](../../functions/pricing.md)).
+* Плата за количество запросов к очередям и исходящий трафик ([тарифы {{ message-queue-name }}](../../message-queue/pricing.md)).
+* Плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) ([тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)), если вы используете сервис [{{ cloud-logging-name }}](../../logging/).
 
 
 ### Скачайте проект {#download}

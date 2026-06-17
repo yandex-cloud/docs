@@ -96,7 +96,7 @@ description: Следуя данной инструкции, вы сможете
         * `name` — имя точки монтирования. Директория, к которой смонтируется диск, будет доступна по пути `/function/storage/<точка_монтирования>`.
         * `size_gb` — размер эфемерного диска в ГБ. Например: `size=5GB`.
 
-      Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-resources-link }}/function).
+      Подробнее о параметрах ресурса `yandex_function` в [документации провайдера]({{ tf-provider-resources-link }}/function).
 
   1. Примените изменения:
 
@@ -114,7 +114,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/mounting.md)
 * [{#T}](../../../serverless-containers/concepts/mounting.md)

@@ -10,14 +10,14 @@ description: Follow this guide to install Chaos Mesh.
 
 {% note warning %}
 
-Orchestrate fault scenarios on a test cluster first so that you do not compromise the performance of the production cluster.
+Check fault scenarios on a test cluster first to avoid compromising the performance of the main cluster.
 
 {% endnote %}
 
 ## Getting started {#before-you-begin}
 
+1. [Create](../kubernetes-cluster/kubernetes-cluster-create.md) a {{ managed-k8s-name }} cluster.
 1. [Create a node group](../node-group/node-group-create.md) with at least 14 GB of RAM.
-
 1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 
     {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
@@ -27,7 +27,7 @@ Orchestrate fault scenarios on a test cluster first so that you do not compromis
 1. In the [management console]({{ link-console-main }}), select a folder.
 1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
-1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Chaos Mesh](/marketplace/products/yc/chaos-mesh) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
+1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Chaos Mesh with Yandex Cloud support](/marketplace/products/yc/chaos-mesh) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
 
    * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `chaos-mech-space`. If you leave the default namespace, Chaos Mesh may work incorrectly.
@@ -102,7 +102,7 @@ Once you install Chaos Mesh, use its web interface to go through the authorizati
 
 ## Working with {{ yandex-cloud }} resources {#yandex-cloud-resources}
 
-The application features the `YCChaos` scenario for simulation of VM node failures, e.g., restarts or stops. You can use it to check fault tolerance of systems dependent on the cloud infrastructure.
+The application features the `YCChaos` scenario for simulation of VM node failures, e.g., restarts or stops. You can use it to test cloud-dependent systems for fault tolerance.
 
 For example, to use `YCChaos` to simulate a VM node restart:
 

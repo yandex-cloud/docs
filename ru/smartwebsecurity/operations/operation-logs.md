@@ -19,7 +19,7 @@
 * REST — в метод [get](../api-ref/Operation/get.md).
 * gRPC — в метод [OperationService/Get](../api-ref/grpc/Operation/get.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./profile-get.md)
 * [{#T}](../../api-design-guide/concepts/about-async.md)

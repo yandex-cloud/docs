@@ -99,7 +99,7 @@ description: Из статьи вы узнаете, как изменить вс
       ...
       ```
 
-      Более подробную информацию о параметрах ресурса `yandex_function_trigger` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
+      Подробнее о параметрах ресурса `yandex_function_trigger` в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Создайте ресурсы:
 

@@ -84,7 +84,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](running-host-group-vms.md)
 * [{#T}](running-host-vms.md)

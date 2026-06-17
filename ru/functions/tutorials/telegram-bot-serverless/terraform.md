@@ -13,6 +13,6 @@ canonical: '{{ link-docs }}/tutorials/serverless/telegram-bot-serverless/terrafo
 {% include [telegram-bot-serverless-tf](../../../_tutorials/serverless/telegram-bot-serverless/telegram-bot-serverless-tf.md) %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](console.md)

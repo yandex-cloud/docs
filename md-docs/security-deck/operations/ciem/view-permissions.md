@@ -69,7 +69,7 @@
 {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Отозвать доступ у субъекта](revoke-permissions.md)
 * [Модуль диагностики доступов (CIEM)](../../concepts/ciem.md)

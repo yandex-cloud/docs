@@ -37,7 +37,7 @@
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Модель данных](../concepts/data-model.md)
 * [Язык запросов](../concepts/querying.md)

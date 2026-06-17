@@ -112,7 +112,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Расследования](../../concepts/investigations.md).
 * [Запросы](../../concepts/queries.md).

@@ -114,7 +114,7 @@ editable: false
 {% endcut %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Вопросы про тарификацию и оплату](./qa/pricing.md)
 * [Управление рабочими местами в {{ datalens-name }}](./settings/seats.md)

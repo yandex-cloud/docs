@@ -26,7 +26,7 @@
 
 * [{#T}](../../tutorials/vm-autoscale/index.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 - [{#T}](../../quickstart/ig.md).
 - [{#T}](../../../iam/operations/sa/create.md).

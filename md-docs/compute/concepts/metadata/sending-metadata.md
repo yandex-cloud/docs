@@ -67,7 +67,7 @@
 
 Пример использования переменных при передаче метаданных на ВМ через Yandex Cloud CLI приведен в разделе [Создать виртуальную машину с метаданными из переменных окружения](../../operations/vm-create/create-with-env-variables.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Изменение метаданных ВМ](../../operations/vm-metadata/update-vm-metadata.md)
 * [Создание ВМ с пользовательским скриптом конфигурации](../../operations/vm-create/create-with-cloud-init-scripts.md)

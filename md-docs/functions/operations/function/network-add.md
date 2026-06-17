@@ -57,6 +57,6 @@
 
 {% endlist %}
 
-## См. также
+## Полезные ссылки {#see-also}
 
 * [Сетевое взаимодействие в Cloud Functions](../../concepts/networking.md).

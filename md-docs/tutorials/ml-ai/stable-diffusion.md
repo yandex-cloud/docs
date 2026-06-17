@@ -29,7 +29,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость использования модели входит плата за запуск ячеек с кодом (см. [тарифы DataSphere](../../datasphere/pricing.md)).
+В стоимость использования модели входит плата за запуск ячеек с кодом ([тарифы DataSphere](../../datasphere/pricing.md)).
 
 ## Подготовьте инфраструктуру {#infra}
 
@@ -108,7 +108,7 @@
 
 Если вы больше не планируете работать с проектом `Stable Diffusion`, [удалите его](../../datasphere/operations/projects/delete.md#delete-project).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Работа с моделями](../../datasphere/operations/data/models.md)
 * [Запуск вычислений в DataSphere с помощью API](../../datasphere/tutorials/batch-code-execution.md)

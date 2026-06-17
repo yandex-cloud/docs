@@ -99,7 +99,7 @@ GET /{bucket}?list-type=2&continuation-token=ContinuationToken&delimiter=Delimit
 `Key` | Ключ объекта.<br/><br/>Путь: `/ListBucketResult/Contents/Key`.
 `LastModified` | Дата и время последнего изменения объекта.<br/><br/>Путь: `/ListBucketResult/Contents/LastModified`.
 `Size` | Размер объекта в байтах.<br/><br/>Путь: `/ListBucketResult/Contents/Size`.
-`StorageClass` | [Класс хранилища](../../../concepts/storage-class.md) объекта: `STANDARD`, `COLD` или `ICE`.<br/><br/>Путь: `/ListBucketResult/Contents/StorageClass`.
+`StorageClass` | [Класс хранилища](../../../concepts/storage-class.md) объекта: `STANDARD`, `COLD`, `ICE` или `INTELLIGENT_TIERING`.<br/><br/>Путь: `/ListBucketResult/Contents/StorageClass`.
 `Name` | Имя бакета.<br/><br/>Путь: `/ListBucketResult/Name`.
 `Prefix` | Значение query-параметра `prefix`.<br/><br/>Путь: `/ListBucketResult/Prefix`.
 `Delimiter` | Значение query-параметра `delimiter`.<br/><br/>Путь: `/ListBucketResult/Delimiter`.
@@ -191,7 +191,7 @@ GET /{bucket}?delimiter=Delimiter&encoding-type=EncodingType&marker=Marker&max-k
 `Key` | Ключ объекта.<br/><br/>Путь: `/ListBucketResult/Contents/Key`.
 `LastModified` | Дата и время последнего изменения объекта.<br/><br/>Путь: `/ListBucketResult/Contents/LastModified`.
 `Size` | Размер объекта в байтах.<br/><br/>Путь: `/ListBucketResult/Contents/Size`.
-`StorageClass` | [Класс хранилища](../../../concepts/storage-class.md) объекта: `STANDARD`, `COLD` или `ICE`.<br/><br/>Путь: `/ListBucketResult/Contents/StorageClass`.
+`StorageClass` | [Класс хранилища](../../../concepts/storage-class.md) объекта: `STANDARD`, `COLD`, `ICE` или `INTELLIGENT_TIERING`.<br/><br/>Путь: `/ListBucketResult/Contents/StorageClass`.
 `Name` | Имя бакета.<br/><br/>Путь: `/ListBucketResult/Name`.
 `Prefix` | Значение query-параметра `prefix`.<br/><br/>Путь: `/ListBucketResult/Prefix`.
 `Delimiter` | Значение query-параметра `delimiter`.<br/><br/>Путь: `/ListBucketResult/Delimiter`.

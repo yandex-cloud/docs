@@ -1,1 +1,1 @@
-Подробнее см. в подразделе [Доступ в интернет для рабочих узлов кластера](../../managed-kubernetes/concepts/network.md#nodes-internet).
+Подробнее в подразделе [Доступ в интернет для рабочих узлов кластера](../../managed-kubernetes/concepts/network.md#nodes-internet).

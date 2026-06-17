@@ -24,10 +24,10 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за сетевой балансировщик нагрузки (см. [тарифы Network Load Balancer](../../network-load-balancer/pricing.md)).
-* Плата за использование публичных IP-адресов для ВМ и сетевого балансировщика нагрузки (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
+* Плата за сетевой балансировщик нагрузки ([тарифы Network Load Balancer](../../network-load-balancer/pricing.md)).
+* Плата за использование публичных IP-адресов для ВМ и сетевого балансировщика нагрузки ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Подготовьте инфраструктуру для Managed Service for Kubernetes {#prepare-kubernetes-infrastructure}
@@ -436,7 +436,7 @@ resource "kubernetes_persistent_volume_claim" "my_pvc" {
 
   [Подробнее о параметрах PersistentVolumeClaim](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).  
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Документация Terraform по созданию ресурсов Kubernetes](https://developer.hashicorp.com/terraform/tutorials/kubernetes/kubernetes-provider)
 * [Документация провайдера](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs)

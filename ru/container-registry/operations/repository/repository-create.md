@@ -43,7 +43,7 @@ description: Следуя данной инструкции, вы сможете
 
      Где `name` — имя репозитория в формате `<идентификатор_реестра>/<имя_репозитория>`. Вы можете получить идентификатор [реестра](../../concepts/registry.md) из [списка реестров в каталоге](../registry/registry-list.md#registry-list).
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/container_repository).
+     Подробнее о параметрах ресурса `yandex_container_repository` в [документации провайдера]({{ tf-provider-resources-link }}/container_repository).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

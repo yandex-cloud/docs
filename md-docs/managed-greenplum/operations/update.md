@@ -65,9 +65,9 @@
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Как создать такой файл, читайте в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL вы найдете в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
 
     1. Измените в описании кластера Yandex MPP Analytics for PostgreSQL значение атрибута `description`:
 
@@ -516,9 +516,9 @@
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Как создать такой файл, читайте в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL вы найдете в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
 
     1. Измените в описании кластера Yandex MPP Analytics for PostgreSQL значения нужных дополнительных настроек:
 
@@ -1119,7 +1119,7 @@
 
 ## Изменить настройки СУБД {#change-gp-settings}
 
-Вы можете изменить [глобальные настройки СУБД](../concepts/settings-list.md) вашего кластера. Перечень доступных для изменения настроек см. в разделе [Настройки СУБД](../concepts/settings-list.md).
+Вы можете изменить [глобальные настройки СУБД](../concepts/settings-list.md) вашего кластера. Перечень доступных для изменения настроек находится в разделе [Настройки СУБД](../concepts/settings-list.md).
 
 {% note info %}
 
@@ -1135,7 +1135,7 @@ ALTER ROLE <имя_роли> SET <настройка> = <значение>;
 ALTER DATABASE <имя_базы_данных> SET <настройка> = <значение>;
 ```
 
-Полный список настроек см. в [документации Greenplum®](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html).
+Полный список настроек находится в [документации Greenplum®](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html).
 
 {% endnote %}
 
@@ -1185,9 +1185,9 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Как создать такой файл, читайте в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL вы найдете в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
 
     1. Измените в описании кластера [настройки СУБД](../concepts/settings-list.md) в блоке `greenplum_config`:
 
@@ -1299,7 +1299,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
             В данном случае перечислите все изменяемые настройки СУБД.
 
-        * `configSpec.greenplumConfig_<версия_СУБД>` — набор настроек СУБД. Укажите каждую настройку на отдельной строке через запятую. Описание и возможные значения настроек см. в разделе [Настройки СУБД уровня кластера](../concepts/settings-list.md#dbms-cluster-settings).
+        * `configSpec.greenplumConfig_<версия_СУБД>` — набор настроек СУБД. Укажите каждую настройку на отдельной строке через запятую. Описание и возможные значения настроек находятся в разделе [Настройки СУБД уровня кластера](../concepts/settings-list.md#dbms-cluster-settings).
 
             Доступные версии СУБД: Greenplum® `6.28` и `6.29`, Apache Cloudberry™ `2.0-cb`.
 
@@ -1382,7 +1382,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
             В данном случае перечислите все изменяемые настройки СУБД.
 
-        * `config_spec.greenplum_config_<версия_СУБД>` — набор настроек СУБД. Укажите каждую настройку на отдельной строке через запятую. Описание и возможные значения настроек см. в разделе [Настройки СУБД](../concepts/settings-list.md).
+        * `config_spec.greenplum_config_<версия_СУБД>` — набор настроек СУБД. Укажите каждую настройку на отдельной строке через запятую. Описание и возможные значения настроек находятся в разделе [Настройки СУБД](../concepts/settings-list.md).
 
             Доступные версии СУБД: Greenplum® `6.28` и `6.29`, Apache Cloudberry™ `2.0-cb`.
 
@@ -1467,9 +1467,9 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-      Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Как создать такой файл, читайте в разделе [Создание кластера](cluster-create.md).
 
-      Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
+      Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL вы найдете в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
 
   1. Измените в описании кластера Yandex MPP Analytics for PostgreSQL значение атрибута `resource_preset_id` в блоке `master_subcluster.resources` или `segment_subcluster.resources`:
 
@@ -1722,9 +1722,9 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Как создать такой файл, читайте в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL вы найдете в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
 
     1. Измените в описании кластера Yandex MPP Analytics for PostgreSQL значения атрибутов `disk_type_id` и `disk_size` в блоке `master_subcluster.resources` или `segment_subcluster.resources`:
 
@@ -1983,9 +1983,9 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Как создать такой файл, читайте в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL вы найдете в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
 
     1. Измените в описании кластера Yandex MPP Analytics for PostgreSQL значение атрибута `service_account_id`:
 
@@ -2228,9 +2228,9 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Как создать такой файл, читайте в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL вы найдете в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
 
     1. Измените в описании кластера Yandex MPP Analytics for PostgreSQL значения атрибутов в блоке `logging`:
 

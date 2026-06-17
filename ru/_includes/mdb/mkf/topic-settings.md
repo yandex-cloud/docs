@@ -30,7 +30,7 @@
 
     Время (в миллисекундах), в течение которого нужно хранить tombstone-маркеры удаления для топиков со сжатым логом. Эта настройка применяется только в том случае, если [политика очистки лога](#settings-topic-cleanup-policy) установлена в режим `Compact` или `CompactAndDelete`.
 
-    Полное описание настройки см. [в документации {{ KF }}](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_delete.retention.ms).
+    Полное описание настройки читайте [в документации {{ KF }}](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_delete.retention.ms).
 
 * **Flush messages** {{ tag-all }} {#settings-topic-flush-messages}
 

@@ -25,8 +25,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
-* Плата за хранение созданных Docker-образов (см. [тарифы Container Registry](../../container-registry/pricing.md).
-* Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик (см. [тарифы Serverless Containers](../pricing.md).
+* Плата за хранение созданных Docker-образов ([тарифы Container Registry](../../container-registry/pricing.md).
+* Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик ([тарифы Serverless Containers](../pricing.md).
 
 ## Создайте сервисный аккаунт {#create-sa}
 
@@ -226,7 +226,7 @@
 
 {% note info %}
 
-Вы также можете создать сервисное подключение на уровне репозитория. В этом случае оно будет доступно только для этого репозитория. Подробнее см. в разделе [{#T}](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/service-connections#create-service-connection).
+Вы также можете создать сервисное подключение на уровне репозитория. В этом случае оно будет доступно только для этого репозитория. Подробнее в разделе [{#T}](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/service-connections#create-service-connection).
 
 {% endnote %}
 
@@ -319,7 +319,7 @@
 1. [Удалите](../../container-registry/operations/docker-image/docker-image-delete.md) Docker-образ.
 1. [Удалите](../../container-registry/operations/registry/registry-delete.md) реестр.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Настроить CI/CD между SourceCraft и Yandex Cloud Functions](../../tutorials/serverless/ci-cd-sourcecraft-functions.md)
 * [Сервисные подключения](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/service-connections)

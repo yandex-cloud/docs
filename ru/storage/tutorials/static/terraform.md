@@ -8,6 +8,6 @@ canonical: '{{ link-docs }}/tutorials/web/static/terraform'
 
 {% include [static](../../../_tutorials/applied/static-terraform.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./console.md).

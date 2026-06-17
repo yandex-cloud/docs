@@ -23,7 +23,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы Cloud Functions](../pricing.md)).
+В стоимость поддержки инфраструктуры входит плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы Cloud Functions](../pricing.md)).
 
 ## Создайте сервисный аккаунт {#create-sa}
 
@@ -155,7 +155,7 @@
 
 {% note info %}
 
-Вы также можете создать сервисное подключение на уровне репозитория. В этом случае оно будет доступно только для этого репозитория. Подробнее см. в разделе [{#T}](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/service-connections#create-service-connection).
+Вы также можете создать сервисное подключение на уровне репозитория. В этом случае оно будет доступно только для этого репозитория. Подробнее в разделе [{#T}](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/service-connections#create-service-connection).
 
 {% endnote %}
 
@@ -414,7 +414,7 @@ workflows:
 1. [Удалите функцию](../operations/function/function-delete.md).
 1. [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Настроить CI/CD для развертывания приложения в Yandex Serverless Containers с помощью GitHub Actions](https://sourcecraft.dev/portal/docs/ru/sourcecraft/tutorials/ci-cd-sourcecraft-github-actions)
 * [Настроить в SourceCraft сервисное подключение к Yandex Cloud](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/service-connections)

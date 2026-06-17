@@ -1,20 +1,20 @@
 # Working with {{ ydb-name }} databases
 
-This section provides the basic information about working with [{{ ydb-name }}](https://yandex.cloud/ru/services/ydb).
+This section covers the basics of working with [{{ ydb-name }}](https://yandex.cloud/ru/services/ydb).
 
-To work with a {{ ydb-name }} database from {{ yq-full-name }}, follow these steps:
-1. Create a [connection](../concepts/glossary.md#connection) containing your database connection credentials.
+To start working with a {{ ydb-name }} database, follow these steps:
+1. Create a [connection](../concepts/glossary.md#connection) containing your database access credentials.
 1. [Run a query](#query) to the database.
 
-Example of a query for reading data from {{ ydb-name }}:
+Query example for reading data from {{ ydb-name }}:
 
 ```sql
 SELECT * FROM ydb_connection.my_table
 ```
 
 Where:
-* `ydb_connection`: Name of the DB connection you created.
-* `my_table`: Name of the table in the database.
+* `ydb_connection`: Your database connection name.
+* `my_table`: Database table name.
 
 
 ## Setting up a connection {#create_connection}
@@ -22,18 +22,18 @@ Where:
 To create a connection to {{ ydb-name }}:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a connection.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-1. In the left-hand panel, go to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. In the left-hand panel, switch to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
 1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. Specify the connection parameters:
 
    1. Under **{{ ui-key.yql.yq-connection-form.general-parameters.section-title }}**:
 
-      * **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}**: Name of the connection to {{ ydb-name }}.
+      * **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}**: {{ ydb-name }} connection name.
       * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}**: `{{ ui-key.yql.yq-connection.action_ydb }}`.
    1. Under **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ ydb-name }} database or create a new one.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select the {{ ydb-name }} [service account](../../iam/concepts/users/service-accounts.md) to use for connecting to `{{ ydb-name }}` clusters and database authentication. If you do not have a service account, create one and assign the `ydb.viewer` [role](../../ydb/security/index.md#ydb-viewer) to it.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select the {{ ydb-name }} [service account](../../iam/concepts/users/service-accounts.md) you will use for `{{ ydb-name }}` cluster connections and database authentication. If you do not have a service account, create one and assign the `ydb.viewer` [role](../../ydb/security/index.md#ydb-viewer) to it.
 
         {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
 
@@ -42,17 +42,17 @@ To create a connection to {{ ydb-name }}:
 
 ## Query syntax {#query}
 
-Here is the SQL query format used to access {{ ydb-name }}:
+{{ ydb-name }} uses the following SQL syntax:
 
 ```sql
 SELECT * FROM <connection>.<table_name>
 ```
 
 Where:
-* `<connection>`: Name of the DB connection you created.
-* `<table_name>`: Name of the table in the database.
+* `<connection>`: Your database connection name.
+* `<table_name>`: Database table name.
 
-## Limitations {#limits}
+## Limits {#limits}
 
 {% include [!](_includes/supported_requests.md) %}
 
@@ -60,19 +60,19 @@ Where:
 
 {% include [!](_includes/predicate_pushdown_preamble.md) %}
 
-|Description|Example|I/O|
+|Description|Example|Limitation|
 |---|---|---|
-|Filters like `IS NULL`/`IS NOT NULL`|`WHERE column1 IS NULL` or `WHERE column1 IS NOT NULL`||
-|The `OR`, `NOT`, or `AND` logical conditions or parentheses to prioritize calculations |`WHERE column1 IS NULL OR (column2 IS NOT NULL AND column3 > 10)`.||
-|Comparison operators (`=`, `==`, `!=`, `<>`, `>`, `<`, `>=`, or `<=`) against other columns or constants|`WHERE column1 > column2 OR column3 <= 10`.||
-|The `LIKE` string pattern matching operator|`WHERE column1 LIKE '_abc%'`|Currently, pushdown only supports simple patterns based on prefixes (`'abc_'` or `'abc%'`), suffixes (`'_abc'` or `'%abc'`), or searching for a substring in a string (`'_abc_'`, `'%abc%'`, `'_abc%'`, or `'%abc_'`). Use `REGEXP` to push down more complex patterns.|
-|The `REGEXP` string pattern matching operator|`WHERE column1 REGEXP '.*abc.*'`||
+|`IS NULL` and `IS NOT NULL` filters|`WHERE column1 IS NULL` or `WHERE column1 IS NOT NULL`||
+|Logical operators `AND`, `OR`, `NOT`, and parentheses to control operator precedence |`WHERE column1 IS NULL OR (column2 IS NOT NULL AND column3 > 10)`.||
+|Comparison operators `=`, `==`, `!=`, `<>`, `>`, `<`, `>=`, and `<=` that compare a column with other columns or constants|`WHERE column1 > column2 OR column3 <= 10`.||
+|`LIKE` string pattern matching operator|`WHERE column1 LIKE '_abc%'`|Currently, filter pushdown only supports patterns based on prefixes, e.g., `'abc_'` or `'abc%'`, suffixes, e.g., `'_abc'` or `'%abc'`, and substring matches, e.g., `'_abc_'`, `'%abc%'`, `'_abc%'`, or `'%abc_'`. To push down more complex patterns, you can use the `REGEXP` operator.|
+|`REGEXP` pattern-matching operator|`WHERE column1 REGEXP '.*abc.*'`||
 
-Other filter types do not support any pushdown on the source side: the external table rows will be filtered on the federated {{ yq-full-name }} side, i.e., {{ yq-full-name }} will perform a full scan of the external table when processing the query.
+Other filter types do not support source pushdown: the external table rows are filtered on the federated {{ yq-full-name }} side, i.e., {{ yq-full-name }} will perform a full scan of the external table when processing the query.
 
 Supported data types for filter pushdown:
 
-|Data type {{ yq-full-name }}|
+|{{ yq-full-name }} data type|
 |----|
 |`Bool`|
 |`Int8`|
@@ -90,11 +90,11 @@ Supported data types for filter pushdown:
 
 ## Supported data types {#supported_types}
 
-The tables below show how {{ ydb-name }} and {{ yq-full-name }} data types map. Data types not listed in the tables are not supported.
+The tables below show type mapping between {{ ydb-name }} and {{ yq-full-name }}. Only the listed types are supported.
 
 ### Primitive data types {#supported_types_default}
 
-| Data type {{ ydb-name }} | Data type {{ yq-full-name }} |
+| {{ ydb-name }} data type | {{ yq-full-name }} data type |
 | :---: | :----: |
 | `Bool` | `Bool` |
 | `Int8` | `Int8` |
@@ -117,7 +117,7 @@ The tables below show how {{ ydb-name }} and {{ yq-full-name }} data types map. 
 
 ### Optional data types {#supported_types_nullable}
 
-| Data type {{ ydb-name }} | Data type {{ yq-full-name }} |
+| {{ ydb-name }} data type | {{ yq-full-name }} data type |
 | :---: | :----: |
 | `Optional<Bool>` | `Optional<Bool>` |
 | `Optional<Int8>` | `Optional<Int8>` |

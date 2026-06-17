@@ -26,8 +26,8 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Бакеты {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-* Сервис {{ cloud-logging-full-name }}: объем записываемых данных и время их хранения (см. [тарифы {{ cloud-logging-name }}](../../logging/pricing.md)).
+* Бакеты {{ objstorage-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Сервис {{ cloud-logging-full-name }}: объем записываемых данных и время их хранения ([тарифы {{ cloud-logging-name }}](../../logging/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#infra}

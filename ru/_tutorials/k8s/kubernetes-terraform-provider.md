@@ -22,10 +22,10 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за сетевой балансировщик нагрузки (см. [тарифы {{ network-load-balancer-name }}](../../network-load-balancer/pricing.md)).
-* Плата за использование публичных IP-адресов для ВМ и сетевого балансировщика нагрузки (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за сетевой балансировщик нагрузки ([тарифы {{ network-load-balancer-name }}](../../network-load-balancer/pricing.md)).
+* Плата за использование публичных IP-адресов для ВМ и сетевого балансировщика нагрузки ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
 
 ## Подготовьте инфраструктуру для {{ managed-k8s-name }} {#prepare-kubernetes-infrastructure}
@@ -404,7 +404,7 @@ resource "kubernetes_persistent_volume_claim" "my_pvc" {
 
   [Подробнее о параметрах PersistentVolumeClaim](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).  
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Документация {{ TF }} по созданию ресурсов {{ k8s }}](https://developer.hashicorp.com/terraform/tutorials/kubernetes/kubernetes-provider)
 * [Документация провайдера](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs)

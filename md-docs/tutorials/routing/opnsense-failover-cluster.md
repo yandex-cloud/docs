@@ -53,8 +53,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость предлагаемого решения входят: 
-* плата за аренду серверов BareMetal (см. [тарифы Yandex BareMetal](../../baremetal/pricing.md));
-* плата за [хранение данных](../../storage/concepts/bucket.md) в Object Storage и [операции](../../storage/operations/index.md) с ними (см. [тарифы Yandex Object Storage](../../storage/pricing.md)).
+* плата за аренду серверов BareMetal ([тарифы Yandex BareMetal](../../baremetal/pricing.md));
+* плата за [хранение данных](../../storage/concepts/bucket.md) в Object Storage и [операции](../../storage/operations/index.md) с ними ([тарифы Yandex Object Storage](../../storage/pricing.md)).
 
 ## Создайте загрузочные образы в BareMetal {#create-images}
 

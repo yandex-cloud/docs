@@ -170,7 +170,7 @@
      
      - **Доступ из DataLens** — разрешает анализировать данные из кластера в сервисе [Yandex DataLens](../../datalens/concepts/index.md).
        
-       Подробнее о настройке подключения см. в разделе [Подключение к DataLens](datalens-connect.md).
+       Подробнее о настройке подключения читайте в разделе [Подключение к DataLens](datalens-connect.md).
      
      
      - **Доступ из WebSQL** — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления Yandex Cloud с помощью сервиса Yandex WebSQL.

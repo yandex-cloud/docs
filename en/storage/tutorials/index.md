@@ -71,7 +71,7 @@ description: This page features a list of {{ objstorage-name }} tutorials.
 * [{#T}](./alice-shareable-todolist.md)
 * [{#T}](./websocket-app.md)
 * [{#T}](./java-servlet-todo-list.md)
-* [{#T}](./telegram-bot-serverless.md)
+* [{#T}](./telegram-bot-serverless/index.md)
 * [Visualizing {{ yq-full-name }}](./data-from-yandex-query-visualization.md) data
 * [{#T}](./replicate-logs-to-storage.md)
 * [{#T}](./replicate-logs-to-storage-via-data-streams.md)

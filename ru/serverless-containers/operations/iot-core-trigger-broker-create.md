@@ -128,7 +128,7 @@ description: Создайте триггер для топика брокера 
 
 {% include [check-result](../../_includes/serverless-containers/check-result.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../functions/operations/trigger/iot-core-trigger-create.md)
 * [{#T}](../../api-gateway/operations/trigger/iot-core-trigger-broker-create.md)

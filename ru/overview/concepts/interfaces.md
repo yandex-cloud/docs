@@ -95,7 +95,7 @@ description: Сервисы в {{ yandex-cloud }} могут быть досту
 ^2^ Дополнительно доступен интерфейс командной строки [AWS CLI](../../storage/tools/aws-cli.md).
 ^3^ Графический интерфейс {{ monitoring-name }} доступен как в [консоли управления]({{ link-console-main }}), так и в [собственном интерфейсе сервиса]({{ link-monitoring }}).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Справочник {{ yandex-cloud }} CLI](../../cli/cli-ref/)
 * [Справочник {{ TF }}]({{ tf-docs-link }})

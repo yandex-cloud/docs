@@ -110,7 +110,7 @@ X | Измерение. Может быть указано только одно
 
 1. Добавьте новый слой. Для этого нажмите значок ![](../../_assets/console-icons/plus.svg) справа от названия слоя.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создание дашборда в Yandex DataLens](../operations/dashboard/create.md)
 * [Добавление чарта на дашборд в Yandex DataLens](../operations/dashboard/add-chart.md)

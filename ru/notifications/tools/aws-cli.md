@@ -180,7 +180,7 @@ aws sns publish \
 * `--message` — текст SMS.
 * `--message-attributes` — атрибуты SMS, где `AWS.SNS.SMS.SenderID.StringValue` — текстовое имя отправителя.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Начало работы](../quickstart.md)
 * [AWS SDK для Python (boto3)](sdk-python.md)

@@ -32,7 +32,7 @@ description: Что такое {{ sws-full-name }}, какие типы угро
 {% include [alb-settings-recommendation](../../_includes/smartwebsecurity/alb-settings-recommendation.md) %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Защита облаков в России: основные тенденции и тренды киберугроз в 2025 году](https://yandex.cloud/ru/blog/posts/2025/04/cloud-protection)
 * [Как настроить защиту веб‑приложения в облаке с помощью {{ sws-full-name }}](https://yandex.cloud/ru/blog/smart-web-security-how-to)

@@ -34,7 +34,7 @@
 * [{#T}](../../tutorials/data-recording.md)
 * [{#T}](../../tutorials/monitoring.md)
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../../serverless-containers/concepts/trigger/iot-core-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/iot-core-trigger.md)

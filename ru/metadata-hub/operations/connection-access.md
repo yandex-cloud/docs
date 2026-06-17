@@ -22,7 +22,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../concepts/connection-manager.md)
 * [{#T}](../../iam/concepts/access-control/index.md)

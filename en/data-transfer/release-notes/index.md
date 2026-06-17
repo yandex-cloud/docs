@@ -43,6 +43,14 @@ Use a new combination of endpoints to transfer data from {{ ydb-name }} to {{ PG
 
 ## 2026 {#2026}
 
+### May {#may26}
+
+#### New features and improvements {#new-features-may26}
+
+* Added support for a new [{{ IBRG }} target endpoint](../operations/endpoint/target/iceberg.md).
+
+* In ![greenplum](../../_assets/data-transfer/icons/greenplum-icon.svg) {{ GP }} endpoints, added support for [{{ CB }}](https://cloudberry.apache.org/).
+
 ### April {#apr26}
 
 #### New features and improvements {#new-features-apr26}

@@ -33,8 +33,8 @@
 
 В стоимость входят:
 
-* плата за хранение данных в Object Storage, операции с ними и исходящий трафик (см. [тарифы Object Storage](../../storage/pricing.md));
-* плата за постоянно запущенный кластер Managed Service for ClickHouse® (см. [тарифы Managed Service for ClickHouse®](../pricing.md)).
+* плата за хранение данных в Object Storage, операции с ними и исходящий трафик ([тарифы Object Storage](../../storage/pricing.md));
+* плата за постоянно запущенный кластер Managed Service for ClickHouse® ([тарифы Managed Service for ClickHouse®](../pricing.md)).
 
 
 ## Создайте бакет для хранения логов {#create-bucket}
@@ -119,7 +119,7 @@
      }
      ```
 
-     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации](../../terraform/resources/storage_bucket.md) провайдера Terraform.
+     Подробнее о ресурсе смотрите `yandex_storage_bucket` в [документации](../../terraform/resources/storage_bucket.md) провайдера Terraform.
      
   1. Проверьте корректность настроек.
 
@@ -230,7 +230,7 @@
         * `target_bucket` — указание на бакет для хранения логов.
         * `target_prefix` — [префикс ключа](../../storage/concepts/server-logs.md#key-prefix) для объектов с логами.
 
-        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform см. в [документации провайдера](../../terraform/resources/storage_bucket.md#enable-logging).
+        Подробнее о параметрах ресурса `yandex_storage_bucket` в Terraform смотрите в [документации провайдера](../../terraform/resources/storage_bucket.md#enable-logging).
 
         1. В терминале перейдите в директорию с конфигурационным файлом.
         1. Проверьте корректность конфигурации с помощью команды:
@@ -274,7 +274,7 @@
 ### Создайте кластер ClickHouse® {#create-ch-cluster}
 
 
-Для создания кластера Managed Service for ClickHouse® нужна роль [vpc.user](../../vpc/security/index.md#vpc-user) и роль [managed-clickhouse.editor или выше](../security.md#roles-list). О том, как назначить роль, см. [документацию Identity and Access Management](../../iam/operations/roles/grant.md).
+Для создания кластера Managed Service for ClickHouse® нужна роль [vpc.user](../../vpc/security/index.md#vpc-user) и роль [managed-clickhouse.editor или выше](../security.md#roles-list). О том, как назначить роль, смотрите в [документации Identity and Access Management](../../iam/operations/roles/grant.md).
 
 
 {% list tabs group=instructions %}
@@ -408,7 +408,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../terraform/resources/mdb_clickhouse_cluster.md).
+     Подробнее о ресурсах, которые вы можете создать с помощью Terraform, смотрите в [документации провайдера](../../terraform/resources/mdb_clickhouse_cluster.md).
 
   1. Проверьте корректность настроек.
 

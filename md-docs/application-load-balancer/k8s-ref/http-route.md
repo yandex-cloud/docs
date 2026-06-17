@@ -10,7 +10,7 @@
 
 `HTTPRoute` предназначен для разработчиков приложений. Оператор кластера должен использовать `Gateway`.
 
-`HTTPRoute` — ресурс Kubernetes, определенный [проектом Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API Application Load Balancer. Полное описание конфигурации ресурса см. в [документации Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.HTTPRoute).
+`HTTPRoute` — ресурс Kubernetes, определенный [проектом Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API Application Load Balancer. Полное описание конфигурации ресурса смотрите в [документации Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.HTTPRoute).
 
 ## HTTPRoute {#httproute}
 
@@ -70,7 +70,7 @@ spec: <HTTPRouteSpec>
 
   * `name` (`string`, обязательное)
 
-    Имя ресурса. Подробнее о формате см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Подробнее о формате смотрите в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
     Не является именем маршрута в Application Load Balancer.
 
@@ -130,7 +130,7 @@ spec: <HTTPRouteSpec>
 
     * `gateway.alb.yc.io/rules.backends.balancing.localityAwareRouting`
 
-      Процент трафика, направляемого в зону доступности ресурса `HTTPRoute`, где размещены бэкенды в статусе healthy. Остальной трафик делится между другими зонами доступности. Параметр не применяется, если задан `strictLocality=true` (см. ниже).
+      Процент трафика, направляемого в зону доступности ресурса `HTTPRoute`, где размещены бэкенды в статусе healthy. Остальной трафик делится между другими зонами доступности. Параметр не применяется, если задан `strictLocality=true` (смотрите ниже).
 
     * `gateway.alb.yc.io/rules.backends.balancing.strictLocality`
 
@@ -246,7 +246,7 @@ spec: <HTTPRouteSpec>
 
 * `spec` (`HTTPRouteSpec`, обязательное)
 
-  Спецификация ресурса. Подробнее см. [ниже](#spec).
+  Спецификация ресурса. Подробности [ниже](#spec).
 
 ## HTTPRouteSpec {#spec}
 
@@ -289,7 +289,7 @@ rules:
 
 * `parentRefs` (`[]ParentReference`, обязательное)
 
-  Список ресурсов `Gateway` (или их обработчиков из поля `spec.listeners` — см. [справочник](gateway.md#spec)), к которым должен быть привязан `HTTPRoute`.
+  Список ресурсов `Gateway` (или их обработчиков из поля `spec.listeners` — смотрите [справочник](gateway.md#spec)), к которым должен быть привязан `HTTPRoute`.
 
   Также маршрут должен удовлетворять правилам, описанным в [конфигурации](gateway.md#spec) `Gateway` (поле `spec.listeners.allowedRoutes`).
   
@@ -349,7 +349,7 @@ rules:
         * `Exact`: путь должен _совпадать_ со значением поля `rules.matches.path.value`.
         * `PathPrefix`: путь должен _начинаться_ со значения поля `rules.matches.path.value`.
 
-        Помимо распределения трафика, от типа зависит механизм замены пути при перенаправлении. Подробнее см. [ниже](#filter).
+        Помимо распределения трафика, от типа зависит механизм замены пути при перенаправлении. Подробности [ниже](#filter).
 
       * `value` (`string`)
 
@@ -361,7 +361,7 @@ rules:
 
   * `filters` (`[]HTTPRouteFilter`)
     
-    Список фильтров, которые описывают изменение заголовков запроса при маршрутизации в любой бэкенд или перенаправление запроса. Подробнее см. [ниже](#filter).
+    Список фильтров, которые описывают изменение заголовков запроса при маршрутизации в любой бэкенд или перенаправление запроса. Подробности [ниже](#filter).
   
     Разрешается указывать либо фильтр типа `RequestHeaderModifier` (изменение заголовков), либо фильтр типа `RequestRedirect` (перенаправление), но не оба сразу.
 
@@ -393,7 +393,7 @@ rules:
 
        Номер порта сервиса. Только для ресурса `Service`.
 
-       Номер должен совпадать с одним из номеров портов, указанных в полях `spec.ports.port` ресурса `Service`. Подробнее см. в [конфигурации ресурса](service-for-gateway.md).
+       Номер должен совпадать с одним из номеров портов, указанных в полях `spec.ports.port` ресурса `Service`. Подробнее в [конфигурации ресурса](service-for-gateway.md).
 
        Поле предназначено для работы Gateway API и не соответствует ни одному из полей ресурсов Application Load Balancer.
        
@@ -407,7 +407,7 @@ rules:
 
      * `filters` (`[]HTTPRouteFilter`)
 
-       Настройки изменения заголовков запроса при маршрутизации в бэкенд. Подробнее см. [ниже](#filter).
+       Настройки изменения заголовков запроса при маршрутизации в бэкенд. Подробности [ниже](#filter).
   
        Разрешается указывать только фильтр типа `RequestHeaderModifier` (изменение заголовков).
 
@@ -523,7 +523,7 @@ requestRedirect:
 
     * `replacePrefixMatch` (`string`)
   
-      Новый путь или его начало при типе замены `ReplacePrefixMatch` (см. описание типа выше).
+      Новый путь или его начало при типе замены `ReplacePrefixMatch` (смотрите описание типа выше).
 
   * `port` (`int32`)
     

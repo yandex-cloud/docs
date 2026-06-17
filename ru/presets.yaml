@@ -4542,6 +4542,12 @@ default:
             username: Имя пользователя
           column_last-auth: Дата последней аутентификации
       form:
+        auth-policy:
+          caption:
+            active: Политика активна
+          create:
+            action:
+              create: Создать политику
         federation:
           action:
             create: Создать федерацию
@@ -4742,6 +4748,15 @@ default:
           acr_any-except-sms_6NWqb: Любые, кроме SMS
           acr_any-mfa_j6PdY: Любые методы
           acr_phr_7hMqk: Устойчивые к фишингу
+          AppsCard:
+            scope_all_iXjnP: Все приложения
+            title_hBXgK: Приложения
+          auth-policies-create-policy-action: Создать политику
+          auth-policies-table:
+            action-activate: Активировать
+            action-deactivate: Деактивировать
+          AuthPolicyForm:
+            section_title_scope_b9vbe: Область применения
           mfa-overview-action-activate: Активировать
           mfa-overview-action-suspend: Деактивировать
           mfa-policies-create-policy-action: Создать политику
@@ -4749,6 +4764,9 @@ default:
             policies_title: Политики MFA
             tab_exclusions: Исключения
             tab_groups: Пользователи и группы
+          NetworksCard:
+            scope_all_1pGZE: Любые сети
+            title_aSxuJ: Сети и IP-адреса
           OtherSecuritySettingsForm:
             auth_settings_1RoAM: Настройки аутентификации
             required_mfa_6P4xN: >-
@@ -4758,9 +4776,19 @@ default:
               Запретить пользователям просматривать список членов организации и
               информацию о них
             title_users-list-visibility_ftTaP: Конфиденциальность
+          PolicyResultCard:
+            section_title: Результат
+          ScopeCardBlock:
+            exclude_label_4Mn7B: Исключать
+            include_label_8Kp2A: Включать
+            selected_resources_qvwZX: Выбранные
           SecuritySettingsPageLayout:
+            tab_auth_policies: Политики аутентификации
             tab_mfa_policies_m8oE3: Политики MFA
             tab_other_kJgk8: Другие параметры
+          UsersAndGroupsCard:
+            scope_all: Всех пользователей
+            title: Пользователи и группы
         userpool:
           action_delete-domain: Удалить
         userpools:

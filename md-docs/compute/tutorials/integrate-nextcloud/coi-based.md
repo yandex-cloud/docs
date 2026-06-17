@@ -28,10 +28,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость предлагаемого решения входят: 
-* плата за [диски](../../concepts/disk.md) и постоянно запущенные [ВМ](../../concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../pricing.md));
-* плата за использование [публичных IP-адресов](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
-* плата за [хранение данных](../../../storage/concepts/bucket.md) в Object Storage и [операции](../../../storage/operations/index.md) с ними (см. [тарифы Yandex Object Storage](../../../storage/pricing.md));
-* при использовании Yandex Cloud DNS плата за [DNS-зоны](../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы (см. [тарифы Cloud DNS](../../../dns/pricing.md)).
+* плата за [диски](../../concepts/disk.md) и постоянно запущенные [ВМ](../../concepts/vm.md) ([тарифы Yandex Compute Cloud](../../pricing.md));
+* плата за использование [публичных IP-адресов](../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
+* плата за [хранение данных](../../../storage/concepts/bucket.md) в Object Storage и [операции](../../../storage/operations/index.md) с ними ([тарифы Yandex Object Storage](../../../storage/pricing.md));
+* при использовании Yandex Cloud DNS плата за [DNS-зоны](../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы ([тарифы Cloud DNS](../../../dns/pricing.md)).
 
 ## Создайте и настройте облачную сеть {#setup-network}
 
@@ -311,7 +311,7 @@
 1. [Удалите](../../../iam/operations/sa/delete.md) сервисный аккаунт.
 1. Последовательно удалите [подсети](../../../vpc/operations/subnet-delete.md), [группу безопасности](../../../vpc/operations/security-group-delete.md) и [облачную сеть](../../../vpc/operations/network-delete.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Развертывание Nextcloud вручную на виртуальной машине или в группе виртуальных машин Compute Cloud в интеграции с Yandex Object Storage](fault-tolerant.md)
 * [Развертывание Nextcloud на виртуальной машине или в группе виртуальных машин Compute Cloud в интеграции с Yandex Object Storage с помощью Terraform](terraform.md)

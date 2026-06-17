@@ -24,10 +24,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки статического сайта входит:
-* плата за хранение данных статического сайта (см. [тарифы Object Storage](../../../storage/pricing.md#prices-storage));
-* плата за операции с данными (см. [тарифы Object Storage](../../../storage/pricing.md#prices-operations));
-* плата за исходящий трафик из Yandex Cloud в интернет (см. [тарифы Object Storage](../../../storage/pricing.md#prices-traffic));
-* плата за публичные DNS-запросы и [зоны](../../../dns/concepts/dns-zone.md) (см. [тарифы Yandex Cloud DNS](../../../dns/pricing.md)).
+* плата за хранение данных статического сайта ([тарифы Object Storage](../../../storage/pricing.md#prices-storage));
+* плата за операции с данными ([тарифы Object Storage](../../../storage/pricing.md#prices-operations));
+* плата за исходящий трафик из Yandex Cloud в интернет ([тарифы Object Storage](../../../storage/pricing.md#prices-traffic));
+* плата за публичные DNS-запросы и [зоны](../../../dns/concepts/dns-zone.md) ([тарифы Yandex Cloud DNS](../../../dns/pricing.md)).
 
 ## Создайте публичный бакет {#create-public-bucket}
 
@@ -210,6 +210,6 @@ ns1.yandexcloud.net.
 1. [Удалите бакет](../../../storage/operations/buckets/delete.md).
 1. [Удалите зону DNS](../../../dns/operations/zone-delete.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Статический сайт в Yandex Object Storage с помощью Terraform](terraform.md).

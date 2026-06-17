@@ -184,7 +184,7 @@
 
     {% endlist %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Федерации сервисных аккаунтов](../../../iam/concepts/workload-identity.md)
 * [Доступ к API Yandex Cloud из кластера Managed Service for Kubernetes с помощью федерации сервисных аккаунтов Identity and Access Management](../../tutorials/wlif-managed-k8s-integration.md)

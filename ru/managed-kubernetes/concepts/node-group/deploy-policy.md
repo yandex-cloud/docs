@@ -26,7 +26,7 @@
 
 {% include [deploy-policy-concept-behavior](../../../_includes/managed-kubernetes/deploy-policy/concept-behavior.md) %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](../../operations/node-group/node-group-update.md#configure-deploy-policy)
 * [{#T}](./cluster-autoscaler.md)

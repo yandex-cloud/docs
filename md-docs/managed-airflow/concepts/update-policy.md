@@ -108,7 +108,7 @@ Managed Service for Apache Airflow™ использует две стратег
 1. [Создайте новый кластер](../operations/cluster-create.md) Managed Service for Apache Airflow™ с версией 3.X.
 1. Подключите репозиторий с сохраненными DAG-файлами к созданному кластеру.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Версионирование в Managed Service for Apache Airflow™](versions.md)
 * [Обновление версии Apache Airflow™ и Python](../operations/cluster-version-update.md)

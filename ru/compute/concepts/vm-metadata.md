@@ -39,7 +39,7 @@ _Метаданные виртуальной машины_ — это метаи
 * [{#T}](../tutorials/secure-password-script/index.md)
 * [{#T}](../../tutorials/security/gitlab-lockbox-integration.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./metadata/directories.md)
 * [{#T}](./metadata/public-image-keys.md)

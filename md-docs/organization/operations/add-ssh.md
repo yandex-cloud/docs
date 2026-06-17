@@ -198,7 +198,7 @@
 
 {% endnote %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Включить доступ по OS Login](os-login-access.md)
 * [Создать профиль OS Login](os-login-profile-create.md)

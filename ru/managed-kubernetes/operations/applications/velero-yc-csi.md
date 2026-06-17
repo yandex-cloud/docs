@@ -100,7 +100,7 @@ description: Следуя данной инструкции, вы сможете
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация Velero](https://velero.io/docs/v1.11/examples/)
 * [Резервное копирование кластера {{ managed-k8s-name }} в {{ objstorage-name }}](../../tutorials/kubernetes-backup.md)

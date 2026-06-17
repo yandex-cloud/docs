@@ -158,7 +158,7 @@
 
 {% endlist %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Настроить наборы правил WAF](configure-set-rules.md)
 * [Удалить правило-исключение WAF](exclusion-rule-delete.md)

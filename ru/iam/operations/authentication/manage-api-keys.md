@@ -379,7 +379,7 @@ description: Из статьи вы узнаете, как создавать и
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/authorization/api-key.md)
 * [Сервисы {{ yandex-cloud }}, поддерживающие API-ключи](../../concepts/authorization/api-key.md#supported-services)

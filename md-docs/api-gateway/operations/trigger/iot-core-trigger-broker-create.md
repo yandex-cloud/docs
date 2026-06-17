@@ -133,7 +133,7 @@
 
 Проверьте, что триггер работает корректно. Для этого посмотрите [логи API-шлюза](../api-gw-logs.md), в них отображается информация об обращениях к нему.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для Yandex IoT Core, который передает сообщения из топиков брокеров в функцию Cloud Functions](../../../functions/operations/trigger/iot-core-trigger-broker-create.md)
 * [Триггер для Yandex IoT Core, который передает сообщения из топиков брокеров в контейнер Serverless Containers](../../../serverless-containers/operations/iot-core-trigger-broker-create.md)

@@ -127,6 +127,8 @@
 
    {% endlist %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 ## Убедитесь в корректной работе приложения {#validate}
 
 Чтобы убедиться в корректной работе SAML-приложения и интеграции с Jenkins, выполните аутентификацию в Jenkins от имени одного из добавленных в приложение пользователей. Для этого:

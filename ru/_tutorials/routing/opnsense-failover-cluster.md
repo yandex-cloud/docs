@@ -47,8 +47,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость предлагаемого решения входят: 
-* плата за аренду серверов {{ baremetal-name }} (см. [тарифы {{ baremetal-full-name }}](../../baremetal/pricing.md));
-* плата за [хранение данных](../../storage/concepts/bucket.md) в {{ objstorage-name }} и [операции](../../storage/operations/index.md) с ними (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
+* плата за аренду серверов {{ baremetal-name }} ([тарифы {{ baremetal-full-name }}](../../baremetal/pricing.md));
+* плата за [хранение данных](../../storage/concepts/bucket.md) в {{ objstorage-name }} и [операции](../../storage/operations/index.md) с ними ([тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
 
 ## Создайте загрузочные образы в {{ baremetal-name }} {#create-images}
 

@@ -71,6 +71,6 @@ description: Следуя данной инструкции, вы сможете
    # Avg bus bandwidth    : 121.467
    ```
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Вопросы про GPU](../../../compute/qa/gpu.md).

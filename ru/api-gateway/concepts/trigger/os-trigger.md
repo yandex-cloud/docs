@@ -36,7 +36,7 @@
 
 {% include [os-format](../../../_includes/functions/os-format.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для {{ objstorage-name }}, который запускает контейнер {{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/os-trigger.md)
 * [Триггер для {{ objstorage-name }}, который запускает функцию {{ sf-name }}](../../../functions/concepts/trigger/os-trigger.md)

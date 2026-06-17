@@ -20,8 +20,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки серверов входит:
-* Плата за несколько запущенных [ВМ](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Плата за несколько запущенных [ВМ](../../compute/concepts/vm.md) ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ## Подготовьте основную ВМ в облаке {#create-master-vm}
 
@@ -128,7 +128,7 @@
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** укажите те же сеть и подсеть, что и у основной ВМ. Тип IP-адреса оставьте **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}**.
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа к ВМ:
        * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите предпочтительное имя пользователя, который будет создан на ВМ.
-       * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** скопируйте ваш открытый SSH-ключ. Пару ключей для подключения по SSH необходимо создать самостоятельно, см. [раздел о подключении к ВМ по SSH](../../compute/operations/vm-connect/ssh.md).
+       * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** скопируйте ваш открытый SSH-ключ. Пару ключей для подключения по SSH необходимо [создать самостоятельно](../../compute/operations/vm-connect/ssh.md).
      * Нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_edit }}**. Вы вернетесь на экран создания группы ВМ.
 1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_scale }}** выберите количество создаваемых ВМ. Укажите 3 ВМ.
 1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.

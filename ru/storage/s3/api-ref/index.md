@@ -128,7 +128,7 @@ description: Из статьи вы узнаете, какие методы S3 A
 [PutBucketPolicy](policy/put.md) | Применяет политику доступа к заданному бакету.
 [DeleteBucketPolicy](policy/delete.md) | Удаляет политику доступа заданного бакета.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../s3/s3-api-quickstart.md)
 * [{#T}](../../s3/index.md)

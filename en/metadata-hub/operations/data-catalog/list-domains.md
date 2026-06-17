@@ -1,6 +1,6 @@
 ---
-title: Getting a list of domains and subdomains
-description: Follow this guide to get a list of domains and subdomains in {{ data-catalog-full-name }}.
+title: Getting a list of domains and subdomains in {{ data-catalog-full-name }}
+description: Follow this guide to get a list of domains and subdomains in {{ data-catalog-name }}.
 ---
 
 # Getting a list of domains and subdomains

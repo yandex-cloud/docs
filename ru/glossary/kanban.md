@@ -97,7 +97,7 @@ description: Канбан-доска — инструмент, который п
 * Изучайте, как применяют Kanban в мировой практике. Перенимайте лучшие методики, кейсы. 
 
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Scrum или Kanban: что выбрать и как с ними работать в {{ tracker-full-name }}](/blog/posts/2023/02/scrum-or-kanban).
 * [Ознакомьтесь с шаблонами Kanban в {{ tracker-full-name }}](https://tracker.yandex.ru/pages/my).

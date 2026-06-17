@@ -171,6 +171,6 @@ description: Из статьи вы узнаете про типы групп б
 * [{#T}](../tutorials/blue-green-canary-deployment.md)
 * [{#T}](../tutorials/logging.md)
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](best-practices.md)

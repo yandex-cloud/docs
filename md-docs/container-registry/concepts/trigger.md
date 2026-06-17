@@ -69,7 +69,7 @@ Docker-образ всегда загружается с тегом (если т
 }
 ```
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для Container Registry, который вызывает контейнер Serverless Containers](../../serverless-containers/concepts/trigger/cr-trigger.md)
 * [Триггер для Container Registry, который отправляет сообщения в WebSocket-соединения](../../api-gateway/concepts/trigger/cr-trigger.md)

@@ -347,7 +347,7 @@ description: Следуя данной инструкции, вы сможете
 
 Тарификация ВМ после этого изменится. Подробнее о [тарификации ВМ](../../pricing.md#prices-instance-resources).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../vm-connect/ssh.md).
 * [{#T}](../../tutorials/nodejs-cron-restart-vm.md).

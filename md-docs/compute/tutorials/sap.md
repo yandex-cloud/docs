@@ -26,8 +26,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость установки SAP входят:
-* Плата за постоянно запущенную [виртуальную машину](../concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../pricing.md)).
-* Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за постоянно запущенную [виртуальную машину](../concepts/vm.md) ([тарифы Yandex Compute Cloud](../pricing.md)).
+* Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Создайте ВМ для SAP {#vm-sap}
 

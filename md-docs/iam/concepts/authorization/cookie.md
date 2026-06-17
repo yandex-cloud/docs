@@ -6,6 +6,6 @@
 
 Cookie создаются независимо для каждого сервиса Yandex Cloud, работающего на собственном выделенном домене (например, [консоль управления](https://console.yandex.cloud), [Cloud Center](https://center.yandex.cloud), [Yandex DataLens](https://datalens.ru) и др.)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Сессии](../../../organization/concepts/sessions.md)

@@ -22,10 +22,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
-* плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
 * плата за использование [образа](../../../compute/concepts/image.md) (зависит от образа);
-* плата за использование [ключа](../../../kms/concepts/key.md) KMS (см. [тарифы KMS](../../../kms/pricing.md));
-* плата за использование [секрета](../../concepts/secret.md) (см. [тарифы Yandex Lockbox](../../pricing.md)).
+* плата за использование [ключа](../../../kms/concepts/key.md) KMS ([тарифы KMS](../../../kms/pricing.md));
+* плата за использование [секрета](../../concepts/secret.md) ([тарифы Yandex Lockbox](../../pricing.md)).
 
 
 ## Создайте инфраструктуру {#deploy}
@@ -324,7 +324,7 @@ Terraform распространяется под лицензией [Business S
 
    {% endlist %}
 
-   Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+   Подробнее о параметрах используемых ресурсов в Terraform смотрите в документации провайдера:
 
    * [Облачная сеть](../../../vpc/concepts/network.md) — [yandex_vpc_network](../../../terraform/resources/vpc_network.md). 
    * [Подсеть](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet](../../../terraform/resources/vpc_subnet.md).
@@ -511,6 +511,6 @@ Terraform распространяется под лицензией [Business S
     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Безопасная передача пароля в скрипт инициализации с помощью консоли управления, CLI или API](console.md)

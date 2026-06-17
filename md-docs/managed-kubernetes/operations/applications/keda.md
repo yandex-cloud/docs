@@ -196,7 +196,7 @@
          logAggregation: "true"
    ```
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация KEDA](https://keda.sh/docs/).
 * [KEDA с поддержкой Yandex Monitoring на GitHub](https://github.com/yandex-cloud/yc-keda-external-scaler).

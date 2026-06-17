@@ -47,6 +47,6 @@ description: Из статьи вы узнаете, как связаны меж
 
 Все ресурсы {{ compute-short-name }} создаются внутри каталогов. [Подробнее об иерархии ресурсов в {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Облачный сервер: архитектура и возможности](https://yandex.cloud/ru/blog/cloud-server)

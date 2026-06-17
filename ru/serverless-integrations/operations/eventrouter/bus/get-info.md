@@ -70,7 +70,7 @@ description: Следуя данной инструкции, вы сможете
       * `output "bus-folder"` — выходная переменная, которая содержит информацию о каталоге, в котором находится шина (`folder_id`):
          * `value` — возвращаемое значение.
 
-     Вместо `folder_id` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_serverless_eventrouter_bus` см. в [документации провайдера]({{ tf-provider-datasources-link }}/serverless_eventrouter_bus).
+     Вместо `folder_id` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_serverless_eventrouter_bus` в [документации провайдера]({{ tf-provider-datasources-link }}/serverless_eventrouter_bus).
 
   1. Создайте ресурсы:
 

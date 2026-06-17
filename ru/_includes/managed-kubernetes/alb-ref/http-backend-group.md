@@ -57,9 +57,9 @@ spec:
 
   * `name` (`string`, обязательное)
 
-    Имя ресурса. Подробнее о формате см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Подробнее о формате смотрите в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
   
-    Это имя нужно указать в поле `spec.rules.http.paths.backend.resource.name` ресурса `Ingress` (см. [конфигурацию]({{ configuration-local-link }}/ingress.md)).
+    Это имя нужно указать в поле `spec.rules.http.paths.backend.resource.name` ресурса `Ingress` (смотрите [конфигурацию]({{ configuration-local-link }}/ingress.md)).
 
     Не является именем группы бэкендов в {{ alb-name }}.
 
@@ -101,7 +101,7 @@ spec:
         
     * `storageBucket` (`StorageBucketBackend`)
 
-      Указание на [бакет {{ objstorage-full-name }}](../../../storage/concepts/bucket.md), который должен обрабатывать запросы в качестве бэкенда. Подробнее об использовании бакета как бэкенда см. в разделе [{#T}](../../../application-load-balancer/concepts/backend-group.md#types).
+      Указание на [бакет {{ objstorage-full-name }}](../../../storage/concepts/bucket.md), который должен обрабатывать запросы в качестве бэкенда. Подробнее об использовании бакета как бэкенда смотрите в разделе [{#T}](../../../application-load-balancer/concepts/backend-group.md#types).
 
       {% include [bucket-availability-note](../../../application-load-balancer/_includes_service/bucket-availability-note.md) %}
 

@@ -15,6 +15,6 @@
 | `quota.certificates_count.limit`<br>`DGAUGE`, штуки | Ограничение количества сертификатов на облако. |
 | `quota.certificates_count.usage`<br>`DGAUGE`, штуки | Текущее потребление [квоты](https://console.yandex.cloud/cloud?section=quotas) количества сертификатов на облако. |
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Добавить алерт для сертификата](operations/alert.md)

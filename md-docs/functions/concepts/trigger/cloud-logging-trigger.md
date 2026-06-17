@@ -60,7 +60,7 @@
 * [Настройка реагирования в Yandex Cloud Logging и Cloud Functions](../../tutorials/logging-functions.md)
 * [Запись логов балансировщика в PostgreSQL](../../tutorials/logging.md)
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для Cloud Logging, который вызывает контейнер Serverless Containers](../../../serverless-containers/concepts/trigger/cloud-logging-trigger.md)
 * [Триггер для Cloud Logging, который отправляет сообщения в WebSocket-соединения](../../../api-gateway/concepts/trigger/cloud-logging-trigger.md)

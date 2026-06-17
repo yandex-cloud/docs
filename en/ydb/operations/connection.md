@@ -22,7 +22,7 @@ To get the database connection credentials:
 - Management console {#console}
 
   1. Navigate to the [management console]({{ link-console-main }}) and select a folder containing your database.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Select the database for which you need to get the endpoint and path.
       
       * The database endpoint is specified under **{{ ui-key.yacloud.ydb.overview.section_connection }}** in the first part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`):
@@ -118,7 +118,7 @@ Set up the mode you selected:
       * `--database`: Path to the database.
       * `--iam-token-file`: Path to the IAM token file.
 
-      >Here is a command example:
+      >Command example:
       >
       >```bash
       >{{ ydb.cli }} \
@@ -167,7 +167,7 @@ Set up the mode you selected:
       * `--database`: Path to the database.
       * `--sa-key-file`: Path to the file with the private key and public key ID.
 
-      Here is a command example:
+      Command example:
 
       >```bash
       >{{ ydb.cli }} \
@@ -203,7 +203,7 @@ Set up the mode you selected:
   * `--database`: Path to the database.
   * `--use-metadata-credentials`: Use the metadata service.
 
-  >Here is a command example:
+  >Command example:
   >
   >```bash
   >{{ ydb.cli }} \

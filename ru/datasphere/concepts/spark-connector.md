@@ -54,7 +54,7 @@
 
 Работа временных кластеров, созданных из шаблонов {{ dataproc-name }}, тарифицируется дополнительно по [правилам тарификации {{ dataproc-full-name }}](../../data-proc/pricing.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Как создать, изменить и удалить коннектор Spark](../operations/data/spark-connectors.md).
 * [{#T}](../troubleshooting/troubles-with-spark.md)

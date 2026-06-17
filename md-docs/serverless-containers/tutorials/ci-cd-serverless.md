@@ -30,13 +30,13 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за использование [мастера Yandex Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#master) (см. [тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Плата за хранение созданных Docker-образов (см. [тарифы Container Registry](../../container-registry/pricing.md)).
-* Плата за хранение секретов (см. [тарифы Yandex Lockbox](../../lockbox/pricing.md)).
-* Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик (см. [тарифы Serverless Containers](../pricing.md)).
-* Плата за запросы к API-шлюзу (см. [тарифы API Gateway](../../api-gateway/pricing.md)).
-* Плата за использование [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за использование [мастера Yandex Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#master) ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Плата за хранение созданных Docker-образов ([тарифы Container Registry](../../container-registry/pricing.md)).
+* Плата за хранение секретов ([тарифы Yandex Lockbox](../../lockbox/pricing.md)).
+* Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик ([тарифы Serverless Containers](../pricing.md)).
+* Плата за запросы к API-шлюзу ([тарифы API Gateway](../../api-gateway/pricing.md)).
+* Плата за использование [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 ## Перед началом работы {#before-begin}
 

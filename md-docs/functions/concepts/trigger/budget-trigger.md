@@ -51,7 +51,7 @@
 
 * [Создание триггера для бюджетов, который вызывает функцию Cloud Functions для остановки ВМ](../../tutorials/serverless-trigger-budget-vm.md)
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для бюджетов, который вызывает контейнер Serverless Containers](../../../serverless-containers/concepts/trigger/budget-trigger.md)
 * [Триггер для бюджетов, который отправляет сообщения в WebSocket-соединения](../../../api-gateway/concepts/trigger/budget-trigger.md)

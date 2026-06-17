@@ -423,7 +423,7 @@
 
 * [Узнайте, как работать с Yandex Cloud изнутри ВМ](auth-inside-vm.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Подключиться к виртуальной машине Linux по SSH с помощью Yandex Cloud Shell](cloud-shell.md)
 * [Подключиться к виртуальной машине Windows по RDP](rdp.md)

@@ -225,7 +225,7 @@ signature = Hex(sign(SigningKey, StringToSign))
 
 В подразделе приведены примеры кода для генерации подписанных URL.
 
-Чтобы показать принцип формирования и подписи запросов к {{ objstorage-name }}, в этих примерах не используются [AWS SDK](../../../storage/tools/sdk/index.md). Примеры с использованием {{ yandex-cloud }} CLI, AWS CLI и AWS SDK см. на страницах:
+Чтобы показать принцип формирования и подписи запросов к {{ objstorage-name }}, в этих примерах не используются [AWS SDK](../../../storage/tools/sdk/index.md). Примеры с использованием {{ yandex-cloud }} CLI, AWS CLI и AWS SDK смотрите на страницах:
 * [{#T}](../../../storage/operations/objects/link-for-download.md)
 * [{#T}](../../../storage/operations/objects/link-for-upload.md)
 

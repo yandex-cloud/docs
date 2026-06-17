@@ -364,7 +364,7 @@ ARL позволяет устанавливать лимиты на количе
 {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](operations/profile-create.md)
 * [{#T}](tutorials/sws-basic-protection.md)

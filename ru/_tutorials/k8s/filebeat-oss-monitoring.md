@@ -12,10 +12,10 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Мастер {{ managed-k8s-name }} (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Кластер {{ mos-name }}: использование вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mos-name }}](../../managed-opensearch/pricing.md)).
-* Публичные IP-адреса для хостов кластера {{ mos-name }} и узлов кластера {{ managed-k8s-name }}, если для них включен публичный доступ (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Мастер {{ managed-k8s-name }} ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Кластер {{ mos-name }}: использование вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mos-name }}](../../managed-opensearch/pricing.md)).
+* Публичные IP-адреса для хостов кластера {{ mos-name }} и узлов кластера {{ managed-k8s-name }}, если для них включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ## Перед началом работы {#before-you-begin}
 

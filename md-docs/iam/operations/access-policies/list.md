@@ -88,7 +88,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Политики авторизации](../../concepts/access-control/access-policies.md)
 * [Создание политики авторизации для ресурса](assign.md)

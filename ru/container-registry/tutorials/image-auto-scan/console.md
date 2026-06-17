@@ -295,6 +295,6 @@ description: Следуя данному руководству, вы сможе
 1. [Удалите](../../../functions/operations/function/function-delete.md) функцию {{ sf-name }}.
 1. [Удалите](../../../functions/operations/function/function-delete.md) триггер {{ sf-name }}.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md)

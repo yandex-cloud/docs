@@ -26,9 +26,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
-* плата за вызовы [функций](../../../functions/concepts/function.md) (см. [тарифы Yandex Cloud Functions](../../../functions/pricing.md));
-* плата за выполнение запросов к [базе данных](../../../ydb/concepts/serverless-and-dedicated.md) (см. [тарифы Yandex Managed Service for YDB](../../../ydb/pricing/serverless.md));
-* плата за хранение данных в [бакете](../../../storage/concepts/bucket.md) (см. [тарифы Yandex Object Storage](../../../storage/pricing.md)).
+* плата за вызовы [функций](../../../functions/concepts/function.md) ([тарифы Yandex Cloud Functions](../../../functions/pricing.md));
+* плата за выполнение запросов к [базе данных](../../../ydb/concepts/serverless-and-dedicated.md) ([тарифы Yandex Managed Service for YDB](../../../ydb/pricing/serverless.md));
+* плата за хранение данных в [бакете](../../../storage/concepts/bucket.md) ([тарифы Yandex Object Storage](../../../storage/pricing.md)).
 
 
 ## Подготовьте ресурсы {#create-resources}
@@ -290,6 +290,6 @@
 1. [Удалите](../../../functions/operations/function/function-delete.md) функции `ffmpeg-api` и `ffmpeg-converter`.
 1. [Удалите](../../../functions/operations/trigger/trigger-delete.md) триггер `ffmpeg-trigger`.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Конвертация видео в GIF на Python с помощью Terraform](terraform.md)

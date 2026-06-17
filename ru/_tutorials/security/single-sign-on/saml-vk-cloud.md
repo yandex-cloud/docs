@@ -138,6 +138,8 @@
 
 {% endlist %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 ### Настройте связь групп и ролей в VK Cloud {#vkcloud-groups-roles}
 
 Чтобы определить права доступа федеративных пользователей в VK Cloud, настройте связь между группами IdP и ролями VK Cloud.

@@ -41,9 +41,9 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* Плата за использование [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) и исходящий трафик  (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за использование вычислительных ресурсов [L7-балансировщика](../../application-load-balancer/concepts/index.md) (см. [тарифы {{ alb-name }}](../../application-load-balancer/pricing.md)).
-* Плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы используете [{{ dns-full-name }}](../../dns/) (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
+* Плата за использование [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) и исходящий трафик  ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за использование вычислительных ресурсов [L7-балансировщика](../../application-load-balancer/concepts/index.md) ([тарифы {{ alb-name }}](../../application-load-balancer/pricing.md)).
+* Плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы используете [{{ dns-full-name }}](../../dns/) ([тарифы {{ dns-name }}](../../dns/pricing.md)).
 
 
 
@@ -182,7 +182,7 @@
    * `secretName` — указание на [TLS-сертификат](../../certificate-manager/concepts/index.md) из [{{ certificate-manager-full-name }}](../../certificate-manager/) в формате `yc-certmgr-cert-id-<идентификатор_сертификата>`.
    * `hosts`, `host` — доменное имя, которому соответствует TLS-сертификат.
 
-   Подробнее см. [поля и аннотации ресурса Ingress](../../managed-kubernetes/alb-ref/ingress.md).
+   Подробнее смотрите [поля и аннотации ресурса Ingress](../../managed-kubernetes/alb-ref/ingress.md).
 
 1. Создайте ресурс `Ingress`:
 

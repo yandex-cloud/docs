@@ -9,7 +9,7 @@ noIndex: true
 
 {% include [install-prometheus-operator](../../../_includes/managed-kubernetes/install-prometheus-operator.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{{ managed-k8s-full-name }}](../../../managed-kubernetes/)
 

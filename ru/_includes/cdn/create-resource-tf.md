@@ -60,4 +60,4 @@ resource "yandex_cdn_resource" "my_resource" {
 
     {% endnote %}
 
-Более подробную информацию о параметрах `yandex_cdn_resource` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/cdn_resource).
+Более подробную информацию о параметрах `yandex_cdn_resource` в {{ TF }} смотрите в [документации провайдера]({{ tf-provider-resources-link }}/cdn_resource).

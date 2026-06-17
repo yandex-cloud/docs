@@ -106,7 +106,7 @@ description: С помощью этой инструкции вы научите
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./enable-disable.md)
 * [{#T}](../../concepts/service-control.md)

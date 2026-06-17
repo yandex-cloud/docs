@@ -87,7 +87,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../iam/operations/sa/set-access-bindings.md)
 * [{#T}](../../resource-manager/operations/cloud/set-access-bindings.md)

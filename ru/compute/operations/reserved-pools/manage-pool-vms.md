@@ -378,7 +378,7 @@ description: Из статьи вы узнаете, как создавать в
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./create-reserved-pool.md)
 * [{#T}](./update-reserved-pool.md)

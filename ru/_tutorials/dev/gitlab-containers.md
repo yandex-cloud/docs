@@ -33,10 +33,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит плата за следующие ресурсы:
-* [Диски](../../compute/concepts/disk.md) и постоянно запущенные [виртуальные машины](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Использование динамического [публичного IP-адреса](../../vpc/concepts/ips.md) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
-* Хранение созданных Docker-образов (см. [тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
-* Использование [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* [Диски](../../compute/concepts/disk.md) и постоянно запущенные [виртуальные машины](../../compute/concepts/vm.md) ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Использование динамического [публичного IP-адреса](../../vpc/concepts/ips.md) ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Хранение созданных Docker-образов ([тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
+* Использование [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
 
 {% include [deploy-infrastructure](../../_includes/managed-gitlab/deploy-infrastructure.md) %}
 
@@ -323,6 +323,6 @@
 
 1. [Удалите созданную ВМ {{ GL }}](../../compute/operations/vm-control/vm-delete.md) или инстанс {{ mgl-name }}.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Создание тестовых ВМ через {{ GL }} CI](../../tutorials/testing/ci-for-snapshots.md).

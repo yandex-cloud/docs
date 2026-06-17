@@ -6,7 +6,12 @@
 
 {% endnote %}
 
-Чтобы создать [окружение](../../concepts/workspace.md) Security Deck:
+Перед созданием [окружения](../../concepts/workspace.md) убедитесь, что у вас есть необходимые [права](../../security/index.md) для работы с модулями Security Deck. Оптимальные роли для работы:
+
+* `security-deck.admin` на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будут храниться ресурсы Security Deck и его модули.
+* `auditor` на [организацию](../../../organization/concepts/organization.md), [облако](../../../resource-manager/concepts/resources-hierarchy.md#cloud) или каталог, безопасность в которых будет контролироваться окружением.
+
+Чтобы создать окружение Security Deck:
 
 {% list tabs group=instructions %}
 
@@ -97,7 +102,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Окружения Security Deck](../../concepts/workspace.md)
 * [Посмотреть дашборд и операции с окружением Security Deck](view-dashboard.md)

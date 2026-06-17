@@ -33,6 +33,6 @@ group | Имя [лог-группы](concepts/log-group.md)
 `group.service.ingest_requests_per_second`<br/>`DGAUGE`, запросы/с | Частота запросов на запись логов в секунду на уровне сервиса. Метка `status` — статус запросов.
 `group.service.ingested_records_per_second`<br/>`DGAUGE`, записи/с | Частота записи логов в секунду на уровне сервиса. Метка `status` — статус запросов.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Настройка реагирования в Cloud Logging и Yandex Cloud Functions](tutorials/log-group-record-monitoring.md)

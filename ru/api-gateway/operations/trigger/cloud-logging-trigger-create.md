@@ -117,7 +117,7 @@
 
 {% include [check-result](../../../_includes/api-gateway/check-result.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для {{ cloud-logging-name }}, который вызывает функцию {{ sf-name }}](../../../functions/operations/trigger/cloud-logging-trigger-create.md)
 * [Триггер для {{ cloud-logging-name }}, который вызывает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/cloud-logging-trigger-create.md)

@@ -55,7 +55,7 @@
 }
 ```
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для Cloud Logging, который запускает контейнер Serverless Containers](../../../serverless-containers/concepts/trigger/cloud-logging-trigger.md)
 * [Триггер для Cloud Logging, который запускает функцию Cloud Functions](../../../functions/concepts/trigger/cloud-logging-trigger.md)

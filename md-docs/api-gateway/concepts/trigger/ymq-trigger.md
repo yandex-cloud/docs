@@ -97,7 +97,7 @@
 }
 ```
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для Message Queue, который передает сообщения в контейнер Serverless Containers](../../../serverless-containers/concepts/trigger/ymq-trigger.md)
 * [Триггер для Message Queue, который передает сообщения в функцию Cloud Functions](../../../functions/concepts/trigger/ymq-trigger.md)

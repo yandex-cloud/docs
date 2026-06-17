@@ -98,7 +98,7 @@ DataSphere Jobs Toolkit использует утилиту [DataSphere CLI](../
       * **Variables** — необходимые для запуска кода переменные в формате `<имя>:<значение>`. Каждую пару значений указывайте в отдельной строке.
       * **Docker** — параметры Docker-образа:
           * **Image** — ссылка на Docker-образ.
-          * **User** — системный аккаунт с паролем или идентификатором секрета, содержащего [авторизованный ключ](../../../iam/concepts/authorization/key.md).
+          * **User** — системный аккаунт с паролем или именем секрета, содержащего [авторизованный ключ](../../../iam/concepts/authorization/key.md).
 
     - PYTHON
 
@@ -147,7 +147,7 @@ DataSphere Jobs Toolkit использует утилиту [DataSphere CLI](../
 * **Copy job ID** — копировать идентификатор задания.
 * **Open job** — открывать задание в браузере.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [DataSphere Jobs](../../concepts/jobs/index.md)
 * [Запуск заданий DataSphere Jobs](work-with-jobs.md)

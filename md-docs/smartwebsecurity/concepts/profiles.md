@@ -43,7 +43,7 @@ _Профиль безопасности_ — основной элемент с
 
 ![profiles-rules](../../_assets/smartwebsecurity/profiles-rules.svg)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Управление профилями безопасности](../operations/index.md#profiles)
 * [Базовая настройка защиты в Smart Web Security](../tutorials/sws-basic-protection.md)

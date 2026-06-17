@@ -217,7 +217,7 @@
           * `queue_id` — идентификатор очереди Dead Letter Queue.
           * `service_account_id` — идентификатор сервисного аккаунта с правами на запись в очередь Dead Letter Queue.
 
-      Более подробную информацию о параметрах ресурса `yandex_function_trigger` см. в [документации провайдера](../../../terraform/resources/function_trigger.md).
+      Подробнее о параметрах ресурса `yandex_function_trigger` в [документации провайдера](../../../terraform/resources/function_trigger.md).
 
   1. Создайте ресурсы:
 
@@ -265,7 +265,7 @@
 
 Проверьте, что триггер работает корректно. Для этого посмотрите [логи функции](../function/function-logs.md), в них отображается информация о вызовах.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Создать триггер для Container Registry, который вызывает контейнер Serverless Containers](../../../serverless-containers/operations/cr-trigger-create.md)
 * [Создать триггер для Container Registry, который отправляет сообщения в WebSocket-соединения](../../../api-gateway/operations/trigger/cr-trigger-create.md)

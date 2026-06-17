@@ -106,7 +106,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [mfa-policy-applications-acc-type-notice](../../../_includes/organization/mfa-policy-applications-acc-type-notice.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./excluded-audience.md)
 * [{#T}](./create-policy.md)

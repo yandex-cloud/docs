@@ -60,7 +60,7 @@
    
    {% endnote %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 - [Грант](../concepts/bonus-account.md)
 - [Порог оплаты](../concepts/billing-threshold.md)

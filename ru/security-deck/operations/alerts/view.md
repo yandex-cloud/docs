@@ -19,11 +19,7 @@ description: В данном разделе вы узнаете, как в {{ sd
 
       Для каждого алерта в таблице отображается следующая информация:
 
-      {% note tip %}
-
-      Вы можете изменить отображаемые в таблице столбцы с информацией. Для этого в строке с заголовками столбцов таблицы нажмите значок ![gear](../../../_assets/console-icons/gear.svg), выберите столбцы и нажмите кнопку **{{ ui-key.yacloud_org.common.apply }}**.
-
-      {% endnote %}
+      {% include [table-columns-tip](../../../_includes/security-deck/table-columns-tip.md) %}
 
       * ![traffic-light](../../../_assets/console-icons/traffic-light.svg) — уровень критичности алерта:
           * ![cspm-rule-notice-icon](../../../_assets/security-deck/cspm-rule-notice-icon.svg) — {{ ui-key.yacloud_org.shared.components.severity_info_biSRh }};
@@ -60,12 +56,6 @@ description: В данном разделе вы узнаете, как в {{ sd
       * Визуальную группировку по типу алерта.
       * Сортировку по датам и уровню критичности.
       * Фильтры.
-
-          {% note tip %}
-
-          Вы можете изменить отображаемые фильтры. Для этого в строке с фильтрами нажмите значок ![gear](../../../_assets/console-icons/plus.svg) и выберите фильтры.
-
-          {% endnote %}
 
 {% endlist %}
 

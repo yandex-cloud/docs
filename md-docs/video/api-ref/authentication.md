@@ -24,4 +24,4 @@ Authorization: Bearer ${IAM_TOKEN}
 
 [Аккаунты в Yandex Cloud](../../iam/concepts/users/accounts.md)
 
-О том, как работать с сервисом с помощью API, см. на странице [Как начать работать с API Yandex Cloud Video](quickstart.md).
+О том, как работать с сервисом с помощью API, смотрите на странице [Как начать работать с API Yandex Cloud Video](quickstart.md).

@@ -28,8 +28,8 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за постоянно запущенную [виртуальную машину](../../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md));
-* плата за использование [OIDC-приложения](../../../organization/concepts/applications.md#oidc) (см. [тарифы {{ org-full-name }}](../../../organization/pricing.md)).
+* плата за постоянно запущенную [виртуальную машину](../../../compute/concepts/vm.md) ([тарифы {{ compute-full-name }}](../../../compute/pricing.md));
+* плата за использование [OIDC-приложения](../../../organization/concepts/applications.md#oidc) ([тарифы {{ org-full-name }}](../../../organization/pricing.md)).
 
 ## Создайте инфраструктуру {#deploy}
 
@@ -419,6 +419,8 @@ sudo cp /etc/openvpn/easy-rsa/pki/dh.pem /etc/openvpn/
      ```
 
 {% endlist %}
+
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
 
 ## Установите и настройте плагин openvpn-auth-oauth2 {#setup-plugin}
 

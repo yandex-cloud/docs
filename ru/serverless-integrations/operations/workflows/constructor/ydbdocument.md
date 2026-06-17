@@ -26,8 +26,8 @@ description: Следуя данной инструкции, вы сможете
           * `Update`, чтобы изменить данные в таблице, и настройте параметры обновления:
 
               1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.ydb_document_properties_action_properties_update_properties_key_view_spec_layout_title }}** задайте значение первичного ключа элемента в базе данных, который нужно обновить.
-              1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.ydb_document_properties_action_properties_update_properties_expression_view_spec_layout_title }}** задайте выражение, описывающее обновления атрибутов элемента в базе данных. Подробнее см. информацию о параметре `UpdateExpression` в [документации {{ ydb-full-name }}](../../../../ydb/docapi/api-ref/actions/updateItem.md#parametry).
-              1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.ydb_document_properties_action_properties_update_properties_expression_attribute_values_view_spec_layout_title }}** задайте значения атрибутов, используемых в выражении выше. Подробнее см. информацию о параметре `ExpressionAttributeValues` в [документации {{ ydb-full-name }}](../../../../ydb/docapi/api-ref/actions/updateItem.md#parametry).
+              1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.ydb_document_properties_action_properties_update_properties_expression_view_spec_layout_title }}** задайте выражение, описывающее обновление атрибутов элемента в базе данных. Подробнее о параметре `UpdateExpression` в [документации {{ ydb-full-name }}](../../../../ydb/docapi/api-ref/actions/updateItem.md#parametry).
+              1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.ydb_document_properties_action_properties_update_properties_expression_attribute_values_view_spec_layout_title }}** задайте значения атрибутов, используемых в выражении выше. Подробнее о параметре `ExpressionAttributeValues` в [документации {{ ydb-full-name }}](../../../../ydb/docapi/api-ref/actions/updateItem.md#parametry).
 
           * `Scan`, чтобы выполнить поиск в базе данных, и настройте параметры поиска:
 
@@ -42,7 +42,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Спецификация YaWL](../../../concepts/workflows/yawl/integration/ydbdocument.md)
 * [{#T}](../workflow/create-constructor.md)

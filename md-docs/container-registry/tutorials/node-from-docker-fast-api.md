@@ -25,9 +25,9 @@
 
 В стоимость развертывания сервиса на основе Docker-образа входят:
 
-* плата за постоянно запущенные инстансы ноды (см. [тарифы DataSphere](../../datasphere/pricing.md));
+* плата за постоянно запущенные инстансы ноды ([тарифы DataSphere](../../datasphere/pricing.md));
 * плата за запуск ячеек с кодом для проверки работы развернутого сервиса;
-* объем хранилища, занятый данными Yandex Container Registry (см. [тарифы Container Registry](../pricing.md)).
+* объем хранилища, занятый данными Yandex Container Registry ([тарифы Container Registry](../pricing.md)).
 
 ## Подготовьте инфраструктуру {#infra}
 

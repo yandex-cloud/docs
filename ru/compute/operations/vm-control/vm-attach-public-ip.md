@@ -6,7 +6,7 @@
 
 {% include [vm-attach-public-ip](../../../_includes/compute/vm-attach-public-ip.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./vm-set-static-ip.md)
 * [{#T}](../../../vpc/operations/set-static-ip.md)

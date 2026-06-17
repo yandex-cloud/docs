@@ -382,7 +382,7 @@ Content-Type: application/json
 
 Где значение поля `access_token` — запрашиваемый IAM-токен сервисного аккаунта, который вы можете использовать для аутентификации при выполнении действий в [API Yandex Cloud](../../../api-design-guide/index.md).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Федерации сервисных аккаунтов](../../concepts/workload-identity.md).
 * [Получение значения секрета Yandex Lockbox на стороне GitHub](../../tutorials/wlif-github-integration.md).

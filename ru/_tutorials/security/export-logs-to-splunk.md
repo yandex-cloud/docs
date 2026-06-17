@@ -36,10 +36,10 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* использование виртуальных машин (см. [тарифы {{ compute-short-name }}](../../compute/pricing.md));
-* плата за хранение данных в бакете (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-storage));
-* плата за операции с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-operations));
-* плата за использование ключей KMS (см. [тарифы {{ kms-name }}](../../kms/pricing.md#prices)).
+* использование виртуальных машин ([тарифы {{ compute-short-name }}](../../compute/pricing.md));
+* плата за хранение данных в бакете ([тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-storage));
+* плата за операции с данными ([тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-operations));
+* плата за использование ключей KMS ([тарифы {{ kms-name }}](../../kms/pricing.md#prices)).
 
 ## Подготовьте окружение {#prepare-environment}
 

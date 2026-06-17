@@ -39,7 +39,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки создаваемой CDN-инфраструктуры входит плата за исходящий трафик с CDN-серверов (см. [тарифы Cloud CDN](../../cdn/pricing.md)).
+В стоимость поддержки создаваемой CDN-инфраструктуры входит плата за исходящий трафик с CDN-серверов ([тарифы Cloud CDN](../../cdn/pricing.md)).
 
 ## Добавьте TLS-сертификат в Yandex Certificate Manager {#issue-certificate}
 
@@ -363,7 +363,7 @@
 
 Обновление настроек CDN-ресурса может занять до 15 минут, после чего ваш новый CDN-ресурс станет доступен по обоим доменным именам: `cdn-new.example.com` и `cdn.example.com`.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создание CDN-ресурса](../../cdn/operations/resources/create-resource.md)
 * [Добавление сертификата от Let's Encrypt®](../../certificate-manager/operations/managed/cert-create.md)

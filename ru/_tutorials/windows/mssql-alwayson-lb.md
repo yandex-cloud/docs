@@ -27,9 +27,9 @@
 
 В стоимость поддержки группы доступности входят:
 
-* плата за постоянно запущенную виртуальную машину (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование сетевого балансировщика (см. [тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md));
-* плата за использование динамического или статического публичного IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* плата за постоянно запущенную виртуальную машину ([тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование сетевого балансировщика ([тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md));
+* плата за использование динамического или статического публичного IP-адреса ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 Вы можете воспользоваться [перемещением лицензий](../../compute/qa/licensing.md) и использовать собственную лицензию SQL Server в {{ yandex-cloud }}.
 
@@ -348,7 +348,7 @@
 
 ### Создайте виртуальные машины {#create-group-vms}
 
-ВМ нужно создавать на [выделенных хостах](../../compute/concepts/dedicated-host.md). Получить идентификатор выделенного хоста можно с помощью {{ yandex-cloud }} CLI, выполнив команду `yc compute host-group list-hosts` (подробнее о команде см. в [справочнике](../../cli/cli-ref/compute/cli-ref/host-group/list-hosts.md)).
+ВМ нужно создавать на [выделенных хостах](../../compute/concepts/dedicated-host.md). Получить идентификатор выделенного хоста можно с помощью {{ yandex-cloud }} CLI, выполнив команду `yc compute host-group list-hosts` (подробнее о команде смотрите в [справочнике](../../cli/cli-ref/compute/cli-ref/host-group/list-hosts.md)).
 
 #### Создайте ВМ для бастионного хоста {#create-jump-server}
 

@@ -46,10 +46,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* Плата за вычислительные ресурсы и диски [узлов](../../managed-kubernetes/concepts/index.md#node-group) кластера Managed Service for Kubernetes (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за использование [мастера](../../managed-kubernetes/concepts/index.md#master) Managed Service for Kubernetes и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Плата за [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses) кластера Managed Service for Kubernetes (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за хранение [секрета](../../lockbox/concepts/secret.md) и запросы к нему (см. [тарифы Yandex Lockbox](../../lockbox/pricing.md)).
+* Плата за вычислительные ресурсы и диски [узлов](../../managed-kubernetes/concepts/index.md#node-group) кластера Managed Service for Kubernetes ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за использование [мастера](../../managed-kubernetes/concepts/index.md#master) Managed Service for Kubernetes и исходящий трафик ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Плата за [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses) кластера Managed Service for Kubernetes ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за хранение [секрета](../../lockbox/concepts/secret.md) и запросы к нему ([тарифы Yandex Lockbox](../../lockbox/pricing.md)).
 
 ## Настройте кластер Managed Service for Kubernetes {#prepare-cluster}
 
@@ -976,7 +976,7 @@
 * [Удалите](../../managed-kubernetes/operations/node-group/node-group-delete.md) группу узлов Managed Service for Kubernetes.
 * [Удалите](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) кластер Managed Service for Kubernetes.
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Федерации сервисных аккаунтов](../../iam/concepts/workload-identity.md)
 * [Получение значения секрета Yandex Lockbox на стороне пользовательской инсталляции Kubernetes](wlif-k8s-integration.md)

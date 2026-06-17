@@ -308,7 +308,7 @@
 
           {% note info %}
           
-          Минимально необходимая роль, позволяющая просматривать список профилей OS Login пользователей — [роль](../../../organization/security/index.md#organization-manager-osLogins-viewer) `organization-manager.osLogins.viewer`, назначенная на организацию. Информацию о других ролях, позволяющих просматривать список профилей OS Login, см. в разделе [Управление доступом в Yandex Identity Hub](../../../organization/security/index.md#service-roles).
+          Минимально необходимая роль, позволяющая просматривать список профилей OS Login пользователей — [роль](../../../organization/security/index.md#organization-manager-osLogins-viewer) `organization-manager.osLogins.viewer`, назначенная на организацию. Информацию о других ролях, позволяющих просматривать список профилей OS Login, смотрите в разделе [Управление доступом в Yandex Identity Hub](../../../organization/security/index.md#service-roles).
 
           {% endnote %}
 
@@ -592,7 +592,7 @@
 * Если при подключении с помощью SSH-сертификата возникает ошибка `Permission denied (publickey).`, убедитесь, что для ВМ включена авторизация по OS Login при подключении к серийной консоли, а сертификат — не просрочен. При необходимости включите для ВМ авторизацию по OS Login при подключении к серийной консоли или повторно экспортируйте SSH-сертификат.
 * Если при подключении с помощью SSH-сертификата возникает ошибка `Connection closed by 2a0d:d6c1:0:**::*** port 9600`, на локальной машине откройте файл `known_hosts` и удалите все строки, которые начинаются с `[serialssh.cloud.yandex.net]:9600`. Затем повторите подключение и на вопрос `Are you sure you want to continue connecting (yes/no/[fingerprint])?` ответьте `yes`.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Серийная консоль виртуальной машины](../../concepts/serial-console.md)
 * [Управлять доступом к серийной консоли](index.md)

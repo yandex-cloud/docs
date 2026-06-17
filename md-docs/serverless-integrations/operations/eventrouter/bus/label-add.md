@@ -81,7 +81,7 @@
       }
       ```
 
-      Более подробную информацию о параметрах ресурса `yandex_serverless_eventrouter_bus` см. в [документации провайдера](../../../../terraform/resources/serverless_eventrouter_bus.md).
+      Подробнее о параметрах ресурса `yandex_serverless_eventrouter_bus` в [документации провайдера](../../../../terraform/resources/serverless_eventrouter_bus.md).
 
   1. Примените изменения:
 

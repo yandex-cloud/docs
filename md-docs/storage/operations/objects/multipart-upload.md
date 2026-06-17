@@ -349,7 +349,7 @@ total 822368
 
 {% note tip %}
 
-Чтобы сделать проверку условий обязательной, используйте [политику доступа](../../concepts/policy.md#conditional-writes-policy). См. [примеры правил](../../concepts/policy.md#conditional-writes-rules).
+Чтобы сделать проверку условий обязательной, используйте [политику доступа](../../concepts/policy.md#conditional-writes-policy). Смотрите [примеры правил](../../concepts/policy.md#conditional-writes-rules).
 
 {% endnote %}
 

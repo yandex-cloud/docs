@@ -14,7 +14,7 @@
 
 `Gateway` предназначен для оператора кластера. Разработчики приложений должны использовать `TLSRoute`, `HTTPRoute` или `GRPCRoute`.
 
-`Gateway` — ресурс Kubernetes, определенный [проектом Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API Application Load Balancer. Полное описание конфигурации ресурса см. в [документации Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.Gateway).
+`Gateway` — ресурс Kubernetes, определенный [проектом Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API Application Load Balancer. Полное описание конфигурации ресурса смотрите в [документации Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.Gateway).
 
 ## Gateway {#gateway}
 
@@ -49,7 +49,7 @@ spec: <GatewaySpec>
 
   * `name` (`string`, обязательное)
 
-    Имя ресурса. Подробнее о формате см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Подробнее о формате смотрите в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
     Не является именем балансировщика в Application Load Balancer.
   
@@ -119,7 +119,7 @@ spec: <GatewaySpec>
 
 * `spec` (`GatewaySpec`, обязательное)
 
-  Спецификация ресурса. Подробнее см. [ниже](#spec).
+  Спецификация ресурса. Подробности [ниже](#spec).
 
 ## GatewaySpec {#spec}
 
@@ -268,7 +268,7 @@ addresses:
   
         Селектор — набор требований к пространствам имен. Выбираются только те пространства, которые удовлетворяют всем требованиям из полей `matchExpressions` и `matchLabels`.
   
-        Подробнее см. в [справочнике API Kubernetes](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#labelselector-v1-meta).
+        Подробнее в [справочнике API Kubernetes](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#labelselector-v1-meta).
   
         Если значение поля `from` — не `Selector`, то поле `selector` игнорируется.
 

@@ -7,4 +7,4 @@
 * Воспользоваться [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/#expression-queries) для выполнения запросов на языке PromQL.
 * Настроить существующую инсталляцию Prometheus на [чтение](remote-read.md) метрик по протоколу [Remote Read](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_read).
 
-_© 2025 Linux Foundation. Все права защищены. Linux Foundation зарегистрировала товарные знаки и использует товарные знаки. Список товарных знаков Linux Foundation см. на странице [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage)._
+_© 2025 Linux Foundation. Все права защищены. Linux Foundation зарегистрировала товарные знаки и использует товарные знаки. Список товарных знаков Linux Foundation смотрите на странице [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage)._

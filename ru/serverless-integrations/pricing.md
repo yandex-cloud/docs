@@ -8,4 +8,4 @@ editable: false
 
 
 
-На стадии [Preview](../overview/concepts/launch-stages.md) использование {{ sw-name }} и {{ er-name }} не тарифицируется. Правила тарификации для {{ api-gw-name }} см. в разделе [{#T}](../api-gateway/pricing.md).
+На стадии [Preview](../overview/concepts/launch-stages.md) использование {{ sw-name }} и {{ er-name }} не тарифицируется. Правила тарификации для {{ api-gw-name }} описаны в разделе [{#T}](../api-gateway/pricing.md).

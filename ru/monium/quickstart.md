@@ -146,7 +146,7 @@
 
 Чтобы использовать полученные данные, вы можете создавать [дашборды](operations/dashboard/create.md) и [алерты](operations/alert/create-alert.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Начало работы с метриками](metrics/quickstart.md)
 * [Начало работы с логами](logs/quickstart.md)

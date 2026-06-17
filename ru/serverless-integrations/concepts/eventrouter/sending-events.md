@@ -24,7 +24,7 @@ keywords:
 Отправка через коннектор с типом источника `{{ yds-full-name }}` | События поступают из [потока данных](../../../data-streams/concepts/glossary.md#stream-concepts) | Нет
 Отправка через коннектор с типом источника `{{ message-queue-full-name }}` | События поступают из [очереди сообщений](../../../message-queue/concepts/queue.md) | Да
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../operations/eventrouter/bus/data-put.md)
 * [{#T}](../../operations/eventrouter/bus/data-send.md)

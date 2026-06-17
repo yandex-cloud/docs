@@ -28,7 +28,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/os-login-access.md)
 * [{#T}](../operations/enable-refresh-tokens.md)

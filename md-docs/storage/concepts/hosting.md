@@ -110,7 +110,7 @@ http(s)://website.yandexcloud.net/<имя_бакета>
 
 Поддержка протокола TLS версий 1.0 и 1.1 в Object Storage прекращена с 1 августа 2025 года.
 
-Подробнее см. на странице [Протокол TLS](tls.md).
+Подробнее на странице [Протокол TLS](tls.md).
 
 {% endnote %}
 
@@ -129,7 +129,7 @@ http(s)://website.yandexcloud.net/<имя_бакета>
 
 Из бакета с публичным доступом файлы можно получить по публичной ссылке как по протоколу HTTP, так и по протоколу HTTPS, даже если для бакета не [настроен](../operations/hosting/setup.md) хостинг сайта. В этом случае для доступа по протоколу HTTPS будет использован сертификат от [GlobalSign](https://www.globalsign.com/ru-ru) на уровне облака.
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Настройка хостинга](../operations/hosting/setup.md)
 * [Собственный домен](../operations/hosting/own-domain.md)

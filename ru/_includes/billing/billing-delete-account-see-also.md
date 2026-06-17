@@ -1,4 +1,4 @@
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Перепривязать облако к другому платежному аккаунту](../../billing/operations/pin-cloud.md)
 * [Удалить каталог](../../resource-manager/operations/folder/delete.md)

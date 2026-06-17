@@ -36,7 +36,7 @@
 
     Создайте [триггер для почты](../../concepts/trigger/mail-trigger.md), который будет вызывать контейнер, когда на электронную почту приходит письмо.
 
-## См. также
+## Полезные ссылки {#see-also}
 
 * [Пошаговые инструкции по созданию триггеров](../../operations/index.md#trigger-create)
 * [Обзор триггеров в Yandex Serverless Containers](../../concepts/trigger/index.md)

@@ -190,7 +190,7 @@
 
           * `force-authn` — по истечении сессии в Yandex Cloud поставщик удостоверений запросит у пользователя повторную аутентификацию. Необязательный параметр.
 
-      Более подробную информацию о параметрах ресурса `yandex_organizationmanager_saml_federation` см. в [документации провайдера](../../terraform/resources/organizationmanager_saml_federation.md).
+      Более подробную информацию о параметрах ресурса `yandex_organizationmanager_saml_federation` смотрите в [документации провайдера](../../terraform/resources/organizationmanager_saml_federation.md).
 
   1. Проверьте корректность файлов конфигурации Terraform:
 

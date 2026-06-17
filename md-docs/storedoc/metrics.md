@@ -445,6 +445,6 @@ dc | [Зона доступности](../overview/concepts/geo-scope.md)
 | `oplog-maxSize`<br/>`DGAUGE`, байты | Максимальный размер журнала операций. | 
 | `replset_status-replicationLag`<br/>`DGAUGE`, секунды | Задержка репликации. |
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Мониторинг состояния кластера, хостов и шардов в Yandex StoreDoc](operations/monitoring.md)

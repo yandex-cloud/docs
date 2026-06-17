@@ -40,7 +40,7 @@
 
 * [Передача событий Yandex Cloud Postbox в Yandex Data Streams и их анализ с помощью Yandex DataLens](../../tutorials/events-from-postbox-to-yds.md)
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для Data Streams, который вызывает контейнер Serverless Containers](../../../serverless-containers/concepts/trigger/data-streams-trigger.md)
 * [Триггер для Data Streams, который отправляет сообщения в WebSocket-соединения](../../../api-gateway/concepts/trigger/data-streams-trigger.md)

@@ -53,4 +53,4 @@
 
 Если повторные попытки отправки происходят слишком часто, это может вызывать перегрузку сети. Слишком частые повторные отправки можно диагностировать по показаниям метрики `prometheus_remote_storage_samples_retried_total`. В таком случае увеличьте максимальную задержку перед отправкой через увеличение параметра `max_backoff`.
 
-_© 2025 Linux Foundation. Все права защищены. Linux Foundation зарегистрировала товарные знаки и использует товарные знаки. Список товарных знаков Linux Foundation см. на странице [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage)._
+_© 2025 Linux Foundation. Все права защищены. Linux Foundation зарегистрировала товарные знаки и использует товарные знаки. Список товарных знаков Linux Foundation смотрите на странице [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage)._

@@ -12,7 +12,7 @@
 
 {% endnote %}
 
-Подробнее о подготовке к работе с API и общем виде запроса см. в разделе [Как пользоваться S3 API](../../index.md).
+Подробнее о подготовке к работе с API и общем виде запроса смотрите в разделе [Как пользоваться S3 API](../../index.md).
 
 ## Запрос {#request}
 
@@ -66,7 +66,7 @@ PUT /{bucket}?versioning HTTP/2
 
 * [Управление версионированием бакета](../../../operations/buckets/versioning.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
 

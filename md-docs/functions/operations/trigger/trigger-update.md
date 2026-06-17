@@ -98,7 +98,7 @@
       ...
       ```
 
-      Более подробную информацию о параметрах ресурса `yandex_function_trigger` в Terraform см. в [документации провайдера](../../../terraform/resources/function_trigger.md).
+      Подробнее о параметрах ресурса `yandex_function_trigger` в [документации провайдера](../../../terraform/resources/function_trigger.md).
 
   1. Создайте ресурсы:
 

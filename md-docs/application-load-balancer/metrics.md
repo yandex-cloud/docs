@@ -59,6 +59,6 @@
 
 Подробнее о метриках читайте в подразделе [Статистика](concepts/monitoring.md#stats).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Посмотреть статистику L7-балансировщика](operations/application-load-balancer-get-stats.md)

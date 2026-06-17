@@ -10,6 +10,6 @@ description: В этом руководстве вы создадите ВМ {{ 
 
 {% include [nat-instance-console](../../../_tutorials/routing/nat-instance-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md)

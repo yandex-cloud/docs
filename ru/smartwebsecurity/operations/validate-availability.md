@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](setup-infrastructure.md)
 * [{#T}](proxy-create.md)

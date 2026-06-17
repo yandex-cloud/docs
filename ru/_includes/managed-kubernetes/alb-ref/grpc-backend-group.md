@@ -96,9 +96,9 @@ spec:
 
   * `name` (`string`, обязательное)
 
-    Имя ресурса. Подробнее о формате см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Подробнее о формате смотрите в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
   
-    Это имя нужно указать в поле `spec.rules.http.paths.backend.resource.name` ресурса `Ingress` (см. [конфигурацию]({{ configuration-local-link }}/ingress.md)).
+    Это имя нужно указать в поле `spec.rules.http.paths.backend.resource.name` ресурса `Ingress` (смотрите [конфигурацию]({{ configuration-local-link }}/ingress.md)).
 
     Не является именем группы бэкендов в {{ alb-name }}.
 

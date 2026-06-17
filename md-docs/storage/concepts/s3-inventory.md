@@ -95,6 +95,7 @@
 * `LAST_MODIFIED_DATE` — дата создания или последнего изменения;
 * `ETAG` — хэш;
 * `STORAGE_CLASS` — [класс хранилища](storage-class.md);
+* `INTELLIGENT_TIERING_ACCESS_TIER` — уровень доступа объекта в [умном хранилище](storage-class.md#features-intelligent-tiering);
 * `IS_MULTIPART_UPLOADED` — маркер составной загрузки;
 * `ENCRYPTION_STATUS` — статус [шифрования](encryption.md);
 * `OBJECT_LOCK_RETAIN_UNTIL_DATE` — дата окончания [блокировки версии](object-lock.md);
@@ -178,7 +179,7 @@ source-bucket-name,some-file-key-1,16777216,2024-11-26 08:22:15.12345+00,STANDAR
 source-bucket-name,some-file-key-2,647168,2025-05-25 22:05:28.12345+00,COLD,7f9429f312poga209cd412aae2020ae,f,SSE-S3,,,,MD5,,ajegtlf2q28a********
 ```
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Управление выгрузкой метаданных объектов (S3 Inventory) в бакете](../operations/buckets/manage-s3-inventory.md)
 * [Скачивание объекта](../operations/objects/download.md)

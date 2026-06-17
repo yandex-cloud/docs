@@ -18,7 +18,7 @@ Cloud CDN предоставляет логи запросов к CDN-серве
 
 {% endnote %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Справочник логов запросов](../logs-ref.md)
 * [Инструкция по настройке выгрузки](../operations/resources/configure-logs.md)

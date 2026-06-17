@@ -110,7 +110,7 @@ noIndex: true
 
 {% endlist %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](./resources/copy-resource.md)
 * [{#T}](./resources/get-stats.md)

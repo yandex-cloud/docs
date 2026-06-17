@@ -40,7 +40,7 @@
 
 * [{#T}](../../tutorials/bucket-to-bucket.md)
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../../serverless-containers/concepts/trigger/os-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/os-trigger.md)

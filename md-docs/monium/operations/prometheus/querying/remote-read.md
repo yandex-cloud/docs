@@ -54,4 +54,4 @@
 * Максимальное количество временных рядов, по которым можно получить метаданные при помощи запроса `/api/v1/series`, — 10 000.
 * Максимально количество временных рядов, которые можно прочитать в рамках одного запроса `/api/v1/query` или `/api/v1/query_range`, — 10 000.
 
-_© 2025 Linux Foundation. Все права защищены. Linux Foundation зарегистрировала товарные знаки и использует товарные знаки. Список товарных знаков Linux Foundation см. на странице [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage)._
+_© 2025 Linux Foundation. Все права защищены. Linux Foundation зарегистрировала товарные знаки и использует товарные знаки. Список товарных знаков Linux Foundation смотрите на странице [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage)._

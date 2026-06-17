@@ -14,6 +14,6 @@
 
 Результат выполнения функции можно игнорировать или отправлять в Yandex Message Queue.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Вызвать функцию асинхронно](../operations/function/function-invoke-async.md)

@@ -7,7 +7,7 @@ Container Storage Interface позволяет динамически резер
 1. [Подготовьте рабочее окружение](#create-environment).
 1. [Настройте Container Storage Interface](#configure-csi).
 
-См. также:
+Смотрите также:
 
 * [Как использовать Container Storage Interface при работе с `PersistentVolume`](#csi-usage).
 * [Примеры создания `PersistentVolume`](#examples).
@@ -130,7 +130,7 @@ Container Storage Interface позволяет динамически резер
 
   * Если при настройке класса хранилища не было указано имя бакета, то Container Storage Interface создаст отдельный бакет на каждый созданный `PersistentVolume`.
 
-См. также [пример создания](#create-dynamic-pvc) динамического `PersistentVolume`.
+Смотрите также [пример создания](#create-dynamic-pvc) динамического `PersistentVolume`.
 
 ### Статический PersistentVolume {#spvc-csi-usage}
 
@@ -149,7 +149,7 @@ Container Storage Interface позволяет динамически резер
 
   Опции GeeseFS, указанные в параметре `parameters.options` (в настройках приложения Yandex Cloud Marketplace — поле **Опции монтирования GeeseFS**) класса хранилища (`StorageClass`), для статических `PersistentVolume` игнорируются. Подробнее см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/storage/storage-classes/#mount-options).
 
-См. также [пример создания](#create-static-pvc) статического `PersistentVolume`.
+Смотрите также [пример создания](#create-static-pvc) статического `PersistentVolume`.
 
 ## Примеры использования {#examples}
 

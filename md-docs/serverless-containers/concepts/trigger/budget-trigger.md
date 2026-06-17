@@ -47,7 +47,7 @@
   * `amount` — валюта;
   * `percent` — проценты.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для бюджетов, который вызывает функцию Cloud Functions](../../../functions/concepts/trigger/budget-trigger.md)
 * [Триггер для бюджетов, который отправляет сообщения в WebSocket-соединения](../../../api-gateway/concepts/trigger/budget-trigger.md)

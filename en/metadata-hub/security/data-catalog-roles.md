@@ -1,6 +1,6 @@
 ---
-title: Service roles to manage metadata in {{ data-catalog-full-name }}
-description: You can view information on metadata catalogs and manage their resources using {{ data-catalog-full-name }} service roles on different levels.
+title: Service roles {{ data-catalog-full-name }}
+description: '{{ data-catalog-name }} service roles allow you to manage access to metadata catalogs and their resources in {{ metadata-hub-name }}.'
 ---
 
 # Service roles to manage metadata in {{ data-catalog-full-name }}

@@ -22,6 +22,6 @@
 * [Cookie](cookie.md) — используется только для служебных целей.
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Аккаунты в Yandex Cloud](../users/accounts.md)

@@ -34,10 +34,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки виртуального хостинга входят:
-* Плата за постоянно запущенные [ВМ](../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за использование [публичного статического IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за использование вычислительных ресурсов [L7-балансировщика](../concepts/index.md) (см. [тарифы Application Load Balancer](../pricing.md)).
-* Плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы используете [Yandex Cloud DNS](../../dns/index.md) (см. [тарифы Cloud DNS](../../dns/pricing.md)).
+* Плата за постоянно запущенные [ВМ](../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за использование [публичного статического IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за использование вычислительных ресурсов [L7-балансировщика](../concepts/index.md) ([тарифы Application Load Balancer](../pricing.md)).
+* Плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы используете [Yandex Cloud DNS](../../dns/index.md) ([тарифы Cloud DNS](../../dns/pricing.md)).
   
 ## Создайте облачную сеть {#create-network}
 

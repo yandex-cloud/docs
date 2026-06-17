@@ -91,7 +91,7 @@
 {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Агент Cloud Backup](../concepts/agent.md)
 * [Создать виртуальную машину на Linux с подключением к Cloud Backup](create-vm.md)

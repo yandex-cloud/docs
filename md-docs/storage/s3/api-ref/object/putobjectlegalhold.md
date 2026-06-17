@@ -6,7 +6,7 @@
 
 Установить или снять блокировку могут пользователи с [ролью `storage.uploader`](../../../security/index.md). Проверить блокировку можно с помощью метода [getObjectLegalHold](getobjectlegalhold.md).
 
-Подробнее о подготовке к работе с API и общем виде запроса см. в разделе [Как пользоваться S3 API](../../index.md).
+Подробнее о подготовке к работе с API и общем виде запроса смотрите в разделе [Как пользоваться S3 API](../../index.md).
 
 ## Запрос {#request}
 
@@ -62,7 +62,7 @@ PUT /{bucket}/{key}?legal-hold&versionId={versionId} HTTP/2
 
 * [Настройка блокировок версии объекта](../../../operations/objects/edit-object-lock.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
 

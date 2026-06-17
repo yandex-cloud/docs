@@ -30,8 +30,8 @@ Yandex DataSphere позволяет строить [модели машинно
 
 В стоимость работы модели входит:
 
-* плата за использование бакета (см. [тарифы Yandex Object Storage](../../storage/pricing.md)).
-* плата за использование вычислительных ресурсов (см. [тарифы Yandex DataSphere](../../datasphere/pricing.md)).
+* плата за использование бакета ([тарифы Yandex Object Storage](../../storage/pricing.md)).
+* плата за использование вычислительных ресурсов ([тарифы Yandex DataSphere](../../datasphere/pricing.md)).
 
 ## Подготовьте инфраструктуру {#deploy-infrastructure}
 
@@ -236,7 +236,7 @@ Yandex DataSphere позволяет строить [модели машинно
 
 В решении используется [интерфейс Keras](https://keras.io/about/) библиотеки TensorFlow с [CNTK-бэкендом](https://docs.microsoft.com/en-us/cognitive-toolkit/). Пакет `boto3` необходим для подключения к бакету с изображениями. Также в ячейке задаются переменные окружения, необходимые для работы с CNTK-бэкендом и подключения к бакету.
 
-Указанные в ячейке пакеты уже установлены в DataSphere и импортируются с помощью команды `import`. Полный список предустановленных в DataSphere пакетов см. в разделе [Список предустановленного ПО](../../datasphere/concepts/preinstalled-packages.md).
+Указанные в ячейке пакеты уже установлены в DataSphere и импортируются с помощью команды `import`. Полный список предустановленных в DataSphere пакетов смотрите в разделе [Список предустановленного ПО](../../datasphere/concepts/preinstalled-packages.md).
 
 ## Загрузите и разметьте данные {#load-dataset}
 

@@ -104,7 +104,7 @@
 {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Обзор способов управления доступом в Object Storage](../../../storage/security/overview.md)
 * [Создать временный ключ доступа с помощью Security Token Service](../sa/create-sts-key.md)

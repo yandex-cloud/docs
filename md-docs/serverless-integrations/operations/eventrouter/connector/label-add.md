@@ -87,7 +87,7 @@
       }
       ```
 
-      Более подробную информацию о параметрах ресурса `yandex_serverless_eventrouter_connector` см. в [документации провайдера](../../../../terraform/resources/serverless_eventrouter_connector.md).
+      Подробнее о параметрах ресурса `yandex_serverless_eventrouter_connector` в [документации провайдера](../../../../terraform/resources/serverless_eventrouter_connector.md).
 
   1. Примените изменения:
 

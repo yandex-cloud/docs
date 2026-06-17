@@ -30,8 +30,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* плата за хранение Docker-образа в [реестре](../../concepts/registry.md), сканер уязвимостей и исходящий трафик (см. [тарифы Yandex Container Registry](../../pricing.md));
-* плата за вызовы [функций](../../../functions/concepts/function.md) (см. [тарифы Yandex Cloud Functions](../../../functions/pricing.md)).
+* плата за хранение Docker-образа в [реестре](../../concepts/registry.md), сканер уязвимостей и исходящий трафик ([тарифы Yandex Container Registry](../../pricing.md));
+* плата за вызовы [функций](../../../functions/concepts/function.md) ([тарифы Yandex Cloud Functions](../../../functions/pricing.md)).
 
 ## Подготовьте окружение {#prepare}
 
@@ -214,7 +214,7 @@ Terraform распространяется под лицензией [Business S
 
    {% endlist %}
 
-   Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+   Подробнее о параметрах используемых ресурсов в документации провайдера Terraform:
    * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../../terraform/resources/iam_service_account.md).
    * [Назначение прав доступа к каталогу](../../../iam/concepts/access-control/index.md#access-bindings) — [yandex_resourcemanager_folder_iam_member](../../../terraform/resources/resourcemanager_folder_iam_member.md).
    * [Реестр](../../concepts/registry.md) — [yandex_container_registry](../../../terraform/resources/container_registry.md).
@@ -478,6 +478,6 @@ Terraform распространяется под лицензией [Business S
     
     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Автоматическое сканирование Docker-образа при загрузке с помощью консоли управления, CLI и API](console.md)

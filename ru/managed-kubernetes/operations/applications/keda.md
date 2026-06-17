@@ -193,7 +193,7 @@ description: Следуя данной инструкции, вы сможете
          logAggregation: "true"
    ```
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация KEDA](https://keda.sh/docs/).
 * [KEDA с поддержкой {{ monitoring-full-name }} на GitHub](https://github.com/yandex-cloud/yc-keda-external-scaler).

@@ -70,7 +70,7 @@ t1.7euelSbPyceKx87JqpuRl1qZiY-Ryi3rnpWaksrKaZqUppnLncmDnpeajZvl8_dZNAFl-e8ENXMH_
 * [{#T}](../../../tutorials/archive/copy-files-from-object-storage.md)
 * [{#T}](../../../tutorials/serverless/websocket-app.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../operations/iam-token/create.md)
 * [{#T}](../../operations/iam-token/create-for-sa.md)

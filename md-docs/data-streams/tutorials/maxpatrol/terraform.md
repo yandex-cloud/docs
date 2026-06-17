@@ -24,8 +24,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки создаваемой инфраструктуры входят:
-* использование потока данных (см. [тарифы Data Streams](../../pricing.md)).
-* использование Yandex Managed Service for YDB в бессерверном режиме (см. [тарифы Managed Service for YDB](../../../ydb/pricing/serverless.md)).
+* использование потока данных ([тарифы Data Streams](../../pricing.md)).
+* использование Yandex Managed Service for YDB в бессерверном режиме ([тарифы Managed Service for YDB](../../../ydb/pricing/serverless.md)).
 
 ## Разверните инфраструктуру, необходимую для загрузки аудитных логов в MaxPatrol SIEM {#deploy}
 
@@ -351,6 +351,6 @@ Terraform распространяется под лицензией [Business S
     
     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Загрузка аудитных логов в MaxPatrol SIEM с помощью консоли управления или Yandex Cloud CLI](console.md)

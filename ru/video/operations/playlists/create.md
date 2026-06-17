@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Плейлисты в {{ video-name }}](../../concepts/playlists.md)
 * [{#T}](get-link.md)

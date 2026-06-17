@@ -8,4 +8,4 @@
 
 {% endnote %}
 
-Подробнее см. в [документации Firebase](https://firebase.google.com/docs/cloud-messaging/android/client).
+Подробнее в [документации Firebase](https://firebase.google.com/docs/cloud-messaging/android/client).

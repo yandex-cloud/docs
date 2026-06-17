@@ -95,7 +95,7 @@ description: Следуя данной инструкции, вы сможете
 
     После создания пода в [консоли управления]({{ link-console-main }}) в сервисе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в разделе **{{ ui-key.yacloud.compute.disks_ddfdb }}** появится новый зашифрованный диск с префиксом `k8s-csi` в имени.
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/volume.md)
 * [{#T}](../../concepts/encryption.md) 

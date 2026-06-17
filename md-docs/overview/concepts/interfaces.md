@@ -90,7 +90,7 @@
 ^2^ Дополнительно доступен интерфейс командной строки [AWS CLI](../../storage/tools/aws-cli.md).
 ^3^ Графический интерфейс Monitoring доступен как в [консоли управления](https://console.yandex.cloud), так и в [собственном интерфейсе сервиса](https://monitoring.yandex.cloud).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Справочник Yandex Cloud CLI](../../cli/cli-ref/index.md)
 * [Справочник Terraform](../../terraform/index.md)

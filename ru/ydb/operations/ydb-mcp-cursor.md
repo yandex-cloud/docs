@@ -42,7 +42,7 @@ description: Вы можете подключиться к {{ ydb-short-name }} 
 ### Ресурсы, требующие оплаты {#paid-resources}
 
 1. Учетная запись в [IDE Cursor](https://cursor.com/) (можно использовать пробную версию).
-1. Оплата за использование {{ ydb-short-name }} — операции с базой и хранение данных (см. [тарифы {{ ydb-full-name }}](../../ydb/pricing/serverless.md)).
+1. Оплата за использование {{ ydb-short-name }} — операции с базой и хранение данных ([тарифы {{ ydb-full-name }}](../../ydb/pricing/serverless.md)).
 
 {% note info %}
 

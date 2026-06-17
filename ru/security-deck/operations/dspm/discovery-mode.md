@@ -93,7 +93,7 @@ description: Следуя данной инструкции, вы узнаете
 {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/dspm.md)
 * [{#T}](../../concepts/workspace.md)

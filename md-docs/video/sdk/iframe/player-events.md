@@ -338,7 +338,7 @@ window.addEventListener('message', function(event) {
 });
 ```
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Начало работы с SDK видеоплеера для IFrame](index.md)
 * [Параметры инициализации плеера](initialization.md)

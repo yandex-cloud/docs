@@ -15,7 +15,7 @@
 
 * Образы в Yandex Container Registry остаются доступными, даже если Managed Service for GitLab недоступен.
 
-* Yandex Container Registry поддерживает [сканер уязвимостей Docker-образов](../concepts/vulnerability-scanner.md). С его помощью можно обнаружить уязвимости и устранить их до развертывания приложения. Подробнее о сканировании см. в [блоге Yandex Cloud](https://yandex.cloud/ru/blog/posts/2023/04/vulnerability-scanner-and-yandex-container-registry).
+* Yandex Container Registry поддерживает [сканер уязвимостей Docker-образов](../concepts/vulnerability-scanner.md). С его помощью можно обнаружить уязвимости и устранить их до развертывания приложения. Подробнее о сканировании смотрите в [блоге Yandex Cloud](https://yandex.cloud/ru/blog/posts/2023/04/vulnerability-scanner-and-yandex-container-registry).
 
 Чтобы настроить хранение Docker-образов из Managed Service for GitLab в Yandex Container Registry:
 
@@ -53,10 +53,10 @@
 
 В стоимость поддержки инфраструктуры входит плата за следующие ресурсы:
 
-* Диски и постоянно запущенные виртуальные машины (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Использование динамического публичного IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Хранение созданных Docker-образов и сканер уязвимостей, если вы его [активируете](#vulnerability-scanner) (см. [тарифы Container Registry](../pricing.md)).
-* Использование мастера Managed Service for Kubernetes (см. [тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Диски и постоянно запущенные виртуальные машины ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Использование динамического публичного IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Хранение созданных Docker-образов и сканер уязвимостей, если вы его [активируете](#vulnerability-scanner) ([тарифы Container Registry](../pricing.md)).
+* Использование мастера Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
 
 ### Подготовьте инфраструктуру {#deploy-infrastructure}
 

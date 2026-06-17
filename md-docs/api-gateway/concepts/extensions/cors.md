@@ -22,7 +22,7 @@
 
 ## Расширение x-yc-apigateway-cors-rules {#cors-rules}
 
-Расширение `x-yc-apigateway-cors-rules` позволяет описывать различные правила обработки preflight-запросов в секции [components](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#components-object). На определенные таким образом правила можно ссылаться с помощью параметра `$ref` в расширении `x-yc-apigateway-cors` и подключать их к разным путям или ко всему API-шлюзу (см. параметр `cors` [расширения `x-yc-apigateway`](index.md#top-level)).
+Расширение `x-yc-apigateway-cors-rules` позволяет описывать различные правила обработки preflight-запросов в секции [components](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#components-object). На определенные таким образом правила можно ссылаться с помощью параметра `$ref` в расширении `x-yc-apigateway-cors` и подключать их к разным путям или ко всему API-шлюзу (параметр `cors` [расширения `x-yc-apigateway`](index.md#top-level)).
 
 ## Расширение x-yc-apigateway-cors {#cors}
 

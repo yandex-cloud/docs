@@ -8,7 +8,7 @@
 
 ![profiles-rules](../../_assets/smartwebsecurity/profiles-rules.svg)
 
-Для работы с профилем безопасности, который подключается к балансировщику, потребуется сервисный аккаунт с ролями `monitoring.editor`, `smart-web-security.admin`, `certificate-manager.admin` и `logging.writer`. Подробнее см. [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
+Для работы с профилем безопасности, который подключается к балансировщику, потребуется сервисный аккаунт с ролями `monitoring.editor`, `smart-web-security.admin`, `certificate-manager.admin` и `logging.writer`. Подробнее смотрите [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
 
 {% list tabs group=instructions %}
 
@@ -86,7 +86,7 @@
           
           {% endnote %}
       
-          Подробнее о приоритете правил см. в разделе [Общие принципы работы правил](../concepts/rules.md#rules-order).
+          Подробнее о приоритете правил смотрите в разделе [Общие принципы работы правил](../concepts/rules.md#rules-order).
       
       1. (опционально) Включите опцию **Только логирование (dry run)**, если вы хотите только фиксировать информацию о трафике, который соответствует заданным условиям, но не применять к нему никаких действий.
       1. Выберите тип правила:
@@ -392,7 +392,7 @@
 
 {% endlist %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Подключить профиль безопасности к ресурсу](host-connect.md)
 * [Изменить основные параметры профиля безопасности](profile-update.md)

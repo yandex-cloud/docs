@@ -1,6 +1,6 @@
 # Managing {{ k8s }} resources in a {{ managed-k8s-full-name }} cluster via the {{ TF }} provider
 
-You can use {{ TF }} manifests to create {{ k8s }} resources. To do this, set up the `kubernetes` {{ TF }} provider. It supports {{ TF }} resources that are mapped to YAML configuration files for various {{ k8s }} resources.
+You can use {{ TF }} manifests to create {{ k8s }} resources. To do this, activate the `kubernetes` {{ TF }} provider. It supports {{ TF }} resources that are mapped to YAML configuration files for various {{ k8s }} resources.
 
 Using {{ TF }} to create {{ k8s }} resources is convenient if you are already managing your [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) infrastructure through {{ TF }}. This allows you to describe all resources using the same markup language.
 
@@ -80,7 +80,6 @@ The support cost for this solution includes:
     }
 
     provider "yandex" {
-      token     = "<IAM_token>"
       cloud_id  = "<cloud_ID>"
       folder_id = "<folder_ID>"
       zone      = "<default_availability_zone>"
@@ -111,7 +110,7 @@ The support cost for this solution includes:
         }
         ```
 
-1. Make sure the file looks like this after completing the above steps:
+1. Make sure the file you get has the following contents:
 
     ```hcl
     terraform {
@@ -127,7 +126,6 @@ The support cost for this solution includes:
     }
 
     provider "yandex" {
-      token     = "<IAM_token>"
       cloud_id  = "<cloud_ID>"
       folder_id = "<folder_ID>"
       zone      = "<default_availability_zone>"

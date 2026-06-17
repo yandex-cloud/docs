@@ -127,7 +127,7 @@
           * `queue_id` — идентификатор очереди Dead Letter Queue.
           * `service_account_id` — идентификатор сервисного аккаунта с правами на запись в очередь Dead Letter Queue.
 
-      Более подробную информацию о параметрах ресурса `function_trigger` см. в [документации провайдера](../../terraform/resources/function_trigger.md).
+      Подробнее о параметрах ресурса `function_trigger` в [документации провайдера](../../terraform/resources/function_trigger.md).
 
   1. Создайте ресурсы:
 

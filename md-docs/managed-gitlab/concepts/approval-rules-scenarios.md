@@ -248,7 +248,7 @@ BranchGroups:
 
 {% endnote %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Правила ревью кода в Yandex Managed Service for GitLab](approval-rules.md)
 * [Настройка правил ревью кода в Yandex Managed Service for GitLab](../operations/approval-rules.md)

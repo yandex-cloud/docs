@@ -1,5 +1,11 @@
 # Использование gp_relaccess_stats в Yandex MPP Analytics for PostgreSQL
 
+{% note warning %}
+
+Это расширение не поддерживается в Apache Cloudberry™.
+
+{% endnote %}
+
 `gp_relaccess_stats` — это расширение от Yandex Cloud, которое собирает статистику обращений к таблицам и представлениям. Оно отслеживает операции чтения, вставки, обновления и удаления, а также время последнего обращения пользователя к объекту. Собранные данные помогают находить объекты, которые больше не используются или используются неправильно.
 
 ## Настройки расширения {#extension-settings}
@@ -10,7 +16,7 @@
 | `gp_relaccess_stats.max_tables` | `integer` | `65536` | Максимальное количество таблиц для кеширования статистики. |
 | `gp_relaccess_stats.dump_on_overflow` | `bool` | `false` | Определяет поведение при превышении `gp_relaccess_stats.max_tables`. Если `true`, кеш статистики очищается через `relaccess_stats_dump()` автоматически. Если `false`, выводится предупреждение о нехватке места. |
 
-Подробнее о расширении см. в [документации gp_relaccess_stats](https://github.com/open-gpdb/gp_relaccess_stats).
+Подробнее о расширении читайте в [документации gp_relaccess_stats](https://github.com/open-gpdb/gp_relaccess_stats).
 
 ## Установить расширение gp_relaccess_stats в кластер Yandex MPP Analytics for PostgreSQL {#extension-install}
 
@@ -59,3 +65,5 @@
     ```sql
     SELECT * FROM relaccess_stats;
     ```
+
+_Apache® и Apache Cloudberry™ являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах._

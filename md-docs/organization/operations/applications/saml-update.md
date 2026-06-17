@@ -755,7 +755,7 @@
 
              Максимальное количество передаваемых в этом поле групп — 1&nbsp;000. Если количество групп, в которые входит пользователь, превышает это число, на сторону поставщика услуг будет передана только первая тысяча групп. 
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application` см. в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_saml_application.md).
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application` смотрите в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_saml_application.md).
 
   1. Примените изменения:
 
@@ -907,7 +907,7 @@
      * `application_id` — идентификатор SAML-приложения.
      * `subject_id` — идентификатор пользователя или группы пользователей, которые будут иметь доступ к SAML-приложению. Чтобы получить идентификатор пользователя, воспользуйтесь [инструкцией](../users-get.md). Чтобы получить идентификатор группы пользователей, воспользуйтесь [инструкцией](../group-get-id.md).
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application_assignment` см. в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_saml_application_assignment.md).
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application_assignment` смотрите в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_saml_application_assignment.md).
 
   1. Примените изменения:
 
@@ -947,7 +947,15 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+{% note tip %}
+
+Если вы хотите более тонко настроить аутентификацию пользователей в приложениях, в том числе разрешить аутентификацию только с определенных IP-адресов, используйте [политики аутентификации](*authentication_policies).
+
+{% endnote %}
+
+[*authentication_policies]: Политики аутентификации — это инструмент Yandex Identity Hub, позволяющий гибко настраивать доступ к приложениям, запрещая или разрешая аутентификацию определенным пользователям в определенных приложениях и/или с определенных IP-адресов. Подробнее читайте в разделе [Политики аутентификации в Yandex Identity Hub](../../concepts/authentication-policy.md).
+
+#### Полезные ссылки {#see-also}
 
 * [Создать SAML-приложение в Yandex Identity Hub](saml-create.md)
 * [Деактивировать и удалить SAML-приложение в Yandex Identity Hub](saml-deactivate-remove.md)

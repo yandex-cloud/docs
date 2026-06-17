@@ -25,8 +25,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для работы веб-приложения входят:
-* Плата за хранение данных в бакете и операции с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-* Плата за использование API-шлюза (см. [тарифы {{ api-gw-name }}](../../api-gateway/pricing.md)).
+* Плата за хранение данных в бакете и операции с ними ([тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Плата за использование API-шлюза ([тарифы {{ api-gw-name }}](../../api-gateway/pricing.md)).
 
 ## Создайте проект и настройте Google OAuth в Google Cloud {#create-google-cloud-project}
 

@@ -54,7 +54,7 @@ Object Storage позволяет управлять [конфигурацией
 
 * [Настройка CORS](../../../operations/buckets/cors.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
 

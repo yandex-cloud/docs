@@ -1,5 +1,11 @@
 # Использование gp_url_tools в Yandex MPP Analytics for PostgreSQL
 
+{% note warning %}
+
+Это расширение не поддерживается в Apache Cloudberry™.
+
+{% endnote %}
+
 Расширение `gp_url_tools` предоставляет функции, которые позволяют кодировать адреса URL/URI в формат, принимаемый веб-браузерами, и декодировать их в исходный формат:
 
 * `encode_url(text)` — кодирование URL;
@@ -72,3 +78,5 @@
     ```sql
     SELECT name, site, contact FROM companies;
     ```
+
+_Apache® и Apache Cloudberry™ являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах._

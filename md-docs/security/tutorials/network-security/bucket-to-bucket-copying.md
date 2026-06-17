@@ -33,9 +33,9 @@
 
 В стоимость ресурсов входят:
 
-* плата за хранение данных в бакете (см. [тарифы Yandex Object Storage](../../../storage/pricing.md));
-* плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы Yandex Cloud Functions](../../../functions/pricing.md));
-* плата за хранение секретов (см. [тарифы Yandex Lockbox](../../../lockbox/pricing.md)).
+* плата за хранение данных в бакете ([тарифы Yandex Object Storage](../../../storage/pricing.md));
+* плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы Yandex Cloud Functions](../../../functions/pricing.md));
+* плата за хранение секретов ([тарифы Yandex Lockbox](../../../lockbox/pricing.md)).
 
 
 
@@ -386,7 +386,7 @@
       
       Рекомендуется использовать ресурс `yandex_lockbox_secret_version_hashed`, он хранит в состоянии Terraform значения в хешированном виде. Поддержка ресурса `yandex_lockbox_secret_version` остается.
       
-      Более подробную информацию о ресурсе `yandex_lockbox_secret_version_hashed` см. в [документации провайдера](../../../terraform/resources/lockbox_secret_version_hashed.md).
+      Более подробную информацию о ресурсе `yandex_lockbox_secret_version_hashed` смотрите в [документации провайдера](../../../terraform/resources/lockbox_secret_version_hashed.md).
       
       {% endnote %}
 

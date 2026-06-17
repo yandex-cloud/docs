@@ -200,6 +200,6 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Настройки обмена данными между клиентами и CDN](../../concepts/clients-to-servers.md)

@@ -168,7 +168,7 @@ ACL | Описание
     --subject system:allUsers
   ```
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](../../../storage/operations/buckets/edit-acl.md)
 * [{#T}](../../../storage/operations/objects/edit-acl.md)

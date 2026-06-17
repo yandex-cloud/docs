@@ -19,7 +19,7 @@ description: Из этой статьи вы узнаете о способах 
 
 Подробнее о получении метаданных изнутри ВМ читайте в разделе [Примеры запросов к сервису метаданных изнутри ВМ](../../operations/vm-metadata/get-vm-metadata.md#request-examples).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Получение метаданных виртуальной машины](../../operations/vm-metadata/get-vm-metadata.md)
 * [{#T}](../vm-metadata.md)

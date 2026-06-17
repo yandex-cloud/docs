@@ -4,7 +4,7 @@
 
 Ответ не может содержать более 1000 элементов. Если в составной загрузке больше частей, то Object Storage возвращает маркер `IsTruncated` и элемент `NextPartNumberMarker`. Оставшиеся элементы можно получить последовательными запросами, в которых параметр `part-number-marker` равен `NextPartNumberMarker` из предыдущего запроса.
 
-Подробнее о подготовке к работе с API и общем виде запроса см. в разделе [Как пользоваться S3 API](../../index.md).
+Подробнее о подготовке к работе с API и общем виде запроса смотрите в разделе [Как пользоваться S3 API](../../index.md).
 
 ## Запрос {#request}
 
@@ -99,7 +99,7 @@ GET /{bucket}/{key}?uploadId=UploadId HTTP/2
 `ID` | Идентификатор пользователя.<br/><br/>Путь: `/ListPartsResult/Initiator/ID`.
 `DisplayName` | Отображаемое имя пользователя.<br/><br/>Путь: `/ListPartsResult/Initiator/DisplayName`.
 `Owner` | Информация о владельце объекта, совпадает с `Initiator`.<br/><br/>Путь: `/ListPartsResult/Owner`.
-`StorageClass` | [Класс хранилища](../../../concepts/storage-class.md) объекта: `STANDARD`, `COLD` или `ICE`.<br/><br/>Путь: `/ListPartsResult/StorageClass`.
+`StorageClass` | [Класс хранилища](../../../concepts/storage-class.md) объекта: `STANDARD`, `COLD`, `ICE` или `INTELLIGENT_TIERING`.<br/><br/>Путь: `/ListPartsResult/StorageClass`.
 `PartNumberMarker` | Номер части, после которого начинается список.<br/><br/>Первый элемент списка имеет номер, следующий за `PartNumberMarker`.<br/><br/>Путь: `/ListPartsResult/PartNumberMarker`.
 `NextPartNumberMarker` | Номер части, которым заканчивается текущий список.<br/><br/>Присутствует в случае, когда в ответ не поместился весь перечень частей.<br/><br/>Путь: `/ListPartsResult/NextPartNumberMarker`.
 `MaxParts` | Максимальная длина списка для одного ответа.<br/><br/>Путь: `/ListPartsResult/MaxParts`.
@@ -116,7 +116,7 @@ GET /{bucket}/{key}?uploadId=UploadId HTTP/2
 
 * [Составная загрузка объекта](../../../operations/objects/multipart-upload.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
 

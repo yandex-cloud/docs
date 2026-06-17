@@ -43,18 +43,18 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* Плата за вычислительные ресурсы и диски ВМ, на базе которых разворачивается кластер {{ k8s }}, вспомогательной ВМ, а также узлов управляющего кластера {{ managed-k8s-name }} (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы {{ alb-full-name }}](../../application-load-balancer/pricing.md)).
-* Плата за использование мастера управляющего кластера {{ managed-k8s-name }} и исходящий трафик (см. [тарифы {{ managed-k8s-full-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses) для вспомогательной ВМ и управляющего кластера {{ managed-k8s-name }} (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-* Плата за использование [NAT-шлюза](../../vpc/concepts/gateways.md) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md#nat-gateways)).
+* Плата за вычислительные ресурсы и диски ВМ, на базе которых разворачивается кластер {{ k8s }}, вспомогательной ВМ, а также узлов управляющего кластера {{ managed-k8s-name }} ([тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за использование вычислительных ресурсов L7-балансировщика ([тарифы {{ alb-full-name }}](../../application-load-balancer/pricing.md)).
+* Плата за использование мастера управляющего кластера {{ managed-k8s-name }} и исходящий трафик ([тарифы {{ managed-k8s-full-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses) для вспомогательной ВМ и управляющего кластера {{ managed-k8s-name }} ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Плата за использование [NAT-шлюза](../../vpc/concepts/gateways.md) ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#nat-gateways)).
 
 #### Опциональные траты {#optional-expenses}
 
 * Если для узлов создаваемого кластера {{ k8s }} вы будете использовать собственный образ:
-  * Плата за хранение образа в бакете и операции с данными (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
-  * Плата за хранение образа в {{ compute-name }} (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Если для развертывания провайдера {{ yandex-cloud }} в управляющем кластере вы будете использовать собственный Docker-образ — плата за хранение Docker-образа в реестре и исходящий трафик (см. [тарифы {{ container-registry-full-name }}](../../container-registry/pricing.md)).
+  * Плата за хранение образа в бакете и операции с данными ([тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
+  * Плата за хранение образа в {{ compute-name }} ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Если для развертывания провайдера {{ yandex-cloud }} в управляющем кластере вы будете использовать собственный Docker-образ — плата за хранение Docker-образа в реестре и исходящий трафик ([тарифы {{ container-registry-full-name }}](../../container-registry/pricing.md)).
 
 ### Подготовьте инфраструктуру {#infra}
 
@@ -129,7 +129,7 @@
 
   1. [Соберите](https://image-builder.sigs.k8s.io/capi/capi) образ ОС с помощью утилиты [Image Builder](https://github.com/kubernetes-sigs/image-builder).
 
-      См. также [Подготовить образ диска для {{ compute-name }}](../../compute/operations/image-create/custom-image.md).
+      Смотрите также [Подготовить образ диска для {{ compute-name }}](../../compute/operations/image-create/custom-image.md).
   1. [Загрузите](../../compute/operations/image-create/upload.md) образ в {{ compute-name }} и сохраните его идентификатор.
 
 {% endlist %}

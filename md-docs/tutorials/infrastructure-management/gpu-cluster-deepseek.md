@@ -35,7 +35,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит плата за вычислительные ресурсы ВМ и диски, а также кластер GPU (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+В стоимость поддержки инфраструктуры входит плата за вычислительные ресурсы ВМ и диски, а также кластер GPU ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 
 ## Создайте кластер GPU из двух ВМ {#create-gpu-cluster}
 
@@ -241,6 +241,6 @@
 1. [Удалите](../../compute/operations/vm-control/vm-delete.md) созданные виртуальные машины.
 1. [Удалите](../../compute/operations/gpu-cluster/gpu-cluster-delete.md) созданный кластер GPU.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Вопросы про GPU](../../compute/qa/gpu.md).

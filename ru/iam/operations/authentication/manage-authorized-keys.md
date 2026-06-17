@@ -281,7 +281,7 @@ description: Из статьи вы узнаете, как создавать и
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/authorization/key.md)
 * [{#T}](../iam-token/create-for-sa.md)

@@ -128,6 +128,6 @@
 
 {% cut "Ошибка в интерфейсе Requested database column does not exist" %}
 
-См. [подробнее](../../datalens/troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md).
+Смотрите [подробнее](../../datalens/troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md).
 
 {% endcut %}

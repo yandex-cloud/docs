@@ -138,7 +138,7 @@
 
 Проверьте, что триггер работает корректно. Для этого посмотрите [логи API-шлюза](../api-gw-logs.md), в них отображается информация об обращениях к нему.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для Data Streams, который вызывает функцию Cloud Functions](../../../functions/operations/trigger/data-streams-trigger-create.md)
 * [Триггер для Data Streams, который вызывает контейнер Serverless Containers](../../../serverless-containers/operations/data-streams-trigger-create.md)

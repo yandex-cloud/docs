@@ -67,6 +67,6 @@ UUID `C12A7328-F81F-`
 
 {% endnote %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создать виртуальную машину с оборудованием поколения Gen 2](../operations/vm-create/create-gen2-vm.md)

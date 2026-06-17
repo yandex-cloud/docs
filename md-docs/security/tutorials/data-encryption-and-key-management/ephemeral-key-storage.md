@@ -30,8 +30,8 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за хранение данных в бакете (см. [тарифы Object Storage](../../../storage/pricing.md#prices-storage));
-* плата за операции с данными (см. [тарифы Object Storage](../../../storage/pricing.md#prices-operations)).
+* плата за хранение данных в бакете ([тарифы Object Storage](../../../storage/pricing.md#prices-storage));
+* плата за операции с данными ([тарифы Object Storage](../../../storage/pricing.md#prices-operations)).
 
 
 
@@ -113,7 +113,7 @@
 * `kms.keys.decrypter` — для чтения ключа, [расшифровки](../../../kms/security/index.md#kms-keys-decrypter) и скачивания объектов;
 * `kms.keys.encrypterDecrypter` — включает [разрешения](../../../kms/security/index.md#kms-keys-encrypterDecrypter), предоставляемые ролями `kms.keys.encrypter` и `kms.keys.decrypter`.
 
-Подробнее см. [Сервисные роли Key Management Service](../../../kms/security/index.md#service-roles).
+Подробнее смотрите [Сервисные роли Key Management Service](../../../kms/security/index.md#service-roles).
 
 
 ## Подготовьте скрипт для создания эфемерного ключа доступа {#prepare-script}
@@ -269,7 +269,7 @@
 * [удалите бакет](../../../storage/operations/buckets/delete.md).
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Как начать работать с AWS CLI в Yandex Object Storage](../../../storage/quickstart/quickstart-aws-cli.md)
 * [Эфемерные ключи доступа, совместимые с AWS API](../../../iam/concepts/authorization/ephemeral-keys.md)

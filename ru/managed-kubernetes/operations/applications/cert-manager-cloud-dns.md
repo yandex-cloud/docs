@@ -147,7 +147,7 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](../../tutorials/dnschallenge.md).
 * [{#T}](../../tutorials/ingress-cert-manager.md).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация Let's Encrypt®](https://letsencrypt.org/docs/client-options/).
 * [Документация cert-manager](https://cert-manager.io/docs/configuration/).

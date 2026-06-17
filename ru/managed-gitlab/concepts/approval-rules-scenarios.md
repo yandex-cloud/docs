@@ -247,7 +247,7 @@ BranchGroups:
 
 {% endnote %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](./approval-rules.md)
 * [{#T}](../operations/approval-rules.md)

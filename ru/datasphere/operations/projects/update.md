@@ -35,7 +35,7 @@ description: Следуя данной инструкции, вы сможете
 
    * Нажмите **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](restrictions.md)
 * [{#T}](install-dependencies.md)

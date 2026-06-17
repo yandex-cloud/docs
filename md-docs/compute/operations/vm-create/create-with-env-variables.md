@@ -176,7 +176,7 @@
 
 Другие примеры конфигурации для `user-data` приведены в разделе [Примеры](create-with-cloud-init-scripts.md#examples).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Метаданные виртуальной машины](../../concepts/vm-metadata.md)
 * [Создать ВМ с доступом к секрету Yandex Lockbox](create-with-lockbox-secret.md)

@@ -37,10 +37,10 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за постоянно работающие ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
-* плата за использование сервиса {{ mpg-name }} (см. [тарифы {{ mpg-full-name }}](../../managed-postgresql/pricing.md));
-* плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md) (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
+* плата за постоянно работающие ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование публичных IP-адресов и исходящий трафик ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
+* плата за использование сервиса {{ mpg-name }} ([тарифы {{ mpg-full-name }}](../../managed-postgresql/pricing.md));
+* плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md) ([тарифы {{ dns-name }}](../../dns/pricing.md)).
 
 ## Подготовьте среду для развертывания ресурсов {#setup-environment}
 

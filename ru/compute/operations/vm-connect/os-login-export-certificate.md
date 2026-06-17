@@ -11,7 +11,7 @@ description: Следуя данной инструкции, вы сможете
 
 С помощью экспортированного SSH-сертификата вы можете [подключиться](./os-login.md#connect-with-ssh-client) к виртуальной машине {{ compute-name }}, кластеру {{ dataproc-name }} или узлу {{ k8s }}, для которых [настроен](../vm-control/vm-update.md#enable-oslogin-access) доступ по {{ oslogin }}.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../../organization/operations/os-login-access.md)
 * [{#T}](../../../organization/operations/add-ssh.md)

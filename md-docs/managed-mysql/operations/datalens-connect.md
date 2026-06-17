@@ -114,7 +114,7 @@
   1. Откройте вкладку **Выбрать в каталоге**.
   1. Выберите кластер и его хост из выпадающих списков, либо [создайте новый кластер](cluster-create.md) в каталоге с DataLens, нажав на кнопку **Создать новый**.
   1. Выберите базу данных и пользователя из выпадающих списков.
-  1. Введите пароль пользователя. См. также [Создание подключения к MySQL® в Yandex DataLens](../../datalens/operations/connection/create-mysql.md) и [Настроить доступ](../../datalens/dataset/create-dataset.md#access) в документации DataLens.
+  1. Введите пароль пользователя. Смотрите также [Создание подключения к MySQL® в Yandex DataLens](../../datalens/operations/connection/create-mysql.md) и [Настроить доступ](../../datalens/dataset/create-dataset.md#access) в документации DataLens.
 
   Если кластер и DataLens находятся в разных каталогах:
   1. Перейдите на вкладку **Указать вручную**.

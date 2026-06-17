@@ -26,8 +26,8 @@
 
 В стоимость поддержки создаваемой инфраструктуры входит:
 
-* плата за количество запросов к API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md));
-* плата за использование {{ speechkit-name }} (см. [тарифы {{ speechkit-name }}]({{ link-docs-ai }}speechkit/pricing)).
+* плата за количество запросов к API-шлюзу и исходящий трафик ([тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md));
+* плата за использование {{ speechkit-name }} ([тарифы {{ speechkit-name }}]({{ link-docs-ai }}speechkit/pricing)).
 
 
 ## Создайте сервисный аккаунт {#create-service-account}

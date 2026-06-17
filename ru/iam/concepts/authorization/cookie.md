@@ -11,6 +11,6 @@ description: Из статьи вы узнаете, какие cookie испол
 
 Cookie создаются независимо для каждого сервиса {{ yandex-cloud }}, работающего на собственном выделенном домене (например, [консоль управления]({{ link-console-main }}), [{{ cloud-center }}]({{ cloud-center-link }}), [{{ datalens-full-name }}]({{ link-datalens-main }}) и др.)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../../organization/concepts/sessions.md)

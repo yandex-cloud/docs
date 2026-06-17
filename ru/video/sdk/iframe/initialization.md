@@ -379,7 +379,7 @@ description: На странице описаны параметры, котор
 ></iframe>
 ```
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./index.md)
 * [{#T}](./player-methods.md)

@@ -101,7 +101,7 @@ description: Следуя данной инструкции, вы сможете
 
 * [{#T}](../../tutorials/gitlab-containers.md).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация {{ GL }} Agent](https://docs.gitlab.com/ee/user/clusters/agent/).
 * [Документация {{ mgl-name }}](../../../managed-gitlab/).

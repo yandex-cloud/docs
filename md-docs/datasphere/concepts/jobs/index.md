@@ -206,7 +206,7 @@ spark:
 
 1. Секция `spark` описывает конфигурацию для [работы](work-with-spark.md) с кластерами [Yandex Data Processing](../../../data-proc/index.md), используя [Spark Connector](../spark-connector.md). При указании коннектора Spark убедитесь, что он [доступен](../../operations/data/spark-connectors.md#share) в проекте.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Запуск заданий DataSphere Jobs](../../operations/projects/work-with-jobs.md)
 * [GitHub-репозиторий](https://github.com/yandex-cloud-examples/yc-datasphere-jobs-examples) с примерами для запуска заданий.

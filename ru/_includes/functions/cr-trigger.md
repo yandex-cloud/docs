@@ -23,7 +23,7 @@
 
 {% include [cr-format](cr-format.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../serverless-containers/concepts/trigger/cr-trigger.md)
 * [{#T}](../../api-gateway/concepts/trigger/cr-trigger.md)

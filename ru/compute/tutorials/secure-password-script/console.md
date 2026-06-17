@@ -11,6 +11,6 @@ noIndex: true
 
 {% include [secure-password-script-console](../../../_tutorials/windows/secure-password-script-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md)

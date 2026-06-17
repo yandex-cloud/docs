@@ -104,7 +104,7 @@ go get go.mongodb.org/mongo-driver/mongo
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](index.md#get-fqdn).
+О том, как получить FQDN хоста, читайте в [инструкции](index.md#get-fqdn).
 
 **Подключение:**
 
@@ -313,7 +313,7 @@ go run connect.go
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](index.md#get-fqdn).
+О том, как получить FQDN хоста, читайте в [инструкции](index.md#get-fqdn).
 
 **Подключение:**
 
@@ -404,7 +404,7 @@ npm install mongodb
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](index.md#get-fqdn).
+О том, как получить FQDN хоста, читайте в [инструкции](index.md#get-fqdn).
 
 **Подключение:**
 
@@ -493,7 +493,7 @@ sudo apt update && sudo apt install --yes php php-mongodb
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](index.md#get-fqdn).
+О том, как получить FQDN хоста, читайте в [инструкции](index.md#get-fqdn).
 
 **Подключение:**
 
@@ -582,7 +582,7 @@ pip3 install pyMongo
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](index.md#get-fqdn).
+О том, как получить FQDN хоста, читайте в [инструкции](index.md#get-fqdn).
 
 **Подключение:**
 

@@ -32,7 +32,7 @@
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](../../storedoc/operations/cluster-create.md).
+      Как создать такой файл, описано в разделе [Создание кластера](../../storedoc/operations/cluster-create.md).
 
   1. Добавьте ресурс `yandex_mdb_mongodb_user`.
 
@@ -56,7 +56,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_user).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_user).
 
 {% endlist %}
 
@@ -91,7 +91,7 @@
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](../../storedoc/operations/cluster-create.md).
+      Как создать такой файл, описано в разделе [Создание кластера](../../storedoc/operations/cluster-create.md).
 
   1. Найдите ресурс `yandex_mdb_mongodb_user`.
   1. Добавьте блок `permission`:
@@ -116,6 +116,6 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_user).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_user).
 
 {% endlist %}

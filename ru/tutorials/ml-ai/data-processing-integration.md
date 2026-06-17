@@ -7,6 +7,6 @@ description: Следуя инструкции, вы сможете создат
 
 {% include notitle [integration with data proc](../../_tutorials/ml-ai/data-processing-integration.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Временные кластеры {{ dataproc-name }}, развернутые в {{ ml-platform-name }}](../../datasphere/concepts/data-processing-template.md)

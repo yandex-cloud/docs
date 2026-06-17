@@ -112,7 +112,7 @@
        * `role` — роль, которую необходимо назначить.
        * `members` — идентификатор пользователя, группы или сервисного аккаунта, которому назначается роль.
 
-     Более подробную информацию о ресурсе `yandex_container_repository_iam_binding`, см. в [документации провайдера](../../../terraform/resources/container_repository_iam_binding.md).
+     Подробнее о параметрах ресурса `yandex_container_repository_iam_binding` в [документации провайдера](../../../terraform/resources/container_repository_iam_binding.md).
   
   1. 1. В терминале перейдите в директорию с конфигурационным файлом.
      1. Проверьте корректность конфигурации с помощью команды:

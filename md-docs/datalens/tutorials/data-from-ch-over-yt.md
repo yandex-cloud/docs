@@ -54,7 +54,7 @@
     * **Имя хоста**. Укажите адрес прокси серверов YTsaurus.
     * **Порт**. Укажите порт подключения к CHYT.
     * **Алиас клики**. Укажите алиас запущенной клики. По умолчанию используется публичная клика `*ch_public`.
-    * **Токен YTsaurus**. Укажите вручную OAuth-токен для работы с YTsaurus. Подробнее см. в [документации YTsaurus](https://ytsaurus.tech/docs/ru/user-guide/storage/auth).
+    * **Токен YTsaurus**. Укажите вручную OAuth-токен для работы с YTsaurus. Подробнее в [документации YTsaurus](https://ytsaurus.tech/docs/ru/user-guide/storage/auth).
     * **Время жизни кеша в секундах**. Укажите время жизни кеша или оставьте значение по умолчанию. Рекомендованное значение — 300 секунд (5 минут).
  
     * **Уровень доступа SQL запросов**. Позволяет использовать произвольный SQL-запрос для [формирования датасета](../dataset/settings.md#sql-request-in-datatset). По умолчанию опция отключена. При активации необходимо выбрать уровень доступа SQL-запросов:
@@ -165,7 +165,7 @@
 
 {% cut "Ошибка в интерфейсе Requested database column does not exist" %}
 
-См. [подробнее](../troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md).
+Смотрите [подробнее](../troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md).
 
 {% endcut %}
 

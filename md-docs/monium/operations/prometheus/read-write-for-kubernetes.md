@@ -232,8 +232,8 @@ Prometheus Operator с поддержкой Monium Metrics упрощает ус
     1. Перейдите на вкладку **Алерты**.
     1. Убедитесь, что тестовый алерт перешел в состояние `FIRING`.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Yandex Managed Service for Kubernetes](../../../managed-kubernetes/index.md)
 
-_© 2025 Linux Foundation. Все права защищены. Linux Foundation зарегистрировала товарные знаки и использует товарные знаки. Список товарных знаков Linux Foundation см. на странице [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage)._
+_© 2025 Linux Foundation. Все права защищены. Linux Foundation зарегистрировала товарные знаки и использует товарные знаки. Список товарных знаков Linux Foundation смотрите на странице [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage)._

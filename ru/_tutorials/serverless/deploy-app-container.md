@@ -31,12 +31,12 @@
 
 В стоимость поддержки приложения входит:
 
-* плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за хранение секретов (см. [тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md));
-* плата за хранение Docker-образа (см. [тарифы {{ container-registry-full-name }}](../../container-registry/pricing.md));
-* плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик (см. [тарифы {{ serverless-containers-name }}](../../serverless-containers/pricing.md));
-* плата за запросы к API-шлюзу (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md));
-* плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
+* плата за постоянно запущенную ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за хранение секретов ([тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md));
+* плата за хранение Docker-образа ([тарифы {{ container-registry-full-name }}](../../container-registry/pricing.md));
+* плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик ([тарифы {{ serverless-containers-name }}](../../serverless-containers/pricing.md));
+* плата за запросы к API-шлюзу ([тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md));
+* плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) ([тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
 
 
 ## Создайте сервисный аккаунт {#sa-create}

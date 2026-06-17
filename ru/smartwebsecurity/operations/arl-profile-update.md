@@ -75,7 +75,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](arl-profile-delete.md)
 * [{#T}](arl-rule-add.md)

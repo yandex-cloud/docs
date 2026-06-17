@@ -48,7 +48,7 @@ description: '{{ SD }} поддерживает шардирование для 
 1. [Добавьте](../operations/shards.md#add-shard) нужное количество шардов.
 1. [Включите шардирование](../tutorials/sharding.md#enable) для нужных коллекций. 
 
-См. также [пример шардирования](../tutorials/sharding.md#example).
+Смотрите также [пример шардирования](../tutorials/sharding.md#example).
 
 
 ## Особенности управления шардированием в {{ mmg-name }} {#shard-management}

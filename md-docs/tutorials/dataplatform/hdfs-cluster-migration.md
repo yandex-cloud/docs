@@ -25,7 +25,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входит плата за кластеры Yandex Data Processing (см. [тарифы Yandex Data Processing](../../data-proc/pricing.md)).
+В стоимость поддержки описываемого решения входит плата за кластеры Yandex Data Processing ([тарифы Yandex Data Processing](../../data-proc/pricing.md)).
 
 
 ## Создайте кластер через импорт в Terraform {#create}

@@ -149,6 +149,8 @@
 
 {% endlist %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 Добавьте администраторов:
 
 1. Войдите в [консоль управления](https://browser.yandex.ru/corp/builds) Яндекс Браузера для организаций.

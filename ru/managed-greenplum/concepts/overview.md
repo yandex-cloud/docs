@@ -41,7 +41,7 @@ description: Из статьи вы узнаете основную информ
 * Универсальная БД на замену Oracle DB, Microsoft SQL Server или IBM DB2. {{ mgp-name }} можно использовать не только для аналитических задач, но и для выполнения множества коротких [OLTP-запросов](../../glossary/oltp.md), характерных для {{ PG }}.
 * Более производительная альтернатива для БД {{ PG }}. Поскольку доступные в сервисе СУБД основаны на {{ PG }}, сервис поддерживает многие инструменты для работы с {{ PG }}, например интерфейсы JDBC и ODBC, а также стандарт ANSI SQL:2008.
 
-## См. также {see-also}
+## Полезные ссылки {see-also}
 
 * [Официальная документация {{ GP }}](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/landing-index.html)
 * [Официальная документация {{ CB }}](https://cloudberry.apache.org/docs/)

@@ -1,6 +1,6 @@
 ---
-title: Starting and stopping an ingestion
-description: Follow this guide to start and stop your ingestions in {{ data-catalog-full-name }}.
+title: Starting and stopping a data ingestion in {{ data-catalog-full-name }}
+description: In this tutorial, you will learn how to start and stop a data ingestion in {{ data-catalog-name }}.
 ---
 
 # Starting and stopping an ingestion

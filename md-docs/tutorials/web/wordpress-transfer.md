@@ -44,9 +44,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки сайта на WordPress входит:
-* Плата за постоянно запущенную [ВМ](../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за публичные DNS-запросы и [зоны](../../dns/concepts/dns-zone.md) (см. [тарифы Yandex Cloud DNS](../../dns/pricing.md)).
+* Плата за постоянно запущенную [ВМ](../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за публичные DNS-запросы и [зоны](../../dns/concepts/dns-zone.md) ([тарифы Yandex Cloud DNS](../../dns/pricing.md)).
 
 ## Создайте ВМ для WordPress {#create-vm}
 

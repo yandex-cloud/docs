@@ -20,9 +20,9 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ maf-name }}: вычислительные ресурсы компонентов кластера (см. [тарифы {{ maf-name }}](../../managed-airflow/pricing.md)).
-* Бакет {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-* Секрет {{ lockbox-name }}: количество хранимых версий секрета и запросы к ним (см. [тарифы {{ lockbox-name }}](../../lockbox/pricing.md)).
+* Кластер {{ maf-name }}: вычислительные ресурсы компонентов кластера ([тарифы {{ maf-name }}](../../managed-airflow/pricing.md)).
+* Бакет {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Секрет {{ lockbox-name }}: количество хранимых версий секрета и запросы к ним ([тарифы {{ lockbox-name }}](../../lockbox/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#create-infrastracture}

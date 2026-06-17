@@ -16,7 +16,7 @@ description: В данном разделе вы узнаете, как можн
 {% include [view-subject-access-bindings](../../_includes/security-deck/view-subject-access-bindings.md) %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../security-deck/concepts/ciem.md)
 * [{#T}](../../security-deck/security/index.md)

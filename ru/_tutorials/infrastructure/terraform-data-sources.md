@@ -86,7 +86,7 @@ resource "yandex_compute_disk" "boot-disk" {
 ...
 ```
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Начало работы с {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [Загрузка состояний {{ TF }} в {{ objstorage-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).

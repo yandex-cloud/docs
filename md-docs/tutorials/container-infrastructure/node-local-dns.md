@@ -43,9 +43,9 @@ DNS-запросы перенаправляются в локальный кеш
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Мастер Managed Service for Kubernetes (см. [тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
-* Публичные IP-адреса для узлов кластера Managed Service for Kubernetes (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
+* Публичные IP-адреса для узлов кластера Managed Service for Kubernetes ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Перед началом работы {#before-you-begin}

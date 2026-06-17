@@ -190,7 +190,7 @@
    vault-yckms-k8s-0  1/1    Running  0         5m
    ```
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация HashiCorp Vault](https://developer.hashicorp.com/vault/docs?product_intent=vault)
 * [Документация Key Management Service](../../../kms/index.md)

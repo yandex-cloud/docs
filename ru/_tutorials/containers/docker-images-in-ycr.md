@@ -13,7 +13,7 @@
 
 * Образы в {{ container-registry-full-name }} остаются доступными, даже если {{ mgl-name }} недоступен.
 
-* {{ container-registry-full-name }} поддерживает [сканер уязвимостей Docker-образов](../../container-registry/concepts/vulnerability-scanner.md). С его помощью можно обнаружить уязвимости и устранить их до развертывания приложения. Подробнее о сканировании см. в [блоге {{ yandex-cloud }}](/blog/posts/2023/04/vulnerability-scanner-and-yandex-container-registry).
+* {{ container-registry-full-name }} поддерживает [сканер уязвимостей Docker-образов](../../container-registry/concepts/vulnerability-scanner.md). С его помощью можно обнаружить уязвимости и устранить их до развертывания приложения. Подробнее о сканировании смотрите в [блоге {{ yandex-cloud }}](/blog/posts/2023/04/vulnerability-scanner-and-yandex-container-registry).
 
 Чтобы настроить хранение Docker-образов из {{ mgl-name }} в {{ container-registry-full-name }}:
 
@@ -45,10 +45,10 @@
 
 В стоимость поддержки инфраструктуры входит плата за следующие ресурсы:
 
-* Диски и постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Использование динамического публичного IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
-* Хранение созданных Docker-образов и сканер уязвимостей, если вы его [активируете](#vulnerability-scanner) (см. [тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
-* Использование мастера {{ managed-k8s-name }} (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Диски и постоянно запущенные виртуальные машины ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Использование динамического публичного IP-адреса ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Хранение созданных Docker-образов и сканер уязвимостей, если вы его [активируете](#vulnerability-scanner) ([тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
+* Использование мастера {{ managed-k8s-name }} ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
 
 ### Подготовьте инфраструктуру {#deploy-infrastructure}
 

@@ -47,9 +47,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для реализации сценария автоматического ИИ-ревью пул-реквестов входят:
-* плата за генерацию текста (см. [тарифы Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing));
-* плата за хранение секрета и операции с ним (см. [тарифы Yandex Lockbox](../../lockbox/pricing.md));
-* плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md), если вы используете сервис [Cloud Logging](../../logging/index.md) (см. [тарифы Yandex Cloud Logging](../../logging/pricing.md)).
+* плата за генерацию текста ([тарифы Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing));
+* плата за хранение секрета и операции с ним ([тарифы Yandex Lockbox](../../lockbox/pricing.md));
+* плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md), если вы используете сервис [Cloud Logging](../../logging/index.md) ([тарифы Yandex Cloud Logging](../../logging/pricing.md)).
 
 ### Создайте секрет Yandex Lockbox {#create-secret}
 

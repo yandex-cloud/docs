@@ -108,7 +108,7 @@ description: Следуя данной инструкции, вы научите
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/correlation-rules.md).
 * [{#T}](../exceptions/manage-exceptions.md).

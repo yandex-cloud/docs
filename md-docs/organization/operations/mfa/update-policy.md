@@ -22,7 +22,7 @@
          
          * `Любые методы`. В этом варианте пользователи должны будут выбрать один из следующих стандартов дополнительного фактора аутентификации:
          
-             * [WebAuthn](https://en.wikipedia.org/wiki/WebAuthn) ([FIDO2](https://en.wikipedia.org/wiki/FIDO_Alliance#FIDO2)). Дополнительным фактором аутентификации будут выступать, например, аппаратные ключи, такие как [Рутокен](https://www.rutoken.ru/) или [YubiKey](https://developers.yubico.com/Passkeys/), аутентификаторы [Passkeys](https://www.passkeys.com/), платформенные аутентификаторы, такие как [Windows Hello](https://www.microsoft.com/en-us/windows/tips/windows-hello), и т.п. См. подробнее о [поддержке WebAuthn браузерами и операционными системами](../../concepts/mfa.md#webauthn-support).
+             * [WebAuthn](https://en.wikipedia.org/wiki/WebAuthn) ([FIDO2](https://en.wikipedia.org/wiki/FIDO_Alliance#FIDO2)). Дополнительным фактором аутентификации будут выступать, например, аппаратные ключи, такие как [Рутокен](https://www.rutoken.ru/) или [YubiKey](https://developers.yubico.com/Passkeys/), аутентификаторы [Passkeys](https://www.passkeys.com/), платформенные аутентификаторы, такие как [Windows Hello](https://www.microsoft.com/en-us/windows/tips/windows-hello), и т.п. Подробнее о [поддержке WebAuthn браузерами и операционными системами](../../concepts/mfa.md#webauthn-support).
          
                  {% note warning %}
          
@@ -164,7 +164,7 @@
      * `enroll_window` — период времени после регистрации, в течение которого пользователь должен добавить второй фактор аутентификации. Указывается в формате времени, например, `720h0m0s` для 30 дней. Обязательный параметр.
      * `description` — описание политики. Необязательный параметр.
      
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_mfa_enforcement` см. в [документации провайдера](../../../terraform/resources/organizationmanager_mfa_enforcement.md).
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_mfa_enforcement` смотрите в [документации провайдера](../../../terraform/resources/organizationmanager_mfa_enforcement.md).
 
   1. Примените изменения:
 
@@ -214,7 +214,7 @@
 
 {% endnote %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создать политику MFA](create-policy.md)
 * [Применить политику MFA к пользователям](add-users.md)

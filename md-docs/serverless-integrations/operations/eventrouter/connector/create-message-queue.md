@@ -178,7 +178,7 @@
 
           Коннектор группирует сообщения не дольше указанного таймаута опроса и отправляет их в [правило](../../../concepts/eventrouter/rule.md). Число сообщений при этом не превышает указанного размера группы.
 
-      Более подробную информацию о параметрах ресурса `yandex_serverless_eventrouter_connector` см. в [документации провайдера](../../../../terraform/resources/serverless_eventrouter_connector.md).
+      Подробнее о параметрах ресурса `yandex_serverless_eventrouter_connector` в [документации провайдера](../../../../terraform/resources/serverless_eventrouter_connector.md).
 
   1. Создайте ресурсы:
 

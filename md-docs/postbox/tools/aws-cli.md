@@ -5,7 +5,7 @@
 ## Подготовка к работе {#before-you-begin}
 
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт.
-1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роли](../security/index.md), необходимые для вашего проекта. Подробнее о ролях см. в [документации Identity and Access Management](../../iam/concepts/access-control/roles.md).
+1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роли](../security/index.md), необходимые для вашего проекта. Подробнее о ролях в [документации Identity and Access Management](../../iam/concepts/access-control/roles.md).
 1. [Создайте](../../iam/operations/authentication/manage-access-keys.md#create-access-key) статические ключи доступа. Надежно сохраните идентификатор и секретный ключ. После того как вы закроете окно, параметры секретного ключа станут недоступны.
 
 ## Установка {#installation}

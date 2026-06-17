@@ -44,7 +44,7 @@
 |#
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Посмотреть статистику резервного копирования](operations/get-stats.md)
 * [Настроить алерты Yandex Monium для ресурсов Yandex Cloud Backup](operations/configure-alerts.md)

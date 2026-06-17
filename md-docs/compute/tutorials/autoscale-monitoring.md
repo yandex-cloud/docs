@@ -33,9 +33,9 @@
 
 В стоимость инфраструктуры входят:
 
-* плата за использование виртуальных машин и хранение [образа](../concepts/image.md) (см. [тарифы Compute Cloud](../pricing.md));
-* плата за использование публичных IP-адресов и исходящий трафик с ВМ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md));
-* плата за запросы к очереди (см. [тарифы Message Queue](../../message-queue/pricing.md)).
+* плата за использование виртуальных машин и хранение [образа](../concepts/image.md) ([тарифы Compute Cloud](../pricing.md));
+* плата за использование публичных IP-адресов и исходящий трафик с ВМ ([тарифы Virtual Private Cloud](../../vpc/pricing.md));
+* плата за запросы к очереди ([тарифы Message Queue](../../message-queue/pricing.md)).
 
 ## Подготовьте окружение {#prepare}
 

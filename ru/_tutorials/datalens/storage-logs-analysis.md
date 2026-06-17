@@ -27,8 +27,8 @@
 
 В стоимость входят:
 
-* плата за хранение данных в {{ objstorage-short-name }}, операции с ними и исходящий трафик (см. [тарифы {{ objstorage-short-name }}](../../storage/pricing.md));
-* плата за постоянно запущенный кластер {{ mch-name }} (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* плата за хранение данных в {{ objstorage-short-name }}, операции с ними и исходящий трафик ([тарифы {{ objstorage-short-name }}](../../storage/pricing.md));
+* плата за постоянно запущенный кластер {{ mch-name }} ([тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
 
 
 ## Создайте бакет для хранения логов {#create-bucket}
@@ -83,7 +83,7 @@
      }
      ```
 
-     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации]({{ tf-provider-resources-link }}/storage_bucket) провайдера {{ TF }}.
+     Подробнее о ресурсе смотрите `yandex_storage_bucket` в [документации]({{ tf-provider-resources-link }}/storage_bucket) провайдера {{ TF }}.
      
   1. Проверьте корректность настроек.
 
@@ -171,7 +171,7 @@
         * `target_bucket` — указание на бакет для хранения логов.
         * `target_prefix` — [префикс ключа](../../storage/concepts/server-logs.md#key-prefix) для объектов с логами.
 
-        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+        Подробнее о параметрах ресурса `yandex_storage_bucket` в {{ TF }} смотрите в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
 
         {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -189,7 +189,7 @@
 ### Создайте кластер {{ CH }} {#create-ch-cluster}
 
 
-Для создания кластера {{ mch-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mch.editor }} или выше](../../managed-clickhouse/security.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
+Для создания кластера {{ mch-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mch.editor }} или выше](../../managed-clickhouse/security.md#roles-list). О том, как назначить роль, смотрите в [документации {{ iam-name }}](../../iam/operations/roles/grant.md).
 
 
 {% list tabs group=instructions %}
@@ -319,7 +319,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mch }}).
+     Подробнее о ресурсах, которые вы можете создать с помощью {{ TF }}, смотрите в [документации провайдера]({{ tf-provider-mch }}).
 
   1. Проверьте корректность настроек.
 

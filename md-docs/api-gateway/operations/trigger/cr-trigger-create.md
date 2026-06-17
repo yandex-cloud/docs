@@ -133,7 +133,7 @@
 
 Проверьте, что триггер работает корректно. Для этого посмотрите [логи API-шлюза](../api-gw-logs.md), в них отображается информация об обращениях к нему.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для Container Registry, который вызывает функцию Cloud Functions](../../../functions/operations/trigger/cr-trigger-create.md)
 * [Триггер для Container Registry, который вызывает контейнер Serverless Containers](../../../serverless-containers/operations/cr-trigger-create.md)

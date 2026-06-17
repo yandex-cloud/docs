@@ -2,7 +2,7 @@
 
 Вы можете расширить кластер {{ mgp-name }}, добавив хосты-сегменты. Количество добавляемых хостов не может быть меньше двух. Вы также можете увеличить [количество сегментов на хост](../concepts/index.md).
 
-Во время расширения кластера данные автоматически перераспределяются равномерно по всем хостам кластера (включая добавленные хосты). Подробнее см. в разделе [{#T}](../concepts/expand.md).
+Во время расширения кластера данные автоматически перераспределяются равномерно по всем хостам кластера (включая добавленные хосты). Подробнее читайте в разделе [{#T}](../concepts/expand.md).
 
 ## Расширить кластер {#add-hosts}
 
@@ -291,7 +291,7 @@
     WHERE fq_name IN (<список_полных_имен_таблиц>);
     ```
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-expand-expand-redistribute.html#ranking-tables-for-redistribution).
+    Подробнее читайте в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-expand-expand-redistribute.html#ranking-tables-for-redistribution).
 
 ### Запустить перераспределение данных вручную {#start-redistribute}
 
@@ -323,7 +323,7 @@
     * `relname` — имя таблицы;
     * `numsegment` — количество сегментов, по которым размещены данные.
 
-    Подробнее см. в документации {{ GP }}, посвященной таблице [gp_distribution_policy]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-system_catalogs-gp_distribution_policy.html).
+    Подробнее читайте в документации {{ GP }}, посвященной таблице [gp_distribution_policy]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-system_catalogs-gp_distribution_policy.html).
 
 1. Запустите перераспределение данных, пользуясь информацией, полученной ранее.
 

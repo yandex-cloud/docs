@@ -2,7 +2,7 @@
 
 {% include [player-presets](../../_includes/video/player-presets.md) %}
 
-#### См. также
+#### Полезные ссылки {#see-also}
 
   * [{#T}](../operations/style-presets/create.md)
   * [{#T}](../operations/style-presets/set-default.md)

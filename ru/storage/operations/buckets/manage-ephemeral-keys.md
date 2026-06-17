@@ -8,7 +8,7 @@ description: Из статьи вы узнаете, как получить до
 {% include [ephemeral-key-storage](../../../_tutorials/security/ephemeral-key-storage.md) %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../security/overview.md)
 * [{#T}](create-sts-key.md)

@@ -82,7 +82,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Настройка политик жизненного цикла](../../tutorials/lifecycle-policy-examples.md)
 * [Политика жизненного цикла в Yandex Cloud Registry](../../concepts/lifecycle-policy.md)

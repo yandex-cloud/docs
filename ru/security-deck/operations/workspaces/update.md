@@ -126,7 +126,7 @@ description: Из этой инструкции вы узнаете, как из
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/workspace.md)
 * [{#T}](./create.md)

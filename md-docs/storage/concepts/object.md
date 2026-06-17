@@ -165,7 +165,7 @@ Object Storage накладывает ограничения на размеры
 
     {% endnote %}
 
-Чтобы сделать проверку условий обязательной, используйте [политику доступа](policy.md#conditional-writes-policy). См. [примеры правил](policy.md#conditional-writes-rules).
+Чтобы сделать проверку условий обязательной, используйте [политику доступа](policy.md#conditional-writes-policy). Смотрите [примеры правил](policy.md#conditional-writes-rules).
 
 
 ## Примеры использования {#examples}
@@ -174,6 +174,6 @@ Object Storage накладывает ограничения на размеры
 * [Получение статистики запросов к объектам Object Storage с использованием Yandex Query](../tutorials/server-logs-yq.md)
 * [Автоматическое копирование объектов из одного бакета Object Storage в другой](../tutorials/bucket-to-bucket.md)
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Обзор способов управления доступом в Object Storage](../security/overview.md)

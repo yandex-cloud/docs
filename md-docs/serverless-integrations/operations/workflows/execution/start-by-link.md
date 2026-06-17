@@ -71,7 +71,7 @@
     curl "https://serverless-workflows.api.cloud.yandex.net/workflows/v1/execution/fd2g4pu20roc********/start" -d '{"hello": "world"}'
     ```
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Запуск рабочего процесса](../../../concepts/workflows/execution.md)
 * [Получить список запусков рабочего процесса](get-list.md)

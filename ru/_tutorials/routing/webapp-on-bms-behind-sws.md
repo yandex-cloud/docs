@@ -41,12 +41,12 @@
 
 В стоимость поддержки инфраструктуры для развертывания веб-приложения на серверах {{ baremetal-name }} с L7-балансировщиком и защитой {{ sws-name }} входят:
 
-* плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) виртуальной машины (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
-* плата за вычислительные ресурсы и диски [ВМ](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за аренду серверов {{ baremetal-name }} (см. [тарифы {{ baremetal-full-name }}](../../baremetal/pricing.md));
-* плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы {{ alb-full-name }}](../../application-load-balancer/pricing.md));
-* плата за запросы, обработанные правилами профиля безопасности (см. [тарифы {{ sws-full-name }}](../../smartwebsecurity/pricing.md));
-* при использовании [лог-группы](../../logging/concepts/log-group.md) для записи логов балансировщика плата за запись и хранение данных (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
+* плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) виртуальной машины ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
+* плата за вычислительные ресурсы и диски [ВМ](../../compute/concepts/vm.md) ([тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за аренду серверов {{ baremetal-name }} ([тарифы {{ baremetal-full-name }}](../../baremetal/pricing.md));
+* плата за использование вычислительных ресурсов L7-балансировщика ([тарифы {{ alb-full-name }}](../../application-load-balancer/pricing.md));
+* плата за запросы, обработанные правилами профиля безопасности ([тарифы {{ sws-full-name }}](../../smartwebsecurity/pricing.md));
+* при использовании [лог-группы](../../logging/concepts/log-group.md) для записи логов балансировщика плата за запись и хранение данных ([тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
 
 {% include [bms-vpc-private-over-cic-free-traffic](../../_includes/baremetal/bms-vpc-private-over-cic-free-traffic.md) %}
 

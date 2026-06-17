@@ -180,7 +180,7 @@ instance_template:
 * [{#T}](../../tutorials/vm-scale-scheduled/index.md)
 * [{#T}](../../tutorials/autoscale-monitoring.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../vm-metadata.md).
 * [Создание виртуальной машины с пользовательским скриптом конфигурации](../../operations/vm-create/create-with-cloud-init-scripts.md).

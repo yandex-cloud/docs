@@ -93,7 +93,7 @@
 1. [Загрузите](../../storage/operations/objects/upload.md#simple) в папку `input` аудиофайлы любого [поддерживаемого формата](https://aistudio.yandex.ru/docs/ru/speechkit/formats).
 1. Подождите несколько минут и убедитесь, что в бакете появились папки `log` и `out`.
 1. Проверьте статус распознавания в папке `log`. Для каждого из отправленных на распознавание аудиофайлов статус сохраняется во вспомогательном файле `<имя_аудиофайла>.json` (например, `audio.mp3.json`). Если в файле содержится параметр `"done": "false"`, то процесс распознавания не завершен.
-1. Проверьте результат распознавания в папке `out`. Результат сохраняется в формате JSON в файле с именем `<имя_аудиофайла>.json` (например, `audio.mp3.json`). Подробнее о формате результата распознавания см. раздел [API асинхронного распознавания](https://aistudio.yandex.ru/docs/ru/speechkit/stt/api/transcribation-api#get-result-response).
+1. Проверьте результат распознавания в папке `out`. Результат сохраняется в формате JSON в файле с именем `<имя_аудиофайла>.json` (например, `audio.mp3.json`). Подробнее о формате результата распознавания смотрите в разделе [API асинхронного распознавания](https://aistudio.yandex.ru/docs/ru/speechkit/stt/api/transcribation-api#get-result-response).
 
 {% note info %}
 
@@ -102,7 +102,7 @@
 {% endnote %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 
 * [API v2 асинхронного распознавания](https://aistudio.yandex.ru/docs/ru/speechkit/stt/api/transcribation-api)

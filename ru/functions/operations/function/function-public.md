@@ -57,7 +57,7 @@
 
         Чтобы функция стала публичной, назначьте роль `{{ roles-functions-invoker }}` всем неавторизованным пользователям ([публичной группе](../../../iam/concepts/access-control/public-group.md) `All users`).
 
-     Более подробную информацию о параметрах ресурса `yandex_function_iam_binding` см. в [документации провайдера]({{ tf-provider-resources-link }}/function_iam_binding).
+     Подробнее о параметрах ресурса `yandex_function_iam_binding` в [документации провайдера]({{ tf-provider-resources-link }}/function_iam_binding).
 
   1. Проверьте конфигурацию командой:
 

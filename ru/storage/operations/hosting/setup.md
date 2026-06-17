@@ -438,7 +438,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](../../qa.md#qa-mime-type)
 * [{#T}](own-domain.md)

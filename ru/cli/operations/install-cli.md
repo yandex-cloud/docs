@@ -159,7 +159,7 @@
 {% include [next-step-cli-profile](../../_includes/cli/next-step-cli-profile.md) %}
 
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](profile/profile-create.md)
 * [{#T}](update-cli.md)

@@ -31,7 +31,7 @@
 {% include [ymq-format](../../../_includes/functions/ymq-format.md) %}
 
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../../functions/concepts/trigger/ymq-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/ymq-trigger.md)

@@ -45,7 +45,7 @@ description: Следуя данной инструкции, вы сможете
 
       Где:
       
-      * `--schedule-cron-expression` — cron-выражение, например: `"0 * * * * *"`. Подробнее о формате cron-выражений см. [{#T}](../../../concepts/cron.md).
+      * `--schedule-cron-expression` — cron-выражение, например: `"0 * * * * *"`. Подробнее о формате cron-выражений в [{#T}](../../../concepts/cron.md).
       * `--schedule-timezone` — часовой пояс, например `Europe/Moscow`.
 
       Результат:
@@ -124,7 +124,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../../concepts/workflows/execution.md)
 * [{#T}](get-list.md)

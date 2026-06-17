@@ -29,7 +29,7 @@
 
 {% include [iot-format](../../../_includes/functions/iot-format-broker.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для {{ iot-name }}, который передает сообщения в контейнер {{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/iot-core-trigger.md)
 * [Триггер для {{ iot-name }}, который передает сообщения в функцию {{ sf-name }}](../../../functions/concepts/trigger/iot-core-trigger.md)

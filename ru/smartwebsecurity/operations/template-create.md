@@ -46,7 +46,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](template-attach.md)
 * [{#T}](../concepts/response-templates.md)

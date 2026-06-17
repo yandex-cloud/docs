@@ -285,7 +285,7 @@ description: Из статьи вы узнаете, как создать пол
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](update.md).
 * [{#T}](delete.md).

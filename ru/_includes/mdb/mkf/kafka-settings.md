@@ -33,7 +33,7 @@
 
     Минимальное значение и значение по умолчанию — `1`. Максимальное значение равно количеству хостов-брокеров в кластере.
 
-    См. также описание настройки уровня топика [Replication factor](#settings-topic-replication-factor).
+    Смотрите также описание настройки уровня топика [Replication factor](#settings-topic-replication-factor).
 
     Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_default.replication.factor).
 
@@ -87,7 +87,7 @@
 
     Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.retention.bytes).
 
-    См. также настройку [Log retention ms](#settings-log-retention-ms).
+    Смотрите также настройку [Log retention ms](#settings-log-retention-ms).
 
 * **Log retention hours** {{ tag-all }} {#settings-log-retention-hours}
 
@@ -121,7 +121,7 @@
 
     Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.retention.ms).
 
-    См. также настройку [Log retention bytes](#settings-log-retention-bytes).
+    Смотрите также настройку [Log retention bytes](#settings-log-retention-bytes).
 
 * **Log segment bytes** {{ tag-all }} {#settings-log-segment-bytes}
 
@@ -154,7 +154,7 @@
 
     Минимальное значение и значение по умолчанию — `1`.
 
-    См. также описание настройки уровня топика [Num partitions](#settings-topic-num-partitions).
+    Смотрите также описание настройки уровня топика [Num partitions](#settings-topic-num-partitions).
 
     Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_num.partitions).
 

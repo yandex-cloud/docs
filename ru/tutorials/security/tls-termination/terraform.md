@@ -9,6 +9,6 @@ description: В этом руководстве вы настроите бала
 
 {% include [tls-termination-terraform](../../../_tutorials/security/tls-termination-terraform.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](console.md)

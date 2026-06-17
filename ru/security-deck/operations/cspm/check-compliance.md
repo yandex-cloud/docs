@@ -32,6 +32,6 @@ description: В данном разделе вы узнаете, как испо
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/standard-compliance/index.md)

@@ -30,7 +30,7 @@
 
 {% include [ymq-format](../../../_includes/functions/ymq-format.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для {{ message-queue-name }}, который передает сообщения в контейнер {{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/ymq-trigger.md)
 * [Триггер для {{ message-queue-name }}, который передает сообщения в функцию {{ sf-name }}](../../../functions/concepts/trigger/ymq-trigger.md)

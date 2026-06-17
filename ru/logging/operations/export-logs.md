@@ -35,7 +35,7 @@ description: Из статьи вы узнаете, как выгружать л
 {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../tutorials/replicate-logs-to-storage.md)
 * [{#T}](../tutorials/replicate-logs-to-storage-via-data-streams.md)

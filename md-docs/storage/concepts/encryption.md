@@ -21,7 +21,7 @@
 * `kms.keys.decrypter` — для чтения ключа, [расшифровки](../../kms/security/index.md#kms-keys-decrypter) и скачивания объектов;
 * `kms.keys.encrypterDecrypter` — включает [разрешения](../../kms/security/index.md#kms-keys-encrypterDecrypter), предоставляемые ролями `kms.keys.encrypter` и `kms.keys.decrypter`.
 
-Подробнее см. [Сервисные роли Key Management Service](../../kms/security/index.md#service-roles).
+Подробнее смотрите [Сервисные роли Key Management Service](../../kms/security/index.md#service-roles).
 
 Кроме шифрования с помощью Key Management Service-ключей, вы можете использовать следующие подходы:
 
@@ -36,7 +36,7 @@
 * [Загрузка аудитных логов в SIEM Splunk](../tutorials/export-logs-to-splunk.md)
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Шифрование бакета](../operations/buckets/encrypt.md)
 * [Управление ключами](../../kms/operations/key.md)

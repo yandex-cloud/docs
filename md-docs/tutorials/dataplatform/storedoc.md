@@ -16,9 +16,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Yandex StoreDoc: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Yandex StoreDoc](../../storedoc/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы Data Transfer](../../data-transfer/pricing.md)).
+* Кластер Yandex StoreDoc: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Yandex StoreDoc](../../storedoc/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы Data Transfer](../../data-transfer/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -73,6 +73,6 @@
 1. [Удалите остановленный трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 Другие способы миграции описаны в [документации Yandex StoreDoc (Managed Service for MongoDB)](../../storedoc/tutorials/data-migration.md).

@@ -135,7 +135,7 @@ Create a [cloud network](../../vpc/concepts/network.md) with a [subnet](../../vp
   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `db-password-secret`.
   1. In the **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
-  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, specify `db_password`.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, enter `db_password`.
   1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, paste the {{ mmy-name }} database password.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -270,7 +270,7 @@ Install [WordPress](/marketplace/products/yc/wordpress-app) using {{ cloud-apps-
 
 To shut down the resources you created and stop paying for them:
 
-1. Delete the {{ postbox-name }} address and the associated [DNS record](../../dns/operations/resource-record-delete.md) because they will not be deleted after you delete the application.
+1. Delete the {{ postbox-name }} address and the associated [DNS record](../../dns/operations/resource-record-delete.md). These resources are not removed automatically when you delete the application.
 1. Delete the installed WordPress app:
 
    1. In the [management console]({{ link-console-main }}), select the folder the application is installed in.

@@ -8,7 +8,7 @@
 
 {% endnote %}
 
-`Ingress` — стандартный ресурс Kubernetes. Ниже описаны поля и аннотации ресурса, с которыми работает Ingress-контроллер Application Load Balancer. Полное описание конфигурации ресурса см. в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/ingress-v1/).
+`Ingress` — стандартный ресурс Kubernetes. Ниже описаны поля и аннотации ресурса, с которыми работает Ingress-контроллер Application Load Balancer. Полное описание конфигурации ресурса смотрите в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/ingress-v1/).
 
 ## Ingress {#ingress}
 
@@ -139,13 +139,13 @@ annotations:
   ingress.alb.yc.io/modify-header-response-replace: X-Robots-Tag=noarchive,X-Robots-Tag=nofollow,X-Robots-Tag=noindex
   ```
 
-Подробнее об аннотациях см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
+Подробнее об аннотациях смотрите в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
 
 Для объекта `ObjectMeta` можно передать следующие аннотации:
 
 * **ingress.alb.yc.io/group-name** {#annot-group-name}
 
-  Имя группы ресурсов `Ingress`. Для каждой группы создается отдельный балансировщик. Несколько ресурсов `Ingress` можно объединить в одну группу, чтобы не создавать балансировщик для каждого отдельного ресурса `Ingress`. Подробнее о формате см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+  Имя группы ресурсов `Ingress`. Для каждой группы создается отдельный балансировщик. Несколько ресурсов `Ingress` можно объединить в одну группу, чтобы не создавать балансировщик для каждого отдельного ресурса `Ingress`. Подробнее о формате смотрите в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
   Поле обязательно, даже если ресурс `Ingress` — единственный в группе.
 
@@ -235,7 +235,7 @@ annotations:
 
   Если аннотация не указана, балансировщик соединяется с бэкендами без шифрования.
 
-  Для бэкендов, входящих в состав групп, значение аннотации игнорируется. Шифрование соединений балансировщика с бэкендами из групп настраивается с помощью поля `spec.backend.tls` ресурса `HttpBackendGroup` (см. [справочник ресурса](http-backend-group.md)).
+  Для бэкендов, входящих в состав групп, значение аннотации игнорируется. Шифрование соединений балансировщика с бэкендами из групп настраивается с помощью поля `spec.backend.tls` ресурса `HttpBackendGroup` (смотрите [справочник ресурса](http-backend-group.md)).
 
 * **ingress.alb.yc.io/prefix-rewrite** {#annot-prefix-rewrite}
 
@@ -399,7 +399,7 @@ annotations:
 
   {% note info %}
   
-  Для подключения профиля безопасности к виртуальному хосту Application Load Balancer у сервисного аккаунта, от имени которого работает Ingress-контроллер, должна быть роль [smart-web-security.editor](../../smartwebsecurity/security/index.md#smart-web-security-editor) на каталог, в котором размещены ресурсы Application Load Balancer и Smart Web Security. Подробнее см. [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
+  Для подключения профиля безопасности к виртуальному хосту Application Load Balancer у сервисного аккаунта, от имени которого работает Ingress-контроллер, должна быть роль [smart-web-security.editor](../../smartwebsecurity/security/index.md#smart-web-security-editor) на каталог, в котором размещены ресурсы Application Load Balancer и Smart Web Security. Подробнее смотрите [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
   
   {% endnote %}
 
@@ -657,7 +657,7 @@ resource:
 
     Имя порта сервиса.
 
-    Имя должно совпадать с одним из имен портов, указанных в полях `spec.ports.name` ресурса `Service`. Подробнее см. в [спецификации ресурса](service-for-ingress.md).
+    Имя должно совпадать с одним из имен портов, указанных в полях `spec.ports.name` ресурса `Service`. Подробнее в [спецификации ресурса](service-for-ingress.md).
 
     Для порта сервиса должно быть указано либо имя, либо номер (`number`), но не оба одновременно.
 
@@ -665,7 +665,7 @@ resource:
 
     Номер порта сервиса.
 
-    Номер должен совпадать с одним из номеров портов, указанных в полях `spec.ports.port` ресурса `Service`. Подробнее см. в [спецификации ресурса](service-for-ingress.md).
+    Номер должен совпадать с одним из номеров портов, указанных в полях `spec.ports.port` ресурса `Service`. Подробнее в [спецификации ресурса](service-for-ingress.md).
 
     Для порта сервиса должен быть указан либо номер, либо имя (`name`), но не оба одновременно.
 
@@ -681,7 +681,7 @@ resource:
 * `kind`: `HttpBackendGroup`
 * `name` (`string`) — имя группы бэкендов.
 
-    Имя должно совпадать с именем, указанным в поле `metadata.name` ресурса `HttpBackendGroup`. Подробнее см. в [конфигурации ресурса](http-backend-group.md).
+    Имя должно совпадать с именем, указанным в поле `metadata.name` ресурса `HttpBackendGroup`. Подробнее в [конфигурации ресурса](http-backend-group.md).
 
 * `apiGroup`: `alb.yc.io`
 

@@ -110,6 +110,13 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./enable-refresh-tokens.md)
 * [{#T}](./enable-2fa-access.md)
 
+## Управление политиками аутентификации {#manage-authentication-policies}
+
+* [{#T}](./authentication-policies/create.md)
+* [{#T}](./authentication-policies/activate-deactivate.md)
+* [{#T}](./authentication-policies/update.md)
+* [{#T}](./authentication-policies/delete.md)
+
 ## Работа с {{ oslogin }} {#os-login}
 
 * [{#T}](./os-login-access.md)

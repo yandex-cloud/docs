@@ -7,7 +7,7 @@ description: С помощью данного руководства вы раз
 
 {% include [coi-based](../../../_tutorials/archive/integrate-nextcloud/coi-based.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./fault-tolerant.md)
 * [{#T}](./terraform.md)

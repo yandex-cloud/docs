@@ -22,6 +22,6 @@ resource_type | Тип ресурса: `bucket`
 `space_usage`<br/>`DGAUGE`, байты | Использованный объем хранилища.<br/>Специальные метки:<br/><ul><li>`object_type` — тип объекта. Возможные значения:<ul><li>`MultiPart` — объекты, загруженные по частям (multipart).</li><li>`Parts` — части объектов, загруженных по частям.</li><li>`Simple` — объекты, загруженные без разбиения на части.</li></ul></li><li>`storage_type` — [класс хранилища](concepts/storage-class.md). Возможные значения:<ul><li>`All` — все классы.</li><li>`ColdStorage` — холодное.</li><li>`IceStorage` — ледяное.</li><li>`StandardStorage` — стандартное.</li></ul></ul>
 `traffic`<br/>`DGAUGE`, байты | Объем трафика. Специальная метка `bytes` — направление трафика относительно хранилища.<br/>Возможные значения:<br/><ul><li>`BytesDownloaded` — исходящий.</li><li>`BytesUploaded` — входящий.</li></ul>
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Просмотр метрик бакета](operations/buckets/get-stats.md)

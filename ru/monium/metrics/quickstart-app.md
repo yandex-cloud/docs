@@ -32,7 +32,7 @@
 
 Дополнительные возможности работы с метриками см. в разделе [{#T}](../metrics/metric-explorer.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../metrics/metric-explorer.md)
 * [{#T}](../logs/quickstart.md)

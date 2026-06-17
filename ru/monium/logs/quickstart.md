@@ -56,7 +56,7 @@
 
 {% include [service-logs](../../_includes/monium/service-logs.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../traces/index.md)
 * [{#T}](../metrics/quickstart.md)

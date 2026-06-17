@@ -39,7 +39,7 @@ _Снимок диска_ — это копия файловой системы 
 {% endnote %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../snapshot-control/create-schedule.md)
 * [{#T}](../disk-create/from-snapshot.md)

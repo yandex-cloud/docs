@@ -93,6 +93,6 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Имперсонация](../../concepts/access-control/impersonation.md)

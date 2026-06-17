@@ -140,7 +140,7 @@
     http://cdn.example.com/index.html
     ```
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создание CDN-ресурса с источником-бакетом Yandex Object Storage](bucket.md)
 * [Обзор сервиса Yandex Cloud CDN](../concepts/index.md)
@@ -148,3 +148,4 @@
 * [Аренда сервера BareMetal в готовой конфигурации](../../baremetal/operations/servers/server-lease.md)
 * [Создание сайта на LAMP- или LEMP-стеке](../../tutorials/web/lamp-lemp/index.md)
 * [Настройка веб-сервера](../tutorials/protected-access-to-content/console.md#setup-web-server)
+* [Вебинар: как с помощью Cloud CDN разгрузить высоконагруженную инфраструктуру](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)

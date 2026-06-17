@@ -94,7 +94,7 @@ description: Управление доступом в сервисе, предо
 || [Выдача роли](#grant-role) в сообществе | `Admin` на сообщество ||
 |#
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{{ org-full-name }}](../../organization/).
 * [{#T}](../../iam/concepts/access-control/index.md).

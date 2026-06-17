@@ -10,6 +10,6 @@ description: В этом руководстве вы развернете гру
 
 {% include [vm-autoscale-console](../../../_tutorials/infrastructure/vm-autoscale-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md)

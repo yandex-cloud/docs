@@ -15,10 +15,10 @@ Gwin — инструмент для управления балансировщ
 
 В стоимость поддержки инфраструктуры входит:
 
-* Плата за мастер {{ managed-k8s-name }} (см. [тарифы {{ managed-k8s-name }}](../../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища (см. [тарифы {{ compute-name }}](../../../compute/pricing.md)).
-* Плата за публичные IP-адреса для хостов кластера {{ managed-k8s-name }} и узлов кластера {{ managed-k8s-name }}, если для них включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md#prices-public-ip)).
-* Плата за использование вычислительных ресурсов балансировщика (см. [тарифы {{ alb-name }}](../../../application-load-balancer/pricing.md)).
+* Плата за мастер {{ managed-k8s-name }} ([тарифы {{ managed-k8s-name }}](../../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-name }}](../../../compute/pricing.md)).
+* Плата за публичные IP-адреса для хостов кластера {{ managed-k8s-name }} и узлов кластера {{ managed-k8s-name }}, если для них включен публичный доступ ([тарифы {{ vpc-name }}](../../../vpc/pricing.md#prices-public-ip)).
+* Плата за использование вычислительных ресурсов балансировщика ([тарифы {{ alb-name }}](../../../application-load-balancer/pricing.md)).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -81,7 +81,7 @@ Gwin — инструмент для управления балансировщ
 
             {% endnote %}
 
-      Подробнее см. на странице [{#T}](../../../managed-kubernetes/tutorials/wlif-managed-k8s-integration.md).
+      Подробнее на странице [{#T}](../../../managed-kubernetes/tutorials/wlif-managed-k8s-integration.md).
 
     - Авторизованный ключ {#authorized-key}
 

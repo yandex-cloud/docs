@@ -29,7 +29,7 @@
 * [{#T}](../tutorials/export-logs-to-splunk.md)
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/buckets/encrypt.md)
 * [{#T}](../../kms/operations/key.md)

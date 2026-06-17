@@ -58,7 +58,7 @@
       name: backup-sa
       ```
 
-      Подробнее о команде `yc iam service-account create` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
+      Подробнее о команде `yc iam service-account create` смотрите в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
   1. Назначьте сервисному аккаунту роль `backup.user` на каталог:
 
@@ -81,7 +81,7 @@
               type: serviceAccount
       ```
 
-      Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
+      Подробнее о команде `yc resource-manager folder add-access-binding` смотрите в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 - API {#api}
 
@@ -124,7 +124,7 @@
       default_security_group_id: enpbsnnop4ak********
       ```
 
-      Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
+      Подробнее о команде `yc vpc network create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
   1. Создайте подсеть `cloud-network-{{ region-id }}-d` в зоне доступности `{{ region-id }}-d`:
 
@@ -148,7 +148,7 @@
       - 10.1.0.0/16
       ```
 
-      Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
+      Подробнее о команде `yc vpc subnet create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 - API {#api}
 
@@ -249,7 +249,7 @@
           - 0.0.0.0/0
   ```
 
-  Подробнее о команде `yc vpc security-group create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
+  Подробнее о команде `yc vpc security-group create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
 - API {#api}
 
@@ -420,7 +420,7 @@
 
       Сохраните идентификатор (`id`) политики.
 
-      Подробнее о команде `yc backup policy create` см. в [справочнике CLI](../../cli/cli-ref/backup/cli-ref/policy/create.md).
+      Подробнее о команде `yc backup policy create` смотрите в [справочнике CLI](../../cli/cli-ref/backup/cli-ref/policy/create.md).
 
 - API {#api}
 
@@ -486,7 +486,7 @@
       {"initialPolicies": ["<идентификатор_политики_weekly-backup>"]}
       ```
 
-      Подробности о получении идентификатора политики см. на странице [{#T}](../../backup/operations/policy-vm/get-info.md).
+      Подробности о получении идентификатора политики смотрите на странице [{#T}](../../backup/operations/policy-vm/get-info.md).
 
   1. Выполните команду:
 
@@ -500,7 +500,7 @@
         --service-account-name backup-sa
       ```
 
-      Подробнее о команде `yc compute instance create` см. в [справочнике CLI](../../cli/cli-ref/compute/cli-ref/instance/create.md).
+      Подробнее о команде `yc compute instance create` смотрите в [справочнике CLI](../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
 - API {#api}
 
@@ -509,7 +509,7 @@
   В теле запроса передайте:
 
   * в поле `metadata`: объект `user-data`, содержащий конфигурацию пользовательских метаданных со скриптом для установки агента {{ backup-name }};
-  * в поле `cloudbackup`: идентификатор политики резервного копирования. Подробности о получении идентификатора политики см. на странице [{#T}](../../backup/operations/policy-vm/get-info.md).
+  * в поле `cloudbackup`: идентификатор политики резервного копирования. Подробности о получении идентификатора политики смотрите на странице [{#T}](../../backup/operations/policy-vm/get-info.md).
 
   Используйте `\n` в качестве разделителя строк:
 

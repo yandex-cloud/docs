@@ -8,6 +8,6 @@ canonical: '{{ link-docs }}/tutorials/archive/single-node-file-server/terraform'
 
 {% include [tls-termination-terraform](../../../_tutorials/archive/single-node-file-server-terraform.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](console.md).

@@ -96,7 +96,7 @@
        * `value` — возвращаемое значение.
        * `sensitive` — пометить как конфиденциальные данные.
 
-     Более подробную информацию о параметрах источника данных `yandex_cm_certificate_content` см. в [документации провайдера]({{ tf-provider-datasources-link }}/cm_certificate_content).
+     Более подробную информацию о параметрах источника данных `yandex_cm_certificate_content` смотрите в [документации провайдера]({{ tf-provider-datasources-link }}/cm_certificate_content).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

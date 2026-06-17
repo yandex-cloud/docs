@@ -68,7 +68,7 @@
   `auditEventsInvolvedNamespace` | Создавать события в затронутом пространстве имен | `false`
   `enableExternalData` | Экспериментальная поддержка внешних источников данных | `true`
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/docs/)
 

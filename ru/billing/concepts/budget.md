@@ -37,6 +37,6 @@
 * [{#T}](../tutorials/serverless-trigger-budget-queue-vm-tg.md)
 * [{#T}](../tutorials/serverless-trigger-budget-vm.md)
 
-##### См. также {#see-also}
+##### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/budgets.md).

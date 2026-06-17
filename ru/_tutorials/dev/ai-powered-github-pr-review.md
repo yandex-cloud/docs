@@ -41,9 +41,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для реализации сценария автоматического ИИ-ревью пул-реквестов входят:
-* плата за генерацию текста (см. [тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing));
-* плата за хранение секрета и операции с ним (см. [тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md));
-* плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md), если вы используете сервис [{{ cloud-logging-name }}](../../logging/) (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
+* плата за генерацию текста ([тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing));
+* плата за хранение секрета и операции с ним ([тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md));
+* плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md), если вы используете сервис [{{ cloud-logging-name }}](../../logging/) ([тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
 
 ### Создайте секрет {{ lockbox-name }} {#create-secret}
 

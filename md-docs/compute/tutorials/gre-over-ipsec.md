@@ -42,8 +42,8 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за диски и постоянно запущенные ВМ (см. [тарифы Yandex Compute Cloud](../pricing.md));
-* плата за использование внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* плата за диски и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../pricing.md));
+* плата за использование внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 ## Создайте пару ключей SSH {#create-ssh-keys}
 
@@ -162,7 +162,7 @@
       }
       ```
 
-      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder` в Terraform, см. в [документации провайдера](../../terraform/resources/resourcemanager_folder.md).
+      Подробнее о параметрах ресурса `yandex_resourcemanager_folder` в Terraform смотрите в [документации провайдера](../../terraform/resources/resourcemanager_folder.md).
 
    1. Проверьте корректность конфигурационных файлов.
 

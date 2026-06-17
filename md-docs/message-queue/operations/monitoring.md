@@ -97,6 +97,6 @@
   Рассчитывается как разница между временем получения сообщения с помощью [ReceiveMessage](../api-ref/message/ReceiveMessage.md) и его удаления с помощью [DeleteMessage](../api-ref/message/DeleteMessage.md) или [DeleteMessageBatch](../api-ref/message/DeleteMessageBatch.md).
   Отображается в перцентилях. Линии на графике соответствуют процентам сообщений с самым быстрым временем обработки: 50%, 90%, 95% и 99%.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Справочник метрик Yandex Monitoring](../metrics.md)

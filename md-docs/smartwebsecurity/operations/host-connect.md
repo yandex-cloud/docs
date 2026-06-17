@@ -17,7 +17,7 @@
 
     {% endnote %}
 
-Для работы с профилем безопасности, который подключается к балансировщику, потребуется сервисный аккаунт с ролями `monitoring.editor`, `smart-web-security.admin`, `certificate-manager.admin` и `logging.writer`. Подробнее см. [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
+Для работы с профилем безопасности, который подключается к балансировщику, потребуется сервисный аккаунт с ролями `monitoring.editor`, `smart-web-security.admin`, `certificate-manager.admin` и `logging.writer`. Подробнее смотрите [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
 
 Чтобы подключить профиль безопасности к виртуальному хосту:
 
@@ -227,7 +227,7 @@
 
       {% note info %}
       
-      Для подключения профиля безопасности к виртуальному хосту Application Load Balancer у сервисного аккаунта, от имени которого работает Ingress-контроллер, должна быть роль [smart-web-security.editor](../security/index.md#smart-web-security-editor) на каталог, в котором размещены ресурсы Application Load Balancer и Smart Web Security. Подробнее см. [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
+      Для подключения профиля безопасности к виртуальному хосту Application Load Balancer у сервисного аккаунта, от имени которого работает Ingress-контроллер, должна быть роль [smart-web-security.editor](../security/index.md#smart-web-security-editor) на каталог, в котором размещены ресурсы Application Load Balancer и Smart Web Security. Подробнее смотрите [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
       
       {% endnote %}
 
@@ -279,6 +279,6 @@
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Отключить профиль безопасности от ресурса](host-delete.md)

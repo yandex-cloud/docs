@@ -154,7 +154,7 @@
 
 Узнайте, как использовать приложение Thumbor для редактирования изображений на вашем сайте. [Пример работы с Thumbor](../../tutorials/marketplace/thumbor.md), рассмотренный в документации, включает в себя настройку сервиса [Yandex Cloud CDN](../../../cdn/concepts/index.md). Он позволяет снизить скорость загрузки изображений на сайте.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация Thumbor](https://thumbor.readthedocs.io/en/latest/).
 * [Документация Object Storage](../../../storage/index.md).

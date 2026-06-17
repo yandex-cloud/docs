@@ -20,9 +20,9 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ dataproc-name }}: использование вычислительных ресурсов с наценкой за сервис {{ dataproc-name }}, использование сетевых дисков, получение и хранение логов, объем исходящего трафика (см. [тарифы {{ dataproc-name }}](../../data-proc/pricing.md)).
-* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
-* Бакет {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Кластер {{ dataproc-name }}: использование вычислительных ресурсов с наценкой за сервис {{ dataproc-name }}, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы {{ dataproc-name }}](../../data-proc/pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Бакет {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../storage/pricing.md)).
 
 ## Подготовьте инфраструктуру {#infra}
 
@@ -312,7 +312,7 @@
 
 {% include [dataproc-s3-connector](../../_includes/datasphere/data-processing-s3-connector.md) %}
 
-Подробнее о запуске вычислений на кластерах {{ dataproc-name }} в {{ ml-platform-name }} см. в [концепции](../../datasphere/concepts/data-processing.md#existing-clusters).
+Подробнее о запуске вычислений на кластерах {{ dataproc-name }} в {{ ml-platform-name }} смотрите в [концепции](../../datasphere/concepts/data-processing.md#existing-clusters).
 
 ## Удалите созданные ресурсы {#clear-out}
 

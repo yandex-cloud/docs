@@ -31,10 +31,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для регулярного распознавания изображений и документов входят:
-* плата за хранение данных в бакете и операции с ними (см. [тарифы {{ objstorage-name }}]({{ link-docs }}/storage/pricing));
-* плата за использование {{ vision-name }} (см. [тарифы для {{ vision-name }}]({{ link-docs-ai }}vision/pricing));
-* плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик (см. [тарифы {{ serverless-containers-name }}]({{ link-docs }}/serverless-containers/pricing));
-* плата за хранение и операции с [секретом]({{ link-docs }}/lockbox/concepts/secret) (см. [тарифы {{ lockbox-name }}]({{ link-docs }}/lockbox/pricing)).
+* плата за хранение данных в бакете и операции с ними ([тарифы {{ objstorage-name }}]({{ link-docs }}/storage/pricing));
+* плата за использование {{ vision-name }} ([тарифы для {{ vision-name }}]({{ link-docs-ai }}vision/pricing));
+* плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик ([тарифы {{ serverless-containers-name }}]({{ link-docs }}/serverless-containers/pricing));
+* плата за хранение и операции с [секретом]({{ link-docs }}/lockbox/concepts/secret) ([тарифы {{ lockbox-name }}]({{ link-docs }}/lockbox/pricing)).
 
 
 ## Создайте инфраструктуру {#deploy}

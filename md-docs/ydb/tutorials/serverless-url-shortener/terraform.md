@@ -22,10 +22,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для сокращателя ссылок входят:
-* плата за хранение данных (см. [тарифы Yandex Object Storage](../../../storage/pricing.md));
-* плата за операции с [базой данных YDB](../../concepts/resources.md#database) и хранение данных (см. [тарифы Managed Service for YDB](../../pricing/serverless.md));
-* плата за количество вызовов [функции](../../../functions/concepts/function.md), вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы Cloud Functions](../../../functions/pricing.md));
-* плата за количество запросов к [API-шлюзу](../../../api-gateway/concepts/index.md) и исходящий трафик (см. [тарифы API Gateway](../../../api-gateway/pricing.md)).
+* плата за хранение данных ([тарифы Yandex Object Storage](../../../storage/pricing.md));
+* плата за операции с [базой данных YDB](../../concepts/resources.md#database) и хранение данных ([тарифы Managed Service for YDB](../../pricing/serverless.md));
+* плата за количество вызовов [функции](../../../functions/concepts/function.md), вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы Cloud Functions](../../../functions/pricing.md));
+* плата за количество запросов к [API-шлюзу](../../../api-gateway/concepts/index.md) и исходящий трафик ([тарифы API Gateway](../../../api-gateway/pricing.md)).
 
 ## Создайте инфраструктуру {#deploy}
 
@@ -606,6 +606,6 @@ Terraform распространяется под лицензией [Business S
     
     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Сокращатель ссылок с помощью консоли управления](console.md)

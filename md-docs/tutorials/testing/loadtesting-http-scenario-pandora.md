@@ -31,7 +31,7 @@ Load Testing можно использовать для тестирования
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-Если [агент](../../load-testing/concepts/agent.md) размещается на платформе Yandex Cloud, взимается плата за вычислительные ресурсы (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+Если [агент](../../load-testing/concepts/agent.md) размещается на платформе Yandex Cloud, взимается плата за вычислительные ресурсы ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 
 На стадии [Preview](../../overview/concepts/launch-stages.md) использование сервиса Load Testing не тарифицируется.
 

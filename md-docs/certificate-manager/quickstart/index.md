@@ -171,7 +171,7 @@
 {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 - [Сертификат от Let's Encrypt](../concepts/managed-certificate.md)
 - [Проверка прав на домен](../concepts/challenges.md)

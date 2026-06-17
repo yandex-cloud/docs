@@ -29,9 +29,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры Telegram-бота входят:
-* плата за вызовы [функции](../../concepts/function.md), вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы Cloud Functions](../../pricing.md));
-* плата за [хранение данных](../../../storage/concepts/bucket.md) в Object Storage, [операции](../../../storage/operations/index.md) с ними и исходящий трафик (см. [тарифы Object Storage](../../../storage/pricing.md));
-* плата за количество запросов к созданному [API-шлюзу](../../../api-gateway/concepts/index.md) и исходящий трафик (см. [тарифы Yandex API Gateway](../../../api-gateway/pricing.md)).
+* плата за вызовы [функции](../../concepts/function.md), вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы Cloud Functions](../../pricing.md));
+* плата за [хранение данных](../../../storage/concepts/bucket.md) в Object Storage, [операции](../../../storage/operations/index.md) с ними и исходящий трафик ([тарифы Object Storage](../../../storage/pricing.md));
+* плата за количество запросов к созданному [API-шлюзу](../../../api-gateway/concepts/index.md) и исходящий трафик ([тарифы Yandex API Gateway](../../../api-gateway/pricing.md)).
 
 
 ## Подготовьте ресурсы {#create-resources}
@@ -347,6 +347,6 @@
 1. [Удалите](../../../storage/operations/buckets/delete.md) бакет.
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Как создать бота в Telegram с помощью Serverless и Terraform](terraform.md)

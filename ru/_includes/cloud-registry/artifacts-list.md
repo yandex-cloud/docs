@@ -6,3 +6,5 @@
 * [NuGet-артефакты](../../cloud-registry/concepts/artifacts/nuget.md)
 * [Python-артефакты](../../cloud-registry/concepts/artifacts/python.md)
 * [Binary-артефакты](../../cloud-registry/concepts/artifacts/binary.md)
+* [Go-артефакты](../../cloud-registry/concepts/artifacts/go.md)
+

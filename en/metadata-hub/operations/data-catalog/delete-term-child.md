@@ -1,6 +1,6 @@
 ---
-title: Deleting a child term
-description: Follow this guide to delete a child term in {{ data-catalog-full-name }}.
+title: Deleting a child term in {{ data-catalog-full-name }}
+description: Follow this guide to delete a child term from a {{ data-catalog-name }} glossary.
 ---
 
 # Deleting a child term

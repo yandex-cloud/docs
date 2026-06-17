@@ -292,7 +292,7 @@ window.addEventListener('message', function(event) {
 
 Для каждого метода существует соответствующее событие возврата в формате `<methodName>:return`.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Начало работы с SDK видеоплеера для IFrame](index.md)
 * [Параметры инициализации плеера](initialization.md)

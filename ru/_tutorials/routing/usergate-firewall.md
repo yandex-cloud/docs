@@ -25,9 +25,9 @@
 
 В стоимость поддержки шлюза UserGate входит:
 
-* плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за постоянно запущенную ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование [UserGate NGFW](/marketplace/products/usergate/ngfw);
-* плата за использование публичного статического IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* плата за использование публичного статического IP-адреса ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ## Создайте облачную сеть и подсеть {#create-network}
 
@@ -64,7 +64,7 @@
      default_security_group_id: enpbsnnop4ak********
      ```
 
-     Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
+     Подробнее о команде `yc vpc network create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
   1. Создайте подсеть `usergate-subnet-{{ region-id }}-d` в зоне доступности `{{ region-id }}-d`:
 
@@ -88,7 +88,7 @@
      - 10.1.0.0/16
      ```
 
-     Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
+     Подробнее о команде `yc vpc subnet create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 
 
@@ -109,7 +109,7 @@
      }
      ```
 
-     Подробнее см. в описаниях ресурсов [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) и [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) в документации провайдера {{ TF }}.
+     Подробнее в описаниях ресурсов [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) и [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) в документации провайдера {{ TF }}.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -175,7 +175,7 @@
   reserved: true
   ```
 
-  Подробнее о команде `yc vpc address create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/address/create.md).
+  Подробнее о команде `yc vpc address create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/address/create.md).
 
 - {{ TF }} {#tf}
 
@@ -190,7 +190,7 @@
   }
   ```
 
-  Подробнее см. описание ресурса [vpc_address]({{ tf-provider-resources-link }}/vpc_address) в документации провайдера {{ TF }}.
+  Подробнее смотрите описание ресурса [vpc_address]({{ tf-provider-resources-link }}/vpc_address) в документации провайдера {{ TF }}.
 
 {% endlist %}
 
@@ -281,7 +281,7 @@
      placement_policy: {}
      ```
 
-     Подробнее о команде `yc compute instance create` см. в [справочнике CLI](../../cli/cli-ref/compute/cli-ref/instance/create.md).
+     Подробнее о команде `yc compute instance create` смотрите в [справочнике CLI](../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
 - {{ TF }} {#tf}
 
@@ -319,7 +319,7 @@
        }
      ```
 
-     Подробнее см. в описании ресурса [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance) в документации провайдера {{ TF }}.
+     Подробнее смотрите в описании ресурса [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance) в документации провайдера {{ TF }}.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -574,7 +574,7 @@
 
      Чтобы добавить, изменить или удалить таблицу маршрутизации, используйте ресурс `yandex_vpc_route_table` с указанием на сеть в поле `netword id` (например, `network_id = "${yandex_vpc_network.lab-net.id}"`).
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_route_table` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_route_table).
+     Подробнее о параметрах ресурса `yandex_vpc_route_table` в {{ TF }} смотрите в [документации провайдера]({{ tf-provider-resources-link }}/vpc_route_table).
 
   1. Проверьте корректность конфигурационных файлов.
 

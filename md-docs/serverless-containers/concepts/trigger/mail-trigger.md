@@ -121,7 +121,7 @@
 }
 ```
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для почты, который вызывает функцию Cloud Functions](../../../functions/concepts/trigger/mail-trigger.md)
 * [Триггер для почты, который отправляет сообщения в веб-сокет WebSocket-соединения](../../../api-gateway/concepts/trigger/mail-trigger.md)

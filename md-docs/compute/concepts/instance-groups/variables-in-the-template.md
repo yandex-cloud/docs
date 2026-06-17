@@ -147,7 +147,7 @@ Instance Groups заменит на вычисленные значения то
 
    В поле `instance_template.name`: переменная `{short_zone_var_ru-central1-a}` будет преобразована в значение `rc1a`.
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Спецификация группы виртуальных машин в формате YAML](specification.md)
 * [Шаблон виртуальной машины](instance-template.md)

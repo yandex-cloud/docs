@@ -49,7 +49,7 @@
 || `upstream_response_time` | String | Время ответа источника. Если ответ был выдан из кеша сервера точки присутствия, это поле будет пустым. ||
 |#
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Выгрузка логов](concepts/logs.md)
 * [Настройка выгрузки логов](operations/resources/configure-logs.md)

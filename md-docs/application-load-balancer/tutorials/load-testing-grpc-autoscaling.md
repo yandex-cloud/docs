@@ -53,9 +53,9 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* Плата за использование [мастера Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#master) и исходящий трафик  (см. [тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Плата за использование вычислительных ресурсов [L7-балансировщика](../concepts/index.md) (см. [тарифы Application Load Balancer](../pricing.md)).
-* Плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы используете [Yandex Cloud DNS](../../dns/index.md) (см. [тарифы Cloud DNS](../../dns/pricing.md)).
+* Плата за использование [мастера Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#master) и исходящий трафик  ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Плата за использование вычислительных ресурсов [L7-балансировщика](../concepts/index.md) ([тарифы Application Load Balancer](../pricing.md)).
+* Плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы используете [Yandex Cloud DNS](../../dns/index.md) ([тарифы Cloud DNS](../../dns/pricing.md)).
 
 
 
@@ -194,7 +194,7 @@
    * `secretName` — указание на [TLS-сертификат](../../certificate-manager/concepts/index.md) из [Yandex Certificate Manager](../../certificate-manager/index.md) в формате `yc-certmgr-cert-id-<идентификатор_сертификата>`.
    * `hosts`, `host` — доменное имя, которому соответствует TLS-сертификат.
 
-   Подробнее см. [поля и аннотации ресурса Ingress](../../managed-kubernetes/alb-ref/ingress.md).
+   Подробнее смотрите [поля и аннотации ресурса Ingress](../../managed-kubernetes/alb-ref/ingress.md).
 
 1. Создайте ресурс `Ingress`:
 

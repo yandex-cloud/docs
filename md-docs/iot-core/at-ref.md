@@ -8,7 +8,7 @@
 
 {% endnote %}
 
-В Audit Trails поддерживается отслеживание событий уровня конфигурации (Control Plane) для Yandex IoT Core. Подробнее см. [Аудитный лог событий уровня конфигурации](../audit-trails/concepts/format.md).
+В Audit Trails поддерживается отслеживание событий уровня конфигурации (Control Plane) для Yandex IoT Core. Подробнее в [Аудитный лог событий уровня конфигурации](../audit-trails/concepts/format.md).
 
 Общий вид значения поля `event_type` (_тип события_):
 

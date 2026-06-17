@@ -26,6 +26,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## См. также
+## Полезные ссылки {#see-also}
 
 * [Сетевое взаимодействие в {{ api-gw-name }}](../concepts/networking.md).

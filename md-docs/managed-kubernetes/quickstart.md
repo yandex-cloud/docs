@@ -109,7 +109,7 @@
      
      Чтобы обеспечить доступ в интернет, [назначьте](operations/node-group/node-group-update.md#node-internet-access) узлам публичный IP-адрес и [настройте](operations/connect/security-groups.md#rules-internal-nodegroup) группу безопасности. Также в качестве альтернативы публичным IP-адресам можно создать и настроить в подсети узлов [NAT-шлюз](../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../vpc/tutorials/nat-instance/index.md).
      
-     Подробнее см. в подразделе [Доступ в интернет для рабочих узлов кластера](concepts/network.md#nodes-internet).
+     Подробнее в подразделе [Доступ в интернет для рабочих узлов кластера](concepts/network.md#nodes-internet).
      
      {% endnote %}
 

@@ -161,7 +161,7 @@
 
 {% include [vm-list](../../_includes/backup/vm-list.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](connect-vm-windows.md)
 * [{#T}](connect-vm-linux.md)

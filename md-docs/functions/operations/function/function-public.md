@@ -64,7 +64,7 @@
 
         Чтобы функция стала публичной, назначьте роль `functions.functionInvoker` всем неавторизованным пользователям ([публичной группе](../../../iam/concepts/access-control/public-group.md) `All users`).
 
-     Более подробную информацию о параметрах ресурса `yandex_function_iam_binding` см. в [документации провайдера](../../../terraform/resources/function_iam_binding.md).
+     Подробнее о параметрах ресурса `yandex_function_iam_binding` в [документации провайдера](../../../terraform/resources/function_iam_binding.md).
 
   1. Проверьте конфигурацию командой:
 

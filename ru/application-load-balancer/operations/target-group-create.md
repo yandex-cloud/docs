@@ -179,7 +179,7 @@ description: Для создания целевой группы {{ alb-full-nam
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../tutorials/application-load-balancer-website/index.md)
 * [{#T}](../tutorials/logging.md)

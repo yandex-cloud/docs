@@ -55,7 +55,7 @@ description: Из этой статьи вы узнаете, какие ключ
 * [{#T}](../../../tutorials/routing/multi-folder-vpc.md)
 * [{#T}](../../../tutorials/infrastructure-management/run-docker-on-vm/index.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../vm-metadata.md)
 * [{#T}](./directories.md)

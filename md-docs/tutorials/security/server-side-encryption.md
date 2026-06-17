@@ -10,7 +10,7 @@
 * `kms.keys.decrypter` — для чтения ключа, [расшифровки](../../kms/security/index.md#kms-keys-decrypter) и скачивания объектов;
 * `kms.keys.encrypterDecrypter` — включает [разрешения](../../kms/security/index.md#kms-keys-encrypterDecrypter), предоставляемые ролями `kms.keys.encrypter` и `kms.keys.decrypter`.
 
-Подробнее см. [Сервисные роли Key Management Service](../../kms/security/index.md#service-roles).
+Подробнее смотрите [Сервисные роли Key Management Service](../../kms/security/index.md#service-roles).
 
 
 Чтобы включить шифрование бакета на стороне сервера:
@@ -37,8 +37,8 @@
 
 В стоимость поддержки бакета с шифрованием входит:
 
-* плата за хранение данных в бакете (см. [тарифы Object Storage](../../storage/pricing.md#prices-storage));
-* плата за операции с данными (см. [тарифы Object Storage](../../storage/pricing.md#prices-operations));
+* плата за хранение данных в бакете ([тарифы Object Storage](../../storage/pricing.md#prices-storage));
+* плата за операции с данными ([тарифы Object Storage](../../storage/pricing.md#prices-operations));
 * плата за использование ключей KMS (см. [тарифы Key Management Service](../../kms/pricing.md#prices)).
 
 

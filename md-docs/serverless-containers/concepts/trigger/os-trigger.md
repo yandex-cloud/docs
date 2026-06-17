@@ -61,7 +61,7 @@
 }
 ```
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для Object Storage, который вызывает функцию Cloud Functions](../../../functions/concepts/trigger/os-trigger.md)
 * [Триггер для Object Storage, который отправляет сообщения в WebSocket-соединения](../../../api-gateway/concepts/trigger/os-trigger.md)

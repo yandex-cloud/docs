@@ -65,7 +65,7 @@
 
 * [Автоматическое копирование объектов из одного бакета Yandex Object Storage в другой](../../tutorials/bucket-to-bucket.md)
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для Object Storage, который вызывает контейнер Serverless Containers](../../../serverless-containers/concepts/trigger/os-trigger.md)
 * [Триггер для Object Storage, который отправляет сообщения в WebSocket-соединения](../../../api-gateway/concepts/trigger/os-trigger.md)

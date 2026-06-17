@@ -21,8 +21,8 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ## Подготовьте инфраструктуру {#infra}
 
@@ -164,7 +164,7 @@
 * [ВМ с {{ GLR }}](../../compute/operations/vm-control/vm-delete.md);
 * [сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-### Смотрите также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](../../managed-gitlab/concepts/index.md#managed-runners)
 * [{#T}](../../managed-gitlab/operations/runner.md)

@@ -278,7 +278,7 @@ placement_policy:
 Тарифы на использование выделенных хостов описаны на странице [{#T}](../pricing.md#prices).
 
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../operations/dedicated-host/create-host-group.md)
 * [{#T}](../operations/dedicated-host/running-host-group-vms.md)

@@ -119,7 +119,7 @@
 Количество сертификатов на один домен | 50 в неделю
 Количество сертификатов на один набор доменов | 5 в неделю
 
-#### См. также {#certificate-manager-see-also}
+#### Полезные ссылки {#certificate-manager-see-also}
 
 - [Документация Let's Encrypt. Ограничения](https://letsencrypt.org/ru/docs/rate-limits/)
 
@@ -377,7 +377,7 @@
 
 ^1^ Квота `Количество триггеров в одном облаке` — общая для сервисов API Gateway, Cloud Functions и Serverless Containers. В [консоли управления](https://console.yandex.cloud/cloud?section=quotas) она отображается в списке квот сервиса Cloud Functions.
 
-Подробнее о взаимосвязи квот см. в разделе [Взаимосвязь квот](../../functions/concepts/limits.md#related-quotas).
+Подробнее о взаимосвязи квот читайте в разделе [Взаимосвязь квот](../../functions/concepts/limits.md#related-quotas).
 
 #### Лимиты {#functions-limits}
 
@@ -1725,7 +1725,7 @@ gt4.1 ^1^ | 0
 
 #### Лимиты {#mspqr-limits}
 
-Лимиты кластеров PostgreSQL см. в [документации Managed Service for PostgreSQL](../../managed-postgresql/concepts/limits.md#mpg-limits).
+Лимиты кластеров PostgreSQL смотрите в [документации Managed Service for PostgreSQL](../../managed-postgresql/concepts/limits.md#mpg-limits).
 
 #|
 || **Вид ограничения** | **Минимальное значение** | **Максимальное значение** ||
@@ -1797,7 +1797,7 @@ gt4.1 ^1^ | 0
 || Количество подключений к кластеру | — | 65 000 ||
 |#
 
-^*^ Эти типы дисков доступны только для определенных платформ, подробнее см. в разделе [Хранилище в Yandex Managed Service for Valkey™](../../managed-valkey/concepts/storage.md).
+^*^ Эти типы дисков доступны только для определенных платформ, подробнее в разделе [Хранилище в Yandex Managed Service for Valkey™](../../managed-valkey/concepts/storage.md).
 
 
 ### Yandex Managed Service for YDB {#ydb}
@@ -2556,7 +2556,7 @@ gt4.1 ^1^ | 0
 
 #### Лимиты {#translate-limits}
 
-Ограничения на значения полей в теле запроса см. в справочнике API.
+Ограничения на значения полей в теле запроса смотрите в справочнике API.
 
 Лимиты в применении глоссариев следующие:
 

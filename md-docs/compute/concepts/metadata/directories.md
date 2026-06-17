@@ -86,7 +86,7 @@
 * [Автоматическая привязка политики резервного копирования Yandex Cloud Backup к ВМ](../../../tutorials/archive/vm-with-backup-policy/index.md)
 * [Настройка сетевого взаимодействия ресурсов из разных каталогов](../../../tutorials/routing/multi-folder-vpc.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Метаданные виртуальной машины](../vm-metadata.md)
 * [Ключи, обрабатываемые в публичных образах Yandex Cloud](public-image-keys.md)
