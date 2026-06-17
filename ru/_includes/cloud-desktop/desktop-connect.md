@@ -30,7 +30,7 @@
   
   Чтобы повторно подключиться к рабочему столу, запустите его в приложении Microsoft Remote Desktop на вкладке **PCs**. В окне безопасности нажмите кнопку **Continue**.
 
-  #### См. также {#mac-see-also}
+  #### Полезные ссылки {#mac-see-also}
 
   * [Начало работы с удаленным рабочим столом в macOS]({{ ms.docs }}/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac)
 
@@ -55,7 +55,7 @@
 
   Чтобы повторно подключиться к рабочему столу, запустите его в приложении Remmina.   
 
-  #### См. также {#lin-see-also}
+  #### Полезные ссылки {#lin-see-also}
 
   * [Установка Remmina на дистрибутивы Linux, отличные от Ubuntu](https://remmina.org/how-to-install-remmina/)
 

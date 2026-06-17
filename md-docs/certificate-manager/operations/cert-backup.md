@@ -138,6 +138,6 @@
 
 Сохраненный [сертификат от Let's Encrypt](../concepts/managed-certificate.md) после восстановления станет [пользовательским](../concepts/imported-certificate.md). Для [обновления](import/cert-update.md) такого сертификата необходимо загружать новую версию самостоятельно.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Добавить пользовательский сертификат](import/cert-create.md).

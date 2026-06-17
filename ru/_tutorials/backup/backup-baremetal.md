@@ -8,9 +8,9 @@ description: С помощью этого руководства вы может
 
 Вы можете подключить существующий [сервер {{ baremetal-name }}](../../baremetal/concepts/servers.md) к {{ backup-name }} и настроить на нем резервное копирование данных.
 
-Информацию о том, как подключить сервер {{ baremetal-name }} к {{ backup-name }} при его заказе, см. в инструкции [{#T}](../../backup/operations/backup-baremetal/lease-server-with-backup.md).
+Информацию о том, как подключить сервер {{ baremetal-name }} к {{ backup-name }} при его заказе, смотрите в инструкции [{#T}](../../backup/operations/backup-baremetal/lease-server-with-backup.md).
 
-Подробнее о работе с серверами {{ baremetal-name }} см. в разделе [Пошаговые инструкции для сервиса {{ baremetal-full-name }}](../../baremetal/operations/index.md).
+Подробнее о работе с серверами {{ baremetal-name }} смотрите в разделе [Пошаговые инструкции для сервиса {{ baremetal-full-name }}](../../baremetal/operations/index.md).
 
 Подключение к {{ backup-name }} поддерживается для серверов под управлением следующих операционных систем: {#os-support}
 
@@ -27,7 +27,7 @@ description: С помощью этого руководства вы может
 1. [Запустите создание резервной копии](#execute-policy).
 1. [Восстановите сервер из резервной копии](#server-recovery).
 
-См. также [Как отказаться от аренды и удалить ресурсы](#clear-out).
+Если ресурсы вам больше не нужны, [удалите их и откажитесь от аренды](#clear-out).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
@@ -36,8 +36,8 @@ description: С помощью этого руководства вы может
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
-* плата за аренду сервера (см. [тарифы {{ baremetal-full-name }}](../../baremetal/pricing.md));
-* плата за подключенный к сервису {{ backup-name }} сервер {{ baremetal-name }} и объем резервных копий (см. [тарифы {{ backup-full-name }}](../../backup/pricing.md)).
+* плата за аренду сервера ([тарифы {{ baremetal-full-name }}](../../baremetal/pricing.md));
+* плата за подключенный к сервису {{ backup-name }} сервер {{ baremetal-name }} и объем резервных копий ([тарифы {{ backup-full-name }}](../../backup/pricing.md)).
 
 {% include [bms-backup-free-traffic](../../_includes/baremetal/bms-backup-free-traffic.md) %}
 
@@ -166,7 +166,7 @@ description: С помощью этого руководства вы может
 
 Сохраните имя и идентификатор сервера, они понадобятся в дальнейшем.
 
-Подробнее об аренде сервера см. в [документации {{ baremetal-name }}](../../baremetal/operations/servers/server-lease.md).
+Подробнее об аренде сервера смотрите в [документации {{ baremetal-name }}](../../baremetal/operations/servers/server-lease.md).
 
 ## Подключитесь к серверу {#server-connect}
 
@@ -428,7 +428,7 @@ description: С помощью этого руководства вы может
 
       Также вы можете выполнить команду в асинхронном режиме с помощью параметра `--async` и отслеживать процесс резервного копирования с помощью команды [yc backup resource list-tasks](../../cli/cli-ref/backup/cli-ref/vm/list-tasks.md).
 
-      Подробнее о команде `yc backup backup recover` см. в [справочнике CLI](../../cli/cli-ref/backup/cli-ref/backup/recover.md).
+      Подробнее о команде `yc backup backup recover` смотрите в [справочнике CLI](../../cli/cli-ref/backup/cli-ref/backup/recover.md).
 
 {% endlist %}
 
@@ -439,6 +439,6 @@ description: С помощью этого руководства вы может
 1. [Откажитесь](../../baremetal/operations/servers/server-lease-cancel.md) от аренды сервера {{ baremetal-name }}.
 1. [Удалите](../../backup/operations/backup-vm/delete.md) резервную копию в {{ backup-name }} с помощью CLI.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../backup/operations/backup-baremetal/lease-server-with-backup.md)

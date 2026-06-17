@@ -328,7 +328,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `UpdateDatabase` | Изменение базы данных
 `UpdateUser` | Изменение пользователя базы данных
 
-^1^ Требуется дополнительная настройка на стороне Managed Service for PostgreSQL. Подробнее см. в разделе [Использование pgaudit в Managed Service for PostgreSQL](../../managed-postgresql/operations/extensions/pgaudit.md)
+^1^ Требуется дополнительная настройка на стороне Managed Service for PostgreSQL. Подробнее в разделе [Использование pgaudit в Managed Service for PostgreSQL](../../managed-postgresql/operations/extensions/pgaudit.md)
 
 ## Yandex Managed Service for Sharded PostgreSQL {#spqr}
 

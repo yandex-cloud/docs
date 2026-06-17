@@ -128,7 +128,7 @@ df
 
 Подробнее о синтаксисе SQL-запросов и работе с библиотекой Spark SQL читайте в [официальной документации](https://spark.apache.org/docs/latest/sql-ref-syntax-qry-select.html).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../tutorials/data-processing-integration.md)
 * [{#T}](spark-connector.md)

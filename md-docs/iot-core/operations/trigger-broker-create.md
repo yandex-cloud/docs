@@ -156,7 +156,7 @@
 
 Проверьте, что триггер работает корректно. Для этого посмотрите [логи функции](../../functions/operations/function/function-logs.md), в них отображается информация о вызовах.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Создать триггер, который передает сообщения в контейнер Serverless Containers из топика брокера Yandex IoT Core](../../serverless-containers/operations/iot-core-trigger-broker-create.md)
 * [Создать триггер, который отправляет сообщения в WebSocket-соединения из топика брокера Yandex IoT Core](../../api-gateway/operations/trigger/iot-core-trigger-broker-create.md)

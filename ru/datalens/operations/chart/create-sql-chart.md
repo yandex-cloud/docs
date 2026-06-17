@@ -207,7 +207,7 @@ END
 
 При редактировании QL-чарта можно [отменить или повторно выполнить](../../concepts/chart/settings.md#undo-redo) внесенные изменения в пределах текущей версии.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/chart/index.md)
 * [{#T}](../dashboard/add-chart.md)

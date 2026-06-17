@@ -414,6 +414,8 @@
 
 {% endlist %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 ## Убедитесь в корректной работе приложения {#validate}
 
 Чтобы проверить работу OIDC-приложения и интеграции с Harbor, выполните вход в Harbor от имени пользователя, добавленного в приложение.

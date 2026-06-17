@@ -267,4 +267,4 @@
 
 * **Interconnect total recv queue size** — максимальный размер входящей очереди (в пакетах).
 
-Больше информации о работе процесса `interconnect` см. в [официальной документации](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/admin_guide-intro-arch_overview.html#arch_interconnect).
+Больше информации о работе процесса `interconnect` вы найдете в [официальной документации](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/admin_guide-intro-arch_overview.html#arch_interconnect).

@@ -17,7 +17,7 @@
 
 {% include [budget-format](../../../_includes/functions/budget-format.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../../serverless-containers/concepts/trigger/budget-trigger.md)
 * [{#T}](../../../functions/concepts/trigger/budget-trigger.md)

@@ -74,7 +74,7 @@
        * `message-structure` — формат сообщения `json`.
        * `message` — текст уведомления или путь к файлу с уведомлением. Для отправки разных уведомлений в зависимости от типа канала укажите канал и текст уведомления. Если какой-либо канал не указан, будет отправлено сообщение по умолчанию.
      
-     Подробнее о команде `aws sns publish` см. в [документации AWS](https://docs.amazonaws.cn/en_us/sns/latest/dg/sns-publish-to-topic.html).
+     Подробнее о команде `aws sns publish` смотрите в [документации AWS](https://docs.amazonaws.cn/en_us/sns/latest/dg/sns-publish-to-topic.html).
 
 - AWS SDK для Python {#python}
 

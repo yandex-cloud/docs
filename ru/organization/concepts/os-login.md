@@ -138,7 +138,7 @@ ssh -i ~/Downloads/cert/yc-organization-id-bpfdp4pdeg8d********-username usernam
 * [{#T}](../tutorials/sa-oslogin-ansible.md)
 * [{#T}](../../tutorials/security/user-group-access-control.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/os-login-access.md)
 * [{#T}](../operations/os-login-profile-create.md)

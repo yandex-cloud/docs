@@ -8,6 +8,6 @@ canonical: '{{ link-docs }}/tutorials/internet-store/opencart/console'
 
 {% include [opencart](../../../_tutorials/applied/opencart-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md).

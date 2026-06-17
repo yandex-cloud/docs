@@ -59,6 +59,6 @@ description: Следуя данной инструкции, вы сможете
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация Falco](https://falco.org/docs/).

@@ -1,3 +1,8 @@
+---
+title: Service roles {{ connection-manager-full-name }}
+description: '{{ connection-manager-name }} service roles allows managing connections to databases in {{ metadata-hub-name }}.'
+---
+
 # Service roles for managing connections using {{ connection-manager-full-name }}
 
 
@@ -29,7 +34,7 @@ With {{ connection-manager-full-name }} service roles, you can view non-secret c
 
 ## Required roles {#choosing-roles}
 
-The table below lists the roles required for specific actions. You can always assign a role with more permissions. For example, you can assign the `editor` role instead of `viewer`.
+The table below lists the roles required for specific actions. You can always assign a role with more permissions, e.g., `editor` instead of `viewer`.
 
 | Action                                                      | Required roles                     |
 |---------------------------------------------------------------|--------------------------------------|

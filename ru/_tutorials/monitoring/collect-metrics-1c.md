@@ -6,7 +6,7 @@
 
 ![metrics-1c](../../_assets/monitoring/best-practices/metrics-1c.svg)
 
-Руководство предполагает, что у вас уже развернут кластер «1С:Предприятие» на виртуальной машине в сервисе [{{ compute-full-name }}](../../compute/quickstart/index.md). Пример развертывания см. в руководстве [{#T}](../../tutorials/infrastructure-management/1c-postgresql-linux.md).
+Руководство предполагает, что у вас уже развернут кластер «1С:Предприятие» на виртуальной машине в сервисе [{{ compute-full-name }}](../../compute/quickstart/index.md). Пример развертывания смотрите в руководстве [{#T}](../../tutorials/infrastructure-management/1c-postgresql-linux.md).
 
 Чтобы начать работать с метриками в {{ monitoring-full-name }}:
 
@@ -20,7 +20,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-Плата за передачу метрик в {{ monitoring-name }} (см. [тарифы {{ monitoring-name }}](../../monitoring/pricing.md)).
+Плата за передачу метрик в {{ monitoring-name }} ([тарифы {{ monitoring-name }}](../../monitoring/pricing.md)).
 
 ## Установите и настройте {{ prometheus-name }} 1C Exporter {#configure-exporter}
 
@@ -291,7 +291,7 @@
     * переименование метки `cluster` на `cluster_1c`;
     * фильтрация (удаление) меток, которые содержат нелатинские символы: `servicename`, `user`, `base`, `licSRV`.
 
-   Подробнее о настройке {{ unified-agent-short-name }} см. в разделе [{#T}](../../monitoring/concepts/data-collection/unified-agent/configuration.md).
+   Подробнее о настройке {{ unified-agent-short-name }} смотрите в разделе [{#T}](../../monitoring/concepts/data-collection/unified-agent/configuration.md).
 
    {% endcut %}
 
@@ -361,7 +361,7 @@
 
 {% endlist %}
 
-Дополнительные настройки дашборда см. в разделе [{#T}](../../monitoring/operations/dashboard/add-widget.md).
+Дополнительные настройки дашборда смотрите в разделе [{#T}](../../monitoring/operations/dashboard/add-widget.md).
 
 ## Удалите созданные ресурсы {#delete-resources}
 

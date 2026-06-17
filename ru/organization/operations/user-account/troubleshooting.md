@@ -126,7 +126,7 @@ description: В этом разделе описаны решения часто
    * [{#T}](../../yandex-id-diagnostics.md)
 1. Обратитесь в [службу поддержки {{ yandex-cloud }}]({{ link-console-support }}).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](first-login.md)
 * [{#T}](../manage-account.md)

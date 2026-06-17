@@ -37,7 +37,7 @@
 ### Ресурсы, требующие оплаты {#paid-resources}
 
 1. Учетная запись в [IDE Cursor](https://cursor.com/) (можно использовать пробную версию).
-1. Оплата за использование YDB — операции с базой и хранение данных (см. [тарифы Yandex Managed Service for YDB](../pricing/serverless.md)).
+1. Оплата за использование YDB — операции с базой и хранение данных ([тарифы Yandex Managed Service for YDB](../pricing/serverless.md)).
 
 {% note info %}
 

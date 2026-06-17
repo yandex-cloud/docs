@@ -10,7 +10,7 @@
 Отправка через коннектор с типом источника `Yandex Data Streams` | События поступают из [потока данных](../../../data-streams/concepts/glossary.md#stream-concepts) | Нет
 Отправка через коннектор с типом источника `Yandex Message Queue` | События поступают из [очереди сообщений](../../../message-queue/concepts/queue.md) | Да
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Отправить события в шину напрямую](../../operations/eventrouter/bus/data-put.md)
 * [Отправить события в шину с помощью коннектора](../../operations/eventrouter/bus/data-send.md)

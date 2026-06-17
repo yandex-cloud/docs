@@ -18,7 +18,7 @@
   * Балансировщику — отправлять трафик узлам кластера по протоколу TCP на порт 10501 (назначение трафика — подсети или группы безопасности групп узлов кластера).
   * Группам узлов — принимать этот трафик (источник трафика — подсети балансировщика или его группа безопасности).
 
-Группы безопасности кластера и групп узлов указываются в их настройках. Подробнее см. инструкции:
+Группы безопасности кластера и групп узлов указываются в их настройках. Подробнее в инструкциях:
 * По [созданию](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [изменению](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md#update-cluster) кластера.
 * По [созданию](../../../managed-kubernetes/operations/node-group/node-group-create.md) и [изменению](../../../managed-kubernetes/operations/node-group/node-group-update.md) группы узлов.
 
@@ -152,7 +152,7 @@
 
   {% endlist %}
 
-Подробнее о группах безопасности для кластера и групп узлов см. в разделе [Настройка групп безопасности](../../../managed-kubernetes/operations/connect/security-groups.md).
+Подробнее о группах безопасности для кластера и групп узлов смотрите в разделе [Настройка групп безопасности](../../../managed-kubernetes/operations/connect/security-groups.md).
 
 ### Terraform {#example-terraform}
 

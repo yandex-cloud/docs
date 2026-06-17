@@ -263,7 +263,7 @@
 
         * `filter` — фильтр логов, например `message.hostname='node1.{{ dns-zone }}'`.
 
-            Подробнее о фильтрах и их синтаксисе см. в [справочнике API](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.greenplum.v1.StreamClusterLogsRequest).
+            Информация о фильтрах и их синтаксисе находится в [справочнике API](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.greenplum.v1.StreamClusterLogsRequest).
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -331,7 +331,7 @@
 
         * `filter` — фильтр логов, например `message.hostname='node1.{{ dns-zone }}'`.
 
-            Подробнее о фильтрах и их синтаксисе см. в [справочнике API](../api-ref/grpc/Cluster/streamLogs.md).
+            Информация о фильтрах и их синтаксисе находится в [справочнике API](../api-ref/grpc/Cluster/streamLogs.md).
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

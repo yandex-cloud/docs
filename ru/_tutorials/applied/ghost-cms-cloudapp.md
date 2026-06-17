@@ -25,13 +25,13 @@
 
 В стоимость поддержки создаваемой инфраструктуры входят:
 
-* Плата за использование [виртуальной машины](../../compute/concepts/vm.md) и хранение данных на [диске](../../compute/concepts/disk.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-* Плата за использование публичной [DNS-зоны](../../dns/concepts/dns-zone.md) и за публичные DNS-запросы (см. [тарифы {{ dns-full-name }}](../../dns/pricing.md)).
-* Плата за выделенные [хостам](../../managed-mysql/concepts/index.md) {{ MY }} вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-full-name }}](../../managed-mysql/pricing.md)).
-* Плата за использование [бакета](../../storage/concepts/bucket.md) для хранения медиафайлов (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
-* Плата за хранение [секретов](../../lockbox/concepts/secret.md) и операции с ними (см. тарифы [{{ lockbox-full-name }}](../../lockbox/pricing.md)).
-* Плата за исходящие письма (см. тарифы [{{ postbox-full-name }}](../../postbox/pricing.md)).
+* Плата за использование [виртуальной машины](../../compute/concepts/vm.md) и хранение данных на [диске](../../compute/concepts/disk.md) ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) и исходящий трафик ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Плата за использование публичной [DNS-зоны](../../dns/concepts/dns-zone.md) и за публичные DNS-запросы ([тарифы {{ dns-full-name }}](../../dns/pricing.md)).
+* Плата за выделенные [хостам](../../managed-mysql/concepts/index.md) {{ MY }} вычислительные ресурсы, объем хранилища и резервных копий ([тарифы {{ mmy-full-name }}](../../managed-mysql/pricing.md)).
+* Плата за использование [бакета](../../storage/concepts/bucket.md) для хранения медиафайлов ([тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
+* Плата за хранение [секретов](../../lockbox/concepts/secret.md) и операции с ними (тарифы [{{ lockbox-full-name }}](../../lockbox/pricing.md)).
+* Плата за исходящие письма (тарифы [{{ postbox-full-name }}](../../postbox/pricing.md)).
 
 
 ## Создайте сеть и подсети {{ vpc-short-name }} {#create-network}

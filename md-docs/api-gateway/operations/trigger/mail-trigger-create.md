@@ -129,7 +129,7 @@ Yandex API Gateway автоматически сгенерирует адрес 
 
 Проверьте, что триггер работает корректно. Для этого посмотрите [логи API-шлюза](../api-gw-logs.md), в них отображается информация об обращениях к нему.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для почты, который вызывает функцию Cloud Functions](../../../functions/operations/trigger/mail-trigger-create.md)
 * [Триггер для почты, который вызывает контейнер Serverless Containers](../../../serverless-containers/operations/mail-trigger-create.md)

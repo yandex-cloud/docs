@@ -5,7 +5,7 @@ noIndex: true
 {% include [ephemeral-key](../../_includes/iam/ephemeral-keys.md) %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](overview.md)
 * [{#T}](./sts.md)

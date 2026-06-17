@@ -69,7 +69,7 @@ description: Из статьи вы узнаете, зачем нужен ста
 
 * [Использование секрета {{ lockbox-full-name }} для хранения статического ключа доступа](../../tutorials/static-key-in-lockbox/index.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../operations/authentication/manage-access-keys.md#create-access-key)
 * [{#T}](./index.md)

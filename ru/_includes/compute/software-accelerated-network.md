@@ -74,6 +74,6 @@ SAN нельзя включить для виртуальной машины с 
 * [{#T}](../../tutorials/routing/storage-vpc-access.md)
 * [{#T}](../../tutorials/routing/vpc-cr-access.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../vpc/operations/enable-software-accelerated-network.md)

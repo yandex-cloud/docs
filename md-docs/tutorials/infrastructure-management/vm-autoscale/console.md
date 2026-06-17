@@ -30,8 +30,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость инфраструктуры входят:
-* плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы Compute Cloud](../../../compute/pricing.md));
-* плата за [сетевые балансировщики](../../../network-load-balancer/concepts/index.md) и балансировку трафика (см. [тарифы Network Load Balancer](../../../network-load-balancer/pricing.md)).
+* плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) ([тарифы Compute Cloud](../../../compute/pricing.md));
+* плата за [сетевые балансировщики](../../../network-load-balancer/concepts/index.md) и балансировку трафика ([тарифы Network Load Balancer](../../../network-load-balancer/pricing.md)).
 
 ## Подготовьте окружение {#prepare}
 
@@ -552,6 +552,6 @@
 1. [Удалите](../../../network-load-balancer/operations/load-balancer-delete.md) сетевой балансировщик.
 1. [Удалите](../../../compute/operations/instance-groups/delete.md) группу ВМ.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Работа с группой виртуальных машин с автоматическим масштабированием с помощью Terraform](terraform.md)

@@ -97,7 +97,7 @@
 * [Публикация обновлений для игр с помощью Yandex Cloud CDN](../tutorials/prefetch.md)
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Инструкция по настройке кеширования](../operations/resources/configure-caching.md)
 * [Инструкция по принудительному кешированию контента](../operations/resources/prefetch-files.md)

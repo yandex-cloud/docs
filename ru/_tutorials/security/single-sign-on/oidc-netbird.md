@@ -141,8 +141,7 @@
 
 Для NetBird обычно используются стандартные [атрибуты](../../../organization/concepts/applications.md#oidc-attributes) (scopes):
 
-* **Минимально необходимый набор**: `openid, email, profile`
-* **Рекомендуемый набор**: `openid, profile, email, offline_access`
+**Минимально необходимый набор**: `openid, email, profile`.
 
 Возможные атрибуты:
 
@@ -160,7 +159,7 @@
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите приложение `netbird-oidc-app`.
   1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. В поле **{{ ui-key.yacloud_org.application.overview.oauth_field_scopes }}** укажите рекомендуемый набор scopes: `openid, profile, email, offline_access`.
+  1. В поле **{{ ui-key.yacloud_org.application.overview.oauth_field_scopes }}** укажите рекомендуемый набор scopes: `openid, profile, email`.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -174,24 +173,23 @@
      ```bash
      yc iam oauth-client update \
        --id <идентификатор_OAuth-клиента> \
-       --scopes openid,profile,email,offline_access
+       --scopes openid,profile,email
      ```
 
      Где:
 
      * `--id` — идентификатор OAuth-клиента, созданного ранее.
      * `--scopes` — набор атрибутов пользователей, которые будут доступны NetBird. В примере указан рекомендуемый набор:
-       * `openid` — идентификатор пользователя. Обязательный атрибут.
-       * `profile` — дополнительная информация о пользователе: имя, фамилия, аватар.
+       * `openid` — идентификатор пользователя. Обязательный атрибут;
+       * `profile` — дополнительная информация о пользователе: имя, фамилия, аватар;
        * `email` — адрес электронной почты пользователя.
-       * `offline_access` — позволяет получать [refresh-токены](../../../iam/concepts/authorization/refresh-token.md) для обновления access-токенов без повторной аутентификации пользователя.
 
   1. Обновите OIDC-приложение, указав те же атрибуты:
 
      ```bash
      yc organization-manager idp application oauth application update \
        --id <идентификатор_приложения> \
-       --authorized-scopes openid,profile,email,offline_access
+       --authorized-scopes openid,profile,email
      ```
 
      Где:
@@ -295,6 +293,8 @@
      ```
 
 {% endlist %}
+
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
 
 ## Настройте интеграцию {#setup-integration}
 

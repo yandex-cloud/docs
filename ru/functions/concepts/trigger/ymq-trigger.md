@@ -35,7 +35,7 @@
 * [{#T}](../../tutorials/serverless-trigger-budget-queue-vm-tg.md)
 * [{#T}](../../tutorials/video-converting-queue/index.md)
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../../serverless-containers/concepts/trigger/ymq-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/ymq-trigger.md)

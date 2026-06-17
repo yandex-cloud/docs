@@ -75,7 +75,7 @@
    1. Если для пользовательской инсталляции вы использовали [кастомизированное доменное имя](https://docs.gitlab.com/administration/dedicated/configure_instance/network_security/#custom-domains) и хотите его сохранить, сообщите это доменное имя технической поддержке. Она настроит его для инстанса Managed Service for GitLab.
    1. В пользовательской инсталляции [настройте DNS-запись](https://docs.gitlab.com/omnibus/settings/dns/) `CNAME`, чтобы перенаправлять пользователей с [домена инстанса](../../concepts/index.md#config) Managed Service for GitLab на ваш кастомизированный домен.
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Порядок предоставления услуги по миграции из GitLab в Managed Service for GitLab](../../concepts/migration.md)
 * [Взаимосвязь ресурсов в Managed Service for GitLab](../../concepts/index.md)

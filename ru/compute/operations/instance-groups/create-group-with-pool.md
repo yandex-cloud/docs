@@ -335,7 +335,7 @@ description: Из статьи вы узнаете, как создать гру
 
     {% endlist %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/instance-groups/index.md)
 * [{#T}](../../concepts/reserved-pools.md)

@@ -16,3 +16,4 @@ Cloud Registry, в отличие от [Yandex Container Registry](../../contain
 * [NuGet-артефакты](artifacts/nuget.md)
 * [Python-артефакты](artifacts/python.md)
 * [Binary-артефакты](artifacts/binary.md)
+* [Go-артефакты](artifacts/go.md)

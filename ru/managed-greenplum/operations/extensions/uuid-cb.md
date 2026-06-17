@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Использование uuid-cb в {{ mgp-name }}
 
+{% include [not-supported-in-cb](../../../_includes/mdb/mgp/not-supported-in-cb.md) %}
+
 Расширение `uuid-cb` экспортирует функции генерации и валидации уникальных идентификаторов по требованиям Центрального банка Российской Федерации:
 
 * `uuid_cb_generate()` — генерирует значение типа `text`, являющееся уникальным идентификатором в формате, требуемом ЦБ РФ.
@@ -71,3 +73,5 @@ description: Следуя данной инструкции, вы сможете
      4b68f586-6739-11ed-80d4-1b1dc5b7125e-9 |    7
     (10 rows)
     ```
+
+{% include [cloudberry-trademark](../../../_includes/mdb/mgp/trademark-cloudberry.md) %}

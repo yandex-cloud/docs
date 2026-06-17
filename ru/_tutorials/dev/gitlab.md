@@ -24,8 +24,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки сервера для {{ GL }} входит:
-* Плата за [диск](../../compute/concepts/disk.md) и постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Плата за [диск](../../compute/concepts/disk.md) и постоянно запущенную ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ## Создайте виртуальную машину с {{ GL }} {#create-vm}
 

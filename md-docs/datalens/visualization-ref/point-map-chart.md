@@ -79,7 +79,7 @@
 * [Геокодинг с помощью API Яндекс Карт для визуализации в DataLens](../tutorials/data-from-ch-geocoder.md)
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создание дашборда в Yandex DataLens](../operations/dashboard/create.md)
 * [Добавление чарта на дашборд в Yandex DataLens](../operations/dashboard/add-chart.md)

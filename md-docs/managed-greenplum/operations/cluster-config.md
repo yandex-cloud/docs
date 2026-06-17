@@ -91,9 +91,9 @@
 
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-      Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Как создать такой файл, читайте в разделе [Создание кластера](cluster-create.md).
 
-      Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
+      Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL вы найдете в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
 
   1. Измените в описании кластера Yandex MPP Analytics for PostgreSQL значение атрибута `resource_preset_id` в блоке `master_subcluster.resources` или `segment_subcluster.resources`:
 
@@ -354,9 +354,9 @@
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Как создать такой файл, читайте в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL вы найдете в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
 
     1. Измените в описании кластера Yandex MPP Analytics for PostgreSQL значения атрибутов `disk_type_id` и `disk_size` в блоке `master_subcluster.resources` или `segment_subcluster.resources`:
 

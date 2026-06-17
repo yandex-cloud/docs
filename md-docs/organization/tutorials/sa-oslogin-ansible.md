@@ -34,8 +34,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки создаваемой в руководстве инфраструктуры входят:
-* плата за постоянно запущенную виртуальную машину (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование публичного IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* плата за постоянно запущенную виртуальную машину ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за использование публичного IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Создайте сервисный аккаунт с SSH-ключом в профиле OS Login {#create-ssh-key}
 

@@ -104,7 +104,7 @@ scale_policy:
 
 * [Работа с группой виртуальных машин с автоматическим масштабированием](../../../tutorials/vm-autoscale/index.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Политика восстановления](healing-policy.md)
 * [Политика распределения](allocation-policy.md)

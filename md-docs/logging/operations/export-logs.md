@@ -30,7 +30,7 @@
 {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Репликация логов в Yandex Object Storage с помощью Fluent Bit](../tutorials/replicate-logs-to-storage.md)
 * [Репликация логов в Yandex Object Storage с помощью Yandex Data Streams](../tutorials/replicate-logs-to-storage-via-data-streams.md)

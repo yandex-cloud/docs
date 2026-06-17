@@ -6,7 +6,7 @@
 
 ![metrics-1c](../../_assets/monitoring/best-practices/metrics-1c.svg)
 
-Руководство предполагает, что у вас уже развернут кластер «1С:Предприятие» на виртуальной машине в сервисе [Yandex Compute Cloud](../../compute/quickstart/index.md). Пример развертывания см. в руководстве [Создание кластера Linux-серверов «1С:Предприятия» с кластером Managed Service for PostgreSQL](../../tutorials/infrastructure-management/1c-postgresql-linux.md).
+Руководство предполагает, что у вас уже развернут кластер «1С:Предприятие» на виртуальной машине в сервисе [Yandex Compute Cloud](../../compute/quickstart/index.md). Пример развертывания смотрите в руководстве [Создание кластера Linux-серверов «1С:Предприятия» с кластером Managed Service for PostgreSQL](../../tutorials/infrastructure-management/1c-postgresql-linux.md).
 
 Чтобы начать работать с метриками в Yandex Monitoring:
 
@@ -20,7 +20,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-Плата за передачу метрик в Monitoring (см. [тарифы Monitoring](../pricing.md)).
+Плата за передачу метрик в Monitoring ([тарифы Monitoring](../pricing.md)).
 
 ## Установите и настройте Prometheus 1C Exporter {#configure-exporter}
 
@@ -291,7 +291,7 @@
     * переименование метки `cluster` на `cluster_1c`;
     * фильтрация (удаление) меток, которые содержат нелатинские символы: `servicename`, `user`, `base`, `licSRV`.
 
-   Подробнее о настройке Unified Agent см. в разделе [Конфигурирование](../concepts/data-collection/unified-agent/configuration.md).
+   Подробнее о настройке Unified Agent смотрите в разделе [Конфигурирование](../concepts/data-collection/unified-agent/configuration.md).
 
    {% endcut %}
 
@@ -361,7 +361,7 @@
 
 {% endlist %}
 
-Дополнительные настройки дашборда см. в разделе [Добавление виджета на дашборд](../operations/dashboard/add-widget.md).
+Дополнительные настройки дашборда смотрите в разделе [Добавление виджета на дашборд](../operations/dashboard/add-widget.md).
 
 ## Удалите созданные ресурсы {#delete-resources}
 

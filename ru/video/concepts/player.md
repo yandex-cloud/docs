@@ -20,7 +20,7 @@
 
 {% include [player-presets](../../_includes/video/player-presets.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 * [{#T}](../operations/video/get-link.md)
 * [{#T}](../operations/streams/get-link.md)
 * [{#T}](../operations/player-control.md)

@@ -58,7 +58,7 @@ Create a [{{ lockbox-name }}](../../lockbox/) secret to store the [{{ mmy-name }
   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `db-password-secret`.
   1. In the **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
-  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, specify `db_password`.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, enter `db_password`.
   1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, set a password for the {{ mmy-name }} database. Password requirements:
 
       * It must be from 8 to 128 characters long.

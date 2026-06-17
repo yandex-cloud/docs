@@ -4,6 +4,6 @@
 
 {% include [console](../../../_tutorials/_tutorials_includes/wordpress/setup-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md).

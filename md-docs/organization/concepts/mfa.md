@@ -52,7 +52,7 @@ MFA дает возможность повысить степень защище
 
 * `Любые методы`. В этом варианте пользователи должны будут выбрать один из следующих стандартов дополнительного фактора аутентификации:
 
-    * [WebAuthn](https://en.wikipedia.org/wiki/WebAuthn) ([FIDO2](https://en.wikipedia.org/wiki/FIDO_Alliance#FIDO2)). Дополнительным фактором аутентификации будут выступать, например, аппаратные ключи, такие как [Рутокен](https://www.rutoken.ru/) или [YubiKey](https://developers.yubico.com/Passkeys/), аутентификаторы [Passkeys](https://www.passkeys.com/), платформенные аутентификаторы, такие как [Windows Hello](https://www.microsoft.com/en-us/windows/tips/windows-hello), и т.п. См. подробнее о [поддержке WebAuthn браузерами и операционными системами](mfa.md#webauthn-support).
+    * [WebAuthn](https://en.wikipedia.org/wiki/WebAuthn) ([FIDO2](https://en.wikipedia.org/wiki/FIDO_Alliance#FIDO2)). Дополнительным фактором аутентификации будут выступать, например, аппаратные ключи, такие как [Рутокен](https://www.rutoken.ru/) или [YubiKey](https://developers.yubico.com/Passkeys/), аутентификаторы [Passkeys](https://www.passkeys.com/), платформенные аутентификаторы, такие как [Windows Hello](https://www.microsoft.com/en-us/windows/tips/windows-hello), и т.п. Подробнее о [поддержке WebAuthn браузерами и операционными системами](mfa.md#webauthn-support).
 
         {% note warning %}
 
@@ -93,7 +93,7 @@ MFA дает возможность повысить степень защище
 ^4^ На отдельных устройствах могут быть ограничения по биометрии.
 ^5^ Платформенные методы (Touch ID) работают с ограничениями из‑за особенностей движка Gecko.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создать политику MFA](../operations/mfa/create-policy.md)
 * [Изменить политику MFA](../operations/mfa/update-policy.md)

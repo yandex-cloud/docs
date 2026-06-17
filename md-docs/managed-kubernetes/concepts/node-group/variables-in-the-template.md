@@ -121,7 +121,7 @@
 
 Примеры для группы с узлами из пула резервов ВМ в одной зоне доступности приведены на странице [Пулы резервов виртуальных машин для групп узлов](reserved-pools.md#examples).
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Переменные в шаблоне виртуальной машины](../../../compute/concepts/instance-groups/variables-in-the-template.md)
 * [Пулы резервов виртуальных машин для групп узлов Yandex Managed Service for Kubernetes](reserved-pools.md)

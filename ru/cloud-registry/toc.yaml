@@ -81,8 +81,6 @@ items:
                 href: operations/pypi/push.md
               - name: Скачать Python-пакет из реестра
                 href: operations/pypi/pull.md
-              - name: Удалить Python-пакет из реестра
-                href: operations/pypi/delete.md
               - name: Примеры работы с PyPI-реестрами
                 href: operations/pypi/examples.md
           - name: Binary-артефакт
@@ -91,6 +89,16 @@ items:
                 href: operations/binary/push.md
               - name: Скачать binary-артефакт из реестра
                 href: operations/binary/pull.md
+          - name: Go-артефакт
+            items:
+              - name: Создать Go-модуль
+                href: operations/go/create.md
+              - name: Загрузить Go-модуль в реестр
+                href: operations/go/push.md
+              - name: Скачать Go-модуль из реестра
+                href: operations/go/pull.md
+          - name: Удалить артефакт из реестра
+            href: operations/artifacts/delete.md
       - name: Создание политики жизненного цикла
         href: operations/lifecycle-policy/create.md
   - name: Практические руководства
@@ -123,6 +131,8 @@ items:
             href: concepts/artifacts/python.md
           - name: Binary-артефакт
             href: concepts/artifacts/binary.md
+          - name: Go-артефакт
+            href: concepts/artifacts/go.md
       - name: Политика жизненного цикла
         href: concepts/lifecycle-policy.md
       - name: Квоты и лимиты

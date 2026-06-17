@@ -24,7 +24,7 @@
 
    {% endnote %}
 
-   Более подробную информацию о параметрах ресурсов в Terraform см. в [документации провайдера](../../terraform/resources/kms_secret_ciphertext.md).
+   Более подробную информацию о параметрах ресурсов в Terraform смотрите в [документации провайдера](../../terraform/resources/kms_secret_ciphertext.md).
 
 1. Проверьте конфигурацию командой:
 
@@ -91,7 +91,7 @@
 * Не указывайте значения секретов в конфигурационном файле явно. Читайте их из хранилища, доступ к которому ограничен (например, вы можете использовать хранилища секретов).
 * Рассмотрите возможность [удаленного хранения Terraform-state](https://www.terraform.io/docs/state/sensitive-data.html).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Начало работы с Terraform в Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [Документация провайдера Yandex Cloud](../../terraform/index.md).

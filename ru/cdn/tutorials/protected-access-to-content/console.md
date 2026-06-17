@@ -4,6 +4,6 @@ canonical: '{{ link-docs }}/tutorials/security/protected-access-to-content/conso
 
 {% include [protected-access-to-content](../../../_tutorials/security/protected-access-to-content-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md)

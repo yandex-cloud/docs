@@ -209,7 +209,7 @@ import (
   "fmt"
 )
 
-// Структура тела запроса (см. абзац после этого примера).
+// Структура тела запроса (подробнее в абзаце после этого примера).
 // Остальные поля нигде не используются в данном примере, поэтому можно обойтись без них
 type RequestBody struct {
   HttpMethod string `json:"httpMethod"`
@@ -254,7 +254,7 @@ func Greet(ctx context.Context, request []byte) (*Response, error) {
 }
 ```
 
-Подробнее о структуре тела запроса (`type RequestBody struct`) см. в разделе [{#T}](../../concepts/function-invoke.md#request).
+Подробнее о структуре тела запроса (`type RequestBody struct`) в разделе [{#T}](../../concepts/function-invoke.md#request).
 
 Пример входных данных (метод POST):
 

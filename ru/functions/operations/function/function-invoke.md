@@ -28,7 +28,7 @@ description: Из статьи вы узнаете, как вызвать фун
     1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload-template }}** выберите один из вариантов:
 
         * **{{ ui-key.yacloud.serverless-functions.item.testing.value_empty }}** — произвольный формат данных.
-        * **{{ ui-key.yacloud.serverless-functions.item.testing.value_http-request }}** — формат данных для вызова функции, выступающей в качестве обработчика HTTPS-запросов. Подробнее см. в разделе [Концепции](../../concepts/function-invoke.md).
+        * **{{ ui-key.yacloud.serverless-functions.item.testing.value_http-request }}** — формат данных для вызова функции, выступающей в качестве обработчика HTTPS-запросов. Подробнее в разделе [Концепции](../../concepts/function-invoke.md).
         * **{{ ui-key.yacloud.serverless-functions.item.testing.value_ymq-trigger }}** — формат данных для функции, которая вызывается триггером для обработки сообщений из очереди.
         * **{{ ui-key.yacloud.serverless-functions.item.testing.value_alice-skill }}** — формат данных для вызова функции, принимающей [запрос](https://yandex.ru/dev/dialogs/alice/doc/request.html) от платформы Яндекс Диалоги.
 

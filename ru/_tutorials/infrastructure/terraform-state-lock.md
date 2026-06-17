@@ -27,12 +27,12 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для работы с состояниями {{ TF }} входят:
-* Плата за хранение данных (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-storage)).
-* Плата за выполнение запросов к БД (см. [тарифы {{ ydb-name }}](../../ydb/pricing/serverless.md)).
+* Плата за хранение данных ([тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-storage)).
+* Плата за выполнение запросов к БД ([тарифы {{ ydb-name }}](../../ydb/pricing/serverless.md)).
 
 В стоимость поддержки инфраструктуры, разворачиваемой через {{ TF }} в этом руководстве в качестве примера, входят:
-* Плата за постоянно запущенную [виртуальную машину](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за использование динамического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Плата за постоянно запущенную [виртуальную машину](../../compute/concepts/vm.md) ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за использование динамического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 Если вы разворачиваете ресурсы других сервисов {{ yandex-cloud }}, стоимость изменится в соответствии с [тарифами](/prices) этих сервисов.
 
@@ -289,7 +289,7 @@ member flag, but this is not recommended.
 1. [Удалите](../../ydb/operations/manage-databases.md#delete-db) БД `state-lock-db`.
 1. [Удалите](../../storage/operations/buckets/delete.md) бакет.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Начало работы с {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [Загрузка состояний {{ TF }} в {{ objstorage-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).

@@ -35,10 +35,10 @@
 
 В стоимость поддержки создаваемой инфраструктуры входят:
 
-* плата за хранение [секрета](../../lockbox/concepts/secret.md) и запросы к нему (см. [тарифы {{ lockbox-name }}](../../lockbox/pricing.md));
-* плата за использование {{ ai-studio-full-name }} (см. [тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing));
-* плата за использование {{ tracker-full-name }} (см. [тарифы {{ tracker-name }}]({{ link-tracker-cloudless }}pricing));
-* плата за использование {{ postbox-full-name }} (см. [тарифы {{ postbox-name }}](../../postbox/pricing.md)).
+* плата за хранение [секрета](../../lockbox/concepts/secret.md) и запросы к нему ([тарифы {{ lockbox-name }}](../../lockbox/pricing.md));
+* плата за использование {{ ai-studio-full-name }} ([тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing));
+* плата за использование {{ tracker-full-name }} ([тарифы {{ tracker-name }}]({{ link-tracker-cloudless }}pricing));
+* плата за использование {{ postbox-full-name }} ([тарифы {{ postbox-name }}](../../postbox/pricing.md)).
 
 ## Создайте сервисный аккаунт {#service-account}
 

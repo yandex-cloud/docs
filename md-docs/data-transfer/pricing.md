@@ -157,7 +157,7 @@
 
 
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Как оптимизировать поставку данных в Data Transfer](https://www.youtube.com/watch?v=1BJ9YEASOeU).
 

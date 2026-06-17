@@ -30,12 +30,12 @@
 
 В стоимость поддержки создаваемой инфраструктуры входят:
 
-* Плата за использование виртуальной машины и хранение данных на диске (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за использование публичной DNS-зоны и за публичные DNS-запросы (см. [тарифы Yandex Cloud DNS](../../dns/pricing.md)).
-* Плата за выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Yandex Managed Service for MySQL®](../../managed-mysql/pricing.md)).
-* Плата за использование бакета для хранения медиафайлов (см. [тарифы Yandex Object Storage](../../storage/pricing.md)).
-* Плата за хранение секретов и операции с ними (см. тарифы [Yandex Lockbox](../../lockbox/pricing.md)).
-* Плата за исходящие письма (см. тарифы [Yandex Cloud Postbox](../../postbox/pricing.md)).
+* Плата за использование виртуальной машины и хранение данных на диске ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за использование публичной DNS-зоны и за публичные DNS-запросы ([тарифы Yandex Cloud DNS](../../dns/pricing.md)).
+* Плата за выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Yandex Managed Service for MySQL®](../../managed-mysql/pricing.md)).
+* Плата за использование бакета для хранения медиафайлов ([тарифы Yandex Object Storage](../../storage/pricing.md)).
+* Плата за хранение секретов и операции с ними (тарифы [Yandex Lockbox](../../lockbox/pricing.md)).
+* Плата за исходящие письма (тарифы [Yandex Cloud Postbox](../../postbox/pricing.md)).
 
 
 ## Создайте сеть и подсети VPC {#create-network}

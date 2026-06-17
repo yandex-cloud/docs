@@ -19,10 +19,10 @@ Gwin — инструмент для управления балансировщ
 
 В стоимость поддержки инфраструктуры входит:
 
-* Плата за мастер Managed Service for Kubernetes (см. [тарифы Managed Service for Kubernetes](../pricing.md)).
-* Плата за узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за публичные IP-адреса для хостов кластера Managed Service for Kubernetes и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Плата за использование вычислительных ресурсов балансировщика (см. [тарифы Application Load Balancer](../../application-load-balancer/pricing.md)).
+* Плата за мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../pricing.md)).
+* Плата за узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
+* Плата за публичные IP-адреса для хостов кластера Managed Service for Kubernetes и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Плата за использование вычислительных ресурсов балансировщика ([тарифы Application Load Balancer](../../application-load-balancer/pricing.md)).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -89,7 +89,7 @@ Gwin — инструмент для управления балансировщ
 
             {% endnote %}
 
-      Подробнее см. на странице [Доступ к API Yandex Cloud из кластера Managed Service for Kubernetes с помощью федерации сервисных аккаунтов Identity and Access Management](../tutorials/wlif-managed-k8s-integration.md).
+      Подробнее на странице [Доступ к API Yandex Cloud из кластера Managed Service for Kubernetes с помощью федерации сервисных аккаунтов Identity and Access Management](../tutorials/wlif-managed-k8s-integration.md).
 
     - Авторизованный ключ {#authorized-key}
 

@@ -27,9 +27,9 @@
 
 В стоимость поддержки сайта входит:
 
-* плата за [диски](../../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование динамических или статических [внешних IP-адресов](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
-* плата за [сетевой балансировщик](../../concepts/index.md) и балансировку трафика (см. [тарифы Network Load Balancer](../../pricing.md)).
+* плата за [диски](../../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за использование динамических или статических [внешних IP-адресов](../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
+* плата за [сетевой балансировщик](../../concepts/index.md) и балансировку трафика ([тарифы Network Load Balancer](../../pricing.md)).
 
 
 ### Подготовьте окружение {#configure-env}

@@ -31,8 +31,8 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за диски и постоянно запущенные ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
+* плата за диски и постоянно запущенные ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование внешнего IP-адреса ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
 
 ## Создайте пару ключей SSH {#create-ssh-keys}
 

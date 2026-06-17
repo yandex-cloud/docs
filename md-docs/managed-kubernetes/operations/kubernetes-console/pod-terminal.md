@@ -32,6 +32,6 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Под](../../concepts/index.md#pod)

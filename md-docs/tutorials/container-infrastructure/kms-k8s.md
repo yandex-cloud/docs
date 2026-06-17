@@ -7,7 +7,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входит плата за сервис Key Management Service: количество активных версий ключа (в статусах `Active` и `Scheduled For Destruction`) и выполненных криптографических операций (см. [тарифы Key Management Service](../../kms/pricing.md)).
+В стоимость поддержки описываемого решения входит плата за сервис Key Management Service: количество активных версий ключа (в статусах `Active` и `Scheduled For Destruction`) и выполненных криптографических операций ([тарифы Key Management Service](../../kms/pricing.md)).
 
 
 {% list tabs group=instructions %}
@@ -107,7 +107,7 @@
 
 Взаимодействие Managed Service for Kubernetes с Key Management Service происходит с помощью [механизма провайдеров Key Management Service](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/). Managed Service for Kubernetes поддерживает плагин Key Management Service, который используется для шифрования и расшифрования ключей шифрования данных (DEK) в Key Management Service. Шифрование секретов осуществляется стандартными средствами Kubernetes.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Начало работы с Managed Service for Kubernetes](../../managed-kubernetes/quickstart.md).
 * [Шифрование по схеме envelope encryption](../../kms/concepts/envelope.md).

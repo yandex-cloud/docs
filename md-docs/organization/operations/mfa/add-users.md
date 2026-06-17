@@ -140,7 +140,7 @@
 
 {% endnote %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Управлять исключениями политики MFA](excluded-audience.md)
 * [Создать политику MFA](create-policy.md)

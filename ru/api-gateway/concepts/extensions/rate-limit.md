@@ -33,7 +33,7 @@ description: Расширения x-yc-apigateway-rate-limits и x-yc-apigateway
 
 ## Расширение x-yc-apigateway-rate-limits {#rate-limits}
 
-Расширение `x-yc-apigateway-rate-limits` позволяет описывать ограничения скорости обработки запросов в секции [components](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#components-object). Можно ссылаться на ограничения, которые определены таким образом, с помощью параметра `$ref` в расширении `x-yc-apigateway-rate-limit` и подключать их к разным путям, операциям (HTTP-методам) или ко всему API-шлюзу (см. параметр `rateLimit` [расширения `x-yc-apigateway`](index.md#top-level)).
+Расширение `x-yc-apigateway-rate-limits` позволяет описывать ограничения скорости обработки запросов в секции [components](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#components-object). Можно ссылаться на ограничения, которые определены таким образом, с помощью параметра `$ref` в расширении `x-yc-apigateway-rate-limit` и подключать их к разным путям, операциям (HTTP-методам) или ко всему API-шлюзу (параметр `rateLimit` [расширения `x-yc-apigateway`](index.md#top-level)).
 
 ## Расширение x-yc-apigateway-rate-limit {#rate-limit}
 

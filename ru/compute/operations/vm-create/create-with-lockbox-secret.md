@@ -253,7 +253,7 @@ description: Следуя данной инструкции, вы сможете
 
 Другие примеры конфигурации для ключа `user-data` приведены в разделе [Примеры](./create-with-cloud-init-scripts.md#examples).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/vm-metadata.md)
 * [{#T}](./create-with-env-variables.md)

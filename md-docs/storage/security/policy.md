@@ -1,6 +1,6 @@
 # Политика доступа (bucket policy)
 
-В Object Storage реализовано несколько механизмов для управления доступом к ресурсам. Алгоритм взаимодействия этих механизмов см. в [Обзор способов управления доступом в Object Storage](overview.md).
+В Object Storage реализовано несколько механизмов для управления доступом к ресурсам. Алгоритм взаимодействия этих механизмов смотрите в [Обзор способов управления доступом в Object Storage](overview.md).
 
 Политики доступа устанавливают права на действия с бакетами, объектами и группами объектов.
 
@@ -14,10 +14,10 @@
 
 {% endnote %}
 
-Политику доступа можно настроить в консоли управления или описать в формате JSON по [специальной схеме](../s3/api-ref/policy/scheme.md), чтобы передать через один из программных инструментов — Yandex Cloud CLI, AWS CLI, Terraform или API. Подробнее об управлении политикой см. в [инструкции](../operations/buckets/policy.md).
+Политику доступа можно настроить в консоли управления или описать в формате JSON по [специальной схеме](../s3/api-ref/policy/scheme.md), чтобы передать через один из программных инструментов — Yandex Cloud CLI, AWS CLI, Terraform или API. Подробнее об управлении политикой смотрите в [инструкции](../operations/buckets/policy.md).
 
 
-Если вы хотите настроить политику доступа для бакета и подключаться к нему из кластера Apache Hive™ Metastore или Yandex Managed Service for Apache Airflow™, вам потребуется дополнительная настройка инфраструктуры. Подробнее см. в инструкциях для [Apache Hive™ Metastore](../../metadata-hub/operations/metastore/s3-policy-connect.md) и [Managed Service for Apache Airflow™](../../managed-airflow/operations/s3-policy-connect.md).
+Если вы хотите настроить политику доступа для бакета и подключаться к нему из кластера Apache Hive™ Metastore или Yandex Managed Service for Apache Airflow™, вам потребуется дополнительная настройка инфраструктуры. Подробнее в инструкциях для [Apache Hive™ Metastore](../../metadata-hub/operations/metastore/s3-policy-connect.md) и [Managed Service for Apache Airflow™](../../managed-airflow/operations/s3-policy-connect.md).
 
 
 ## Из чего состоит политика {#elements}
@@ -183,7 +183,7 @@
 
 Если условие не выполнено, сервис возвращает ошибку `403 Access Denied`.
 
-См. [примеры конфигураций](#conditional-writes-rules) для условной записи объектов через политику доступа.
+[Примеры конфигураций](#conditional-writes-rules) для условной записи объектов через политику доступа.
 
 ## Примеры конфигурации {#config-examples}
 
@@ -474,6 +474,6 @@
 }
 ```
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Управление политикой доступа (bucket policy)](../operations/buckets/policy.md)

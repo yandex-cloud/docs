@@ -143,7 +143,7 @@ description: Следуя данной инструкции, вы сможете
 
 Создать профиль {{ oslogin }} сервисного аккаунта можно только с помощью [{{ yandex-cloud }} CLI](../cli-ref/oslogin/profile/create.md) или [API](../../organization/api-ref/OsLogin/createProfile.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/os-login-access.md)
 * [{#T}](../operations/add-ssh.md)

@@ -14,7 +14,7 @@ description: В данном разделе вы узнаете, как в {{ ci
 {% include [view-subject-access-bindings](../../../_includes/security-deck/view-subject-access-bindings.md) %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./revoke-permissions.md)
 * [{#T}](../../concepts/ciem.md)

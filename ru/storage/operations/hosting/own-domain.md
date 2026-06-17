@@ -112,7 +112,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [objects-access.md](../../../_includes/storage/objects-access.md) %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](../../qa.md#qa-mime-type)
 * [{#T}](setup.md)

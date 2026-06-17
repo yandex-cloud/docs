@@ -65,7 +65,7 @@ description: Из этой статьи вы узнаете, как работа
 * [{#T}](../tutorials/vm-with-backup-policy/index.md)
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/policy-vm/create.md)
 * [{#T}](../operations/policy-vm/attach-and-detach-vm.md)

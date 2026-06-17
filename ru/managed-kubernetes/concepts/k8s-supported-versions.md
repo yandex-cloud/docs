@@ -28,7 +28,7 @@ description: Из статьи вы узнаете какие версии {{ k8
 
 {% endnote %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](./release-channels-and-updates.md)
 * [{#T}](../release-notes.md)

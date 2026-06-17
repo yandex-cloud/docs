@@ -34,9 +34,9 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
-* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
 
 ### Перенесите данные {#transfer-data-quickly}
 
@@ -148,6 +148,6 @@
 
 Например, для расширения [PostGIS](https://postgis.net/) перенос колонок с типами [`GEOMETRY`](https://postgis.net/docs/geometry.html), [`GEOMETRY_DUMP`](https://postgis.net/docs/geometry_dump.html) и [`GEOGRAPHY`](https://postgis.net/docs/geography.html) поддержан, а перенос типов [`BOX2D`](https://postgis.net/docs/box2d_type.html) и [`BOX3D`](https://postgis.net/docs/box3d_type.html) на данный момент не поддержан.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 Другие способы миграции описаны в [документации {{ mpg-full-name }}](../../managed-postgresql/tutorials/data-migration.md).

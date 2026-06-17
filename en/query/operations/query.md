@@ -5,7 +5,7 @@
 ## Creating a query {#create}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a query.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.queries.tab-text }}**.
 1. In the top panel, click **{{ ui-key.yql.yq-ide-header.new-analytics-query.button-text }}** or **{{ ui-key.yql.yq-ide-header.new-streaming-query.button-text }}**.
 1. Enter the query text in the input field.
@@ -76,14 +76,14 @@ You can view the query progress in the following tabs:
 {{ yq-full-name }} logs each query's [run history](../concepts/glossary.md#jobs).
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to view the query's run history.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.queries.tab-text }}**.
 1. Select your query and click ![pencil](../../_assets/console-icons/rocket.svg) **{{ ui-key.yql.yq-show-query-launches.show-launches.button-text }}** on the top panel.
 
 ## Renaming a query {#update-query-name}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to rename a query.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.queries.tab-text }}**.
 1. Select the query and click ![pencil](../../_assets/console-icons/pencil.svg) next to the query name on the panel.
 1. Enter a new name for the query and click ![check](../../_assets/console-icons/check.svg).
@@ -97,14 +97,14 @@ To edit a query, enter a new query text and click **{{ ui-key.yql.yq-query-actio
 For convenience, you can clone a query with the original query text:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to clone a query.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.queries.tab-text }}**.
 1. Select the query and click **{{ ui-key.yql.yq-query-actions.clone.link-text }}**. To clone a query of a different type, click ![option](../../_assets/console-icons/chevron-down.svg) and select **Clone as…**.
 
 ## Deleting a query {#delete}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a query.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.queries.tab-text }}**.
 1. Click ![delete](../../_assets/console-icons/trash-bin.svg) next to the name of the query to delete.
 1. Confirm query deletion.

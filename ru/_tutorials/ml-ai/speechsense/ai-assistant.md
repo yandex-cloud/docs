@@ -23,7 +23,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Сервис {{ speechsense-name }}: количество символов в каждом текстовом диалоге и анализ диалогов с помощью AI-ассистента (см. [тарифы {{ speechsense-name }}]({{ link-docs-ai }}/speechsense/pricing)).
+* Сервис {{ speechsense-name }}: количество символов в каждом текстовом диалоге и анализ диалогов с помощью AI-ассистента ([тарифы {{ speechsense-name }}]({{ link-docs-ai }}/speechsense/pricing)).
 
 ## Подготовьте инфраструктуру {#infrastructure-prepare}
 

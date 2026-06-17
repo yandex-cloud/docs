@@ -36,7 +36,7 @@ AWS S3 Sync — стандартная команда [AWS CLI](../tools/aws-cli
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки бакета входит плата за хранение данных в бакете и операции с ними (см. [тарифы Yandex Object Storage](../pricing.md)).
+В стоимость поддержки бакета входит плата за хранение данных в бакете и операции с ними ([тарифы Yandex Object Storage](../pricing.md)).
 
 
 ## Создайте бакет {#create-bucket}
@@ -156,7 +156,7 @@ AWS S3 Sync — стандартная команда [AWS CLI](../tools/aws-cli
 * `kms.keys.decrypter` — для чтения ключа, [расшифровки](../../kms/security/index.md#kms-keys-decrypter) и скачивания объектов;
 * `kms.keys.encrypterDecrypter` — включает [разрешения](../../kms/security/index.md#kms-keys-encrypterDecrypter), предоставляемые ролями `kms.keys.encrypter` и `kms.keys.decrypter`.
 
-Подробнее см. [Сервисные роли Key Management Service](../../kms/security/index.md#service-roles).
+Подробнее смотрите [Сервисные роли Key Management Service](../../kms/security/index.md#service-roles).
 
 {% endnote %}
 

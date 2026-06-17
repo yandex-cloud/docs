@@ -102,6 +102,6 @@ LIMIT 2;
 
 {% include [limit](../../query/_includes/select-limit.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../query/sources-and-sinks/data-streams.md).

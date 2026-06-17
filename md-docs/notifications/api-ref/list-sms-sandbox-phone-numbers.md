@@ -121,7 +121,7 @@ POST https://notifications.yandexcloud.net/
 
 Перечень общих кодов ошибок для всех действий см. в разделе [Ошибки](common-errors.md).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Обзор HTTP API Yandex Cloud Notification Service](index.md)
 * [Отправить запрос HTTP API к Yandex Cloud Notification Service](send-request.md)

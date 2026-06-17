@@ -7,7 +7,7 @@
 1. [Подготовьте рабочее окружение](#create-environment).
 1. [Настройте {{ CSI }}](#configure-csi).
 
-См. также:
+Смотрите также:
 
 * [Как использовать {{ CSI }} при работе с `PersistentVolume`](#csi-usage).
 * [Примеры создания `PersistentVolume`](#examples).
@@ -126,7 +126,7 @@
 
   * Если при настройке класса хранилища не было указано имя бакета, то {{ CSI }} создаст отдельный бакет на каждый созданный `PersistentVolume`.
 
-См. также [пример создания](#create-dynamic-pvc) динамического `PersistentVolume`.
+Смотрите также [пример создания](#create-dynamic-pvc) динамического `PersistentVolume`.
 
 ### Статический PersistentVolume {#spvc-csi-usage}
 
@@ -145,7 +145,7 @@
 
   Опции GeeseFS, указанные в параметре `parameters.options` (в настройках приложения {{ marketplace-full-name }} — поле **Опции монтирования GeeseFS**) класса хранилища (`StorageClass`), для статических `PersistentVolume` игнорируются. Подробнее см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/storage/storage-classes/#mount-options).
 
-См. также [пример создания](#create-static-pvc) статического `PersistentVolume`.
+Смотрите также [пример создания](#create-static-pvc) статического `PersistentVolume`.
 
 ## Примеры использования {#examples}
 

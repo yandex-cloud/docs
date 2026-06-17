@@ -131,8 +131,9 @@
     http://cdn.example.com/index.html
     ```
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создание CDN-ресурса с источником-сервером в Yandex Cloud](server.md)
 * [Обзор сервиса Yandex Cloud CDN](../concepts/index.md)
 * [Создание бакета](../../storage/operations/buckets/create.md)
+* [Вебинар: как с помощью Cloud CDN разгрузить высоконагруженную инфраструктуру](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)

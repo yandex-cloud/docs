@@ -223,7 +223,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Изменить конфигурацию ВМ](../vm-control/vm-update-resources.md)
 * [Вопросы про GPU](../../../compute/qa/gpu.md)

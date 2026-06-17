@@ -80,6 +80,6 @@ SAN нельзя включить для виртуальной машины с 
 * [Подключение к Object Storage из Virtual Private Cloud](../../tutorials/routing/storage-vpc-access.md)
 * [Подключение к Container Registry из Virtual Private Cloud](../../tutorials/routing/vpc-cr-access.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Включить программно ускоренную сеть](../operations/enable-software-accelerated-network.md)

@@ -23,6 +23,6 @@ description: При создании ревизии контейнера в {{ s
 {% endnote %}
 
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Вызвать контейнер асинхронно](../operations/invoke-async.md)

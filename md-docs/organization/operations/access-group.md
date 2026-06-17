@@ -88,7 +88,7 @@
          * `system:group:organization:<идентификатор_организации>:users` — чтобы назначить роль системной группе `All users in organization X`;
          * `system:group:federation:<идентификатор_федерации>:users` — чтобы назначить роль системной группе `All users in federation N`.
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_organization_iam_member` см. в [документации провайдера](../../terraform/resources/organizationmanager_organization_iam_member.md).
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_organization_iam_member` смотрите в [документации провайдера](../../terraform/resources/organizationmanager_organization_iam_member.md).
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.

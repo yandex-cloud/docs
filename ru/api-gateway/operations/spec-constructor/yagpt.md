@@ -42,7 +42,7 @@ description: Следуя данной инструкции, вы сможете
 
                 Чтобы получить корректные результаты, используйте осмысленные названия классов.
 
-            * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_classification_samples_title }}** — примеры текстовых запросов для классов в формате `текстовый запрос:класс`. Чтобы добавить пример, нажмите значок ![image](../../../_assets/console-icons/plus.svg). Подробнее см. в разделе [Классификатор Few-shot]({{ link-docs-ai }}ai-studio/concepts/classifier/index#few-shot).
+            * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_classification_samples_title }}** — примеры текстовых запросов для классов в формате `текстовый запрос:класс`. Чтобы добавить пример, нажмите значок ![image](../../../_assets/console-icons/plus.svg). Подробнее в разделе [Классификатор Few-shot]({{ link-docs-ai }}ai-studio/concepts/classifier/index#few-shot).
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 

@@ -2,13 +2,13 @@
 
 Чтобы добавить программный продукт для {{ managed-k8s-name }} в {{ marketplace-short-name }}, его пакеты необходимо загрузить в [реестр](../../container-registry/concepts/registry.md) {{ yandex-cloud }}. Этот раздел поможет подготовить продукт {{ marketplace-short-name }} для {{ managed-k8s-full-name }}.
 
-Как настроить доступ к продукту по [подписке](subscription.md), см. в разделе [Интеграция с {{ license-manager }} API](../operations/license-manager-integration.md#managed-k8s).
+Настройка доступа к продукту по [подписке](subscription.md) описана в разделе [Интеграция с {{ license-manager }} API](../operations/license-manager-integration.md#managed-k8s).
 
 Вы также можете создать продукты для {{ compute-full-name }} на базе ОС [Linux](compute-product.md), воспользовавшись соответствующими рекомендациями.
 
 ## Размещение и именование Docker-образов {#registry}
 
-* [Helm-чарт](https://helm.sh/docs/topics/charts/) продукта и все Docker-образы, входящие в него, должны быть размещены в [реестре](../../container-registry/concepts/registry.md) издателя, созданном в {{ container-registry-full-name }}. О том, как [создать реестр](../../container-registry/operations/registry/registry-create.md) и как [загрузить Docker-образ](../../container-registry/operations/docker-image/docker-image-push.md), см. в соответствующих разделах документации.
+* [Helm-чарт](https://helm.sh/docs/topics/charts/) продукта и все Docker-образы, входящие в него, должны быть размещены в [реестре](../../container-registry/concepts/registry.md) издателя, созданном в {{ container-registry-full-name }}. Инструкции по [созданию реестра](../../container-registry/operations/registry/registry-create.md) и [загрузке Docker-образа](../../container-registry/operations/docker-image/docker-image-push.md) приведены в соответствующих разделах документации.
 
 * Имя Helm-чарта продукта должно иметь вид:
 
@@ -41,7 +41,7 @@
 
 > Например, Docker-образ `{{ registry }}/{{ tf-cloud-id }}/yandex-cloud/prometheus/pushgateway:1.0` будет опубликован под именем `{{ registry }}/yc-marketplace/yandex-cloud/prometheus/pushgateway:1.0`.
 
-Подробнее о работе с реестром см. в разделах [{#T}](../../container-registry/operations/helm-chart/helm-chart-push.md) и [{#T}](../../container-registry/operations/docker-image/docker-image-push.md).
+Подробнее о работе с реестром в разделах [{#T}](../../container-registry/operations/helm-chart/helm-chart-push.md) и [{#T}](../../container-registry/operations/docker-image/docker-image-push.md).
 
 
 ## Особенности сборки Helm-чарта {#special-requirements}

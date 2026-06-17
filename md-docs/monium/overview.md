@@ -155,6 +155,6 @@ graph LR
 * [Язык запросов в Monium](concepts/querying.md)
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Yandex Monium: платформа для мониторинга и управления состоянием IT-систем](https://yandex.cloud/ru/blog/yandex-monium)

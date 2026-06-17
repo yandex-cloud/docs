@@ -55,7 +55,7 @@
 }
 ```
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для Cloud Logging, который вызывает функцию Cloud Functions](../../../functions/concepts/trigger/cloud-logging-trigger.md)
 * [Триггер для Cloud Logging, который отправляет сообщения в WebSocket-соединения](../../../api-gateway/concepts/trigger/cloud-logging-trigger.md)

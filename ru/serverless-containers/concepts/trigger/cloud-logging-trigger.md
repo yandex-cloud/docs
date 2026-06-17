@@ -21,7 +21,7 @@
 
 {% include [logging-format](../../../_includes/functions/logging-format.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../../functions/concepts/trigger/cloud-logging-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/cloud-logging-trigger.md)

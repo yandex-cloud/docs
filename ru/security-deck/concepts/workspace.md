@@ -64,7 +64,7 @@ _Окружение {{ sd-name }}_ — это контейнер, который
 
 {% include [dashboard-contents](../../_includes/security-deck/dashboard-contents.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/workspaces/create.md)
 * [{#T}](../operations/workspaces/view-dashboard.md)

@@ -52,7 +52,7 @@
 
 Для доступа к {{ container-registry-name }} узлам кластера должен быть назначен публичный IP-адрес. Либо в подсети узлов должен быть настроен [NAT-шлюз](../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../vpc/tutorials/nat-instance/index.md).
 
-Подробнее см. в разделе [{#T}](../../managed-kubernetes/concepts/network.md#nodes-internet).
+Подробнее в разделе [{#T}](../../managed-kubernetes/concepts/network.md#nodes-internet).
 
 {% endnote %}
 

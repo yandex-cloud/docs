@@ -71,7 +71,7 @@
   
      {% endnote %}
   
-     Более подробную информацию о параметрах ресурсов в Terraform см. в [документации провайдера](../../terraform/resources/kms_secret_ciphertext.md).
+     Более подробную информацию о параметрах ресурсов в Terraform смотрите в [документации провайдера](../../terraform/resources/kms_secret_ciphertext.md).
   
   1. Проверьте конфигурацию командой:
   
@@ -241,7 +241,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Интерфейс командной строки CLI](../../cli/index.md).
 * [Симметричное шифрование в Yandex Key Management Service](../concepts/symmetric-encryption.md).

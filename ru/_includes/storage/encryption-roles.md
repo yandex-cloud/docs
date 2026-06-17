@@ -4,4 +4,4 @@
 * `kms.keys.decrypter` — для чтения ключа, [расшифровки](../../kms/security/index.md#kms-keys-decrypter) и скачивания объектов;
 * `kms.keys.encrypterDecrypter` — включает [разрешения](../../kms/security/index.md#kms-keys-encrypterDecrypter), предоставляемые ролями `kms.keys.encrypter` и `kms.keys.decrypter`.
 
-Подробнее см. [Сервисные роли {{ kms-name }}](../../kms/security/index.md#service-roles).
+Подробнее смотрите [Сервисные роли {{ kms-name }}](../../kms/security/index.md#service-roles).

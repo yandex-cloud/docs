@@ -192,6 +192,6 @@ server {
 }
 ```
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Документация Let's Encrypt. Виды проверок](https://letsencrypt.org/ru/docs/challenge-types/)

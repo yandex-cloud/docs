@@ -27,8 +27,8 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за хранение данных (см. [тарифы Yandex Object Storage](../../storage/pricing.md));
-* плата за объем считанных данных (см. [тарифы Yandex Query](../../query/pricing.md)).
+* плата за хранение данных ([тарифы Yandex Object Storage](../../storage/pricing.md));
+* плата за объем считанных данных ([тарифы Yandex Query](../../query/pricing.md)).
 
 ### Создайте сервисный аккаунт {#create-sa}
 

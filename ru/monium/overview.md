@@ -136,6 +136,6 @@ description: '{{ monium-name }} — платформа для наблюдени
 * [{#T}](concepts/querying.md)
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{{ monium-full-name }}: платформа для мониторинга и управления состоянием IT-систем](https://yandex.cloud/ru/blog/yandex-monium)

@@ -27,7 +27,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-Если агент размещается на платформе {{ yandex-cloud }}, взимается плата за вычислительные ресурсы (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+Если агент размещается на платформе {{ yandex-cloud }}, взимается плата за вычислительные ресурсы ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 
 На стадии [Preview](../../overview/concepts/launch-stages.md) использование сервиса {{ load-testing-name }} не тарифицируется.
 
@@ -68,7 +68,7 @@
 
      Это позволит подключаться к агентам по протоколу SSH и управлять тестами из консоли или собирать отладочную информацию.
 
-В этом примере нагрузка будет подаваться на внешний сервис `example.myservice.ru`. Подробности о настройке групп безопасности для тестирования сервисов, которые размещены внутри [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud), см. в разделах:
+В этом примере нагрузка будет подаваться на внешний сервис `example.myservice.ru`. Подробности о настройке групп безопасности для тестирования сервисов, которые размещены внутри [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud), смотрите в разделах:
 * [{#T}](../../load-testing/operations/security-groups-agent.md).
 * [{#T}](../../load-testing/operations/security-groups-target.md).
 

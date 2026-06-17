@@ -6,7 +6,7 @@ description: '{{ sts-name }} — компонент сервиса {{ iam-name }
 {% include [sts-overview](../../../_includes/iam/sts-overview.md) %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../../storage/security/overview.md)
 * [{#T}](ephemeral-keys.md)

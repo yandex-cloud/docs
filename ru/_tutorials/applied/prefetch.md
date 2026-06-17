@@ -34,9 +34,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки CDN-инфраструктуры входят:
-* Плата за исходящий трафик с CDN-серверов (см. [тарифы {{ cdn-name }}](../../cdn/pricing.md)).
-* Плата за хранение данных в {{ objstorage-name }}, операции с ними и исходящий трафик (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-* Плата за публичные DNS-запросы и [DNS-зоны](../../dns/concepts/dns-zone.md), если вы используете [{{ dns-full-name }}](../../dns/) (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
+* Плата за исходящий трафик с CDN-серверов ([тарифы {{ cdn-name }}](../../cdn/pricing.md)).
+* Плата за хранение данных в {{ objstorage-name }}, операции с ними и исходящий трафик ([тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Плата за публичные DNS-запросы и [DNS-зоны](../../dns/concepts/dns-zone.md), если вы используете [{{ dns-full-name }}](../../dns/) ([тарифы {{ dns-name }}](../../dns/pricing.md)).
 
 ## Добавьте сертификат в {{ certificate-manager-name }} {#add-certificate}
 

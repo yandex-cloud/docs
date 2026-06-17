@@ -109,6 +109,8 @@
 
 {% endlist %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 #### Добавьте пользователей в федерацию Cloud.ru {#add-cloudru-users}
 
 1. Войдите в [консоль](https://console.cloud.ru/) Cloud.ru.

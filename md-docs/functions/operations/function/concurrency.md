@@ -104,7 +104,7 @@
         }
         ```
 
-        Подробнее о параметрах ресурсов см. [yandex_function](../../../terraform/resources/function.md).
+        Подробнее о параметрах ресурса `yandex_function` в [документации провайдера](../../../terraform/resources/function.md).
 
     1. Проверьте конфигурацию командой:
         
@@ -146,6 +146,6 @@
 
 {% endlist %}
 
-## См. также
+## Полезные ссылки
 
 * [Масштабирование функции](../../concepts/function.md#scaling)

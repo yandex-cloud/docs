@@ -36,7 +36,7 @@ yc serverless function version create --source-path
 
 #### Я хочу увеличить квоты. Как определить подходящие значения для них? {#quotas}
 
-Подробнее о том, какие квоты увеличивать и насколько, см. в разделе [Взаимосвязь квот](../concepts/limits.md#related-quotas).
+Подробнее о том, какие квоты увеличивать и насколько, в разделе [Взаимосвязь квот](../concepts/limits.md#related-quotas).
 
 #### Почему при попытке отправить запрос к API сервиса возвращается ошибка `Illegal duration format`? {#illegal-duration}
 

@@ -72,7 +72,7 @@
 
 * [Синхронизация с секретами Yandex Lockbox](../tutorials/kubernetes-lockbox-secrets.md)
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Установка HashiCorp Vault с поддержкой Key Management Service](../operations/applications/hashicorp-vault.md)
 * [Использование HashiCorp Vault для хранения секретов](../tutorials/marketplace/hashicorp-vault.md)

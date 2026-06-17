@@ -81,7 +81,7 @@
 
 При выполнении команды вы можете получить сообщение об ошибке: `docker login is not supported with yc credential helper`.
 
-В этом случае [отключите Docker Credential helper](#ch-not-use). Подробнее см. в разделе [Решение проблем в Container Registry](../error/index.md).
+В этом случае [отключите Docker Credential helper](#ch-not-use). Подробнее в разделе [Решение проблем в Container Registry](../error/index.md).
 
 ## Аутентифицироваться с помощью Docker Credential helper {#cred-helper}
 

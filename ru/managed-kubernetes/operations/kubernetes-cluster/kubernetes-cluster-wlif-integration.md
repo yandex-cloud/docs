@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [wlif-mk8s-cluster-setup](../../../_includes/managed-kubernetes/wlif-mk8s-cluster-setup.md) %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](../../../iam/concepts/workload-identity.md)
 * [{#T}](../../tutorials/wlif-managed-k8s-integration.md)

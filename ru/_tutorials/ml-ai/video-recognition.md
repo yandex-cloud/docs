@@ -26,8 +26,8 @@
 
 В стоимость работы модели входит:
 
-* плата за использование бакета (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
-* плата за использование вычислительных ресурсов (см. [тарифы {{ ml-platform-full-name }}](../../datasphere/pricing.md)).
+* плата за использование бакета ([тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
+* плата за использование вычислительных ресурсов ([тарифы {{ ml-platform-full-name }}](../../datasphere/pricing.md)).
 
 ## Подготовьте инфраструктуру {#deploy-infrastructure}
 
@@ -217,7 +217,7 @@
 
 В решении используется [интерфейс Keras](https://keras.io/about/) библиотеки TensorFlow с [CNTK-бэкендом](https://docs.microsoft.com/en-us/cognitive-toolkit/). Пакет `boto3` необходим для подключения к бакету с изображениями. Также в ячейке задаются переменные окружения, необходимые для работы с CNTK-бэкендом и подключения к бакету.
 
-Указанные в ячейке пакеты уже установлены в {{ ml-platform-name }} и импортируются с помощью команды `import`. Полный список предустановленных в {{ ml-platform-name }} пакетов см. в разделе [{#T}](../../datasphere/concepts/preinstalled-packages.md).
+Указанные в ячейке пакеты уже установлены в {{ ml-platform-name }} и импортируются с помощью команды `import`. Полный список предустановленных в {{ ml-platform-name }} пакетов смотрите в разделе [{#T}](../../datasphere/concepts/preinstalled-packages.md).
 
 ## Загрузите и разметьте данные {#load-dataset}
 

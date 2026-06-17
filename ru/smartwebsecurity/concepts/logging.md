@@ -132,7 +132,7 @@ description: Какие данные о запросах, правилах и в
 
 При каждом изменении или добавлении новых правил для профилей безопасности, WAF и ARL включайте режим **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**. Активируйте правило только после того, как логи подтвердят его корректную работу.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/configure-logging.md)
 * [{#T}](../tutorials/sws-basic-protection.md)

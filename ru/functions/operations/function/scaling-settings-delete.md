@@ -62,7 +62,7 @@ description: Следуя данной инструкции, вы сможете
         }
         ```
       
-        Более подробную информацию о параметрах ресурса `yandex_function_scaling_policy` см. в [документации провайдера]({{ tf-provider-resources-link }}/function_scaling_policy).
+        Подробнее о параметрах ресурса `yandex_function_scaling_policy` в [документации провайдера]({{ tf-provider-resources-link }}/function_scaling_policy).
       
     1. Проверьте конфигурацию командой:
         

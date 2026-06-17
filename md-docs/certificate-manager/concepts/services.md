@@ -53,7 +53,7 @@ Yandex Smart Web Security позволяет защитить инфрастру
 * [Организация виртуального хостинга](../tutorials/virtual-hosting.md)
 * [Хостинг статического сайта на фреймворке Gatsby в Yandex Object Storage](../tutorials/gatsby-static-website.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Статический сайт в Object Storage](../../tutorials/web/static/index.md)
 * [Yandex API Gateway](../../api-gateway/index.md)

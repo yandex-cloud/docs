@@ -24,9 +24,9 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за бакет Object Storage: хранение данных и выполнение операций с ними (см. [тарифы Object Storage](../../storage/pricing.md)).
-* Плата за кластер Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и дискового пространства (см. [тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
-* Плата за использование публичных IP-адресов для хостов кластера (см. [тарифы Virtual Private Cloud](../pricing.md)).
+* Плата за бакет Object Storage: хранение данных и выполнение операций с ними ([тарифы Object Storage](../../storage/pricing.md)).
+* Плата за кластер Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и дискового пространства ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
+* Плата за использование публичных IP-адресов для хостов кластера ([тарифы Virtual Private Cloud](../pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

@@ -25,8 +25,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* плата за [диски](../../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы Compute Cloud](../../../compute/pricing.md));
-* плата за вызовы [функции](../../concepts/function.md), вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы Cloud Functions](../../pricing.md)).
+* плата за [диски](../../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../../compute/concepts/vm.md) ([тарифы Compute Cloud](../../../compute/pricing.md));
+* плата за вызовы [функции](../../concepts/function.md), вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы Cloud Functions](../../pricing.md)).
 
 ## Создайте вспомогательные ресурсы {#create-aux-resources}
 
@@ -655,6 +655,6 @@
 1. [Удалите](../../operations/function/function-delete.md) функцию.
 1. [Удалите](../../../compute/operations/instance-groups/delete.md) группу ВМ.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Масштабирование группы виртуальных машин по расписанию с помощью Terraform](terraform.md).

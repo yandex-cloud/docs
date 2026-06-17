@@ -11,6 +11,6 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Плейлисты в Cloud Video](../../concepts/playlists.md)

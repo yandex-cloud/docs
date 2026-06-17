@@ -91,7 +91,7 @@
 
 {% include [check-result](../../../_includes/api-gateway/check-result.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Таймер, который вызывает функцию {{ sf-name }}](../../../functions/operations/trigger/timer-create.md)
 * [Таймер, который вызывает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/timer-create.md)

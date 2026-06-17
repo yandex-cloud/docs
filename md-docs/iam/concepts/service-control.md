@@ -62,7 +62,7 @@ Yandex Serverless Integrations — [EventRouter](../../serverless-integrations/c
 
 Управлять доступом сервисов к ресурсам могут пользователи с ролью [администратора](../../resource-manager/security/index.md#resource-manager-admin) или [владельца](../../resource-manager/security/index.md#resource-manager-clouds-owner) облака.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Получение статусов сервисов](../operations/service-control/list-get.md)
 * [Включение и выключение сервиса](../operations/service-control/enable-disable.md)

@@ -374,7 +374,7 @@
 ></iframe>
 ```
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Начало работы с SDK видеоплеера для IFrame](index.md)
 * [Методы плеера](player-methods.md)

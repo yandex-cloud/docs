@@ -7,7 +7,7 @@
 * Не указывайте значения секретов в конфигурационном файле явно. Читайте их из хранилища, доступ к которому ограничен (например, вы можете использовать хранилища секретов).
 * Рассмотрите возможность [удаленного хранения {{ TF }}-state](https://www.terraform.io/docs/state/sensitive-data.html).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Начало работы с {{ TF }} в {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [Документация провайдера {{ yandex-cloud }}]({{ tf-provider-link }}).

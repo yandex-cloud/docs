@@ -110,7 +110,7 @@
 
 Проверьте, что триггер работает корректно. Для этого посмотрите [логи API-шлюза](../api-gw-logs.md), в них отображается информация об обращениях к нему.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Таймер, который вызывает функцию Cloud Functions](../../../functions/operations/trigger/timer-create.md)
 * [Таймер, который вызывает контейнер Serverless Containers](../../../serverless-containers/operations/timer-create.md)

@@ -30,7 +30,7 @@ _Таймер_ — это [триггер](../trigger/), который запу
 * [{#T}](../../tutorials/nodejs-cron-restart-vm.md)
 * [{#T}](../../tutorials/regular-launch-datasphere.md)
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Таймер для запуска контейнера {{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/timer.md)
 * [{#T}](../../../api-gateway/concepts/trigger/timer.md)

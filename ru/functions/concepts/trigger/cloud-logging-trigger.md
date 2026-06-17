@@ -26,7 +26,7 @@
 * [{#T}](../../tutorials/logging-functions.md)
 * [{#T}](../../tutorials/logging.md)
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../../serverless-containers/concepts/trigger/cloud-logging-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/cloud-logging-trigger.md)

@@ -23,7 +23,7 @@ _Login Discovery_ в {{ yandex-cloud }} определяет привязку п
 
 Указанный пользователем домен должен на всех уровнях совпадать с доменом, зарегистрированным в пуле пользователей, федерации или Яндекс ID.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/user-pools/manage-domain.md)
 * [{#T}](../operations/manage-domain-in-federation.md)

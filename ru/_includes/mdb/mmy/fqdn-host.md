@@ -1,1 +1,1 @@
-О том, как получить FQDN хоста, см. [инструкцию](../../../managed-mysql/operations/connect/fqdn.md).
+О том, как получить FQDN хоста, читайте в [инструкции](../../../managed-mysql/operations/connect/fqdn.md).

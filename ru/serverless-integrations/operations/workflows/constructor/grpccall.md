@@ -30,7 +30,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Спецификация YaWL](../../../concepts/workflows/yawl/integration/grpccall.md)
 * [{#T}](../workflow/create-constructor.md)

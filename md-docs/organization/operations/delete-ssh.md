@@ -147,7 +147,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Добавить SSH-ключ](add-ssh.md)
 * [Включить доступ по OS Login](os-login-access.md)

@@ -81,7 +81,7 @@ description: Следуя данной инструкции, вы сможете
       }
       ```
 
-      Более подробную информацию о параметрах ресурса `yandex_serverless_eventrouter_connector` см. в [документации провайдера]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
+      Подробнее о параметрах ресурса `yandex_serverless_eventrouter_connector` в [документации провайдера]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
 
   1. Примените изменения:
 

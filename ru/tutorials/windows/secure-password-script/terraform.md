@@ -10,6 +10,6 @@ description: В этом руководстве вы создадите вирт
 {% include [secure-password-script-tf](../../../_tutorials/windows/secure-password-script-tf.md) %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](console.md)

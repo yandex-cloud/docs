@@ -127,7 +127,7 @@ persistentvolumeclaim | Имя Persistent Volume Claim
 | `persistent_volume.used_bytes`<br/>`IGAUGE`, байты | Использование постоянного тома. |
 | `persistent_volume.utilization`<br/>`DGAUGE`, % | Утилизация постоянного тома. |
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Мониторинг состояния кластера Managed Service for Kubernetes](operations/kubernetes-cluster/kubernetes-cluster-get-stats.md)
 * [Мониторинг кластера с помощью Prometheus Operator с поддержкой Yandex Monitoring](tutorials/prometheus-grafana-monitoring.md)

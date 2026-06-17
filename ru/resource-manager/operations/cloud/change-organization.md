@@ -35,6 +35,6 @@ description: Из статьи вы узнаете, как изменить ор
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../../organization/operations/leave-organization.md)

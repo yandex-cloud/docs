@@ -397,6 +397,6 @@ subcluster_name | Имя подкластера
 | `write_merged_count`<br/>`DGAUGE`, операции/с | Количество слитых операций записи на конкретный диск в секунду. |
 | `write_time`<br/>`DGAUGE`, миллисекунды | Среднее время записи на диски. |
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Мониторинг состояния кластера, хостов и шардов в Yandex Managed Service for Valkey™](operations/monitoring.md)

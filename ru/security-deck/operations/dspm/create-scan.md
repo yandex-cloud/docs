@@ -77,7 +77,7 @@ description: Следуя данной инструкции, вы узнаете
 {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./create-data-source.md)
 * [{#T}](../../concepts/dspm.md)

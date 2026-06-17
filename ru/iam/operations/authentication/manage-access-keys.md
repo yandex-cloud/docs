@@ -290,7 +290,7 @@ description: Из статьи вы узнаете, как создавать и
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/authorization/access-key.md)
 * [Настройка инструментов для работы с {{ objstorage-name }}](../../../storage/tools/index.md)

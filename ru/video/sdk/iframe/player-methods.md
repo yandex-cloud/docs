@@ -297,7 +297,7 @@ window.addEventListener('message', function(event) {
 
 Для каждого метода существует соответствующее событие возврата в формате `<methodName>:return`.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./index.md)
 * [{#T}](./initialization.md)

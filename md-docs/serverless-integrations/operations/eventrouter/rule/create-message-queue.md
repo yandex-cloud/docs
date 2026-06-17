@@ -199,7 +199,7 @@
       * `description` — описание правила. Необязательный параметр.
       * `labels` — список меток. Метки задаются в формате `<ключ> = "<значение>"`. Необязательный параметр.
 
-      Более подробную информацию о параметрах ресурса `yandex_serverless_eventrouter_rule` см. в [документации провайдера](../../../../terraform/resources/serverless_eventrouter_rule.md).
+      Подробнее о параметрах ресурса `yandex_serverless_eventrouter_rule` в [документации провайдера](../../../../terraform/resources/serverless_eventrouter_rule.md).
 
   1. Создайте ресурсы:
 

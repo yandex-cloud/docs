@@ -23,7 +23,7 @@ auto_healing_policy:
 
 Если вы не определили политику восстановления, ВМ будут [автоматически восстанавливаться](../../instance-groups/autohealing.md#healthcheck-cases) в зависимости от настроек [политики развертывания](deploy-policy.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](scale-policy.md)
 * [{#T}](allocation-policy.md)

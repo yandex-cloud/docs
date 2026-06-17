@@ -19,4 +19,4 @@
 * `enroll_window` — период времени после регистрации, в течение которого пользователь должен добавить второй фактор аутентификации. Указывается в формате времени, например, `720h0m0s` для 30 дней. Обязательный параметр.
 * `description` — описание политики. Необязательный параметр.
 
-Более подробную информацию о параметрах ресурса `yandex_organizationmanager_mfa_enforcement` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement).
+Более подробную информацию о параметрах ресурса `yandex_organizationmanager_mfa_enforcement` смотрите в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement).

@@ -43,7 +43,7 @@ SDK поддерживают работу с большинством серви
 * [Kotlin](../../functions/lang/kotlin/sdk.md)
 * [.NET Core](../../functions/lang/csharp/sdk.md)
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{{ console-full-name }}](../../console/)
 * [{{ yandex-cloud }} CLI](../../cli/)

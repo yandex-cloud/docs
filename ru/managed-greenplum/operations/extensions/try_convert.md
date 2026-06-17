@@ -5,6 +5,8 @@ description: Как использовать расширение try_convert в
 
 # Использование try_convert в {{ mgp-name }}
 
+{% include [not-supported-in-cb](../../../_includes/mdb/mgp/not-supported-in-cb.md) %}
+
 `try_convert` — это расширение от {{ yandex-cloud }}, которое является аналогом функции [TRY_CONVERT](https://learn.microsoft.com/ru-ru/sql/t-sql/functions/try-convert-transact-sql?view=sql-server-ver17) для преобразования данных из одного типа в другой. Расширение позволяет выполнять преобразование типов при наличии ошибок во входных данных. Без использования расширения такие преобразования выполняются в pl/pgsql, что приводит к дополнительным затратам CPU.
 
 Расширение работает только для стандартных типов данных {{ GP }}. Чтобы использовать другие типы данных, добавьте их с помощью функции `add_type_for_try_convert`.
@@ -15,7 +17,7 @@ description: Как использовать расширение try_convert в
 > SELECT add_type_for_try_convert('hstore'::regtype);
 > ```
 
-Подробнее о расширении см. в [документации try_convert](https://github.com/open-gpdb/gpdb/tree/OPENGPDB_STABLE/contrib/try_convert).
+Подробнее о расширении читайте в [документации try_convert](https://github.com/open-gpdb/gpdb/tree/OPENGPDB_STABLE/contrib/try_convert).
 
 ## Установить расширение try_convert в кластер {{ mgp-name }} {#extension-install}
 
@@ -52,3 +54,5 @@ description: Как использовать расширение try_convert в
     Будет возвращено значение `1234`.
 
 {% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [cloudberry-trademark](../../../_includes/mdb/mgp/trademark-cloudberry.md) %}

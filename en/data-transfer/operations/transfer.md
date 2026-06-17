@@ -26,7 +26,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
 
   You can filter the list of transfers by available parameters:
@@ -62,7 +62,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
     1. Click the required transfer name.
 
@@ -97,7 +97,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
   1. Click **{{ ui-key.yacloud.data-transfer.button_create-transfer }}**.
   1. Select the source endpoint or [create](./endpoint/index.md#create) a new one.
@@ -379,7 +379,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
     1. Select a transfer and click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** in the top panel.
     1. Edit the transfer parameters:
@@ -559,7 +559,7 @@ When updating a transfer, its settings are applied immediately. Editing {{ dt-ty
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
     1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the transfer name and select ![ellipsis](../../_assets/console-icons/play.svg) **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
 
@@ -605,7 +605,7 @@ During transfer deactivation:
 
     1. Switch the source to <q>read-only</q>.
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
     1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the transfer name and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-DEACTIVATE }}**.
     1. Wait for the transfer status to change to {{ dt-status-stopped }}.
@@ -653,7 +653,7 @@ For more information, see [{#T}](../concepts/transfer-lifecycle.md).
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
     1. If the transfer you need is active, [deactivate it](#deactivate).
     1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the transfer name and select **{{ ui-key.yacloud.common.remove }}**.

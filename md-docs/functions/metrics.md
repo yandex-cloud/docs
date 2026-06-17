@@ -103,7 +103,7 @@ mdbproxy | Идентификатор подключения к БД
 `serverless.mdbproxy.connections_inflight`<br/>`DGAUGE`, штуки | Количество одновременных активных подключений к БД.
 `serverless.mdbproxy.query_execution_time_milliseconds`<br/>`IGAUGE`, штуки/мс | Гистограмма распределения выполнения запросов к БД.<br/>Метка `bin` — бакеты гистограммы.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Посмотреть графики мониторинга функции](operations/function/function-monitoring.md)
 * [Посмотреть графики мониторинга триггера в Cloud Functions](operations/trigger/trigger-monitoring.md)

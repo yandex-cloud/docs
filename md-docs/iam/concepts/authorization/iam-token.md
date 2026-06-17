@@ -70,7 +70,7 @@ t1.7euelSbPyceKx87JqpuRl1qZiY-Ryi3rnpWaksrKaZqUppnLncmDnpeajZvl8_dZNAFl-e8ENXMH_
 * [Использование Yandex Object Storage в Yandex Data Processing](../../../tutorials/archive/copy-files-from-object-storage.md)
 * [Создание интерактивного serverless-приложения с использованием WebSocket](../../../tutorials/serverless/websocket-app.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Получение IAM-токена для аккаунта на Яндексе](../../operations/iam-token/create.md)
 * [Получение IAM-токена для сервисного аккаунта](../../operations/iam-token/create-for-sa.md)

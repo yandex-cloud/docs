@@ -16,6 +16,6 @@
     SELECT extname FROM pg_extension;
     ```
 
-Подробнее о расширении `pgcrypto` см. в [официальной документации]({{ pg-docs }}/static/pgcrypto.html).
+Подробнее о расширении `pgcrypto` читайте в [официальной документации]({{ pg-docs }}/static/pgcrypto.html).
 
 {% include [example-pgcrypto](../../../_includes/mdb/mgp-mpg-example-pgcrypto.md) %}

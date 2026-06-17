@@ -43,6 +43,6 @@
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Создать конфигурацию](create-configuration.md)

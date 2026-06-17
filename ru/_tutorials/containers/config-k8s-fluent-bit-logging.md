@@ -11,10 +11,10 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за публичный IP-адрес, если он назначен узлам кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
-* Плата за сервис {{ cloud-logging-name }}: запись и хранение данных (см. [тарифы {{ cloud-logging-name }}](../../logging/pricing.md)).
+* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за публичный IP-адрес, если он назначен узлам кластера ([тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Плата за сервис {{ cloud-logging-name }}: запись и хранение данных ([тарифы {{ cloud-logging-name }}](../../logging/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -197,7 +197,7 @@
           fluentbit ./fluent-bit/
         ```
 
-        Актуальную версию Helm-чарта см. на [странице {{ marketplace-full-name }}](/marketplace/products/yc/fluent-bit).
+        Актуальная версия Helm-чарта на [странице {{ marketplace-full-name }}](/marketplace/products/yc/fluent-bit).
 
         Команда создаст новое пространство имен, необходимое для работы Fluent Bit.
 

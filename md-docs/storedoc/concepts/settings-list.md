@@ -119,7 +119,7 @@
 
     Минимальное значение — `10`, максимальное значение [зависит от выбранного класса хостов](#settings-instance-dependent) и равно объему RAM на хосте в МБ, но не более `16384`. Значение по умолчанию: `1024`.
 
-    Подробнее см. в разделе [Ограничения на количество подключений](../operations/connect/index.md#connection-limits).
+    Подробнее в разделе [Ограничения на количество подключений](../operations/connect/index.md#connection-limits).
 
   - **Compression → Compressors**{#setting-compressors}
 

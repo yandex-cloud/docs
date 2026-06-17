@@ -24,9 +24,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для L7-балансировщика с профилем безопасности Smart Web Security входят:
-* плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование вычислительных ресурсов [L7-балансировщика](../../concepts/index.md) (см. [тарифы Application Load Balancer](../../pricing.md));
-* плата за запросы, обработанные правилами [профиля безопасности](../../../smartwebsecurity/concepts/profiles.md) (см. [тарифы Yandex Smart Web Security](../../../smartwebsecurity/pricing.md)).
+* плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за использование вычислительных ресурсов [L7-балансировщика](../../concepts/index.md) ([тарифы Application Load Balancer](../../pricing.md));
+* плата за запросы, обработанные правилами [профиля безопасности](../../../smartwebsecurity/concepts/profiles.md) ([тарифы Yandex Smart Web Security](../../../smartwebsecurity/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#infrastructure-prepare}
@@ -172,6 +172,6 @@
 1. [Удалите](../../../compute/operations/vm-control/vm-delete.md) ВМ.
 1. [Удалите](../../../dns/operations/zone-delete.md) зону DNS, если вы создавали ее в Yandex Cloud DNS.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создание L7-балансировщика Application Load Balancer с профилем безопасности Smart Web Security с помощью Terraform](terraform.md)

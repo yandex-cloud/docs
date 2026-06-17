@@ -147,7 +147,7 @@ _Пользовательская переменная_ — значение, к
 
    В поле `instance_template.name`: переменная `{short_zone_var_{{ region-id }}-a}` будет преобразована в значение `rc1a`.
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](specification.md)
 * [{#T}](instance-template.md)

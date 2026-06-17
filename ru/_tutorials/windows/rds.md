@@ -37,9 +37,9 @@
 
 В стоимость инсталляции Microsoft Windows Server with Remote Desktop Services входят:
 
-* плата за постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование динамических или статических публичных IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
-* стоимость исходящего трафика из {{ yandex-cloud }} в интернет (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* плата за постоянно запущенные виртуальные машины ([тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование динамических или статических публичных IP-адресов ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
+* стоимость исходящего трафика из {{ yandex-cloud }} в интернет ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 
 ## Создайте облачную сеть и подсети {#create-network}
 

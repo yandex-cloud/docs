@@ -27,9 +27,9 @@
 
 В стоимость поддержки сайта входит:
 
-* плата за [диски](../../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование динамических или статических [внешних IP-адресов](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
-* плата за [сетевой балансировщик](../../../network-load-balancer/concepts/index.md) и балансировку трафика (см. [тарифы Network Load Balancer](../../../network-load-balancer/pricing.md)).
+* плата за [диски](../../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за использование динамических или статических [внешних IP-адресов](../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
+* плата за [сетевой балансировщик](../../../network-load-balancer/concepts/index.md) и балансировку трафика ([тарифы Network Load Balancer](../../../network-load-balancer/pricing.md)).
 
 
 ### Подготовьте окружение {#configure-env}
@@ -221,6 +221,6 @@
 1. [Удалите](../../../compute/operations/instance-groups/delete.md) группу ВМ.
 1. [Удалите](../../../vpc/operations/address-delete.md) статический публичный IP-адрес, если вы его зарезервировали.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Отказоустойчивый сайт с балансировкой нагрузки через Yandex Network Load Balancer с помощью Terraform](terraform.md)

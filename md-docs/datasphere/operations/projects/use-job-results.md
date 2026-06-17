@@ -58,6 +58,6 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [DataSphere CLI](../../concepts/jobs/cli.md)

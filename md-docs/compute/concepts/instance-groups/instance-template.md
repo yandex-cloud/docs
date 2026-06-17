@@ -183,7 +183,7 @@ instance_template:
 * [Масштабирование группы виртуальных машин по расписанию](../../tutorials/vm-scale-scheduled/index.md)
 * [Автоматическое масштабирование группы виртуальных машин для обработки сообщений из очереди Yandex Message Queue](../../tutorials/autoscale-monitoring.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Метаданные виртуальной машины](../vm-metadata.md).
 * [Создание виртуальной машины с пользовательским скриптом конфигурации](../../operations/vm-create/create-with-cloud-init-scripts.md).

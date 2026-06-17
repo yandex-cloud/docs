@@ -10,7 +10,7 @@
    * **Имя хоста**. Укажите адрес прокси серверов {{ ytsaurus-name }}.
    * **Порт**. Укажите порт подключения к CHYT.
    * **Алиас клики**. Укажите алиас запущенной клики. По умолчанию используется публичная клика `*ch_public`.
-   * **Токен {{ ytsaurus-name }}**. Укажите вручную OAuth-токен для работы с {{ ytsaurus-name }}. Подробнее см. в [документации {{ ytsaurus-name }}](https://ytsaurus.tech/docs/ru/user-guide/storage/auth).
+   * **Токен {{ ytsaurus-name }}**. Укажите вручную OAuth-токен для работы с {{ ytsaurus-name }}. Подробнее в [документации {{ ytsaurus-name }}](https://ytsaurus.tech/docs/ru/user-guide/storage/auth).
    * **Время жизни кеша в секундах**. Укажите время жизни кеша или оставьте значение по умолчанию. Рекомендованное значение — 300 секунд (5 минут).
 
    {% include [datalens-db-sql-level](../datalens-db-connection-sql-level.md) %}

@@ -406,6 +406,6 @@
 `DGAUGE` ||
 |#
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Мониторинг состояния кластера Apache Spark™](operations/monitoring.md)

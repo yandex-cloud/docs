@@ -29,7 +29,7 @@
 
 {% include [iot-format](../../../_includes/functions/iot-format-broker.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../../functions/concepts/trigger/iot-core-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/iot-core-trigger.md)

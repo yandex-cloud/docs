@@ -5,6 +5,6 @@ description: В этом руководстве вы развернете инф
 
 {% include [alb-with-ddos-protection-console](../../../_tutorials/security/alb-with-ddos-protection-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md)

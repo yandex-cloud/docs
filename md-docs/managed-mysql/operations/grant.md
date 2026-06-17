@@ -6,7 +6,7 @@
 
 Чтобы изменить права пользователей на уровне [всего кластера](../concepts/settings-list.md#setting-administrative-priveleges) или [отдельной базы данных](grant.md#grant-privilege), используйте интерфейсы Yandex Cloud. Изменения, внесенные командами SQL, не сохраняются.
 
-Подробнее см. в разделе [Права пользователей в Managed Service for MySQL®](../concepts/user-rights.md).
+Подробнее в разделе [Права пользователей в Managed Service for MySQL®](../concepts/user-rights.md).
 
 {% endnote %}
 
@@ -300,7 +300,7 @@
 
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера MySQL®](cluster-create.md).
+      Как создать такой файл, описано в разделе [Создание кластера MySQL®](cluster-create.md).
 
   1. Добавьте ресурс `yandex_mdb_mysql_user`:
 
@@ -348,6 +348,6 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mysql_user.md).
+  Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_mysql_user.md).
 
 {% endlist %}

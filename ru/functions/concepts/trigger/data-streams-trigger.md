@@ -32,7 +32,7 @@ description: Из статьи вы узнаете, что такое тригг
 
 * [{#T}](../../tutorials/events-from-postbox-to-yds.md)
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../../serverless-containers/concepts/trigger/data-streams-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/data-streams-trigger.md)

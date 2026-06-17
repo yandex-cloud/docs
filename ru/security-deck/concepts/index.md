@@ -44,7 +44,7 @@ description: Сервис {{ sd-name }} представляет собой CNAP
 
 {% include [sd-usage-security-disclaimer](../../_includes/security-deck/sd-usage-security-disclaimer.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{{ sd-full-name }}: как собрать все воедино в облачной безопасности](https://yandex.cloud/ru/blog/security-deck-guide)
 * [Защита облаков в России: основные тенденции и тренды киберугроз в 2025 году](https://yandex.cloud/ru/blog/posts/2025/04/cloud-protection)

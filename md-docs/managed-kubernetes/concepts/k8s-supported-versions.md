@@ -23,7 +23,7 @@
 
 {% endnote %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Релизные каналы](release-channels-and-updates.md)
 * [История изменений в Yandex Managed Service for Kubernetes](../release-notes.md)

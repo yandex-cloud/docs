@@ -59,6 +59,6 @@ description: Из статьи вы узнаете, как отвязать ви
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](attach-and-detach-vm.md)

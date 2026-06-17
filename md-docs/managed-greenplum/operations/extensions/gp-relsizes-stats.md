@@ -1,5 +1,11 @@
 # Использование gp_relsizes_stats в Yandex MPP Analytics for PostgreSQL
 
+{% note warning %}
+
+Это расширение не поддерживается в Apache Cloudberry™.
+
+{% endnote %}
+
 Расширение `gp_relsizes_stats` предназначено для сбора статистики о физических размерах файлов и таблиц на всех сегментах кластера Yandex MPP Analytics for PostgreSQL.
 
 Ключевые возможности:
@@ -160,3 +166,5 @@ FROM relsizes_stats_schema.table_sizes_history
 WHERE nspname='call_center' AND relname='operators'
 ORDER BY insert_date;
 ```
+
+_Apache® и Apache Cloudberry™ являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах._

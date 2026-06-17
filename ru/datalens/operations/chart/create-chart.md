@@ -50,7 +50,7 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](../../tutorials/data-from-ch-to-sql-chart.md)
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/chart/index.md)
 * [{#T}](../../concepts/chart/settings.md)

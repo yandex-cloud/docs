@@ -29,7 +29,7 @@ mongotop 5 \
   --authenticationDatabase=admin
 ```
 
-О том, как получить FQDN хоста, см. [инструкцию](connect/index.md#get-fqdn).
+О том, как получить FQDN хоста, читайте в [инструкции](connect/index.md#get-fqdn).
 
 
 ### Профилировщик {#explore-profiler}

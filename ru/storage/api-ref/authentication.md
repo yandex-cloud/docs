@@ -323,6 +323,6 @@ description: Для выполнения операций через API в ма
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../s3/s3-api-quickstart.md)

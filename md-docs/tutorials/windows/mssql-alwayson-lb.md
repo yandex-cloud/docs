@@ -3,7 +3,7 @@
 
 {% note warning %}
 
-В Yandex Cloud продукты Microsoft можно использовать только с вашими собственными лицензиями и только на выделенных хостах. Подробнее см. [Использование своей лицензии для продуктов Microsoft](../../microsoft/byol.md).
+В Yandex Cloud продукты Microsoft можно использовать только с вашими собственными лицензиями и только на выделенных хостах. Подробнее читайте [Использование своей лицензии для продуктов Microsoft](../../microsoft/byol.md).
 
 {% endnote %}
 
@@ -41,9 +41,9 @@
 
 В стоимость поддержки группы доступности входят:
 
-* плата за постоянно запущенную виртуальную машину (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование сетевого балансировщика (см. [тарифы Yandex Network Load Balancer](../../network-load-balancer/pricing.md));
-* плата за использование динамического или статического публичного IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* плата за постоянно запущенную виртуальную машину ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за использование сетевого балансировщика ([тарифы Yandex Network Load Balancer](../../network-load-balancer/pricing.md));
+* плата за использование динамического или статического публичного IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 Вы можете воспользоваться [перемещением лицензий](../../compute/qa/licensing.md) и использовать собственную лицензию SQL Server в Yandex Cloud.
 
@@ -362,7 +362,7 @@
 
 ### Создайте виртуальные машины {#create-group-vms}
 
-ВМ нужно создавать на [выделенных хостах](../../compute/concepts/dedicated-host.md). Получить идентификатор выделенного хоста можно с помощью Yandex Cloud CLI, выполнив команду `yc compute host-group list-hosts` (подробнее о команде см. в [справочнике](../../cli/cli-ref/compute/cli-ref/host-group/list-hosts.md)).
+ВМ нужно создавать на [выделенных хостах](../../compute/concepts/dedicated-host.md). Получить идентификатор выделенного хоста можно с помощью Yandex Cloud CLI, выполнив команду `yc compute host-group list-hosts` (подробнее о команде смотрите в [справочнике](../../cli/cli-ref/compute/cli-ref/host-group/list-hosts.md)).
 
 #### Создайте ВМ для бастионного хоста {#create-jump-server}
 

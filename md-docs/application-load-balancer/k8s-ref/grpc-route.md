@@ -10,7 +10,7 @@
 
 `GRPCRoute` предназначен для разработчиков приложений. Оператор кластера должен использовать `Gateway`.
 
-`GRPCRoute` — ресурс Kubernetes, определенный [проектом Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API Application Load Balancer. Полное описание конфигурации ресурса см. в [документации Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.GRPCRoute).
+`GRPCRoute` — ресурс Kubernetes, определенный [проектом Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API Application Load Balancer. Полное описание конфигурации ресурса смотрите в [документации Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.GRPCRoute).
 
 ## GRPCRoute {#grpc-route}
 
@@ -33,7 +33,7 @@ spec: <GRPCRouteSpec>
 
   * `name` (`string`, обязательное)
 
-    Имя ресурса. Подробнее о формате см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Подробнее о формате смотрите в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
     Не является именем маршрута в Application Load Balancer.
  
@@ -43,7 +43,7 @@ spec: <GRPCRouteSpec>
 
 * `spec` (`GRPCRouteSpec`, обязательное)
 
-  Спецификация ресурса. Подробнее см. [ниже](#spec).
+  Спецификация ресурса. Подробности [ниже](#spec).
 
 
 {% cut "Пример" %}
@@ -117,7 +117,7 @@ rules:
 
 * `parentRefs` (`[]ParentReference`, обязательное)
 
-  Список ресурсов `Gateway` (или их обработчиков из поля `spec.listeners` — см. [справочник](gateway.md#spec)), к которым должен быть привязан `GRPCRoute`.
+  Список ресурсов `Gateway` (или их обработчиков из поля `spec.listeners` — смотрите [справочник](gateway.md#spec)), к которым должен быть привязан `GRPCRoute`.
 
   Также маршрут должен удовлетворять правилам, описанным в [конфигурации](gateway.md#spec) `Gateway` (поле `spec.listeners.allowedRoutes`).
   
@@ -243,7 +243,7 @@ rules:
 
        Номер порта сервиса.
 
-       Номер должен совпадать с одним из номеров портов, указанных в полях `spec.ports.port` ресурса `Service`. Подробнее см. в [конфигурации ресурса](service-for-gateway.md).
+       Номер должен совпадать с одним из номеров портов, указанных в полях `spec.ports.port` ресурса `Service`. Подробнее в [конфигурации ресурса](service-for-gateway.md).
        
      * `weight` (`int32`)
 

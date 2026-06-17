@@ -108,7 +108,7 @@
 
 {% include [check-result](../../../_includes/api-gateway/check-result.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для почты, который вызывает функцию {{ sf-name }}](../../../functions/operations/trigger/mail-trigger-create.md)
 * [Триггер для почты, который вызывает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/mail-trigger-create.md)

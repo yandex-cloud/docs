@@ -39,6 +39,8 @@ editable: false
 * За каждый [CDN-ресурс](concepts/resource.md) отдельно. Выгодно, если CDN-ресурсов немного или выделенная IP-адресация нужна только для некоторых из них.
 * За все CDN-ресурсы [платежного аккаунта](../billing/concepts/billing-account.md). Выгодно, если выделенная IP-адресация нужна для множества CDN-ресурсов.
 
+{% include [pricing-for-dedicated-ip.md](../_includes/cdn/pricing-for-dedicated-ip.md) %}
+
 
 <MDX>
   <PriceList

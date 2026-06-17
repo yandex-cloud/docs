@@ -61,7 +61,7 @@
 }
 ```
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для Object Storage, который запускает контейнер Serverless Containers](../../../serverless-containers/concepts/trigger/os-trigger.md)
 * [Триггер для Object Storage, который запускает функцию Cloud Functions](../../../functions/concepts/trigger/os-trigger.md)

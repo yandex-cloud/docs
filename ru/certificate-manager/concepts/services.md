@@ -58,7 +58,7 @@ description: Из статьи вы узнаете, в каких сервиса
 * [{#T}](../tutorials/virtual-hosting.md)
 * [{#T}](../tutorials/gatsby-static-website.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Статический сайт в {{ objstorage-name }}](../../tutorials/web/static/index.md)
 * [{{ api-gw-full-name }}](../../api-gateway/)

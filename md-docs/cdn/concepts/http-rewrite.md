@@ -46,6 +46,6 @@
 * [Миграция в Yandex Cloud CDN из стороннего CDN-провайдера](../tutorials/migrate-to-yc-cdn.md)
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Инструкция по включению перенаправления запросов](../operations/resources/setup-http-rewrite.md)

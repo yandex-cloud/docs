@@ -118,7 +118,7 @@
 
 {% include [check-result](../../../_includes/api-gateway/check-result.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для {{ objstorage-name }}, который вызывает функцию {{ sf-name }}](../../../functions/operations/trigger/os-trigger-create.md)
 * [Триггер для {{ objstorage-name }}, который вызывает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/os-trigger-create.md)

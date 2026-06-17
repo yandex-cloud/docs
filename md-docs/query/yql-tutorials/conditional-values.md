@@ -29,7 +29,7 @@ GROUP BY                                -- CASE проверяет список 
 Рассмотрите пример в блоке справа и нажмите кнопку ![run](../../_assets/console-icons/play-fill.svg) **Выполнить**.
 Результат выполнения запроса отобразится на вкладке **Результат** в виде таблицы или схемы.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * Оператор [SELECT](https://ydb.tech/docs/ru//yql/reference/syntax/select)
 * Оператор [GROUP BY](https://ydb.tech/docs/ru//yql/reference/syntax/group_by)

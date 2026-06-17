@@ -32,6 +32,6 @@
 Количество сертификатов на один домен | 50 в неделю
 Количество сертификатов на один набор доменов | 5 в неделю
 
-#### См. также {#certificate-manager-see-also}
+#### Полезные ссылки {#certificate-manager-see-also}
 
 - [Документация Let's Encrypt. Ограничения](https://letsencrypt.org/ru/docs/rate-limits/)

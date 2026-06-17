@@ -73,7 +73,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Интерфейс командной строки CLI](../../../cli/index.md).
 * [Симметричное шифрование в Yandex Key Management Service](../../../kms/concepts/symmetric-encryption.md).

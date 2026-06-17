@@ -83,7 +83,7 @@ _Зональный инцидент_ — сбой инфраструктуры 
 
 {% endnote %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Мультизональная группа ВМ Yandex Compute Cloud с ВМ в зоне инцидента](multi-zonal.md)
 * [Временное отключение зон доступности для групп ВМ Yandex Compute Cloud](../disable-enable-zone.md)

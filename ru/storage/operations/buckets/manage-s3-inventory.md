@@ -28,6 +28,7 @@ description: Из этой инструкции вы узнаете, как уп
 
   1. Создайте конфигурацию выгрузки:
 
+      
       ```bash
       yc storage bucket create-inventory-configuration \
         --name <имя_бакета> \
@@ -52,6 +53,7 @@ description: Из этой инструкции вы узнаете, как уп
             "SIZE",
             "LAST_MODIFIED_DATE",
             "STORAGE_CLASS",
+            "INTELLIGENT_TIERING_ACCESS_TIER",
             "ETAG",
             "IS_MULTIPART_UPLOADED",
             "ENCRYPTION_STATUS",
@@ -64,6 +66,7 @@ description: Из этой инструкции вы узнаете, как уп
           ]
         }'
       ```
+
 
       Где:
 
@@ -91,6 +94,7 @@ description: Из этой инструкции вы узнаете, как уп
           * `SIZE` — размер объекта в байтах;
           * `LAST_MODIFIED_DATE` — дата создания или последнего изменения объекта;
           * `STORAGE_CLASS` — [класс хранилища](../../concepts/storage-class.md);
+          * `INTELLIGENT_TIERING_ACCESS_TIER` — уровень доступа объекта в [умном хранилище](../../concepts/storage-class.md#features-intelligent-tiering);
           * `ETAG` — хэш объекта;
           * `IS_MULTIPART_UPLOADED` — указывает, был ли объект загружен в результате [составной загрузки](../../concepts/multipart.md);
           * `ENCRYPTION_STATUS` — статус [шифрования](../../concepts/encryption.md) объекта;
@@ -111,6 +115,7 @@ description: Из этой инструкции вы узнаете, как уп
 
       {% cut "Пример содержимого файла" %}
 
+      
       ```json
       {
         "id": "test_config",
@@ -130,6 +135,7 @@ description: Из этой инструкции вы узнаете, как уп
           "SIZE",
           "LAST_MODIFIED_DATE",
           "STORAGE_CLASS",
+          "INTELLIGENT_TIERING_ACCESS_TIER",
           "ETAG",
           "IS_MULTIPART_UPLOADED",
           "ENCRYPTION_STATUS",
@@ -142,6 +148,7 @@ description: Из этой инструкции вы узнаете, как уп
         ]
       }
       ```
+
 
       {% endcut %}
 
@@ -199,6 +206,7 @@ description: Из этой инструкции вы узнаете, как уп
 
       Результат:
 
+      
       ```text
       configurations:
         - id: test_config
@@ -215,6 +223,7 @@ description: Из этой инструкции вы узнаете, как уп
             - SIZE
             - LAST_MODIFIED_DATE
             - STORAGE_CLASS
+            - INTELLIGENT_TIERING_ACCESS_TIER
             - ETAG
             - IS_MULTIPART_UPLOADED
             - ENCRYPTION_STATUS
@@ -225,6 +234,7 @@ description: Из этой инструкции вы узнаете, как уп
             - OBJECT_ACCESS_CONTROL_LIST
             - OBJECT_OWNER
       ```
+
 
 - API {#api}
 
@@ -260,6 +270,7 @@ description: Из этой инструкции вы узнаете, как уп
 
       Результат:
 
+      
       ```text
       id: test_config
       destination:
@@ -275,6 +286,7 @@ description: Из этой инструкции вы узнаете, как уп
         - SIZE
         - LAST_MODIFIED_DATE
         - STORAGE_CLASS
+        - INTELLIGENT_TIERING_ACCESS_TIER
         - ETAG
         - IS_MULTIPART_UPLOADED
         - ENCRYPTION_STATUS
@@ -285,6 +297,7 @@ description: Из этой инструкции вы узнаете, как уп
         - OBJECT_ACCESS_CONTROL_LIST
         - OBJECT_OWNER
       ```
+
 
 - API {#api}
 
@@ -324,7 +337,7 @@ description: Из этой инструкции вы узнаете, как уп
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/s3-inventory.md)
 * [{#T}](../objects/download.md)

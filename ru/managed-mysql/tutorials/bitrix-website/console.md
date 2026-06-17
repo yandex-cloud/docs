@@ -10,6 +10,6 @@ canonical: '{{ link-docs }}/tutorials/web/bitrix-website/console'
 
 {% include [bitrix-website-console](../../../_tutorials/applied/bitrix-website-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md).

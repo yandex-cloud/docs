@@ -37,6 +37,6 @@
 * [Создание триггеров, которые вызывают функции Cloud Functions для остановки ВМ и отправки уведомлений в Telegram](../tutorials/serverless-trigger-budget-queue-vm-tg.md)
 * [Создание триггера для бюджетов, который вызывает функцию Cloud Functions для остановки ВМ](../tutorials/serverless-trigger-budget-vm.md)
 
-##### См. также {#see-also}
+##### Полезные ссылки {#see-also}
 
 * [Установить уведомления](../operations/budgets.md).

@@ -96,7 +96,7 @@
 }
 ```
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для Yandex IoT Core, который передает сообщения в контейнер Serverless Containers](../../../serverless-containers/concepts/trigger/iot-core-trigger.md)
 * [Триггер для Yandex IoT Core, который передает сообщения в функцию Cloud Functions](../../../functions/concepts/trigger/iot-core-trigger.md)

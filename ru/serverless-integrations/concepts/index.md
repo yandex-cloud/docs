@@ -45,4 +45,4 @@ keywords:
 
 ### {{ api-gw-name }} {#api-gateway}
 
-Создавайте API-шлюзы, которые поддерживают [спецификацию OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) и набор расширений для взаимодействия с сервисами {{ yandex-cloud }}. Подробнее см. [документацию {{ api-gw-name }}](../../api-gateway/).
+Создавайте API-шлюзы, которые поддерживают [спецификацию OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) и набор расширений для взаимодействия с сервисами {{ yandex-cloud }}. Подробнее в [документации {{ api-gw-name }}](../../api-gateway/).

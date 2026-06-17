@@ -5,7 +5,7 @@ Yandex MPP Analytics for PostgreSQL управляет правами досту
 * Пользователь — это роль, которая может авторизоваться в базе данных.
 * Групповая роль — это роль, в состав которой входят другие роли.
 ​
-​Подробнее см. в разделе [Пользователи и роли](../concepts/cluster-users.md).
+​Подробнее читайте в разделе [Пользователи и роли](../concepts/cluster-users.md).
 
 Пользователь-администратор создается вместе с кластером Yandex MPP Analytics for PostgreSQL и автоматически получает роль администратора `mdb_admin`. [Подключитесь к базе данных](connect/index.md) от его имени, чтобы:
 
@@ -16,7 +16,7 @@ Yandex MPP Analytics for PostgreSQL управляет правами досту
 * [Настроить привилегии роли](#privileges).
 * [Удалить роль](#remove).
 
-Подробнее о командах взаимодействия с ролями см. в [документации Greenplum®](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-sql_commands-sql_ref.html).
+Подробнее о командах взаимодействия с ролями читайте в [документации Greenplum®](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-sql_commands-sql_ref.html).
 
 ## Посмотреть список ролей {#list}
 
@@ -75,7 +75,7 @@ Yandex MPP Analytics for PostgreSQL управляет правами досту
     CREATE ROLE <имя_роли> <список_атрибутов>;
     ```
 
-    Доступные атрибуты см. в разделе [Атрибуты](../concepts/cluster-users.md#attributes).
+    Доступные атрибуты читайте в разделе [Атрибуты](../concepts/cluster-users.md#attributes).
 
 {% endlist %}
 
@@ -119,7 +119,7 @@ Yandex MPP Analytics for PostgreSQL управляет правами досту
     ALTER ROLE <имя_роли> <список_атрибутов>;
     ```
 
-    Доступные атрибуты см. в разделе [Атрибуты](../concepts/cluster-users.md#attributes).
+    Доступные атрибуты читайте в разделе [Атрибуты](../concepts/cluster-users.md#attributes).
 
 {% endlist %}
 
@@ -135,7 +135,7 @@ Yandex MPP Analytics for PostgreSQL управляет правами досту
     GRANT <список_привилегий_через_запятую> ON <имя_объекта> TO <имя_роли>;
     ```
 
-    Доступные привилегии см. в разделе [Привилегии](../concepts/cluster-users.md#privileges).
+    Доступные привилегии читайте в разделе [Привилегии](../concepts/cluster-users.md#privileges).
 
     Чтобы отозвать привилегии у роли, выполните команду:
 

@@ -60,7 +60,7 @@ description: Из статьи вы узнаете, как удалить пул
 
 {% endnote %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./manage-pool-vms.md)
 * [{#T}](../../concepts/reserved-pools.md)

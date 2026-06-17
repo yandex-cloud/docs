@@ -4,6 +4,6 @@
 
 {% include [terraform](../../../_tutorials/_tutorials_includes/wordpress/setup-terraform.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](console.md).

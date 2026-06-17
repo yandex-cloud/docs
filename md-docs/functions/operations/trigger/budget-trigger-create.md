@@ -127,7 +127,7 @@
 
 Проверьте, что триггер работает корректно. Для этого посмотрите [логи функции](../function/function-logs.md), в них отображается информация о вызовах.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Создать триггер для бюджетов, который вызывает контейнер Serverless Containers](../../../serverless-containers/operations/budget-trigger-create.md)
 * [Создать триггер для бюджетов, который отправляет сообщения в WebSocket-соединения](../../../api-gateway/operations/trigger/budget-trigger-create.md)

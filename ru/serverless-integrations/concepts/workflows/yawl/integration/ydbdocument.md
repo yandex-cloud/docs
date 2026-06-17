@@ -33,8 +33,8 @@ description: В статье описаны поля для интеграцио
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание
 --- | --- | --- | --- | --- | ---
 `key` | `string` | Да | Нет | Да | Значение первичного ключа элемента в базе данных.
-`expression` | `string` | Да | Нет | Да | Выражение, описывающее обновления атрибутов элемента в базе данных. Подробнее см. [UpdateExpression](../../../../../ydb/docapi/api-ref/actions/updateItem.md).
-`expressionAttributeValues` | `string` | Нет | `""` | Да | Значения атрибутов, используемых в выражении. Подробнее см. [ExpressionAttributeValues](../../../../../ydb/docapi/api-ref/actions/updateItem.md).
+`expression` | `string` | Да | Нет | Да | Выражение, описывающее обновления атрибутов элемента в базе данных. Подробнее в [UpdateExpression](../../../../../ydb/docapi/api-ref/actions/updateItem.md).
+`expressionAttributeValues` | `string` | Нет | `""` | Да | Значения атрибутов, используемых в выражении. Подробнее в [ExpressionAttributeValues](../../../../../ydb/docapi/api-ref/actions/updateItem.md).
 
 ## YdbDocumentScan {#YdbDocumentScan}
 

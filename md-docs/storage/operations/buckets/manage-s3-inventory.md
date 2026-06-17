@@ -27,6 +27,7 @@
 
   1. Создайте конфигурацию выгрузки:
 
+      
       ```bash
       yc storage bucket create-inventory-configuration \
         --name <имя_бакета> \
@@ -51,6 +52,7 @@
             "SIZE",
             "LAST_MODIFIED_DATE",
             "STORAGE_CLASS",
+            "INTELLIGENT_TIERING_ACCESS_TIER",
             "ETAG",
             "IS_MULTIPART_UPLOADED",
             "ENCRYPTION_STATUS",
@@ -63,6 +65,7 @@
           ]
         }'
       ```
+
 
       Где:
 
@@ -94,6 +97,7 @@
           * `SIZE` — размер объекта в байтах;
           * `LAST_MODIFIED_DATE` — дата создания или последнего изменения объекта;
           * `STORAGE_CLASS` — [класс хранилища](../../concepts/storage-class.md);
+          * `INTELLIGENT_TIERING_ACCESS_TIER` — уровень доступа объекта в [умном хранилище](../../concepts/storage-class.md#features-intelligent-tiering);
           * `ETAG` — хэш объекта;
           * `IS_MULTIPART_UPLOADED` — указывает, был ли объект загружен в результате [составной загрузки](../../concepts/multipart.md);
           * `ENCRYPTION_STATUS` — статус [шифрования](../../concepts/encryption.md) объекта;
@@ -114,6 +118,7 @@
 
       {% cut "Пример содержимого файла" %}
 
+      
       ```json
       {
         "id": "test_config",
@@ -133,6 +138,7 @@
           "SIZE",
           "LAST_MODIFIED_DATE",
           "STORAGE_CLASS",
+          "INTELLIGENT_TIERING_ACCESS_TIER",
           "ETAG",
           "IS_MULTIPART_UPLOADED",
           "ENCRYPTION_STATUS",
@@ -145,6 +151,7 @@
         ]
       }
       ```
+
 
       {% endcut %}
 
@@ -206,6 +213,7 @@
 
       Результат:
 
+      
       ```text
       configurations:
         - id: test_config
@@ -222,6 +230,7 @@
             - SIZE
             - LAST_MODIFIED_DATE
             - STORAGE_CLASS
+            - INTELLIGENT_TIERING_ACCESS_TIER
             - ETAG
             - IS_MULTIPART_UPLOADED
             - ENCRYPTION_STATUS
@@ -232,6 +241,7 @@
             - OBJECT_ACCESS_CONTROL_LIST
             - OBJECT_OWNER
       ```
+
 
 - API {#api}
 
@@ -271,6 +281,7 @@
 
       Результат:
 
+      
       ```text
       id: test_config
       destination:
@@ -286,6 +297,7 @@
         - SIZE
         - LAST_MODIFIED_DATE
         - STORAGE_CLASS
+        - INTELLIGENT_TIERING_ACCESS_TIER
         - ETAG
         - IS_MULTIPART_UPLOADED
         - ENCRYPTION_STATUS
@@ -296,6 +308,7 @@
         - OBJECT_ACCESS_CONTROL_LIST
         - OBJECT_OWNER
       ```
+
 
 - API {#api}
 
@@ -339,7 +352,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Выгрузка метаданных объектов (S3 Inventory)](../../concepts/s3-inventory.md)
 * [Скачивание объекта](../objects/download.md)

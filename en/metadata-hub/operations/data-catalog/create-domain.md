@@ -1,6 +1,6 @@
 ---
-title: Create domain
-description: Follow this guide to create a domain in {{ data-catalog-full-name }}.
+title: How to create a domain in {{ data-catalog-full-name }}
+description: Follow this guide to create a domain in {{ data-catalog-name }}.
 ---
 
 # Creating a domain

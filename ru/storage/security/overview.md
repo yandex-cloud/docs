@@ -129,7 +129,7 @@ description: Управление доступом в сервисе {{ objstora
 
 {% include [private-endpoint-ssc](../../_includes/storage/private-endpoint-ssc.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../operations/buckets/iam-access.md)
 * [{#T}](../operations/buckets/edit-acl.md)

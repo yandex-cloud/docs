@@ -8,6 +8,6 @@ canonical: '{{ link-docs }}/tutorials/internet-store/bitrix-shop/console'
 
 {% include [bitrix-shop-console](../../../_tutorials/applied/bitrix-shop-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md).

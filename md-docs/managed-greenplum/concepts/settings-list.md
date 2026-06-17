@@ -145,7 +145,7 @@
 |-------------------|---------|---------------------|-----------------------|----------|
 | 6.25 и выше | Integer | от 5 до 2147483647 | 120 | `sighup` |
 
-Указывает интервал выполнения (в секундах) фонового рабочего процесса глобального детектора взаимных блокировок (`Global Deadlock Detector`, см. параметр [gp_enable_global_deadlock_detector](#setting-gp-enable-global-deadlock-detector)).
+Указывает интервал выполнения (в секундах) фонового рабочего процесса глобального детектора взаимных блокировок (`Global Deadlock Detector`, смотрите параметр [gp_enable_global_deadlock_detector](#setting-gp-enable-global-deadlock-detector)).
 
 #### gp_max_plan_size {#setting-gp-max-plan-size}
 
@@ -375,7 +375,7 @@ max(0.24 × объем доступной памяти на мастере, 1638
 
 Максимальное количество одновременных подключений к кластеру. Для подключения пользователей доступно `max_connections − 20`, так как `20` подключений резервируется для суперпользователей. Количество подключений для суперпользователей определяется параметром `superuser_reserved_connections`, значение которого не может быть изменено.
 
-При увеличении `max_connections` необходимо также увеличить значение [max_prepared_transactions](#setting-max-prepared-transactions). Увеличение `max_connections` может привести к тому, что база данных запросит больший объем общей памяти (см. [master_shared_buffers](#setting-master-shared-buffers) и [segment_shared_buffers](#setting-segment-shared-buffers)).
+При увеличении `max_connections` необходимо также увеличить значение [max_prepared_transactions](#setting-max-prepared-transactions). Увеличение `max_connections` может привести к тому, что база данных запросит больший объем общей памяти (смотрите [master_shared_buffers](#setting-master-shared-buffers) и [segment_shared_buffers](#setting-segment-shared-buffers)).
 
 Для сегментов значение параметра `max_connections` вычисляется автоматически по формуле:
 ```
@@ -657,7 +657,7 @@ ALTER DATABASE mytest SET gp_default_storage_options = 'orientation=column, comp
 
     Настройки файловой системы и правил безопасности.
 
-    Подробнее см. в [документации Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/core-default.xml).
+    Подробнее в [документации Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/core-default.xml).
 
     * **Default Fs**{#setting-default-fs}
 
@@ -719,13 +719,13 @@ ALTER DATABASE mytest SET gp_default_storage_options = 'orientation=column, comp
 
     Хосты серверов ZooKeeper. Значения указываются в формате `<адрес>:<порт>`.
 
-    Подробнее см. в [документации Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/core-default.xml).
+    Подробнее в [документации Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/core-default.xml).
 
 * **Dfs**{#setting-dfs} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
     Настройки распределенной файловой системы.
 
-    Подробнее см. в [документации Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml).
+    Подробнее читайте в [документации Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml).
 
     * **Ha Automatic Failover Enabled**{#setting-ha-automatic-failover-enabled}
 
@@ -747,7 +747,7 @@ ALTER DATABASE mytest SET gp_default_storage_options = 'orientation=column, comp
 
     Настройки службы ResourceManager, которая отслеживает ресурсы в кластере и планирует запуск приложений (например, заданий MapReduce).
 
-    Подробнее см. в [документации Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html).
+    Подробнее читайте в [документации Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html).
 
     * **Resourcemanager Ha Enabled**{#setting-resourcemanager-ha-enabled}
 
@@ -775,7 +775,7 @@ ALTER DATABASE mytest SET gp_default_storage_options = 'orientation=column, comp
 
     Настройки файловой системы и правил безопасности.
 
-    Подробнее см. в [документации Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/core-default.xml).
+    Подробнее в [документации Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/core-default.xml).
 
     * **Default Fs**{#setting-default-fs}
 
@@ -837,7 +837,7 @@ ALTER DATABASE mytest SET gp_default_storage_options = 'orientation=column, comp
 
     Хосты серверов ZooKeeper. Значения указываются в формате `<адрес>:<порт>`.
 
-    Подробнее см. в [документации Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/core-default.xml).
+    Подробнее в [документации Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/core-default.xml).
 
 * **Ppd**{#setting-ppd} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 

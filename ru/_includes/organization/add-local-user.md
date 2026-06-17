@@ -91,7 +91,7 @@
      * `password` — пароль пользователя. Необязательный параметр. Если пароль не задан, он сгенерируется автоматически. Пользователь должен будет изменить этот пароль при первом входе в {{ yandex-cloud }}.
      * `is_active` — признак активации пользователя. Установите `true`, чтобы активировать пользователя.
  
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_user` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_user` смотрите в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
  
   1. Создайте ресурсы:
  

@@ -410,7 +410,7 @@
     * `stringValue` — текстовое имя отправителя.
 
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Начало работы](../quickstart.md)
 * [AWS CLI](aws-cli.md)

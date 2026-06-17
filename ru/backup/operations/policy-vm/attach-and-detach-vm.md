@@ -101,7 +101,7 @@ description: Из статьи вы узнаете, как привязать в
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../create-vm.md)
 * [{#T}](../create-vm-windows.md)

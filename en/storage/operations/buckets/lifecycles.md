@@ -302,15 +302,14 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
      ```hcl
      provider "yandex" {
        cloud_id  = "<cloud_ID>"
        folder_id = "<folder_ID>"
        zone      = "<availability_zone>"
-       token     = "<OAuth_token>"
-       }
+     }
 
      resource "yandex_iam_service_account" "sa" {
        name = "<service_account_name>"

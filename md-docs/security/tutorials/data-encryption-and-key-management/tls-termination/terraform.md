@@ -23,10 +23,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для терминирования TLS-соединений входят:
-* плата за постоянно запущенные [ВМ](../../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../../compute/pricing.md));
-* плата за использование [публичного статического IP-адреса](../../../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../../../vpc/pricing.md));
-* плата за использование вычислительных ресурсов [L7-балансировщика](../../../../application-load-balancer/concepts/index.md) (см. [тарифы Application Load Balancer](../../../../application-load-balancer/pricing.md));
-* плата за публичные [DNS-запросы](../../../../glossary/dns.md) и [зоны DNS](../../../../dns/concepts/dns-zone.md), если вы используете [Yandex Cloud DNS](../../../../dns/index.md) (см. [тарифы Cloud DNS](../../../../dns/pricing.md)).
+* плата за постоянно запущенные [ВМ](../../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../../compute/pricing.md));
+* плата за использование [публичного статического IP-адреса](../../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../../vpc/pricing.md));
+* плата за использование вычислительных ресурсов [L7-балансировщика](../../../../application-load-balancer/concepts/index.md) ([тарифы Application Load Balancer](../../../../application-load-balancer/pricing.md));
+* плата за публичные [DNS-запросы](../../../../glossary/dns.md) и [зоны DNS](../../../../dns/concepts/dns-zone.md), если вы используете [Yandex Cloud DNS](../../../../dns/index.md) ([тарифы Cloud DNS](../../../../dns/pricing.md)).
 
 ## Создайте инфраструктуру {#deploy}
 
@@ -594,6 +594,6 @@ Terraform распространяется под лицензией [Business S
     
     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Терминирование TLS-соединений с помощью консоли управления](console.md).

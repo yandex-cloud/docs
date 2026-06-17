@@ -6,7 +6,7 @@ description: Из статьи вы узнаете, зачем нужен эфе
 {% include [ephemeral-key](../../../_includes/iam/ephemeral-keys.md) %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../operations/authentication/manage-ephemeral-keys.md)
 * [{#T}](../../tutorials/ephemeral-key-storage.md)

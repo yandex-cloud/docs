@@ -278,7 +278,7 @@ print($response->get('EndpointArn'));
   print($response->get('MessageId'));
   ```
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Начало работы](../quickstart.md)
 * [AWS CLI](aws-cli.md)

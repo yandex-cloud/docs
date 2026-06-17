@@ -8,6 +8,6 @@ canonical: '{{ link-docs }}/tutorials/web/bind-domain-vm/terraform'
 
 {% include [bind-domain-vm-terraform](../../../_tutorials/applied/bind-domain-vm-terraform.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](console.md).

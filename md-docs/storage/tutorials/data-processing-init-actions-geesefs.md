@@ -20,10 +20,10 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Yandex Data Processing (см. [тарифы Yandex Data Processing](../../data-proc/pricing.md)).
-* Плата за NAT-шлюз (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за бакет Object Storage: хранение данных и выполнение операций с ними (см. [тарифы Object Storage](../pricing.md)).
-* Плата за публичные IP-адреса для хостов кластера (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за кластер Yandex Data Processing ([тарифы Yandex Data Processing](../../data-proc/pricing.md)).
+* Плата за NAT-шлюз ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за бакет Object Storage: хранение данных и выполнение операций с ними ([тарифы Object Storage](../pricing.md)).
+* Плата за публичные IP-адреса для хостов кластера ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

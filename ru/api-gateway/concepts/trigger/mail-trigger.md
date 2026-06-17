@@ -20,7 +20,7 @@
 
 {% include [mail-format](../../../_includes/functions/mail-format.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для почты, который запускает контейнер {{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/mail-trigger.md)
 * [Триггер для почты, который запускает функцию {{ sf-name }}](../../../functions/concepts/trigger/mail-trigger.md)

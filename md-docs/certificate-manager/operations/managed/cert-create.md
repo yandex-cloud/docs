@@ -146,7 +146,7 @@
 
    Подробнее об этапах выпуска сертификата см. в разделе [Сертификат от Let's Encrypt](../../concepts/managed-certificate.md#issue-statuses).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Получить содержимое сертификата от Let's Encrypt](cert-get-content.md).
 * [Проверить права на домены](cert-validate.md).

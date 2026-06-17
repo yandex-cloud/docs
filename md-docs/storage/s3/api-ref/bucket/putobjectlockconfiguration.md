@@ -15,7 +15,7 @@
 * при загрузке объекта (метод [upload](../object/upload.md));
 * после загрузки объекта (методы [putObjectRetention](../object/putobjectretention.md) и [putObjectLegalHold](../object/putobjectlegalhold.md)).
 
-Подробнее о подготовке к работе с API и общем виде запроса см. в разделе [Как пользоваться S3 API](../../index.md).
+Подробнее о подготовке к работе с API и общем виде запроса смотрите в разделе [Как пользоваться S3 API](../../index.md).
 
 ## Запрос {#request}
 
@@ -77,7 +77,7 @@ PUT /{bucket}?object-lock HTTP/2
 
 * [Управление блокировками версий объектов в бакете](../../../operations/buckets/configure-object-lock.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
 

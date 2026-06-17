@@ -47,7 +47,7 @@ service | Метка сервиса, значение всегда `serverless-f
 `serverless.triggers.inflight`<br/>`DGAUGE`, вызовы | <ul><li>`request` — вызовы контейнера.</li></ul> | Количество одновременно выполняющихся вызовов контейнера.
 `serverless.triggers.read_events_per_second`<br/>`DGAUGE`, штуки/с | <ul><li>`incoming` — события, после которых сработал любой триггер, кроме триггера для Yandex Message Queue.</li><li>`message_queue` — события, после которых сработал триггер для Yandex Message Queue.</li></ul> | Частота возникновения событий, после которых срабатывает триггер.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Посмотреть графики мониторинга контейнера](operations/monitoring.md)
 * [Посмотреть графики мониторинга триггера в Serverless Containers](operations/trigger-monitoring.md)

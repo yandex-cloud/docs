@@ -71,10 +71,10 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за постоянно работающие ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование Application Load Balancer (см. [тарифы Yandex Application Load Balancer](../../application-load-balancer/pricing.md));
-* плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
-* плата за количество запросов в сервис Smart Web Security (см. [тарифы Yandex Smart Web Security](../../smartwebsecurity/pricing.md)).
+* плата за постоянно работающие ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за использование Application Load Balancer ([тарифы Yandex Application Load Balancer](../../application-load-balancer/pricing.md));
+* плата за использование публичных IP-адресов и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
+* плата за количество запросов в сервис Smart Web Security ([тарифы Yandex Smart Web Security](../../smartwebsecurity/pricing.md)).
 
 
 ## Создайте каталог безопасности {#create-alb-folder}

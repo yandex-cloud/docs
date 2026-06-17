@@ -49,7 +49,7 @@
    {% endlist %}
 1. Откройте файл с глобальными настройками Maven.
 
-    По умолчанию файл с настройками расположен в директории `.m2` текущего пользователя (`~/.m2/settings.xml` для Unix-подобных ОС и `%USERPROFILE%\.m2\settings.xml` для Windows). Подробнее о структуре файла настроек см. в [документации Maven](https://maven.apache.org/settings.html).
+    По умолчанию файл с настройками расположен в директории `.m2` текущего пользователя (`~/.m2/settings.xml` для Unix-подобных ОС и `%USERPROFILE%\.m2\settings.xml` для Windows). Подробнее о структуре файла настроек в [документации Maven](https://maven.apache.org/settings.html).
 
 1. В раздел `repositories` файла с настройками Maven добавьте новый репозиторий:
 

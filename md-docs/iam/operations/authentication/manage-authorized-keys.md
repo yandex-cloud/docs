@@ -286,7 +286,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Авторизованные ключи](../../concepts/authorization/key.md)
 * [Получение IAM-токена для сервисного аккаунта](../iam-token/create-for-sa.md)

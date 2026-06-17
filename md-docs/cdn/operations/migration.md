@@ -81,7 +81,7 @@ Yandex Cloud автоматически мигрирует CDN-ресурсы и
 
     {% note tip %}
     
-    Если для DNS-хостинга вы используете Yandex Cloud DNS, см. инструкцию [Изменить ресурсную запись](../../dns/operations/resource-record-update.md).
+    Если для DNS-хостинга вы используете Yandex Cloud DNS, смотрите инструкцию [Изменить ресурсную запись](../../dns/operations/resource-record-update.md).
     
     {% endnote %}
 
@@ -114,7 +114,7 @@ Yandex Cloud автоматически мигрирует CDN-ресурсы и
 
 {% endlist %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Копировать конфигурацию одного ресурса в другой](resources/copy-resource.md)
 * [Просмотр статистики CDN-ресурса](resources/get-stats.md)

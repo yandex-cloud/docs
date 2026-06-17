@@ -99,6 +99,8 @@
 
 ### Назначьте пользователю роль на облако {#add-cloud-role}
 
+Это необходимо, чтобы пользователь получил доступ к ресурсам в этом облаке в консоли управления.
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -113,6 +115,12 @@
 
 {% endlist %}
 
+{% note info %}
+
+Чтобы предоставить права доступа сразу всем пользователям в организации, назначьте роль [системной группе](../../iam/concepts/access-control/system-group.md#allOrganizationUsers) `All users in organization X`.
+
+{% endnote %}
+
 ### Назначьте пользователю роль на каталог {#add-folder-role}
 
 {% list tabs group=instructions %}
@@ -124,7 +132,7 @@
     1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
     1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_org.common.resource-acl.label_invitee-accounts }}**.
     1. Выберите пользователя из списка или воспользуйтесь поиском по пользователям.
-    1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `compute.editor`.
+    1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `compute.editor` для управления виртуальными машинами.
 
        {% note tip %}
 

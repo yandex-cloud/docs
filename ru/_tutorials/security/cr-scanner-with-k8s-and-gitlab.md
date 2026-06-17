@@ -22,16 +22,14 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за хранение созданных Docker-образов и сканер уязвимостей (см. [тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
-* Плата за использование [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за использование [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за хранение созданных Docker-образов и сканер уязвимостей ([тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
+* Плата за использование [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за использование [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
 
 ## Перед началом работы {#before-begin}
 
 {% include [deploy-infrastructure](../../_includes/managed-gitlab/deploy-infrastructure.md) %}
-
-Дополнительно [назначьте](../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) сервисному аккаунту для узлов роль `container-registry.images.scanner`. Она позволяет сканировать Docker-образы на наличие уязвимостей.
 
 {% include [prepare](../../_includes/managed-gitlab/prepare.md) %}
 

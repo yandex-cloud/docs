@@ -9,6 +9,6 @@ description: Перед началом работы с {{ container-registry-nam
 
 {% include [configure-docker](../../_includes/container-registry/configure-docker.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./authentication.md)

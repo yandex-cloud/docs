@@ -14,18 +14,18 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за мастер Managed Service for Kubernetes (см. [тарифы Yandex Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Плата за стандартные узлы кластера Managed Service for Kubernetes (при наличии): использование вычислительных ресурсов и хранилища (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за ВМ: использование вычислительных ресурсов и хранилища (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за мастер Managed Service for Kubernetes ([тарифы Yandex Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Плата за стандартные узлы кластера Managed Service for Kubernetes (при наличии): использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за ВМ: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 
   {% note info %}
 
-  Использование операционной системы тарифицируется в зависимости от ее типа (см. [тарифы Compute Cloud](../../compute/pricing.md#instance-os)).
+  Использование операционной системы тарифицируется в зависимости от ее типа ([тарифы Compute Cloud](../../compute/pricing.md#instance-os)).
 
   {% endnote %}
 
-* Плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) для ВМ (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за аренду сервера BareMetal (см. [тарифы Yandex BareMetal](../pricing.md)).
+* Плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) для ВМ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за аренду сервера BareMetal ([тарифы Yandex BareMetal](../pricing.md)).
 
 
 Чтобы подключить сервер BareMetal как внешний узел к кластеру Managed Service for Kubernetes:
@@ -34,7 +34,7 @@
 1. [Установите на сервер BareMetal системные компоненты](#node-setup)
 1. [Проверьте состояние внешнего узла](#check-status)
 
-См. также [Как отказаться от аренды и удалить ресурсы](#clear-out).
+Смотрите также [Как отказаться от аренды и удалить ресурсы](#clear-out).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -191,7 +191,7 @@
 * [Откажитесь](../operations/servers/server-lease-cancel.md) от продления аренды сервера BareMetal. После отказа от аренды сервер проработает до конца оплаченного периода, а затем будет удален.
 * [Удалите](bm-vrf-and-vpc-interconnect.md#clear-out) приватное соединение.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Подключение внешних узлов к кластеру](../../managed-kubernetes/operations/external-nodes-connect.md)
 * [Настройка WireGuard-шлюзов для подключения внешних узлов](../../managed-kubernetes/operations/external-nodes-connect-wireguard.md)

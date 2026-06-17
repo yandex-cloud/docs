@@ -144,7 +144,7 @@ var player = Ya.playerSdk.init({ ..., startPosition: 10, ...});
 * `sound` — кнопка отключения звука.
 * `volumeSlider` — регулятор уровня громкости звука.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Interface: PlayerSdkInitConfig](../../api-ref/javascript/interfaces/PlayerSdkInitConfig.md) в справочнике API
 * [Interface: PlayerSdkSourceParams](../../api-ref/javascript/interfaces/PlayerSdkSourceParams.md) в справочнике API

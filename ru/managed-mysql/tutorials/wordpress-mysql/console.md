@@ -11,6 +11,6 @@ noIndex: true
 
 {% include [wordpress-mysql-console](../../../_tutorials/applied/wordpress-mysql-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md)

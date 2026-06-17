@@ -34,9 +34,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки описываемого решения входят:
-* плата за количество сообщений Yandex IoT Core (см. [тарифы Yandex IoT Core](../../iot-core/pricing.md));
-* плата за количество вызовов [функции](../../functions/concepts/function.md) Cloud Functions (см. [тарифы Yandex Cloud Functions](../../functions/pricing.md));
-* плата за запись пользовательских [метрик](../concepts/data-model.md#metric) через API сервиса [Monitoring](../index.md) (см. [тарифы Yandex Monitoring](../pricing.md)).
+* плата за количество сообщений Yandex IoT Core ([тарифы Yandex IoT Core](../../iot-core/pricing.md));
+* плата за количество вызовов [функции](../../functions/concepts/function.md) Cloud Functions ([тарифы Yandex Cloud Functions](../../functions/pricing.md));
+* плата за запись пользовательских [метрик](../concepts/data-model.md#metric) через API сервиса [Monitoring](../index.md) ([тарифы Yandex Monitoring](../pricing.md)).
 
 ### Создайте сервисные аккаунты {#create-sa}
 

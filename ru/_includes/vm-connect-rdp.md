@@ -23,7 +23,7 @@
 
   {% include [initialization-windows-vm](initialization-windows-vm.md) %}
 
-  #### См. также
+  #### Полезные ссылки
 
   * [Подключение к удаленному рабочему столу](https://support.microsoft.com/ru-ru/help/17463/windows-7-connect-to-another-computer-remote-desktop-connection).
 
@@ -39,7 +39,7 @@
   1. Дважды нажмите кнопку **Add**.
   1. Подключитесь к удаленной машине двойным нажатием на созданное подключение в главном окне Microsoft Remote Desktop.
 
-  #### См. также
+  #### Полезные ссылки
 
   * [Начало работы с удаленного рабочего стола в Mac]({{ ms.docs }}/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac).
 
@@ -71,7 +71,7 @@
   1. Нажмите кнопку **Save**.
   1. Подключитесь к удаленной машине двойным нажатием на созданное подключение в списке подключений для быстрого доступа.
 
-  #### См. также
+  #### Полезные ссылки
 
   * [Установка Remmina на дистрибутивы Linux отличные от Ubuntu](https://remmina.org/how-to-install-remmina/).
 

@@ -15,9 +15,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость ресурсов для работы с Monium входит:
-* Плата за использование [мастера Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#master) (см. [тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Плата за [вычислительные ресурсы](../../compute/concepts/vm-platforms.md) и [диски](../../compute/concepts/disk.md) [группы узлов Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#node-group) (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за использование Monium (см. [тарифы Monium](../pricing.md)).
+* Плата за использование [мастера Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#master) ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Плата за [вычислительные ресурсы](../../compute/concepts/vm-platforms.md) и [диски](../../compute/concepts/disk.md) [группы узлов Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#node-group) ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за использование Monium ([тарифы Monium](../pricing.md)).
 
 ## Настройка кластера {#preparation}
 

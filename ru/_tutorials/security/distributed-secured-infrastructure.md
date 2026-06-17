@@ -63,10 +63,10 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за постоянно работающие ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование {{ alb-name }} (см. [тарифы {{ alb-full-name }}](../../application-load-balancer/pricing.md));
-* плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
-* плата за количество запросов в сервис {{ sws-name }} (см. [тарифы {{ sws-full-name }}](../../smartwebsecurity/pricing.md)).
+* плата за постоянно работающие ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование {{ alb-name }} ([тарифы {{ alb-full-name }}](../../application-load-balancer/pricing.md));
+* плата за использование публичных IP-адресов и исходящий трафик ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
+* плата за количество запросов в сервис {{ sws-name }} ([тарифы {{ sws-full-name }}](../../smartwebsecurity/pricing.md)).
 
 
 ## Создайте каталог безопасности {#create-alb-folder}

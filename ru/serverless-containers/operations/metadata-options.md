@@ -72,7 +72,7 @@
             * `1` — чтобы включить параметр.
             * `2` — чтобы выключить параметр.
 
-        Более подробную информацию о параметрах ресурса `yandex_serverless_container` см. в [документации провайдера]({{ tf-provider-resources-link }}/serverless_container).
+        Подробнее о параметрах ресурса `yandex_serverless_container` в [документации провайдера]({{ tf-provider-resources-link }}/serverless_container).
 
    1. Примените изменения:
 

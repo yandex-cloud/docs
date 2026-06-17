@@ -6,7 +6,7 @@ To start working with a {{ mch-name }} database, follow these steps:
 1. Create a [connection](../concepts/glossary.md#connection) containing your database access credentials.
 1. [Run a query](#query) against the database {#query}
 
-An example of a query that reads data from {{ mch-name }}:
+Query example for reading data from {{ mch-name }}:
 
 ```sql
 SELECT * FROM clickhouse_mdb_connection.my_table
@@ -21,9 +21,9 @@ Where:
 
 To create a connection to {{ mch-name }}:
 
-1. In the [management console]({{ link-console-main }}), select the folder where you want to create your connection.
-1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-1. In the left-hand panel, navigate to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create a connection.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. In the left-hand panel, switch to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
 1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. Specify the connection settings:
 
@@ -64,7 +64,7 @@ Where:
 * `<connection>`: Your database connection name.
 * `<table_name>`: Database table name.
 
-## Limitations {#limits}
+## Limits {#limits}
 
 Working with {{ CH }} clusters comes with certain limitations.
 
@@ -81,7 +81,7 @@ As a result, when reading date and time values from {{ CH }}, {{ yq-short-name }
 
 Supported data types for filter pushdown:
 
-|Data type {{ yq-full-name }}|
+|{{ yq-full-name }} data type|
 |----|
 |`Bool`|
 |`Int8`|
@@ -100,7 +100,7 @@ Supported data types for filter pushdown:
 
 By default, columns in {{ CH }} cannot physically contain `NULL` values. However, you can create a table with columns of optional or [nullable]({{ ch.docs }}{{ lang }}/sql-reference/data-types/nullable) types. The column types displayed by {{ yq-full-name }} when extracting data from an external {{ CH }} source will depend on whether the {{ CH }} table uses primitive or optional types.
 
-The tables below show type mapping between {{ CH }} and {{ yq-full-name }}. Only the data types listed are supported.
+The tables below show type mapping between {{ CH }} and {{ yq-full-name }}. Only the listed types are supported.
 
 ### Primitive data types {#supported_types_default}
 

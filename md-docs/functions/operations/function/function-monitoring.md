@@ -32,4 +32,4 @@
 
 Чтобы перейти к работе с [метриками](../../../monitoring/concepts/data-model.md#metric), [дашбордами](../../../monitoring/concepts/visualization/dashboard.md) и [алертами](../../../monitoring/concepts/alerting.md#alert) в сервисе Monitoring, в правом верхнем углу нажмите кнопку **Открыть в Monium**. 
 
-Описание метрик см. в [справочнике](../../metrics.md).
+Описание метрик приведено в [справочнике](../../metrics.md).

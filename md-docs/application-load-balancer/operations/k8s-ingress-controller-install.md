@@ -67,7 +67,7 @@
 
         Ресурс добавляет поды с агентами мониторинга трафика на каждый узел. В результате изоляция узлов и пространств имен не влияет на мониторинг, поэтому информация о мониторинге трафика точная. DaemonSet добавляет или убирает агенты мониторинга в зависимости от того, увеличивается или уменьшается число узлов в кластере.
 
-        Если вам не нужны проверки работоспособности кластера или вы используете свои, опцию можно не включать. Подробнее о настройке проверок вручную см. в разделе [Проверка состояния приложений в кластере Yandex Managed Service for Kubernetes с помощью L7-балансировщика Yandex Application Load Balancer](../tutorials/custom-health-checks.md).
+        Если вам не нужны проверки работоспособности кластера или вы используете свои, опцию можно не включать. Подробнее о настройке проверок вручную смотрите в разделе [Проверка состояния приложений в кластере Yandex Managed Service for Kubernetes с помощью L7-балансировщика Yandex Application Load Balancer](../tutorials/custom-health-checks.md).
 
   1. Нажмите кнопку **Установить**.
   1. Дождитесь перехода приложения в статус `Deployed`.
@@ -115,14 +115,14 @@
 
    Ресурс добавляет поды с агентами мониторинга трафика на каждый узел. В результате изоляция узлов и пространств имен не влияет на мониторинг, поэтому информация о мониторинге трафика точная. DaemonSet добавляет или убирает агенты мониторинга в зависимости от того, увеличивается или уменьшается число узлов в кластере.
 
-   Если вам не нужны проверки работоспособности кластера или вы используете свои, опцию можно не включать. Подробнее о настройке проверок вручную см. в разделе [Проверка состояния приложений в кластере Yandex Managed Service for Kubernetes с помощью L7-балансировщика Yandex Application Load Balancer](../../managed-kubernetes/tutorials/custom-health-checks.md).
+   Если вам не нужны проверки работоспособности кластера или вы используете свои, опцию можно не включать. Подробнее о настройке проверок вручную смотрите в разделе [Проверка состояния приложений в кластере Yandex Managed Service for Kubernetes с помощью L7-балансировщика Yandex Application Load Balancer](../../managed-kubernetes/tutorials/custom-health-checks.md).
 
 ## Примеры использования {#examples}
 
 * [Настройка Ingress-контроллера Application Load Balancer](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
 * [Настройка логирования для Ingress-контроллеров Application Load Balancer](../../managed-kubernetes/tutorials/alb-ingress-controller-log-options.md).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Описание Ingress-контроллеров в документации Kubernetes](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
 * [Ограничения при обновлении ALB Ingress Controller](k8s-ingress-controller-upgrade.md).

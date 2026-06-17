@@ -20,7 +20,55 @@ s3fs performance depends on the speed of your local disk. Use high-speed disks, 
 
 ## Installation {#installation}
 
-To install s3fs, follow [this guide](https://github.com/s3fs-fuse/s3fs-fuse#installation) in the project repository.
+{% list tabs group=operating_system %}
+
+- Ubuntu/Debian {#ubuntu}
+
+  1. Make sure the FUSE utilities are installed in the distribution:
+
+     ```bash
+     apt list --installed | grep fuse
+     ```
+
+     {% include [fuse-warning](../../_includes/storage/fuse-warning.md) %}
+
+  1. If the FUSE utilities are not installed, run this command:
+
+     ```bash
+     sudo apt-get install fuse
+     ```
+  
+  1. To install s3fs, follow [this guide](https://github.com/s3fs-fuse/s3fs-fuse#installation) in the project repository.
+
+- CentOS/Fedora/Red Hat {#centos}
+
+  1. Make sure the FUSE utilities are installed in the distribution:
+
+     ```bash
+     dnf list installed | grep fuse
+     ```
+
+     {% include [fuse-warning](../../_includes/storage/fuse-warning.md) %}
+
+  1. If the FUSE utilities are not installed, run this command:
+
+     ```bash
+     sudo dnf install fuse
+     ```
+  
+  1. To install s3fs, follow [this guide](https://github.com/s3fs-fuse/s3fs-fuse#installation) in the project repository.
+
+- macOS {#macos}
+
+  1. Install the [macFUSE](https://osxfuse.github.io/) package.
+  1. [Enable](https://github.com/macfuse/macfuse/wiki/Getting-Started#enabling-support-for-third-party-kernel-extensions-apple-silicon-macs) support for third-party core extensions. This step is only required the first time you use MacFUSE on an Apple Silicon Mac.
+  1. [Allow](https://github.com/macfuse/macfuse/wiki/Getting-Started#allow-the-macfuse-kernel-extension-to-load-apple-silicon-and-intel-macs) loading the MacFUSE core extension (Apple Silicon and Intel Mac).
+
+      For more information on installing macFUSE, see [this installation guide](https://github.com/osxfuse/osxfuse/wiki/FAQ#2-installuninstall-questions) in the macFUSE GitHub repository.
+  
+  1. To install s3fs, follow [this guide](https://github.com/s3fs-fuse/s3fs-fuse#installation) in the project repository.
+
+   {% endlist %}
 
 ## Setup {#setup}
 

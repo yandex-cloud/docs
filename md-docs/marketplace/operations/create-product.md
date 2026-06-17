@@ -2,8 +2,8 @@
 
 Вы можете добавить в Marketplace разные типы продуктов:
   * продукты для Yandex Compute Cloud — загрузите образ на базе ОС [Linux](../concepts/compute-product.md#create);
-  * продукты для Yandex Managed Service for Kubernetes — загрузите helm chart и все входящие в него docker-образы в [реестр](../../container-registry/concepts/registry.md) Yandex Cloud. Подробнее см. [Создание продукта для Managed Service for Kubernetes](../concepts/kubernetes-product.md);
-  * продукты Cloud Apps — создайте конфигурацию. Подробнее см. [Создание конфигурации для продукта Cloud Apps](create-configuration.md).
+  * продукты для Yandex Managed Service for Kubernetes — загрузите helm chart и все входящие в него docker-образы в [реестр](../../container-registry/concepts/registry.md) Yandex Cloud. Подробнее в [Создание продукта для Managed Service for Kubernetes](../concepts/kubernetes-product.md);
+  * продукты Cloud Apps — создайте конфигурацию. Подробнее в [Создание конфигурации для продукта Cloud Apps](create-configuration.md).
 
 ## Создать заявку на утверждение продукта {#create-prod}
 

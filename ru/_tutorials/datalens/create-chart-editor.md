@@ -679,7 +679,7 @@
 
           Чтобы использовать передачу параметров в датасет, включите [параметризацию источников](../../datalens/dataset/parametrization.md).
 
-          Пример использования параметров в источнике см. в практическом руководстве [{#T}](../../datalens/tutorials/data-from-ch-dataset-parametrization.md).
+          Пример использования параметров в источнике смотрите в практическом руководстве [{#T}](../../datalens/tutorials/data-from-ch-dataset-parametrization.md).
 
    1. Сформируйте запрос к датасету с помощью модуля `buildSource`, используя сформированные переменные `where`, `cols`, `field_params` и `row_limit`:
 

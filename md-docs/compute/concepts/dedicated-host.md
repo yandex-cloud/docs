@@ -273,7 +273,7 @@ placement_policy:
 Тарифы на использование выделенных хостов описаны на странице [Цены для региона Россия](../pricing.md#prices).
 
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Создание группы выделенных хостов](../operations/dedicated-host/create-host-group.md)
 * [Создание виртуальной машины в группе выделенных хостов](../operations/dedicated-host/running-host-group-vms.md)

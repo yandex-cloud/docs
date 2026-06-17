@@ -17,7 +17,7 @@
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Подключение](../concepts/connection-manager.md)
 * [Как устроено управление доступом в Yandex Cloud](../../iam/concepts/access-control/index.md)

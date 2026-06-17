@@ -1,6 +1,6 @@
 # Управление доступом с помощью Yandex Identity and Access Management
 
-В Object Storage реализовано несколько механизмов для управления доступом к ресурсам. Алгоритм взаимодействия этих механизмов см. в [Обзор способов управления доступом в Object Storage](overview.md).
+В Object Storage реализовано несколько механизмов для управления доступом к ресурсам. Алгоритм взаимодействия этих механизмов смотрите в [Обзор способов управления доступом в Object Storage](overview.md).
 
 В этом разделе вы узнаете:
 
@@ -268,6 +268,6 @@ flowchart BT
 
 Подробнее о примитивных ролях в [справочнике ролей Yandex Cloud](../../iam/roles-reference.md#primitive-roles).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Настройка прав доступа к бакету с помощью Identity and Access Management](../operations/buckets/iam-access.md)

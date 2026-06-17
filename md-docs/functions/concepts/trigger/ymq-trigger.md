@@ -102,7 +102,7 @@
 * [Создание триггеров, которые вызывают функции Cloud Functions для остановки ВМ и отправки уведомлений в Telegram](../../tutorials/serverless-trigger-budget-queue-vm-tg.md)
 * [Конвертация видео в GIF на Python](../../tutorials/video-converting-queue/index.md)
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Триггер для Message Queue, который передает сообщения в контейнер Serverless Containers](../../../serverless-containers/concepts/trigger/ymq-trigger.md)
 * [Триггер для Message Queue, который отправляет сообщения в WebSocket-соединения](../../../api-gateway/concepts/trigger/ymq-trigger.md)

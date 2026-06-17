@@ -100,7 +100,7 @@
      * `pull` — IP-адреса, с которых разрешено скачивание [Docker-образов](../../concepts/docker-image.md) из реестра. Необязательный параметр.
      * `push` — IP-адреса, с которых разрешена загрузка Docker-образов в реестр. Необязательный параметр.
 
-     Более подробную информацию о параметрах `yandex_container_registry_ip_permission` в Terraform см. в [документации провайдера](../../../terraform/resources/container_registry_ip_permission.md).
+     Подробнее о параметрах ресурса `yandex_container_registry_ip_permission` в [документации провайдера](../../../terraform/resources/container_registry_ip_permission.md).
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.

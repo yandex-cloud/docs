@@ -31,7 +31,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит плата за использование бакета (см. [тарифы Object Storage](../pricing.md)).
+В стоимость поддержки инфраструктуры входит плата за использование бакета ([тарифы Object Storage](../pricing.md)).
 
 
 ## Подготовьте окружение {#prepare-environment}
@@ -99,7 +99,7 @@
         done (1s)
         ```
 
-        Подробнее о команде `yc organization-manager organization add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/organization-manager/cli-ref/organization/add-access-binding.md).
+        Подробнее о команде `yc organization-manager organization add-access-binding` смотрите в [справочнике CLI](../../cli/cli-ref/organization-manager/cli-ref/organization/add-access-binding.md).
 
     1. Роль `storage.uploader` на каталог `example-folder`:
 
@@ -117,7 +117,7 @@
         done (1s)
         ```
 
-        Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
+        Подробнее о команде `yc resource-manager folder add-access-binding` смотрите в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 {% endlist %}
 
@@ -141,7 +141,7 @@
     done (1s)
     ```
 
-    Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
+    Подробнее о команде `yc resource-manager folder add-access-binding` смотрите в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 {% endlist %}
 

@@ -78,7 +78,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Статусы подключения ВМ](../concepts/vm-connection.md#statuses)
 * [{#T}](get-journal.md)

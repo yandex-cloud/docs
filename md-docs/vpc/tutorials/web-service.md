@@ -50,9 +50,9 @@
 
 В стоимость поддержки создаваемой инфраструктуры входят:
 
-* плата за постоянно запущенные виртуальные машины (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование публичных статических IP-адресов (см. [тарифы Yandex Virtual Private Cloud](../pricing.md));
-* плата за использование сетевого балансировщика (см. [тарифы Yandex Network Load Balancer](../../network-load-balancer/pricing.md)).
+* плата за постоянно запущенные виртуальные машины ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за использование публичных статических IP-адресов ([тарифы Yandex Virtual Private Cloud](../pricing.md));
+* плата за использование сетевого балансировщика ([тарифы Yandex Network Load Balancer](../../network-load-balancer/pricing.md)).
 
 ## Настройте удаленную площадку {#remote-setup}
 

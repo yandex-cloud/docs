@@ -230,7 +230,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Отказоустойчивый сайт с балансировкой нагрузки через Yandex Application Load Balancer](../tutorials/application-load-balancer-website/index.md)
 * [Запись логов балансировщика в PostgreSQL](../tutorials/logging.md)

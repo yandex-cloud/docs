@@ -14,7 +14,7 @@ description: Из статьи вы узнаете, как добавить за
 {% include [write-logs](../../_includes/logging/write-logs.md) %}
 
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 - [Чтение записей](read-logs.md)
 - [Мониторинг](monitoring.md)

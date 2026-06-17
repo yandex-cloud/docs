@@ -37,8 +37,8 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за диски и постоянно запущенные ВМ (см. [тарифы Yandex Compute Cloud](../pricing.md));
-* плата за использование внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* плата за диски и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../pricing.md));
+* плата за использование внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 ## Создайте пару ключей SSH {#create-ssh-keys}
 

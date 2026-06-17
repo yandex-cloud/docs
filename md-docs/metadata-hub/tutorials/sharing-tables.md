@@ -20,10 +20,10 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Yandex Data Processing: использование вычислительных ресурсов с наценкой за сервис Yandex Data Processing, использование сетевых дисков, получение и хранение логов, объем исходящего трафика (см. [тарифы Yandex Data Processing](../../data-proc/pricing.md)).
-* Кластер Apache Hive™ Metastore: вычислительные ресурсы компонентов кластера (см. тарифы [Yandex MetaData Hub](../pricing.md)).
-* Бакеты Object Storage: использование хранилища и выполнение операций с данными (см. [тарифы Object Storage](../../storage/pricing.md)).
-* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Кластер Yandex Data Processing: использование вычислительных ресурсов с наценкой за сервис Yandex Data Processing, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы Yandex Data Processing](../../data-proc/pricing.md)).
+* Кластер Apache Hive™ Metastore: вычислительные ресурсы компонентов кластера (тарифы [Yandex MetaData Hub](../pricing.md)).
+* Бакеты Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Перед началом работы {#before-you-begin}
 

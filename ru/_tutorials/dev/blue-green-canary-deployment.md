@@ -55,10 +55,10 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за хранение данных в {{ objstorage-name }}, операции с ними и исходящий трафик (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md));
-* плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы {{ alb-name }}](../../application-load-balancer/pricing.md));
-* плата за исходящий трафик с CDN-серверов (см. [тарифы {{ cdn-name }}](../../cdn/pricing.md));
-* плата за публичные DNS-запросы и DNS-зоны, если вы используете {{ dns-full-name }} (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
+* плата за хранение данных в {{ objstorage-name }}, операции с ними и исходящий трафик ([тарифы {{ objstorage-name }}](../../storage/pricing.md));
+* плата за использование вычислительных ресурсов L7-балансировщика ([тарифы {{ alb-name }}](../../application-load-balancer/pricing.md));
+* плата за исходящий трафик с CDN-серверов ([тарифы {{ cdn-name }}](../../cdn/pricing.md));
+* плата за публичные DNS-запросы и DNS-зоны, если вы используете {{ dns-full-name }} ([тарифы {{ dns-name }}](../../dns/pricing.md)).
 
 ## Добавьте сертификат в {{ certificate-manager-name }} {#add-certificate}
 
@@ -104,7 +104,7 @@
      default_security_group_id: enpbsnnop4ak********
      ```
 
-     Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
+     Подробнее о команде `yc vpc network create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
   1. Создайте подсети во всех зонах доступности:
 
@@ -174,7 +174,7 @@
        - 10.3.0.0/16
        ```
 
-     Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
+     Подробнее о команде `yc vpc subnet create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 - {{ TF }} {#tf}
 
@@ -209,7 +209,7 @@
      }
      ```
 
-     Подробнее см. в описаниях ресурсов [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) и [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) в документации провайдера {{ TF }}.
+     Подробнее в описаниях ресурсов [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) и [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) в документации провайдера {{ TF }}.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -310,7 +310,7 @@
      }
      ```
 
-     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации]({{ tf-provider-resources-link }}/storage_bucket) провайдера {{ TF }}.
+     Подробнее о ресурсе `yandex_storage_bucket` смотрите в [документации]({{ tf-provider-resources-link }}/storage_bucket) провайдера {{ TF }}.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -435,7 +435,7 @@
         }
         ```
 
-        Подробнее о ресурсе `yandex_storage_object` см. в [документации]({{ tf-provider-resources-link }}/storage_object) провайдера {{ TF }}.
+        Подробнее о ресурсе `yandex_storage_object` смотрите в [документации]({{ tf-provider-resources-link }}/storage_object) провайдера {{ TF }}.
 
      1. Проверьте корректность конфигурационных файлов.
 
@@ -561,7 +561,7 @@
     predefined_target: loadbalancer_healthchecks
   ```
 
-  Подробнее о команде `yc vpc security-group create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
+  Подробнее о команде `yc vpc security-group create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
 - {{ TF }} {#tf}
 
@@ -598,7 +598,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_security_group).
+     Подробнее о параметрах ресурсов в {{ TF }} смотрите в [документации провайдера]({{ tf-provider-resources-link }}/vpc_security_group).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -716,7 +716,7 @@
      created_at: "2021-11-03T10:31:41.027649223Z"
      ```
 
-     Подробнее о команде `yc alb http-router create` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/http-router/create.md).
+     Подробнее о команде `yc alb http-router create` сомтрите в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/http-router/create.md).
 
   1. Создайте виртуальный хост `canary-vh-production`:
 
@@ -735,7 +735,7 @@
      - cdn.yandexcloud.example
      ```
 
-     Подробнее о команде `yc alb virtual-host create` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/create.md).
+     Подробнее о команде `yc alb virtual-host create` смотрите в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/create.md).
 
   1. Создайте маршрут `canary-route-production` в виртуальном хосте `canary-vh-production`:
 
@@ -764,7 +764,7 @@
            backend_group_id: ds7pbm5fj2v0********
      ```
 
-     Подробнее о команде `yc alb virtual-host append-http-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
+     Подробнее о команде `yc alb virtual-host append-http-route` смотрите в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
 
   1. Создайте виртуальный хост `canary-vh-staging`:
 
@@ -852,7 +852,7 @@
      }
      ```
 
-     Подробнее см. в описаниях ресурсов [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) и [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) в документации провайдера {{ TF }}.
+     Подробнее в описаниях ресурсов [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) и [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) в документации провайдера {{ TF }}.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -928,7 +928,7 @@
      +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
      ```
 
-     Подробнее о команде `yc vpc network list-subnets` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/list-subnets.md).
+     Подробнее о команде `yc vpc network list-subnets` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/list-subnets.md).
 
   1. Получите идентификатор группы безопасности `canary-sg`:
 
@@ -942,7 +942,7 @@
      id: enpd133ngcnr********
      ```
 
-     Подробнее о команде `yc vpc security-group get` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/get.md).
+     Подробнее о команде `yc vpc security-group get` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/get.md).
 
   1. Создайте балансировщик `canary-balancer`:
 
@@ -979,7 +979,7 @@
      created_at: "2021-11-03T10:55:49.134935148Z"
      ```
 
-     Подробнее о команде `yc alb load-balancer create` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/create.md).
+     Подробнее о команде `yc alb load-balancer create` смотрите в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/create.md).
 
   1. Добавьте к балансировщику обработчик:
 
@@ -1026,7 +1026,7 @@
      created_at: "2021-11-03T10:55:49.134935148Z"
      ```
 
-     Подробнее о команде `yc alb load-balancer add-listener` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/add-listener.md).
+     Подробнее о команде `yc alb load-balancer add-listener` смотрите в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/add-listener.md).
 
 - {{ TF }} {#tf}
 
@@ -1075,7 +1075,7 @@
      }
      ```
 
-     Подробнее о ресурсе `yandex_alb_load_balancer` см. в [документации]({{ tf-provider-resources-link }}/alb_load_balancer) провайдера {{ TF }}.
+     Подробнее о ресурсе `yandex_alb_load_balancer` смотрите в [документации]({{ tf-provider-resources-link }}/alb_load_balancer) провайдера {{ TF }}.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -1162,7 +1162,7 @@
         enabled: true
       ```
 
-      Подробнее о команде `yc cdn origin-group create` см. в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/origin-group/create.md).
+      Подробнее о команде `yc cdn origin-group create` смотрите в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/origin-group/create.md).
 
 
   1. Скопируйте идентификатор группы источников `origin_group_id` из предыдущего шага и создайте CDN-ресурс, выполнив команду:
@@ -1192,7 +1192,7 @@
       ...
       ```
 
-      Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/resource/create.md).
+      Подробнее о команде `yc cdn resource create` смотрите в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/resource/create.md).
 
   1. Включите переадресацию клиентов для ресурса:
 
@@ -1237,7 +1237,7 @@
       }
       ```
 
-      Подробнее см. в описаниях ресурсов [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) и [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) в документации провайдера {{ TF }}.
+      Подробнее в описаниях ресурсов [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) и [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) в документации провайдера {{ TF }}.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -1375,7 +1375,7 @@
         public_visibility: {}
         ```
 
-        Подробнее о команде `yc dns zone create` см. в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/create.md).
+        Подробнее о команде `yc dns zone create` смотрите в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/create.md).
 
      1. Создайте в зоне CNAME-записи для `cdn.yandexcloud.example` и `cdn-staging.yandexcloud.example` со скопированным значением вида `{{ cname-example-yc }}`:
 
@@ -1386,7 +1386,7 @@
           --record "cdn-staging CNAME {{ cname-example-yc }}"
         ```
 
-        Подробнее о команде `yc dns zone add-records` см. в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
+        Подробнее о команде `yc dns zone add-records` смотрите в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
 
    - {{ TF }} {#tf}
 
@@ -1416,7 +1416,7 @@
         }
         ```
 
-        Подробнее см. в описаниях ресурсов [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone) и [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset) в документации провайдера {{ TF }}.
+        Подробнее в описаниях ресурсов [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone) и [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset) в документации провайдера {{ TF }}.
 
      1. Проверьте корректность конфигурационных файлов.
 
@@ -1504,7 +1504,7 @@
         +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
         ```
 
-        Подробнее о команде `yc cdn resource list` см. в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/resource/list.md).
+        Подробнее о команде `yc cdn resource list` смотрите в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/resource/list.md).
 
      1. Удалите файл из кеша:
 
@@ -1514,7 +1514,7 @@
           --path "/index.html"
         ```
 
-        Подробнее о команде `yc cdn cache purge` см. в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/cache/purge.md).
+        Подробнее о команде `yc cdn cache purge` смотрите в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/cache/purge.md).
 
    - API {#api}
 
@@ -1656,7 +1656,7 @@
         created_at: "2021-11-03T10:28:47.680825561Z"
         ```
 
-        Подробнее о команде `yc alb backend-group update-http-backend` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/backend-group/update-http-backend.md).
+        Подробнее о команде `yc alb backend-group update-http-backend` смотрите в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/backend-group/update-http-backend.md).
 
      1. Для бэкенда `canary-backend-green` установите вес 20 вместо 0:
 

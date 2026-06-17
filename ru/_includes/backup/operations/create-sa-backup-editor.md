@@ -40,7 +40,7 @@
       name: backup-sa
       ```
 
-      Подробнее о команде `yc iam service-account create` см. в [справочнике CLI](../../../cli/cli-ref/iam/cli-ref/service-account/create.md).
+      Подробнее о команде `yc iam service-account create` смотрите в [справочнике CLI](../../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
   1. Посмотрите описание команды для назначения роли на каталог:
 
@@ -69,7 +69,7 @@
               type: serviceAccount
       ```
 
-      Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
+      Подробнее о команде `yc resource-manager folder add-access-binding` смотрите в [справочнике CLI](../../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 - {{ TF }} {#tf}
 
@@ -106,7 +106,7 @@
 
       {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}).
 
-  Более подробную информацию о параметрах ресурсов см. в документации провайдера:
+  Более подробную информацию о параметрах ресурсов смотрите в документации провайдера:
 
   * [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account)
   * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member)
@@ -119,4 +119,4 @@
 
 {% endlist %}
 
-Подробности см. в разделе [{#T}](../../../iam/operations/sa/create.md).
+Подробности в разделе [{#T}](../../../iam/operations/sa/create.md).

@@ -22,9 +22,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки описываемого решения входят:
-* плата за количество сообщений {{ iot-name }} (см. [тарифы {{ iot-full-name }}](../../iot-core/pricing.md));
-* плата за количество вызовов [функции](../../functions/concepts/function.md) {{ sf-name }} (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md));
-* плата за запись пользовательских [метрик](../../monitoring/concepts/data-model.md#metric) через API сервиса [{{ monitoring-name }}](../../monitoring/index.yaml) (см. [тарифы {{ monitoring-full-name }}](../../monitoring/pricing.md)).
+* плата за количество сообщений {{ iot-name }} ([тарифы {{ iot-full-name }}](../../iot-core/pricing.md));
+* плата за количество вызовов [функции](../../functions/concepts/function.md) {{ sf-name }} ([тарифы {{ sf-full-name }}](../../functions/pricing.md));
+* плата за запись пользовательских [метрик](../../monitoring/concepts/data-model.md#metric) через API сервиса [{{ monitoring-name }}](../../monitoring/index.yaml) ([тарифы {{ monitoring-full-name }}](../../monitoring/pricing.md)).
 
 ### Создайте сервисные аккаунты {#create-sa}
 

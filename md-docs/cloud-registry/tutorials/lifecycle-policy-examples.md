@@ -192,7 +192,7 @@
 * Комбинируйте правила сохранения и удаления для гибкого управления артефактами.
 * Регулярно проверяйте состояние политик с помощью команды `yc cloud-registry registry lifecycle-policy list`.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создание политики жизненного цикла](../operations/lifecycle-policy/create.md)
 * [Политика жизненного цикла в Yandex Cloud Registry](../concepts/lifecycle-policy.md)

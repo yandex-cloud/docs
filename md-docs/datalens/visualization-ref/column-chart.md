@@ -246,7 +246,7 @@ Y | Показатель. Может быть указано несколько 
 
     _Например, если в источнике нет строки с определенной датой (`20.07.2022`), данные на эту дату не отобразятся._
 
-Подробнее см. раздел [Настройка отображения пустых (null) значений в чарте Yandex DataLens](../operations/chart/chart-null-settings.md)
+Подробнее в разделе [Настройка отображения пустых (null) значений в чарте Yandex DataLens](../operations/chart/chart-null-settings.md)
 
 ## Рекомендации {#recomentations}
 
@@ -262,7 +262,7 @@ Y | Показатель. Может быть указано несколько 
 
   {% endcut %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создание дашборда в Yandex DataLens](../operations/dashboard/create.md)
 * [Добавление чарта на дашборд в Yandex DataLens](../operations/dashboard/add-chart.md)

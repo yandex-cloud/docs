@@ -12,7 +12,7 @@
 
 {% include [image-create-requirements](../../_includes/compute/image-create-requirements.md) %}
 
-Инструкции по настройке ОС для соответствия требованиям см. в разделе [{#T}](../../compute/operations/image-create/custom-image.md).
+Инструкции по настройке ОС для соответствия требованиям приведены в разделе [{#T}](../../compute/operations/image-create/custom-image.md).
 
 Чтобы образ можно было использовать для продукта в Marketplace, также выполните следующие действия:
 1. Очистите:

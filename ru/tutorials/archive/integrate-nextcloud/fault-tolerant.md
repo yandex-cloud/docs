@@ -7,7 +7,7 @@ description: С помощью данного руководства вы вру
 
 {% include [fault-tolerant](../../../_tutorials/archive/integrate-nextcloud/fault-tolerant.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./coi-based.md)
 * [{#T}](./terraform.md)

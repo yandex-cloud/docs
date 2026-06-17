@@ -74,7 +74,7 @@
          * `system:group:organization:<идентификатор_организации>:users` — чтобы назначить роль системной группе `All users in organization X`;
          * `system:group:federation:<идентификатор_федерации>:users` — чтобы назначить роль системной группе `All users in federation N`.
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_member` см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_member` смотрите в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

@@ -105,14 +105,14 @@ description: Следуя данной инструкции, вы научите
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная виртуальная машина.
 
-  2. Перейдите в сервис **{{ compute-name }}**.
+  1. Перейдите в сервис **{{ compute-name }}**.
 
-  3. На панели слева выберите ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. На панели слева выберите ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 
-  4. В списке виртуальных машин в строке с нужной ВМ нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. В открывшемся окне:
+  1. В списке виртуальных машин в строке с нужной ВМ нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. В открывшемся окне:
 
      1. Разверните блок **{{ ui-key.yacloud.compute.instances.create.section_additional }}** и в поле **{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}** включите опцию **{{ ui-key.yacloud.compute.instances.create.value_serial-port-enable }}**.
-     2. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
 - CLI {#cli}
 
@@ -152,14 +152,14 @@ description: Следуя данной инструкции, вы научите
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная виртуальная машина.
 
-  2. Перейдите в сервис **{{ compute-name }}**.
+  1. Перейдите в сервис **{{ compute-name }}**.
 
-  3. На панели слева выберите ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. На панели слева выберите ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 
-  4. В списке виртуальных машин в строке с нужной ВМ нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. В открывшемся окне:
+  1. В списке виртуальных машин в строке с нужной ВМ нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. В открывшемся окне:
 
      1. Разверните блок **{{ ui-key.yacloud.compute.instances.create.section_additional }}** и в поле **{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}** отключите опцию **{{ ui-key.yacloud.compute.instances.create.value_serial-port-enable }}**.
-     2. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
 - CLI {#cli}
 
@@ -187,7 +187,7 @@ description: Следуя данной инструкции, вы научите
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/serial-console.md)
 * [{#T}](./connect-ssh.md)

@@ -32,7 +32,7 @@
 Для того чтобы контейнер Serverless Containers мог получить доступ к данным, хранящимся в секрете Yandex Lockbox, назначьте [роль](../security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer` на нужный секрет [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), от имени которого будет запускаться контейнер.
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Передать секреты Yandex Lockbox в функцию](../../functions/operations/function/lockbox-secret-transmit.md).
 * [Создание подключения Connection Manager](../../metadata-hub/operations/create-connection.md).

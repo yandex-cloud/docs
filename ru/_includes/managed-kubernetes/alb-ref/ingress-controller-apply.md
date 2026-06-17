@@ -6,7 +6,7 @@
 
 1. {% include [kubectl-install](../../managed-kubernetes/kubectl-install.md) %}
 1. [Установите Ingress-контроллер]({{ ingress-install-local-link }}) или [Gateway API]({{ gateway-install-local-link }}).
-1. Создайте ресурс. Конфигурации доступных ресурсов см. в разделе [{#T}]({{ alb-local-link }}/index.md).
+1. Создайте ресурс. Конфигурации доступных ресурсов смотрите в разделе [{#T}]({{ alb-local-link }}/index.md).
 
 ## Применить конфигурацию {#apply}
 

@@ -40,8 +40,8 @@
 
 В стоимость поддержки создаваемого приложения входят:
 
-* плата за использование публичного IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
-* плата за вычислительные ресурсы и диски ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* плата за использование публичного IP-адреса ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
+* плата за вычислительные ресурсы и диски ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 

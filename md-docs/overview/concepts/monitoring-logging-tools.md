@@ -94,7 +94,7 @@
 ^1^ Логи виртуальных машин можно передавать с помощью [Fluent Bit](../../logging/tutorials/vm-fluent-bit-logging.md) или [Unified Agent](../../logging/tutorials/ua-http-logging.md).
 ^2^ Логирование действий с бакетами осуществляется [средствами](../../storage/concepts/server-logs.md) сервиса Object Storage.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Справочник метрик Monitoring](../../monitoring/metrics-ref/index.md)
 * [Справочник событий уровня конфигурации Audit Trails](../../audit-trails/concepts/events.md)

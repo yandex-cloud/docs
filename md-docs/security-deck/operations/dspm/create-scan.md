@@ -136,7 +136,7 @@
 {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создать источник данных DSPM](create-data-source.md)
 * [Модуль контроля данных (DSPM)](../../concepts/dspm.md)

@@ -1199,7 +1199,7 @@ subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zooke
 | `shard_count`<br/>`DGAUGE`, штуки | Количество шардов. |
 | `write_time`<br/>`DGAUGE`, миллисекунды | Среднее время записи на диски. |
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Мониторинг состояния кластера ClickHouse® и его хостов](operations/monitoring.md)
 

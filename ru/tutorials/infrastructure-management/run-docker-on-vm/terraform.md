@@ -4,6 +4,6 @@
 
 {% include [run-docker-on-vm-terraform](../../../_tutorials/infrastructure/run-docker-on-vm-terraform.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](console.md)

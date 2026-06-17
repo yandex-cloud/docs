@@ -288,6 +288,6 @@ blocks:
 
 
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 [{#T}](./concepts/limits.md)

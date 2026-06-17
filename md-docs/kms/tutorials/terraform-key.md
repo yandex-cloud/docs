@@ -43,7 +43,7 @@
 
    {% endnote %}
 
-   Более подробную информацию о параметрах ресурсов в Terraform см. в [документации провайдера](../../terraform/resources/kms_symmetric_key.md).
+   Более подробную информацию о параметрах ресурсов в Terraform смотрите в [документации провайдера](../../terraform/resources/kms_symmetric_key.md).
 
 1. Проверьте конфигурацию командой:
 
@@ -93,7 +93,7 @@ resource "yandex_resourcemanager_folder_iam_member" "admin" {
 }
 ```
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Начало работы с Terraform](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [Управление доступом в Key Management Service](../security/index.md).

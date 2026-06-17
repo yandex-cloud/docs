@@ -13,7 +13,7 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-Также инфраструктуру для синхронизации секретов Yandex Lockbox с секретами кластера Managed Service for Kubernetes можно развернуть через Terraform с помощью готового файла конфигурации. Подробнее см. в подразделе [Создайте инфраструктуру](#deploy-infrastructure) на вкладке Terraform.
+Также инфраструктуру для синхронизации секретов Yandex Lockbox с секретами кластера Managed Service for Kubernetes можно развернуть через Terraform с помощью готового файла конфигурации. Подробнее в подразделе [Создайте инфраструктуру](#deploy-infrastructure) на вкладке Terraform.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -28,9 +28,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость ресурсов для синхронизации секретов входит:
-* Плата за использование [мастера Managed Service for Kubernetes](../../../managed-kubernetes/concepts/index.md#master) (см. [тарифы Managed Service for Kubernetes](../../../managed-kubernetes/pricing.md)).
-* Плата за [вычислительные ресурсы](../../../compute/concepts/vm-platforms.md) и [диски](../../../compute/concepts/disk.md) [группы узлов Managed Service for Kubernetes](../../../managed-kubernetes/concepts/index.md#node-group) (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
-* Плата за хранение и операции с секретом (см. [тарифы Yandex Lockbox](../../../lockbox/pricing.md)).
+* Плата за использование [мастера Managed Service for Kubernetes](../../../managed-kubernetes/concepts/index.md#master) ([тарифы Managed Service for Kubernetes](../../../managed-kubernetes/pricing.md)).
+* Плата за [вычислительные ресурсы](../../../compute/concepts/vm-platforms.md) и [диски](../../../compute/concepts/disk.md) [группы узлов Managed Service for Kubernetes](../../../managed-kubernetes/concepts/index.md#node-group) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
+* Плата за хранение и операции с секретом ([тарифы Yandex Lockbox](../../../lockbox/pricing.md)).
 
 ### Создайте инфраструктуру {#deploy-infrastructure}
 

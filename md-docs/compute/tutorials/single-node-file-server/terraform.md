@@ -22,9 +22,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки однонодового файлового сервера входит:
-* плата за постоянно запущенную [ВМ](../../concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../pricing.md));
-* плата за использование динамического или статического [публичного IP-адреса](../../../vpc/concepts/address.md#public-adresses) (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
-* плата за исходящий трафик (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-traffic)).
+* плата за постоянно запущенную [ВМ](../../concepts/vm.md) ([тарифы Yandex Compute Cloud](../../pricing.md));
+* плата за использование динамического или статического [публичного IP-адреса](../../../vpc/concepts/address.md#public-adresses) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
+* плата за исходящий трафик ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-traffic)).
 
 ## Создайте инфраструктуру {#deploy}
 
@@ -167,7 +167,7 @@ Terraform распространяется под лицензией [Business S
 
    {% endlist %}
 
-   Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+   Подробнее о параметрах используемых ресурсов в Terraform смотрите в документации провайдера:
    * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../../terraform/resources/vpc_network.md).
    * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet](../../../terraform/resources/vpc_subnet.md).
    * [Группы безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group](../../../terraform/resources/vpc_security_group.md).
@@ -175,7 +175,7 @@ Terraform распространяется под лицензией [Business S
    * [Диск](../../concepts/disk.md) — [yandex_compute_disk](../../../terraform/resources/compute_disk.md).
    * [Виртуальная машина](../../concepts/vm.md) — [yandex_compute_instance](../../../terraform/resources/compute_instance.md).
 
-1. В блоке `metadata` укажите имя пользователя и содержимое SSH-ключа. Подробнее см. в разделе [Метаданные виртуальной машины](../../concepts/vm-metadata.md).
+1. В блоке `metadata` укажите имя пользователя и содержимое SSH-ключа. Подробнее в разделе [Метаданные виртуальной машины](../../concepts/vm-metadata.md).
 1. Создайте ресурсы:
 
    1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -419,6 +419,6 @@ Terraform распространяется под лицензией [Business S
     
     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Однонодовый файловый сервер с помощью консоли управления](console.md).

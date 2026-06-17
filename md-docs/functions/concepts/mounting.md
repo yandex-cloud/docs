@@ -42,7 +42,7 @@
 {% endnote %}
 
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Cмонтировать бакеты в функцию](../operations/function/mount-bucket.md)
 * [Cмонтировать эфемерный диск в функцию](../operations/function/mount-ephemeral-disk.md)

@@ -64,7 +64,7 @@
 
 Посмотрите примеры чартов с иерархией на [готовом дашборде](https://datalens.yandex/9fms9uae7ip02?tab=MNb).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создание дерева](../../dataset/data-types.md#how-to-create-tree).
 

@@ -15,7 +15,7 @@
 [GetObjectTagging](object/getobjecttagging.md) | Возвращает метки объекта.
 [DeleteObjectTagging](object/deleteobjecttagging.md) | Удаляет метки объекта.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Начало работы с AWS S3 API в Yandex Object Storage](../s3-api-quickstart.md)
 

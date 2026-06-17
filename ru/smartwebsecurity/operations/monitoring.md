@@ -68,7 +68,7 @@ description: Следуя данной инструкции, вы сможете
 
 Вы можете комбинировать несколько метрик на одном графике и [настраивать свои дашборды](../../monitoring/operations/dashboard/create.md) в сервисе {{ monitoring-short-name }}.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../metrics.md)
 * [{#T}](../../monitoring/concepts/visualization/dashboard.md)

@@ -112,7 +112,7 @@ TCP/IP используется в мировом интернете и корп
 
     Подробнее в [документации {{ network-load-balancer-short-name }}](../network-load-balancer/)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [{#T}](./ipsec.md)
 [{#T}](./vpn.md)

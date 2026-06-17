@@ -27,4 +27,4 @@ resource "yandex_api_gateway" "test-api-gateway" {
 }
 ```
 
-Более подробную информацию о параметрах ресурса `yandex_api_gateway` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/api_gateway).
+Подробнее о параметрах ресурса `yandex_api_gateway` в {{ TF }} в [документации провайдера]({{ tf-provider-resources-link }}/api_gateway).

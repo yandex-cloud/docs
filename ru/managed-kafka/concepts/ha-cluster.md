@@ -58,7 +58,7 @@
 * [квоты и лимиты](limits.md).
 
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](../../architecture/fault-tolerance.md)
 

@@ -7,7 +7,12 @@ description: Из этой инструкции вы узнаете, как в {
 
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
-Чтобы создать [окружение](../../concepts/workspace.md) {{ sd-name }}:
+Перед созданием [окружения](../../concepts/workspace.md) убедитесь, что у вас есть необходимые [права](../../security/index.md) для работы с модулями {{ sd-name }}. Оптимальные роли для работы:
+
+* `security-deck.admin` на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будут храниться ресурсы {{ sd-name }} и его модули.
+* `auditor` на [организацию](../../../organization/concepts/organization.md), [облако](../../../resource-manager/concepts/resources-hierarchy.md#cloud) или каталог, безопасность в которых будет контролироваться окружением.
+
+Чтобы создать окружение {{ sd-name }}:
 
 {% list tabs group=instructions %}
 
@@ -25,7 +30,7 @@ description: Из этой инструкции вы узнаете, как в {
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/workspace.md)
 * [{#T}](./view-dashboard.md)

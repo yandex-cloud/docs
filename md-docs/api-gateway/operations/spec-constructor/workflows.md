@@ -10,7 +10,7 @@
   1. В поле **Спецификация** нажмите значок ![image](../../../_assets/api-gateway/spec-constructor/workflows.svg).
   1. Укажите в поле:
 
-      * **Путь** — относительный путь к интеграции, который будет добавлен к URL-адресу API Gateway. Переменные указывайте в фигурных скобках, например `/static/{function_id}`. Подробнее см. спецификацию [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
+      * **Путь** — относительный путь к интеграции, который будет добавлен к URL-адресу API Gateway. Переменные указывайте в фигурных скобках, например `/static/{function_id}`. Подробнее в спецификации [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
       * **HTTP-метод** — метод, который будет использоваться для взаимодействия с интеграцией.
 
       * **Сервисный аккаунт** — сервисный аккаунт с ролью `serverless.workflows.executor` для [запуска рабочего процесса](../../../serverless-integrations/concepts/workflows/execution.md). Если у вас нет сервисного аккаунта, [создайте](../../../iam/operations/sa/create.md) его.

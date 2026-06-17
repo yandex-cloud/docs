@@ -24,11 +24,11 @@ description: Следуя данной инструкции, вы сможете
           * `{{ ui-key.yacloud.serverless-workflows.workflow-editor_wait-step-type-field-duration-label }}`, чтобы задать длительность ожидания в секундах, и в поле **{{ ui-key.yacloud.serverless-workflows.workflow-editor_wait-step-duration-field }}** укажите нужное значение.
           * `{{ ui-key.yacloud.serverless-workflows.workflow-editor_wait-step-type-field-until-label }}`, чтобы задать ожидание до наступления определенного момента во времени, и в поле **{{ ui-key.yacloud.serverless-workflows.workflow-editor_wait-step-until-field }}** укажите нужный момент времени в формате [ISO 8601](https://{{ lang }}.wikipedia.org/wiki/ISO_8601) или найдите нужную дату с помощью интерактивного календаря ![calendar](../../../../_assets/console-icons/calendar.svg).
           
-          Чтобы получить длительности ожидания или временную метку из состояния рабочего процесса, включите опцию **{{ ui-key.yacloud.serverless-workflows.workflow-editor_wait-step-use-jq-expression-field }}** и в поле **{{ ui-key.yacloud.serverless-workflows.workflow-editor_wait-step-jq-expression-field }}** задайте шаблон в формате jq. Подробнее см. [{#T}](../../../concepts/workflows/templating.md).
+          Чтобы получить длительность ожидания или временную метку из состояния рабочего процесса, включите опцию **{{ ui-key.yacloud.serverless-workflows.workflow-editor_wait-step-use-jq-expression-field }}** и в поле **{{ ui-key.yacloud.serverless-workflows.workflow-editor_wait-step-jq-expression-field }}** задайте шаблон в формате jq. Подробнее в [{#T}](../../../concepts/workflows/templating.md).
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Спецификация YaWL](../../../concepts/workflows/yawl/management/wait.md)
 * [{#T}](../workflow/create-constructor.md)

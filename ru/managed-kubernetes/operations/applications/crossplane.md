@@ -189,6 +189,6 @@
 
 * [{#T}](../../tutorials/marketplace/crossplane.md)
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация Crossplane](https://docs.crossplane.io/)

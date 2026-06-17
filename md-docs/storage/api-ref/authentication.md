@@ -40,7 +40,7 @@
   {% endnote %}
 
   
-  Статический ключ для доступа к Object Storage можно безопасно хранить в сервисе Yandex Lockbox. Подробнее см. [Использование секрета Yandex Lockbox для хранения статического ключа доступа](../tutorials/static-key-in-lockbox/index.md).
+  Статический ключ для доступа к Object Storage можно безопасно хранить в сервисе Yandex Lockbox. Подробнее смотрите [Использование секрета Yandex Lockbox для хранения статического ключа доступа](../tutorials/static-key-in-lockbox/index.md).
 
 
   Чтобы использовать AWS S3 API с аутентификацией с помощью статического ключа доступа напрямую, без SDK и приложений, необходимо самостоятельно [подписывать запросы](../s3/signing-requests.md). Процесс формирования запроса и подписи вы можете отработать с помощью AWS CLI в [режиме отладки](../s3/signing-requests.md#debugging).
@@ -348,6 +348,6 @@ Authorization: Bearer ${IAM_TOKEN}
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Начало работы с AWS S3 API в Yandex Object Storage](../s3/s3-api-quickstart.md)

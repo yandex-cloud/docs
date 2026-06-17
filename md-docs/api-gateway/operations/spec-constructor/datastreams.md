@@ -10,7 +10,7 @@
     1. В поле **Спецификация** нажмите значок ![image](../../../_assets/api-gateway/spec-constructor/cloud-datastreams.svg).
     1. Укажите в поле:
 
-        * **Путь** — относительный путь к интеграции, который будет добавлен к URL-адресу API Gateway. Переменные указывайте в фигурных скобках, например `/static/{function_id}`. Подробнее см. спецификацию [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
+        * **Путь** — относительный путь к интеграции, который будет добавлен к URL-адресу API Gateway. Переменные указывайте в фигурных скобках, например `/static/{function_id}`. Подробнее в спецификации [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
         * **HTTP-метод** — метод, который будет использоваться для взаимодействия с интеграцией.
 
         * (Опционально) **Сервисный аккаунт** — сервисный аккаунт для авторизации при выполнении операции с [потоком](../../../data-streams/concepts/glossary.md#stream-concepts) Data Streams. Если у вас нет сервисного аккаунта, [создайте](../../../iam/operations/sa/create.md) его.
@@ -24,6 +24,6 @@
 
 В поле **Спецификация** отобразится OpenAPI-спецификация с указанными значениями параметров.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Расширение x-yc-apigateway-integration:cloud_datastreams](../../concepts/extensions/datastreams.md)

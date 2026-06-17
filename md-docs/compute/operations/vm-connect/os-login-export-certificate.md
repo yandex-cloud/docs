@@ -58,7 +58,7 @@
      
      {% note info %}
      
-     Минимально необходимая роль, позволяющая просматривать список профилей OS Login пользователей — [роль](../../../organization/security/index.md#organization-manager-osLogins-viewer) `organization-manager.osLogins.viewer`, назначенная на организацию. Информацию о других ролях, позволяющих просматривать список профилей OS Login, см. в разделе [Управление доступом в Yandex Identity Hub](../../../organization/security/index.md#service-roles).
+     Минимально необходимая роль, позволяющая просматривать список профилей OS Login пользователей — [роль](../../../organization/security/index.md#organization-manager-osLogins-viewer) `organization-manager.osLogins.viewer`, назначенная на организацию. Информацию о других ролях, позволяющих просматривать список профилей OS Login, смотрите в разделе [Управление доступом в Yandex Identity Hub](../../../organization/security/index.md#service-roles).
      
      {% endnote %}
   1. Экспортируйте сертификат:
@@ -88,7 +88,7 @@
 
 С помощью экспортированного SSH-сертификата вы можете [подключиться](os-login.md#connect-with-ssh-client) к виртуальной машине Compute Cloud, кластеру Yandex Data Processing или узлу Kubernetes, для которых [настроен](../vm-control/vm-update.md#enable-oslogin-access) доступ по OS Login.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Включить доступ по OS Login](../../../organization/operations/os-login-access.md)
 * [Добавить SSH-ключ](../../../organization/operations/add-ssh.md)

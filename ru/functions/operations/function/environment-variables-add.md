@@ -80,7 +80,7 @@
         }
         ```
 
-        Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-resources-link }}/function).
+        Подробнее о параметрах ресурса `yandex_function` в [документации провайдера]({{ tf-provider-resources-link }}/function).
 
     1. Проверьте конфигурацию командой:
         
@@ -120,6 +120,6 @@
 {% endlist %}
 
 
-## См. также
+## Полезные ссылки {#see-also}
 
 * [Переменные окружения](../../concepts/runtime/environment-variables.md#env).

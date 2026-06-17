@@ -21,9 +21,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для L7-балансировщика с профилем безопасности Smart Web Security входят:
-* плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование вычислительных ресурсов [L7-балансировщика](../../../application-load-balancer/concepts/index.md) (см. [тарифы Application Load Balancer](../../../application-load-balancer/pricing.md));
-* плата за запросы, обработанные правилами [профиля безопасности](../../concepts/profiles.md) (см. [тарифы Yandex Smart Web Security](../../pricing.md)).
+* плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за использование вычислительных ресурсов [L7-балансировщика](../../../application-load-balancer/concepts/index.md) ([тарифы Application Load Balancer](../../../application-load-balancer/pricing.md));
+* плата за запросы, обработанные правилами [профиля безопасности](../../concepts/profiles.md) ([тарифы Yandex Smart Web Security](../../pricing.md)).
 
 ## Создайте инфраструктуру {#deploy}
 
@@ -432,6 +432,6 @@ Terraform распространяется под лицензией [Business S
     
     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создание L7-балансировщика Application Load Balancer с профилем безопасности Smart Web Security с помощью консоли управления](console.md)

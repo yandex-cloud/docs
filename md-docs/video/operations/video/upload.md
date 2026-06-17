@@ -2,7 +2,7 @@
 
 Поддерживается загрузка видео в различных форматах, например: [MP4](https://ru.wikipedia.org/wiki/MPEG-4_Part_14), [AVI](https://ru.wikipedia.org/wiki/Audio_Video_Interleave), [MKV](https://ru.wikipedia.org/wiki/Matroska), [FLV](https://ru.wikipedia.org/wiki/Flash_Video), [MOV](https://en.wikipedia.org/wiki/QuickTime_File_Format), [WebM](https://ru.wikipedia.org/wiki/WebM) и других. Вы можете [загружать](upload.md) видео как по одному файлу, так и по несколько файлов сразу.
 
-Вы можете загрузить видео с несколькими аудиодорожками или добавить их после загрузки с помощью [нейроперевода](../../concepts/videos.md#translation). Дорожки выбираются в меню [плеера](../../concepts/player.md), подробнее см. в разделе [Выбрать аудиодорожку](../player-control.md#audio).
+Вы можете загрузить видео с несколькими аудиодорожками или добавить их после загрузки с помощью [нейроперевода](../../concepts/videos.md#translation). Дорожки выбираются в меню [плеера](../../concepts/player.md), подробнее в разделе [Выбрать аудиодорожку](../player-control.md#audio).
 
 В сервисе действуют [ограничения](../../concepts/limits.md) на разрешение публикуемых видео.
 
@@ -457,6 +457,6 @@
 {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Изменить видео](update.md)

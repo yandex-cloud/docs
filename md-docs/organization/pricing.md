@@ -226,6 +226,6 @@
 
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Управлять тарификацией Yandex Identity Hub](operations/manage-billing.md)

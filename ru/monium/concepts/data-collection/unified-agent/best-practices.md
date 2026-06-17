@@ -38,7 +38,7 @@ routes:
             cloud_meta: {}
 ```
 
-См. также раздел [{#T}](inputs.md#agent_metrics_input).
+Смотрите также раздел [{#T}](inputs.md#agent_metrics_input).
 
 ## Использование хранилища {#storage}
 
@@ -84,7 +84,7 @@ routes:
         name: cloud_monitoring
 ```
 
-См. также раздел [{#T}](storage.md).
+Смотрите также раздел [{#T}](storage.md).
 
 ## Расчет времени использования процессора {#cpu-time-tracking}
 

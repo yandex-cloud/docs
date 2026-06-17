@@ -4,7 +4,7 @@
 
 Ingress-контроллер, установленный в кластер, будет автоматически разворачивать [L7-балансировщики](../../../application-load-balancer/concepts/application-load-balancer.md) со всеми необходимыми ресурсами {{ alb-name }}, основываясь на конфигурации созданных вами ресурсов [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/).
 
-Полную конфигурацию ресурсов для Ingress-контроллера {{ alb-name }} см. в следующих разделах:
+Полную конфигурацию ресурсов для Ingress-контроллера {{ alb-name }} смотрите в следующих разделах:
 
 * [Ingress]({{ configuration-local-link }}/ingress.md) — правила распределения трафика между бэкендами и настройки Ingress-контроллера.
 * [HttpBackendGroup]({{ configuration-local-link }}/http-backend-group.md) и [GrpcBackendGroup]({{ configuration-local-link }}/grpc-backend-group.md) — объединение бэкендов в группы.
@@ -73,7 +73,7 @@ spec:
 
 ## Настройки логирования {#log-options}
 
-Чтобы задать настройки логирования для L7-балансировщика, созданного с помощью Ingress-контроллера {{ alb-name }} в кластере {{ managed-k8s-name }}, добавьте аннотацию `ingress.alb.yc.io/group-settings-name` с именем для настроек группы ресурсов Ingress и укажите настройки в дополнительном ресурсе `IngressGroupSettings`. Подробнее см. в разделе [Аннотации ресурса Ingress]({{ configuration-local-link }}/ingress.md#annotations).
+Чтобы задать настройки логирования для L7-балансировщика, созданного с помощью Ingress-контроллера {{ alb-name }} в кластере {{ managed-k8s-name }}, добавьте аннотацию `ingress.alb.yc.io/group-settings-name` с именем для настроек группы ресурсов Ingress и укажите настройки в дополнительном ресурсе `IngressGroupSettings`. Подробнее в разделе [Аннотации ресурса Ingress]({{ configuration-local-link }}/ingress.md#annotations).
 
 ## Интеграция с сервисом {{ sws-full-name }} {#smart-web-security}
 
@@ -85,7 +85,7 @@ spec:
 
 Для одного приложения можно использовать несколько Ingress-контроллеров, например {{ alb-name }} и NGINX. Чтобы корректно маршрутизировать трафик в такой инфраструктуре, создайте ресурс [IngressClass]({{ configuration-local-link }}/ingress-class.md) для каждого Ingress-контроллера. В ресурсе `Ingress`, в поле `spec.ingressClassName` укажите, к какому `IngressClass` относится ресурс `Ingress`. На GitHub есть [пример](https://github.com/yandex-cloud-examples/yc-mk8s-with-ingress-class), как настроить ресурсы `Ingress` и маршрутизировать трафик с помощью нескольких Ingress-контроллеров.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Принципы работы контроллера]({{ ingress-local-link }}/principles.md).
 * [Настройка групп безопасности]({{ alb-local-link }}/security-groups.md) для кластера {{ k8s }} и балансировщика.

@@ -9,6 +9,6 @@ noIndex: true
 
 {% include [terraform](../../../_tutorials/_tutorials_includes/video-converting-queue/terraform.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](console.md)

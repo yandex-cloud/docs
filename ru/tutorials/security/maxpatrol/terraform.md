@@ -5,6 +5,6 @@ description: Следуя данному руководству, вы сможе
 
 {% include [at-maxpatrol-siem-terraform](../../../_tutorials/security/at-maxpatrol-siem-terraform.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./console.md)

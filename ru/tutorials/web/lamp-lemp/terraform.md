@@ -9,6 +9,6 @@ description: LAMP (Linux, Apache HTTP Server, MySQL, PHP) и его вариац
 
 {% include [lamp-lemp](../../../_tutorials/web/lamp-lemp-terraform.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](console.md).

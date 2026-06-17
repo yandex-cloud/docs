@@ -56,13 +56,13 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость предлагаемого решения входят: 
-* плата за [диски](../../../compute/concepts/disk.md), [снимки дисков](../../../compute/concepts/snapshot.md) и постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование [публичных IP-адресов](../../../vpc/concepts/address.md#public-addresses) и [NAT-шлюзов](../../../vpc/concepts/gateways.md#nat-gateway) (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
-* плата за [хранение данных](../../../storage/concepts/bucket.md) в Object Storage и [операции](../../../storage/operations/index.md) с ними (см. [тарифы Yandex Object Storage](../../../storage/pricing.md));
-* плата за использование управляемой БД MySQL® (см. [тарифы Managed Service for MySQL®](../../../managed-mysql/pricing.md));
-* при использовании Yandex Cloud DNS плата за [DNS-зоны](../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы (см. [тарифы Cloud DNS](../../../dns/pricing.md));
-* при использовании балансировщика нагрузки плата за количество ресурсных единиц [L7-балансировщика](../../concepts/application-load-balancer.md) (см. [тарифы Yandex Application Load Balancer](../../pricing.md));
-* при использовании [лог-группы](../../../logging/concepts/log-group.md) для записи логов балансировщика плата за запись и хранение данных (см. [тарифы Yandex Cloud Logging](../../../logging/pricing.md)).
+* плата за [диски](../../../compute/concepts/disk.md), [снимки дисков](../../../compute/concepts/snapshot.md) и постоянно запущенные [ВМ](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за использование [публичных IP-адресов](../../../vpc/concepts/address.md#public-addresses) и [NAT-шлюзов](../../../vpc/concepts/gateways.md#nat-gateway) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
+* плата за [хранение данных](../../../storage/concepts/bucket.md) в Object Storage и [операции](../../../storage/operations/index.md) с ними ([тарифы Yandex Object Storage](../../../storage/pricing.md));
+* плата за использование управляемой БД MySQL® ([тарифы Managed Service for MySQL®](../../../managed-mysql/pricing.md));
+* при использовании Yandex Cloud DNS плата за [DNS-зоны](../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы ([тарифы Cloud DNS](../../../dns/pricing.md));
+* при использовании балансировщика нагрузки плата за количество ресурсных единиц [L7-балансировщика](../../concepts/application-load-balancer.md) ([тарифы Yandex Application Load Balancer](../../pricing.md));
+* при использовании [лог-группы](../../../logging/concepts/log-group.md) для записи логов балансировщика плата за запись и хранение данных ([тарифы Yandex Cloud Logging](../../../logging/pricing.md)).
 
 ## Разверните Nextcloud в базовой конфигурации {#the-basic-variant}
 
@@ -854,7 +854,7 @@ Nextcloud использует базу данных MySQL® для хранен
 1. Последовательно удалите [подсети](../../../vpc/operations/subnet-delete.md), [группу безопасности](../../../vpc/operations/security-group-delete.md), [таблицу маршрутизации](../../../vpc/operations/delete-route-table.md), [NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md) и [облачную сеть](../../../vpc/operations/network-delete.md).
 1. При необходимости [удалите](../../../certificate-manager/operations/managed/cert-delete.md) TLS-сертификат, если вы создавали его.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Развертывание Nextcloud на виртуальной машине Yandex Compute Cloud из образа Container Optimized Image в интеграции с Yandex Object Storage](coi-based.md)
 * [Развертывание Nextcloud на виртуальной машине или в группе виртуальных машин Yandex Compute Cloud в интеграции с Yandex Object Storage с помощью Terraform](terraform.md)

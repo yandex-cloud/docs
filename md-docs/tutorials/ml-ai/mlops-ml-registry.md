@@ -68,9 +68,9 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Сервис Managed Service for GitLab: использование вычислительных ресурсов инстанса (виртуальной машины) и объем хранилища данных инстанса (см. [тарифы Managed Service for GitLab](../../managed-gitlab/pricing.md)). В зависимости от того, где развернут GitLab Runner, может тарифицироваться ВМ Compute Cloud для установки GitLab Runner.
-* Виртуальные машины: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы Compute Cloud](../../compute/pricing.md)).
-* Сервис Object Storage: использование для хранения резервных копий Managed Service for GitLab (см. [тарифы Object Storage](../../storage/pricing.md)).
+* Сервис Managed Service for GitLab: использование вычислительных ресурсов инстанса (виртуальной машины) и объем хранилища данных инстанса ([тарифы Managed Service for GitLab](../../managed-gitlab/pricing.md)). В зависимости от того, где развернут GitLab Runner, может тарифицироваться ВМ Compute Cloud для установки GitLab Runner.
+* Виртуальные машины: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Compute Cloud](../../compute/pricing.md)).
+* Сервис Object Storage: использование для хранения резервных копий Managed Service for GitLab ([тарифы Object Storage](../../storage/pricing.md)).
 
 ## Создайте инфраструктуру {#deploy}
 
@@ -266,7 +266,7 @@
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Machine Learning Model Experiments](https://docs.gitlab.com/user/project/ml/experiment_tracking/)
 * [Model Registry](https://docs.gitlab.com/user/project/ml/model_registry/)

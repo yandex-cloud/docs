@@ -71,7 +71,7 @@ description: Следуя данной инструкции, вы сможете
 
 ### AWS SDK {#aws-sdk}
 
-Вы можете отправить письмо с помощью AWS SDK для .NET Core, Go, JavaScript и Python. Подробнее см. в руководствах:
+Вы можете отправить письмо с помощью AWS SDK для .NET Core, Go, JavaScript и Python. Подробнее в руководствах:
 
 * [{#T}](../../postbox/tutorials/send-emails-aws-sdk-csharp.md)
 * [{#T}](../../postbox/tutorials/send-emails-aws-sdk-go.md)
@@ -153,4 +153,4 @@ description: Следуя данной инструкции, вы сможете
 
 {% endcut %}
 
-Чтобы использовать [AWS Signature Version 4](https://docs.amazonaws.cn/en_us/IAM/latest/UserGuide/reference_aws-signing.html) для подписи запроса, укажите параметр `--aws-sigv4`. Как формировать подпись самостоятельно, см. в разделе [{#T}](../../postbox/aws-compatible-api/signing-requests.md).
+Чтобы использовать [AWS Signature Version 4](https://docs.amazonaws.cn/en_us/IAM/latest/UserGuide/reference_aws-signing.html) для подписи запроса, укажите параметр `--aws-sigv4`. Как формировать подпись самостоятельно, читайте в разделе [{#T}](../../postbox/aws-compatible-api/signing-requests.md).

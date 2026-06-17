@@ -105,7 +105,7 @@
       }
       ```
       
-      Более подробную информацию о параметрах ресурса `yandex_api_gateway` в Terraform см. в [документации провайдера](../../terraform/resources/api_gateway.md).
+      Подробнее о параметрах ресурса `yandex_api_gateway` в Terraform в [документации провайдера](../../terraform/resources/api_gateway.md).
 
   1. Обновите ресурсы:
 

@@ -47,7 +47,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Статусы подключения ВМ](../concepts/vm-connection.md#statuses)
 * [Посмотреть статус подключения ВМ](get-connection-status.md)

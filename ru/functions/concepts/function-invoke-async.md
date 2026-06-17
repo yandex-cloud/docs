@@ -15,6 +15,6 @@ description: При создании версии функции в {{ sf-full-n
 
 Результат выполнения функции можно игнорировать или отправлять в {{ message-queue-full-name }}.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Вызвать функцию асинхронно](../operations/function/function-invoke-async.md)

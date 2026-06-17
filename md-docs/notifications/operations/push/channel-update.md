@@ -21,13 +21,13 @@
             * **Идентификатор разработчика** (Team ID) — указан в правом верхнем углу вашей учетной записи разработчика Apple. Должен содержать 10 символов: только цифры и буквы латинского алфавита.
             * **Идентификатор приложения (Bundle ID)** — узнайте [Bundle ID](https://developer.apple.com/documentation/appstoreconnectapi/list_bundle_ids) в учетной записи разработчика Apple: **Certificates, Identifiers & Profiles** → **Identifiers** или в приложении Xcode: **Target** → **General** → **Identity**. Может содержать только цифры, буквы латинского алфавита, дефисы и точки.
              
-             Подробнее о токене см. в [документации Apple](https://developer.apple.com/documentation/usernotifications/establishing-a-token-based-connection-to-apns).
+             Подробнее о токене смотрите в [документации Apple](https://developer.apple.com/documentation/usernotifications/establishing-a-token-based-connection-to-apns).
           
           * Для аутентификации с помощью сертификата понадобятся:
             * **Сертификат** — файл сертификата SSL в формате `.pem`.
             * **Закрытый ключ сертификата** — файл ключа в формате `.pem`. 
           
-            Подробнее о сертификате см. в [документации Apple](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/establishing_a_certificate-based_connection_to_apns#2947597).
+            Подробнее о сертификате смотрите в [документации Apple](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/establishing_a_certificate-based_connection_to_apns#2947597).
           
             Чтобы сохранить сертификат и закрытый ключ в отдельных файлах формата `.pem`, вы можете воспользоваться утилитой [openssl](https://docs.openssl.org/1.1.1/man1/pkcs12) в Linux:
             
@@ -54,7 +54,7 @@
       
       {% endnote %}
       
-      Подробнее см. в [документации Firebase](https://firebase.google.com/docs/cloud-messaging/android/client).
+      Подробнее в [документации Firebase](https://firebase.google.com/docs/cloud-messaging/android/client).
       
       **Huawei Android**
       

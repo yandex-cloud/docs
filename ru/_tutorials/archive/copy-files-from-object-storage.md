@@ -33,7 +33,7 @@
 
 1. У сервисного аккаунта должен быть доступ к нужному бакету. Для этого выдайте сервисному аккаунту права в [ACL бакета](../../storage/concepts/acl), либо роль `storage.viewer` или `storage.editor`.
 
-    Подробнее про эти роли см. в [документации {{ objstorage-name }}](../../storage/security/index.md).
+    Подробнее про эти роли смотрите в [документации {{ objstorage-name }}](../../storage/security/index.md).
 
 > Например, получите список файлов, находящихся в публичном бакете `yc-mdb-examples` по пути `dataproc/example01/set01`. Для этого [подключитесь](../../data-proc/operations/connect.md) к кластеру и выполните команду:
 >
@@ -129,7 +129,7 @@ hadoop distcp \
 * В образах версий `1.0`—`1.4` по умолчанию используется значение `sequential`. Оно подходит для операций последовательного чтения файлов, но для произвольного работает медленно. Если вы чаще используете произвольный доступ к файлам, добавьте в свойства компонентов кластера или укажите в настройках задания значение `random`.
 * В образе версии `2.0` по умолчанию используется значение `normal`: работа с файлами происходит в последовательном режиме, но если приложение выполняет операции произвольного доступа, режим автоматически переключается на `random`.
 
-Подробнее об используемых версиях компонентов см. в разделе [{#T}](../../data-proc/concepts/environment.md).
+Подробнее об используемых версиях компонентов смотрите в разделе [{#T}](../../data-proc/concepts/environment.md).
 
 
 ## Оптимизация записи файлов в {{ objstorage-name }} {#s3-write-optimize}
@@ -142,7 +142,7 @@ hadoop distcp \
 
 ### Использование коммиттеров S3A {#s3a-committers}
 
-Коммиттеры S3A — входящий в состав Apache Hadoop набор программных модулей для записи данных в объектное хранилище по [протоколу S3](../../glossary/s3.md), обеспечивающий эффективное и приближенное к атомарному подтверждение выполненных изменений. Подробнее см. в документации [Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/committers.html) и [Apache Spark](https://spark.apache.org/docs/3.5.3/cloud-integration.html).
+Коммиттеры S3A — входящий в состав Apache Hadoop набор программных модулей для записи данных в объектное хранилище по [протоколу S3](../../glossary/s3.md), обеспечивающий эффективное и приближенное к атомарному подтверждение выполненных изменений. Подробнее в документации [Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/committers.html) и [Apache Spark](https://spark.apache.org/docs/3.5.3/cloud-integration.html).
 
 {% note info %}
 
@@ -205,7 +205,7 @@ hadoop distcp \
 
 {% endnote %}
 
-Подробнее см. в [документации Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/performance.html) и разделе [Свойства компонентов](../../data-proc/concepts/settings-list.md).
+Подробнее в [документации Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/performance.html) и разделе [Свойства компонентов](../../data-proc/concepts/settings-list.md).
 
 ### Настройки Apache Spark {#s3-write-optimize-spark}
 
@@ -241,7 +241,7 @@ hadoop distcp \
 
 {% endnote %}
 
-Подробнее см. в [документации Apache Spark](https://spark.apache.org/docs/3.5.3/cloud-integration.html) и разделе [Свойства компонентов](../../data-proc/concepts/settings-list.md).
+Подробнее в [документации Apache Spark](https://spark.apache.org/docs/3.5.3/cloud-integration.html) и разделе [Свойства компонентов](../../data-proc/concepts/settings-list.md).
 
 ## Использование s3fs {#s3fs}
 
@@ -315,4 +315,4 @@ hadoop distcp \
 
 {% endlist %}
 
-Подробнее см. на странице [{#T}](../../data-proc/concepts/settings-list.md#spark-settings).
+Подробнее на странице [{#T}](../../data-proc/concepts/settings-list.md#spark-settings).

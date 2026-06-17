@@ -43,7 +43,7 @@ JavaScript-кастомизации в [Editor](../charts/editor/index.md) | ![i
 [SLA](https://yandex.ru/legal/cloud_sla_datalens) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)  
 Техническая поддержка | [Базовый тариф](../../support/pricing.md#base) (если у пользователя не подключен [Бизнес](../../support/pricing.md#business) или [Премиум](../../support/pricing.md#premium)) | [Тариф Бизнес](../../support/pricing.md#business) (распространяется только на {{ datalens-name }}) и повышенный приоритет в рассмотрении обращений относительно тарифа Community
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Правила тарификации](../pricing.md)
 * [Вопросы про тарификацию и оплату](../qa/pricing.md)

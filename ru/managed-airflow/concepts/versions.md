@@ -23,7 +23,7 @@
 
 {% include [version-update-rules](../../_includes/managed-airflow/version-update-rules.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Политика работы с версиями {{ AF }}](update-policy.md)
 * [{#T}](../operations/cluster-version-update.md)

@@ -154,7 +154,7 @@
       * `timezone` — часовой пояс в формате [tz database](https://ru.wikipedia.org/wiki/Tz_database). Необязательный параметр.
       * `payload` — сообщение, которое будет передаваться в шину при срабатывании таймера. Необязательный параметр.
 
-      Более подробную информацию о параметрах ресурса `yandex_serverless_eventrouter_connector` см. в [документации провайдера](../../../../terraform/resources/serverless_eventrouter_connector.md).
+      Подробнее о параметрах ресурса `yandex_serverless_eventrouter_connector` в [документации провайдера](../../../../terraform/resources/serverless_eventrouter_connector.md).
 
   1. Создайте ресурсы:
 

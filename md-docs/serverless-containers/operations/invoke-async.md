@@ -111,7 +111,7 @@
 
           * `service_account_id` — сервисный аккаунт, у которого есть [роль](../security/index.md#serverless-containers-containerinvoker) `serverless-containers.containerInvoker`.
 
-      Более подробную информацию о параметрах ресурса `yandex_serverless_container` см. в [документации провайдера](../../terraform/resources/serverless_container.md).
+      Подробнее о параметрах ресурса `yandex_serverless_container` в [документации провайдера](../../terraform/resources/serverless_container.md).
 
   1. Примените изменения:
 
@@ -161,6 +161,6 @@
 [Вызовите](invoke.md) контейнер по HTTP, указав при вызове заголовок `X-Ycf-Container-Integration-Type: async`.
 
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Асинхронный вызов контейнера](../concepts/invoke-async.md)

@@ -66,7 +66,7 @@
 
     Где:
 
-    * `<эндпоинт>` — эндпоинт потока данных Data Streams, например, `https://yds.serverless.yandexcloud.net/ru-central1/b1g89ae43m6he********/etn01eg4rn1********`. Эндпоинт можно посмотреть на странице потока (см. [Посмотреть список потоков](../operations/manage-streams.md#list-data-streams)).
+    * `<эндпоинт>` — эндпоинт потока данных Data Streams, например, `https://yds.serverless.yandexcloud.net/ru-central1/b1g89ae43m6he********/etn01eg4rn1********`. Эндпоинт можно посмотреть на странице потока (смотрите [Посмотреть список потоков](../operations/manage-streams.md#list-data-streams)).
     * `<поток_данных>` — название потока данных Data Streams.
     * `<имя_БД>` — название базы данных PostgreSQL.
     * `<имя_пользователя>` — имя пользователя для подключения к базе данных PostgreSQL.

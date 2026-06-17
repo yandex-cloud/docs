@@ -21,9 +21,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры, разворачиваемой через {{ TF }} в этом руководстве, входят:
-* Плата за [высокодоступный мастер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за постоянно запущенные [виртуальные машины](../../compute/concepts/vm.md) в [группе узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за использование динамических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Плата за [высокодоступный мастер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за постоянно запущенные [виртуальные машины](../../compute/concepts/vm.md) в [группе узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group) ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за использование динамических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) ([тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
 
 ## Установите {{ TF }} {#install-terraform}
 
@@ -143,7 +143,7 @@ module "kube" {
 
 {% include [delete-resources](../../_tutorials/_tutorials_includes/terraform-delete-resources.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Начало работы с {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [Загрузка состояний {{ TF }} в {{ objstorage-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).

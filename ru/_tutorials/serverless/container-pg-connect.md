@@ -11,10 +11,10 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
-* Реестр {{ container-registry-name }}: хранение созданных Docker-образов и использование сканера уязвимостей (см. [тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
-* Контейнер {{ serverless-containers-name }}: количество вызовов контейнера, время простоя подготовленных экземпляров и выделенные для выполнения приложения вычислительные ресурсы (см. [тарифы {{ container-registry-name }}](../../serverless-containers/pricing.md)).
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Реестр {{ container-registry-name }}: хранение созданных Docker-образов и использование сканера уязвимостей ([тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
+* Контейнер {{ serverless-containers-name }}: количество вызовов контейнера, время простоя подготовленных экземпляров и выделенные для выполнения приложения вычислительные ресурсы ([тарифы {{ container-registry-name }}](../../serverless-containers/pricing.md)).
 
 
 ## Перед началом работы {#before-begin}

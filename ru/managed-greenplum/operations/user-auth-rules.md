@@ -159,7 +159,7 @@
         * `address` — FQDN хоста или диапазон IP-адресов в нотации CIDR, с которых будет выполняться подключение к базе данных.
         * `auth-method` — метод аутентификации. Возможные значения: `md5`, `reject`.
 
-        Подробнее о параметрах см. в разделе [Настройки правил аутентификации](../../managed-greenplum/concepts/user-authentication.md#auth-settings).
+        Подробнее о параметрах читайте в разделе [Настройки правил аутентификации](../../managed-greenplum/concepts/user-authentication.md#auth-settings).
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -195,7 +195,7 @@
         * `address` — FQDN хоста или диапазон IP-адресов в нотации CIDR, с которых будет выполняться подключение к базе данных.
         * `authMethod` — метод аутентификации. Возможные значения: `MD5`, `REJECT`.
 
-        Подробнее о параметрах см. в разделе [Настройки правил аутентификации](../../managed-greenplum/concepts/user-authentication.md#auth-settings).
+        Подробнее о параметрах читайте в разделе [Настройки правил аутентификации](../../managed-greenplum/concepts/user-authentication.md#auth-settings).
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -290,7 +290,7 @@
         * `address` — FQDN хоста или диапазон IP-адресов в нотации CIDR, с которых будет выполняться подключение к базе данных.
         * `auth-method` — метод аутентификации. Возможные значения: `md5`, `reject`.
 
-        Подробнее о параметрах см. в разделе [Настройки правил аутентификации](../../managed-greenplum/concepts/user-authentication.md#auth-settings).
+        Подробнее о параметрах читайте в разделе [Настройки правил аутентификации](../../managed-greenplum/concepts/user-authentication.md#auth-settings).
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -328,7 +328,7 @@
         * `address` — FQDN хоста или диапазон IP-адресов в нотации CIDR, с которых будет выполняться подключение к базе данных.
         * `authMethod` — метод аутентификации. Возможные значения: `MD5`, `REJECT`.
 
-        Подробнее о параметрах см. в разделе [Настройки правил аутентификации](../../managed-greenplum/concepts/user-authentication.md#auth-settings).
+        Подробнее о параметрах читайте в разделе [Настройки правил аутентификации](../../managed-greenplum/concepts/user-authentication.md#auth-settings).
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

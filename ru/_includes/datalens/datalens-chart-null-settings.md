@@ -12,4 +12,4 @@
 
     _Например, если в источнике нет строки с определенной датой (`20.07.2022`), данные на эту дату не отобразятся._
 
-Подробнее см. раздел [{#T}](../../datalens/operations/chart/chart-null-settings.md)
+Подробнее в разделе [{#T}](../../datalens/operations/chart/chart-null-settings.md)

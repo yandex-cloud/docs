@@ -59,9 +59,9 @@
 
 В стоимость развертывания инфраструктуры входят:
 
-* плата за вычислительные ресурсы кластера и объем хранилища (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md));
-* плата за время вычислений (см. [тарифы {{ ml-platform-name }}](../../datasphere/pricing.md));
-* плата за исходящий трафик (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* плата за вычислительные ресурсы кластера и объем хранилища ([тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md));
+* плата за время вычислений ([тарифы {{ ml-platform-name }}](../../datasphere/pricing.md));
+* плата за исходящий трафик ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
 ## 1. Подключите {{ CH }} и {{ ml-platform-short-name }} {#ch-datasphere-connection}
 

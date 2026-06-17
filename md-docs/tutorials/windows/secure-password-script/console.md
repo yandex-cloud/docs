@@ -26,10 +26,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
-* плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
 * плата за использование [образа](../../../compute/concepts/image.md) (зависит от образа);
-* плата за использование [ключа](../../../kms/concepts/key.md) KMS (см. [тарифы KMS](../../../kms/pricing.md));
-* плата за использование [секрета](../../../lockbox/concepts/secret.md) (см. [тарифы Yandex Lockbox](../../../lockbox/pricing.md)).
+* плата за использование [ключа](../../../kms/concepts/key.md) KMS ([тарифы KMS](../../../kms/pricing.md));
+* плата за использование [секрета](../../../lockbox/concepts/secret.md) ([тарифы Yandex Lockbox](../../../lockbox/pricing.md)).
 
 
 ## Создайте сервисный аккаунт {#create-account}
@@ -436,6 +436,6 @@
 * [Удалите](../../../lockbox/operations/secret-delete.md) секрет.
 * [Удалите](../../../kms/operations/key.md#delete) ключ.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Безопасная передача пароля в скрипт инициализации с помощью Terraform](terraform.md)

@@ -102,7 +102,7 @@ description: Следуя данной инструкции, вы сможете
         }
         ```
 
-        Подробнее о параметрах ресурсов см. [yandex_function]({{ tf-provider-resources-link }}/function).
+        Подробнее о параметрах ресурса `yandex_function` в [документации провайдера]({{ tf-provider-resources-link }}/function).
 
     1. Проверьте конфигурацию командой:
         

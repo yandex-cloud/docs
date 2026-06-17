@@ -31,7 +31,7 @@
 
 - **Default transaction isolation**{#setting-user-default-transaction-isolation} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  См. описание настройки уровня кластера [Default transaction isolation](#setting-default-transaction-isolation).
+  Описание настройки уровня кластера [Default transaction isolation](#setting-default-transaction-isolation).
 
 - **Grants**{#setting-user-grants} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
@@ -39,19 +39,19 @@
 
 - **Lock timeout**{#setting-user-lock-timeout} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  См. описание настройки уровня кластера [Lock timeout](#setting-lock-timeout).
+  Описание настройки уровня кластера [Lock timeout](#setting-lock-timeout).
 
 - **Log min duration statement**{#setting-user-log-min-duration-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  См. описание настройки уровня кластера [Log min duration statement](#setting-log-min-duration-statement).
+  Описание настройки уровня кластера [Log min duration statement](#setting-log-min-duration-statement).
 
   Рекомендуется определить для каждого сервиса и соответствующего ему пользователя, что считается медленным выполнением запроса, и логировать только такие запросы. Например, для веб-сервиса медленным может считаться запрос, выполняющийся более одной секунды, а для сервиса построения отчетов — запрос, выполняющийся более 10 минут.
 
-  Подробнее см. [в документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html).
+  Подробнее [в документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html).
 
 - **Log statement**{#setting-user-log-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  См. описание настройки уровня кластера [Log statement](#setting-log-statement).
+  Описание настройки уровня кластера [Log statement](#setting-log-statement).
 
 - **Login**{#setting-user-login} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
@@ -109,11 +109,11 @@
 
 - **Synchronous commit**{#setting-user-synchronous-commit} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  См. описание настройки уровня кластера [Synchronous commit](#setting-synchronous-commit).
+  Описание настройки уровня кластера [Synchronous commit](#setting-synchronous-commit).
 
 - **Temp file limit**{#setting-temp-file-limit} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  См. описание настройки уровня кластера [Temp file limit](#setting-temp-file-limit).
+  Описание настройки уровня кластера [Temp file limit](#setting-temp-file-limit).
 
 - **Wal sender timeout**{#setting-wal-sender-timeout} {{ tag-con }}
 

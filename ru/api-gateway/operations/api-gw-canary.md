@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Настроить канареечный релиз
 
-Настройка канареечного релиза возможна только для [спецификаций OpenAPI](https://ru.wikipedia.org/wiki/OpenAPI_(спецификация)) с переменными (см. раздел [Параметризация спецификации](../concepts/extensions/parametrization.md)).
+Настройка канареечного релиза возможна только для [спецификаций OpenAPI](https://ru.wikipedia.org/wiki/OpenAPI_(спецификация)) с переменными (подробнее в разделе [Параметризация спецификации](../concepts/extensions/parametrization.md)).
 
 {% list tabs group=instructions %}
 
@@ -70,7 +70,7 @@ description: Следуя данной инструкции, вы сможете
      * `weight` — процент запросов, которые будут обработаны канареечным релизом.
      * `variables` — переменные для канареечного релиза в формате `ключ=значение`.
 
-     Более подробную информацию о параметрах ресурса `yandex_api_gateway` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/api_gateway).
+     Подробнее о параметрах ресурса `yandex_api_gateway` в {{ TF }} в [документации провайдера]({{ tf-provider-resources-link }}/api_gateway).
   1. Проверьте конфигурацию командой:
 
      ```bash
@@ -110,7 +110,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## См. также
+## Полезные ссылки
 
 * [Что такое канареечный релиз](../concepts/extensions/canary.md).
 * [Канареечный релиз функции {{ sf-name }}](../tutorials/canary-release.md).

@@ -23,7 +23,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Включить доступ по OS Login](os-login-access.md)
 * [Включить возможность использования refresh-токенов в Yandex Cloud CLI](enable-refresh-tokens.md)

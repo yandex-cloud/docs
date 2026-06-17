@@ -39,10 +39,10 @@ Workflows находится на стадии [Preview](../../overview/concepts
 
 В стоимость поддержки создаваемой инфраструктуры входят:
 
-* плата за хранение [секрета](../../lockbox/concepts/secret.md) и запросы к нему (см. [тарифы Yandex Lockbox](../../lockbox/pricing.md));
-* плата за использование Yandex AI Studio (см. [тарифы Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing));
-* плата за использование Яндекс Трекер (см. [тарифы Трекер](https://yandex.ru/support/tracker/ru/pricing));
-* плата за использование Yandex Cloud Postbox (см. [тарифы Yandex Cloud Postbox](../../postbox/pricing.md)).
+* плата за хранение [секрета](../../lockbox/concepts/secret.md) и запросы к нему ([тарифы Yandex Lockbox](../../lockbox/pricing.md));
+* плата за использование Yandex AI Studio ([тарифы Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing));
+* плата за использование Яндекс Трекер ([тарифы Трекер](https://yandex.ru/support/tracker/ru/pricing));
+* плата за использование Yandex Cloud Postbox ([тарифы Yandex Cloud Postbox](../../postbox/pricing.md)).
 
 ## Создайте сервисный аккаунт {#service-account}
 

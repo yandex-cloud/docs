@@ -24,7 +24,7 @@ public class Handler implements Function<Integer, String> {
 ```java
 import java.util.function.Function;
 // у Function указан лишь один тип параметра
-// у Handler не должно быть типов-параметров (см. требования к обработчику)
+// у Handler не должно быть типов-параметров (подробнее в требованиях к обработчику)
 public class Handler<T> implements Function<T, Integer> {
   @Override
   public Integer apply(T i) {

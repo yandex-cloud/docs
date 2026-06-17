@@ -80,7 +80,7 @@
 
     {% endlist %}
 
-    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+    Подробнее о параметрах используемых ресурсов в {{ TF }} смотрите в документации провайдера:
     * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
     * [NAT-шлюз](../../../vpc/concepts/gateways.md#nat-gateway) — [yandex_vpc_gateway]({{ tf-provider-resources-link }}/vpc_gateway).
     * [Таблица маршрутизации](../../../vpc/concepts/routing.md#rt-vpc) — [yandex_vpc_route_table]({{ tf-provider-resources-link }}/vpc_route_table).
@@ -98,7 +98,7 @@
 
 1. В файле `nextcloud-integrate-storage.auto.tfvars` задайте значения пользовательских переменных:
     * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
-    * `ssh_key_path` — путь к файлу с публичным SSH-ключом. Подробнее см. [{#T}](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `ssh_key_path` — путь к файлу с публичным SSH-ключом. Подробнее в разделе [{#T}](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
     * `bucket_name` — имя бакета в соответствии с [правилами именования](../../../storage/concepts/bucket.md#naming).
     * `db_password` — пароль пользователя базы данных {{ MY }}.
     * `domain_name` — имя домена, на котором будет размещен экземпляр Nextcloud.
@@ -216,7 +216,7 @@ terraform output Secret_key
 
     {% endlist %}
 
-    Более подробную информацию о параметрах добавляемых ресурсов в {{ TF }} см. в документации провайдера:
+    Подробнее о параметрах добавляемых ресурсов в {{ TF }} смотрите в документации провайдера:
     * [Снимок диска](../../../compute/concepts/snapshot.md) — [yandex_compute_snapshot]({{ tf-provider-resources-link }}/compute_snapshot).
     * [DNS-зона](../../../dns/concepts/dns-zone.md) — [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone).
     * [TLS-сертификат](../../../certificate-manager/concepts/managed-certificate.md) — [yandex_cm_certificate]({{ tf-provider-resources-link }}/cm_certificate).

@@ -193,7 +193,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [target-additional-tf](../../../../_includes/serverless-integrations/target-additional-tf.md) %}
 
-      Более подробную информацию о параметрах ресурса `yandex_serverless_eventrouter_rule` см. в [документации провайдера]({{ tf-provider-resources-link }}/serverless_eventrouter_rule).
+      Подробнее о параметрах ресурса `yandex_serverless_eventrouter_rule` в [документации провайдера]({{ tf-provider-resources-link }}/serverless_eventrouter_rule).
 
   1. Создайте ресурсы:
 

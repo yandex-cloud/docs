@@ -112,7 +112,7 @@
 |-------------------|---------|---------------------|-----------------------|----------|
 | 6.25 и выше | Integer | от 5 до 2147483647 | 120 | `sighup` |
 
-Указывает интервал выполнения (в секундах) фонового рабочего процесса глобального детектора взаимных блокировок (`Global Deadlock Detector`, см. параметр [gp_enable_global_deadlock_detector](#setting-gp-enable-global-deadlock-detector)).
+Указывает интервал выполнения (в секундах) фонового рабочего процесса глобального детектора взаимных блокировок (`Global Deadlock Detector`, смотрите параметр [gp_enable_global_deadlock_detector](#setting-gp-enable-global-deadlock-detector)).
 
 #### gp_max_plan_size {#setting-gp-max-plan-size}
 
@@ -334,7 +334,7 @@ max(0.24 × объем доступной памяти на мастере, 1638
 
 Максимальное количество одновременных подключений к кластеру. Для подключения пользователей доступно `max_connections − 20`, так как `20` подключений резервируется для суперпользователей. Количество подключений для суперпользователей определяется параметром `superuser_reserved_connections`, значение которого не может быть изменено.
 
-При увеличении `max_connections` необходимо также увеличить значение [max_prepared_transactions](#setting-max-prepared-transactions). Увеличение `max_connections` может привести к тому, что база данных запросит больший объем общей памяти (см. [master_shared_buffers](#setting-master-shared-buffers) и [segment_shared_buffers](#setting-segment-shared-buffers)).
+При увеличении `max_connections` необходимо также увеличить значение [max_prepared_transactions](#setting-max-prepared-transactions). Увеличение `max_connections` может привести к тому, что база данных запросит больший объем общей памяти (смотрите [master_shared_buffers](#setting-master-shared-buffers) и [segment_shared_buffers](#setting-segment-shared-buffers)).
 
 Для сегментов значение параметра `max_connections` вычисляется автоматически по формуле:
 ```

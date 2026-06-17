@@ -211,7 +211,7 @@
       --no-cache
     ```
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создать Python-пакет](create.md)
 * [Загрузить Python-пакет в локальный реестр Cloud Registry](push.md)

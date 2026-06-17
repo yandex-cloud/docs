@@ -42,6 +42,6 @@
 
 Все ресурсы Compute Cloud создаются внутри каталогов. [Подробнее об иерархии ресурсов в Yandex Cloud](../../resource-manager/concepts/resources-hierarchy.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Облачный сервер: архитектура и возможности](https://yandex.cloud/ru/blog/cloud-server)

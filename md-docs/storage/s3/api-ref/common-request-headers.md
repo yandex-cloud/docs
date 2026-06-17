@@ -17,7 +17,7 @@
 
 Если отправляется кросс-доменный ([CORS](../../../glossary/cors.md)) запрос, то он может содержать [заголовки](object/options.md#request-headers) предварительного запроса `options`.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Начало работы с AWS S3 API в Yandex Object Storage](../s3-api-quickstart.md)
 

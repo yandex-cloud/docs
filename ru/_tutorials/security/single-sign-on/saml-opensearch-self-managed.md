@@ -271,6 +271,8 @@
 
     {% endlist %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 ## Убедитесь в корректной работе приложения {#validate}
 
 Чтобы проверить корректность работы SAML‑приложения и его интеграцию с {{ OS }}, выполните аутентификацию в {{ OS }} Dashboards под учётной записью одного из пользователей, добавленных в приложение. Для этого:

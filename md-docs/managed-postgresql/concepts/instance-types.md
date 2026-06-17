@@ -172,7 +172,7 @@
 | m4af-c80-m640     | 80             | 100%                   | 640     | 10 – 16 368           |
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * Ознакомьтесь как [изменить класс хостов](../operations/update.md#change-resource-preset).
 * Узнайте какие [настройки зависят от класса хостов и размера хранилища](settings-list.md#settings-instance-dependent).

@@ -117,7 +117,7 @@ description: Следуя данной инструкции, вы сможете
 `secret.secretKey` | Секретный ключ |
 `secret.endpoint` | Адрес S3-сервиса | `https://{{ s3-storage-host }}`
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Спецификация CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md)
 * [Container Storage Interface для S3 с поддержкой {{ objstorage-name }} на GitHub](https://github.com/yandex-cloud/k8s-csi-s3)

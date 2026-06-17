@@ -71,6 +71,6 @@ Yandex Managed Service for Apache Spark™ позволяет:
 * объема зарезервированных под внутренние нужды ресурсов.
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Apache Spark™: как устроен популярный инструмент для работы с большими данными](https://yandex.cloud/ru/blog/apache-spark-overview)

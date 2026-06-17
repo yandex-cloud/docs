@@ -70,7 +70,7 @@ description: Из статьи вы узнаете, как создать пол
 {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/access-control/access-policies.md)
 * [{#T}](./list.md)

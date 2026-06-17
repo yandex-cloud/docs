@@ -32,7 +32,7 @@
 
 Подробнее см. на странице [Активировать модуль KSPM](../operations/kspm/enable-kspm.md).
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Окружения Security Deck](workspace.md)
 * [Контроль конфигурации (CSPM)](cspm.md)

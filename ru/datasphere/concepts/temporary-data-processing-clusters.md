@@ -32,7 +32,7 @@ description: Из статьи вы узнаете про особенности
 
 Подробнее о работе с шаблонами {{ dataproc-name }} читайте в [инструкции](../operations/data-processing-template.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](data-processing-template.md).
 * [{#T}](../tutorials/data-processing-integration.md).

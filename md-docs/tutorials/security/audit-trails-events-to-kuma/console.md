@@ -29,10 +29,10 @@
 
 В стоимость поддержки создаваемой инфраструктуры Yandex Cloud входят:
 
-* плата за хранение данных, операции с данными, а также исходящий трафик (см. [тарифы Yandex Object Storage](../../../storage/pricing.md));
-* плата за использование симметричного ключа шифрования и выполнение криптографических операций (см. [тарифы Yandex Key Management Service](../../../kms/pricing.md));
-* (опционально) плата за постоянно запущенную виртуальную машину (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* (опционально) плата за использование динамического или статического внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md)).
+* плата за хранение данных, операции с данными, а также исходящий трафик ([тарифы Yandex Object Storage](../../../storage/pricing.md));
+* плата за использование симметричного ключа шифрования и выполнение криптографических операций ([тарифы Yandex Key Management Service](../../../kms/pricing.md));
+* (опционально) плата за постоянно запущенную виртуальную машину ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* (опционально) плата за использование динамического или статического внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md)).
 
 Кроме этого, для прохождения руководства вы должны иметь [лицензию](https://kb.kuma-community.ru/books/kuma-how-to/page/model-licenzirovaniia-kuma) на использование KUMA (не поставляется Yandex Cloud).
 
@@ -815,6 +815,6 @@
 1. [Удалите](../../../storage/operations/objects/delete-all.md) все объекты в бакете, затем [удалите](../../../storage/operations/buckets/delete.md) сам бакет.
 1. [Удалите](../../../kms/operations/key.md#delete) ключ шифрования KMS.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Загрузка аудитных логов Yandex Audit Trails в SIEM KUMA с помощью Terraform](terraform.md)

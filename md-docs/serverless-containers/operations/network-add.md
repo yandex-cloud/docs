@@ -29,6 +29,6 @@
 
 {% endlist %}
 
-## См. также
+## Полезные ссылки {#see-also}
 
 * [Сетевое взаимодействие в Serverless Containers](../concepts/networking.md).

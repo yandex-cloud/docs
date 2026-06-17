@@ -16,10 +16,10 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства (см. [тарифы Apache Kafka®](../pricing.md)).
-* Плата за кластер Yandex Data Processing (см. [тарифы Yandex Data Processing](../../data-proc/pricing.md)).
-* Плата за NAT-шлюз (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за бакет Object Storage: хранение данных и выполнение операций с ними (см. [тарифы Object Storage](../../storage/pricing.md)).
+* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Apache Kafka®](../pricing.md)).
+* Плата за кластер Yandex Data Processing ([тарифы Yandex Data Processing](../../data-proc/pricing.md)).
+* Плата за NAT-шлюз ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за бакет Object Storage: хранение данных и выполнение операций с ними ([тарифы Object Storage](../../storage/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#infra}

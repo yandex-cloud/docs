@@ -139,7 +139,7 @@ dpkg -l
 ls -la
 ```
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](cli.md)

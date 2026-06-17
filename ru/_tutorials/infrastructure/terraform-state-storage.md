@@ -26,11 +26,11 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры для загрузки состояний {{ TF }} в {{ objstorage-full-name }} входит плата за хранение данных (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-storage)).
+В стоимость поддержки инфраструктуры для загрузки состояний {{ TF }} в {{ objstorage-full-name }} входит плата за хранение данных ([тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-storage)).
 
 В качестве примера инфраструктуры, разворачиваемой через {{ TF }}, в руководстве будут созданы три [ВМ](../../compute/concepts/vm.md) с [публичными IP-адресами](../../vpc/concepts/address.md#public-addresses), виртуальная [сеть](../../vpc/concepts/network.md#network) и две [подсети](../../vpc/concepts/network.md#subnet). В стоимость поддержки этой инфраструктуры входят:
-* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за использование динамических публичных IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за использование динамических публичных IP-адресов ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ## Создайте сервисный аккаунт и статический ключ доступа {#create-service-account}
 
@@ -211,7 +211,7 @@
 
 Чтобы удалить созданные ресурсы, выполните команду `terraform destroy` сначала во второй конфигурации, а затем в первой.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Начало работы с {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [Блокировка состояний {{ TF }} с помощью {{ ydb-name }}](../../tutorials/infrastructure-management/terraform-state-lock.md).

@@ -24,8 +24,8 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за хранение одной версии секрета Yandex Lockbox (см. [тарифы Yandex Lockbox](../../../lockbox/pricing.md#secrets));
-* плата за хранение данных в Object Storage, операции с ними и исходящий трафик (плата не будет взиматься, если в бакете не будут храниться данные, см. [тарифы Object Storage](../../pricing.md#rules)).
+* плата за хранение одной версии секрета Yandex Lockbox ([тарифы Yandex Lockbox](../../../lockbox/pricing.md#secrets));
+* плата за хранение данных в Object Storage, операции с ними и исходящий трафик (плата не будет взиматься, если в бакете не будут храниться данные, [тарифы Object Storage](../../pricing.md#rules)).
 
 
 ## Подготовьте окружение {#prepare}
@@ -238,6 +238,6 @@
 1. [Удалите](../../../lockbox/operations/secret-delete.md) секрет.
 1. [Удалите](../../operations/buckets/delete.md) бакет.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Использование секрета Yandex Lockbox для хранения статического ключа доступа с помощью Terraform](terraform.md)

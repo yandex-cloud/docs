@@ -10,6 +10,6 @@ canonical: '{{ link-docs }}/tutorials/security/balancer-with-sws-profile/console
 
 {% include notitle [balancer-with-sws-profile](../../../_tutorials/security/balancer-with-sws-profile/console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md)

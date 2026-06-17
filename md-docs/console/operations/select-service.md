@@ -47,7 +47,7 @@
 
   ![image](../../_assets/console/create-resource-dashboard.png)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Поиск в консоли управления](search.md)
 * [Управление ресурсами Yandex Cloud с помощью AI-ассистента](ai-assistant.md)

@@ -193,7 +193,7 @@
 Подробная информация про работу с Yandex Cloud из ВМ в разделе [Работа с Yandex Cloud изнутри виртуальной машины](../../../compute/operations/vm-connect/auth-inside-vm.md).
 
 
-#### См. также
+#### Полезные ссылки {#see-also}
 
 - [Управление конфигурацией CLI](../../concepts/index.md#manage-properties).
 - [Создание профиля](../profile/profile-create.md).

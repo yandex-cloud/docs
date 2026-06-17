@@ -88,3 +88,7 @@
 * [Развертывание Nextcloud в Yandex Cloud](integrate-nextcloud/index.md)
 * [Настройка хостинга статического сайта в бакете Yandex Object Storage с доступом через Yandex Cloud CDN](cdn-hosting/index.md)
 * [Использование Object Storage в сервисе Yandex Managed Service for Apache Spark™](spark-objstorage-integration.md)
+
+#### Полезные ссылки {#see-also}
+
+* [Вебинар: как с помощью Cloud CDN разгрузить высоконагруженную инфраструктуру](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)

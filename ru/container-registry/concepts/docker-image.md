@@ -39,6 +39,6 @@ Docker-образ и все его версии хранятся в репози
 * [{#T}](../tutorials/deploy-app-container.md)
 * [{#T}](../tutorials/fault-tolerance.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Как устроен Docker® и почему он популярен](https://yandex.cloud/ru/blog/docker-guide)

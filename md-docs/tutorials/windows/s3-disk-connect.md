@@ -40,8 +40,8 @@
 
 В стоимость поддержки бакета входит:
 
-* плата за хранение данных в бакете (см. [тарифы Object Storage](../../storage/pricing.md#prices-storage));
-* плата за операции с данными (см. [тарифы Object Storage](../../storage/pricing.md#prices-operations)).
+* плата за хранение данных в бакете ([тарифы Object Storage](../../storage/pricing.md#prices-storage));
+* плата за операции с данными ([тарифы Object Storage](../../storage/pricing.md#prices-operations)).
 
 
 ## Подготовьте рабочее окружение {#environment-prepare}
@@ -90,7 +90,7 @@
       * может содержать строчные буквы латинского алфавита, цифры и дефисы;
       * первый символ — буква, последний — не дефис.
 
-      Подробнее о команде `yc iam service-account create` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
+      Подробнее о команде `yc iam service-account create` смотрите в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
   1. Назначьте роль сервисному аккаунту роль `storage.editor`:
 
@@ -100,7 +100,7 @@
         --subject serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
   
-      Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md)
+      Подробнее о команде `yc resource-manager folder add-access-binding` смотрите в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md)
 
 - API {#api}
 
@@ -116,7 +116,7 @@
 * `kms.keys.decrypter` — для чтения ключа, [расшифровки](../../kms/security/index.md#kms-keys-decrypter) и скачивания объектов;
 * `kms.keys.encrypterDecrypter` — включает [разрешения](../../kms/security/index.md#kms-keys-encrypterDecrypter), предоставляемые ролями `kms.keys.encrypter` и `kms.keys.decrypter`.
 
-Подробнее см. [Сервисные роли Key Management Service](../../kms/security/index.md#service-roles).
+Подробнее смотрите [Сервисные роли Key Management Service](../../kms/security/index.md#service-roles).
 
 ## Создайте статический ключ доступа {#create-static-key}
 
@@ -152,7 +152,7 @@
      secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI9hx*****
      ```
 
-     Подробнее о команде `yc iam access-key create` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/access-key/create.md).
+     Подробнее о команде `yc iam access-key create` смотрите в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/access-key/create.md).
 
   1. Сохраните идентификатор `key_id` и секретный ключ `secret`. Получить значение ключа снова будет невозможно.
 
@@ -246,7 +246,7 @@
      }
      ```
      
-     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации](../../terraform/resources/storage_bucket.md) провайдера Terraform.
+     Подробнее о ресурсе `yandex_storage_bucket` смотрите в [документации](../../terraform/resources/storage_bucket.md) провайдера Terraform.
      
   1. Проверьте корректность конфигурационных файлов.
 

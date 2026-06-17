@@ -338,7 +338,7 @@
 
 Также вы можете отдельно удалить из организации [облака](../../resource-manager/operations/cloud/delete.md), [каталоги](../../resource-manager/operations/folder/delete.md), [пользователей](../operations/edit-account.md), [группы пользователей](../operations/delete-group.md) и [сервисные аккаунты](../../iam/operations/sa/delete.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * Yandex Audit Trails:
     * [Создание трейла для загрузки аудитных логов](../../audit-trails/operations/create-trail.md)

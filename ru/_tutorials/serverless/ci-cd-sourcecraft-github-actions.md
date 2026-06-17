@@ -19,8 +19,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
-* Плата за хранение созданных Docker-образов (см. [тарифы {{ container-registry-name }}](../../container-registry/pricing.md).
-* Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик (см. [тарифы {{ serverless-containers-name }}](../../serverless-containers/pricing.md).
+* Плата за хранение созданных Docker-образов ([тарифы {{ container-registry-name }}](../../container-registry/pricing.md).
+* Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик ([тарифы {{ serverless-containers-name }}](../../serverless-containers/pricing.md).
 
 ## Создайте сервисный аккаунт {#create-sa}
 
@@ -301,7 +301,7 @@
 1. [Удалите](../../container-registry/operations/docker-image/docker-image-delete.md) Docker-образ.
 1. [Удалите](../../container-registry/operations/registry/registry-delete.md) реестр.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Настроить CI/CD между {{ src-name }} и {{ sf-full-name }}](../../tutorials/serverless/ci-cd-sourcecraft-functions.md)
 * [Сервисные подключения]({{ link-src-docs }}/sourcecraft/concepts/service-connections)

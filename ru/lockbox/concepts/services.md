@@ -37,7 +37,7 @@ description: Из статьи вы узнаете, в каких сервиса
 Для того чтобы контейнер {{ serverless-containers-name }} мог получить доступ к данным, хранящимся в секрете {{ lockbox-name }}, назначьте [роль](../security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer` на нужный секрет [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), от имени которого будет запускаться контейнер.
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../functions/operations/function/lockbox-secret-transmit.md).
 * [Создание подключения {{ connection-manager-name }}](../../metadata-hub/operations/create-connection.md).

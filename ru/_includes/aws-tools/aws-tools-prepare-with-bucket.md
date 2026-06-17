@@ -1,6 +1,6 @@
 1. [Создайте](../../storage/operations/buckets/create.md) бакет.
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт.
-1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) нужную роль сервисному аккаунту, например `storage.editor`. Подробнее о ролях см. в разделе [{#T}](../../storage/security/index.md).
+1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) нужную роль сервисному аккаунту, например `storage.editor`. Подробнее о ролях читайте в разделе [{#T}](../../storage/security/index.md).
 
        
    {% include [encryption-roles](../storage/encryption-roles.md) %}

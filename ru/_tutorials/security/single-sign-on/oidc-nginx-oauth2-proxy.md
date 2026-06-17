@@ -244,6 +244,8 @@
 
 {% endlist %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 ## Подготовьте виртуальную машину с тестовым приложением {#setup-server}
 
 В данном руководстве вы развернете тестовое приложение, а также настроите утилиты `nginx` и `OAuth2 Proxy` на виртуальной машине под управлением ОС [Ubuntu 24.04](/marketplace/products/yc/ubuntu-2404-lts-oslogin).

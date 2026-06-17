@@ -25,9 +25,9 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-1. Плата за постоянно работающие ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
+1. Плата за постоянно работающие ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
 
-1. Плата за запись и хранение логов в лог-группе (см. [тарифы Yandex Cloud Logging](../../logging/pricing.md)).
+1. Плата за запись и хранение логов в лог-группе ([тарифы Yandex Cloud Logging](../../logging/pricing.md)).
 
 ## Подготовьте инфраструктуру {#infrastructure-prepare}
 

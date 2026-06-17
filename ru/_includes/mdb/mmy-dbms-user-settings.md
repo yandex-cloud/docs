@@ -4,7 +4,7 @@
 
   Значение по умолчанию — не задано (действует настройка `Default authentication plugin`, задаваемая при создании кластера).
 
-  Подробнее про плагины аутентификации см. [в документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/pluggable-authentication.html).
+  Подробнее про плагины аутентификации читайте [в документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/pluggable-authentication.html).
 
   
   {% note info %}
@@ -89,4 +89,4 @@
     Минимальное значение — 0 (нет ограничений).
     Значение по умолчанию — не задано (действует общая настройка кластера [max_user_connections](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_user_connections)).
 
-  Подробнее см. [в документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/user-resources.html).
+  Подробнее [в документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/user-resources.html).

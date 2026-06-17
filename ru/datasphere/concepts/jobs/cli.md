@@ -222,7 +222,7 @@ datasphere --log-dir <новая_директория>
 datasphere project job download-files --id <идентификатор_задания>
 ```
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../operations/projects/work-with-jobs.md)
 * [{#T}](../../operations/projects/use-job-results.md)

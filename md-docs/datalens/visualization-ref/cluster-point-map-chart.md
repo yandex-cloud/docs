@@ -81,7 +81,7 @@
 
 * Используйте цветовые палитры, соответствующие целям и задачам визуализации.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создание дашборда в Yandex DataLens](../operations/dashboard/create.md)
 * [Добавление чарта на дашборд в Yandex DataLens](../operations/dashboard/add-chart.md)

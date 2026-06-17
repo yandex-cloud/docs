@@ -8,7 +8,7 @@
 
 {% endnote %}
 
-Подробнее о подготовке к работе с API и общем виде запроса см. в разделе [Как пользоваться S3 API](../../index.md).
+Подробнее о подготовке к работе с API и общем виде запроса смотрите в разделе [Как пользоваться S3 API](../../index.md).
 
 ## Запрос {#request}
 
@@ -50,7 +50,7 @@ DELETE /{bucket}?tagging HTTP/2
 
 * [Удаление меток бакета](../../../operations/buckets/tagging.md#delete-tag)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
 

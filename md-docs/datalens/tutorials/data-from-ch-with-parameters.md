@@ -333,7 +333,7 @@
 
          ![image](../../_assets/datalens/solution-parameters/chart-measure-select-pay.png)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Параметры в Yandex DataLens](../concepts/parameters.md)
 * [Добавление параметров на дашборд в Yandex DataLens](../operations/dashboard/add-parameters.md)

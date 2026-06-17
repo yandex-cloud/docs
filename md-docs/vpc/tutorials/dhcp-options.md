@@ -40,10 +40,10 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за постоянно запущенные виртуальные машины (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за объем дисков виртуальных машин (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование динамических или статических публичных IP-адресов (см. [тарифы Yandex Virtual Private Cloud](../pricing.md));
-* стоимость исходящего трафика из Yandex Cloud в интернет (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* плата за постоянно запущенные виртуальные машины ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за объем дисков виртуальных машин ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за использование динамических или статических публичных IP-адресов ([тарифы Yandex Virtual Private Cloud](../pricing.md));
+* стоимость исходящего трафика из Yandex Cloud в интернет ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 
 ## Создайте подсеть {#create-subnet}
 

@@ -10,6 +10,6 @@ description: В этом руководстве вы развернете сер
 
 {% include [serverless-url-shortener-terraform](../../../_tutorials/serverless/serverless-url-shortener-terraform.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](console.md)

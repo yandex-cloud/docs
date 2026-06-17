@@ -12,6 +12,6 @@ noIndex: true
 
 {% include [serverless-url-shortener](../../../_tutorials/serverless/serverless-url-shortener-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md)

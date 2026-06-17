@@ -63,7 +63,7 @@ _Снимок диска_ в Yandex Cloud — это копия файловой
 * [Создание тестовых виртуальных машин через GitLab CI](../../tutorials/testing/ci-for-snapshots.md)
 * [Создание сайта на базе «1С-Битрикс»](../../tutorials/web/bitrix-website/index.md)
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Инструкции для снимков дисков и расписаний](../operations/index.md#snapshots)
 * [Восстановить диск с помощью снимка](../operations/disk-create/from-snapshot.md)

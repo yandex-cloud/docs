@@ -33,9 +33,9 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
-* Реестр Yandex IoT Core: количество отправленных сообщений (см. [тарифы Yandex IoT Core](../../iot-core/pricing.md)).
-* Функции Yandex Cloud Functions: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы (см. [тарифы Yandex Cloud Functions](../pricing.md)).
+* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
+* Реестр Yandex IoT Core: количество отправленных сообщений ([тарифы Yandex IoT Core](../../iot-core/pricing.md)).
+* Функции Yandex Cloud Functions: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы ([тарифы Yandex Cloud Functions](../pricing.md)).
 
 
 ## Создайте сервисный аккаунт {#create-sa}

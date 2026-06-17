@@ -54,7 +54,7 @@
 * [Примеры создания QL-чартов](../../tutorials/data-from-ch-to-sql-chart.md)
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Чарт в Yandex DataLens](../../concepts/chart/index.md)
 * [Настройки чарта в Yandex DataLens](../../concepts/chart/settings.md)

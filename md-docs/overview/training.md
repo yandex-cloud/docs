@@ -36,7 +36,7 @@
 Информацию о всех доступных и еще готовящихся курсах по Yandex Cloud вы найдете [на этой странице](https://yandex.cloud/ru/training).
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [SourceCraft открывает библиотеку курсов и запускает лигу IT-преподавателей](https://yandex.cloud/ru/blog/sourcecraft-library)
 * [Академия Yandex AI Studio: образовательный проект для тех, кто использует ИИ в бизнесе](https://yandex.cloud/ru/blog/ai-academy-ai-studio)

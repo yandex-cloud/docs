@@ -125,7 +125,7 @@
         * `url` — URL [Docker-образа](../../container-registry/concepts/docker-image.md).
         * `min_instances` — количество подготовленных экземпляров.
        
-       Более подробную информацию о параметрах ресурса `yandex_serverless_container` см. в [документации провайдера](../../terraform/resources/serverless_container.md).
+       Подробнее о параметрах ресурса `yandex_serverless_container` в [документации провайдера](../../terraform/resources/serverless_container.md).
 
     1. Выполните проверку с помощью команды:
 
@@ -149,6 +149,6 @@
 
 {% endlist %}
 
-## См. также
+## Полезные ссылки
 
 * [Масштабирование контейнера](../concepts/container.md#scaling)

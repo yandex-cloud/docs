@@ -122,6 +122,6 @@
 `table.query.compilation.cache_size_bytes`<br>`IGAUGE`, байты | Размер кеша подготовленных запросов.
 `table.query.compilation.cached_query_count`<br>`IGAUGE`, штуки | Размер кеша подготовленных запросов.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Мониторинг состояния базы данных](operations/monitoring.md).

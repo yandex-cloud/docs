@@ -61,7 +61,7 @@ description: Следуя данной инструкции, вы сможете
 Подробная информация про работу с {{ yandex-cloud }} из ВМ в разделе [{#T}](../../../compute/operations/vm-connect/auth-inside-vm.md).
 
 
-#### См. также
+#### Полезные ссылки {#see-also}
 
 - [{#T}](../../concepts/index.md#manage-properties).
 - [{#T}](../profile/profile-create.md).

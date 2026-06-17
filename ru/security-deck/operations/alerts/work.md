@@ -5,6 +5,8 @@ description: В данном разделе вы узнаете, как в {{ sd
 
 # Работа с алертами
 
+{% include [table-columns-tip](../../../_includes/security-deck/table-columns-tip.md) %}
+
 ## Изменить статус алерта {#status}
 
 {% list tabs group=instructions %}
@@ -16,6 +18,22 @@ description: В данном разделе вы узнаете, как в {{ sd
   1. В верхней части окна выберите [окружение](../../concepts/workspace.md).
   1. Нажмите на строку таблицы с именем [алерта](../../concepts/alerts.md).
   1. В открывшемся окне в левом верхнем углу выберите статус.
+
+{% endlist %}
+
+
+## Изменить несколько алертов {#update-batch}
+
+{% list tabs group=instructions %}
+
+- Интерфейс {{ sd-name }} {#cloud-sd}
+
+  1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
+  1. На панели слева выберите ![alerts](../../../_assets/security-deck/alerts.svg) **{{ ui-key.yacloud_org.security-center.label_alerts }}**.
+  1. В верхней части окна выберите [окружение](../../concepts/workspace.md).
+  1. Выберите один или несколько алертов с помощью опций слева от названий алертов.
+  1. На панели внизу выберите действие.
+  1. В открывшемся окне внесите изменения и нажмите **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 

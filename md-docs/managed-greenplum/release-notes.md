@@ -14,7 +14,7 @@
 
 ## Ноябрь 2025 {#nov-2025}
 
-Добавлена роль `managed-greenplum.restorer`, позволяющая восстанавливать кластеры из резервных копий. Подробнее см. в разделе [Управление доступом](security/index.md#managed-greenplum-restorer).
+Добавлена роль `managed-greenplum.restorer`, позволяющая восстанавливать кластеры из резервных копий. Подробнее читайте в разделе [Управление доступом](security/index.md#managed-greenplum-restorer).
 
 ## Октябрь 2025 {#oct-2025}
 
@@ -43,7 +43,7 @@
 
 * Yandex MPP Analytics for PostgreSQL стал доступен в [регионе](../overview/concepts/region.md) Казахстан.
 
-* На вкладке ![monitoring.svg](../_assets/console-icons/display-pulse.svg) **Мониторинг** в консоли управления добавлены разделы **Сеть** и **PXF** с графиками соответствующих метрик. Подробнее см. в разделе [Мониторинг состояния кластера и хостов](operations/monitoring.md).
+* На вкладке ![monitoring.svg](../_assets/console-icons/display-pulse.svg) **Мониторинг** в консоли управления добавлены разделы **Сеть** и **PXF** с графиками соответствующих метрик. Подробнее читайте в разделе [Мониторинг состояния кластера и хостов](operations/monitoring.md).
 
 
 * В настройках кластера стала доступна опция **Доступ из Yandex Query** — она разрешает выполнять YQL-запросы из сервиса [Yandex Query](../query/concepts/index.md) к базе данных в сервисе Yandex MPP Analytics for PostgreSQL.
@@ -80,9 +80,9 @@
 ## IV квартал 2022 {#q4-2022}
 
 * Добавлена возможность [расширения кластера](operations/cluster-expand.md) через CLI и API с добавлением новых хостов-сегментов и перераспределением данных по всем сегментам.
-* Добавлена возможность просмотра резервных копий кластера, восстановления из них, а также изменения публичного доступа к кластеру через CLI. Подробнее см. в разделе [Релизы YC CLI](../cli/release-notes.md#version0.100.0).
-* Добавлена функция `mdb_toolkit.table_privileges()`, позволяющая пользователю с ролью `mdb_admin` просматривать историю выдачи и отзыва привилегий в кластере. Подробнее см. в [документации PostgreSQL](https://www.postgresql.org/docs/current/infoschema-table-privileges.html).
-* Добавлена функция `mdb_toolkit.gp_workfile_usage_per_query()`, позволяющая пользователю с ролью `mdb_admin` просматривать информацию об активных запросах всех пользователей. Подробнее см. в [документации Greenplum®](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-gp_toolkit.html#topic34).
+* Добавлена возможность просмотра резервных копий кластера, восстановления из них, а также изменения публичного доступа к кластеру через CLI. Подробнее читайте в разделе [Релизы YC CLI](../cli/release-notes.md#version0.100.0).
+* Добавлена функция `mdb_toolkit.table_privileges()`, позволяющая пользователю с ролью `mdb_admin` просматривать историю выдачи и отзыва привилегий в кластере. Подробнее читайте в [документации PostgreSQL](https://www.postgresql.org/docs/current/infoschema-table-privileges.html).
+* Добавлена функция `mdb_toolkit.gp_workfile_usage_per_query()`, позволяющая пользователю с ролью `mdb_admin` просматривать информацию об активных запросах всех пользователей. Подробнее читайте в [документации Greenplum®](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-gp_toolkit.html#topic34).
 * Доработан алгоритм создания кластера с помощью визарда:
     * Размер кластера не может быть больше, чем `<максимальное_количество_хостов> × <максимальный_размер_диска_для_хоста>`.
     * Можно выбрать группу выделенных хостов, на которой будет создан кластер.
@@ -93,7 +93,7 @@
 * Добавлена возможность менять пароль для пользователя-администратора.
 * Добавлена возможность [настройки СУБД и менеджера подключений в Terraform](https://github.com/yandex-cloud/terraform-provider-yandex/blob/master/CHANGELOG.md#0770-july-27-2022).
 * Добавлена поддержка расширения [postgis](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/5/greenplum-database/ref_guide-extensions-postGIS.html).
-* Добавлена возможность редактирования кластера и его параметров через CLI, а также возможность разрешения доступа из Yandex Data Transfer. Подробнее см. в разделе [Релизы YC CLI](../cli/release-notes.md#version0.94.0).
+* Добавлена возможность редактирования кластера и его параметров через CLI, а также возможность разрешения доступа из Yandex Data Transfer. Подробнее читайте в разделе [Релизы YC CLI](../cli/release-notes.md#version0.94.0).
 * Обновлен механизм переключения мастера: бывший мастер возвращается в кластер как реплика и становится доступным для нового переключения сразу после завершения первого.
 * Добавлена функция `gp_cancel_backend` для принудительного завершения пользовательского запроса.
 * Добавлена функция `gp_terminate_backend` для принудительного завершения пользовательского соединения с БД.

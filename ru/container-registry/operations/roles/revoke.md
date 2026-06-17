@@ -97,7 +97,7 @@
        }
        ```
 
-       Более подробную информацию о ресурсе `yandex_container_registry_iam_binding`, см. в [документации провайдера]({{ tf-provider-resources-link }}/container_registry_iam_binding).
+       Подробнее о параметрах ресурса `yandex_container_registry_iam_binding` в [документации провайдера]({{ tf-provider-resources-link }}/container_registry_iam_binding).
   
   1. {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

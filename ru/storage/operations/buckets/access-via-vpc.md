@@ -54,7 +54,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [private-endpoint-ssc](../../../_includes/storage/private-endpoint-ssc.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Сервисные подключения {{ vpc-short-name }}](../../../vpc/concepts/private-endpoint.md)
 * [Работа с сервисными подключениями {{ vpc-short-name }}](../../../vpc/operations/index.md#private-endpoint)

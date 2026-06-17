@@ -1,6 +1,6 @@
 ---
-title: Getting started as a metadata steward
-description: When using {{ data-catalog-full-name }} as a metadata steward, you can collect and organize metadata on {{ yandex-cloud }} objects and links between them.
+title: Getting started with {{ data-catalog-full-name }} as a metadata steward
+description: Follow this guide to get started with {{ data-catalog-name }} as a metadata steward.
 ---
 
 # Getting started as a metadata steward

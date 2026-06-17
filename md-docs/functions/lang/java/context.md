@@ -15,7 +15,7 @@ _Контекст вызова_ — это метаданные текущего
 * `getRequestId()` — возвращает идентификатор обрабатываемого запроса;
 * `getTokenJson()` — возвращает параметры для аутентификации в API сервисов Yandex Cloud.
 
-Подробнее см. в разделе [Использование интерфейса YcFunction для обработчика на Java](model/yc-function.md#http-info).
+Подробнее в разделе [Использование интерфейса YcFunction для обработчика на Java](model/yc-function.md#http-info).
 
 ## Класс HttpServlet {#httpservlet}
 
@@ -27,4 +27,4 @@ _Контекст вызова_ — это метаданные текущего
 * `Lambda-Runtime-Aws-Request-Id` — идентификатор обрабатываемого запроса;
 * `Lambda-Runtime-Token-Json` — параметры для аутентификации в API сервисов Yandex Cloud.
 
-Подробнее см. в разделе [Использование класса HttpServlet для задания обработчика на Java](model/servlet-api.md#get-context).
+Подробнее в разделе [Использование класса HttpServlet для задания обработчика на Java](model/servlet-api.md#get-context).

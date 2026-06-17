@@ -4,6 +4,6 @@
 
 {% include [opencart](../../../_tutorials/applied/opencart-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md).

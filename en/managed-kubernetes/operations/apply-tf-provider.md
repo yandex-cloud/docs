@@ -37,7 +37,6 @@ The `kubernetes` provider is initialized only after creating and setting up a {{
     }
 
     provider "yandex" {
-      token     = "<IAM_token>"
       cloud_id  = "<cloud_ID>"
       folder_id = "<folder_ID>"
       zone      = "<default_availability_zone>"
@@ -73,18 +72,17 @@ The `kubernetes` provider is initialized only after creating and setting up a {{
     ```hcl
     terraform {
       required_providers {
-          yandex = {
-              source = "yandex-cloud/yandex"
-          }
-          kubernetes = {
-              source = "hashicorp/kubernetes"
-          }
+        yandex = {
+          source = "yandex-cloud/yandex"
+        }
+        kubernetes = {
+          source = "hashicorp/kubernetes"
+        }
       }
       required_version = ">= 0.14.8"
     }
 
     provider "yandex" {
-      token     = "<IAM_token>"
       cloud_id  = "<cloud_ID>"
       folder_id = "<folder_ID>"
       zone      = "<default_availability_zone>"
@@ -107,4 +105,4 @@ The `kubernetes` provider is initialized only after creating and setting up a {{
 
 ## See also {see-also}
 
-[Managing {{ k8s }} resources via the {{ TF }} provider](../../managed-kubernetes/tutorials/kubernetes-terraform-provider.md).
+[Managing {{ k8s }} resources via the {{ TF }} provider](../../managed-kubernetes/tutorials/kubernetes-terraform-provider.md)

@@ -11,6 +11,6 @@ canonical: '{{ link-docs }}/tutorials/infrastructure-management/vm-autoscale/ter
 
 {% include [vm-autoscale-terraform](../../../_tutorials/infrastructure/vm-autoscale-terraform.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](console.md)

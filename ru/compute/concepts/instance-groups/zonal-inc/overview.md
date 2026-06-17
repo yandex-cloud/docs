@@ -83,7 +83,7 @@ _Зональный инцидент_ — сбой инфраструктуры 
 
 {% endnote %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](./multi-zonal.md)
 * [{#T}](../disable-enable-zone.md)

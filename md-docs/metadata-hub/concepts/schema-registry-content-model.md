@@ -185,7 +185,7 @@ Schema Registry поддерживает проверку совместимос
 
 Вы также можете использовать это решение для сохранения совместимости JSON-схем при поставке данных в [Yandex Managed Service for Apache Kafka®](../../managed-kafka/index.md) через [Yandex Data Streams](../../data-streams/index.md) [Yandex Data Transfer](../../data-transfer/index.md). Подробнее о требуемых настройках эндпоинта Data Transfer — [инструкции](../../data-transfer/operations/endpoint/target/kafka.md#serializer).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Роберт Йокота — Понимание совместимости JSON-схем (англ.)](https://yokota.blog/2021/03/29/understanding-json-schema-compatibility/)
 * [Энди Котс — Эволюция JSON-схем, часть 1 (англ.)](https://www.creekservice.org/articles/2024/01/08/json-schema-evolution-part-1.html)

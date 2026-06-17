@@ -14,7 +14,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../../functions/pricing.md)).
+В стоимость поддержки инфраструктуры входит плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы {{ sf-name }}](../../functions/pricing.md)).
 
 ## Создайте сервисный аккаунт {#create-sa}
 
@@ -393,7 +393,7 @@ workflows:
 1. [Удалите функцию](../../functions/operations/function/function-delete.md).
 1. [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Настроить CI/CD для развертывания приложения в {{ serverless-containers-full-name }} с помощью GitHub Actions]({{ link-src-docs }}/sourcecraft/tutorials/ci-cd-sourcecraft-github-actions)
 * [Настроить в {{ src-name }} сервисное подключение к {{ yandex-cloud }}]({{ link-src-docs }}/sourcecraft/operations/service-connections)

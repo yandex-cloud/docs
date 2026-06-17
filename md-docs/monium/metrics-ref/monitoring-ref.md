@@ -30,4 +30,4 @@ workspace_id | воркспейс Yandex Managed Service for Prometheus®, к д
 `api.prometheus.errors_count_per_second`, <br/>`RATE`, запросы/с | Количество ошибочных запросов в секунду к Yandex Managed Service for Prometheus® API.
 `api.prometheus.statuses_per_second`, <br/>`RATE`, запросы/с | Статусы выполнения запросов в секунду к Yandex Managed Service for Prometheus® API.<br/>Дополнительная метка *code* – код статуса HTTP. Например, `200`.
 
-_© 2025 Linux Foundation. Все права защищены. Linux Foundation зарегистрировала товарные знаки и использует товарные знаки. Список товарных знаков Linux Foundation см. на странице [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage)._
+_© 2025 Linux Foundation. Все права защищены. Linux Foundation зарегистрировала товарные знаки и использует товарные знаки. Список товарных знаков Linux Foundation смотрите на странице [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage)._

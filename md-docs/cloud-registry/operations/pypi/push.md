@@ -133,7 +133,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создать Python-пакет](create.md)
 * [Скачать Python-пакет из реестра Cloud Registry](pull.md)

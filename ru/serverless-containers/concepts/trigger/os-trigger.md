@@ -23,7 +23,7 @@
 
 {% include [os-format](../../../_includes/functions/os-format.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../../functions/concepts/trigger/os-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/os-trigger.md)

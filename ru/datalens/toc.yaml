@@ -866,6 +866,8 @@ items:
         href: dashboard/chart-chart-filtration.md
       - name: Настройки дашборда
         href: dashboard/settings.md
+      - name: Рассылки
+        href: operations/dashboard/add-maillists.md
       - name: Версионирование
         href: dashboard/versioning.md
       - name: Параметры
@@ -902,8 +904,6 @@ items:
             items:
               - name: Изменение настроек дашборда
                 href: operations/dashboard/dash-settings.md
-              - name: Добавление рассылки для дашборда
-                href: operations/dashboard/add-maillists.md
               - name: Добавление сообщения при обращении в поддержку
                 href: operations/dashboard/add-support-message.md
               - name: Добавление сообщения при ошибке доступа

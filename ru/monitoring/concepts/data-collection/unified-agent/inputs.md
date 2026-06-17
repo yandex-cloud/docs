@@ -10,7 +10,7 @@
     ...
 ```
 
-См. также [настройка инфраструктуры работы с сессиями](services.md#flow_control).
+Смотрите также [настройка инфраструктуры работы с сессиями](services.md#flow_control).
 
 ## Вход agent_metrics {#agent_metrics_input}
 

@@ -27,8 +27,8 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* Плата за [диски](../concepts/disk.md) и постоянно запущенные ВМ (см. [тарифы Yandex Compute Cloud](../pricing.md)).
-* Плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за [диски](../concepts/disk.md) и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../pricing.md)).
+* Плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Подготовьте инфраструктуру {#infra}
 
@@ -120,7 +120,7 @@
 
 {% note warning %}
 
-За использование виртуальных машин (воркеров) взимается плата (см. [тарифы Compute Cloud](../pricing.md)).
+За использование виртуальных машин (воркеров) взимается плата ([тарифы Compute Cloud](../pricing.md)).
 
 {% endnote %}
 
@@ -145,7 +145,7 @@
 
       {% note info %}
       
-      Этот сервисный аккаунт используется только для создания ВМ и не будет привязан к ней. У сервисного аккаунта должны быть роли [compute.admin](../security/index.md#compute-admin), [vpc.admin](../../vpc/security/index.md#vpc-admin) и [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user). Подробнее см. на странице [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
+      Этот сервисный аккаунт используется только для создания ВМ и не будет привязан к ней. У сервисного аккаунта должны быть роли [compute.admin](../security/index.md#compute-admin), [vpc.admin](../../vpc/security/index.md#vpc-admin) и [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user). Подробнее на странице [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
       
       {% endnote %}
 
@@ -241,7 +241,7 @@
 * [ВМ с GitLab Runner](../operations/vm-control/vm-delete.md);
 * [сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-### Смотрите также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Управляемые раннеры](../../managed-gitlab/concepts/index.md#managed-runners)
 * [Работа с управляемым раннером](../../managed-gitlab/operations/runner.md)

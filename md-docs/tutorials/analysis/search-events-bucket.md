@@ -51,7 +51,7 @@
     find <путь_к_папке> -type f -exec cat {} \; | jq  '.[] | select(.resource_metadata != null and .resource_metadata.path != null) | select( .resource_metadata.path[] | .resource_type == "resource-manager.folder" and .resource_name == "<имя_каталога>")'
     ```
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Аудитный лог](../../audit-trails/concepts/format.md)
 * [Документация jq](https://stedolan.github.io/jq/tutorial)

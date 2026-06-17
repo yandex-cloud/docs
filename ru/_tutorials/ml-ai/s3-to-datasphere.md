@@ -24,8 +24,8 @@
 
 В стоимость реализации обучения модели с помощью данных из {{ objstorage-name }} входят:
 * Плата за использование [вычислительных ресурсов {{ ml-platform-name }}](../../datasphere/pricing.md).
-* Плата за хранение данных в бакете (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-storage)).
-* Плата за операции с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-operations)).
+* Плата за хранение данных в бакете ([тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-storage)).
+* Плата за операции с данными ([тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-operations)).
 
 ## Подготовьте инфраструктуру {#infra}
 
@@ -113,7 +113,7 @@
      secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI9hx*****
      ```
 
-     Подробнее о команде `yc iam access-key create` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/access-key/create.md).
+     Подробнее о команде `yc iam access-key create` смотрите в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/access-key/create.md).
   1. Сохраните идентификатор `key_id` и секретный ключ `secret`. Получить значение ключа снова будет невозможно.
 
 - API {#api}
@@ -171,7 +171,7 @@
      }
      ```
 
-     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации]({{ tf-provider-resources-link }}/storage_bucket) провайдера {{ TF }}.
+     Подробнее о ресурсе `yandex_storage_bucket` смотрите в [документации]({{ tf-provider-resources-link }}/storage_bucket) провайдера {{ TF }}.
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

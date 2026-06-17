@@ -20,7 +20,7 @@
 
 {% include [mail-format](../../../_includes/functions/mail-format.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../../functions/concepts/trigger/mail-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/mail-trigger.md)

@@ -141,7 +141,7 @@ go get github.com/go-sql-driver/mysql
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](fqdn.md).
+О том, как получить FQDN хоста, читайте в [инструкции](fqdn.md).
 
 Подключение:
 
@@ -326,7 +326,7 @@ go run connect.go
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](fqdn.md).
+О том, как получить FQDN хоста, читайте в [инструкции](fqdn.md).
 
 Подключение:
 
@@ -407,7 +407,7 @@ npm install mysql2
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](fqdn.md).
+О том, как получить FQDN хоста, читайте в [инструкции](fqdn.md).
 
 Подключение:
 
@@ -467,7 +467,7 @@ sudo dpkg -i mysql-connector-odbc_8.0.21-1ubuntu20.04_amd64.deb
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](fqdn.md).
+О том, как получить FQDN хоста, читайте в [инструкции](fqdn.md).
 
 Подключение:
 
@@ -534,7 +534,7 @@ sudo apt update && apt install --yes php php-mysql
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](fqdn.md).
+О том, как получить FQDN хоста, читайте в [инструкции](fqdn.md).
 
 Подключение:
 
@@ -602,7 +602,7 @@ pip3 install mysqlclient
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](fqdn.md).
+О том, как получить FQDN хоста, читайте в [инструкции](fqdn.md).
 
 Подключение:
 
@@ -672,7 +672,7 @@ sudo apt update && sudo apt install --yes ruby ruby-mysql2
 
 {% endlist %}
 
-О том, как получить FQDN хоста, см. [инструкцию](fqdn.md).
+О том, как получить FQDN хоста, читайте в [инструкции](fqdn.md).
 
 Подключение:
 

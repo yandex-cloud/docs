@@ -4,6 +4,6 @@
 
 {% include [joomla-postgresql-console](../../../_tutorials/applied/joomla-postgresql-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md).

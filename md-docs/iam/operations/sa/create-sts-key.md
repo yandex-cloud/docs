@@ -84,7 +84,7 @@
 
     {% note warning %}
     
-    Проверка доступа по [ACL](../../../storage/security/acl.md) объекта происходит после проверки политики Security Token Service. Поэтому если для сервисного аккаунта, через который вы получаете временные ключи доступа, настроены разрешения ACL на объекты в бакете, эти объекты станут доступны для запросов с временным ключом доступа, независимо от указанной политики. Подробнее см. на [схеме взаимодействия механизмов управления доступом](../../../storage/security/overview.md) в Object Storage.
+    Проверка доступа по [ACL](../../../storage/security/acl.md) объекта происходит после проверки политики Security Token Service. Поэтому если для сервисного аккаунта, через который вы получаете временные ключи доступа, настроены разрешения ACL на объекты в бакете, эти объекты станут доступны для запросов с временным ключом доступа, независимо от указанной политики. Подробнее на [схеме взаимодействия механизмов управления доступом](../../../storage/security/overview.md) в Object Storage.
     
     {% endnote %}
 
@@ -111,7 +111,7 @@
       * `--duration-seconds` — время жизни ключа в секундах, не более `43200`.
       * `--policy file://` — путь к файлу с политикой доступа.
 
-      Подробнее о команде `aws sts assume-role` см. в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/assume-role.html).
+      Подробнее о команде `aws sts assume-role` смотрите в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/assume-role.html).
 
       Результат:
 
@@ -168,7 +168,7 @@
     {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Обзор способов управления доступом в Object Storage](../../../storage/security/overview.md)
 * [Управление эфемерными ключами доступа](../authentication/manage-ephemeral-keys.md)

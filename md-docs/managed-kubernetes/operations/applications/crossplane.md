@@ -47,7 +47,7 @@
 
 Вы можете [изменить настройки провайдера](crossplane.md#change-provider-settings), например указать, в каком [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) и каком [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) будут по умолчанию создаваться ресурсы. 
    
-Подробнее о ресурсах Yandex Cloud, которые вы можете создать с помощью Crossplane, см. в подразделе [Получение информации о ресурсах](crossplane.md#see-resources).
+Подробнее о ресурсах Yandex Cloud, которые вы можете создать с помощью Crossplane, смотрите в подразделе [Получение информации о ресурсах](crossplane.md#see-resources).
 
 ## Установка с помощью Helm-чарта из репозитория Cloud Marketplace {#helm-install}
 
@@ -84,7 +84,7 @@
 
 Вы можете [изменить настройки провайдера](crossplane.md#change-provider-settings), например указать, в каком [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) и каком [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) будут по умолчанию создаваться ресурсы. 
    
-Подробнее о ресурсах Yandex Cloud, которые вы можете создать с помощью Crossplane, см. в подразделе [Получение информации о ресурсах](crossplane.md#see-resources).
+Подробнее о ресурсах Yandex Cloud, которые вы можете создать с помощью Crossplane, смотрите в подразделе [Получение информации о ресурсах](crossplane.md#see-resources).
 
 ## Установка с помощью Helm-чарта из репозитория Crossplane {#helm-repo-install}
 
@@ -205,6 +205,6 @@
 
 * [Интеграция с Crossplane](../../tutorials/marketplace/crossplane.md)
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация Crossplane](https://docs.crossplane.io/)

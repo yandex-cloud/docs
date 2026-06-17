@@ -2,7 +2,7 @@
 
 Ресурс `Service` определяет [сервис {{ k8s }}](../../../managed-kubernetes/concepts/index.md#service). Для {{ network-load-balancer-name }} для {{ managed-k8s-name }} сервисы представляют собой балансировщики входящего трафика.
 
-`Service` — стандартный ресурс {{ k8s }}. В этом справочнике описаны поля и аннотации ресурса, которые поддерживаются {{ network-load-balancer-name }} для {{ managed-k8s-name }}. Полный справочник ресурса см. в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).
+`Service` — стандартный ресурс {{ k8s }}. В этом справочнике описаны поля и аннотации ресурса, которые поддерживаются {{ network-load-balancer-name }} для {{ managed-k8s-name }}. Полный справочник ресурса смотрите в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).
 
 ## Service {#service}
 
@@ -67,7 +67,7 @@ annotations:
 
 ### Аннотации (metadata.annotations) {#annotations}
 
-Аннотации — это коллекция пар `ключ:значение`, которые используются для присвоения метаданных объекту. Значения аннотаций всегда имеют тип данных `string`. Подробнее об аннотациях см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
+Аннотации — это коллекция пар `ключ:значение`, которые используются для присвоения метаданных объекту. Значения аннотаций всегда имеют тип данных `string`. Подробнее об аннотациях смотрите в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
 
 Для объекта `ObjectMeta` можно передать следующие аннотации:
 
@@ -118,7 +118,7 @@ externalTrafficPolicy: <string>
 
 {% note warning %}
 
-Сервисы {{ k8s }}, используемые в качестве сетевых балансировщиков нагрузки, должны иметь тип `LoadBalancer`. Подробнее об этом типе см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer).
+Сервисы {{ k8s }}, используемые в качестве сетевых балансировщиков нагрузки, должны иметь тип `LoadBalancer`. Подробнее об этом типе смотрите в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer).
 
 {% endnote %}
 ||

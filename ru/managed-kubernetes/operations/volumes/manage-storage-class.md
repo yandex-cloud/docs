@@ -177,7 +177,7 @@ reclaimPolicy: <политика_переиспользования>
    yc-network-ssd       disk-csi-driver.mks.ycloud.io  19m
    ```
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/volume.md)
 * [{#T}](./encrypted-disks.md)

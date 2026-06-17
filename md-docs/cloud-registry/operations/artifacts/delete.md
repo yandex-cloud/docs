@@ -1,8 +1,8 @@
-# Удалить Python-пакет из реестра
+# Удалить артефакт из реестра
 
-Вы можете удалить [Python-пакет](../../concepts/artifacts/python.md) из [реестра](../../concepts/registry.md) Cloud Registry.
+Вы можете удалить [артефакт](../../concepts/artifacts/index.md) из [реестра](../../concepts/registry.md) Cloud Registry.
 
-Для удаления Python-пакета необходима [роль](../../security/index.md) `cloud-registry.admin` или выше.
+Для удаления артефакта необходима [роль](../../security/index.md) `cloud-registry.admin` или выше.
 
 {% list tabs group=instructions %}
 
@@ -11,11 +11,11 @@
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится реестр.
     1. Перейдите в сервис **Cloud Registry**.
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Реестры**.
-    1. Выберите реестр, из которого хотите удалить пакет.
+    1. Выберите реестр, из которого хотите удалить артефакт.
     1. На панели слева выберите ![cube](../../../_assets/console-icons/cubes-3.svg) **Артефакты**.
     1. Нажмите на ![folder](../../../_assets/console-icons/folder-open.svg) имя артефакта.
-    1. Найдите нужную версию пакета в списке.
-    1. Напротив пакета нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+    1. Найдите нужную версию артефакта в списке.
+    1. Напротив артефакта нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
     1. В открывшемся окне нажмите **Удалить**.
 
 - CLI {#cli}
@@ -23,12 +23,6 @@
     Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
-
-    {% note info %}
-    
-     Идентификатор артефакта можно найти через [консоль управления](https://console.yandex.cloud) в сервисе **Cloud Registry**.
-     
-    {% endnote %}
 
     1. Получите список артефактов в реестре:
 
@@ -68,15 +62,15 @@
 
 - API {#api}
 
-    Чтобы удалить Python-пакет, воспользуйтесь методом REST API [delete](../../api-ref/Artifact/delete.md) для ресурса [Artifact](../../api-ref/Artifact/index.md) или вызовом gRPC API [ArtifactService/Delete](../../api-ref/grpc/Artifact/delete.md).
+    Чтобы удалить артефакт, воспользуйтесь методом REST API [delete](../../api-ref/Artifact/delete.md) для ресурса [Artifact](../../api-ref/Artifact/index.md) или вызовом gRPC API [ArtifactService/Delete](../../api-ref/grpc/Artifact/delete.md).
 
 {% endlist %}
 
 ## Автоматическое удаление старых версий {#lifecycle-policy}
 
-Для автоматического удаления старых версий пакетов используйте [политики жизненного цикла](../../concepts/lifecycle-policy.md). Подробнее см. в разделе [Настройка политик жизненного цикла](../../tutorials/lifecycle-policy-examples.md).
+Для автоматического удаления старых версий артефактов используйте [политики жизненного цикла](../../concepts/lifecycle-policy.md). Подробнее в разделе [Настройка политик жизненного цикла](../../tutorials/lifecycle-policy-examples.md).
 
-Пример политики для Python-пакетов:
+Пример политики:
 
 ```json
 [
@@ -92,10 +86,3 @@
   }
 ]
 ```
-
-#### См. также {#see-also}
-
-* [Загрузить Python-пакет в локальный реестр Cloud Registry](push.md)
-* [Скачать Python-пакет из реестра Cloud Registry](pull.md)
-* [Настройка политик жизненного цикла](../../tutorials/lifecycle-policy-examples.md)
-* [Политика жизненного цикла в Yandex Cloud Registry](../../concepts/lifecycle-policy.md)

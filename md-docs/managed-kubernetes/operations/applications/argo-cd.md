@@ -264,6 +264,6 @@ kubectl --namespace <пространство_имен> get secret argocd-initia
 
 * [Интеграция с Argo CD](../../tutorials/marketplace/argo-cd.md).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация Argo CD](https://argo-cd.readthedocs.io/en/stable/operator-manual/).

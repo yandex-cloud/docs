@@ -17,7 +17,7 @@
 
 {% endlist %}
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [Настроить инфраструктуру](setup-infrastructure.md)
 * [Создать прокси-сервер](proxy-create.md)

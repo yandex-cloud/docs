@@ -174,7 +174,7 @@
 
        {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-       Более подробную информацию о параметрах ресурса `yandex_function_trigger` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
+       Подробнее о параметрах ресурса `yandex_function_trigger` в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
 
     1. Создайте ресурсы:
 
@@ -198,7 +198,7 @@
 
 {% include [check-result](../../../_includes/functions/check-result.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../../serverless-containers/operations/mail-trigger-create.md)
 * [{#T}](../../../api-gateway/operations/trigger/mail-trigger-create.md)

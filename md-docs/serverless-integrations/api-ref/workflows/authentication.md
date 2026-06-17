@@ -50,6 +50,6 @@ Authorization: Api-Key ${API_KEY}
 ```
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Аккаунты в Yandex Cloud](../../../iam/concepts/users/accounts.md)

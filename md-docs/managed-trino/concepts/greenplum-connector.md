@@ -146,6 +146,6 @@ sequenceDiagram
 | `greenplum.max-read-parallelism`           | <p>Максимальный уровень параллелизма при чтении данных из Greenplum®.</p><p>Соответствует свойству сессии `max_read_parallelism`</p>                                                                                                                                                                                                                                                                                  | `1` (отсутствие параллелизма) |
 | `greenplum.segment-fetch-required`         | <p>Определяет поведение коннектора в случае, если ему не удается получить информацию о количестве сегментов Greenplum®:</p><p><ul><li>При значении `true` запрос к Trino завершится ошибкой.</li><li>При значении `false` уровень параллелизма будет равен значению свойства сессии `max_read_parallelism`.</li></ul></p><p>Соответствует свойству сессии `segment_fetch_required`</p>                             | `true`                        |
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создание каталога Trino](../operations/catalog-create.md)

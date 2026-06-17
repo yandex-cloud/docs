@@ -136,7 +136,7 @@ POST https://{{ cns-host }}/
 
 Перечень общих кодов ошибок для всех действий см. в разделе [{#T}](common-errors.md).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)

@@ -86,7 +86,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Изменение ключа](../operations/key.md#update)
 * [Ротация ключа](../operations/key.md#rotate)

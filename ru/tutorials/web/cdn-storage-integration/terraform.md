@@ -16,6 +16,6 @@ description: В этом руководстве с помощью {{ TF }} вы 
 
 {% include [cdn-storage-integration-terraform](../../../_tutorials/infrastructure/cdn-storage-integration-terraform.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./console.md)

@@ -315,7 +315,7 @@
 * метрики {{ k8s }};
 * Flow logs {{ k8s }}.
 
-Подробнее о настройке сбора событий аудита на разных уровнях см. в разделе [{#T}](../../../security/domains/kubernetes.md#collection-monitoring-analysis-audit-logs).
+Подробнее о настройке сбора событий аудита на разных уровнях смотрите в разделе [{#T}](../../../security/domains/kubernetes.md#collection-monitoring-analysis-audit-logs).
 
 {{ managed-k8s-name }} предоставляет возможность проводить аудит текущей ролевой модели в сервисе. Для этого в [консоли управления]({{ link-console-main }}) откройте страницу кластера {{ k8s }} и перейдите на вкладку **{{ ui-key.yacloud.k8s.access.label_title }}**.
 

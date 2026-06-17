@@ -1,6 +1,6 @@
 ---
-title: Creating a term
-description: Follow this guide to create a term in {{ data-catalog-full-name }}.
+title: Creating a term in {{ data-catalog-full-name }}
+description: Follow this guide to create a term in a {{ data-catalog-name }} glossary.
 ---
 
 # Creating a term

@@ -1,4 +1,4 @@
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../storage/s3/s3-api-quickstart.md)
 

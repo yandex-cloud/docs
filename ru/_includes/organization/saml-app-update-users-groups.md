@@ -101,7 +101,7 @@
      * `application_id` — идентификатор SAML-приложения.
      * `subject_id` — идентификатор пользователя или группы пользователей, которые будут иметь доступ к SAML-приложению. Чтобы получить идентификатор пользователя, воспользуйтесь [инструкцией](../../organization/operations/users-get.md). Чтобы получить идентификатор группы пользователей, воспользуйтесь [инструкцией](../../organization/operations/group-get-id.md).
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application_assignment` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application_assignment).
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application_assignment` смотрите в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application_assignment).
 
   1. Примените изменения:
 

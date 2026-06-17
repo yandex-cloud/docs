@@ -25,8 +25,8 @@
 
 В стоимость поддержки бакета с шифрованием входит:
 
-* плата за хранение данных в бакете (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-storage));
-* плата за операции с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-operations));
+* плата за хранение данных в бакете ([тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-storage));
+* плата за операции с данными ([тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-operations));
 * плата за использование ключей KMS (см. [тарифы {{ kms-name }}](../../kms/pricing.md#prices)).
 
 

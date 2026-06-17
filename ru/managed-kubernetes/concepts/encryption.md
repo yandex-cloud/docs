@@ -77,7 +77,7 @@ description: Из статьи вы узнаете, что такое шифро
 
 * [{#T}](../tutorials/kubernetes-lockbox-secrets.md)
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../operations/applications/hashicorp-vault.md)
 * [{#T}](../tutorials/marketplace/hashicorp-vault.md)

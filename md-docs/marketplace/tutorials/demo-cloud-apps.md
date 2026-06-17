@@ -8,7 +8,7 @@
 
    {% note tip %}
 
-   Для демонстрационного приложения вы можете [создать ВМ из публичного образа Cloud Marketplace](../../compute/operations/images-with-pre-installed-software/create.md), например [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts), и [создать образ из диска](../../compute/operations/image-create/create-from-disk.md) этой ВМ. См. также [Начало работы с Packer](../../tutorials/infrastructure-management/packer-quickstart.md).
+   Для демонстрационного приложения вы можете [создать ВМ из публичного образа Cloud Marketplace](../../compute/operations/images-with-pre-installed-software/create.md), например [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts), и [создать образ из диска](../../compute/operations/image-create/create-from-disk.md) этой ВМ. Смотрите также [Начало работы с Packer](../../tutorials/infrastructure-management/packer-quickstart.md).
 
    {% endnote %}
 

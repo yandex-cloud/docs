@@ -12,6 +12,6 @@ description: В этом руководстве вы создадите стат
 {% include [cdn-hosting-console](../../../_tutorials/applied/cdn-hosting-console.md) %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md)

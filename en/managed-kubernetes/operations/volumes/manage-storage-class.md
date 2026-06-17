@@ -102,6 +102,7 @@ volumeBindingMode: WaitForFirstConsumer
 parameters: # Storage class parameters.
   type: <disk_type>
   csi.storage.k8s.io/fstype: <file_system_type>
+  blockSize: "<block_size_of_new_disk>"
 allowVolumeExpansion: <allow_volume_expansion>
 reclaimPolicy: <reclaim_policy>
 ```
@@ -110,6 +111,7 @@ The acceptable parameter values include:
 * `parameters`:
   * `type`: `network-hdd`, `network-ssd`, `network-ssd-nonreplicated`, or `network-ssd-io-m3`.
   * `csi.storage.k8s.io/fstype`: `ext2`, `ext3`, `ext4`, or `btrfs`.
+  * `blockSize`: `4096`, `8192`, `16384`, `32768`, `65536`, `131072`. By default, the block size is 4096 KB for all new disks. For more information, see the section on [creating an empty disk with a large block size](../../../compute/operations/disk-create/empty-disk-blocksize.md).
 * `reclaimPolicy`: `Retain` or `Delete`.
 * `allowVolumeExpansion`: `true` or `false`.
 

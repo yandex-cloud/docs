@@ -1,6 +1,6 @@
 # Изменить права доступа к группе рабочих столов
 
-В Cloud Desktop управление доступом реализовано с помощью [разграничения ролей Yandex Identity and Access Management](../../security/index.md) и [списков управления доступом (ACL)](../../concepts/acl.md). См. [пример использования механизмов доступа](../../concepts/acl.md#example).
+В Cloud Desktop управление доступом реализовано с помощью [разграничения ролей Yandex Identity and Access Management](../../security/index.md) и [списков управления доступом (ACL)](../../concepts/acl.md). Смотрите [пример использования механизмов доступа](../../concepts/acl.md#example).
 
 {% list tabs group=instructions %}
 

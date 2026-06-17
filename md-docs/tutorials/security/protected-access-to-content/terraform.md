@@ -26,11 +26,11 @@
 
 В стоимость поддержки инфраструктуры для организации защищенного доступа к контенту в Cloud CDN входят:
 
-* плата за использование [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
-* плата за вычислительные ресурсы и диски [ВМ](../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование [публичной DNS-зоны](../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы (см. [тарифы Yandex Cloud DNS](../../../dns/pricing.md));
-* плата за [хранение данных](../../../storage/concepts/bucket.md) в Object Storage, [операции](../../../storage/operations/index.md) с ними и исходящий трафик (см. [тарифы Object Storage](../../../storage/pricing.md));
-* плата за исходящий трафик с [CDN-серверов](../../../cdn/concepts/index.md) (см. [тарифы Cloud CDN](../../../cdn/pricing.md)).
+* плата за использование [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
+* плата за вычислительные ресурсы и диски [ВМ](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за использование [публичной DNS-зоны](../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы ([тарифы Yandex Cloud DNS](../../../dns/pricing.md));
+* плата за [хранение данных](../../../storage/concepts/bucket.md) в Object Storage, [операции](../../../storage/operations/index.md) с ними и исходящий трафик ([тарифы Object Storage](../../../storage/pricing.md));
+* плата за исходящий трафик с [CDN-серверов](../../../cdn/concepts/index.md) ([тарифы Cloud CDN](../../../cdn/pricing.md)).
 
 
 ## Делегируйте домен сервису Cloud DNS {#delegate-domain}
@@ -755,6 +755,6 @@ Terraform распространяется под лицензией [Business S
     
     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Организация защищенного доступа к контенту в Cloud CDN с помощью консоли управления, CLI или API](console.md)

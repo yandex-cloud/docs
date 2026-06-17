@@ -9,7 +9,7 @@
 
 Доступность [функциональности](../operations/manage-account.md) портала «Мой аккаунт» зависит от [типа аккаунта](../../iam/concepts/users/accounts.md).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Управление аккаунтом на портале «Мой аккаунт»](../operations/manage-account.md)
 * [Аккаунты в Yandex Cloud](../../iam/concepts/users/accounts.md)

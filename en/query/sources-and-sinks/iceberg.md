@@ -1,12 +1,12 @@
 # Reading data from {{ yq-iceberg-name }} tables
 
-This section provides basic information about using {{ yq-iceberg-name }} tables.
+This section covers the basics of working with {{ yq-iceberg-name }} tables.
 
 To read data from an {{ yq-iceberg-name }} table located in {{ objstorage-full-name }}, follow these steps:
-1. Create a [connection](../concepts/glossary.md#connection) containing the details for connection to an {{ yq-iceberg-name }} folder.
-1. [Run a query](#query) to the table of interest from the folder.
+1. Create a [connection](../concepts/glossary.md#connection) containing your access credentials for an {{ yq-iceberg-name }} catalog.
+1. [Run a query](#query) against the required table in the catalog.
 
-Example of query for reading data from an {{ yq-iceberg-name }} table:
+Query example for reading data from an {{ yq-iceberg-name }} table:
 
 ```
 SELECT * FROM iceberg_connection.my_table
@@ -14,63 +14,63 @@ SELECT * FROM iceberg_connection.my_table
 
 Where:
 
-* `iceberg_connection`: Name of the your new connection to the {{ yq-iceberg-name }} folder.
-* `my_table`: Name of your table in the {{ yq-iceberg-name }} folder.
+* `iceberg_connection`: {{ yq-iceberg-name }} catalog connection name.
+* `my_table`: {{ yq-iceberg-name }} table name.
 
 ## Setting up a connection {#create_connection}
 
-To create a connection with an {{ yq-iceberg-name }} folder:
+To create a connection to the {{ yq-iceberg-name }} catalog:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a connection.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-1. In the left-hand panel, go to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. In the left-hand panel, switch to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
 1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. Specify the connection parameters:
 
    1. Under **{{ ui-key.yql.yq-connection-form.general-parameters.section-title }}**:
 
-      * **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}**: Name of your connection with the {{ yq-iceberg-name }} folder.
+      * **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}**: {{ yq-iceberg-name }} catalog connection name.
       * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}**: {{ yq-iceberg-name }}.
   
    1. Under **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
 
-      * **{{ ui-key.yql.yq-connection-form.bucket-auth.input-label }}**: Select `{{ ui-key.yql.yq-connection-form.public.button-text }}` or `{{ ui-key.yql.yq-connection-form.private.button-text }}` depending on the type of the bucket object read permissions.
+      * **{{ ui-key.yql.yq-connection-form.bucket-auth.input-label }}**: Select `{{ ui-key.yql.yq-connection-form.public.button-text }}` or `{{ ui-key.yql.yq-connection-form.private.button-text }}` depending on the type of read access to objects in the bucket.
 
-        For a public bucket, enter a name in the **{{ ui-key.yql.yq-connection-form.bucket.input-label }}** field.
+        For a public bucket, specify a name in the **{{ ui-key.yql.yq-connection-form.bucket.input-label }}** field.
         For a private bucket:
         * Select the **{{ ui-key.yql.yq-connection-form.cloud.input-label }}** where the data source is located.
-        * Select a bucket or create a new one.
-        * Select or create a [service account](../../iam/concepts/users/service-accounts.md) with the [`storage.viewer`](../../storage/security/index.md#storage-viewer) role you will use to access the data.
+        * Select an existing bucket or create a new one.
+        * Select an existing [service account](../../iam/concepts/users/service-accounts.md) or create a new one. Assign it the [`storage.viewer`](../../storage/security/index.md#storage-viewer) role required to access the data.
 
           {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
-      * **{{ ui-key.yql.yq-connection-form.description_iceberg-directory }}**: Directory with the Hadoop folder in the selected bucket.
+      * **{{ ui-key.yql.yq-connection-form.description_iceberg-directory }}**: Directory containing the Hadoop directory inside the selected bucket.
 
 1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
 ## Query syntax {#query}
 
-To work with {{ yq-iceberg-name }} tables, the following SQL query form is used:
+{{ yq-iceberg-name }} uses the following SQL syntax:
 
 ```
 SELECT * FROM <connection>.<table_name>
 ```
 
 Where:
-* `<connection>`: Name of the new connection with the folder.
-* `<table_name>`: {{ yq-iceberg-name }} table name from the folder.
+* `<connection>`: Catalog connection name.
+* `<table_name>`: {{ yq-iceberg-name }} table name.
 
 ## Limitations
 
-{{ yq-iceberg-name }} tables are subject to some limitations.
-* You can only query tables created as per [version 1](https://iceberg.apache.org/spec/#version-1-analytic-data-tables) of the {{ yq-iceberg-name }} specification.
-* You can only read tables from the Hadoop folder located in {{ objstorage-full-name }}.
-* You cannot read previous table states (snapshots) (time travel).
+Working with {{ yq-iceberg-name }} tables comes with certain limitations.
+* You can only query tables that were created as per [version 1](https://iceberg.apache.org/spec/#version-1-analytic-data-tables) of the {{ yq-iceberg-name }} specification.
+* You can only read tables from the Hadoop directory located in {{ objstorage-full-name }}.
+* Table time travel, i.e., reading previous table snapshots, is not supported.
 
 ## Supported data types
 
-List of supported {{ yq-iceberg-name }} data types and corresponding {{ yql-short-name }} types.
+The list of supported {{ yq-iceberg-name }} data types and their corresponding {{ yql-short-name }} types.
 
-| Data type {{ yq-iceberg-name }} | Data type {{ yq-full-name }} |
+| {{ yq-iceberg-name }} data type | {{ yq-full-name }} data type |
 | :---: | :---: | 
 | `boolean` | `Bool` |
 | `int` | `Int32` |
@@ -83,19 +83,19 @@ List of supported {{ yq-iceberg-name }} data types and corresponding {{ yql-shor
 | `string` | `Utf8` |
 | `binary` | `String` |
 
-## Significant data pruning
+## Pruning
 
-A query to the {{ yq-iceberg-name }} table may contain filters built based on the WHERE expression. These filters are used to reduce the amount of data that needs to be processed. This reduction procedure is called data _pruning_.
+A query against an {{ yq-iceberg-name }} table may contain filters built using a WHERE expression. These filters reduce the volume of data for processing. Such a reduction procedure is called _pruning_.
 
-Pruning is done both when planning the read operation and when reading.
+Pruning is performed both at the read planning stage and at the reading stage.
 
-When planning:
-* Reading the {{ yq-iceberg-name }} table metadata.
-* Listing the data files to read (based on statistics from metadata).
-* Providing the files selected for reading.
+At the read planning stage, the system:
+* Reads the {{ yq-iceberg-name }} table metadata.
+* Uses metadata statistics to determine the list of data files to be read.
+* Provides the selected files for reading.
 
-When reading: 
-* Splitting data files into row groups.
-* Reading statistics for row groups.
-* Listing the groups to read (based on statistics).
-* Reading data from selected groups. 
+At the reading stage, the system: 
+* Splits data files into row groups.
+* Reads row group statistics.
+* Uses the statistics to determine which row groups need to be read.
+* Reads data from the selected groups. 

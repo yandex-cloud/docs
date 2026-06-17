@@ -159,7 +159,7 @@
 * [{#T}](../tutorials/server-logs-yq.md)
 * [{#T}](../tutorials/bucket-to-bucket.md)
 
-### См. также {#see-also}
+### Полезные ссылки {#see-also}
 
 * [{#T}](../security/overview.md)
 

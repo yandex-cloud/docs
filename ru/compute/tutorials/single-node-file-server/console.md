@@ -8,6 +8,6 @@ canonical: '{{ link-docs }}/tutorials/archive/single-node-file-server/console'
 
 {% include [single-node-file-server-console](../../../_tutorials/archive/single-node-file-server-console.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](terraform.md).

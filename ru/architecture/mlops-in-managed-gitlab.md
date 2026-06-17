@@ -71,9 +71,9 @@ keywords:
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Сервис {{ mgl-name }}: использование вычислительных ресурсов инстанса (виртуальной машины) и объем хранилища данных инстанса (см. [тарифы {{ mgl-name }}](../managed-gitlab/pricing.md)). В зависимости от того, где развернут {{ GLR }}, может тарифицироваться ВМ {{ compute-name }} для установки {{ GLR }}.
-* Виртуальные машины: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы {{ compute-name }}](../compute/pricing.md)).
-* Сервис {{ objstorage-name }}: использование для хранения резервных копий {{ mgl-name }} (см. [тарифы {{ objstorage-name }}](../storage/pricing.md)).
+* Сервис {{ mgl-name }}: использование вычислительных ресурсов инстанса (виртуальной машины) и объем хранилища данных инстанса ([тарифы {{ mgl-name }}](../managed-gitlab/pricing.md)). В зависимости от того, где развернут {{ GLR }}, может тарифицироваться ВМ {{ compute-name }} для установки {{ GLR }}.
+* Виртуальные машины: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы {{ compute-name }}](../compute/pricing.md)).
+* Сервис {{ objstorage-name }}: использование для хранения резервных копий {{ mgl-name }} ([тарифы {{ objstorage-name }}](../storage/pricing.md)).
 
 ## Создайте инфраструктуру {#deploy}
 
@@ -235,7 +235,7 @@ keywords:
 
 {% endlist %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Machine Learning Model Experiments]({{ gl.docs }}/user/project/ml/experiment_tracking/)
 * [Model Registry]({{ gl.docs }}/user/project/ml/model_registry/)

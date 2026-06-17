@@ -5,6 +5,8 @@ description: Как использовать расширение gp_relaccess_s
 
 # Использование gp_relaccess_stats в {{ mgp-name }}
 
+{% include [not-supported-in-cb](../../../_includes/mdb/mgp/not-supported-in-cb.md) %}
+
 `gp_relaccess_stats` — это расширение от {{ yandex-cloud }}, которое собирает статистику обращений к таблицам и представлениям. Оно отслеживает операции чтения, вставки, обновления и удаления, а также время последнего обращения пользователя к объекту. Собранные данные помогают находить объекты, которые больше не используются или используются неправильно.
 
 ## Настройки расширения {#extension-settings}
@@ -15,7 +17,7 @@ description: Как использовать расширение gp_relaccess_s
 | `gp_relaccess_stats.max_tables` | `integer` | `65536` | Максимальное количество таблиц для кеширования статистики. |
 | `gp_relaccess_stats.dump_on_overflow` | `bool` | `false` | Определяет поведение при превышении `gp_relaccess_stats.max_tables`. Если `true`, кеш статистики очищается через `relaccess_stats_dump()` автоматически. Если `false`, выводится предупреждение о нехватке места. |
 
-Подробнее о расширении см. в [документации gp_relaccess_stats](https://github.com/open-gpdb/gp_relaccess_stats).
+Подробнее о расширении читайте в [документации gp_relaccess_stats](https://github.com/open-gpdb/gp_relaccess_stats).
 
 ## Установить расширение gp_relaccess_stats в кластер {{ mgp-name }} {#extension-install}
 
@@ -64,3 +66,5 @@ description: Как использовать расширение gp_relaccess_s
     ```sql
     SELECT * FROM relaccess_stats;
     ```
+
+{% include [cloudberry-trademark](../../../_includes/mdb/mgp/trademark-cloudberry.md) %}

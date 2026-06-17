@@ -54,7 +54,7 @@ description: Следуя данной инструкции, вы сможете
      ...
      ```
 
-	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/serverless_container).
+	 Подробнее о параметрах ресурса `yandex_serverless_container` в [документации провайдера]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Проверьте конфигурацию командой:
      ```

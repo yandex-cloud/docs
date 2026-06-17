@@ -12,7 +12,7 @@
 
 {% include [accessbinding-group-as-subject-org](../../_includes/organization/accessbinding-group-as-subject-org.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../iam/operations/sa/set-access-bindings.md)
 * [{#T}](../../resource-manager/operations/cloud/set-access-bindings.md)

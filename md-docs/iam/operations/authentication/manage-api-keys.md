@@ -494,7 +494,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [API-ключ](../../concepts/authorization/api-key.md)
 * [Сервисы Yandex Cloud, поддерживающие API-ключи](../../concepts/authorization/api-key.md#supported-services)

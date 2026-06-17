@@ -83,7 +83,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Правила корреляции и исключения](../../concepts/correlation-rules.md).
 * [Управление исключениями](manage-exceptions.md).

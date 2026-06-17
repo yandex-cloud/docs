@@ -20,6 +20,6 @@ Authorization: Bearer <IAM-токен>
 Authorization: Bearer ${IAM_TOKEN}
 ```
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Аккаунты в Yandex Cloud](../../iam/concepts/users/accounts.md)

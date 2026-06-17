@@ -104,7 +104,7 @@ GitLab Agent не исполняет конвейеры [CI/CD](https://yandex.c
 
 * [Непрерывное развертывание контейнеризованных приложений с помощью GitLab](../../tutorials/gitlab-containers.md).
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Документация GitLab Agent](https://docs.gitlab.com/ee/user/clusters/agent/).
 * [Документация Managed Service for GitLab](../../../managed-gitlab/index.md).

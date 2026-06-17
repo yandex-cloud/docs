@@ -404,7 +404,7 @@ pire_regex_not_match = f.*
 {% endlist %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](profile-create.md)
 * [{#T}](profile-update.md)

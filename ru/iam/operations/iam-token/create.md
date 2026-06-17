@@ -57,7 +57,7 @@ IAM-токен для аккаунта на Яндексе можно получ
 {% include [token-examples](../../../_includes/iam/iam-token-usage-examples.md) %}
 
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Использовать IAM-токен в Helm-чарте](../../../container-registry/operations/helm-chart/helm-chart-push.md)
 * [Отозвать IAM-токен](./revoke-iam-token.md)

@@ -29,7 +29,7 @@ description: Из статьи вы узнаете, как удалить пол
 
 {% include [access-policies-revoke-org](../../../_includes/iam/access-policies-revoke-org.md) %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/access-control/access-policies.md)
 * [{#T}](./list.md)

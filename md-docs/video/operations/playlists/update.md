@@ -32,7 +32,7 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Плейлисты в Cloud Video](../../concepts/playlists.md)
 * [Получить код вставки или ссылку на плейлист](get-link.md)

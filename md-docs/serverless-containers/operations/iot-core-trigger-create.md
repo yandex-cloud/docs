@@ -205,7 +205,7 @@
           * `queue_id` — идентификатор очереди Dead Letter Queue.
           * `service_account_id` — идентификатор сервисного аккаунта с правами на запись в очередь Dead Letter Queue.
 
-      Более подробную информацию о параметрах ресурсов в Terraform см. в [документации провайдера](../../terraform/resources/function_trigger.md).
+      Подробнее о параметрах ресурса `yandex_function_trigger` в [документации провайдера](../../terraform/resources/function_trigger.md).
 
   1. Создайте ресурсы:
 
@@ -253,7 +253,7 @@
 
 Проверьте, что триггер работает корректно. Для этого посмотрите [логи контейнера](../concepts/logs.md), в них отображается информация о вызовах.
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Создать триггер, который передает сообщения в функцию Cloud Functions из топика реестра или устройства Yandex IoT Core](../../functions/operations/trigger/iot-core-trigger-create.md)
 * [Создать триггер, который отправляет сообщения в WebSocket-соединения из топика реестра или устройства Yandex IoT Core](../../api-gateway/operations/trigger/iot-core-trigger-create.md)

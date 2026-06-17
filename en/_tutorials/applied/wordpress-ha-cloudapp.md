@@ -58,7 +58,7 @@ The cost of support for the new infrastructure includes:
   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `db-password-secret`.
   1. In the **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
-  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, specify `db_password`.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, enter `db_password`.
   1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, paste the {{ mmy-full-name }} database password.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -149,7 +149,7 @@ Install [WordPress High Availability](/marketplace/products/yc/wordpress-ha-app)
       || **Public SSH key** | — | — | The key will be added to `authorized_keys` of the WordPress user.
       We recommend specifying a public SSH key to access the VM over SSH. You will need to create a key pair for the SSH connection yourself; see [this guide](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for details. ||
       || **File system size** | — | `100` | File system size in GB. ||
-      || **ID of the secret containing the database password** | Yes | — | ID of the `db-password-secret` secret you created earlier to store the database password for accessing the {{ mmy-name }} cluster. ||
+      || **ID of the secret containing the database password** | Yes | — | ID of the `db-password-secret` secret you created earlier; the secret contains the password to connect to a {{ mmy-name }} cluster. ||
       || **{{ mmy-name }}** cluster disk size | — | `20` | {{ mmy-name }} cluster disk size in GB. ||
       |#
 

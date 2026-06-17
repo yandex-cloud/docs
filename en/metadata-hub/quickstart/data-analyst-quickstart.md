@@ -1,6 +1,6 @@
 ---
-title: Getting started as a metadata analyst
-description: Using {{ data-catalog-full-name }} as a metadata analyst, you can analyze and visualize metadata on {{ yandex-cloud }} objects and links between them.
+title: Getting started with {{ data-catalog-full-name }} as a metadata analyst
+description: Follow this guide to get started with {{ data-catalog-name }} as a metadata analyst.
 ---
 
 # Getting started as a metadata analyst

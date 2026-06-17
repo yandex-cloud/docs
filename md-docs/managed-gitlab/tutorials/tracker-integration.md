@@ -32,9 +32,9 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* Плата за [диск](../../compute/concepts/disk.md) и постоянно запущенную ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за количество пользователей Трекер с полным доступом, если их более 5 (см. [тарифы Трекер](https://yandex.ru/support/tracker/ru/cloud/pricing)).
-* Плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за [диск](../../compute/concepts/disk.md) и постоянно запущенную ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за количество пользователей Трекер с полным доступом, если их более 5 ([тарифы Трекер](https://yandex.ru/support/tracker/ru/cloud/pricing)).
+* Плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Подключите Яндекс Трекер {#enable-tracker}
 

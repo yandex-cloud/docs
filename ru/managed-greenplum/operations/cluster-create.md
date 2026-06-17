@@ -8,13 +8,13 @@ description: Следуя данной инструкции, вы сможете
 
 [Кластер](../../glossary/cluster.md) {{ mgp-name }} состоит из хостов-мастеров, которые принимают запросы от клиента, и хостов-сегментов, обеспечивающих обработку и хранение данных.
 
-Подробнее см. в разделе [{#T}](../concepts/index.md).
+Подробнее читайте в разделе [{#T}](../concepts/index.md).
 
 
 ## Создать кластер {#create-cluster}
 
 
-Для создания кластера {{ mgp-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mgp.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
+Для создания кластера {{ mgp-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mgp.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, читайте в [документации {{ iam-name }}](../../iam/operations/roles/grant.md).
 
 
 {% list tabs group=instructions %}
@@ -67,7 +67,7 @@ description: Следуя данной инструкции, вы сможете
         {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
-    1. Укажите реквизиты пользователя-администратора. Это специальный пользователь, который необходим для управления кластером и не может быть удален. Подробнее см. в разделе [Пользователи и роли](../concepts/cluster-users.md).
+    1. Укажите реквизиты пользователя-администратора. Это специальный пользователь, который необходим для управления кластером и не может быть удален. Подробнее читайте в разделе [Пользователи и роли](../concepts/cluster-users.md).
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — может содержать латинские буквы, цифры, дефис и подчеркивание, но не может начинаться с дефиса. Длина от 1 до 32 символов.
 
@@ -118,7 +118,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [background activities](../../_includes/mdb/mgp/background-activities-console.md) %}
 
-    1. Укажите параметры хостов-мастеров на вкладке **{{ ui-key.yacloud.greenplum.section_resource-master }}**. Рекомендуемую конфигурацию см. в разделе [Расчет конфигурации кластера](../concepts/calculate-specs.md#master).
+    1. Укажите параметры хостов-мастеров на вкладке **{{ ui-key.yacloud.greenplum.section_resource-master }}**. Рекомендуемую конфигурацию вы найдете в разделе [Расчет конфигурации кластера](../concepts/calculate-specs.md#master).
 
         * [{{ ui-key.yacloud.mdb.forms.section_resource }}](../concepts/instance-types.md) — определяет технические характеристики виртуальных машин, на которых будут развернуты хосты-мастеры кластера.
 
@@ -126,7 +126,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% include [warn-storage-resize](../../_includes/mdb/mgp/warn-storage-resize.md) %}
 
-    1. Укажите параметры хостов-сегментов на вкладке **{{ ui-key.yacloud.greenplum.section_resource-segment }}**. Рекомендуемую конфигурацию см. в разделе [Расчет конфигурации кластера](../concepts/calculate-specs.md#segment).
+    1. Укажите параметры хостов-сегментов на вкладке **{{ ui-key.yacloud.greenplum.section_resource-segment }}**. Рекомендуемую конфигурацию вы найдете в разделе [Расчет конфигурации кластера](../concepts/calculate-specs.md#segment).
 
         * Количество хостов-сегментов.
         * [Количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
@@ -415,7 +415,7 @@ description: Следуя данной инструкции, вы сможете
 
 
 
-      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mgp }}).
+      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, читайте в [документации провайдера]({{ tf-provider-mgp }}).
 
   
   1. (Опционально) Чтобы разместить хосты-мастеры или хосты-сегменты на выделенных хостах, укажите группы [выделенных хостов](../../compute/concepts/dedicated-host.md):

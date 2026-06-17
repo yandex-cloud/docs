@@ -106,7 +106,7 @@ To remove retention:
 
        To learn the IP address:
        1. Go to the [resource folder]({{ link-console-main }}) page.
-       1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+       1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
        1. In the left-hand panel, select ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
 
     * `<db-name>`: Database name.
