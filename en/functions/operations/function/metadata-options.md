@@ -9,7 +9,7 @@ You can configure metadata service parameters when [creating a function version]
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [function](../../concepts/function.md).
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select the function.
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
   1. Expand **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-additional-parameters }}**.
@@ -53,7 +53,7 @@ You can configure metadata service parameters when [creating a function version]
           user_hash          = "<function_hash>"
           runtime            = "<runtime>"
           entrypoint         = "<entry_point>"
-          memory             = "<RAM_amount>"
+          memory             = "<RAM_size>"
           execution_timeout  = "<execution_timeout>"
           service_account_id = "<service_account_ID>"
           content {
@@ -74,7 +74,7 @@ You can configure metadata service parameters when [creating a function version]
             * `1` to enable the parameter.
             * `2` to disable the parameter.
 
-        For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
    1. Apply the changes:
 

@@ -12,7 +12,7 @@ On the diagram:
 1. The user establishes a WebSocket connection to the [API gateway](../../api-gateway/concepts/index.md) and uses it to send a request to the AI agent.
 1. The API gateway forwards the request to the [function](../../functions/concepts/function.md) handler.
 1. The function handler creates and runs the AI agent using the OpenAI Agent SDK in streaming mode. In this mode, the agent will instantly stream model output, without waiting for the complete response.
-1. The AI agent augments the user request with additional context and sends it to the [text generation model]({{ link-docs-ai }}ai-studio/concepts/generation/index).
+1. The AI agent augments the user’s query with additional context and sends it to the [text generation model]({{ link-docs-ai }}ai-studio/concepts/generation/index).
 1. A [service account](../../iam/concepts/users/service-accounts.md) provides the AI agent with access to the [Text Generation API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/index) using an [API key](../../iam/concepts/authorization/api-key.md).
 1. The service account grants the function access to the [secret](../../lockbox/concepts/secret.md) containing the service account API key.
 1. The function retrieves the service account API key from the secret.
@@ -137,7 +137,7 @@ To complete this tutorial, you need files containing the function code and the A
       def how_many_jokes() -> int:
           return random.randint(1, 10)
 
-      # Initializing the SDK {{ yandex-cloud }}
+      # Initializing the {{ yandex-cloud }} SDK
       sdk = SDK()
 
       def get_websocket_service():
@@ -224,7 +224,7 @@ To complete this tutorial, you need files containing the function code and the A
       openai~=1.86.0
       ```
 
-  1. Create the `function.zip` archive and add the `function.py` and `requirements.txt` files to it.
+  1. Create an archive named `function.zip` and add the `function.py` and `requirements.txt` files to it.
   1. Create a file named `gateway-spec.yaml` and paste this code into it:
 
       ```yaml
@@ -257,7 +257,7 @@ The function will use the service account to get access to the secret and {{ fou
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create your infrastructure.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the service account: `agent-streamer-sa`.
   1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select these [roles](../../iam/roles-reference.md):
@@ -363,10 +363,10 @@ The function will use the API key to get access to the {{ foundation-models-name
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Select the `agent-streamer-sa` service account you created earlier.
   1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
-  1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field, select the `yc.ai.languageModels.execute` [scope](../../iam/concepts/authorization/api-key.md#scoped-api-keys).
+  1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field, select [`yc.ai.languageModels.execute`](../../iam/concepts/authorization/api-key.md#scoped-api-keys).
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Save the ID and secret key to later create the function.
 
@@ -424,11 +424,11 @@ The [{{ lockbox-name }}](../../lockbox/) secret will store the secret key.
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `api-key-secret`.
   1. In the **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
-  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, specify `api-key`.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, enter `api-key`.
   1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, paste the secret key you obtained in the previous step.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -479,7 +479,7 @@ The function will be created based on the archive with its code and dependencies
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Create a function:
 
      1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
@@ -488,7 +488,7 @@ The function will be created based on the archive with its code and dependencies
 
   1. Create a [function version](../../functions/concepts/function.md#version):
 
-     1. Select `{{ python-full-ver }}` as the runtime environment, disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+     1. Select `{{ python-full-ver }}` as the runtime , disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` and attach the `function.zip` archive you created earlier.
      1. Specify the entry point: `function.handler`.
      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
@@ -501,9 +501,9 @@ The function will be created based on the archive with its code and dependencies
              * `BASE_URL`: {{ ai-studio-full-name }} URL, `https://{{ api-host-llm }}/v1`.
              * `MODEL_NAME`: URI of the {{ ai-studio-full-name }} text generation [model]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation).
 
-                 For example, `gpt://<folder_ID>/yandexgpt/latest`, where `<folder_ID>` is the [ID of the folder](../../resource-manager/operations/folder/get-id.md) you are creating the infrastructure in.
+                 For example, this URI may look like this: `gpt://<folder_ID>/yandexgpt/latest`, where `<folder_ID>` is the [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you are creating the infrastructure.
 
-             * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) you are creating the infrastructure in.
+             * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you are creating the infrastructure.
 
          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**:
 
@@ -560,11 +560,11 @@ The function will be created based on the archive with its code and dependencies
           * `BASE_URL`: {{ ai-studio-full-name }} URL, `https://{{ api-host-llm }}/v1`.
           * `MODEL_NAME`: URI of the {{ ai-studio-full-name }} text generation [model]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation).
 
-              For example, `gpt://<folder_ID>/yandexgpt/latest`, where `<folder_ID>` is the [ID of the folder](../../resource-manager/operations/folder/get-id.md) you are creating the infrastructure in.
+              For example, this URI may look like this: `gpt://<folder_ID>/yandexgpt/latest`, where `<folder_ID>` is the [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you are creating the infrastructure.
 
-          * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) you are creating the infrastructure in.
+          * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you are creating the infrastructure.
 
-      * `--secret`: `api-key-secret` secret.
+      * `--secret`: `api-key-secret`.
 
       Result:
 
@@ -607,7 +607,7 @@ The function will be created based on the archive with its code and dependencies
 
 ## Create an API gateway {#create-gateway}
 
-Create the API gateway for access to the function.
+Create an API gateway for accessing the function.
 
 1. Open the `gateway-spec.yaml` file and specify the following:
 
@@ -621,13 +621,13 @@ Create the API gateway for access to the function.
     - Management console {#console}
 
       1. Open the [management console]({{ link-console-main }}).
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+      1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
       1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
       1. In the **{{ ui-key.yacloud.common.name }}** field, enter `agent-streamer-gateway` as the API gateway name.
       1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, paste the contents of the `gateway-spec.yaml` file.
       1. If you prefer to opt out of logging so as not to pay for {{ cloud-logging-name }}, disable the **{{ ui-key.yacloud.logging.field_logging }}** option.
       1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
-      1. Select the previously created API gateway. Save the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_wss_domain }}** field value as you will need it at the next step.
+      1. Select the previously created API gateway. Save the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_wss_domain }}** field value, as you will need it in the next step.
 
     - {{ yandex-cloud }} CLI {#cli}
 
@@ -658,7 +658,7 @@ Create the API gateway for access to the function.
       execution_timeout: 300s
       ```
 
-      Save the `domain` field value as you will need it at the next step.
+      Save the `domain` field value, as you will need it in the next step.
 
     - API {#api}
 
@@ -676,7 +676,7 @@ Create the API gateway for access to the function.
     ```
 
 
-1. Send a message:
+1. Send the following message:
 
     ```text
     Tell me a joke about programming
@@ -696,7 +696,7 @@ Create the API gateway for access to the function.
 
 ## How to delete the resources you created {#clear-out}
 
-To avoid [incurring charges](#paid-resources) for resources you no longer need, delete them.
+To stop [paying](#paid-resources) for the resources you no longer need, delete them.
 
 1. [Delete the API gateway](../../api-gateway/operations/api-gw-delete.md).
 1. [Delete](../../functions/operations/function/function-delete.md) the function.

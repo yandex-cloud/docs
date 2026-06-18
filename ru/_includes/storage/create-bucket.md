@@ -40,9 +40,9 @@
           * `{{ ui-key.yacloud.storage.value_cold }}`
           * `{{ ui-key.yacloud.storage.value_ice }}`
           * `Умное`
-
+          
           {% include [storage-class-cold-desc](./storage-class-cold-desc.md) %}
-
+         
       
       1. При необходимости включите шифрование: в поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите [симметричный ключ](../../kms/concepts/key.md) или [создайте](../../kms/operations/key.md#create) новый.
 
@@ -79,7 +79,7 @@
   
   {% note info %}
 
-  По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите](../../storage/operations/hosting/certificate.md) собственный сертификат безопасности в {{ objstorage-name }}. Подробнее смотрите [Правила именования бакетов](../../storage/concepts/bucket.md#naming).
+  По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите](../../storage/operations/hosting/certificate.md) собственный сертификат безопасности в {{ objstorage-name }}. Подробнее в разделе [Правила именования бакетов](../../storage/concepts/bucket.md#naming).
 
   {% endnote %}
 
@@ -116,7 +116,7 @@
     --acl <предопределенный_ACL>
   ```
 
-  Где `--acl` — предопределенный ACL. Список значений смотрите в разделе [Предопределенные ACL](../../storage/concepts/acl.md#predefined-acls).
+  Где `--acl` — предопределенный ACL. Список значений приведен в разделе [Предопределенные ACL](../../storage/concepts/acl.md#predefined-acls).
 
   **Отдельные разрешения**
 
@@ -143,7 +143,7 @@
 
   {% endcut %}
 
-  Подробнее о команде `aws s3api create-bucket` смотрите в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-bucket.html).
+  Подробнее о команде `aws s3api create-bucket` в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-bucket.html).
 
 - {{ TF }} {#tf}
 
@@ -188,7 +188,7 @@
 
         {% endnote %}
 
-      Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }}, смотрите в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
+      Более подробная информация о параметрах ресурса `yandex_storage_bucket` в {{ TF }} приведена в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Создайте ресурсы:
 
@@ -290,7 +290,7 @@
 
         * `tags` — [метки](../../storage/concepts/tags.md) бакета в формате `ключ = "значение"`.
 
-      Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }}, смотрите в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
+      Более подробная информация о параметрах ресурса `yandex_storage_bucket` в {{ TF }} приведена в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
 
       {% endcut %}
 

@@ -1,7 +1,6 @@
 # Virtual Private Cloud API, REST: Subnet.Get
 
 Returns the specified Subnet resource.
-
 To get the list of available Subnet resources, make a [List](list.md#List) request.
 
 ## HTTP request
@@ -17,7 +16,9 @@ GET https://vpc.api.cloud.yandex.net/vpc/v1/subnets/{subnetId}
 || subnetId | **string**
 
 Required field. ID of the Subnet resource to return.
-To get the subnet ID use a [SubnetService.List](list.md#List) request. ||
+To get the subnet ID use a [SubnetService.List](list.md#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Response {#yandex.cloud.vpc.v1.Subnet}

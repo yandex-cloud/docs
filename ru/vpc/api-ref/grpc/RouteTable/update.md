@@ -39,20 +39,29 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
 ||Field | Description ||
 || route_table_id | **string**
 
-Required field. ID of the RouteTable resource to update. ||
+ID of the RouteTable resource to update.
+The length must be less than or equal to 50.
+This field is required. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the RouteTable resource are going to be updated. ||
 || name | **string**
 
 Name of the route table.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+The value must match the regular expression: ```|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?```. ||
 || description | **string**
 
-Description of the route table. ||
+Description of the route table.
+The length must be less than or equal to 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Resource labels as `` key:value `` pairs. ||
+Resource labels as `` key:value `` pairs.
+Each map key must match the regular expression: `[a-z][-_0-9a-z]*`.
+Each map value must match the regular expression: `[-_0-9a-z]*`.
+The length of each map key must be between 1 and 63.
+The length of each map value must be less than or equal to 63.
+The number of elements must be less than or equal to 64. ||
 || static_routes[] | **[StaticRoute](#yandex.cloud.vpc.v1.StaticRoute)**
 
 List of static routes. ||
@@ -94,32 +103,10 @@ Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "route_table_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "folder_id": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "name": "string",
-    "description": "string",
-    "labels": "map<string, string>",
-    "network_id": "string",
-    "static_routes": [
-      {
-        // Includes only one of the fields `destination_prefix`
-        "destination_prefix": "string",
-        // end of the list of possible fields
-        // Includes only one of the fields `next_hop_address`, `gateway_id`
-        "next_hop_address": "string",
-        "gateway_id": "string",
-        // end of the list of possible fields
-        "labels": "map<string, string>"
-      }
-    ]
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -147,7 +134,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateRouteTableMetadata](#yandex.cloud.vpc.v1.UpdateRouteTableMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -162,7 +149,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[RouteTable](#yandex.cloud.vpc.v1.RouteTable)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -177,77 +164,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateRouteTableMetadata {#yandex.cloud.vpc.v1.UpdateRouteTableMetadata}
-
-#|
-||Field | Description ||
-|| route_table_id | **string**
-
-ID of the RouteTable resource that is being updated. ||
-|#
-
-## RouteTable {#yandex.cloud.vpc.v1.RouteTable}
-
-A RouteTable resource. For more information, see [Static Routes](/docs/vpc/concepts/routing).
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the route table. ||
-|| folder_id | **string**
-
-ID of the folder that the route table belongs to. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
-|| name | **string**
-
-Name of the route table.
-The name must be unique within the folder.
-Value must match the regular expression `\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?`. ||
-|| description | **string**
-
-Optional description of the route table. 0-256 characters long. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels, `key:value` pairs.
-No more than 64 per resource.
-The string length in characters for each key must be 1-63.
-Each value must match the regular expression `[-_0-9a-z]*`.
-Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
-|| network_id | **string**
-
-ID of the network the route table belongs to. ||
-|| static_routes[] | **[StaticRoute](#yandex.cloud.vpc.v1.StaticRoute2)**
-
-List of static routes. ||
-|#
-
-## StaticRoute {#yandex.cloud.vpc.v1.StaticRoute2}
-
-A StaticRoute resource. For more information, see [Static Routes](/docs/vpc/concepts/routing).
-
-#|
-||Field | Description ||
-|| destination_prefix | **string**
-
-Destination subnet in CIDR notation
-
-Includes only one of the fields `destination_prefix`. ||
-|| next_hop_address | **string**
-
-Next hop IP address
-
-Includes only one of the fields `next_hop_address`, `gateway_id`. ||
-|| gateway_id | **string**
-
-Next hop gateway id
-
-Includes only one of the fields `next_hop_address`, `gateway_id`. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

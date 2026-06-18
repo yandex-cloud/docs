@@ -81,7 +81,7 @@
 
 Нельзя отменить удаление облака, привязанного к заблокированному платежному аккаунту в статусе `SUSPENDED`.
 
-См. [Отмена удаления облака](../../resource-manager/operations/cloud/delete-cancel.md).
+Подробнее в инструкции [Отмена удаления облака](../../resource-manager/operations/cloud/delete-cancel.md).
 
 #### Как подключить порог оплаты? {#credit}
 
@@ -135,11 +135,11 @@
 
 {% include [account-in-organization](../../_includes/billing/pay-resouces-of-another-organization.md) %}
 
-См. [Особенности управления платежным аккаунтом в организации](../../billing/concepts/organization.md).
+Подробнее в инструкции [Особенности управления платежным аккаунтом в организации](../../billing/concepts/organization.md).
 
 #### Как перестать пользоваться платформой и удалить платежный аккаунт? {#delete-account}
 
 
-Удалите все [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоги](../../resource-manager/concepts/resources-hierarchy.md#folder) и ресурсы в них, погасите существующую задолженность и выберите **{{ ui-key.yacloud_billing.billing.account.dashboard.label_inactivation }}** на странице платежного аккаунта в сервисе [**{{ billing-name }}**]({{ link-console-billing }}). Подробнее см. в разделе [{#T}](../../billing/operations/delete-account.md).
+Удалите все [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоги](../../resource-manager/concepts/resources-hierarchy.md#folder) и ресурсы в них, погасите существующую задолженность и выберите **{{ ui-key.yacloud_billing.billing.account.dashboard.label_inactivation }}** на странице платежного аккаунта в сервисе [**{{ billing-name }}**]({{ link-console-billing }}). Подробнее в разделе [{#T}](../../billing/operations/delete-account.md).
 
 

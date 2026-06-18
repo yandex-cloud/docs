@@ -50,7 +50,7 @@ If you have a certificate, add it to the broker after [creation](#create-broker)
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a broker.
-   1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Click **{{ ui-key.yacloud.iot.button_create-broker }}**.
    1. Under **{{ ui-key.yacloud.common.section-base }}**, specify the broker name: `my-broker`.

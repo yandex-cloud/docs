@@ -732,8 +732,6 @@ items:
             items:
               - name: Overview
                 href: cli-ref/baremetal/cli-ref/boot-image/index.md
-              - name: add-labels
-                href: cli-ref/baremetal/cli-ref/boot-image/add-labels.md
               - name: create
                 href: cli-ref/baremetal/cli-ref/boot-image/create.md
               - name: delete
@@ -744,8 +742,6 @@ items:
                 href: cli-ref/baremetal/cli-ref/boot-image/list.md
               - name: list-operations
                 href: cli-ref/baremetal/cli-ref/boot-image/list-operations.md
-              - name: remove-labels
-                href: cli-ref/baremetal/cli-ref/boot-image/remove-labels.md
               - name: update
                 href: cli-ref/baremetal/cli-ref/boot-image/update.md
           - name: configuration
@@ -756,6 +752,9 @@ items:
                 href: cli-ref/baremetal/cli-ref/configuration/get.md
               - name: list
                 href: cli-ref/baremetal/cli-ref/configuration/list.md
+              - name: list-configuration-network-interface
+                href: >-
+                  cli-ref/baremetal/cli-ref/configuration/list-configuration-network-interface.md
           - name: hardware-pool
             items:
               - name: Overview
@@ -764,14 +763,16 @@ items:
                 href: cli-ref/baremetal/cli-ref/hardware-pool/get.md
               - name: list
                 href: cli-ref/baremetal/cli-ref/hardware-pool/list.md
-          - name: image
+          - name: mounted-image
             items:
               - name: Overview
-                href: cli-ref/baremetal/cli-ref/image/index.md
+                href: cli-ref/baremetal/cli-ref/mounted-image/index.md
+              - name: create
+                href: cli-ref/baremetal/cli-ref/mounted-image/create.md
+              - name: delete
+                href: cli-ref/baremetal/cli-ref/mounted-image/delete.md
               - name: get
-                href: cli-ref/baremetal/cli-ref/image/get.md
-              - name: list
-                href: cli-ref/baremetal/cli-ref/image/list.md
+                href: cli-ref/baremetal/cli-ref/mounted-image/get.md
           - name: private-cloud-connection
             items:
               - name: Overview
@@ -790,8 +791,6 @@ items:
             items:
               - name: Overview
                 href: cli-ref/baremetal/cli-ref/private-subnet/index.md
-              - name: add-labels
-                href: cli-ref/baremetal/cli-ref/private-subnet/add-labels.md
               - name: create
                 href: cli-ref/baremetal/cli-ref/private-subnet/create.md
               - name: delete
@@ -802,8 +801,6 @@ items:
                 href: cli-ref/baremetal/cli-ref/private-subnet/list.md
               - name: list-operations
                 href: cli-ref/baremetal/cli-ref/private-subnet/list-operations.md
-              - name: remove-labels
-                href: cli-ref/baremetal/cli-ref/private-subnet/remove-labels.md
               - name: update
                 href: cli-ref/baremetal/cli-ref/private-subnet/update.md
           - name: public-prefix-pool
@@ -823,8 +820,6 @@ items:
             items:
               - name: Overview
                 href: cli-ref/baremetal/cli-ref/public-subnet/index.md
-              - name: add-labels
-                href: cli-ref/baremetal/cli-ref/public-subnet/add-labels.md
               - name: create
                 href: cli-ref/baremetal/cli-ref/public-subnet/create.md
               - name: delete
@@ -835,8 +830,6 @@ items:
                 href: cli-ref/baremetal/cli-ref/public-subnet/list.md
               - name: list-operations
                 href: cli-ref/baremetal/cli-ref/public-subnet/list-operations.md
-              - name: remove-labels
-                href: cli-ref/baremetal/cli-ref/public-subnet/remove-labels.md
               - name: update
                 href: cli-ref/baremetal/cli-ref/public-subnet/update.md
           - name: rental-period
@@ -849,8 +842,8 @@ items:
             items:
               - name: Overview
                 href: cli-ref/baremetal/cli-ref/server/index.md
-              - name: add-labels
-                href: cli-ref/baremetal/cli-ref/server/add-labels.md
+              - name: batch-create
+                href: cli-ref/baremetal/cli-ref/server/batch-create.md
               - name: create
                 href: cli-ref/baremetal/cli-ref/server/create.md
               - name: get
@@ -867,10 +860,28 @@ items:
                 href: cli-ref/baremetal/cli-ref/server/reboot.md
               - name: reinstall
                 href: cli-ref/baremetal/cli-ref/server/reinstall.md
-              - name: remove-labels
-                href: cli-ref/baremetal/cli-ref/server/remove-labels.md
+              - name: start-prolongation
+                href: cli-ref/baremetal/cli-ref/server/start-prolongation.md
+              - name: stop-prolongation
+                href: cli-ref/baremetal/cli-ref/server/stop-prolongation.md
               - name: update
                 href: cli-ref/baremetal/cli-ref/server/update.md
+          - name: standard-image
+            items:
+              - name: Overview
+                href: cli-ref/baremetal/cli-ref/standard-image/index.md
+              - name: get
+                href: cli-ref/baremetal/cli-ref/standard-image/get.md
+              - name: list
+                href: cli-ref/baremetal/cli-ref/standard-image/list.md
+          - name: storage
+            items:
+              - name: Overview
+                href: cli-ref/baremetal/cli-ref/storage/index.md
+              - name: batch-get-default
+                href: cli-ref/baremetal/cli-ref/storage/batch-get-default.md
+              - name: get-default
+                href: cli-ref/baremetal/cli-ref/storage/get-default.md
           - name: v0
             items:
               - name: Overview
@@ -1056,12 +1067,335 @@ items:
                     href: cli-ref/baremetal/cli-ref/v0/zone/get.md
                   - name: list
                     href: cli-ref/baremetal/cli-ref/v0/zone/list.md
+          - name: v1alpha
+            items:
+              - name: Overview
+                href: cli-ref/baremetal/cli-ref/v1alpha/index.md
+              - name: boot-image
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v1alpha/boot-image/index.md
+                  - name: create
+                    href: cli-ref/baremetal/cli-ref/v1alpha/boot-image/create.md
+                  - name: delete
+                    href: cli-ref/baremetal/cli-ref/v1alpha/boot-image/delete.md
+                  - name: get
+                    href: cli-ref/baremetal/cli-ref/v1alpha/boot-image/get.md
+                  - name: list
+                    href: cli-ref/baremetal/cli-ref/v1alpha/boot-image/list.md
+                  - name: list-operations
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v1alpha/boot-image/list-operations.md
+                  - name: update
+                    href: cli-ref/baremetal/cli-ref/v1alpha/boot-image/update.md
+              - name: configuration
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v1alpha/configuration/index.md
+                  - name: get
+                    href: cli-ref/baremetal/cli-ref/v1alpha/configuration/get.md
+                  - name: list
+                    href: cli-ref/baremetal/cli-ref/v1alpha/configuration/list.md
+                  - name: list-configuration-network-interface
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v1alpha/configuration/list-configuration-network-interface.md
+              - name: hardware-pool
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v1alpha/hardware-pool/index.md
+                  - name: get
+                    href: cli-ref/baremetal/cli-ref/v1alpha/hardware-pool/get.md
+                  - name: list
+                    href: cli-ref/baremetal/cli-ref/v1alpha/hardware-pool/list.md
+              - name: mounted-image
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v1alpha/mounted-image/index.md
+                  - name: create
+                    href: cli-ref/baremetal/cli-ref/v1alpha/mounted-image/create.md
+                  - name: delete
+                    href: cli-ref/baremetal/cli-ref/v1alpha/mounted-image/delete.md
+                  - name: get
+                    href: cli-ref/baremetal/cli-ref/v1alpha/mounted-image/get.md
+              - name: private-cloud-connection
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v1alpha/private-cloud-connection/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v1alpha/private-cloud-connection/create.md
+                  - name: delete
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v1alpha/private-cloud-connection/delete.md
+                  - name: get
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v1alpha/private-cloud-connection/get.md
+                  - name: list
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v1alpha/private-cloud-connection/list.md
+                  - name: update
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v1alpha/private-cloud-connection/update.md
+              - name: private-subnet
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v1alpha/private-subnet/index.md
+                  - name: create
+                    href: cli-ref/baremetal/cli-ref/v1alpha/private-subnet/create.md
+                  - name: delete
+                    href: cli-ref/baremetal/cli-ref/v1alpha/private-subnet/delete.md
+                  - name: get
+                    href: cli-ref/baremetal/cli-ref/v1alpha/private-subnet/get.md
+                  - name: list
+                    href: cli-ref/baremetal/cli-ref/v1alpha/private-subnet/list.md
+                  - name: list-operations
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v1alpha/private-subnet/list-operations.md
+                  - name: update
+                    href: cli-ref/baremetal/cli-ref/v1alpha/private-subnet/update.md
+              - name: public-prefix-pool
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v1alpha/public-prefix-pool/index.md
+                  - name: get
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v1alpha/public-prefix-pool/get.md
+                  - name: list
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v1alpha/public-prefix-pool/list.md
+                  - name: list-operations
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v1alpha/public-prefix-pool/list-operations.md
+                  - name: update
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v1alpha/public-prefix-pool/update.md
+              - name: public-subnet
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v1alpha/public-subnet/index.md
+                  - name: create
+                    href: cli-ref/baremetal/cli-ref/v1alpha/public-subnet/create.md
+                  - name: delete
+                    href: cli-ref/baremetal/cli-ref/v1alpha/public-subnet/delete.md
+                  - name: get
+                    href: cli-ref/baremetal/cli-ref/v1alpha/public-subnet/get.md
+                  - name: list
+                    href: cli-ref/baremetal/cli-ref/v1alpha/public-subnet/list.md
+                  - name: list-operations
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v1alpha/public-subnet/list-operations.md
+                  - name: update
+                    href: cli-ref/baremetal/cli-ref/v1alpha/public-subnet/update.md
+              - name: rental-period
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v1alpha/rental-period/index.md
+                  - name: list
+                    href: cli-ref/baremetal/cli-ref/v1alpha/rental-period/list.md
+              - name: server
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v1alpha/server/index.md
+                  - name: batch-create
+                    href: cli-ref/baremetal/cli-ref/v1alpha/server/batch-create.md
+                  - name: create
+                    href: cli-ref/baremetal/cli-ref/v1alpha/server/create.md
+                  - name: get
+                    href: cli-ref/baremetal/cli-ref/v1alpha/server/get.md
+                  - name: list
+                    href: cli-ref/baremetal/cli-ref/v1alpha/server/list.md
+                  - name: list-operations
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v1alpha/server/list-operations.md
+                  - name: power-off
+                    href: cli-ref/baremetal/cli-ref/v1alpha/server/power-off.md
+                  - name: power-on
+                    href: cli-ref/baremetal/cli-ref/v1alpha/server/power-on.md
+                  - name: reboot
+                    href: cli-ref/baremetal/cli-ref/v1alpha/server/reboot.md
+                  - name: reinstall
+                    href: cli-ref/baremetal/cli-ref/v1alpha/server/reinstall.md
+                  - name: start-prolongation
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v1alpha/server/start-prolongation.md
+                  - name: stop-prolongation
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v1alpha/server/stop-prolongation.md
+                  - name: update
+                    href: cli-ref/baremetal/cli-ref/v1alpha/server/update.md
+              - name: standard-image
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v1alpha/standard-image/index.md
+                  - name: get
+                    href: cli-ref/baremetal/cli-ref/v1alpha/standard-image/get.md
+                  - name: list
+                    href: cli-ref/baremetal/cli-ref/v1alpha/standard-image/list.md
+              - name: storage
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v1alpha/storage/index.md
+                  - name: batch-get-default
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v1alpha/storage/batch-get-default.md
+                  - name: get-default
+                    href: cli-ref/baremetal/cli-ref/v1alpha/storage/get-default.md
+              - name: vrf
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v1alpha/vrf/index.md
+                  - name: create
+                    href: cli-ref/baremetal/cli-ref/v1alpha/vrf/create.md
+                  - name: delete
+                    href: cli-ref/baremetal/cli-ref/v1alpha/vrf/delete.md
+                  - name: get
+                    href: cli-ref/baremetal/cli-ref/v1alpha/vrf/get.md
+                  - name: list
+                    href: cli-ref/baremetal/cli-ref/v1alpha/vrf/list.md
+                  - name: list-operations
+                    href: cli-ref/baremetal/cli-ref/v1alpha/vrf/list-operations.md
+                  - name: update
+                    href: cli-ref/baremetal/cli-ref/v1alpha/vrf/update.md
+              - name: zone
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v1alpha/zone/index.md
+                  - name: get
+                    href: cli-ref/baremetal/cli-ref/v1alpha/zone/get.md
+                  - name: list
+                    href: cli-ref/baremetal/cli-ref/v1alpha/zone/list.md
+          - name: v2
+            items:
+              - name: Overview
+                href: cli-ref/baremetal/cli-ref/v2/index.md
+              - name: configuration
+                href: cli-ref/baremetal/cli-ref/v2/configuration.md
+              - name: extend
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v2/extend/index.md
+                  - name: stackland-cluster
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/create.md
+                      - name: delete
+                        href: >-
+                          cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/delete.md
+                      - name: get
+                        href: >-
+                          cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/get.md
+                      - name: list
+                        href: >-
+                          cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/list.md
+                      - name: update
+                        href: >-
+                          cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/update.md
+              - name: hardware-pool
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v2/hardware-pool/index.md
+                  - name: get
+                    href: cli-ref/baremetal/cli-ref/v2/hardware-pool/get.md
+                  - name: list
+                    href: cli-ref/baremetal/cli-ref/v2/hardware-pool/list.md
+              - name: private-subnet
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v2/private-subnet/index.md
+                  - name: create
+                    href: cli-ref/baremetal/cli-ref/v2/private-subnet/create.md
+                  - name: delete
+                    href: cli-ref/baremetal/cli-ref/v2/private-subnet/delete.md
+                  - name: get
+                    href: cli-ref/baremetal/cli-ref/v2/private-subnet/get.md
+                  - name: list
+                    href: cli-ref/baremetal/cli-ref/v2/private-subnet/list.md
+                  - name: update
+                    href: cli-ref/baremetal/cli-ref/v2/private-subnet/update.md
+              - name: public-prefix-pool
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v2/public-prefix-pool/index.md
+                  - name: get
+                    href: cli-ref/baremetal/cli-ref/v2/public-prefix-pool/get.md
+                  - name: list
+                    href: cli-ref/baremetal/cli-ref/v2/public-prefix-pool/list.md
+                  - name: update
+                    href: cli-ref/baremetal/cli-ref/v2/public-prefix-pool/update.md
+              - name: public-subnet
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v2/public-subnet/index.md
+                  - name: create
+                    href: cli-ref/baremetal/cli-ref/v2/public-subnet/create.md
+                  - name: delete
+                    href: cli-ref/baremetal/cli-ref/v2/public-subnet/delete.md
+                  - name: get
+                    href: cli-ref/baremetal/cli-ref/v2/public-subnet/get.md
+                  - name: list
+                    href: cli-ref/baremetal/cli-ref/v2/public-subnet/list.md
+                  - name: update
+                    href: cli-ref/baremetal/cli-ref/v2/public-subnet/update.md
+              - name: rental-period
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v2/rental-period/index.md
+                  - name: list
+                    href: cli-ref/baremetal/cli-ref/v2/rental-period/list.md
+              - name: server
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v2/server/index.md
+                  - name: batch-create
+                    href: cli-ref/baremetal/cli-ref/v2/server/batch-create.md
+                  - name: create
+                    href: cli-ref/baremetal/cli-ref/v2/server/create.md
+                  - name: get
+                    href: cli-ref/baremetal/cli-ref/v2/server/get.md
+                  - name: list
+                    href: cli-ref/baremetal/cli-ref/v2/server/list.md
+                  - name: power-off
+                    href: cli-ref/baremetal/cli-ref/v2/server/power-off.md
+                  - name: power-on
+                    href: cli-ref/baremetal/cli-ref/v2/server/power-on.md
+                  - name: reboot
+                    href: cli-ref/baremetal/cli-ref/v2/server/reboot.md
+                  - name: reinstall
+                    href: cli-ref/baremetal/cli-ref/v2/server/reinstall.md
+                  - name: update
+                    href: cli-ref/baremetal/cli-ref/v2/server/update.md
+              - name: vrf
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v2/vrf/index.md
+                  - name: create
+                    href: cli-ref/baremetal/cli-ref/v2/vrf/create.md
+                  - name: delete
+                    href: cli-ref/baremetal/cli-ref/v2/vrf/delete.md
+                  - name: get
+                    href: cli-ref/baremetal/cli-ref/v2/vrf/get.md
+                  - name: list
+                    href: cli-ref/baremetal/cli-ref/v2/vrf/list.md
+                  - name: update
+                    href: cli-ref/baremetal/cli-ref/v2/vrf/update.md
+              - name: zone
+                items:
+                  - name: Overview
+                    href: cli-ref/baremetal/cli-ref/v2/zone/index.md
+                  - name: get
+                    href: cli-ref/baremetal/cli-ref/v2/zone/get.md
+                  - name: list
+                    href: cli-ref/baremetal/cli-ref/v2/zone/list.md
           - name: vrf
             items:
               - name: Overview
                 href: cli-ref/baremetal/cli-ref/vrf/index.md
-              - name: add-labels
-                href: cli-ref/baremetal/cli-ref/vrf/add-labels.md
               - name: create
                 href: cli-ref/baremetal/cli-ref/vrf/create.md
               - name: delete
@@ -1072,8 +1406,6 @@ items:
                 href: cli-ref/baremetal/cli-ref/vrf/list.md
               - name: list-operations
                 href: cli-ref/baremetal/cli-ref/vrf/list-operations.md
-              - name: remove-labels
-                href: cli-ref/baremetal/cli-ref/vrf/remove-labels.md
               - name: update
                 href: cli-ref/baremetal/cli-ref/vrf/update.md
           - name: zone
@@ -1653,6 +1985,8 @@ items:
                 href: cli-ref/cloud-registry/cli-ref/registry/set-ip-permissions.md
               - name: update
                 href: cli-ref/cloud-registry/cli-ref/registry/update.md
+          - name: tools
+            href: cli-ref/cloud-registry/cli-ref/tools.md
           - name: v0
             items:
               - name: Overview
@@ -1750,6 +2084,8 @@ items:
                       cli-ref/cloud-registry/cli-ref/v0/registry/set-ip-permissions.md
                   - name: update
                     href: cli-ref/cloud-registry/cli-ref/v0/registry/update.md
+              - name: tools
+                href: cli-ref/cloud-registry/cli-ref/v0/tools.md
       - name: cloudrouter
         items:
           - name: Overview
@@ -7169,6 +7505,20 @@ items:
                 href: cli-ref/managed-mongodb/cli-ref/backup/get.md
               - name: list
                 href: cli-ref/managed-mongodb/cli-ref/backup/list.md
+          - name: backup-retention-policy
+            items:
+              - name: Overview
+                href: >-
+                  cli-ref/managed-mongodb/cli-ref/backup-retention-policy/index.md
+              - name: create
+                href: >-
+                  cli-ref/managed-mongodb/cli-ref/backup-retention-policy/create.md
+              - name: delete
+                href: >-
+                  cli-ref/managed-mongodb/cli-ref/backup-retention-policy/delete.md
+              - name: list
+                href: >-
+                  cli-ref/managed-mongodb/cli-ref/backup-retention-policy/list.md
           - name: cluster
             items:
               - name: Overview
@@ -7302,6 +7652,20 @@ items:
                     href: cli-ref/managed-mongodb/cli-ref/v0/backup/get.md
                   - name: list
                     href: cli-ref/managed-mongodb/cli-ref/v0/backup/list.md
+              - name: backup-retention-policy
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-mongodb/cli-ref/v0/backup-retention-policy/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/managed-mongodb/cli-ref/v0/backup-retention-policy/create.md
+                  - name: delete
+                    href: >-
+                      cli-ref/managed-mongodb/cli-ref/v0/backup-retention-policy/delete.md
+                  - name: list
+                    href: >-
+                      cli-ref/managed-mongodb/cli-ref/v0/backup-retention-policy/list.md
               - name: cluster
                 items:
                   - name: Overview
@@ -8155,6 +8519,18 @@ items:
                 href: cli-ref/managed-redis/cli-ref/backup/get.md
               - name: list
                 href: cli-ref/managed-redis/cli-ref/backup/list.md
+          - name: backup-retention-policy
+            items:
+              - name: Overview
+                href: cli-ref/managed-redis/cli-ref/backup-retention-policy/index.md
+              - name: create
+                href: >-
+                  cli-ref/managed-redis/cli-ref/backup-retention-policy/create.md
+              - name: delete
+                href: >-
+                  cli-ref/managed-redis/cli-ref/backup-retention-policy/delete.md
+              - name: list
+                href: cli-ref/managed-redis/cli-ref/backup-retention-policy/list.md
           - name: cluster
             items:
               - name: Overview
@@ -8268,6 +8644,20 @@ items:
                     href: cli-ref/managed-redis/cli-ref/v0/backup/get.md
                   - name: list
                     href: cli-ref/managed-redis/cli-ref/v0/backup/list.md
+              - name: backup-retention-policy
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-redis/cli-ref/v0/backup-retention-policy/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/managed-redis/cli-ref/v0/backup-retention-policy/create.md
+                  - name: delete
+                    href: >-
+                      cli-ref/managed-redis/cli-ref/v0/backup-retention-policy/delete.md
+                  - name: list
+                    href: >-
+                      cli-ref/managed-redis/cli-ref/v0/backup-retention-policy/list.md
               - name: cluster
                 items:
                   - name: Overview

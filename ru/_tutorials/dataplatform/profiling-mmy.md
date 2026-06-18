@@ -14,7 +14,7 @@
 1. [Активируйте сбор статистики](../../managed-mysql/operations/performance-diagnostics.md).
 1. [Создайте пользователя {{ MY }}](../../managed-mysql/operations/cluster-users.md#adduser) и [назначьте ему административную привилегию](../../managed-mysql/operations/grant.md#grant-privilege) `PROCESS` в настройке **Global permissions**. Эта привилегия действует на уровне кластера и задается в [настройках {{ MY }} на уровне пользователя](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges). Диагностические запросы необходимо выполнять от имени созданного пользователя.
     
-    Подробнее о привилегиях пользователей см. в разделе [{#T}](../../managed-mysql/concepts/user-rights.md).
+    Подробнее о привилегиях пользователей смотрите в разделе [{#T}](../../managed-mysql/concepts/user-rights.md).
     
 ## Диагностика дефицита ресурсов {#cpu-io-deficit}
 
@@ -71,7 +71,7 @@
    
    Следует обратить внимание на операции чтения и записи, работающие с большим числом строк. Они также могут вызывать повышенную нагрузку на сеть. В случае операций записи изменения в WAL будут переноситься на реплики и это дополнительно увеличит нагрузку на сеть.
 
-- Отследить потребление CPU отдельными запросами в {{ MY }} невозможно, но можно выявить неэффективно выполнявшиеся запросы (см. далее). 
+- Отследить потребление CPU отдельными запросами в {{ MY }} невозможно, но можно выявить неэффективно выполнявшиеся запросы (описано далее).
 
 ## Диагностика неэффективного выполнения запросов {#inefficient-queries}
 
@@ -87,7 +87,7 @@ LIMIT  10
 
 Следует обратить внимание на запросы с высокими значениями `ROWS_EXAMINED`, `ROWS_SORTED` или флагом `FULL_SCAN`.
 
-Подробнее об информации в выдаче см. в [документации {{ MY }}](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html).
+Подробнее об информации в выдаче смотрите в [документации {{ MY }}](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html).
 
 ## Диагностика наличия блокировок {#localize-locking-issues}
 

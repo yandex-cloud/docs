@@ -17,15 +17,15 @@ The chart refresh interval is 15 seconds.
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the trigger.
 
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-    1. Select the trigger whose monitoring charts you want to view.
+    1. Select a trigger for which you want to view monitoring charts.
 
     1. Navigate to the **{{ ui-key.yacloud.component.navigation-menu.label_monitoring }}** tab.
 
     1. You will see the following charts:
 
-        * **Request latency**: Average time it takes a trigger to process a request.
+        * **Request latency**: Average time it takes the trigger to process a request.
         * **Read events**: Number of events that have set off the trigger.
         * **Function access errors**: Number of access errors when invoking the function.
         * **Function call errors**: Number of errors when invoking the function.

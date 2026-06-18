@@ -136,7 +136,7 @@
            type: serviceAccount
      ```
 
-  Подробнее о командах см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/index.md).
+  Подробнее о командах смотрите в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/index.md).
 
 - Terraform {#tf}
 
@@ -153,7 +153,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../terraform/resources/iam_service_account.md).
+     Подробнее о ресурсах, которые вы можете создать с помощью Terraform, смотрите в [документации провайдера](../../terraform/resources/iam_service_account.md).
   1. Проверьте корректность конфигурационных файлов.
      1. В командной строке перейдите в директорию, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
@@ -211,7 +211,7 @@
   yc iam key create --service-account-name sa-function -o service_account_key_file.json
   ```
 
-  Подробнее о команде `yc iam key create` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/key/create.md).
+  Подробнее о команде `yc iam key create` смотрите в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/key/create.md).
 
   В случае успеха в файл `service_account_key_file.json` будет записан закрытая часть авторизованного ключа (`privateKey`) и идентификатор открытой части (`id`).
 
@@ -226,7 +226,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../terraform/resources/iam_service_account_key.md).
+     Подробнее о ресурсах, которые вы можете создать с помощью Terraform, смотрите в [документации провайдера](../../terraform/resources/iam_service_account_key.md).
   1. Проверьте корректность конфигурационных файлов.
      1. В командной строке перейдите в директорию, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:

@@ -30,7 +30,7 @@ You can authenticate:
 
 - Using an OAuth token {#oauth-token}
 
-  {% include [oauth-token-deprecated-soon](../../_includes/oauth-token-deprecated-soon.md) %}
+  {% include [oauth-token-deprecated-migration](../../_includes/oauth-token-deprecated-migration.md) %}
 
   {% note info %}
 
@@ -108,7 +108,7 @@ The Docker Engine can keep user credentials in an external credentials store. Th
    Credential helper is configured in '/home/<user>/.docker/config.json'
    ```
 
-   The current user's profile holds the saved settings.
+   The current user’s profile stores the settings.
 
    {% note warning %}
 

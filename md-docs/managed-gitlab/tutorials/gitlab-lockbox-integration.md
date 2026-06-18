@@ -56,7 +56,7 @@
 
    1. Нажмите кнопку **Save changes**.
 
-   Подробнее о настройках GitLab Runner см. в [документации GitLab](https://docs.gitlab.com/ee/ci/runners/configure_runners.html).
+   Подробнее о настройках GitLab Runner смотрите в [документации GitLab](https://docs.gitlab.com/ee/ci/runners/configure_runners.html).
 
    {% endcut %}
 

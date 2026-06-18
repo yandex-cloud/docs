@@ -60,7 +60,7 @@
 
     {% endlist %}
 
-    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+    Подробнее о параметрах используемых ресурсов в {{ TF }} смотрите в документации провайдера:
 
     * [Реестр](../../container-registry/concepts/registry.md) — [yandex_container_registry]({{ tf-provider-resources-link }}/container_registry).
     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
@@ -73,14 +73,14 @@
 1. В блоке `locals` задайте параметры создаваемых ресурсов:
     * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
     * `username` — имя пользователя, который будет создан на ВМ.
-    * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее в разделе [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
     * `target_folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будет находиться ВМ.
     * `registry_name` — имя реестра {{ container-registry-name }}.
     * `sa_name` — имя сервисного аккаунта.
     * `network_name` — имя облачной сети.
     * `subnet_name` — имя подсети.
     * `vm_name` — имя ВМ.
-    * `image_id` — идентификатор образа, из которого будет создана ВМ. Подробнее см. [{#T}](../../compute/operations/images-with-pre-installed-software/get-list.md).
+    * `image_id` — идентификатор образа, из которого будет создана ВМ. Подробнее в разделе [{#T}](../../compute/operations/images-with-pre-installed-software/get-list.md).
 
 1. Создайте ресурсы:
 

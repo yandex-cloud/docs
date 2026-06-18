@@ -13,7 +13,7 @@
 
 {% endnote %}
 
-[Сервис Application Load Balancer](https://yandex.cloud/ru/docs/application-load-balancer) поддерживает HTTPS-обработчик с загрузкой [сертификата](https://yandex.cloud/ru/docs/certificate-manager/concepts/imported-certificate) из Certificate Manager. См. [описание настройки обработчика](https://yandex.cloud/ru/docs/application-load-balancer/concepts/application-load-balancer#listener) в документации Yandex Application Load Balancer.
+[Сервис Application Load Balancer](https://yandex.cloud/ru/docs/application-load-balancer) поддерживает HTTPS-обработчик с загрузкой [сертификата](https://yandex.cloud/ru/docs/certificate-manager/concepts/imported-certificate) из Certificate Manager. Настройка [описана](https://yandex.cloud/ru/docs/application-load-balancer/concepts/application-load-balancer#listener) в документации Yandex Application Load Balancer.
 
 #### Инструкции и решения по выполнению
 

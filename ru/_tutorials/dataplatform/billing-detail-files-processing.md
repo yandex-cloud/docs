@@ -41,7 +41,7 @@
 <!-- * [визуализировать](../../query/tutorials/datalens.md) в {{ datalens-full-name }}; -->
 * получить и обработать через [{{ yq-name }} HTTP API](../../query/api/index.md).
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{{ objstorage-full-name }}](../../storage/).
 * [{{ datalens-full-name }}](../../datalens/).

@@ -1,1 +1,1 @@
-Полный перечень SDK для работы с S3 API смотрите в [официальном репозитории AWS на GitHub](https://github.com/aws/aws-sdk).
+Полный перечень SDK для работы с S3 API приведен в [официальном репозитории AWS на GitHub](https://github.com/aws/aws-sdk).

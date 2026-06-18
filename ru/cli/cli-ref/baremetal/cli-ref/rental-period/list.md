@@ -5,13 +5,13 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/rental-per
 
 # yc baremetal rental-period list
 
-List rental periods
+Retrieves the list of RentalPeriod resources.
 
 #### Command Usage
 
 Syntax:
 
-`yc baremetal rental-period list [Flags...] [Global Flags...]`
+`yc baremetal rental-period list <CONFIGURATION-ID>`
 
 #### Flags
 
@@ -19,10 +19,13 @@ Syntax:
 ||Flag | Description ||
 || `--configuration-id` | `string`
 
-Specifies rental periods for certain configuration ||
-|| `--limit` | `int`
+ID of the Configuration resource to return a Rental Period for. To get the configuration ID, use a [ConfigurationService.List] request. ||
+|| `--page-size` | `int`
 
-The maximum number of items to list. Default is 100 items ||
+The maximum number of results per page to return. If the number of available results is greater than 'page_size', the service returns a [ListRentalPeriodsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value is 20. ||
+|| `--page-token` | `string`
+
+Page token. To get the next page of results, set 'page_token' to the [ListRentalPeriodsResponse.next_page_token] returned by a previous list request. ||
 |#
 
 #### Global Flags
@@ -31,39 +34,45 @@ The maximum number of items to list. Default is 100 items ||
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--cloud-id` | `string`
+|| `--timeout` | `string`
 
-Set the ID of the cloud to use. ||
-|| `--folder-id` | `string`
-
-Set the ID of the folder to use. ||
-|| `--folder-name` | `string`
-
-Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
-
-Set the Cloud API endpoint (host:port). ||
+Set the timeout. ||
 || `--token` | `string`
 
-Set the OAuth token to use. ||
+Set the IAM token to use. ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

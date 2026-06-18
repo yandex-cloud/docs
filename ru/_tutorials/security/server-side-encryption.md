@@ -27,7 +27,7 @@
 
 * плата за хранение данных в бакете ([тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-storage));
 * плата за операции с данными ([тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-operations));
-* плата за использование ключей KMS (см. [тарифы {{ kms-name }}](../../kms/pricing.md#prices)).
+* плата за использование ключей KMS ([тарифы {{ kms-name }}](../../kms/pricing.md#prices)).
 
 
 ## Создайте бакет {#create-bucket}
@@ -125,7 +125,7 @@
       }
       ```
 
-      Более подробную информацию о ресурсах, которые вы можете создать с помощью [{{ TF }}](https://www.terraform.io/docs/language/index.html), см. в [документации провайдера]({{ tf-provider-link }}).
+      Подробнее о ресурсах, которые вы можете создать с помощью [{{ TF }}](https://www.terraform.io/docs/language/index.html), смотрите в [документации провайдера]({{ tf-provider-link }}).
 
   1. Проверьте корректность конфигурационных файлов.
 

@@ -269,7 +269,7 @@
 
    {% endlist %}
 
-   Подробнее см. в разделе [Чтение записей](../../logging/operations/read-logs.md).
+   Подробнее в разделе [Чтение записей](../../logging/operations/read-logs.md).
 
 ## Передача данных в пользовательскую лог-группу {#custom}
 
@@ -532,7 +532,7 @@
 
    {% endlist %}
 
-   Подробнее см. в разделе [Чтение записей](../../logging/operations/read-logs.md).
+   Подробнее в разделе [Чтение записей](../../logging/operations/read-logs.md).
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
 

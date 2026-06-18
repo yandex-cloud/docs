@@ -1049,6 +1049,7 @@ This setting has effect only when **log_queries** setting is enabled.
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_min_query_runs).
 
 - `query_cache_min_query_duration`: Minimum duration in milliseconds a query needs to run for its result to be stored in the query cache.
+(-- api-linter: yc::1701::duration-required=disabled --)
 
   Default value: **0**.
 

@@ -238,7 +238,7 @@ Firebase:
      * `name` — имя API-шлюза.
      * `spec` — спецификация API-шлюза.
 
-     Более подробную информацию о параметрах ресурса `yandex_api_gateway` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/api_gateway).
+     Подробнее о параметрах ресурса `yandex_api_gateway` в {{ TF }} смотрите в [документации провайдера]({{ tf-provider-resources-link }}/api_gateway).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -377,7 +377,7 @@ Firebase:
           * `bucket` — имя бакета.
           * `acl` — настройки доступа к бакету.
 
-        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
+        Подробнее о параметрах ресурса `yandex_storage_bucket` в {{ TF }} смотрите в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
      1. Создайте ресурсы:
 
         {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -492,7 +492,7 @@ Firebase:
           * `index_document` — абсолютный путь к файлу главной страницы сайта. Обязательный параметр.
           * `error_document` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках `4хх`. Необязательный параметр.
 
-        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+        Подробнее о параметрах ресурса `yandex_storage_bucket` в {{ TF }} смотрите в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
      1. Создайте ресурсы:
 
         {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

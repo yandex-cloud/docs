@@ -17,7 +17,7 @@ Connection to {{ PG }} clusters version 17 and above is not supported.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create your connection.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-mdb-proxy }}**.
     1. Click **{{ ui-key.yacloud.serverless-mdb-proxy.list.button_create }}**.
     1. Enter a connection name and description. Follow these naming requirements:
@@ -37,10 +37,10 @@ Connection to {{ PG }} clusters version 17 and above is not supported.
 ## Connecting to a database {#connect}
 
 To access database cluster hosts from a function using the created connection:
-* In the function version settings, specify the service account with the `{{ roles-functions-mdbProxiesUser }}` role for the folder where you created the connection. Learn how to assign a role [here](../../resource-manager/operations/folder/set-access-bindings.md#access-to-sa).
+* In the function version settings, specify the service account with the `{{ roles-functions-mdbProxiesUser }}` role for the folder where you created the connection. [How to assign a role](../../resource-manager/operations/folder/set-access-bindings.md#access-to-sa).
 * In advanced cluster settings, enable **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**.
 
-To connect to a database from a function, use the [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account specified in the function version settings as your password. Learn how to get an IAM token [here](./function-sa.md).
+To connect to a database from a function, use the [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account specified in the function version settings as your password. [Getting IAM token](./function-sa.md).
 
 You can only connect to a database from a function over SSL.
 

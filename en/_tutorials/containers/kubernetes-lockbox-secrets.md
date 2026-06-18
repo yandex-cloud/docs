@@ -23,9 +23,9 @@ You can also deploy an infrastructure for syncing {{ lockbox-name }} secrets wit
 
 The cost of resources for syncing secrets includes:
 * Fee for using the [{{ managed-k8s-name }} master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for a [{{ managed-k8s-name }} node group's](../../managed-kubernetes/concepts/index.md#node-group) [computing resources](../../compute/concepts/vm-platforms.md) and [disks](../../compute/concepts/disk.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for [{{ managed-k8s-name }} node group's](../../managed-kubernetes/concepts/index.md#node-group) [computing resources](../../compute/concepts/vm-platforms.md) and [disks](../../compute/concepts/disk.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
-### Create your infrastructure {#deploy-infrastructure}
+### Create the infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -47,7 +47,7 @@ The cost of resources for syncing secrets includes:
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-  1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for resources and nodes and the security group.
+  1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for resources and nodes, as well as the security groups.
 
   1. [Create a {{ lockbox-name }} secret](../../lockbox/operations/secret-create.md) with the following properties:
      * **{{ ui-key.yacloud.common.name }}**: `lockbox-secret`.
@@ -84,7 +84,7 @@ The cost of resources for syncing secrets includes:
      terraform validate
      ```
 
-     {{ TF }} will show any errors found in your configuration files.
+     {{ TF }} will display any configuration errors detected in your files.
   1. Create the required infrastructure:
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}

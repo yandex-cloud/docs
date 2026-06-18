@@ -1,6 +1,6 @@
 ---
-title: Partner portal
-description: The partner portal is the main partner tool used to manage customers, track their consumption, register deals, and view the partner bonus.
+title: '{{ yandex-cloud }} partner portal'
+description: The partner portal is a {{ yandex-cloud }} partner's primary tool for managing clients and finances.
 ---
 
 # Partner portal

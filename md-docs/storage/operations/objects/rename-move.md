@@ -63,7 +63,7 @@
       move: s3://my-bucket/object.txt to s3://my-bucket/renamed-object.txt
       ```
 
-  Подробнее о команде `yc storage s3 mv` см. в [документации](../../cli-ref/s3/mv.md).
+  Подробнее о команде `yc storage s3 mv` в [документации](../../cli-ref/s3/mv.md).
 
 - AWS CLI {#aws-cli}
 
@@ -86,7 +86,7 @@
       move: s3://<имя_бакета>/<ключ_объекта> to s3://<имя_бакета>/<новый_ключ_объекта>
       ```
 
-  Подробнее о команде `aws s3 mv` см. в документации [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mv.html).
+  Подробнее о команде `aws s3 mv` читайте в документации [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mv.html).
 
 {% endlist %}
 
@@ -114,7 +114,7 @@
   move: s3://my-bucket/my-prefix/ to s3://my-bucket/renamed-prefix/
   ```
 
-  Подробнее о команде `yc storage s3 mv` см. в [документации](../../cli-ref/s3/mv.md).
+  Подробнее о команде `yc storage s3 mv` в [документации](../../cli-ref/s3/mv.md).
 
 - AWS CLI {#aws-cli}
 
@@ -138,7 +138,7 @@
       move: s3://<имя_бакета>/<префикс>/ to s3://<имя_бакета>/<новый_префикс>/
       ```  
 
-  Подробнее о команде `aws s3 mv` см. в документации [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mv.html).
+  Подробнее о команде `aws s3 mv` читайте в документации [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mv.html).
 
 {% endlist %}
 
@@ -208,7 +208,7 @@
       move: s3://<имя_бакета-источника>/<ключ_объекта> to s3://<имя_целевого_бакета>/<ключ_объекта>
       ```
 
-  Подробнее о команде `aws s3 mv` см. в документации [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mv.html).
+  Подробнее о команде `aws s3 mv` читайте в документации [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mv.html).
 
 {% endlist %}
 
@@ -298,6 +298,6 @@
       move: s3://<имя_бакета-источника>/<ключ_объекта_2> to s3://<имя_целевого_бакета>/<ключ_объекта_2>
       ```
 
-  Подробнее о команде `aws s3 mv` см. в документации [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mv.html).
+  Подробнее о команде `aws s3 mv` читайте в документации [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mv.html).
 
 {% endlist %}

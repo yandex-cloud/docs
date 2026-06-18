@@ -96,7 +96,7 @@ description: Следуя данной инструкции, вы сможете
      * `secret_key` — значение секретного ключа доступа.
      * `max_size` — максимальный размер бакета в байтах.
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#bucket-max-size).
+     Более подробная информация о параметрах ресурса `yandex_storage_bucket` в {{ TF }} приведена в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#bucket-max-size).
 
   1. Примените изменения:
 

@@ -1,6 +1,6 @@
 # Поставка данных в ksqlDB
 
-ksqlDB — это база данных, которая предназначена для потоковой обработки сообщений, поступающих из топиков Apache Kafka®. Работа с потоком сообщений в ksqlDB похожа на работу с таблицами в обычной базе данных. Таблица ksqlDB автоматически пополняется данными, поступающими из топика, а данные, которые вы добавите в таблицу ksqlDB, отправляются в топик Apache Kafka®. Подробнее см. в [документации ksqlDB](https://docs.ksqldb.io/en/latest).
+ksqlDB — это база данных, которая предназначена для потоковой обработки сообщений, поступающих из топиков Apache Kafka®. Работа с потоком сообщений в ksqlDB похожа на работу с таблицами в обычной базе данных. Таблица ksqlDB автоматически пополняется данными, поступающими из топика, а данные, которые вы добавите в таблицу ksqlDB, отправляются в топик Apache Kafka®. Подробнее в [документации ksqlDB](https://docs.ksqldb.io/en/latest).
 
 Чтобы настроить поставку данных из Managed Service for Apache Kafka® в ksqlDB:
 1. [Настройте интеграцию с Apache Kafka® для базы ksqlDB](#configure-ksqldb-for-kf).
@@ -146,7 +146,7 @@ ksqlDB — это база данных, которая предназначен
 
    Эта потоковая таблица будет автоматически наполняться сообщениями из топика `locations` кластера Managed Service for Apache Kafka®. Для чтения сообщений ksqlDB использует [настройки](#configure-ksqldb-for-kf) пользователя `ksql`.
 
-   Подробнее о создании потоковой таблицы на движке ksqlDB см. в [документации ksqlDB](https://www.confluent.io/blog/how-real-time-stream-processing-works-with-ksqldb).
+   Подробнее о создании потоковой таблицы на движке ksqlDB смотрите в [документации ksqlDB](https://www.confluent.io/blog/how-real-time-stream-processing-works-with-ksqldb).
 
 1. Выполните запрос:
 
@@ -196,7 +196,7 @@ ksqlDB — это база данных, которая предназначен
       -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
    ```
 
-   Информация отправляется с помощью пользователя `ksql`. Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [Подключение к кластеру Apache Kafka® из приложений](../operations/connect/clients.md).
+   Информация отправляется с помощью пользователя `ksql`. Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [Подключение к кластеру Apache Kafka® из приложений](../operations/connect/clients.md).
 
 1. Убедитесь, что в [сессии](#create-kf-table) отобразились данные, которые были отправлены в топик:
 

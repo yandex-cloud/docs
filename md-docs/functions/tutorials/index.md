@@ -53,7 +53,7 @@
 ## Интеграция с сервисами Яндекса и Yandex Cloud {#integrations}
 
 * [Разработка навыка Алисы и сайта с авторизацией](alice-shareable-todolist.md)
-* [Создание навыка Алисы](alice-skill.md)
+* [Создание навыка Алисы](alice-skill/index.md)
 
 ## Искусственный интеллект {#ai}
 

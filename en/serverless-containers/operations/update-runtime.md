@@ -4,8 +4,8 @@
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder with your container.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder with your container.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container you want to change the [operation mode](../concepts/container.md#runtime) for.
   1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
   1. In the window that opens, under **{{ ui-key.yacloud.serverless-containers.section_general }}**, select `{{ ui-key.yacloud.serverless-containers.label_runtime-http-server }}` or `{{ ui-key.yacloud.serverless-containers.label_runtime-task-execution }}`.
@@ -24,9 +24,9 @@
   ```
 
   Where:
-  * `--container-id`: Container ID. To find out the ID, [get](list.md) a list of containers.
+  * `--container-id`: Container ID. To find out the ID, [get](list.md) the list of containers.
   * `--image`: {{ container-registry-full-name }} Docker image URL.
-  * `--service-account-id`: [ID of the service account](../../iam/operations/sa/get-id.md) with permissions to download a Docker image.
+  * `--service-account-id`: [ID of the service account](../../iam/operations/sa/get-id.md) with Docker image pull permissions.
   * `--runtime`: Container operation mode. It can be either `http` or `task`. The default value is `http`.
 
 

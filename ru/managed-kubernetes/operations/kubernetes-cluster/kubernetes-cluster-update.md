@@ -117,7 +117,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы изменить кластер {{ managed-k8s-name }}:
   1. Откройте актуальный конфигурационный файл с описанием кластера {{ managed-k8s-name }}.
 
-     О том, как создать такой файл, см. в разделе [{#T}](kubernetes-cluster-create.md).
+     О том, как создать такой файл, читайте в разделе [{#T}](kubernetes-cluster-create.md).
   1. Измените нужные параметры в описании кластера {{ managed-k8s-name }}.
 
      Чтобы изменить настройки отправки логов в [{{ cloud-logging-full-name }}](../../../logging/), измените значения параметров в блоке `master_logging`. Если такого блока нет — создайте его.
@@ -142,7 +142,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-cluster.md) %}
 
-     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
+     Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
 
 - API {#api}
 
@@ -273,8 +273,6 @@ description: Следуя данной инструкции, вы сможете
 
 ## Изменить конфигурацию ресурсов мастера {#manage-resources}
 
-{% include [master-config-preview-note](../../../_includes/managed-kubernetes/master-config-preview-note.md) %}
-
 {% include [master-pricing-note](../../../_includes/managed-kubernetes/master-pricing-note.md) %}
 
 {% list tabs group=instructions %}
@@ -326,7 +324,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Откройте актуальный конфигурационный файл с описанием кластера {{ managed-k8s-name }}.
 
-     О том, как создать такой файл, см. в разделе [{#T}](kubernetes-cluster-create.md).
+     О том, как создать такой файл, читайте в разделе [{#T}](kubernetes-cluster-create.md).
 
   1. Добавьте или измените в описании кластера {{ managed-k8s-name }} конфигурацию [вычислительных ресурсов мастера](../../concepts/index.md#master-resources) в блоке `scale_policy`:
 
@@ -356,7 +354,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-cluster.md) %}
 
-     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
+     Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
 
 - API {#api}
 

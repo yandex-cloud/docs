@@ -74,7 +74,7 @@ description: Следуя данной инструкции, вы сможете
      * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
      * `s3 cp --recursive` — команда для загрузки всех объектов из локальной директории, включая вложенные. Чтобы загрузить объекты, в первой части команды укажите путь к папке, из которой нужно скопировать файлы в бакет, а во второй — имя вашего бакета и [идентификатор папки](../../concepts/object.md#folder) в хранилище.
 
-  Команда `aws s3 cp` — высокоуровневая, ее функциональность ограничена. Подробнее см. в [справочнике AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html). Все возможности загрузки, которые поддерживаются в {{ objstorage-name }}, можно использовать при выполнении команды [aws s3api put-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html) (см. [ниже](#w-object-lock) примеры работы с [блокировками](../../concepts/object-lock.md)).
+  Команда `aws s3 cp` — высокоуровневая, ее функциональность ограничена. Подробнее в [справочнике AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html). Все возможности загрузки, которые поддерживаются в {{ objstorage-name }}, можно использовать при выполнении команды [aws s3api put-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html) (читайте [ниже](#w-object-lock) примеры работы с [блокировками](../../concepts/object-lock.md)).
 
 - {{ TF }} {#tf}
 
@@ -136,7 +136,7 @@ description: Следуя данной инструкции, вы сможете
 
      * `source` — относительный или абсолютный путь к файлу, который нужно загрузить в бакет.
 
-      Более подробную информацию о параметрах ресурса `yandex_storage_object` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_object).
+      Более подробная информация о параметрах ресурса `yandex_storage_object` в {{ TF }} приведена в [документации провайдера]({{ tf-provider-resources-link }}/storage_object).
 
   1. Создайте ресурсы:
 
@@ -222,7 +222,7 @@ description: Следуя данной инструкции, вы сможете
        * `ON` — блокировка установлена.
        * `OFF` — блокировка не установлена.
 
-     Вы можете установить на версию объекта только временную блокировку (параметры `object-lock-mode` и `object-lock-retain-until-date`), только бессрочную блокировку (`object-lock-legal-hold-status`) или обе сразу. Подробнее об их совместной работе см. в разделе [{#T}](../../concepts/object-lock.md#types).
+     Вы можете установить на версию объекта только временную блокировку (параметры `object-lock-mode` и `object-lock-retain-until-date`), только бессрочную блокировку (`object-lock-legal-hold-status`) или обе сразу. Подробнее об их совместной работе в разделе [{#T}](../../concepts/object-lock.md#types).
 
      Результат:
 
@@ -267,7 +267,7 @@ description: Следуя данной инструкции, вы сможете
          * `ON` — блокировка установлена.
          * `OFF` — блокировка не установлена.
     
-     Вы можете установить на версию объекта только временную блокировку (параметры `object-lock-mode` и `object-lock-retain-until-date`), только бессрочную блокировку (`object-lock-legal-hold-status`) или обе сразу. Подробнее об их совместной работе см. в разделе [{#T}](../../concepts/object-lock.md#types).
+     Вы можете установить на версию объекта только временную блокировку (параметры `object-lock-mode` и `object-lock-retain-until-date`), только бессрочную блокировку (`object-lock-legal-hold-status`) или обе сразу. Подробнее об их совместной работе в разделе [{#T}](../../concepts/object-lock.md#types).
 
 - API {#api}
 
@@ -321,7 +321,7 @@ description: Следуя данной инструкции, вы сможете
      * `--object-lock-mode` и `--object-lock-retain-until-date`, чтобы установить на версию объекта временную блокировку, отличную от настроек бакета по умолчанию;
      * `--object-lock-legal-hold-status`, чтобы установить на версию объекта бессрочную блокировку.
 
-     Подробнее об этих параметрах см. в инструкции выше.
+     Подробнее об этих параметрах в инструкции выше.
 
 - AWS CLI {#aws-cli}
 
@@ -358,7 +358,7 @@ description: Следуя данной инструкции, вы сможете
      * `--object-lock-mode` и `--object-lock-retain-until-date`, чтобы установить на версию объекта временную блокировку, отличную от настроек бакета по умолчанию;
      * `--object-lock-legal-hold-status`, чтобы установить на версию объекта бессрочную блокировку.
  
-     Подробнее об этих параметрах см. в инструкции выше.
+     Подробнее об этих параметрах в инструкции выше.
 
 - API {#api}
 

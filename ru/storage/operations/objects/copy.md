@@ -75,7 +75,7 @@ description: Следуя данной инструкции, вы сможете
       copy: s3://my-bucket/object.txt to s3://new-bucket/object-copy.txt
       ```
 
-      Подробнее о настройке команды см. в подразделе [{#T}](#yc-s3-cp-config).
+      Подробнее о настройке команды в подразделе [{#T}](#yc-s3-cp-config).
 
 - AWS CLI {#aws-cli}
 
@@ -98,7 +98,7 @@ description: Следуя данной инструкции, вы сможете
       copy: s3://<бакет_источник>/<ключ_объекта> to s3://<бакет_приемник>/<ключ_объекта>
       ```
 
-      Подробнее о команде `aws s3 cp` см. в документации [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
+      Подробнее о команде `aws s3 cp` читайте в документации [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
 
 {% endlist %}
 
@@ -146,7 +146,7 @@ description: Следуя данной инструкции, вы сможете
       copy: s3://my-bucket/object-n.txt to s3://new-bucket/object-n-copy.txt
       ```
 
-      Подробнее о настройке команды см. в подразделе [{#T}](#yc-s3-cp-config).
+      Подробнее о настройке команды в подразделе [{#T}](#yc-s3-cp-config).
 
 - AWS CLI {#aws-cli}
 
@@ -171,7 +171,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [s3-cp-filter-order](../../../_includes/storage/s3-cp-filter-order.md) %}
 
-      Подробнее о команде `aws s3 cp` см. в документации [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
+      Подробнее о команде `aws s3 cp` читайте в документации [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
 
   {% note info %}
 
@@ -206,4 +206,4 @@ s3.max-concurrent-requests × s3.multipart-chunksize
 * `s3.max-concurrent-requests` — максимальное количество одновременных запросов. Значение по умолчанию — `10`.
 * `s3.multipart-chunksize` — размер частей, на которые будет делиться объект при составной (multipart) загрузке. Значение по умолчанию — `8 MB`.
 
-Подробнее о настройке команды см. в подразделе [{#T}](#yc-s3-cp-config).
+Подробнее о настройке команды в подразделе [{#T}](#yc-s3-cp-config).

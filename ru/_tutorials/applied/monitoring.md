@@ -130,7 +130,7 @@
               `ROOM_DOOR_SENSOR_VALUE`   | Показания датчика открытия двери в серверную комнату. | `False`
               `SMOKE_SENSOR_VALUE`       | Показания детектора дыма.                             | `False`
               `WATER_SENSOR_VALUE`       | Показания детектора воды.                             | `False`
-              `IOT_CORE_DEVICE_ID`       | Идентификатор устройства, которое вы создали.         | См. в [консоли управления]({{ link-console-main }})<br>сервиса {{ iot-name }}.
+              `IOT_CORE_DEVICE_ID`       | Идентификатор устройства, которое вы создали.         | Идентификатор можно узнать в [консоли управления]({{ link-console-main }})<br>сервиса {{ iot-name }}.
               `DEVICE_ID`                | Пользовательское название устройства.                 | Задается пользователем.
 
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
@@ -264,7 +264,7 @@
               Ключ | Описание | Значение
               :--- | :--- | :---
               `VERBOSE_LOG`       | Включение и отключение записи данных. | `True`
-              `METRICS_FOLDER_ID` | Идентификатор каталога, в котором развернуты сервисы и для которого вы создадите дашборд в сервисе {{ monitoring-name }}. | См. в [консоли управления]({{ link-console-main }}).
+              `METRICS_FOLDER_ID` | Идентификатор каталога, в котором развернуты сервисы и для которого вы создадите дашборд в сервисе {{ monitoring-name }}. | Идентификатор можно узнать в [консоли управления]({{ link-console-main }}).
 
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 

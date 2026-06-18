@@ -157,7 +157,7 @@
 
      1. Откройте актуальный конфигурационный файл с описанием группы узлов Managed Service for Kubernetes.
 
-        О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group-create.md).
+        О том, как создать такой файл, читайте в разделе [Создание группы узлов](node-group-create.md).
      1. Добавьте к описанию группы узлов Managed Service for Kubernetes параметр `node_labels`:
 
         ```hcl
@@ -231,7 +231,7 @@
         
         {% endnote %}
 
-        Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
+        Подробнее в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
 
    - API {#api}
 
@@ -333,7 +333,7 @@
 
   1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов Managed Service for Kubernetes.
 
-     О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group-create.md).
+     О том, как создать такой файл, читайте в разделе [Создание группы узлов](node-group-create.md).
 
   1. В описании группы узлов добавьте блок `node_labels`:
 
@@ -409,7 +409,7 @@
      
      {% endnote %}
 
-     Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
+     Подробнее в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
 
 - API {#api}
 
@@ -463,7 +463,7 @@
 
   1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов Managed Service for Kubernetes.
 
-     О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group-create.md).
+     О том, как создать такой файл, читайте в разделе [Создание группы узлов](node-group-create.md).
 
   1. Удалите из описания группы узлов ненужные Kubernetes-метки в блоке `node_labels`.
 
@@ -526,7 +526,7 @@
      
      {% endnote %}
 
-     Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
+     Подробнее в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
 
 - API {#api}
 

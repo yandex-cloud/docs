@@ -21,7 +21,7 @@
 * метрики Kubernetes;
 * Flow logs Kubernetes.
 
-Подробнее о настройке сбора событий аудита на разных уровнях см. в разделе [Сбор, мониторинг и анализ аудитных логов Managed Service for Kubernetes](https://yandex.cloud/ru/docs/security/domains/kubernetes#collection-monitoring-analysis-audit-logs).
+Подробнее о настройке сбора событий аудита на разных уровнях в разделе [Сбор, мониторинг и анализ аудитных логов Managed Service for Kubernetes](https://yandex.cloud/ru/docs/security/domains/kubernetes#collection-monitoring-analysis-audit-logs).
 
 #### Инструкции и решения по выполнению
 

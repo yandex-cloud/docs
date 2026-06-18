@@ -179,23 +179,10 @@ POST /v2/email/outbound-emails HTTP/2
 
 {% include [api-errors](../../../_includes/postbox/api-errors.md) %}
 
-Возможные ошибки:
-
-#|
-|| **Код ошибки** | **Описание** ||
-|| `400 BadRequestException` | В запросе неправильно указаны заголовки или параметры. ||
-|| `400 BadRequestException: sender is not allowed` | [Отправитель](../../concepts/glossary.md#sender) не входит в список разрешенных отправителей, которые указаны в настройках адреса. ||
-|| `400 AccountSuspendedException` | Для этого сервисного аккаунта возможность отправлять почту ограничена навсегда. ||
-|| `400 SendingPausedException` | Для этого сервисного аккаунта возможность отправлять почту временно ограничена. ||
-|| `400 MessageRejected` | Письмо содержит некорректные данные. ||
-|| `400 MailFromDomainNotVerifiedException` | Адрес, с которого отправляется письмо, не верифицирован. ||
-|| `404 NotFoundException` | Запрошенный ресурс не найден. ||
-|| `429 TooManyRequestsException` | При вызове запроса превышена [квота](../../concepts/limits.md#postbox-quotas). ||
-|| `429 LimitExceededException` | При вызове запроса превышен [лимит](../../concepts/limits.md). ||
-|#
+{% include [errors-list](../../../_includes/postbox/errors-list.md) %}
 
 ## Полезные ссылки {#see-also}
 
-* [Как пользоваться Amazon S3 API для работы с {{ postbox-name }}](../index.md)
-* [Аутентификация в API {{ postbox-full-name }}](../../api-ref/authentication.md)
-* [Шаблонизация письма в {{ postbox-full-name }}](../../operations/send-templated-email.md)
+* [{#T}](../index.md)
+* [{#T}](../../api-ref/authentication.md)
+* [{#T}](../../operations/send-templated-email.md)

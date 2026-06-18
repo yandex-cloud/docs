@@ -16,7 +16,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that invokes 
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -70,7 +70,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that invokes 
 
     * `--name`: Timer name.
     * `--cron-expression`: Function invocation schedule specified as a [cron expression](../../concepts/trigger/timer.md#cron-expression).
-    * `--payload`: Message to provide to the function when the timer fires. The string length must not exceed 4,096 characters.
+    * `--payload`: Message to send to the function when the timer fires. The string length must not exceed 4,096 characters.
     
     {% include [trigger-cli-param](../../../_includes/functions/trigger-cli-param.md) %}
 
@@ -116,7 +116,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that invokes 
          id                 = "<function_ID>"
          service_account_id = "<service_account_ID>"
          retry_attempts     = "<number_of_retry_attempts>"
-         retry_interval     = "<interval_between_retry_attempts>"
+         retry_interval     = "<time_between_retry_attempts>"
        }
        timer {
          cron_expression = "<cron_expression>"
@@ -136,7 +136,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that invokes 
      * `timer`: Trigger settings:
 
        * `cron_expression`: Function invocation schedule specified as a [cron expression](../../concepts/trigger/timer.md#cron-expression).
-       * `payload`: Message to provide to the function when the timer fires. The string length must not exceed 4,096 characters.
+       * `payload`: Message to send to the function when the timer fires. The string length must not exceed 4,096 characters.
 
      {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 

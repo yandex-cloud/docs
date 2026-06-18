@@ -5,7 +5,6 @@ editable: false
 # Virtual Private Cloud API, gRPC: NetworkService.Get
 
 Returns the specified Network resource.
-
 Get the list of available Network resources by making a [List](/docs/vpc/api-ref/grpc/Network/list#List) request.
 
 ## gRPC request
@@ -24,8 +23,10 @@ Get the list of available Network resources by making a [List](/docs/vpc/api-ref
 ||Field | Description ||
 || network_id | **string**
 
-Required field. ID of the Network resource to return.
-To get the network ID, use a [NetworkService.List](/docs/vpc/api-ref/grpc/Network/list#List) request. ||
+ID of the Network resource to return.
+To get the network ID, use a [NetworkService.List](/docs/vpc/api-ref/grpc/Network/list#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Network {#yandex.cloud.vpc.v1.Network}

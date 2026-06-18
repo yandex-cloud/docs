@@ -16,7 +16,7 @@ If you do not have a service account yet, [create one](../sa/create.md) and [ass
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then select the required service account.
   1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_api_keys }}**, you will see a list of all available API keys.
 
@@ -152,11 +152,11 @@ To create a service account API key:
 
       For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_api_key).
 
-  1. Create the required resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources and their settings either in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
       ```bash
       yc iam api-key list --service-account-id <service_account_ID>
@@ -220,41 +220,13 @@ To learn how to transmit a key in a request, read the [guides for the respective
   yc iam api-key list-scopes
   ```
 
-  Result:
-
-
-  ```text
-  - yc.ai.foundationModels.execute
-  - yc.ai.imageGeneration.execute
-  - yc.ai.languageModels.execute
-  - yc.ai.speechkitStt.execute
-  - yc.ai.speechkitTts.execute
-  - yc.ai.translate.execute
-  - yc.ai.vision.execute
-  - yc.logging.write
-  - yc.monitoring.manage
-  - yc.monitoring.read
-  - yc.monium.logs.write
-  - yc.monium.metrics.write
-  - yc.monium.traces.write
-  - yc.monium.telemetry.write
-  - yc.postbox.send
-  - yc.search-api.execute
-  - yc.serverless.containers.invoke
-  - yc.serverless.functions.invoke
-  - yc.ydb.tables.manage
-  - yc.ydb.topics.manage
-  ```
-
 - API {#api}
 
   To view the available [scopes](../../concepts/authorization/api-key.md#scoped-api-keys) of an API key, use the [ListScopes](../../api-ref/ApiKey/listScopes.md) REST API method for the [ApiKey](../../api-ref/ApiKey/index.md) resource or the [ApiKeyService/ListScopes](../../api-ref/grpc/ApiKey/listScopes.md) gRPC API call.
 
 {% endlist %}
 
-### Examples {#examples}
-
-#### Adding a description when creating an API key {#add-description}
+## Adding a description when creating an API key {#add-description}
 
 To add an API key description when creating the key:
 
@@ -363,16 +335,16 @@ To delete a service account API key:
 
       For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_api_key).
 
-  1. Validate your configuration files.
+  1. Make sure the configuration files are correct.
 
       1. In the terminal, navigate to the directory where you created your configuration file.
-      1. Run a check using the following command:
+      1. Run a check using this command:
 
           ```bash
           terraform plan
           ```
 
-      If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
+      If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 

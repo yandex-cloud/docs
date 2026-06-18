@@ -1,5 +1,5 @@
 
-В {{ mkf-name }} вы можете использовать интегрированный реестр схем формата данных [{{ mkf-msr }}](../../../managed-kafka/concepts/managed-schema-registry.md#msr). Подробнее см. в разделе [{#T}](../../../managed-kafka/tutorials/managed-schema-registry.md). Если вам необходим реестр [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html), используйте информацию из этого руководства.
+В {{ mkf-name }} вы можете использовать интегрированный реестр схем формата данных [{{ mkf-msr }}](../../../managed-kafka/concepts/managed-schema-registry.md#msr). Подробнее в разделе [{#T}](../../../managed-kafka/tutorials/managed-schema-registry.md). Если вам необходим реестр [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html), используйте информацию из этого руководства.
 
 {% note info %}
 

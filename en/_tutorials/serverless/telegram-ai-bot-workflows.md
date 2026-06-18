@@ -8,7 +8,7 @@ In this tutorial, you will create a bot which provides movie recommendations bas
 To create a bot:
 
 1. [Get your cloud ready](#before-you-begin).
-1. [Register your Telegram bot](#create-bot).
+1. [Create a Telegram bot](#create-bot).
 1. [Create a secret](#create-secret).
 1. [Create a bucket](#create-bucket).
 1. [Create a service account](#create-sa).
@@ -36,25 +36,25 @@ The cost of Telegram bot support includes:
 * Fee for collecting and storing logs (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
 
 
-## Register your Telegram bot {#create-bot}
+## Create a Telegram bot {#create-bot}
 
-Register your bot in Telegram and get a token.
+Create a bot in Telegram and get a token.
 
-1. To register the new bot, start [BotFather](https://t.me/BotFather) and run this command:
+1. To register a new bot, start [BotFather](https://t.me/BotFather) and run this command:
 
     ```text
     /newbot
     ```
 
-1. Specify the bot’s name, e.g., `Serverless AI Telegram Bot`. This is the name users will see when chatting with the bot.
-1. Specify the username of your bot, e.g., `ServerlessAITelegramBot`. You can use it to find the bot in Telegram. The username must end with `...Bot` or `..._bot`.
+1. Name your bot, e.g., `Serverless AI Telegram Bot`. This is the name users will see when chatting with the bot.
+1. Specify a username for your bot, e.g., `ServerlessAITelegramBot`. You can use it to find the bot in Telegram. The username must end with `...Bot` or `..._bot`.
 
     As a result, you will get a token. Save it, as you will need it later.
 
 
 ## Create a secret {#create-secret}
 
-Create a [secret](../../lockbox/concepts/secret.md) to store the token for access to the Telegram API.
+Create a [secret](../../lockbox/concepts/secret.md) to store the Telegram API access token.
 
 {% list tabs group=instructions %}
 
@@ -65,8 +65,8 @@ Create a [secret](../../lockbox/concepts/secret.md) to store the token for acces
   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret.
   1. Select the `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}` secret type.
-  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, specify `token`.
-  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, specify the bot’s token you got when [creating](#create-bot) it.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, enter `token`.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, specify the token you got when [creating](#create-bot) the bot.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -75,7 +75,7 @@ Create a [secret](../../lockbox/concepts/secret.md) to store the token for acces
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command for creating a secret:
+  1. See the description of the CLI command for creating a secret:
 
       ```bash
       yc lockbox secret create --help
@@ -92,10 +92,10 @@ Create a [secret](../../lockbox/concepts/secret.md) to store the token for acces
       Where:
 
       * `--name`: Secret name.
-      * `--payload`: Secret contents as a YAML or JSON array.
+      * `--payload`: Secret contents as a YAML or JSON array:
 
           * `key`: Secret key.
-          * `text_value`: Secret value. Specify the token you received when [creating the bot](#create-bot).
+          * `text_value`: Secret value. Specify the token you got when [creating the bot](#create-bot).
 
       Result:
 
@@ -132,13 +132,13 @@ Create a [bucket](../../storage/concepts/bucket.md) to store your chat history w
   1. Open the [management console]({{ link-console-main }}).
   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. Enter a name for the bucket consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
+  1. Specify a bucket name that meets [these naming conventions](../../storage/concepts/bucket.md#naming).
   1. Specify the maximum bucket size: `5 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
-  1. View the description of the CLI command to create a bucket:
+  1. See the description of the CLI command for creating a bucket:
 
       ```bash
       yc storage bucket create --help
@@ -155,7 +155,7 @@ Create a [bucket](../../storage/concepts/bucket.md) to store your chat history w
 
       Where:
 
-      * `--name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
+      * `--name`: Bucket name that meets the [naming conventions](../../storage/concepts/bucket.md#naming).
       * `--default-storage-class`: [Storage class](../../storage/concepts/storage-class.md).
       * `--max-size`: Maximum bucket size, in bytes.
 
@@ -189,7 +189,7 @@ Create a [bucket](../../storage/concepts/bucket.md) to store your chat history w
   Where:
 
   * `--endpoint-url`: {{ objstorage-name }} endpoint.
-  * `--bucket`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
+  * `--bucket`: Bucket name that meets the [naming conventions](../../storage/concepts/bucket.md#naming).
 
 - API {#api}
 
@@ -209,7 +209,7 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) named `
   1. Open the [management console]({{ link-console-main }}).
   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter a name for the service account: `sa-workflows`.
+  1. Enter the service account name: `sa-workflows`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign these [roles](../../iam/roles-reference.md):
 
       * `storage.uploader`
@@ -224,7 +224,7 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) named `
 
   1. If you do not have [jq](https://stedolan.github.io/jq/download/) yet, install it.
 
-  1. View a description of the CLI command to create a service account:
+  1. See the description of the CLI command for creating a service account:
 
       ```bash
       yc iam service-account create --help
@@ -254,7 +254,7 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) named `
       FOLDER_ID=$(yc config get folder-id)
       ```
 
-  1. View the description of the CLI command for assigning a [role](../../iam/roles-reference.md) for the folder:
+  1. See the description of the CLI command for assigning a [role](../../iam/roles-reference.md) for the folder:
 
       ```bash
       yc resource-manager folder add-access-binding --help
@@ -361,7 +361,7 @@ Create a [text agent]({{ link-docs-ai }}ai-studio/concepts/agents/text-agents) i
 
 ## Set up a workflow {#config-workflow}
 
-Set up a workflow to enable the bot to read and save the chat history, call the AI agent, and send responses to Telegram.
+Set up a workflow to read and store chat history, call the AI agent, and send responses to Telegram.
 
 {% include [workflow-constructor-tip](../../_includes/serverless-integrations/workflow-constructor-tip.md) %}
 
@@ -380,7 +380,7 @@ steps:
     parallel:
       branches:
 
-        # Branch which outputs _typing_ to reanimate the chat faster
+        # Step that sends a typing action to make the chat feel more responsive
         send_typing_action:
           start: send_typing_action
           steps:
@@ -397,7 +397,7 @@ steps:
                     action: "typing"
                   })
 
-        # Basic logic
+        # Main logic
         handle_update:
           start: get_history
           steps:
@@ -470,11 +470,11 @@ Where:
   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. In the top-right corner, click **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
-  1. Choose the `{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}` method.
+  1. Select the `{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}` method.
   1. In the code editor, paste the text of the previously prepared YaWL workflow specification.
   1. Expand **{{ ui-key.yacloud.serverless-workflows.label_additional-parameters }}**:
 
-      1. Enter a name for the workflow. Follow these naming requirements:
+      1. Enter a name for the workflow. The naming requirements are as follows:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
@@ -502,8 +502,8 @@ Where:
 
       Where:
 
-      * `--yaml-spec`: Path to the file with the workflow YaWL specification prepared earlier. Here is an example: `./yawl-spec.yaml`.
-      * `--name`: Workflow name. Follow these naming requirements:
+      * `--yaml-spec`: Path to the file with the workflow YaWL specification prepared earlier, e.g., `./yawl-spec.yaml`.
+      * `--name`: Workflow name. The naming requirements are as follows:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
@@ -668,7 +668,7 @@ Set up a webhook for your bot:
 
 ## Test your bot {#check-result}
 
-1. Find the bot in Telegram by its username, which you created [earlier](#create-bot).
+1. Find the Telegram bot you created [earlier](#create-bot) by its username.
 1. Click **START** to start a chat.
 1. Send the bot a list of movie titles, one per line.
 
@@ -685,7 +685,7 @@ Set up a webhook for your bot:
     ```text
     Hi there! Thank you for letting me know your preferences. Here are the movies I would recommend based on your tastes:
     ...
-    Which of these films you would like to watch? Or do you have some other favourite movies you want me to consider?
+    Which of these movies would you like to watch? Or do you have some other favorite movies you want me to consider?
     ```
 
 
@@ -712,7 +712,7 @@ Also, you can:
 
 ## How to delete the resources you created {#clear-out}
 
-To avoid [incurring charges](#paid-resources) for resources you no longer need, delete them.
+To stop [paying](#paid-resources) for the resources you no longer need, delete them:
 
 1. [Delete](../../serverless-integrations/operations/workflows/workflow/delete.md) the workflow.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket.

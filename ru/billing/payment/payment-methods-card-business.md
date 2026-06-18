@@ -26,13 +26,13 @@
 
 {% include [refill-by-card](../_includes/refill-by-card.md) %}
 
-Дополнительную информацию см. в разделе [Цикл оплаты](billing-cycle-individual.md).
+Дополнительная информация в разделе [Цикл оплаты](billing-cycle-individual.md).
 
 ## Списание средств {#write-off}
 
 {% include [pay-by-card-business](../_includes/pay-by-card-business.md) %}
 
-Дополнительную информацию см. в разделе [Цикл оплаты](billing-cycle-business.md).
+Дополнительная информация в разделе [Цикл оплаты](billing-cycle-business.md).
 
 ## Сумма списания {#payment-amount}
 

@@ -47,6 +47,8 @@ items:
             items:
               - name: Creating a Linux-based product image
                 href: concepts/compute-product.md
+              - name: Creating a Linux-based {{ baremetal-name }} product
+                href: concepts/baremetal-product.md
               - name: Creating a product for {{ managed-k8s-name }}
                 href: concepts/kubernetes-product.md
           - name: Billing of products based on publisher metrics

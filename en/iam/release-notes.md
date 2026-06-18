@@ -5,6 +5,73 @@ description: This section contains the {{ iam-name }} release notes.
 
 # {{ iam-full-name }} release notes
 
+## May 2026 {#may-2026}
+
+### {{ iam-name }} updates {#iam-may-2026}
+
+* Added new [API key scopes](concepts/authorization/api-key.md#scoped-api-keys): to work with {{ cloud-registry-full-name }} and to run workflows in {{ sw-name }}.
+* Updated [access policy](concepts/access-control/access-policies.md) templates: replaced the `serverless.restrictPrivateNetworkInvocation` and `serverless.restrictPublicInvocation` shared templates with separate templates for {{ serverless-containers-full-name }}, {{ sf-full-name }}, {{ mcp-hub-name }}, and {{ sw-name }}.
+
+### New roles {#roles-may-2026}
+
+{% cut "{{ cloud-apps-full-name }}" %}
+
+   Role | Description
+   --- | ---
+   `cloudapps.admin` | Enables the user to view info on installed {{ cloud-apps-name }} applications, create, modify, and delete them.
+   `cloudapps.auditor` | Enables the user to view the metadata of installed {{ cloud-apps-name }} applications.
+   `cloudapps.editor` | Enables the user to view info on installed {{ cloud-apps-name }} applications, create, modify, and delete them.
+   `cloudapps.viewer` | Enables the user to view info on installed {{ cloud-apps-name }} applications.
+
+{% endcut %}
+
+{% cut "{{ marketplace-full-name }}" %}
+
+   Role | Description
+   --- | ---
+   `marketplace.productInstances.admin` | Enables the user to manage installed Marketplace products and access to them.
+   `marketplace.productInstances.auditor` | Enables the user to view info on installed Marketplace products and access permissions for them and to view folder metadata.
+   `marketplace.productInstances.editor` | Enables the user to manage installed Marketplace products.
+   `marketplace.productInstances.saasSupervisor` | Enables the user to view info on installed Marketplace SaaS products and activate such products.
+   `marketplace.productInstances.user` | Enables the user to view info on installed Marketplace products, activate and deactivate them, and view info on access permissions for them.
+   `marketplace.productInstances.viewer` | Enables the user to view info on installed Marketplace products and access permissions for them.
+
+{% endcut %}
+
+{% cut "{{ postbox-full-name }}" %}
+
+   Role | Description
+   --- | ---
+   `postbox.messages.reader` | Enables the user to view the sent emails info, including sender, recipients, subject, sending date, delivery and engagement metrics, complaints, and unsubscriptions.
+   `postbox.statistics.reader` | Enables the user to view the sent emails statistics.
+
+{% endcut %}
+
+{% cut "{{ iam-full-name }}" %}
+
+   Role | Description
+   --- | ---
+   `iam.serviceAccounts.ephemeralAccessKeyAdmin` | Enables the user to create [ephemeral access keys](concepts/authorization/ephemeral-keys.md) for service accounts.
+
+{% endcut %}
+
+{% cut "{{ mrd-full-name }}" %}
+
+   Role | Description
+   --- | ---
+   `managed-redis.clusters.connector` | Enables {{ yandex-cloud }} users to connect to databases in {{ VLK }} clusters via {{ iam-full-name }}.
+
+{% endcut %}
+
+{% cut "{{ yandex-siem-full-name }}" %}
+
+   Role | Description
+   --- | ---
+   `ycem.executor` | Enables the user to manage requests, investigations, datasets, and correlation rules.
+   `ycem.inspector` | Enables the user to manage requests, investigations, and datasets.
+
+{% endcut %}
+
 ## April 2026 {#april-2026}
 
 ### {{ iam-name }} updates {#iam-april-2026}
@@ -18,7 +85,7 @@ description: This section contains the {{ iam-name }} release notes.
    Role | Description
    --- | ---
    `notifications.admin` | Enables the user to manage all notification channels and topics and send notifications to all channels and topics.
-   `notifications.auditor` | Enables the user to view all notification channel metadata, topic metadata, and info on quotas.
+   `notifications.auditor` | Enables the user to view metadata of all notification channels, metadata of topics, and info on quotas.
    `notifications.editor` | Enables the user to manage all notification channels and topics and send notifications to all channels and topics.
    `notifications.publisher` | Enables the user to send notifications to all channels and topics.
    `notifications.viewer` | Enables the user to view info on topics, notification channels, and quotas.
@@ -260,7 +327,7 @@ description: This section contains the {{ iam-name }} release notes.
    `monium.admin` | Enables the user to manage {{ monium-name }} resources, view and record all types of telemetry, manage projects and access to projects.
    `monium.editor` | Enables the user to manage {{ monium-name }} resources, view and record all types of telemetry.
    `monium.viewer` | Enables the user to view info on {{ monium-name }} resources and read all types of telemetry.
-   `monium.auditor` | Enables the user to view info on {{ monium-name }} resources.
+   `monium.auditor` | Enables the user to view details on {{ monium-name }} resources.
    `monium.alerts.editor` | Enables the user to view the list of alerts, their settings and trigger history, as well as to create, modify, and delete alerts.
    `monium.alerts.viewer` | Enables the user to view the list of alerts, their settings and trigger history.
    `monium.channels.editor` | Enables the user to view the list of alert notification channels and their info, as well as to create, modify, and delete such channels.

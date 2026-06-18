@@ -72,7 +72,7 @@
      default_security_group_id: enpbsnnop4ak********
      ```
 
-     Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
+     Подробнее о команде `yc vpc network create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
      
   1. Создайте подсеть `usergate-subnet-ru-central1-d` в зоне доступности `ru-central1-d`:
   
@@ -96,7 +96,7 @@
      - 10.1.0.0/16
      ```
 
-     Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
+     Подробнее о команде `yc vpc subnet create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 - Terraform {#tf}
 
@@ -115,7 +115,7 @@
      }
      ```
 
-     Подробнее см. в описаниях ресурсов [yandex_vpc_network](../../terraform/resources/vpc_network.md) и [yandex_vpc_subnet](../../terraform/resources/vpc_subnet.md) в документации провайдера Terraform.
+     Подробнее в описаниях ресурсов [yandex_vpc_network](../../terraform/resources/vpc_network.md) и [yandex_vpc_subnet](../../terraform/resources/vpc_subnet.md) в документации провайдера Terraform.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -261,7 +261,7 @@
       - 0.0.0.0/0
   ```
 
-  Подробнее о команде `yc vpc security-group create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
+  Подробнее о команде `yc vpc security-group create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
 - Terraform {#tf}
 
@@ -310,7 +310,7 @@
      }
      ```
 
-     Подробнее о ресурсе `yandex_vpc_security_group` см. в [документации](../../terraform/resources/vpc_security_group.md) провайдера Terraform.
+     Подробнее о ресурсе `yandex_vpc_security_group` смотрите в [документации](../../terraform/resources/vpc_security_group.md) провайдера Terraform.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -375,7 +375,7 @@
   reserved: true
   ```
 
-  Подробнее о команде `yc vpc address create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/address/create.md).
+  Подробнее о команде `yc vpc address create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/address/create.md).
 
 {% endlist %}
 
@@ -440,7 +440,7 @@
      yc vpc security-group get usergate-sg | grep "^id"
      ```
 
-     Подробнее о команде `yc vpc security-group get` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/get.md).
+     Подробнее о команде `yc vpc security-group get` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/get.md).
 
   1. Выполните команду:
 
@@ -490,7 +490,7 @@
      placement_policy: {}
      ```
 
-     Подробнее о команде `yc compute instance create` см. в [справочнике CLI](../../cli/cli-ref/compute/cli-ref/instance/create.md).
+     Подробнее о команде `yc compute instance create` смотрите в [справочнике CLI](../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
 - Terraform {#tf}
 
@@ -529,7 +529,7 @@
      }
      ```
 
-     Подробнее см. в описании ресурса [yandex_compute_instance](../../terraform/resources/compute_instance.md) в документации провайдера Terraform.
+     Подробнее смотрите в описании ресурса [yandex_compute_instance](../../terraform/resources/compute_instance.md) в документации провайдера Terraform.
      
   1. Проверьте корректность конфигурационных файлов.
 

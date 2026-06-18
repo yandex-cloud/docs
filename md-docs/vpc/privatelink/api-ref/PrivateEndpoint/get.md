@@ -1,7 +1,6 @@
 # Virtual Private Cloud API, REST: PrivateEndpoint.Get
 
 Returns the specified Private Endpoint resource.
-
 To get the list of all available PrivateEndpoint resources, make a [List](list.md#List)
 request.
 
@@ -18,9 +17,10 @@ GET https://vpc.api.cloud.yandex.net/vpc/v1/endpoints/{privateEndpointId}
 || privateEndpointId | **string**
 
 Required field. ID of the PrivateEndpoint resource to return.
-
 To get PrivateEndpoint resource ID make a [PrivateEndpointService.List](list.md#List)
-request. ||
+request.
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Response {#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint}
@@ -45,9 +45,15 @@ request. ||
   "dnsOptions": {
     "privateDnsRecordsEnabled": "boolean"
   },
-  // Includes only one of the fields `objectStorage`
-  "objectStorage": "object"
+  // Includes only one of the fields `objectStorage`, `serviceName`
+  "objectStorage": "object",
+  "serviceName": "string",
   // end of the list of possible fields
+  "dnsRecords": [
+    {
+      "name": "string"
+    }
+  ]
 }
 ```
 
@@ -93,7 +99,6 @@ ID of the network that the private endpoint belongs to. ||
 
 Status of the private endpoint.
 
-- `STATUS_UNSPECIFIED`
 - `PENDING`: Private endpoint is still creating / updating.
 - `AVAILABLE`: Private endpoint is available.
 - `DELETING`: Private endpoint is deleting. ||
@@ -107,9 +112,19 @@ Private endpoint dns options. ||
 
 Yandex Cloud Object Storage.
 
-Includes only one of the fields `objectStorage`.
+Includes only one of the fields `objectStorage`, `serviceName`.
 
 Service to connect with via private endpoint. ||
+|| serviceName | **string**
+
+Yandex Cloud service name.
+
+Includes only one of the fields `objectStorage`, `serviceName`.
+
+Service to connect with via private endpoint. ||
+|| dnsRecords[] | **[DnsRecord](#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint.DnsRecord)**
+
+List of private endpoint dns records. ||
 |#
 
 ## EndpointAddress {#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint.EndpointAddress}
@@ -136,4 +151,13 @@ ID of the private endpoint address. ||
 || privateDnsRecordsEnabled | **boolean**
 
 If enabled - vpc will create private dns records for specified service. ||
+|#
+
+## DnsRecord {#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint.DnsRecord}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the dns record. ||
 |#

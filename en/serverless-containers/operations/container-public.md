@@ -1,13 +1,13 @@
 # Making a container public
 
-If you want any user to be able to invoke a container without providing the authorization header, make it public.
+To allow any user to invoke a container without providing an authorization header, make the container public.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder with your container.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder with your container.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container you want to make public.
   1. On the **{{ ui-key.yacloud.common.overview }}** tab, enable **{{ ui-key.yacloud.serverless-containers.label_public-container }}**.
 
@@ -35,9 +35,9 @@ If you want any user to be able to invoke a container without providing the auth
 
   **Request example**
 
-  To use the example, install [cURL](https://curl.haxx.se) and [authenticate](../api-ref/containers/authentication.md) in the API.
+  To use this example, install [cURL](https://curl.haxx.se) and [authenticate](../api-ref/containers/authentication.md) with the API.
 
-  1. Prepare a file named `body.json` with the following request body:
+  1. Create a file named `body.json` with the following request body:
 
       ```json
       {
@@ -55,10 +55,10 @@ If you want any user to be able to invoke a container without providing the auth
 
       Where:
       * `roleId`: Role to assign. The `serverless-containers.containerInvoker` role allows you to invoke a container.
-      * `id`: Subject getting the role. `allUsers`: Any user. No authentication is required.
-      * `type`: Type of the subject getting the role. `system`: [Public group](../../iam/concepts/access-control/public-group.md).
+      * `id`: Subject getting the role. `allUsers` stands for any user and requires no authentication.
+      * `type`: Type of the subject getting the role. `system` stands for a [public group](../../iam/concepts/access-control/public-group.md).
 
-  1. Run the request stating the IAM token, path to the `body.json` file, and container ID:
+  1. Run the request, specifying the IAM token, path to the `body.json` file, and container ID:
 
       ```bash
       curl \
@@ -85,7 +85,7 @@ If you want any user to be able to invoke a container without providing the auth
       }
       ```
 
-  1. Make sure the role is assigned. To do this, run the request stating the IAM token and container ID:
+  1. Make sure the role is assigned. To do this, run the request, specifying the IAM token and container ID:
 
       ```bash
       curl \

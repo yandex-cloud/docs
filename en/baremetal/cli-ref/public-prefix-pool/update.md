@@ -5,34 +5,55 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/public-pre
 
 # yc baremetal public-prefix-pool update
 
-Update the specified public prefix pool
+Updates the specified public prefix pool.
 
 #### Command Usage
 
 Syntax:
 
-`yc baremetal public-prefix-pool update <PUBLIC-PREFIX-POOL-NAME>|<PUBLIC-PREFIX-POOL-ID> [Flags...] [Global Flags...]`
+`yc baremetal public-prefix-pool update <PUBLIC-PREFIX-POOL-ID>`
 
 #### Flags
 
 #|
 ||Flag | Description ||
+|| `--update-mask` | `[]string`
+
+Field paths for FieldMask: each segment may be proto snake_case or CLI kebab-case (e.g. name, labels, network-interface). Repeat the flag or use comma-separated values. When set and non-empty, takes precedence over update_mask in the request body/file and over mask inferred from -r. If omitted or empty, the mask is built from the fields you pass (changed flags, JSON/shorthand, and request file when update_mask is absent there). ||
 || `--id` | `string`
 
-Public prefix pool id. ||
+ID of the public prefix pool to update. To get the public prefix pool ID, use a [PublicPrefixPoolService.List] request. ||
 || `--name` | `string`
 
-Public prefix pool name. ||
-|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
-|| `--new-name` | `string`
-
-A new name of the public prefix pool. ||
+New name of the public prefix pool. ||
 || `--description` | `string`
 
-Specifies a textual description of the public prefix pool. ||
-|| `--labels` | `key=value[,key=value...]`
+New description of the public prefix pool. ||
+|| `--labels` | `map<string><string>`
 
-A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
+New labels for the public prefix pool as 'key:value' pairs. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request. ||
+|| `-e`, `--example-yaml` | Generates a YAML template of the request.
+
+The template can be customized and used as input for the command.
+
+Usage example:
+
+1. Generate template:
+yc baremetal public-prefix-pool update --example-json > request.json
+or
+yc baremetal public-prefix-pool update --example-yaml > request.yaml
+
+2. Edit the template file
+
+3. Run with template:
+yc baremetal public-prefix-pool update -r request.json
+or
+yc baremetal public-prefix-pool update -r request.yaml ||
 |#
 
 #### Global Flags
@@ -41,39 +62,45 @@ A list of label KEY=VALUE pairs to add. For example, to add two labels named 'fo
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--cloud-id` | `string`
+|| `--timeout` | `string`
 
-Set the ID of the cloud to use. ||
-|| `--folder-id` | `string`
-
-Set the ID of the folder to use. ||
-|| `--folder-name` | `string`
-
-Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
-
-Set the Cloud API endpoint (host:port). ||
+Set the timeout. ||
 || `--token` | `string`
 
-Set the OAuth token to use. ||
+Set the IAM token to use. ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

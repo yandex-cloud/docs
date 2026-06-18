@@ -76,7 +76,7 @@ description: Следуя данной инструкции, вы сможете
 
 
   1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**:
-      
+
      {% include [disk-size-autoscaling-console](../../_includes/mdb/mmy/disk-size-autoscaling-console.md) %}
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}** укажите атрибуты БД:
@@ -128,6 +128,7 @@ description: Следуя данной инструкции, вы сможете
      {% endnote %}
 
      После создания кластера {{ mmy-name }} в него можно добавить дополнительные хосты, если для этого достаточно [ресурсов каталога](../concepts/limits.md).
+
 
   1. При необходимости задайте дополнительные настройки кластера {{ mmy-name }}:
 
@@ -218,9 +219,9 @@ description: Следуя данной инструкции, вы сможете
        Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
        {% endnote %}
-    
+
      * `--database name` — имя базы данных.
-     
+
        {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
 
@@ -382,7 +383,7 @@ description: Следуя данной инструкции, вы сможете
 
 
      * {% include [disk-size-autoscaling](../../_includes/mdb/mmy/terraform/disk-size-autoscaling.md) %}
-  
+
      * {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
      

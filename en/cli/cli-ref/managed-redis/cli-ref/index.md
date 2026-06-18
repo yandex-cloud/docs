@@ -27,6 +27,14 @@ Aliases:
 
   - [yc managed-redis backup list](backup/list.md) — List available backups
 
+- [yc managed-redis backup-retention-policy](backup-retention-policy/index.md) — Manage Redis backup long-term retention policies
+
+  - [yc managed-redis backup-retention-policy create](backup-retention-policy/create.md) — Create new backup retention policy
+
+  - [yc managed-redis backup-retention-policy delete](backup-retention-policy/delete.md) — Delete specific backup retention policy
+
+  - [yc managed-redis backup-retention-policy list](backup-retention-policy/list.md) — List available backup retention policies
+
 - [yc managed-redis cluster](cluster/index.md) — Manage Redis clusters
 
   - [yc managed-redis cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified Redis cluster

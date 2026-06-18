@@ -300,9 +300,9 @@
 
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Как создать такой файл, описано в разделе [Создание кластера](cluster-create.md).
 
-      Полный список доступных для изменения полей конфигурации кластера Managed Service for Sharded PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_sharded_postgresql_cluster.md).
+      Полный список доступных для изменения полей конфигурации кластера Managed Service for Sharded PostgreSQL вы найдете в [документации провайдера Terraform](../../terraform/resources/mdb_sharded_postgresql_cluster.md).
 
   1. Чтобы настроить время технического обслуживания (в т. ч. для выключенных кластеров), добавьте к описанию кластера блок `maintenance_window`:
      

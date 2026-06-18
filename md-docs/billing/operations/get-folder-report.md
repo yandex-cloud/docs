@@ -56,7 +56,7 @@
      * `billing.accounts.viewer`;
      * `billing.accounts.varWithoutDiscount`.
   
-  Подробнее см. [Сервисные роли в Yandex Cloud Billing](../security/index.md).
+  Подробнее в разделе [Сервисные роли в Yandex Cloud Billing](../security/index.md).
 
 ### Настроить регулярный экспорт {#set-up-regular-download}
 

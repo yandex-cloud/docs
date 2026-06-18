@@ -65,7 +65,7 @@ editable: false
 
 При тарификации по фактическому использованию потоки данных, хранящие данные:
 * в [Serverless базах данных {{ ydb-short-name }}](../ydb/concepts/serverless-and-dedicated.md#serverless), тарифицируются по ценам из [таблицы](#prices).
-* в [Dedicated базах данных {{ ydb-short-name }}](../ydb/concepts/serverless-and-dedicated.md#dedicated), отдельно не тарифицируются (оплачивается только dedicated база, см. [правила тарификации для dedicated баз](../ydb/pricing/dedicated.md)).
+* в [Dedicated базах данных {{ ydb-short-name }}](../ydb/concepts/serverless-and-dedicated.md#dedicated), отдельно не тарифицируются (оплачивается только dedicated база, подробнее в [правилах тарификации для dedicated баз](../ydb/pricing/dedicated.md)).
 
 
 

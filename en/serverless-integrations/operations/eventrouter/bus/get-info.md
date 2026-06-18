@@ -10,7 +10,7 @@ description: Follow this guide to get information about a {{ er-full-name }} bus
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder containing the [bus](../../../concepts/eventrouter/bus.md).
-  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Select a bus. The **{{ ui-key.yacloud.common.overview }}** page will display detailed information about the bus.
 
@@ -70,13 +70,13 @@ description: Follow this guide to get information about a {{ er-full-name }} bus
       * `output "bus-folder"`: Output variable with information about the folder housing the bus (`folder_id`):
          * `value`: Return value.
 
-     You can replace `folder_id` with any other parameter to get the information you need. For more information about the `yandex_serverless_eventrouter_bus` data source properties, see [this {{ TF }} provider guide]({{ tf-provider-datasources-link }}/serverless_eventrouter_bus).
+     You can replace `folder_id` with another variable to get the information you need. For more information about the `yandex_serverless_eventrouter_bus` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/serverless_eventrouter_bus).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+      {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

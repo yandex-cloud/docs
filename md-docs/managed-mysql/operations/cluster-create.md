@@ -87,7 +87,7 @@
 
 
   1. (Опционально) В блоке **Автоматическое увеличение размера хранилища**:
-      
+
      * Выберите опцию **В окно обслуживания при заполненности более** и укажите процент **от текущего размера хранилища**, при достижении которого хранилище будет увеличено в следующее [окно обслуживания](../concepts/maintenance.md#maintenance-window).
            
      * Выберите опцию **Незамедлительно при заполненности более** и укажите процент **от текущего размера хранилища**, при достижении которого хранилище будет увеличено незамедлительно.
@@ -152,6 +152,7 @@
      {% endnote %}
 
      После создания кластера Managed Service for MySQL® в него можно добавить дополнительные хосты, если для этого достаточно [ресурсов каталога](../concepts/limits.md).
+
 
   1. При необходимости задайте дополнительные настройки кластера Managed Service for MySQL®:
 
@@ -274,9 +275,9 @@
        Чтобы увидеть пароль, в [консоли управления](https://console.yandex.cloud) выберите созданный кластер, перейдите на вкладку **Пользователи** и нажмите **Посмотреть пароль** в строке нужного пользователя. Откроется страница секрета Yandex Lockbox, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
        {% endnote %}
-    
+
      * `--database name` — имя базы данных.
-     
+
        Имя базы может содержать латинские буквы, цифры, дефис и подчеркивание. Максимальная длина имени 63 символа. Имена `mysql`, `sys`, `information_schema` и `performance_schema` зарезервированы для собственных нужд Managed Service for MySQL®. Создавать БД с этими именами нельзя.
 
 
@@ -364,7 +365,7 @@
   
   Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+  Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
   Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
@@ -502,7 +503,7 @@
        * Если заданы оба порога, значение `emergency_usage_threshold` должно быть больше `planned_usage_threshold`.
        
        {% endnote %}
-  
+
      * Чтобы настроить время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), добавьте к описанию кластера блок `maintenance_window`:
        
        ```hcl

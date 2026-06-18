@@ -1,15 +1,15 @@
 ---
-title: Creating a trigger that will send messages to a {{ serverless-containers-name }} container from a {{ iot-full-name }} broker topic
-description: Create a trigger for an {{ iot-name }} broker topic to process message copies in a {{ serverless-containers-name }} container.
+title: Creating a trigger that will send messages to a container in {{ serverless-containers-name }} from a {{ iot-full-name }} broker topic
+description: Create a trigger for a {{ iot-name }} broker topic to process message copies in {{ serverless-containers-name }}.
 ---
 
-# Creating a trigger that will send messages to a {{ serverless-containers-name }} container from a {{ iot-full-name }} broker topic
+# Creating a trigger that will send messages to a container in {{ serverless-containers-name }} from a {{ iot-full-name }} broker topic
 
-Create a [trigger](../concepts/trigger/iot-core-trigger.md) for an {{ iot-name }} broker topic and process message copies using a {{ serverless-containers-name }} [container](../concepts/container.md).
+Create a [trigger](../concepts/trigger/iot-core-trigger.md) for a {{ iot-name }} broker topic and process message copies using a [container](../concepts/container.md) in {{ serverless-containers-name }}.
 
 {% note warning %}
 
-The trigger must be in the same cloud as the broker from topic of which it reads messages.
+The trigger must be in the same cloud as the broker whose topic it reads messages from.
 
 {% endnote %}
 
@@ -17,7 +17,7 @@ The trigger must be in the same cloud as the broker from topic of which it reads
 
 {% include [trigger-before-you-begin](../../_includes/serverless-containers/trigger-before-you-begin.md) %}
 
-* [Broker](../../iot-core/concepts/index.md#broker) from the topic of which the trigger will collect message copies. If you do not have a broker, [create one](../../iot-core/operations/broker/broker-create.md).
+* [Broker](../../iot-core/concepts/index.md#broker) whose topic the trigger will receive message copies from. If you do not have a broker, [create one](../../iot-core/operations/broker/broker-create.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -29,7 +29,7 @@ The trigger must be in the same cloud as the broker from topic of which it reads
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -58,7 +58,7 @@ The trigger must be in the same cloud as the broker from topic of which it reads
 
         {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -88,8 +88,8 @@ The trigger must be in the same cloud as the broker from topic of which it reads
     Where:
 
     * `--name`: Trigger name.
-    * `--broker-id`: [Broker ID](../../iot-core/operations/broker/broker-list.md).
-    * `--mqtt-topic`: MQTT topic you want to create a trigger for. This is an optional parameter. If this parameter is skipped, the trigger will fire for all broker topics.
+    * `--broker-id`: [Broker ID](../../iot-core/operations/broker/broker-list.md).
+    * `--mqtt-topic`: MQTT topic you want to create a trigger for. This is an optional parameter. If you skip it, the trigger will fire for all broker topics.
 
     {% include [trigger-param](../../_includes/iot-core/trigger-param-sc.md) %}
 

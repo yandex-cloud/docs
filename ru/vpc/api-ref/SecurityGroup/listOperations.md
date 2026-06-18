@@ -9,11 +9,10 @@ apiPlayground:
         securityGroupId:
           description: |-
             **string**
-            Required field. ID of the address to list operations for.
+            ID of the address to list operations for.
             To get a address ID make a [SecurityGroup.List] request.
+            This field is required.
           type: string
-      required:
-        - securityGroupId
       additionalProperties: false
     query:
       type: object
@@ -56,8 +55,8 @@ GET https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}/operation
 || securityGroupId | **string**
 
 Required field. ID of the address to list operations for.
-
-To get a address ID make a [SecurityGroup.List] request. ||
+To get a address ID make a [SecurityGroup.List] request.
+This field is required. ||
 |#
 
 ## Query parameters {#yandex.cloud.vpc.v1.ListSecurityGroupOperationsRequest}
@@ -117,7 +116,6 @@ List of operations for the specified security group. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListSecurityGroupOperationsRequest.pageSize](#yandex.cloud.vpc.v1.ListSecurityGroupOperationsRequest), use `next_page_token` as the value
 for the [ListSecurityGroupOperationsRequest.pageToken](#yandex.cloud.vpc.v1.ListSecurityGroupOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

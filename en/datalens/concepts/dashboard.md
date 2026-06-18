@@ -29,6 +29,7 @@ For more information about dashboards, see the following sections:
   * [{#T}](../operations/dashboard/add-selector.md)
   * [{#T}](../operations/dashboard/add-text.md)
   * [{#T}](../operations/dashboard/add-title.md)
+  * [{#T}](../operations/dashboard/add-ai.md)
   * [Creating an alias](../operations/dashboard/create-alias.md)
   * [{#T}](../operations/dashboard/edit-alias.md)
   * [{#T}](../operations/dashboard/manage-access.md)
@@ -37,6 +38,7 @@ For more information about dashboards, see the following sections:
   * [{#T}](../operations/dashboard/auto-update.md)
   * [{#T}](../operations/dashboard/dash-settings.md)
   * [{#T}](../operations/dashboard/display-modes.md)
+  * [{#T}](../operations/dashboard/dashboard-ai-reference-tab.md)
 
 
 #### See also {#see-also}

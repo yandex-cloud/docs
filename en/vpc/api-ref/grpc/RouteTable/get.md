@@ -5,7 +5,6 @@ editable: false
 # Virtual Private Cloud API, gRPC: RouteTableService.Get
 
 Returns the specified RouteTable resource.
-
 To get the list of available RouteTable resources, make a [List](/docs/vpc/api-ref/grpc/RouteTable/list#List) request.
 
 ## gRPC request
@@ -24,8 +23,10 @@ To get the list of available RouteTable resources, make a [List](/docs/vpc/api-r
 ||Field | Description ||
 || route_table_id | **string**
 
-Required field. ID of the RouteTable resource to return.
-To get the route table ID use a [RouteTableService.List](/docs/vpc/api-ref/grpc/RouteTable/list#List) request. ||
+ID of the RouteTable resource to return.
+To get the route table ID use a [RouteTableService.List](/docs/vpc/api-ref/grpc/RouteTable/list#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## RouteTable {#yandex.cloud.vpc.v1.RouteTable}
@@ -71,7 +72,7 @@ Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text forma
 
 Name of the route table.
 The name must be unique within the folder.
-Value must match the regular expression `\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?`. ||
+Value must match the regular expression ```|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?```. ||
 || description | **string**
 
 Optional description of the route table. 0-256 characters long. ||

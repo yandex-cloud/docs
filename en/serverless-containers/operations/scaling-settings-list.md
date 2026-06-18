@@ -9,8 +9,8 @@ description: Follow this guide to view container scaling settings.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder with your container.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder with your container.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Select the container. Under **{{ ui-key.yacloud.serverless-containers.section-revisions }}**, the number of prepared instances will be displayed in the container revision line.
 
         Information about the number of container instances per availability zone and the number of concurrent container invocations per availability zone can be viewed by [getting](revision-info.md) details about the container revision.

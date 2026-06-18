@@ -12,7 +12,7 @@
 
 1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
 1. [Установите Ingress-контроллер](k8s-ingress-controller-install.md) или [Gateway API](k8s-gateway-api-install.md).
-1. Создайте ресурс. Конфигурации доступных ресурсов смотрите в разделе [Ingress-контроллер для Managed Service for Kubernetes](../tools/k8s-ingress-controller/index.md).
+1. Создайте ресурс. Конфигурации доступных ресурсов в разделе [Ingress-контроллер для Managed Service for Kubernetes](../tools/k8s-ingress-controller/index.md).
 
 ## Применить конфигурацию {#apply}
 

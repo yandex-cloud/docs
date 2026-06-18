@@ -9,11 +9,11 @@ apiPlayground:
         gatewayId:
           description: |-
             **string**
-            Required field. ID of the Gateway resource to return.
+            ID of the Gateway resource to return.
             To get Gateway resource ID make a [GatewayService.List](/docs/vpc/api-ref/Gateway/list#List) request.
+            The length must be less than or equal to 50.
+            This field is required.
           type: string
-      required:
-        - gatewayId
       additionalProperties: false
     query: null
     body: null
@@ -23,7 +23,6 @@ apiPlayground:
 # Virtual Private Cloud API, REST: Gateway.Get
 
 Returns the specified Gateway resource.
-
 To get the list of all available Gateway resources, make a [List](/docs/vpc/api-ref/Gateway/list#List) request.
 
 ## HTTP request
@@ -39,8 +38,9 @@ GET https://vpc.{{ api-host }}/vpc/v1/gateways/{gatewayId}
 || gatewayId | **string**
 
 Required field. ID of the Gateway resource to return.
-
-To get Gateway resource ID make a [GatewayService.List](/docs/vpc/api-ref/Gateway/list#List) request. ||
+To get Gateway resource ID make a [GatewayService.List](/docs/vpc/api-ref/Gateway/list#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Response {#yandex.cloud.vpc.v1.Gateway}

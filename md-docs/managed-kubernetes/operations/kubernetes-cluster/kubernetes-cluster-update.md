@@ -140,7 +140,7 @@ yc managed-kubernetes cluster list
   Чтобы изменить кластер Managed Service for Kubernetes:
   1. Откройте актуальный конфигурационный файл с описанием кластера Managed Service for Kubernetes.
 
-     О том, как создать такой файл, см. в разделе [Создание кластера Managed Service for Kubernetes](kubernetes-cluster-create.md).
+     О том, как создать такой файл, читайте в разделе [Создание кластера Managed Service for Kubernetes](kubernetes-cluster-create.md).
   1. Измените нужные параметры в описании кластера Managed Service for Kubernetes.
 
      Чтобы изменить настройки отправки логов в [Yandex Cloud Logging](../../../logging/index.md), измените значения параметров в блоке `master_logging`. Если такого блока нет — создайте его.
@@ -232,7 +232,7 @@ yc managed-kubernetes cluster list
      
      {% endnote %}
 
-     Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_cluster.md).
+     Подробнее в [документации провайдера Terraform](../../../terraform/resources/kubernetes_cluster.md).
 
 - API {#api}
 
@@ -367,15 +367,9 @@ yc managed-kubernetes cluster list
 
 ## Изменить конфигурацию ресурсов мастера {#manage-resources}
 
-{% note info %}
-
-Функциональность выбора и изменения конфигурации мастера находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 {% note warning %}
 
-С 18 июня 2026 года тарификация мастеров изменится — плата будет взиматься за количество vCPU и объем RAM. Чтобы рассчитать необходимое количество ресурсов мастера для своего кластера, воспользуйтесь таблицей [Рекомендуемые конфигурации мастера](../../concepts/master-configuration.md).
+С 18 июня 2026 года тарификация мастеров изменилась — плата взимается за количество vCPU и объем RAM. Чтобы рассчитать необходимое количество ресурсов мастера для своего кластера, воспользуйтесь таблицей [Рекомендуемые конфигурации мастера](../../concepts/master-configuration.md).
 
 {% endnote %}
 
@@ -432,7 +426,7 @@ yc managed-kubernetes cluster list
 
   1. Откройте актуальный конфигурационный файл с описанием кластера Managed Service for Kubernetes.
 
-     О том, как создать такой файл, см. в разделе [Создание кластера Managed Service for Kubernetes](kubernetes-cluster-create.md).
+     О том, как создать такой файл, читайте в разделе [Создание кластера Managed Service for Kubernetes](kubernetes-cluster-create.md).
 
   1. Добавьте или измените в описании кластера Managed Service for Kubernetes конфигурацию [вычислительных ресурсов мастера](../../concepts/index.md#master-resources) в блоке `scale_policy`:
 
@@ -507,7 +501,7 @@ yc managed-kubernetes cluster list
      
      {% endnote %}
 
-     Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_cluster.md).
+     Подробнее в [документации провайдера Terraform](../../../terraform/resources/kubernetes_cluster.md).
 
 - API {#api}
 

@@ -502,7 +502,7 @@ Spark Submit позволяет запускать заранее написан
     addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "<версия_sbt-assembly>")
     ```
 
-    Версию плагина `sbt-assembly` см. в его [репозитории](https://github.com/sbt/sbt-assembly), в разделе **Releases**.
+    Версию плагина `sbt-assembly` смотрите в его [репозитории](https://github.com/sbt/sbt-assembly), в разделе **Releases**.
 
 1. Узнайте установленную версию Scala с помощью команды `scala -version`.
 1. Создайте файл `spark-app/build.sbt` с описанием зависимостей и стратегии их слияния в одном JAR-файле. В файле `build.sbt` укажите версию Scala:

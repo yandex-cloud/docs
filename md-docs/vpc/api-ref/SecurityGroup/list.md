@@ -14,8 +14,9 @@ GET https://vpc.api.cloud.yandex.net/vpc/v1/securityGroups
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder to list security groups in.
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request. ||
+ID of the folder to list security groups in.
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request.
+This field is required. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
@@ -142,7 +143,6 @@ ID of the network that the security group belongs to. ||
 
 Security group status.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Security group is being created.
 - `ACTIVE`: Security is active and it's rules are applied to the network interfaces.
 - `UPDATING`: Security group is updating. Updating is a long operation because we must update all instances in SG.
@@ -170,9 +170,9 @@ Description of the rule. 0-256 characters long. ||
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || direction | **enum** (Direction)
 
-Required field. The direction of network traffic allowed by this rule.
+The direction of network traffic allowed by this rule.
+This field is required.
 
-- `DIRECTION_UNSPECIFIED`
 - `INGRESS`: Allows ingress traffic.
 - `EGRESS`: Allows egress traffic. ||
 || ports | **[PortRange](#yandex.cloud.vpc.v1.PortRange)**
@@ -189,17 +189,23 @@ Protocol number from [IANA protocol numbers](https://www.iana.org/assignments/pr
 
 CIDR blocks to allow to recieve or send traffic.
 
-Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`. ||
+Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+
+Only one field must be specified. ||
 || securityGroupId | **string**
 
 ID of the security group to add rule to.
 
-Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`. ||
+Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+
+Only one field must be specified. ||
 || predefinedTarget | **string**
 
 Predefined target. See [security groups rules](../../concepts/security-groups.md#security-groups-rules) for more information.
 
-Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`. ||
+Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+
+Only one field must be specified. ||
 |#
 
 ## PortRange {#yandex.cloud.vpc.v1.PortRange}
@@ -208,10 +214,12 @@ Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarg
 ||Field | Description ||
 || fromPort | **string** (int64)
 
-The lowest port in the range. ||
+The lowest port in the range.
+The value must be between 0 and 65535. ||
 || toPort | **string** (int64)
 
-The highest port in the range. ||
+The highest port in the range.
+The value must be between 0 and 65535. ||
 |#
 
 ## CidrBlocks {#yandex.cloud.vpc.v1.CidrBlocks}

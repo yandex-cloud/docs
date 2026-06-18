@@ -21,23 +21,25 @@ Retrieves the list of Address resources in the specified folder.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder to list addresses in.
-
-To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../../resource-manager/api-ref/grpc/Folder/list.md#List) request. ||
+ID of the folder to list addresses in.
+To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../../resource-manager/api-ref/grpc/Folder/list.md#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListAddressesResponse.next_page_token](#yandex.cloud.vpc.v1.ListAddressesResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+The value must be less than or equal to 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListAddressesResponse.next_page_token](#yandex.cloud.vpc.v1.ListAddressesResponse) returned by a previous list request. ||
+[ListAddressesResponse.next_page_token](#yandex.cloud.vpc.v1.ListAddressesResponse) returned by a previous list request.
+The length must be less than or equal to 100. ||
 || filter | **string**
 
 A filter expression that filters Address listed in the response.
-
 The expression must specify:
 1. The field name. Currently you can use filtering only on [Address.name](#yandex.cloud.vpc.v1.Address) field.
 2. An `=` operator.
@@ -57,7 +59,7 @@ Example of a filter: `name=my-address`. ||
       "name": "string",
       "description": "string",
       "labels": "map<string, string>",
-      // Includes only one of the fields `external_ipv4_address`
+      // Includes only one of the fields `external_ipv4_address`, `internal_ipv4_address`
       "external_ipv4_address": {
         "address": "string",
         "zone_id": "string",
@@ -65,6 +67,12 @@ Example of a filter: `name=my-address`. ||
           "ddos_protection_provider": "string",
           "outgoing_smtp_capability": "string"
         }
+      },
+      "internal_ipv4_address": {
+        "address": "string",
+        // Includes only one of the fields `subnet_id`
+        "subnet_id": "string"
+        // end of the list of possible fields
       },
       // end of the list of possible fields
       "reserved": "bool",
@@ -96,7 +104,6 @@ List of addresses. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListAddressesRequest.page_size](#yandex.cloud.vpc.v1.ListAddressesRequest), use `next_page_token` as the value
 for the [ListAddressesRequest.page_token](#yandex.cloud.vpc.v1.ListAddressesRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -133,9 +140,18 @@ The string length in characters for each key must be 1-63.
 Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
 || external_ipv4_address | **[ExternalIpv4Address](#yandex.cloud.vpc.v1.ExternalIpv4Address)**
 
-Includes only one of the fields `external_ipv4_address`.
+External ipv4 address specification.
 
-External ipv4 address specification. ||
+Includes only one of the fields `external_ipv4_address`, `internal_ipv4_address`.
+
+Only one field must be specified. ||
+|| internal_ipv4_address | **[InternalIpv4Address](#yandex.cloud.vpc.v1.InternalIpv4Address)**
+
+Internal ipv4 address specification
+
+Includes only one of the fields `external_ipv4_address`, `internal_ipv4_address`.
+
+Only one field must be specified. ||
 || reserved | **bool**
 
 Specifies if address is reserved or not. ||
@@ -146,14 +162,12 @@ Specifies if address is used or not. ||
 
 Type of the IP address.
 
-- `TYPE_UNSPECIFIED`
 - `INTERNAL`: Internal IP address.
 - `EXTERNAL`: Public IP address. ||
 || ip_version | enum **IpVersion**
 
 Version of the IP address.
 
-- `IP_VERSION_UNSPECIFIED`
 - `IPV4`: IPv4 address.
 - `IPV6`: IPv6 address. ||
 || deletion_protection | **bool**
@@ -189,6 +203,22 @@ DDoS protection provider ID. ||
 || outgoing_smtp_capability | **string**
 
 Capability to send SMTP traffic. ||
+|#
+
+## InternalIpv4Address {#yandex.cloud.vpc.v1.InternalIpv4Address}
+
+#|
+||Field | Description ||
+|| address | **string**
+
+Value of address. ||
+|| subnet_id | **string**
+
+Subnet from which the address will be allocated
+
+Includes only one of the fields `subnet_id`.
+
+Only one field must be specified. ||
 |#
 
 ## DnsRecord {#yandex.cloud.vpc.v1.DnsRecord}

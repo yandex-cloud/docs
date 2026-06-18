@@ -39,14 +39,6 @@ editable: false
 
 ### Мастер {#master}
 
-{% note warning %}
-
-{% include [base-zonal-pricing](../_includes/managed-kubernetes/base-zonal-pricing.md) %}
-
-{% include [ha-regional-pricing](../_includes/managed-kubernetes/ha-regional-pricing.md) %}
-
-{% endnote %}
-
 
 <MDX>
   <PriceList

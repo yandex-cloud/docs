@@ -113,7 +113,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% note info %}
 
-     Используйте только один из параметров `downsampling.maxPoints`, `downsampling.gridInterval` или `downsampling.disabled`. Подробнее о параметрах прореживания см. в [документации API](../../../monitoring/api-ref/MetricsData/read.md).
+     Используйте только один из параметров `downsampling.maxPoints`, `downsampling.gridInterval` или `downsampling.disabled`. Подробнее о параметрах прореживания в [документации API](../../../monitoring/api-ref/MetricsData/read.md).
 
      {% endnote %}
 
@@ -126,7 +126,7 @@ description: Следуя данной инструкции, вы сможете
    * `logMetrics` — разрешить логирование запросов {{ monitoring-name }}: `true` или `false`. Значение по умолчанию — `false`.
    * `logAggregation` — разрешить логирование агрегации данных: `true` или `false`. Значение по умолчанию — `false`.
 
-   Подробнее о параметрах ресурса `ScaledObject` см. в [документации проекта на Github](https://github.com/yandex-cloud/yc-keda-external-scaler).
+   Подробнее о параметрах ресурса `ScaledObject` читайте в [документации проекта на GitHub](https://github.com/yandex-cloud/yc-keda-external-scaler).
 
 ## Установка с помощью Helm-чарта {#helm-install}
 

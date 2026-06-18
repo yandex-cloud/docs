@@ -11,10 +11,10 @@ description: Follow this guide to make a container revision active.
 
 - Management console {#console}
   
-  1. In the [management console]({{ link-console-main }}), go to the folder with your container.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder with your container.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container.
-  1. In the row with the revision you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.serverless-containers.label_edit-active-revision }}** from the drop-down list.
+  1. In the revision row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.serverless-containers.label_edit-active-revision }}** from the drop-down list.
   1. In the window that opens, click **{{ ui-key.yacloud.serverless-containers.popup-confirm-edit-active-revision_button_confirm }}**. The revision status will change from `Obsolete` to `Active`.
   
 
@@ -36,7 +36,7 @@ description: Follow this guide to make a container revision active.
 
   Where:
 
-  * `--name`: Name of the container whose active revision you want to change.
+  * `--name`: Name of the container whose active revision you want to update.
   * `--revision-id`: ID of the container revision you want to make active.
 
   Result:
@@ -52,6 +52,6 @@ description: Follow this guide to make a container revision active.
 
 - API {#api}
 
-  To make a container revision active, use either the [rollback](../../serverless-containers/containers/api-ref/Container/rollback.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/Rollback](../../serverless-containers/containers/api-ref/grpc/Container/rollback.md) gRPC API call.
+  To make a container revision active, use the [rollback](../../serverless-containers/containers/api-ref/Container/rollback.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/Rollback](../../serverless-containers/containers/api-ref/grpc/Container/rollback.md) gRPC API call.
 
 {% endlist %}

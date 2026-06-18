@@ -143,7 +143,7 @@
      * `--endpoint-url` — эндпоинт Object Storage.
      * `s3 cp --recursive` — команда для загрузки всех объектов из локальной директории, включая вложенные. Чтобы загрузить объекты, в первой части команды укажите путь к папке, из которой нужно скопировать файлы в бакет, а во второй — имя вашего бакета и [идентификатор папки](../../concepts/object.md#folder) в хранилище.
 
-  Команда `aws s3 cp` — высокоуровневая, ее функциональность ограничена. Подробнее см. в [справочнике AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html). Все возможности загрузки, которые поддерживаются в Object Storage, можно использовать при выполнении команды [aws s3api put-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html) (см. [ниже](#w-object-lock) примеры работы с [блокировками](../../concepts/object-lock.md)).
+  Команда `aws s3 cp` — высокоуровневая, ее функциональность ограничена. Подробнее в [справочнике AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html). Все возможности загрузки, которые поддерживаются в Object Storage, можно использовать при выполнении команды [aws s3api put-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html) (читайте [ниже](#w-object-lock) примеры работы с [блокировками](../../concepts/object-lock.md)).
 
 - Terraform {#tf}
 
@@ -157,7 +157,7 @@
   
   Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
   Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
@@ -222,7 +222,7 @@
 
      * `source` — относительный или абсолютный путь к файлу, который нужно загрузить в бакет.
 
-      Более подробную информацию о параметрах ресурса `yandex_storage_object` в Terraform, см. в [документации провайдера](../../../terraform/resources/storage_object.md).
+      Более подробная информация о параметрах ресурса `yandex_storage_object` в Terraform приведена в [документации провайдера](../../../terraform/resources/storage_object.md).
 
   1. Создайте ресурсы:
 
@@ -348,7 +348,7 @@
        * `ON` — блокировка установлена.
        * `OFF` — блокировка не установлена.
 
-     Вы можете установить на версию объекта только временную блокировку (параметры `object-lock-mode` и `object-lock-retain-until-date`), только бессрочную блокировку (`object-lock-legal-hold-status`) или обе сразу. Подробнее об их совместной работе см. в разделе [Типы блокировок](../../concepts/object-lock.md#types).
+     Вы можете установить на версию объекта только временную блокировку (параметры `object-lock-mode` и `object-lock-retain-until-date`), только бессрочную блокировку (`object-lock-legal-hold-status`) или обе сразу. Подробнее об их совместной работе в разделе [Типы блокировок](../../concepts/object-lock.md#types).
 
      Результат:
 
@@ -393,7 +393,7 @@
          * `ON` — блокировка установлена.
          * `OFF` — блокировка не установлена.
     
-     Вы можете установить на версию объекта только временную блокировку (параметры `object-lock-mode` и `object-lock-retain-until-date`), только бессрочную блокировку (`object-lock-legal-hold-status`) или обе сразу. Подробнее об их совместной работе см. в разделе [Типы блокировок](../../concepts/object-lock.md#types).
+     Вы можете установить на версию объекта только временную блокировку (параметры `object-lock-mode` и `object-lock-retain-until-date`), только бессрочную блокировку (`object-lock-legal-hold-status`) или обе сразу. Подробнее об их совместной работе в разделе [Типы блокировок](../../concepts/object-lock.md#types).
 
 - API {#api}
 
@@ -461,7 +461,7 @@
      * `--object-lock-mode` и `--object-lock-retain-until-date`, чтобы установить на версию объекта временную блокировку, отличную от настроек бакета по умолчанию;
      * `--object-lock-legal-hold-status`, чтобы установить на версию объекта бессрочную блокировку.
 
-     Подробнее об этих параметрах см. в инструкции выше.
+     Подробнее об этих параметрах в инструкции выше.
 
 - AWS CLI {#aws-cli}
 
@@ -498,7 +498,7 @@
      * `--object-lock-mode` и `--object-lock-retain-until-date`, чтобы установить на версию объекта временную блокировку, отличную от настроек бакета по умолчанию;
      * `--object-lock-legal-hold-status`, чтобы установить на версию объекта бессрочную блокировку.
  
-     Подробнее об этих параметрах см. в инструкции выше.
+     Подробнее об этих параметрах в инструкции выше.
 
 - API {#api}
 

@@ -55,7 +55,7 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder you want to create a registry in.
-    1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
     1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_registries }}**.
     1. Click **{{ ui-key.yacloud.iot.button_create-registry }}**.
     1. Under **{{ ui-key.yacloud.common.section-base }}**, add `my-registry` as the registry name.
@@ -133,7 +133,7 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select a folder to create a device in.
-    1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
     1. Select `my-registry` from the list.
     1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
     1. Click **{{ ui-key.yacloud.iot.button_add-device }}**.

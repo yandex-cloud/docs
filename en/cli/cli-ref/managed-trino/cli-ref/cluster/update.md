@@ -62,6 +62,9 @@ Retry policy level. Values: 'query', 'task' ||
 
 Map entries for RetryPolicyConfig.additional_properties. ||
 || `--retry-policy-exchange-manager-service-s3` | Use service-side S3 bucket for the Exchange Manager storage. ||
+|| `--retry-policy-exchange-manager-s3-bucket` | `string`
+
+Name of the S3 bucket to use as the Exchange Manager spool destination. ||
 || `--retry-policy-exchange-manager-additional-properties` | `key=value[,key=value...]`
 
 Map entries for ExchangeManagerConfig.additional_properties. ||

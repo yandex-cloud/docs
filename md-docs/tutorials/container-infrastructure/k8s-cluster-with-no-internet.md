@@ -110,7 +110,7 @@
       * [Сервисные аккаунты](../../iam/concepts/users/service-accounts.md) для ресурсов и узлов Kubernetes.
       * [Симметричный ключ шифрования](../../kms/concepts/key.md) Yandex Key Management Service.
 
-      Файл подготовлен с помощью библиотек модулей [terraform-yc-vpc](https://github.com/terraform-yc-modules/terraform-yc-vpc) и [terraform-yc-kubernetes](https://github.com/terraform-yc-modules/terraform-yc-kubernetes). Подробнее о конфигурации ресурсов, которые создаются с помощью этих модулей, см. на страницах библиотек.
+      Файл подготовлен с помощью библиотек модулей [terraform-yc-vpc](https://github.com/terraform-yc-modules/terraform-yc-vpc) и [terraform-yc-kubernetes](https://github.com/terraform-yc-modules/terraform-yc-kubernetes). Подробнее о конфигурации ресурсов, которые создаются с помощью этих модулей, смотрите на страницах библиотек.
 
    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
@@ -286,7 +286,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
         ...
         ```
 
-        Подробную информацию о параметрах ресурса `yandex_vpc_subnet` в Terraform см. в [документации провайдера](../../terraform/resources/vpc_subnet.md).
+        Подробнее о параметрах ресурса `yandex_vpc_subnet` в Terraform смотрите в [документации провайдера](../../terraform/resources/vpc_subnet.md).
 
      1. Примените изменения:
 

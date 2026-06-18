@@ -20,7 +20,7 @@ Apache Hive™ Metastore обеспечивает:
 
 {% note info %}
 
-Интеграция кластера Yandex Managed Service for Apache Spark™ с Apache Hive™ Metastore позволяет использовать в задании Spark формат таблиц Apache Iceberg™. Подробнее см. в руководстве [Работа с таблицей формата Apache Iceberg™ из PySpark-задания](../../managed-spark/tutorials/spark-simple-rw-job.md).
+Интеграция кластера Yandex Managed Service for Apache Spark™ с Apache Hive™ Metastore позволяет использовать в задании Spark формат таблиц Apache Iceberg™. Подробнее в руководстве [Работа с таблицей формата Apache Iceberg™ из PySpark-задания](../../managed-spark/tutorials/spark-simple-rw-job.md).
 
 {% endnote %}
 

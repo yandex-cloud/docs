@@ -49,7 +49,7 @@
 
             Дополнительные хосты для этих типов дисков необходимы для обеспечения отказоустойчивости.
 
-            Подробнее см. в разделе [{#T}](../../managed-clickhouse/concepts/storage.md).
+            Подробнее в разделе [{#T}](../../managed-clickhouse/concepts/storage.md).
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `tutorial`.
 

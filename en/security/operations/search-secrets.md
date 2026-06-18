@@ -230,6 +230,8 @@ You can use the following regular expressions to scan your repositories on your 
 
 * **OAuth tokens**
 
+   {% include [oauth-token-deprecated-soon](../../_includes/oauth-token-deprecated-soon.md) %}
+
    ```regexp
    y[0-6]_[-_A-Za-z0-9]{55,199}
    ```
@@ -264,6 +266,8 @@ Use regular expressions carefully because the format of secrets may change movin
 Finding certain types of secrets is likely to yield a large number of false-positive results. To make sure the found secrets are up-to-date, we recommend running an additional validation.
 
 * **OAuth tokens**
+
+    {% include [oauth-token-deprecated-soon](../../_includes/oauth-token-deprecated-soon.md) %}
 
     {% list tabs group=programming_language %}
 

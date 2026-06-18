@@ -19,7 +19,7 @@ You can only delete an empty [registry](../../concepts/registry.md). Make sure t
 
   To delete a registry:
   1. In the [management console]({{ link-console-main }}), select the folder containing the registry.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Click ![image](../../../_assets/console-icons/ellipsis-vertical.svg) in the line of the registry to delete.
   1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.cr.overview.popup-confirm_button_delete }}**.

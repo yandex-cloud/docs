@@ -31,21 +31,9 @@
      {% include [write-once-settings](write-once-setting.md) %}
 
    * В поле **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}** выберите тип мастера {{ managed-k8s-name }}:
-     * `Базовый` — содержит один хост мастера в одной зоне доступности. Такой мастер дешевле, но он не является отказоустойчивым. Прежнее название — _зональный_.
+     * `Базовый` — содержит один хост мастера в одной зоне доступности. Чаще всего такой мастер дешевле, но не гарантирует высокую доступность.
 
-       {% note warning %}
-
-       {% include [base-zonal-pricing](../../_includes/managed-kubernetes/base-zonal-pricing.md) %}
-
-       {% endnote %}
-
-     * `Высокодоступный` — содержит три хоста мастера. Прежнее название — _региональный_.
-
-       {% note warning %}
-
-       {% include [ha-regional-pricing](../../_includes/managed-kubernetes/ha-regional-pricing.md) %}
-
-       {% endnote %}
+     * `Высокодоступный` — содержит три хоста мастера.
 
    * В поле **{{ ui-key.yacloud.k8s.clusters.create.field_network }}** выберите [сеть](../../vpc/concepts/network.md#network), в которой будет создан мастер {{ managed-k8s-name }}. Если сети нет, [создайте ее](../../vpc/operations/network-create.md).
 

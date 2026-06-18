@@ -9,7 +9,7 @@
 
 {% note tip %}
 
-Вы можете использовать [бакет](../../../storage/concepts/bucket.md) [Yandex Object Storage](../../../storage/index.md) в качестве хранилища для пода. Подробнее см. в разделе [Интеграция с Object Storage](s3-csi-integration.md).
+Вы можете использовать [бакет](../../../storage/concepts/bucket.md) [Yandex Object Storage](../../../storage/index.md) в качестве хранилища для пода. Подробнее в разделе [Интеграция с Object Storage](s3-csi-integration.md).
 
 {% endnote %}
 

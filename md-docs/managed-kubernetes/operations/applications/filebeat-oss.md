@@ -69,7 +69,7 @@
    * **Название приложения** — укажите название приложения, например `filebeat-oss`.
    * **Имя пользователя OpenSearch** — введите имя учетной записи, под которой Filebeat OSS будет подключаться к кластеру Managed Service for OpenSearch.
    * **Пароль для подключения к OpenSearch** — введите пароль для учетной записи в кластере Managed Service for OpenSearch.
-   * **FQDN сервиса OpenSearch** — укажите URL и порт для хоста кластера Managed Service for OpenSearch с ролью DATA, например `https://rc1a-7hkolet********.mdb.yandexcloud.net:9200`. Подробнее о подключении к кластеру см. в [документации сервиса](../../../managed-opensearch/operations/connect/index.md).
+   * **FQDN сервиса OpenSearch** — укажите URL и порт для хоста кластера Managed Service for OpenSearch с ролью DATA, например `https://rc1a-7hkolet********.mdb.yandexcloud.net:9200`. Подробнее о подключении к кластеру в [документации сервиса](../../../managed-opensearch/operations/connect/index.md).
 1. Нажмите кнопку **Установить**.
 1. Дождитесь перехода приложения в статус `Deployed`.
 

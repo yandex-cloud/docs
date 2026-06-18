@@ -10,7 +10,7 @@ C помощью YDB SDK возможно использование Yandex Quer
 * [.NET SDK](https://github.com/ydb-platform/ydb-dotnet-sdk).
 * [Rust SDK](https://github.com/ydb-platform/ydb-rs-sdk).
 
-Полный перечень SDK платформы YDB см. на странице [ydb-platform на GitHub](https://github.com/orgs/ydb-platform/repositories?type=all&q=sdk).
+Полный перечень SDK платформы YDB представлен на странице [ydb-platform на GitHub](https://github.com/orgs/ydb-platform/repositories?type=all&q=sdk).
 
 Все примеры ниже приведены для Python SDK. SDK для других языков разработки устроены аналогично, и все подходы применимы и к ним с точностью до реализации каждого конкретного SDK.
 

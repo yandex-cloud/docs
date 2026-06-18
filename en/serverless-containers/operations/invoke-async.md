@@ -7,14 +7,14 @@ description: Follow this guide to configure and run an asynchronous invocation f
 
 {% include [note-preview](../../_includes/note-preview.md) %}
 
-## Setting up asynchronous invocation {#async}
+## Configure asynchronous invocation {#async}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with your [container](../concepts/container.md).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container whose [revision](../concepts/container.md#revision) you want to create.
   1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
   1. Under **Asynchronous invocation**:
@@ -30,7 +30,7 @@ description: Follow this guide to configure and run an asynchronous invocation f
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To set up asynchronous invocation, run the following command:
+    To configure asynchronous invocation, run this command:
 
     ```bash
     yc serverless container revision deploy \
@@ -78,7 +78,7 @@ description: Follow this guide to configure and run an asynchronous invocation f
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To set up asynchronous invocation:
+  To configure asynchronous invocation:
 
   1. Open the {{ TF }} configuration file and add the `async_invocation` section to the container description:
 
@@ -101,17 +101,17 @@ description: Follow this guide to configure and run an asynchronous invocation f
 
       Where:
 
-      * `async_invocation`: Asynchronous invocation parameters:
+      * `async_invocation`: Asynchronous invocation settings:
 
           * `service_account_id`: Service account with the `serverless-containers.containerInvoker` [role](../security/index.md#serverless-containers-containerinvoker).
 
-      For more information about `yandex_serverless_container` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/serverless_container).
+      For more information about `yandex_serverless_container` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Apply the changes:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the container's update and settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+  You can check the container update and settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
   ```bash
   yc serverless serverless-container revision get <container_revision_ID>

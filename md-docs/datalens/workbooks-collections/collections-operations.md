@@ -18,7 +18,7 @@
    
    {% note info %}
    
-   Если вы не видите на панели слева ![collections](../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**, [включите воркбуки и коллекции](index.md#enable-workbooks) в вашей организации.
+   Если вы не видите на панели слева ![collections](../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**, попросите пользователя с ролью `datalens.admin` [включить воркбуки и коллекции](index.md#enable-workbooks) в вашей организации.
    
    {% endnote %}
 
@@ -26,6 +26,12 @@
 1. В правом верхнем углу нажмите **Создать** → **Создать коллекцию**.
 1. Укажите название коллекции.
 1. Нажмите кнопку **Создать**.
+
+
+
+<iframe width="560" height="315" src="https://runtime.strm.yandex.ru/player/video/vplv242x7j2gugxkp4fo?autoplay=0&mute=0" allow="autoplay; fullscreen; accelerometer; gyroscope; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+
 
 ## Редактировать коллекцию {#edit-collections}
 

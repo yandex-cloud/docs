@@ -170,7 +170,7 @@ GET foo
 
 При успешном подключении к кластеру и выполнении тестового запроса будет выведена строка `bar`.
 
-Подробнее о Sentinel см. в разделе [Репликация и персистентность в Yandex Managed Service for Valkey™](../../concepts/replication.md) и [документации Valkey™](https://valkey.io/topics/sentinel/).
+Подробнее о Sentinel читайте в разделе [Репликация и персистентность в Yandex Managed Service for Valkey™](../../concepts/replication.md) и [документации Valkey™](https://valkey.io/topics/sentinel/).
 
 ## Подключение из графических IDE {#connection-ide}
 

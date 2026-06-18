@@ -10,7 +10,7 @@ description: Follow this guide to create a connector for {{ message-queue-full-n
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [connector](../../../concepts/eventrouter/connector.md).
-  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Select the [bus](../../../concepts/eventrouter/bus.md) you need.
   1. Navigate to the ![image](../../../../_assets/console-icons/broadcast-signal.svg) **{{ ui-key.yacloud.serverless-event-router.label_connectors }}** tab.
@@ -65,9 +65,9 @@ description: Follow this guide to create a connector for {{ message-queue-full-n
       * `--bus-id`: {{ er-name }} [bus](../../../concepts/eventrouter/bus.md) ID.
       * `--queue-arn`: {{ message-queue-full-name }} [queue](../../../../message-queue/concepts/queue.md) ARN.
       * `--service-account-id`: ID of the [service account](../../../../iam/concepts/users/service-accounts.md) with permissions to read from the message queue.
-      * `--visibility-timeout`: [Time](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout) period during which messages are hidden from the queue after one of the recipients has accepted a message. Valid values ​​range from 0 to 43,200 seconds. The default value is 43,200 seconds. This is an optional parameter.
-      * `--batch-size`: Maximum number of messages {{ er-name }} groups together before sending from the source to the [rule](../../../concepts/eventrouter/rule.md). Valid values ​​range from 0 to 10. The default value is 10. This is an optional parameter.
-      * `--polling-timeout`: Maximum time during which {{ er-name }} is grouping messages before sending them from the source to the rule. Valid values ​​range from 0 to 20,000 milliseconds. The default value is 10,000 milliseconds. This is an optional parameter.
+      * `--visibility-timeout`: [Time](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout) period during which messages are hidden from the queue after one of the recipients has accepted a message. Valid values ​​range from 0 to 43,200 seconds. The default value is 43,200 seconds. This is an optional setting.
+      * `--batch-size`: Maximum number of messages {{ er-name }} groups together before sending from the source to the [rule](../../../concepts/eventrouter/rule.md). Valid values ​​range from 0 to 10. The default value is 10. This is an optional setting.
+      * `--polling-timeout`: Maximum time during which {{ er-name }} is grouping messages before sending them from the source to the rule. Valid values ​​range from 0 to 20,000 milliseconds. The default value is 10,000 milliseconds. This is an optional setting.
 
           {% include [connector-about-grouping](../../../../_includes/serverless-integrations/connector-about-grouping.md) %}
 
@@ -75,12 +75,12 @@ description: Follow this guide to create a connector for {{ message-queue-full-n
 
           {% include [name-format-2](../../../../_includes/name-format-2.md) %}
 
-      * `--description`: Connector description. This is an optional parameter.
-      * `--labels`: List of labels. This is an optional parameter.
+      * `--description`: Connector description. This is an optional setting.
+      * `--labels`: List of labels This is an optional setting.
 
           You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
 
-      * `--deletion-protection`: Connector deletion protection. By default, protection is disabled. You cannot delete a connector with this option enabled. To disable deletion protection, specify `--no-deletion-protection`. This is an optional parameter.
+      * `--deletion-protection`: Connector deletion protection. By default, protection is disabled. You cannot delete a connector with this option enabled. To disable deletion protection, specify `--no-deletion-protection`. This is an optional setting.
 
       Result:
 
@@ -114,7 +114,7 @@ description: Follow this guide to create a connector for {{ message-queue-full-n
 
   To create a [connector](../../../concepts/eventrouter/connector.md) for {{ message-queue-name }}:
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
       ```hcl
       resource "yandex_serverless_eventrouter_connector" "example_connector" {
@@ -147,14 +147,14 @@ description: Follow this guide to create a connector for {{ message-queue-full-n
 
           {% include [name-format-2](../../../../_includes/name-format-2.md) %}
 
-      * `description`: Connector description. This is an optional parameter.
-      * `deletion_protection`: Connector deletion protection, `true` or `false`. You cannot delete a connector with this option enabled. This is an optional parameter.
-      * `labels`: List of labels. Provide labels in `<key> = "<value>"` format. This is an optional parameter.
+      * `description`: Connector description. This is an optional setting.
+      * `deletion_protection`: Connector deletion protection, `true` or `false`. You cannot delete a connector with this option enabled. This is an optional setting.
+      * `labels`: List of labels Provide labels in `<key> = "<value>"` format. This is an optional setting.
       * `queue_arn`: [Queue](../../../../message-queue/concepts/queue.md) ARN of {{ message-queue-full-name }}.
       * `service-account-id`: ID of the [service account](../../../../iam/concepts/users/service-accounts.md) with permissions to read from the message queue.
-      * `visibility_timeout`: [Time](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout) period during which messages are hidden from the queue after one of the recipients has accepted a message. Valid values ​​range from 0 to 43,200 seconds. The default value is 43,200 seconds. This is an optional parameter.
-      * `batch_size`: Maximum number of messages {{ er-name }} groups together before sending from the source to the [rule](../../../concepts/eventrouter/rule.md). Valid values ​​range from 0 to 10. The default value is 10. This is an optional parameter.
-      * `polling_timeout`: Maximum time during which {{ er-name }} is grouping messages before sending them from the source to the rule. Valid values ​​range from 0 to 20,000 milliseconds. The default value is 10,000 milliseconds. This is an optional parameter.
+      * `visibility_timeout`: [Time](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout) period during which messages are hidden from the queue after one of the recipients has accepted a message. Valid values ​​range from 0 to 43,200 seconds. The default value is 43,200 seconds. This is an optional setting.
+      * `batch_size`: Maximum number of messages {{ er-name }} groups together before sending from the source to the [rule](../../../concepts/eventrouter/rule.md). Valid values ​​range from 0 to 10. The default value is 10. This is an optional setting.
+      * `polling_timeout`: Maximum time during which {{ er-name }} is grouping messages before sending them from the source to the rule. Valid values ​​range from 0 to 20,000 milliseconds. The default value is 10,000 milliseconds. This is an optional setting.
 
           {% include [connector-about-grouping](../../../../_includes/serverless-integrations/connector-about-grouping.md) %}
 
@@ -164,7 +164,7 @@ description: Follow this guide to create a connector for {{ message-queue-full-n
 
       {% include [terraform-validate-plan-apply](../../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../../../cli/) command:
 
       ```bash
       yc serverless eventrouter connector list

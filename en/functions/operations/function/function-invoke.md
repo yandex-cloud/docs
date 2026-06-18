@@ -17,7 +17,7 @@ In our example, we will use the function described in [{#T}](../function/version
     
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
 
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. Select the function.
 
@@ -28,9 +28,9 @@ In our example, we will use the function described in [{#T}](../function/version
     1. Under **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload-template }}**, select one of these options:
 
         * **{{ ui-key.yacloud.serverless-functions.item.testing.value_empty }}**: Custom data format.
-        * **{{ ui-key.yacloud.serverless-functions.item.testing.value_http-request }}**: Data format for a function that handles HTTPS requests. For more information, see [Concepts](../../concepts/function-invoke.md).
+        * **{{ ui-key.yacloud.serverless-functions.item.testing.value_http-request }}**: Data format used to call the function to act as an HTTPS request handler. For more information, see [Concepts](../../concepts/function-invoke.md).
         * **{{ ui-key.yacloud.serverless-functions.item.testing.value_ymq-trigger }}**: Data format for a function that is invoked by a trigger to process queue messages.
-        * **{{ ui-key.yacloud.serverless-functions.item.testing.value_alice-skill }}**: Data format for invoking a function that receives [requests](https://yandex.ru/dev/dialogs/alice/doc/request.html) from Yandex Dialogs.
+        * **{{ ui-key.yacloud.serverless-functions.item.testing.value_alice-skill }}**: Data format used to call the function to receive [requests](https://yandex.ru/dev/dialogs/alice/doc/request.html) from Yandex Dialogs.
 
     1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}**, enter the input data to test the function.
 
@@ -45,8 +45,8 @@ In our example, we will use the function described in [{#T}](../function/version
     {% include [call-limited-by-access-policies-notice](../../../_includes/functions/call-limited-by-access-policies-notice.md) %}
 
     You can find the function invocation link:
-    * In the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field. To get it, [navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** in the [management console]({{ link-console-main }}) and click the function row.
-    * In the `http_invoke_url` parameter. To get it, run this command:
+    * In the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field. Do it by navigating to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** in the [management console]({{ link-console-main }}) and clicking the row with the function you need.
+    * In the `http_invoke_url` parameter. Do it by running this command:
         ```
         yc serverless function get <function_name>
         ```

@@ -7,7 +7,7 @@ When adding environment variables, you create a new version of the function. You
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function whose version you want to add an environment variable to.
     1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify the environment variable and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**. You can add multiple environment variables.
@@ -30,7 +30,7 @@ When adding environment variables, you create a new version of the function. You
     ```bash
     yc serverless function version create \
       --function-name=<function_name> \
-      --runtime <runtime> \
+      --runtime <runtime_environment> \
       --entrypoint <entry_point> \
       --memory 128m \
       --execution-timeout 5s \
@@ -80,7 +80,7 @@ When adding environment variables, you create a new version of the function. You
         }
         ```
 
-        For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
     1. Validate your configuration using this command:
         
@@ -108,7 +108,7 @@ When adding environment variables, you create a new version of the function. You
        terraform apply
        ```
 
-    1. Type `yes` and press **Enter** to confirm the changes.
+    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
       
     You can check the new environment variables in the [management console]({{ link-console-main }}).
 

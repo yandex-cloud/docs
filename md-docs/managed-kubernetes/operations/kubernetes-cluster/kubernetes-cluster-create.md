@@ -40,15 +40,9 @@
 
 ## Создайте кластер Managed Service for Kubernetes {#kubernetes-cluster-create}
 
-{% note info %}
-
-Функциональность выбора и изменения конфигурации мастера находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 {% note warning %}
 
-С 18 июня 2026 года тарификация мастеров изменится — плата будет взиматься за количество vCPU и объем RAM. Чтобы рассчитать необходимое количество ресурсов мастера для своего кластера, воспользуйтесь таблицей [Рекомендуемые конфигурации мастера](../../concepts/master-configuration.md).
+С 18 июня 2026 года тарификация мастеров изменилась — плата взимается за количество vCPU и объем RAM. Чтобы рассчитать необходимое количество ресурсов мастера для своего кластера, воспользуйтесь таблицей [Рекомендуемые конфигурации мастера](../../concepts/master-configuration.md).
 
 {% endnote %}
 
@@ -105,21 +99,9 @@
        Эту настройку невозможно изменить после создания кластера.
   
      * В поле **Тип мастера** выберите тип мастера Managed Service for Kubernetes:
-       * `Базовый` — содержит один хост мастера в одной зоне доступности. Такой мастер дешевле, но он не является отказоустойчивым. Прежнее название — _зональный_.
+       * `Базовый` — содержит один хост мастера в одной зоне доступности. Чаще всего такой мастер дешевле, но не гарантирует высокую доступность.
   
-         {% note warning %}
-  
-         _Базовый_ мастер тарифицируется как _зональный_ и отображается в Yandex Cloud Billing как `Managed Service for Kubernetes. Зональный мастер`.
-  
-         {% endnote %}
-  
-       * `Высокодоступный` — содержит три хоста мастера. Прежнее название — _региональный_.
-  
-         {% note warning %}
-  
-         _Высокодоступный_ мастер тарифицируется как _региональный_ и отображается в Yandex Cloud Billing как `Managed Service for Kubernetes. Региональный мастер`.
-  
-         {% endnote %}
+       * `Высокодоступный` — содержит три хоста мастера.
   
      * В поле **Облачная сеть** выберите [сеть](../../../vpc/concepts/network.md#network), в которой будет создан мастер Managed Service for Kubernetes. Если сети нет, [создайте ее](../../../vpc/operations/network-create.md).
   
@@ -370,7 +352,7 @@
   
   Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
   Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
@@ -547,7 +529,7 @@
 
         Если отправка логов включена, но не указаны ни `log-group-id`, ни `folder-id`, логи будут отправляться в каталог, где находится [кластер Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster), в лог-группу по умолчанию. Указывать одновременно `log-group-id` и `folder-id` нельзя.
 
-     Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_cluster.md).
+     Подробнее в [документации провайдера Terraform](../../../terraform/resources/kubernetes_cluster.md).
   1. Проверьте корректность конфигурационных файлов.
 
      1. В командной строке перейдите в каталог, в котором создан конфигурационный файл.

@@ -1,13 +1,13 @@
 ---
 title: Viewing monitoring charts in {{ serverless-containers-full-name }}
-description: You can view a monitoring chart in {{ serverless-containers-full-name }} using the management console by navigating to {{ serverless-containers-name }} and clicking the trigger of interest.
+description: You can view monitoring charts in {{ serverless-containers-full-name }} using the management console. To do this, navigate to {{ serverless-containers-name }} and click the trigger whose monitoring charts you want to view.
 ---
 
 # Viewing trigger monitoring charts in {{ serverless-containers-name }}
 
-You can monitor triggers using the monitoring tools in the management console. These tools display diagnostic information as charts. Metric values are collected and charts are displayed by [{{ monitoring-name }}](../../monitoring/).
+You can monitor triggers using the monitoring tools in the management console. These tools display diagnostic information as charts. [{{ monitoring-name }}](../../monitoring/) collects metric values and displays charts. 
 
-The chart update period is 15 seconds.
+The chart refresh interval is 15 seconds.
 
 ## Viewing monitoring charts {#charts}
 
@@ -17,22 +17,22 @@ The chart update period is 15 seconds.
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the trigger.
 
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
-    1. Select a trigger to view its monitoring charts.
+    1. Select a trigger for which you want to view monitoring charts.
 
     1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.
 
-    1. The following charts will open on the page:
+    1. You will see the following charts:
 
-        * **Request latency**: Average time it takes a trigger to process a request.
-        * **Read events**: Number of events that have set off a trigger.
-        * **Function access errors**: Number of access errors when calling a container.
-        * **Function call errors**: Number of errors when calling a container.
-        * **DLQ access errors**: Number of errors when accessing the [Dead Letter Queue](../../serverless-containers/concepts/dlq.md).
-        * **Send to DLQ errors**: Number of errors when sending messages to the Dead Letter Queue.
+        * **Request latency**: Average time it takes the trigger to process a request.
+        * **Read events**: Number of events that have set off the trigger.
+        * **Function access errors**: Number of access errors when invoking the container.
+        * **Function call errors**: Number of errors when invoking the container.
+        * **DLQ access errors**: Number of errors when accessing the [dead-letter queue](../../serverless-containers/concepts/dlq.md).
+        * **Send to DLQ errors**: Number of errors when sending messages to the dead-letter queue.
 
-    You can select the time period to display information for: hour, day, week, month, or a custom interval.
+    You can select a time period for which you want to display information: hour, day, week, month, or a custom interval.
 
 {% endlist %}
 

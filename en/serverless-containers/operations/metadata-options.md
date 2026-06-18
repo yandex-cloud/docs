@@ -9,7 +9,7 @@ You can configure metadata service parameters when [creating a container revisio
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with your [container](../../serverless-containers/concepts/container.md).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container.
   1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
   1. Expand the **Metadata service parameters** section.
@@ -29,9 +29,9 @@ You can configure metadata service parameters when [creating a container revisio
     ```
 
     Where:
-    * `--container-id`: Container ID. To find out the ID, [get](list.md) a list of containers.
+    * `--container-id`: Container ID. To find out the ID, [get](list.md) the list of containers.
     * `--image`: {{ container-registry-full-name }} Docker image URL.
-    * `--service-account-id`: [ID of the service account](../../iam/operations/sa/get-id.md) with permissions to download a Docker image.
+    * `--service-account-id`: [ID of the service account](../../iam/operations/sa/get-id.md) with Docker image pull permissions.
     * `--metadata-options`: Settings for the metadata service parameters, e.g., `aws-v1-http-endpoint=disabled`.
 
 - {{ TF }} {#tf}
@@ -47,7 +47,7 @@ You can configure metadata service parameters when [creating a container revisio
         ```hcl
         resource "yandex_serverless_container" "metadata_container" {
           name               = "<container_name>"
-          memory             = "<RAM_size>"
+          memory             = "<RAM_amount>"
           execution_timeout  = "<execution_timeout>"
           service_account_id = "<service_account_ID>"
           content {
@@ -72,7 +72,7 @@ You can configure metadata service parameters when [creating a container revisio
             * `1` to enable the parameter.
             * `2` to disable the parameter.
 
-        For more information about the `yandex_serverless_container` resource parameters, see [this {{ TF }} article]({{ tf-provider-resources-link }}/serverless_container).
+        For more information about `yandex_serverless_container` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
    1. Apply the changes:
 
@@ -86,6 +86,6 @@ You can configure metadata service parameters when [creating a container revisio
 
 - API {#api}
 
-    To conigure metadata service parameters for a container, use the [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/DeployRevision](../../serverless-containers/containers/api-ref/grpc/Container/deployRevision.md) gRPC API call.
+    To configure metadata service parameters for a container, use the [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/DeployRevision](../../serverless-containers/containers/api-ref/grpc/Container/deployRevision.md) gRPC API call.
 
 {% endlist %}

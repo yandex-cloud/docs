@@ -14,7 +14,7 @@ GET https://vpc.api.cloud.yandex.net/vpc/v1/subnets/{subnetId}/addresses
 ||Field | Description ||
 || subnetId | **string**
 
-Required field.  ||
+Required field. This field is required. ||
 |#
 
 ## Query parameters {#yandex.cloud.vpc.v1.ListUsedAddressesRequest}
@@ -64,7 +64,6 @@ Required field.  ||
 || address | **string** ||
 || ipVersion | **enum** (IpVersion)
 
-- `IP_VERSION_UNSPECIFIED`
 - `IPV4`
 - `IPV6` ||
 || references[] | **[Reference](#yandex.cloud.reference.Reference)** ||
@@ -77,7 +76,6 @@ Required field.  ||
 || referrer | **[Referrer](#yandex.cloud.reference.Referrer)** ||
 || type | **enum** (Type)
 
-- `TYPE_UNSPECIFIED`
 - `MANAGED_BY`
 - `USED_BY` ||
 |#

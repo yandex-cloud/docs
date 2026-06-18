@@ -17,7 +17,7 @@ description: Контроль {{ k8s }}® ({{ kspm-name }}) контролиру
 
 {% include [kspm-alerts](../../_includes/security-deck/kspm-alerts.md) %}
 
-Подробнее см. на странице [{#T}](../operations/kspm/enable-kspm.md).
+Подробнее на странице [{#T}](../operations/kspm/enable-kspm.md).
 
 ### Полезные ссылки {#see-also}
 

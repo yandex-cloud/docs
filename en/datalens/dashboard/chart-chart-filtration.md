@@ -46,4 +46,5 @@ When using chart filtering, keep in mind the following:
 * Charts created in the wizard are filtered using all dataset dimensions except for fields of the [tree of strings](../dataset/data-types.md#tree-hierarchy) type, [hierarchies](../operations/chart/add-hierarchy.md), and fields containing [markup language](../function-ref/markup-functions.md). Fields [created at the chart level](../concepts/aggregation-tutorial.md#add-measure-in-chart) do not participate in filtering.
 * Clicking a cell in the **Table** chart applies filtering by all the dimensions of the selected row.
 * Clicking a map element applies filtering by all the dimensions used in the chart except the coordinates themselves.
+* In **Pivot table** charts, filtering charts by other charts only works for indicators.
 * The state of filtered charts is saved in the dashboard's `state` parameter. You can share a link to such a dashboard.

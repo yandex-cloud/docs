@@ -4,14 +4,6 @@
 
 ![image](../../_assets/managed-kubernetes/mk8s-wlif.svg)
 
-{% note warning %}
-
-Full integration with a workload identity federation via the `yc-metadata-server` DaemonSet controller on nodes for automatic exchange of {{ k8s }} service account tokens for an IAM token is available for clusters with a [current {{ k8s }} version](../../managed-kubernetes/concepts/k8s-supported-versions.md) in the `RAPID` [release channel](../../managed-kubernetes/concepts/release-channels-and-updates.md).
-
-Partial integration with [manual exchange](#manual-token-exchange) of {{ k8s }} service account tokens for an IAM token is available for clusters with all current {{ k8s }} versions in all release channels.
-
-{% endnote %}
-
 This tutorial exemplifies getting the value of a {{ lockbox-full-name }} [secret](../../lockbox/concepts/secret.md) from a {{ managed-k8s-name }} using an {{ iam-name }} [service account](../../iam/concepts/users/service-accounts.md). 
 
 Similarly, you can perform any action via the [{{ yandex-cloud }} CLI](../../cli/quickstart.md), [{{ TF }}](../../terraform/quickstart.md), an [SDK](../../overview/sdk/overview.md), or the [API](../../api-design-guide/).
@@ -149,7 +141,7 @@ The infrastructure support cost includes:
       1. In the [management console]({{ link-console-main }}), select the folder with the {{ lockbox-name }} secret.
       1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. Specify the service account name, e.g., `sa-lockbox`.
+      1. Enter a name for the service account, e.g., `sa-lockbox`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
       1. Select the service account you created and save its ID, as you will need it later.
 
@@ -476,12 +468,6 @@ The infrastructure support cost includes:
 {% endlist %}
 
 ## Test the integration {#check-integration}
-
-{% note tip %}
-
-Below is a scenario that uses the `yc-metadata-server` DaemonSet controller on nodes for automatic exchange of {{ k8s }} service account tokens for an IAM token available to clusters in the `RAPID` [release channel](../../managed-kubernetes/concepts/release-channels-and-updates.md). For clusters in other release channels, see [{#T}](#manual-token-exchange).
-
-{% endnote %}
 
 1. [Connect](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) to the {{ managed-k8s-name }} cluster using `kubectl`.
 1. Create a test pod manifest named `pod.yaml` with the following contents:

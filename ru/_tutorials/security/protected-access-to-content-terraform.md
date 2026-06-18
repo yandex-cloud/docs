@@ -86,7 +86,7 @@
 
     {% endlist %}
 
-    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+    Подробнее о параметрах используемых ресурсов в {{ TF }} смотрите в документации провайдера:
 
     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
     * [Роль](../../iam/concepts/access-control/roles.md) сервисному аккаунту — [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
@@ -107,7 +107,7 @@
 1. В файле `yc-cdn-secure-token.auto.tfvars` задайте пользовательские параметры:
 
     * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-    * `ssh_key_path` — путь к файлу с открытым [SSH-ключом](../../glossary/ssh-keygen.md) для аутентификации пользователя на ВМ. Подробнее см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `ssh_key_path` — путь к файлу с открытым [SSH-ключом](../../glossary/ssh-keygen.md) для аутентификации пользователя на ВМ. Подробнее в разделе [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
     * `index_file_path` — путь к файлу с главной страницей сайта.
     * `content_file_path` — путь к файлу с контентом для загрузки в бакет.
     * `domain_name` — имя вашего домена, например `example.com`.

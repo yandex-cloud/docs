@@ -162,7 +162,7 @@
           ikelifetime=86400s
         ```
 
-        Подробнее о параметрах см. в [документации strongSwan](https://wiki.strongswan.org/projects/strongswan/wiki/connsection).
+        Подробнее о параметрах в [документации strongSwan](https://wiki.strongswan.org/projects/strongswan/wiki/connsection).
 
     1. Откройте файл `ipsec.secrets`, который используется для аутентификации:
 
@@ -176,7 +176,7 @@
        <публичный_адрес_VM-1> <публичный_адрес_VM-2> : PSK "<пароль>"
        ```
 
-       Подробнее о формате файла `ipsec.secrets` см. в [документации strongSwan](https://wiki.strongswan.org/projects/strongswan/wiki/Ipsecsecrets).
+       Подробнее о формате файла `ipsec.secrets` в [документации strongSwan](https://wiki.strongswan.org/projects/strongswan/wiki/Ipsecsecrets).
 
 1. Настройте дополнительный IPSec-шлюз:
 
@@ -223,7 +223,7 @@
           dpddelay=30s
         ```
 
-        Подробнее о параметрах см. в [документации strongSwan](https://wiki.strongswan.org/projects/strongswan/wiki/connsection).
+        Подробнее о параметрах в [документации strongSwan](https://wiki.strongswan.org/projects/strongswan/wiki/connsection).
 
     1. Откройте файл `ipsec.secrets`, необходимый для аутентификации:
 
@@ -239,7 +239,7 @@
 
        Пароли должны быть одинаковыми на обеих ВМ.
 
-       Подробнее о формате файла `ipsec.secrets` см. в [документации strongSwan](https://wiki.strongswan.org/projects/strongswan/wiki/Ipsecsecrets). 
+       Подробнее о формате файла `ipsec.secrets` в [документации strongSwan](https://wiki.strongswan.org/projects/strongswan/wiki/Ipsecsecrets). 
 
 1. Перезапустите strongSwan на обеих ВМ:
 

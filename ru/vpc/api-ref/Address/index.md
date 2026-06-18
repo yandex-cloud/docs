@@ -13,6 +13,7 @@ A set of methods for managing Address resources.
 || [Get](get.md) | Returns the specified Address resource. ||
 || [GetByValue](getByValue.md) | Returns the specified Address resource by a given value. ||
 || [List](list.md) | Retrieves the list of Address resources in the specified folder. ||
+|| [ListBySubnet](listBySubnet.md) | Retrieves the list of Address resources in the specified subnet. ||
 || [Create](create.md) | Creates an address in the specified folder and network. ||
 || [Update](update.md) | Updates the specified address. ||
 || [Delete](delete.md) | Deletes the specified address. ||

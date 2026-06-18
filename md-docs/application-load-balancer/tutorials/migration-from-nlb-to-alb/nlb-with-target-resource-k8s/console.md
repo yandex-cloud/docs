@@ -22,7 +22,7 @@
 
     1. Настройте порог для срабатывания механизмов защиты, который будет соответствовать объему легитимного трафика на защищаемый ресурс. Для настройки такого порога обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
 
-    1. [Задайте](../../../../vpc/operations/adjust-mtu-ddos-protection.md) значение MTU равным `1450` на целевых ресурсах за балансировщиком. Подробнее см. в разделе [MTU и TCP MSS](../../../../vpc/concepts/mtu-mss.md).
+    1. [Задайте](../../../../vpc/operations/adjust-mtu-ddos-protection.md) значение MTU равным `1450` на целевых ресурсах за балансировщиком. Подробнее в разделе [MTU и TCP MSS](../../../../vpc/concepts/mtu-mss.md).
 
 1. Проводите миграцию в часы наименьшей пользовательской нагрузки. Если вы решили сохранить публичный IP-адрес, то во время миграции ваш сервис будет недоступен, пока этот IP-адрес переносится с сетевого балансировщика на L7-балансировщик. Обычно это занимает несколько минут.
 
@@ -41,7 +41,7 @@
 
 1. Настройте проверки состояния бэкендов на балансировщике Application Load Balancer. Благодаря проверкам состояния балансировщик своевременно отслеживает недоступные бэкенды и направляет трафик на другие бэкенды. После обновления приложения трафик будет снова распределен на все бэкенды.
 
-    Подробнее см. в разделах [Рекомендации по настройке проверок состояния Yandex Application Load Balancer](../../../concepts/best-practices.md) и [Аннотации (metadata.annotations)](../../../k8s-ref/service-for-ingress.md#annotations).
+    Подробнее в разделах [Рекомендации по настройке проверок состояния Yandex Application Load Balancer](../../../concepts/best-practices.md) и [Аннотации (metadata.annotations)](../../../k8s-ref/service-for-ingress.md#annotations).
 
 ## Создайте инфраструктуру {#before-you-begin}
 
@@ -53,7 +53,7 @@
 
 1. (Опционально) [Зарезервируйте публичный статический IP-адрес с защитой от DDoS](../../../../vpc/operations/get-static-ip.md) на уровне L3-L4 для L7-балансировщика.
 
-1. Сервисы Managed Service for Kubernetes, которые используются в качестве бэкендов, должны иметь тип `NodePort`. Если ваши сервисы используют другой тип, измените его на `NodePort`. Подробнее об этом типе см. в документации [Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport).
+1. Сервисы Managed Service for Kubernetes, которые используются в качестве бэкендов, должны иметь тип `NodePort`. Если ваши сервисы используют другой тип, измените его на `NodePort`. Подробнее об этом типе смотрите в документации [Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport).
 
 ## Создайте профиль безопасности Smart Web Security {#create-profile-sws}
 

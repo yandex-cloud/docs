@@ -50,7 +50,7 @@
   * История потребления ресурсов доступна в [детализации](../operations/check-charges.md).
   * При [зачислении средств](../payment/payment-methods-individual.md) баланс увеличивается. Запись о пополнении сохраняется в [истории платежей](../operations/check-bill-history.md).
 
-  Подробнее см. в разделе [Пополнить лицевой счет](../operations/pay-the-bill.md#individuals).
+  Подробнее в разделе [Пополнить лицевой счет](../operations/pay-the-bill.md#individuals).
 
 - Юридические лица и ИП {#businesses}
 
@@ -68,7 +68,7 @@
 
 {% endnote %}
 
-Дополнительную информацию см. в следующих разделах:
+Дополнительная информация в следующих разделах:
 * Физическим лицам
     * [Способы оплаты](../payment/payment-methods-individual.md)
     * [Цикл оплаты](../payment/billing-cycle-individual.md)

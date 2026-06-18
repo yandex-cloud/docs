@@ -56,7 +56,7 @@
    allow_loading_unsigned_plugins = yandexcloud-logging-datasource
    ```
 
-   Подробнее о загрузке плагинов без подписи см. в [документации Grafana](https://grafana.com/docs/grafana/latest/administration/plugin-management/#allow-unsigned-plugins).
+   Подробнее о загрузке плагинов без подписи смотрите в [документации Grafana](https://grafana.com/docs/grafana/latest/administration/plugin-management/#allow-unsigned-plugins).
 
 1. Перезапустите сервер Grafana:
 
@@ -162,7 +162,7 @@
      * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md). Необязательный параметр. По умолчанию будет использовано значение, указанное в настройках провайдера.
      * `role` — назначаемая роль.
 
-     Более подробную информацию о параметрах ресурса `yandex_iam_service_account` в Terraform, см. в [документации провайдера](../../terraform/resources/iam_service_account.md).
+     Подробнее о параметрах ресурса `yandex_iam_service_account` в Terraform смотрите в [документации провайдера](../../terraform/resources/iam_service_account.md).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -246,7 +246,7 @@
 
      * `service_account_id` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта. Обязательный параметр.
      * `description` — описание ключа. Необязательный параметр.
-     * `key_algorithm` — алгоритм генерации ключа. Необязательный параметр. По умолчанию используется алгоритм `RSA_2048`. Допустимые значения параметра см. в [документации API](../../iam/api-ref/Key/index.md).
+     * `key_algorithm` — алгоритм генерации ключа. Необязательный параметр. По умолчанию используется алгоритм `RSA_2048`. Допустимые значения параметра смотрите в [документации API](../../iam/api-ref/Key/index.md).
 
      Пример структуры конфигурационного файла:
 
@@ -258,7 +258,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../terraform/resources/iam_service_account_key.md).
+     Подробнее о ресурсах, которые вы можете создать с помощью Terraform, смотрите в [документации провайдера](../../terraform/resources/iam_service_account_key.md).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -391,7 +391,7 @@
      * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
      * `retention_period` — срок хранения записей в лог-группе.
 
-     Более подробную информацию о параметрах ресурса `yandex_logging_group` в Terraform, см. в [документации провайдера](../../terraform/resources/logging_group.md).
+     Подробнее о параметрах ресурса `yandex_logging_group` в Terraform смотрите в [документации провайдера](../../terraform/resources/logging_group.md).
 
   1. Проверьте корректность конфигурационных файлов.
 

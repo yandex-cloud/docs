@@ -74,7 +74,7 @@
   
   Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
   Чтобы получить информацию о кластере Managed Service for Kubernetes:
 
@@ -100,7 +100,7 @@
       * `external_v4_endpoint` — имя переменной, значение которой будет выводиться в результате.
       * `data.yandex_kubernetes_cluster.my_cluster.master.0.external_v4_endpoint` — запрашиваемый параметр. В этом случае — публичный IP-адрес кластера.
 
-      Список параметров кластера, которые можно запросить таким образом, см. в [документации провайдера Terraform](../../../terraform/data-sources/kubernetes_cluster.md).
+      Список параметров кластера, которые можно запросить таким образом, приведен в [документации провайдера Terraform](../../../terraform/data-sources/kubernetes_cluster.md).
 
       {% note tip %}
 

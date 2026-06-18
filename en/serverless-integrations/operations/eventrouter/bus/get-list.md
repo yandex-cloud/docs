@@ -10,7 +10,7 @@ description: Follow this guide to view a list of available {{ er-full-name }} bu
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder where you want to view a list of [buses](../../../concepts/eventrouter/bus.md).
-  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, select ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**. The **{{ ui-key.yacloud.serverless-event-router.label_buses }}** page will display a list of buses.
 
 - CLI {#cli}

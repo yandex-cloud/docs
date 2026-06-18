@@ -26,7 +26,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}**, hover over the version tag (e.g., ![image](../../../_assets/console-icons/gear.svg) or `$latest`) of the function you want to add scaling settings for.
     1. In the pop-up window, click **{{ ui-key.yacloud.common.add }}**.

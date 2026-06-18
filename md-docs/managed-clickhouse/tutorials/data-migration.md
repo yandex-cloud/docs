@@ -7,7 +7,7 @@
 * [Встроенной функции `remote`](#transfer-remote). Этот способ подойдет для переноса отдельных таблиц.
 * [Встроенных команд `BACKUP` и `RESTORE` и бакета Yandex Object Storage](#backup-objstorage). Этот способ подойдет для переноса как отдельных таблиц, так и базы данных целиком.
 
-Вы также можете перенести базу данных из кластера ClickHouse® в кластер Managed Service for ClickHouse® при помощи Data Transfer. О том, как это сделать, см. в [практическом руководстве](../../tutorials/dataplatform/ch-to-mch-migration.md).
+Вы также можете перенести базу данных из кластера ClickHouse® в кластер Managed Service for ClickHouse® при помощи Data Transfer. Как это сделать, описано в [практическом руководстве](../../tutorials/dataplatform/ch-to-mch-migration.md).
 
 ## Перенос данных при помощи remote {#transfer-remote}
 
@@ -61,7 +61,7 @@
    SELECT * from <имя_БД>.<имя_таблицы>;
    ```
 
-   О том, как получить FQDN хоста, см. [инструкцию](../operations/connect/fqdn.md).
+   Как получить FQDN хоста, описано в [инструкции](../operations/connect/fqdn.md).
 
 1. В кластере-приемнике проверьте, что в БД появилась таблица из кластера-источника:
 
@@ -75,7 +75,7 @@
    SELECT * FROM <имя_БД>.<имя_таблицы>;
    ```
 
-Подробнее об использовании функции `remote` см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/table-functions/remote).
+Подробнее об использовании функции `remote` смотрите в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/table-functions/remote).
 
 ## Перенос данных при помощи команд BACKUP и RESTORE и бакета Object Storage {#backup-objstorage}
 
@@ -165,4 +165,4 @@
         SHOW DATABASES;
         ```
 
-Подробнее об использовании команд `BACKUP` и `RESTORE` с S3-хранилищем см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/backup/overview#backuprestore-using-an-s3-disk).
+Подробнее об использовании команд `BACKUP` и `RESTORE` с S3-хранилищем смотрите в [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/backup/overview#backuprestore-using-an-s3-disk).

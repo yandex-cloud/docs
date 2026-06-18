@@ -31,7 +31,7 @@
 
 {% note info %}
 
-Создаваемый кластер Yandex Managed Service for Apache Spark™ не использует S3-хранилище [Yandex Object Storage](../../storage/concepts/index.md) и глобальный каталог [Apache Hive™ Metastore](../../metadata-hub/concepts/metastore.md). В такой конфигурации кластер Yandex Managed Service for Apache Spark™ может работать только с данными в памяти. Для работы с постоянными базами и таблицами, а также для долговременного хранения результатов подключите внешнее хранилище Object Storage и, при необходимости, кластер Apache Hive™ Metastore для управления метаданными. Подробнее см. в руководстве [Автоматизация работы с помощью Yandex Managed Service for Apache Airflow™](airflow-automation.md).
+Создаваемый кластер Yandex Managed Service for Apache Spark™ не использует S3-хранилище [Yandex Object Storage](../../storage/concepts/index.md) и глобальный каталог [Apache Hive™ Metastore](../../metadata-hub/concepts/metastore.md). В такой конфигурации кластер Yandex Managed Service for Apache Spark™ может работать только с данными в памяти. Для работы с постоянными базами и таблицами, а также для долговременного хранения результатов подключите внешнее хранилище Object Storage и, при необходимости, кластер Apache Hive™ Metastore для управления метаданными. Подробнее в руководстве [Автоматизация работы с помощью Yandex Managed Service for Apache Airflow™](airflow-automation.md).
 
 {% endnote %}
 

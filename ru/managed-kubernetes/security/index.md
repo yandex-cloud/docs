@@ -22,7 +22,7 @@ description: Управление доступом в сервисе для ра
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-Также вы можете назначить [роли для доступа к {{ k8s }} API](#k8s-api) на отдельный кластер через {{ yandex-cloud }} [CLI](../../cli/cli-ref/managed-kubernetes/cli-ref/cluster/add-access-binding.md), [{{ TF }}]({{ tf-provider-resources-link }}/kubernetes_cluster_iam_binding) или [API](../api-ref/authentication.md). Подробнее см. на странице [{#T}](../operations/kubernetes-cluster/kubernetes-cluster-access.md).
+Также вы можете назначить [роли для доступа к {{ k8s }} API](#k8s-api) на отдельный кластер через {{ yandex-cloud }} [CLI](../../cli/cli-ref/managed-kubernetes/cli-ref/cluster/add-access-binding.md), [{{ TF }}]({{ tf-provider-resources-link }}/kubernetes_cluster_iam_binding) или [API](../api-ref/authentication.md). Подробнее на странице [{#T}](../operations/kubernetes-cluster/kubernetes-cluster-access.md).
 
 ## Какие роли действуют в сервисе {#roles-list}
 

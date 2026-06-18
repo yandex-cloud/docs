@@ -147,7 +147,7 @@ Container Storage Interface позволяет динамически резер
 
 * Если вам нужно изменить опции клиента [GeeseFS](../../../storage/tools/geesefs.md) для работы с бакетом, укажите их в параметре `spec.csi.volumeAttributes.options` при создании `PersistentVolume`. Например, в опции `--uid` можно указать идентификатор пользователя-владельца всех файлов в хранилище. Список опций GeeseFS см. с помощью команды `geesefs -h` или в [репозитории на GitHub](https://github.com/yandex-cloud/geesefs/blob/master/internal/flags.go#L88).
 
-  Опции GeeseFS, указанные в параметре `parameters.options` (в настройках приложения Yandex Cloud Marketplace — поле **Опции монтирования GeeseFS**) класса хранилища (`StorageClass`), для статических `PersistentVolume` игнорируются. Подробнее см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/storage/storage-classes/#mount-options).
+  Опции GeeseFS, указанные в параметре `parameters.options` (в настройках приложения Yandex Cloud Marketplace — поле **Опции монтирования GeeseFS**) класса хранилища (`StorageClass`), для статических `PersistentVolume` игнорируются. Подробнее читайте в [документации Kubernetes](https://kubernetes.io/docs/concepts/storage/storage-classes/#mount-options).
 
 Смотрите также [пример создания](#create-static-pvc) статического `PersistentVolume`.
 

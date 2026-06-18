@@ -3,7 +3,7 @@ title: How to create a {{ SR }} connection in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to connect to {{ SR }} in {{ datalens-full-name }}.
 ---
 
-# Creating a {{ SR }} connection in {{ datalens-full-name }}
+# Creating a connection to {{ SR }} from {{ datalens-full-name }}
 
 
 {% note warning %}
@@ -33,7 +33,7 @@ To create a {{ SR }} connection:
 1. Click **Create connection**.
 
 
-1. Select the [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
 
 
 1. Enter a name for the connection and click **Create**.

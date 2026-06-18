@@ -1,4 +1,4 @@
-# Migrating data from {{ forms-full-name }} to {{ datalens-full-name }} using {{ sf-full-name }} and {{ yq-full-name }} via the management console
+# Delivering data from {{ forms-full-name }} to {{ datalens-full-name }} using {{ sf-full-name }} and {{ yq-full-name }} via the management console
 
 
 To set up integration of {{ forms-name }} and {{ datalens-name }} via the management console, follow these steps:
@@ -28,14 +28,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the [management console]({{ link-console-main }}), select the relevant folder.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md): `forms-integration-sa`.
-  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the following roles. 
+  1. Name the [service account](../../iam/concepts/users/service-accounts.md): `forms-integration-sa`.
+  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the following roles: 
       * [lockbox.payloadViewer](../../iam/roles-reference.md#lockbox-payloadViewer): For reading {{ lockbox-full-name }} secrets.
-      * [functions.functionInvoker](../../iam/roles-reference.md#functions-functionInvoker): For invoking the {{ sf-name }} function.
-      * [storage.editor](../../iam/roles-reference.md#storage-editor): For reading data from, and writing data to, an {{ objstorage-name }} bucket.
+      * [functions.functionInvoker](../../iam/roles-reference.md#functions-functionInvoker): For invoking {{ sf-name }}.
+      * [storage.editor](../../iam/roles-reference.md#storage-editor): For reading from and writing to an {{ objstorage-name }} bucket.
       * [yq.viewer](../../iam/roles-reference.md#query-viewer) and [yq.invoker](../../iam/roles-reference.md#query-invoker): For integrating {{ datalens-name }} and {{ yq-name }}.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -49,10 +49,10 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will store 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the [management console]({{ link-console-main }}), select the relevant folder.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. Enter the bucket **{{ ui-key.yacloud.storage.bucket.settings.field_name }}**.
+  1. **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** the bucket.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 {% endlist %}
@@ -63,9 +63,9 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will store 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Open the bucket you [created earlier](#create-s3-bucket).
+  1. In the [management console]({{ link-console-main }}), select the relevant folder.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Open the bucket you [created](#create-s3-bucket).
   1. Navigate to **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
   1. In the **{{ ui-key.yacloud.component.acl-dialog.label_title }}** window that opens:
@@ -83,13 +83,13 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will store 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the [management console]({{ link-console-main }}), select the relevant folder.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Select the `forms-integration` service account.
   1. Navigate to **{{ ui-key.yacloud.common.overview }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.  
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. In the window that opens, **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_label_title }}**, you will see **{{ ui-key.yacloud.iam.folder.service-account.overview.label_id-title }}** and **{{ ui-key.yacloud.iam.folder.service-account.overview.label_secret-key-title }}**. Save them for later.
+  1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_label_title }}** window that opens, you will see **{{ ui-key.yacloud.iam.folder.service-account.overview.label_id-title }}** and **{{ ui-key.yacloud.iam.folder.service-account.overview.label_secret-key-title }}**. Save them for later.
 
 {% endlist %}
 
@@ -99,12 +99,12 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will store 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. In the [management console]({{ link-console-main }}), select the relevant folder.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
-  1. Enter the secret's **{{ ui-key.yacloud.common.name }}**: `static-key`.
+  1. **{{ ui-key.yacloud.common.name }}** the secret: `static-key`.
   1. Under **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-data-section }}**:
-      1. Select **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}**: **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}**.
+      1. Select **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** for **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}**.
       1. Create the following key-value pairs:
           * Static key ID:
 
@@ -118,21 +118,21 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will store 
 
 {% endlist %}
 
-## Create and configure a {{ sf-name }} function {#set-up-function}
+## Create and configure a function in {{ sf-name }} {#set-up-function}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. In the [management console]({{ link-console-main }}), select the relevant folder.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Create a function:
       1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}** in the top-right corner.
-      1. Enter the function **{{ ui-key.yacloud.common.name }}**: `forms-function`.  
+      1. **{{ ui-key.yacloud.common.name }}** the function: `forms-function`.  
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
   1. Create a function version:  
-      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** window that opens, select the runtime environment: **Python**.
+      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** window that opens, select the runtime: **Python**.
       1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
       1. Select the function creation **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}**: **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}**.
@@ -198,9 +198,9 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will store 
 
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, specify `forms-integration.handler`.
 
-      1. In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, select the previously created account named `forms-integration-sa`.
+      1. In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, select the `forms-integration-sa` account you created.
 
-      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**, create a variable containing the bucket name where the function results will be stored:
+      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**, create a variable with the bucket name for storing function execution results:
 
           1. **Key**: `BUCKET`.
           1. **Value**: Name of the bucket you [created earlier](#create-s3-bucket).
@@ -211,14 +211,14 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will store 
 
               * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-env-key }}**: `KEY`.
               * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-id }}**: Select the `static-key-id` secret.
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-version-id }}**: Select the version marked `latest`.
+              * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-version-id }}**: Select the version tagged `latest`.
               * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-key }}**: Select `static-key-id`.
 
           1. Create a `SECRET_KEY` variable for the static key ID. Set the parameters as follows:
 
               * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-env-key }}**: `SECRET_KEY`.
               * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-id }}**: Select the `static-key-value` secret.
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-version-id }}**: Select the version marked `latest`.
+              * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-version-id }}**: Select the version tagged `latest`.
               * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-key }}**: Select `static-key-value`.  
 
       1. Once your function is created, on the **{{ ui-key.yacloud.common.overview }}** tab, enable **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**:
@@ -226,7 +226,7 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will store 
 
 {% endlist %}
 
-## Create and set up a {{ forms-name }} form {#set-up-form}
+## Create and set up a form in {{ forms-full-name }} {#set-up-form}
 
 {% include [set-up-form](../_tutorials_includes/forms-and-datalens-set-up-form.md) %}
 

@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% note tip %}
 
-Вы можете использовать [бакет](../../../storage/concepts/bucket.md) {{ objstorage-full-name }} в качестве хранилища для пода. Подробнее см. в разделе [{#T}](s3-csi-integration.md).
+Вы можете использовать [бакет](../../../storage/concepts/bucket.md) {{ objstorage-full-name }} в качестве хранилища для пода. Подробнее в разделе [{#T}](s3-csi-integration.md).
 
 {% endnote %}
 

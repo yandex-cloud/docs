@@ -135,7 +135,7 @@
      * `<имя_бакета>` — имя бакета в {{ objstorage-name }}, к которому нужно применить политику доступа, например `my-s3-bucket`.
      * `<идентификатор_подключения>` — идентификатор сервисного подключения (Private Endpoint), например `enpd7rq1s3f5********`.
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket_policy` смотрите в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket_policy).
+     Более подробная информация о параметрах ресурса `yandex_storage_bucket_policy` приведена в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket_policy).
 
   1. Примените изменения:
 

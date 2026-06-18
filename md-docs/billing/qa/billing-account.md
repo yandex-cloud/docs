@@ -116,7 +116,7 @@
 
 Нельзя отменить удаление облака, привязанного к заблокированному платежному аккаунту в статусе `SUSPENDED`.
 
-См. [Отмена удаления облака](../../resource-manager/operations/cloud/delete-cancel.md).
+Подробнее в инструкции [Отмена удаления облака](../../resource-manager/operations/cloud/delete-cancel.md).
 
 #### Как подключить порог оплаты? {#credit}
 
@@ -183,9 +183,9 @@
 
 Платежный аккаунт может принадлежать только одной организации, однако он может быть использован для оплаты ресурсов других организаций.
 
-См. [Особенности управления платежным аккаунтом в организации](../concepts/organization.md).
+Подробнее в инструкции [Особенности управления платежным аккаунтом в организации](../concepts/organization.md).
 
 #### Как перестать пользоваться платформой и удалить платежный аккаунт? {#delete-account}
 
 
-Удалите все [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоги](../../resource-manager/concepts/resources-hierarchy.md#folder) и ресурсы в них, погасите существующую задолженность и выберите **Удалить** на странице платежного аккаунта в сервисе [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts). Подробнее см. в разделе [Удалить платежный аккаунт и расторгнуть договор с Yandex Cloud](../operations/delete-account.md).
+Удалите все [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоги](../../resource-manager/concepts/resources-hierarchy.md#folder) и ресурсы в них, погасите существующую задолженность и выберите **Удалить** на странице платежного аккаунта в сервисе [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts). Подробнее в разделе [Удалить платежный аккаунт и расторгнуть договор с Yandex Cloud](../operations/delete-account.md).

@@ -9,11 +9,10 @@ apiPlayground:
         securityGroupId:
           description: |-
             **string**
-            Required field. ID of the Security Group resource to return.
+            ID of the Security Group resource to return.
             To get the security group ID, use a [SecurityGroup.List] request.
+            This field is required.
           type: string
-      required:
-        - securityGroupId
       additionalProperties: false
     query: null
     body: null
@@ -23,7 +22,6 @@ apiPlayground:
 # Virtual Private Cloud API, REST: SecurityGroup.Get
 
 Returns the specified SecurityGroup resource.
-
 To get the list of all available SecurityGroup resources, make a [List](/docs/vpc/api-ref/SecurityGroup/list#List) request.
 
 ## HTTP request
@@ -39,7 +37,8 @@ GET https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}
 || securityGroupId | **string**
 
 Required field. ID of the Security Group resource to return.
-To get the security group ID, use a [SecurityGroup.List] request. ||
+To get the security group ID, use a [SecurityGroup.List] request.
+This field is required. ||
 |#
 
 ## Response {#yandex.cloud.vpc.v1.SecurityGroup}
@@ -127,7 +126,6 @@ ID of the network that the security group belongs to. ||
 
 Security group status.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Security group is being created.
 - `ACTIVE`: Security is active and it's rules are applied to the network interfaces.
 - `UPDATING`: Security group is updating. Updating is a long operation because we must update all instances in SG.
@@ -155,9 +153,9 @@ Description of the rule. 0-256 characters long. ||
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || direction | **enum** (Direction)
 
-Required field. The direction of network traffic allowed by this rule.
+The direction of network traffic allowed by this rule.
+This field is required.
 
-- `DIRECTION_UNSPECIFIED`
 - `INGRESS`: Allows ingress traffic.
 - `EGRESS`: Allows egress traffic. ||
 || ports | **[PortRange](#yandex.cloud.vpc.v1.PortRange)**
@@ -174,17 +172,23 @@ Protocol number from [IANA protocol numbers](https://www.iana.org/assignments/pr
 
 CIDR blocks to allow to recieve or send traffic.
 
-Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`. ||
+Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+
+Only one field must be specified. ||
 || securityGroupId | **string**
 
 ID of the security group to add rule to.
 
-Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`. ||
+Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+
+Only one field must be specified. ||
 || predefinedTarget | **string**
 
 Predefined target. See [security groups rules](/docs/vpc/concepts/security-groups#security-groups-rules) for more information.
 
-Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`. ||
+Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+
+Only one field must be specified. ||
 |#
 
 ## PortRange {#yandex.cloud.vpc.v1.PortRange}
@@ -193,10 +197,12 @@ Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarg
 ||Field | Description ||
 || fromPort | **string** (int64)
 
-The lowest port in the range. ||
+The lowest port in the range.
+The value must be between 0 and 65535. ||
 || toPort | **string** (int64)
 
-The highest port in the range. ||
+The highest port in the range.
+The value must be between 0 and 65535. ||
 |#
 
 ## CidrBlocks {#yandex.cloud.vpc.v1.CidrBlocks}

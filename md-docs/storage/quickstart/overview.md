@@ -10,4 +10,4 @@ API Object Storage частично совместим с API AWS S3, и вы м
 * [консоль управления](../quickstart.md);
 * [AWS CLI](quickstart-aws-cli.md).
 
-Подробнее о возможностях Object Storage см. в [концепциях](../concepts/index.md).
+Подробнее о возможностях Object Storage в [концепциях](../concepts/index.md).

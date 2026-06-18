@@ -1,12 +1,12 @@
-# Creating a trigger for {{ cloud-logging-name }} that invokes a {{ serverless-containers-name }} container
+# Creating a trigger for {{ cloud-logging-name }} that invokes a container from {{ serverless-containers-name }}
 
-Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-logging-trigger.md) that invokes a {{ serverless-containers-name }} [container](../concepts/container.md) when entries are added to a [log group](../../logging/concepts/log-group.md).
+Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-logging-trigger.md) that invokes a [container](../concepts/container.md) from {{ serverless-containers-name }} whenever entries are added to the [log group](../../logging/concepts/log-group.md).
 
 ## Getting started {#before-you-begin}
 
 {% include [trigger-before-you-begin](../../_includes/serverless-containers/trigger-before-you-begin.md) %}
 
-* Log group for which a trigger will fire when entries are added to it. If you do not have a log group, [create one](../../logging/operations/create-group.md).
+* Log group whose new entries will set off the trigger. If you do not have a log group, [create one](../../logging/operations/create-group.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -18,7 +18,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -46,7 +46,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
         {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -79,7 +79,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
     Where:
 
     * `--name`: Trigger name.
-    * `--log-group-name`: Name of the log group that will invoke a container when entries are added to it.
+    * `--log-group-name`: Name of the log group whose new log entries will invoke the container.
 
     {% include [batch-settings-messages](../../_includes/serverless-containers/batch-settings-messages.md) %}
 
@@ -128,7 +128,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
   To create a trigger for {{ cloud-logging-name }}:
 
-  1. In the configuration file, describe the trigger parameters:
+  1. In the configuration file, specify the trigger properties:
 
       ```hcl
       resource "yandex_function_trigger" "my_trigger" {
@@ -157,31 +157,31 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
       Where:
 
-      * `name`: Trigger name. The name format is as follows:
+      * `name`: Trigger name. Follow these naming requirements:
 
         {% include [name-format](../../_includes/name-format.md) %}
 
-      * `container`: Container parameters:
+      * `container`: Container settings:
 
         {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
 
         {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
 
-      * `logging`: Trigger parameters:
+      * `logging`: Trigger settings:
 
-        * `group_id`: ID of the log group that will invoke a container when entries are added to it.
-        * `resource_types`: Types of resources, e.g., of the {{ sf-name }} function. This is an optional parameter.
-        * `resource_ids`: IDs of your resources or {{ yandex-cloud }} resources, e.g., {{ sf-name }} functions. This is an optional parameter.
-        * `stream_names`: Log streams. This is an optional parameter.
-        * `levels`: Logging levels. This is an optional parameter.
+        * `group_id`: ID of the log group whose new log entries will invoke the container.
+        * `resource_types`: Types of resources, e.g., functions in {{ sf-name }}. This is an optional setting.
+        * `resource_ids`: IDs of your resources or {{ yandex-cloud }} resources, e.g., functions in {{ sf-name }}. This is an optional setting.
+        * `stream_names`: Log streams. This is an optional setting.
+        * `levels`: Logging levels. This is an optional setting.
 
-          A trigger fires when the specified log group receives entries that comply with all of the following parameters: `resource_ids`, `resource_types`, `stream_names`, and `levels`. If the parameter is not specified, the trigger fires for any value.
+          A trigger fires when the specified log group receives entries that comply with all of the following parameters: `resource_ids`, `resource_types`, `stream_names`, and `levels`. If the setting is not specified, the trigger fires for any value.
 
         {% include [tf-batch-msg-params](../../_includes/serverless-containers/tf-batch-msg-params.md) %}
 
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-      For more information about resource properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function_trigger).
+      For more information about resource properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create the resources:
 

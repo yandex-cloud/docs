@@ -24,7 +24,7 @@
 
 1. (Опционально) [Зарезервируйте публичный статический IP-адрес с защитой от DDoS](../../vpc/operations/get-static-ip.md) на уровне L3-L4 для L7-балансировщика.
 
-1. Сервисы {{ managed-k8s-name }}, которые используются в качестве бэкендов, должны иметь тип `NodePort`. Если ваши сервисы используют другой тип, измените его на `NodePort`. Подробнее об этом типе см. в документации [{{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport).
+1. Сервисы {{ managed-k8s-name }}, которые используются в качестве бэкендов, должны иметь тип `NodePort`. Если ваши сервисы используют другой тип, измените его на `NodePort`. Подробнее об этом типе смотрите в документации [{{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport).
 
 ## Создайте профиль безопасности {{ sws-name }} {#create-profile-sws}
 

@@ -37,8 +37,8 @@ GET /v2/email/identities/{DomainIdentity} HTTP/2
       "<селектор_для_открытого_ключа>"
     ],
     "SigningAttributesOrigin": "<способ_конфигурации_DKIM>",
-    "NextSigningKeyLength": "<параметр_для_совместимости>",
-    "CurrentSigningKeyLength": "<параметр_для_совместимости>"
+    "NextSigningKeyLength": "<длина_следующего_ключа>",
+    "CurrentSigningKeyLength": "<длина_текущего_ключа>"
   },
   "Tags": [
     {
@@ -82,13 +82,16 @@ GET /v2/email/identities/{DomainIdentity} HTTP/2
 Список селекторов для идентификации открытого ключа. Тип для селектора: string. ||
 || `SigningAttributesOrigin` | **Тип**: string.
 
-Указывает, как была настроена DKIM-подпись. Значение `EXTERNAL` говорит о том, что  DKIM-подпись настроена с помощью BYODKIM. ||
+Указывает, как была настроена DKIM-подпись. Возможные значения:
+
+  * `AWS_SES` — простая настройка (Easy DKIM): ключи DKIM сгенерированы Yandex Cloud Postbox.
+  * `EXTERNAL` — расширенная настройка (BYODKIM): пользователь указал собственный ключ. ||
 || `NextSigningKeyLength` | **Тип**: string.
 
-Используется только для совместимости с AWS. ||
+Длина ключа RSA, который будет использован при следующей ротации ключа DKIM при простой настройке (Easy DKIM). Возможные значения: `RSA_2048_BIT`, `RSA_1024_BIT`. ||
 || `CurrentSigningKeyLength` | **Тип**: string.
 
-Используется только для совместимости с AWS. ||
+Длина текущего ключа RSA, который используется для DKIM-подписи при простой настройке (Easy DKIM). Возможные значения: `RSA_2048_BIT`, `RSA_1024_BIT`. ||
 || `Tags` | **Тип**: array.
 
 Массив меток для адреса. ||

@@ -41,7 +41,7 @@
 
     Будет возвращен список запросов, выполняющихся на сервере. Обратите внимание на запросы с высоким значением `duration`.
 
-    Подробнее об информации в выдаче см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
+    Подробнее об информации в выдаче смотрите в [документации {{ PG }}](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
 
 * [Получить и проанализировать статистику по запросам](../../managed-postgresql/operations/performance-diagnostics.md#get-queries) с помощью встроенного в {{ mpg-name }} инструмента для диагностики.
 
@@ -59,7 +59,7 @@
 
     Чтобы визуализировать планы выполнения найденных запросов, используйте вкладку **SQL** на странице управления кластером.
 
-    Подробнее см. в разделе [{#T}](../../managed-postgresql/operations/web-sql-query.md).
+    Подробнее в разделе [{#T}](../../managed-postgresql/operations/web-sql-query.md).
 
     {% endnote %}
 
@@ -75,7 +75,7 @@
 
     При необходимости в [настройках СУБД](../../managed-postgresql/operations/update.md#change-postgresql-config) увеличьте значение параметра `default_statistics_target`, затем выполните запрос `ANALYZE` повторно.
 
-    Подробнее про параметр `default_statistics_target` см. в [настройках {{ PG }}](../../managed-postgresql/concepts/settings-list.md#setting-default-statistics-target).
+    Подробнее про параметр `default_statistics_target` смотрите в [настройках {{ PG }}](../../managed-postgresql/concepts/settings-list.md#setting-default-statistics-target).
 
 * Создать расширенные объекты статистики.
 
@@ -113,7 +113,7 @@
     * Обратите внимание на график **Lock**. Он показывает количество запросов, которые в выбранный период находились в состоянии блокировки.
     * Чтобы получить детальную информацию о запросах, выполнявшихся в выбранный период, перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}**.
 
-    Подробнее про отображаемые сведения см. [в документации {{ PG }}](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.6).
+    Подробнее про отображаемые сведения смотрите в [документации {{ PG }}](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.6).
 
 Чтобы диагностировать наличие блокировок средствами {{ PG }}, выполните запрос:
 
@@ -122,7 +122,7 @@ SELECT * FROM pg_locks pl LEFT JOIN pg_stat_activity psa
     ON pl.pid = psa.pid;
 ```
 
-   Подробнее о выборке запросов с блокировками см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/view-pg-locks.html).
+   Подробнее о выборке запросов с блокировками смотрите в [документации {{ PG }}](https://www.postgresql.org/docs/current/view-pg-locks.html).
 
 
 ## Устранение проблем с блокировками {#solving-locking-issues}

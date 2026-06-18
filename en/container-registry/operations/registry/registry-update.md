@@ -20,7 +20,7 @@ To access a [registry](../../concepts/registry.md), use its ID or name. For info
 
   To update the name of a [registry](../../concepts/registry.md):
   1. In the [management console]({{ link-console-main }}), select the folder containing the registry.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Click ![image](../../../_assets/console-icons/ellipsis-vertical.svg) in the row of the registry to update.
   1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
   1. In the window that opens, enter the registry name.
@@ -91,7 +91,7 @@ To access a [registry](../../concepts/registry.md), use its ID or name. For info
 
   To add or delete an [IP address](../../../vpc/concepts/address.md) and configure access to a registry:
   1. In the [management console]({{ link-console-main }}), select the folder containing the registry.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Click the name of the registry you need, select ![ip-address.svg](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.cr.registry.label_ip-permissions }}**, and click **{{ ui-key.yacloud.cr.registry.button_update-ip-permissions }}**.
   1. Click **{{ ui-key.yacloud.common.add }}** and specify the IP address and permission to perform an action with the registry: `PULL` to pull Docker images from the registry or `PUSH` to push them to the registry.
   1. Click ![image](../../../_assets/console-icons/xmark.svg) in the row of the IP address from which you need to delete the permissions.

@@ -1,6 +1,6 @@
 # Creating a function in Node.js
 
-Create and execute a [function](../../concepts/function.md) in Node.js that welcomes the user.
+Create and run a user welcome [function](../../concepts/function.md) in Node.js.
 
 {% include [function-before-begin](../../../_includes/functions/function-before-begin.md) %}
 
@@ -11,7 +11,7 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
     1. Enter the function name: `nodejs-function`.
     1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -22,7 +22,7 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    To create a function, run the command:
+    To create a function, run this command:
 
     ```
     yc serverless function create --name=nodejs-function
@@ -42,12 +42,12 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
 
 - API {#api}
 
-    You can create a function using the [create](../../functions/api-ref/Function/create.md).
+    You can create a function using the [create](../../functions/api-ref/Function/create.md) API method.
 
 
 {% endlist %}
 
-## Create the first version of the function {#create-first-version}
+## Create the first version of your function {#create-first-version}
 
 {% include [create-version](../../../_includes/functions/create-version.md) %}
 
@@ -76,13 +76,13 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. Select `nodejs-function`.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Select the `nodejs-function` function.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
-    1. Select the `{{ nodejs-full-ver }}` runtime environment.
+    1. Select the `{{ nodejs-full-ver }}` runtime.
     1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-        1. Set the version parameters:
+        1. Configure the version:
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: Attach `hello-js.zip`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `hello.handler`.
@@ -97,7 +97,7 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    To create a function version, run the command:
+    To create a function version, run this command:
   
     ```
     yc serverless function version create \
@@ -112,10 +112,10 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
     Where:
 
     * `--function-name`: Name of the function whose version you want to create.
-    * `--runtime`: Runtime environment.
+    * `--runtime`: Runtime.
     * `--entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
     * `--memory`: Amount of RAM.
-    * `--execution-timeout`: Maximum function running time before timeout.
+    * `--execution-timeout`: Maximum function execution time before timeout.
     * `--source-path`: ZIP archive with the function code and required dependencies.
 
     Result:
@@ -139,7 +139,7 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
 
 - API {#api}
 
-    You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md).
+    You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md) API method.
 
 
 {% endlist %}

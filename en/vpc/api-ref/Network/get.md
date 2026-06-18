@@ -9,11 +9,11 @@ apiPlayground:
         networkId:
           description: |-
             **string**
-            Required field. ID of the Network resource to return.
+            ID of the Network resource to return.
             To get the network ID, use a [NetworkService.List](/docs/vpc/api-ref/Network/list#List) request.
+            The length must be less than or equal to 50.
+            This field is required.
           type: string
-      required:
-        - networkId
       additionalProperties: false
     query: null
     body: null
@@ -23,7 +23,6 @@ apiPlayground:
 # Virtual Private Cloud API, REST: Network.Get
 
 Returns the specified Network resource.
-
 Get the list of available Network resources by making a [List](/docs/vpc/api-ref/Network/list#List) request.
 
 ## HTTP request
@@ -39,7 +38,9 @@ GET https://vpc.{{ api-host }}/vpc/v1/networks/{networkId}
 || networkId | **string**
 
 Required field. ID of the Network resource to return.
-To get the network ID, use a [NetworkService.List](/docs/vpc/api-ref/Network/list#List) request. ||
+To get the network ID, use a [NetworkService.List](/docs/vpc/api-ref/Network/list#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Response {#yandex.cloud.vpc.v1.Network}

@@ -19,10 +19,6 @@ To grant a user access to {{ datalens-short-name }}, [assign](../../organization
 
 - After switching to workbooks and collections {#after-workbooks-collections}
 
-  #### datalens.metaReader {#datalens-metaReader}
-
-  {% include [datalens-metaReader](../../_roles/datalens/metaReader.md) %}
-
   #### datalens.visitor {#datalens-visitor}
 
   {% include [datalens-visitor](../../_roles/datalens/visitor.md) %}
@@ -47,9 +43,15 @@ To grant a user access to {{ datalens-short-name }}, [assign](../../organization
 
 {% endlist %}
 
-## Roles for workbooks and collections {#workbooks-collections-roles}
+## Roles to work with the API {#api-roles}
 
-These roles are valid for users who adopted the new {{ datalens-short-name }} object layout: in [workbooks and collections](../workbooks-collections/index.md). The roles allow you to configure access level to each workbook or collection for a user or user group.
+#### datalens.metaReader {#datalens-metaReader}
+
+{% include [datalens-metaReader](../../_roles/datalens/metaReader.md) %}
+
+## Roles for workbooks, collections, and shared objects {#workbooks-collections-roles}
+
+These roles are valid for users who adopted the new {{ datalens-short-name }} object layout: in [workbooks and collections](../workbooks-collections/index.md). Roles allow you to define the level of access a user or group of users has to each workbook, collection, or shared object.
 
 ### Roles for workbooks {#workbook-roles}
 
@@ -81,6 +83,10 @@ The workbook author automatically gets the `datalens.workbooks.admin` (`Admin`) 
 
 You can [assign](../workbooks-collections/collections-operations.md#wb-coll-grant) a user roles for collections.
 
+#### datalens.collections.visitor {#datalens-collections-visitor}
+
+{% include [datalens.collections.visitor](../../_roles/datalens/collections/visitor.md) %}
+
 #### datalens.collections.limitedViewer {#datalens-collections-limitedViewer}
 
 {% include [datalens.collections.limitedViewer](../../_roles/datalens/collections/limitedViewer.md) %}
@@ -88,6 +94,18 @@ You can [assign](../workbooks-collections/collections-operations.md#wb-coll-gran
 #### datalens.collections.viewer {#datalens-collections-viewer}
 
 {% include [datalens.collections.viewer](../../_roles/datalens/collections/viewer.md) %}
+
+#### datalens.collections.limitedEntryBindingCreator {#datalens-collections-limitedEntryBindingCreator}
+
+{% include [datalens.collections.limitedEntryBindingCreator](../../_roles/datalens/collections/limitedEntryBindingCreator.md) %}
+
+#### datalens.collections.entryBindingCreator {#datalens-collections-entryBindingCreator}
+
+{% include [datalens.collections.entryBindingCreator](../../_roles/datalens/collections/entryBindingCreator.md) %}
+
+#### datalens.collections.creator {#datalens-collections-creator}
+
+{% include [datalens.collections.creator](../../_roles/datalens/collections/creator.md) %}
 
 #### datalens.collections.editor {#datalens-collections-editor}
 
@@ -104,5 +122,31 @@ This role includes the `datalens.collections.editor` and `datalens.workbooks.adm
 The role granted for a collection applies to all collections and their workbooks. The collection author automatically gets the `datalens.collections.admin` (`Admin`) role for the collection as soon as it is created.
 
 {% endnote %}
+
+### Roles for shared objects {#shared-entry-roles}
+
+#### datalens.sharedEntries.limitedViewer {#datalens-sharedEntries-limitedViewer}
+
+{% include [datalens.sharedEntries.limitedViewer](../../_roles/datalens/sharedEntries/limitedViewer.md) %}
+
+#### datalens.sharedEntries.viewer {#datalens-sharedEntries-viewer}
+
+{% include [datalens.sharedEntries.viewer](../../_roles/datalens/sharedEntries/viewer.md) %}
+
+#### datalens.sharedEntries.limitedEntryBindingCreator {#datalens-sharedEntries-limitedEntryBindingCreator}
+
+{% include [datalens.sharedEntries.limitedEntryBindingCreator](../../_roles/datalens/sharedEntries/limitedEntryBindingCreator.md) %}
+
+#### datalens.sharedEntries.entryBindingCreator {#datalens-sharedEntries-entryBindingCreator}
+
+{% include [datalens.sharedEntries.entryBindingCreator](../../_roles/datalens/sharedEntries/entryBindingCreator.md) %}
+
+#### datalens.sharedEntries.editor {#datalens-sharedEntries-editor}
+
+{% include [datalens.sharedEntries.editor](../../_roles/datalens/sharedEntries/editor.md) %}
+
+#### datalens.sharedEntries.admin {#datalens-sharedEntries-admin}
+
+{% include [datalens.sharedEntries.admin](../../_roles/datalens/sharedEntries/admin.md) %}
 
 

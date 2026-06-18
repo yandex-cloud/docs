@@ -86,7 +86,7 @@ Managed Service for Kubernetes поддерживает два режима по
 
 В Managed Service for Kubernetes поддерживается «горячее» увеличение размера томов с помощью объекта `PersistentVolumeClaim` без необходимости перезапуска подов, которые эти тома используют.
 
-Подробнее см. в разделе [Увеличение размера тома для подов](../operations/volumes/volume-expansion.md).
+Подробнее в разделе [Увеличение размера тома для подов](../operations/volumes/volume-expansion.md).
 
 ## Удаление томов {#deleting-volumes}
 

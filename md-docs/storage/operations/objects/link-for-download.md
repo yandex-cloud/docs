@@ -145,7 +145,7 @@
     --endpoint-url "https://storage.yandexcloud.net/"
   ```
   
-  Чтобы ссылка сформировалась корректно, обязательно укажите параметр `--endpoint-url` с указанием доменного имени Object Storage. Подробнее см. в [разделе об особенностях работы AWS CLI](../../tools/aws-cli.md#specifics).
+  Чтобы ссылка сформировалась корректно, обязательно укажите параметр `--endpoint-url` с указанием доменного имени Object Storage. Подробнее в [разделе об особенностях работы AWS CLI](../../tools/aws-cli.md#specifics).
 
 - SDK для Python (boto3) {#sdk-python}
 

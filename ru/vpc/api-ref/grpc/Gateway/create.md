@@ -28,19 +28,27 @@ Creates a gateway in the specified folder.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder to create a gateway in.
-
-To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+ID of the folder to create a gateway in.
+To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 || name | **string**
 
 Name of the gateway.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+The value must match the regular expression: ```|[a-z]([-a-z0-9]{0,61}[a-z0-9])?```. ||
 || description | **string**
 
-Description of the gateway. ||
+Description of the gateway.
+The length must be less than or equal to 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Gateway labels as `key:value` pairs. ||
+Gateway labels as `key:value` pairs.
+Each map key must match the regular expression: `[a-z][-_./\\@0-9a-z]*`.
+Each map value must match the regular expression: `[-_./\\@0-9a-z]*`.
+The length of each map key must be between 1 and 63.
+The length of each map value must be less than or equal to 63.
+The number of elements must be less than or equal to 64. ||
 || shared_egress_gateway_spec | **[SharedEgressGatewaySpec](#yandex.cloud.vpc.v1.SharedEgressGatewaySpec)**
 
 Includes only one of the fields `shared_egress_gateway_spec`.
@@ -65,22 +73,10 @@ Gateway configuration specification ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "gateway_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "folder_id": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "name": "string",
-    "description": "string",
-    "labels": "map<string, string>",
-    // Includes only one of the fields `shared_egress_gateway`
-    "shared_egress_gateway": "SharedEgressGateway"
-    // end of the list of possible fields
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -108,7 +104,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateGatewayMetadata](#yandex.cloud.vpc.v1.CreateGatewayMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -123,7 +119,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Gateway](#yandex.cloud.vpc.v1.Gateway)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -138,60 +134,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateGatewayMetadata {#yandex.cloud.vpc.v1.CreateGatewayMetadata}
-
-#|
-||Field | Description ||
-|| gateway_id | **string**
-
-ID of the gateway that is being created. ||
-|#
-
-## Gateway {#yandex.cloud.vpc.v1.Gateway}
-
-A Gateway resource. For more information, see [Gateway](/docs/vpc/concepts/gateways).
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the gateway. Generated at creation time. ||
-|| folder_id | **string**
-
-ID of the folder that the gateway belongs to. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp. ||
-|| name | **string**
-
-Name of the gateway.
-The name is unique within the folder.
-Value must match the regular expression ``\\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``. ||
-|| description | **string**
-
-Description of the gateway. 0-256 characters long. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Gateway labels as `key:value` pairs.
-No more than 64 per resource.
-The maximum string length in characters for each value is 63.
-Each value must match the regular expression `[-_./\\@0-9a-z]*`.
-The string length in characters for each key must be 1-63.
-Each key must match the regular expression `[a-z][-_./\\@0-9a-z]*`. ||
-|| shared_egress_gateway | **[SharedEgressGateway](#yandex.cloud.vpc.v1.SharedEgressGateway)**
-
-Includes only one of the fields `shared_egress_gateway`.
-
-Gateway specification ||
-|#
-
-## SharedEgressGateway {#yandex.cloud.vpc.v1.SharedEgressGateway}
-
-Shared Egress Gateway configuration
-
-#|
-||Field | Description ||
-|| Empty | > ||
 |#

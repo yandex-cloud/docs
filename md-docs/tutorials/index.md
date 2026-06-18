@@ -806,9 +806,15 @@
 
 ### Алиса
 
- - [Создание навыка Алисы](serverless/alice-skill.md)
+#### Создание навыка Алисы
 
- - [Разработка навыка Алисы и сайта с авторизацией](serverless/alice-shareable-todolist.md)
+ - [Обзор](applied/alice-skill/index.md)
+
+ - [Консоль управления, CLI и API](applied/alice-skill/console.md)
+
+ - [Terraform](applied/alice-skill/terraform.md)
+
+ - [Разработка навыка Алисы и сайта с авторизацией](applied/alice-shareable-todolist.md)
 
 ### Прочее
 
@@ -1492,7 +1498,13 @@
 
  - [Защита API Gateway при помощи Smart Web Security](serverless/api-gw-sws-integration.md)
 
- - [Создание навыка Алисы](serverless/alice-skill.md)
+#### Создание навыка Алисы
+
+ - [Обзор](serverless/alice-skill/index.md)
+
+ - [Консоль управления, CLI и API](serverless/alice-skill/console.md)
+
+ - [Terraform](serverless/alice-skill/terraform.md)
 
  - [Разработка навыка Алисы и сайта с авторизацией](serverless/alice-shareable-todolist.md)
 

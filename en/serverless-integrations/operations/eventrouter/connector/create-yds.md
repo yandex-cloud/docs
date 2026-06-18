@@ -10,7 +10,7 @@ description: Follow this guide to create a connector for {{ yds-full-name }}.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [connector](../../../concepts/eventrouter/connector.md).
-  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Select the [bus](../../../concepts/eventrouter/bus.md) you need.
   1. Navigate to the ![image](../../../../_assets/console-icons/broadcast-signal.svg) **{{ ui-key.yacloud.serverless-event-router.label_connectors }}** tab.
@@ -55,19 +55,19 @@ description: Follow this guide to create a connector for {{ yds-full-name }}.
 
       * `--bus-id`: {{ er-name }} [bus](../../../concepts/eventrouter/bus.md) ID.
       * `--database`: [Path](../../../../ydb/operations/connection.md#endpoint-and-path) to the {{ ydb-full-name }} [database](../../../../ydb/concepts/resources.md#database) specified in the [data stream](../../../../data-streams/concepts/glossary.md#stream-concepts) settings, e.g., `/{{ region-id }}/b1gia87mbaom********/etnudu2n9ri3********`.
-      * `--stream-name`: Stream name.
+      * `--stream-name`: Data stream name.
       * `--consumer`: Name of the [dedicated data consumer](../../../../data-streams/concepts/glossary.md#consumers).
       * `--service-account-id`: ID of the [service account](../../../../iam/concepts/users/service-accounts.md) that has read permissions for the data stream.
       * `--name`: Connector name. Follow these naming requirements:
 
           {% include [name-format-2](../../../../_includes/name-format-2.md) %}
 
-      * `--description`: Connector description. This is an optional parameter.
-      * `--labels`: List of labels. This is an optional parameter.
+      * `--description`: Connector description. This is an optional setting.
+      * `--labels`: List of labels. This is an optional setting.
 
           You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
 
-      * `--deletion-protection`: Connector deletion protection. By default, protection is disabled. You cannot delete a connector with this option enabled. To disable deletion protection, specify `--no-deletion-protection`. This is an optional parameter.
+      * `--deletion-protection`: Connector deletion protection. By default, protection is disabled. You cannot delete a connector with this option enabled. To disable deletion protection, specify `--no-deletion-protection`. This is an optional setting.
 
       Result:
 
@@ -100,7 +100,7 @@ description: Follow this guide to create a connector for {{ yds-full-name }}.
 
   To create a [connector](../../../concepts/eventrouter/connector.md) for {{ yds-name }}:
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
       ```hcl
       resource "yandex_serverless_eventrouter_connector" "example_connector" {
@@ -132,11 +132,11 @@ description: Follow this guide to create a connector for {{ yds-full-name }}.
 
           {% include [name-format-2](../../../../_includes/name-format-2.md) %}
 
-      * `description`: Connector description. This is an optional parameter.
-      * `deletion_protection`: Connector deletion protection, `true` or `false`. You cannot delete a connector with this option enabled. This is an optional parameter.
-      * `labels`: List of labels. Provide labels in `<key> = "<value>"` format. This is an optional parameter.
+      * `description`: Connector description. This is an optional setting.
+      * `deletion_protection`: Connector deletion protection, `true` or `false`. You cannot delete a connector with this option enabled. This is an optional setting.
+      * `labels`: List of labels Provide labels in `<key> = "<value>"` format. This is an optional setting.
       * `database`: [Path](../../../../ydb/operations/connection.md#endpoint-and-path) to the {{ ydb-full-name }} [database](../../../../ydb/concepts/resources.md#database) specified in the [data stream](../../../../data-streams/concepts/glossary.md#stream-concepts) settings, e.g., `/{{ region-id }}/b1gia87mbaom********/etnudu2n9ri3********`.
-      * `stream_name`: Stream name.
+      * `stream_name`: Data stream name.
       * `consumer`: Name of the [dedicated data consumer](../../../../data-streams/concepts/glossary.md#consumers).
       * `service_account_id`: ID of the [service account](../../../../iam/concepts/users/service-accounts.md) that has read permissions for the data stream.
 
@@ -146,7 +146,7 @@ description: Follow this guide to create a connector for {{ yds-full-name }}.
 
       {% include [terraform-validate-plan-apply](../../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../../../cli/) command:
 
       ```bash
       yc serverless eventrouter connector list

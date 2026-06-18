@@ -14,7 +14,7 @@ Syntax:
 
 - [yc backup](backup/cli-ref/index.md) — Manage Yandex Cloud Backup resources
 
-- [yc baremetal](baremetal/cli-ref/index.md) — Manage  Baremetal resources
+- [yc baremetal](baremetal/cli-ref/index.md) — Manage Baremetal resources
 
 - [yc cdn](cdn/cli-ref/index.md) — Manage CDN resources
 
@@ -66,7 +66,7 @@ Syntax:
 
 - [yc managed-gitlab](managed-gitlab/cli-ref/index.md) — Manage Gitlab resources.
 
-- [yc managed-greenplum](managed-greenplum/cli-ref/index.md) — Manage Greenplum clusters and hosts.
+- [yc managed-greenplum](managed-greenplum/cli-ref/index.md) — Manage Greenplum and Cloudberry clusters.
 
 - [yc managed-kafka](managed-kafka/cli-ref/index.md) — Manage Apache Kafka clusters, brokers, topics, users and connectors.
 

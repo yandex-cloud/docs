@@ -54,7 +54,7 @@
    | `smtp.smtp_ssl` | `True` |
    | `smtp.smtp_mail_from` | `user@yandex.ru` |
 
-   Заполните поля вручную или загрузите конфигурацию из файла (см. [пример конфигурационного файла](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
+   Заполните поля вручную или загрузите конфигурацию из файла ([пример конфигурационного файла](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
 
 ## Создайте секрет {{ lockbox-name }} {#create-lockbox-secret}
 

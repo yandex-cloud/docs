@@ -35,7 +35,7 @@ description: Автоматическое масштабирование в {{ m
 
 Включение {{ k8s-ca }} доступно только при создании группы узлов. Управление {{ k8s-ca }} выполняется на стороне сервиса {{ managed-k8s-name }}.
 
-Подробнее см. в документации {{ k8s }}:
+Подробнее читайте в документации {{ k8s }}:
 
 * [описание {{ k8s-ca }}](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler);
 * [параметры, используемые по умолчанию](https://github.com/kubernetes/autoscaler/blob/c6b754c359a8563050933a590f9a5dece823c836/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca);
@@ -79,7 +79,7 @@ description: Автоматическое масштабирование в {{ m
 * [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/).
 * [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/).
 
-Подробнее о {{ k8s-hpa }} см. в [документации {{ k8s }}](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
+Подробнее о {{ k8s-hpa }} в [документации {{ k8s }}](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
 
 ## Вертикальное автомасштабирование подов {#vpa}
 
@@ -91,9 +91,9 @@ description: Автоматическое масштабирование в {{ m
 * `updateMode: "Off"`, чтобы {{ k8s-vpa }} [предоставлял рекомендации](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler#quick-start) по управлению ресурсами подов, но не изменял их.
 * `updateMode: "Initial"`, чтобы {{ k8s-vpa }} применял рекомендации только при создании подов.
 * `updateMode: "Recreate"`, чтобы {{ k8s-vpa }} пересоздавал поды с обновленными значениями ресурсов при значительном расхождении между текущими запросами и рекомендациями.
-* `updateMode: "InPlaceOrRecreate"`, чтобы {{ k8s-vpa }} сперва пытался обновить запросы и лимиты ресурсов без перезапуска пода. Если такое обновление недоступно, под будет пересоздан аналогично режиму `Recreate`. Подробнее см. на странице [Resize CPU and Memory Resources assigned to Containers](https://kubernetes.io/docs/tasks/configure-pod-container/resize-container-resources/).
+* `updateMode: "InPlaceOrRecreate"`, чтобы {{ k8s-vpa }} сперва пытался обновить запросы и лимиты ресурсов без перезапуска пода. Если такое обновление недоступно, под будет пересоздан аналогично режиму `Recreate`. Подробнее на странице [Resize CPU and Memory Resources assigned to Containers](https://kubernetes.io/docs/tasks/configure-pod-container/resize-container-resources/).
 
-Подробнее о {{ k8s-vpa }} см. в [документации {{ k8s }}](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler).
+Подробнее о {{ k8s-vpa }} в [документации {{ k8s }}](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler).
 
 ## Примеры использования {#examples}
 

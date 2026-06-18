@@ -4,7 +4,7 @@
 
 {% note info %}
 
-Задания в кластере Yandex Data Processing также можно запускать из Yandex DataSphere. Подробнее см. в [концепции](../../datasphere/concepts/data-processing.md#existing-clusters).
+Задания в кластере Yandex Data Processing также можно запускать из Yandex DataSphere. Подробнее в [концепции](../../datasphere/concepts/data-processing.md#existing-clusters).
 
 {% endnote %}
 

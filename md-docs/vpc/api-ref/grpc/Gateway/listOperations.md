@@ -20,19 +20,22 @@ List operations for the specified gateway.
 ||Field | Description ||
 || gateway_id | **string**
 
-Required field. ID of the gateway to list operations for.
-
-To get a gateway ID make a [GatewayService.List](list.md#List) request. ||
+ID of the gateway to list operations for.
+To get a gateway ID make a [GatewayService.List](list.md#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListGatewayOperationsResponse.next_page_token](#yandex.cloud.vpc.v1.ListGatewayOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+The value must be between 0 and 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListGatewayOperationsResponse.next_page_token](#yandex.cloud.vpc.v1.ListGatewayOperationsResponse) returned by a previous list request. ||
+[ListGatewayOperationsResponse.next_page_token](#yandex.cloud.vpc.v1.ListGatewayOperationsResponse) returned by a previous list request.
+The length must be less than or equal to 100. ||
 |#
 
 ## ListGatewayOperationsResponse {#yandex.cloud.vpc.v1.ListGatewayOperationsResponse}
@@ -68,7 +71,6 @@ List of operations for the specified gateway. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListGatewayOperationsRequest.page_size](#yandex.cloud.vpc.v1.ListGatewayOperationsRequest), use `next_page_token` as the value
 for the [ListGatewayOperationsRequest.page_token](#yandex.cloud.vpc.v1.ListGatewayOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

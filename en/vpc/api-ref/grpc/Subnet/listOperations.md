@@ -24,16 +24,20 @@ List operations for the specified subnet.
 ||Field | Description ||
 || subnet_id | **string**
 
-Required field. ID of the Subnet resource to list operations for. ||
+ID of the Subnet resource to list operations for.
+The length must be less than or equal to 50.
+This field is required. ||
 || page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`, the service returns a [ListSubnetOperationsResponse.next_page_token](#yandex.cloud.vpc.v1.ListSubnetOperationsResponse)
-that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
+that can be used to get the next page of results in subsequent list requests. Default value: 100.
+The value must be less than or equal to 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListSubnetOperationsResponse.next_page_token](#yandex.cloud.vpc.v1.ListSubnetOperationsResponse) returned by a previous list request. ||
+[ListSubnetOperationsResponse.next_page_token](#yandex.cloud.vpc.v1.ListSubnetOperationsResponse) returned by a previous list request.
+The length must be less than or equal to 100. ||
 |#
 
 ## ListSubnetOperationsResponse {#yandex.cloud.vpc.v1.ListSubnetOperationsResponse}

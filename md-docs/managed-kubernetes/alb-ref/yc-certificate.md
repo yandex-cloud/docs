@@ -29,7 +29,7 @@ spec: <YCCertificateSpec>
 
   * `name` (`string`, обязательное)
 
-    Имя ресурса. Подробнее о формате смотрите в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Подробнее о формате в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
   * `namespace` (`string`)
 

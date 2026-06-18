@@ -8,7 +8,7 @@ description: In this article, you will learn about {{ datalens-full-name }} Neur
 {{ datalens-full-name }} Neuroanalyst is a group of AI assistants that help you with project analysis, suggest improvements and edits, and streamline creating and editing visualizations.
 
 * [Neuroanalyst for calculated fields](../concepts/calculations/formulas-helper.md): Helps you to create calculated fields.
-* [Neuroanalyst on your dashboard](../dashboard/insights.md): Neuroanalytics for the entire dashboard and for individual charts.
+* [Neuroanalyst on your dashboard](../dashboard/insights.md): Neuroanalytics for the entire dashboard and individual charts. [Neuroanalyst 2.0](../dashboard/insights.md#neuroanalyst-2) is now available, which is a full-value {{ datalens-name }} AI agent which, to answer a question, can pick a similar chart or build a new one based directly on the dataset.
 * [Neuroanalyst in Editor](../charts/editor/code-helper.md): Helps you to write code and search for answers to your questions.
 * [Neuroanalyst in report](../reports/insights.md): Neuroanalytics in your report.
 

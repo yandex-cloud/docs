@@ -47,7 +47,7 @@
 
 Вы можете [изменить настройки провайдера](crossplane.md#change-provider-settings), например указать, в каком [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) и каком [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) будут по умолчанию создаваться ресурсы. 
    
-Подробнее о ресурсах Yandex Cloud, которые вы можете создать с помощью Crossplane, смотрите в подразделе [Получение информации о ресурсах](crossplane.md#see-resources).
+Подробнее о ресурсах Yandex Cloud, которые вы можете создать с помощью Crossplane, читайте в подразделе [Получение информации о ресурсах](crossplane.md#see-resources).
 
 ## Установка с помощью Helm-чарта из репозитория Cloud Marketplace {#helm-install}
 
@@ -84,7 +84,7 @@
 
 Вы можете [изменить настройки провайдера](crossplane.md#change-provider-settings), например указать, в каком [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) и каком [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) будут по умолчанию создаваться ресурсы. 
    
-Подробнее о ресурсах Yandex Cloud, которые вы можете создать с помощью Crossplane, смотрите в подразделе [Получение информации о ресурсах](crossplane.md#see-resources).
+Подробнее о ресурсах Yandex Cloud, которые вы можете создать с помощью Crossplane, читайте в подразделе [Получение информации о ресурсах](crossplane.md#see-resources).
 
 ## Установка с помощью Helm-чарта из репозитория Crossplane {#helm-repo-install}
 
@@ -199,7 +199,7 @@
    kubectl describe crd instances.compute.yandex-cloud.jet.crossplane.io
    ```
 
-   Примеры конфигурации ресурсов Yandex Cloud см. в [репозитории провайдера на GitHub](https://github.com/yandex-cloud/crossplane-provider-yc/tree/main/examples).
+   Примеры конфигурации ресурсов Yandex Cloud приведены в [репозитории провайдера на GitHub](https://github.com/yandex-cloud/crossplane-provider-yc/tree/main/examples).
 
 ## Примеры использования {#examples}
 

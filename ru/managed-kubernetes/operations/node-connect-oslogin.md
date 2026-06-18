@@ -86,7 +86,7 @@ description: Следуя данной инструкции, вы сможете
 
       1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов {{ managed-k8s-name }}.
 
-          О том, как создать такой файл, см. в разделе [{#T}](./node-group/node-group-create.md).
+          О том, как создать такой файл, читайте в разделе [{#T}](./node-group/node-group-create.md).
 
       1. Добавьте в описание группы узлов параметр `instance_template.metadata`, или измените его, если он уже есть.
 
@@ -119,7 +119,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
 
-      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+      Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
     - API {#api}
 

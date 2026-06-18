@@ -46,7 +46,7 @@ description: Следуя данной инструкции, вы сможете
 
     {% note info %}
 
-    Подробнее о настройке и регистрации агента см. в [документации {{ GL }}](https://docs.gitlab.com/ee/user/clusters/agent/install/).
+    Подробнее о настройке и регистрации агента читайте в [документации {{ GL }}](https://docs.gitlab.com/ee/user/clusters/agent/install/).
 
     {% endnote %}
 

@@ -113,7 +113,7 @@ ID of the publicConnection. ||
 
 Name of the publicConnection.
 The name must be unique within the folder.
-Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. ||
+Value must match the regular expression ```\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?```. ||
 || description | **string**
 
 Description of the publicConnection. 0-256 characters long. ||

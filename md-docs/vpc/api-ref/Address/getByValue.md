@@ -1,7 +1,6 @@
 # Virtual Private Cloud API, REST: Address.GetByValue
 
 Returns the specified Address resource by a given value.
-
 To get the list of all available Address resources, make a [List](list.md#List) request.
 
 ## HTTP request
@@ -16,9 +15,24 @@ GET https://vpc.api.cloud.yandex.net/vpc/v1/addresses:byValue
 ||Field | Description ||
 || externalIpv4Address | **string**
 
-Includes only one of the fields `externalIpv4Address`.
+External ipv4 address specification.
 
-External ipv4 address specification. ||
+Includes only one of the fields `externalIpv4Address`, `internalIpv4Address`.
+
+Only one field must be specified. ||
+|| internalIpv4Address | **string**
+
+Internal ipv4 address specification.
+
+Includes only one of the fields `externalIpv4Address`, `internalIpv4Address`.
+
+Only one field must be specified. ||
+|| subnetId | **string**
+
+subnet where address was allocated
+The length must be less than or equal to 50.
+
+Includes only one of the fields `subnetId`. ||
 |#
 
 ## Response {#yandex.cloud.vpc.v1.Address}
@@ -33,7 +47,7 @@ External ipv4 address specification. ||
   "name": "string",
   "description": "string",
   "labels": "object",
-  // Includes only one of the fields `externalIpv4Address`
+  // Includes only one of the fields `externalIpv4Address`, `internalIpv4Address`
   "externalIpv4Address": {
     "address": "string",
     "zoneId": "string",
@@ -41,6 +55,12 @@ External ipv4 address specification. ||
       "ddosProtectionProvider": "string",
       "outgoingSmtpCapability": "string"
     }
+  },
+  "internalIpv4Address": {
+    "address": "string",
+    // Includes only one of the fields `subnetId`
+    "subnetId": "string"
+    // end of the list of possible fields
   },
   // end of the list of possible fields
   "reserved": "boolean",
@@ -97,9 +117,18 @@ The string length in characters for each key must be 1-63.
 Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
 || externalIpv4Address | **[ExternalIpv4Address](#yandex.cloud.vpc.v1.ExternalIpv4Address)**
 
-Includes only one of the fields `externalIpv4Address`.
+External ipv4 address specification.
 
-External ipv4 address specification. ||
+Includes only one of the fields `externalIpv4Address`, `internalIpv4Address`.
+
+Only one field must be specified. ||
+|| internalIpv4Address | **[InternalIpv4Address](#yandex.cloud.vpc.v1.InternalIpv4Address)**
+
+Internal ipv4 address specification
+
+Includes only one of the fields `externalIpv4Address`, `internalIpv4Address`.
+
+Only one field must be specified. ||
 || reserved | **boolean**
 
 Specifies if address is reserved or not. ||
@@ -110,14 +139,12 @@ Specifies if address is used or not. ||
 
 Type of the IP address.
 
-- `TYPE_UNSPECIFIED`
 - `INTERNAL`: Internal IP address.
 - `EXTERNAL`: Public IP address. ||
 || ipVersion | **enum** (IpVersion)
 
 Version of the IP address.
 
-- `IP_VERSION_UNSPECIFIED`
 - `IPV4`: IPv4 address.
 - `IPV6`: IPv6 address. ||
 || deletionProtection | **boolean**
@@ -153,6 +180,22 @@ DDoS protection provider ID. ||
 || outgoingSmtpCapability | **string**
 
 Capability to send SMTP traffic. ||
+|#
+
+## InternalIpv4Address {#yandex.cloud.vpc.v1.InternalIpv4Address}
+
+#|
+||Field | Description ||
+|| address | **string**
+
+Value of address. ||
+|| subnetId | **string**
+
+Subnet from which the address will be allocated
+
+Includes only one of the fields `subnetId`.
+
+Only one field must be specified. ||
 |#
 
 ## DnsRecord {#yandex.cloud.vpc.v1.DnsRecord}

@@ -1,17 +1,17 @@
-# Creating an email trigger that invokes a {{ serverless-containers-name }} container
+# Creating an email trigger that invokes a container from {{ serverless-containers-name }}
 
-Create an [email trigger](../concepts/trigger/mail-trigger.md) to invoke a {{ serverless-containers-name }} [container](../concepts/container.md) when an email arrives. The service automatically generates an email address when creating the trigger.
+Create an [email trigger](../concepts/trigger/mail-trigger.md) that invokes a [container](../concepts/container.md) from {{ serverless-containers-name }} when an email arrives. {{ sf-name }} will automatically generate an email address when creating the trigger.
 
 ## Getting started {#before-you-begin}
 
 To create a trigger, you will need:
 
-* A container that the trigger will invoke. If you do not have a container:
+* Container the trigger will invoke. If you do not have a container:
 
     * [Create a container](../../serverless-containers/operations/create.md).
     * [Create a container revision](../../serverless-containers/operations/manage-revision.md#create).
 
-* Optionally, a [dead-letter queue](../../serverless-containers/concepts/dlq.md) where messages that could not be processed by a container will be redirected. If you do not have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
+* Optionally, a [dead-letter queue](../../serverless-containers/concepts/dlq.md) for unprocessed messages from the container. If you do not have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
 
 * [Service accounts](../../iam/concepts/users/service-accounts.md) with the following permissions:
     
@@ -21,7 +21,7 @@ To create a trigger, you will need:
     
     You can use the same service account or different ones. If you do not have a service account, [create one](../../iam/operations/sa/create.md).
 
-* [Bucket](../../storage/concepts/bucket.md) to save email attachments to (optional). If you do not have a bucket, [create one](../../storage/operations/buckets/create.md) with restricted access.
+* Optionally, [bucket](../../storage/concepts/bucket.md) to save email attachments to. If you do not have a bucket, [create one](../../storage/operations/buckets/create.md) with restricted access.
 
 ## Creating a trigger {#trigger-create}
 
@@ -33,7 +33,7 @@ To create a trigger, you will need:
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -61,7 +61,7 @@ To create a trigger, you will need:
 
         {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -134,7 +134,7 @@ To create a trigger, you will need:
   
     To create an email trigger that invokes a container:
   
-    1. In the configuration file, describe the trigger parameters:
+    1. In the configuration file, specify the trigger properties:
 
        ```hcl
        resource "yandex_function_trigger" "my_trigger" {
@@ -160,7 +160,7 @@ To create a trigger, you will need:
 
        Where:
 
-       * `name`: Trigger name. The name format is as follows:
+       * `name`: Trigger name. Follow these naming requirements:
 
           {% include [name-format](../../_includes/name-format.md) %}
     
@@ -170,16 +170,16 @@ To create a trigger, you will need:
 
           {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
 
-       * `mail`: Trigger parameters:
+       * `mail`: Trigger settings:
 
-           * `attachments_bucket_id`: Name of the bucket to save email attachments to. This is an optional parameter.
-           * `service_account_id`: ID of the service account authorized to upload objects to the {{ objstorage-name }} bucket. This is an optional parameter.
+           * `attachments_bucket_id`: Name of the bucket to save email attachments to. This is an optional setting.
+           * `service_account_id`: ID of the service account with permissions to upload objects to the {{ objstorage-name }} bucket. This is an optional setting.
 
            {% include [tf-batch-msg-params.md](../../_includes/serverless-containers/tf-batch-msg-params.md) %}
 
        {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-       For more information about `yandex_function_trigger` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function_trigger).
+       For more information about `yandex_function_trigger` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
     1. Create the resources:
 
@@ -197,7 +197,7 @@ To create a trigger, you will need:
 
 {% endlist %}
 
-{{ serverless-containers-name }} will automatically generate an email address for which the trigger will fire when messages are sent to it. To see it, [retrieve detailed trigger information](trigger-list.md#trigger-get).
+{{ serverless-containers-name }} will automatically generate an email address for which the trigger will fire when messages are sent to it. To view it, [get trigger details](trigger-list.md#trigger-get).
 
 ## Checking the result {#check-result}
 

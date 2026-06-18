@@ -132,6 +132,6 @@
    Где:
    * `bucket` — имя [бакета](../../storage/concepts/bucket.md).
    * `key` — ключ объекта в бакете: путь и имя к файлу состояния {{ TF }} в бакете.
-   * `ssh-keys` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * `ssh-keys` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее в разделе [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 1. Проверьте конфигурацию с помощью команды `terraform plan`.
 1. Разверните конфигурацию с помощью команды `terraform apply`.

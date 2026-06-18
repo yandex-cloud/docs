@@ -9,10 +9,10 @@ apiPlayground:
         subnetId:
           description: |-
             **string**
-            Required field. ID of the Subnet resource to list operations for.
+            ID of the Subnet resource to list operations for.
+            The length must be less than or equal to 50.
+            This field is required.
           type: string
-      required:
-        - subnetId
       additionalProperties: false
     query:
       type: object
@@ -23,7 +23,7 @@ apiPlayground:
             The maximum number of results per page that should be returned. If the number of available
             results is larger than `pageSize`, the service returns a [ListSubnetOperationsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListSubnetOperationsResponse)
             that can be used to get the next page of results in subsequent list requests. Default value: 100.
-          default: '100'
+            The value must be less than or equal to 1000.
           type: string
           format: int64
         pageToken:
@@ -31,6 +31,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListSubnetOperationsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListSubnetOperationsResponse) returned by a previous list request.
+            The length must be less than or equal to 100.
           type: string
       additionalProperties: false
     body: null
@@ -53,7 +54,9 @@ GET https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}/operations
 ||Field | Description ||
 || subnetId | **string**
 
-Required field. ID of the Subnet resource to list operations for. ||
+Required field. ID of the Subnet resource to list operations for.
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Query parameters {#yandex.cloud.vpc.v1.ListSubnetOperationsRequest}
@@ -64,11 +67,13 @@ Required field. ID of the Subnet resource to list operations for. ||
 
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `pageSize`, the service returns a [ListSubnetOperationsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListSubnetOperationsResponse)
-that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
+that can be used to get the next page of results in subsequent list requests. Default value: 100.
+The value must be less than or equal to 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListSubnetOperationsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListSubnetOperationsResponse) returned by a previous list request. ||
+[ListSubnetOperationsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListSubnetOperationsResponse) returned by a previous list request.
+The length must be less than or equal to 100. ||
 |#
 
 ## Response {#yandex.cloud.vpc.v1.ListSubnetOperationsResponse}

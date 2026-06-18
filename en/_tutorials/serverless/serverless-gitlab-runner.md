@@ -6,10 +6,10 @@ In this tutorial, you will learn to start [{{ GLR }}]({{ gl.docs }}/runner/) in 
 To start {{ GLR }} in {{ serverless-containers-name }}:
 
 1. [Get your cloud ready](#before-begin).
-1. [Create {{ GLR }} and get a token](#create-gitlab-runner).
+1. [Create a {{ GLR }} and get a token](#create-gitlab-runner).
 1. [Create a secret](#create-secret).
 1. [Create service accounts](#create-sa).
-1. [Create the service account API key](#create-api-key).
+1. [Create an API key for your service account](#create-api-key).
 1. [Create a container](#create-container).
 1. [Set up a webhook in {{ GL }}](#configure-webhook-gitlab).
 
@@ -20,15 +20,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ![image](../../_assets/tutorials/serverless-gitlab-runner.svg)
 
-Once a job is created, {{ GL }} sends a webhook request to the new {{ serverless-containers-name }} container. The container runs based on a public image from [{{ container-registry-full-name }}](../../container-registry/) and gets the necessary secrets from [{{ lockbox-full-name }}](../../lockbox/). {{ GLR }} deploys inside the container, connects to {{ GL }} and takes the job for execution, runs it in an isolated Docker container, and shuts down when done. This approach eliminates the need to keep [VMs](../../compute/concepts/vm.md) running continuously: you pay only for actual job execution time.
+Once a job is created, {{ GL }} sends a webhook request to the new {{ serverless-containers-name }} container. The container runs based on a public image from [{{ container-registry-full-name }}](../../container-registry/) and retrieves the secrets from [{{ lockbox-full-name }}](../../lockbox/). {{ GLR }} deploys inside the container, connects to {{ GL }} and takes the job for execution, runs it in an isolated Docker container, and shuts down when done. This approach eliminates the need to keep [VMs](../../compute/concepts/vm.md) running continuously: you pay only for actual job execution time.
 
 You can check the source code in the {{ src-full-name }} [repository]({{ link-src-main }}/yandex-cloud-examples/serverless-gitlab-runner).
 
 **Key steps**
 
-* The service receives HTTP requests on port `PORT` (`8080` by default) and at `WEBHOOK_PATH` (`/` by default).
-* If necessary, it checks the secret in the `X-Gitlab-Token` header using the `GITLAB_SECRET` environment variable.
-* The only requests that are processed are those headed `X-Gitlab-Event: Job Hook`.
+* The service receives HTTP requests on `PORT` (`8080` by default) and at `WEBHOOK_PATH` (`/` by default).
+* It checks the secret in the `X-Gitlab-Token` header using the `GITLAB_SECRET` environment variable, if required.
+* The only requests that are processed are those with the `X-Gitlab-Event: Job Hook` header.
 * The `build_status` field is extracted from the request body. If it is set to `pending`, the service runs this command:
 
     ```bash
@@ -43,9 +43,9 @@ You can check the source code in the {{ src-full-name }} [repository]({{ link-sr
 
 * When running a container, the service also does the following:
 
-    * If needed, mounts `cgroup v2`.
-    * Prepares the `/run` and `/var/lib/docker` folders.
-    * Starts the built-in `dockerd` and waits till it is ready (`DOCKERD_READY_TIMEOUT`).
+    * Mounts `cgroup v2`, if required.
+    * Prepares the `/run` and `/var/lib/docker` directories.
+    * Starts the built-in `dockerd` daemon and waits till it is ready (`DOCKERD_READY_TIMEOUT`).
 
 **How it works inside the container**
 
@@ -62,8 +62,8 @@ Variable              | Default         | Required | Description
 `PORT`                  | `8080`               | No         | HTTP port
 `WEBHOOK_PATH`          | `/`                  | No         | Webhook endpoint path
 `GITLAB_SECRET`         | —                    | No         | Secret for checking the `X-Gitlab-Token` header
-`WAIT_TIMEOUT`          | `10`                 | No         | Value for `gitlab-runner --wait-timeout`, in seconds
-`MAX_BUILDS`            | `1`                  | No         | Value for `gitlab-runner --max-builds`
+`WAIT_TIMEOUT`          | `10`                 | No         | `gitlab-runner --wait-timeout` value, in seconds
+`MAX_BUILDS`            | `1`                  | No         | `gitlab-runner --max-builds` value
 `DOCKERD_READY_TIMEOUT` | `5s`                 | No         | Timeout until `dockerd` is ready (`time.Duration`)
 
 **Restrictions**
@@ -86,12 +86,12 @@ The infrastructure support cost includes:
 * Fee for storing secrets (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
 
 
-## Create {{ GLR }} and get a token {#create-gitlab-runner}
+## Create a {{ GLR }} and get a token {#create-gitlab-runner}
 
 1. Create a project in [{{ GL }}](https://gitlab.com) and open it.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/gear.svg) **Settings** → **CI/CD**.
 1. Open the **Runners** section and click **Create project runner**.
-1. In the **Tags** field, specify tags for the jobs for this runner to process.
+1. In the **Tags** field, specify tags for the jobs that this runner should process.
 1. Click **Create runner**.
 1. Under **Step 1**, copy the runner authentication token and save it.
 
@@ -105,7 +105,7 @@ Create a [{{ lockbox-full-name }}](../../lockbox/) secret with the runner authen
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create your infrastructure.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the [secret](../../lockbox/concepts/secret.md) name: `gitlab-runner-token`.
   1. Under **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-data-section }}**:
@@ -166,11 +166,11 @@ Create a [{{ lockbox-full-name }}](../../lockbox/) secret with the runner authen
 
 Create two service accounts:
 
-* `gitlab-runner-lockbox-payload-viewer` with the `{{ roles-lockbox-payloadviewer }}` [role](../../lockbox/security/index.md#lockbox-payloadViewer) for access to the {{ lockbox-short-name }} secret.
+* `gitlab-runner-lockbox-payload-viewer` with the `{{ roles-lockbox-payloadviewer }}` [role](../../lockbox/security/index.md#lockbox-payloadViewer) to access the {{ lockbox-short-name }} secret.
 * `gitlab-runner-caller` with the `{{ roles-serverless-containers-invoker }}` [role](../../serverless-containers/security/index.md#serverless-containers-containerinvoker) for the folder. This service account will perform these two functions:
 
     * {{ GL }} will use it to invoke the container. The API key [will be specified](#configure-webhook-gitlab) in the `Authorization` header.
-    * {{ GL }} will use its ID to set jobs for the runner for the container to be invoked asynchronously. The ID will be provided when [creating](#create-container) a container revision.
+    * {{ GL }} will use its ID to assign jobs to the runner, enabling asynchronous container invocations. The ID will be provided when [creating](#create-container) a container revision.
 
     You can split these two functions between two different service accounts as needed.
 
@@ -179,16 +179,16 @@ Create two service accounts:
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter a name for the service account: `gitlab-runner-caller`.
+  1. Name the service account name: `gitlab-runner-caller`.
   1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `{{ roles-serverless-containers-invoker }}`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
   1. Similarly, create the `gitlab-runner-lockbox-payload-viewer` service account without assigning a role to it.
   1. Assign a role for the secret to the `gitlab-runner-lockbox-payload-viewer` service account:
 
       1. Open the [management console]({{ link-console-main }}).
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+      1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
       1. Select the `gitlab-runner-token` secret.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
       1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
@@ -265,7 +265,7 @@ Create two service accounts:
 {% endlist %}
 
 
-## Create the service account API key {#create-api-key}
+## Create an API key for the service account {#create-api-key}
 
 Create an [API key](../../iam/concepts/authorization/api-key.md) for the service account you are going to use to invoke the container. You will need this API key to set up a webhook in {{ GL }}.
 
@@ -274,10 +274,10 @@ Create an [API key](../../iam/concepts/authorization/api-key.md) for the service
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Select the `gitlab-runner-caller` service account you created earlier.
   1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
-  1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field, select the `yc.serverless.containers.invoke` [scope](../../iam/concepts/authorization/api-key.md#scoped-api-keys).
+  1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field, select [`yc.serverless.containers.invoke`](../../iam/concepts/authorization/api-key.md#scoped-api-keys).
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
 
 - CLI {#cli}
@@ -314,7 +314,7 @@ Create an [API key](../../iam/concepts/authorization/api-key.md) for the service
 
 {% endlist %}
 
-Save the secret key you got: you will not be able to get it a second time.
+Save the secret key you got, as it is shown only once and you will not be able to get again.
 
 
 ## Create a container {#create-container}
@@ -338,9 +338,9 @@ Specifying a network in the container settings creates a service subnet from the
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Click **{{ ui-key.yacloud.serverless-containers.button_create-container }}**.
-  1. Enter a name for the container: `serverless-gitlab-runner`.
+  1. Name the container: `serverless-gitlab-runner`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
   1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
 
@@ -405,7 +405,7 @@ Specifying a network in the container settings creates a service subnet from the
         --container-name serverless-gitlab-runner \
         --runtime=http \
         --cores <number_of_cores> \
-        --memory <RAM_size> \
+        --memory <RAM_amount> \
         --image {{ registry }}/yc/serverless/gitlab-runner \
         --environment CI_SERVER_URL=https://gitlab.com \
         --environment WEBHOOK_PATH=/webhook \
@@ -419,7 +419,7 @@ Specifying a network in the container settings creates a service subnet from the
       Where:
 
       * `--container-name`: Container name.
-      * `--runtime`: Operating mode.
+      * `--runtime`: Mode.
       * `--cores`: Number of cores available to the container, e.g., `1`.
       * `--memory`: Required memory, e.g., `1GB`.
       * `--image`: `gitlab-runner` Docker image URL.
@@ -435,7 +435,7 @@ Specifying a network in the container settings creates a service subnet from the
       * `--mount`: Ephemeral disk mount settings:
 
           * `type=ephemeral-disk`: Type of the file system being mounted.
-          * `mount-point`: Name of the mount point. The directory the disk will be mounted to will be available at `/mnt`.
+          * `mount-point`: Name of the mount point. The directory with the mounted disk will be accessible at `/mnt`.
           * `size`: Ephemeral disk size in GB, e.g., `10GB`.
 
       * `--async-service-account-id`: `gitlab-runner-caller` service account ID.
@@ -508,7 +508,7 @@ Specifying a network in the container settings creates a service subnet from the
     Header name | Header value | Description
     --- | --- | ---
     `Authorization` | `Api-Key <API_key>` | `gitlab-runner-caller` service account API key. Required if the container is private; otherwise, the request will be denied. Learn more in [Authenticating when invoking a private container via HTTPS](../../serverless-containers/operations/auth.md).
-    `X-Ycf-Container-Integration-Type` | `async` | Asynchronous container invocation. The platform will immediately return respond to the invocation with `202`.
+    `X-Ycf-Container-Integration-Type` | `async` | Asynchronous container invocation. The platform will immediately respond to the invocation with `202`.
 
 1. Under **Trigger**, make sure the `Job events` option is enabled.
 1. Click **Add webhook**.
@@ -525,7 +525,7 @@ View the available options by running the `gitlab-runner run-single -h` command.
 
 ## How to delete the resources you created {#clear-out}
 
-To stop incurring charges for the resources you created:
+To stop paying for the resources you created:
 
 1. [Delete](../../serverless-containers/operations/delete.md) the container.
 1. [Delete](../../lockbox/operations/secret-delete.md) the secret.

@@ -25,7 +25,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
    To add a device certificate:
 
    1. In the [management console]({{ link-console-main }}), select the folder to add the device certificate to.
-   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Click the name of the registry.
    1. Navigate to **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Select the device from the list.
@@ -148,7 +148,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
    To delete a device certificate:
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the device certificate from.
-   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Click the name of the registry.
    1. Navigate to **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Select the device from the list.

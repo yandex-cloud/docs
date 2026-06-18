@@ -1,6 +1,6 @@
 # Редактирование ACL объекта
 
-В Object Storage реализовано несколько механизмов для управления доступом к ресурсам. Алгоритм взаимодействия этих механизмов смотрите в [Обзор способов управления доступом в Object Storage](../../security/overview.md).
+В Object Storage реализовано несколько механизмов для управления доступом к ресурсам. Алгоритм взаимодействия этих механизмов приведен в [Обзор способов управления доступом в Object Storage](../../security/overview.md).
 
 Для управления доступом к объекту в бакете Object Storage можно воспользоваться [ACL](../../concepts/acl.md).
 
@@ -85,7 +85,7 @@
 
   * `--bucket` — имя бакета.
   * `--key` — ключ объекта.
-  * `--acl` — предопределенный ACL. Список значений см. в разделе [Предопределенные ACL](../../concepts/acl.md#predefined-acls).
+  * `--acl` — предопределенный ACL. Список значений приведен в разделе [Предопределенные ACL](../../concepts/acl.md#predefined-acls).
 
   _Настройка отдельных разрешений_
 
@@ -167,7 +167,7 @@
   * `--endpoint` — эндпоинт Object Storage.
   * `--bucket` — имя бакета.
   * `--key` — ключ объекта.
-  * `--acl` — предопределенный ACL. Список значений см. в разделе [Предопределенные ACL](../../concepts/acl.md#predefined-acls).
+  * `--acl` — предопределенный ACL. Список значений приведен в разделе [Предопределенные ACL](../../concepts/acl.md#predefined-acls).
 
   _Настройка отдельных разрешений_
 
@@ -216,7 +216,7 @@
   
   Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
   
   Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -255,7 +255,7 @@
      * `secret_key` — значение секретного ключа доступа.
      * `acl` — [предопределенный ACL](../../concepts/acl.md#predefined-acls) объекта. Значение по умолчанию — `private`: пользователи Yandex Cloud получают разрешения в соответствии со своими ролями в IAM.
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_object` в Terraform см. в [документации провайдера](../../../terraform/resources/storage_object.md).
+     Более подробная информация о параметрах ресурса `yandex_storage_object` в Terraform приведена в [документации провайдера](../../../terraform/resources/storage_object.md).
 
   1. Примените изменения:
 

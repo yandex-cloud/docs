@@ -13,11 +13,11 @@
 
 {% endnote %}
 
-При работе с базой данных в режиме Dedicated рекомендуется использовать ее внутри VPC и не открывать к ней доступ из интернета. В режиме Serverless база данных является доступной из интернета, что необходимо учитывать, в частности, при моделировании угроз при построении инфраструктуры. Подробнее о режимах работы см. в разделе [Режимы работы Serverless и Dedicated](https://yandex.cloud/ru/docs/ydb/concepts/serverless-and-dedicated) документации Managed Service for YDB.
+При работе с базой данных в режиме Dedicated рекомендуется использовать ее внутри VPC и не открывать к ней доступ из интернета. В режиме Serverless база данных является доступной из интернета, что необходимо учитывать, в частности, при моделировании угроз при построении инфраструктуры. Подробнее о режимах работы в разделе [Режимы работы Serverless и Dedicated](https://yandex.cloud/ru/docs/ydb/concepts/serverless-and-dedicated) документации Managed Service for YDB.
 
 При настройке доступа к БД следует использовать принцип минимальных привилегий.
 
 #### Инструкции и решения по выполнению
 
-* Подробнее о режимах работы см. в разделе Режимы работы Serverless и Dedicated документации [Managed Service for YDB](https://yandex.cloud/ru/docs/ydb/concepts/serverless-and-dedicated)
+* Подробнее о режимах работы в разделе [Режимы работы Serverless и Dedicated](https://yandex.cloud/ru/docs/ydb/concepts/serverless-and-dedicated) документации Managed Service for YDB
 * При настройке доступа к БД следует использовать принцип минимальных привилегий.

@@ -37,7 +37,7 @@
 
    - OAuth token {#oauth-token}
 
-     {% include [oauth-token-deprecated-soon](../../../_includes/oauth-token-deprecated-soon.md) %}
+     {% include [oauth-token-deprecated-migration](../../../_includes/oauth-token-deprecated-migration.md) %}
 
      1. If you do not have an [OAuth token](../../../iam/concepts/authorization/oauth-token.md) yet, get one at [this link]({{ link-cloud-oauth }}).
      1. Run this command:

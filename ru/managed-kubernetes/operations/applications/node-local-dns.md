@@ -71,4 +71,4 @@
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-Подробнее о настройке локального кеширования DNS см. в разделе [{#T}](../../tutorials/node-local-dns.md).
+Подробнее о настройке локального кеширования DNS в разделе [{#T}](../../tutorials/node-local-dns.md).

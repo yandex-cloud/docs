@@ -9,10 +9,10 @@ description: Follow this guide to create a function.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your function.
-    1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
-    1. Enter a name and description for the function. Follow these naming requirements:
+    1. Enter a name and description for the function. The name format is as follows:
 
         {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -69,11 +69,11 @@ description: Follow this guide to create a function.
         * `user_hash`: Any string to identify the function version. When you change the function, update this string as well. Updating this string triggers a function update.
         * `runtime`: Function [runtime](../../concepts/runtime/index.md).
         * `entrypoint`: Function name in the source code that will serve as an entry point to applications.
-        * `memory`: Amount of memory allocated to the function, in MB.
+        * `memory`: Amount of memory allocated for the function, in MB.
         * `content`: Function source code:
-            * `zip_filename`: Path to the ZIP archive with the function source code and required dependencies.
+            * `zip_filename`: Path to the ZIP archive containing the function source code and relevant dependencies.
 
-        For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
     1. Create the resources:
 

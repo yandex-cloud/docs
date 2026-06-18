@@ -33,7 +33,7 @@ To create a trigger, you will need:
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -137,7 +137,7 @@ To create a trigger, you will need:
 
     To create an email trigger that invokes a function:
 
-    1. In the configuration file, describe the trigger properties:
+    1. In the configuration file, specify the trigger properties:
 
        ```hcl
        resource "yandex_function_trigger" "my_trigger" {
@@ -146,7 +146,7 @@ To create a trigger, you will need:
            id                 = "<function_ID>"
            service_account_id = "<service_account_ID>"
            retry_attempts     = <number_of_retry_attempts>
-           retry_interval     = <interval_between_retry_attempts>
+           retry_interval     = <time_between_retry_attempts>
          }
          mail {
            attachments_bucket_id = "<bucket_name>"
@@ -169,7 +169,7 @@ To create a trigger, you will need:
 
            * `attachments_bucket_id`: Name of the bucket to save email attachments to. This is an optional setting.
            * `service_account_id`: ID of the service account with permissions to upload objects to the {{ objstorage-name }} bucket. This is an optional setting.
-           * `batch_cutoff`: Maximum wait time. This is an optional setting. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages within the `batch-cutoff` period and sends them to the function. The number of messages cannot exceed `batch-size`.
+           * `batch_cutoff`: Maximum timeout. This is an optional setting. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The number of messages cannot exceed `batch-size`.
            * `batch_size`: Message batch size. This is an optional setting. The values may range from 1 to 10. The default value is 1.
 
        {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}

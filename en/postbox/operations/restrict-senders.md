@@ -12,7 +12,7 @@ You can limit the list of senders when or after [creating](create-address.md) an
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the address.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. On the right of the row with the address you want to limit the list of senders for, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
     1. Enable **{{ ui-key.yacloud.postbox.label_restrict-senders }}**.
     1. Set up the list of senders:

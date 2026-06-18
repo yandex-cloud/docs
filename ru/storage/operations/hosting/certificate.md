@@ -115,7 +115,7 @@ description: Следуя данной инструкции, вы сможете
      Где:
      * `certificate_id` — идентификатор сертификата в {{ certificate-manager-name }}, который будет использован для бакета.
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#bucket-https-certificate).
+     Более подробная информация о параметрах ресурса `yandex_storage_bucket` в {{ TF }} приведена в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#bucket-https-certificate).
 
   1. Создайте ресурсы:
 

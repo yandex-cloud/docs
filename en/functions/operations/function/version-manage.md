@@ -24,7 +24,7 @@ When creating a version, specify the following settings:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function whose version you want to create.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
     1. Select the [runtime](../../concepts/runtime/index.md). Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
@@ -104,7 +104,7 @@ When creating a version, specify the following settings:
          * `user_hash`: Any string to identify the function version. When you change the function, update this string as well. Updating this string triggers a function update.
          * `runtime`: Function [runtime](../../concepts/runtime/index.md).
          * `entrypoint`: Function name in the source code that will serve as an entry point to applications.
-         * `memory`: Amount of memory allocated to the function, in MB.
+         * `memory`: Amount of memory allocated for the function, in MB.
          * `execution_timeout`: Function execution timeout.
          * `service_account_id`: ID of the service account you want to use to invoke the function.
          * `content`: Function source code.
@@ -306,6 +306,6 @@ When creating a version, specify the following settings:
 
 {% note info %}
 
-To ensure integrity of relationships, you cannot update function versions. For more information about the resource relationships, see [{#T}](../../concepts/function.md).
+To ensure integrity of references, you cannot update function versions. For more information about the resource relationships, see [{#T}](../../concepts/function.md).
 
 {% endnote %}

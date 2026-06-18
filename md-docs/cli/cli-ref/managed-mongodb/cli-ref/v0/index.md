@@ -18,6 +18,14 @@ Syntax:
 
   - [yc managed-mongodb v0 backup list](backup/list.md) — List MongoDB backups available in a folder.
 
+- [yc managed-mongodb v0 backup-retention-policy](backup-retention-policy/index.md) — Manage MongoDB backup long-term retention policies
+
+  - [yc managed-mongodb v0 backup-retention-policy create](backup-retention-policy/create.md) — Create new backup retention policy
+
+  - [yc managed-mongodb v0 backup-retention-policy delete](backup-retention-policy/delete.md) — Delete specific backup retention policy
+
+  - [yc managed-mongodb v0 backup-retention-policy list](backup-retention-policy/list.md) — List available backup retention policies
+
 - [yc managed-mongodb v0 cluster](cluster/index.md) — Manage MongoDB clusters.
 
   - [yc managed-mongodb v0 cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified MongoDB cluster

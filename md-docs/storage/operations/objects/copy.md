@@ -90,7 +90,7 @@
       copy: s3://my-bucket/object.txt to s3://new-bucket/object-copy.txt
       ```
 
-      Подробнее о настройке команды см. в подразделе [Настройка параметров для команды yc storage s3 cp](#yc-s3-cp-config).
+      Подробнее о настройке команды в подразделе [Настройка параметров для команды yc storage s3 cp](#yc-s3-cp-config).
 
 - AWS CLI {#aws-cli}
 
@@ -113,7 +113,7 @@
       copy: s3://<бакет_источник>/<ключ_объекта> to s3://<бакет_приемник>/<ключ_объекта>
       ```
 
-      Подробнее о команде `aws s3 cp` см. в документации [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
+      Подробнее о команде `aws s3 cp` читайте в документации [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
 
 {% endlist %}
 
@@ -175,7 +175,7 @@
       copy: s3://my-bucket/object-n.txt to s3://new-bucket/object-n-copy.txt
       ```
 
-      Подробнее о настройке команды см. в подразделе [Настройка параметров для команды yc storage s3 cp](#yc-s3-cp-config).
+      Подробнее о настройке команды в подразделе [Настройка параметров для команды yc storage s3 cp](#yc-s3-cp-config).
 
 - AWS CLI {#aws-cli}
 
@@ -200,7 +200,7 @@
 
       Параметры `--exclude` и `--include` применяются в порядке указания. Чтобы скопировать только объекты, соответствующие шаблону, сначала исключите все объекты с помощью `--exclude "*"`, затем добавьте нужные с помощью `--include`. Чтобы исключить объекты с определенным префиксом, используйте только `--exclude`, например `--exclude "prefix/*"`.
 
-      Подробнее о команде `aws s3 cp` см. в документации [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
+      Подробнее о команде `aws s3 cp` читайте в документации [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
 
   {% note info %}
 
@@ -242,4 +242,4 @@ s3.max-concurrent-requests × s3.multipart-chunksize
 * `s3.max-concurrent-requests` — максимальное количество одновременных запросов. Значение по умолчанию — `10`.
 * `s3.multipart-chunksize` — размер частей, на которые будет делиться объект при составной (multipart) загрузке. Значение по умолчанию — `8 MB`.
 
-Подробнее о настройке команды см. в подразделе [Настройка параметров для команды yc storage s3 cp](#yc-s3-cp-config).
+Подробнее о настройке команды в подразделе [Настройка параметров для команды yc storage s3 cp](#yc-s3-cp-config).

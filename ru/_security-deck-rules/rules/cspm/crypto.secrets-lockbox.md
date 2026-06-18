@@ -25,4 +25,4 @@
 
 #### Инструкции и решения по выполнению
 
-* Инструкции по работе с сервисом см. в документации Lockbox: https://yandex.cloud/ru/docs/lockbox
+* Инструкции по работе с сервисом в [документации Lockbox](https://yandex.cloud/ru/docs/lockbox)

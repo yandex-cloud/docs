@@ -1,6 +1,6 @@
 # Настройка прав доступа к бакету с помощью Identity and Access Management
 
-В Object Storage реализовано несколько механизмов для управления доступом к ресурсам. Алгоритм взаимодействия этих механизмов смотрите в [Обзор способов управления доступом в Object Storage](../../security/overview.md).
+В Object Storage реализовано несколько механизмов для управления доступом к ресурсам. Алгоритм взаимодействия этих механизмов приведен в [Обзор способов управления доступом в Object Storage](../../security/overview.md).
 
 Чтобы настроить доступ к [бакету](../../concepts/bucket.md) с помощью [Identity and Access Management](../../security/index.md), назначьте пользователю, группе пользователей или сервисному аккаунту [роль](../../security/index.md#roles-list) на бакет:
 
@@ -126,7 +126,7 @@
   
   Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
   Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
@@ -182,7 +182,7 @@
 
       * `members` — список типов и идентификаторов [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-      Подробнее о параметрах ресурса `yandex_storage_bucket_iam_binding` см. в [документации провайдера](../../../terraform/resources/storage_bucket_iam_binding.md).
+      Подробнее о параметрах ресурса `yandex_storage_bucket_iam_binding` читайте в [документации провайдера](../../../terraform/resources/storage_bucket_iam_binding.md).
 
   1. Если вы совместно с ресурсом [yandex_storage_bucket_iam_binding](../../../terraform/resources/storage_bucket_iam_binding.md) планируете использовать ресурс [yandex_storage_bucket_grant](../../../terraform/resources/storage_bucket_grant.md) для одного и того же бакета, рекомендуем выполнять создание ресурсов последовательно. Для этого добавьте в блок `yandex_storage_bucket_iam_binding` зависимость от наличия ресурса `yandex_storage_bucket_grant`:
 
