@@ -1,7 +1,6 @@
 # Virtual Private Cloud API, REST: Gateway.Get
 
 Returns the specified Gateway resource.
-
 To get the list of all available Gateway resources, make a [List](list.md#List) request.
 
 ## HTTP request
@@ -17,8 +16,9 @@ GET https://vpc.api.cloud.yandex.net/vpc/v1/gateways/{gatewayId}
 || gatewayId | **string**
 
 Required field. ID of the Gateway resource to return.
-
-To get Gateway resource ID make a [GatewayService.List](list.md#List) request. ||
+To get Gateway resource ID make a [GatewayService.List](list.md#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Response {#yandex.cloud.vpc.v1.Gateway}

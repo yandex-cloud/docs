@@ -28,7 +28,7 @@ description: Следуя данной инструкции, вы узнаете
       
       {% note info %}
 
-      Если доступ бакету контролируется [политикой](../../../storage/security/policy.md#conditional-writes-policy), разрешите доступ к IP-адресам {{ sd-name }} в настройках политики бакета. Список адресов см. в разделе [Диапазоны публичных IP-адресов](../../../overview/concepts/public-ips.md#security-deck-ips).
+      Если доступ к бакету контролируется [политикой](../../../storage/security/policy.md#conditional-writes-policy), разрешите доступ к IP-адресам {{ sd-name }} в настройках политики бакета. Список адресов в разделе [Диапазоны публичных IP-адресов](../../../overview/concepts/public-ips.md#security-deck-ips).
 
       {% endnote %}
 

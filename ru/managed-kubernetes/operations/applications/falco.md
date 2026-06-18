@@ -30,7 +30,7 @@ description: Следуя данной инструкции, вы сможете
 1. В [консоли управления]({{ link-console-main }}) выберите каталог.
 1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
-1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Falco](/marketplace/products/yc/falco) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
+1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите **Falco** и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
    * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `falco-space`). Если вы оставите пространство имен по умолчанию, Falco может работать некорректно.
    * **Название приложения** — укажите название приложения.

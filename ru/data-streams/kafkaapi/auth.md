@@ -120,4 +120,4 @@ description: Следуя данной инструкции, вы сможете
     {% endlist %}
 
 
-Основную документацию по работе с {{ yds-name }} через Kafka API и больше примеров см. в [документации YDB]({{ ydb.docs }}/reference/kafka-api).
+Основную документацию по работе с {{ yds-name }} через Kafka API и больше примеров читайте в [документации YDB]({{ ydb.docs }}/reference/kafka-api).

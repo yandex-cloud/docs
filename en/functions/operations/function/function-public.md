@@ -7,7 +7,7 @@ To allow any user to invoke a function without providing an authorization header
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function you want to make public.
     1. On the **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** page, enable **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**.
     
@@ -57,7 +57,7 @@ To allow any user to invoke a function without providing an authorization header
 
         To make a function public, assign the `{{ roles-functions-invoker }}` role to all unauthorized users (the `All users` [public group](../../../iam/concepts/access-control/public-group.md)).
 
-     For more information about the `yandex_function_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/function_iam_binding).
+     For more information about `yandex_function_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/function_iam_binding).
 
   1. Validate your configuration using this command:
 
@@ -85,7 +85,7 @@ To allow any user to invoke a function without providing an authorization header
      terraform apply
      ```
 
-  1. Type `yes` and press **Enter** to confirm the changes.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
      You can check the assignment of the function role using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 

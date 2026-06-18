@@ -20,7 +20,7 @@
 
 {% note info %}
 
-Интеграция кластера {{ msp-full-name }} с {{ metastore-name }} позволяет использовать в задании Spark формат таблиц {{ IBRG }}. Подробнее см. в руководстве [{#T}](../../../managed-spark/tutorials/spark-simple-rw-job.md).
+Интеграция кластера {{ msp-full-name }} с {{ metastore-name }} позволяет использовать в задании Spark формат таблиц {{ IBRG }}. Подробнее в руководстве [{#T}](../../../managed-spark/tutorials/spark-simple-rw-job.md).
 
 {% endnote %}
 

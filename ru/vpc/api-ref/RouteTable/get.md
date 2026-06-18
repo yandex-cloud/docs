@@ -9,11 +9,11 @@ apiPlayground:
         routeTableId:
           description: |-
             **string**
-            Required field. ID of the RouteTable resource to return.
+            ID of the RouteTable resource to return.
             To get the route table ID use a [RouteTableService.List](/docs/vpc/api-ref/RouteTable/list#List) request.
+            The length must be less than or equal to 50.
+            This field is required.
           type: string
-      required:
-        - routeTableId
       additionalProperties: false
     query: null
     body: null
@@ -23,7 +23,6 @@ apiPlayground:
 # Virtual Private Cloud API, REST: RouteTable.Get
 
 Returns the specified RouteTable resource.
-
 To get the list of available RouteTable resources, make a [List](/docs/vpc/api-ref/RouteTable/list#List) request.
 
 ## HTTP request
@@ -39,7 +38,9 @@ GET https://vpc.{{ api-host }}/vpc/v1/routeTables/{routeTableId}
 || routeTableId | **string**
 
 Required field. ID of the RouteTable resource to return.
-To get the route table ID use a [RouteTableService.List](/docs/vpc/api-ref/RouteTable/list#List) request. ||
+To get the route table ID use a [RouteTableService.List](/docs/vpc/api-ref/RouteTable/list#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Response {#yandex.cloud.vpc.v1.RouteTable}
@@ -94,7 +95,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Name of the route table.
 The name must be unique within the folder.
-Value must match the regular expression `\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?`. ||
+Value must match the regular expression ```|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?```. ||
 || description | **string**
 
 Optional description of the route table. 0-256 characters long. ||

@@ -1,10 +1,10 @@
 # Creating a timer that invokes a function
 
-Create a [timer](../../concepts/trigger/timer.md) that invokes a {{ sf-name }} [function](../../concepts/function.md) every minute.
+Create a [timer](../../concepts/trigger/timer.md) that invokes a [function](../../concepts/function.md) in {{ sf-name }} every minute.
 
 ## Getting started {#before-you-begin}
 
-1. [Create a function](../../operations/index.md#create-function) to be triggered by timer. For example, you can create any function from [this list](../../quickstart/create-function/index.md).
+1. [Create a function](../../operations/index.md#create-function) to invoke on a timer. For example, you can create any function from [this list](../../quickstart/create-function/index.md).
 1. [Create a service account](../../../iam/operations/sa/create.md) that will be used to invoke the function and assign it the `{{ roles-functions-invoker }}` role.
 
 ## Create a timer {#timer-create}
@@ -17,7 +17,7 @@ Create a [timer](../../concepts/trigger/timer.md) that invokes a {{ sf-name }} [
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a timer.
 
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -25,7 +25,7 @@ Create a [timer](../../concepts/trigger/timer.md) that invokes a {{ sf-name }} [
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
-        * Enter a name for the trigger: `timer`.
+        * Enter the trigger name: `timer`.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
@@ -57,7 +57,7 @@ Create a [timer](../../concepts/trigger/timer.md) that invokes a {{ sf-name }} [
     Where:
 
     * `--name`: Timer name.
-    * `--cron-expression`: Function call schedule specified as a [cron expression](../../concepts/trigger/timer.md#cron-expression).
+    * `--cron-expression`: Function invocation schedule specified as a [cron expression](../../concepts/trigger/timer.md#cron-expression).
     * `--invoke-function-id`: Function ID.
     * `--invoke-function-service-account-id`: Service account ID.
 
@@ -92,17 +92,17 @@ To make sure the timer is running properly, view the function logs. They should 
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing the function.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
 
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-    1. Click a function to view its runtime log.
+    1. Click the function to view its execution log.
 
-    1. In the window that opens, go to **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** and specify the period for which you want to view logs. The default period is 1 hour.
+    1. In the window that opens, go to **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** and specify the period for which you want to view logs. The default period is one hour.
 
 - CLI {#cli}
 
-    To view the function logs, run this command:
+    To view function logs, run this command:
 
     ```bash
     yc serverless function logs <function_ID>
@@ -123,5 +123,5 @@ To make sure the timer is running properly, view the function logs. They should 
 
 ## What's next {#what-is-next}
 
-* [Check out the concepts](../../concepts/trigger/index.md).
+* [Read about the concepts](../../concepts/trigger/index.md).
 * [Learn how to create other triggers](../../operations/index.md#trigger-create).

@@ -61,7 +61,7 @@
 
     {% endlist %}
 
-    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+    Подробнее о параметрах используемых ресурсов в {{ TF }} смотрите в документации провайдера:
 
     * [Сеть](../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
     * [Подсети](../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
@@ -76,7 +76,7 @@
 
     * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
     * `vm_user` — имя пользователя ВМ.
-    * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее в разделе [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
     * `db_user` — имя пользователя БД, например `user1`.
     * `db_password` — пароль для доступа к БД. Длина пароля должна составлять от 8 до 128 символов.
 

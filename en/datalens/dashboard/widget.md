@@ -45,5 +45,12 @@ For more information about Markdown markup, see [{#T}](./markdown.md).
 
 ## Header {#title}
 
-Heading widget. You can use it to separate similarly themed charts, group them within a single dashboard page, and create a table of contents for the dashboard. Only for text data.
+Heading widget. You can use it to separate similarly themed charts, group them within a single dashboard page, and create a [table of contents](./settings.md#contents) for the dashboard. Only for text data.
+
+
+## Neuroanalyst {#ai}
+
+The widget displays Neuroanalyst insights for the selected chart on the current dashboard tab. When [adding](../operations/dashboard/add-ai.md) a widget, you can set a custom prompt asking about the data. Once you save the dashboard, the system will analyze the chart and generate its findings based on the chart data and the custom prompt. The result will be updated every time you open the dashboard.
+
+If Neuroanalyst is disabled, the widget will not work.
 

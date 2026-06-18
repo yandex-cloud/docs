@@ -61,7 +61,7 @@
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](./cluster-create.md).
+        Как создать такой файл, описано в разделе [Создание кластера](./cluster-create.md).
 
     1. Добавьте в описание кластера {{ mrd-name }} блок `modules`:
 
@@ -100,7 +100,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mvk/terraform/timeouts.md) %}
 
@@ -276,7 +276,7 @@
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-       О том, как создать такой файл, см. в разделе [Создание кластера](./cluster-create.md).
+       Как создать такой файл, описано в разделе [Создание кластера](./cluster-create.md).
 
     1. Измените в описании кластера {{ mrd-name }} значение нужной настройки в блоке `modules.valkey_search`:
 
@@ -307,7 +307,7 @@
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mvk/terraform/timeouts.md) %}
 

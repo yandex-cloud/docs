@@ -65,7 +65,7 @@
 
    {% endlist %}
 
-   Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+   Подробнее о параметрах используемых ресурсов в {{ TF }} смотрите в документации провайдера:
    * [Сеть](../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
    * [Подсети](../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
    * [Статический публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) — [yandex_vpc_address]({{ tf-provider-resources-link }}/vpc_address).
@@ -85,7 +85,7 @@
 1. В файле `tls-termination.auto.tfvars` задайте пользовательские параметры:
    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
    * `vm_user` — имя пользователя ВМ.
-   * `ssh_key_path` — путь к файлу с публичным SSH-ключом. Подробнее см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * `ssh_key_path` — путь к файлу с публичным SSH-ключом. Подробнее в разделе [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
    * `domain` — домен, на котором будет размещен сайт. 
        Чтобы получить доступ к именам из публичной зоны, вам нужно делегировать домен. Укажите адреса серверов `ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}` в личном кабинете вашего регистратора.
    * `certificate` — путь к файлу с [пользовательским сертификатом](../../certificate-manager/operations/import/cert-create.md#create-file).

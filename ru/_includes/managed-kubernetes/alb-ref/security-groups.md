@@ -146,7 +146,7 @@
 
   {% endlist %}
 
-Подробнее о группах безопасности для кластера и групп узлов смотрите в разделе [{#T}](../../../managed-kubernetes/operations/connect/security-groups.md).
+Подробнее о группах безопасности для кластера и групп узлов в разделе [{#T}](../../../managed-kubernetes/operations/connect/security-groups.md).
 
 ### {{ TF }} {#example-terraform}
 

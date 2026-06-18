@@ -194,17 +194,17 @@ POST /v2/email/outbound-emails HTTP/2
 || **Код ошибки** | **Описание** ||
 || `400 BadRequestException` | В запросе неправильно указаны заголовки или параметры. ||
 || `400 BadRequestException: sender is not allowed` | [Отправитель](../../concepts/glossary.md#sender) не входит в список разрешенных отправителей, которые указаны в настройках адреса. ||
-|| `400 AccountSuspendedException` | Для этого сервисного аккаунта возможность отправлять почту ограничена навсегда. ||
-|| `400 SendingPausedException` | Для этого сервисного аккаунта возможность отправлять почту временно ограничена. ||
+|| `400 AccountSuspendedException` | Возможность отправлять почту для сервисного аккаунта, от имени которого выполняется запрос, навсегда ограничена. ||
+|| `400 SendingPausedException` | Возможность отправлять почту для сервисного аккаунта, от имени которого выполняется запрос, временно ограничена. ||
 || `400 MessageRejected` | Письмо содержит некорректные данные. ||
 || `400 MailFromDomainNotVerifiedException` | Адрес, с которого отправляется письмо, не верифицирован. ||
 || `404 NotFoundException` | Запрошенный ресурс не найден. ||
 || `429 TooManyRequestsException` | При вызове запроса превышена [квота](../../concepts/limits.md#postbox-quotas). ||
-|| `429 LimitExceededException` | При вызове запроса превышен [лимит](../../concepts/limits.md). ||
+|| `400 LimitExceededException` | При вызове запроса превышен [лимит](../../concepts/limits.md). ||
 |#
 
 ## Полезные ссылки {#see-also}
 
-* [Как пользоваться Amazon S3 API для работы с Yandex Cloud Postbox](../index.md)
+* [Как пользоваться API Amazon для работы с Yandex Cloud Postbox](../index.md)
 * [Аутентификация в API Yandex Cloud Postbox](../../api-ref/authentication.md)
-* [Шаблонизация письма в Yandex Cloud Postbox](../../operations/send-templated-email.md)
+* [Шаблонизация письма](../../operations/send-templated-email.md)

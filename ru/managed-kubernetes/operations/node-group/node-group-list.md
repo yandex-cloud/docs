@@ -100,7 +100,7 @@
       * `node_group_status` — имя переменной, значение которой будет выводиться в результате.
       * `data.yandex_kubernetes_node_group.my_node_group.status` — запрашиваемый параметр. В этом случае — состояние группы узлов.
 
-      Список параметров группы узлов, которые можно запросить таким образом, см. в [документации провайдера {{ TF }}]({{ tf-provider-datasources-link }}/kubernetes_node_group).
+      Список параметров группы узлов, которые можно запросить таким образом, приведен в [документации провайдера {{ TF }}]({{ tf-provider-datasources-link }}/kubernetes_node_group).
 
       {% note tip %}
 

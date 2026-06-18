@@ -13,7 +13,7 @@ The system logs all actions with {{ iot-name }} resources as a list of operation
   You can get a list of operations for a specific resource. The steps below describe how you can do this for a registry. The same steps apply to other resources.
 
   1. In the [management console]({{ link-console-main }}), open the folder the registry is in.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.iot.label_registries }}**.
   1. Select the registry.
   1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected registry.

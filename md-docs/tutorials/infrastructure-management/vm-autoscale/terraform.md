@@ -37,7 +37,7 @@
 
 Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
 Чтобы создать инфраструктуру для автоматического масштабирования группы ВМ с помощью Terraform:
 1. [Установите Terraform](../terraform-quickstart.md#install-terraform) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../terraform-quickstart.md#configure-provider), шаг 1).
@@ -301,7 +301,7 @@ Terraform распространяется под лицензией [Business S
 
    {% endlist %}
 
-   Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+   Подробнее о параметрах используемых ресурсов в Terraform смотрите в документации провайдера:
 
    * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../../terraform/resources/iam_service_account.md).
    * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../../terraform/resources/vpc_network.md).
@@ -313,7 +313,7 @@ Terraform распространяется под лицензией [Business S
 1. В файле `vm-autoscale.auto.tfvars` задайте пользовательские параметры:
    * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
    * `vm_user` — имя пользователя ВМ.
-   * `ssh_key` — содержимое файла с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [Создание пары ключей SSH](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * `ssh_key` — содержимое файла с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее в разделе [Создание пары ключей SSH](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 1. Создайте ресурсы:
 
    1. В терминале перейдите в директорию с конфигурационным файлом.

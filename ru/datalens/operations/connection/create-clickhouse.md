@@ -51,6 +51,8 @@ description: Следуя данной инструкции, вы сможете
 
        Чтобы проверить корректность введенных параметров, нажмите кнопку **Проверить подключение**.
 
+     ![image](../../../_assets/datalens/connection/ch.png)  
+
    - Указать вручную {#manual}
 
      {% include [datalens-db-specify-mannualy](../../../_includes/datalens/datalens-db-specify-mannualy.md) %}

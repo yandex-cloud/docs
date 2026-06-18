@@ -158,7 +158,7 @@
 
 {% note tip %}
 
-Вы можете поставлять данные в кластер {{ mos-name }} от имени пользователя `admin`, имеющего роль `superuser`, но безопаснее для каждой задачи создавать отдельных пользователей с ограниченными привилегиями. Подробнее см. в разделе [{#T}](../../managed-opensearch/operations/cluster-users.md).
+Вы можете поставлять данные в кластер {{ mos-name }} от имени пользователя `admin`, имеющего роль `superuser`, но безопаснее для каждой задачи создавать отдельных пользователей с ограниченными привилегиями. Подробнее в разделе [{#T}](../../managed-opensearch/operations/cluster-users.md).
 
 {% endnote %}
 
@@ -301,7 +301,7 @@
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
     ```
 
-    Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
+    Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
 
 1. Проверьте, что индекс `sensors` кластера {{ mos-name }} содержит отправленные данные:
 

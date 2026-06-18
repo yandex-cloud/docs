@@ -21,6 +21,9 @@ You can configure the features and appearance of the objects being embedded thro
 * `_no_scroll`: Disables vertical scrolling on dashboards. To activate the parameter, set it to `1`.
 * `_lang`: For charts, sets the language of the menu that opens when you click ![image](../../_assets/console-icons/ellipsis.svg). Possible values: `ru` and `en`. 
 * `_opened_info`: Displays dashboard [description](../dashboard/settings.md#message-settings) (if provided) when you open the dashboard. To activate the parameter, set it to `1`.
+* `_no_tabs `: Hides dashboard tabs. To activate the parameter, set it to `1`.
+* `_no_table_of_content`: Hides dashboard content. To activate the parameter, set it to `1`.
+* `_no_title`: Hides dashboard title. To activate the parameter, set it to `1`.
 
 Provide the parameters formatted as `<parameter_name>=<value>`. For example, to set the auto-update time to 50 seconds, specify `_autoupdate=50`.
 
@@ -39,7 +42,7 @@ To get the embed code with a preset dashboard or chart design:
 1. [Publish](../concepts/datalens-public.md#how-to-publish) your dashboard or chart.
 1. Open the dashboard or chart using the public link provided to you.
 1. In the upper-right corner, click ![image](../../_assets/console-icons/arrow-shape-turn-up-right.svg) and select ![image](../../_assets/console-icons/code.svg) **Embed code**.
-1. In the window that opens, set up the menu language, theme, and appearance. On the right of the window, copy the link or embed code with the preset design parameters.
+1. In the window that opens, set up language, theme, menu display. On the right of the window, copy the link or embed code with the preset design parameters.
 
 ## Filtering embedded charts {#filtering-embedded-charts}
 
@@ -52,7 +55,7 @@ To set up filtering:
 1. Open the dashboard or chart using the public link provided to you.
 1. Set the required selector values.
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the chart on the dashboard and select ![image](../../_assets/console-icons/code.svg) **Embed code**.
-1. In the window that opens, set up the menu language, theme, and appearance. On the right of the window, copy the link or embed code with the preset design and filter parameters.
+1. In the window that opens, set up language, theme, menu display. On the right of the window, copy the link or embed code with the preset design and filter parameters.
 
 The filter parameters will be added to the chart URL after `?`. When providing multiple parameters, they will be separated by `&` (ampersand).
 

@@ -14,7 +14,7 @@
 
 {% note warning %}
 
-Если вы хотите настроить [политику доступа](../../storage/concepts/policy.md) для бакета и подключаться к нему из кластера Apache Hive™ Metastore, вам потребуется дополнительная настройка инфраструктуры. Подробнее см. в [инструкции](../operations/metastore/s3-policy-connect.md).
+Если вы хотите настроить [политику доступа](../../storage/concepts/policy.md) для бакета и подключаться к нему из кластера Apache Hive™ Metastore, вам потребуется дополнительная настройка инфраструктуры. Подробнее в [инструкции](../operations/metastore/s3-policy-connect.md).
 
 {% endnote %}
 

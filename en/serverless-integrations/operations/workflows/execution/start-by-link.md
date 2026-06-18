@@ -18,7 +18,7 @@ description: Follow this guide to execute a workflow via a link.
     {% endnote %}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the workflow.
-    1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
     1. In the left-hand panel, click ![image](../../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
     1. Select a workflow. The execution link will appear in the **{{ ui-key.yacloud.serverless-workflows.label_execution-url }}** field.
 
@@ -42,11 +42,7 @@ description: Follow this guide to execute a workflow via a link.
 
 If the workflow is:
 * [Public](../workflow/make-public.md), any user can run it.
-* Private, the user needs to authenticate by providing the [{{ iam-short-name }} token](../../../../iam/concepts/authorization/iam-token.md) in the `Authorization` header in the following format:
-
-    ```bash
-    Authorization: Bearer <{{ iam-short-name }}_token>
-    ```
+* Private, the user needs to get authenticated by providing an [{{ iam-short-name }} token](../../../../iam/concepts/authorization/iam-token.md) or [API key](../../../../iam/concepts/authorization/api-key.md) in the `Authorization` header.
 
 To execute a workflow, send a POST request:
 
@@ -56,12 +52,21 @@ To execute a workflow, send a POST request:
     curl -X POST "https://serverless-workflows.api.cloud.yandex.net/workflows/v1/execution/fd2g4pu20roc********/start"
     ```
 
-*  Example of private workflow execution without providing the input data:
+*  Example of executing a private workflow without providing the input data and with {{ iam-short-name }} token authentication:
 
     ```bash
     IAM_TOKEN="<{{ iam-short-name }}_token>"
     curl -X POST \
     --header "Authorization: Bearer $IAM_TOKEN" \
+    "https://serverless-workflows.api.cloud.yandex.net/workflows/v1/execution/dfq3l36kr2gh********/start"
+    ```
+
+*  Example of executing a private workflow without providing the input data and with API key authentication:
+
+    ```bash
+    API_KEY="<API_key>"
+    curl -X POST \
+    --header "Authorization: Api-Key $API_KEY" \
     "https://serverless-workflows.api.cloud.yandex.net/workflows/v1/execution/dfq3l36kr2gh********/start"
     ```
 

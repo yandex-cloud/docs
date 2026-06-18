@@ -161,7 +161,7 @@ If the current time is `2020-03-24T23:30:39.874Z`, then
 
 **Helper method**: [Editor.resolveInterval](./methods.md#resolve-interval)
 
-### Limitations {#params-restrictions}
+### Limits {#params-restrictions}
 
 The following limitations apply when using parameters:
 
@@ -418,7 +418,6 @@ The declarative style describes the possible controls, i.e., the chart's control
 
 Available for all [visualization types](./widgets/index.md). The tab format details depend on the type of [controls](./widgets/controls.md).
 
-
 ## Activities {#activities}
 
 The tab allows you to configure [interactive actions](#run-activities) for dashboard elements, such as sending an HTTP request when a table row is clicked.
@@ -599,10 +598,11 @@ To perform actions of the **Activities** tab, configure interface element events
 * Selectors: On the **Controls** tab, set the button’s `onClick` event to the `runActivity` action.
 * **Gravity UI Charts** and **Tables**: Configure the `runActivity` action on the **Config** tab.
 
-### Limitations {#activities-restrictions}
+### Limits {#activities-restrictions}
 
 * The **Activities** tab supports limited data sources for requests: requests to datasets, standard connections, and API Connector connections.
 * This feature is currently available for the following chart types: [Selector](./widgets/controls.md), [Table](./widgets/table.md), and [Chart (Gravity UI Charts)](./widgets/chart.md).
+
 
 #### See also {#see-also-activities}
 

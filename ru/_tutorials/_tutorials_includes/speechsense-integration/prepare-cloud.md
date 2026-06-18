@@ -1,6 +1,6 @@
 ## Подготовьте облако к работе {#before-you-begin}
 
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы. О том, как начать работать с {{ yandex-cloud }}, см. в документе [Начало работы с {{ yandex-cloud }}](../../../getting-started/).
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы. Подробнее в документе [Начало работы с {{ yandex-cloud }}](../../../getting-started/).
 1. Примите пользовательское соглашение.
 1. В сервисе [{{ billing-name }}]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account), если платежный аккаунт находится в статусе `TRIAL_ACTIVE`, [активируйте платную версию](../../../billing/operations/activate-commercial.md) аккаунта.
 1. [Назначьте](../../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль `speech-sense.spaces.creator`.
@@ -9,7 +9,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость инфраструктуры для интеграции с внешними системами входит плата за сервис {{ speechsense-name }}: длительность каждого двухканального аудиофайла (см. [тарифы {{ speechsense-name }}]({{ link-docs-ai }}speechsense/pricing)).
+В стоимость инфраструктуры для интеграции с внешними системами входит плата за сервис {{ speechsense-name }}: длительность каждого двухканального аудиофайла ([тарифы {{ speechsense-name }}]({{ link-docs-ai }}speechsense/pricing)).
 
 ### Создайте сервисный аккаунт {#create-sa}
 

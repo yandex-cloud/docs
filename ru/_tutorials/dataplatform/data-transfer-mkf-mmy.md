@@ -292,7 +292,7 @@
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
     ```
 
-    Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
+    Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
 
 1. Проверьте, что таблица `sensors` кластера {{ mmy-name }} содержит отправленные данные:
 

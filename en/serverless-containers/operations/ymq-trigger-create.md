@@ -1,6 +1,6 @@
-# Creating a trigger for {{ message-queue-name }} that sends messages to a {{ serverless-containers-name }} container
+# Creating a trigger for {{ message-queue-name }} that sends messages to a container in {{ serverless-containers-name }}
 
-Create a [trigger for a message queue in {{ message-queue-short-name }}](../concepts/trigger/ymq-trigger.md) and process the messages using the {{ serverless-containers-name }} [container](../concepts/container.md).
+Create a [trigger for a {{ message-queue-short-name }}](../concepts/trigger/ymq-trigger.md) and process messages using a [container](../concepts/container.md) in {{ serverless-containers-name }}.
 
 {% include [ymq-trigger-note.md](../../_includes/functions/ymq-trigger-note.md) %}
 
@@ -8,7 +8,7 @@ Create a [trigger for a message queue in {{ message-queue-short-name }}](../conc
 
 To create a trigger, you will need:
 
-* A container that the trigger will invoke. If you do not have a container:
+* Container the trigger will invoke. If you do not have a container:
 
     * [Create a container](create.md).
     * [Create a container revision](manage-revision.md#create).
@@ -20,7 +20,7 @@ To create a trigger, you will need:
 
     You can use the same service account or different ones. If you do not have a service account, [create one](../../iam/operations/sa/create.md).
 
-* Message queue the trigger will pick up messages from. If you do not have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
+* Message queue the trigger will receive messages from. If you do not have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -32,7 +32,7 @@ To create a trigger, you will need:
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -44,7 +44,7 @@ To create a trigger, you will need:
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_ymq }}`.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}**, select a message queue and a service account with the permission to read messages from it.
+    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}**, select a message queue and a service account with the permission to read messages from that queue.
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
@@ -86,8 +86,8 @@ To create a trigger, you will need:
     * `--invoke-container-id`: Container ID.
     * `--queue-service-account-id`: ID of the service account with permissions to read messages from the queue.
     * `--invoke-container-service-account-id`: ID of the service account with permissions to invoke the container.
-    * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 to 1,000. The default value is 1.
-    * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The number of messages cannot exceed `batch-size`.
+    * `--batch-size`: Message batch size. This is an optional setting. The values may range from 1 to 1,000. The default value is 1.
+    * `--batch-cutoff`: Maximum wait time. This is an optional setting. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages within the `batch-cutoff` period and sends them to the container. The number of messages cannot exceed `batch-size`.
 
     Result:
 
@@ -117,7 +117,7 @@ To create a trigger, you will need:
 
   To create a trigger for {{ message-queue-name }}:
 
-  1. In the configuration file, describe the trigger parameters:
+  1. Describe the trigger in the configuration file:
 
      ```hcl
      resource "yandex_function_trigger" "my_trigger" {
@@ -137,15 +137,15 @@ To create a trigger, you will need:
 
      Where:
 
-     * `name`: Trigger name. The name format is as follows:
+     * `name`: Trigger name. Follow these naming requirements:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
-     * `container`: Container parameters:
+     * `container`: Container settings:
 
          {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
 
-     * `message_queue`: Trigger parameters:
+     * `message_queue`: Trigger settings:
 
          * `queue_id`: Queue ID.
 
@@ -153,10 +153,10 @@ To create a trigger, you will need:
 
          * `service_account_id`: ID of the service account with permissions to read messages from the queue.
 
-         * `batch_cutoff`: Maximum wait time. This is an optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The number of messages cannot exceed `batch-size`.
-         * `batch_size`: Message batch size. This is an optional parameter. The values may range from 1 to 1,000. The default value is 1.
+         * `batch_cutoff`: Maximum wait time. This is an optional setting. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages within the `batch-cutoff` period and sends them to the container. The number of messages cannot exceed `batch-size`.
+         * `batch_size`: Message batch size. This is an optional setting. The values may range from 1 to 1,000. The default value is 1.
 
-     For more information about `yandex_function_trigger` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+     For more information about `yandex_function_trigger` properties, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create the resources:
 
@@ -187,7 +187,7 @@ To create a trigger, you will need:
     Check that the number of enqueued messages is decreasing. To do this, view the queue statistics:
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you created the trigger.
-   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ymq }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ymq }}**.
    1. Select the queue for which you created the trigger.
    1. Go to **{{ ui-key.yacloud.common.monitoring }}**. Check the **{{ ui-key.yacloud.ymq.queue.overview.label_msg-count }}** chart.
 

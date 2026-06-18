@@ -521,7 +521,7 @@
 
           {% endnote %}
 
-      Подробнее об аннотациях см. в разделе [Поля и аннотации ресурса Ingress](../../../application-load-balancer/gwin-ref/ingress.md).
+      Подробнее об аннотациях смотрите в разделе [Поля и аннотации ресурса Ingress](../../../application-load-balancer/gwin-ref/ingress.md).
 
     - Ingress-контроллер {#alb-ingress}
 
@@ -570,7 +570,7 @@
 
       {% endnote %}
 
-      Подробнее об аннотациях см. в разделе [Поля и аннотации ресурса Ingress](../../../application-load-balancer/k8s-ref/ingress.md).
+      Подробнее об аннотациях смотрите в разделе [Поля и аннотации ресурса Ingress](../../../application-load-balancer/k8s-ref/ingress.md).
 
     {% endlist %}
 

@@ -259,11 +259,11 @@
     [Добавьте на дашборд](../../logging/tutorials/log-group-record-monitoring.md) график по [метрике](../../monitoring/metrics-ref/logging-ref.md) `group.service.ingested_records_per_second` — она отображает реальную скорость записи логов в лог-группу. Сравнение этой величины с установленной [квотой](../../logging/concepts/limits.md#logging-quotas) `Максимальная скорость записи` помогает определить, не достигает ли поток логов максимально разрешенной скорости. Дополнительный график по метрике `group.service.ingest_requests_per_second` со статусом `ERROR` позволит вовремя обнаружить ошибки при записи.
 
 
-* **{{ yds-name }}** — см. документацию [{{ ydb-full-name }}](../../ydb/):
+* **{{ yds-name }}** — подробнее в документации [{{ ydb-full-name }}](../../ydb/):
   * [{#T}](../../ydb/metrics.md)
   * [{#T}](../../ydb/concepts/limits.md)
 
-  Подробнее о решении проблем с записью данных см. в разделе [{#T}](../../data-streams/tutorials/slow-writes-debug.md).
+  Подробнее о решении проблем с записью данных смотрите в разделе [{#T}](../../data-streams/tutorials/slow-writes-debug.md).
 
   {% note tip %}
 

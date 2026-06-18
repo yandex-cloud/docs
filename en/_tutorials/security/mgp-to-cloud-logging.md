@@ -1,6 +1,6 @@
-# Transferring a {{ GP }} cluster's logs to {{ cloud-logging-full-name }}
+# Transferring a {{ mgp-full-name }} cluster's logs to {{ cloud-logging-full-name }}
 
-You can set up regular collection of {{ GP }} cluster performance logs. Logs will be delivered to a [log group](../../logging/concepts/log-group.md) in {{ cloud-logging-name }}. You can choose between these two types of log groups:
+You can set up regular collection of {{ mgp-name }} cluster performance logs. Logs will be delivered to a [log group](../../logging/concepts/log-group.md) in {{ cloud-logging-name }}. You can choose between these two types of log groups:
 
 * [Default log group of the cluster folder](#default)
 * [Custom log group](#custom)
@@ -11,7 +11,7 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
 
 ## Transferring data to the default log group {#default}
 
-1. Create a {{ GP }} cluster with active logging and a service account [created earlier](#before-you-begin):
+1. Create a {{ mgp-name }} cluster with active logging and a service account [created earlier](#before-you-begin):
 
    {% list tabs group=instructions %}
 
@@ -21,6 +21,8 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
       1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
       1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Enter a name for the cluster.
+      1. Select the DBMS version ({{ GP }} or {{ CB }}). Learn more about [available DBMS versions](../../managed-greenplum/concepts/overview.md).
+
       1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
 
          * Cloud network.
@@ -46,7 +48,7 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
 
       ```bash
       yc managed-greenplum cluster create <cluster_name> \
-         --greenplum-version=<{{ GP }}_version> \
+         --greenplum-version=<DBMS_version> \
          --environment=PRODUCTION \
          --network-name=<cluster_network_name> \
          --user-name=<VM_user_name> \
@@ -70,19 +72,21 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
 
       Where:
 
+      * `--greenplum-version`: DBMS version ({{ GP }} or {{ CB }}). Learn more about [available DBMS versions](../../managed-greenplum/concepts/overview.md).
+
       * `--service-account`: ID of the service account you [created earlier](#before-you-begin).
 
-      * `--log-enabled`: Enables log transfer. Required for other flags responsible for transferring specific logs to work, e.g., `--log-greenplum-enabled`.
+      * `--log-enabled`: Enables log transfer. It is required for other flags responsible for transferring specific logs, e.g., `--log-greenplum-enabled`.
 
-      * `--log-greenplum-enabled`: Transferring {{ GP }} logs.
+      * `--log-greenplum-enabled`: Transferring DBMS logs.
 
-          {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
+          {% include [Database Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
       * `--log-command-center-enabled`: Transferring [Command Center](../../managed-greenplum/concepts/command-center.md) logs.
 
           {% include [Command Center Logs Level](../../_includes/managed-greenplum/command-center-logs-level.md) %}
 
-      * `--log-folder-id`: ID of the folder the {{ GP }} cluster was created in.
+      * `--log-folder-id`: ID of the folder the {{ mgp-name }} cluster was created in.
 
    * {{ TF }} {#tf}
 
@@ -101,7 +105,7 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
             zone               = "<availability_zone_ID>"
             subnet_id          = "<cluster_subnet_ID>"
             assign_public_ip   = true
-            version            = "<{{ GP }}_version>"
+            version            = "<DBMS_version>"
             master_host_count  = 2
             segment_host_count = 2
             segment_in_host    = 2
@@ -138,13 +142,15 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
 
           Where:
 
+          * `version`: DBMS version ({{ GP }} or {{ CB }}). Learn more about [available DBMS versions](../../managed-greenplum/concepts/overview.md).
+
           * `service_account_id`: ID of the service account you [created earlier](#before-you-begin).
 
           * `enabled`: Manages log transferring. To enable parameters responsible for transferring specific logs, provide the `true` value.
 
-          * `greenplum_enabled`: Transferring {{ GP }} logs.
+          * `greenplum_enabled`: Transferring DBMS logs.
 
-              {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
+              {% include [Database Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
           * `command_center_enabled`: Transferring [Command Center](../../managed-greenplum/concepts/command-center.md) logs.
 
@@ -171,6 +177,13 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
       ```json
       {
         ...
+        "config": {
+          "version": "<DBMS_version>",
+          ...
+          },
+          ...
+        },
+        ...
         "serviceAccountId": "<service_account_ID>",
         "logging": {
           "enabled": "true",
@@ -184,13 +197,15 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
 
       Where:
 
+      * `version`: DBMS version ({{ GP }} or {{ CB }}). Learn more about [available DBMS versions](../../managed-greenplum/concepts/overview.md).
+
       * `serviceAccountId`: ID of the service account you [created earlier](#before-you-begin).
 
       * `enabled`: Manages log transferring. To enable parameters responsible for transferring specific logs, provide the `true` value.
 
-      * `greenplumEnabled`: Transferring {{ GP }} logs.
+      * `greenplumEnabled`: Transferring DBMS logs.
 
-          {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
+          {% include [Database Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
       * `commandCenterEnabled`: Transferring [Command Center](../../managed-greenplum/concepts/command-center.md) logs.
 
@@ -258,8 +273,8 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
 
 ## Sending data to a custom log group {#custom}
 
-1. [Create a log group](../../logging/operations/create-group.md) named `greenplum-log-group`.
-1. Create a {{ GP }} cluster with active logging and a service account [created earlier](#before-you-begin):
+1. [Create a log group](../../logging/operations/create-group.md) named `my-log-group`.
+1. Create a {{ mgp-name }} cluster with active logging and a service account [created earlier](#before-you-begin):
 
    {% list tabs group=instructions %}
 
@@ -269,6 +284,8 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
       1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
       1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Enter a name for the cluster.
+      1. Select the DBMS version ({{ GP }} or {{ CB }}). Learn more about [available DBMS versions](../../managed-greenplum/concepts/overview.md).
+
       1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
 
          * Cloud network.
@@ -285,7 +302,7 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
          * Select the service account with the `logging.writer` role.
          * Enable **{{ ui-key.yacloud.logging.field_logging }}**.
          * To write logs to a custom log group, select **{{ ui-key.yacloud.logging.label_loggroup }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
-         * Select the `greenplum-log-group` log group.
+         * Select the `my-log-group` log group.
          * Enable the **{{ ui-key.yacloud.greenplum.LoggingSection.greenplum_pN6jU }}** and **{{ ui-key.yacloud.greenplum.LoggingSection.commandCenter_e9fKV }}** options. Use [Log min messages](../../managed-greenplum/concepts/settings-list.md#setting-log-min-messages) under **{{ ui-key.yacloud.mdb.forms.section_settings }}** to specify the logging level.
 
       1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -294,7 +311,7 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
 
       ```bash
       yc managed-greenplum cluster create <cluster_name> \
-         --greenplum-version=<{{ GP }}_version> \
+         --greenplum-version=<DBMS_version> \
          --environment=PRODUCTION \
          --network-name=<cluster_network_name> \
          --user-name=<VM_user_name> \
@@ -318,13 +335,15 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
 
       Where:
 
+      * `--greenplum-version`: DBMS version ({{ GP }} or {{ CB }}). Learn more about [available DBMS versions](../../managed-greenplum/concepts/overview.md).
+
       * `--service-account`: ID of the service account you [created earlier](#before-you-begin).
 
-      * `--log-enabled`: Enables log transfer. Required for other flags responsible for transferring specific logs to work, e.g., `--log-greenplum-enabled`.
+      * `--log-enabled`: Enables log transfer. It is required for other flags responsible for transferring specific logs, e.g., `--log-greenplum-enabled`.
 
-      * `--log-greenplum-enabled`: Transferring {{ GP }} logs.
+      * `--log-greenplum-enabled`: Transferring DBMS logs.
 
-          {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
+          {% include [Database Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
       * `--log-command-center-enabled`: Transferring [Command Center](../../managed-greenplum/concepts/command-center.md) logs.
 
@@ -349,7 +368,7 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
             zone               = "<availability_zone_ID>"
             subnet_id          = "<cluster_subnet_ID>"
             assign_public_ip   = true
-            version            = "<{{ GP }}_version>"
+            version            = "<DBMS_version>"
             master_host_count  = 2
             segment_host_count = 2
             segment_in_host    = 2
@@ -386,13 +405,15 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
 
           Where:
 
+          * `version`: DBMS version ({{ GP }} or {{ CB }}). Learn more about [available DBMS versions](../../managed-greenplum/concepts/overview.md).
+
           * `service_account_id`: ID of the service account you [created earlier](#before-you-begin).
 
           * `enabled`: Manages log transferring. To enable parameters responsible for transferring specific logs, provide the `true` value.
 
-          * `greenplum_enabled`: Transferring {{ GP }} logs.
+          * `greenplum_enabled`: Transferring DBMS logs.
 
-              {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
+              {% include [Database Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
           * `command_center_enabled`: Transferring [Command Center](../../managed-greenplum/concepts/command-center.md) logs.
 
@@ -419,6 +440,13 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
       ```json
       {
         ...
+        "config": {
+          "version": "<DBMS_version>",
+          ...
+          },
+          ...
+        },
+        ...
         "serviceAccountId": "<service_account_ID>",
         "logging": {
           "enabled": "true",
@@ -432,13 +460,15 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
 
       Where:
 
+      * `version`: DBMS version ({{ GP }} or {{ CB }}). Learn more about [available DBMS versions](../../managed-greenplum/concepts/overview.md).
+
       * `serviceAccountId`: ID of the service account you [created earlier](#before-you-begin).
 
       * `enabled`: Manages log transferring. To enable parameters responsible for transferring specific logs, provide the `true` value.
 
-      * `greenplumEnabled`: Transferring {{ GP }} logs.
+      * `greenplumEnabled`: Transferring DBMS logs.
 
-          {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
+          {% include [Database Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
       * `commandCenterEnabled`: Transferring [Command Center](../../managed-greenplum/concepts/command-center.md) logs.
 
@@ -456,7 +486,7 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
 
       1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
       1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
-      1. Click the row with the `greenplum-log-group` log group.
+      1. Click the row with the `my-log-group` log group.
 
       The page that opens will show the records.
 
@@ -465,7 +495,7 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
       To view the entries in JSON format, run this command:
 
       ```bash
-      yc logging read --group-name=greenplum-log-group --format=json
+      yc logging read --group-name=my-log-group --format=json
       ```
 
       Result:
@@ -503,3 +533,7 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
    {% endlist %}
 
    For more information, see [Reading records](../../logging/operations/read-logs.md).
+
+{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [cloudberry-trademark](../../_includes/mdb/mgp/trademark-cloudberry.md) %}

@@ -263,7 +263,7 @@ curl --verbose \
 
 В результате выполнения команды синтезированная речь будет сохранена в файл `audio.mp3` в текущей директории. Прослушать созданный файл можно в браузере, например в [Яндекс Браузере](https://browser.yandex.ru) или [Mozilla Firefox](http://www.mozilla.org).
 
-Подробнее о формате передаваемого в параметре `-d` текста см. в [документации Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/tts/request).
+Подробнее о формате передаваемого в параметре `-d` текста смотрите в [документации Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/tts/request).
 
 
 ## Как удалить созданные ресурсы {#clear-out}

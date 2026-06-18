@@ -125,7 +125,7 @@ _Профиль безопасности_ — основной элемент Sm
 
 {% endlist %}
 
-Подробное описание графиков см. в разделе [Мониторинг в Smart Web Security](../operations/monitoring.md).
+Подробное описание графиков смотрите в разделе [Мониторинг в Smart Web Security](../operations/monitoring.md).
 
 ### Логирование {#logs}
 
@@ -154,7 +154,7 @@ _Профиль безопасности_ — основной элемент Sm
 
 {% endlist %}
 
-Подробное описание работы с логами см. в разделе [Настроить логирование через Smart Web Security](../operations/configure-logging.md).
+Подробное описание работы с логами смотрите в разделе [Настроить логирование через Smart Web Security](../operations/configure-logging.md).
 
 ## Настройте дополнительные правила защиты от DDoS {#anti-ddos}
 

@@ -295,4 +295,4 @@ rules:
 * Запрос относится к группе ресурсов из списка.
 * Событие не относится к стадии `RequestReceived`.
 
-Подробнее о политике аудита см. в [документации Kubernetes](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/#audit-policy).
+Подробнее о политике аудита в [документации Kubernetes](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/#audit-policy).

@@ -26,7 +26,7 @@
 
 Роль можно назначить на [организацию](../../organization/concepts/organization.md), [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Роли, назначенные на организацию, облако или каталог, действуют и на вложенные ресурсы.
 
-Также вы можете назначить [роли для доступа к Kubernetes API](#k8s-api) на отдельный кластер через Yandex Cloud [CLI](../../cli/cli-ref/managed-kubernetes/cli-ref/cluster/add-access-binding.md), [Terraform](../../terraform/resources/kubernetes_cluster_iam_binding.md) или [API](../api-ref/authentication.md). Подробнее см. на странице [Управление доступом к кластеру Managed Service for Kubernetes](../operations/kubernetes-cluster/kubernetes-cluster-access.md).
+Также вы можете назначить [роли для доступа к Kubernetes API](#k8s-api) на отдельный кластер через Yandex Cloud [CLI](../../cli/cli-ref/managed-kubernetes/cli-ref/cluster/add-access-binding.md), [Terraform](../../terraform/resources/kubernetes_cluster_iam_binding.md) или [API](../api-ref/authentication.md). Подробнее на странице [Управление доступом к кластеру Managed Service for Kubernetes](../operations/kubernetes-cluster/kubernetes-cluster-access.md).
 
 ## Какие роли действуют в сервисе {#roles-list}
 

@@ -285,7 +285,7 @@
            -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
         ```
 
-        Данные отправляются от имени [созданного пользователя](#prepare-source). Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [Подключение к кластеру Apache Kafka® из приложений](../operations/connect/clients.md).
+        Данные отправляются от имени [созданного пользователя](#prepare-source). Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [Подключение к кластеру Apache Kafka® из приложений](../operations/connect/clients.md).
 
     1. Убедитесь, что в кластер-приемник Managed Service for Apache Kafka® перенеслись данные из кластера-источника, с помощью утилиты `kafkacat`:
 

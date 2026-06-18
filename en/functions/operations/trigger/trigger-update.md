@@ -18,8 +18,8 @@ Your changes will apply within five minutes.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the trigger.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
     1. Select the trigger whose settings you want to update.
     1. In the top-right corner of the page, click **{{ ui-key.yacloud.common.edit }}**.
     1. Edit the trigger settings and click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_update-trigger }}**.
@@ -99,7 +99,7 @@ Your changes will apply within five minutes.
       ...
       ```
 
-      For more information about the `yandex_function_trigger` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
+      For more information about the `yandex_function_trigger` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create the resources:
 

@@ -97,7 +97,7 @@
    * Подсеть — `default-{{ region-id }}-d`.
 
 1. Нажмите кнопку **Создать кластер**.
-Подробнее о создании кластера см. раздел [Как начать работать с {{ mmy-short-name }}](../../managed-mysql/quickstart.md#cluster-create.md).
+Подробнее о создании кластера смотрите в разделе [Как начать работать с {{ mmy-short-name }}](../../managed-mysql/quickstart.md#cluster-create.md).
 
 ## Настройте параметры трансфера {#create-transfer}
 

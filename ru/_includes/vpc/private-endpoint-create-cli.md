@@ -15,7 +15,7 @@
       --name <имя_сервисного_подключения> \
       --description "<описание_сервисного_подключения>" \
       --network-name <имя_сети> \
-      --object-storage 
+      --service-name yandex.cloud.storage 
     ```
 
     Где:
@@ -23,7 +23,7 @@
     * `--name` — (опционально) имя сервисного подключения.
     * `--description` — (опционально) описание сервисного подключения.
     * `--network-name` — имя [облачной сети](../../vpc/concepts/network.md#network), в которой будет создано сервисное подключение. Также вы можете использовать [идентификатор сети](../../vpc/operations/network-get-info.md) в параметре `--network-id`.
-    * `--object-storage` — сервисное подключение к {{ objstorage-short-name }}. Другие типы сервисных подключений пока не доступны.
+    * `--service-name` — [тип сервисного подключения](../../vpc/concepts/private-endpoint.md#pe-services). В данном примере это `yandex.cloud.storage` — {{ objstorage-short-name }}.
 
     При создании сервисного подключения можно использовать дополнительные параметры:
 

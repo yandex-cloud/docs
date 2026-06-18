@@ -13,7 +13,7 @@
 * переносить ваши функции из Cloud Run functions или Knative, сохранив совместимость с этими платформами;
 * создавать функции на языках [Dart](https://dart.dev/), [C++](https://ru.wikipedia.org/wiki/C%2B%2B) или [Ruby](https://www.ruby-lang.org/ru/), которые в настоящий момент не поддержаны в Cloud Functions.
 
-В данном руководстве вы создадите тестовую функцию. Полный перечень поддерживаемых языков программирования см. в [репозитории](https://github.com/GoogleCloudPlatform/functions-framework?tab=readme-ov-file#languages--test-status) проекта Functions Framework на GitHub.
+В данном руководстве вы создадите тестовую функцию. Полный перечень поддерживаемых языков программирования смотрите в [репозитории](https://github.com/GoogleCloudPlatform/functions-framework?tab=readme-ov-file#languages--test-status) проекта Functions Framework на GitHub.
 
 Чтобы развернуть функцию в Serverless Containers:
 1. [Подготовьте облако к работе](#before-you-begin).

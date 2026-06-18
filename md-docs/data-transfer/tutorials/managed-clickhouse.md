@@ -11,7 +11,7 @@
 
 Вы также можете использовать этот способ для переноса данных между двумя кластерами Managed Service for ClickHouse®. Для успешного переноса в эндпоинте-источнике укажите порты `8443` и `9440`, а также добавьте [SSL-сертификат](../../managed-clickhouse/operations/connect/index.md#get-ssl-cert).
 
-Подробнее см. в разделе [Какие задачи решает сервис Yandex Data Transfer](../concepts/use-cases.md).
+Подробнее в разделе [Какие задачи решает сервис Yandex Data Transfer](../concepts/use-cases.md).
 
 
 ## Перед началом работы {#before-you-begin}

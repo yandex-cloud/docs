@@ -18,7 +18,7 @@ _Бакет_ — это выделенная часть хранилища {{ ob
 
 Также бакеты можно использовать для [хостинга статических сайтов](./hosting.md).
 
-Подробнее о начале работы с бакетами см. в статье [{#T}](../quickstart.md).
+Подробнее о начале работы с бакетами в статье [{#T}](../quickstart.md).
 
 [Создать бакет](../operations/buckets/create.md) можно с помощью [Консоли управления]({{ link-console-main }}), [CLI](../../cli/quickstart.md), [{{ TF }}]({{ tf-provider-resources-link }}/storage_bucket), [API](../../api-design-guide/concepts/general.md), а также популярных [инструментов](../tools/index.md) для работы с HTTP API Amazon S3.
 

@@ -183,7 +183,7 @@
    kubectl describe crd instances.compute.yandex-cloud.jet.crossplane.io
    ```
 
-   Примеры конфигурации ресурсов {{ yandex-cloud }} см. в [репозитории провайдера на GitHub](https://github.com/yandex-cloud/crossplane-provider-yc/tree/main/examples).
+   Примеры конфигурации ресурсов {{ yandex-cloud }} приведены в [репозитории провайдера на GitHub](https://github.com/yandex-cloud/crossplane-provider-yc/tree/main/examples).
 
 ## Примеры использования {#examples}
 

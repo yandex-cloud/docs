@@ -60,7 +60,7 @@
 
    {% endlist %}
 
-   Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+   Подробнее о параметрах используемых ресурсов в {{ TF }} смотрите в документации провайдера:
    * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
    * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
    * [Группы безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group).
@@ -74,7 +74,7 @@
 1. В файле `alb-smartwebsecurity.auto.tfvars` задайте пользовательские параметры:
    * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
    * `vm_user` — имя пользователя ВМ.
-   * `ssh_key_path` — путь к файлу с публичным SSH-ключом. Подробнее см. [{#T}](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * `ssh_key_path` — путь к файлу с публичным SSH-ключом. Подробнее в разделе [{#T}](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
    * `allowed_ip` — публичный IP-адрес устройства, с которого вы будете отправлять запросы L7-балансировщику.
 
 1. Создайте ресурсы:

@@ -68,7 +68,7 @@
 * [отправить в {{ monitoring-full-name }}](../../query/sources-and-sinks/monitoring.md) в виде метрик;
 * [отправить в выходной поток {{ yds-name }}](../../query/sources-and-sinks/data-streams-write.md) в виде данных, а далее обработать с помощью [триггеров {{ sf-full-name }}](../../functions/operations/trigger/data-streams-trigger-create.md).
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{{ objstorage-full-name }}](../../storage/).
 * [{{ yds-full-name }}](../../data-streams/).

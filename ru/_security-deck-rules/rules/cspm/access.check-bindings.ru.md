@@ -17,7 +17,7 @@
 
 [Модуль диагностики доступов](https://center.yandex.cloud/security/iam-diagnostics/) или CIEM (Cloud Infrastructure Entitlement Management) — это инструмент, позволяющий централизованно просматривать полный список доступов [субъектов](https://yandex.cloud/ru/docs/iam/concepts/access-control/#subject): пользователей, сервисных аккаунтов, [групп пользователей](https://yandex.cloud/ru/docs/organization/concepts/groups), [системных групп](https://yandex.cloud/ru/docs/iam/concepts/access-control/system-group) и [публичных групп](https://yandex.cloud/ru/docs/iam/concepts/access-control/public-group) к [ресурсам](https://yandex.cloud/ru/docs/iam/concepts/access-control/resources-with-access-control) организации. Этот инструмент также позволяет легко отзывать у субъектов лишние доступы.
 
-Подробнее см. в разделе [Модуль диагностики доступов (CIEM)](https://yandex.cloud/ru/docs/security-deck/concepts/ciem).
+Подробнее в разделе [Модуль диагностики доступов (CIEM)](https://yandex.cloud/ru/docs/security-deck/concepts/ciem).
 
 #### Рекомендации
 

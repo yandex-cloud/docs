@@ -60,7 +60,7 @@
 
    {% endlist %}
 
-   Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+   Подробнее о параметрах используемых ресурсов в {{ TF }} смотрите в документации провайдера:
 
    * [Сеть](../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
    * [Подсети](../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
@@ -77,7 +77,7 @@
 
 1. В файле `joomla-postgresql-terraform.auto.tfvars` задайте пользовательские параметры:
    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-   * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее в разделе [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
    * `db_password` — пароль для доступа к БД. Длина пароля должна составлять от 8 до 128 символов.
    * `domain_name` — имя домена. Укажите ваше зарегистрированное доменное имя, делегированное {{ dns-full-name }}. Например: `example.com`.
 

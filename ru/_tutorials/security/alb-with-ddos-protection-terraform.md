@@ -64,7 +64,7 @@
 
    {% endlist %}
 
-   Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+   Подробнее о параметрах используемых ресурсов в {{ TF }} смотрите в документации провайдера:
 
    * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account)
    * [Роль](../../iam/concepts/access-control/roles.md) — [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member)
@@ -83,7 +83,7 @@
 
     * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
     * `vm_user` — имя пользователя ВМ.
-    * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее в разделе [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 1. Создайте ресурсы:
 

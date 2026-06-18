@@ -1,6 +1,6 @@
 # yc managed-greenplum v0 cluster
 
-Manage Greenplum clusters
+Manage Greenplum and Cloudberry clusters
 
 #### Command Usage
 

@@ -1,6 +1,6 @@
-# Creating a timer that invokes a {{ serverless-containers-name }} container
+# Creating a timer that invokes a container from {{ serverless-containers-name }}
 
-Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ serverless-containers-name }} container](../concepts/container.md) on a schedule.
+Create a [timer](../concepts/trigger/timer.md), i.e., a trigger that invokes a [container](../concepts/container.md) in {{ serverless-containers-name }} on a schedule.
 
 ## Getting started {#before-you-begin}
 
@@ -16,7 +16,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -31,7 +31,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}**:
 
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** field, specify the function invocation schedule as a [cron expression](../concepts/trigger/timer.md#cron-expression).
-        * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-payload }}** field, enter the message that will be sent to the function if the timer fires in the `payload` field. The data type is a string up to 4,096 characters long.
+        * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-payload }}** field, enter a message to send to the function as `payload` when the timer fires. The data type is a string up to 4,096 characters long.
 
     1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
@@ -39,7 +39,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
         {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -68,7 +68,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
     * `--name`: Timer name.
     * `--cron-expression`: Container invocation schedule specified as a [cron expression](../concepts/trigger/timer.md#cron-expression).
-    * `--payload`: Message that will be sent to the function if the timer fires. The string length must not exceed 4,096 characters.
+    * `--payload`: Message to send to the function when the timer fires. The string length must not exceed 4,096 characters.
 
     {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 
@@ -127,24 +127,24 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
       Where:
 
-      * `name`: Trigger name. The name format is as follows:
+      * `name`: Trigger name. Follow these naming requirements:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
-      * `container`: Container parameters:
+      * `container`: Container settings:
 
           {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
 
           {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
 
-      * `timer`: Trigger parameters:
+      * `timer`: Trigger settings:
 
           * `cron_expression`: Container invocation schedule specified as a [cron expression](../concepts/trigger/timer.md#cron-expression).
-          * `payload`: Message that will be sent to the container if the timer fires. The string length must not exceed 4,096 characters.
+          * `payload`: Message to send to the container when the timer fires. The string length must not exceed 4,096 characters.
 
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-      For more information about the `function_trigger` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+      For more information about `function_trigger` properties, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create the resources:
 

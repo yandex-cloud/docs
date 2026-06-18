@@ -336,7 +336,7 @@
        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
     ```
 
-    Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [Подключение к кластеру Apache Kafka® из приложений](../../managed-kafka/operations/connect/clients.md).
+    Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [Подключение к кластеру Apache Kafka® из приложений](../../managed-kafka/operations/connect/clients.md).
 
 1. Проверьте, что коллекция `sensors` кластера Yandex StoreDoc содержит отправленные данные:
 

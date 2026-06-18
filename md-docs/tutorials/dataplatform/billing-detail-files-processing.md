@@ -51,7 +51,7 @@
 <!-- * [визуализировать](../../query/tutorials/datalens.md) в Yandex DataLens; -->
 * получить и обработать через [Query HTTP API](../../query/api/index.md).
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Yandex Object Storage](../../storage/index.md).
 * [Yandex DataLens](../../datalens/index.md).

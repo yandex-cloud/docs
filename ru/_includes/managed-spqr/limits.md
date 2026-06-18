@@ -17,7 +17,7 @@
 
 #### Лимиты {#mspqr-limits}
 
-Лимиты кластеров {{ PG }} смотрите в [документации {{ mpg-name }}](../../managed-postgresql/concepts/limits.md#mpg-limits).
+Лимиты кластеров {{ PG }} описаны в [документации {{ mpg-name }}](../../managed-postgresql/concepts/limits.md#mpg-limits).
 
 #|
 || **Вид ограничения** | **Минимальное значение** | **Максимальное значение** ||

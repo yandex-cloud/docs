@@ -97,7 +97,7 @@
 
   В кластере будет создан объект `ClusterIssuer`, настроенный на прохождение [проверки DNS-01](https://letsencrypt.org/ru/docs/challenge-types/#проверка-dns-01) с помощью {{ dns-name }}.
 
-  При необходимости можно вручную создать и настроить другие объекты: `Issuer` или `ClusterIssuer`. Подробнее об этих объектах см. в [документации cert-manager](https://cert-manager.io/docs/configuration/).
+  При необходимости можно вручную создать и настроить другие объекты: `Issuer` или `ClusterIssuer`. Подробнее об этих объектах смотрите в [документации cert-manager](https://cert-manager.io/docs/configuration/).
 * Вручную: будет установлен cert-manager без дополнительных интеграций.
 
   Любые объекты `Issuer` и `ClusterIssuer` потребуется создать и настроить вручную.

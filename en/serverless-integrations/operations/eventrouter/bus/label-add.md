@@ -10,7 +10,7 @@ description: Follow this guide to add a label to a bus.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder where you want to add a label to a [bus](../../../concepts/eventrouter/bus.md).
-  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, select ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Click ![image](../../../../_assets/console-icons/ellipsis.svg) in the [bus](../../../concepts/eventrouter/bus.md) row and select ![image](../../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
@@ -81,7 +81,7 @@ description: Follow this guide to add a label to a bus.
 
       {% include [terraform-validate-plan-apply](../../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the updates in the [management console]({{ link-console-main }}) or using this [CLI](../../../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../../cli/) command:
 
       ```bash
       yc serverless eventrouter bus list

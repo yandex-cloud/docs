@@ -12,7 +12,7 @@ description: Follow this guide to configure workflow logging.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the [workflow](../../../concepts/workflows/workflow.md).
-  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. Click ![image](../../../../_assets/console-icons/ellipsis.svg) in the workflow row and select ![image](../../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Expand **{{ ui-key.yacloud.serverless-workflows.label_additional-parameters }}** and find **{{ ui-key.yacloud.logging.label_title }}**.
@@ -55,7 +55,7 @@ description: Follow this guide to configure workflow logging.
 
   ### Command example {#example}
 
-  For logging to a custom log group, run this command:
+  To write logs to a custom log group, run this command:
 
   ```
   yc serverless workflow update <workflow_name_or_ID> \
@@ -68,7 +68,7 @@ description: Follow this guide to configure workflow logging.
 
   * `--yaml-spec`: Path to the [YaWL specification](../../../concepts/workflows/yawl/index.md) file for the workflow, e.g., `./yawl-spec.json`.
   * `--log-group-id`: ID of the log group to write logs to.
-  * `--min-log-level`: Minimum logging level. This is an optional parameter.
+  * `--min-log-level`: Minimum logging level. This is an optional setting.
 
   Result:
 

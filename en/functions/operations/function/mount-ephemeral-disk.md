@@ -12,7 +12,7 @@ description: Follow this guide to mount an ephemeral disk in a function in {{ sf
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select the function.
   1. In the left-hand menu, select ![image](../../../_assets/console-icons/pencil-to-square.svg) **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.title_ephemeral-storage }}**:
@@ -35,9 +35,9 @@ description: Follow this guide to mount an ephemeral disk in a function in {{ sf
   ```bash
   yc serverless function version create \
     --function-name=<function_name> \
-    --runtime <runtime> \
+    --runtime <runtime_environment> \
     --entrypoint <entry_point> \
-    --memory <RAM_amount> \
+    --memory <RAM_size> \
     --execution-timeout <execution_timeout> \
     --source-path <path_to_ZIP_archive> \
     --service-account-id <service_account_ID> \
@@ -74,7 +74,7 @@ description: Follow this guide to mount an ephemeral disk in a function in {{ sf
         user_hash          = "<function_hash>"
         runtime            = "<runtime>"
         entrypoint         = "<entry_point>"
-        memory             = "<RAM_amount>"
+        memory             = "<RAM_size>"
         execution_timeout  = "<execution_timeout>"
         service_account_id = "<service_account_ID>"
         content {
@@ -96,7 +96,7 @@ description: Follow this guide to mount an ephemeral disk in a function in {{ sf
         * `name`: Name of the mount point. The directory with the mounted disk will be accessible at `/function/storage/<mount_point>`.
         * `size_gb`: Ephemeral disk size in GB, e.g., `size=5GB`.
 
-      For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+      For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
   1. Apply the changes:
 

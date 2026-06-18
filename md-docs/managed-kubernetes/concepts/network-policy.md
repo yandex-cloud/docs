@@ -122,7 +122,7 @@ spec:
   - Egress
 ```
 
-Подробнее о `NetworkPolicy` см. в разделе [Поля и аннотации ресурса NetworkPolicy](../../network-load-balancer/k8s-ref/networkpolicy.md).
+Подробнее о `NetworkPolicy` в разделе [Поля и аннотации ресурса NetworkPolicy](../../network-load-balancer/k8s-ref/networkpolicy.md).
 
 ## Требования к кластеру для включения сетевых политик {#requirements}
 

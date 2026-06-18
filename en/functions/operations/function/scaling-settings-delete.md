@@ -10,7 +10,7 @@ description: Follow this guide to delete function scaling settings.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}**, hover over the tag of the function version (e.g., ![image](../../../_assets/console-icons/gear.svg) `$latest`) you want to delete scaling settings for.
     1. In the pop-up window, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_edit-scale-settings }}**.
@@ -40,7 +40,7 @@ description: Follow this guide to delete function scaling settings.
 
     To delete scaling settings:
 
-    1. In the configuration file, describe the resources you want to create:
+    1. In the configuration file, specify the properties of the resources you want to create:
 
        * `yandex_function_scaling_policy`: Description of function scaling settings.
          * `function_id`: Function ID.

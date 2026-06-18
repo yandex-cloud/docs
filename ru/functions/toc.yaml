@@ -557,7 +557,13 @@ items:
           - name: Разработка навыка Алисы и сайта с авторизацией
             href: tutorials/alice-shareable-todolist.md
           - name: Создание навыка Алисы
-            href: tutorials/alice-skill.md
+            items:
+              - name: Обзор
+                href: tutorials/alice-skill/index.md
+              - name: Консоль управления, CLI и API
+                href: tutorials/alice-skill/console.md
+              - name: '{{ TF }}'
+                href: tutorials/alice-skill/terraform.md
       - name: Искусственный интеллект
         items:
           - name: Создание AI-агента с помощью {{ sf-name }}

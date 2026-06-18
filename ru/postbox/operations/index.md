@@ -10,6 +10,7 @@ description: В этом разделе собраны пошаговые инс
 * [{#T}](setup-dmarc.md)
 * [{#T}](send-email.md)
 * [{#T}](send-templated-email.md)
+* [{#T}](send-bulk-email.md)
 * [{#T}](create-configuration.md)
 * [{#T}](bind-configuration.md)
 * [{#T}](restrict-senders.md)

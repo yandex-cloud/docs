@@ -173,9 +173,9 @@ You can transfer the RLS logic to the source side for sources where the data str
 
 {% endnote %}
 
-
 ## How to change permissions to a row in a dataset {#how-to-manage-rls}
 
 To configure access permissions to data rows:
+
 
 {% include [datalens-manage-rls](../../_includes/datalens/operations/datalens-manage-rls.md) %}

@@ -50,7 +50,7 @@
 
 {% include [grant-amount](../../getting-started/_includes/grant-amount.md) %}
 
-Подробную информацию об условиях использования стартового гранта см. в документе [Начало работы](../../getting-started/usage-grant.md).
+Подробная информация об условиях использования стартового гранта в документе [Начало работы](../../getting-started/usage-grant.md).
 
 {% note info %}
 
@@ -83,6 +83,6 @@
 
 {% include [grant-and-cvos](../../_includes/billing/grant-and-cvos.md) %}
 
-Подробнее о применении грантов см. в [описании цикла оплаты](../payment/billing-cycle-individual.md).
+Подробнее о применении грантов в [описании цикла оплаты](../payment/billing-cycle-individual.md).
 
 {% include [grant-support](../../_includes/billing/grant-support.md) %}

@@ -242,7 +242,7 @@
     
 ## Создайте группу ВМ {#create-vms}
 
-В качестве веб-серверов для сайта будет выступать [группа виртуальных машин](../../compute/concepts/instance-groups/index.md) Compute Cloud. Серверы будут реализованы на LEMP-стеке (Linux, nginx, MySQL, PHP; подробнее см. [Сайт на LAMP- или LEMP-стеке](../web/lamp-lemp/index.md)).
+В качестве веб-серверов для сайта будет выступать [группа виртуальных машин](../../compute/concepts/instance-groups/index.md) Compute Cloud. Серверы будут реализованы на LEMP-стеке (Linux, nginx, MySQL, PHP; подробнее смотрите [Сайт на LAMP- или LEMP-стеке](../web/lamp-lemp/index.md)).
 
 Чтобы создать группу ВМ:
 
@@ -276,7 +276,7 @@
      - В поле **Логин** введите имя пользователя.
      - В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
         
-       Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо создать самостоятельно, см. [раздел о подключении к виртуальным машинам по SSH](../../compute/operations/vm-connect/ssh.md).
+       Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо [создать самостоятельно](../../compute/operations/vm-connect/ssh.md).
         
      {% note alert %}
       
@@ -573,7 +573,7 @@
   * `--batch-size` — максимальное количество сообщений, одновременно отправляемых в функцию.
   * `--batch-cutoff` — максимальное время между последовательными отправками сообщений в функцию.
   
-  Подробнее о команде см. в [справочнике CLI](../../cli/cli-ref/serverless/cli-ref/trigger/create/logging.md).
+  Подробнее о команде смотрите в [справочнике CLI](../../cli/cli-ref/serverless/cli-ref/trigger/create/logging.md).
   
 - API {#api}
 

@@ -298,7 +298,7 @@ Failed to pull image "{{ registry }}/***": rpc error: code = Unknown desc = Erro
 
 {% note info %}
 
-Если вы назначили публичные IP-адреса узлам кластера и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее см. в [документации сервиса {{ vpc-full-name }}](../../vpc/concepts/routing.md#internet-routes).
+Если вы назначили публичные IP-адреса узлам кластера и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее читайте в [документации сервиса {{ vpc-full-name }}](../../vpc/concepts/routing.md#internet-routes).
 
 {% endnote %}
 
@@ -332,7 +332,7 @@ FATA[0000] rpc error: code = Unknown desc = error testing repository connectivit
 
 Чтобы исключить такую ситуацию, рекомендуется настраивать проверки состояния бэкендов на балансировщике {{ alb-name }}. Благодаря проверкам состояния балансировщик своевременно отслеживает недоступные бэкенды и направляет трафик на другие бэкенды. После обновления приложения трафик будет снова распределен на все бэкенды.
 
-Подробнее см. в разделах [{#T}](../../application-load-balancer/concepts/best-practices.md) и [{#T}](../../application-load-balancer/k8s-ref/service-for-ingress.md#annotations).
+Подробнее в разделах [{#T}](../../application-load-balancer/concepts/best-practices.md) и [{#T}](../../application-load-balancer/k8s-ref/service-for-ingress.md#annotations).
 
 #### Некорректно отображается системное время на узлах, а также в журналах контейнеров и подов кластера {{ managed-k8s-name }} {#time}
 
@@ -393,7 +393,7 @@ FATA[0000] rpc error: code = Unknown desc = error testing repository connectivit
         ...
         ```
 
-        Подробную информацию о параметрах ресурса `yandex_vpc_subnet` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_subnet).
+        Подробная информация о параметрах ресурса `yandex_vpc_subnet` в {{ TF }} приведена в [документации провайдера]({{ tf-provider-resources-link }}/vpc_subnet).
 
      1. Примените изменения:
 

@@ -100,7 +100,7 @@
       * [Сервисные аккаунты](../../iam/concepts/users/service-accounts.md) для ресурсов и узлов {{ k8s }}.
       * [Симметричный ключ шифрования](../../kms/concepts/key.md) {{ kms-full-name }}.
 
-      Файл подготовлен с помощью библиотек модулей [terraform-yc-vpc](https://github.com/terraform-yc-modules/terraform-yc-vpc) и [terraform-yc-kubernetes](https://github.com/terraform-yc-modules/terraform-yc-kubernetes). Подробнее о конфигурации ресурсов, которые создаются с помощью этих модулей, см. на страницах библиотек.
+      Файл подготовлен с помощью библиотек модулей [terraform-yc-vpc](https://github.com/terraform-yc-modules/terraform-yc-vpc) и [terraform-yc-kubernetes](https://github.com/terraform-yc-modules/terraform-yc-kubernetes). Подробнее о конфигурации ресурсов, которые создаются с помощью этих модулей, смотрите на страницах библиотек.
 
    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
@@ -240,7 +240,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
         ...
         ```
 
-        Подробную информацию о параметрах ресурса `yandex_vpc_subnet` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_subnet).
+        Подробнее о параметрах ресурса `yandex_vpc_subnet` в {{ TF }} смотрите в [документации провайдера]({{ tf-provider-resources-link }}/vpc_subnet).
 
      1. Примените изменения:
 

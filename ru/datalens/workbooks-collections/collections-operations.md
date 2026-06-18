@@ -28,6 +28,12 @@ description: Следуя данной инструкции, вы сможете
 1. Укажите название коллекции.
 1. Нажмите кнопку **Создать**.
 
+
+
+<iframe width="560" height="315" src="https://runtime.strm.yandex.ru/player/video/vplv242x7j2gugxkp4fo?autoplay=0&mute=0" allow="autoplay; fullscreen; accelerometer; gyroscope; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+
+
 ## Редактировать коллекцию {#edit-collections}
 
 Чтобы изменить название и описание коллекции:

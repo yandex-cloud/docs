@@ -6,7 +6,7 @@
 1. [Проверьте правильность работы Managed Schema Registry](#check-schema-registry).
 1. [Удалите созданные ресурсы](#clear-out).
 
-В этом руководстве описана регистрация одной схемы данных. Подробнее о том, как зарегистрировать несколько схем данных, см. в документации [Confluent Schema Registry](https://docs.confluent.io/platform/current/control-center/topics/schema.html).
+В этом руководстве описана регистрация одной схемы данных. Подробнее о том, как зарегистрировать несколько схем данных, смотрите в документации [Confluent Schema Registry](https://docs.confluent.io/platform/current/control-center/topics/schema.html).
 
 
 ## Необходимые платные ресурсы {#paid-resources}

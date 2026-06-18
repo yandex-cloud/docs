@@ -31,7 +31,7 @@
 
 Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
 Создайте инфраструктуру с помощью Terraform:
 
@@ -296,7 +296,7 @@ Terraform распространяется под лицензией [Business S
 
    {% endlist %}
 
-   Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+   Подробнее о параметрах используемых ресурсов в Terraform смотрите в документации провайдера:
 
    * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../../terraform/resources/iam_service_account.md).
    * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../../terraform/resources/vpc_network.md).

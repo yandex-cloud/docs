@@ -98,11 +98,11 @@ URL может иметь одну из следующих форм:
 
 {% note info %}
 
-Для бакетов с точками в имени, например `example.ru`, протокол HTTPS доступен только c URL в формате `https://{{ s3-storage-host }}/<имя_бакета>/<ключ_объекта>?<query-параметры>`. Подробнее см. в [Обращение к бакету по HTTPS](../concepts/bucket.md#bucket-https).
+Для бакетов с точками в имени, например `example.ru`, протокол HTTPS доступен только с URL в формате `https://{{ s3-storage-host }}/<имя_бакета>/<ключ_объекта>?<query-параметры>`. Подробнее в [Обращение к бакету по HTTPS](../concepts/bucket.md#bucket-https).
 
 {% endnote %}
 
-URL содержит имя бакета, ключ объекта и query-параметры. Пример возможных query-параметров см. в [описании метода для получения объекта](api-ref/object/get.md).
+URL содержит имя бакета, ключ объекта и query-параметры. Пример возможных query-параметров приведен в [описании метода для получения объекта](api-ref/object/get.md).
 
 {% include [storage-dotnet-host](../_includes_service/storage-dotnet-host.md) %}
 

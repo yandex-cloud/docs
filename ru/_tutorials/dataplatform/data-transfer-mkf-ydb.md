@@ -295,7 +295,7 @@
            -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
         ```
 
-        Данные отправляются от имени [созданного пользователя](#prepare-source). Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
+        Данные отправляются от имени [созданного пользователя](#prepare-source). Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
 
     1. Убедитесь, что в базу данных {{ ydb-name }} перенеслись данные из кластера-источника {{ mkf-name }}:
 

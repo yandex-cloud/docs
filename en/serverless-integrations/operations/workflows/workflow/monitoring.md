@@ -10,7 +10,7 @@ description: You can view a monitoring chart in {{ sw-full-name }} using the man
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the [workflow](../../../concepts/workflows/workflow.md).
-  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. Select the workflow whose monitoring charts you want to view.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
@@ -23,6 +23,6 @@ description: You can view a monitoring chart in {{ sw-full-name }} using the man
       * **Workflow Steps Inflight**: Number of steps in progress.
       * **Workflow Steps Timings**: Progress histogram for an individual step.
 
-      You can select the time period to display information for: hour, day, week, month, or a custom interval.
+      You can select a time period for which you want to display information: hour, day, week, month, or a custom interval.
 
 {% endlist %}

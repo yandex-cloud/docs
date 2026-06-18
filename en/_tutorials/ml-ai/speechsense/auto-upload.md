@@ -5,7 +5,7 @@
 {% include [workflows-preview-note](../../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
 
-You can configure automatic loading of dialog files and their metadata from the {{ objstorage-full-name }} bucket to a [{{ speechsense-name }} space]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space). Supported formats are:
+You can configure automatic loading of dialog files and their metadata from the {{ objstorage-full-name }} bucket to [{{ speechsense-name }} space]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space). Supported formats are:
 
   * `MP3`, `WAV`, and `OggOpus`: For audio files.
   * `JSON`: For chat conversations.
@@ -14,8 +14,8 @@ You can configure automatic loading of dialog files and their metadata from the 
 
 On the diagram:
 
-1. [Trigger](../../../functions/concepts/trigger/os-trigger.md) for {{ objstorage-name }} monitors for newly-appearing JSON files with metadata in the selected [bucket](../../../storage/concepts/bucket.md) directory or any of its subdirectories.
-1. When new files appear in the directory, the trigger calls the `workflow-call` [function](../../../functions/concepts/function.md), which starts the [{{ sw-name }}-enabled workflow](../../../serverless-integrations/concepts/workflows/workflow.md).
+1. [Trigger](../../../functions/concepts/trigger/os-trigger.md) for {{ objstorage-name }} monitors for new JSON files with metadata as may appear in the selected [bucket](../../../storage/concepts/bucket.md) directory or any of its subdirectories.
+1. When new files appear in the directory, the trigger calls the `workflow-call` [function](../../../functions/concepts/function.md), which starts the [{{ sw-name }} workflow](../../../serverless-integrations/concepts/workflows/workflow.md).
 1. The workflow retrieves the contents of JSON metadata files and checks their syntax using the `verify-file` function.
 1. The workflow gets the {{ speechsense-name }} connection settings from the relevant [{{ lockbox-full-name }} secret](../../../lockbox/concepts/secret.md).
 1. The path to the audio or text file and its metadata are provided to the `speechsense-upload` upload function.
@@ -71,7 +71,7 @@ Create two service accounts:
   1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter a name for the [service account](../../../iam/concepts/users/service-accounts.md): `deploy-sa`.
+  1. Name the [service account](../../../iam/concepts/users/service-accounts.md): `deploy-sa`.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the following roles: [functions.admin](../../../functions/security/index.md#functions-admin), [storage.editor](../../../storage/security/index.md#storage-editor), [iam.editor](../../../iam/roles-reference.md#iam-editor), [mdb.admin](../../../iam/roles-reference.md#mdb-admin), and `serverless.workflows.admin`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
   1. Repeat the above steps and create a service account named `speechsense-sa` with the following roles: [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadViewer), and `serverless.workflows.executor`.
@@ -113,7 +113,7 @@ Create two service accounts:
 
       For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
-      If you intend to create a {{ lockbox-name }} secret through the {{ yandex-cloud }} CLI under the `deploy-sa` service account, also assign the [lockbox.editor](../../../lockbox/security/index.md#lockbox-editor) role to that account.
+      If you will be creating a {{ lockbox-name }} secret through the {{ yandex-cloud }} CLI under the `deploy-sa` service account, also assign the [lockbox.editor](../../../lockbox/security/index.md#lockbox-editor) role to that account.
 
   1. Repeat the above steps and create a service account named `speechsense-sa` with the following roles: [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadViewer), and `serverless.workflows.executor`.
 
@@ -464,7 +464,7 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 
     * `source_system_id`: Data source ID to use in metadata. Specify any unique string value, e.g., `000001`.
     * `lockbox_secret_id`: ID of the {{ lockbox-name }} secret you [created earlier](#create-secret), e.g., `e6qigo0vbci2********`.
-    * `source_system_desc`: Data source description. Here is an example: `Uploading telephony data`.
+    * `source_system_desc`: Data source description. For example: `Uploading telephony data`.
 
 1. Copy the `pg_metadata.sql` file contents and run the resulting query with {{ websql-name }}.
 
@@ -472,7 +472,7 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 
     - Management console {#console}
 
-        1. In the [management console]({{ link-console-main }}), select the folder.
+        1. In the [management console]({{ link-console-main }}), select the relevant folder.
         1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
         1. Click the name of the cluster you [created earlier](#infra). By default, it is `speechsense-upload-metadata`.
         1. Select the **{{ ui-key.yacloud.postgresql.cluster.switch_explore-websql }}** tab.
@@ -556,7 +556,7 @@ Make sure the directories are not nested one inside the other.
 
 {% endnote %}
 
-To upload a file to {{ speechsense-name }}, first prepare the file metadata in `JSON` format. Here is an example:
+To upload a file to {{ speechsense-name }}, first prepare the file metadata in `JSON` format. For example:
 
 ```json
 {
@@ -643,7 +643,7 @@ If there are more than 1,000 files, do not use the management console for upload
 
   To upload your files:
 
-    1. In the [management console]({{ link-console-main }}), select the folder.
+    1. In the [management console]({{ link-console-main }}), select the relevant folder.
     1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Go to the bucket you want to upload your files to.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
@@ -722,7 +722,7 @@ To check on the workflow:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder.
+  1. In the [management console]({{ link-console-main }}), select the relevant folder.
   1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, select ![GraphNode](../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. Click the workflow name. By default, it is `wf-speechsense-upload`.

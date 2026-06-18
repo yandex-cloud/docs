@@ -336,7 +336,7 @@ Failed to pull image "cr.yandex/***": rpc error: code = Unknown desc = Error res
 
 {% note info %}
 
-Если вы назначили публичные IP-адреса узлам кластера и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее см. в [документации сервиса Yandex Virtual Private Cloud](../../vpc/concepts/routing.md#internet-routes).
+Если вы назначили публичные IP-адреса узлам кластера и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее читайте в [документации сервиса Yandex Virtual Private Cloud](../../vpc/concepts/routing.md#internet-routes).
 
 {% endnote %}
 
@@ -370,7 +370,7 @@ FATA[0000] rpc error: code = Unknown desc = error testing repository connectivit
 
 Чтобы исключить такую ситуацию, рекомендуется настраивать проверки состояния бэкендов на балансировщике Application Load Balancer. Благодаря проверкам состояния балансировщик своевременно отслеживает недоступные бэкенды и направляет трафик на другие бэкенды. После обновления приложения трафик будет снова распределен на все бэкенды.
 
-Подробнее см. в разделах [Рекомендации по настройке проверок состояния Yandex Application Load Balancer](../../application-load-balancer/concepts/best-practices.md) и [Аннотации (metadata.annotations)](../../application-load-balancer/k8s-ref/service-for-ingress.md#annotations).
+Подробнее в разделах [Рекомендации по настройке проверок состояния Yandex Application Load Balancer](../../application-load-balancer/concepts/best-practices.md) и [Аннотации (metadata.annotations)](../../application-load-balancer/k8s-ref/service-for-ingress.md#annotations).
 
 #### Некорректно отображается системное время на узлах, а также в журналах контейнеров и подов кластера Managed Service for Kubernetes {#time}
 
@@ -435,7 +435,7 @@ FATA[0000] rpc error: code = Unknown desc = error testing repository connectivit
         ...
         ```
 
-        Подробную информацию о параметрах ресурса `yandex_vpc_subnet` в Terraform см. в [документации провайдера](../../terraform/resources/vpc_subnet.md).
+        Подробная информация о параметрах ресурса `yandex_vpc_subnet` в Terraform приведена в [документации провайдера](../../terraform/resources/vpc_subnet.md).
 
      1. Примените изменения:
 

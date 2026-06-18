@@ -93,6 +93,7 @@ The following services support authentication based on API keys:
 * [{{ postbox-full-name }}](../../../postbox/api-ref/authentication.md)
 * [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/api-ref/authentication)
 * [{{ serverless-containers-full-name }}](../../../serverless-containers/)
+* [{{ si-full-name }}](../../../serverless-integrations): Within [{{ sw-full-name }}](../../../serverless-integrations/concepts/workflows/workflow.md).
 * [{{ speechkit-full-name }}]({{ link-docs-ai }}{{ speechkit-slug }}/concepts/auth)
 * [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/api-ref/authentication)
 * [{{ translate-full-name }}]({{ link-docs-ai }}translate/api-ref/authentication)

@@ -719,8 +719,8 @@ steps:
 ```
 
 Также вы можете:
-* Добавить текст или файлы в качестве источников информации для агента. Подробнее см. [Текстовые агенты в AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents).
-* Настроить управление контекстом диалога. Подробнее см. [Управление контекстом диалога](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/agents/manage-context).
+* Добавить текст или файлы в качестве источников информации для агента. Подробнее в разделе [Текстовые агенты в AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents).
+* Настроить управление контекстом диалога. Подробнее в разделе [Управление контекстом диалога](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/agents/manage-context).
 * Использовать другие инструменты агента, такие как поиск по файлам или веб-поиск.
 
 

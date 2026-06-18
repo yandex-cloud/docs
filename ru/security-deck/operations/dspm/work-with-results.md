@@ -103,7 +103,7 @@ description: Следуя данной инструкции, вы узнаете
 
      Информацию об ошибках сканирования также можно получить, выбрав ![alerts](../../../_assets/security-deck/alerts.svg) **{{ ui-key.yacloud_org.security-center.label_alerts }}** на панели слева.
 
-  Подробнее про ошибки сканирования см. на странице [{#T}](../../diagnostics/dspm-diagnostics.md).
+  Подробнее про ошибки сканирования на странице [{#T}](../../diagnostics/dspm-diagnostics.md).
 
 {% endlist %}
 

@@ -365,7 +365,7 @@
      ...
      ```
 
-     Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/resource/create.md).
+     Подробнее о команде `yc cdn resource create` смотрите в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/resource/create.md).
   1. Включите переадресацию клиентов для ресурса:
 
      ```bash
@@ -401,7 +401,7 @@
      }
      ```
 
-     Подробнее см. в описаниях ресурсов [yandex_cdn_origin_group](../../terraform/resources/cdn_origin_group.md) и [yandex_cdn_resource](../../terraform/resources/cdn_resource.md) в документации провайдера Terraform.
+     Подробнее в описаниях ресурсов [yandex_cdn_origin_group](../../terraform/resources/cdn_origin_group.md) и [yandex_cdn_resource](../../terraform/resources/cdn_resource.md) в документации провайдера Terraform.
   1. Проверьте корректность конфигурационных файлов.
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
@@ -602,7 +602,7 @@
     --path /ycgame-update-v1.1.exe
   ```
 
-  Подробнее о команде `yc cdn cache prefetch` см. в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/cache/prefetch.md).
+  Подробнее о команде `yc cdn cache prefetch` смотрите в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/cache/prefetch.md).
 
 - API {#api}
 
@@ -672,7 +672,7 @@
 
    {% endlist %}
 
-1. По логам запросов к бакету-источнику убедитесь, что CDN-серверы не скачивали файл из источника после вашего запроса. Подробнее о содержимом логов см. в разделе [Формат объекта с логами](../concepts/server-logs.md#object-format) документации Object Storage.
+1. По логам запросов к бакету-источнику убедитесь, что CDN-серверы не скачивали файл из источника после вашего запроса. Подробнее о содержимом логов смотрите в разделе [Формат объекта с логами](../concepts/server-logs.md#object-format) документации Object Storage.
 
 ## Как удалить созданные ресурсы {#clear-out}
 

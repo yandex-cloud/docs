@@ -15,7 +15,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Сервисы {{ managed-k8s-name }}, которые используются в качестве бэкендов, должны иметь тип `NodePort`. Если ваши сервисы используют другой тип, измените его на `NodePort`. Подробнее об этом типе см. в документации [{{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport).
+Сервисы {{ managed-k8s-name }}, которые используются в качестве бэкендов, должны иметь тип `NodePort`. Если ваши сервисы используют другой тип, измените его на `NodePort`. Подробнее об этом типе смотрите в документации [{{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport).
 
 ## Создайте инфраструктуру {#deploy}
 

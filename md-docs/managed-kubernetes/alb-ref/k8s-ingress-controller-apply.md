@@ -12,7 +12,7 @@
 
 1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
 1. [Установите Ingress-контроллер](../operations/applications/alb-ingress-controller.md) или [Gateway API](../operations/applications/gateway-api.md).
-1. Создайте ресурс. Конфигурации доступных ресурсов смотрите в разделе [Справочник инструментов Application Load Balancer для Managed Service for Kubernetes](index.md).
+1. Создайте ресурс. Конфигурации доступных ресурсов в разделе [Справочник инструментов Application Load Balancer для Managed Service for Kubernetes](index.md).
 
 ## Применить конфигурацию {#apply}
 

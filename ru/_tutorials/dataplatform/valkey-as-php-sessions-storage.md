@@ -33,7 +33,7 @@
         * исходящий и входящий трафик через порты `80` и `443` на любые IP-адреса для HTTP/HTTPS;
         * исходящий и входящий трафик через порт `6379` на IP-адреса внутренней сети для {{ VLK }}.
 
-        Подробнее см. [{#T}](../../vpc/concepts/security-groups.md).
+        Подробнее в разделе [{#T}](../../vpc/concepts/security-groups.md).
 
 
     1. [Создайте виртуальную машину с LAMP/LEMP](../../tutorials/web/lamp-lemp/console.md#create-vm) в {{ compute-full-name }} любой подходящей вам конфигурации.
@@ -165,7 +165,7 @@
 
     {% endlist %}
 
-    Подробнее про подключение к кластеру см. [{#T}](../../managed-valkey/operations/connect/index.md).
+    Подробнее про подключение к кластеру смотрите в разделе [{#T}](../../managed-valkey/operations/connect/index.md).
 
 1. Перезапустите веб-сервер:
 

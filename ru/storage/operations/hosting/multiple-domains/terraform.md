@@ -91,7 +91,7 @@ description: Следуя данной инструкции, вы сможете
 
    {% endlist %}
 
-   Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+   Более подробная информация о параметрах используемых ресурсов в {{ TF }} приведена в документации провайдера:
    * [Бакет](../../../concepts/bucket.md) — [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket).
    * [Объект](../../../concepts/object.md) — [yandex_storage_object]({{ tf-provider-resources-link }}/storage_object).
    * [DNS-зона](../../../../dns/concepts/dns-zone.md) — [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone).

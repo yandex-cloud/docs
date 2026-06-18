@@ -180,7 +180,7 @@
 
 {% note tip %}
 
-Вы можете поставлять данные в кластер Managed Service for OpenSearch от имени пользователя `admin`, имеющего роль `superuser`, но безопаснее для каждой задачи создавать отдельных пользователей с ограниченными привилегиями. Подробнее см. в разделе [Управление пользователями OpenSearch](../../managed-opensearch/operations/cluster-users.md).
+Вы можете поставлять данные в кластер Managed Service for OpenSearch от имени пользователя `admin`, имеющего роль `superuser`, но безопаснее для каждой задачи создавать отдельных пользователей с ограниченными привилегиями. Подробнее в разделе [Управление пользователями OpenSearch](../../managed-opensearch/operations/cluster-users.md).
 
 {% endnote %}
 
@@ -339,7 +339,7 @@
        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
     ```
 
-    Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [Подключение к кластеру Apache Kafka® из приложений](../operations/connect/clients.md).
+    Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [Подключение к кластеру Apache Kafka® из приложений](../operations/connect/clients.md).
 
 1. Проверьте, что индекс `sensors` кластера Managed Service for OpenSearch содержит отправленные данные:
 

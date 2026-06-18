@@ -1,11 +1,11 @@
 ---
 title: Updating a trigger in {{ serverless-containers-name }}
-description: In this tutorial, you will learn how to update any trigger parameters in {{ serverless-containers-name }} except for the trigger type and launched resource type.
+description: Follow this guide to update any trigger settings in {{ serverless-containers-name }} except for the trigger type and target resource.
 ---
 
 # Updating a trigger in {{ serverless-containers-name }}
 
-You can update any parameters except for the trigger type and launched resource type.
+You can update any settings except for the trigger type and target resource.
 
 {% note info %}
 
@@ -18,11 +18,11 @@ Your changes will apply within five minutes.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder containing the trigger.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
-  1. Select the trigger whose parameters you want to update.
+  1. Select the trigger whose settings you want to update.
   1. In the top-right corner of the page, click **{{ ui-key.yacloud.common.edit }}**.
-  1. Edit the trigger parameters and click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_update-trigger }}**.
+  1. Edit the trigger settings and click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_update-trigger }}**.
 
 - CLI {#cli}
 
@@ -32,13 +32,13 @@ Your changes will apply within five minutes.
 
   {% include [trigger-list-note](../../_includes/serverless-containers/trigger-list-note.md) %}
 
-  1. See the description of the CLI command for updating trigger parameters:
+  1. See the description of the CLI command for updating trigger settings:
 
       ```bash
       yc serverless trigger update <trigger_type> --help
       ```
 
-  1. Update the trigger parameters, e.g., rename it:
+  1. Update the trigger settings, e.g., rename the trigger:
 
       ```bash
       yc serverless trigger update <trigger_type> <trigger_name> \
@@ -79,7 +79,7 @@ Your changes will apply within five minutes.
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file and update the parameters of the `function_trigger` resource:
+  1. Open the {{ TF }} configuration file and edit the `function_trigger` resource settings:
 
       ```hcl
       resource "yandex_function_trigger" "my_trigger" {
@@ -103,13 +103,13 @@ Your changes will apply within five minutes.
 
       Where:
 
-      * `name`: Timer name. Follow these naming requirements:
+      * `name`: Timer name. The name format is as follows:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
-      * `timer`: Trigger parameters:
+      * `timer`: Trigger settings:
           * `cron_expression`: Container invocation schedule specified as a [cron expression](../concepts/trigger/timer.md#cron-expression).
-          * `payload`: Message that will be sent to the function if the timer fires. The string length must not exceed 4,096 characters.
+          * `payload`: Message to send to the function when the timer fires. The string length must not exceed 4,096 characters.
 
       * `container`: Settings for the container that will be activated by the trigger:
 
@@ -119,13 +119,13 @@ Your changes will apply within five minutes.
 
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-      For more information about `function_trigger` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+      For more information about `function_trigger` properties, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can check the updates in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
+      You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc serverless trigger list
@@ -133,6 +133,6 @@ Your changes will apply within five minutes.
 
 - API {#api}
 
-  To update parameters of a trigger, use the [update](../triggers/api-ref/Trigger/update.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Update](../triggers/api-ref/grpc/Trigger/update.md) gRPC API call.
+  To update trigger settings, use the [update](../triggers/api-ref/Trigger/update.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Update](../triggers/api-ref/grpc/Trigger/update.md) gRPC API call.
 
 {% endlist %}

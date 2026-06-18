@@ -7,11 +7,7 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы отправлять письма с заполненным шаблоном, передайте шаблон и данные, которые нужно подставить в него, с помощью [AWS CLI](#aws-cli-send) или [API](../aws-compatible-api/api-ref/send-email.md).
 
-## Перед началом работы {#before-begin}
-
-1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт в том же каталоге, в котором находится адрес. Если вы создадите сервисный аккаунт и адрес в разных каталогах, при попытке отправить письмо возникнет ошибка.
-1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../security/index.md#postbox-sender) `postbox.sender`.
-1. [Создайте](../../iam/operations/authentication/manage-access-keys.md#create-access-key) статический ключ доступа. Надежно сохраните идентификатор и секретный ключ. После того как вы закроете окно, параметры секретного ключа станут недоступны.
+{% include [before-begin](../../_includes/postbox/before-begin.md) %}
 
 ## Отправка письма через AWS CLI {#aws-cli-send}
 

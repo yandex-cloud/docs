@@ -288,7 +288,7 @@
   
   Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+  Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
   Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
@@ -452,7 +452,7 @@
   1. Заполните обязательные поля в разделе **Публикация в каталоге**. Остальные параметры задайте по своим предпочтениям. Например, можно задать разные словоформы для активации навыка, выбрать голос или тип доступа к навыку.
   1. Нажмите **Сохранить** внизу страницы.
 
-  Подробнее см. в [документации](https://yandex.ru/dev/dialogs/alice/doc/publish.html) сервиса Яндекс Диалоги.
+  Подробнее в [документации](https://yandex.ru/dev/dialogs/alice/doc/publish.html) сервиса Яндекс Диалоги.
 
 {% endlist %}
 
@@ -497,7 +497,7 @@
   1. Нажмите **Сохранить**.
   1. Чтобы завершить создание диалога, в правой части страницы нажмите **На модерацию**.
 
-  Подробнее об интентах см. в [документации Навыков Алисы](https://yandex.ru/dev/dialogs/alice/doc/nlu-docpage/).
+  Подробнее об интентах смотрите в [документации Навыков Алисы](https://yandex.ru/dev/dialogs/alice/doc/nlu-docpage/).
 
 {% endlist %}
 

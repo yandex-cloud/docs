@@ -210,7 +210,7 @@
 
         * `filter` — фильтр логов, например: `message.hostname='node1.{{ dns-zone }}'`.
 
-            Подробнее о фильтрах и их синтаксисе см. в [справочнике API](../api-ref/Cluster/streamLogs.md#query_params).
+            Подробнее о фильтрах и их синтаксисе читайте в [справочнике API](../api-ref/Cluster/streamLogs.md#query_params).
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -268,7 +268,7 @@
 
         * `filter` — фильтр логов, например: `message.hostname='node1.{{ dns-zone }}'`.
 
-            Подробнее о фильтрах и их синтаксисе см. в [справочнике API](../api-ref/grpc/Cluster/streamLogs.md).
+            Подробнее о фильтрах и их синтаксисе читайте в [справочнике API](../api-ref/grpc/Cluster/streamLogs.md).
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

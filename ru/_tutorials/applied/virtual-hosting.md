@@ -141,7 +141,7 @@
 
 ## Создайте группы ВМ для сайтов {#create-vms}
 
-В качестве веб-серверов для двух сайтов будут выступать ВМ {{ compute-name }} — по одной [группе](../../compute/concepts/instance-groups/index.md) из нескольких одинаковых ВМ на каждый сайт. В этом сценарии серверы будут реализованы на LEMP-стеке (Linux, nginx, {{ MY }}, PHP; подробнее см. в сценарии использования [Сайт на LAMP- или LEMP-стеке](../../tutorials/web/lamp-lemp/index.md)).
+В качестве веб-серверов для двух сайтов будут выступать ВМ {{ compute-name }} — по одной [группе](../../compute/concepts/instance-groups/index.md) из нескольких одинаковых ВМ на каждый сайт. В этом сценарии серверы будут реализованы на LEMP-стеке (Linux, nginx, {{ MY }}, PHP; подробнее в сценарии использования [Сайт на LAMP- или LEMP-стеке](../../tutorials/web/lamp-lemp/index.md)).
 
 Чтобы создать группу ВМ для сайта `site-a.com`:
 
@@ -172,7 +172,7 @@
      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа.
 
-       Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо создать самостоятельно, см. [раздел о подключении к ВМ по SSH](../../compute/operations/vm-connect/ssh.md).
+       Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо [создать самостоятельно](../../compute/operations/vm-connect/ssh.md).
 
      {% note alert %}
 

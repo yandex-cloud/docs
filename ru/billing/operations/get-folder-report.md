@@ -53,7 +53,7 @@
      * `billing.accounts.viewer`;
      * `billing.accounts.varWithoutDiscount`.
   
-  Подробнее см. [Сервисные роли в {{ billing-name }}](../../billing/security/index.md).
+  Подробнее в разделе [Сервисные роли в {{ billing-name }}](../../billing/security/index.md).
 
 ### Настроить регулярный экспорт {#set-up-regular-download}
 

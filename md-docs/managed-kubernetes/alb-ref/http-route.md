@@ -10,7 +10,7 @@
 
 `HTTPRoute` предназначен для разработчиков приложений. Оператор кластера должен использовать `Gateway`.
 
-`HTTPRoute` — ресурс Kubernetes, определенный [проектом Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API Application Load Balancer. Полное описание конфигурации ресурса смотрите в [документации Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.HTTPRoute).
+`HTTPRoute` — ресурс Kubernetes, определенный [проектом Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API Application Load Balancer. Полное описание конфигурации ресурса приведено в [документации Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.HTTPRoute).
 
 ## HTTPRoute {#httproute}
 
@@ -70,7 +70,7 @@ spec: <HTTPRouteSpec>
 
   * `name` (`string`, обязательное)
 
-    Имя ресурса. Подробнее о формате смотрите в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Подробнее о формате в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
     Не является именем маршрута в Application Load Balancer.
 

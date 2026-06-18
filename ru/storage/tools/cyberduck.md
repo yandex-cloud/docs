@@ -45,7 +45,7 @@
   1. Нажмите кнопку **Connect**.
 
   Чтобы подключиться к бакету, в имени которого содержится точка, например `example.com`: {#alternative-connection}
-  1. Загрузите конфигурацонный файл [Deprecated path style requests](https://profiles.cyberduck.io/S3%20(Deprecated%20path%20style%20requests).cyberduckprofile) (Подробнее см. в [документации Cyberduck](https://docs.cyberduck.io/protocols/s3/#connecting-using-deprecated-path-style-requests)).
+  1. Загрузите конфигурационный файл [Deprecated path style requests](https://profiles.cyberduck.io/S3%20(Deprecated%20path%20style%20requests).cyberduckprofile) (Подробнее читайте в [документации Cyberduck](https://docs.cyberduck.io/protocols/s3/#connecting-using-deprecated-path-style-requests)).
       
       Некоторые браузеры автоматически открывают конфигурационный файл в новой вкладке. Чтобы загрузить конфигурационный файл, нажмите на ссылку для загрузки правой кнопкой, выберите **Загрузить файл по ссылке как...** (**Download Linked File As...**) и нажмите **Сохранить** (**Save**).
   1. Откройте конфигурационный файл.
@@ -65,4 +65,4 @@ CyberDuck работает с {{ objstorage-name }} как с иерархиче
 
 {% endnote %}
 
-Подробности о работе CyberDuck с S3-совместимыми хранилищами см. в [документации CyberDuck](https://docs.cyberduck.io/protocols/s3/).
+Подробнее о работе CyberDuck с S3-совместимыми хранилищами читайте в [документации CyberDuck](https://docs.cyberduck.io/protocols/s3/).

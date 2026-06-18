@@ -3,7 +3,7 @@
 
 {% note info %}
 
-Включить отправку логов [мастера Managed Service for Kubernetes](../concepts/index.md#master) в [Cloud Logging](../../logging/index.md) можно с помощью настройки `master logging` при [создании](../operations/kubernetes-cluster/kubernetes-cluster-create.md) или [изменении](../operations/kubernetes-cluster/kubernetes-cluster-update.md) [кластера](../concepts/index.md#kubernetes-cluster). Настройка доступна только через API, CLI и Terraform. Подробнее см. в руководстве [Передача логов кластера Managed Service for Kubernetes в Cloud Logging](../../logging/tutorials/k8s-fluent-bit-logging.md#master-logging).
+Включить отправку логов [мастера Managed Service for Kubernetes](../concepts/index.md#master) в [Cloud Logging](../../logging/index.md) можно с помощью настройки `master logging` при [создании](../operations/kubernetes-cluster/kubernetes-cluster-create.md) или [изменении](../operations/kubernetes-cluster/kubernetes-cluster-update.md) [кластера](../concepts/index.md#kubernetes-cluster). Настройка доступна только через API, CLI и Terraform. Подробнее в руководстве [Передача логов кластера Managed Service for Kubernetes в Cloud Logging](../../logging/tutorials/k8s-fluent-bit-logging.md#master-logging).
 
 {% endnote %}
 

@@ -12,7 +12,7 @@ description: Follow this guide to configure function logging.
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the function.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function you want to configure logging for.
     1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
     1. Under **{{ ui-key.yacloud.logging.label_title }}**:
@@ -134,7 +134,7 @@ description: Follow this guide to configure function logging.
         resource "yandex_function" "my-function" {
           name       = "<function_name>"
           user_hash  = "<function_version_hash>"
-          runtime    = "<runtime>"
+          runtime    = "<runtime_environment>"
           entrypoint = "<entry_point>"
           memory     = "<RAM_amount>"
           content {
@@ -152,14 +152,14 @@ description: Follow this guide to configure function logging.
         * `user_hash`: Any string to identify the function version. When you change the function, update this string as well. Updating this string triggers a function update.
         * `runtime`: Function [runtime](../../concepts/runtime/index.md).
         * `entrypoint`: Function name in the source code that will serve as an entry point to applications.
-        * `memory`: Amount of memory allocated to the function, in MB.
+        * `memory`: Amount of memory allocated for the function, in MB.
         * `content`: Function source code:
             * `zip_filename`: Path to the ZIP archive with the function source code and required dependencies.
         * `log_options`: Logging settings:
             * `log_group_id`: ID of the log group to write logs to.
             * `min_level`: Minimum logging level. This is an optional setting.
 
-        For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
     1. Apply the changes:
 

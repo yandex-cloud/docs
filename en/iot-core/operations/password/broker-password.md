@@ -30,7 +30,7 @@ You can add a password to an existing broker or set it when creating a broker us
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to add a password for an existing broker.
-   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Select the appropriate broker from the list.
    1. Under **{{ ui-key.yacloud.iot.label_passwords }}**, click **{{ ui-key.yacloud.iot.button_add-password }}**.
@@ -121,7 +121,7 @@ You can add a password to an existing broker or set it when creating a broker us
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to get a list of broker passwords.
-   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Select the appropriate broker from the list.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_passwords }}** section.
@@ -176,7 +176,7 @@ You can add a password to an existing broker or set it when creating a broker us
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the broker password from.
-   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Select the appropriate broker from the list.
    1. In the row with the password, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.

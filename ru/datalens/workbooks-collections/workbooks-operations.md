@@ -49,6 +49,8 @@ description: Следуя данной инструкции, вы сможете
 1. (опционально) Нажмите кнопку **Выбрать файл** для [импорта](./export-and-import.md#import-workbook) воркбука.
 1. Нажмите кнопку **Создать**.
 
+<iframe width="650" height="366" src="https://runtime.strm.yandex.ru/player/video/vplvjkoqfpihhax3cw34?autoplay=0&mute=0" allow="autoplay; fullscreen; accelerometer; gyroscope; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
 ## Редактировать воркбук {#edit-workbook}
 
 Чтобы изменить название и описание воркбука:

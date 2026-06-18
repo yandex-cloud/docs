@@ -1,3 +1,8 @@
+---
+title: Audit logs and login logs in {{ org-full-name }}
+description: Use audit and login logs in {{ org-full-name }} to track user actions and authentication events within an organization.
+---
+
 # Audit logs and login logs
 
 

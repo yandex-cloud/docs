@@ -285,7 +285,7 @@
         -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
     ```
 
-    Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [Подключение к кластеру Apache Kafka® из приложений](../operations/connect/clients.md).
+    Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [Подключение к кластеру Apache Kafka® из приложений](../operations/connect/clients.md).
 
 1. Проверьте, что в базу данных Managed Service for PostgreSQL перенеслись данные из кластера-источника Managed Service for Apache Kafka®:
 

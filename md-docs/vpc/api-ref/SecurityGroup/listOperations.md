@@ -15,8 +15,8 @@ GET https://vpc.api.cloud.yandex.net/vpc/v1/securityGroups/{securityGroupId}/ope
 || securityGroupId | **string**
 
 Required field. ID of the address to list operations for.
-
-To get a address ID make a [SecurityGroup.List] request. ||
+To get a address ID make a [SecurityGroup.List] request.
+This field is required. ||
 |#
 
 ## Query parameters {#yandex.cloud.vpc.v1.ListSecurityGroupOperationsRequest}
@@ -76,7 +76,6 @@ List of operations for the specified security group. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListSecurityGroupOperationsRequest.pageSize](#yandex.cloud.vpc.v1.ListSecurityGroupOperationsRequest), use `next_page_token` as the value
 for the [ListSecurityGroupOperationsRequest.pageToken](#yandex.cloud.vpc.v1.ListSecurityGroupOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

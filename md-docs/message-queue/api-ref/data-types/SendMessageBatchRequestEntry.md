@@ -1,6 +1,6 @@
 # SendMessageBatchRequestEntry
 
-Идентификатор и сведения об отправляемом сообщении. Подробное описание атрибутов см. в описании метода [SendMessage](../message/SendMessage.md#array-parameters).
+Идентификатор и сведения об отправляемом сообщении. Подробное описание атрибутов приведено в описании метода [SendMessage](../message/SendMessage.md#array-parameters).
 
 Параметр | Тип | Обязательный параметр | Описание
 ----- | ----- | ----- | -----
@@ -8,5 +8,5 @@
 `Id` | **string** | Да | Идентификатор сообщения в списке.
 `MessageAttribute` | **string** | Нет | Атрибуты сообщения: имя, тип и значение.
 `MessageBody` | **string** | Нет | Тело сообщения.
-`MessageDeduplicationId` | **string** | Нет | Идентификатор для дедупликации сообщений. Подробнее см. [Дедупликация](../../concepts/deduplication.md).
+`MessageDeduplicationId` | **string** | Нет | Идентификатор для дедупликации сообщений. Подробнее в разделе [Дедупликация](../../concepts/deduplication.md).
 `MessageGroupId` | **string** | Нет | Идентификатор группы сообщений, используется только в очередях FIFO.

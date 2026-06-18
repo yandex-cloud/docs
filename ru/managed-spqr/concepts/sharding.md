@@ -22,7 +22,7 @@ keywords:
 * [по хешу](https://pg-sharding.tech/sharding/hashed);
 * [по диапазону значений](https://pg-sharding.tech/sharding/ranged).
 
-Подробнее о стратегиях шардирования данных см. в разделе [{#T}](sharding-keys.md#sharding-strategies).
+Узнайте больше о стратегиях шардирования данных в разделе [{#T}](sharding-keys.md#sharding-strategies).
 
 ## Преимущества шардирования {#advantages}
 

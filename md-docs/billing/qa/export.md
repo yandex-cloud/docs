@@ -12,7 +12,7 @@
 #### Какие именно типы шифрования бакетов поддерживаются для регулярного экспорта? {#encryption-types}
 Регулярный экспорт поддерживает бакеты Yandex Object Storage с использованием ключей шифрования сервиса [Yandex Key Management Service](../../kms/index.md).
 
-Подробнее см. в разделе [Шифрование в Object Storage](../../storage/concepts/encryption.md) документации сервиса Yandex Object Storage.
+Подробнее в разделе [Шифрование в Object Storage](../../storage/concepts/encryption.md) документации сервиса Yandex Object Storage.
 
 #### Как проверить, что выгрузка в бакет с шифрованием прошла успешно? {#check-encrypted-bucket}
 Перейдите в бакет Yandex Object Storage, указанный при настройке [регулярного экспорта](../operations/get-folder-report.md#regular-download). Убедитесь в наличии CSV-файлов. Файлы появятся через 5–10 минут после создания регулярной выгрузки. Экспорт за длительные периоды (более года) может занять больше времени.

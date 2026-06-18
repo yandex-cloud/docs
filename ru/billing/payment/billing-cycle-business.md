@@ -86,7 +86,7 @@ description: Из статьи вы узнаете про особенности
 
 {% include [blocked-note](../_includes/blocked-note.md) %}
 
-#### См.также
+#### Полезные ссылки {#see-also}
 
 * [Грант](../concepts/bonus-account.md)
 * [Порог оплаты](../concepts/billing-threshold.md)

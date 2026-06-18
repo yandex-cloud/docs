@@ -54,7 +54,7 @@
 
     {% endlist %}
 
-    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+    Подробнее о параметрах используемых ресурсов в {{ TF }} смотрите в документации провайдера:
 
     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
     * Назначение [роли](../../iam/concepts/access-control/roles.md) сервисному аккаунту — [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).

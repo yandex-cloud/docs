@@ -66,7 +66,7 @@
      default_security_group_id: enpbsnnop4ak********
      ```
 
-     Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
+     Подробнее о команде `yc vpc network create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
      
   1. Создайте подсеть `usergate-subnet-{{ region-id }}-d` в зоне доступности `{{ region-id }}-d`:
   
@@ -90,7 +90,7 @@
      - 10.1.0.0/16
      ```
 
-     Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
+     Подробнее о команде `yc vpc subnet create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 - {{ TF }} {#tf}
 
@@ -109,7 +109,7 @@
      }
      ```
 
-     Подробнее см. в описаниях ресурсов [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) и [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) в документации провайдера {{ TF }}.
+     Подробнее в описаниях ресурсов [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) и [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) в документации провайдера {{ TF }}.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -255,7 +255,7 @@
       - 0.0.0.0/0
   ```
 
-  Подробнее о команде `yc vpc security-group create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
+  Подробнее о команде `yc vpc security-group create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
 - {{ TF }} {#tf}
 
@@ -304,7 +304,7 @@
      }
      ```
 
-     Подробнее о ресурсе `yandex_vpc_security_group` см. в [документации]({{ tf-provider-resources-link }}/vpc_security_group) провайдера {{ TF }}.
+     Подробнее о ресурсе `yandex_vpc_security_group` смотрите в [документации]({{ tf-provider-resources-link }}/vpc_security_group) провайдера {{ TF }}.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -369,7 +369,7 @@
   reserved: true
   ```
 
-  Подробнее о команде `yc vpc address create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/address/create.md).
+  Подробнее о команде `yc vpc address create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/address/create.md).
 
 {% endlist %}
 
@@ -418,7 +418,7 @@
      yc vpc security-group get usergate-sg | grep "^id"
      ```
 
-     Подробнее о команде `yc vpc security-group get` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/get.md).
+     Подробнее о команде `yc vpc security-group get` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/get.md).
 
   1. Выполните команду:
 
@@ -468,7 +468,7 @@
      placement_policy: {}
      ```
 
-     Подробнее о команде `yc compute instance create` см. в [справочнике CLI](../../cli/cli-ref/compute/cli-ref/instance/create.md).
+     Подробнее о команде `yc compute instance create` смотрите в [справочнике CLI](../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
 - {{ TF }} {#tf}
 
@@ -507,7 +507,7 @@
      }
      ```
 
-     Подробнее см. в описании ресурса [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance) в документации провайдера {{ TF }}.
+     Подробнее смотрите в описании ресурса [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance) в документации провайдера {{ TF }}.
      
   1. Проверьте корректность конфигурационных файлов.
 

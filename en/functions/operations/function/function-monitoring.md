@@ -7,7 +7,7 @@ description: You can view monitoring charts in {{ sf-full-name }} using the mana
 
  You can monitor functions using the monitoring tools in the management console. These tools display diagnostic information as charts. [{{ monitoring-name }}](../../../monitoring/) collects metric values and displays charts.
 
-The chart refresh interval is 15 seconds.
+The chart update period is 15 seconds.
 
 ## Viewing monitoring charts {#charts}
 
@@ -17,7 +17,7 @@ The chart refresh interval is 15 seconds.
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
 
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. Select the function whose monitoring charts you want to view.
 

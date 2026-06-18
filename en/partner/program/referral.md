@@ -1,3 +1,8 @@
+---
+title: '{{ yandex-cloud }} referral program'
+description: Learn how the referral program enables {{ yandex-cloud }} partners to acquire new customers and get rewards.
+---
+
 # Referral program
 
 {% include [referral-program-closure](../../_includes/partner/referral-program-closure.md) %}

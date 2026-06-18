@@ -148,7 +148,7 @@
 
 {% endnote %}
 
-Подробнее о работе с изображениями см. в [документации Thumbor](https://thumbor.readthedocs.io/en/latest/imaging.html).
+Подробнее о работе с изображениями читайте в [документации Thumbor](https://thumbor.readthedocs.io/en/latest/imaging.html).
 
 ## Что дальше {#what-is-next}
 

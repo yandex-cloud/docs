@@ -3,6 +3,8 @@
 _Дашборд_ — страница или набор страниц, на которых размещены виджеты. Позволяет собрать в одном месте чарты, добавить к ним поясняющие надписи и заголовки.
 Новые страницы дашборда можно создать с помощью элемента **вкладка**.
 
+<iframe width="650" height="366" src="https://runtime.strm.yandex.ru/player/video/vplvoj5kof6pxtc7kl2b?autoplay=0&mute=0" allow="autoplay; fullscreen; accelerometer; gyroscope; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
 Ознакомьтесь с подробной информацией о дашборде в разделах:
 
 * [Виджеты в Yandex DataLens](../dashboard/widget.md)

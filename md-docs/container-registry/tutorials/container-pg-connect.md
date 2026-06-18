@@ -136,7 +136,7 @@
         cr.yandex
         ```
 
-    Другие способы см. в разделе [Аутентифицироваться в Container Registry](../operations/authentication.md).
+    Другие способы смотрите в разделе [Аутентифицироваться в Container Registry](../operations/authentication.md).
 
 1. Загрузите Docker-образ в реестр:
 

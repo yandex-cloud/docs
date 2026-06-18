@@ -11,13 +11,43 @@ Dashboard settings allow you to optimize it for a specific task or work with a s
 
 You can set up [automatic updates](../operations/dashboard/auto-update.md) for dashboard data. The update interval is specified in seconds and the minimum value is 30 seconds. The setting is global: after saving the dashboard, auto-update will work for all users that open it. Auto-update also works in the mobile version.
 
-The following limitations apply to auto update:
+Auto-update is subject to the following limitations:
 
 * Data is updated only for the tab opened in the browser.
 * Data is updated only for the current active tab, however:
 
   * If the tab is not selected as the current tab, it is not considered active and the data is not updated.
   * If the tab is selected as the current tab, but the browser is running in the background, the tab is considered active and the data is updated.
+
+
+## Table of contents {#contents}
+
+You can configure the way the [table of contents is displayed](../operations/dashboard/add-contents.md) on the dashboard.
+
+If the **Table of contents** option is on, all [titles](widget.md#title) with **Display in table of contents** ticked and the names of [tabs](#tabs) not hidden in the settings will be displayed in the table of contents on the left. When you click a title in the table of contents, the dashboard page automatically scrolls to the relevant section, and its hash gets added to the address bar. When you click a tab in the table of contents, the dashboard switches to that tab, and its hash gets added to the address bar.
+
+In view mode, you can also show or hide the table of contents via the menu. Do it by clicking ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/list-ul.svg) **Table of contents** at the top of the dashboard. After you refresh the page, the table of contents is one again displayed as per the **Table of contents** option in the settings.
+
+
+## Margins {#margins}
+
+You can [set offsets](../operations/dashboard/add-margins.md) between widgets. The possible values range from `0` to `22`. The default value is `8`.
+
+
+## Title {#title-dashboard}
+
+This setting allows you to manage dashboard [title display](../operations/dashboard/add-title-dashboard.md).
+
+
+
+## Tabs {#tabs}
+
+You can place dashboard contents on different tabs. You can [add](../operations/dashboard/dashboard-tabs.md#tab-add), [rename, duplicate, delete](../operations/dashboard/dashboard-tabs.md#tab-rename-delete), or [reorder](../operations/dashboard/dashboard-tabs.md#tab-move) tabs, and [set up widget display order on a mobile device](../operations/dashboard/display-modes.md).
+
+You can [choose to display](../operations/dashboard/dashboard-hide-tabs.md) all or selected tabs on the dashboard. Hidden tabs are not visible by default when you open the dashboard, but you see them if you use a link to a hidden tab to open the dashboard.
+
+If the **Table of contents** option is enabled in the dashboard settings, the names of tabs are displayed in the [table of contents](#contents). When you click a tab in the table of contents, the dashboard switches to that tab, and its hash gets added to the address bar. Hidden tabs are not displayed in the table of contents.
+
 
 ## Description and message settings {#message-settings}
 
@@ -44,7 +74,21 @@ You can customize the loading speed of widgets on the dashboard. To do this, [co
 ## Display modes {#display-modes}
 
 
-By default, on the mobile version of the dashboard, {{ datalens-short-name }} displays the charts one after another using the following sorting rule: left-to-right, top-to-bottom. In the tab settings, you can change the order of displaying charts and selectors in the mobile version or mailing lists. Learn more in [{#T}](../operations/dashboard/display-modes.md).
+By default, on the mobile version of the dashboard, {{ datalens-short-name }} displays the charts one after another using the following sorting rule: left-to-right, top-to-bottom. In the tab settings, you can change the order of displaying charts and selectors in the mobile version or mailing lists. For more information, see [{#T}](../operations/dashboard/display-modes.md).
+
+
+## Neuroanalyst 2.0 {#ai-dashboard}
+
+In the dashboard tab settings, you can select a tab as a reference for Neuroanalyst 2.0. Neuroanalyst uses this reference tab to build charts.
+
+To use a reference tab:
+
+1. Enable **Beta version** in the [dashboard settings](../operations/dashboard/dash-settings.md).
+1. [Select a reference tab](../operations/dashboard/dashboard-ai-reference-tab.md) if your dashboard has more than one tab.
+1. Optionally, [hide](../operations/dashboard/dashboard-hide-tabs.md) the reference tab in the dashboard settings.
+
+For more on the reference tab, see [{#T}](./insights.md#reference-tab).
+
 
 
 ## Pinning widgets {#widget-fixation}

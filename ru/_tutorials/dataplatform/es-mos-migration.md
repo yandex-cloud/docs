@@ -18,7 +18,7 @@
 
     Этот способ подходит для кластеров {{ ES }} версии не выше 7.11.
 
-    Подробнее о механизме снапшотов см. в [документации {{ OS }}]({{ os.docs }}/opensearch/snapshots/index/).
+    Подробнее о механизме снапшотов смотрите в [документации {{ OS }}]({{ os.docs }}/opensearch/snapshots/index/).
 
 * Удаленной [переиндексации]({{ os.docs }}/opensearch/reindex-data/) (reindex data).
 
@@ -125,11 +125,11 @@
 
     {% include [connect-bucket-3p](es-mos-migration/connect-bucket-3p.md) %}
 
-    Подробнее о подключении репозитория см. в [документации плагина]({{ links.es.docs }}/elasticsearch/plugins/7.11/repository-s3.html).
+    Подробнее о подключении репозитория смотрите в [документации плагина]({{ links.es.docs }}/elasticsearch/plugins/7.11/repository-s3.html).
 
     {% include [mes-objstorage-snapshot](../../_includes/mdb/mes/objstorage-snapshot.md) %}
 
-1. Запустите создание снапшота в репозитории, созданном на предыдущем шаге. Можно создать снапшот всего кластера или части данных. Подробнее см. в [документации {{ ES }}]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html).
+1. Запустите создание снапшота в репозитории, созданном на предыдущем шаге. Можно создать снапшот всего кластера или части данных. Подробнее в [документации {{ ES }}]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html).
 
     Пример создания снапшота с именем `snapshot_1` для всего кластера:
 
@@ -166,7 +166,7 @@
 
     * Переносите только пользовательские индексы. Существующие системные индексы не переносятся, в процессе импорта участвую только индексы, созданные на кластере-источнике пользователем.
 
-    * Используйте параметры `rename_pattern` и `rename_replacement`. Индексы будут переименовываться по мере их восстановления. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/opensearch/snapshots/snapshot-restore#conflicts-and-compatibility).
+    * Используйте параметры `rename_pattern` и `rename_replacement`. Индексы будут переименовываться по мере их восстановления. Подробнее в [документации {{ OS }}]({{ os.docs }}/opensearch/snapshots/snapshot-restore#conflicts-and-compatibility).
 
     Пример восстановления снапшота целиком:
 
@@ -335,7 +335,7 @@
 
     {% note tip %}
 
-    В кластерах {{ mos-name }} вы можете использовать переиндексацию от имени пользователя `admin`, имеющего роль `superuser`, но безопаснее для каждой задачи создавать отдельных пользователей с ограниченными привилегиями. Подробнее см. в разделе [{#T}](../../managed-opensearch/operations/cluster-users.md).
+    В кластерах {{ mos-name }} вы можете использовать переиндексацию от имени пользователя `admin`, имеющего роль `superuser`, но безопаснее для каждой задачи создавать отдельных пользователей с ограниченными привилегиями. Подробнее в разделе [{#T}](../../managed-opensearch/operations/cluster-users.md).
 
     {% endnote %}
 
@@ -413,7 +413,7 @@
     ...
     ```
 
-    Подробнее о параметрах переиндексации см. в [документации {{ OS }}]({{ os.docs }}/opensearch/reindex-data/#source-index-options).
+    Подробнее о параметрах переиндексации смотрите в [документации {{ OS }}]({{ os.docs }}/opensearch/reindex-data/#source-index-options).
 
     Процесс переиндексации может занять длительное время. Чтобы проверить статус операции, выполните команду:
 

@@ -28,11 +28,11 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за использование бакета Yandex Object Storage (см. [тарифы Object Storage](../../../storage/pricing.md));
-* плата за хранение и запросы секретов Yandex Lockbox (см. [тарифы Yandex Lockbox](../../../lockbox/pricing.md));
-* плата за вызовы функций и вычислительные ресурсы, выделенные для выполнения функций (см. [тарифы Cloud Functions](../../pricing.md));
-* плата за объем считанных из источников данных при исполнении запросов Query (см. [тарифы Query](../../../query/pricing.md));
-* плата за использование DataLens в соответствии с тарифным планом (см. [тарифы DataLens](../../../datalens/pricing.md)).
+* плата за использование бакета Yandex Object Storage ([тарифы Object Storage](../../../storage/pricing.md));
+* плата за хранение и запросы секретов Yandex Lockbox ([тарифы Yandex Lockbox](../../../lockbox/pricing.md));
+* плата за вызовы функций и вычислительные ресурсы, выделенные для выполнения функций ([тарифы Cloud Functions](../../pricing.md));
+* плата за объем считанных из источников данных при исполнении запросов Query ([тарифы Query](../../../query/pricing.md));
+* плата за использование DataLens в соответствии с тарифным планом ([тарифы DataLens](../../../datalens/pricing.md)).
 
 ## Подготовьте инфраструктуру {#prepare-infrastructure}
 
@@ -40,7 +40,7 @@
 
 Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
 Чтобы подготовить инфраструктуру при помощи Terraform:
 

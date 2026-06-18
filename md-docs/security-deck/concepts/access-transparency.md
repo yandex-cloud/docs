@@ -6,7 +6,7 @@
 
 Когда к организации будет привязан платежный аккаунт, выберите его в модуле [Access Transparency](https://center.yandex.cloud/security/transparency/).
 
-Для управления подпиской Access Transparency необходима роль `access-transparency.subscriptionManager`. Чтобы указать платежный аккаунт при подключении Access Transparency, потребуется роль `access-transparency.billingProvider`. Обе роли включены в `access-transparency.admin` и `access-transparency.editor`. Подробнее см. в разделе [Роли для анализа данных Access Transparency](../security/access-transparency-roles.md).
+Для управления подпиской Access Transparency необходима роль `access-transparency.subscriptionManager`. Чтобы указать платежный аккаунт при подключении Access Transparency, потребуется роль `access-transparency.billingProvider`. Обе роли включены в `access-transparency.admin` и `access-transparency.editor`. Подробнее в разделе [Роли для анализа данных Access Transparency](../security/access-transparency-roles.md).
 
 Основные функции Access Transparency:
 

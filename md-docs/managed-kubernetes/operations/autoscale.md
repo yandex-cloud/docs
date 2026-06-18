@@ -64,7 +64,7 @@
      
      Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
      
-     Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+     Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
      Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
      
@@ -72,7 +72,7 @@
      Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
   1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов.
 
-     О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group/node-group-create.md).
+     О том, как создать такой файл, читайте в разделе [Создание группы узлов](node-group/node-group-create.md).
   1. Добавьте описание новой группы узлов, указав настройки автомасштабирования в блоке `scale_policy.auto_scale`:
 
      ```hcl
@@ -151,7 +151,7 @@
 
 Управление Cluster Autoscaler выполняется на стороне сервиса Managed Service for Kubernetes.
 
-Подробнее о Cluster Autoscaler см. в разделе [Автоматическое масштабирование кластера](../concepts/autoscale.md#ca). Параметры, используемые по умолчанию, приведены в [документации Kubernetes](https://github.com/kubernetes/autoscaler/blob/c6b754c359a8563050933a590f9a5dece823c836/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca).
+Подробнее о Cluster Autoscaler в разделе [Автоматическое масштабирование кластера](../concepts/autoscale.md#ca). Параметры, используемые по умолчанию, приведены в [документации Kubernetes](https://github.com/kubernetes/autoscaler/blob/c6b754c359a8563050933a590f9a5dece823c836/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca).
 
 Смотрите также раздел [Вопросы и ответы про автоматическое масштабирование группы узлов в Managed Service for Kubernetes](../qa/cluster-autoscaler.md).
 
@@ -179,7 +179,7 @@
 
 {% endlist %}
 
-Подробнее о Horizontal Pod Autoscaler см. в разделе [Горизонтальное автомасштабирование подов](../concepts/autoscale.md#hpa).
+Подробнее о Horizontal Pod Autoscaler в разделе [Горизонтальное автомасштабирование подов](../concepts/autoscale.md#hpa).
 
 ## Настройка вертикального автомасштабирования подов {#vpa}
 
@@ -212,7 +212,7 @@
          updateMode: "<режим_работы_VPA>"
      ```
 
-     Где `updateMode` — режим работы Vertical Pod Autoscaler: `Off`, `Initial`, `Recreate` или `InPlaceOrRecreate`. Подробнее см. в разделе [Вертикальное автомасштабирование подов](../concepts/autoscale.md#vpa).
+     Где `updateMode` — режим работы Vertical Pod Autoscaler: `Off`, `Initial`, `Recreate` или `InPlaceOrRecreate`. Подробнее в разделе [Вертикальное автомасштабирование подов](../concepts/autoscale.md#vpa).
 
   1. Создайте Vertical Pod Autoscaler для вашего приложения:
 
@@ -228,7 +228,7 @@
 
 {% endlist %}
 
-Подробнее о Vertical Pod Autoscaler см. в разделе [Вертикальное автомасштабирование подов](../concepts/autoscale.md#vpa).
+Подробнее о Vertical Pod Autoscaler в разделе [Вертикальное автомасштабирование подов](../concepts/autoscale.md#vpa).
 
 ## Удаление подов в статусе Terminated {#delete-terminated}
 

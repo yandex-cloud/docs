@@ -660,13 +660,15 @@ String value to match against.
 >>>> - case-sensitive (boolean)\
 Whether the match is case sensitive.
 >> - body-matcher (structure)\
-Matcher for request body.
+Matcher for request body exclusion flag.
 >>> - body-values ([]structure)\
-List of request body values to match. Up to 20 entries.
+Deprecated. Previously matched body content. Use is_excluded instead.
 >>>> - value (string)\
 String value to match against.
 >>>> - case-sensitive (boolean)\
 Whether the match is case sensitive.
+>>> - is-excluded (boolean)\
+When true, request body is excluded from WAF inspection for this exclusion rule.
 
 {% endcut %}
 
@@ -982,7 +984,8 @@ Whether the match is case sensitive.
             case-sensitive = boolean,
             value = string
           }, ...
-        ]
+        ],
+        is-excluded = boolean
       },
       cookie-matcher = {
         cookie-names = [
@@ -1566,7 +1569,8 @@ Whether the match is case sensitive.
             "case-sensitive": "boolean",
             "value": "string"
           }, ...
-        ]
+        ],
+        "is-excluded": "boolean"
       },
       "cookie-matcher": {
         "cookie-names": [

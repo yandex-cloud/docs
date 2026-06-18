@@ -280,9 +280,9 @@ description: Следуя данной инструкции, вы сможете
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Как создать такой файл, описано в разделе [Создание кластера](cluster-create.md).
 
-      Полный список доступных для изменения полей конфигурации кластера {{ mspqr-name }} см. в [документации провайдера {{ TF }}](https://yandex.cloud/ru/docs/terraform/resources/mdb_sharded_postgresql_cluster).
+      Полный список доступных для изменения полей конфигурации кластера {{ mspqr-name }} вы найдете в [документации провайдера {{ TF }}](https://yandex.cloud/ru/docs/terraform/resources/mdb_sharded_postgresql_cluster).
 
   1. {% include [Maintenance window](../../_includes/mdb/mspqr/terraform/maintenance-window.md) %}
 

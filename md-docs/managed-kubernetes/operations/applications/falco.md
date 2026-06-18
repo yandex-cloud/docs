@@ -29,7 +29,7 @@
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
 1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
 1. Нажмите на имя нужного [кластера Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
-1. В разделе **Доступные для установки приложения** выберите [Falco](https://yandex.cloud/ru/marketplace/products/yc/falco) и нажмите кнопку **Перейти к установке**.
+1. В разделе **Доступные для установки приложения** выберите **Falco** и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
    * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `falco-space`). Если вы оставите пространство имен по умолчанию, Falco может работать некорректно.
    * **Название приложения** — укажите название приложения.

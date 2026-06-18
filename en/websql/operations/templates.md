@@ -35,7 +35,7 @@ To save a query:
 
 - **Saved queries** section
 
-   1. [Navigate to](../../console/operations/select-service.md#select-service) the [{{ websql-full-name }}]({{ websql-link }}) service.
+   1. Go to [{{ websql-full-name }}]({{ websql-link }}).
    1. Navigate to ![image](../../_assets/console-icons/floppy-disk.svg) **Saved queries**.
    1. In the section's top-right corner, click ![image](../../_assets/websql/new-connection.svg).
    1. In the window that opens:
@@ -79,7 +79,7 @@ After you save the query, it will appear in the ![image](../../_assets/console-i
 
 - **Saved queries** section
 
-   1. [Navigate to](../../console/operations/select-service.md#select-service) the [{{ websql-full-name }}]({{ websql-link }}) service.
+   1. Go to [{{ websql-full-name }}]({{ websql-link }}).
    1. Navigate to ![image](../../_assets/console-icons/floppy-disk.svg) **Saved queries**.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the query you need and select **Use query**: it will show up in the data panel.
    1. Click **Open in editor**.
@@ -92,7 +92,7 @@ After you save the query, it will appear in the ![image](../../_assets/console-i
 
 To edit a saved query:
 
-1. [Navigate to](../../console/operations/select-service.md#select-service) the [{{ websql-full-name }}]({{ websql-link }}) service.
+1. Go to [{{ websql-full-name }}]({{ websql-link }}).
 
 1. Navigate to ![image](../../_assets/console-icons/floppy-disk.svg) **Saved queries**.
 
@@ -120,7 +120,7 @@ You can publish your query. Once published, the query will be available to all f
 
 To publish a query:
 
-1. [Navigate to](../../console/operations/select-service.md#select-service) the [{{ websql-full-name }}]({{ websql-link }}) service.
+1. Go to [{{ websql-full-name }}]({{ websql-link }}).
 
 1. Navigate to ![image](../../_assets/console-icons/floppy-disk.svg) **Saved queries**.
 
@@ -134,7 +134,7 @@ You will see ![image](../../_assets/console-icons/lock-open.svg) next to the nam
 
 To configure [access permissions](../security/index.md):
 
-1. [Navigate to](../../console/operations/select-service.md#select-service) the [{{ websql-full-name }}]({{ websql-link }}) service.
+1. Go to [{{ websql-full-name }}]({{ websql-link }}).
 
 1. Navigate to ![image](../../_assets/console-icons/floppy-disk.svg) **Saved queries**.
 
@@ -148,7 +148,7 @@ To configure [access permissions](../security/index.md):
 
 To delete a saved query:
 
-1. [Navigate to](../../console/operations/select-service.md#select-service) the [{{ websql-full-name }}]({{ websql-link }}) service.
+1. Go to [{{ websql-full-name }}]({{ websql-link }}).
 
 1. Navigate to ![image](../../_assets/console-icons/floppy-disk.svg) **Saved queries**.
 

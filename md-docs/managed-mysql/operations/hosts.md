@@ -99,6 +99,7 @@
 
 Количество хостов в кластерах Managed Service for MySQL® ограничено квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [Квоты](https://console.yandex.cloud/cloud?section=quotas) и найдите блок **Managed Databases**.
 
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

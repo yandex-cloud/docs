@@ -45,7 +45,7 @@ description: На странице представлены вопросы и о
 * уведомлениях от {{ yandex-cloud }}. В консоли управления {{ yandex-cloud }} нажмите ![image](../_assets/console-icons/bell.svg)**{{ ui-key.yacloud.component.navigation-menu.label_notifications }}** на панели слева. Для быстрого перехода к нужному обращению нажмите на ссылку в уведомлении.
 * SMS-сообщениях и сообщениях в Telegram-боте, если эти способы получения уведомлений у вас доступны и [настроены](../console/operations/update.md#notifications).
 
-Подробнее о способах получения уведомлений см. [Способы получения уведомлений](../support/notify.md#notification-settings).
+Подробнее о способах получения уведомлений в разделе [Способы получения уведомлений](../support/notify.md#notification-settings).
 
 
 Если у вас установлено [мобильное приложение](../overview/mobile-app/index.md) {{ yandex-cloud }}, обращение можно отслеживать в нем. Все ваши обращения отображаются на вкладке **Поддержка**.
@@ -90,7 +90,7 @@ description: На странице представлены вопросы и о
 
 {% include [change-plan-roles](../_includes/support/pricing-roles.md) %}
 
-См. детали в инструкции [Изменение тарифного плана](cloud-center.md#change-pricing).
+Подробнее в инструкции [Изменение тарифного плана](cloud-center.md#change-pricing).
 Ознакомьтесь с [Порядком оказания технической поддержки](overview.md). Повышение тарифного плана происходит сразу, а понижение — первого числа следующего месяца
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

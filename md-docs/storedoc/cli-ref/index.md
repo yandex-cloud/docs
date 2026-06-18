@@ -24,6 +24,14 @@ Aliases:
 
   - [yc managed-mongodb backup list](backup/list.md) — List MongoDB backups available in a folder.
 
+- [yc managed-mongodb backup-retention-policy](backup-retention-policy/index.md) — Manage MongoDB backup long-term retention policies
+
+  - [yc managed-mongodb backup-retention-policy create](backup-retention-policy/create.md) — Create new backup retention policy
+
+  - [yc managed-mongodb backup-retention-policy delete](backup-retention-policy/delete.md) — Delete specific backup retention policy
+
+  - [yc managed-mongodb backup-retention-policy list](backup-retention-policy/list.md) — List available backup retention policies
+
 - [yc managed-mongodb cluster](cluster/index.md) — Manage MongoDB clusters.
 
   - [yc managed-mongodb cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified MongoDB cluster

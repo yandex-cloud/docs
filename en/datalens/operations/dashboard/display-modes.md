@@ -1,9 +1,9 @@
 ---
 title: How to set up the widget display order on a mobile device in {{ datalens-full-name }}
-description: Follow this guide to set up the widget display order on a mobile device.
+description: Follow this guide to set up the widget display order on a mobile device in {{ datalens-full-name }}.
 ---
 
-# Widget display order on a mobile device
+# Widget display order on a mobile device in {{ datalens-full-name }}
 
 To set up the order of charts and selectors in the mobile version or in mailing lists:
 

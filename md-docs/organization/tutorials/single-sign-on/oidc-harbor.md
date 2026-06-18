@@ -288,7 +288,7 @@
 
 #### Установите Harbor
 
-1. Если у вас еще нет реестра Harbor, установите его на виртуальной машине: заранее установите Docker Engine версии `20.10.10` или выше и плагин `docker compose`. Инструкции по установке Docker для Ubuntu см. в [официальной документации Docker](https://docs.docker.com/engine/install/ubuntu/).
+1. Если у вас еще нет реестра Harbor, установите его на виртуальной машине: заранее установите Docker Engine версии `20.10.10` или выше и плагин `docker compose`. Инструкции по установке Docker для Ubuntu смотрите в [официальной документации Docker](https://docs.docker.com/engine/install/ubuntu/).
 1. Подключитесь к VM по SSH, перейдите в каталог распакованного установщика Harbor и убедитесь, что Docker и `docker compose` доступны:
 
    ```bash
@@ -309,7 +309,7 @@
    * `database.password` — пароль локальной БД Harbor.
    * параметры секции `https` (`port`, `certificate`, `private_key`) — укажите пути к сертификату и ключу для доступа к Harbor по TLS.
 
-   Подробнее о параметрах файла см. в руководстве Harbor: [Configure the Harbor YML File](https://goharbor.io/docs/main/install-config/configure-yml-file/).
+   Подробнее о параметрах файла смотрите в руководстве Harbor: [Configure the Harbor YML File](https://goharbor.io/docs/main/install-config/configure-yml-file/).
 
 1. Настройте внешний TLS для Harbor:
 
@@ -333,7 +333,7 @@
 
 {% note info %}
 
-Чтобы переключить Harbor на режим **OIDC**, в базе Harbor не должно быть учетных записей пользователей, кроме встроенной учетной записи администратора (после первого входа администратора это правило продолжает действовать: достаточно отсутствия прочих локальных пользователей). Подробнее см. [документацию Harbor по режиму OIDC](https://goharbor.io/docs/latest/administration/configure-authentication/oidc-auth/).
+Чтобы переключить Harbor на режим **OIDC**, в базе Harbor не должно быть учетных записей пользователей, кроме встроенной учетной записи администратора (после первого входа администратора это правило продолжает действовать: достаточно отсутствия прочих локальных пользователей). Подробнее в [документации Harbor по режиму OIDC](https://goharbor.io/docs/latest/administration/configure-authentication/oidc-auth/).
 
 {% endnote %}
 
@@ -364,7 +364,7 @@
 
 1. Нажмите **Save**.
 
-Подробнее о полях и ограничениях режима OIDC см. [официальное руководство Harbor](https://goharbor.io/docs/latest/administration/configure-authentication/oidc-auth/).
+Подробнее о полях и ограничениях режима OIDC смотрите в [официальном руководстве Harbor](https://goharbor.io/docs/latest/administration/configure-authentication/oidc-auth/).
 
 ### Добавьте пользователя {#add-user}
 

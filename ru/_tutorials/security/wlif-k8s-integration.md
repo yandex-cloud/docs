@@ -6,7 +6,7 @@
 
 {% note info %}
 
-В руководстве представлен пример интеграции пользовательской инсталляции {{ k8s }} с федерацией сервисных аккаунтов. Руководство по интеграции {{ managed-k8s-name }} см. на странице [Доступ к API {{ yandex-cloud }} из кластера {{ managed-k8s-name }} с помощью федерации сервисных аккаунтов {{ iam-name }}](../../tutorials/security/wlif-managed-k8s-integration.md).
+В руководстве представлен пример интеграции пользовательской инсталляции {{ k8s }} с федерацией сервисных аккаунтов. Руководство по интеграции {{ managed-k8s-name }} смотрите на странице [Доступ к API {{ yandex-cloud }} из кластера {{ managed-k8s-name }} с помощью федерации сервисных аккаунтов {{ iam-name }}](../../tutorials/security/wlif-managed-k8s-integration.md).
 
 {% endnote %}
 
@@ -311,7 +311,7 @@
 * [бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md);
 * [сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-## Смотрите также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../iam/concepts/workload-identity.md)
 * [Доступ к API {{ yandex-cloud }} из кластера {{ managed-k8s-name }} с помощью федерации сервисных аккаунтов {{ iam-name }}](../../tutorials/security/wlif-managed-k8s-integration.md)

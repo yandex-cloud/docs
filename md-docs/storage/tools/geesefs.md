@@ -6,7 +6,7 @@
 
 ### Производительность {#performance}
 
-По сравнению с goofys и [s3fs](s3fs.md) GeeseFS работает с большими количествами малых файлов (размером до 1 МБ) на порядки быстрее, а с большими файлами — на аналогичной скорости или быстрее. Подробнее о тестах производительности см. в [репозитории GeeseFS на GitHub](https://github.com/yandex-cloud/geesefs/tree/master/bench).
+По сравнению с goofys и [s3fs](s3fs.md) GeeseFS работает с большим количеством малых файлов (размером до 1 МБ) на порядки быстрее, а с большими файлами — на аналогичной скорости или быстрее. Подробнее о тестах производительности читайте в [репозитории GeeseFS на GitHub](https://github.com/yandex-cloud/geesefs/tree/master/bench).
 
 Чтобы GeeseFS работала быстрее, в ней реализованы:
 
@@ -180,7 +180,7 @@
   1. [Включите](https://github.com/macfuse/macfuse/wiki/Getting-Started#enabling-support-for-third-party-kernel-extensions-apple-silicon-macs) поддержку сторонних расширений ядра. Этот шаг необходим только при первом использовании MacFUSE на Apple Silicon Mac.
   1. [Разрешите](https://github.com/macfuse/macfuse/wiki/Getting-Started#allow-the-macfuse-kernel-extension-to-load-apple-silicon-and-intel-macs) загрузку расширения ядра MacFUSE (Apple Silicon и Intel Mac).
 
-      Подробнее об установке macFUSE смотрите в [инструкции по установке](https://github.com/osxfuse/osxfuse/wiki/FAQ#2-installuninstall-questions) в репозитории macFUSE на GitHub.
+      Подробнее об установке macFUSE читайте в [инструкции по установке](https://github.com/osxfuse/osxfuse/wiki/FAQ#2-installuninstall-questions) в репозитории macFUSE на GitHub.
 
   1. Скачайте и установите GeeseFS:
 

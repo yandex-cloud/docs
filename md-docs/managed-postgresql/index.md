@@ -214,6 +214,8 @@ Managed Service for PostgreSQL помогает разворачивать и п
 
  - [Управление соединениями](concepts/pooling.md)
 
+ - [Балансировщик нагрузки для хостов](concepts/load-balancer.md)
+
  - [Репликация](concepts/replication.md)
 
  - [Техническое обслуживание](concepts/maintenance.md)

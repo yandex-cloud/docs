@@ -222,6 +222,8 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [update](cli-ref/registry/update.md)
 
+ - [tools](cli-ref/tools.md)
+
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -297,6 +299,8 @@ Yandex Cloud Registry — сервис для безопасного хране�
  - [set-ip-permissions](cli-ref/v0/registry/set-ip-permissions.md)
 
  - [update](cli-ref/v0/registry/update.md)
+
+ - [tools](cli-ref/v0/tools.md)
 
  - [Справочник Terraform](tf-ref.md)
 

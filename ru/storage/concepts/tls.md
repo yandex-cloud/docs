@@ -28,7 +28,7 @@ keywords:
 
 Большинство Amazon S3-совместимых клиентов к {{ objstorage-name }} не позволяют явно прописать версию TLS, а используют указанную в системе.
 
-Подробнее о настройке клиентов для работы с протоколом TLS версии 1.2 и выше см. в документации:
+Подробнее о настройке клиентов для работы с протоколом TLS версии 1.2 и выше читайте в документации:
 * [AWS SDK для Java](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/security-java-tls.html)
 * [AWS SDK для .NET](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/enforcing-tls.html)
 * [AWS SDK для JavaScript](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/enforcing-tls.html)

@@ -43,8 +43,8 @@
 
 ## Алиса {#alice}
 
-* [Создание навыка Алисы](../serverless/alice-skill.md)
-* [Разработка навыка Алисы и сайта с авторизацией](../serverless/alice-shareable-todolist.md)
+* [Создание навыка Алисы](alice-skill/index.md)
+* [Разработка навыка Алисы и сайта с авторизацией](alice-shareable-todolist.md)
 
 ## Прочее {#other}
 

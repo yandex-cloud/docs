@@ -14,7 +14,7 @@ description: Follow this guide to configure and run an asynchronous function inv
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function.
     1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_async }}**, select **{{ ui-key.yacloud.serverless-functions.item.editor.label_turn-on-button }}**.
@@ -38,9 +38,9 @@ description: Follow this guide to configure and run an asynchronous function inv
     ```bash
     yc serverless function version create \
       --function-name=<function_name> \
-      --runtime <runtime> \
+      --runtime <runtime_environment> \
       --entrypoint <entry_point> \
-      --memory <RAM_amount> \
+      --memory <RAM_size> \
       --execution-timeout <execution_timeout> \
       --source-version-id <version_ID> \
       --async-max-retries <number_of_retry_attempts> \
@@ -113,7 +113,7 @@ description: Follow this guide to configure and run an asynchronous function inv
          * `service_account_id`: Service account with permissions to write to the queue for successful asynchronous invocations.
          * `arn`: ARN of the destination queue in {{ message-queue-name }} for messages about successful function invocations. If you skip this setting, no messages will be sent.
 
-     For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+     For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
   1. Apply the changes:
 

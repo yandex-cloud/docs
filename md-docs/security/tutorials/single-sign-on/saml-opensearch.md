@@ -8,7 +8,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Убедитесь, что вы можете [подключиться к OpenSearch Dashboards](../../../managed-opensearch/operations/connect/clients.md#dashboards) с использованием реквизитов пользователя `admin`. О том, как создать и настроить кластер OpenSearch, см. в разделе [Создание кластера OpenSearch](../../../managed-opensearch/operations/cluster-create.md).
+Убедитесь, что вы можете [подключиться к OpenSearch Dashboards](../../../managed-opensearch/operations/connect/clients.md#dashboards) с использованием реквизитов пользователя `admin`. О том, как создать и настроить кластер OpenSearch, смотрите в разделе [Создание кластера OpenSearch](../../../managed-opensearch/operations/cluster-create.md).
 
 В этом практическом руководстве предполагается, что веб-интерфейс OpenSearch Dashboards доступен по URL:
 
@@ -149,7 +149,7 @@ https://c-cat0adul1fj0********.rw.mdb.yandexcloud.net/
 
 {% endlist %}
 
-Подробнее о настройке атрибутов см. [Настройте атрибуты пользователей и групп](../../../organization/operations/applications/saml-create.md#setup-attributes).
+Подробнее о настройке атрибутов смотрите в разделе [Настройте атрибуты пользователей и групп](../../../organization/operations/applications/saml-create.md#setup-attributes).
 
 ### Добавьте пользователей {#add-users}
 

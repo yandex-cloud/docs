@@ -57,7 +57,7 @@ description: Следуя данной инструкции, вы сможете
      * `billing_account_id` — идентификатор платежного аккаунта, к которому вы хотите привязать облако.
      * `cloud_id` — идентификатор облака, которое вы хотите привязать к платежному аккаунту.
 
-     Более подробную информацию о параметрах ресурса `yandex_billing_cloud_binding` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/billing_cloud_binding).
+     Подробнее о параметрах ресурса `yandex_billing_cloud_binding` в {{ TF }} в [документации провайдера]({{ tf-provider-resources-link }}/billing_cloud_binding).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

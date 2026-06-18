@@ -15,33 +15,37 @@ GET https://vpc.api.cloud.yandex.net/vpc/v1/endpoints
 || folderId | **string**
 
 ID of the folder to list private endpoints in.
-
 To get the folder ID use a
 [yandex.cloud.resourcemanager.v1.FolderService.List](../../../../resource-manager/api-ref/Folder/list.md#List) request.
+The length must be less than or equal to 50.
 
-Includes only one of the fields `folderId`. ||
+Includes only one of the fields `folderId`.
+
+Only one field must be specified. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of
 available results is larger than `page_size`, the service returns a
 [ListPrivateEndpointsResponse.nextPageToken](#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointsResponse) that can be used to get the
-next page of results in subsequent list requests. Default value: 100. ||
+next page of results in subsequent list requests. Default value: 100.
+The value must be between 0 and 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
 [ListPrivateEndpointsResponse.nextPageToken](#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointsResponse) returned by a previous list
-request. ||
+request.
+The length must be less than or equal to 1000. ||
 || filter | **string**
 
 A filter expression that filters PrivateEndpoint listed in the response.
-
 The expression must specify:
 1. The field name. Currently you can use filtering only on
 [PrivateEndpoint.name](#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match
 the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. Example of a filter:
-`name=my-private-endpoint`. ||
+`name=my-private-endpoint`.
+The length must be less than or equal to 1000. ||
 |#
 
 ## Response {#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointsResponse}
@@ -68,9 +72,15 @@ the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. Example of a filter:
       "dnsOptions": {
         "privateDnsRecordsEnabled": "boolean"
       },
-      // Includes only one of the fields `objectStorage`
-      "objectStorage": "object"
+      // Includes only one of the fields `objectStorage`, `serviceName`
+      "objectStorage": "object",
+      "serviceName": "string",
       // end of the list of possible fields
+      "dnsRecords": [
+        {
+          "name": "string"
+        }
+      ]
     }
   ],
   "nextPageToken": "string"
@@ -89,7 +99,6 @@ greater than the specified [ListPrivateEndpointsRequest.pageSize](#yandex.cloud.
 `next_page_token` as the value for the
 [ListPrivateEndpointsRequest.pageToken](#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointsRequest) parameter in the next list
 request.
-
 Each subsequent page will have its own `next_page_token` to continue paging
 through the results. ||
 |#
@@ -138,7 +147,6 @@ ID of the network that the private endpoint belongs to. ||
 
 Status of the private endpoint.
 
-- `STATUS_UNSPECIFIED`
 - `PENDING`: Private endpoint is still creating / updating.
 - `AVAILABLE`: Private endpoint is available.
 - `DELETING`: Private endpoint is deleting. ||
@@ -152,9 +160,19 @@ Private endpoint dns options. ||
 
 Yandex Cloud Object Storage.
 
-Includes only one of the fields `objectStorage`.
+Includes only one of the fields `objectStorage`, `serviceName`.
 
 Service to connect with via private endpoint. ||
+|| serviceName | **string**
+
+Yandex Cloud service name.
+
+Includes only one of the fields `objectStorage`, `serviceName`.
+
+Service to connect with via private endpoint. ||
+|| dnsRecords[] | **[DnsRecord](#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint.DnsRecord)**
+
+List of private endpoint dns records. ||
 |#
 
 ## EndpointAddress {#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint.EndpointAddress}
@@ -181,4 +199,13 @@ ID of the private endpoint address. ||
 || privateDnsRecordsEnabled | **boolean**
 
 If enabled - vpc will create private dns records for specified service. ||
+|#
+
+## DnsRecord {#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint.DnsRecord}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the dns record. ||
 |#

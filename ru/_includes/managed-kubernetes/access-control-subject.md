@@ -11,4 +11,4 @@
     * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
     * `allUsers` — [любой пользователь](../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
 
-Подробнее о типах субъектов смотрите в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
+Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).

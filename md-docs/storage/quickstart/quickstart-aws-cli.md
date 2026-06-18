@@ -1,6 +1,6 @@
 # Как начать работать с AWS CLI в Yandex Object Storage
 
-[AWS CLI](../tools/aws-cli.md) является одним из самых популярных инструментов для работы с Object Storage. В этом разделе вы научитесь работать с сервисом с помощью этого инструмента. Инструкцию о работе в консоли управления см. в документе [Как начать работать с Yandex Object Storage](../quickstart.md).
+[AWS CLI](../tools/aws-cli.md) является одним из самых популярных инструментов для работы с Object Storage. В этом разделе вы научитесь работать с сервисом с помощью этого инструмента. Инструкцию о работе в консоли управления читайте в документе [Как начать работать с Yandex Object Storage](../quickstart.md).
 
 Чтобы начать работу с AWS CLI:
 
@@ -58,7 +58,7 @@
 
       Вы также можете использовать существующий сервисный аккаунт.
 
-      Подробнее см. в документе [Создание сервисного аккаунта](../../iam/operations/sa/create.md).
+      Подробнее в документе [Создание сервисного аккаунта](../../iam/operations/sa/create.md).
 
   1. Назначьте сервисному аккаунту нужную [роль](../security/index.md#roles-list), например [storage.editor](../security/index.md#storage-editor) на каталог:
 
@@ -70,7 +70,7 @@
       1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль из списка или воспользуйтесь поиском.
       1. Нажмите кнопку **Сохранить**.
 
-      Подробнее см. в документе [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
+      Подробнее в документе [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
 
       {% note info %}
       
@@ -97,7 +97,7 @@
 
           {% endnote %}
 
-      Подробнее см. в документе [Создать статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
+      Подробнее в документе [Создать статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
 {% endlist %}
 
@@ -137,7 +137,7 @@
 
     {% endlist %}
 
-    Подробнее об установке AWS CLI см. в [документации AWS](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
+    Подробнее об установке AWS CLI читайте в [документации AWS](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
 1. Настройте AWS CLI:
 
@@ -197,7 +197,7 @@
 
     {% endlist %}
 
-Подробнее о настройке AWS CLI см. в [документации AWS](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html).
+Подробнее о настройке AWS CLI читайте в [документации AWS](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html).
 
 {% note info %}
 
@@ -217,7 +217,7 @@
   aws s3 mb s3://<имя_бакета>
   ```
 
-  Подробности см. в документе [Создание бакета](../operations/buckets/create.md).
+  Подробнее в документе [Создание бакета](../operations/buckets/create.md).
 
 {% endlist %}
 
@@ -233,7 +233,7 @@
   aws s3 cp <путь_к_локальному_файлу>/ s3://<имя_бакета>/<ключ_объекта>
   ```
 
-  Подробности см. в документе [Загрузка объекта](../operations/objects/upload.md).
+  Подробнее в документе [Загрузка объекта](../operations/objects/upload.md).
 
 {% endlist %}
 
@@ -251,7 +251,7 @@
 
   Полученной ссылкой вы можете поделиться или использовать ее в своем сервисе для доступа к файлу.
 
-  Подробности см. в документе [Получение подписанной ссылки (pre-signed URL) на скачивание объекта](../operations/objects/link-for-download.md).
+  Подробнее в документе [Получение подписанной ссылки (pre-signed URL) на скачивание объекта](../operations/objects/link-for-download.md).
 
 {% endlist %}
 

@@ -78,7 +78,7 @@ description: Следуя данной инструкции, вы настрои
 
   1. Откройте актуальный конфигурационный файл с описанием кластера {{ mspqr-name }}.
 
-      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+      Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
 
   1. Добавьте описание ресурса:
 
@@ -116,7 +116,7 @@ description: Следуя данной инструкции, вы настрои
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_cluster_iam_binding).
+      Подробнее читайте в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_cluster_iam_binding).
 
 - REST API {#api}
 
@@ -219,7 +219,7 @@ description: Следуя данной инструкции, вы настрои
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Как создать такой файл, описано в разделе [Создание кластера](cluster-create.md).
 
   1. Добавьте описание ресурсов:
 
@@ -266,7 +266,7 @@ description: Следуя данной инструкции, вы настрои
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_cluster_iam_binding).
+      Подробнее читайте в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_cluster_iam_binding).
 
 - REST API {#api}
 
@@ -406,7 +406,7 @@ description: Следуя данной инструкции, вы настрои
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Как создать такой файл, описано в разделе [Создание кластера](cluster-create.md).
 
   1. Найдите описание ресурса с ролью, которую вы хотите отозвать, и удалите его:
 
@@ -428,7 +428,7 @@ description: Следуя данной инструкции, вы настрои
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_cluster_iam_binding).
+      Подробнее читайте в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_cluster_iam_binding).
 
 - REST API {#api}
 
@@ -534,7 +534,7 @@ description: Следуя данной инструкции, вы настрои
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Как создать такой файл, описано в разделе [Создание кластера](cluster-create.md).
 
   1. Добавьте описание ресурса:
 
@@ -564,7 +564,7 @@ description: Следуя данной инструкции, вы настрои
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_cluster_iam_binding).
+      Подробнее читайте в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_cluster_iam_binding).
 
 - REST API {#api}
 

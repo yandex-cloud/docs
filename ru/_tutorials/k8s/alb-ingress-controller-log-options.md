@@ -405,7 +405,7 @@
         * `m` — минуты.
         * `h` — часы.
 
-    Подробное описание настроек ресурса Ingress см. в статье [{#T}](../../managed-kubernetes/alb-ref/ingress.md).
+    Подробное описание настроек ресурса Ingress смотрите в статье [{#T}](../../managed-kubernetes/alb-ref/ingress.md).
 
 1. Создайте ресурсы Ingress:
 

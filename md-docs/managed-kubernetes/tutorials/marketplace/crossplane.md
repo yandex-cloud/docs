@@ -215,7 +215,7 @@
    * `name: crossplane-vm` — имя ВМ, которая будет создана средствами Crossplane.
    * `imageId: fd80bm0rh4rkepi5ksdi` — идентификатор загрузочного образа ВМ. Его можно получить вместе [со списком образов](../../../compute/operations/image-control/get-list.md). В данном примере используется образ [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).
 
-   Примеры конфигурации ресурсов Yandex Cloud см. в [репозитории провайдера на GitHub](https://github.com/yandex-cloud/crossplane-provider-yc/tree/main/examples).
+   Примеры конфигурации ресурсов Yandex Cloud смотрите в [репозитории провайдера на GitHub](https://github.com/yandex-cloud/crossplane-provider-yc/tree/main/examples).
 
 1. Примените манифест `vm-instance-template.yml`:
 

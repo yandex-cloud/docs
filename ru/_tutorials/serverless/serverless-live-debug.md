@@ -106,7 +106,7 @@
           * `description` — описание сервисного аккаунта. Необязательный параметр.
           * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md). Необязательный параметр. По умолчанию будет использовано значение, указанное в настройках провайдера.
 
-          Более подробную информацию о параметрах ресурса `yandex_iam_service_account` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account).
+          Подробнее о параметрах ресурса `yandex_iam_service_account` в {{ TF }} смотрите в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account).
     
       1. Проверьте корректность конфигурационных файлов.
 
@@ -179,7 +179,7 @@
           * `role` — назначаемая роль. Обязательный параметр.
           * `member` — пользователь или сервисный аккаунт, которому назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
 
-          Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
+          Подробнее о параметрах ресурса `yandex_resourcemanager_folder_iam_member` смотрите в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
 
       1. Проверьте корректность конфигурационных файлов.
 

@@ -62,7 +62,7 @@ description: В данном разделе описано, как начать 
 
 Чтобы начать работать с модулем {{ dspm-name }}, [активируйте](#create-workspace) его в настройках текущего [окружения](./concepts/workspace.md) {{ sd-name }} и воспользуйтесь инструкциями по [анализу данных](./operations/dspm/discovery-mode.md), [созданию источника данных](./operations/dspm/create-data-source.md) и [созданию сканирования](./operations/dspm/create-scan.md) информации.
 
-Подробнее см. в разделе [{#T}](./concepts/dspm.md).
+Подробнее в разделе [{#T}](./concepts/dspm.md).
 
 ### Контроль {{ k8s }} ({{ kspm-name }}) {#kspm}
 
@@ -70,7 +70,7 @@ description: В данном разделе описано, как начать 
 
 ### Диагностика доступов ({{ ciem-name }}) {#ciem}
 
-[Диагностика доступов]({{ link-sd-main }}iam-diagnostics/) {{ sd-name }} — это инструмент, позволяющий централизованно [просматривать](./operations/ciem/view-permissions.md) полный список доступов [субъектов](../iam/concepts/access-control/index.md#subject): [пользователей](../overview/roles-and-resources.md#users), [сервисных аккаунтов](../iam/concepts/users/service-accounts.md), [групп пользователей](../organization/concepts/groups.md), [системных групп](../iam/concepts/access-control/system-group.md) и [публичных групп](../iam/concepts/access-control/public-group.md) к [ресурсам](../iam/concepts/access-control/resources-with-access-control.md) организации. Этот инструмент также позволяет легко [отзывать](./operations/ciem/revoke-permissions.md) у субъектов лишние доступы. Подробнее см. в разделе [{#T}](./concepts/ciem.md).
+[Диагностика доступов]({{ link-sd-main }}iam-diagnostics/) {{ sd-name }} — это инструмент, позволяющий централизованно [просматривать](./operations/ciem/view-permissions.md) полный список доступов [субъектов](../iam/concepts/access-control/index.md#subject): [пользователей](../overview/roles-and-resources.md#users), [сервисных аккаунтов](../iam/concepts/users/service-accounts.md), [групп пользователей](../organization/concepts/groups.md), [системных групп](../iam/concepts/access-control/system-group.md) и [публичных групп](../iam/concepts/access-control/public-group.md) к [ресурсам](../iam/concepts/access-control/resources-with-access-control.md) организации. Этот инструмент также позволяет легко [отзывать](./operations/ciem/revoke-permissions.md) у субъектов лишние доступы. Подробнее в разделе [{#T}](./concepts/ciem.md).
 
 Чтобы начать работать с модулем {{ ciem-name }}, воспользуйтесь инструкциями по [просмотру](./operations/ciem/view-permissions.md) и [отзыву](./operations/ciem/revoke-permissions.md) доступов.
 
@@ -88,7 +88,7 @@ description: В данном разделе описано, как начать 
 
 Сканирование может запускаться автоматически при загрузке образа в реестр, по расписанию или при использовании образа в кластере {{ k8s }}. Модуль интегрирован с {{ kspm-name }} для определения запущенных образов и отображения информации о том, какие образы с уязвимостями используются в проверяемом окружении.
 
-Подробнее см. в разделе [{#T}](./concepts/vulnerability-management.md).
+Подробнее в разделе [{#T}](./concepts/vulnerability-management.md).
 
 ### {{ atr-name }} {#access-transparency}
 
@@ -98,7 +98,7 @@ description: В данном разделе описано, как начать 
 
 {% include [access-transparency-attach-ba-notice](../_includes/security-deck/access-transparency-attach-ba-notice.md) %}
 
-Подробнее см. в разделе [{#T}](./concepts/access-transparency.md).
+Подробнее в разделе [{#T}](./concepts/access-transparency.md).
 
 ### Портал соответствия требованиям {#compliance}
 
@@ -106,7 +106,7 @@ description: В данном разделе описано, как начать 
 
 Здесь вы можете как скачать публичные документы, так и запросить документы, содержащие конфиденциальные данные и доступные по запросу.
 
-Подробнее см. в разделе [{#T}](./concepts/compliance.md).
+Подробнее в разделе [{#T}](./concepts/compliance.md).
 
 ## Что дальше {#whats-next}
 

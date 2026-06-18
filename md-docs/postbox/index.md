@@ -22,6 +22,8 @@ Cloud Postbox позволяет не тратить бюджет и время 
 
  - [Шаблонизация письма](operations/send-templated-email.md)
 
+ - [Массовая отправка писем](operations/send-bulk-email.md)
+
  - [Создание конфигурации](operations/create-configuration.md)
 
  - [Привязка конфигурации к адресу](operations/bind-configuration.md)
@@ -97,6 +99,8 @@ Cloud Postbox позволяет не тратить бюджет и время 
  - [Все методы](aws-compatible-api/api-ref/index.md)
 
  - [Отправка писем](aws-compatible-api/api-ref/send-email.md)
+
+ - [Массовая отправка писем](aws-compatible-api/api-ref/send-bulk-email.md)
 
 #### Адреса
 

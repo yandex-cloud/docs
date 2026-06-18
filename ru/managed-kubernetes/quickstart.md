@@ -60,7 +60,7 @@ description: В этой инструкции вы создадите класт
    * Задайте маску подсети узлов {{ managed-k8s-name }} и максимальное количество подов в узле.
 1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-Подробнее см. в [пошаговой инструкции по созданию кластера {{ managed-k8s-name }}](operations/kubernetes-cluster/kubernetes-cluster-create.md).
+Подробнее в [пошаговой инструкции по созданию кластера {{ managed-k8s-name }}](operations/kubernetes-cluster/kubernetes-cluster-create.md).
 
 ## Создайте группу узлов {#node-group-create}
 
@@ -89,7 +89,7 @@ description: В этой инструкции вы создадите класт
      * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}` — сетевой диск с повышенной производительностью, реализованной за счет устранения избыточности. Размер такого диска можно менять только с шагом 93 ГБ.
      * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-io-m3 }}` — обладает теми же скоростными характеристиками, что и `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`, и одновременно обеспечивает избыточность. Размер такого диска можно менять только с шагом 93 ГБ.
 
-     Подробнее о типах дисков см. в [документации {{ compute-full-name }}](../compute/concepts/disk.md#disks_types).
+     Подробнее о типах дисков читайте в [документации {{ compute-full-name }}](../compute/concepts/disk.md#disks_types).
    * Укажите размер дисков для узлов группы {{ managed-k8s-name }}.
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
    * В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** выберите способ назначения IP-адреса:
@@ -114,7 +114,7 @@ description: В этой инструкции вы создадите класт
    * **{{ ui-key.yacloud.compute.instances.create.field_key }}** — вставьте содержимое файла [публичного ключа](operations/node-connect-ssh.md#creating-ssh-keys).
 1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-Подробнее см. в [пошаговой инструкции по созданию группы узлов {{ managed-k8s-name }}](operations/node-group/node-group-create.md).
+Подробнее в [пошаговой инструкции по созданию группы узлов {{ managed-k8s-name }}](operations/node-group/node-group-create.md).
 
 ## Добавьте учетные данные в конфигурационный файл kubectl {#add-conf}
 

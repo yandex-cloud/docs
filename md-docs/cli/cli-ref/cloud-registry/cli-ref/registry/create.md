@@ -20,7 +20,7 @@ Name of the registry ||
 Registry description ||
 || `--registry-kind` | `string`
 
-Registry kind Values: 'maven', 'npm', 'docker', 'nuget', 'debian', 'pypi', 'binary' ||
+Registry kind Values: 'maven', 'npm', 'docker', 'nuget', 'debian', 'pypi', 'binary', 'go' ||
 || `--registry-type` | `string`
 
 Registry type Values: 'local', 'remote', 'virtual', 'transitional' ||

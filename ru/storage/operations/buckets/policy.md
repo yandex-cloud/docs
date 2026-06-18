@@ -9,7 +9,7 @@ description: Следуя данной инструкции, вы научите
 
 [Политики доступа (bucket policy)](../../concepts/policy.md) устанавливают права на действия с [бакетами](../../concepts/bucket.md), [объектами](../../concepts/object.md) и группами объектов.
 
-Образцы политик доступа для решения конкретных задач см. в подразделе [Примеры конфигураций](../../concepts/policy.md#config-examples).
+Образцы политик доступа для решения конкретных задач приведены в подразделе [Примеры конфигураций](../../concepts/policy.md#config-examples).
 
 
 {% note warning %}
@@ -271,7 +271,7 @@ description: Следуя данной инструкции, вы научите
 
      {% include [s3-policy-tf-params](../../../_includes/storage/s3-policy-tf-params.md) %}
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket_policy` см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket_policy).
+     Более подробная информация о параметрах ресурса `yandex_storage_bucket_policy` приведена в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket_policy).
 
   1. Примените изменения:
 
@@ -316,7 +316,7 @@ description: Следуя данной инструкции, вы научите
 
      {% include [s3-policy-tf-params](../../../_includes/storage/s3-policy-tf-params.md) %}
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
+     Более подробная информация о параметрах ресурса `yandex_storage_bucket` приведена в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Примените изменения:
 

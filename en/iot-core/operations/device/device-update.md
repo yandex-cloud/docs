@@ -15,7 +15,7 @@ To access a device, use its unique ID or name. For information about how to get 
    To update the name of a device:
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the device name in.
-   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
    1. To the right of the device name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
@@ -111,7 +111,7 @@ To access a device, use its unique ID or name. For information about how to get 
    To update the description of a device:
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the device description in.
-   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
    1. To the right of the device name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.

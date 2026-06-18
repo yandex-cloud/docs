@@ -82,7 +82,7 @@ Yandex Managed Service for ClickHouse® можно использовать ка
       * `<идентификатор_кластера>` — идентификатор кластера.
       * `--rollup-file-name` — путь к `graphite-rollup.yaml`.
 
-      Подробнее о команде `managed-clickhouse cluster add-graphite-rollup` см. в [справочнике CLI](../../cli/cli-ref/managed-clickhouse/cli-ref/cluster/add-graphite-rollup.md).
+      Подробнее о команде `managed-clickhouse cluster add-graphite-rollup` смотрите в [справочнике CLI](../../cli/cli-ref/managed-clickhouse/cli-ref/cluster/add-graphite-rollup.md).
 
 - API {#api}
   
@@ -220,7 +220,7 @@ Yandex Managed Service for ClickHouse® можно использовать ка
     sudo systemctl start graphite-clickhouse
     ```
 
-    Подробнее о настройке Graphite см. в [документации](https://graphite.readthedocs.io/en/latest/index.html). 
+    Подробнее о настройке Graphite смотрите в [документации](https://graphite.readthedocs.io/en/latest/index.html). 
 
 ## Как удалить созданные ресурсы {#clear-out}
 
@@ -229,7 +229,7 @@ Yandex Managed Service for ClickHouse® можно использовать ка
 1. Удалите все таблицы, которые используют эту конфигурацию.
 1. Используйте команду `yc managed-clickhouse cluster remove-graphite-rollup`.
 
-Подробнее о команде см. в [справочнике CLI](../../cli/cli-ref/managed-clickhouse/cli-ref/cluster/remove-graphite-rollup.md).
+Подробнее о команде смотрите в [справочнике CLI](../../cli/cli-ref/managed-clickhouse/cli-ref/cluster/remove-graphite-rollup.md).
 
 {% note alert %}
 

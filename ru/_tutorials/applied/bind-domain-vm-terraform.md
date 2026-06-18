@@ -62,7 +62,7 @@
 
     {% endlist %}
 
-    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+    Подробнее о параметрах используемых ресурсов в {{ TF }} смотрите в документации провайдера:
 
     * [Сеть](../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
     * [Подсети](../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
@@ -76,7 +76,7 @@
 1. В файле `bind-domain-to-vm.auto.tfvars` задайте пользовательские параметры:
 
     * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-    * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ, например `~/.ssh/id_ed25519.pub`. Подробнее см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ, например `~/.ssh/id_ed25519.pub`. Подробнее в разделе [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
     * `domain_name` — имя вашего домена, например `example.com`.
 
 1. Создайте ресурсы:

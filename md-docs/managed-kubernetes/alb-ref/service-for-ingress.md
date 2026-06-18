@@ -8,7 +8,7 @@
 
 {% endnote %}
 
-`Service` — стандартный ресурс Kubernetes. Ниже описаны поля и аннотации ресурса, с которыми работают инструменты Application Load Balancer для Managed Service for Kubernetes. Полное описание конфигурации ресурса смотрите в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).
+`Service` — стандартный ресурс Kubernetes. Ниже описаны поля и аннотации ресурса, с которыми работают инструменты Application Load Balancer для Managed Service for Kubernetes. Полное описание конфигурации ресурса приведено в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).
 
 ## Service {#service}
 
@@ -83,7 +83,7 @@ annotations:
 
 # Аннотации
 
-Аннотации — это коллекция пар `ключ:значение`, которые используются для присвоения метаданных объекту. Значения аннотаций всегда имеют тип данных `string`. Подробнее об аннотациях смотрите в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
+Аннотации — это коллекция пар `ключ:значение`, которые используются для присвоения метаданных объекту. Значения аннотаций всегда имеют тип данных `string`. Подробнее об аннотациях читайте в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
 
 В Application Load Balancer аннотации используются в ресурсах `Service` только для настройки Ingress-контроллеров.
 

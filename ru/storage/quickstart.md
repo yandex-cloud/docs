@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Как начать работать с {{ objstorage-full-name }}
 
-В этом разделе вы научитесь работать с сервисом с помощью консоли управления {{ yandex-cloud }}. Инструкцию о работе с AWS CLI см. в документе [{#T}](./quickstart/quickstart-aws-cli.md).
+В этом разделе вы научитесь работать с сервисом с помощью консоли управления {{ yandex-cloud }}. Инструкцию о работе с AWS CLI читайте в документе [{#T}](./quickstart/quickstart-aws-cli.md).
 
 Чтобы начать работать с {{ objstorage-name }}:
 
@@ -74,3 +74,4 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](quickstart/quickstart-aws-cli.md)
 * [Как начать работать с AWS S3 API в {{ objstorage-full-name }}](./s3/s3-api-quickstart.md)
 * [Вебинар: как с помощью Cloud CDN разгрузить высоконагруженную инфраструктуру](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)
+

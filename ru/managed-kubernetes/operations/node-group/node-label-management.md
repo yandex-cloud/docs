@@ -137,7 +137,7 @@
 
      1. Откройте актуальный конфигурационный файл с описанием группы узлов {{ managed-k8s-name }}.
 
-        О том, как создать такой файл, см. в разделе [{#T}](node-group-create.md).
+        О том, как создать такой файл, читайте в разделе [{#T}](node-group-create.md).
      1. Добавьте к описанию группы узлов {{ managed-k8s-name }} параметр `node_labels`:
 
         ```hcl
@@ -162,7 +162,7 @@
 
         {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
 
-        Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+        Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
    - API {#api}
 
@@ -264,7 +264,7 @@
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов {{ managed-k8s-name }}.
 
-     О том, как создать такой файл, см. в разделе [{#T}](node-group-create.md).
+     О том, как создать такой файл, читайте в разделе [{#T}](node-group-create.md).
 
   1. В описании группы узлов добавьте блок `node_labels`:
 
@@ -291,7 +291,7 @@
 
      {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
 
-     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+     Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
 
@@ -337,7 +337,7 @@
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов {{ managed-k8s-name }}.
 
-     О том, как создать такой файл, см. в разделе [{#T}](node-group-create.md).
+     О том, как создать такой файл, читайте в разделе [{#T}](node-group-create.md).
 
   1. Удалите из описания группы узлов ненужные {{ k8s }}-метки в блоке `node_labels`.
 
@@ -351,7 +351,7 @@
 
      {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
 
-     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+     Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
 

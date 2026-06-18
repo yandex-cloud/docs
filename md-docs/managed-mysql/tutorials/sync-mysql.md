@@ -106,7 +106,7 @@
    * Подсеть — `default-ru-central1-d`.
 
 1. Нажмите кнопку **Создать кластер**.
-Подробнее о создании кластера см. раздел [Как начать работать с Managed Service for MySQL®](../quickstart.md#cluster-create.md).
+Подробнее о создании кластера смотрите в разделе [Как начать работать с Managed Service for MySQL®](../quickstart.md#cluster-create.md).
 
 ## Настройте параметры трансфера {#create-transfer}
 

@@ -34,7 +34,7 @@
 
 Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
 Чтобы разместить в группе ВМ отказоустойчивый сайт с балансировкой нагрузки через Application Load Balancer с помощью Terraform:
 1. [Установите Terraform](../../infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
@@ -386,7 +386,7 @@ Terraform распространяется под лицензией [Business S
 
    {% endlist %}
 
-   Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+   Подробнее о параметрах используемых ресурсов в Terraform смотрите в документации провайдера:
    * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../../terraform/resources/iam_service_account.md).
    * [Роль](../../../iam/concepts/access-control/roles.md) — [yandex_resourcemanager_folder_iam_member](../../../terraform/resources/resourcemanager_folder_iam_member.md).
    * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../../terraform/resources/vpc_network.md).
@@ -404,7 +404,7 @@ Terraform распространяется под лицензией [Business S
 1. В файле `application-load-balancer-website.auto.tfvars` задайте пользовательские параметры:
     * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
     * `vm_user` — имя пользователя ВМ.
-    * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [Создание пары ключей SSH](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее в разделе [Создание пары ключей SSH](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
     * `domain` — название домена, например `alb-example.com`.
 
 1. Создайте ресурсы:

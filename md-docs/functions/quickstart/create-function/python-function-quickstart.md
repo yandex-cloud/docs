@@ -98,7 +98,7 @@
     1. Перейдите в сервис **Cloud Functions**.
     1. Выберите функцию `python-function`.
     1. В разделе **Последняя версия** нажмите кнопку **Создать в редакторе**.
-    1. Выберите среду выполнения `Python 3.12`.
+    1. Выберите среду выполнения `Python 3.14`.
     1. Отключите опцию **Добавить файлы с примерами кода** и нажмите кнопку **Продолжить**.
     1. Задайте параметры версии:
         * **Источник кода** — `ZIP-архив`.
@@ -120,7 +120,7 @@
     ```bash
     yc serverless function version create \
       --function-name=python-function \
-      --runtime python312 \
+      --runtime python314 \
       --entrypoint hello.handler \
       --memory 128m \
       --execution-timeout 3s \
@@ -143,7 +143,7 @@
     id: d4evvn8obisa********
     function_id: d4elpv8pft63********
     created_at: "2023-08-16T19:09:19.531Z"
-    runtime: python312
+    runtime: python314
     entrypoint: hello.handler
     resources:
         memory: "134217728"

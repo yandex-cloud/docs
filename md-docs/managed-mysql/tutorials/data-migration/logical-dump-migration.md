@@ -43,7 +43,7 @@
 
         * Версия MySQL® должна быть не ниже чем в кластере-источнике.
 
-            Перенос данных с повышением мажорной версии MySQL® возможен, но не гарантируется. Подробнее см. в [документации MySQL®](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
+            Перенос данных с повышением мажорной версии MySQL® возможен, но не гарантируется. Подробнее в [документации MySQL®](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
 
             Миграция с понижением версии MySQL® [невозможна](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html).
 

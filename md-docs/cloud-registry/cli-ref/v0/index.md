@@ -12,6 +12,8 @@ Syntax:
 
 - [yc cloud-registry v0 configure-docker](configure-docker.md) — 
 
+- [yc cloud-registry v0 tools](tools.md) — Tools for specific artifact kinds
+
 - [yc cloud-registry v0 artifact](artifact/index.md) — [PREVIEW] Manage artifacts
 
   - [yc cloud-registry v0 artifact add-access-binding](artifact/add-access-binding.md) — Add access binding for the specified artifact

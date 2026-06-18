@@ -42,7 +42,7 @@
 
 Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../../terraform/index.md).
+Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../../terraform/index.md).
 
 Чтобы создайть инфраструктуру с помощью Terraform:
 
@@ -296,7 +296,7 @@ Terraform распространяется под лицензией [Business S
 
     {% endlist %}
 
-    Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+    Подробнее о параметрах используемых ресурсов в Terraform смотрите в документации провайдера:
 
     * [Сервисный аккаунт](../../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../../../terraform/resources/iam_service_account.md)
     * [Статический ключ доступа](../../../../iam/concepts/authorization/access-key.md) — [yandex_iam_service_account_static_access_key](../../../../terraform/resources/iam_service_account_static_access_key.md)
@@ -460,7 +460,7 @@ Terraform распространяется под лицензией [Business S
 
 ## Настройте коллектор KUMA {#setup-collector}
 
-На этом шаге вам понадобятся файлы дистрибутива и лицензии, входящие в комплект поставки KUMA. Используйте их, чтобы установить и настроить коллектор в сетевой инфраструктуре KUMA. Подробнее см. в [инструкции](https://support.kaspersky.com/help/KUMA/3.2/ru-RU/220708.htm).
+На этом шаге вам понадобятся файлы дистрибутива и лицензии, входящие в комплект поставки KUMA. Используйте их, чтобы установить и настроить коллектор в сетевой инфраструктуре KUMA. Подробнее в [инструкции](https://support.kaspersky.com/help/KUMA/3.2/ru-RU/220708.htm).
 
 После успешного завершения настройки аудитные события начнут поставляться в KUMA. Веб-интерфейс KUMA позволяет выполнять [поиск связанных событий](https://support.kaspersky.com/help/KUMA/3.2/ru-RU/217989.htm).
 

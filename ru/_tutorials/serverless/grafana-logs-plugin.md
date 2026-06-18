@@ -50,7 +50,7 @@
    allow_loading_unsigned_plugins = yandexcloud-logging-datasource
    ```
 
-   Подробнее о загрузке плагинов без подписи см. в [документации {{ grafana-name }}](https://grafana.com/docs/grafana/latest/administration/plugin-management/#allow-unsigned-plugins).
+   Подробнее о загрузке плагинов без подписи смотрите в [документации {{ grafana-name }}](https://grafana.com/docs/grafana/latest/administration/plugin-management/#allow-unsigned-plugins).
 
 1. Перезапустите сервер {{ grafana-name }}:
 
@@ -153,7 +153,7 @@
      * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md). Необязательный параметр. По умолчанию будет использовано значение, указанное в настройках провайдера.
      * `role` — назначаемая роль.
 
-     Более подробную информацию о параметрах ресурса `yandex_iam_service_account` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account).
+     Подробнее о параметрах ресурса `yandex_iam_service_account` в {{ TF }} смотрите в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -237,7 +237,7 @@
 
      * `service_account_id` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта. Обязательный параметр.
      * `description` — описание ключа. Необязательный параметр.
-     * `key_algorithm` — алгоритм генерации ключа. Необязательный параметр. По умолчанию используется алгоритм `RSA_2048`. Допустимые значения параметра см. в [документации API](../../iam/api-ref/Key/index.md).
+     * `key_algorithm` — алгоритм генерации ключа. Необязательный параметр. По умолчанию используется алгоритм `RSA_2048`. Допустимые значения параметра смотрите в [документации API](../../iam/api-ref/Key/index.md).
 
      Пример структуры конфигурационного файла:
 
@@ -249,7 +249,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_key).
+     Подробнее о ресурсах, которые вы можете создать с помощью {{ TF }}, смотрите в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_key).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -382,7 +382,7 @@
      * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
      * `retention_period` — срок хранения записей в лог-группе.
 
-     Более подробную информацию о параметрах ресурса `yandex_logging_group` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/logging_group).
+     Подробнее о параметрах ресурса `yandex_logging_group` в {{ TF }} смотрите в [документации провайдера]({{ tf-provider-resources-link }}/logging_group).
 
   1. Проверьте корректность конфигурационных файлов.
 

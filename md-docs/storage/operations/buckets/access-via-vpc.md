@@ -103,7 +103,7 @@
         --name <имя_сервисного_подключения> \
         --description "<описание_сервисного_подключения>" \
         --network-name <имя_сети> \
-        --object-storage 
+        --service-name yandex.cloud.storage 
       ```
   
       Где:
@@ -111,7 +111,7 @@
       * `--name` — (опционально) имя сервисного подключения.
       * `--description` — (опционально) описание сервисного подключения.
       * `--network-name` — имя [облачной сети](../../../vpc/concepts/network.md#network), в которой будет создано сервисное подключение. Также вы можете использовать [идентификатор сети](../../../vpc/operations/network-get-info.md) в параметре `--network-id`.
-      * `--object-storage` — сервисное подключение к Object Storage. Другие типы сервисных подключений пока не доступны.
+      * `--service-name` — [тип сервисного подключения](../../../vpc/concepts/private-endpoint.md#pe-services). В данном примере это `yandex.cloud.storage` — Object Storage.
   
       При создании сервисного подключения можно использовать дополнительные параметры:
   
@@ -167,7 +167,7 @@
   
   Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
   
   Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
@@ -181,10 +181,8 @@
        name        = "<имя_сервисного_подключения>"
        description = "<описание_сервисного_подключения>"
        network_id  = "<идентификатор_облачной_сети>"
+       service_type = "yandex.cloud.storage"
        
-       # Сервисное подключение к Object Storage
-       object_storage {}
-  
        # Создание дополнительных ресурсных DNS-записей 
        dns_options {
          private_dns_records_enabled = <true_или_false>
@@ -200,7 +198,7 @@
      * `name` — имя сервисного подключения. Необязательный параметр.
      * `description` — описание сервисного подключения. Необязательный параметр.
      * `network_id` — имя [облачной сети](../../../vpc/concepts/network.md#network), в которой будет создано сервисное подключение. Обязательный параметр.
-     * `object_storage` — сервисное подключение к Object Storage. Другие типы сервисных подключений пока не доступны.
+     * `service_type` — [тип сервисного подключения](../../../vpc/concepts/private-endpoint.md#pe-services). В данном примере `yandex.cloud.storage` — Object Storage.
      * `dns_options` — блок с параметрами создания DNS-записей:
          * `private_dns_records_enabled` — параметр для создания дополнительных ресурсных записей в DNS для переопределения публичного FQDN сервиса, к которому создается подключение. Необязательный параметр.
   
@@ -433,7 +431,7 @@
   
   Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  По умолчанию для аутентификации в Object Storage Terraform использует IAM-токен. Кроме IAM-токена для аутентификации в Object Storage можно использовать сервисный аккаунт и статические ключи доступа. Более подробную информацию об особенностях аутентификации Terraform в Object Storage смотрите в [документации провайдера](../../../terraform/resources/storage_bucket.md).
+  По умолчанию для аутентификации в Object Storage Terraform использует IAM-токен. Кроме IAM-токена, для аутентификации в Object Storage можно использовать сервисный аккаунт и статические ключи доступа. Более подробная информация об особенностях аутентификации Terraform в Object Storage приведена в [документации провайдера](../../../terraform/resources/storage_bucket.md).
 
   {% note info %}
   
@@ -472,7 +470,7 @@
      * `<имя_бакета>` — имя бакета в Object Storage, к которому нужно применить политику доступа, например `my-s3-bucket`.
      * `<идентификатор_подключения>` — идентификатор сервисного подключения (Private Endpoint), например `enpd7rq1s3f5********`.
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket_policy` смотрите в [документации провайдера](../../../terraform/resources/storage_bucket_policy.md).
+     Более подробная информация о параметрах ресурса `yandex_storage_bucket_policy` приведена в [документации провайдера](../../../terraform/resources/storage_bucket_policy.md).
 
   1. Примените изменения:
 

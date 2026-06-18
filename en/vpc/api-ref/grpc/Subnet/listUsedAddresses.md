@@ -25,7 +25,7 @@ List used addresses in specified subnet.
 ||Field | Description ||
 || subnet_id | **string**
 
-Required field.  ||
+This field is required. ||
 || page_size | **int64** ||
 || page_token | **string** ||
 || filter | **string** ||
@@ -67,7 +67,6 @@ Required field.  ||
 || address | **string** ||
 || ip_version | enum **IpVersion**
 
-- `IP_VERSION_UNSPECIFIED`
 - `IPV4`
 - `IPV6` ||
 || references[] | **[Reference](#yandex.cloud.reference.Reference)** ||
@@ -80,7 +79,6 @@ Required field.  ||
 || referrer | **[Referrer](#yandex.cloud.reference.Referrer)** ||
 || type | enum **Type**
 
-- `TYPE_UNSPECIFIED`
 - `MANAGED_BY`
 - `USED_BY` ||
 |#

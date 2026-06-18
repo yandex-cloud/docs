@@ -118,7 +118,7 @@
 
 ## Подготовьте скрипт для создания эфемерного ключа доступа {#prepare-script}
 
-Скрипт позволяет избежать необходимости обновлять эфемерный ключ в профиле AWS CLI после истечения срока действия ключа. Как управлять эфемерными ключами вручную — см. в документе [Управление эфемерными ключами доступа](../operations/authentication/manage-ephemeral-keys.md).
+Скрипт позволяет избежать необходимости обновлять эфемерный ключ в профиле AWS CLI после истечения срока действия ключа. Как управлять эфемерными ключами вручную смотрите в документе [Управление эфемерными ключами доступа](../operations/authentication/manage-ephemeral-keys.md).
 
 Чтобы создать эфемерный ключ доступа, пользователю необходима [роль](../security/index.md#iam-serviceAccounts-ephemeralAccessKeyAdmin) `iam.serviceAccounts.ephemeralAccessKeyAdmin` или выше на каталог.
 
@@ -210,7 +210,7 @@
   make_bucket: my-bucket
   ```
 
-  Подробности см. в документе [Создание бакета](../../storage/operations/buckets/create.md).
+  Подробности в документе [Создание бакета](../../storage/operations/buckets/create.md).
 
 {% endlist %}
 
@@ -256,7 +256,7 @@
       2025-10-03 09:45:12         23 test-file.txt
       ```
 
-  Подробности см. в документе [Загрузка объекта](../../storage/operations/objects/upload.md).
+  Подробности в документе [Загрузка объекта](../../storage/operations/objects/upload.md).
 
 {% endlist %}
 

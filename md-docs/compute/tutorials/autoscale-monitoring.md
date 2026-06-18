@@ -616,7 +616,7 @@
      
      * В поле `service_account_id` укажите идентификатор сервисного аккаунта `queue-autoscale-sa`.
      
-     Как получить идентификаторы ресурсов (кроме образа и сети), см. в шаге 3 раздела [Создайте образ с приложением](#create-image).
+     Как получить идентификаторы ресурсов (кроме образа и сети), описано в шаге 3 раздела [Создайте образ с приложением](#create-image).
      
   1. Создайте группу ВМ `queue-autoscale-ig` по спецификации:
   
@@ -672,7 +672,7 @@
        
      * В поле `service_account_id` укажите идентификатор сервисного аккаунта `queue-autoscale-sa`.
      
-     Как получить идентификаторы ресурсов (кроме образа и сети), см. в шаге 3 раздела [Создайте образ с приложением](#create-image).
+     Как получить идентификаторы ресурсов (кроме образа и сети), описано в шаге 3 раздела [Создайте образ с приложением](#create-image).
      
   1. Создайте группу ВМ `queue-autoscale-ig` по спецификации `spec.yaml` с помощью вызова gRPC API [InstanceGroupService/CreateFromYaml](../instancegroup/api-ref/grpc/InstanceGroup/createFromYaml.md) или метода REST API [createFromYaml](../instancegroup/api-ref/InstanceGroup/createFromYaml.md).
 

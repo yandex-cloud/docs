@@ -1,19 +1,19 @@
 ---
-title: Updating a container name
+title: Renaming a container
 description: Follow this guide to update a container name.
 ---
 
-# Updating a container name
+# Renaming a container
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder with your container.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder with your container.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container.
   1. Click **{{ ui-key.yacloud.common.edit }}**.
-  1. Rename the container. Follow these naming requirements:
+  1. Rename the container. The name format is as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -27,7 +27,7 @@ description: Follow this guide to update a container name.
 
   {% include [note](../../_includes/serverless-containers/sc-list-note.md) %}
 
-  To rename the container, run this command:
+  To rename a container, run this command:
 
   ```
   yc serverless container \
@@ -53,7 +53,7 @@ description: Follow this guide to update a container name.
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To update the name of a container created using {{ TF }}:
+  To rename a container created with {{ TF }}:
 
   1. Open the {{ TF }} configuration file and edit the `name` field value in the `yandex_serverless_container` resource description:
 
@@ -71,14 +71,14 @@ description: Follow this guide to update a container name.
      ...
      ```
 
-   For more information about `yandex_serverless_container` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/serverless_container).
+   For more information about `yandex_serverless_container` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
-  1. Check the configuration using this command:
+  1. Validate your configuration using this command:
      ```
      terraform validate
      ```
      
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
      
      ```
      Success! The configuration is valid.
@@ -89,9 +89,9 @@ description: Follow this guide to update a container name.
      terraform plan
      ```
   
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
      ```
      terraform apply
      ```

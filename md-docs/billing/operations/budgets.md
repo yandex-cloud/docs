@@ -63,7 +63,7 @@
 {% endlist %}
 
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создание триггера для бюджетов, который вызывает функцию Cloud Functions для остановки ВМ](../tutorials/serverless-trigger-budget-vm.md).
 * [Создание триггеров, которые вызывают функции Cloud Functions для остановки ВМ и отправки уведомлений в Telegram](../tutorials/serverless-trigger-budget-queue-vm-tg.md).

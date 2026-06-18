@@ -116,7 +116,7 @@
        * `kms_master_key_id` — идентификатор мастер ключа KMS, используемый для шифрования.
        * `sse_algorithm` — используемый алгоритм шифрования на стороне сервера. Поддерживается только значение `aws:kms`.
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform см. в [документации провайдера](../../../terraform/resources/storage_bucket.md).
+     Более подробная информация о параметрах ресурса `yandex_storage_bucket` в Terraform приведена в [документации провайдера](../../../terraform/resources/storage_bucket.md).
 
   1. Примените изменения:
 
@@ -173,7 +173,7 @@
   
   Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
   
   Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).

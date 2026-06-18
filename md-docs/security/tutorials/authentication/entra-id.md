@@ -358,7 +358,7 @@
 
          {% endnote %}
 
-      Подробнее см. в описаниях ресурсов [yandex_organizationmanager_group_mapping](../../../terraform/resources/organizationmanager_group_mapping.md) и [yandex_organizationmanager_group_mapping_item](../../../terraform/resources/organizationmanager_group_mapping_item.md) в документации провайдера Terraform.
+      Подробнее в описаниях ресурсов [yandex_organizationmanager_group_mapping](../../../terraform/resources/organizationmanager_group_mapping.md) и [yandex_organizationmanager_group_mapping_item](../../../terraform/resources/organizationmanager_group_mapping_item.md) в документации провайдера Terraform.
 
   1. Создайте ресурсы:
 

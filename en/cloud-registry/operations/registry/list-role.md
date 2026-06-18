@@ -10,7 +10,7 @@ description: Follow this guide to view roles assigned for a registry.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the registry is located.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
   1. Select the registry.
   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Find the required user, group, or [service account](../../../iam/concepts/users/service-accounts.md) in the list. Assigned roles are specified in the **{{ ui-key.yacloud_components.acl.resource-acl.label_bindings }}** column.

@@ -121,7 +121,7 @@
           * `description` — описание сервисного аккаунта. Необязательный параметр.
           * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md). Необязательный параметр. По умолчанию будет использовано значение, указанное в настройках провайдера.
 
-          Более подробную информацию о параметрах ресурса `yandex_iam_service_account` в Terraform, см. в [документации провайдера](../../terraform/resources/iam_service_account.md).
+          Подробнее о параметрах ресурса `yandex_iam_service_account` в Terraform смотрите в [документации провайдера](../../terraform/resources/iam_service_account.md).
     
       1. Проверьте корректность конфигурационных файлов.
 
@@ -194,7 +194,7 @@
           * `role` — назначаемая роль. Обязательный параметр.
           * `member` — пользователь или сервисный аккаунт, которому назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
 
-          Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` см. в [документации провайдера](../../terraform/resources/iam_service_account_iam_member.md).
+          Подробнее о параметрах ресурса `yandex_resourcemanager_folder_iam_member` смотрите в [документации провайдера](../../terraform/resources/iam_service_account_iam_member.md).
 
       1. Проверьте корректность конфигурационных файлов.
 

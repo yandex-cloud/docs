@@ -19,7 +19,7 @@
 
 ## Перед началом работы {#before-start}
 
-1. Установите на внешнем хосте, имеющем сетевой доступ к хосту MongoDB (см. [Предварительная настройка для подключения к кластеру Yandex StoreDoc](../../storedoc/operations/connect/index.md)), [утилиты](../../storedoc/operations/tools.md#monitoring-tools) получения данных о производительности MongoDB `mongostat` и `mongotop`.
+1. Установите на внешнем хосте, имеющем сетевой доступ к хосту MongoDB (смотрите [Предварительная настройка для подключения к кластеру Yandex StoreDoc](../../storedoc/operations/connect/index.md)), [утилиты](../../storedoc/operations/tools.md#monitoring-tools) получения данных о производительности MongoDB `mongostat` и `mongotop`.
 1. Определите, для каких баз данных нужно выявить проблемы.
 1. [Создайте пользователя](../../storedoc/operations/cluster-users.md#adduser) MongoDB с ролью [`mdbMonitor`](../../storedoc/concepts/users-and-roles.md#mdbMonitor) для этих баз. Это необходимо для использования утилит `mongostat` и `mongotop`.
 
