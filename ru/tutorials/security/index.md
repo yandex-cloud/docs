@@ -15,7 +15,9 @@ description: Различные сценарии использования по
 * [Запись логов балансировщика в {{ PG }}](logging.md)
 * [Безопасное хранение паролей для {{ GL }} CI в виде секретов {{ lockbox-full-name }}](gitlab-lockbox-integration.md)
 * [{#T}](static-key-in-lockbox/index.md)
+{% if audience == "draft" %}
 * [{#T}](static-key-leak-response.md)
+{% endif %}
 * [{#T}](sa-oslogin-ansible.md)
 * [{#T}](protected-access-to-content/index.md)
 * [{#T}](audit-trails-events-to-kuma/index.md)

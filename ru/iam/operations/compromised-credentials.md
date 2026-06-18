@@ -111,6 +111,10 @@ OAuth-токен можно отозвать. При этом IAM-токены, 
 1. Обеспечьте [управление секретами в облаке](../../security/standard/encryption.md).
 1. Обеспечьте [сбор, мониторинг и анализ аудитных логов](../../security/standard/audit-logs.md).
 
+{% if audience == "draft" %}
+
 #### См. также {#see-also}
 
 * [{#T}](../../tutorials/security/static-key-leak-response.md)
+
+{% endif %}
