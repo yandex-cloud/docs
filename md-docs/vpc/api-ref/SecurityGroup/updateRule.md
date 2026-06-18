@@ -14,10 +14,12 @@ PATCH https://vpc.api.cloud.yandex.net/vpc/v1/securityGroups/{securityGroupId}/r
 ||Field | Description ||
 || securityGroupId | **string**
 
-Required field. ID of the SecurityGroup to update rule in. ||
+Required field. ID of the SecurityGroup to update rule in.
+This field is required. ||
 || ruleId | **string**
 
-Required field. ID of the rule to update. ||
+Required field. ID of the rule to update.
+This field is required. ||
 |#
 
 ## Body parameters {#yandex.cloud.vpc.v1.UpdateSecurityGroupRuleRequest}
@@ -48,7 +50,6 @@ New description of the rule. ||
 || labels | **object** (map<**string**, **string**>)
 
 Rule labels as `key:value` pairs.
-
 Existing set of labels is completely replaced by the provided set, so if you just want
 to add or remove a label:
 1. Get the current set of labels with a [AddressService.Get](../Address/get.md#Get) request.
@@ -68,10 +69,7 @@ to add or remove a label:
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "securityGroupId": "string",
-    "ruleId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -80,30 +78,7 @@ to add or remove a label:
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "description": "string",
-    "labels": "object",
-    "direction": "string",
-    "ports": {
-      "fromPort": "string",
-      "toPort": "string"
-    },
-    "protocolName": "string",
-    "protocolNumber": "string",
-    // Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`
-    "cidrBlocks": {
-      "v4CidrBlocks": [
-        "string"
-      ],
-      "v6CidrBlocks": [
-        "string"
-      ]
-    },
-    "securityGroupId": "string",
-    "predefinedTarget": "string"
-    // end of the list of possible fields
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -145,7 +120,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateSecurityGroupRuleMetadata](#yandex.cloud.vpc.v1.UpdateSecurityGroupRuleMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -160,7 +135,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[SecurityGroupRule](#yandex.cloud.vpc.v1.SecurityGroupRule)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -175,18 +150,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateSecurityGroupRuleMetadata {#yandex.cloud.vpc.v1.UpdateSecurityGroupRuleMetadata}
-
-#|
-||Field | Description ||
-|| securityGroupId | **string**
-
-ID of the SecurityGroup that is being updated with new rules. ||
-|| ruleId | **string**
-
-ID of the rule that is being updated. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -204,75 +167,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## SecurityGroupRule {#yandex.cloud.vpc.v1.SecurityGroupRule}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the rule. ||
-|| description | **string**
-
-Description of the rule. 0-256 characters long. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
-|| direction | **enum** (Direction)
-
-Required field. The direction of network traffic allowed by this rule.
-
-- `DIRECTION_UNSPECIFIED`
-- `INGRESS`: Allows ingress traffic.
-- `EGRESS`: Allows egress traffic. ||
-|| ports | **[PortRange](#yandex.cloud.vpc.v1.PortRange)**
-
-The range of ports that allow traffic to pass through. Null value means any. ||
-|| protocolName | **string**
-
-Protocol name. Null value means any protocol.
-Values from [IANA](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml). ||
-|| protocolNumber | **string** (int64)
-
-Protocol number from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml). ||
-|| cidrBlocks | **[CidrBlocks](#yandex.cloud.vpc.v1.CidrBlocks)**
-
-CIDR blocks to allow to recieve or send traffic.
-
-Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`. ||
-|| securityGroupId | **string**
-
-ID of the security group to add rule to.
-
-Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`. ||
-|| predefinedTarget | **string**
-
-Predefined target. See [security groups rules](../../concepts/security-groups.md#security-groups-rules) for more information.
-
-Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`. ||
-|#
-
-## PortRange {#yandex.cloud.vpc.v1.PortRange}
-
-#|
-||Field | Description ||
-|| fromPort | **string** (int64)
-
-The lowest port in the range. ||
-|| toPort | **string** (int64)
-
-The highest port in the range. ||
-|#
-
-## CidrBlocks {#yandex.cloud.vpc.v1.CidrBlocks}
-
-#|
-||Field | Description ||
-|| v4CidrBlocks[] | **string**
-
-IPv4 CIDR blocks to allow traffic to. ||
-|| v6CidrBlocks[] | **string**
-
-IPv6 CIDR blocks to allow traffic to. ||
 |#

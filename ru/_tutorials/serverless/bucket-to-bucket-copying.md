@@ -162,7 +162,7 @@
       * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md). Необязательный параметр. По умолчанию будет использовано значение, указанное в настройках провайдера.
       * `role` — назначаемая роль.
 
-      Более подробную информацию о параметрах ресурса `yandex_iam_service_account` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account).
+      Подробнее о параметрах ресурса `yandex_iam_service_account` в {{ TF }} смотрите в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -250,7 +250,7 @@
 
       Где `service_account_id` — идентификатор сервисного аккаунта `s3-copy-fn`.
 
-      Более подробную информацию о параметрах ресурса `yandex_iam_service_account_static_access_key` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
+      Подробнее о параметрах ресурса `yandex_iam_service_account_static_access_key` в {{ TF }} смотрите в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -375,7 +375,7 @@
 
       {% include [secret-version-tf-note](../../_includes/lockbox/secret-version-tf-note.md) %}
 
-      Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+      Подробнее о параметрах используемых ресурсов в {{ TF }} смотрите в документации провайдера:
 
       * [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret);
       * [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version).
@@ -472,7 +472,7 @@
       }
       ```
 
-      Подробнее о ресурсе `yandex_storage_bucket` см. в [документации]({{ tf-provider-resources-link }}/storage_bucket) провайдера {{ TF }}.
+      Подробнее о ресурсе `yandex_storage_bucket` смотрите в [документации]({{ tf-provider-resources-link }}/storage_bucket) провайдера {{ TF }}.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -689,7 +689,7 @@
       * `secrets` — секрет, содержащий части статического ключа доступа.
       * `content` — путь до ZIP-архива `handler-sh.zip` c исходным кодом функции.
 
-      Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-resources-link }}/function).
+      Подробнее о параметрах ресурса `yandex_function` смотрите в [документации провайдера]({{ tf-provider-resources-link }}/function).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -822,7 +822,7 @@
           * `id` — идентификатор функции `copy-function`.
           * `service_account_id` — идентификатор сервисного аккаунта `s3-copy-trigger`.
 
-      Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
+      Подробнее о параметрах ресурсов в {{ TF }} смотрите в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -879,3 +879,4 @@
 1. [Удалите](../../storage/operations/buckets/delete.md) бакеты.
 1. [Удалите](../../functions/operations/trigger/trigger-delete.md) триггер `bucket-to-bucket-copying`.
 1. [Удалите](../../functions/operations/function/function-delete.md) функцию `copy-function`.
+

@@ -115,4 +115,4 @@
     {% endlist %}
 
 
-Основную документацию по работе с Data Streams через Kafka API и больше примеров см. в [документации YDB](https://ydb.tech/docs/ru//reference/kafka-api).
+Основную документацию по работе с Data Streams через Kafka API и больше примеров читайте в [документации YDB](https://ydb.tech/docs/ru//reference/kafka-api).

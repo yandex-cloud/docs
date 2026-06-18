@@ -926,9 +926,15 @@ items:
       - name: Алиса
         items:
           - name: Создание навыка Алисы
-            href: serverless/alice-skill.md
+            items:
+              - name: Обзор
+                href: applied/alice-skill/index.md
+              - name: Консоль управления, CLI и API
+                href: applied/alice-skill/console.md
+              - name: '{{ TF }}'
+                href: applied/alice-skill/terraform.md
           - name: Разработка навыка Алисы и сайта с авторизацией
-            href: serverless/alice-shareable-todolist.md
+            href: applied/alice-shareable-todolist.md
       - name: Прочее
         items:
           - name: Публикация обновлений для игр с помощью {{ cdn-name }}
@@ -1855,7 +1861,13 @@ items:
           - name: Защита {{ api-gw-name }} при помощи {{ sws-name }}
             href: serverless/api-gw-sws-integration.md
           - name: Создание навыка Алисы
-            href: serverless/alice-skill.md
+            items:
+              - name: Обзор
+                href: serverless/alice-skill/index.md
+              - name: Консоль управления, CLI и API
+                href: serverless/alice-skill/console.md
+              - name: '{{ TF }}'
+                href: serverless/alice-skill/terraform.md
           - name: Разработка навыка Алисы и сайта с авторизацией
             href: serverless/alice-shareable-todolist.md
           - name: >-

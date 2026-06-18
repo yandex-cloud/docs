@@ -12,7 +12,7 @@
 
 Вы можете изменить политику обновления [кластера Managed Service for Kubernetes](#cluster-auto-upgrade) или [группы узлов](#node-group-auto-upgrade) в любое время.
 
-Подробнее см. в разделе [Релизные каналы](../concepts/release-channels-and-updates.md).
+Подробнее в разделе [Релизные каналы](../concepts/release-channels-and-updates.md).
 
 {% note tip %}
 
@@ -123,7 +123,7 @@
 
   1. Откройте актуальный конфигурационный файл с описанием кластера Managed Service for Kubernetes.
 
-     Как создать такой файл, см. в разделе [Создание кластера Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-create.md).
+     О том, как создать такой файл, читайте в разделе [Создание кластера Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-create.md).
   1. Измените параметры автоматического обновления в описании кластера Managed Service for Kubernetes.
 
      {% note info %}
@@ -249,7 +249,7 @@
      
      {% endnote %}
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/kubernetes_cluster.md).
+  Подробнее в [документации провайдера Terraform](../../terraform/resources/kubernetes_cluster.md).
 
 - API {#api}
 
@@ -362,7 +362,7 @@
 
   1. Откройте актуальный конфигурационный файл с описанием кластера Managed Service for Kubernetes.
 
-     О том, как создать такой файл, см. в разделе [Создание кластера Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-create.md).
+     О том, как создать такой файл, читайте в разделе [Создание кластера Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-create.md).
   1. Измените версию в описании кластера Managed Service for Kubernetes:
 
      ```hcl
@@ -431,7 +431,7 @@
      
      {% endnote %}
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/kubernetes_cluster.md).
+  Подробнее в [документации провайдера Terraform](../../terraform/resources/kubernetes_cluster.md).
 
 - API {#api}
 
@@ -563,7 +563,7 @@
 
   1. Откройте актуальный конфигурационный файл с описанием группы узлов Managed Service for Kubernetes.
 
-     О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group/node-group-create.md).
+     О том, как создать такой файл, читайте в разделе [Создание группы узлов](node-group/node-group-create.md).
   1. Измените параметры автоматического обновления в описании группы узлов Managed Service for Kubernetes.
 
      {% note info %}
@@ -723,7 +723,7 @@
      
      {% endnote %}
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/kubernetes_node_group.md).
+  Подробнее в [документации провайдера Terraform](../../terraform/resources/kubernetes_node_group.md).
 
 - API {#api}
 
@@ -865,7 +865,7 @@
 
   1. Откройте актуальный конфигурационный файл с описанием группы узлов Managed Service for Kubernetes.
 
-     О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group/node-group-create.md).
+     О том, как создать такой файл, читайте в разделе [Создание группы узлов](node-group/node-group-create.md).
   1. Измените версию в описании группы узлов Managed Service for Kubernetes:
 
      ```hcl
@@ -935,7 +935,7 @@
      
      {% endnote %}
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/kubernetes_node_group.md).
+  Подробнее в [документации провайдера Terraform](../../terraform/resources/kubernetes_node_group.md).
 
 - API {#api}
 

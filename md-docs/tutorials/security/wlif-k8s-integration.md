@@ -6,7 +6,7 @@
 
 {% note info %}
 
-В руководстве представлен пример интеграции пользовательской инсталляции Kubernetes с федерацией сервисных аккаунтов. Руководство по интеграции Managed Service for Kubernetes см. на странице [Доступ к API Yandex Cloud из кластера Managed Service for Kubernetes с помощью федерации сервисных аккаунтов Identity and Access Management](wlif-managed-k8s-integration.md).
+В руководстве представлен пример интеграции пользовательской инсталляции Kubernetes с федерацией сервисных аккаунтов. Руководство по интеграции Managed Service for Kubernetes смотрите на странице [Доступ к API Yandex Cloud из кластера Managed Service for Kubernetes с помощью федерации сервисных аккаунтов Identity and Access Management](wlif-managed-k8s-integration.md).
 
 {% endnote %}
 
@@ -317,7 +317,7 @@
 * [бакет Object Storage](../../storage/operations/buckets/delete.md);
 * [сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-## Смотрите также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Федерации сервисных аккаунтов](../../iam/concepts/workload-identity.md)
 * [Доступ к API Yandex Cloud из кластера Managed Service for Kubernetes с помощью федерации сервисных аккаунтов Identity and Access Management](wlif-managed-k8s-integration.md)

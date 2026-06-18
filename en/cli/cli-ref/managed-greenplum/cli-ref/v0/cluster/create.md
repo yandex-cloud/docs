@@ -99,9 +99,9 @@ ID of the service account used for access Yandex Cloud resources. ||
 || `--websql-access` | Allow access for Web SQL. ||
 || `--datatransfer-access` | Allow access for DataTransfer. ||
 || `--yandexquery-access` | Allow access for Yandex Query. ||
-|| `--greenplum-version` | `string`
+|| `--version` | `string`
 
-Version of Greenplum used in the cluster. Values specific version or "default" ||
+Version of Greenplum or Cloudberry used in the cluster. Values specific version or "default" ||
 || `--zone-id` | `string`
 
 ID of the availability zone where the host resides. ||

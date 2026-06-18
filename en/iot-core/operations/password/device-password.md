@@ -25,7 +25,7 @@ You can add a password to an already created device or set it when creating a de
    To add a password to an existing device:
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to add a password for an existing device.
-   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the registry with the required device from the list.
    1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
    1. Select the device from the list.
@@ -200,7 +200,7 @@ You can add a password to an already created device or set it when creating a de
    To view the list of device passwords:
 
    1. In the [management console]({{ link-console-main }}), select the folder to get the list of device passwords for.
-   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the registry with the required device from the list.
    1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
    1. Select the device from the list.
@@ -261,7 +261,7 @@ You can add a password to an already created device or set it when creating a de
    To delete a device password:
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete a device password from.
-   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the registry with the required device from the list.
    1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
    1. Select the device from the list.

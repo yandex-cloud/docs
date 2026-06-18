@@ -180,7 +180,7 @@
 * [секрет {{ lockbox-name }}](../../lockbox/operations/secret-delete.md);
 * [сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-## Смотрите также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../../tutorials/security/gitlab-lockbox-integration.md);
 * [{#T}](../../tutorials/security/wlif-github-integration.md).

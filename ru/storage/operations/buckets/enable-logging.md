@@ -122,7 +122,7 @@ description: Следуя данной инструкции, вы сможете
         * `target_bucket` — указание на бакет для хранения логов.
         * `target_prefix` — [префикс ключа](../../concepts/server-logs.md#key-prefix) для объектов с логами, например `logs/`.
 
-        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+        Более подробная информация о параметрах ресурса `yandex_storage_bucket` в {{ TF }} приведена в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
 
      1. Примените изменения:
 
@@ -227,7 +227,7 @@ description: Следуя данной инструкции, вы сможете
         * `target_bucket` — указание на бакет для хранения логов.
         * `target_prefix` — [префикс ключа](../../concepts/server-logs.md#key-prefix) для объектов с логами, например `logs/`.
 
-        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+        Более подробная информация о параметрах ресурса `yandex_storage_bucket` в {{ TF }} приведена в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
 
   1. Примените изменения:
 

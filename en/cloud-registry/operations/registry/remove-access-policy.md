@@ -10,7 +10,7 @@ description: Follow this guide to delete a registry access policy.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the registry is located.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
   1. Select the registry.
   1. Navigate to the **{{ ui-key.yacloud.cloud-registry.title_ip-permissions }}** tab.
   1. Click **{{ ui-key.yacloud.cloud-registry.registries.button_update-ip-permissions-full }}**.
@@ -33,7 +33,7 @@ description: Follow this guide to delete a registry access policy.
 
      Where:
      * `--pull`: Flag that allows pulling [artifacts](../../concepts/artifacts/index.md) from the registry.
-     * `--push`: Flag that allows pushing artifacts to the registry.
+     * `--push`: Flag that allows pushing artifacts into the registry.
 
      Result:
 

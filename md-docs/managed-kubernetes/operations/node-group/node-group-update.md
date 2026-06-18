@@ -106,7 +106,7 @@ yc managed-kubernetes node-group list
     
     Чтобы обеспечить узлам доступ в интернет, назначьте им публичный IP-адрес и [настройте](../connect/security-groups.md#rules-internal-nodegroup) группу безопасности. Также в качестве альтернативы публичным IP-адресам можно создать и настроить в подсети узлов [NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../../vpc/tutorials/nat-instance/index.md).
     
-    Если вы назначили узлам кластера публичные IP-адреса и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее в [документации Yandex Virtual Private Cloud](../../../vpc/concepts/routing.md#internet-routes).
+    Если вы назначили узлам кластера публичные IP-адреса и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее читайте в [документации Yandex Virtual Private Cloud](../../../vpc/concepts/routing.md#internet-routes).
 
   * `--network-acceleration-type` — выбор типа [ускорения сети](../../../compute/concepts/software-accelerated-network.md):
     * `standard` — без ускорения.
@@ -166,7 +166,7 @@ yc managed-kubernetes node-group list
   Чтобы изменить группу узлов Managed Service for Kubernetes:
   1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов Managed Service for Kubernetes.
 
-     О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group-create.md).
+     О том, как создать такой файл, читайте в разделе [Создание группы узлов](node-group-create.md).
   1. Измените параметры в описании группы узлов Managed Service for Kubernetes.
 
      * Чтобы изменить настройки масштабирования, измените в блоке `scale_policy`:
@@ -293,7 +293,7 @@ yc managed-kubernetes node-group list
      
      {% endnote %}
 
-     Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
+     Подробнее в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
 
 - API {#api}
 
@@ -377,7 +377,7 @@ yc managed-kubernetes node-group list
 
   1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов Managed Service for Kubernetes.
 
-      О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group-create.md).
+      О том, как создать такой файл, читайте в разделе [Создание группы узлов](node-group-create.md).
 
   1. Укажите значения параметров в блоке `deploy_policy`. Если такого блока нет — добавьте его.
 
@@ -431,7 +431,7 @@ yc managed-kubernetes node-group list
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
+  Подробнее в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
 
 - API {#api}
 
@@ -468,7 +468,7 @@ yc managed-kubernetes node-group list
 
 Чтобы обеспечить узлам доступ в интернет, назначьте им публичный IP-адрес и [настройте](../connect/security-groups.md#rules-internal-nodegroup) группу безопасности. Также в качестве альтернативы публичным IP-адресам можно создать и настроить в подсети узлов [NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../../vpc/tutorials/nat-instance/index.md).
 
-Если вы назначили узлам кластера публичные IP-адреса и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее в [документации Yandex Virtual Private Cloud](../../../vpc/concepts/routing.md#internet-routes).
+Если вы назначили узлам кластера публичные IP-адреса и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее читайте в [документации Yandex Virtual Private Cloud](../../../vpc/concepts/routing.md#internet-routes).
 
 {% list tabs group=instructions %}
 
@@ -513,7 +513,7 @@ yc managed-kubernetes node-group list
 
   1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов Managed Service for Kubernetes.
 
-     О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group-create.md).
+     О том, как создать такой файл, читайте в разделе [Создание группы узлов](node-group-create.md).
 
   1. В описание группы узлов добавьте параметр `instance_template.network_interface.nat` со значением `true`:
 
@@ -588,7 +588,7 @@ yc managed-kubernetes node-group list
      
      {% endnote %}
 
-     Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
+     Подробнее в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
 
 - API {#api}
 
@@ -628,7 +628,7 @@ yc managed-kubernetes node-group list
 
   1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов Managed Service for Kubernetes.
 
-     О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group-create.md).
+     О том, как создать такой файл, читайте в разделе [Создание группы узлов](node-group-create.md).
 
   1. В описание группы узлов добавьте блок `node_taints`:
 
@@ -710,7 +710,7 @@ yc managed-kubernetes node-group list
      
      {% endnote %}
 
-     Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
+     Подробнее в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
 
 {% endlist %}
 
@@ -730,7 +730,7 @@ yc managed-kubernetes node-group list
 
   1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов Managed Service for Kubernetes.
 
-     О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group-create.md).
+     О том, как создать такой файл, читайте в разделе [Создание группы узлов](node-group-create.md).
 
   1. Удалите из описания группы узлов ненужные taint-политики в блоке `node_taints`.
 
@@ -793,7 +793,7 @@ yc managed-kubernetes node-group list
      
      {% endnote %}
 
-     Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
+     Подробнее в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
 
 {% endlist %}
 
@@ -843,7 +843,7 @@ yc managed-kubernetes node-group list
 
   1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов Managed Service for Kubernetes.
 
-     О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group-create.md).
+     О том, как создать такой файл, читайте в разделе [Создание группы узлов](node-group-create.md).
   1. Добавьте в описание группы узлов Managed Service for Kubernetes параметр `labels`:
 
      ```hcl
@@ -916,7 +916,7 @@ yc managed-kubernetes node-group list
      
      {% endnote %}
 
-  Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
+  Подробнее в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
 
 {% endlist %}
 
@@ -965,7 +965,7 @@ yc managed-kubernetes node-group list
 
   1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов Managed Service for Kubernetes.
 
-     О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group-create.md).
+     О том, как создать такой файл, читайте в разделе [Создание группы узлов](node-group-create.md).
   1. Измените в описании группы узлов Managed Service for Kubernetes значения параметра `labels`:
 
      ```hcl
@@ -1039,7 +1039,7 @@ yc managed-kubernetes node-group list
      
      {% endnote %}
 
-  Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
+  Подробнее в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
 
 {% endlist %}
 
@@ -1079,7 +1079,7 @@ yc managed-kubernetes node-group list
 
   1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов Managed Service for Kubernetes.
 
-     О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group-create.md).
+     О том, как создать такой файл, читайте в разделе [Создание группы узлов](node-group-create.md).
   1. Удалите из описания группы узлов Managed Service for Kubernetes ненужные облачные метки в блоке `labels`.
   1. Проверьте корректность конфигурационных файлов.
 
@@ -1140,7 +1140,7 @@ yc managed-kubernetes node-group list
      
      {% endnote %}
 
-  Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
+  Подробнее в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
 
 {% endlist %}
 
@@ -1369,7 +1369,7 @@ yc managed-kubernetes node-group list
 
     1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов Managed Service for Kubernetes.
 
-        О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group-create.md).
+        О том, как создать такой файл, читайте в разделе [Создание группы узлов](node-group-create.md).
 
     1. Чтобы добавить, изменить или удалить метаданные с определенным ключом, измените перечень ключей и значений в параметре `instance_template.metadata`. Если такого параметра нет — добавьте его.
 
@@ -1459,7 +1459,7 @@ yc managed-kubernetes node-group list
         
         {% endnote %}
 
-    Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
+    Подробнее в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
 
 - API {#api}
 

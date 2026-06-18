@@ -30,7 +30,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to add the broker certificate to.
-   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Select the appropriate broker from the list.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_certificates }}** section and click **{{ ui-key.yacloud.component.certificates.button_empty-add }}**.
@@ -155,7 +155,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the broker certificate from.
-   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Select the appropriate broker from the list.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_certificates }}** section.

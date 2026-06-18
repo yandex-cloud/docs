@@ -64,7 +64,7 @@
    | `smtp.smtp_ssl` | `True` |
    | `smtp.smtp_mail_from` | `user@yandex.ru` |
 
-   Заполните поля вручную или загрузите конфигурацию из файла (см. [пример конфигурационного файла](https://storage.yandexcloud.net/doc-files/managed-airflow/airflow.cfg)).
+   Заполните поля вручную или загрузите конфигурацию из файла ([пример конфигурационного файла](https://storage.yandexcloud.net/doc-files/managed-airflow/airflow.cfg)).
 
 ## Создайте секрет Yandex Lockbox {#create-lockbox-secret}
 

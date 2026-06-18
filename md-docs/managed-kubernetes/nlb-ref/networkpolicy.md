@@ -2,9 +2,9 @@
 
 Ресурс `NetworkPolicy` используется для подключения к сервисам, опубликованным через Network Load Balancer, с определенных IP-адресов.
 
-`NetworkPolicy` — стандартный ресурс Kubernetes. В этом справочнике описаны поля и аннотации ресурса, которые поддерживают Network Load Balancer для Managed Service for Kubernetes. Полный справочник ресурса смотрите в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/policy-resources/network-policy-v1/).
+`NetworkPolicy` — стандартный ресурс Kubernetes. В этом справочнике описаны поля и аннотации ресурса, которые поддерживают Network Load Balancer для Managed Service for Kubernetes. Полный справочник ресурса приведен в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/policy-resources/network-policy-v1/).
 
-Подробнее о сетевых политиках смотрите в разделе [Сетевые политики кластера Kubernetes](../concepts/network-policy.md).
+Подробнее о сетевых политиках в разделе [Сетевые политики кластера Kubernetes](../concepts/network-policy.md).
 
 ## NetworkPolicy {#network-policy}
 
@@ -82,7 +82,7 @@ ingress:
 || `podSelector`   | `LabelSelector` | **Обязательное**
 Правила фильтрации [подов](../concepts/index.md#pod).
 
-Смотрите [документацию Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/common-definitions/label-selector/#LabelSelector)
+Читайте [документацию Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/common-definitions/label-selector/#LabelSelector)
 ||
 
 || `policyTypes`    | `[]Policy`      | **Обязательное**

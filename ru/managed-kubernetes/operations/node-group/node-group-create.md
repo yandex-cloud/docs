@@ -360,7 +360,7 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [node-name](../../../_includes/managed-kubernetes/tf-node-name.md) %}
 
-     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+     Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
   1. Проверьте корректность конфигурационных файлов.
 
      {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}

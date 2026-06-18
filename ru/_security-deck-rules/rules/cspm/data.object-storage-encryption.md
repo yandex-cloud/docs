@@ -13,7 +13,7 @@
 
 {% endnote %}
 
-Для защиты критичных данных в Yandex Object Storage рекомендуется использовать шифрование бакета на стороне сервера с помощью ключей Yandex Key Management Service (server-side encryption). Такое шифрование защищает от случайной или намеренной публикации содержимого бакета в интернете. Подробнее см. в разделе [Шифрование](https://yandex.cloud/ru/docs/storage/concepts/encryption) документации Object Storage.
+Для защиты критичных данных в Yandex Object Storage рекомендуется использовать шифрование бакета на стороне сервера с помощью ключей Yandex Key Management Service (server-side encryption). Такое шифрование защищает от случайной или намеренной публикации содержимого бакета в интернете. Подробнее в разделе [Шифрование](https://yandex.cloud/ru/docs/storage/concepts/encryption) документации Object Storage.
 
 #### Инструкции и решения по выполнению
 

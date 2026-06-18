@@ -1,6 +1,6 @@
 # Использование Confluent Schema Registry с Managed Service for Apache Kafka®
 
-В Managed Service for Apache Kafka® вы можете использовать интегрированный реестр схем формата данных [Managed Schema Registry](../concepts/managed-schema-registry.md#msr). Подробнее см. в разделе [Работа с управляемым реестром схем формата данных](managed-schema-registry.md). Если вам необходим реестр [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html), используйте информацию из этого руководства.
+В Managed Service for Apache Kafka® вы можете использовать интегрированный реестр схем формата данных [Managed Schema Registry](../concepts/managed-schema-registry.md#msr). Подробнее в разделе [Работа с управляемым реестром схем формата данных](managed-schema-registry.md). Если вам необходим реестр [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html), используйте информацию из этого руководства.
 
 {% note info %}
 

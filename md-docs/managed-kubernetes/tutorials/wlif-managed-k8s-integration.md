@@ -16,7 +16,7 @@
 
 {% note info %}
 
-В руководстве представлен пример интеграции кластера Managed Service for Kubernetes с федерацией сервисных аккаунтов. Руководство по интеграции пользовательской инсталляции Kubernetes см. на странице [Получение значения секрета Yandex Lockbox на стороне пользовательской инсталляции Kubernetes](../../tutorials/security/wlif-k8s-integration.md).
+В руководстве представлен пример интеграции кластера Managed Service for Kubernetes с федерацией сервисных аккаунтов. Руководство по интеграции пользовательской инсталляции Kubernetes смотрите на странице [Получение значения секрета Yandex Lockbox на стороне пользовательской инсталляции Kubernetes](../../tutorials/security/wlif-k8s-integration.md).
 
 {% endnote %}
 
@@ -126,7 +126,7 @@
       
       Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
       
-      Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+      Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
       Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
       

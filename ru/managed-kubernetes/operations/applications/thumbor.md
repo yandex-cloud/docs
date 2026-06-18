@@ -137,7 +137,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [Настройка групп безопасности при недоступности ресурса](../../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
-Подробнее о работе с изображениями см. в [документации Thumbor](https://thumbor.readthedocs.io/en/latest/imaging.html).
+Подробнее о работе с изображениями читайте в [документации Thumbor](https://thumbor.readthedocs.io/en/latest/imaging.html).
 
 ## Что дальше {#what-is-next}
 

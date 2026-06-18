@@ -20,19 +20,22 @@ List operations for the specified address.
 ||Field | Description ||
 || address_id | **string**
 
-Required field. ID of the address to list operations for.
-
-To get a address ID make a [AddressService.List](list.md#List) request. ||
+ID of the address to list operations for.
+To get a address ID make a [AddressService.List](list.md#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListAddressOperationsResponse.next_page_token](#yandex.cloud.vpc.v1.ListAddressOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+The value must be less than or equal to 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListAddressOperationsResponse.next_page_token](#yandex.cloud.vpc.v1.ListAddressOperationsResponse) returned by a previous list request. ||
+[ListAddressOperationsResponse.next_page_token](#yandex.cloud.vpc.v1.ListAddressOperationsResponse) returned by a previous list request.
+The length must be less than or equal to 100. ||
 |#
 
 ## ListAddressOperationsResponse {#yandex.cloud.vpc.v1.ListAddressOperationsResponse}
@@ -68,7 +71,6 @@ List of operations for the specified address. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListAddressOperationsRequest.page_size](#yandex.cloud.vpc.v1.ListAddressOperationsRequest), use `next_page_token` as the value
 for the [ListAddressOperationsRequest.page_token](#yandex.cloud.vpc.v1.ListAddressOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

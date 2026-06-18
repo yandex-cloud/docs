@@ -10,8 +10,10 @@ apiPlayground:
         folderId:
           description: |-
             **string**
-            Required field. ID of the folder to list networks in.
+            ID of the folder to list networks in.
             To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The length must be less than or equal to 50.
+            This field is required.
           type: string
         pageSize:
           description: |-
@@ -20,7 +22,7 @@ apiPlayground:
             results is larger than `pageSize`,
             the service returns a [ListNetworksResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworksResponse)
             that can be used to get the next page of results in subsequent list requests. Default value: 100.
-          default: '100'
+            The value must be less than or equal to 1000.
           type: string
           format: int64
         pageToken:
@@ -28,6 +30,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListNetworksResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworksResponse) returned by a previous list request.
+            The length must be less than or equal to 100.
           type: string
         filter:
           description: |-
@@ -37,9 +40,8 @@ apiPlayground:
             1. The field name. Currently you can use filtering only on the [Network.name](#yandex.cloud.vpc.v1.Network) field.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            The length must be less than or equal to 1000.
           type: string
-      required:
-        - folderId
       additionalProperties: false
     body: null
     definitions: null
@@ -61,25 +63,30 @@ GET https://vpc.{{ api-host }}/vpc/v1/networks
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder to list networks in.
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+ID of the folder to list networks in.
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListNetworksResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworksResponse)
-that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
+that can be used to get the next page of results in subsequent list requests. Default value: 100.
+The value must be less than or equal to 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListNetworksResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworksResponse) returned by a previous list request. ||
+[ListNetworksResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworksResponse) returned by a previous list request.
+The length must be less than or equal to 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on the [Network.name](#yandex.cloud.vpc.v1.Network) field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+The length must be less than or equal to 1000. ||
 |#
 
 ## Response {#yandex.cloud.vpc.v1.ListNetworksResponse}

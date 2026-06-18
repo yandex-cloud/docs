@@ -10,8 +10,10 @@ apiPlayground:
         folderId:
           description: |-
             **string**
-            Required field. ID of the folder that the route table belongs to.
+            ID of the folder that the route table belongs to.
             To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The length must be less than or equal to 50.
+            This field is required.
           type: string
         pageSize:
           description: |-
@@ -20,7 +22,7 @@ apiPlayground:
             results is larger than `pageSize`,
             the service returns a [ListRouteTablesResponse.nextPageToken](#yandex.cloud.vpc.v1.ListRouteTablesResponse)
             that can be used to get the next page of results in subsequent list requests. Default value: 100.
-          default: '100'
+            The value must be less than or equal to 1000.
           type: string
           format: int64
         pageToken:
@@ -28,6 +30,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListRouteTablesResponse.nextPageToken](#yandex.cloud.vpc.v1.ListRouteTablesResponse) returned by a previous list request.
+            The length must be less than or equal to 100.
           type: string
         filter:
           description: |-
@@ -37,9 +40,8 @@ apiPlayground:
             1. The field name. Currently you can use filtering only on [RouteTable.name](#yandex.cloud.vpc.v1.RouteTable) field.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            The length must be less than or equal to 1000.
           type: string
-      required:
-        - folderId
       additionalProperties: false
     body: null
     definitions: null
@@ -61,25 +63,30 @@ GET https://vpc.{{ api-host }}/vpc/v1/routeTables
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder that the route table belongs to.
-To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+ID of the folder that the route table belongs to.
+To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListRouteTablesResponse.nextPageToken](#yandex.cloud.vpc.v1.ListRouteTablesResponse)
-that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
+that can be used to get the next page of results in subsequent list requests. Default value: 100.
+The value must be less than or equal to 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListRouteTablesResponse.nextPageToken](#yandex.cloud.vpc.v1.ListRouteTablesResponse) returned by a previous list request. ||
+[ListRouteTablesResponse.nextPageToken](#yandex.cloud.vpc.v1.ListRouteTablesResponse) returned by a previous list request.
+The length must be less than or equal to 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on [RouteTable.name](#yandex.cloud.vpc.v1.RouteTable) field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+The length must be less than or equal to 1000. ||
 |#
 
 ## Response {#yandex.cloud.vpc.v1.ListRouteTablesResponse}
@@ -156,7 +163,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Name of the route table.
 The name must be unique within the folder.
-Value must match the regular expression `\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?`. ||
+Value must match the regular expression ```|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?```. ||
 || description | **string**
 
 Optional description of the route table. 0-256 characters long. ||

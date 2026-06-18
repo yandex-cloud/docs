@@ -10,3 +10,15 @@ default:
     console:
       latest: '8.0'
       str: 5.7 и 8.0
+  balancer:
+    port:
+      master: 3306
+      replicas: YYYY
+      non-delayed-replicas: 3307
+      cascade-replicas: XXXX
+    proxy:
+      name: HAProxy
+      ref: https://www.haproxy.org/
+    cascade-replicas-ref: ../../managed-mysql/concepts/replication.md#manual-source
+    fqdn-ref: ../../managed-mysql/operations/connect/fqdn.md
+    schema: ../../_assets/mdb/mmy-db-proxy-schema.svg

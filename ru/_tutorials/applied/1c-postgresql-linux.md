@@ -62,7 +62,7 @@
 
 ### Настройте разрешения сетевого трафика {#network-settings}
 
-[Группы безопасности](../../vpc/concepts/security-groups.md) работают как виртуальный брандмауэр для входящего и исходящего трафика. См. подробнее о [группе безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group).
+[Группы безопасности](../../vpc/concepts/security-groups.md) работают как виртуальный брандмауэр для входящего и исходящего трафика. Смотрите подробнее о [группе безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group)
   
 Для корректной работы OpenVPN Access Server и кластера {{ mpg-short-name }} [добавьте](../../vpc/operations/security-group-add-rule.md) дополнительные правила в группу безопасности по умолчанию облачной сети `my-1c-network`:
 

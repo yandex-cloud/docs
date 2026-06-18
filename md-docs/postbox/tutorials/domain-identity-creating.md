@@ -108,7 +108,7 @@ ns1.yandexcloud.net.
 
 Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
 Для создания инфраструктуры с помощью Terraform:
 1. [Установите Terraform](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
@@ -124,7 +124,7 @@ Terraform распространяется под лицензией [Business S
         * `postbox-email-identity.tf` — конфигурация создаваемой инфраструктуры.
         * `postbox-email-identity.auto.tfvars` — файл с пользовательскими данными.
 
-   Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+   Подробнее о параметрах используемых ресурсов в Terraform смотрите в документации провайдера:
    * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../terraform/resources/iam_service_account.md).
    * [Назначение прав доступа](../../iam/concepts/access-control/roles.md) — [yandex_resourcemanager_folder_iam_member](../../terraform/resources/resourcemanager_folder_iam_member.md).
    * [Статический ключ доступа](../../iam/concepts/authorization/access-key.md) — [yandex_iam_service_account_static_access_key](../../terraform/resources/iam_service_account_static_access_key.md).

@@ -74,7 +74,7 @@
 ## Интеграция с сервисами Яндекса и Yandex Cloud {#integrations}
 
 * [Защита API Gateway при помощи Smart Web Security](api-gw-sws-integration.md)
-* [Создание навыка Алисы](alice-skill.md)
+* [Создание навыка Алисы](alice-skill/index.md)
 * [Разработка навыка Алисы и сайта с авторизацией](alice-shareable-todolist.md)
 * [Использование Yandex API Gateway для настройки синтеза речи в Yandex SpeechKit](speechkit-integrarion-via-agi-gw.md)
 

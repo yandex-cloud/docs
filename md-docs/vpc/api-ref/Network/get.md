@@ -1,7 +1,6 @@
 # Virtual Private Cloud API, REST: Network.Get
 
 Returns the specified Network resource.
-
 Get the list of available Network resources by making a [List](list.md#List) request.
 
 ## HTTP request
@@ -17,7 +16,9 @@ GET https://vpc.api.cloud.yandex.net/vpc/v1/networks/{networkId}
 || networkId | **string**
 
 Required field. ID of the Network resource to return.
-To get the network ID, use a [NetworkService.List](list.md#List) request. ||
+To get the network ID, use a [NetworkService.List](list.md#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Response {#yandex.cloud.vpc.v1.Network}

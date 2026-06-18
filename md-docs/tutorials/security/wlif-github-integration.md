@@ -201,6 +201,6 @@
 * [секрет Yandex Lockbox](../../lockbox/operations/secret-delete.md);
 * [сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-## Смотрите также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Безопасное хранение паролей для GitLab CI в виде секретов Yandex Lockbox](gitlab-lockbox-integration.md).

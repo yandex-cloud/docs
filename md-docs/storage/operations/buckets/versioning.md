@@ -134,7 +134,7 @@
      * `versioning` — управление версионированием бакета:
        * `enabled` — включает версионирование бакета. Необязательный параметр.
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform см. в [документации провайдера](../../../terraform/resources/storage_bucket.md).
+     Более подробная информация о параметрах ресурса `yandex_storage_bucket` в Terraform приведена в [документации провайдера](../../../terraform/resources/storage_bucket.md).
 
   1. Примените изменения:
 

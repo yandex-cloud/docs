@@ -259,7 +259,7 @@
 
             {% include [transformers-mkf-to-yds](../../_tutorials/_tutorials_includes/transformers-mkf-to-yds.md) %}
 
-            Подробнее о настройке трансформеров см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-transfer }}).
+            Подробнее о настройке трансформеров смотрите в [документации провайдера {{ TF }}]({{ tf-provider-dt-transfer }}).
 
         1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
@@ -336,7 +336,7 @@
            -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
         ```
 
-        Данные отправляются от имени [созданного пользователя](#prepare-source). Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
+        Данные отправляются от имени [созданного пользователя](#prepare-source). Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
 
     {% include [get-yds-data](../../_includes/data-transfer/get-yds-data.md) %}
 

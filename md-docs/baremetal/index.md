@@ -212,8 +212,6 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [Overview](cli-ref/boot-image/index.md)
 
- - [add-labels](cli-ref/boot-image/add-labels.md)
-
  - [create](cli-ref/boot-image/create.md)
 
  - [delete](cli-ref/boot-image/delete.md)
@@ -223,8 +221,6 @@ Yandex BareMetal предоставляет возможность арендо�
  - [list](cli-ref/boot-image/list.md)
 
  - [list-operations](cli-ref/boot-image/list-operations.md)
-
- - [remove-labels](cli-ref/boot-image/remove-labels.md)
 
  - [update](cli-ref/boot-image/update.md)
 
@@ -236,6 +232,8 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [list](cli-ref/configuration/list.md)
 
+ - [list-configuration-network-interface](cli-ref/configuration/list-configuration-network-interface.md)
+
 ##### hardware-pool
 
  - [Overview](cli-ref/hardware-pool/index.md)
@@ -244,13 +242,15 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [list](cli-ref/hardware-pool/list.md)
 
-##### image
+##### mounted-image
 
- - [Overview](cli-ref/image/index.md)
+ - [Overview](cli-ref/mounted-image/index.md)
 
- - [get](cli-ref/image/get.md)
+ - [create](cli-ref/mounted-image/create.md)
 
- - [list](cli-ref/image/list.md)
+ - [delete](cli-ref/mounted-image/delete.md)
+
+ - [get](cli-ref/mounted-image/get.md)
 
 ##### private-cloud-connection
 
@@ -270,8 +270,6 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [Overview](cli-ref/private-subnet/index.md)
 
- - [add-labels](cli-ref/private-subnet/add-labels.md)
-
  - [create](cli-ref/private-subnet/create.md)
 
  - [delete](cli-ref/private-subnet/delete.md)
@@ -281,8 +279,6 @@ Yandex BareMetal предоставляет возможность арендо�
  - [list](cli-ref/private-subnet/list.md)
 
  - [list-operations](cli-ref/private-subnet/list-operations.md)
-
- - [remove-labels](cli-ref/private-subnet/remove-labels.md)
 
  - [update](cli-ref/private-subnet/update.md)
 
@@ -302,8 +298,6 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [Overview](cli-ref/public-subnet/index.md)
 
- - [add-labels](cli-ref/public-subnet/add-labels.md)
-
  - [create](cli-ref/public-subnet/create.md)
 
  - [delete](cli-ref/public-subnet/delete.md)
@@ -313,8 +307,6 @@ Yandex BareMetal предоставляет возможность арендо�
  - [list](cli-ref/public-subnet/list.md)
 
  - [list-operations](cli-ref/public-subnet/list-operations.md)
-
- - [remove-labels](cli-ref/public-subnet/remove-labels.md)
 
  - [update](cli-ref/public-subnet/update.md)
 
@@ -328,7 +320,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [Overview](cli-ref/server/index.md)
 
- - [add-labels](cli-ref/server/add-labels.md)
+ - [batch-create](cli-ref/server/batch-create.md)
 
  - [create](cli-ref/server/create.md)
 
@@ -346,9 +338,27 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [reinstall](cli-ref/server/reinstall.md)
 
- - [remove-labels](cli-ref/server/remove-labels.md)
+ - [start-prolongation](cli-ref/server/start-prolongation.md)
+
+ - [stop-prolongation](cli-ref/server/stop-prolongation.md)
 
  - [update](cli-ref/server/update.md)
+
+##### standard-image
+
+ - [Overview](cli-ref/standard-image/index.md)
+
+ - [get](cli-ref/standard-image/get.md)
+
+ - [list](cli-ref/standard-image/list.md)
+
+##### storage
+
+ - [Overview](cli-ref/storage/index.md)
+
+ - [batch-get-default](cli-ref/storage/batch-get-default.md)
+
+ - [get-default](cli-ref/storage/get-default.md)
 
 ##### v0
 
@@ -524,11 +534,309 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [list](cli-ref/v0/zone/list.md)
 
+##### v1alpha
+
+ - [Overview](cli-ref/v1alpha/index.md)
+
+###### boot-image
+
+ - [Overview](cli-ref/v1alpha/boot-image/index.md)
+
+ - [create](cli-ref/v1alpha/boot-image/create.md)
+
+ - [delete](cli-ref/v1alpha/boot-image/delete.md)
+
+ - [get](cli-ref/v1alpha/boot-image/get.md)
+
+ - [list](cli-ref/v1alpha/boot-image/list.md)
+
+ - [list-operations](cli-ref/v1alpha/boot-image/list-operations.md)
+
+ - [update](cli-ref/v1alpha/boot-image/update.md)
+
+###### configuration
+
+ - [Overview](cli-ref/v1alpha/configuration/index.md)
+
+ - [get](cli-ref/v1alpha/configuration/get.md)
+
+ - [list](cli-ref/v1alpha/configuration/list.md)
+
+ - [list-configuration-network-interface](cli-ref/v1alpha/configuration/list-configuration-network-interface.md)
+
+###### hardware-pool
+
+ - [Overview](cli-ref/v1alpha/hardware-pool/index.md)
+
+ - [get](cli-ref/v1alpha/hardware-pool/get.md)
+
+ - [list](cli-ref/v1alpha/hardware-pool/list.md)
+
+###### mounted-image
+
+ - [Overview](cli-ref/v1alpha/mounted-image/index.md)
+
+ - [create](cli-ref/v1alpha/mounted-image/create.md)
+
+ - [delete](cli-ref/v1alpha/mounted-image/delete.md)
+
+ - [get](cli-ref/v1alpha/mounted-image/get.md)
+
+###### private-cloud-connection
+
+ - [Overview](cli-ref/v1alpha/private-cloud-connection/index.md)
+
+ - [create](cli-ref/v1alpha/private-cloud-connection/create.md)
+
+ - [delete](cli-ref/v1alpha/private-cloud-connection/delete.md)
+
+ - [get](cli-ref/v1alpha/private-cloud-connection/get.md)
+
+ - [list](cli-ref/v1alpha/private-cloud-connection/list.md)
+
+ - [update](cli-ref/v1alpha/private-cloud-connection/update.md)
+
+###### private-subnet
+
+ - [Overview](cli-ref/v1alpha/private-subnet/index.md)
+
+ - [create](cli-ref/v1alpha/private-subnet/create.md)
+
+ - [delete](cli-ref/v1alpha/private-subnet/delete.md)
+
+ - [get](cli-ref/v1alpha/private-subnet/get.md)
+
+ - [list](cli-ref/v1alpha/private-subnet/list.md)
+
+ - [list-operations](cli-ref/v1alpha/private-subnet/list-operations.md)
+
+ - [update](cli-ref/v1alpha/private-subnet/update.md)
+
+###### public-prefix-pool
+
+ - [Overview](cli-ref/v1alpha/public-prefix-pool/index.md)
+
+ - [get](cli-ref/v1alpha/public-prefix-pool/get.md)
+
+ - [list](cli-ref/v1alpha/public-prefix-pool/list.md)
+
+ - [list-operations](cli-ref/v1alpha/public-prefix-pool/list-operations.md)
+
+ - [update](cli-ref/v1alpha/public-prefix-pool/update.md)
+
+###### public-subnet
+
+ - [Overview](cli-ref/v1alpha/public-subnet/index.md)
+
+ - [create](cli-ref/v1alpha/public-subnet/create.md)
+
+ - [delete](cli-ref/v1alpha/public-subnet/delete.md)
+
+ - [get](cli-ref/v1alpha/public-subnet/get.md)
+
+ - [list](cli-ref/v1alpha/public-subnet/list.md)
+
+ - [list-operations](cli-ref/v1alpha/public-subnet/list-operations.md)
+
+ - [update](cli-ref/v1alpha/public-subnet/update.md)
+
+###### rental-period
+
+ - [Overview](cli-ref/v1alpha/rental-period/index.md)
+
+ - [list](cli-ref/v1alpha/rental-period/list.md)
+
+###### server
+
+ - [Overview](cli-ref/v1alpha/server/index.md)
+
+ - [batch-create](cli-ref/v1alpha/server/batch-create.md)
+
+ - [create](cli-ref/v1alpha/server/create.md)
+
+ - [get](cli-ref/v1alpha/server/get.md)
+
+ - [list](cli-ref/v1alpha/server/list.md)
+
+ - [list-operations](cli-ref/v1alpha/server/list-operations.md)
+
+ - [power-off](cli-ref/v1alpha/server/power-off.md)
+
+ - [power-on](cli-ref/v1alpha/server/power-on.md)
+
+ - [reboot](cli-ref/v1alpha/server/reboot.md)
+
+ - [reinstall](cli-ref/v1alpha/server/reinstall.md)
+
+ - [start-prolongation](cli-ref/v1alpha/server/start-prolongation.md)
+
+ - [stop-prolongation](cli-ref/v1alpha/server/stop-prolongation.md)
+
+ - [update](cli-ref/v1alpha/server/update.md)
+
+###### standard-image
+
+ - [Overview](cli-ref/v1alpha/standard-image/index.md)
+
+ - [get](cli-ref/v1alpha/standard-image/get.md)
+
+ - [list](cli-ref/v1alpha/standard-image/list.md)
+
+###### storage
+
+ - [Overview](cli-ref/v1alpha/storage/index.md)
+
+ - [batch-get-default](cli-ref/v1alpha/storage/batch-get-default.md)
+
+ - [get-default](cli-ref/v1alpha/storage/get-default.md)
+
+###### vrf
+
+ - [Overview](cli-ref/v1alpha/vrf/index.md)
+
+ - [create](cli-ref/v1alpha/vrf/create.md)
+
+ - [delete](cli-ref/v1alpha/vrf/delete.md)
+
+ - [get](cli-ref/v1alpha/vrf/get.md)
+
+ - [list](cli-ref/v1alpha/vrf/list.md)
+
+ - [list-operations](cli-ref/v1alpha/vrf/list-operations.md)
+
+ - [update](cli-ref/v1alpha/vrf/update.md)
+
+###### zone
+
+ - [Overview](cli-ref/v1alpha/zone/index.md)
+
+ - [get](cli-ref/v1alpha/zone/get.md)
+
+ - [list](cli-ref/v1alpha/zone/list.md)
+
+##### v2
+
+ - [Overview](cli-ref/v2/index.md)
+
+ - [configuration](cli-ref/v2/configuration.md)
+
+###### extend
+
+ - [Overview](cli-ref/v2/extend/index.md)
+
+####### stackland-cluster
+
+ - [Overview](cli-ref/v2/extend/stackland-cluster/index.md)
+
+ - [create](cli-ref/v2/extend/stackland-cluster/create.md)
+
+ - [delete](cli-ref/v2/extend/stackland-cluster/delete.md)
+
+ - [get](cli-ref/v2/extend/stackland-cluster/get.md)
+
+ - [list](cli-ref/v2/extend/stackland-cluster/list.md)
+
+ - [update](cli-ref/v2/extend/stackland-cluster/update.md)
+
+###### hardware-pool
+
+ - [Overview](cli-ref/v2/hardware-pool/index.md)
+
+ - [get](cli-ref/v2/hardware-pool/get.md)
+
+ - [list](cli-ref/v2/hardware-pool/list.md)
+
+###### private-subnet
+
+ - [Overview](cli-ref/v2/private-subnet/index.md)
+
+ - [create](cli-ref/v2/private-subnet/create.md)
+
+ - [delete](cli-ref/v2/private-subnet/delete.md)
+
+ - [get](cli-ref/v2/private-subnet/get.md)
+
+ - [list](cli-ref/v2/private-subnet/list.md)
+
+ - [update](cli-ref/v2/private-subnet/update.md)
+
+###### public-prefix-pool
+
+ - [Overview](cli-ref/v2/public-prefix-pool/index.md)
+
+ - [get](cli-ref/v2/public-prefix-pool/get.md)
+
+ - [list](cli-ref/v2/public-prefix-pool/list.md)
+
+ - [update](cli-ref/v2/public-prefix-pool/update.md)
+
+###### public-subnet
+
+ - [Overview](cli-ref/v2/public-subnet/index.md)
+
+ - [create](cli-ref/v2/public-subnet/create.md)
+
+ - [delete](cli-ref/v2/public-subnet/delete.md)
+
+ - [get](cli-ref/v2/public-subnet/get.md)
+
+ - [list](cli-ref/v2/public-subnet/list.md)
+
+ - [update](cli-ref/v2/public-subnet/update.md)
+
+###### rental-period
+
+ - [Overview](cli-ref/v2/rental-period/index.md)
+
+ - [list](cli-ref/v2/rental-period/list.md)
+
+###### server
+
+ - [Overview](cli-ref/v2/server/index.md)
+
+ - [batch-create](cli-ref/v2/server/batch-create.md)
+
+ - [create](cli-ref/v2/server/create.md)
+
+ - [get](cli-ref/v2/server/get.md)
+
+ - [list](cli-ref/v2/server/list.md)
+
+ - [power-off](cli-ref/v2/server/power-off.md)
+
+ - [power-on](cli-ref/v2/server/power-on.md)
+
+ - [reboot](cli-ref/v2/server/reboot.md)
+
+ - [reinstall](cli-ref/v2/server/reinstall.md)
+
+ - [update](cli-ref/v2/server/update.md)
+
+###### vrf
+
+ - [Overview](cli-ref/v2/vrf/index.md)
+
+ - [create](cli-ref/v2/vrf/create.md)
+
+ - [delete](cli-ref/v2/vrf/delete.md)
+
+ - [get](cli-ref/v2/vrf/get.md)
+
+ - [list](cli-ref/v2/vrf/list.md)
+
+ - [update](cli-ref/v2/vrf/update.md)
+
+###### zone
+
+ - [Overview](cli-ref/v2/zone/index.md)
+
+ - [get](cli-ref/v2/zone/get.md)
+
+ - [list](cli-ref/v2/zone/list.md)
+
 ##### vrf
 
  - [Overview](cli-ref/vrf/index.md)
-
- - [add-labels](cli-ref/vrf/add-labels.md)
 
  - [create](cli-ref/vrf/create.md)
 
@@ -539,8 +847,6 @@ Yandex BareMetal предоставляет возможность арендо�
  - [list](cli-ref/vrf/list.md)
 
  - [list-operations](cli-ref/vrf/list-operations.md)
-
- - [remove-labels](cli-ref/vrf/remove-labels.md)
 
  - [update](cli-ref/vrf/update.md)
 

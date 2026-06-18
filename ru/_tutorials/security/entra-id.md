@@ -337,7 +337,7 @@
 
          {% endnote %}
 
-      Подробнее см. в описаниях ресурсов [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) и [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) в документации провайдера {{ TF }}.
+      Подробнее в описаниях ресурсов [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) и [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) в документации провайдера {{ TF }}.
 
   1. Создайте ресурсы:
 

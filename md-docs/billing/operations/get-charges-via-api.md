@@ -8,7 +8,7 @@
 
 Yandex Cloud Billing предоставляет публичный API для получения детализации расходов и потребления ресурсов. С его помощью можно получать отчеты за любой период, фильтровать и группировать данные по облакам, каталогам, сервисам, продуктам, ресурсам и меткам, а также автоматизировать сбор данных для интеграции в собственные системы аналитики и мониторинга.
 
-Минимально необходимая роль для получения детализации расходов через API — `billing.accounts.viewer`. См. [описание роли](../security/index.md#billing-accounts-viewer).
+Минимально необходимая [роль](../security/index.md#billing-accounts-viewer) для получения детализации расходов через API — `billing.accounts.viewer`.
 
 Эндпоинт публичного API Yandex Cloud Billing — `https://billing.api.cloud.yandex.net`.
 
@@ -36,7 +36,7 @@ Yandex Cloud Billing предоставляет публичный API для п
 1. Итоги по сущностям — агрегированные данные для каждой сущности запрошенного типа (облако, каталог, сервис и т. д.).
 1. Временные ряды — разбивка данных по периодам в соответствии с параметром `aggregation_period` (день, неделя, месяц, квартал, год).
 
-Подробнее см. в справочнике API [ConsumptionCore](../usage/api-ref/grpc/ConsumptionCore/index.md).
+Подробнее в справочнике API [ConsumptionCore](../usage/api-ref/grpc/ConsumptionCore/index.md).
 
 ## Сервис Metadata {#metadata}
 
@@ -49,7 +49,7 @@ Yandex Cloud Billing предоставляет публичный API для п
 * Доступных каталогах для указанных облаков воспользуйтесь вызовом gRPC API [Metadata/GetCloud](../usage/api-ref/grpc/Metadata/getCloud.md).
 * Всех доступных идентификаторах ресурсов в диапазоне дат воспользуйтесь вызовом gRPC API [Metadata/GetResources](../usage/api-ref/grpc/Metadata/getResources.md).
 
-Подробнее см. в справочнике API [Metadata](../usage/api-ref/grpc/Metadata/index.md).
+Подробнее в справочнике API [Metadata](../usage/api-ref/grpc/Metadata/index.md).
 
 ## Примеры использования {#examples}
 

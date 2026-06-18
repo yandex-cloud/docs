@@ -4,7 +4,7 @@ Cloud Center поможет вам найти решение возникших 
 
 {% note info %}
 
-Создать запрос в центре поддержки может [пользователь](../overview/roles-and-resources.md#users) Yandex Cloud с любой ролью, входящий в [организацию](../organization/concepts/organization.md), в рамках которой оказывается поддержка. Чтобы получить приглашение, попросите [владельца](../organization/security/index.md#organization-manager-organizations-owner) или [администратора](../organization/security/index.md#organization-manager-admin) этой организации [добавить](../organization/operations/add-account.md) вас. Подробнее см. [Порядок оказания технической поддержки](overview.md).
+Создать запрос в центре поддержки может [пользователь](../overview/roles-and-resources.md#users) Yandex Cloud с любой ролью, входящий в [организацию](../organization/concepts/organization.md), в рамках которой оказывается поддержка. Чтобы получить приглашение, попросите [владельца](../organization/security/index.md#organization-manager-organizations-owner) или [администратора](../organization/security/index.md#organization-manager-admin) этой организации [добавить](../organization/operations/add-account.md) вас. Подробнее в разделе [Порядок оказания технической поддержки](overview.md).
 
 {% endnote %}
 

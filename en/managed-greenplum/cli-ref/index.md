@@ -5,7 +5,7 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/
 
 # yc managed-greenplum
 
-Manage Greenplum clusters and hosts.
+Manage Greenplum and Cloudberry clusters.
 
 #### Command Usage
 
@@ -19,6 +19,12 @@ Aliases:
 
 - `gp`
 
+- `managed-cloudberry`
+
+- `cloudberry`
+
+- `cb`
+
 #### Command Tree
 
 - [yc managed-greenplum connect](connect.md) — Connect to Greenplum cluster with iam-auth
@@ -31,7 +37,7 @@ Aliases:
 
   - [yc managed-greenplum backup list](backup/list.md) — List available backups
 
-- [yc managed-greenplum cluster](cluster/index.md) — Manage Greenplum clusters
+- [yc managed-greenplum cluster](cluster/index.md) — Manage Greenplum and Cloudberry clusters
 
   - [yc managed-greenplum cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified Greenplum cluster
 
@@ -129,7 +135,7 @@ Aliases:
 
   - [yc managed-greenplum users update](users/update.md) — Update user for specified Greenplum cluster
 
-- [yc managed-greenplum v0](v0/index.md) — Manage Greenplum clusters and hosts.
+- [yc managed-greenplum v0](v0/index.md) — Manage Greenplum and Cloudberry clusters.
 
   - [yc managed-greenplum v0 connect](v0/connect.md) — Connect to Greenplum cluster with iam-auth
 

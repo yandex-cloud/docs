@@ -1,7 +1,6 @@
 # Virtual Private Cloud API, gRPC: GatewayService.Get
 
 Returns the specified Gateway resource.
-
 To get the list of all available Gateway resources, make a [List](list.md#List) request.
 
 ## gRPC request
@@ -20,9 +19,10 @@ To get the list of all available Gateway resources, make a [List](list.md#List) 
 ||Field | Description ||
 || gateway_id | **string**
 
-Required field. ID of the Gateway resource to return.
-
-To get Gateway resource ID make a [GatewayService.List](list.md#List) request. ||
+ID of the Gateway resource to return.
+To get Gateway resource ID make a [GatewayService.List](list.md#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Gateway {#yandex.cloud.vpc.v1.Gateway}

@@ -216,7 +216,7 @@
 
 {% endlist %}
 
-Подробнее о настройке атрибутов см. [Настройте атрибуты пользователей и групп](../../operations/applications/saml-create.md#setup-attributes).
+Подробнее о настройке атрибутов смотрите в разделе [Настройте атрибуты пользователей и групп](../../operations/applications/saml-create.md#setup-attributes).
 
 ### Добавьте пользователей {#add-users}
 

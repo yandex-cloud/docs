@@ -1,6 +1,6 @@
 # Настройка публичного доступа к бакету
 
-В Object Storage реализовано несколько механизмов для управления доступом к ресурсам. Алгоритм взаимодействия этих механизмов смотрите в [Обзор способов управления доступом в Object Storage](../../security/overview.md).
+В Object Storage реализовано несколько механизмов для управления доступом к ресурсам. Алгоритм взаимодействия этих механизмов приведен в [Обзор способов управления доступом в Object Storage](../../security/overview.md).
 
 По умолчанию [бакеты](../../concepts/bucket.md) создаются с ограниченным [доступом](../../concepts/bucket.md#bucket-access). Вы можете открыть публичный доступ:
 
@@ -107,7 +107,7 @@
   
   Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
   
   Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -151,7 +151,7 @@
        * `list` — публичный доступ к списку объектов в бакете.
        * `config_read` — публичный доступ к чтению настроек бакета.
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform см. в [документации провайдера](../../../terraform/resources/storage_bucket.md#bucket-anonymous-access-flags).
+     Более подробная информация о параметрах ресурса `yandex_storage_bucket` в Terraform приведена в [документации провайдера](../../../terraform/resources/storage_bucket.md#bucket-anonymous-access-flags).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -270,7 +270,7 @@
   
   Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
   
   Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -307,7 +307,7 @@
        * `list` — публичный доступ к списку объектов в бакете.
        * `config_read` — публичный доступ к чтению настроек бакета.
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform см. в [документации провайдера](../../../terraform/resources/storage_bucket.md#bucket-anonymous-access-flags).
+     Более подробная информация о параметрах ресурса `yandex_storage_bucket` в Terraform приведена в [документации провайдера](../../../terraform/resources/storage_bucket.md#bucket-anonymous-access-flags).
 
   1. Проверьте корректность конфигурационных файлов.
 

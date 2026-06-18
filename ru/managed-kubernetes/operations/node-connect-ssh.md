@@ -22,7 +22,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% endnote %}
 
-Подробнее см. в разделе [Подключение к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md).
+Подробнее в разделе [Подключение к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md).
 
 {% include [node-vm-explained](../../_includes/managed-kubernetes/node-vm-explained.md) %}
 
@@ -193,7 +193,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
 
@@ -269,7 +269,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Откройте конфигурационный файл {{ TF }} с описанием группы узлов {{ managed-k8s-name }}.
 
-      О том, как создать такой файл, см. в разделе [{#T}](./node-group/node-group-create.md).
+      О том, как создать такой файл, читайте в разделе [{#T}](./node-group/node-group-create.md).
 
   1. Измените в описании группы узлов значение ключа метаданных `ssh-keys` для параметра `instance_template.metadata`:
 
@@ -296,7 +296,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
 

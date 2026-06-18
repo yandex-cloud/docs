@@ -16,7 +16,7 @@ Aliases are linked to specific devices. To delete an alias, you need to [find th
    To delete an alias:
 
    1. In the [management console]({{ link-console-main }}), select the folder you want to delete the alias from.
-   1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
    1. To the right of the device name, click ![image](../../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.

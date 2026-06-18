@@ -3,6 +3,9 @@
 * [{{ iam-short-name }} tokens](../../../iam/concepts/authorization/iam-token.md)
 * [Static access keys](../../../iam/concepts/authorization/access-key.md)
 * [OAuth token](../../../iam/concepts/authorization/oauth-token.md)
+
+  {% include [oauth-token-deprecated-soon](../../../_includes/oauth-token-deprecated-soon.md) %}
+
 * [{{ captcha-name }} server keys](../../../smartcaptcha/concepts/keys.md)
 * [Refresh tokens](../../../iam/concepts/authorization/refresh-token.md)
 * [OIDC app secrets](../../../organization/concepts/applications.md#oidc-secret)

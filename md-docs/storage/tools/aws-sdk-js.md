@@ -266,4 +266,4 @@
 
     В выводе консоли появится пошаговое описание результатов операции.
 
-Подробности о работе с AWS SDK для JavaScript см. в [документации AWS](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/getting-started-nodejs.html).
+Подробнее о работе с AWS SDK для JavaScript читайте в [документации AWS](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/getting-started-nodejs.html).

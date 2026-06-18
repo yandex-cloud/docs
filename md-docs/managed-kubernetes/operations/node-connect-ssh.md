@@ -17,7 +17,7 @@
 
   {% endnote %}
 
-Подробнее см. в разделе [Подключение к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md).
+Подробнее в разделе [Подключение к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md).
 
 Отдельные узлы в группах узлов — это виртуальные машины Yandex Compute Cloud с автоматически сгенерированными именами. Чтобы сконфигурировать узлы, воспользуйтесь инструкциями, приведенными ниже, или [другими инструкциями по управлению группами узлов](index.md#node-group).
 
@@ -255,7 +255,7 @@
       
       {% endnote %}
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/kubernetes_node_group.md).
+  Подробнее в [документации провайдера Terraform](../../terraform/resources/kubernetes_node_group.md).
 
 - API {#api}
 
@@ -335,7 +335,7 @@
 
   1. Откройте конфигурационный файл Terraform с описанием группы узлов Managed Service for Kubernetes.
 
-      О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group/node-group-create.md).
+      О том, как создать такой файл, читайте в разделе [Создание группы узлов](node-group/node-group-create.md).
 
   1. Измените в описании группы узлов значение ключа метаданных `ssh-keys` для параметра `instance_template.metadata`:
 
@@ -385,7 +385,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/kubernetes_node_group.md).
+  Подробнее в [документации провайдера Terraform](../../terraform/resources/kubernetes_node_group.md).
 
 - API {#api}
 

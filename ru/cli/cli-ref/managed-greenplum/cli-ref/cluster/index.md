@@ -5,7 +5,7 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/cl
 
 # yc managed-greenplum cluster
 
-Manage Greenplum clusters
+Manage Greenplum and Cloudberry clusters
 
 #### Command Usage
 

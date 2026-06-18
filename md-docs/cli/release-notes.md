@@ -2,6 +2,42 @@
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.14.0 (18.06.26) {#v-1-14-0}
+
+#### Yandex Managed Service for Valkey™ {#v-1-14-0-mrd-name}
+
+Добавлена группа команд `yc managed-redis backup-retention-policy` для управления LTR-политиками:
+* `yc managed-redis backup-retention-policy create`;
+* `yc managed-redis backup-retention-policy list`;
+* `yc managed-redis backup-retention-policy delete`.
+
+#### Yandex StoreDoc {#v-1-14-0-mmg-name}
+
+Добавлена группа команд `yc managed-mongodb backup-retention-policy` для управления LTR-политиками:
+* `yc managed-mongodb backup-retention-policy create`;
+* `yc managed-mongodb backup-retention-policy list`;
+* `yc managed-mongodb backup-retention-policy delete`.
+
+#### Cloud Registry {#v-1-14-0-cloud-registry-name}
+
+Добавлена команда вызова инструментов для работы с debian-реестрами `yc cloud-registry tools debian reindex-packages`.
+
+#### BareMetal {#v-1-14-0-baremetal-name}
+
+Добавлена ветка команд сервиса на новом синтаксисе `yc baremetal v2`.
+
+#### Managed Service for Trino {#v-1-14-0-mtr-name}
+
+Добавлен параметр `--retry-policy-exchange-manager-s3-bucket` в команды для использования S3-бакета в качестве хранилища Exchange Manager:
+* `yc managed-trino cluster create`;
+* `yc managed-trino cluster update`.
+
+#### Yandex MPP Analytics for PostgreSQL {#v-1-14-0-mgp-name}
+
+Добавлена поддержка Apache Cloudberry в команду обновления конфигурации СУБД `yc managed-greenplum cluster update-config`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.13.0 (09.06.26) {#v-1-13-0}
 
 #### Изменения в системных командах CLI {#v-1-13-0-yc}
@@ -25,8 +61,6 @@
 * `--log-monitoring-checks`;
 * `--log-index-maintenance`;
 * `--log-backup-operations`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.12.0 (04.06.26) {#v-1-12-0}
 

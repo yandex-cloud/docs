@@ -47,7 +47,7 @@
 
 {% endlist %}
 
-Полный перечень методов S3 API см. в [Справочнике S3 API](../s3/api-ref/index.md).
+Полный перечень методов S3 API приведен в [Справочнике S3 API](../s3/api-ref/index.md).
 
 {% note info %}
 

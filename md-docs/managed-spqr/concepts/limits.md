@@ -34,7 +34,7 @@
 
 #### Лимиты {#mspqr-limits}
 
-Лимиты кластеров PostgreSQL смотрите в [документации Managed Service for PostgreSQL](../../managed-postgresql/concepts/limits.md#mpg-limits).
+Лимиты кластеров PostgreSQL описаны в [документации Managed Service for PostgreSQL](../../managed-postgresql/concepts/limits.md#mpg-limits).
 
 #|
 || **Вид ограничения** | **Минимальное значение** | **Максимальное значение** ||

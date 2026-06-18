@@ -79,8 +79,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select the folder.
-     1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. In the [management console]({{ link-console-main }}), select the relevant folder.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Enter a name for the [service account](../../../iam/concepts/users/service-accounts.md).
      1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `container-registry.images.scanner`.
@@ -178,7 +178,7 @@ In {{ sf-name }}, create a function named `scan-on-push` that will run the Docke
 
      {% include [handler-sh-function](../../../_tutorials/_tutorials_includes/handler-sh-function.md) %}
 
-  1. Create a `scan-on-push` version:
+  1. Create a version of the `scan-on-push` function:
 
      ```bash
      yc serverless function version create \
@@ -237,7 +237,7 @@ Create a trigger that will invoke your function when creating a Docker image [ta
      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_container-registry }}** field, select the registry to push the Docker image to.
      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select the [event `{{ ui-key.yacloud.serverless-functions.triggers.form.value_event-type-create-image-tag }}`](../../../functions/concepts/trigger/cr-trigger.md#event).
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
-     * Select `scan-on-push`.
+     * Select the `scan-on-push` function.
      * Specify the `$latest` [function version tag](../../../functions/concepts/function.md#tag).
      * Specify the `invoker` service account which will invoke the function.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.

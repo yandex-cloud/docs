@@ -36,7 +36,7 @@ yc components update
 
 ### Подготовительные действия {#prepare}
 
-1. Проверьте, используются ли стратегии `nodeSelector`, `affinity` или `topology spread constraints` для привязки подов к узлам группы. Подробнее о стратегиях см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/) и разделе [Высокая доступность и отказоустойчивость](../../managed-kubernetes/concepts/usage-recommendations.md#high-availability). Чтобы проверить привязку пода к узлам и убрать ее:
+1. Проверьте, используются ли стратегии `nodeSelector`, `affinity` или `topology spread constraints` для привязки подов к узлам группы. Подробнее о стратегиях смотрите в [документации Kubernetes](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/) и разделе [Высокая доступность и отказоустойчивость](../../managed-kubernetes/concepts/usage-recommendations.md#high-availability). Чтобы проверить привязку пода к узлам и убрать ее:
 
    {% list tabs group=instructions %}
 
@@ -312,7 +312,7 @@ yc components update
 
     Если манифест содержит параметр `spec.nodeAffinity` и в нем указана принадлежность к зоне доступности, сохраните этот параметр. Его понадобится указать в новом `PersistentVolume`.
 
-1. Создайте [снапшот](../../glossary/snapshot.md) — копию диска `PersistentVolume` на определенный момент времени. Подробнее о механизме снапшотов см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
+1. Создайте [снапшот](../../glossary/snapshot.md) — копию диска `PersistentVolume` на определенный момент времени. Подробнее о механизме снапшотов смотриите в [документации Kubernetes](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
 
    1. Получите название объекта `PersistentVolumeClaim`:
 
@@ -706,7 +706,7 @@ yc components update
 
 ### Постепенная миграция stateless- и stateful-нагрузки {#gradual-migration}
 
-Ниже представлена инструкция по постепенной миграции нагрузки из старой группы узлов в новую. Инструкцию по миграции объектов `PersistentVolume` и `PersistentVolumeClaim` см. в подразделе [Миграция stateful-нагрузки](#stateful).
+Ниже представлена инструкция по постепенной миграции нагрузки из старой группы узлов в новую. Инструкцию по миграции объектов `PersistentVolume` и `PersistentVolumeClaim` смотрите в подразделе [Миграция stateful-нагрузки](#stateful).
 
 1. [Создайте новую группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) Managed Service for Kubernetes в новой зоне доступности.
 

@@ -1,6 +1,6 @@
 # Как начать работать с Yandex Object Storage
 
-В этом разделе вы научитесь работать с сервисом с помощью консоли управления Yandex Cloud. Инструкцию о работе с AWS CLI см. в документе [Как начать работать с AWS CLI в Yandex Object Storage](quickstart/quickstart-aws-cli.md).
+В этом разделе вы научитесь работать с сервисом с помощью консоли управления Yandex Cloud. Инструкцию о работе с AWS CLI читайте в документе [Как начать работать с AWS CLI в Yandex Object Storage](quickstart/quickstart-aws-cli.md).
 
 Чтобы начать работать с Object Storage:
 

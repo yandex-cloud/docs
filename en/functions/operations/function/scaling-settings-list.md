@@ -10,7 +10,7 @@ description: Follow this guide to view function scaling settings.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}**, hover over the tag (e.g., ![image](../../../_assets/console-icons/gear.svg) `$latest`) of the function version whose scaling settings you want to view.
     1. The following scaling settings will be displayed in a pop-up window:

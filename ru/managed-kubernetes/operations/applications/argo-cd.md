@@ -102,7 +102,7 @@ kubectl --namespace <пространство_имен> get secret argocd-initia
 
    Так как в спецификации не задан IP-адрес, балансировщику будет присвоен динамический публичный IP-адрес. Вы можете добавить поле `spec.loadBalancerIP` и указать в нем [заранее зарезервированный](../../../vpc/operations/get-static-ip.md) статический IP-адрес.
 
-   Подробнее о спецификации см. в [справочнике сервиса](../../nlb-ref/service.md).
+   Подробнее о спецификации в [справочнике сервиса](../../nlb-ref/service.md).
 
 1. Примените спецификацию и создайте сетевой балансировщик нагрузки:
 
@@ -206,7 +206,7 @@ kubectl --namespace <пространство_имен> get secret argocd-initia
                       number: 80
     ```
 
-    Подробнее о настройках см. в разделе [Настройка L7-балансировщика {{ alb-full-name }} с помощью Ingress-контроллера](../../tutorials/alb-ingress-controller.md#create-ingress-and-apps).
+    Подробнее о настройках в разделе [Настройка L7-балансировщика {{ alb-full-name }} с помощью Ingress-контроллера](../../tutorials/alb-ingress-controller.md#create-ingress-and-apps).
 
 1. В директории с файлом `ingress.yaml` выполните команду:
 

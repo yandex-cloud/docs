@@ -88,7 +88,7 @@
 
    {% endlist %}
 
-   Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+   Подробнее о параметрах используемых ресурсов в {{ TF }} смотрите в документации провайдера:
    * [TLS-сертификат](../../certificate-manager/concepts/managed-certificate.md) — источник данных [yandex_cm_certificate]({{ tf-provider-datasources-link }}/cm_certificate).
    * [Бакет](../../storage/concepts/bucket.md) — [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket).
    * [Настройка](../../storage/operations/buckets/edit-acl.md) прав доступа к бакету с помощью [ACL Object Storage](../../storage/concepts/acl.md) — [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/storage_bucket_grant).

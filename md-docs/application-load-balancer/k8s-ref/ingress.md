@@ -8,7 +8,7 @@
 
 {% endnote %}
 
-`Ingress` — стандартный ресурс Kubernetes. Ниже описаны поля и аннотации ресурса, с которыми работает Ingress-контроллер Application Load Balancer. Полное описание конфигурации ресурса смотрите в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/ingress-v1/).
+`Ingress` — стандартный ресурс Kubernetes. Ниже описаны поля и аннотации ресурса, с которыми работает Ingress-контроллер Application Load Balancer. Полное описание конфигурации ресурса приведено в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/ingress-v1/).
 
 ## Ingress {#ingress}
 
@@ -139,13 +139,13 @@ annotations:
   ingress.alb.yc.io/modify-header-response-replace: X-Robots-Tag=noarchive,X-Robots-Tag=nofollow,X-Robots-Tag=noindex
   ```
 
-Подробнее об аннотациях смотрите в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
+Подробнее об аннотациях читайте в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
 
 Для объекта `ObjectMeta` можно передать следующие аннотации:
 
 * **ingress.alb.yc.io/group-name** {#annot-group-name}
 
-  Имя группы ресурсов `Ingress`. Для каждой группы создается отдельный балансировщик. Несколько ресурсов `Ingress` можно объединить в одну группу, чтобы не создавать балансировщик для каждого отдельного ресурса `Ingress`. Подробнее о формате смотрите в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+  Имя группы ресурсов `Ingress`. Для каждой группы создается отдельный балансировщик. Несколько ресурсов `Ingress` можно объединить в одну группу, чтобы не создавать балансировщик для каждого отдельного ресурса `Ingress`. Подробнее о формате в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
   Поле обязательно, даже если ресурс `Ingress` — единственный в группе.
 
@@ -235,7 +235,7 @@ annotations:
 
   Если аннотация не указана, балансировщик соединяется с бэкендами без шифрования.
 
-  Для бэкендов, входящих в состав групп, значение аннотации игнорируется. Шифрование соединений балансировщика с бэкендами из групп настраивается с помощью поля `spec.backend.tls` ресурса `HttpBackendGroup` (смотрите [справочник ресурса](http-backend-group.md)).
+  Для бэкендов, входящих в состав групп, значение аннотации игнорируется. Шифрование соединений балансировщика с бэкендами из групп настраивается с помощью поля `spec.backend.tls` ресурса `HttpBackendGroup` (читайте [справочник ресурса](http-backend-group.md)).
 
 * **ingress.alb.yc.io/prefix-rewrite** {#annot-prefix-rewrite}
 

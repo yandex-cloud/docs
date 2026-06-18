@@ -7,25 +7,10 @@ meta:
     - keyword: cloud computing
 blocks:
   - type: card-layout-block
-    title: Yandex Cloud overview
-    description: >-
-      Yandex Cloud is a suite of connected services allowing you to quickly and
-      securely get as much computing power as you need on a pay-as-you-go basis.
-      You access the computing power over the internet. This approach to
-      computing resource consumption is called _cloud computing_.
-
-
-      Cloud computing can replace or complement traditional on-premise data
-      centers.
-
-
-      Yandex Cloud undertakes to maintain the health and performance of the
-      cloud platform's hardware and software.
     colSizes:
       all: 12
-      sm: 6
-      md: 6
-      lg: 3
+      lg: 4
+      sm: 4
     children:
       - type: basic-card
         title: Getting started
@@ -52,22 +37,10 @@ blocks:
           light: assets/icons/map-pin.svg
           dark: assets/icons/map-pin.svg
       - type: basic-card
-        title: Courses
-        text: Available courses and training programs
-        urlTitle: Yandex Cloud courses
-        url: training
-        border: shadow
-        controlPosition: content
-        animated: false
-        size: s
-        icon:
-          light: assets/icons/graduation-cap.svg
-          dark: assets/icons/graduation-cap.svg
-      - type: basic-card
         title: Cloud terminology
         text: Dictionary of cloud terms
         urlTitle: Cloud terminology
-        url: https://yandex.cloud/ru/docs/glossary/
+        url: https://yandex.cloud/ru-kz/docs/glossary/
         border: shadow
         controlPosition: content
         animated: false

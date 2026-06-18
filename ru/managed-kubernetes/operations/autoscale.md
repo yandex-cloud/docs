@@ -66,7 +66,7 @@ description: Следуя данной инструкции, вы сможете
      {% include [terraform-install](../../_includes/terraform-install.md) %}
   1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов.
 
-     О том, как создать такой файл, см. в разделе [{#T}](../operations/node-group/node-group-create.md).
+     О том, как создать такой файл, читайте в разделе [{#T}](../operations/node-group/node-group-create.md).
   1. Добавьте описание новой группы узлов, указав настройки автомасштабирования в блоке `scale_policy.auto_scale`:
 
      ```hcl
@@ -96,7 +96,7 @@ description: Следуя данной инструкции, вы сможете
 
 Управление {{ k8s-ca }} выполняется на стороне сервиса {{ managed-k8s-name }}.
 
-Подробнее о {{ k8s-ca }} см. в разделе [{#T}](../concepts/autoscale.md#ca). Параметры, используемые по умолчанию, приведены в [документации {{ k8s }}](https://github.com/kubernetes/autoscaler/blob/c6b754c359a8563050933a590f9a5dece823c836/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca).
+Подробнее о {{ k8s-ca }} в разделе [{#T}](../concepts/autoscale.md#ca). Параметры, используемые по умолчанию, приведены в [документации {{ k8s }}](https://github.com/kubernetes/autoscaler/blob/c6b754c359a8563050933a590f9a5dece823c836/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca).
 
 Смотрите также раздел [{#T}](../qa/cluster-autoscaler.md).
 
@@ -124,7 +124,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-Подробнее о {{ k8s-hpa }} см. в разделе [{#T}](../concepts/autoscale.md#hpa).
+Подробнее о {{ k8s-hpa }} в разделе [{#T}](../concepts/autoscale.md#hpa).
 
 ## Настройка вертикального автомасштабирования подов {#vpa}
 
@@ -157,7 +157,7 @@ description: Следуя данной инструкции, вы сможете
          updateMode: "<режим_работы_VPA>"
      ```
 
-     Где `updateMode` — режим работы {{ k8s-vpa }}: `Off`, `Initial`, `Recreate` или `InPlaceOrRecreate`. Подробнее см. в разделе [{#T}](../concepts/autoscale.md#vpa).
+     Где `updateMode` — режим работы {{ k8s-vpa }}: `Off`, `Initial`, `Recreate` или `InPlaceOrRecreate`. Подробнее в разделе [{#T}](../concepts/autoscale.md#vpa).
 
   1. Создайте {{ k8s-vpa }} для вашего приложения:
 
@@ -173,7 +173,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-Подробнее о {{ k8s-vpa }} см. в разделе [{#T}](../concepts/autoscale.md#vpa).
+Подробнее о {{ k8s-vpa }} в разделе [{#T}](../concepts/autoscale.md#vpa).
 
 ## Удаление подов в статусе Terminated {#delete-terminated}
 

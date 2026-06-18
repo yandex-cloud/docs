@@ -10,7 +10,7 @@
 
 Ingress-контроллер, установленный в кластер, разворачивает [L7-балансировщик](../../application-load-balancer/concepts/application-load-balancer.md) со всеми необходимыми ресурсами Application Load Balancer, основываясь на конфигурации созданных вами ресурсов [Ingress](../../managed-kubernetes/alb-ref/ingress.md) и [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md).
 
-L7-балансировщик автоматически проверяет работоспособность приложения в кластере. В зависимости от результатов проверки L7-балансировщик открывает или закрывает внешний трафик к бэкенду (ресурсу [Service](../../managed-kubernetes/alb-ref/service-for-ingress.md)). Подробнее см. в [Проверки состояния](../../application-load-balancer/concepts/backend-group.md#health-checks).
+L7-балансировщик автоматически проверяет работоспособность приложения в кластере. В зависимости от результатов проверки L7-балансировщик открывает или закрывает внешний трафик к бэкенду (ресурсу [Service](../../managed-kubernetes/alb-ref/service-for-ingress.md)). Подробнее в разделе [Проверки состояния](../../application-load-balancer/concepts/backend-group.md#health-checks).
 
 По умолчанию Ingress-контроллер Application Load Balancer принимает от L7-балансировщика запросы для проверок состояния приложения на TCP-порт `10501` и проверяет работоспособность подов [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) на каждом узле кластера. Суть проверки состояния заключается в том, что когда kube-proxy работоспособен, то даже если приложение в конкретном поде не отвечает, Kubernetes перенаправит трафик в другой под с этим приложением или на другой узел.
 

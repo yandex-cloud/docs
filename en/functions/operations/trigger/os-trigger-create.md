@@ -18,7 +18,7 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -32,7 +32,7 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_storage }}**:
 
-        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_bucket }}** field, select the bucket whose object events you want to create a trigger for.
+        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_bucket }}** field, select the bucket for which you want to create an object event trigger.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select [events](../../concepts/trigger/os-trigger.md#event) that will set off the trigger.
         * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_prefix }}** field, enter a [prefix](../../concepts/trigger/os-trigger.md#filter) for filtering.
         * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_suffix }}** field, enter a [suffix](../../concepts/trigger/os-trigger.md#filter) for filtering.
@@ -84,8 +84,8 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
 
     * `--name`: Trigger name.
     * `--bucket-id`: Bucket ID.
-    * `--prefix`: Bucket object key [prefix](../../concepts/trigger/os-trigger.md#filter). This is an optional setting used for filtering.
-    * `--suffix`: Bucket object key [suffix](../../concepts/trigger/os-trigger.md#filter). This is an optional setting used for filtering.
+    * `--prefix`: Bucket object key [prefix](../../concepts/trigger/os-trigger.md#filter). This is an optional setting. It is used for filtering.
+    * `--suffix`: Bucket object key [suffix](../../concepts/trigger/os-trigger.md#filter). This is an optional setting. It is used for filtering.
     * `--events`: [Events](../../concepts/trigger/os-trigger.md#event) that set off the trigger.
 
     {% include [batch-settings-events](../../../_includes/functions/batch-settings-events.md) %}
@@ -142,7 +142,7 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
          id                 = "<function_ID>"
          service_account_id = "<service_account_ID>"
          retry_attempts     = "<number_of_retry_attempts>"
-         retry_interval     = "<interval_between_retry_attempts>"
+         retry_interval     = "<time_between_retry_attempts>"
        }
        object_storage {
          bucket_id    = "<bucket_ID>"
@@ -168,8 +168,8 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
      * `object_storage`: Trigger settings:
 
         * `bucket_id`: Bucket ID.
-        * `prefix`: Bucket object key [prefix](../../concepts/trigger/os-trigger.md#filter). This is an optional setting used for filtering.
-        * `suffix`: Bucket object key [suffix](../../concepts/trigger/os-trigger.md#filter). This is an optional setting used for filtering.
+        * `prefix`: Bucket object key [prefix](../../concepts/trigger/os-trigger.md#filter). This is an optional setting. It is used for filtering.
+        * `suffix`: Bucket object key [suffix](../../concepts/trigger/os-trigger.md#filter). This is an optional setting. It is used for filtering.
         * [Events](../../concepts/trigger/os-trigger.md#event) that set off the trigger:
 
             * `create`: Trigger will invoke the function when a new object is created in the storage. It can either be `true` or `false`.

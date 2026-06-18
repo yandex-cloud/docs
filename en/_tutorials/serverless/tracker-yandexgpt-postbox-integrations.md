@@ -1,19 +1,19 @@
-# Configuring a {{ sw-name }} workflow integrated with {{ tracker-full-name }}, {{ ai-studio-full-name }}, and {{ postbox-full-name }}
+# Configuring {{ sw-name }} integrated with {{ tracker-full-name }}, {{ ai-studio-full-name }}, and {{ postbox-full-name }}
 
 
 {% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
-In this tutorial, you will create {{ sw-full-name }} [workflows](../../serverless-integrations/concepts/workflows/workflow.md) and configure their integration with [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index), and [{{ postbox-full-name }}](../../postbox/index.yaml).
+In this tutorial, you will create [workflows](../../serverless-integrations/concepts/workflows/workflow.md) in {{ sw-full-name }} and configure their integration with [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index), and [{{ postbox-full-name }}](../../postbox/index.yaml).
 
-Your workflows will receive information about the issues in a given {{ tracker-name }} [queue]({{ link-tracker-cloudless }}about-tracker#ochered) and use {{ gpt-pro }} to analyze the workcompleted within these issues, their statuses, and evaluation. The results of the analysis and a brief progress report will be saved in a comment to one of the {{ tracker-name }} issues and also sent to the specified email address via {{ postbox-name }}.
+Your workflows will receive information about the issues in a given {{ tracker-name }} [queue]({{ link-tracker-cloudless }}about-tracker#ochered) and use {{ gpt-pro }} to analyze the work completed within these issues, their statuses, and evaluation. The results of the analysis and a brief progress report will be saved in a comment to one of the {{ tracker-name }} issues and also sent to the specified email address via {{ postbox-name }}.
 
-To configure a {{ sw-name }} workflow:
+To configure a workflow in {{ sw-full-name }}:
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a service account](#service-account).
-1. [Prepare {{ tracker-name }}](#prepare-tracker).
+1. [Set up {{ tracker-name }}](#prepare-tracker).
 1. [Configure workflow access in {{ tracker-name }}](#setup-tracker-access).
-1. [Create an address and pass a domain ownership check in {{ postbox-name }}](#setup-postbox).
+1. [Create an address and verify domain ownership in {{ postbox-name }}](#setup-postbox).
 1. [Create a {{ sw-name }} workflow](#setup-workflow).
 1. [Test the workflow](#test).
 
@@ -29,7 +29,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     If you have an active billing account, you can create or select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) for your infrastructure on the [cloud page]({{ link-console-cloud }}).
 
     [Learn more about clouds and folders here](../../resource-manager/concepts/resources-hierarchy.md).
-1. Install [cURL](https://curl.haxx.se): you will need it to send a request for an OAuth token for the Yandex ID application.
+1. Install [cURL](https://curl.haxx.se), as you will need it to send a request for a Yandex ID application OAuth token.
 
 ### Required paid resources {#paid-resources}
 
@@ -46,8 +46,8 @@ The cost of support for the new infrastructure includes:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you will be creating your workflows in.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are going to create your workflows.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**, and in the window that opens:
       1. Name the [service account](../../iam/concepts/users/service-accounts.md): `workflow-sa`.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select [`serverless.workflows.executor`](../../iam/concepts/access-control/roles.md).
@@ -56,23 +56,23 @@ The cost of support for the new infrastructure includes:
 
 {% endlist %}
 
-## Prepare your queue and issues in {{ tracker-name }} {#prepare-tracker}
+## Set up a queue and issues in {{ tracker-name }} {#prepare-tracker}
 
-For the workflows you are creating in this tutorial to work correctly, configure your queue in {{ tracker-full-name }}.
+To make sure the workflows you create in this tutorial work properly, set up a queue in {{ tracker-full-name }}.
 
 {% list tabs group=instructions %}
 
 - {{ tracker-name }} UI {#console}
 
-  1. If your organization does not have {{ tracker-full-name }} connected, [connect]({{ link-tracker-cloudless }}enable-tracker) it.
+  1. If {{ tracker-full-name }} is not enabled in your organization, [enable]({{ link-tracker-cloudless }}enable-tracker) it.
   1. If you do not have a queue in {{ tracker-name }} yet, [create]({{ link-tracker-cloudless }}manager/create-queue) one.
-  1. [Create]({{ link-tracker-cloudless }}user/create-ticket) 5-10 test issues in your queue meeting the following requirements:
+  1. [Create]({{ link-tracker-cloudless }}user/create-ticket) 5–10 test issues in your queue that meet the following requirements:
 
       * The test issues must be created in one queue.
       * All test issues must have the `product` [tag]({{ link-tracker-cloudless }}glossary#rus-t) set in the **Tags** field.
       * All test issues must be evaluated in [Story Points]({{ link-tracker-cloudless }}glossary#en-s) in the **Story Points** field.
-      * Some of the test issues should be in `Closed` [status]({{ link-tracker-cloudless }}about-tracker#process), and some in `Open` status.
-      * Comments about your progress on closed test issues must be [added]({{ link-tracker-cloudless }}user/comments) to these issues.
+      * Some of the test issues must be in the `Closed` [status]({{ link-tracker-cloudless }}about-tracker#process), and some, in the `Open` status.
+      * Closed test issues must include [comments]({{ link-tracker-cloudless }}user/comments) on your work progress.
 
 {% endlist %}
 
@@ -82,14 +82,14 @@ To authenticate your workflow in {{ tracker-full-name }}, get a token of an [OAu
 
 ### Create an OAuth application in Yandex ID {#create-app}
 
-To create an OAuth application with read and write access rights to {{ tracker-name }}:
+To create an OAuth application with read and write access permissions for {{ tracker-name }}:
 
 1. In your browser, go to the [OAuth application creation page](https://oauth.yandex.com/client/new/). On the page that opens:
     1. In the **Service name** field, enter the name of the OAuth application you are creating: `My Tracker Workflow`.
-    1. Under **Application platforms**, select the **Web services** option and specify Redirect URI in the field that appears: `https://oauth.yandex.com/verification_code`.
-    1. Under **Data access**, in the **Access name** field, enter `tracker:read` and select the `Read from tracker` access. 
+    1. Under **Application platforms**, select the **Web services** option and specify the redirect URI in the field that appears: `https://oauth.yandex.com/verification_code`.
+    1. Under **Data access**, in the **Access name** field, enter `tracker:read` and select `Read from tracker`. 
 
-        The `Read from tracker` access will appear below in the list of application accesses.
+        The `Read from tracker` option will appear below, in the application access list.
 
         Similarly, add the `tracker:write` access (`Write to tracker`).
     1. Under **Email for communication**, specify your email address to send notifications about the new application.
@@ -99,7 +99,7 @@ On the new application's page, copy the **ClientID** and **Client secret** field
 
 ### Get the application's OAuth token {#create-token}
 
-1. [Get](https://yandex.ru/dev/id/doc/ru/codes/code-url#code) the confirmation code. To do this, paste the following address into your browser address bar with the value you copied in the previous step as `client_id`:
+1. [Get](https://yandex.ru/dev/id/doc/ru/codes/code-url#code) the confirmation code. To do this, paste the following address into your browser address bar, replacing the `client_id` value with the one copied in the previous step:
 
     ```text
     https://oauth.yandex.ru/authorize?response_type=code&client_id=<ClientID_value>
@@ -129,7 +129,7 @@ On the new application's page, copy the **ClientID** and **Client secret** field
     {"access_token": "y0__wgBhMmiugUY4b40IJCda4YSeAfV5tAoPqy2tttkQsy********", "expires_in": 31536000, "refresh_token": "1:7WGrfpErRSTlkTJI:NGU-BJxhvhUdwDxDuez5ana4Befm63bXXhNpJFnbWDX1XJ_rJ3qh6DH_AItBhFJk********:ZZP-Pf0nxo4nil********", "token_type": "bearer"}%
     ```
 
-    Save the resulting `access_token` field value. This is the application's OAuth token the workflow will need to access {{ tracker-name }}.
+    Store the value returned in the `access_token` field. This is the application's OAuth token the workflow will use to access {{ tracker-name }}.
 
 ### Create a {{ lockbox-full-name }} secret {#create-secret}
 
@@ -139,8 +139,8 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you created the service account in earlier.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you created the service account earlier.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**, and in the window that opens:
 
       1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `tracker-oauth-token`.
@@ -148,7 +148,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
       1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, enter the secret key: `oauth`.
       1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, specify the application OAuth token you got in the previous step.
       1. Click **{{ ui-key.yacloud.common.create }}**.
-  1. Click the line with the new secret (`tracker-oauth-token`) and do the following in the window that opens:
+  1. Click the row with the new secret (`tracker-oauth-token`) and do the following in the window that opens:
 
       1. Copy and save the **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-id }}** field value. You will need it later when creating the workflow specification.
       1. Go to the ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
@@ -158,9 +158,9 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
 
 {% endlist %}
 
-## Create an address and pass a domain ownership check in {{ postbox-name }} {#setup-postbox}
+## Create an address and verify domain ownership in {{ postbox-name }} {#setup-postbox}
 
-For the workflow to be able to send emails, create a {{ postbox-name }} [address](../../postbox/concepts/glossary.md#adress) and confirm the ownership of the domain the emails will be sent from.
+To enable the workflow to send emails, create a {{ postbox-name }} [address](../../postbox/concepts/glossary.md#adress) and verify the ownership of the sending domain.
 
 ### Create a {{ postbox-name }} address {#create-address}
 
@@ -178,22 +178,22 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
 
     - Management console {#console}
 
-        1. In the [management console]({{ link-console-main }}), select the folder you used to create the service account and secret in.
-        1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+        1. In the [management console]({{ link-console-main }}), select the folder where you created the service account and secret.
+        1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
         1. Click **{{ ui-key.yacloud.postbox.button_create-identity }}**.
         1. In the **{{ ui-key.yacloud.postbox.label_address }}** field, specify the domain you will use to send emails, e.g., `example.com`.
 
-            You can use a domain of any level. You must have permissions to add [resource records](../../dns/concepts/resource-record.md) to the public [DNS zone](../../dns/concepts/dns-zone.md) of the specified domain. This is required to confirm your right to use it.
+            You can use a domain of any level. You must have permissions to add [resource records](../../dns/concepts/resource-record.md) to the public [DNS zone](../../dns/concepts/dns-zone.md) of the specified domain to verify your domain ownership.
         1. In the **{{ ui-key.yacloud.postbox.label_selector }}** field, specify a selector, e.g., `tracker_workflow`. 
 
             The name of the selector will be used to create a TXT resource record, so each selector you create must be unique within your domain.
-        1. In the **{{ ui-key.yacloud.postbox.label_private-key }}** field, copy the contents of the `privatekey.pem` private key file you created earlier.
+        1. In the **{{ ui-key.yacloud.postbox.label_private-key }}** field, copy the contents of the `privatekey.pem` file you created earlier.
         1. Click **{{ ui-key.yacloud.postbox.button_create-identity }}**.
         1. In the list of addresses that appears, select the new address and, under **Signature verification** on the page that opens, copy and save the **{{ ui-key.yacloud.postbox.label_dns-record-name }}** and **{{ ui-key.yacloud.postbox.label_dns-record-value }}** field values. You will need those to create a TXT resource record.
 
     {% endlist %}
 
-### Pass a domain ownership check {#validate-domain}
+### Verify your domain ownership {#validate-domain}
 
 1. In the public DNS zone of your domain, create a [TXT resource record](../../dns/concepts/resource-record.md#txt) using the following values:
 
@@ -206,7 +206,7 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
     * **Record type**: `TXT`.
     * **Record value**: **{{ ui-key.yacloud.postbox.label_dns-record-value }}** field value you copied in the previous step.
     
-        Note that the record value must be enclosed in quotes, for example:
+        Note that the record value must be enclosed in quotes, such as follows:
 
         ```text
         "v=DKIM1;h=sha256;k=rsa;p=M1B...aCA8"
@@ -214,13 +214,13 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
 
     {% include [create-record-instruction-notice](../../_includes/dns/create-record-instruction-notice.md) %}
 
-1. Run a domain rights check.
+1. Verify your domain ownership.
 
     {% list tabs group=instructions %}
 
     - Management console {#console}
 
-        1. In the [management console]({{ link-console-main }}), select the folder the new address is in.
+        1. In the [management console]({{ link-console-main }}), select the folder that contains the address you created.
         1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}** and select the address.
         1. Click **{{ ui-key.yacloud.postbox.button_run-verification }}**. If the TXT record is created correctly, the verification status on the address page will change to `Success`.
 
@@ -228,9 +228,9 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
 
     {% endlist %}
 
-## Create a {{ sw-name }} workflow {#setup-workflow}
+## Create a workflow {#setup-workflow}
 
-1. Select the specification you will use to create your workflow. Both the above specifications use integrations with {{ tracker-full-name }}, {{ ai-studio-full-name }}, and {{ postbox-full-name }}; however, they analyze the input data differently.
+1. Select the specification you will use to create your workflow. Both specifications use integrations with {{ tracker-full-name }}, {{ ai-studio-full-name }}, and {{ postbox-full-name }}; however, they analyze the input data differently.
 
     {% list tabs %}
 
@@ -363,11 +363,11 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
 
       * `<organization_ID>`: [ID](../../organization/operations/organization-get-id.md) of your {{ org-full-name }}.
       * `<secret_ID>`: Previously saved [secret](../../lockbox/concepts/secret.md) ID with the application's OAuth token.
-      * `<queue_key_in_{{ tracker-name }}>`: [Key]({{ link-tracker-cloudless }}glossary#rus-k) of the {{ tracker-name }} queue you created the test issues in.
-      * `<folder_ID>`: [ID](../../resource-manager/operations/folder/get-id.md) of the folder you are creating a workflow in.
+      * `<queue_key_in_{{ tracker-name }}>`: [Key]({{ link-tracker-cloudless }}glossary#rus-k) of the {{ tracker-name }} queue where you created the test issues.
+      * `<folder_ID>`: [ID](../../resource-manager/operations/folder/get-id.md) of the folder where you are creating a workflow.
       * `<issue_key_with_report>`: Key of the {{ tracker-name }} [issue]({{ link-tracker-cloudless }}glossary#rus-z) in the comment to which the summary of the analyzed test issues will be uploaded.
-      * `<your_domain>`: Domain you specified when creating the {{ postbox-name }} address. For the sender address (`fromAddress`) you can specify any address on this domain, e.g., `tracker-robot@example.com` or `noreply@example.com`.
-      * `<recipient_address>`: Email address the workflow will send an email to with a summary of the analyzed {{ tracker-name }} test issues.
+      * `<your_domain>`: Domain you specified when creating the {{ postbox-name }} address. For the sender address (`fromAddress`), you can specify any address on this domain, e.g., `tracker-robot@example.com` or `noreply@example.com`.
+      * `<recipient_address>`: Email address to which the workflow will send a summary of the analyzed {{ tracker-name }} test issues.
 
       A workflow comprises the following steps: `fetch_tickets`, `summarize_texts`, `send_report_via_postbox`, and `write_report_to_tracker`.
 
@@ -433,7 +433,7 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
               messages:
                 messages:
                   - role: system
-                    text: "Next you will be given comments of completed issues in {{ tracker-name }}. State as briefly as possible (no more than three sentences) what work has been done."
+                    text: "Next you will get comments of completed issues in {{ tracker-name }}. State as briefly as possible (no more than three sentences) what work has been done."
                   - role: user
                     text: \(.comment_text)
             output: |-
@@ -500,7 +500,7 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
 
       * `<organization_ID>`: [ID](../../organization/operations/organization-get-id.md) of your {{ org-full-name }}.
       * `<secret_ID>`: Previously saved [secret](../../lockbox/concepts/secret.md) ID with the application's OAuth token.
-      * `<folder_ID>`: [ID](../../resource-manager/operations/folder/get-id.md) of the folder you are creating a workflow in.
+      * `<folder_ID>`: [ID](../../resource-manager/operations/folder/get-id.md) of the folder where you are creating a workflow.
       * `<issue_key_with_report>`: Key of the {{ tracker-name }} [issue]({{ link-tracker-cloudless }}glossary#rus-z) in the comment to which the summary of the analyzed test issues will be uploaded.
       * `<your_domain>`: Domain you specified when creating the {{ postbox-name }} address. For the sender address (`fromAddress`) you can specify any address on this domain, e.g., `tracker-robot@example.com` or `noreply@example.com`.
       * `<recipient_address>`: Email address to which the workflow will send a summary of the analyzed {{ tracker-name }} test issues.
@@ -509,74 +509,74 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
 
     {% endlist %}
 
-1. Create a {{ sw-name }} workflow using the selected specification:
+1. Create a workflow using the selected specification:
 
     {% list tabs group=instructions %}
 
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder containing the previously created resources: service account, secret, and {{ postbox-name }} address.
-        1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+        1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
         1. In the left-hand panel, select ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
-        1. In the top-right corner, click **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}** and do the following in the window that opens:
+        1. In the top-right corner, click **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}** and in the window that opens:
 
             1. In the **{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}** field, add the previously selected specification.
             1. Expand **{{ ui-key.yacloud.serverless-workflows.label_additional-parameters }}**.
             1. In the **{{ ui-key.yacloud.common.name }}** field, enter the workflow name: `my-tracker-workflow`.
-            1. In the **{{ ui-key.yacloud.serverless-workflows.label_service-account }}** field, select the previously created service account named `workflow-sa`.
+            1. In the **{{ ui-key.yacloud.serverless-workflows.label_service-account }}** field, select the `workflow-sa` service account you previously created.
         1. Click **{{ ui-key.yacloud.common.create }}**.
 
     {% endlist %}
 
-## Test your workflow {#test}
+## Test the workflow {#test}
 
-Make sure the {{ sw-name }} workflow is being executed.
+Make sure the workflow is running successfully.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder the new {{ sw-name }} workflow is in.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder with the workflow you created.
+    1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
     1. In the left-hand panel, select ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
     1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to `my-tracker-workflow` and select ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.serverless-workflows.label_run-workflow }}**.
-    1. In the window that opens, click **{{ ui-key.yacloud.common.start }}**. The previously created workflow will be executed; it may take a few minutes to complete.
+    1. In the window that opens, click **{{ ui-key.yacloud.common.start }}**. The workflow will run and may take a few minutes to complete.
     1. Navigate to the ![Timeline](../../_assets/console-icons/timeline.svg) **{{ ui-key.yacloud.serverless-workflows.label_timeline }}** tab.
 
         Make sure all workflow steps are completed successfully. Each successful step will be marked by a green box with the ![CircleCheck](../../_assets/console-icons/circle-check.svg) icon in the relevant line of the time scale.
 
-        If there is an error at any of the steps, a red box with the ![TriangleExclamation](../../_assets/console-icons/triangle-exclamation.svg) icon will be displayed in the relevant line of the time scale. Click this box to view the details about the error.
+        If there is an error at any of the steps, a red box with the ![TriangleExclamation](../../_assets/console-icons/triangle-exclamation.svg) icon will be displayed in the relevant line of the time scale. Click this box to view the error details.
 
 {% endlist %}
 
-As a result of the workflow, a comment with a summary of the analyzed test issues will be added to the {{ tracker-name }} issue named in the specification. This summary will also be backed up with an email to the address given in the specification.
+As a result of the workflow, a comment with a summary of the analyzed test issues will be added to the {{ tracker-name }} issue named in the specification. This summary will also be sent to the email address given in the specification.
 
 ## How to delete the resources you created {#clear-out}
 
-To stop incurring charges for the resources you created:
-1. Delete your workflow:
+To stop paying for the resources you created:
+1. Delete the workflow:
 
     {% list tabs group=instructions %}
 
     - Management console {#console}
 
-        1. In the [management console]({{ link-console-main }}), select the folder the created resources are located in.
-        1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+        1. In the [management console]({{ link-console-main }}), select the folder containing the created resources.
+        1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
         1. In the left-hand panel, select ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
         1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to `my-tracker-workflow` and select ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
         1. Confirm the deletion.
 
     {% endlist %}
 1. [Delete the secret](../../lockbox/operations/secret-delete.md).
-1. Delete the {{ tracker-name }} [issues]({{ link-tracker-cloudless }}user/ticket-cancel) and the [queue]({{ link-tracker-cloudless }}manager/delete-queue).
+1. Delete the {{ tracker-name }} [issues]({{ link-tracker-cloudless }}user/ticket-cancel) and [queue]({{ link-tracker-cloudless }}manager/delete-queue).
 1. Optionally, delete the {{ postbox-name }} address:
 
     {% list tabs group=instructions %}
 
     - Management console {#console}
 
-        1. In the [management console]({{ link-console-main }}), select the folder the {{ postbox-name }} address is in.
-        1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+        1. In the [management console]({{ link-console-main }}), select the folder with the {{ postbox-name }} address.
+        1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
         1. In the row with the {{ postbox-name }} address, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
         1. Confirm the deletion.
 

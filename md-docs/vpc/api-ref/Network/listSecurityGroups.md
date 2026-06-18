@@ -14,7 +14,9 @@ GET https://vpc.api.cloud.yandex.net/vpc/v1/networks/{networkId}/security_groups
 ||Field | Description ||
 || networkId | **string**
 
-Required field. ID of the Network resource to list security groups for. ||
+Required field. ID of the Network resource to list security groups for.
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Query parameters {#yandex.cloud.vpc.v1.ListNetworkSecurityGroupsRequest}
@@ -26,12 +28,14 @@ Required field. ID of the Network resource to list security groups for. ||
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListNetworkSecurityGroupsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworkSecurityGroupsResponse)
-that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
+that can be used to get the next page of results in subsequent list requests. Default value: 100.
+The value must be less than or equal to 1000. ||
 || pageToken | **string**
 
 Page token. Set `pageToken`
 to the [ListNetworkSecurityGroupsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworkSecurityGroupsResponse)
-returned by a previous list request to get the next page of results. ||
+returned by a previous list request to get the next page of results.
+The length must be less than or equal to 100. ||
 |#
 
 ## Response {#yandex.cloud.vpc.v1.ListNetworkSecurityGroupsResponse}
@@ -141,7 +145,6 @@ ID of the network that the security group belongs to. ||
 
 Security group status.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Security group is being created.
 - `ACTIVE`: Security is active and it's rules are applied to the network interfaces.
 - `UPDATING`: Security group is updating. Updating is a long operation because we must update all instances in SG.
@@ -169,9 +172,9 @@ Description of the rule. 0-256 characters long. ||
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || direction | **enum** (Direction)
 
-Required field. The direction of network traffic allowed by this rule.
+The direction of network traffic allowed by this rule.
+This field is required.
 
-- `DIRECTION_UNSPECIFIED`
 - `INGRESS`: Allows ingress traffic.
 - `EGRESS`: Allows egress traffic. ||
 || ports | **[PortRange](#yandex.cloud.vpc.v1.PortRange)**
@@ -188,17 +191,23 @@ Protocol number from [IANA protocol numbers](https://www.iana.org/assignments/pr
 
 CIDR blocks to allow to recieve or send traffic.
 
-Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`. ||
+Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+
+Only one field must be specified. ||
 || securityGroupId | **string**
 
 ID of the security group to add rule to.
 
-Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`. ||
+Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+
+Only one field must be specified. ||
 || predefinedTarget | **string**
 
 Predefined target. See [security groups rules](../../concepts/security-groups.md#security-groups-rules) for more information.
 
-Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`. ||
+Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+
+Only one field must be specified. ||
 |#
 
 ## PortRange {#yandex.cloud.vpc.v1.PortRange}
@@ -207,10 +216,12 @@ Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarg
 ||Field | Description ||
 || fromPort | **string** (int64)
 
-The lowest port in the range. ||
+The lowest port in the range.
+The value must be between 0 and 65535. ||
 || toPort | **string** (int64)
 
-The highest port in the range. ||
+The highest port in the range.
+The value must be between 0 and 65535. ||
 |#
 
 ## CidrBlocks {#yandex.cloud.vpc.v1.CidrBlocks}

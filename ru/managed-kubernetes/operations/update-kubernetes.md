@@ -8,7 +8,7 @@
 
 Вы можете изменить политику обновления [кластера {{ managed-k8s-name }}](#cluster-auto-upgrade) или [группы узлов](#node-group-auto-upgrade) в любое время.
 
-Подробнее см. в разделе [{#T}](../concepts/release-channels-and-updates.md).
+Подробнее в разделе [{#T}](../concepts/release-channels-and-updates.md).
 
 {% note tip %}
 
@@ -119,7 +119,7 @@
 
   1. Откройте актуальный конфигурационный файл с описанием кластера {{ managed-k8s-name }}.
 
-     Как создать такой файл, см. в разделе [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
+     О том, как создать такой файл, читайте в разделе [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
   1. Измените параметры автоматического обновления в описании кластера {{ managed-k8s-name }}.
 
      {% note info %}
@@ -200,7 +200,7 @@
 
      {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-cluster.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
 
 - API {#api}
 
@@ -301,7 +301,7 @@
 
   1. Откройте актуальный конфигурационный файл с описанием кластера {{ managed-k8s-name }}.
 
-     О том, как создать такой файл, см. в разделе [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
+     О том, как создать такой файл, читайте в разделе [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
   1. Измените версию в описании кластера {{ managed-k8s-name }}:
 
      ```hcl
@@ -325,7 +325,7 @@
 
      {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-cluster.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
 
 - API {#api}
 
@@ -435,7 +435,7 @@
 
   1. Откройте актуальный конфигурационный файл с описанием группы узлов {{ managed-k8s-name }}.
 
-     О том, как создать такой файл, см. в разделе [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
+     О том, как создать такой файл, читайте в разделе [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
   1. Измените параметры автоматического обновления в описании группы узлов {{ managed-k8s-name }}.
 
      {% note info %}
@@ -542,7 +542,7 @@
 
      {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
 
@@ -668,7 +668,7 @@
 
   1. Откройте актуальный конфигурационный файл с описанием группы узлов {{ managed-k8s-name }}.
 
-     О том, как создать такой файл, см. в разделе [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
+     О том, как создать такой файл, читайте в разделе [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
   1. Измените версию в описании группы узлов {{ managed-k8s-name }}:
 
      ```hcl
@@ -689,7 +689,7 @@
 
      {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
 

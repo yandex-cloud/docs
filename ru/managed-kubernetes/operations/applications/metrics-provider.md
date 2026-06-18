@@ -45,7 +45,7 @@
 
      {% note info %}
 
-     Выберите только одну из настроек **Максимальное количество точек** или **Ширина временного окна прореживания**. Чтобы не использовать эти настройки, оставьте оба поля пустыми. Подробнее см. в [документации API](../../../monitoring/api-ref/MetricsData/read.md).
+     Выберите только одну из настроек **Максимальное количество точек** или **Ширина временного окна прореживания**. Чтобы не использовать эти настройки, оставьте оба поля пустыми. Подробнее читайте в [документации API](../../../monitoring/api-ref/MetricsData/read.md).
 
      {% endnote %}
 
@@ -105,7 +105,7 @@
 
      {% note info %}
 
-     Используйте только один из параметров `yandexMetrics.downsampling.maxPoints`, `yandexMetrics.downsampling.gridInterval` или `yandexMetrics.downsampling.disabled`. Подробнее о параметрах прореживания см. в [документации API](../../../monitoring/api-ref/MetricsData/read.md).
+     Используйте только один из параметров `yandexMetrics.downsampling.maxPoints`, `yandexMetrics.downsampling.gridInterval` или `yandexMetrics.downsampling.disabled`. Подробнее о параметрах прореживания в [документации API](../../../monitoring/api-ref/MetricsData/read.md).
 
      {% endnote %}
 

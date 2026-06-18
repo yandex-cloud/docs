@@ -177,7 +177,7 @@
 
 {% endlist %}
 
-Подробнее о настройке атрибутов см. [Настройте атрибуты пользователей и групп](../../../organization/operations/applications/saml-create.md#setup-attributes).
+Подробнее о настройке атрибутов смотрите в разделе [Настройте атрибуты пользователей и групп](../../../organization/operations/applications/saml-create.md#setup-attributes).
 
 ### Добавьте пользователя {#add-user}
 
@@ -238,3 +238,4 @@
 #### Полезные ссылки {#see-also}
 
 * [{{ org-full-name }}: как настроить единый вход в Grafana Cloud через SAML](https://yandex.cloud/ru/blog/how-to-identity-hub)
+

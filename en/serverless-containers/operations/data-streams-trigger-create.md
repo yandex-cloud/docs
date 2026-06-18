@@ -1,11 +1,11 @@
 ---
-title: Creating a trigger for {{ yds-full-name }} that invokes a {{ serverless-containers-full-name }} container
-description: Follow this guide to create a trigger for {{ yds-name }} that invokes a container in {{ serverless-containers-name }}.
+title: Creating a trigger for {{ yds-full-name }} that invokes a container from {{ serverless-containers-full-name }}
+description: Follow this guide to create a trigger for {{ yds-name }} that invokes a container from {{ serverless-containers-name }}.
 ---
 
-# Creating a trigger for {{ yds-name }} that invokes a {{ serverless-containers-name }} container
+# Creating a trigger for {{ yds-name }} that invokes a container from {{ serverless-containers-name }}
 
- Create a [trigger for {{ yds-name }}](../concepts/trigger/data-streams-trigger.md) to invoke a {{ serverless-containers-name }} [container](../concepts/container.md) when data is sent to a [stream](../../data-streams/concepts/glossary.md#stream-concepts). 
+ Create a [trigger for {{ yds-name }}](../concepts/trigger/data-streams-trigger.md) that invokes a [container](../concepts/container.md) from {{ serverless-containers-name }} when data is sent to a [stream](../../data-streams/concepts/glossary.md#stream-concepts). 
 
 {% note info %}
 
@@ -17,12 +17,12 @@ description: Follow this guide to create a trigger for {{ yds-name }} that invok
 
 To create a trigger, you will need:
 
-* A container that the trigger will invoke. If you do not have a container:
+* Container the trigger will invoke. If you do not have a container:
 
     * [Create a container](create.md).
     * [Create a container revision](manage-revision.md#create).
 
-* Optionally, a [dead-letter queue](../concepts/dlq.md) where messages that could not be processed by a container will be redirected. If you do not have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
+* Optionally, a [dead-letter queue](../concepts/dlq.md) for unprocessed messages from the container. If you do not have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
 
 * [Service accounts](../../iam/concepts/users/service-accounts.md) with the following permissions:
 
@@ -44,7 +44,7 @@ To create a trigger, you will need:
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -56,14 +56,14 @@ To create a trigger, you will need:
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_data-streams }}`.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}**, select a data stream and a service account with read and write permissions to the stream.
+    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}**, select a data stream and a service account with read and write permissions for that stream.
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
         * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cutoff }}**. The values may range from 1 to 60 seconds. The default value is 1 second.
         * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_stream-size }}**. The values may range from 1 B to 64 KB. The default value is 1 B.
 
-        The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a container. The total amount of data transmitted to a container may exceed the specified batch size if the data is transmitted as a single message. In all other cases, the amount of data does not exceed the batch size.
+        The trigger groups messages within the specified wait time period and sends them to the container. The total amount of data transmitted to a container may exceed the specified batch size if the data is transmitted as a single message. In all other cases, the amount of data does not exceed the batch size.
 
     1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
@@ -71,7 +71,7 @@ To create a trigger, you will need:
 
         {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -89,7 +89,7 @@ To create a trigger, you will need:
       --database <database_location> \
       --stream <data_stream_name> \
       --batch-size <message_batch_size> \
-      --batch-cutoff <maximum_timeout> \
+      --batch-cutoff <maximum_wait_time> \
       --stream-service-account-id <service_account_ID> \
       --invoke-container-id <container_ID> \
       --invoke-container-service-account-id <service_account_ID> \
@@ -102,14 +102,14 @@ To create a trigger, you will need:
     Where:
 
     * `--name`: Trigger name.
-    * `--database`: Location of the {{ ydb-short-name }} DB the {{ yds-name }} stream is linked to.
+    * `--database`: Location of the {{ ydb-short-name }} database associated with the stream in {{ yds-name }}.
 
-      To find out where the DB is located, run the `yc ydb database list` command. The DB location is specified in the `ENDPOINT` column, in the `database` parameter, e.g., `/{{ region-id }}/b1gia87mbah2********/etn7hehf6gh3********`.
+      To find out where the database is located, run the `yc ydb database list` command. The database location is specified in the `ENDPOINT` column, in the `database` property, e.g., `/{{ region-id }}/b1gia87mbah2********/etn7hehf6gh3********`.
 
     * `--stream`: Stream name.
-    * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 B to 64 KB. The default value is 1 B.
-    * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The total amount of the data transmitted to a container may exceed `batch-size` if the data is transmitted as a single message. In all other cases, the amount of data does not exceed `batch-size`.
-    * `--stream-service-account-id`: ID of the service account with write and read permissions to the stream.
+    * `--batch-size`: Message batch size. This is an optional setting. The values may range from 1 B to 64 KB. The default value is 1 B.
+    * `--batch-cutoff`: Maximum wait time. This is an optional setting. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages within the `batch-cutoff` period and sends them to the container. The total amount of data transmitted to a container may exceed `batch-size` if the data is transmitted as a single message. In all other cases, the amount of data does not exceed `batch-size`.
+    * `--stream-service-account-id`: ID of the service account with write and read permissions for the stream.
     
     {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 
@@ -148,7 +148,7 @@ To create a trigger, you will need:
 
   To create a trigger for {{ yds-name }}:
 
-  1. In the configuration file, describe the trigger parameters:
+  1. Describe the trigger in the configuration file:
 
      ```hcl
      resource "yandex_function_trigger" "my_trigger" {
@@ -175,31 +175,31 @@ To create a trigger, you will need:
 
      Where:
 
-     * `name`: Trigger name. The name format is as follows:
+     * `name`: Trigger name. Follow these naming requirements:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
-     * `container`: Container parameters:
+     * `container`: Container settings:
 
          {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
 
          {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
      
-     * `data_streams`: Trigger parameters:
+     * `data_streams`: Trigger settings:
 
-         * `stream_name`: Stream name.
-         * `database`: Location of the {{ ydb-short-name }} DB the {{ yds-name }} stream is linked to.
+         * `stream_name`: Data stream name.
+         * `database`: Location of the {{ ydb-short-name }} database associated with the stream in {{ yds-name }}.
 
-             To find out where the DB is located, run the `yc ydb database list` command. The DB location is specified in the `ENDPOINT` column, in the `database` parameter, e.g., `/ru-central1/b1gia87mba**********/etn7hehf6g*******`.
+             To find out where the DB is located, run the `yc ydb database list` command. The database location is specified in the `ENDPOINT` column, in the `database` property, e.g., `/ru-central1/b1gia87mba**********/etn7hehf6g*******`.
 
-         * `service_account_id`: ID of the service account with write and read permissions to the stream.
+         * `service_account_id`: ID of the service account with write and read permissions for the stream.
 
-         * `batch_cutoff`: Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch_cutoff` and sends them to a container. The number of messages cannot exceed `batch_size`.
+         * `batch_cutoff`: Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages within the `batch_cutoff` period and sends them to the container. The number of messages cannot exceed `batch_size`.
          * `batch_size`: Message batch size. This is an optional setting. The values may range from 1 B to 64 KB. The default value is 1 B.
 
      {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-     For more information about the `yandex_function_trigger` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+     For more information about `yandex_function_trigger` properties, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create the resources:
 

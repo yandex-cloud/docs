@@ -21,25 +21,30 @@ Retrieves the list of Network resources in the specified folder.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder to list networks in.
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../../resource-manager/api-ref/grpc/Folder/list.md#List) request. ||
+ID of the folder to list networks in.
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../../resource-manager/api-ref/grpc/Folder/list.md#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListNetworksResponse.next_page_token](#yandex.cloud.vpc.v1.ListNetworksResponse)
-that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
+that can be used to get the next page of results in subsequent list requests. Default value: 100.
+The value must be less than or equal to 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListNetworksResponse.next_page_token](#yandex.cloud.vpc.v1.ListNetworksResponse) returned by a previous list request. ||
+[ListNetworksResponse.next_page_token](#yandex.cloud.vpc.v1.ListNetworksResponse) returned by a previous list request.
+The length must be less than or equal to 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on the [Network.name](#yandex.cloud.vpc.v1.Network) field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+The length must be less than or equal to 1000. ||
 |#
 
 ## ListNetworksResponse {#yandex.cloud.vpc.v1.ListNetworksResponse}

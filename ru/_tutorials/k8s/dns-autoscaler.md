@@ -107,7 +107,7 @@ kube-dns-autoscaler  1/1    1           1          52m
 * Linear (линейный режим).
 * Ladder (ступенчатая функция).
 
-Подробнее о расчетах см. в [документации cluster-proportional-autoscaler](https://github.com/kubernetes-sigs/cluster-proportional-autoscaler#calculation-of-number-of-replicas).
+Подробнее о расчетах смотрите в документации [cluster-proportional-autoscaler](https://github.com/kubernetes-sigs/cluster-proportional-autoscaler#calculation-of-number-of-replicas).
 
 В этом примере рассмотрен режим `linear`, в котором расчет выполняется по формуле:
 
@@ -132,7 +132,7 @@ replicas = min(replicas, max)
 replicas = max(replicas, min)
 ```
 
-Подробнее о расчете см. в документации [cluster-proportional-autoscaler](https://github.com/kubernetes-sigs/cluster-proportional-autoscaler#calculation-of-number-of-replicas).
+Подробнее о расчете смотрите в документации [cluster-proportional-autoscaler](https://github.com/kubernetes-sigs/cluster-proportional-autoscaler#calculation-of-number-of-replicas).
 
 ### Измените конфигурацию {#edit-config}
 

@@ -1,6 +1,6 @@
 # Viewing operations with {{ si-name }} resources
 
-The system logs all actions with {{ si-name }} resources as a list of operations. Each operation gets its own unique ID.
+The system logs all actions with {{ si-name }} resources as a list of operations. Each operation gets an ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -11,7 +11,7 @@ The system logs all actions with {{ si-name }} resources as a list of operations
   You can get a list of operations for a specific resource. Follow the steps below to do this for an {{ er-name }} bus. The same steps apply to other resources as well.
 
   1. In the [management console]({{ link-console-main }}), open the folder the bus resides in.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Select a bus.
   1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected bus.
@@ -85,8 +85,8 @@ The system logs all actions with {{ si-name }} resources as a list of operations
 ## Getting operation details {#get-operations-info}
 
 1. [Get a list of operations](#get-operations).
-1. Copy the ID of the operation you need.
-1. Get operation details:
+1. Copy the operation ID.
+1. Get the operation details:
 
     {% list tabs group=instructions %}
 

@@ -1,6 +1,6 @@
-# Creating a trigger for budgets that invokes a {{ serverless-containers-name }} container
+# Creating a trigger for budgets that invokes a container from {{ serverless-containers-name }}
 
-Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invokes a {{ serverless-containers-name }} [container](../concepts/container.md) when threshold values are exceeded.
+Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invokes a [container](../concepts/container.md) from {{ serverless-containers-name }} when threshold values are exceeded.
 
 ## Getting started {#before-you-begin}
 
@@ -18,7 +18,7 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -38,7 +38,7 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
 
         {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 

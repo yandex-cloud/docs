@@ -131,7 +131,7 @@
 
 При инициализации выполнять операцию `unseal` не нужно — образ приложения интегрирован с Key Management Service.
 
-Подробнее см. на странице [Auto Unseal](../../../kms/tutorials/vault-secret.md) и в документации [HashiCorp Vault](https://learn.hashicorp.com/tutorials/vault/kubernetes-raft-deployment-guide?in=vault/kubernetes#initialize-and-unseal-vault).
+Подробнее на странице [Auto Unseal](../../../kms/tutorials/vault-secret.md) и в документации [HashiCorp Vault](https://learn.hashicorp.com/tutorials/vault/kubernetes-raft-deployment-guide?in=vault/kubernetes#initialize-and-unseal-vault).
 
 {% endnote %}
 

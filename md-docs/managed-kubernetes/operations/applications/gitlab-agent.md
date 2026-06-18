@@ -45,7 +45,7 @@ GitLab Agent не исполняет конвейеры [CI/CD](https://yandex.c
 
     {% note info %}
 
-    Подробнее о настройке и регистрации агента см. в [документации GitLab](https://docs.gitlab.com/ee/user/clusters/agent/install/).
+    Подробнее о настройке и регистрации агента читайте в [документации GitLab](https://docs.gitlab.com/ee/user/clusters/agent/install/).
 
     {% endnote %}
 

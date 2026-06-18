@@ -15,4 +15,4 @@ API {{ objstorage-name }} частично совместим с API AWS S3, и 
 * [консоль управления](../quickstart.md);
 * [AWS CLI](quickstart-aws-cli.md).
 
-Подробнее о возможностях {{ objstorage-name }} см. в [концепциях](../concepts/index.md).
+Подробнее о возможностях {{ objstorage-name }} в [концепциях](../concepts/index.md).

@@ -8,10 +8,10 @@ The system logs all actions with {{ sf-name }} resources as a list of operations
 
 - Management console {#console}
 
-  You can get a list of operations for a specific resource. The steps below describe how you can do this for a function. The same steps apply to other resources as well.
+  You can get a list of operations for a specific resource. The steps below describe how you can do this for a function. The same steps apply to other resources.
 
   1. In the [management console]({{ link-console-main }}), open the folder with the function.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/curly-brackets-function.svg) **{{ ui-key.yacloud.serverless-functions.switch_list }}**.
   1. Select the function.
   1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected function.
@@ -49,7 +49,7 @@ The system logs all actions with {{ sf-name }} resources as a list of operations
   +----------------------+---------------------+----------------------+---------------------+--------+-----------------+
   ```
 
-  By default, information about operations is output as text. To get more details, specify `yaml` or `json` for the output data using `--format`:
+  By default, information about operations is output as text. To get more details, specify the `yaml` or `json` output data format using `--format`:
 
   ```bash
   yc serverless function list-operations <resource_name_or_ID> --format yaml
@@ -83,9 +83,9 @@ The system logs all actions with {{ sf-name }} resources as a list of operations
 
 ## Getting operation details {#get-operations-info}
 
-1. [Get a list of operations](#get-operations) for the resource.
+1. [Get the list of operations](#get-operations) for the resource.
 1. Copy the operation ID.
-1. Get operation details:
+1. Get the operation details:
 
     {% list tabs group=instructions %}
 

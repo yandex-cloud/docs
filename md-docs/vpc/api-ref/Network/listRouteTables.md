@@ -14,7 +14,9 @@ GET https://vpc.api.cloud.yandex.net/vpc/v1/networks/{networkId}/route_tables
 ||Field | Description ||
 || networkId | **string**
 
-Required field. ID of the Network resource to list route tables for. ||
+Required field. ID of the Network resource to list route tables for.
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Query parameters {#yandex.cloud.vpc.v1.ListNetworkRouteTablesRequest}
@@ -26,12 +28,14 @@ Required field. ID of the Network resource to list route tables for. ||
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListNetworkRouteTablesResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworkRouteTablesResponse)
-that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
+that can be used to get the next page of results in subsequent list requests. Default value: 100.
+The value must be less than or equal to 1000. ||
 || pageToken | **string**
 
 Page token. Set `pageToken`
 to the [ListNetworkRouteTablesResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworkRouteTablesResponse)
-returned by a previous list request to get the next page of results. ||
+returned by a previous list request to get the next page of results.
+The length must be less than or equal to 100. ||
 |#
 
 ## Response {#yandex.cloud.vpc.v1.ListNetworkRouteTablesResponse}
@@ -108,7 +112,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Name of the route table.
 The name must be unique within the folder.
-Value must match the regular expression `\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?`. ||
+Value must match the regular expression ```|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?```. ||
 || description | **string**
 
 Optional description of the route table. 0-256 characters long. ||

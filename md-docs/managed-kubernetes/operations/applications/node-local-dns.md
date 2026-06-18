@@ -87,4 +87,4 @@
    
    {% endnote %}
 
-Подробнее о настройке локального кеширования DNS см. в разделе [Настройка NodeLocal DNS](../../tutorials/node-local-dns.md).
+Подробнее о настройке локального кеширования DNS в разделе [Настройка NodeLocal DNS](../../tutorials/node-local-dns.md).

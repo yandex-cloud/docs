@@ -179,14 +179,14 @@ For example, the following markup:
 ```markdown
 1. Item 1
 1. Item 2
-1. Third item
+1. Item 3
 ```
 
 will be displayed as:
 
 1. Item 1
 1. Item 2
-1. Third item
+1. Item 3
 
 ### Nested ordered list {#ordered-sublist}
 
@@ -233,7 +233,7 @@ Left-aligned | Right-aligned | Centered
 :--- | ---: | :---:
 Text | Text | Text
 
-To add a line break or a more complex element (such as a list or code block) to a table cell, use an alternative markup:
+To add a line break or a more complex element, e.g., a list or code block, to a table cell, use an alternative markup:
 
 ```
 #|
@@ -242,12 +242,12 @@ To add a line break or a more complex element (such as a list or code block) to 
 |#
 ```
 
-Sample markup with line breaks and a list:
+Example of a markup with line breaks and a list:
 
 ```
 #|
 ||Text
-in two lines
+in two rows
 |
 - Item 1
 - Item 2
@@ -256,17 +256,17 @@ in two lines
 |#
 ```
 
-For more information, see the [YFM documentation](https://ydocs.tech/ru/syntax/tables/multiline).
+For more information, see [this YFM guide](https://ydocs.tech/ru/syntax/tables/multiline).
 
 ## Cuts {#cuts}
 
-Use `cuts` to hide content, e.g., additional information or long blocks of code.
+Use cuts to hide content, e.g., additional information or long code blocks.
 
 For example, the following markup:
 
 ```markdown
 
-{% cut "`cut` title" %}
+{% cut "Cut title" %}
 
 Content displayed on click.
 
@@ -276,7 +276,7 @@ Content displayed on click.
 
 will be displayed as:
 
-{% cut "`cut` title" %}
+{% cut "Cut title" %}
 
 Content displayed on click.
 
@@ -284,7 +284,7 @@ Content displayed on click.
 
 ## Tabs {#tabs}
 
-Use tabs for mutually exclusive sections. For example, to separate instructions for different operating systems.
+Use tabs for mutually exclusive sections, e.g., to separate instructions for different operating systems.
 
 For example, the following markup:
 
@@ -324,7 +324,7 @@ will be displayed as:
 
 {% endlist %}
 
-If you want an element to be expanded by default, add the `{selected}` attribute to it.
+If you want an item to be expanded by default, add the `{selected}` attribute to it.
 
 For example, the following markup:
 
@@ -338,7 +338,7 @@ For example, the following markup:
 
 - Tab 2 name {selected}
 
-  The item will be expanded by default.
+  This item will be expanded by default.
 
 - Tab 3 name
 
@@ -358,7 +358,7 @@ will be displayed as:
 
 - Tab 2 name {selected}
 
-  The item will be expanded by default.
+  This item will be expanded by default.
 
 - Tab 3 name
 
@@ -533,7 +533,7 @@ will be displayed as:
 
 ![mermaid-flowcharts-example](../../_assets/datalens/internal/editor/mermaid-flowcharts-example.svg)
 
-See the [Mermaid documentation](https://mermaid.js.org/intro/) for details.
+See the [Mermaid guides](https://mermaid.js.org/intro/) for details.
 
 {% note info %}
 
@@ -542,7 +542,7 @@ When using Mermaid, keep the following limitations in mind:
 * There is no HTML support.
 * You cannot use the `class` attribute to style diagrams.
 * You cannot use CSS variables for colors.
-* Markdown inside diagram sections is only supported in part (for instance, links do not work).
+* Markdown inside diagram sections is only partially supported (e.g., links do not work).
 
 {% endnote %}
 

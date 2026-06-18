@@ -67,7 +67,7 @@ yc managed-kubernetes node-group list
   Чтобы удалить [группу узлов](../../concepts/index.md#node-group):
   1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов.
 
-     О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group-create.md).
+     О том, как создать такой файл, читайте в разделе [Создание группы узлов](node-group-create.md).
   1. Удалите блок с описанием ненужной группы.
   1. Проверьте корректность конфигурационных файлов.
 
@@ -128,7 +128,7 @@ yc managed-kubernetes node-group list
      
      {% endnote %}
 
-  Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
+  Подробнее в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
 
 - API {#api}
 

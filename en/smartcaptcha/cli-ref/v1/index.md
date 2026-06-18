@@ -13,12 +13,6 @@ Syntax:
 
 `yc smartcaptcha v1 <group>`
 
-Aliases:
-
-- `smart-captcha`
-
-- `sc`
-
 #### Command Tree
 
 - [yc smartcaptcha v1 captcha](captcha/index.md) — A set of methods for managing Captcha resources.

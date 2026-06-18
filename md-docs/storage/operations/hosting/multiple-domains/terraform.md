@@ -38,7 +38,7 @@ ns1.yandexcloud.net.
 
 Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../../terraform/index.md).
+Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../../terraform/index.md).
 
 Для создания инфраструктуры с помощью Terraform:
 
@@ -243,7 +243,7 @@ Terraform распространяется под лицензией [Business S
 
    {% endlist %}
 
-   Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+   Более подробная информация о параметрах используемых ресурсов в Terraform приведена в документации провайдера:
    * [Бакет](../../../concepts/bucket.md) — [yandex_storage_bucket](../../../../terraform/resources/storage_bucket.md).
    * [Объект](../../../concepts/object.md) — [yandex_storage_object](../../../../terraform/resources/storage_object.md).
    * [DNS-зона](../../../../dns/concepts/dns-zone.md) — [yandex_dns_zone](../../../../terraform/resources/dns_zone.md).

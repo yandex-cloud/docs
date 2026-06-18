@@ -25,7 +25,7 @@ You can add a password to an already created registry or set it when creating a 
    To add a password to an existing registry:
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to ad a password for an existing registry.
-   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. Under **{{ ui-key.yacloud.iot.label_passwords }}**, click **{{ ui-key.yacloud.iot.button_add-password }}**.
    1. In the **{{ ui-key.yacloud.common.password }}** field, enter the password you will be using to access your registry.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create a password.<br/>Make sure you save the password, as you will need it later.
@@ -184,7 +184,7 @@ You can add a password to an already created registry or set it when creating a 
    To view the list of registry passwords:
 
    1. In the [management console]({{ link-console-main }}), select the folder to get the list of registry passwords for.
-   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_passwords }}** section.
 
@@ -240,7 +240,7 @@ You can add a password to an already created registry or set it when creating a 
    To delete a registry password:
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the registry password from.
-   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. In the row with the password, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.

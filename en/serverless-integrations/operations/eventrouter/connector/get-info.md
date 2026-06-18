@@ -10,7 +10,7 @@ description: Follow this tutorial to get information about a {{ er-full-name }} 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the [connector](../../../concepts/eventrouter/connector.md).
-  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}** and select a bus. 
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/broadcast-signal.svg) **{{ ui-key.yacloud.serverless-event-router.label_connectors }}** and select the connector in question.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show detailed information about the connector.

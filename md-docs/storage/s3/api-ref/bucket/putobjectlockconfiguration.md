@@ -15,7 +15,7 @@
 * при загрузке объекта (метод [upload](../object/upload.md));
 * после загрузки объекта (методы [putObjectRetention](../object/putobjectretention.md) и [putObjectLegalHold](../object/putobjectlegalhold.md)).
 
-Подробнее о подготовке к работе с API и общем виде запроса смотрите в разделе [Как пользоваться S3 API](../../index.md).
+Подробнее о подготовке к работе с API и общем виде запроса в разделе [Как пользоваться S3 API](../../index.md).
 
 ## Запрос {#request}
 

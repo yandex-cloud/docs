@@ -231,6 +231,8 @@ items:
         href: concepts/roles.md
       - name: Управление соединениями
         href: concepts/pooling.md
+      - name: Балансировщик нагрузки для хостов
+        href: concepts/load-balancer.md
       - name: Репликация
         href: concepts/replication.md
       - name: Техническое обслуживание

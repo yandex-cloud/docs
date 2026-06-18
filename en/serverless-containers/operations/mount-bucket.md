@@ -1,9 +1,9 @@
 ---
-title: Mounting buckets to a {{ serverless-containers-full-name }} container
-description: Follow this guide to mount a bucket to a {{ serverless-containers-name }} container.
+title: Mounting buckets to a container in {{ serverless-containers-full-name }}
+description: Follow this guide to mount a bucket to a container in {{ serverless-containers-name }} .
 ---
 
-# Mounting a bucket to a container
+# Mounting buckets to a container
 
 You can mount {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md) to a container. Mounting a bucket automatically creates a new container [revision](../concepts/container.md#revision).
 
@@ -13,26 +13,26 @@ To mount buckets to a container:
 
 - Management console {#console}
     
-  1. In the [management console]({{ link-console-main }}), go to the folder with your container.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder with your container.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container.
   1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
-  1. In the **{{ ui-key.yacloud.serverless-containers.section_parameters }}** section, select or create a new [service account](../../iam/concepts/users/service-accounts) with one of these roles:
+  1. In the **{{ ui-key.yacloud.serverless-containers.section_parameters }}** section, select or create a [service account](../../iam/concepts/users/service-accounts) with one of these roles:
       * [`storage.viewer`](../../storage/security/index.md#storage-viewer) to only read data from the mounted [bucket](../../storage/concepts/bucket.md).
       * [`storage.uploader`](../../storage/security/index.md#storage-uploader) to read and write data from/to the mounted bucket.
   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.title_mount-files }}**:
 
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.label_add-folder }}**.
-      1. In the field, specify the following:
+      1. Specify the following:
 
           * **{{ ui-key.yacloud.serverless-functions.item.editor.label_mount-point-path }}**: Absolute mount path. Use this path to access the directory the bucket will be mounted to.
 
-              Do not use this path for anything other than an empty directory; otherwise, the container initialization may result in an error, and the mounted buckets will become unavailable.
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_bucket }}**: Bucket you want to mount. [Create](../../storage/operations/buckets/create.md) a new bucket if needed.
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_bucket-prefix }}**: Bucket [directory](../../storage/concepts/object.md#folder) that will be mounted to the container. Leave this field empty to mount the entire bucket.
-      1. Enable **{{ ui-key.yacloud.serverless-functions.item.editor.label_readonly }}** to disable writing to the bucket. With this option on, data from the mounted bucket will be read-only.
+              Do not use this path for anything other than an empty directory; otherwise, container initialization may fail, and the mounted buckets may become unavailable.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_bucket }}**: Bucket you want to mount. [Create](../../storage/operations/buckets/create.md) a new bucket, if required.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_bucket-prefix }}**: Bucket [folder](../../storage/concepts/object.md#folder) that will be mounted to the container. Leave this field empty to mount the entire bucket.
+      1. Enable **{{ ui-key.yacloud.serverless-functions.item.editor.label_readonly }}** to prevent writing to the bucket. With this option enabled, data from the mounted bucket will be read-only.
 
-      To mount an additional bucket to the container, click **{{ ui-key.yacloud.serverless-functions.item.editor.label_add-folder }}** again and configure the parameters as needed.
+      To mount an additional bucket to the container, click **{{ ui-key.yacloud.serverless-functions.item.editor.label_add-folder }}** again and configure the settings as needed.
   1. Click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
 
 - CLI {#cli}
@@ -61,17 +61,17 @@ To mount buckets to a container:
   * `--image`: URL of the Docker image you are creating a container revision from in the following format: `cr.yandex/<registry_ID>/<Docker_image_name>:<tag>`.
   * `--memory`: Required RAM.
   * `--execution-timeout`: Maximum container execution time before timeout.
-  * `--service-account-id`: Service account [ID](../../iam/operations/sa/get-id.md). The service account needs the `storage.viewer` [role](../../storage/security/index.md#storage-viewer) to read from the bucket or the `storage.uploader` [role](../../storage/security/index.md#storage-uploader) to both read and write.
+  * `--service-account-id`: Service account [ID](../../iam/operations/sa/get-id.md). The service account needs the `storage.viewer` [role](../../storage/security/index.md#storage-viewer) for bucket read access or the `storage.uploader` [role](../../storage/security/index.md#storage-uploader) for both read and write access.
   * `--command`: Commands the container will run when started. Separate them by commas. It matches the `ENTRYPOINT` instruction in the Dockerfile.
-  * `--args`: Arguments matching the `CMD` instruction in the Dockerfile. Specify them in `key = value` format separated by commas. If you do not specify this parameter, the default `CMD` value from the Docker image will be used.
-  * `--mount`: {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) mounting parameters:
+  * `--args`: Arguments matching the `CMD` instruction in the Dockerfile. Specify them in `key = value` format separated by commas. If you skip this setting, the default `CMD` value from the Docker image will be used.
+  * `--mount`: {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) mount settings:
       * `type`: Mounted storage type. For a bucket, the value is always `object-storage`.
       * `mount-point`: Absolute mount path. Use this path to access the directory the bucket will be mounted to.
       * `bucket`: [Bucket](../../storage/concepts/bucket.md#naming) name.
       * `prefix`: Bucket [folder](../../storage/concepts/object.md#folder) that will be mounted to the container. Skip this field or leave it empty to mount the entire bucket.
       * `mode`: Bucket mount mode, `ro` (read-only) or `rw` (read and write).
 
-      To mount several buckets to the container at the same time, set the `--mount` parameter as many times as you need.
+      To mount several buckets to a container at the same time, specify `--mount` as many times as you need.
 
 - {{ TF }} {#tf}
 
@@ -98,16 +98,16 @@ To mount buckets to a container:
 
       Where:
 
-      * `mounts`: {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) mounting parameters:
+      * `mounts`: {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) mount settings:
           * `mount_point_path`: Absolute mount path. Use this path to access the directory the [bucket](../../storage/concepts/bucket.md) will be mounted to.
           * `mode`: Bucket mount mode, `ro` (read-only) or `rw` (read and write).
-          * `object_storage`: Bucket parameters:
+          * `object_storage`: Bucket settings:
               * `bucket`: [Bucket](../../storage/concepts/bucket.md#naming) name.
               * `prefix`: Bucket [folder](../../storage/concepts/object.md#folder) that will be mounted to the container. Leave this field empty to mount the entire bucket.
 
-          To mount several buckets to the container at the same time, set the `mounts` section as many times as you need.
+          To mount several buckets to a container at the same time, specify `mounts` as many times as you need.
 
-      For more information about the `yandex_serverless_container` resource parameters, see [this {{ TF }} article]({{ tf-provider-resources-link }}/serverless_container).
+      For more information about `yandex_serverless_container` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Apply the changes:
 

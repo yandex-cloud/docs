@@ -2,4 +2,4 @@
 
 Вы можете [изменить настройки провайдера](../../managed-kubernetes/operations/applications/crossplane.md#change-provider-settings), например указать, в каком [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) и каком [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) будут по умолчанию создаваться ресурсы. 
    
-Подробнее о ресурсах {{ yandex-cloud }}, которые вы можете создать с помощью Crossplane, смотрите в подразделе [Получение информации о ресурсах](../../managed-kubernetes/operations/applications/crossplane.md#see-resources).
+Подробнее о ресурсах {{ yandex-cloud }}, которые вы можете создать с помощью Crossplane, читайте в подразделе [Получение информации о ресурсах](../../managed-kubernetes/operations/applications/crossplane.md#see-resources).

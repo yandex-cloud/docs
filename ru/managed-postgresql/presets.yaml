@@ -1,0 +1,12 @@
+default:
+  balancer:
+    port:
+      master: 6432
+      replicas: 7433
+      non-delayed-replicas: 7432
+      cascade-replicas: 8432
+    proxy:
+      name: Odyssey
+      ref: https://yandex.ru/dev/odyssey/
+    cascade-replicas-ref: ../../managed-postgresql/concepts/replication.md#manual-source
+    fqdn-ref: ../../managed-postgresql/operations/connect/fqdn.md

@@ -1,0 +1,17 @@
+---
+title: Как создать навык Алисы с помощью {{ TF }}
+description: Из этого руководства вы узнаете, как с помощью serverless-технологий и {{ TF }} создать навык Алисы.
+noIndex: true
+canonical: '{{ link-docs }}/tutorials/serverless/alice-skill/terraform'
+---
+
+# Создание навыка Алисы с помощью {{ TF }}
+
+
+Чтобы создать навык Алисы с помощью {{ TF }}:
+
+{% include [alice-skill-terraform](../../../_tutorials/serverless/alice-skill/terraform.md) %}
+
+#### Полезные ссылки {#see-also}
+
+* [{#T}](./console.md)

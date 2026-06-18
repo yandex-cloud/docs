@@ -12,7 +12,7 @@ description: Follow this guide to create a device.
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder to create a device in.
-   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
    1. Click **{{ ui-key.yacloud.iot.button_add-device }}**.
@@ -168,7 +168,7 @@ description: Follow this guide to create a device.
 
    1. In the configuration file, describe the resource you want to create:
 
-      * `yandex_iot_core_registry`: Device properties:
+      * `yandex_iot_core_device`: Device properties:
 
          * `registry_id`: ID of the registry where the device will be created.
          * `name`: Device name.

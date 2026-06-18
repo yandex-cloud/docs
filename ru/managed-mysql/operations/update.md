@@ -35,6 +35,7 @@ description: Из статьи вы узнаете, как изменить на
 * [{#T}](cluster-version-update.md).
 * [Миграция хостов кластера в другую зону доступности](host-migration.md).
 
+
 ## Изменить класс хостов {#change-resource-preset}
 
 Выбор [класса хостов](../concepts/instance-types.md) в кластерах {{ mmy-short-name }} ограничен квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [Квоты]({{ link-console-quotas }}) и найдите блок **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}**.
@@ -561,10 +562,12 @@ description: Из статьи вы узнаете, как изменить на
 
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+
+
   1. Измените дополнительные настройки кластера:
 
      - **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**
-       
+
        {% include [disk-size-autoscaling-console](../../_includes/mdb/mmy/disk-size-autoscaling-console.md) %}
 
      {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
@@ -795,7 +798,7 @@ description: Из статьи вы узнаете, как изменить на
               * `enabled` — активация сбора статистики: `true` или `false`;
               * `sessionsSamplingInterval` — интервал сбора сессий: от `1` до `86400` секунд;
               * `statementsSamplingInterval` — интервал сбора запросов: от `1` до `86400` секунд.
-          
+
           {% include [disk-size-autoscaling-rest](../../_includes/mdb/mmy/disk-size-autoscaling-rest.md) %}
 
       {% include [maintenance-window-rest](../../_includes/mdb/mmy/maintenance-window-rest.md) %}

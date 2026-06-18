@@ -76,7 +76,7 @@
 
     {% endnote %}
 
-    GPU Operator будет установлен с параметрами по умолчанию. Подробнее о параметрах см. в [официальной документации](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html#common-chart-customization-options).
+    GPU Operator будет установлен с параметрами по умолчанию. Подробнее о параметрах смотрите в [официальной документации](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html#common-chart-customization-options).
 
     {% note tip %}
 

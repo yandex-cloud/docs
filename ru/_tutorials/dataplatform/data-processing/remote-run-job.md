@@ -4,7 +4,7 @@
 
 {% note info %}
 
-Задания в кластере {{ dataproc-name }} также можно запускать из {{ ml-platform-full-name }}. Подробнее см. в [концепции](../../../datasphere/concepts/data-processing.md#existing-clusters).
+Задания в кластере {{ dataproc-name }} также можно запускать из {{ ml-platform-full-name }}. Подробнее в [концепции](../../../datasphere/concepts/data-processing.md#existing-clusters).
 
 {% endnote %}
 

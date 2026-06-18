@@ -58,7 +58,7 @@ description: В этом разделе собраны практические 
 ## Интеграция с сервисами Яндекса и Yandex Cloud {#integrations}
 
 * [{#T}](alice-shareable-todolist.md)
-* [{#T}](alice-skill.md)
+* [{#T}](alice-skill/index.md)
 
 ## Искусственный интеллект {#ai}
 

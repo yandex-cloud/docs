@@ -1,6 +1,6 @@
 {% note info %}
 
-Включить отправку логов [мастера {{ managed-k8s-name }}](../../../managed-kubernetes/concepts/index.md#master) в [{{ cloud-logging-name }}](../../../logging/) можно с помощью настройки `master logging` при [создании](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) или [изменении](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md) [кластера](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster). Настройка доступна только через API, CLI и {{ TF }}. Подробнее см. в руководстве [Передача логов кластера {{ managed-k8s-name }} в {{ cloud-logging-name }}](../../../logging/tutorials/k8s-fluent-bit-logging.md#master-logging).
+Включить отправку логов [мастера {{ managed-k8s-name }}](../../../managed-kubernetes/concepts/index.md#master) в [{{ cloud-logging-name }}](../../../logging/) можно с помощью настройки `master logging` при [создании](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) или [изменении](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md) [кластера](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster). Настройка доступна только через API, CLI и {{ TF }}. Подробнее в руководстве [Передача логов кластера {{ managed-k8s-name }} в {{ cloud-logging-name }}](../../../logging/tutorials/k8s-fluent-bit-logging.md#master-logging).
 
 {% endnote %}
 

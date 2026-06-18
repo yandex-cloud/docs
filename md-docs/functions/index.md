@@ -536,7 +536,13 @@
 
  - [Разработка навыка Алисы и сайта с авторизацией](tutorials/alice-shareable-todolist.md)
 
- - [Создание навыка Алисы](tutorials/alice-skill.md)
+#### Создание навыка Алисы
+
+ - [Обзор](tutorials/alice-skill/index.md)
+
+ - [Консоль управления, CLI и API](tutorials/alice-skill/console.md)
+
+ - [Terraform](tutorials/alice-skill/terraform.md)
 
 ### Искусственный интеллект
 

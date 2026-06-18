@@ -25,7 +25,7 @@
 
 {% note info %}
 
-Создаваемый кластер {{ msp-full-name }} не использует S3-хранилище [{{ objstorage-full-name }}](../../../storage/concepts/index.md) и глобальный каталог [{{ metastore-name }}](../../../metadata-hub/concepts/metastore.md). В такой конфигурации кластер {{ msp-full-name }} может работать только с данными в памяти. Для работы с постоянными базами и таблицами, а также для долговременного хранения результатов подключите внешнее хранилище {{ objstorage-name }} и, при необходимости, кластер {{ metastore-name }} для управления метаданными. Подробнее см. в руководстве [{#T}](../../../managed-spark/tutorials/airflow-automation.md).
+Создаваемый кластер {{ msp-full-name }} не использует S3-хранилище [{{ objstorage-full-name }}](../../../storage/concepts/index.md) и глобальный каталог [{{ metastore-name }}](../../../metadata-hub/concepts/metastore.md). В такой конфигурации кластер {{ msp-full-name }} может работать только с данными в памяти. Для работы с постоянными базами и таблицами, а также для долговременного хранения результатов подключите внешнее хранилище {{ objstorage-name }} и, при необходимости, кластер {{ metastore-name }} для управления метаданными. Подробнее в руководстве [{#T}](../../../managed-spark/tutorials/airflow-automation.md).
 
 {% endnote %}
 

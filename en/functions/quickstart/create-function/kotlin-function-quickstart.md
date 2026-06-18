@@ -11,7 +11,7 @@ Create and run a user welcome [function](../../concepts/function.md) in Kotlin.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
     1. Enter the function name: `kotlin-function`.
     1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -22,7 +22,7 @@ Create and run a user welcome [function](../../concepts/function.md) in Kotlin.
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    To create a function, run the command:
+    To create a function, run this command:
 
     ```bash
     yc serverless function create --name=kotlin-function
@@ -41,16 +41,16 @@ Create and run a user welcome [function](../../concepts/function.md) in Kotlin.
 
 - API {#api}
 
-    You can create a function using the [create](../../functions/api-ref/Function/create.md).
+    You can create a function using the [create](../../functions/api-ref/Function/create.md) API method.
 
 
 {% endlist %}
 
-## Create the first version of the function {#create-first-version}
+## Create the first version of your function {#create-first-version}
 
 {% include [create-version](../../../_includes/functions/create-version.md) %}
 
-### Prepare a ZIP archive with the function code {#create-zip}
+### Create a ZIP archive with the function code {#create-zip}
 
 1. Save the following code to a file named `Handler.kt`:
 
@@ -79,13 +79,13 @@ Create and run a user welcome [function](../../concepts/function.md) in Kotlin.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. Select `kotlin-function`.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Select the `kotlin-function` function.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
-    1. Select the `{{ kotlin-full-ver }}` runtime environment.
-    1. Disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-    1. Set the version parameters:
+    1. Select the `{{ kotlin-full-ver }}` runtime.
+    1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+    1. Configure the version:
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: Attach `hello-kotlin.zip`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `Handler`.
@@ -100,7 +100,7 @@ Create and run a user welcome [function](../../concepts/function.md) in Kotlin.
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    To create a function version, run the command:
+    To create a function version, run this command:
 
     ```bash
     yc serverless function version create \
@@ -115,10 +115,10 @@ Create and run a user welcome [function](../../concepts/function.md) in Kotlin.
     Where:
 
     * `--function-name`: Name of the function whose version you want to create.
-    * `--runtime`: Runtime environment.
+    * `--runtime`: Runtime.
     * `--entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
     * `--memory`: Amount of RAM.
-    * `--execution-timeout`: Maximum function running time before timeout.
+    * `--execution-timeout`: Maximum function execution time before timeout.
     * `--source-path`: ZIP archive with the function code and required dependencies.
 
     Result:
@@ -144,16 +144,16 @@ Create and run a user welcome [function](../../concepts/function.md) in Kotlin.
 
 - API {#api}
 
-    You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md).
+    You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md) API method.
 
 
 {% endlist %}
 
-## Invoking a function {#invoke}
+## Invoke the function {#invoke}
 
 {% note info %}
 
-To allow any user to invoke your function, [make it public](../../operations/function/function-public.md). For more information about access rights, see [{#T}](../../security/index.md).
+To allow any user to invoke your function, [make it public](../../operations/function/function-public.md). For more information about access permissions, see [{#T}](../../security/index.md).
 
 {% endnote %}
 
@@ -161,9 +161,9 @@ To allow any user to invoke your function, [make it public](../../operations/fun
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. Select a function.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Select the function.
     1. Navigate to the ![CirclePlay](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
     1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_tag }}** field, specify `$latest` to invoke the latest function version.
     1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload-template }}** field, select `{{ ui-key.yacloud.serverless-functions.item.testing.value_empty }}`.
@@ -173,7 +173,7 @@ To allow any user to invoke your function, [make it public](../../operations/fun
        {}
        ```
     1. Click ![PlayFill](../../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**.
-    1. You will see the testing status under **{{ ui-key.yacloud.serverless-functions.item.testing.label_title-test-result }}** in the **{{ ui-key.yacloud.serverless-functions.item.testing.field_execution-result }}** field. **Important**: Maximum function execution time before [timeout](../../operations/function/version-manage.md) (including original initialization at first invocation) is 10 minutes.
+    1. You will see the test status under **{{ ui-key.yacloud.serverless-functions.item.testing.label_title-test-result }}** in the **{{ ui-key.yacloud.serverless-functions.item.testing.field_execution-result }}** field. **Note** that the maximum function execution time before [timeout](../../operations/function/version-manage.md), including first call initialization, is ten minutes.
     1. You will see the function execution result in the **{{ ui-key.yacloud.serverless-functions.item.testing.field_function-output }}** field:
 
        ```
@@ -201,9 +201,9 @@ To allow any user to invoke your function, [make it public](../../operations/fun
 
 - HTTPS {#https}
 
-    You can view the function invocation link on the **{{ ui-key.yacloud.common.overview }}** tab, in the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field.
+    You can find the function invocation link on the **{{ ui-key.yacloud.common.overview }}** tab, in the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field.
 
-    For security reasons, you can only invoke a function via HTTPS. Invoke it as a regular HTTP request by pasting the link into the browser address bar and adding the `name` parameter to the URL:
+    For security reasons, you can only call a function via HTTPS. Call it as a regular HTTPS request by pasting the link into your browser’s address bar and adding the `name` parameter to the URL:
 
     ```
     https://{{ sf-url }}/<function_ID>

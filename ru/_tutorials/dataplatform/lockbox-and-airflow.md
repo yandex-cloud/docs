@@ -84,7 +84,7 @@
 
 В секрете будут сохранены данные для подключения к БД в кластере {{ mpg-name }}.
 
-Подробнее о том, как узнать FQDN хоста кластера {{ PG }}, см. в [документации](https://yandex.cloud/ru/docs/managed-postgresql/operations/connect#fqdn).
+Подробнее о том, как узнать FQDN хоста кластера {{ PG }}, смотрите в [документации](https://yandex.cloud/ru/docs/managed-postgresql/operations/connect#fqdn).
 
 ## Подготовьте DAG-файл и запустите граф {#dag}
 

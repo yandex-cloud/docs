@@ -12,9 +12,9 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with your container.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
-    1. Click the container to view its runtime log.
-    1. Go to the **{{ ui-key.yacloud.common.logs }}** tab and specify the period to view the logs for. The default period is 1 hour.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. Click the container to view its execution log.
+    1. Navigate to the **{{ ui-key.yacloud.common.logs }}** tab and specify the period for which you want to view logs. The default period is one hour.
     
 - CLI {#cli}
     
@@ -26,7 +26,7 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
    
     {% include [serverless-containers-list-note](../../_includes/serverless-containers/container-list-note.md) %}
 
-    View the container runtime log:
+    View the container execution log:
 
     ```bash
     yc logging read --resource-ids=<container_ID>
@@ -42,4 +42,4 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
 
 {% endlist %}
 
-Learn more about working with logs in the [{{ cloud-logging-full-name }} documentation](../../logging/).
+To learn more about working with logs, see [this {{ cloud-logging-full-name }} article](../../logging/).

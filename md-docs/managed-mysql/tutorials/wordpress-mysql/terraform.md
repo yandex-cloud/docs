@@ -36,7 +36,7 @@
 
 Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
 Для создания инфраструктуры c помощью Terraform:
 1. [Установите Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
@@ -246,7 +246,7 @@ Terraform распространяется под лицензией [Business S
 
    {% endlist %}
 
-   Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+   Подробнее о параметрах используемых ресурсов в Terraform смотрите в документации провайдера:
 
     * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../../terraform/resources/vpc_network.md).
     * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet](../../../terraform/resources/vpc_subnet.md).
@@ -258,7 +258,7 @@ Terraform распространяется под лицензией [Business S
     * [Зона DNS](../../../dns/concepts/dns-zone.md) — [yandex_dns_zone](../../../terraform/resources/dns_zone.md).
     * [Ресурсная запись DNS](../../../dns/concepts/resource-record.md) — [yandex_dns_recordset](../../../terraform/resources/dns_recordset.md).
 
-1. В блоке `metadata` укажите [метаданные](../../../compute/concepts/vm-metadata.md) для создания ВМ `<имя_пользователя>:<содержимое_SSH-ключа>`. Указанное имя пользователя не играет роли, ключ будет присвоен пользователю, который задан в конфигурации образа. В разных образах это разные пользователи. Подробнее см. в разделе [Ключи, обрабатываемые в публичных образах Yandex Cloud](../../../compute/concepts/metadata/public-image-keys.md).
+1. В блоке `metadata` укажите [метаданные](../../../compute/concepts/vm-metadata.md) для создания ВМ `<имя_пользователя>:<содержимое_SSH-ключа>`. Указанное имя пользователя не играет роли, ключ будет присвоен пользователю, который задан в конфигурации образа. В разных образах это разные пользователи. Подробнее в разделе [Ключи, обрабатываемые в публичных образах Yandex Cloud](../../../compute/concepts/metadata/public-image-keys.md).
 1. В блоке `boot_disk` укажите идентификатор одного из [образов](../../../compute/operations/images-with-pre-installed-software/get-list.md) ВМ с нужным набором компонентов:
    * [Debian 11](https://yandex.cloud/ru/marketplace/products/yc/debian-11).
    * [Ubuntu 20.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts).

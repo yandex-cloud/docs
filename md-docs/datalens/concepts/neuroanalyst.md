@@ -38,6 +38,14 @@
   1. Выберите вкладку **Безопасность**.
   1. Отключите опцию **Нейроаналитик** (по умолчанию она включена). После этого AI-помощники пропадут из интерфейса DataLens у всех пользователей экземпляра.
 
+  
+  {% cut "Запрет Нейроаналитика" %}
+
+  ![image](../../_assets/datalens/settings/prohobit-neuro.png)
+
+  {% endcut %}
+
+
 
 
 
@@ -50,6 +58,9 @@
   1. В правом верхнем углу экрана нажмите **Сохранить**.
   
   После этого AI-помощник будет недоступен для этого дашборда.
+  
+  
+  <iframe width="560" height="315" src="https://runtime.strm.yandex.ru/player/video/vplvkodebnkmnejc6qm5?autoplay=0&mute=0" allow="autoplay; fullscreen; accelerometer; gyroscope; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
 - Отчет
 
@@ -72,12 +83,14 @@
 
 1. Откройте настройки, для этого на панели навигации слева нажмите ![image](../../_assets/console-icons/gear.svg) **Настройки**.
 1. Перейдите на вкладку **Настройки AI**.
-   
+
+      
    {% cut "Настройки AI" %}
 
-   ![image](../../_assets/datalens/release-notes/ai-setting.png)
+   ![image](../../_assets/datalens/settings/user-prompt.png)
 
    {% endcut %}
+
 
 1. Нажмите кнопку **Редактировать**
 1. Введите промпт в текстовое поле и нажмите кнопку **Сохранить**.

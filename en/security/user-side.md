@@ -21,6 +21,8 @@ The set cookie is used by {{ iam-short-name }} to authenticate the user and issu
 
 To use the CLI, Yandex ID issues users an OAuth token. It's stored on the user's disk and used to get a temporary IAM token. In all cases, IAM tokens are valid for 24 hours and OAuth tokens are valid for one year from the date of issue. Yandex ID stores the cryptographic keys used to control OAuth token integrity.
 
+{% include [oauth-token-deprecated-soon](../_includes/oauth-token-deprecated-soon.md) %}
+
 ### Federated accounts {#fed-accounts}
 
 If an [identity federation](../iam/concepts/federations.md) is used, the {{ iam-short-name }} service accepts a signed SAML token from a third-party identity provider. This token contains information about the authenticated user.

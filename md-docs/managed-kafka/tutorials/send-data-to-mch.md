@@ -317,7 +317,7 @@
 
 Созданные таблицы будут автоматически наполняться сообщениями, считываемыми из топиков Managed Service for Apache Kafka®. При чтении данных Managed Service for ClickHouse® использует [указанные ранее настройки](#configure-mch-for-kf) для [пользователей с ролью `ACCESS_ROLE_CONSUMER`](#before-you-begin).
 
-Подробнее о создании таблиц на движке `Kafka` см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/integrations/kafka).
+Подробнее о создании таблиц на движке `Kafka` смотрите в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/integrations/kafka).
 
 ## Отправьте тестовые данные в топики Managed Service for Apache Kafka® {#send-sample-data-to-kf}
 
@@ -375,7 +375,7 @@
        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/RootCA.crt -Z
     ```
 
-Данные отправляются от имени пользователей [с ролью `ACCESS_ROLE_PRODUCER`](#before-you-begin). Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [Подключение к кластеру Apache Kafka® из приложений](../operations/connect/clients.md).
+Данные отправляются от имени пользователей [с ролью `ACCESS_ROLE_PRODUCER`](#before-you-begin). Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [Подключение к кластеру Apache Kafka® из приложений](../operations/connect/clients.md).
 
 ## Проверьте наличие тестовых данных в таблицах кластера Managed Service for ClickHouse® {#fetch-sample-data}
 
@@ -424,7 +424,7 @@
 
 Запрос вернет таблицу с данными, отправленными в соответствующий топик Managed Service for Apache Kafka®.
 
-Подробнее о работе с данными, поставляемыми из Apache Kafka®, см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/integrations/kafka).
+Подробнее о работе с данными, поставляемыми из Apache Kafka®, смотрите в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/integrations/kafka).
 
 ## Удалите созданные ресурсы {#clear-out}
 

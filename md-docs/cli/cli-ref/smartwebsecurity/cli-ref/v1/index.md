@@ -8,12 +8,6 @@ Syntax:
 
 `yc smartwebsecurity v1 <group>`
 
-Aliases:
-
-- `smart-web-security`
-
-- `sws`
-
 #### Command Tree
 
 - [yc smartwebsecurity v1 security-profile](security-profile/index.md) — A set of methods for managing SecurityProfile resources.

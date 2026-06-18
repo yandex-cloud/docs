@@ -11,7 +11,7 @@ Create and run a user welcome [function](../../concepts/function.md) in Go.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
     1. Enter the function name: `go-function`.
     1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -22,7 +22,7 @@ Create and run a user welcome [function](../../concepts/function.md) in Go.
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    To create a function, run the command:
+    To create a function, run this command:
 
     ```bash
     yc serverless function create --name=go-function
@@ -42,16 +42,16 @@ Create and run a user welcome [function](../../concepts/function.md) in Go.
 
 - API {#api}
 
-    You can create a function using the [create](../../functions/api-ref/Function/create.md).
+    You can create a function using the [create](../../functions/api-ref/Function/create.md) API method.
 
 
 {% endlist %}
 
-## Create the first version of the function {#create-first-version}
+## Create the first version of your function {#create-first-version}
 
 {% include [create-version](../../../_includes/functions/create-version.md) %}
 
-### Prepare a ZIP archive with the function code {#create-zip}
+### Create a ZIP archive with the function code {#create-zip}
 
 1. Save the following code to a file named `hello.go`:
     ```go
@@ -81,19 +81,19 @@ Create and run a user welcome [function](../../concepts/function.md) in Go.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. Select `go-function`.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Select the `go-function` function.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
-    1. Select the `{{ go-full-ver }}` runtime environment.
+    1. Select the `{{ go-full-ver }}` runtime.
     1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-    1. Set the version parameters:
+    1. Configure the version:
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: Attach `hello-go.zip`
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `hello.Handler`
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `3`
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
-        * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: Attach `hello-go.zip`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `hello.Handler`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `3`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+        * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`.
     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
@@ -102,7 +102,7 @@ Create and run a user welcome [function](../../concepts/function.md) in Go.
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    To create a function version, run the command:
+    To create a function version, run this command:
 
     ```bash
     yc serverless function version create \
@@ -117,10 +117,10 @@ Create and run a user welcome [function](../../concepts/function.md) in Go.
     Where:
 
     * `--function-name`: Name of the function whose version you want to create.
-    * `--runtime`: Runtime environment.
+    * `--runtime`: Runtime.
     * `--entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
     * `--memory`: Amount of RAM.
-    * `--execution-timeout`: Maximum function running time before timeout.
+    * `--execution-timeout`: Maximum function execution time before timeout.
     * `--source-path`: ZIP archive with the function code and required dependencies.
 
     Result:
@@ -144,7 +144,7 @@ Create and run a user welcome [function](../../concepts/function.md) in Go.
 
 - API {#api}
 
-    You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md).
+    You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md) API method.
 
 
 {% endlist %}

@@ -133,7 +133,7 @@
 
       Где `tags` — массив меток объекта в формате `<ключ> = "<значение>"`.
       
-      Более подробную информацию о параметрах ресурса `yandex_storage_object` в Terraform, см. в [документации провайдера](../../../terraform/resources/storage_object.md).
+      Более подробная информация о параметрах ресурса `yandex_storage_object` в Terraform приведена в [документации провайдера](../../../terraform/resources/storage_object.md).
 
   1. Примените изменения:
 

@@ -10,7 +10,7 @@ description: Follow this guide to get information about registry access policies
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the registry.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
   1. Select the registry.
   1. Navigate to the **{{ ui-key.yacloud.cloud-registry.title_ip-permissions }}** tab. The page will show the registry access policy details.
 

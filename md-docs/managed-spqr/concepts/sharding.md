@@ -12,7 +12,7 @@ Managed Service for Sharded PostgreSQL поддерживает следующи
 * [по хешу](https://pg-sharding.tech/sharding/hashed);
 * [по диапазону значений](https://pg-sharding.tech/sharding/ranged).
 
-Подробнее о стратегиях шардирования данных см. в разделе [Стратегии шардирования](sharding-keys.md#sharding-strategies).
+Узнайте больше о стратегиях шардирования данных в разделе [Стратегии шардирования](sharding-keys.md#sharding-strategies).
 
 ## Преимущества шардирования {#advantages}
 

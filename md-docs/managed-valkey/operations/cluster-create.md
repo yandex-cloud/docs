@@ -4,7 +4,7 @@
 
 [Кластер](../../glossary/cluster.md) Valkey™ — это один или несколько хостов базы данных, между которыми можно настроить репликацию. Репликация работает по умолчанию в любом кластере из более чем 1 хоста: хост-мастер принимает запросы на запись, асинхронно дублируя изменения в репликах.
 
-Подробнее об устройстве кластера Yandex Managed Service for Valkey™ см. в разделе [Взаимосвязь ресурсов сервиса](../concepts/index.md).
+Информация об устройстве кластера Yandex Managed Service for Valkey™ приведена в разделе [Взаимосвязь ресурсов сервиса](../concepts/index.md).
 
 {% note info %}
 
@@ -32,7 +32,7 @@
 ## Создать кластер {#create-cluster}
 
 
-Для создания кластера Yandex Managed Service for Valkey™ нужна роль [vpc.user](../../vpc/security/index.md#vpc-user) и роль [managed-redis.editor или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию Identity and Access Management](../../iam/operations/roles/grant.md).
+Для создания кластера Yandex Managed Service for Valkey™ нужна роль [vpc.user](../../vpc/security/index.md#vpc-user) и роль [managed-redis.editor или выше](../security/index.md#roles-list). Как назначить роль, читайте в [документации Identity and Access Management](../../iam/operations/roles/grant.md).
 
 
 {% note info %}
@@ -146,7 +146,7 @@
 
        * Чтобы использовать созданный ранее ключ, выберите его в поле **Ключ KMS**.
 
-       Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+       Подробнее о шифровании дисков читайте в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
 
   
@@ -336,7 +336,7 @@
       
       * `--disk-encryption-key-id` — шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md).
 
-        Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+        Подробнее о шифровании дисков читайте в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
 
       * `--announce-hostnames` — настройка, определяющая, [использовать ли FQDN вместо IP-адресов](../concepts/network.md#fqdn-ip-setting): `true` или `false`.
@@ -381,7 +381,7 @@
   
   Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+  Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
   Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
@@ -543,7 +543,7 @@
         }
         ```
 
-        Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+        Подробнее о шифровании дисков читайте в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
     1. Чтобы подключить [модули Valkey™](../concepts/modules.md), добавьте в описание кластера блок `modules`:
 
@@ -607,7 +607,7 @@
 
     После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся [FQDN хостов кластера](../concepts/network.md#hostname). Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
-    Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../terraform/resources/mdb_redis_cluster_v2.md).
+    Более подробная информация о ресурсах, которые можно создать с помощью Terraform, в [документации провайдера](../../terraform/resources/mdb_redis_cluster_v2.md).
 
     {% note warning "Ограничения по времени" %}
     

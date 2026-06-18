@@ -1,6 +1,6 @@
 ---
 title: How to delete a trigger in {{ serverless-containers-full-name }}
-description: In this tutorial, you will learn how to delete a trigger in {{ serverless-containers-full-name }}.
+description: In this guide, you will learn how to delete a trigger in {{ serverless-containers-full-name }}.
 ---
 
 # Deleting a trigger in {{ serverless-containers-name }}
@@ -10,7 +10,7 @@ description: In this tutorial, you will learn how to delete a trigger in {{ serv
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the trigger.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
     1. Select the trigger you want to delete.
     1. In the top-right corner of the page, click **{{ ui-key.yacloud.serverless-functions.list.button_action-delete }}**.
@@ -55,9 +55,9 @@ description: In this tutorial, you will learn how to delete a trigger in {{ serv
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To delete a trigger created using {{ TF }}:
+  To delete a trigger created with {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and delete the fragment with the `function_trigger` resource description:
+  1. Open the {{ TF }} configuration file and delete the section describing the `function_trigger` resource:
 
       Below is an example with the description of the `function_trigger` resource in the {{ TF }} configuration:
 
@@ -84,7 +84,7 @@ description: In this tutorial, you will learn how to delete a trigger in {{ serv
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc serverless trigger list

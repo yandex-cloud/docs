@@ -24,6 +24,8 @@ To add a [header](../../dashboard/widget.md#title) to a dashboard:
    * Optionally, set a text color by selecting one from the palette.
    * Optionally, set a background.
    * Optionally, enable **Tooltip** and enter the tooltip text. The input field supports [Markdown](../../dashboard/markdown.md).
+   * Optionally, enable **Auto height**.
+   * Optionally, enable **Display in contents**.
 
 1. Click **Add**. The widget will appear on the dashboard. A hash for the header is created automatically, and you can see the `#` icon when hovering over the header.
 

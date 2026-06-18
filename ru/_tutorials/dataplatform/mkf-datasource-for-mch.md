@@ -270,7 +270,7 @@
 
 Созданные таблицы будут автоматически наполняться сообщениями, считываемыми из топиков {{ mkf-name }}. При чтении данных {{ mch-name }} использует [указанные ранее настройки](#configure-mch-for-kf) для [пользователей с ролью `ACCESS_ROLE_CONSUMER`](#before-you-begin).
 
-Подробнее о создании таблиц на движке `Kafka` см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka).
+Подробнее о создании таблиц на движке `Kafka` смотрите в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka).
 
 ## Отправьте тестовые данные в топики {{ mkf-name }} {#send-sample-data-to-kf}
 
@@ -328,7 +328,7 @@
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file-root }} -Z
     ```
 
-Данные отправляются от имени пользователей [с ролью `ACCESS_ROLE_PRODUCER`](#before-you-begin). Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
+Данные отправляются от имени пользователей [с ролью `ACCESS_ROLE_PRODUCER`](#before-you-begin). Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
 
 ## Проверьте наличие тестовых данных в таблицах кластера {{ mch-name }} {#fetch-sample-data}
 
@@ -377,7 +377,7 @@
 
 Запрос вернет таблицу с данными, отправленными в соответствующий топик {{ mkf-name }}.
 
-Подробнее о работе с данными, поставляемыми из {{ KF }}, см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka).
+Подробнее о работе с данными, поставляемыми из {{ KF }}, смотрите в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka).
 
 ## Удалите созданные ресурсы {#clear-out}
 

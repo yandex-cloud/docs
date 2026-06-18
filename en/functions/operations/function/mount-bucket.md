@@ -14,7 +14,7 @@ To mount buckets to a function:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select the function.
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** section, select or create a [service account](../../../iam/concepts/users/service-accounts) with one of these roles:
@@ -45,9 +45,9 @@ To mount buckets to a function:
   ```bash
   yc serverless function version create \
     --function-name=<function_name> \
-    --runtime <runtime> \
+    --runtime <runtime_environment> \
     --entrypoint <entry_point> \
-    --memory <RAM_amount> \
+    --memory <RAM_size> \
     --execution-timeout <execution_timeout> \
     --source-path <path_to_ZIP_archive> \
     --service-account-id <service_account_ID> \
@@ -107,7 +107,7 @@ To mount buckets to a function:
 
           To mount several buckets to a function at the same time, specify `mounts` as many times as you need.
 
-      For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+      For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
   1. Apply the changes:
 

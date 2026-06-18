@@ -24,18 +24,22 @@ Lists subnets from the specified network.
 ||Field | Description ||
 || network_id | **string**
 
-Required field. ID of the Network resource to list subnets for. ||
+ID of the Network resource to list subnets for.
+The length must be less than or equal to 50.
+This field is required. ||
 || page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`,
 the service returns a [ListNetworkSubnetsResponse.next_page_token](#yandex.cloud.vpc.v1.ListNetworkSubnetsResponse)
-that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
+that can be used to get the next page of results in subsequent list requests. Default value: 100.
+The value must be less than or equal to 1000. ||
 || page_token | **string**
 
 Page token. Set `page_token`
 to the [ListNetworkSubnetsResponse.next_page_token](#yandex.cloud.vpc.v1.ListNetworkSubnetsResponse)
-returned by a previous list request to get the next page of results. ||
+returned by a previous list request to get the next page of results.
+The length must be less than or equal to 100. ||
 |#
 
 ## ListNetworkSubnetsResponse {#yandex.cloud.vpc.v1.ListNetworkSubnetsResponse}

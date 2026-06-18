@@ -42,10 +42,10 @@ steps:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [workflow](../../../concepts/workflows/workflow.md).
-  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. In the top-right corner, click **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
-  1. Choose the `{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}` method.
+  1. Select the `{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}` method.
   1. In the code editor, describe the workflow [YaWL specification](../../../concepts/workflows/yawl/index.md).
   1. {% include [workflows-additional-console](../../../../_includes/serverless-integrations/workflows-additional-console.md) %}
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -78,12 +78,12 @@ steps:
 
       * `--yaml-spec`: Path to the [YaWL specification](../../../concepts/workflows/yawl/index.md) file for the workflow, e.g., `./yawl-spec.yaml`.
       * `--name`: Workflow name.
-      * `--description`: Workflow description. This is an optional parameter.
-      * `--labels`: List of labels. This is an optional parameter.
+      * `--description`: Workflow description. This is an optional setting.
+      * `--labels`: List of labels. This is an optional setting.
 
           You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
 
-      * `--network-id`: ID of a cloud network where the workflow will run. This is an optional parameter.
+      * `--network-id`: ID of a cloud network where the workflow will run. This is an optional setting.
       * `--service-account-id`: [Service account](../../../../iam/concepts/users/service-accounts.md) ID.
 
       Result:

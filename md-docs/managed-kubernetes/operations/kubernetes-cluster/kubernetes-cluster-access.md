@@ -86,7 +86,7 @@
             * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
             * `allUsers` — [любой пользователь](../../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
         
-        Подробнее о типах субъектов смотрите в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
+        Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
 
   1. Проверьте список ролей, назначенных на кластер, выполнив команду:
 
@@ -104,7 +104,7 @@
   
   1. Откройте актуальный конфигурационный файл с описанием кластера Managed Service for Kubernetes.
   
-      О том, как создать такой файл, см. в разделе [Создание кластера Managed Service for Kubernetes](kubernetes-cluster-create.md).
+      О том, как создать такой файл, читайте в разделе [Создание кластера Managed Service for Kubernetes](kubernetes-cluster-create.md).
   
   1. Добавьте описание ресурса:
     
@@ -141,7 +141,7 @@
             * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
             * `allUsers` — [любой пользователь](../../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
         
-        Подробнее о типах субъектов смотрите в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
+        Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -174,7 +174,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
       
-      Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_cluster.md).
+      Подробнее в [документации провайдера Terraform](../../../terraform/resources/kubernetes_cluster.md).
 
   1. Проверьте список ролей, назначенных на кластер, выполнив команду [CLI](../../../cli/index.md):
     
@@ -244,7 +244,7 @@
               * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
               * `allUsers` — [любой пользователь](../../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
           
-          Подробнее о типах субъектов смотрите в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
+          Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
 
 - Terraform {#tf}
 
@@ -256,7 +256,7 @@
 
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
   
-      О том, как создать такой файл, см. в разделе [Создание кластера](kubernetes-cluster-create.md).
+      О том, как создать такой файл, читайте в разделе [Создание кластера](kubernetes-cluster-create.md).
 
   1. Добавьте описание ресурсов:
     
@@ -299,7 +299,7 @@
             * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
             * `allUsers` — [любой пользователь](../../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
         
-        Подробнее о типах субъектов смотрите в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
+        Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -332,7 +332,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
       
-      Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_cluster.md).
+      Подробнее в [документации провайдера Terraform](../../../terraform/resources/kubernetes_cluster.md).
 
   1. Проверьте список ролей, назначенных на кластер, выполнив команду [CLI](../../../cli/index.md):
     
@@ -395,7 +395,7 @@
             * `allAuthenticatedUsers` — [все пользователи, прошедшие аутентификацию](../../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
             * `allUsers` — [любой пользователь](../../../iam/concepts/access-control/public-group.md#allUsers), прохождение аутентификации не требуется.
         
-        Подробнее о типах субъектов смотрите в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
+        Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
 
 
 - Terraform {#tf}
@@ -408,7 +408,7 @@
 
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
   
-      О том, как создать такой файл, см. в разделе [Создание кластера](kubernetes-cluster-create.md).
+      О том, как создать такой файл, читайте в разделе [Создание кластера](kubernetes-cluster-create.md).
 
   1. Найдите описание ресурса с ролью, которую вы хотите отозвать, и удалите его:
     
@@ -451,7 +451,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
       
-      Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_cluster.md).
+      Подробнее в [документации провайдера Terraform](../../../terraform/resources/kubernetes_cluster.md).
 
   1. Проверьте список ролей, назначенных на кластер, выполнив команду [CLI](../../../cli/index.md):
     
@@ -491,7 +491,7 @@
 
       1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
   
-          О том, как создать такой файл, см. в разделе [Создание кластера](kubernetes-cluster-create.md).
+          О том, как создать такой файл, читайте в разделе [Создание кластера](kubernetes-cluster-create.md).
 
       1. Добавьте описание ресурсов:
 

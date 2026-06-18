@@ -55,12 +55,12 @@
 ## I квартал 2025 {#q1-2025}
 
 * В [Yandex Cloud CLI](../cli/quickstart.md) добавлена поддержка команд для работы с [метками объектов](concepts/tags.md#object-tags), а также с [составной загрузкой объектов](concepts/multipart.md).
-* Реализована возможность аутентификации в Object Storage из Terraform с помощью [IAM-токена](../iam/concepts/authorization/iam-token.md). Подробнее см. в [документации провайдера](../terraform/resources/storage_bucket.md).
+* Реализована возможность аутентификации в Object Storage из Terraform с помощью [IAM-токена](../iam/concepts/authorization/iam-token.md). Подробнее читайте в [документации провайдера](../terraform/resources/storage_bucket.md).
 * Поддержана работа сервиса с актуальными версиями [AWS SDK](tools/sdk/index.md) и [AWS CLI](tools/aws-cli.md).
 
 ## IV квартал 2024 {#q4-2024}
 
-* Анонсировано прекращение поддержки протокола TLS версий 1.0 и 1.1 с 1 июля 2025 года. Подробнее см. на странице [Протокол TLS](concepts/tls.md).
+* Анонсировано прекращение поддержки протокола TLS версий 1.0 и 1.1 с 1 июля 2025 года. Подробнее на странице [Протокол TLS](concepts/tls.md).
 * В [Yandex Cloud CLI](../cli/quickstart.md) добавлена группа команд [yc storage s3api](../cli/cli-ref/storage/cli-ref/s3api/index.md) для работы с [объектами](concepts/object.md).
 
 ## III квартал 2024 {#q3-2024}

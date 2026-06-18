@@ -47,6 +47,51 @@
 }
 ```
 
+### Уведомление об ошибке рендеринга письма {#rendering-failure}
+
+Приходит, когда {{ postbox-name }} принял письмо в обработку, но позже при рендеринге шаблона возникла ошибка.
+
+Пример уведомления:
+
+```json
+{
+    "eventType": "Rendering Failure",
+    "mail": {
+        "timestamp": "2024-04-25T18:05:04.84108+03:00",
+        "messageId": "vgAyRUls8591ybPKeH-Ov",
+        "identityId": "nWh0ZpVEgnKO1bghxydXn",
+        "commonHeaders": {
+            "from":[ "User <user@example.com>" ],
+            "date":"Thu, 27 Jun 2024 14:05:45 +0000",
+            "to":[ "Recipient Name <recipient@example.com>" ],
+            "messageId":"vgAyRUls8591ybPKeH-Ov",
+            "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+               "123.123.123.123"
+            ],
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ]
+        }
+    },
+    "failure": {
+        "errorMessage": "template variable not_var{{name}} is missing"
+    },
+    "eventId": "vgAyRUls8591ybPKeH-Ov:0"
+}
+```
+
 ### Уведомление о доставке письма {#delivery}
 
 Приходит, когда получателю отправили письмо и его почтовый клиент подтвердил прием письма.
@@ -423,13 +468,16 @@
 
 Название | Тип | Описание
 --- | --- | ---
-`notificationType` | Строка | [Тип уведомления](#types). Возможные значения: `Bounce`, `Complaint`, `Delivery`, `Send`.
+`eventType` | Строка | [Тип уведомления](#types). Возможные значения: `Bounce`, `Click`, `Complaint`, `Delivery`, `DeliveryDelay`, `Open`, `Rendering Failure`, `Send`, `Subscription`.
 `mail` | Объект [Mail](#mail-object) | Объект, который содержит общую информацию об отправленном письме.
-`bounce` | Объект [Bounce](#bounce-object) | Объект, который содержит информацию о том, что письмо не доставлено. Обязателен, если `notificationType` — `Bounce`, иначе отсутствует.
-`delivery` | Объект [Delivery](#delivery-object) | Объект, который содержит информацию о доставке письма отдельному получателю. Обязателен, если `notificationType` — `Delivery`, иначе отсутствует.
-`complaint` | Объект [Complaint](#complaint-object) | Объект, который содержит информацию о жалобе получателя на письмо. Обязателен, если `notificationType` — `Complaint`, иначе отсутствует.
-`subscription` | Объект [Subscription](#subscription-object) | Объект, который содержит информацию о том, что получатель отписался от рассылки. Обязателен, если `notificationType` — `Subscription`, иначе отсутствует.
-`open` | Объект [Open](#open-object) | Объект, который содержит информацию о том, что письмо было открыто. Обязателен, если `notificationType` — `Open`, иначе отсутствует.
+`bounce` | Объект [Bounce](#bounce-object) | Объект, который содержит информацию о том, что письмо не доставлено. Обязателен, если `eventType` — `Bounce`, иначе отсутствует.
+`delivery` | Объект [Delivery](#delivery-object) | Объект, который содержит информацию о доставке письма отдельному получателю. Обязателен, если `eventType` — `Delivery`, иначе отсутствует.
+`complaint` | Объект [Complaint](#complaint-object) | Объект, который содержит информацию о жалобе получателя на письмо. Обязателен, если `eventType` — `Complaint`, иначе отсутствует.
+`subscription` | Объект [Subscription](#subscription-object) | Объект, который содержит информацию о том, что получатель отписался от рассылки. Обязателен, если `eventType` — `Subscription`, иначе отсутствует.
+`deliveryDelay` | Объект [DeliveryDelay](#delivery-delay-object) | Объект, который содержит информацию о задержке доставки письма. Обязателен, если `eventType` — `DeliveryDelay`, иначе отсутствует.
+`open` | Объект [Open](#open-object) | Объект, который содержит информацию о том, что письмо было открыто. Обязателен, если `eventType` — `Open`, иначе отсутствует.
+`click` | Объект [Click](#click-object) | Объект, который содержит информацию о переходе по ссылке в письме. Обязателен, если `eventType` — `Click`, иначе отсутствует.
+`failure` | Объект [Failure](#failure-object) | Объект, который содержит информацию об ошибке рендеринга письма. Обязателен, если `eventType` — `Rendering Failure`, иначе отсутствует.
 `eventId` | Строка | Уникальный идентификатор события.
 
 ### Объект Mail {#mail-object}
@@ -521,6 +569,13 @@
 Название | Тип | Описание
 --- | --- | ---
 `emailAddress` | Строка | Электронный адрес получателя.
+
+### Объект Failure {#failure-object}
+
+Название | Тип | Описание
+--- | --- | ---
+`errorMessage` | Строка | Описание ошибки рендеринга.
+`templateName` | Строка | Необязательное поле. Имя шаблона, при рендеринге которого возникла ошибка, если оно передается в уведомлении.
 
 ### Объект Subscription {#subscription-object}
 

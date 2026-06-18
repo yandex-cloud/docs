@@ -1,17 +1,17 @@
 # Adding container environment variables
 
-When you add environment variables, a new container revision is created. You cannot add environment variables to an existing revision.
+Adding environment variables creates a new container revision. You cannot add environment variables to an existing revision.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
     
-    1. In the [management console]({{ link-console-main }}), go to the folder with your container.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder with your container.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Select the container whose version you want to add an environment variable for.
     1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
     1. In the window that opens, under **{{ ui-key.yacloud.serverless-containers.section_image }}**, specify the environment variable and click **{{ ui-key.yacloud.common.add }}**. You can add multiple environment variables.
-    1. Click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**. A new container revision with the specified environment variables will be created.
+    1. Click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**. This will create a new container revision with the specified environment variables.
     
 - CLI {#cli}
 
@@ -19,11 +19,11 @@ When you add environment variables, a new container revision is created. You can
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To add environment variables, run the command:
+    To add environment variables, run this command:
 
     {% note warning %}
 
-    If the previous revision contained environment variables, this command overwrites them.
+    If the previous revision contains environment variables, they will be overwritten.
 
     {% endnote %}
 
@@ -51,7 +51,7 @@ When you add environment variables, a new container revision is created. You can
 
   To add environment variables:
 
-  1. Open the {{ TF }} configuration file and add a list with environment variables named `environment` to the `image` section for the `yandex_serverless_container` resource:
+  1. Open the {{ TF }} configuration file and add the `environment` list with environment variables to the `image` section for the `yandex_serverless_container` resource:
 
      ```hcl
      ...
@@ -69,16 +69,16 @@ When you add environment variables, a new container revision is created. You can
      ...
      ```
 
-     Where `environment` represents environment variables in `key="value"` format. You can specify more than one pair.
+     Where `environment` lists environment variables in `key="value"` format. You can specify more than one pair.
 
-	 For more information about the `yandex_serverless_container` settings, see this [{{ TF }} guide]({{ tf-provider-resources-link }}/serverless_container).
+	 For more information about `yandex_serverless_container` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
-  1. Check the configuration using this command:
+  1. Validate your configuration using this command:
      ```
      terraform validate
      ```
      
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
      
      ```
      Success! The configuration is valid.
@@ -89,9 +89,9 @@ When you add environment variables, a new container revision is created. You can
      terraform plan
      ```
   
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
      ```
      terraform apply
      ```

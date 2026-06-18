@@ -1,16 +1,16 @@
 ---
-title: Updating the description of a container
+title: Updating a container description
 description: Follow this guide to update a container description.
 ---
 
-# Updating the description of a container
+# Updating a container description
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder with your container.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder with your container.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container.
   1. Click **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the container description.
@@ -24,7 +24,7 @@ description: Follow this guide to update a container description.
 
   {% include [note](../../_includes/serverless-containers/sc-list-note.md) %}
 
-  To edit the container description, run this command:
+  To update a container description, run this command:
 
   ```
   yc serverless container \
@@ -50,7 +50,7 @@ description: Follow this guide to update a container description.
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To update the description of a container created using {{ TF }}:
+  To update the description of a container created with {{ TF }}:
 
   1. Open the {{ TF }} configuration file and edit the `description` field value in the `yandex_serverless_container` resource description:
 
@@ -68,14 +68,14 @@ description: Follow this guide to update a container description.
      ...
      ```
 
-   For more information about `yandex_serverless_container` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/serverless_container).
+   For more information about `yandex_serverless_container` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
-  1. Check the configuration using this command:
+  1. Validate your configuration using this command:
      ```
      terraform validate
      ```
      
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
      
      ```
      Success! The configuration is valid.
@@ -86,9 +86,9 @@ description: Follow this guide to update a container description.
      terraform plan
      ```
   
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
      ```
      terraform apply
      ```

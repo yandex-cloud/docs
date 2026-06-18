@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Как начать работать с AWS CLI в {{ objstorage-full-name }}
 
-[AWS CLI](../tools/aws-cli.md) является одним из самых популярных инструментов для работы с {{ objstorage-name }}. В этом разделе вы научитесь работать с сервисом с помощью этого инструмента. Инструкцию о работе в консоли управления см. в документе [{#T}](../quickstart.md).
+[AWS CLI](../tools/aws-cli.md) является одним из самых популярных инструментов для работы с {{ objstorage-name }}. В этом разделе вы научитесь работать с сервисом с помощью этого инструмента. Инструкцию о работе в консоли управления читайте в документе [{#T}](../quickstart.md).
 
 Чтобы начать работу с AWS CLI:
 
@@ -46,7 +46,7 @@ description: Следуя данной инструкции, вы сможете
 
       Вы также можете использовать существующий сервисный аккаунт.
 
-      Подробнее см. в документе [{#T}](../../iam/operations/sa/create.md).
+      Подробнее в документе [{#T}](../../iam/operations/sa/create.md).
 
   1. Назначьте сервисному аккаунту нужную [роль](../security/index.md#roles-list), например [storage.editor](../security/index.md#storage-editor) на каталог:
 
@@ -58,7 +58,7 @@ description: Следуя данной инструкции, вы сможете
       1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль из списка или воспользуйтесь поиском.
       1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-      Подробнее см. в документе [{#T}](../../iam/operations/sa/assign-role-for-sa.md).
+      Подробнее в документе [{#T}](../../iam/operations/sa/assign-role-for-sa.md).
 
       {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
@@ -79,7 +79,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% endnote %}
 
-      Подробнее см. в документе [{#T}](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
+      Подробнее в документе [{#T}](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
 {% endlist %}
 
@@ -119,7 +119,7 @@ description: Следуя данной инструкции, вы сможете
 
     {% endlist %}
 
-    Подробнее об установке AWS CLI см. в [документации AWS](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
+    Подробнее об установке AWS CLI читайте в [документации AWS](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
 1. Настройте AWS CLI:
 
@@ -179,7 +179,7 @@ description: Следуя данной инструкции, вы сможете
 
     {% endlist %}
 
-Подробнее о настройке AWS CLI см. в [документации AWS](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html).
+Подробнее о настройке AWS CLI читайте в [документации AWS](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html).
 
 {% note info %}
 
@@ -199,7 +199,7 @@ description: Следуя данной инструкции, вы сможете
   aws s3 mb s3://<имя_бакета>
   ```
 
-  Подробности см. в документе [{#T}](../operations/buckets/create.md).
+  Подробнее в документе [{#T}](../operations/buckets/create.md).
 
 {% endlist %}
 
@@ -215,7 +215,7 @@ description: Следуя данной инструкции, вы сможете
   aws s3 cp <путь_к_локальному_файлу>/ s3://<имя_бакета>/<ключ_объекта>
   ```
 
-  Подробности см. в документе [{#T}](../operations/objects/upload.md).
+  Подробнее в документе [{#T}](../operations/objects/upload.md).
 
 {% endlist %}
 
@@ -233,7 +233,7 @@ description: Следуя данной инструкции, вы сможете
 
   Полученной ссылкой вы можете поделиться или использовать ее в своем сервисе для доступа к файлу.
 
-  Подробности см. в документе [{#T}](../operations/objects/link-for-download.md).
+  Подробнее в документе [{#T}](../operations/objects/link-for-download.md).
 
 {% endlist %}
 

@@ -587,7 +587,7 @@
     yc storage bucket create --name <имя_бакета>
     ```
 
-    Где `--name` — имя бакета. Обязательный параметр. Подробнее смотрите [Правила именования бакетов](../concepts/bucket.md#naming).
+    Где `--name` — имя бакета. Обязательный параметр. Подробнее в разделе [Правила именования бакетов](../concepts/bucket.md#naming).
 
     
     По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите](../operations/hosting/certificate.md) собственный сертификат безопасности в Object Storage.
@@ -633,14 +633,14 @@
     {% endnote %}
 
     * Параметры для настройки [ACL](../concepts/acl.md) бакета:
-    * `--acl` — предопределенный ACL. Список возможных значений смотрите в разделе [Предопределенные ACL](../concepts/acl.md#predefined-acls). Нельзя использовать одновременно с параметром `--grants`.
+    * `--acl` — предопределенный ACL. Список возможных значений приведен в разделе [Предопределенные ACL](../concepts/acl.md#predefined-acls). Нельзя использовать одновременно с параметром `--grants`.
     * `--grants` — настройки разрешений для отдельных пользователей, [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md), [групп пользователей](../../organization/concepts/groups.md) и [публичных групп](../concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей Yandex Cloud). Нельзя использовать одновременно с параметром `--acl`. Значение параметра указывается в формате: `grant-type=<тип_получателя_разрешения>,grantee-id=<идентификатор_получателя>,permission=<тип_разрешения>`, где:
         * `grant-type` — тип получателя разрешения. Возможные значения:
         * `grant-type-account` — пользователь, [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) или [группа пользователей](../../organization/concepts/groups.md);
         * `grant-type-all-authenticated-users` — [публичная группа](../concepts/acl.md#public-groups) всех аутентифицированных пользователей Yandex Cloud;
         * `grant-type-all-users` — публичная группа всех пользователей интернета.
         * `grantee-id` — идентификатор пользователя, сервисного аккаунта или группы пользователей, которым нужно дать разрешение. Указывается, только если `grant-type=grant-type-account`.
-        * `permission` — тип разрешения ACL. Возможные значения: `permission-full-control`, `permission-write`, `permission-read`. Подробнее о разрешениях смотрите в разделе [Виды разрешений](../concepts/acl.md#permissions-types).
+        * `permission` — тип разрешения ACL. Возможные значения: `permission-full-control`, `permission-write`, `permission-read`. Подробнее о разрешениях в разделе [Виды разрешений](../concepts/acl.md#permissions-types).
 
         Чтобы настроить несколько разрешений, укажите параметр `--grants` несколько раз.
 
@@ -648,7 +648,7 @@
 
     {% endcut %}
 
-    Подробнее о команде `yc storage bucket create` смотрите в [Справочнике YC CLI](../../cli/cli-ref/storage/cli-ref/bucket/create.md).
+    Подробнее о команде `yc storage bucket create` в [Справочнике YC CLI](../../cli/cli-ref/storage/cli-ref/bucket/create.md).
 
 ### Загрузите объект в бакет {#upload-object}
 

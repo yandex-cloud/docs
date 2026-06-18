@@ -75,7 +75,7 @@
     ```bash
     curl https://raw.githubusercontent.com/fluent/fluent-bit/master/install.sh | sh
     ```
-    Подробнее о том, как установить Fluent Bit, см. в [официальной документации](https://docs.fluentbit.io/manual/installation/linux/ubuntu).
+    Подробнее о том, как установить Fluent Bit, смотрите в [официальной документации](https://docs.fluentbit.io/manual/installation/linux/ubuntu).
 
 1. Запустите сервис `fluent-bit`:
     ```bash
@@ -138,7 +138,7 @@
         >* `aoeu1kuk2dht********` — идентификатор каталога;
         >* `cc8029jgtuab********` — идентификатор базы данных {{ ydb-short-name }}.
 
-    Подробнее о том, как настроить Fluent Bit см. в [официальной документации](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/configuration-file).
+    Подробнее о том, как настроить Fluent Bit, смотрите в [официальной документации](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/configuration-file).
 
 1. Откройте файл `/lib/systemd/system/fluent-bit.service`: 
    ```bash

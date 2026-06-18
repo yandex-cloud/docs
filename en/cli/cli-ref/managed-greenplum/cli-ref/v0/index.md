@@ -5,7 +5,7 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/v0
 
 # yc managed-greenplum v0
 
-Manage Greenplum clusters and hosts.
+Manage Greenplum and Cloudberry clusters.
 
 #### Command Usage
 
@@ -25,7 +25,7 @@ Syntax:
 
   - [yc managed-greenplum v0 backup list](backup/list.md) — List available backups
 
-- [yc managed-greenplum v0 cluster](cluster/index.md) — Manage Greenplum clusters
+- [yc managed-greenplum v0 cluster](cluster/index.md) — Manage Greenplum and Cloudberry clusters
 
   - [yc managed-greenplum v0 cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified Greenplum cluster
 

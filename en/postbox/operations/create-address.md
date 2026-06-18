@@ -6,7 +6,7 @@ description: Follow this guide to create an address.
 # Creating an address
 
 1. In the [management console]({{ link-console-main }}), select the folder you want to create an [address](../concepts/glossary.md#adress) in.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
 1. Click **{{ ui-key.yacloud.postbox.button_create-identity }}**.
 1. In the **{{ ui-key.yacloud.postbox.label_address }}** field, specify the domain you will use to send emails. You can use a domain of any level.
 1. (Optional) [Link the configuration to an address](bind-configuration.md).
@@ -20,11 +20,15 @@ description: Follow this guide to create an address.
 
     - Advanced setup {#advanced}
 
-        1. Generate a key to create a DKIM signature. {{ postbox-name }} supports 1,024-bit and 2,048-bit keys. To generate a key, run the following OpenSSL command:
+        1. Generate a key to create a DKIM signature in the terminal on your local computer using this OpenSSL command:
 
             ```bash
             openssl genrsa -out privatekey.pem 2048
             ```
+
+            The private key will be saved in the `privatekey.pem` file in the current directory.
+            
+            {{ postbox-name }} supports 1,024-bit and 2,048-bit keys.
 
             {% note info %}
      

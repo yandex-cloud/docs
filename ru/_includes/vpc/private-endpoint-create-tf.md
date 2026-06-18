@@ -9,10 +9,8 @@
      name        = "<имя_сервисного_подключения>"
      description = "<описание_сервисного_подключения>"
      network_id  = "<идентификатор_облачной_сети>"
+     service_type = "yandex.cloud.storage"
      
-     # Сервисное подключение к Object Storage
-     object_storage {}
-
      # Создание дополнительных ресурсных DNS-записей 
      dns_options {
        private_dns_records_enabled = <true_или_false>
@@ -28,7 +26,7 @@
    * `name` — имя сервисного подключения. Необязательный параметр.
    * `description` — описание сервисного подключения. Необязательный параметр.
    * `network_id` — имя [облачной сети](../../vpc/concepts/network.md#network), в которой будет создано сервисное подключение. Обязательный параметр.
-   * `object_storage` — сервисное подключение к {{ objstorage-short-name }}. Другие типы сервисных подключений пока не доступны.
+   * `service_type` — [тип сервисного подключения](../../vpc/concepts/private-endpoint.md#pe-services). В данном примере `yandex.cloud.storage` — {{ objstorage-short-name }}.
    * `dns_options` — блок с параметрами создания DNS-записей:
        * `private_dns_records_enabled` — параметр для создания дополнительных ресурсных записей в DNS для переопределения публичного FQDN сервиса, к которому создается подключение. Необязательный параметр.
 

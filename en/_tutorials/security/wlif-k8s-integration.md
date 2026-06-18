@@ -142,8 +142,8 @@ The infrastructure support cost includes:
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
       1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ objstorage-name }}**.
       1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-      1. On the bucket creation page:
-         1. Specify the bucket name that meets [these naming conventions](../../storage/concepts/bucket.md#naming).
+      1. On the `create bucket` page:
+         1. Specify a bucket name that meets [these naming conventions](../../storage/concepts/bucket.md#naming).
          
          1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** field, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
 
@@ -225,7 +225,7 @@ The infrastructure support cost includes:
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
       1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. Specify the service account name, e.g., `sa-lockbox`.
+      1. Enter a name for the service account, e.g., `sa-lockbox`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    {% endlist %}

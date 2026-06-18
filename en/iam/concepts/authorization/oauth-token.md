@@ -6,6 +6,12 @@ description: In this article, you will learn what an OAuth token is, about its p
 # OAuth token
 
 
+{% note warning "OAuth token authentication is no longer supported" %}
+
+Starting June 1, 2026, we will no longer accept **new** OAuth tokens received via YandexID. Tokens **issued before June 1, 2026** will remain valid until their expiration date.
+
+{% endnote %}
+
 In {{ yandex-cloud }}, an OAuth token is used to authenticate users with a Yandex account: the user exchanges an OAuth token for an [{{ iam-short-name }} token](iam-token.md).
 
 You can get an OAuth token for {{ yandex-cloud }} by submitting a [request]({{ link-cloud-oauth }}) to Yandex OAuth.

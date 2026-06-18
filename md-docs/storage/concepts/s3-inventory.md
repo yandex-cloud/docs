@@ -105,7 +105,7 @@
 * `OBJECT_ACCESS_CONTROL_LIST` — [ACL](acl.md) в кодировке base64;
 * `OBJECT_OWNER` — идентификатор аккаунта владельца.
 
-Актуальный перечень доступных параметров см. в [Справочнике API](../api-ref/Bucket/createInventoryConfiguration.md).
+Актуальный перечень доступных параметров приведен в [Справочнике API](../api-ref/Bucket/createInventoryConfiguration.md).
 
 ## Результаты выгрузки {#results}
 

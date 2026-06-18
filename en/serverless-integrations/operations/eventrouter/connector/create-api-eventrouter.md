@@ -11,7 +11,7 @@ description: Follow this guide to create a connector for the {{ er-name }} API.
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [connector](../../../concepts/eventrouter/connector.md).
 
-  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
 
   1. In the left-hand panel, select ![object-align-center-vertical](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
 
@@ -57,11 +57,11 @@ description: Follow this guide to create a connector for the {{ er-name }} API.
 
           {% include [name-format-2](../../../../_includes/name-format-2.md) %}
 
-      * `--description`: Connector description. This is an optional parameter.
-      * `--labels`: List of labels. This is an optional parameter.
+      * `--description`: Connector description. This is an optional setting.
+      * `--labels`: List of labels. This is an optional setting.
 
           You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
-      * `--deletion-protection`: Connector deletion protection. By default, protection is disabled. You cannot delete a connector with this option enabled. To disable deletion protection, specify `--no-deletion-protection`. This is an optional parameter.
+      * `--deletion-protection`: Connector deletion protection. By default, protection is disabled. You cannot delete a connector with this option enabled. To disable deletion protection, specify `--no-deletion-protection`. This is an optional setting.
 
       Result:
 

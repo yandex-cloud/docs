@@ -26,6 +26,9 @@ To configure the features and appearance of embedded objects, you can use specia
   * `dark`: Dark theme.
 
 * `_lang`: In charts, sets the language of the menu that opens when you click ![image](../../_assets/console-icons/ellipsis.svg). The possible values are `ru` or `en`.
+* `_no_tabs `: Hides dashboard tabs. To activate the parameter, set it to `1`.
+* `_no_table_of_content`: Hides dashboard content. To activate the parameter, set it to `1`.
+* `_no_title`: Hides dashboard title. To activate the parameter, set it to `1`.
 
 Provide the parameters formatted as `<parameter_name>=<value>`. For example, to set the auto-update time to 50 seconds, specify `_autoupdate=50`.
 

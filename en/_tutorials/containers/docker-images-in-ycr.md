@@ -22,7 +22,7 @@ To set up storage of {{ mgl-name }} Docker images in {{ container-registry-full-
 1. [Create a test application](#app-create).
 1. [Create a {{ GLR }}](#runners).
 1. [Create {{ GL }} environment variables](#add-variables).
-1. [Create the CI script configuration file](#add-ci).
+1. [Create a CI pipeline configuration file](#add-ci).
 1. [Check the result](#check-result).
 1. [Enable a Docker image lifecycle policy](#lifecycle-policy).
 1. (Optional) [Scan your Docker images for vulnerabilities](#vulnerability-scanner).
@@ -46,7 +46,7 @@ By default, {{ GL }} {{ container-registry-name }} is disabled when creating an 
 Infrastructure support costs include fees for the following resources:
 
 * Disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Using a dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Using a dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 * Storing the Docker images you created and a vulnerability scanner, if [activated](#vulnerability-scanner) (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
 * Using a {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 
@@ -57,14 +57,14 @@ Infrastructure support costs include fees for the following resources:
 - Manually {#manual}
 
    1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
-   1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node group](../../managed-kubernetes/concepts/index.md#node-group) will be created.
+   1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) the new [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node group](../../managed-kubernetes/concepts/index.md#node-group) will reside in.
    1. [Create a service account](../../iam/operations/sa/create.md) named `account-for-container-registry` with the following [roles](../../iam/concepts/access-control/roles.md) for the folder:
 
       * `{{ roles-editor }}`
       * `{{ roles-cr-pusher }}`
       * `{{ roles-cr-puller }}`
 
-   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) with a basic master and create a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a cluster, specify the service account you created previously.
+   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) with a basic master and create a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When doing so, specify the service account you created earlier.
    1. Configure a security group for the [{{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/connect/security-groups.md) and [{{ mgl-name }} instance](../../managed-gitlab/operations/configure-security-group.md).
 
    1. [Create a registry in {{ container-registry-full-name }}](../../container-registry/operations/registry/registry-create.md).
@@ -85,10 +85,10 @@ Infrastructure support costs include fees for the following resources:
       * [Security group](../../vpc/concepts/security-groups.md) and rules required for the {{ mgl-name }} instance and [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
       * {{ managed-k8s-name }} cluster with a basic master.
       * [Node group for the cluster](../../managed-kubernetes/concepts/index.md#node-group).
-      * [Service account](../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and node group.
-      * {{ container-registry-full-name }} registry.
+      * [Service account](../../iam/concepts/users/service-accounts.md) for the {{ managed-k8s-name }} cluster and node group.
+      * {{ container-registry-full-name }}.
 
-   1. Specify the following in the `container-registry-and-gitlab.tf` file:
+   1. In `container-registry-and-gitlab.tf`, specify the following:
 
       * [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
       * [Folder ID](../../resource-manager/operations/folder/get-id.md).
@@ -100,7 +100,7 @@ Infrastructure support costs include fees for the following resources:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
+      {{ TF }} will display any configuration errors detected in your files.
 
    1. Create the required infrastructure:
 
@@ -121,7 +121,7 @@ Create a test application that can be deployed in a {{ managed-k8s-name }} clust
    1. Log in to {{ GL }}.
    1. Open the {{ GL }} project.
    1. Click ![image](../../_assets/console-icons/plus.svg) in the repository navigation bar and select **New file** from the drop-down menu.
-   1. Name the file as `Dockerfile` and add the following code to it:
+   1. Name the file `Dockerfile` and add the following code to it:
 
       ```Dockerfile
       FROM alpine:3.10
@@ -141,7 +141,7 @@ To allow {{ mgl-name }} to save Docker images and their tags in {{ container-reg
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. Create a [static key](../../iam/concepts/authorization/access-key.md) for the `account-for-container-registry` service account [you created earlier](#before-you-begin):
+1. Create an [authorized key](../../iam/concepts/authorization/key.md) for the `account-for-container-registry` service account [you created earlier](#before-you-begin):
 
    ```bash
    yc iam key create --service-account-name account-for-container-registry -o key.json
@@ -153,7 +153,7 @@ To allow {{ mgl-name }} to save Docker images and their tags in {{ container-reg
 
 1. Go to **Settings** in the left-hand panel, then select **CI/CD** from the drop-down list.
 
-1. Click **Expand** next to **Variables**.
+1. Expand the **Variables** section.
 
 1. Add environment variables with the protection option disabled:
 
@@ -165,11 +165,19 @@ To allow {{ mgl-name }} to save Docker images and their tags in {{ container-reg
    To add a variable:
 
    1. Click **Add variable**.
-   1. In the window that opens, specify the variable name in the **Key** field and its value in the **Value** field.
-   1. Disable the **Protect variable** option.
+   1. For the `CI_REGISTRY_KEY` variable, select the **Visible** option in the **Visibility** field.
+
+      {% note warning %}
+
+      The `key.json` file contains spaces and line breaks which cannot be masked in {{ GL }}. However, in the provided [CI pipeline example](#add-ci), the `CI_REGISTRY_KEY` variable is not displayed explicitly, so you do not need to mask it.
+
+      {% endnote %}
+
+   1. In the window that opens, specify a variable name in the **Key** field and its value in the **Value** field.
+   1. Disable **Protect variable**.
    1. Click **Add variable**.
 
-## Create the CI script configuration file {#add-ci}
+## Create a CI pipeline configuration file {#add-ci}
 
 To build images from a Dockerfile without Docker, use [kaniko](https://github.com/GoogleContainerTools/kaniko).
 
@@ -190,7 +198,7 @@ To publish Docker images from your {{ GL }} project in {{ container-registry-ful
          entrypoint: [""]
       script:
          - mkdir -p /kaniko/.docker
-         # Upload the container image to the registry. The image is tagged with the commit hash.
+         # Pushing the container image to the registry. The image is tagged with the commit hash.
          - echo "{\"auths\":{\"$CI_REGISTRY\":{\"auth\":\"$(echo -n "json_key:${CI_REGISTRY_KEY}" | base64 | tr -d '\n' )\"}}}" > /kaniko/.docker/config.json
          - >-
             /kaniko/executor
@@ -305,10 +313,10 @@ To make sure that the image scan was successful:
 
 If you no longer need the resources you created, delete them:
 
-1. [Delete the {{ mgl-name }} instance](../../managed-gitlab/operations/instance/instance-delete.md) or the [created VM with the {{ GL }} image](../../compute/operations/vm-control/vm-delete.md).
+1. [Delete the {{ mgl-name }} instance](../../managed-gitlab/operations/instance/instance-delete.md) or the [{{ GL }} VM](../../compute/operations/vm-control/vm-delete.md).
 1. [Delete all Docker images](../../container-registry/operations/docker-image/docker-image-delete.md) from the {{ container-registry-name }} registry.
 
-Delete the other resources depending on how they were created:
+Delete the rest of the resources depending on how you created them:
 
 {% list tabs group=instructions %}
 
@@ -317,8 +325,8 @@ Delete the other resources depending on how they were created:
    1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
    1. If you reserved a public IP address for the {{ managed-k8s-name }} cluster, [delete it](../../vpc/operations/address-delete.md).
    1. [Delete the service accounts](../../iam/operations/sa/delete.md).
-   1. [Delete the {{ container-registry-name }} registry](../../container-registry/operations/registry/registry-delete.md).
-   1. [Delete the subnets](../../vpc/operations/subnet-delete.md) and [network](../../vpc/operations/network-delete.md).
+   1. [Delete the {{ container-registry-name }}](../../container-registry/operations/registry/registry-delete.md).
+   1. [Delete the subnets](../../vpc/operations/subnet-delete.md) and the [network](../../vpc/operations/network-delete.md).
 
 - {{ TF }} {#tf}
 

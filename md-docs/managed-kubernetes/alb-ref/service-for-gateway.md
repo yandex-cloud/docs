@@ -8,7 +8,7 @@
 
 {% endnote %}
 
-`Service` — стандартный ресурс Kubernetes. Ниже описаны поля и аннотации ресурса, с которыми работают инструменты Application Load Balancer для Managed Service for Kubernetes. Полное описание конфигурации ресурса смотрите в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).
+`Service` — стандартный ресурс Kubernetes. Ниже описаны поля и аннотации ресурса, с которыми работают инструменты Application Load Balancer для Managed Service for Kubernetes. Полное описание конфигурации ресурса приведено в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).
 
 ## Service {#service}
 

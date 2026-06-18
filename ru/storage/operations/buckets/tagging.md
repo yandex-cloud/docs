@@ -127,7 +127,7 @@ description: Следуя данной инструкции, вы сможете
 
       Где `tags` — массив меток бакета в формате `<ключ> = "<значение>"`.
 
-      Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform, см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
+      Более подробная информация о параметрах ресурса `yandex_storage_bucket` в {{ TF }} приведена в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Примените изменения:
 

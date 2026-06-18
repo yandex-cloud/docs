@@ -10,7 +10,7 @@
 * ACID-транзакции, которые поддерживают операции `UPDATE`, `DELETE`, `MERGE`, а также эволюцию таблиц и способа партиционирования.
 * Масштабируемость с сохранением высокой производительности операций.
 
-В этом руководстве показан пример использования формата таблиц Apache Iceberg™ для создания и чтения снимков метаданных. Таблица Apache Iceberg™ создается в S3-хранилище Object Storage. Кластер Yandex Managed Service for Apache Spark™, в котором запускается PySpark-задание, использует глобальный каталог Apache Hive™ Metastore. Подробнее о подключении глобального каталога см. в руководстве [Работа с Yandex Object Storage из PySpark-задания с использованием кластера Apache Hive™ Metastore](metastore-and-spark.md).
+В этом руководстве показан пример использования формата таблиц Apache Iceberg™ для создания и чтения снимков метаданных. Таблица Apache Iceberg™ создается в S3-хранилище Object Storage. Кластер Yandex Managed Service for Apache Spark™, в котором запускается PySpark-задание, использует глобальный каталог Apache Hive™ Metastore. Подробнее о подключении глобального каталога смотрите в руководстве [Работа с Yandex Object Storage из PySpark-задания с использованием кластера Apache Hive™ Metastore](metastore-and-spark.md).
 
 Чтобы реализовать описанный пример:
 

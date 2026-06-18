@@ -1,6 +1,6 @@
 ---
-title: Examples of creating QL charts
-description: In this tutorial, you will create charts using SQL queries.
+title: Examples of creating QL charts in {{ datalens-full-name }}
+description: Follow this tutorial to learn how to create QL charts in {{ datalens-name }}.
 ---
 
 {% include [data-from-ch-to-sql-chart](../../_tutorials/datalens/data-from-ch-to-sql-chart.md) %}

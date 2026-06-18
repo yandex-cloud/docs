@@ -15,7 +15,7 @@ To protect your domain from sender email spoofing and increase the security of y
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the address and your domain zone.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
     1. Select your domain zone.
     1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
     1. In the **{{ ui-key.yacloud.common.name }}** field, specify `_dmarc`.
@@ -27,7 +27,7 @@ To protect your domain from sender email spoofing and increase the security of y
         {% endnote %}
 
     1. In the **{{ ui-key.yacloud.common.type }}** list, select `TXT`.
-    1. In the **{{ ui-key.yacloud.dns.label_records }}** field, enter a valid DMARC policy value. Note that the record value must be enclosed in quotes, for example:
+    1. In the **{{ ui-key.yacloud.dns.label_records }}** field, enter a valid DMARC policy value. Note that the record value must be enclosed in quotes, such as follows:
 
         ```text
         "v=DMARC1;p=none"
@@ -37,6 +37,6 @@ To protect your domain from sender email spoofing and increase the security of y
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
-    DNS server responses are cached, so delays may occur when updating a resource record.
+    DNS server responses are cached, so you may experience delays when updating the resource record.
 
 {% endlist %}

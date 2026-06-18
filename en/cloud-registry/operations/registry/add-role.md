@@ -10,7 +10,7 @@ description: Follow this tutorial to assign roles for a registry.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the registry is located.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
   1. Select the registry.
   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
@@ -60,7 +60,7 @@ description: Follow this tutorial to assign roles for a registry.
 
     Where `<role>` is the [role](../../security/index.md#service-roles) you want to assign.
 
-  To revoke all registry roles and assign new ones right away, use the `yc cloud-registry registry set-access-bindings` command.
+  To revoke all roles from a registry and immediately assign new ones, use the `yc cloud-registry registry set-access-bindings` command.
   
   **Example**
 

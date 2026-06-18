@@ -86,7 +86,7 @@
 
 {% endlist %}
 
-Подробнее о настройке атрибутов см. [Настройте атрибуты пользователей и групп](../../../organization/operations/applications/saml-create.md#setup-attributes).
+Подробнее о настройке атрибутов смотрите в разделе [Настройте атрибуты пользователей и групп](../../../organization/operations/applications/saml-create.md#setup-attributes).
 
 #### Соберите данные для настройки Яндекс 360 {#collect-idp-data}
 

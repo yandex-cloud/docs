@@ -93,7 +93,7 @@
       * `external_v4_endpoint` — имя переменной, значение которой будет выводиться в результате.
       * `data.yandex_kubernetes_cluster.my_cluster.master.0.external_v4_endpoint` — запрашиваемый параметр. В этом случае — публичный IP-адрес кластера.
 
-      Список параметров кластера, которые можно запросить таким образом, см. в [документации провайдера {{ TF }}]({{ tf-provider-datasources-link }}/kubernetes_cluster).
+      Список параметров кластера, которые можно запросить таким образом, приведен в [документации провайдера {{ TF }}]({{ tf-provider-datasources-link }}/kubernetes_cluster).
 
       {% note tip %}
 

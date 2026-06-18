@@ -387,6 +387,7 @@ default:
   mch-name: Managed Service for ClickHouse®
   mch-short-name: Managed Service for ClickHouse®
   mcp-hub-name: MCP Hub
+  mdb-lb: DB Proxy
   mes-full-name: Yandex Managed Service for Elasticsearch
   mes-name: Managed Service for Elasticsearch
   mes-short-name: Managed Service for Elasticsearch
@@ -562,8 +563,8 @@ default:
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
   prometheus-name: Prometheus
   promql-name: PromQL
-  python-cli-ver: python312
-  python-full-ver: Python 3.12
+  python-cli-ver: python314
+  python-full-ver: Python 3.14
   quota-manager-full-name: Yandex Cloud Quota Manager
   quota-manager-name: Cloud Quota Manager
   quota-manager-short-name: Quota Manager

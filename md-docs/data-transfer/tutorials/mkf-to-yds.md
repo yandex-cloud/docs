@@ -291,7 +291,7 @@
             * [Шардирование](../concepts/data-transformation.md#shard)
             * [Фильтр строк для APPEND-ONLY источников](../concepts/data-transformation.md#append-only-sources)
 
-            Подробнее о настройке трансформеров см. в [документации провайдера Terraform](../../terraform/resources/datatransfer_transfer.md).
+            Подробнее о настройке трансформеров смотрите в [документации провайдера Terraform](../../terraform/resources/datatransfer_transfer.md).
 
         1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
@@ -384,7 +384,7 @@
            -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
         ```
 
-        Данные отправляются от имени [созданного пользователя](#prepare-source). Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [Подключение к кластеру Apache Kafka® из приложений](../../managed-kafka/operations/connect/clients.md).
+        Данные отправляются от имени [созданного пользователя](#prepare-source). Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [Подключение к кластеру Apache Kafka® из приложений](../../managed-kafka/operations/connect/clients.md).
 
     Проверьте, что в поток данных Data Streams перенеслись данные из источника:
     

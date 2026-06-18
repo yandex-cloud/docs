@@ -40,7 +40,7 @@ To create an API Connector connection, follow these steps:
    ![image](../../../_assets/datalens/operations/connection/connection-api.png)
 
 1. Click **Create connection**.
-1. Select the [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
 1. Enter a name for the connection and click **Create**.
 
 

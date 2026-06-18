@@ -37,7 +37,7 @@
    
    {% note info %}
    
-   Если вы не видите на панели слева ![collections](../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**, [включите воркбуки и коллекции](index.md#enable-workbooks) в вашей организации.
+   Если вы не видите на панели слева ![collections](../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**, попросите пользователя с ролью `datalens.admin` [включить воркбуки и коллекции](index.md#enable-workbooks) в вашей организации.
    
    {% endnote %}
 
@@ -47,6 +47,8 @@
 1. (опционально) Укажите описание воркбука.
 1. (опционально) Нажмите кнопку **Выбрать файл** для [импорта](export-and-import.md#import-workbook) воркбука.
 1. Нажмите кнопку **Создать**.
+
+<iframe width="650" height="366" src="https://runtime.strm.yandex.ru/player/video/vplvjkoqfpihhax3cw34?autoplay=0&mute=0" allow="autoplay; fullscreen; accelerometer; gyroscope; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
 ## Редактировать воркбук {#edit-workbook}
 

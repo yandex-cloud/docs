@@ -24,33 +24,37 @@ Retrieves the list of PrivateEndpoint resources in the specified folder.
 || folder_id | **string**
 
 ID of the folder to list private endpoints in.
-
 To get the folder ID use a
 [yandex.cloud.resourcemanager.v1.FolderService.List](../../../../../resource-manager/api-ref/grpc/Folder/list.md#List) request.
+The length must be less than or equal to 50.
 
-Includes only one of the fields `folder_id`. ||
+Includes only one of the fields `folder_id`.
+
+Only one field must be specified. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of
 available results is larger than `page_size`, the service returns a
 [ListPrivateEndpointsResponse.next_page_token](#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointsResponse) that can be used to get the
-next page of results in subsequent list requests. Default value: 100. ||
+next page of results in subsequent list requests. Default value: 100.
+The value must be between 0 and 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
 [ListPrivateEndpointsResponse.next_page_token](#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointsResponse) returned by a previous list
-request. ||
+request.
+The length must be less than or equal to 1000. ||
 || filter | **string**
 
 A filter expression that filters PrivateEndpoint listed in the response.
-
 The expression must specify:
 1. The field name. Currently you can use filtering only on
 [PrivateEndpoint.name](#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match
 the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. Example of a filter:
-`name=my-private-endpoint`. ||
+`name=my-private-endpoint`.
+The length must be less than or equal to 1000. ||
 |#
 
 ## ListPrivateEndpointsResponse {#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointsResponse}
@@ -75,9 +79,15 @@ the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. Example of a filter:
       "dns_options": {
         "private_dns_records_enabled": "bool"
       },
-      // Includes only one of the fields `object_storage`
-      "object_storage": "ObjectStorage"
+      // Includes only one of the fields `object_storage`, `service_name`
+      "object_storage": "ObjectStorage",
+      "service_name": "string",
       // end of the list of possible fields
+      "dns_records": [
+        {
+          "name": "string"
+        }
+      ]
     }
   ],
   "next_page_token": "string"
@@ -96,7 +106,6 @@ greater than the specified [ListPrivateEndpointsRequest.page_size](#yandex.cloud
 `next_page_token` as the value for the
 [ListPrivateEndpointsRequest.page_token](#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointsRequest) parameter in the next list
 request.
-
 Each subsequent page will have its own `next_page_token` to continue paging
 through the results. ||
 |#
@@ -138,7 +147,6 @@ ID of the network that the private endpoint belongs to. ||
 
 Status of the private endpoint.
 
-- `STATUS_UNSPECIFIED`
 - `PENDING`: Private endpoint is still creating / updating.
 - `AVAILABLE`: Private endpoint is available.
 - `DELETING`: Private endpoint is deleting. ||
@@ -152,9 +160,19 @@ Private endpoint dns options. ||
 
 Yandex Cloud Object Storage.
 
-Includes only one of the fields `object_storage`.
+Includes only one of the fields `object_storage`, `service_name`.
 
 Service to connect with via private endpoint. ||
+|| service_name | **string**
+
+Yandex Cloud service name.
+
+Includes only one of the fields `object_storage`, `service_name`.
+
+Service to connect with via private endpoint. ||
+|| dns_records[] | **[DnsRecord](#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint.DnsRecord)**
+
+List of private endpoint dns records. ||
 |#
 
 ## EndpointAddress {#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint.EndpointAddress}
@@ -190,4 +208,13 @@ Yandex Cloud Object Storage.
 #|
 ||Field | Description ||
 || Empty | > ||
+|#
+
+## DnsRecord {#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint.DnsRecord}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the dns record. ||
 |#

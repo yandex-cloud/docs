@@ -1,20 +1,32 @@
 # yc baremetal configuration list
 
-List configurations
+Retrieves the list of Configuration resources.
 
 #### Command Usage
 
 Syntax:
 
-`yc baremetal configuration list [Flags...] [Global Flags...]`
+`yc baremetal configuration list <FOLDER-ID>`
 
 #### Flags
 
 #|
 ||Flag | Description ||
-|| `--limit` | `int`
+|| `--page-size` | `int`
 
-The maximum number of items to list. Default is 100 items ||
+The maximum number of results per page to return. If the number of available results is greater than 'page_size', the service returns a [ListConfigurationsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value is 20. ||
+|| `--page-token` | `string`
+
+Page token. To get the next page of results, set 'page_token' to the [ListConfigurationsResponse.next_page_token] returned by a previous list request. ||
+|| `--order-by` | `string`
+
+By which column the listing should be ordered and in which direction, format is "createdAt desc". "id asc" if omitted. Supported fields: ["id", "name"]. Both snake_case and camelCase are supported for fields. ||
+|| `--filter` | `string`
+
+A filter expression that filters resources listed in the response. The expression consists of one or more conditions united by 'AND' operator: '&lt;condition1&gt; [AND &lt;condition2&gt; [&lt;...&gt; AND &lt;conditionN&gt;]]'. Each condition has the form '&lt;field&gt; &lt;operator&gt; &lt;value&gt;', where: 1. '&lt;field&gt;' is the field name. Currently you can use filtering only on the limited number of fields. 2. '&lt;operator&gt;' is a logical operator, one of '=' (equal), ':' (substring). 3. '&lt;value&gt;' represents a value. String values should be written in double ('"') or single (''') quotes. C-style escape sequences are supported ('\"' turns to '"', '\'' to ''', '\\' to backslash). Example: "key1='value' AND key2='value'" Supported operators: ["AND"]. Supported fields: ["id", "name"]. Both snake_case and camelCase are supported for fields. ||
+|| `--folder-id` | `string`
+
+ID of the folder to return a Configuration resource for. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request. ||
 |#
 
 #### Global Flags
@@ -23,39 +35,45 @@ The maximum number of items to list. Default is 100 items ||
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--cloud-id` | `string`
+|| `--timeout` | `string`
 
-Set the ID of the cloud to use. ||
-|| `--folder-id` | `string`
-
-Set the ID of the folder to use. ||
-|| `--folder-name` | `string`
-
-Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
-
-Set the Cloud API endpoint (host:port). ||
+Set the timeout. ||
 || `--token` | `string`
 
-Set the OAuth token to use. ||
+Set the IAM token to use. ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

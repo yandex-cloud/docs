@@ -171,7 +171,7 @@
       * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md). Необязательный параметр. По умолчанию будет использовано значение, указанное в настройках провайдера.
       * `role` — назначаемая роль.
 
-      Более подробную информацию о параметрах ресурса `yandex_iam_service_account` в Terraform, см. в [документации провайдера](../../../terraform/resources/iam_service_account.md).
+      Подробнее о параметрах ресурса `yandex_iam_service_account` в Terraform смотрите в [документации провайдера](../../../terraform/resources/iam_service_account.md).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -259,7 +259,7 @@
 
       Где `service_account_id` — идентификатор сервисного аккаунта `s3-copy-fn`.
 
-      Более подробную информацию о параметрах ресурса `yandex_iam_service_account_static_access_key` в Terraform, см. в [документации провайдера](../../../terraform/resources/iam_service_account_static_access_key.md).
+      Подробнее о параметрах ресурса `yandex_iam_service_account_static_access_key` в Terraform смотрите в [документации провайдера](../../../terraform/resources/iam_service_account_static_access_key.md).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -390,7 +390,7 @@
       
       {% endnote %}
 
-      Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+      Подробнее о параметрах используемых ресурсов в Terraform смотрите в документации провайдера:
 
       * [yandex_lockbox_secret](../../../terraform/resources/lockbox_secret.md);
       * [yandex_lockbox_secret_version](../../../terraform/resources/lockbox_secret_version.md).
@@ -510,7 +510,7 @@
       }
       ```
 
-      Подробнее о ресурсе `yandex_storage_bucket` см. в [документации](../../../terraform/resources/storage_bucket.md) провайдера Terraform.
+      Подробнее о ресурсе `yandex_storage_bucket` смотрите в [документации](../../../terraform/resources/storage_bucket.md) провайдера Terraform.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -727,7 +727,7 @@
       * `secrets` — секрет, содержащий части статического ключа доступа.
       * `content` — путь до ZIP-архива `handler-sh.zip` c исходным кодом функции.
 
-      Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера](../../../terraform/resources/function.md).
+      Подробнее о параметрах ресурса `yandex_function` смотрите в [документации провайдера](../../../terraform/resources/function.md).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -860,7 +860,7 @@
           * `id` — идентификатор функции `copy-function`.
           * `service_account_id` — идентификатор сервисного аккаунта `s3-copy-trigger`.
 
-      Более подробную информацию о параметрах ресурсов в Terraform см. в [документации провайдера](../../../terraform/resources/function_trigger.md).
+      Подробнее о параметрах ресурсов в Terraform смотрите в [документации провайдера](../../../terraform/resources/function_trigger.md).
 
   1. Проверьте корректность конфигурационных файлов.
 

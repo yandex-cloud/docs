@@ -1,4 +1,9 @@
-# How to participate in the partner program
+---
+title: How to join the {{ yandex-cloud }} partner program
+description: Follow this guide to join the {{ yandex-cloud }} partner program.
+---
+
+# How to join the partner program
 
 {% include [referral-program-closure](../_includes/partner/referral-program-closure.md) %}
 

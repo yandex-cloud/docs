@@ -41,16 +41,16 @@ DNS-записи A-типа создаются в [сервисной зоне i
 
 В настоящее время можно создать сервисное подключение для следующих облачных сервисов:
 
-| **Название сервиса** | **Способ создания** | **PE-запись** | **Primary-запись** |
-| --- | --- | --- | --- |
-| [{{ objstorage-short-name }}](../../storage/) | [UI,CLI,Terraform](../operations/private-endpoint-create.md) | `storage.pe.yandexcloud.net` | `storage.yandexcloud.net` |
-| [{{ cloud-registry-name }}](../../cloud-registry) | [обращение в поддержку](../operations/private-endpoint-create-support.md) | `registry.pe.yandexcloud.net` | `registry.yandexcloud.net` |
-| [{{ ai-studio-name }}](../../ai-studio/concepts/) | [обращение в поддержку](../operations/private-endpoint-create-support.md) | `ai.pe.api.cloud.yandex.net` | `ai.api.cloud.yandex.net` |
-| [{{ mtr-name }}](../../managed-trino) | [обращение в поддержку](../operations/private-endpoint-create-support.md) | `trino.pe.yandexcloud.net`, `*.trino.pe.yandexcloud.net` | - |
-| [{{ serverless-containers-name }}](../../serverless-containers) |  [обращение в поддержку](../operations/private-endpoint-create-support.md) | `*.containers.pe.yandexcloud.net` | `*.containers.yandexcloud.net` |
-| [{{ sf-name }}](../../functions) | [обращение в поддержку](../operations/private-endpoint-create-support.md) | `functions.pe.yandexcloud.net` | `functions.yandexcloud.net` |
-| Public API Gateway | [обращение в поддержку](../operations/private-endpoint-create-support.md) | `-` | `*.api.cloud.yandex.net` |
-| [AI Studio MCP Gateway](https://aistudio.yandex.ru/docs/ai-studio/mcp-gateway/api-ref/) |  [обращение в поддержку](../operations/private-endpoint-create-support.md) | `*.mcpgw.serverless.pe.yandexcloud.net` | `*.mcpgw.serverless.yandexcloud.net` |
+| **Название сервиса** | **Тип сервиса** | **Способ создания** | **PE-запись** | **Primary-запись** |
+| --- | --- | --- | --- | --- |
+| [{{ objstorage-short-name }}](../../storage/) | yandex.cloud.storage | [Консоль управления, CLI, {{ TF }}](../operations/private-endpoint-create.md) | `storage.pe.yandexcloud.net` | `storage.yandexcloud.net` |
+| [{{ cloud-registry-name }}](../../cloud-registry) | yandex.cloud.registry | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `registry.pe.yandexcloud.net` | `registry.yandexcloud.net` |
+| [{{ ai-studio-name }}](../../ai-studio/concepts/) | yandex.cloud.ai-studio | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `ai.pe.api.cloud.yandex.net` | `ai.api.cloud.yandex.net` |
+| [AI Studio MCP Gateway](https://aistudio.yandex.ru/docs/ai-studio/mcp-gateway/api-ref/) |yandex.cloud.mcp-gateway | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `*.mcpgw.serverless.pe.yandexcloud.net` | `*.mcpgw.serverless.yandexcloud.net` |
+| [{{ mtr-name }}](../../managed-trino) | yandex.cloud.managed-trino | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `trino.pe.yandexcloud.net`, `*.trino.pe.yandexcloud.net` | - |
+| [{{ serverless-containers-name }}](../../serverless-containers) | yandex.cloud.serverless-containers | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `*.containers.pe.yandexcloud.net` | `*.containers.yandexcloud.net` |
+| [{{ sf-name }}](../../functions) | yandex.cloud.serverless-functions | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `functions.pe.yandexcloud.net` | `functions.yandexcloud.net` |
+| Public API Gateway | yandex.cloud.api | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `-` | `*.api.cloud.yandex.net` |
 
 ## Особенности использования разных видов сервисных подключений {#pe-notes2}
 

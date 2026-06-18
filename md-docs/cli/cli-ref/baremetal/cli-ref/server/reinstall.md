@@ -1,12 +1,12 @@
 # yc baremetal server reinstall
 
-Reinstall the specified server
+Reinstalls the specified server.
 
 #### Command Usage
 
 Syntax:
 
-`yc baremetal server reinstall <SERVER-NAME>|<SERVER-ID> [Flags...] [Global Flags...]`
+`yc baremetal server reinstall <SERVER-ID>`
 
 #### Flags
 
@@ -14,39 +14,183 @@ Syntax:
 ||Flag | Description ||
 || `--id` | `string`
 
-Server id. ||
+ID of the server to reinstall. To get the server ID, use a [ServerService.List] request. ||
+|| `--os-settings-spec` | `shorthand/json`
+
+Operating system specific settings for provisioning the server.
+
+{% cut "Description" %}
+
+> - image-id (string)\
+ID of the image that the server was created from.
+> - storages ([]structure)\
+List of storages to be created on the server. If not specified, the default value based on the selected configuration will be used as the field value.
+>> - partitions ([]structure)\
+Array of partitions created on the storage.
+>>> - type (structure)\
+Partition type.
+>>> - size-gib (integer)\
+Size of the storage partition in gibibytes (2^30 bytes).
+>>> - mount-point (string)\
+Storage mount point.
+>> - storage-type (oneof)\
+Oneof storage-type field
+>>> - disk (structure)\
+Disk storage.
+>>>> - id (string)\
+ID of the disk.
+>>>> - type (structure)\
+Type of the disk drive.
+>>>> - size-gib (integer)\
+Size of the disk in gibibytes (2^30 bytes).
+>>> - raid (structure)\
+RAID storage.
+>>>> - type (structure)\
+RAID type.
+>>>> - disks ([]structure)\
+Array of disks in the RAID configuration.
+>>>>> - id (string)\
+ID of the disk.
+>>>>> - type (structure)\
+Type of the disk drive.
+>>>>> - size-gib (integer)\
+Size of the disk in gibibytes (2^30 bytes).
+> - ssh-key (oneof)\
+Oneof ssh-key field
+>> - ssh-public-key (string)\
+Public SSH key for the server.
+>> - user-ssh-id (string)\
+ID of the user SSH key to use for the server. To get the user SSH key ID, use a [yandex.cloud.organizationmanager.v1.UserSshKeyService.List] request.
+> - password (oneof)\
+Oneof password field
+>> - password-plain-text (string)\
+Raw password.
+>> - password-lockbox-secret (structure)\
+Reference to the Lockbox secret used to obtain the password.
+>>> - secret-id (string)\
+The unique identifier for the lockbox secret that contains the user password.
+>>> - version-id (string)\
+The unique identifier for the lockbox version. If omitted, the current version of the secret will be used.
+>>> - key (string)\
+The key used to access a specific secret entry.
+
+{% endcut %}
+
+{% cut "Shorthand Syntax" %}
+
+```hcl
+{
+  image-id = string,
+  password = password-lockbox-secret={
+    key = string,
+    secret-id = string,
+    version-id = string
+  } | password-plain-text=string,
+  ssh-key = ssh-public-key=string | user-ssh-id=string,
+  storages = [
+    {
+      partitions = [
+        {
+          mount-point = string,
+          size-gib = integer,
+          type = EXT4|SWAP|EXT3|XFS
+        }, ...
+      ],
+      storage-type = disk={
+        id = string,
+        size-gib = integer,
+        type = HDD|SSD|NVME
+      } | raid={
+        disks = [
+          {
+            id = string,
+            size-gib = integer,
+            type = HDD|SSD|NVME
+          }, ...
+        ],
+        type = RAID0|RAID1|RAID10
+      }
+    }, ...
+  ]
+}
+```
+
+{% endcut %}
+
+{% cut "JSON Syntax" %}
+
+```json
+{
+  "image-id": "string",
+  "password": {
+    "password-lockbox-secret": {
+      "key": "string",
+      "secret-id": "string",
+      "version-id": "string"
+    },
+    "password-plain-text": "string"
+  },
+  "ssh-key": {
+    "ssh-public-key": "string",
+    "user-ssh-id": "string"
+  },
+  "storages": [
+    {
+      "partitions": [
+        {
+          "mount-point": "string",
+          "size-gib": "integer",
+          "type": "EXT4|SWAP|EXT3|XFS"
+        }, ...
+      ],
+      "storage-type": {
+        "disk": {
+          "id": "string",
+          "size-gib": "integer",
+          "type": "HDD|SSD|NVME"
+        },
+        "raid": {
+          "disks": [
+            {
+              "id": "string",
+              "size-gib": "integer",
+              "type": "HDD|SSD|NVME"
+            }, ...
+          ],
+          "type": "RAID0|RAID1|RAID10"
+        }
+      }
+    }, ...
+  ]
+}
+```
+
+{% endcut %} ||
 || `--name` | `string`
 
-Server name. ||
+Resolve id by resource name within the current scope. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
-|| `--os-settings` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+|| `-r`, `--request-file` | `string`
 
-Specifies the image id of the server. Image id or image name is necessary if you want to specify a OsSettingsSpec
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request. ||
+|| `-e`, `--example-yaml` | Generates a YAML template of the request.
 
-Possible property names:
+The template can be customized and used as input for the command.
 
-- `image-id`: Specifies the image id of the server. Image id or image name is necessary if you want to specify a OsSettingsSpec
+Usage example:
 
-- `image-name`: Specifies the image name of the server. Image id or image name is necessary if you want to specify a OsSettingsSpec
+1. Generate template:
+yc baremetal server reinstall --example-json > request.json
+or
+yc baremetal server reinstall --example-yaml > request.yaml
 
-- `ssh-key-public`: Specifies the ssh key public of the server.
+2. Edit the template file
 
-- `ssh-key-user-id`: Specifies the ssh key user id of the server.
-
-- `password-plain-text`: Specifies the password plain text of the server.
-
-- `password-lockbox-secret`: Specifies the lockbox secret password of the server. ||
-|| `--storage` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
-
-Specifies  storages to the server.
-
-Possible property names:
-
-- `partition`: Specifies partitions of the storage
-
-- `disk`: Specifies disks of the storage. if you want to specify the disk type, specify only 1 disk and do not specify the raid type.
-
-- `raid-type`: Specifies the type of the storage raid type Values: 'raid0', 'raid1', 'raid10' ||
+3. Run with template:
+yc baremetal server reinstall -r request.json
+or
+yc baremetal server reinstall -r request.yaml ||
 |#
 
 #### Global Flags
@@ -55,39 +199,45 @@ Possible property names:
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--cloud-id` | `string`
+|| `--timeout` | `string`
 
-Set the ID of the cloud to use. ||
-|| `--folder-id` | `string`
-
-Set the ID of the folder to use. ||
-|| `--folder-name` | `string`
-
-Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
-
-Set the Cloud API endpoint (host:port). ||
+Set the timeout. ||
 || `--token` | `string`
 
-Set the OAuth token to use. ||
+Set the IAM token to use. ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

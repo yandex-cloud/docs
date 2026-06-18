@@ -24,18 +24,22 @@ Lists route tables from the specified network.
 ||Field | Description ||
 || network_id | **string**
 
-Required field. ID of the Network resource to list route tables for. ||
+ID of the Network resource to list route tables for.
+The length must be less than or equal to 50.
+This field is required. ||
 || page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`,
 the service returns a [ListNetworkRouteTablesResponse.next_page_token](#yandex.cloud.vpc.v1.ListNetworkRouteTablesResponse)
-that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
+that can be used to get the next page of results in subsequent list requests. Default value: 100.
+The value must be less than or equal to 1000. ||
 || page_token | **string**
 
 Page token. Set `page_token`
 to the [ListNetworkRouteTablesResponse.next_page_token](#yandex.cloud.vpc.v1.ListNetworkRouteTablesResponse)
-returned by a previous list request to get the next page of results. ||
+returned by a previous list request to get the next page of results.
+The length must be less than or equal to 100. ||
 |#
 
 ## ListNetworkRouteTablesResponse {#yandex.cloud.vpc.v1.ListNetworkRouteTablesResponse}
@@ -103,7 +107,7 @@ Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text forma
 
 Name of the route table.
 The name must be unique within the folder.
-Value must match the regular expression `\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?`. ||
+Value must match the regular expression ```|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?```. ||
 || description | **string**
 
 Optional description of the route table. 0-256 characters long. ||

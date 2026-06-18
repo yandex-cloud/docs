@@ -1,16 +1,17 @@
 # Uploading {{ at-full-name }} audit logs to KUMA SIEM through {{ TF }}
 
+
 To configure delivery of audit log files to [KUMA](https://www.kaspersky.com/enterprise-security/unified-monitoring-and-analysis-platform):
 
-1. [Prepare your cloud environment](#before-begin).
-1. [Create an infrastructure](#deploy).
+1. [Get your cloud ready](#before-begin).
+1. [Create the infrastructure](#deploy).
 1. [Mount the bucket on a server](#mount-bucket).
 1. [Configure the KUMA collector](#setup-collector).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Prepare your cloud environment{#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -26,8 +27,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 To create an infrastructure using {{ TF }}:
 
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
-1. Prepare the infrastructure description file:
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see the [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider) section, Step 1).
+1. Set up your infrastructure description file:
 
     {% list tabs group=infrastructure_description %}
 
@@ -39,9 +40,9 @@ To create an infrastructure using {{ TF }}:
           git clone https://github.com/yandex-cloud-examples/yc-audit-trails-kuma-integration
           ```
 
-      1. Navigate to the repository directory. Make sure it contains the following files:
+      1. Navigate to the repository directory. It should now contain the following files:
 
-          * `at-events-to-kuma.tf`: Your infrastructure configuration.
+          * `at-events-to-kuma.tf`: New infrastructure configuration.
           * `at-events-to-kuma.auto.tfvars`: User data.
 
     - Manually {#manual}
@@ -65,7 +66,7 @@ To create an infrastructure using {{ TF }}:
 
     {% endlist %}
 
-    For more information about the properties of {{ TF }} resources, see the provider documentation:
+    For more information on the properties of {{ TF }} resources, see these provider guides:
 
     * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account)
     * [Static access key](../../iam/concepts/authorization/access-key.md): [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key)
@@ -85,14 +86,14 @@ To create an infrastructure using {{ TF }}:
 
         {% include [dont-use-root-name](../../_includes/dont-use-root-name.md) %}
 
-    * `ssh_key_path`: Path to the public SSH key file and its name, e.g., `~/.ssh/id_ed25519.pub`. You need to create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection to a VM yourself.
-    * `bucket_name`: [Name of the bucket](../../storage/concepts/bucket.md#naming) you want to upload audit logs to, e.g., `my-audit-logs-for-kuma`.
+    * `ssh_key_path`: Path to the public SSH key file and its name, e.g., `~/.ssh/id_ed25519.pub`. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a pair of SSH keys for SSH connection to the VM by yourself.
+    * `bucket_name`: [Name of the bucket](../../storage/concepts/bucket.md#naming) to upload audit logs to, e.g., `my-audit-logs-for-kuma`.
 
         {% include [bucket-name-note](../_tutorials_includes/audit-trails-events-to-kuma/bucket-name-note.md) %}
 
     * `object_prefix`: [Prefix](../../storage/concepts/object.md#folder) that will be added to the names of the audit log objects in the bucket, e.g., `/`. The prefix forms a part of the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file. 
 
-1. Create resources:
+1. Create the resources:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -129,7 +130,7 @@ Once the infrastructure is created, [mount the bucket on a server](#mount-bucket
 
 To stop paying for the resources you created:
 
-1. Open the `at-events-to-kuma.tf` configuration file and delete your infrastructure description.
+1. Open the `at-events-to-kuma.tf` file and delete your infrastructure description from it.
 1. [Delete](../../storage/operations/objects/delete-all.md) all objects from the bucket you created earlier. Otherwise, the bucket and some of the infrastructure will not be deleted, and the `terraform apply` command will terminate with an error.
 1. Apply the changes:
 

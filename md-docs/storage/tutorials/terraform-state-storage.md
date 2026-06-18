@@ -90,7 +90,7 @@ Terraform распространяется под лицензией [Business S
 
 Чтобы управлять инфраструктурой Yandex Cloud с помощью Terraform, используйте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md). Это позволит гибко настраивать права доступа к ресурсам.
 
-Также вы можете использовать Terraform от имени [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративного](../../iam/concepts/users/accounts.md#saml-federation) или [локального](../../iam/concepts/users/accounts.md#local) пользователя, однако этот способ является менее безопасным. Подробности см. в конце раздела.
+Также вы можете использовать Terraform от имени [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративного](../../iam/concepts/users/accounts.md#saml-federation) или [локального](../../iam/concepts/users/accounts.md#local) пользователя, однако этот способ является менее безопасным. Подробности смотрите в конце раздела.
 
 1. Если у вас еще нет интерфейса командной строки Yandex Cloud, [установите](../../cli/quickstart.md#install) его.
 
@@ -570,7 +570,7 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
    Где:
    * `bucket` — имя [бакета](../concepts/bucket.md).
    * `key` — ключ объекта в бакете: путь и имя к файлу состояния Terraform в бакете.
-   * `ssh-keys` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [Создание пары ключей SSH](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * `ssh-keys` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее в разделе [Создание пары ключей SSH](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 1. Проверьте конфигурацию с помощью команды `terraform plan`.
 1. Разверните конфигурацию с помощью команды `terraform apply`.
 

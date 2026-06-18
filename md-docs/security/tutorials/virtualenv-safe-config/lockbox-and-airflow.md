@@ -84,7 +84,7 @@
 
 В секрете будут сохранены данные для подключения к БД в кластере Managed Service for PostgreSQL.
 
-Подробнее о том, как узнать FQDN хоста кластера PostgreSQL, см. в [документации](../../../managed-postgresql/operations/connect/index.md#fqdn).
+Подробнее о том, как узнать FQDN хоста кластера PostgreSQL, смотрите в [документации](../../../managed-postgresql/operations/connect/index.md#fqdn).
 
 ## Подготовьте DAG-файл и запустите граф {#dag}
 

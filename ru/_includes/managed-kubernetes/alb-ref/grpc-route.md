@@ -6,7 +6,7 @@
 
 `GRPCRoute` предназначен для разработчиков приложений. Оператор кластера должен использовать `Gateway`.
 
-`GRPCRoute` — ресурс {{ k8s }}, определенный [проектом {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API {{ alb-name }}. Полное описание конфигурации ресурса смотрите в [документации {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.GRPCRoute).
+`GRPCRoute` — ресурс {{ k8s }}, определенный [проектом {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API {{ alb-name }}. Полное описание конфигурации ресурса приведено в [документации {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.GRPCRoute).
 
 ## GRPCRoute {#grpc-route}
 
@@ -29,7 +29,7 @@ spec: <GRPCRouteSpec>
 
   * `name` (`string`, обязательное)
 
-    Имя ресурса. Подробнее о формате смотрите в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Подробнее о формате в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
     Не является именем маршрута в {{ alb-name }}.
  
@@ -39,7 +39,7 @@ spec: <GRPCRouteSpec>
 
 * `spec` (`GRPCRouteSpec`, обязательное)
 
-  Спецификация ресурса. Подробности [ниже](#spec).
+  Спецификация ресурса. Подробнее читайте [ниже](#spec).
 
 
 {% cut "Пример" %}
@@ -113,7 +113,7 @@ rules:
 
 * `parentRefs` (`[]ParentReference`, обязательное)
 
-  Список ресурсов `Gateway` (или их обработчиков из поля `spec.listeners` — смотрите [справочник]({{ configuration-local-link }}/gateway.md#spec)), к которым должен быть привязан `GRPCRoute`.
+  Список ресурсов `Gateway` (или их обработчиков из поля `spec.listeners` — подробнее в [справочнике]({{ configuration-local-link }}/gateway.md#spec)), к которым должен быть привязан `GRPCRoute`.
 
   Также маршрут должен удовлетворять правилам, описанным в [конфигурации]({{ configuration-local-link }}/gateway.md#spec) `Gateway` (поле `spec.listeners.allowedRoutes`).
   

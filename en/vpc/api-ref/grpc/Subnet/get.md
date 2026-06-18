@@ -5,7 +5,6 @@ editable: false
 # Virtual Private Cloud API, gRPC: SubnetService.Get
 
 Returns the specified Subnet resource.
-
 To get the list of available Subnet resources, make a [List](/docs/vpc/api-ref/grpc/Subnet/list#List) request.
 
 ## gRPC request
@@ -24,8 +23,10 @@ To get the list of available Subnet resources, make a [List](/docs/vpc/api-ref/g
 ||Field | Description ||
 || subnet_id | **string**
 
-Required field. ID of the Subnet resource to return.
-To get the subnet ID use a [SubnetService.List](/docs/vpc/api-ref/grpc/Subnet/list#List) request. ||
+ID of the Subnet resource to return.
+To get the subnet ID use a [SubnetService.List](/docs/vpc/api-ref/grpc/Subnet/list#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Subnet {#yandex.cloud.vpc.v1.Subnet}

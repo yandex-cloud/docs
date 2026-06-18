@@ -297,7 +297,7 @@
 
 {% note info %}
 
-Для сопоставления ролей в Grafana OSS используются JMESPath выражения. См. [примеры использования JMESPath выражений в документации Grafana](https://grafana.com/docs/grafana/latest/setup-grafana/configure-access/configure-authentication/generic-oauth/#role-mapping-examples).
+Для сопоставления ролей в Grafana OSS используются JMESPath выражения. Смотрите [примеры использования JMESPath выражений в документации Grafana](https://grafana.com/docs/grafana/latest/setup-grafana/configure-access/configure-authentication/generic-oauth/#role-mapping-examples).
 
 {% endnote %}
 

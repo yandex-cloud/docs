@@ -10,7 +10,7 @@ description: Follow this guide to create a timer in {{ er-name }}.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [connector](../../../concepts/eventrouter/connector.md).
-  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Select the [bus](../../../concepts/eventrouter/bus.md) you need.
   1. Navigate to the ![image](../../../../_assets/console-icons/broadcast-signal.svg) **{{ ui-key.yacloud.serverless-event-router.label_connectors }}** tab.
@@ -55,18 +55,18 @@ description: Follow this guide to create a timer in {{ er-name }}.
 
       * `--bus-id`: {{ er-name }} [bus](../../../concepts/eventrouter/bus.md) ID.
       * `--cron-expression`: Event generation schedule in [cron expression](../../../concepts/cron.md) format.
-      * `--time-zone`: Time zone in [tz database](https://en.wikipedia.org/wiki/Tz_database) format. This is an optional parameter.
-      * `--payload`: Message sent to the bus if the timer fires. This is an optional parameter.
+      * `--time-zone`: Time zone in [tz database](https://en.wikipedia.org/wiki/Tz_database) format. This is an optional setting.
+      * `--payload`: Message sent to the bus if the timer fires. This is an optional setting.
       * `--name`: Connector name. Follow these naming requirements:
 
           {% include [name-format-2](../../../../_includes/name-format-2.md) %}
 
-      * `--description`: Connector description. This is an optional parameter.
-      * `--labels`: List of labels. This is an optional parameter.
+      * `--description`: Connector description. This is an optional setting.
+      * `--labels`: List of labels. This is an optional setting.
 
           You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
 
-      * `--deletion-protection`: Connector deletion protection. By default, protection is disabled. You cannot delete a connector with this option enabled. To disable deletion protection, specify `--no-deletion-protection`. This is an optional parameter.
+      * `--deletion-protection`: Connector deletion protection. By default, protection is disabled. You cannot delete a connector with this option enabled. To disable deletion protection, specify `--no-deletion-protection`. This is an optional setting.
 
       Result:
 
@@ -98,7 +98,7 @@ description: Follow this guide to create a timer in {{ er-name }}.
 
   To create a [timer](../../../concepts/eventrouter/connector.md#timer):
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
       ```hcl
       resource "yandex_serverless_eventrouter_connector" "example_connector" {
@@ -127,12 +127,12 @@ description: Follow this guide to create a timer in {{ er-name }}.
 
           {% include [name-format-2](../../../../_includes/name-format-2.md) %}
 
-      * `description`: Connector description. This is an optional parameter.
-      * `deletion_protection`: Connector deletion protection, `true` or `false`. You cannot delete a connector with this option enabled. This is an optional parameter.
-      * `labels`: List of labels. Provide labels in `<key> = "<value>"` format. This is an optional parameter.
+      * `description`: Connector description. This is an optional setting.
+      * `deletion_protection`: Connector deletion protection, `true` or `false`. You cannot delete a connector with this option enabled. This is an optional setting.
+      * `labels`: List of labels Provide labels in `<key> = "<value>"` format. This is an optional setting.
       * `cron_expression`: Event generation schedule in [cron expression](../../../concepts/cron.md) format.
-      * `timezone`: Time zone in [tz database](https://en.wikipedia.org/wiki/Tz_database) format. This is an optional parameter.
-      * `payload`: Message sent to the bus if the timer fires. This is an optional parameter.
+      * `timezone`: Time zone in [tz database](https://en.wikipedia.org/wiki/Tz_database) format. This is an optional setting.
+      * `payload`: Message sent to the bus if the timer fires. This is an optional setting.
 
       For more information about `yandex_serverless_eventrouter_connector` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
 
@@ -140,7 +140,7 @@ description: Follow this guide to create a timer in {{ er-name }}.
 
       {% include [terraform-validate-plan-apply](../../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../../../cli/) command:
 
       ```bash
       yc serverless eventrouter connector list

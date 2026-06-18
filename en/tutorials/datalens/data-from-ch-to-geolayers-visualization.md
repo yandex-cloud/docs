@@ -1,6 +1,6 @@
 ---
-title: Analyzing sales and locations of pizzerias based on data from a {{ CH }} database and {{ datalens-short-name }} Gallery
-description: In this tutorial, you will prepare a dashboard for selecting locations to open new Dodo pizzerias.
+title: Analyzing sales and locations of pizzerias in {{ datalens-full-name }} based on {{ CH }} data
+description: Follow this guide to learn how to analyze sales and locations of pizzerias using geo layers in {{ datalens-name }}.
 ---
 
 {% include [data-from-ch-to-geolayers-visualization](../../_tutorials/datalens/data-from-ch-to-geolayers-visualization.md) %}

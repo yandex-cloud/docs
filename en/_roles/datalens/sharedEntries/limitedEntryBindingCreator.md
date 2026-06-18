@@ -1,0 +1,1 @@
+The `datalens.sharedEntries.limitedEntryBindingCreator` role is assigned for a common object and enables re-using it in workbooks without delegation of access permissions. In the {{ datalens-name }} UI, this role is referred to as `Bindings without delegation`. We recommend assigning this role only via the {{ datalens-name }} UI.

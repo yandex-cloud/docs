@@ -19,7 +19,7 @@ The scaling settings must be within the [quotas](../concepts/limits.md#serverles
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder with your container.
-    1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Select the container.
     1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
     1. Under **{{ ui-key.yacloud.serverless-containers.section_parameters }}**, specify the number of provisioned instances.

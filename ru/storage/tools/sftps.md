@@ -45,7 +45,7 @@
      ```
 
      
-     Инструкцию по созданию пары SSH-ключей см. в [документации {{ compute-name }}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+     Инструкция по созданию пары SSH-ключей приведена в [документации {{ compute-name }}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 
    * Если вы будете использовать FTPS, добавьте в папку TLS-сертификат `ftp.pem` и его ключ `ftp.key`. Например, для тестирования вы можете выпустить самоподписанный сертификат:

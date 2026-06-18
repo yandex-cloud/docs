@@ -13,7 +13,7 @@
 
 {% endnote %}
 
-[Object Storage](https://yandex.cloud/ru/docs/storage) поддерживает безопасное подключение по протоколу HTTPS. Вы можете загрузить собственный сертификат безопасности, если к сайту в Object Storage требуется доступ по протоколу HTTPS. Также доступна интеграция с сервисом [Certificate Manager](https://yandex.cloud/ru/docs/certificate-manager). См. инструкции в документации Object Storage:
+[Object Storage](https://yandex.cloud/ru/docs/storage) поддерживает безопасное подключение по протоколу HTTPS. Вы можете загрузить собственный сертификат безопасности, если к сайту в Object Storage требуется доступ по протоколу HTTPS. Также доступна интеграция с сервисом [Certificate Manager](https://yandex.cloud/ru/docs/certificate-manager). Подробнее в инструкциях документации Object Storage:
 
 * [Настройка HTTPS](https://yandex.cloud/ru/docs/storage/operations/hosting/certificate)
 * [Бакет](https://yandex.cloud/ru/docs/storage/concepts/bucket)

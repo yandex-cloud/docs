@@ -2,7 +2,7 @@
 
 Learn how to use a [function](../../functions/concepts/function.md) from {{ sf-name }} with the [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) to create an [AI agent](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf), i.e., a personalized assistant integrated with {{ ai-studio-full-name }} [text generation models]({{ link-docs-ai }}ai-studio/concepts/generation/models) to provide generative responses.
 
-Follow this guide to create a simple AI agent that uses a function from {{ sf-name }} to get weather information, interact with the {{ ai-studio-full-name }} [language model]({{ link-docs-ai }}ai-studio/concepts/generation/models), and, to add a touch of fun, respond to the user in [haiku](https://en.wikipedia.org/wiki/Haiku) form.
+In this tutorial, you will create a simple AI agent that uses a function from {{ sf-name }} to get weather information, interact with the {{ ai-studio-full-name }} [language model]({{ link-docs-ai }}ai-studio/concepts/generation/models), and, to add a touch of fun, respond to the user in [haiku](https://en.wikipedia.org/wiki/Haiku) form.
 
 ![create-ai-agent-function](../../_assets/tutorials/create-ai-agent-function.svg)
 
@@ -18,7 +18,7 @@ On the diagram:
 1. The {{ foundation-models-name }} model sends the generated response to the AI agent.
 1. The AI agent returns the response to the user.
 
-The AI agent you create in this tutorial will be deployed in {{ yandex-cloud }} using {{ sf-full-name }}. You will also create resources to arrange access to the {{ foundation-models-name }} model: a [service account](../../iam/concepts/users/service-accounts.md), the service account [API key](../../iam/concepts/authorization/api-key.md), the {{ lockbox-full-name }} [secret](../../lockbox/concepts/secret.md), and a [function](../../functions/concepts/function.md) in {{ sf-name }}.
+The AI agent you create in this tutorial will be deployed in {{ yandex-cloud }} using {{ sf-full-name }}. You will also create resources to arrange access to the {{ foundation-models-name }} model: a [service account](../../iam/concepts/users/service-accounts.md), a service account [API key](../../iam/concepts/authorization/api-key.md), a {{ lockbox-full-name }} [secret](../../lockbox/concepts/secret.md), and a [function](../../functions/concepts/function.md) in {{ sf-name }}.
 
 You can create these resources [automatically](#automatic-setup) or [manually](#manual-setup).
 
@@ -46,7 +46,7 @@ Run a CI/CD workflow in [{{ src-name }}]({{ link-src-docs }}/) to automatically 
 {{ src-name }} provides multiple benefits when deploying AI agents:
 
 * You do not need to set up a local development environment. All the required settings are configured remotely when running CI/CD workflows in {{ src-name }}.
-* Deployment is secure as you do not need to store service account secrets locally. In {{ src-name }}, you can use a [service connection]({{ link-src-docs }}/sourcecraft/concepts/service-connections) to request short-living IAM tokens for access to {{ yandex-cloud }} services.
+* Deployment is secure as you do not need to store service account secrets locally. In {{ src-name }}, you can use a [service connection]({{ link-src-docs }}/sourcecraft/concepts/service-connections) to request short-living IAM tokens for accessing {{ yandex-cloud }} services.
 
 To create an AI agent automatically using {{ src-name }} CI/CD:
 
@@ -62,11 +62,11 @@ To create an AI agent automatically using {{ src-name }} CI/CD:
 
     - Advanced AI agent {#advanced}
 
-      The `create-advanced-ai-agent-workflow` will create an advanced AI agent which responds to user requests in haiku form. When there is no user request, the agent returns a response to the default request.
+      The `create-advanced-ai-agent-workflow` will create an advanced AI agent which responds to user queries in haiku form. When there is no user query, the agent returns a response to the default query.
 
     - Translator agent {#complex}
 
-      The `create-complex-ai-agent-workflow` will create a translator agent which can handle user requests for text translation to the specified language while maintaining the style and tone.
+      The `create-complex-ai-agent-workflow` will create a translator agent which can handle user queries for text translation to the specified language while maintaining the style and tone.
 
     {% endlist %}
 
@@ -76,7 +76,7 @@ To create an AI agent automatically using {{ src-name }} CI/CD:
 
 1. Test the AI agent.
 
-   You can view the function result in the [logs]({{ link-src-docs }}/sourcecraft/operations/ci-cd#check-ci-cd) of the {{ src-name }} CI/CD cube, e.g., for `create-simple-ai-agent-workflow` this cube is named `deploy-simple-ai-agent`. In addition, you can [test the function](#test-function) in the {{ yandex-cloud }} management console.
+   You can view the function result in the [logs]({{ link-src-docs }}/sourcecraft/operations/ci-cd#check-ci-cd) of the {{ src-name }} CI/CD cube, e.g., for `create-simple-ai-agent-workflow`, this cube is named `deploy-simple-ai-agent`. In addition, you can [test the function](#test-function) in the {{ yandex-cloud }} management console.
 
 1. If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -104,11 +104,11 @@ To create an AI agent automatically:
 
     - Advanced AI agent {#advanced}
 
-      The `create-advanced-ai-agent.py` script will create an advanced AI agent which responds to user requests in haiku form. When there is no user request, the agent returns a response to the default request.
+      The `create-advanced-ai-agent.py` script will create an advanced AI agent which responds to user queries in haiku form. When there is no user request, the agent returns a response to the default request.
 
     - Translator agent {#complex}
 
-      The `create-complex-ai-agent.py` script will create a translator agent which can handle user requests for text translation to the specified language while maintaining the style and tone.
+      The `create-complex-ai-agent.py` script will create a translator agent which can handle user queries for text translation to the specified language while maintaining the style and tone.
 
     {% endlist %}
 
@@ -136,7 +136,7 @@ To create an AI agent automatically:
 
       [Test](#test-function) the function in the management console.
 
-      You can also test the function by sending a user request to the AI agent via the {{ yandex-cloud }} CLI. To do this, run this command and specify the function ID you obtained when creating the AI agent:
+      You can also test the function by sending a user query to the AI agent via the {{ yandex-cloud }} CLI. To do this, run this command and specify the function ID you obtained when creating the AI agent:
 
       ```bash
       echo '{"query": "What's the weather in Paris?"}' > request.json \
@@ -147,7 +147,7 @@ To create an AI agent automatically:
 
       [Test](#test-function) the function in the management console.
 
-      You can also test the function by sending a user request to the AI agent via the {{ yandex-cloud }} CLI. To do this, run this command and specify the function ID you obtained when creating the AI agent:
+      You can also test the function by sending a user query to the AI agent via the {{ yandex-cloud }} CLI. To do this, run this command and specify the function ID you obtained when creating the AI agent:
 
       ```bash
       echo '{"text": "Hello, world!", "target_language": "Russian", "tone": "friendly"}' > translate.json \
@@ -164,9 +164,9 @@ To create an AI agent automatically:
 To create an AI agent manually using a function from {{ sf-name }}:
 
 1. [Create a service account](#create-sa).
-1. [Create the service account API key](#create-api-key).
+1. [Create an API key for your service account](#create-api-key).
 1. [Create a {{ lockbox-full-name }} secret](#create-secret).
-1. [Prepare a ZIP archive with the function code](#zip-archive).
+1. [Create a ZIP archive with the function code](#zip-archive).
 1. [Create a function](#create-function).
 1. [Test the function](#test-function).
 
@@ -208,11 +208,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
       name: function-sa
       ```
 
-      Save the service account ID (the `id` field value) and the folder ID (the `folder_id` field value) as you will need them later.
+      Save the service account ID (the `id` field value) and the folder ID (the `folder_id` field value), as you will need them later.
 
       For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
-  1. Assign the `ai.languageModels.user` [role]({{ link-docs-ai }}ai-studio/security/index#languageModels-user) for the folder to the created service account by specifying the folder and service account IDs you saved in the previous step:
+  1. Assign the `ai.languageModels.user` [role]({{ link-docs-ai }}ai-studio/security/index#languageModels-user) for the folder to the created service account by specifying the folder and service account IDs you previously saved:
 
       ```bash
       yc resource-manager folder add-access-binding <folder_ID> \
@@ -244,7 +244,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% endlist %}
 
 
-## Create the service account API key {#create-api-key}
+## Create an API key for your service account {#create-api-key}
 
 {% list tabs group=instructions %}
 
@@ -252,11 +252,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** and select the `function-sa` service account you created earlier.
-  1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
-  1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field, select the `yc.ai.languageModels.execute` [scope](../../iam/concepts/authorization/api-key.md#scoped-api-keys).
-  1. Optionally, set the API key expiration date under **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-expires-at }}**.
+  1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
+  1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field, select [`yc.ai.languageModels.execute`](../../iam/concepts/authorization/api-key.md#scoped-api-keys).
+  1. Optionally, set **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-expires-at }}** for the API key.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. Save the secret key as you will need it to create a function.
+  1. Save the secret key, as you will need it to create a function.
 
       {% note alert %}
 
@@ -287,7 +287,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       secret: AQVN1mZ6kUkzDCjhNJxmjDX6WeJdOlJv********
       ```
 
-      Save the key value as you will not be able to get it again.
+      The key value is shown only once. Save it now, as you will not be able to retrieve it again.
 
       For more information about the `yc iam api-key create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/api-key/create.md).
 
@@ -358,7 +358,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}** and select the secret named `api-key-secret` you created earlier.
   1. On the left-hand panel, select ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**. In the window that opens:
 
-      1. In the search bar, enter the name of the `function-sa` service account you created and select it.
+      1. In the search bar, enter the name of the service account created earlier, `function-sa`, and select it from the search results.
       1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `lockbox.payloadViewer` [role](../../lockbox/security/index.md#lockbox-payloadViewer).
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -377,11 +377,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - API {#api}
 
-  To assign a role for a secret to a service account, use the [setAccessBindings](../../lockbox/api-ref/Secret/setAccessBindings.md) REST API method for the [Secret](../../lockbox/api-ref/Secret/index.md) resource or the [SecretService/SetAccessBindings](../../lockbox/api-ref/grpc/Secret/setAccessBindings.md) gRPC API call.
+  To assign a role for a secret to the service account, use the [setAccessBindings](../../lockbox/api-ref/Secret/setAccessBindings.md) REST API method for the [Secret](../../lockbox/api-ref/Secret/index.md) resource or the [SecretService/SetAccessBindings](../../lockbox/api-ref/grpc/Secret/setAccessBindings.md) gRPC API call.
 
 {% endlist %}
 
-## Prepare a ZIP archive with the function code {#zip-archive}
+## Create a ZIP archive with the function code {#zip-archive}
 
 1. Save the following code to a file named `index.py`:
 
@@ -798,7 +798,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     ```text
     openai-agents
     ```
-1. Add the `index.py` and `requirements.txt` files into the `openai-function.zip` archive.
+1. Add the `index.py` and `requirements.txt` files to a ZIP archive named `openai-function.zip`.
 
 
 ## Create a function {#create-function}
@@ -814,7 +814,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
      1. In the window that opens, enter `ai-agent-function` as the function name.
      1. Click **{{ ui-key.yacloud.common.create }}**.
   1. Create a [function version](../../functions/concepts/function.md#version):
-     1. Select `{{ python-full-ver }}` as the runtime environment, disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+     1. Select `{{ python-full-ver }}` as the runtime, disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` and attach the `openai-function.zip` file you created earlier.
      1. Specify the entry point: `index.handler`.
      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
@@ -822,17 +822,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Select the `function-sa` service account.
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-             * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) you are creating the infrastructure in.
+             * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you are creating the infrastructure.
              * `MODEL_NAME`: URI of the {{ ai-studio-full-name }} text generation [model]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation).
 
-                 Example: `gpt://<folder_ID>/yandexgpt/latest`.
+                 Here is an example: `gpt://<folder_ID>/yandexgpt/latest`.
                 
                  Specify the ID of the folder you are creating the infrastructure in.
              * `BASE_URL`: {{ ai-studio-full-name }} URL, `https://{{ api-host-llm }}/v1`.
 
          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**:
              * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-env-key }}** field, specify `API_KEY` and select the previously created `api-key-secret`, its version, and `api-key`.
-        * If you prefer to opt out of logging so as not to pay for {{ cloud-logging-name }}, disable the **{{ ui-key.yacloud.logging.field_logging }}** option to disable logging.
+        * If you prefer to opt out of logging so as not to pay for {{ cloud-logging-name }}, disable **{{ ui-key.yacloud.logging.field_logging }}**.
      1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
@@ -857,7 +857,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       For more information about the `yc serverless function create` command, see the [CLI reference](../../cli/cli-ref/serverless/cli-ref/function/create.md).
 
-  1. Create a [version](../../functions/concepts/function.md#version) of the `ai-agent-function` function:
+  1. Create a [version](../../functions/concepts/function.md#version) of `ai-agent-function`:
 
       ```bash
       yc serverless function version create \
@@ -875,13 +875,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       Where:
 
-      * `--service-account-id`: [ID](../../iam/operations/sa/get-id.md) of the `function-sa` service account you saved previously.
+      * `--service-account-id`: `function-sa` service account [ID](../../iam/operations/sa/get-id.md) you saved earlier.
       * `--environment`: Environment variables:
 
           * `FOLDER_ID`: [ID](../../resource-manager/operations/folder/get-id.md) of the folder you saved earlier when creating the service account.
           * `MODEL_NAME`: URI of the {{ ai-studio-full-name }} text generation [model]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation).
 
-                 Example: `gpt://<folder_ID>/yandexgpt/latest`.
+                 Here is an example: `gpt://<folder_ID>/yandexgpt/latest`.
                 
                  Specify the ID of the folder you are creating the infrastructure in.
 
@@ -941,7 +941,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. Navigate to the ![circle-play](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. Click ![play-fill](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** and look up the test result.
 
-      If the request is successful, the function status will change to `Done` and the output will contain the `200` status code and model response. For example:
+      If the request is successful, the function status will change to `Done` and the output will contain the `200` status code and model response. Here is an example:
 
       ```json
       {
@@ -964,7 +964,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   1. Click ![play-fill](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** and look up the test result.
 
-      If the request is successful, the function status will change to `Done` and the output will contain the `200` status code and model response. For example:
+      If the request is successful, the function status will change to `Done` and the output will contain the `200` status code and model response. Here is an example:
 
       ```json
       {
@@ -992,7 +992,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   1. Click ![play-fill](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** and look up the test result.
 
-      If the request is successful, the function status will change to `Done` and the output will contain the `200` status code and model response. For example:
+      If the request is successful, the function status will change to `Done` and the output will contain the `200` status code and model response. Here is an example:
 
       ```json
       {
@@ -1009,7 +1009,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## How to delete the resources you created {#clear-out}
 
-To stop incurring charges for the resources you created:
+To stop paying for the resources you created:
 1. [Delete the function](../../functions/operations/function/function-delete.md).
 1. [Delete the secret](../../lockbox/operations/secret-delete.md).
-1. If you logged data to a log group, [delete it](../../logging/operations/delete-group.md).
+1. If you logged data to a log group, [delete the group](../../logging/operations/delete-group.md).

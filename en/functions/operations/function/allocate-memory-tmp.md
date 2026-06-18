@@ -10,7 +10,7 @@ description: In this guide, you will learn how to allocate a portion of memory i
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function.
     1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
     1. In the **Memory** section under **Additional settings**, enable **Allocate memory for the /tmp directory**.
@@ -28,9 +28,9 @@ description: In this guide, you will learn how to allocate a portion of memory i
     ```bash
     yc serverless function version create \
       --function-name=<function_name> \
-      --runtime <runtime> \
+      --runtime <runtime_environment> \
       --entrypoint <entry_point> \
-      --memory <RAM_amount> \
+      --memory <RAM_size> \
       --source-version-id <version_ID> \
       --tmpfs-size <RAM_size_for_tmp>
     ```
@@ -71,7 +71,7 @@ description: In this guide, you will learn how to allocate a portion of memory i
         }
         ```
 
-        For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
     1. Validate your configuration using this command:
 

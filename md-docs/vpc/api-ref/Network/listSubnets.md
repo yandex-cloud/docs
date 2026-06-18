@@ -14,7 +14,9 @@ GET https://vpc.api.cloud.yandex.net/vpc/v1/networks/{networkId}/subnets
 ||Field | Description ||
 || networkId | **string**
 
-Required field. ID of the Network resource to list subnets for. ||
+Required field. ID of the Network resource to list subnets for.
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Query parameters {#yandex.cloud.vpc.v1.ListNetworkSubnetsRequest}
@@ -26,12 +28,14 @@ Required field. ID of the Network resource to list subnets for. ||
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListNetworkSubnetsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworkSubnetsResponse)
-that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
+that can be used to get the next page of results in subsequent list requests. Default value: 100.
+The value must be less than or equal to 1000. ||
 || pageToken | **string**
 
 Page token. Set `pageToken`
 to the [ListNetworkSubnetsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworkSubnetsResponse)
-returned by a previous list request to get the next page of results. ||
+returned by a previous list request to get the next page of results.
+The length must be less than or equal to 100. ||
 |#
 
 ## Response {#yandex.cloud.vpc.v1.ListNetworkSubnetsResponse}

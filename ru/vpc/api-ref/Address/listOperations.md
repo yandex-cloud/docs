@@ -9,11 +9,11 @@ apiPlayground:
         addressId:
           description: |-
             **string**
-            Required field. ID of the address to list operations for.
+            ID of the address to list operations for.
             To get a address ID make a [AddressService.List](/docs/vpc/api-ref/Address/list#List) request.
+            The length must be less than or equal to 50.
+            This field is required.
           type: string
-      required:
-        - addressId
       additionalProperties: false
     query:
       type: object
@@ -25,7 +25,7 @@ apiPlayground:
             results is larger than `pageSize`, the service returns a [ListAddressOperationsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListAddressOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
-          default: '100'
+            The value must be less than or equal to 1000.
           type: string
           format: int64
         pageToken:
@@ -33,6 +33,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListAddressOperationsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListAddressOperationsResponse) returned by a previous list request.
+            The length must be less than or equal to 100.
           type: string
       additionalProperties: false
     body: null
@@ -56,8 +57,9 @@ GET https://vpc.{{ api-host }}/vpc/v1/addresses/{addressId}/operations
 || addressId | **string**
 
 Required field. ID of the address to list operations for.
-
-To get a address ID make a [AddressService.List](/docs/vpc/api-ref/Address/list#List) request. ||
+To get a address ID make a [AddressService.List](/docs/vpc/api-ref/Address/list#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Query parameters {#yandex.cloud.vpc.v1.ListAddressOperationsRequest}
@@ -69,11 +71,13 @@ To get a address ID make a [AddressService.List](/docs/vpc/api-ref/Address/list#
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListAddressOperationsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListAddressOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+The value must be less than or equal to 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListAddressOperationsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListAddressOperationsResponse) returned by a previous list request. ||
+[ListAddressOperationsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListAddressOperationsResponse) returned by a previous list request.
+The length must be less than or equal to 100. ||
 |#
 
 ## Response {#yandex.cloud.vpc.v1.ListAddressOperationsResponse}
@@ -117,7 +121,6 @@ List of operations for the specified address. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListAddressOperationsRequest.pageSize](#yandex.cloud.vpc.v1.ListAddressOperationsRequest), use `next_page_token` as the value
 for the [ListAddressOperationsRequest.pageToken](#yandex.cloud.vpc.v1.ListAddressOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

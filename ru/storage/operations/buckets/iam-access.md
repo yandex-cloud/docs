@@ -176,7 +176,7 @@ description: Следуя данной инструкции, вы сможете
 
       * `members` — список типов и идентификаторов [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-      Подробнее о параметрах ресурса `yandex_storage_bucket_iam_binding` см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket_iam_binding).
+      Подробнее о параметрах ресурса `yandex_storage_bucket_iam_binding` читайте в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket_iam_binding).
 
   1. Если вы совместно с ресурсом [yandex_storage_bucket_iam_binding]({{ tf-provider-resources-link }}/storage_bucket_iam_binding) планируете использовать ресурс [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/storage_bucket_grant) для одного и того же бакета, рекомендуем выполнять создание ресурсов последовательно. Для этого добавьте в блок `yandex_storage_bucket_iam_binding` зависимость от наличия ресурса `yandex_storage_bucket_grant`:
 

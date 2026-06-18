@@ -58,7 +58,7 @@ Action=SendMessageBatch
 &SendMessageBatchRequestEntry.2.MessageBody=WorldHello
 ```
 
-Подробнее о формировании запросов см. в разделе [Общий вид запросов к API](../index.md#api-request).
+Подробнее о формировании запросов читайте в разделе [Общий вид запросов к API](../index.md#api-request).
 
 ## Пример ответа {#response-example}
 

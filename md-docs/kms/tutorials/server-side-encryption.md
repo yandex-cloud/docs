@@ -39,7 +39,7 @@
 
 * плата за хранение данных в бакете ([тарифы Object Storage](../../storage/pricing.md#prices-storage));
 * плата за операции с данными ([тарифы Object Storage](../../storage/pricing.md#prices-operations));
-* плата за использование ключей KMS (см. [тарифы Key Management Service](../pricing.md#prices)).
+* плата за использование ключей KMS ([тарифы Key Management Service](../pricing.md#prices)).
 
 
 ## Создайте бакет {#create-bucket}
@@ -148,7 +148,7 @@
       }
       ```
 
-      Более подробную информацию о ресурсах, которые вы можете создать с помощью [Terraform](https://www.terraform.io/docs/language/index.html), см. в [документации провайдера](../../terraform/index.md).
+      Подробнее о ресурсах, которые вы можете создать с помощью [Terraform](https://www.terraform.io/docs/language/index.html), смотрите в [документации провайдера](../../terraform/index.md).
 
   1. Проверьте корректность конфигурационных файлов.
 

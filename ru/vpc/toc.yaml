@@ -78,8 +78,6 @@ items:
         items:
           - name: Создать сервисное подключение
             href: operations/private-endpoint-create.md
-          - name: Создать сервисное подключение через поддержку
-            href: operations/private-endpoint-create-support.md
           - name: Получить информацию о сервисном подключении
             href: operations/private-endpoint-get-info.md
           - name: >-
@@ -692,6 +690,8 @@ items:
                 href: api-ref/Address/getByValue.md
               - name: List
                 href: api-ref/Address/list.md
+              - name: ListBySubnet
+                href: api-ref/Address/listBySubnet.md
               - name: Create
                 href: api-ref/Address/create.md
               - name: Update
@@ -808,14 +808,14 @@ items:
                 href: api-ref/Subnet/addCidrBlocks.md
               - name: RemoveCidrBlocks
                 href: api-ref/Subnet/removeCidrBlocks.md
+              - name: Relocate
+                href: api-ref/Subnet/relocate.md
               - name: Delete
                 href: api-ref/Subnet/delete.md
               - name: ListOperations
                 href: api-ref/Subnet/listOperations.md
               - name: Move
                 href: api-ref/Subnet/move.md
-              - name: Relocate
-                href: api-ref/Subnet/relocate.md
               - name: ListUsedAddresses
                 href: api-ref/Subnet/listUsedAddresses.md
           - name: Virtual Private Cloud API
@@ -860,6 +860,8 @@ items:
                 href: api-ref/grpc/Address/getByValue.md
               - name: List
                 href: api-ref/grpc/Address/list.md
+              - name: ListBySubnet
+                href: api-ref/grpc/Address/listBySubnet.md
               - name: Create
                 href: api-ref/grpc/Address/create.md
               - name: Update
@@ -976,14 +978,14 @@ items:
                 href: api-ref/grpc/Subnet/addCidrBlocks.md
               - name: RemoveCidrBlocks
                 href: api-ref/grpc/Subnet/removeCidrBlocks.md
+              - name: Relocate
+                href: api-ref/grpc/Subnet/relocate.md
               - name: Delete
                 href: api-ref/grpc/Subnet/delete.md
               - name: ListOperations
                 href: api-ref/grpc/Subnet/listOperations.md
               - name: Move
                 href: api-ref/grpc/Subnet/move.md
-              - name: Relocate
-                href: api-ref/grpc/Subnet/relocate.md
               - name: ListUsedAddresses
                 href: api-ref/grpc/Subnet/listUsedAddresses.md
           - name: Virtual Private Cloud API

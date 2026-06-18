@@ -216,7 +216,7 @@
               `ITEM2_SENSOR_VALUE`        | Остаток товара типа 2                       | `80.97`
               `ITEM3_SENSOR_VALUE`        | Остаток товара типа 3                       | `30.33`
               `ITEM4_SENSOR_VALUE`        | Остаток товара типа 4                       | `15.15`
-              `REGISTRY_ID`               | Идентификатор реестра, который вы создали   | См. в [консоли управления]({{ link-console-main }})<br>сервиса {{ iot-name }}
+              `REGISTRY_ID`               | Идентификатор реестра, который вы создали   | Идентификатор можно узнать в [консоли управления]({{ link-console-main }})<br>сервиса {{ iot-name }}
 
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
@@ -370,7 +370,7 @@
               Ключ | Описание | Значение
               :--- | :--- | :---
               `VERBOSE_LOG` | Включение и отключение записи данных | `True`
-              `DB_HOSTNAME` | FQDN хоста в {{ mpg-name }} | См. в [консоли управления]({{ link-console-main }})<br>сервиса {{ mpg-name }}
+              `DB_HOSTNAME` | FQDN хоста в {{ mpg-name }} | FQDN можно узнать в [консоли управления]({{ link-console-main }})<br>сервиса {{ mpg-name }}
               `DB_PORT`     | Порт подключения к кластеру в {{ mpg-name }} | `6432`
               `DB_NAME`     | Имя кластера в {{ mpg-name }} | `db1`
               `DB_USER`     | Имя пользователя для подключения к кластеру в {{ mpg-name }} | `user1`

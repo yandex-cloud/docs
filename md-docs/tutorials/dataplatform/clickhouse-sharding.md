@@ -51,7 +51,7 @@
 
             Дополнительные хосты для этих типов дисков необходимы для обеспечения отказоустойчивости.
 
-            Подробнее см. в разделе [Хранилище в Managed Service for ClickHouse®](../../managed-clickhouse/concepts/storage.md).
+            Подробнее в разделе [Хранилище в Managed Service for ClickHouse®](../../managed-clickhouse/concepts/storage.md).
 
         * **Имя БД** — `tutorial`.
 

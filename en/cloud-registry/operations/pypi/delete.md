@@ -14,8 +14,8 @@ To delete a Python package, you need the `cloud-registry.admin` [role](../../sec
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the registry is located.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
-    1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud.cloud-registry.title_registries }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
+    1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud.cloud-registry.title_registries }}**.
     1. Select the registry you want to delete the package from.
     1. In the left-hand panel, select ![cube](../../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.cloud-registry.title_registry-artifacts }}**.
     1. Click on the ![folder](../../../_assets/console-icons/folder-open.svg) artifact name.

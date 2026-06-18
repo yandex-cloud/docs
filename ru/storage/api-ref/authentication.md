@@ -38,7 +38,7 @@ description: Для выполнения операций через API в ма
 
 {% endlist %}
 
-Полный перечень методов S3 API см. в [Справочнике S3 API](../s3/api-ref/).
+Полный перечень методов S3 API приведен в [Справочнике S3 API](../s3/api-ref/).
 
 {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 

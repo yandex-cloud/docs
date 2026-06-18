@@ -23,7 +23,7 @@ description: Следуя данной инструкции, вы сможете
 * Настроены [политики доступа](../../concepts/policy.md), ограничивающие доступ к объектам и их списку анонимным пользователям. [Измените](../buckets/policy.md#apply-policy) политику доступа.
 * Включен доступ только из [сервисных подключений VPC](../../security/overview.md#pe-vpc). [Восстановите](../buckets/access-via-vpc.md#disable) доступ к бакету из публичной сети.
 
-Подробнее см. на странице [{#T}](../../security/overview.md).
+Подробнее на странице [{#T}](../../security/overview.md).
 
 {% endnote %}
 
@@ -236,7 +236,7 @@ description: Следуя данной инструкции, вы сможете
        * `error_document` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4xx. Необязательный параметр.
        * `redirect_all_requests_to` — доменное имя хоста, на который будут перенаправляться все запросы к текущему бакету. Вы можете указать префикс протокола (`http://` или `https://`). По умолчанию используется протокол из исходного запроса.
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+     Более подробная информация о параметрах ресурса `yandex_storage_bucket` в {{ TF }} приведена в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
 
   1. Создайте ресурсы:
 
@@ -421,9 +421,9 @@ description: Следуя данной инструкции, вы сможете
      * `website` — параметры сайта:
        * `index_document` — абсолютный путь к файлу главной страницы сайта. Обязательный параметр.
        * `error_document` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4xx. Необязательный параметр.
-       * `routing_rules` — правила переадресации запросов в формате JSON. В полях `Condition` и `Redirect` каждого правила должно быть как минимум по одной паре <q>ключ — значение</q>. Подробнее о поддерживаемых полях см. в [схеме данных](../../s3/api-ref/hosting/upload.md#request-scheme) соответствующего метода [API](../../../glossary/rest-api.md) (вкладка **Для условной переадресации запросов**).
+       * `routing_rules` — правила переадресации запросов в формате JSON. В полях `Condition` и `Redirect` каждого правила должно быть как минимум по одной паре <q>ключ — значение</q>. Подробнее о поддерживаемых полях в [схеме данных](../../s3/api-ref/hosting/upload.md#request-scheme) соответствующего метода [API](../../../glossary/rest-api.md) (вкладка **Для условной переадресации запросов**).
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+     Более подробная информация о параметрах ресурса `yandex_storage_bucket` в {{ TF }} приведена в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
   1. Создайте ресурсы:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

@@ -14,7 +14,7 @@
 1. [(Опционально) Настройте группу ресурсов Ingress](#configure-group).
 1. [Убедитесь в доступности приложений кластера Managed Service for Kubernetes через Application Load Balancer](#verify-setup).
 
-Полную конфигурацию ресурсов для Ingress-контроллера Application Load Balancer см. в следующих разделах:
+Полную конфигурацию ресурсов для Ingress-контроллера Application Load Balancer смотрите в следующих разделах:
 
 * [Ingress](../../managed-kubernetes/alb-ref/ingress.md) — правила распределения трафика между бэкендами и настройки балансировщика.
 * [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md), [GrpcBackendGroup](../../managed-kubernetes/alb-ref/grpc-backend-group.md) — объединение бэкендов в группы.
@@ -379,7 +379,7 @@
 
      Доступные настройки:
 
-     * `ingress.alb.yc.io/group-settings-name` — имя для настроек группы ресурсов Ingress, которые должны быть описаны в дополнительном ресурсе `IngressGroupSettings`. Подробнее см. в разделе [Настройте группу ресурсов Ingress](#configure-group).
+     * `ingress.alb.yc.io/group-settings-name` — имя для настроек группы ресурсов Ingress, которые должны быть описаны в дополнительном ресурсе `IngressGroupSettings`. Подробнее в разделе [Настройте группу ресурсов Ingress](#configure-group).
      * `ingress.alb.yc.io/internal-ipv4-address` — предоставление внутреннего доступа к балансировщику. Укажите внутренний IP-адрес, либо установите значение `auto`, чтобы получить IP-адрес автоматически.
 
        {% note info %}
@@ -519,7 +519,7 @@
 
      Если вы используете несколько Ingress-контроллеров, для каждого из них создайте ресурс [IngressClass](../../managed-kubernetes/alb-ref/ingress-class.md). В конфигурации `Ingress` укажите нужный `IngressClass` в поле `spec.ingressClassName`.
 
-     Подробное описание настроек ресурса `Ingress` см. в статье [Поля и аннотации ресурса Ingress](../../managed-kubernetes/alb-ref/ingress.md).
+     Подробное описание настроек ресурса `Ingress` смотрите в статье [Поля и аннотации ресурса Ingress](../../managed-kubernetes/alb-ref/ingress.md).
 
   1. Создайте приложения Kubernetes и ресурс Ingress:
 
@@ -687,7 +687,7 @@
      * `spec.backends.useHttp2` — режим использования протокола `HTTP/2`.
      * `spec.backends.tls` — сертификат удостоверяющего центра, которому балансировщик будет доверять при установке безопасного соединения с эндпоинтами бэкендов. Укажите содержимое сертификата в поле `trustedCa` в открытом виде.
 
-     Подробнее см. в разделе [Группы бэкендов](../concepts/backend-group.md).
+     Подробнее в разделе [Группы бэкендов](../concepts/backend-group.md).
 
   1. В той же директории создайте файл `ingress-http.yaml` и укажите в нем [делегированное ранее доменное имя](#before-you-begin), [идентификатор полученного ранее сертификата](#before-you-begin) и настройки L7-балансировщика Application Load Balancer:
 
@@ -742,7 +742,7 @@
 
      Доступные настройки:
 
-     * `ingress.alb.yc.io/group-settings-name` — имя для настроек группы ресурсов Ingress, которые должны быть описаны в дополнительном ресурсе `IngressGroupSettings`. Подробнее см. в разделе [Настройте группу ресурсов Ingress](#configure-group).
+     * `ingress.alb.yc.io/group-settings-name` — имя для настроек группы ресурсов Ingress, которые должны быть описаны в дополнительном ресурсе `IngressGroupSettings`. Подробнее в разделе [Настройте группу ресурсов Ingress](#configure-group).
      * `ingress.alb.yc.io/internal-ipv4-address` — предоставление внутреннего доступа к балансировщику. Укажите внутренний IP-адрес, либо установите значение `auto`, чтобы получить IP-адрес автоматически.
 
        {% note info %}
@@ -785,7 +785,7 @@
 
      * `ingress.alb.yc.io/use-regex` — поддержка регулярных выражений стандарта [RE2](https://github.com/google/re2/wiki/Syntax) при сопоставлении пути запроса. Если передана строка `true`, поддержка включена. Применимо, только если для параметра `pathType` указано значение `Exact`.
 
-     Подробное описание настроек ресурса Ingress см. в статье [Поля и аннотации ресурса Ingress](../../managed-kubernetes/alb-ref/ingress.md).
+     Подробное описание настроек ресурса Ingress смотрите в статье [Поля и аннотации ресурса Ingress](../../managed-kubernetes/alb-ref/ingress.md).
   1. Создайте приложение Kubernetes, ресурс HttpBackendGroup и ресурс Ingress:
 
      ```bash
@@ -823,7 +823,7 @@
 
 По умолчанию Ingress-контроллер Application Load Balancer принимает от L7-балансировщика запросы для [проверок состояния](../concepts/backend-group.md#health-checks) приложения на TCP-порт `10501` и проверяет работоспособность подов [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) на каждом узле кластера. Суть проверки состояния заключается в том, что когда `kube-proxy` работоспособен, то даже если приложение в конкретном поде не отвечает, Kubernetes перенаправит трафик в другой под с этим приложением или на другой узел.
 
-В параметрах ресурса [HttpBackendGroup](../k8s-ref/http-backend-group.md)/[GrpcBackendGroup](../k8s-ref/grpc-backend-group.md) вы можете настроить собственные проверки состояния. Подробнее см. в разделе [Проверка состояния приложений в кластере Yandex Managed Service for Kubernetes с помощью L7-балансировщика Yandex Application Load Balancer](../../managed-kubernetes/tutorials/custom-health-checks.md).
+В параметрах ресурса [HttpBackendGroup](../k8s-ref/http-backend-group.md)/[GrpcBackendGroup](../k8s-ref/grpc-backend-group.md) вы можете настроить собственные проверки состояния. Подробнее в разделе [Проверка состояния приложений в кластере Yandex Managed Service for Kubernetes с помощью L7-балансировщика Yandex Application Load Balancer](../../managed-kubernetes/tutorials/custom-health-checks.md).
 
 ## (Опционально) Настройте группу ресурсов Ingress {#configure-group}
 

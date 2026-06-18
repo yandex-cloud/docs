@@ -35,6 +35,7 @@ description: Из статьи вы узнаете, как изменить на
 
 * [Миграция хостов кластера в другую зону доступности](host-migration.md).
 
+
 ## Изменить класс хостов {#change-resource-preset}
 
 {% note info %}
@@ -422,10 +423,11 @@ description: Из статьи вы узнаете, как изменить на
 
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
-  
+
   
   1. {% include [diagnostics-settings-console](../../_includes/mdb/mpg/diagnostics-settings-console.md) %}
-  
+
+
 
   1. Измените дополнительные настройки кластера:
 
@@ -478,7 +480,7 @@ description: Из статьи вы узнаете, как изменить на
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
     * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
-    
+
     
     * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 

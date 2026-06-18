@@ -5,7 +5,7 @@
 
 В этом руководстве рассматривается сценарий, в котором с облачными ресурсами Yandex Cloud работает несколько независимых команд. Сервисы и приложения, которые разрабатывают команды, публикуются в интернете. Для разделения ресурсов используются каталоги Yandex Cloud, и каждая команда имеет доступ только к своему каталогу. Также по требованию службы информационной безопасности (СИБ) командам не разрешено напрямую публиковать ресурсы из своих каталогов в интернете.
 
-Частный сценарий этого руководства с развертыванием инфраструктуры с нуля см. в разделе [Создание распределенной инфраструктуры с защищенным доступом](../../smartwebsecurity/tutorials/distributed-secured-infrastructure.md).
+Частный сценарий этого руководства с развертыванием инфраструктуры с нуля смотрите в разделе [Создание распределенной инфраструктуры с защищенным доступом](../../smartwebsecurity/tutorials/distributed-secured-infrastructure.md).
 
 С реализацией такой схемы помогут сервисы Yandex Cloud — [Yandex Application Load Balancer](../../application-load-balancer/index.md) (ALB) и [Yandex Smart Web Security](../../smartwebsecurity/concepts/index.md) (SWS).
 
@@ -50,7 +50,7 @@
     * Группы безопасности целевых ресурсов должны разрешать входящий трафик от подсетей L7-балансировщика.
     * Группы безопасности L7-балансировщика должны разрешать входящий трафик на подсети целевых ресурсов.
 
-      Рекомендации по настройке групп безопасности см. в разделе [Группы безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups).
+      Рекомендации по настройке групп безопасности смотрите в разделе [Группы безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups).
 
 ### L7-балансировщики {#l7-balancer-requirements}
 
@@ -62,7 +62,7 @@
 * Для [обработчиков](../../application-load-balancer/concepts/application-load-balancer.md#listener) одного L7-балансировщика нельзя использовать разные публичные IP-адреса.
 * Для обработчиков одного L7-балансировщика используйте разные порты.
 
-    Для HTTPS-протокола можно использовать [обработчики SNI](../../application-load-balancer/concepts/application-load-balancer.md#listener) с одинаковым портом. Допустимое количество обработчиков SNI см. в [лимитах](../../application-load-balancer/concepts/limits.md).
+    Для HTTPS-протокола можно использовать [обработчики SNI](../../application-load-balancer/concepts/application-load-balancer.md#listener) с одинаковым портом. Допустимое количество обработчиков SNI смотрите в [лимитах](../../application-load-balancer/concepts/limits.md).
 
 * (Опционально) Для отказоустойчивости разместите L7-балансировщики в разных зонах доступности.
 * Для узлов L7-балансировщика учитывайте [размеры подсетей](../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling-subnet-sizes).
@@ -123,7 +123,7 @@
 
 {% endlist %}
 
-Другие способы создания профиля безопасности см. в разделе [Создать профиль безопасности](../../smartwebsecurity/operations/profile-create.md).
+Другие способы создания профиля безопасности смотрите в разделе [Создать профиль безопасности](../../smartwebsecurity/operations/profile-create.md).
 
 ### Создание L7-балансировщика {#create-alb}
 
@@ -254,7 +254,7 @@
 
 {% endlist %}
 
-Другие способы создания L7-балансировщика и дополнительные настройки см. в разделе [Пошаговые инструкции](../../application-load-balancer/operations/index.md).
+Другие способы создания L7-балансировщика и дополнительные настройки смотрите в разделе [Пошаговые инструкции](../../application-load-balancer/operations/index.md).
 
 ### Проверка работы L7-балансировщика {#check-alb}
 

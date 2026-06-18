@@ -70,7 +70,7 @@ ID of the routingInstance. ||
 
 Name of the routingInstance.
 The name must be unique within the folder.
-Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. ||
+Value must match the regular expression ```\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?```. ||
 || description | **string**
 
 Description of the routingInstance. 0-256 characters long. ||

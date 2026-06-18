@@ -1,12 +1,12 @@
-# Creating a trigger for {{ objstorage-name }} that invokes a {{ serverless-containers-name }} container
+# Creating a trigger for {{ objstorage-name }} that invokes a container from {{ serverless-containers-name }}
 
-Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) that invokes a {{ serverless-containers-name }} [container](../concepts/container.md) when you create, move, or delete an [object](../../storage/concepts/object.md) in a bucket.
+Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) that invokes a [container](../concepts/container.md) from {{ serverless-containers-name }} when you create, move, or delete a bucket [object](../../storage/concepts/object.md).
 
 ## Getting started {#before-begin}
 
 {% include [trigger-before-you-begin](../../_includes/serverless-containers/trigger-before-you-begin.md) %}
 
-* [Bucket](../../storage/concepts/bucket.md) for whose object events the trigger will fire. If you do not have a bucket, [create one](../../storage/operations/buckets/create.md) with restricted access.
+* [Bucket](../../storage/concepts/bucket.md) whose object events will set off the trigger. If you do not have a bucket, [create one](../../storage/operations/buckets/create.md) with restricted access.
 
 ## Creating a trigger {#trigger-create}
 
@@ -18,7 +18,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -32,8 +32,8 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_storage }}**:
 
-        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_bucket }}** field, select the bucket whose object events you want to create a trigger for.
-        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select the events for which the trigger will fire.
+        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_bucket }}** field, select the bucket for which you want to create an object event trigger.
+        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select events that will set off the trigger.
         * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_prefix }}** field, enter a prefix for filtering.
         * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_suffix }}** field, enter a suffix for filtering.
     
@@ -49,7 +49,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
         {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -68,7 +68,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
       --prefix '<object_key_prefix>' \
       --suffix '<object_key_suffix>' \
       --events 'create-object','delete-object','update-object' \
-      --batch-size <event_group_size> \
+      --batch-size <event_batch_size> \
       --batch-cutoff <maximum_timeout> \
       --invoke-container-id <container_ID> \
       --invoke-container-service-account-id <service_account_ID> \
@@ -82,8 +82,8 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
     * `--name`: Trigger name.
     * `--bucket-id`: Bucket ID.
-    * `--prefix`: Bucket object key [prefix](../concepts/trigger/os-trigger.md#filter). This is an optional parameter. It is used for filtering.
-    * `--suffix`: Bucket object key [suffix](../concepts/trigger/os-trigger.md#filter). This is an optional parameter. It is used for filtering.
+    * `--prefix`: Bucket object key [prefix](../concepts/trigger/os-trigger.md#filter). This is an optional setting. It is used for filtering.
+    * `--suffix`: Bucket object key [suffix](../concepts/trigger/os-trigger.md#filter). This is an optional setting. It is used for filtering.
     * `--events`: [Events](../concepts/trigger/os-trigger.md#event) that set off the trigger.
 
     {% include [batch-settings-events](../../_includes/serverless-containers/batch-settings-events.md) %}
@@ -129,7 +129,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
   To create a trigger for {{ objstorage-name }}:
 
-  1. In the configuration file, describe the trigger parameters:
+  1. Describe the trigger in the configuration file:
 
      ```hcl
      resource "yandex_function_trigger" "my_trigger" {
@@ -148,7 +148,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
          update       = true
          delete       = true
          batch_cutoff = "<maximum_wait_time>"
-         batch_size   = "<event_group_size>"
+         batch_size   = "<event_batch_size>"
        }
        dlq {
          queue_id           = "<dead-letter_queue_ID>"
@@ -159,7 +159,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
      Where:
 
-      * `name`: Trigger name. The name format is as follows:
+      * `name`: Trigger name. Follow these naming requirements:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
@@ -169,11 +169,11 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
           {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
 
-      * `object_storage`: Trigger parameters:
+      * `object_storage`: Trigger settings:
 
           * `bucket_id`: Bucket ID.
-          * `prefix`: Bucket object key [prefix](../concepts/trigger/os-trigger.md#filter). This is an optional parameter. It is used for filtering.
-          * `suffix`: Bucket object key [suffix](../concepts/trigger/os-trigger.md#filter). This is an optional parameter. It is used for filtering.
+          * `prefix`: Bucket object key [prefix](../concepts/trigger/os-trigger.md#filter). This is an optional setting. It is used for filtering.
+          * `suffix`: Bucket object key [suffix](../concepts/trigger/os-trigger.md#filter). This is an optional setting. It is used for filtering.
           * [Events](../concepts/trigger/os-trigger.md#event) that set off the trigger:
 
               * `create`: Trigger will invoke the container if a new object is created in the storage. It can either be `true` or `false`.
@@ -184,7 +184,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-     For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+     For more information about `yandex_function_trigger` properties, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create the resources:
 

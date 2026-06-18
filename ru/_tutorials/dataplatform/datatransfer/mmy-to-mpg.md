@@ -34,7 +34,7 @@
 
     1. [Выдайте административные привилегии](../../../managed-mysql/operations/grant.md#grant-privilege) `REPLICATION CLIENT` и `REPLICATION SLAVE` пользователю `mmy_user`.
 
-        Подробнее об административных привилегиях см. в [описании настроек](../../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges).
+        Подробнее об административных привилегиях смотрите в [описании настроек](../../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges).
 
     1. В той же зоне доступности [создайте кластер-приемник {{ mpg-name }}](../../../managed-postgresql/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе и следующими настройками:
 

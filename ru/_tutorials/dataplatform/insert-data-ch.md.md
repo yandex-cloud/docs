@@ -8,7 +8,7 @@ INSERT INTO db_name.table_name VALUES (v11, v12, v13), (v21, v22, v23), ...
 
 Запросы на вставку рекомендуется отправлять не чаще одного раза в секунду. Чтобы объединить мелкие запросы в один большой, используйте [буферизацию](#buffer-insert).
 
-Подробнее о запросе `INSERT INTO` см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/insert-into#insert).
+Подробнее о запросе `INSERT INTO` смотрите в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/insert-into#insert).
 
 ## Вставка данных из файла {#file-insert}
 
@@ -21,7 +21,7 @@ INSERT INTO db_name.table_name FROM INFILE '<полный_путь_к_файлу
 
 Опция `COMPRESSION` позволяет передавать сжатые файлы. Используйте ее, чтобы загружать большие объемы информации. Опция поддерживается при работе через [clickhouse-client]({{ ch.docs }}{{ lang }}/interfaces/cli) или [HTTP-интерфейс]({{ ch.docs }}{{ lang }}/interfaces/http). Если формат сжатия не указан, то он определяется по расширению файла. Возможные значения формата сжатия: `none`, `gzip`, `deflate`, `br`, `xz`, `zstd`, `lz4`, `bz2`.
 
-Список поддерживаемых форматов данных приведен в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/interfaces/formats). О настройке схем форматов данных Cap'n Proto и Protobuf см. в разделе [Управление схемами формата данных](../../managed-clickhouse/operations/format-schemas.md).
+Список поддерживаемых форматов данных приведен в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/interfaces/formats). Настройка схем форматов данных Cap'n Proto и Protobuf описана в разделе [Управление схемами формата данных](../../managed-clickhouse/operations/format-schemas.md).
 
 ## Вставка данных с использованием буферизации {#buffer-insert}
 
@@ -45,7 +45,7 @@ INSERT INTO db_name.table_name FROM INFILE '<полный_путь_к_файлу
 
 При использовании асинхронных вставок недоступна [дедупликация строк]({{ ch.docs }}{{ lang }}/guides/developer/deduplication).
 
-Подробную информацию об асинхронной вставке данных см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/best-practices/use-materialized-views).
+Подробную информацию об асинхронной вставке данных смотрите в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/best-practices/use-materialized-views).
 
 ### Вставка данных через буферную таблицу {#buffer-table}
 
@@ -66,7 +66,7 @@ Buffer(database, table, num_layers, min_time, max_time, min_rows, max_rows, min_
 
 Сброс данных в основную таблицу происходит при достижении всех минимальных значений, либо хотя бы одного максимального. Если объем поступающей порции данных превышает `max_rows` или `max_bytes`, то данные не попадают в буфер, а записываются напрямую в основную таблицу.
 
-Информацию о дополнительных параметрах движка и ограничениях таблиц на движке `Buffer` см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/special/buffer).
+Информацию о дополнительных параметрах движка и ограничениях таблиц на движке `Buffer` смотрите в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/special/buffer).
 
 #### Пример {#buffer-table-example}
 
@@ -138,7 +138,7 @@ Buffer(database, table, num_layers, min_time, max_time, min_rows, max_rows, min_
    - идентификатор пользователя `id` представлен в виде целого беззнакового 64-битного числа (`Uint64` в Cap'n Proto и {{ CH }}, `uint64` в Protobuf);
    - имя пользователя `name` представлено в виде строки (`Text` в Cap'n Proto, `string` в Protobuf, `String` в {{ CH }}).
 
-   Подробнее о поддерживаемых типах данных см. в документации [Cap'n Proto](https://capnproto.org/language.html), [Protobuf](https://developers.google.com/protocol-buffers/docs/proto3) и [{{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/data-types).
+   Подробнее о поддерживаемых типах данных смотрите в документации [Cap'n Proto](https://capnproto.org/language.html), [Protobuf](https://developers.google.com/protocol-buffers/docs/proto3) и [{{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/data-types).
 
 1. [Подключитесь к кластеру](../../managed-clickhouse/operations/connect/clients.md) и создайте таблицу `db1.users` нужного вида, если ее еще не существует:
 
@@ -174,7 +174,7 @@ pip3 install protobuf varint pycapnp
      }
      ```
 
-     Подробнее о формате файла см. в [документации Cap'n Proto](https://capnproto.org/language.html).
+     Подробнее о формате файла смотрите в [документации Cap'n Proto](https://capnproto.org/language.html).
 
    - Protobuf {#protobuf}
 
@@ -188,7 +188,7 @@ pip3 install protobuf varint pycapnp
      };
      ```
 
-     Подробнее о формате файла см. в [документации Protobuf](https://developers.google.com/protocol-buffers/docs/overview).
+     Подробнее о формате файла смотрите в [документации Protobuf](https://developers.google.com/protocol-buffers/docs/overview).
 
    {% endlist %}
 
@@ -356,7 +356,7 @@ pip3 install protobuf varint pycapnp
 
    {% endlist %}
 
-   О том, как получить FQDN хоста, см. [инструкцию](../../managed-clickhouse/operations/connect/fqdn.md).
+   Как получить FQDN хоста, описано в [инструкции](../../managed-clickhouse/operations/connect/fqdn.md).
 
 ### Вставка данных {#insert-data}
 

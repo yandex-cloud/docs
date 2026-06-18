@@ -41,8 +41,6 @@ description: Следуя данной инструкции, вы сможете
 
 ## Создайте кластер {{ managed-k8s-name }} {#kubernetes-cluster-create}
 
-{% include [master-config-preview-note](../../../_includes/managed-kubernetes/master-config-preview-note.md) %}
-
 {% include [master-pricing-note](../../../_includes/managed-kubernetes/master-pricing-note.md) %}
 
 {% include [os-new-version](../../../_includes/managed-kubernetes/note-os-new-version.md) %}
@@ -342,7 +340,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [note-master-logging-log-group](../../../_includes/managed-kubernetes/note-master-logging-log-group.md) %}
 
-     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
+     Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
   1. Проверьте корректность конфигурационных файлов.
 
      {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}

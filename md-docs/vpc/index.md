@@ -84,8 +84,6 @@ Yandex Virtual Private Cloud служит для управления облач
 
  - [Создать сервисное подключение](operations/private-endpoint-create.md)
 
- - [Создать сервисное подключение через поддержку](operations/private-endpoint-create-support.md)
-
  - [Получить информацию о сервисном подключении](operations/private-endpoint-get-info.md)
 
  - [Назначить политику доступа в Object Storage для сервисного подключения](operations/private-endpoint-storage-policy.md)
@@ -642,6 +640,8 @@ Yandex Virtual Private Cloud служит для управления облач
 
  - [List](api-ref/Address/list.md)
 
+ - [ListBySubnet](api-ref/Address/listBySubnet.md)
+
  - [Create](api-ref/Address/create.md)
 
  - [Update](api-ref/Address/update.md)
@@ -758,13 +758,13 @@ Yandex Virtual Private Cloud служит для управления облач
 
  - [RemoveCidrBlocks](api-ref/Subnet/removeCidrBlocks.md)
 
+ - [Relocate](api-ref/Subnet/relocate.md)
+
  - [Delete](api-ref/Subnet/delete.md)
 
  - [ListOperations](api-ref/Subnet/listOperations.md)
 
  - [Move](api-ref/Subnet/move.md)
-
- - [Relocate](api-ref/Subnet/relocate.md)
 
  - [ListUsedAddresses](api-ref/Subnet/listUsedAddresses.md)
 
@@ -809,6 +809,8 @@ Yandex Virtual Private Cloud служит для управления облач
  - [GetByValue](api-ref/grpc/Address/getByValue.md)
 
  - [List](api-ref/grpc/Address/list.md)
+
+ - [ListBySubnet](api-ref/grpc/Address/listBySubnet.md)
 
  - [Create](api-ref/grpc/Address/create.md)
 
@@ -926,13 +928,13 @@ Yandex Virtual Private Cloud служит для управления облач
 
  - [RemoveCidrBlocks](api-ref/grpc/Subnet/removeCidrBlocks.md)
 
+ - [Relocate](api-ref/grpc/Subnet/relocate.md)
+
  - [Delete](api-ref/grpc/Subnet/delete.md)
 
  - [ListOperations](api-ref/grpc/Subnet/listOperations.md)
 
  - [Move](api-ref/grpc/Subnet/move.md)
-
- - [Relocate](api-ref/grpc/Subnet/relocate.md)
 
  - [ListUsedAddresses](api-ref/grpc/Subnet/listUsedAddresses.md)
 

@@ -9,11 +9,11 @@ apiPlayground:
         privateEndpointId:
           description: |-
             **string**
-            Required field. ID of the private endpoint to list operations for.
+            ID of the private endpoint to list operations for.
             To get a private endpoint ID make a [PrivateEndpointService.List](/docs/vpc/privatelink/api-ref/PrivateEndpoint/list#List) request.
+            The length must be less than or equal to 50.
+            This field is required.
           type: string
-      required:
-        - privateEndpointId
       additionalProperties: false
     query:
       type: object
@@ -26,7 +26,7 @@ apiPlayground:
             [ListPrivateEndpointOperationsResponse.nextPageToken](#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointOperationsResponse) that can be used to
             get the next page of results in subsequent list requests. Default value:
             100.
-          default: '100'
+            The value must be less than or equal to 1000.
           type: string
           format: int64
         pageToken:
@@ -35,6 +35,7 @@ apiPlayground:
             Page token. To get the next page of results, set `pageToken` to the
             [ListPrivateEndpointOperationsResponse.nextPageToken](#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointOperationsResponse) returned by a
             previous list request.
+            The length must be less than or equal to 1000.
           type: string
       additionalProperties: false
     body: null
@@ -58,8 +59,9 @@ GET https://vpc.{{ api-host }}/vpc/v1/endpoints/{privateEndpointId}/operations
 || privateEndpointId | **string**
 
 Required field. ID of the private endpoint to list operations for.
-
-To get a private endpoint ID make a [PrivateEndpointService.List](/docs/vpc/privatelink/api-ref/PrivateEndpoint/list#List) request. ||
+To get a private endpoint ID make a [PrivateEndpointService.List](/docs/vpc/privatelink/api-ref/PrivateEndpoint/list#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Query parameters {#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointOperationsRequest}
@@ -72,12 +74,14 @@ The maximum number of results per page to return. If the number of
 available results is larger than `pageSize`, the service returns a
 [ListPrivateEndpointOperationsResponse.nextPageToken](#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointOperationsResponse) that can be used to
 get the next page of results in subsequent list requests. Default value:
-100. ||
+100.
+The value must be less than or equal to 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
 [ListPrivateEndpointOperationsResponse.nextPageToken](#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointOperationsResponse) returned by a
-previous list request. ||
+previous list request.
+The length must be less than or equal to 1000. ||
 |#
 
 ## Response {#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointOperationsResponse}
@@ -123,7 +127,6 @@ greater than the specified
 [ListPrivateEndpointOperationsRequest.pageSize](#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointOperationsRequest), use `next_page_token` as
 the value for the [ListPrivateEndpointOperationsRequest.pageToken](#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointOperationsRequest)
 parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging
 through the results. ||
 |#

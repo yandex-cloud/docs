@@ -12,7 +12,7 @@ Number of calls processed concurrently by a single function instance (`concurren
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function.
     1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-additional-parameters }}**, in the **{{ ui-key.yacloud.serverless-functions.item.editor.label_concurrency }}** section, check **{{ ui-key.yacloud.serverless-functions.item.editor.field_concurrency-enable }}** and enter the number of concurrent function instance calls.

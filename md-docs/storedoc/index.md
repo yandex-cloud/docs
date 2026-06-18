@@ -156,6 +156,16 @@
 
  - [list](cli-ref/backup/list.md)
 
+### backup-retention-policy
+
+ - [Overview](cli-ref/backup-retention-policy/index.md)
+
+ - [create](cli-ref/backup-retention-policy/create.md)
+
+ - [delete](cli-ref/backup-retention-policy/delete.md)
+
+ - [list](cli-ref/backup-retention-policy/list.md)
+
 ### cluster
 
  - [Overview](cli-ref/cluster/index.md)
@@ -285,6 +295,16 @@
  - [get](cli-ref/v0/backup/get.md)
 
  - [list](cli-ref/v0/backup/list.md)
+
+#### backup-retention-policy
+
+ - [Overview](cli-ref/v0/backup-retention-policy/index.md)
+
+ - [create](cli-ref/v0/backup-retention-policy/create.md)
+
+ - [delete](cli-ref/v0/backup-retention-policy/delete.md)
+
+ - [list](cli-ref/v0/backup-retention-policy/list.md)
 
 #### cluster
 

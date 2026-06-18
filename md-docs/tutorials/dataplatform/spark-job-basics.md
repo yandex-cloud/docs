@@ -86,7 +86,7 @@
 
     {% endcut %}
 
-    Подробнее о том, как собрать приложение для Spark, написанное на языке Scala, см. в разделе [Использование Spark Submit](../../data-proc/tutorials/run-spark-job.md#spark-submit).
+    Подробнее о том, как собрать приложение для Spark, написанное на языке Scala, смотрите в разделе [Использование Spark Submit](../../data-proc/tutorials/run-spark-job.md#spark-submit).
 
 1. [Создайте задание Spark](../../data-proc/operations/jobs-spark.md#create) с параметрами:
 

@@ -14,7 +14,9 @@ GET https://vpc.api.cloud.yandex.net/vpc/v1/networks/{networkId}/operations
 ||Field | Description ||
 || networkId | **string**
 
-Required field. ID of the Network resource to list operations for. ||
+Required field. ID of the Network resource to list operations for.
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Query parameters {#yandex.cloud.vpc.v1.ListNetworkOperationsRequest}
@@ -25,11 +27,13 @@ Required field. ID of the Network resource to list operations for. ||
 
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `pageSize`, the service returns a [ListNetworkOperationsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworkOperationsResponse)
-that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
+that can be used to get the next page of results in subsequent list requests. Default value: 100.
+The value must be less than or equal to 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListNetworkOperationsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworkOperationsResponse) returned by a previous list request. ||
+[ListNetworkOperationsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworkOperationsResponse) returned by a previous list request.
+The length must be less than or equal to 100. ||
 |#
 
 ## Response {#yandex.cloud.vpc.v1.ListNetworkOperationsResponse}

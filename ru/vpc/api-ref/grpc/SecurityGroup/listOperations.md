@@ -24,9 +24,9 @@ Lists operations for the specified security groups.
 ||Field | Description ||
 || security_group_id | **string**
 
-Required field. ID of the address to list operations for.
-
-To get a address ID make a [SecurityGroup.List] request. ||
+ID of the address to list operations for.
+To get a address ID make a [SecurityGroup.List] request.
+This field is required. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
@@ -72,7 +72,6 @@ List of operations for the specified security group. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListSecurityGroupOperationsRequest.page_size](#yandex.cloud.vpc.v1.ListSecurityGroupOperationsRequest), use `next_page_token` as the value
 for the [ListSecurityGroupOperationsRequest.page_token](#yandex.cloud.vpc.v1.ListSecurityGroupOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

@@ -44,9 +44,9 @@
           * `Холодное`
           * `Ледяное`
           * `Умное`
-
+          
           Более «холодные» классы предназначены для длительного хранения объектов, работать с которыми планируется реже. Чем «холоднее» хранилище, тем дешевле хранить в нем данные, но тем дороже их читать и записывать. Умное хранилище автоматически оптимизирует расходы, перемещая объекты между уровнями доступа в зависимости от частоты обращения к ним.
-
+         
       
       1. При необходимости включите шифрование: в поле **Ключ KMS** выберите [симметричный ключ](../../../kms/concepts/key.md) или [создайте](../../../kms/operations/key.md#create) новый.
 
@@ -71,7 +71,7 @@
       yc storage bucket create --name <имя_бакета>
       ```
   
-      Где `--name` — имя бакета. Обязательный параметр. Подробнее смотрите [Правила именования бакетов](../../concepts/bucket.md#naming).
+      Где `--name` — имя бакета. Обязательный параметр. Подробнее в разделе [Правила именования бакетов](../../concepts/bucket.md#naming).
   
       
       По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите](../hosting/certificate.md) собственный сертификат безопасности в Object Storage.
@@ -117,14 +117,14 @@
       {% endnote %}
   
       * Параметры для настройки [ACL](../../concepts/acl.md) бакета:
-      * `--acl` — предопределенный ACL. Список возможных значений смотрите в разделе [Предопределенные ACL](../../concepts/acl.md#predefined-acls). Нельзя использовать одновременно с параметром `--grants`.
+      * `--acl` — предопределенный ACL. Список возможных значений приведен в разделе [Предопределенные ACL](../../concepts/acl.md#predefined-acls). Нельзя использовать одновременно с параметром `--grants`.
       * `--grants` — настройки разрешений для отдельных пользователей, [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md), [групп пользователей](../../../organization/concepts/groups.md) и [публичных групп](../../concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей Yandex Cloud). Нельзя использовать одновременно с параметром `--acl`. Значение параметра указывается в формате: `grant-type=<тип_получателя_разрешения>,grantee-id=<идентификатор_получателя>,permission=<тип_разрешения>`, где:
           * `grant-type` — тип получателя разрешения. Возможные значения:
           * `grant-type-account` — пользователь, [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) или [группа пользователей](../../../organization/concepts/groups.md);
           * `grant-type-all-authenticated-users` — [публичная группа](../../concepts/acl.md#public-groups) всех аутентифицированных пользователей Yandex Cloud;
           * `grant-type-all-users` — публичная группа всех пользователей интернета.
           * `grantee-id` — идентификатор пользователя, сервисного аккаунта или группы пользователей, которым нужно дать разрешение. Указывается, только если `grant-type=grant-type-account`.
-          * `permission` — тип разрешения ACL. Возможные значения: `permission-full-control`, `permission-write`, `permission-read`. Подробнее о разрешениях смотрите в разделе [Виды разрешений](../../concepts/acl.md#permissions-types).
+          * `permission` — тип разрешения ACL. Возможные значения: `permission-full-control`, `permission-write`, `permission-read`. Подробнее о разрешениях в разделе [Виды разрешений](../../concepts/acl.md#permissions-types).
   
           Чтобы настроить несколько разрешений, укажите параметр `--grants` несколько раз.
   
@@ -132,7 +132,7 @@
   
       {% endcut %}
   
-      Подробнее о команде `yc storage bucket create` смотрите в [Справочнике YC CLI](../../../cli/cli-ref/storage/cli-ref/bucket/create.md).
+      Подробнее о команде `yc storage bucket create` в [Справочнике YC CLI](../../../cli/cli-ref/storage/cli-ref/bucket/create.md).
 
 - AWS CLI {#aws-cli}
 
@@ -156,7 +156,7 @@
   
   {% note info %}
 
-  По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите](../hosting/certificate.md) собственный сертификат безопасности в Object Storage. Подробнее смотрите [Правила именования бакетов](../../concepts/bucket.md#naming).
+  По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите](../hosting/certificate.md) собственный сертификат безопасности в Object Storage. Подробнее в разделе [Правила именования бакетов](../../concepts/bucket.md#naming).
 
   {% endnote %}
 
@@ -193,7 +193,7 @@
     --acl <предопределенный_ACL>
   ```
 
-  Где `--acl` — предопределенный ACL. Список значений смотрите в разделе [Предопределенные ACL](../../concepts/acl.md#predefined-acls).
+  Где `--acl` — предопределенный ACL. Список значений приведен в разделе [Предопределенные ACL](../../concepts/acl.md#predefined-acls).
 
   **Отдельные разрешения**
 
@@ -220,7 +220,7 @@
 
   {% endcut %}
 
-  Подробнее о команде `aws s3api create-bucket` смотрите в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-bucket.html).
+  Подробнее о команде `aws s3api create-bucket` в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-bucket.html).
 
 - Terraform {#tf}
 
@@ -234,7 +234,7 @@
   
   Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
   
   Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -245,7 +245,7 @@
 
 
   
-  По умолчанию для аутентификации в Object Storage Terraform использует IAM-токен. Кроме IAM-токена для аутентификации в Object Storage можно использовать сервисный аккаунт и статические ключи доступа. Более подробную информацию об особенностях аутентификации Terraform в Object Storage смотрите в [документации провайдера](../../../terraform/resources/storage_bucket.md).
+  По умолчанию для аутентификации в Object Storage Terraform использует IAM-токен. Кроме IAM-токена, для аутентификации в Object Storage можно использовать сервисный аккаунт и статические ключи доступа. Более подробная информация об особенностях аутентификации Terraform в Object Storage приведена в [документации провайдера](../../../terraform/resources/storage_bucket.md).
 
   **Создание бакета с использованием IAM-токена**
 
@@ -276,7 +276,7 @@
 
         {% endnote %}
 
-      Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform, смотрите в [документации провайдера](../../../terraform/resources/storage_bucket.md).
+      Более подробная информация о параметрах ресурса `yandex_storage_bucket` в Terraform приведена в [документации провайдера](../../../terraform/resources/storage_bucket.md).
 
   1. Создайте ресурсы:
 
@@ -404,7 +404,7 @@
 
         * `tags` — [метки](../../concepts/tags.md) бакета в формате `ключ = "значение"`.
 
-      Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform, смотрите в [документации провайдера](../../../terraform/resources/storage_bucket.md).
+      Более подробная информация о параметрах ресурса `yandex_storage_bucket` в Terraform приведена в [документации провайдера](../../../terraform/resources/storage_bucket.md).
 
       {% endcut %}
 

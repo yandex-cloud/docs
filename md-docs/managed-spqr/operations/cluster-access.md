@@ -83,7 +83,7 @@
 
   1. Откройте актуальный конфигурационный файл с описанием кластера Managed Service for Sharded PostgreSQL.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера Sharded PostgreSQL](cluster-create.md).
+      Как создать такой файл, описано в разделе [Создание кластера Sharded PostgreSQL](cluster-create.md).
 
   1. Добавьте описание ресурса:
 
@@ -158,7 +158,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-      Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_sharded_postgresql_cluster_iam_binding.md).
+      Подробнее читайте в [документации провайдера Terraform](../../terraform/resources/mdb_sharded_postgresql_cluster_iam_binding.md).
 
 - REST API {#api}
 
@@ -299,7 +299,7 @@
 
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Как создать такой файл, описано в разделе [Создание кластера](cluster-create.md).
 
   1. Добавьте описание ресурсов:
 
@@ -383,7 +383,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-      Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_sharded_postgresql_cluster_iam_binding.md).
+      Подробнее читайте в [документации провайдера Terraform](../../terraform/resources/mdb_sharded_postgresql_cluster_iam_binding.md).
 
 - REST API {#api}
 
@@ -561,7 +561,7 @@
 
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Как создать такой файл, описано в разделе [Создание кластера](cluster-create.md).
 
   1. Найдите описание ресурса с ролью, которую вы хотите отозвать, и удалите его:
 
@@ -606,7 +606,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-      Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_sharded_postgresql_cluster_iam_binding.md).
+      Подробнее читайте в [документации провайдера Terraform](../../terraform/resources/mdb_sharded_postgresql_cluster_iam_binding.md).
 
 - REST API {#api}
 
@@ -750,7 +750,7 @@
 
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Как создать такой файл, описано в разделе [Создание кластера](cluster-create.md).
 
   1. Добавьте описание ресурса:
 
@@ -803,7 +803,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-      Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_sharded_postgresql_cluster_iam_binding.md).
+      Подробнее читайте в [документации провайдера Terraform](../../terraform/resources/mdb_sharded_postgresql_cluster_iam_binding.md).
 
 - REST API {#api}
 

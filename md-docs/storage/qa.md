@@ -116,7 +116,7 @@ yc kms symmetric-key add-access-binding \
 #### Где хранятся мои данные? {#qa-where}
 
 
-Данные хранятся в нескольких географически распределенных дата-центрах на территории России. Подробнее см. в разделе [Зоны доступности](../overview/concepts/geo-scope.md).
+Данные хранятся в нескольких географически распределенных дата-центрах на территории России. Подробнее в разделе [Зоны доступности](../overview/concepts/geo-scope.md).
 
 
 
@@ -177,7 +177,7 @@ Object Storage имеет внутренние [SLA](../glossary/sla.md) и SLO 
 * Если к бакету применена политика доступа без правил, то доступ будет запрещен всем пользователям. Чтобы отключить проверки запросов по политике доступа, [удалите](operations/buckets/policy.md#delete-policy) ее.
 
 
-* Если с бакетом взаимодействует кластер [Apache Hive™ Metastore](../metadata-hub/concepts/metastore.md) или [Yandex Managed Service for Apache Airflow™](../managed-airflow/concepts/index.md) и для бакета настроена политика доступа, кластер не сможет записывать данные в бакет или читать данные из бакета без сервисного аккаунта с соответствующей ролью. Подробнее см. в инструкциях для [Apache Hive™ Metastore](../metadata-hub/operations/metastore/s3-policy-connect.md) и [Managed Service for Apache Airflow™](../managed-airflow/operations/s3-policy-connect.md).
+* Если с бакетом взаимодействует кластер [Apache Hive™ Metastore](../metadata-hub/concepts/metastore.md) или [Yandex Managed Service for Apache Airflow™](../managed-airflow/concepts/index.md) и для бакета настроена политика доступа, кластер не сможет записывать данные в бакет или читать данные из бакета без сервисного аккаунта с соответствующей ролью. Подробнее в инструкциях для [Apache Hive™ Metastore](../metadata-hub/operations/metastore/s3-policy-connect.md) и [Managed Service for Apache Airflow™](../managed-airflow/operations/s3-policy-connect.md).
 
 
 #### Как получить доступ к Object Storage из облачной сети Virtual Private Cloud? {#qa-from-vpc}

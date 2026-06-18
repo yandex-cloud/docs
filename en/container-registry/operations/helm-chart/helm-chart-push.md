@@ -36,7 +36,7 @@ To push a Helm chart:
   1. Authenticate your Helm client in the {{ container-registry-name }} [registry](../../concepts/registry.md) using one of the available methods.
      * With an OAuth token:
 
-       {% include [oauth-token-deprecated-soon](../../../_includes/oauth-token-deprecated-soon.md) %}
+       {% include [oauth-token-deprecated-migration](../../../_includes/oauth-token-deprecated-migration.md) %}
 
        1. If you do not have an OAuth token yet, get one by following [this link]({{ link-cloud-oauth }}).
        1. Run this command:

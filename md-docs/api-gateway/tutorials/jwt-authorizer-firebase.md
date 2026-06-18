@@ -247,7 +247,7 @@ Firebase:
      * `name` — имя API-шлюза.
      * `spec` — спецификация API-шлюза.
 
-     Более подробную информацию о параметрах ресурса `yandex_api_gateway` в Terraform, см. в [документации провайдера](../../terraform/resources/api_gateway.md).
+     Подробнее о параметрах ресурса `yandex_api_gateway` в Terraform смотрите в [документации провайдера](../../terraform/resources/api_gateway.md).
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -415,7 +415,7 @@ Firebase:
           * `bucket` — имя бакета.
           * `acl` — настройки доступа к бакету.
 
-        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform см. в [документации провайдера](../../terraform/resources/storage_bucket.md).
+        Подробнее о параметрах ресурса `yandex_storage_bucket` в Terraform смотрите в [документации провайдера](../../terraform/resources/storage_bucket.md).
      1. Создайте ресурсы:
 
         1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -559,7 +559,7 @@ Firebase:
           * `index_document` — абсолютный путь к файлу главной страницы сайта. Обязательный параметр.
           * `error_document` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках `4хх`. Необязательный параметр.
 
-        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform см. в [документации провайдера](../../terraform/resources/storage_bucket.md#static-website-hosting).
+        Подробнее о параметрах ресурса `yandex_storage_bucket` в Terraform смотрите в [документации провайдера](../../terraform/resources/storage_bucket.md#static-website-hosting).
      1. Создайте ресурсы:
 
         1. В терминале перейдите в директорию с конфигурационным файлом.

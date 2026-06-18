@@ -63,7 +63,7 @@
 
 Чтобы управлять инфраструктурой Yandex Cloud с помощью Terraform, используйте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md). Это позволит гибко настраивать права доступа к ресурсам.
 
-Также вы можете использовать Terraform от имени [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративного](../../iam/concepts/users/accounts.md#saml-federation) или [локального](../../iam/concepts/users/accounts.md#local) пользователя, однако этот способ является менее безопасным. Подробности см. в конце раздела.
+Также вы можете использовать Terraform от имени [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративного](../../iam/concepts/users/accounts.md#saml-federation) или [локального](../../iam/concepts/users/accounts.md#local) пользователя, однако этот способ является менее безопасным. Подробности смотрите в конце раздела.
 
 1. Если у вас еще нет интерфейса командной строки Yandex Cloud, [установите](../../cli/quickstart.md#install) его.
 
@@ -367,7 +367,7 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
     * `output "resource_active"` — выходная переменная, которая содержит информацию о текущем идентификаторе образа для указанного семейства:
         * `value` — возвращаемое значение.
 
-    Более подробно о параметрах источника данных `yandex_compute_image` см. в [документации провайдера](../data-sources/compute_image.md).
+    Подробнее о параметрах источника данных `yandex_compute_image` смотрите в [документации провайдера](../data-sources/compute_image.md).
 
 1. Создайте ресурсы:
 

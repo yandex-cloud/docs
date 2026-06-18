@@ -157,7 +157,21 @@ description: Следуя данной инструкции, вы сможете
      Чтобы к хосту можно было подключаться из интернета, включите настройку **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
 
-    
+  
+  1. (Опционально) В блоке **DB Proxy** включите [балансировщик {{ mdb-lb }}](../concepts/load-balancer.md) с помощью опции **Балансировка DB Proxy**, чтобы {{ mpg-name }} автоматически распределял нагрузку по хостам БД в зависимости от их роли и доступности. При включенном балансировщике все хосты кластера автоматически добавляются в балансировку.
+
+     Укажите параметры балансировки по репликам в блоке **Настройки портов**:
+
+     {% include [lb-settings](../../_includes/mdb/load-balancer-settings.md) %}
+
+     {% note warning %}
+
+     Включить балансировщик {{ mdb-lb }} можно только при создании кластера.
+
+     {% endnote %}
+
+
+  
   1. {% include [diagnostics-settings-console](../../_includes/mdb/mpg/diagnostics-settings-console.md) %}
 
 
@@ -166,7 +180,7 @@ description: Следуя данной инструкции, вы сможете
      {% include [Additional cluster settings](../../_includes/mdb/mpg/extra-settings-web-console.md) %}
 
   1. При необходимости задайте [настройки СУБД уровня кластера](../concepts/settings-list.md#dbms-cluster-settings).
-  
+
      {% note info %}
 
      Некоторые настройки {{ PG }} [зависят от выбранного класса хостов или от размера хранилища](../concepts/settings-list.md#settings-instance-dependent).
@@ -282,7 +296,7 @@ description: Следуя данной инструкции, вы сможете
      Чтобы настроить время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), передайте параметр `--maintenance-window type=<тип_технического_обслуживания>`, где `type` принимает следующие значения:
 
      {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
-     
+
      
      Чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md), передайте параметр `--disk-encryption-key-id <идентификатор_ключа_KMS>`. Подробнее о шифровании дисков в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
@@ -407,11 +421,11 @@ description: Следуя данной инструкции, вы сможете
      {% include [disk-size-autoscaling](../../_includes/mdb/mpg/terraform/disk-size-autoscaling.md) %}
 
      {% note warning %}
-     
+
      * При использовании параметра `planned_usage_threshold` необходимо настроить окно технического обслуживания в блоке `maintenance_window`.
-     
+
      * Если заданы оба порога, значение `emergency_usage_threshold` должно быть не меньше `planned_usage_threshold`.
-     
+
      {% endnote %}
 
      {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
@@ -581,7 +595,7 @@ description: Следуя данной инструкции, вы сможете
          * `enabled` — активация сбора статистики: `true` или `false`.
          * `sessionsSamplingInterval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
          * `statementsSamplingInterval` — интервал сбора запросов. Возможные значения: от `60` до `86400` секунд.
-       
+
        {% include [disk-size-autoscaling-rest](../../_includes/mdb/mpg/disk-size-autoscaling-rest.md) %}
 
      * `databaseSpecs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и имеет следующую структуру:
@@ -611,7 +625,7 @@ description: Следуя данной инструкции, вы сможете
        * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet)
        * `assignPublicIp` — разрешение на [подключение](connect/index.md) к хосту из интернета: `true` или `false`.
 
-     
+
      * `maintenanceWindow` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). Передайте один из двух параметров:
 
        * `anytime` — техническое обслуживание проводится в любое время.

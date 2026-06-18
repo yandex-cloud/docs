@@ -17,7 +17,7 @@
 
 ## Перед началом работы {#before-start}
 
-1. Установите на внешнем хосте, имеющем сетевой доступ к хосту {{ MG }} (см. [{#T}](../../storedoc/operations/connect/index.md)), [утилиты](../../storedoc/operations/tools.md#monitoring-tools) получения данных о производительности {{ MG }} `mongostat` и `mongotop`.
+1. Установите на внешнем хосте, имеющем сетевой доступ к хосту {{ MG }} (смотрите [{#T}](../../storedoc/operations/connect/index.md)), [утилиты](../../storedoc/operations/tools.md#monitoring-tools) получения данных о производительности {{ MG }} `mongostat` и `mongotop`.
 1. Определите, для каких баз данных нужно выявить проблемы.
 1. [Создайте пользователя](../../storedoc/operations/cluster-users.md#adduser) {{ MG }} с ролью [`mdbMonitor`](../../storedoc/concepts/users-and-roles.md#mdbMonitor) для этих баз. Это необходимо для использования утилит `mongostat` и `mongotop`.
 

@@ -54,7 +54,7 @@
 
    1. Нажмите кнопку **Save changes**.
 
-   Подробнее о настройках {{ GLR }} см. в [документации {{ GL }}]({{ gl.docs }}/ee/ci/runners/configure_runners.html).
+   Подробнее о настройках {{ GLR }} смотрите в [документации {{ GL }}]({{ gl.docs }}/ee/ci/runners/configure_runners.html).
 
    {% endcut %}
 

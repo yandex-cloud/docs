@@ -7,7 +7,7 @@ You can set up policies for accessing a [registry](../../concepts/registry.md) f
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the registry was created in.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Select the registry to configure access to.
   1. In the left-hand panel, click ![IP-access](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.cr.registry.label_ip-permissions }}**.
   1. Click **{{ ui-key.yacloud.cr.registry.button_update-ip-permissions }}**.
@@ -90,15 +90,15 @@ You can set up policies for accessing a [registry](../../concepts/registry.md) f
 
      Where:
      * `my_registry`: Registry ID. If the configuration already contains the [yandex_container_registry]({{ tf-provider-resources-link }}/container_registry) resource, you can specify it, e.g., `yandex_container_registry.my_registry.id`.
-     * `pull`: IP addresses that can be used to pull [Docker images](../../concepts/docker-image.md) from the registry. This is an optional parameter.
-     * `push`: IP addresses that can be used to push Docker images to the registry. This is an optional parameter.
+     * `pull`: IP addresses that can be used to pull [Docker images](../../concepts/docker-image.md) from the registry. This is an optional setting.
+     * `push`: IP addresses that can be used to push Docker images to the registry. This is an optional setting.
 
-     For more information about the `yandex_container_registry_ip_permission` properties in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/container_registry_ip_permission).
+     For more information about the `yandex_container_registry_ip_permission` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/container_registry_ip_permission).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+     {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
 
      ```bash
      yc container registry list-ip-permissions <registry_name>

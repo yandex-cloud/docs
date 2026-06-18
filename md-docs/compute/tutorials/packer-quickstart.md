@@ -5,7 +5,7 @@
 
 Packer создаст и запустит виртуальную машину с ОС [Debian 11](https://yandex.cloud/ru/marketplace/products/yc/debian-11) из Cloud Marketplace, на которую будет установлен веб-сервер [nginx](https://nginx.org/ru/). Затем ВМ будет удалена и будет создан образ ее загрузочного диска. После этого диск тоже будет удален.
 
-Более подробную информацию о ресурсах, которые вы можете создать с помощью Packer, см. в [документации провайдера](https://www.packer.io/docs/builders/yandex).
+Подробнее о ресурсах, которые вы можете создать с помощью Packer, смотрите в [документации провайдера](https://www.packer.io/docs/builders/yandex).
 
 Чтобы создать образ:
 
@@ -77,7 +77,7 @@ Packer создаст и запустит виртуальную машину с
       unzip ~/packer/packer_1.11.2_linux_amd64.zip -d ~/packer
       ```
 
-      В примере указана версия `1.11.2`, актуальную версию Packer см. в [зеркале](https://hashicorp-releases.yandexcloud.net/packer/).
+      В примере указана версия `1.11.2`, актуальную версию Packer смотрите в [зеркале](https://hashicorp-releases.yandexcloud.net/packer/).
 
   1. Добавьте Packer в переменную `PATH`: 
 
@@ -142,7 +142,7 @@ Packer создаст и запустит виртуальную машину с
       unzip ~/packer/packer_1.11.2_darwin_amd64.zip -d ~/packer
       ```
 
-      В примере указана версия `1.11.2`, актуальную версию Packer см. в [зеркале](https://hashicorp-releases.yandexcloud.net/packer/).
+      В примере указана версия `1.11.2`, актуальную версию Packer смотрите в [зеркале](https://hashicorp-releases.yandexcloud.net/packer/).
 
   1. Добавьте Packer в переменную `PATH`: 
 
@@ -265,7 +265,7 @@ Packer создаст и запустит виртуальную машину с
 
 {% endnote %}
 
-Подробнее о параметрах конфигурации образа см. в [документации Yandex Compute Builder](https://www.packer.io/docs/builders/yandex).
+Подробнее о параметрах конфигурации образа смотрите в [документации Yandex Compute Builder](https://www.packer.io/docs/builders/yandex).
 
 
 ## Создайте образ {#create-image}

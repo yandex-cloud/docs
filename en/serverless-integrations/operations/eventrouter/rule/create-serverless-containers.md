@@ -10,7 +10,7 @@ description: Follow this guide to create a rule with a {{ serverless-containers-
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [rule](../../../concepts/eventrouter/rule.md).
-  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Select the [bus](../../../concepts/eventrouter/bus.md) you need.
   1. Navigate to the ![image](../../../../_assets/console-icons/target-dart.svg) **{{ ui-key.yacloud.serverless-event-router.label_rules }}** tab.
@@ -143,7 +143,7 @@ description: Follow this guide to create a rule with a {{ serverless-containers-
 
   To create a [rule](../../../concepts/eventrouter/rule.md) with a {{ serverless-containers-full-name }} target:
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
       ```hcl
       resource "yandex_serverless_eventrouter_rule" "example_rule" {
@@ -199,7 +199,7 @@ description: Follow this guide to create a rule with a {{ serverless-containers-
 
       {% include [terraform-validate-plan-apply](../../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../../../cli/) command:
 
       ```bash
       yc serverless eventrouter rule list

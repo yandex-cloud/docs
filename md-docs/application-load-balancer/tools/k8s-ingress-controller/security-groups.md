@@ -152,7 +152,7 @@
 
   {% endlist %}
 
-Подробнее о группах безопасности для кластера и групп узлов смотрите в разделе [Настройка групп безопасности](../../../managed-kubernetes/operations/connect/security-groups.md).
+Подробнее о группах безопасности для кластера и групп узлов в разделе [Настройка групп безопасности](../../../managed-kubernetes/operations/connect/security-groups.md).
 
 ### Terraform {#example-terraform}
 

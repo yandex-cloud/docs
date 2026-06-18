@@ -143,6 +143,16 @@ items:
             href: cli-ref/backup/get.md
           - name: list
             href: cli-ref/backup/list.md
+      - name: backup-retention-policy
+        items:
+          - name: Overview
+            href: cli-ref/backup-retention-policy/index.md
+          - name: create
+            href: cli-ref/backup-retention-policy/create.md
+          - name: delete
+            href: cli-ref/backup-retention-policy/delete.md
+          - name: list
+            href: cli-ref/backup-retention-policy/list.md
       - name: cluster
         items:
           - name: Overview
@@ -273,6 +283,16 @@ items:
                 href: cli-ref/v0/backup/get.md
               - name: list
                 href: cli-ref/v0/backup/list.md
+          - name: backup-retention-policy
+            items:
+              - name: Overview
+                href: cli-ref/v0/backup-retention-policy/index.md
+              - name: create
+                href: cli-ref/v0/backup-retention-policy/create.md
+              - name: delete
+                href: cli-ref/v0/backup-retention-policy/delete.md
+              - name: list
+                href: cli-ref/v0/backup-retention-policy/list.md
           - name: cluster
             items:
               - name: Overview
