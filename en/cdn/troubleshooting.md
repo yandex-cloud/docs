@@ -8,6 +8,7 @@ Below is the list of common issues with {{ cdn-name }} and ways to fix them.
 * [Requests with the POST, PUT, PATCH, and DELETE methods are not available to users](#post-responses)
 * [Updated settings failed to apply to the resource](#changes-not-applied)
 * [CDN resource has the `Not active` status, preventing content delivery to users](#resource-not-active)
+* [What happens to a CDN resource if the billing account is suspended due to non-payment](#billing-account-blocked)
 * [Unable to configure the TLS certificate](#tls-certificate)
 * [CDN sends compressed files to users who do not request compressed content](#compressed-files)
 * [How to enable WebSocket support](#websocket-support)
@@ -57,6 +58,16 @@ By default, the `POST`, `PUT`, `PATCH`, and `DELETE` methods are not available i
 ## The CDN resource has the `Not active` status, preventing content delivery to users {#resource-not-active}
 
 Resources can show as `Not active` due to receiving no user requests for 90 days or being deactivated manually. To make them active again, [enable](operations/resources/configure-basics.md) **{{ ui-key.yacloud.cdn.field_access }}** in the basic resource settings. To enable or disable resources, you need the `cdn.editor` role or higher.
+
+## What happens to a CDN resource if the billing account is suspended due to non-payment {#billing-account-blocked}
+
+If your [billing account]({{ link-docs }}/billing/concepts/billing-account) is suspended due to non-payment, access to content via the CDN resource gets [halted](operations/resources/disable-resource.md#disable-resource).
+
+{% note warning "**Important note**" %}
+
+Unsuspending a billing account does not restore access to content. [Restore](operations/resources/disable-resource.md#enable-resource) it by yourself.
+
+{% endnote %}
 
 ## Unable to configure the TLS certificate {#tls-certificate}
 

@@ -195,7 +195,7 @@ description: Следуя данной инструкции, вы сможете
        * `group_distribution_type` — тип распределения групп.
      * `labels` — список [меток](../../../resource-manager/concepts/labels.md).
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_oauth_application` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_idp_application_oauth_application` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).
 
   1. Примените изменения:
 

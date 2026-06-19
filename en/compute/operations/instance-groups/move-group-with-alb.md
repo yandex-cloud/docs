@@ -16,7 +16,7 @@ To move an [instance group](../../concepts/instance-groups/index.md) with a [{{ 
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
-      1. [Go](../../../console/operations/select-service.md#select-service) to **{{ alb-name }}**.
+      1. Navigate to **{{ alb-name }}**.
       1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the load balancer you need, then select **{{ ui-key.yacloud.common.edit }}**.
       1. In the window that opens, under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, enable traffic in the availability zone you want to move your instance group to.
       1. Click **{{ ui-key.yacloud.common.save }}**.

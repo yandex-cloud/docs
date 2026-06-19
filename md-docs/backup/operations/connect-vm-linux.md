@@ -178,7 +178,7 @@
 
 {% endlist %}
 
-Подробности в разделе [Создание сервисного аккаунта](../../iam/operations/sa/create.md).
+Подробнее в разделе [Создание сервисного аккаунта](../../iam/operations/sa/create.md).
 
 
 ## Подключите сервисный аккаунт к ВМ {#connect-sa-to-vm}
@@ -297,7 +297,7 @@
 
 {% endlist %}
 
-Подробности в разделе [Изменить виртуальную машину](../../compute/operations/vm-control/vm-update.md).
+Подробнее в разделе [Изменить виртуальную машину](../../compute/operations/vm-control/vm-update.md).
 
 
 ## Настройте сетевой доступ для ВМ {#configure-network-access}
@@ -554,7 +554,7 @@
 
       Terraform создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления](https://console.yandex.cloud).
 
-    Более подробную информацию о параметрах ресурса `yandex_vpc_security_group` смотрите в [документации провайдера](../../terraform/data-sources/vpc_security_group.md).
+    Подробнее о параметрах ресурса `yandex_vpc_security_group` в [документации провайдера](../../terraform/data-sources/vpc_security_group.md).
 
 - API {#api}
 
@@ -562,7 +562,7 @@
 
 {% endlist %}
 
-Подробности в разделе [Создать группу безопасности](../../vpc/operations/security-group-create.md).
+Подробнее в разделе [Создать группу безопасности](../../vpc/operations/security-group-create.md).
 
 
 ### Настройте сетевой интерфейс ВМ {#configure-vm}
@@ -755,7 +755,7 @@
 
 {% endlist %}
 
-Подробности в разделах [Изменить группы безопасности сетевого интерфейса виртуальной машины](../../compute/operations/vm-control/vm-change-security-groups-set.md) и [Привязать к виртуальной машине публичный IP-адрес](../../compute/operations/vm-control/vm-attach-public-ip.md).
+Подробнее в разделах [Изменить группы безопасности сетевого интерфейса виртуальной машины](../../compute/operations/vm-control/vm-change-security-groups-set.md) и [Привязать к виртуальной машине публичный IP-адрес](../../compute/operations/vm-control/vm-attach-public-ip.md).
 
 
 ## Установите агент Cloud Backup {#connect-vm}

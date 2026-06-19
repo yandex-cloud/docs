@@ -130,7 +130,7 @@ description: Следуя данной инструкции, вы сможете
      * `description` — новое описание SAML-приложения.
      * `labels` — новые [метки](../../../resource-manager/concepts/labels.md).
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
 
   1. Примените изменения:
 
@@ -238,7 +238,7 @@ description: Следуя данной инструкции, вы сможете
        * `RESPONSE_ONLY` — весь SAML-ответ целиком;
        * `RESPONSE_AND_ASSERTION` — целиком весь SAML-ответ и (отдельно) передаваемые атрибуты.
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
 
   1. Примените изменения:
 
@@ -348,7 +348,7 @@ description: Следуя данной инструкции, вы сможете
      * `application_id` — идентификатор SAML-приложения.
      * `name` — имя сертификата.
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_saml_signature_certificate` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_signature_certificate).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_idp_application_saml_signature_certificate` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_signature_certificate).
 
   1. Создайте ресурс:
 

@@ -81,7 +81,11 @@ blocks:
 
 ### Выполнение операций с данными {#rules-operations}
 
-Оплачивается фактическое количество операций.
+Операции — любые действия, выполняемые с [объектами](../storage/concepts/object.md) в бакетах. Например, загрузка, скачивание, получение метаданных.
+
+Операции делятся на типы GET, PUT, POST и другие. Тип определяется методом [AWS S3 API](../storage/s3/api-ref/), которому соответствует операция. Исключениями являются операции LIST, которые возвращаются списки ресурсов, и TRANSITION, которые меняют класс хранилища.
+
+Оплачивается фактическое количество операций. Тарификация не зависит от используемого интерфейса.
 
 Удаление данных (операция DELETE) не тарифицируется.
 
@@ -90,6 +94,21 @@ blocks:
 Если в [ледяном хранилище](./concepts/storage-class.md) вы удалите объект, хранившийся меньше 12 месяцев, после удаления [будет списан остаток стоимости хранения](#ice-storage).
 
 {% endnote %}
+
+#### Примеры операций {#operations-examples}
+
+#|
+|| Тип операции | Метод AWS S3 API | Операция ||
+|| GET | [GetObject](../storage/s3/api-ref/object/get.md) | [Скачивание объекта](../storage/operations/objects/download.md) ||
+|| HEAD | [HeadObject](../storage/s3/api-ref/object/getobjectmeta.md) | [Получение информации об объекте](../storage/operations/objects/info.md) ||
+|| LIST | [ListObjects](../storage/s3/api-ref/bucket/listobjects.md) | [Получение списка объектов в бакете](../storage/operations/objects/list.md) ||
+|| OPTIONS | [options](../storage/s3/api-ref/object/options.md) | [Проверка возможности CORS-запроса к объекту](../storage/operations/buckets/cors.md) ||
+|| PATCH | [patch](../storage/s3/api-ref/object/patch.md) | [Частичное изменение объекта](../storage/concepts/object-patch.md) ||
+|| POST | [CreateMultipartUpload](../storage/s3/api-ref/multipart/startupload.md) | [Создание составной загрузки](../storage/operations/objects/multipart-upload.md) ||
+|| PUT | [PutObject](../storage/s3/api-ref/object/upload.md) | [Загрузка объекта](../storage/operations/objects/upload.md) ||
+|| TRANSITION | — | [Изменение класса хранилища для объекта](../storage/concepts/storage-class.md#changing-storage-class) ||
+|| DELETE | [DeleteObject](../storage/s3/api-ref/object/delete.md) | [Удаление объекта](../storage/operations/objects/delete.md) ||
+|#
 
 
 
@@ -235,7 +254,7 @@ blocks:
 
 - Сравнение в тенге {#prices-kzt}
 
-  {% include [rub-comparison-1](../_pricing_examples/storage/kzt-comparison-1.md) %}
+  {% include [kzt-comparison-1](../_pricing_examples/storage/kzt-comparison-1.md) %}
 
 {% endlist %}
 
@@ -288,6 +307,6 @@ blocks:
 
 
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 [{#T}](./concepts/limits.md)

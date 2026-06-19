@@ -3,9 +3,9 @@ title: How to create a {{ mgl-full-name }} instance
 description: In this article, you will learn how to create a {{ mgl-name }} instance.
 ---
 
-# Creating and activating a {{ mgl-name }} instance
+# Creating and activating a {{ mgl-full-name }} instance
 
-## Creating a {{ GL }} instance {#create}
+## Creating a {{ mgl-name }} instance {#create}
 
 To create a {{ mgl-name }} instance, you need the [{{ roles-vpc-user }}](../../../vpc/security/index.md#vpc-user) role and the [{{ roles.gitlab.editor }} role or higher](../../security/index.md#roles-list). For more information on assigning roles, see [this {{ iam-name }} guide](../../../iam/operations/roles/grant.md).
 
@@ -47,7 +47,7 @@ To create a {{ mgl-name }} instance, you need the [{{ roles-vpc-user }}](../../.
      ```
 
      Where:
-     * `name`: Instance name, unique within {{ yandex-cloud }}. Follow these naming requirements:
+     * `name`: Instance name, unique within {{ yandex-cloud }}. The naming requirements are as follows:
 
         {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -94,7 +94,7 @@ To create a {{ mgl-name }} instance, you need the [{{ roles-vpc-user }}](../../.
 
 {% include [HTTPS info](../../../_includes/managed-gitlab/note-https.md) %}
 
-## Activating a {{ GL }} instance {#activate}
+## Activating a {{ mgl-name }} instance {#activate}
 
 After the instance status changes to **Running**, activate the instance:
 

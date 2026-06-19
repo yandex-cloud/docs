@@ -30,7 +30,7 @@ To move an [instance group](../../concepts/instance-groups/index.md) with a [net
         - Management console {#console}
 
           1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) with your load balancer.
-          1. [Go](../../../console/operations/select-service.md#select-service) to **{{ network-load-balancer-name }}**.
+          1. Navigate to **{{ network-load-balancer-name }}**.
           1. Click your load balancer's name.
           1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_listeners }}**, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_delete-listener }}**.
           1. At the top right, click ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_add-listener }}** and [create](../../../network-load-balancer/operations/listener-add.md) a new listener.

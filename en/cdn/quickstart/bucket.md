@@ -5,8 +5,6 @@ description: Follow this guide to use {{ cdn-full-name }} to create and set up a
 
 # Creating a CDN resource with an {{ objstorage-full-name }} origin bucket
 
-{% include [pricing-change-short-warning](../../_includes/cdn/pricing-change-short-warning.md) %}
-
 {% include [create-other-resources](../../_includes/cdn/create-other-resources-note.md) %}
 
 Set up content distribution over a CDN with an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) as the origin:
@@ -18,7 +16,7 @@ Set up content distribution over a CDN with an {{ objstorage-name }} [bucket](..
 ## Getting started {#before-you-begin}
 
 1. Make sure you have a domain name and can access the DNS settings on your DNS hosting provider’s website. This is usually the company that registered your domain.
-1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }}, or sign up if you have not already.
 1. If you do not have a folder yet, [create](../../resource-manager/operations/folder/create.md) one.
 
     {% cut "Learn more about creating a folder" %}
@@ -35,7 +33,7 @@ Set up content distribution over a CDN with an {{ objstorage-name }} [bucket](..
       
 ## Create a CDN resource {#create-cdn-resource}
 
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 1. In the ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
 1. Under **{{ ui-key.yacloud.cdn.value_stepper-main-settings }}**, configure the basic CDN resource settings:
    * Under **{{ ui-key.yacloud.cdn.label_section-content }}**:
@@ -56,7 +54,7 @@ Set up content distribution over a CDN with an {{ objstorage-name }} [bucket](..
       * In the **{{ ui-key.yacloud.cdn.label_redirect }}** field, select `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
       * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select `{{ ui-key.yacloud.cdn.value_certificate-no }}`.
       * In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-custom }}`.
-      * In the **{{ ui-key.yacloud.cdn.label_custom-host-header }}** field, specify the domain name from the [bucket URL](../../storage/concepts/bucket.md#bucket-url) in `<bucket_name>.{{ s3-storage-host }}` format, omitting the schema (`http` or `https`), e.g.,
+      * In the **{{ ui-key.yacloud.cdn.label_custom-host-header }}** field, specify the domain name from the [bucket URL](../../storage/concepts/bucket.md#bucket-url) in `<bucket_name>.{{ s3-storage-host }}` format, omitting the schema (`http` or `https`). Here is an example:
 
          ```
          my-bucket.{{ s3-storage-host }}

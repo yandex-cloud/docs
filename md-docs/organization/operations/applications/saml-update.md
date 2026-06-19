@@ -134,7 +134,7 @@
      * `description` — новое описание SAML-приложения.
      * `labels` — новые [метки](../../../resource-manager/concepts/labels.md).
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application` см. в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_saml_application.md).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application` читайте в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_saml_application.md).
 
   1. Примените изменения:
 
@@ -300,7 +300,7 @@
        * `RESPONSE_ONLY` — весь SAML-ответ целиком;
        * `RESPONSE_AND_ASSERTION` — целиком весь SAML-ответ и (отдельно) передаваемые атрибуты.
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application` см. в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_saml_application.md).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application` читайте в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_saml_application.md).
 
   1. Примените изменения:
 
@@ -447,7 +447,7 @@
      * `application_id` — идентификатор SAML-приложения.
      * `name` — имя сертификата.
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_saml_signature_certificate` см. в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_saml_signature_certificate.md).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_idp_application_saml_signature_certificate` читайте в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_saml_signature_certificate.md).
 
   1. Создайте ресурс:
 
@@ -755,7 +755,7 @@
 
              Максимальное количество передаваемых в этом поле групп — 1&nbsp;000. Если количество групп, в которые входит пользователь, превышает это число, на сторону поставщика услуг будет передана только первая тысяча групп. 
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application` смотрите в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_saml_application.md).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application` читайте в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_saml_application.md).
 
   1. Примените изменения:
 
@@ -907,7 +907,7 @@
      * `application_id` — идентификатор SAML-приложения.
      * `subject_id` — идентификатор пользователя или группы пользователей, которые будут иметь доступ к SAML-приложению. Чтобы получить идентификатор пользователя, воспользуйтесь [инструкцией](../users-get.md). Чтобы получить идентификатор группы пользователей, воспользуйтесь [инструкцией](../group-get-id.md).
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application_assignment` смотрите в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_saml_application_assignment.md).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application_assignment` читайте в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_saml_application_assignment.md).
 
   1. Примените изменения:
 

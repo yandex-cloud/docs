@@ -24,7 +24,7 @@ Make sure the image you upload has the `READY` status.
 
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
@@ -259,7 +259,7 @@ Make sure the image you upload has the `READY` status.
 
           * `type`: Disk type.
           * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
-          * `size`: Disk size in GB.
+          * `size`: Disk size, in GB.
           * `image_id`: ID of the custom image to create the VM from. Specify the ID of the [uploaded](../image-create/upload.md) image.
       * `yandex_compute_instance`: VM description.
           * `name`: VM name. The naming requirements are as follows:

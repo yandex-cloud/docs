@@ -1,6 +1,6 @@
 # Управление хостами ClickHouse® Keeper
 
-После создания кластера с отдельными хостами ClickHouse® Keeper вы можете:
+Вы можете выполнить следующие действия при управлении хостами ClickHouse® Keeper:
 
 * [получить список хостов](#list-hosts);
 * [создать хост](#add-ck);
@@ -257,7 +257,42 @@
 
 ## Преобразовать нереплицируемые таблицы в реплицируемые {#replicated-tables}
 
-Чтобы автоматически преобразовать нереплицируемые таблицы на движке семейства [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree) в [реплицируемые](../concepts/replication.md#replicated-tables) на движке [ReplicatedMergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/replication), при [включении сервиса координации](update.md#enable-coordination) включите настройку **Преобразовать нереплицируемые таблицы**.
+Преобразовать нереплицируемые таблицы на движке семейства MergeTree в [реплицируемые](../concepts/replication.md#replicated-tables) на движке ReplicatedMergeTree можно:
+
+* автоматически при включении сервиса координации;
+* с помощью SQL после включения сервиса координации.
+
+Подробнее о движках таблиц читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family). 
+
+{% list tabs group=instructions %}
+
+- Автоматически {#auto}
+
+  Чтобы автоматически преобразовать нереплицируемые таблицы в реплицируемые, при [включении сервиса координации](update.md#enable-coordination) включите преобразование таблиц.
+
+- SQL {#sql}
+
+  Чтобы преобразовать нереплицируемую таблицу в реплицируемую:
+
+  1. Сделайте таблицу недоступной для использования:
+    
+      ```sql
+      DETACH TABLE <имя_таблицы>;
+      ```
+
+  1. Преобразуйте таблицу в реплицируемую:
+
+      ```sql
+      ATTACH TABLE <имя_таблицы> AS REPLICATED;
+      ```
+
+  1. Восстановите и синхронизируйте состояние реплики таблицы в ClickHouse® Keeper:
+
+      ```sql
+      SYSTEM RESTORE REPLICA <имя_таблицы>;
+      ```
+
+{% endlist %}
 
 ## Удалить хост ClickHouse® Keeper {#delete-host}
 

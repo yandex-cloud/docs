@@ -7,7 +7,7 @@ In this section, you will learn how to get [CAPTCHA keys](../concepts/keys.md). 
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select a folder.
-    1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
     1. Click the name of an existing CAPTCHA or [create](../quickstart.md#creat-captcha) a new one.
     1. In the **{{ ui-key.yacloud.common.overview }}** tab, copy the **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** and **{{ ui-key.yacloud.smartcaptcha.label_server-key }}** values.
 

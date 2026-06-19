@@ -82,7 +82,7 @@ description: Следуя данной инструкции, вы получит
      * `output` — выходные переменные, которые содержат информацию о приложении:
        * `value` — возвращаемое значение.
 
-     Вместо указанных параметров вы можете выбрать любые другие для получения информации. Более подробно о параметрах источника данных `yandex_organizationmanager_idp_application_oauth_application` см. в [документации провайдера]({{ tf-provider-datasources-link }}/organizationmanager_idp_application_oauth_application).
+     Вместо указанных параметров вы можете выбрать любые другие для получения информации. Подробнее о параметрах источника данных `yandex_organizationmanager_idp_application_oauth_application` читайте в [документации провайдера]({{ tf-provider-datasources-link }}/organizationmanager_idp_application_oauth_application).
 
   1. Создайте ресурсы:
 

@@ -97,7 +97,7 @@ description: В статье приведен полный справочник 
 
 {% include [billing.accounts.partnerAdmin](../_roles/billing/accounts/partnerAdmin.md) %}
 
-Подробнее см. [Управление доступом в партнерской программе {{ yandex-cloud }}](../partner/security/index.md).
+Подробнее в [Управление доступом в партнерской программе {{ yandex-cloud }}](../partner/security/index.md).
 
 
 ## {{ metastore-full-name }} {#metastore-roles}
@@ -130,7 +130,7 @@ description: В статье приведен полный справочник 
 
 {% include [managed-metastore.integrationProvider](../_roles/managed-metastore/integrationProvider.md) %}
 
-Подробнее см. [{#T}](../metadata-hub/security/metastore-roles.md).
+Подробнее в [{#T}](../metadata-hub/security/metastore-roles.md).
 
 
 ## {{ ai-studio-full-name }} {#fm-roles}
@@ -247,7 +247,7 @@ description: В статье приведен полный справочник 
 
 {% include [serverless-mcpGateways-admin](../_roles/serverless/mcpGateways/admin.md) %}
 
-Подробнее см. [Управление доступом в {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/security/index).
+Подробнее в [Управление доступом в {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/security/index).
 
 
 ## {{ api-gw-full-name }} {#api-gateway-roles}
@@ -276,7 +276,7 @@ description: В статье приведен полный справочник 
 
 {% include [api-gateway.admin](../_roles/api-gateway/admin.md) %}
 
-Подробнее см. [{#T}](../api-gateway/security/index.md).
+Подробнее в [{#T}](../api-gateway/security/index.md).
 
 
 ## {{ alb-full-name }} {#alb-roles}
@@ -301,7 +301,7 @@ description: В статье приведен полный справочник 
 
 {% include [alb.admin](../_roles/alb/admin.md) %}
 
-Подробнее см. [{#T}](../application-load-balancer/security/index.md).
+Подробнее в [{#T}](../application-load-balancer/security/index.md).
 
 
 ## {{ at-full-name }} {#at-roles}
@@ -326,7 +326,7 @@ description: В статье приведен полный справочник 
 
 {% include [audit-trails.configviewer](../_roles/audit-trails/configViewer.md) %}
 
-Подробнее см. [{#T}](../audit-trails/security/index.md).
+Подробнее в [{#T}](../audit-trails/security/index.md).
 
 
 ## {{ baremetal-full-name }} {#baremetal-roles}
@@ -349,7 +349,7 @@ description: В статье приведен полный справочник 
 
 {% note warning %}
 
-С 1 августа 2026 года роль `baremetal.editor` получает новый набор разрешений, позволяющий подключать серверы к сервису [{{ backup-full-name }}](../backup/index.yaml), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
+С 1 августа 2026 года роль `baremetal.editor` получает новый набор разрешений от роли [backup.user](../backup/security/index.md#backup-user), позволяющий подключать серверы к сервису [{{ backup-full-name }}](../backup/index.yaml), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
 
 {% include [denyActivation-iam-policy-pre-notice](../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
 
@@ -361,13 +361,13 @@ description: В статье приведен полный справочник 
 
 {% note warning %}
 
-С 1 августа 2026 года роль `baremetal.admin` получает новый набор разрешений, позволяющий подключать серверы к сервису [{{ backup-full-name }}](../backup/index.yaml), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
+С 1 августа 2026 года роль `baremetal.admin` получает новый набор разрешений от роли [backup.user](../backup/security/index.md#backup-user), позволяющий подключать серверы к сервису [{{ backup-full-name }}](../backup/index.yaml), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
 
 {% include [denyActivation-iam-policy-pre-notice](../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
 
 {% endnote %}
 
-Подробнее см. [{#T}](../baremetal/security/index.md).
+Подробнее в [{#T}](../baremetal/security/index.md).
 
 
 ## {{ certificate-manager-full-name }} {#certificate-manager-roles}
@@ -392,7 +392,7 @@ description: В статье приведен полный справочник 
 
 {% include [certificate-manager.certificates.downloader](../_roles/certificate-manager/certificates/downloader.md) %}
 
-Подробнее см. [{#T}](../certificate-manager/security/index.md).
+Подробнее в [{#T}](../certificate-manager/security/index.md).
 
 
 ## {{ cloud-apps-full-name }} {#cloud-apps-roles}
@@ -413,7 +413,7 @@ description: В статье приведен полный справочник 
 
 {% include [cloudapps.admin](../_roles/cloudapps/admin.md) %}
 
-Подробнее см. [{#T}](../cloud-apps/security/index.md).
+Подробнее в [{#T}](../cloud-apps/security/index.md).
 
 
 ## {{ backup-full-name }} {#backup-roles}
@@ -438,7 +438,7 @@ description: В статье приведен полный справочник 
 
 {% include [backup.admin](../_roles/backup/admin.md) %}
 
-Подробнее см. [{#T}](../backup/security/index.md).
+Подробнее в [{#T}](../backup/security/index.md).
 
 
 ## {{ billing-name }} {#billing-roles}
@@ -475,7 +475,7 @@ description: В статье приведен полный справочник 
 
 {% include [billing.partners.editor](../_roles/billing/partners/editor.md) %}
 
-Подробнее см. [{#T}](../billing/security/index.md).
+Подробнее в [{#T}](../billing/security/index.md).
 
 
 ## {{ cdn-full-name }} {#cdn-roles}
@@ -492,7 +492,7 @@ description: В статье приведен полный справочник 
 
 {% include [cdn-admin](../_roles/cdn/admin.md) %}
 
-Подробнее см. [{#T}](../cdn/security/index.md).
+Подробнее в [{#T}](../cdn/security/index.md).
 
 
 ## {{ cloud-desktop-full-name }} {#desktop-roles}
@@ -517,7 +517,7 @@ description: В статье приведен полный справочник 
 
 {% include [vdi.admin](../_roles/vdi/admin.md) %}
 
-Подробнее см. [{#T}](../cloud-desktop/security/index.md).
+Подробнее в [{#T}](../cloud-desktop/security/index.md).
 
 
 ## {{ ycdr-full-name }} {#ycdr-roles}
@@ -553,7 +553,7 @@ description: В статье приведен полный справочник 
 
 {% include [roles-dns-admin](../_roles/dns/admin.md) %}
 
-Подробнее см. [{#T}](../dns/security/index.md).
+Подробнее в [{#T}](../dns/security/index.md).
 
 
 ## {{ sf-full-name }} {#functions-roles}
@@ -594,7 +594,7 @@ description: В статье приведен полный справочник 
 
 {% include [serverless.functions.admin](../_roles/serverless/functions/admin.md) %}
 
-Подробнее см. [{#T}](../functions/security/index.md).
+Подробнее в [{#T}](../functions/security/index.md).
 
 
 ## {{ interconnect-full-name }} {#interconnect-roles}
@@ -623,7 +623,7 @@ description: В статье приведен полный справочник 
 
 {% include [cic.secretEditor](../_roles/cic/secretEditor.md) %}
 
-Подробнее см. [{#T}](../interconnect/security/index.md).
+Подробнее в [{#T}](../interconnect/security/index.md).
 
 
 ## {{ cloud-logging-full-name }} {#logging-roles}
@@ -648,7 +648,7 @@ description: В статье приведен полный справочник 
 
 {% include [logging.admin](../_roles/logging/admin.md) %}
 
-Подробнее см. [{#T}](../logging/security/index.md).
+Подробнее в [{#T}](../logging/security/index.md).
 
 
 ## {{ marketplace-full-name }} {#marketplace-roles}
@@ -699,7 +699,7 @@ description: В статье приведен полный справочник 
 
 {% include [marketplace.publishers.member](../_roles/marketplace/publishers/member.md) %}
 
-Подробнее см. [{#T}](../marketplace/security/partners.md).
+Подробнее в [{#T}](../marketplace/security/partners.md).
 
 
 ### Роли пользователя {#marketplace-user-roles}
@@ -740,7 +740,7 @@ description: В статье приведен полный справочник 
 
 {% include [marketplace.productInstances.admin](../_roles/marketplace/productInstances/admin.md) %}
 
-Подробнее см. [{#T}](../marketplace/security/index.md).
+Подробнее в [{#T}](../marketplace/security/index.md).
 
 
 ## {{ cns-full-name }} {#cns-roles}
@@ -765,7 +765,7 @@ description: В статье приведен полный справочник 
 
 {% include [notifications.admin](../_roles/notifications/admin.md) %}
 
-Подробнее см. [{#T}](../notifications/security/index.md).
+Подробнее в [{#T}](../notifications/security/index.md).
 
 
 ## {{ postbox-full-name }} {#postbox-roles}
@@ -798,7 +798,7 @@ description: В статье приведен полный справочник 
 
 {% include [postbox.admin](../_roles/postbox/admin.md) %}
 
-Подробнее см. [{#T}](../postbox/security/index.md).
+Подробнее в [{#T}](../postbox/security/index.md).
 
 
 ## {{ cloud-registry-full-name }} {#cloud-registry-roles}
@@ -827,7 +827,7 @@ description: В статье приведен полный справочник 
 
 {% include [cloud-registry-artifacts-pusher](../_roles/cloud-registry/artifacts/pusher.md) %}
 
-Подробнее см. [{#T}](../cloud-registry/security/index.md).
+Подробнее в [{#T}](../cloud-registry/security/index.md).
 
 
 
@@ -853,7 +853,7 @@ description: В статье приведен полный справочник 
 
 {% include [cloud-router.admin](../_roles/cloud-router/admin.md) %}
 
-Подробнее см. [{#T}](../cloud-router/security/index.md).
+Подробнее в [{#T}](../cloud-router/security/index.md).
 
 
 ## {{ video-full-name }} {#video-roles}
@@ -891,7 +891,7 @@ description: В статье приведен полный справочник 
 
 {% note warning %}
 
-С 1 августа 2026 года роль `compute.editor` получает новый набор разрешений, позволяющий подключать виртуальные машины к сервису [{{ backup-full-name }}](../backup/index.yaml), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
+С 1 августа 2026 года роль `compute.editor` получает новый набор разрешений от роли [backup.user](../backup/security/index.md#backup-user), позволяющий подключать виртуальные машины к сервису [{{ backup-full-name }}](../backup/index.yaml), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
 
 {% include [denyActivation-iam-policy-pre-notice](../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
 
@@ -903,7 +903,7 @@ description: В статье приведен полный справочник 
 
 {% note warning %}
 
-С 1 августа 2026 года роль `compute.admin` получает новый набор разрешений, позволяющий подключать виртуальные машины к сервису [{{ backup-full-name }}](../backup/index.yaml), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
+С 1 августа 2026 года роль `compute.admin` получает новый набор разрешений от роли [backup.user](../backup/security/index.md#backup-user), позволяющий подключать виртуальные машины к сервису [{{ backup-full-name }}](../backup/index.yaml), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
 
 {% include [denyActivation-iam-policy-pre-notice](../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
 
@@ -937,7 +937,7 @@ description: В статье приведен полный справочник 
 
 {% include [compute.snapshotSchedules.editor](../_roles/compute/snapshotSchedules/editor.md) %}
 
-Подробнее см. [{#T}](../compute/security/index.md).
+Подробнее в [{#T}](../compute/security/index.md).
 
 
 ## {{ connection-manager-full-name }} {#connection-manager-roles}
@@ -958,7 +958,7 @@ description: В статье приведен полный справочник 
 
 {% include [connection-manager.admin](../_roles/connection-manager/admin.md) %}
 
-Подробнее см. [Управление доступом в {{ connection-manager-name }}](../metadata-hub/security/index.md).
+Подробнее в [Управление доступом в {{ connection-manager-name }}](../metadata-hub/security/index.md).
 
 
 ## {{ container-registry-full-name }} {#cr-roles}
@@ -987,7 +987,7 @@ description: В статье приведен полный справочник 
 
 {% include [container-registry.images.scanner](../_roles/container-registry/images/scanner.md) %}
 
-Подробнее см. [{#T}](../container-registry/security/index.md).
+Подробнее в [{#T}](../container-registry/security/index.md).
 
 
 ## {{ data-catalog-full-name }} {#data-catalog-roles}
@@ -1192,7 +1192,7 @@ description: В статье приведен полный справочник 
 
 {% include [data-catalog.lineages.admin](../_roles/data-catalog/lineages/admin.md) %}
 
-Подробнее см. [{#T}](../metadata-hub/security/data-catalog-roles.md).
+Подробнее в [{#T}](../metadata-hub/security/data-catalog-roles.md).
 
 
 ## {{ datalens-full-name }} {#datalens-roles}
@@ -1269,7 +1269,7 @@ description: В статье приведен полный справочник 
 
 {% include [datalens-metaReader](../_roles/datalens/metaReader.md) %}
 
-Подробнее см. [{#T}](../datalens/security/roles.md).
+Подробнее в [{#T}](../datalens/security/roles.md).
 
 
 ## {{ dataproc-full-name }} {#dataproc-roles}
@@ -1306,7 +1306,7 @@ description: В статье приведен полный справочник 
 
 {% include [mdb.dataproc.agent](../_roles/mdb/dataproc/agent.md) %}
 
-Подробнее см. [{#T}](../data-proc/security/index.md).
+Подробнее в [{#T}](../data-proc/security/index.md).
 
 
 ## {{ ml-platform-full-name }} {#datasphere-roles}
@@ -1359,7 +1359,7 @@ description: В статье приведен полный справочник 
 
 {% include [data-sphere.admin](../_roles/data-sphere/admin.md) %}
 
-Подробнее см. [{#T}](../datasphere/security/index.md).
+Подробнее в [{#T}](../datasphere/security/index.md).
 
 
 ## {{ yds-full-name }} {#yds-roles}
@@ -1384,7 +1384,7 @@ description: В статье приведен полный справочник 
 
 {% include [yds.admin](../_roles/yds/admin.md) %}
 
-Подробнее см. [{#T}](../data-streams/security/index.md).
+Подробнее в [{#T}](../data-streams/security/index.md).
 
 
 ## {{ data-transfer-full-name }} {#data-transfer-roles}
@@ -1405,7 +1405,7 @@ description: В статье приведен полный справочник 
 
 {% include [data-transfer.admin](../_roles/data-transfer/admin.md) %}
 
-Подробнее см. [{#T}](../data-transfer/security/index.md).
+Подробнее в [{#T}](../data-transfer/security/index.md).
 
 
 ## {{ iam-full-name }} {#iam-roles}
@@ -1494,7 +1494,7 @@ description: В статье приведен полный справочник 
 
 {% include [iam.admin](../_roles/iam/admin.md) %}
 
-Подробнее см. [{#T}](../iam/security/index.md).
+Подробнее в [{#T}](../iam/security/index.md).
 
 
 ## {{ org-full-name }} {#organization-roles}
@@ -1679,7 +1679,7 @@ description: В статье приведен полный справочник 
 
 {% include [organization-manager.idpInstances.billingAdmin](../_roles/organization-manager/idpInstances/billingAdmin.md) %}
 
-Подробнее см. [{#T}](../organization/security/index.md).
+Подробнее в [{#T}](../organization/security/index.md).
 
 
 ## {{ iot-full-name }} {#iot-core-roles}
@@ -1704,7 +1704,7 @@ description: В статье приведен полный справочник 
 
 {% include [iot-editor](../_roles/iot/editor.md) %}
 
-Подробнее см. [{#T}](../iot-core/security/index.md).
+Подробнее в [{#T}](../iot-core/security/index.md).
 
 
 ## {{ kms-full-name }} {#kms-roles}
@@ -1757,7 +1757,7 @@ description: В статье приведен полный справочник 
 
 {% include [kms.admin](../_roles/kms/admin.md) %}
 
-Подробнее см. [{#T}](../kms/security/index.md).
+Подробнее в [{#T}](../kms/security/index.md).
 
 
 ## {{ load-testing-full-name }} {#load-testing-roles}
@@ -1786,7 +1786,7 @@ description: В статье приведен полный справочник 
 
 {% include [loadtesting.externalagent](../_roles/loadtesting/externalAgent.md) %}
 
-Подробнее см. [{#T}](../load-testing/security/index.md).
+Подробнее в [{#T}](../load-testing/security/index.md).
 
 
 ## {{ lockbox-full-name }} {#lockbox-roles}
@@ -1811,7 +1811,7 @@ description: В статье приведен полный справочник 
 
 {% include [lockbox.payloadViewer](../_roles/lockbox/payloadViewer.md) %}
 
-Подробнее см. [{#T}](../lockbox/security/index.md).
+Подробнее в [{#T}](../lockbox/security/index.md).
 
 
 ## Управляемые базы данных {#mdb}
@@ -1878,7 +1878,7 @@ description: В статье приведен полный справочник 
 
 {% include [managed-airflow.integrationProvider](../_roles/managed-airflow/integrationProvider.md) %}
 
-Подробнее см. [{#T}](../managed-airflow/security/index.md).
+Подробнее в [{#T}](../managed-airflow/security/index.md).
 
 
 ## {{ mkf-full-name }} {#managed-kafka-roles}
@@ -1916,7 +1916,7 @@ description: В статье приведен полный справочник 
 
 {% include [managed-kafka.interfaceUser](../_roles/managed-kafka/interfaceUser.md) %}
 
-Подробнее см. [{#T}](../managed-kafka/security/index.md).
+Подробнее в [{#T}](../managed-kafka/security/index.md).
 
 
 ## {{ msp-full-name }} {#msp-roles}
@@ -1953,7 +1953,7 @@ description: В статье приведен полный справочник 
 
 {% include [managed-spark.integrationProvider](../_roles/managed-spark/integrationProvider.md) %}
 
-Подробнее см. [{#T}](../managed-spark/security.md).
+Подробнее в [{#T}](../managed-spark/security.md).
 
 
 ## {{ mch-full-name }} {#managed-clickhouse-roles}
@@ -1990,7 +1990,7 @@ description: В статье приведен полный справочник 
 
 {% include [managed-clickhouse.maintenanceTask.editor](../_roles/managed-clickhouse/maintenanceTask/editor.md) %}
 
-Подробнее см. [{#T}](../managed-clickhouse/security.md).
+Подробнее в [{#T}](../managed-clickhouse/security.md).
 
 
 ## {{ mgl-full-name }} {#managed-gitlab-roles}
@@ -2011,7 +2011,7 @@ description: В статье приведен полный справочник 
 
 {% include [gitlab.admin](../_roles/gitlab/admin.md) %}
 
-Подробнее см. [{#T}](../managed-gitlab/security/index.md).
+Подробнее в [{#T}](../managed-gitlab/security/index.md).
 
 
 ## {{ mgp-full-name }} {#managed-greenplum-roles}
@@ -2052,7 +2052,7 @@ description: В статье приведен полный справочник 
 
 {% include [managed-greenplum.maintenanceTask.editor](../_roles/managed-greenplum/maintenanceTask/editor.md) %}
 
-Подробнее см. [{#T}](../managed-greenplum/security/index.md).
+Подробнее в [{#T}](../managed-greenplum/security/index.md).
 
 
 ## {{ managed-k8s-full-name }} {#managed-kubernetes-roles}
@@ -2093,7 +2093,7 @@ description: В статье приведен полный справочник 
 
 {% include [k8s.clusters.agent](../_roles/k8s/clusters/agent.md) %}
 
-Подробнее см. [{#T}](../managed-kubernetes/security/index.md).
+Подробнее в [{#T}](../managed-kubernetes/security/index.md).
 
 
 ## {{ mmy-full-name }} {#managed-mysql-roles}
@@ -2138,7 +2138,7 @@ description: В статье приведен полный справочник 
 
 {% include [managed-mysql.maintenanceTask.editor](../_roles/managed-mysql/maintenanceTask/editor.md) %}
 
-Подробнее см. [{#T}](../managed-mysql/security/index.md).
+Подробнее в [{#T}](../managed-mysql/security/index.md).
 
 
 ## {{ mos-full-name }} {#opensearch-roles}
@@ -2175,7 +2175,7 @@ description: В статье приведен полный справочник 
 
 {% include [managed-opensearch.maintenanceTask.editor](../_roles/managed-opensearch/maintenanceTask/editor.md) %}
 
-Подробнее см. [{#T}](../managed-opensearch/security/index.md).
+Подробнее в [{#T}](../managed-opensearch/security/index.md).
 
 
 ## {{ mpg-full-name }} {#mpg-roles}
@@ -2220,7 +2220,7 @@ description: В статье приведен полный справочник 
 
 {% include [managed-postgresql.maintenanceTask.editor](../_roles/managed-postgresql/maintenanceTask/editor.md) %}
 
-Подробнее см. [{#T}](../managed-postgresql/security/index.md).
+Подробнее в [{#T}](../managed-postgresql/security/index.md).
 
 
 ## {{ mspqr-full-name }} {#mspqr-roles}
@@ -2253,7 +2253,7 @@ description: В статье приведен полный справочник 
 
 {% include [managed-spqr.maintenanceTask.editor](../_roles/managed-spqr/maintenanceTask/editor.md) %}
 
-Подробнее см. [{#T}](../managed-spqr/security.md).
+Подробнее в [{#T}](../managed-spqr/security.md).
 
 
 ## {{ mrd-full-name }} {#mrd-roles}
@@ -2298,7 +2298,7 @@ description: В статье приведен полный справочник 
 
 {% include [managed-redis.maintenanceTask.editor](../_roles/managed-redis/maintenanceTask/editor.md) %}
 
-Подробнее см. [{#T}](../managed-valkey/security/index.md).
+Подробнее в [{#T}](../managed-valkey/security/index.md).
 
 
 ## {{ mms-full-name }} {#mms-roles}
@@ -2358,7 +2358,7 @@ description: В статье приведен полный справочник 
 
 {% include [managed-trino.integrationProvider](../_roles/managed-trino/integrationProvider.md) %}
 
-Подробнее см. [{#T}](../managed-trino/security.md).
+Подробнее в [{#T}](../managed-trino/security.md).
 
 
 ## {{ myt-full-name }} {#myt-roles}
@@ -2383,7 +2383,7 @@ description: В статье приведен полный справочник 
 
 {% include [managed-ytsaurus.admin](../_roles/managed-ytsaurus/admin.md) %}
 
-Подробнее см. [{#T}](../managed-ytsaurus/security/index.md).
+Подробнее в [{#T}](../managed-ytsaurus/security/index.md).
 
 
 ## {{ ydb-full-name }} {#ydb-roles}
@@ -2408,7 +2408,7 @@ description: В статье приведен полный справочник 
 
 {% include [ydb.kafkaApi.client](../_roles/ydb/kafkaApi/client.md) %}
 
-Подробнее см. [{#T}](../ydb/security/index.md).
+Подробнее в [{#T}](../ydb/security/index.md).
 
 
 ## {{ mmg-full-name }} {#storedoc-roles}
@@ -2449,7 +2449,7 @@ description: В статье приведен полный справочник 
 
 {% include [managed-mongodb.maintenanceTask.editor](../_roles/managed-mongodb/maintenanceTask/editor.md) %}
 
-Подробнее см. [{#T}](../storedoc/security/index.md).
+Подробнее в [{#T}](../storedoc/security/index.md).
 
 
 ## {{ message-queue-full-name }} {#message-queue-roles}
@@ -2466,7 +2466,7 @@ description: В статье приведен полный справочник 
 
 {% include [ymq.admin](../_roles/ymq/admin.md) %}
 
-Подробнее см. [{#T}](../message-queue/security/index.md).
+Подробнее в [{#T}](../message-queue/security/index.md).
 
 
 ## {{ monitoring-full-name }} {#monitoring-roles}
@@ -2483,7 +2483,7 @@ description: В статье приведен полный справочник 
 
 {% include [monitoring.admin](../_roles/monitoring/admin.md) %}
 
-Подробнее см. [{#T}](../monitoring/security/index.md).
+Подробнее в [{#T}](../monitoring/security/index.md).
 
 
 ## {{ network-load-balancer-full-name }} {#network-load-balancer-roles}
@@ -2508,7 +2508,7 @@ description: В статье приведен полный справочник 
 
 {% include [loadbalancer-admin](../_roles/load-balancer/admin.md) %}
 
-Подробнее см. [{#T}](../network-load-balancer/security/index.md).
+Подробнее в [{#T}](../network-load-balancer/security/index.md).
 
 
 ## {{ objstorage-full-name }} {#storage-roles}
@@ -2537,7 +2537,7 @@ description: В статье приведен полный справочник 
 
 {% include [storage-admin](../_roles/storage/admin.md) %}
 
-Подробнее см. [{#T}](../storage/security/index.md).
+Подробнее в [{#T}](../storage/security/index.md).
 
 
 ## {{ yq-full-name }} {#query-roles}
@@ -2562,7 +2562,7 @@ description: В статье приведен полный справочник 
 
 {% include [query.invoker](../_roles/yq/invoker.md) %}
 
-Подробнее см. [{#T}](../query/security/index.md).
+Подробнее в [{#T}](../query/security/index.md).
 
 
 ## {{ resmgr-full-name }} {#resource-manager-roles}
@@ -2591,7 +2591,7 @@ description: В статье приведен полный справочник 
 
 {% include [resourcemanager-clouds-owner](../_roles/resource-manager/clouds/owner.md) %}
 
-Подробнее см. [{#T}](../resource-manager/security/index.md).
+Подробнее в [{#T}](../resource-manager/security/index.md).
 
 
 ## {{ schema-registry-full-name }} {#schema-registry-roles}
@@ -2612,7 +2612,7 @@ description: В статье приведен полный справочник 
 
 {% include [schema-registry.admin](../_roles/schema-registry/admin.md) %}
 
-Подробнее см. [{#T}](../metadata-hub/security/schema-registry-roles.md).
+Подробнее в [{#T}](../metadata-hub/security/schema-registry-roles.md).
 
 
 ## {{ search-api-full-name }} {#search-api-roles}
@@ -2641,7 +2641,7 @@ description: В статье приведен полный справочник 
 
 {% include [searchapi-admin](../_roles/search-api/admin.md) %}
 
-Подробнее см. [Управление доступом в {{ search-api-full-name }}]({{ link-docs-ai }}search-api/security/index).
+Подробнее в [Управление доступом в {{ search-api-full-name }}]({{ link-docs-ai }}search-api/security/index).
 
 
 ## {{ sd-full-name }} {#security-deck-roles}
@@ -2668,7 +2668,7 @@ description: В статье приведен полный справочник 
 
 {% include [security-deck.admin](../_roles/security-deck/admin.md) %}
 
-Подробнее см. [Общие роли {{ sd-full-name }}](../security-deck/security/index.md).
+Подробнее в [Общие роли {{ sd-full-name }}](../security-deck/security/index.md).
 
 ### Сервисные роли для контроля данных ({{ dspm-name }}) {#dspm-roles}
 
@@ -2696,7 +2696,7 @@ description: В статье приведен полный справочник 
 
 {% include [dspm.admin](../_roles/dspm/admin.md) %}
 
-Подробнее см. [Управление доступом в {{ dspm-name }}](../security-deck/security/dspm-roles.md).
+Подробнее в [Управление доступом в {{ dspm-name }}](../security-deck/security/dspm-roles.md).
 
 ### Сервисные роли для модуля Контроль {{ k8s }}® ({{ kspm-name }}) {#kspm-roles}
 
@@ -2720,7 +2720,7 @@ description: В статье приведен полный справочник 
 
 {% include [kspm.admin](../_roles/kspm/admin.md) %}
 
-Подробнее см. [Управление доступом в {{ kspm-name }}](../security-deck/security/kspm-roles.md).
+Подробнее в [Управление доступом в {{ kspm-name }}](../security-deck/security/kspm-roles.md).
 
 ### Сервисные роли для модуля Контроль конфигурации ({{ cspm-name }}) {#cspm-roles}
 
@@ -2744,7 +2744,7 @@ description: В статье приведен полный справочник 
 
 {% include [cspm.admin](../_roles/cspm/admin.md) %}
 
-Подробнее см. [Управление доступом в {{ cspm-name }}](../security-deck/security/cspm-roles.md).
+Подробнее в [Управление доступом в {{ cspm-name }}](../security-deck/security/cspm-roles.md).
 
 ### Сервисные роли для анализа данных {{ atr-name }} {#access-transparency-roles}
 
@@ -2768,7 +2768,7 @@ description: В статье приведен полный справочник 
 
 {% include [access-transparency.subscriptionManager](../_roles/access-transparency/subscriptionManager.md) %}
 
-Подробнее см. [Управление доступом в {{ atr-name }}](../security-deck/security/access-transparency-roles.md).
+Подробнее в [Управление доступом в {{ atr-name }}](../security-deck/security/access-transparency-roles.md).
 
 ### Сервисные роли для модуля {{ alerts-name }} {#alerts-roles}
 
@@ -2792,7 +2792,7 @@ description: В статье приведен полный справочник 
 
 {% include [security-deck.alertSinks.admin](../_roles/security-deck/alertSinks/admin.md) %}
 
-Подробнее см. [Управление доступом в модуле Алерты](../security-deck/security/alerts-roles.md).
+Подробнее в [Управление доступом в модуле Алерты](../security-deck/security/alerts-roles.md).
 
 
 ## {{ serverless-containers-full-name }} {#serverless-containers-roles}
@@ -2833,7 +2833,7 @@ description: В статье приведен полный справочник 
 
 {% include [serverless.containers.invoker](../_roles/serverless/containers/invoker.md) %}
 
-Подробнее см. [{#T}](../serverless-containers/security/index.md).
+Подробнее в [{#T}](../serverless-containers/security/index.md).
 
 
 ## {{ si-full-name }} {#serverless-integrations-roles}
@@ -2860,7 +2860,7 @@ description: В статье приведен полный справочник 
 
 {% include [serverless.eventrouter.admin](../_roles/serverless/eventrouter/admin.md) %}
 
-Подробнее см. [Управление доступом в {{ er-name }}](../serverless-integrations/security/eventrouter.md).
+Подробнее в [Управление доступом в {{ er-name }}](../serverless-integrations/security/eventrouter.md).
 
 ### Сервисные роли {{ sw-full-name }} {#workflows-roles}
 
@@ -2884,7 +2884,7 @@ description: В статье приведен полный справочник 
 
 {% include [serverless.workflows.admin](../_roles/serverless/workflows/admin.md) %}
 
-Подробнее см. [Управление доступом в {{ sw-name }}](../serverless-integrations/security/workflows.md).
+Подробнее в [Управление доступом в {{ sw-name }}](../serverless-integrations/security/workflows.md).
 
 
 ## {{ yandex-siem-full-name }} {#yandex-siem-roles}
@@ -2897,7 +2897,7 @@ description: В статье приведен полный справочник 
 
 {% include [ycem.executor](../_roles/ycem/executor.md) %}
 
-Подробнее см. [{#T}](../yandex-siem/security/index.md).
+Подробнее в [{#T}](../yandex-siem/security/index.md).
 
 
 ## {{ captcha-full-name }} {#captcha-roles}
@@ -2918,7 +2918,7 @@ description: В статье приведен полный справочник 
 
 {% include [smartcaptcha-admin](../_roles/smart-captcha/admin.md) %}
 
-Подробнее см. [{#T}](../smartcaptcha/security/index.md).
+Подробнее в [{#T}](../smartcaptcha/security/index.md).
 
 
 ## {{ sws-full-name }} {#sws-roles}
@@ -2943,7 +2943,7 @@ description: В статье приведен полный справочник 
 
 {% include [sws-admin](../_roles/smart-web-security/admin.md) %}
 
-Подробнее см. [{#T}](../smartwebsecurity/security/index.md).
+Подробнее в [{#T}](../smartwebsecurity/security/index.md).
 
 
 ## {{ speechkit-full-name }} {#speechkit-roles}
@@ -2956,7 +2956,7 @@ description: В статье приведен полный справочник 
 
 {% include [speechkit-tts-user](../_roles/ai/speechkit-tts/user.md) %}
 
-Подробнее см. [Управление доступом в {{ speechkit-name }}]({{ link-docs-ai }}speechkit/security/index).
+Подробнее в [Управление доступом в {{ speechkit-name }}]({{ link-docs-ai }}speechkit/security/index).
 
 
 ## {{ speechsense-full-name }} {#speechsense-roles}
@@ -2989,7 +2989,7 @@ description: В статье приведен полный справочник 
 
 {% include [speechsense-data-editor](../_roles/speech-sense/data/editor.md) %}
 
-Подробнее см. [Управление доступом в {{ speechsense-name }}]({{ link-docs-ai }}speechsense/security/).
+Подробнее в [Управление доступом в {{ speechsense-name }}]({{ link-docs-ai }}speechsense/security/).
 
 
 ## {{ translate-full-name }} {#translate-roles}
@@ -2998,7 +2998,7 @@ description: В статье приведен полный справочник 
 
 {% include [translate-user](../_roles/ai/translate/user.md) %}
 
-Подробнее см. [Управление доступом в {{ translate-name }}]({{ link-docs-ai }}translate/security/index).
+Подробнее в [Управление доступом в {{ translate-name }}]({{ link-docs-ai }}translate/security/index).
 
 
 ## {{ vpc-full-name }} {#vpc-roles}
@@ -3067,7 +3067,7 @@ description: В статье приведен полный справочник 
 
 {% include [vpc-privateEndpoints-admin](../_roles/vpc/privateEndpoints/admin.md) %}
 
-Подробнее см. [{#T}](../vpc/security/index.md).
+Подробнее в [{#T}](../vpc/security/index.md).
 
 
 ## {{ vision-full-name }} {#vision-roles}
@@ -3076,7 +3076,7 @@ description: В статье приведен полный справочник 
 
 {% include [vision-user](../_roles/ai/vision/user.md) %}
 
-Подробнее см. [Управление доступом в {{ vision-name }}]({{ link-docs-ai }}vision/security/index).
+Подробнее в [Управление доступом в {{ vision-name }}]({{ link-docs-ai }}vision/security/index).
 
 
 ## {{ websql-full-name }} {#websql-roles}
@@ -3133,7 +3133,7 @@ description: В статье приведен полный справочник 
 
 {% include [websql.admin](../_roles/websql/admin.md) %}
 
-Подробнее см. [{#T}](../websql/security/index.md).
+Подробнее в [{#T}](../websql/security/index.md).
 
 
 ## {{ wiki-full-name }} {#wiki-roles}

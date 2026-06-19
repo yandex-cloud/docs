@@ -2,8 +2,8 @@
 
 In this section, you will learn about:
 
-* [Resources you can assign a role for](#resources).
-* [Roles existing in this service](#roles-list).
+* [Resources supporting role assignment](#resources).
+* [Roles this service has](#roles-list).
 
 ## Access management {#about-access-control}
 

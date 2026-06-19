@@ -14,6 +14,12 @@ If you have [deleted](delete-vm.md) a VM from {{ backup-name }} and want to reco
 
 {% endnote %}
 
+{% note warning %}
+
+{% include [old-backup](../../_includes/backup/old-backups.md) %}
+
+{% endnote %}
+
 After [restoring a VM from a backup of another VM](./backup-vm/non-native-recovery.md), the source VM the backup was created from becomes outdated.
 
 To avoid conflicts between the two VMs when making backups, update the outdated VM's connection to {{ backup-name }}:
@@ -51,7 +57,7 @@ To avoid conflicts between the two VMs when making backups, update the outdated 
         Finished
         ```
 
-     1. (Optional) To view {{ backup-name }} agent installation logs, run this command:
+     1. Optionally, run this command to view {{ backup-name }} agent installation logs:
 
         ```bash
         yc backup agent debug-info \
@@ -67,7 +73,7 @@ To avoid conflicts between the two VMs when making backups, update the outdated 
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where {{ backup-name }} is connected.
-     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
      1. On ![machines](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_instances }}** tab, check that the outdated VM is not listed with the ![irrelevant](../../_assets/console-icons/circle-info-fill.svg) label.
 
         If the VM is still there, click ![image](../../_assets/console-icons/ellipsis.svg), select **{{ ui-key.yacloud.common.delete }}** and confirm deletion.

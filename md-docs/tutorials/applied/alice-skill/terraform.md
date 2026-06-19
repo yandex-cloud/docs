@@ -4,7 +4,6 @@
 Чтобы создать навык Алисы с помощью Terraform:
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Подготовьте код навыка](#prepare-code).
 1. [Создайте инфраструктуру](#deploy).
 1. [Добавьте ссылку на функцию в навык Алисы](#add-link).
 1. [Протестируйте работу навыка](#test).
@@ -20,28 +19,6 @@
 Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
-
-## Подготовьте код для навыка Алисы {#prepare-code}
-
-Для создания [версии](*function_version) функции вы можете воспользоваться одним из [форматов загрузки кода](*upload_formats). Для примера код будет загружен в формате ZIP-архива.
-
-{% list tabs group=programming_language %}
-
-- Python {#python}
-
-    1. Скачайте из репозитория на GitHub файл с примером: [parrot.py](https://github.com/yandex-cloud-examples/yc-alice-skill-python/blob/main/parrot/parrot.py).
-    1. Создайте ZIP-архив `parrot-py.zip` с файлом `parrot.py`.
-
-- Node.js {#node}
-
-    1. Скачайте из репозитория на GitHub файл с примером: [index.js](https://github.com/yandex-cloud-examples/yc-alice-skill-node/blob/main/parrot/index.js).
-    1. Создайте ZIP-архив `parrot-js.zip` с файлом `index.js`.
-
-{% endlist %}
-
-[*function_version]: Версия содержит код функции, параметры запуска, а также все необходимые зависимости. На разных стадиях процесса разработки вы можете работать с разными версиями одной функции. Подробнее читайте в разделе [Версия функции](../../../functions/concepts/function.md#version).
-
-[*upload_formats]: Загружать код версии функции можно несколькими способами: в редакторе в консоли управления, из локальных файлов и директорий или в виде архива. Подробнее читайте в разделе [Формат загрузки кода](../../../functions/concepts/function.md#upload).
 
 ## Создайте инфраструктуру {#deploy}
 
@@ -60,17 +37,48 @@ Terraform распространяется под лицензией [Business S
 
     - Готовая конфигурация {#ready}
 
-      1. Склонируйте репозиторий с конфигурационными файлами:
+      1. Склонируйте репозиторий с конфигурационными файлами и примерами кода функции:
 
-         ```bash
-         git clone https://github.com/yandex-cloud-examples/yc-serverless-alice-skill
-         ```
-
+          ```bash
+          git clone https://github.com/yandex-cloud-examples/yc-serverless-alice-skill
+          ```
       1. Перейдите в директорию с репозиторием. В ней должны появиться файлы:
-         * `alice-skill.tf` — конфигурация создаваемой инфраструктуры.
-         * `alice-skill.auto.tfvars` — пользовательские данные.
+
+          * `alice-skill.tf` — конфигурация создаваемой инфраструктуры.
+          * `alice-skill.auto.tfvars` — пользовательские данные.
+          * `parrot.py` — файл с кодом функции на Python.
+          * `index.js` — файл с кодом функции на Node.js.
+      1. Подготовьте код для навыка Алисы. Чтобы создать [версию](*function_version) функции, вы загрузите ее код в Yandex Cloud Functions в [формате](*upload_formats) ZIP-архива.
+
+          {% list tabs group=programming_language %}
+
+          - Python {#python}
+
+              Добавьте файл `parrot.py`, расположенный в склонированном репозитории, в ZIP-архив `parrot-py.zip`.
+
+          - Node.js {#node}
+
+              Добавьте файл `index.js`, расположенный в склонированном репозитории, в ZIP-архив `parrot-js.zip`.
+
+          {% endlist %}
 
     - Вручную {#manual}
+
+      1. Подготовьте код для навыка Алисы. Чтобы создать [версию](*function_version) функции, вы загрузите ее код в Yandex Cloud Functions в [формате](*upload_formats) ZIP-архива.
+
+          {% list tabs group=programming_language %}
+          
+          - Python {#python}
+          
+              1. Скачайте из репозитория на GitHub файл с примером: [parrot.py](https://github.com/yandex-cloud-examples/yc-serverless-alice-skill/blob/main/parrot.py).
+              1. Создайте ZIP-архив `parrot-py.zip` с файлом `parrot.py`.
+          
+          - Node.js {#node}
+          
+              1. Скачайте из репозитория на GitHub файл с примером: [index.js](https://github.com/yandex-cloud-examples/yc-serverless-alice-skill/blob/main/index.js).
+              1. Создайте ZIP-архив `parrot-js.zip` с файлом `index.js`.
+          
+          {% endlist %}
 
       1. Создайте папку для файла с описанием инфраструктуры.
       1. Создайте в папке конфигурационный файл `alice-skill.tf`:
@@ -252,6 +260,10 @@ Terraform распространяется под лицензией [Business S
        ```
     
     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
+[*function_version]: Версия содержит код функции, параметры запуска, а также все необходимые зависимости. На разных стадиях процесса разработки вы можете работать с разными версиями одной функции. Подробнее читайте в разделе [Версия функции](../../../functions/concepts/function.md#version).
+
+[*upload_formats]: Загружать код версии функции можно несколькими способами: в редакторе в консоли управления, из локальных файлов и директорий или в виде архива. Подробнее читайте в разделе [Формат загрузки кода](../../../functions/concepts/function.md#upload).
 
 #### Полезные ссылки {#see-also}
 

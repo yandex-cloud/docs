@@ -14,7 +14,7 @@ Information on policies becomes available for viewing after you [activate](../..
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) your [backup policy](../../../backup/concepts/policy.md) is in.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
   1. Select the backup policy you want to view.
   1. The **Overview** page shows the backup policy details.
@@ -110,13 +110,13 @@ Information on policies becomes available for viewing after you [activate](../..
 
       You can replace `scheduling` with any other [policy parameter]({{ tf-provider-resources-link }}/backup_policy) to get the information you need.
 
-      For more information about the `yandex_backup_policy` data source properties, see [this {{ TF }} provider article]({{ tf-provider-datasources-link }}/backup_policy).
+      For more information about the `yandex_backup_policy` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/backup_policy).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+      {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

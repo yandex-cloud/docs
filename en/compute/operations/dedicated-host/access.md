@@ -15,7 +15,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the dedicated host group is located.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.host-groups_eKsBm }}**.
   1. Select the dedicated host group.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -42,7 +42,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      yc compute host-group list
      ```
 
-  1. View a list of roles already assigned for the resource in question:
+  1. Check the list of roles already assigned for the resource:
 
      ```bash
      yc compute host-group list-access-bindings <dedicated_host_group_name_or_ID>
@@ -61,7 +61,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        Where:
 
        * `--user-account-id`: [User ID](../../../organization/operations/users-get.md). To assign the role to all authenticated users, use the `--all-authenticated-users` flag.
-       * `--role`: [Role](../../security/index.md#roles-list) to assign.
+       * `--role`: [Role](../../security/index.md#roles-list).
 
      * To a service account:
 
@@ -74,7 +74,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        Where:
 
        * `--service-account-id`: [Service account ID](../../../iam/operations/sa/get-id.md).
-       * `--role`: [Role](../../security/index.md#roles-list) to assign.
+       * `--role`: [Role](../../security/index.md#roles-list).
 
 - API {#api}
 
@@ -89,7 +89,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the dedicated host group is located.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.host-groups_eKsBm }}**.
   1. Select the dedicated host group.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -133,10 +133,10 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
      * `--access-binding`: Parameters for setting access permissions:
 
-       * `role`: [Role](../../security/index.md#roles-list) to assign.
+       * `role`: [Role](../../security/index.md#roles-list).
        * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
-     For example, this command will assign roles to multiple users and a single service account:
+     For example, assign roles to several users and one service account:
 
      ```bash
      yc compute host-group set-access-bindings my-host-group \
@@ -164,7 +164,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the dedicated host group is located.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.host-groups_eKsBm }}**.
   1. Select the dedicated host group.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -184,7 +184,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      yc compute host-group remove-access-binding --help
      ```
 
-  1. View the roles and assignees for the resource:
+  1. View the list of users and their roles for the resource:
 
      ```bash
      yc compute host-group list-access-bindings <dedicated_host_group_name_or_ID>
@@ -200,7 +200,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
      Where:
 
-     * `--role`: ID of the role to revoke.
+     * `--role`: ID of the role you need to revoke.
      * `--subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
      For example, this command revokes the `{{ roles-viewer }}` role for the dedicated host group from a user with the `ajel6l0jcb9s********` ID:

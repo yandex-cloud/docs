@@ -473,20 +473,63 @@
 
 Чтобы корректно передавать в сервис {{ org-full-name }} информацию о пользователе, настройте сопоставление между атрибутами SAML-сообщения и персональными данными пользователя, которые хранятся на стороне поставщика удостоверений.
 
-Данные пользователя | Комментарий | Элементы SAML-сообщения
-------------------- | ----------- | ----------------------
-Уникальный идентификатор пользователя | Обязательный атрибут. Рекомендуется использовать User Principal Name (UPN) или адрес электронной почты. | `<NameID>`
-Фамилия | Отображается в сервисах {{ yandex-cloud }}.<br> Ограничение значения по длине: {{ saml-limit-last-name }}. | `<Attribute>` с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"`
-Имя | Отображается в сервисах {{ yandex-cloud }}.<br> Ограничение значения по длине: {{ saml-limit-first-name }}. | `<Attribute>` с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"`
-Полное имя | Отображается в сервисах {{ yandex-cloud }}.<br>Пример: Иван Иванов.<br> Ограничение значения по длине: {{ saml-limit-display-name }}. | `<Attribute>` с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"`
-Почта | Используется для отправки уведомлений из сервисов {{ yandex-cloud }}.<br>Пример:&nbsp;`ivanov@example.com`.<br> Ограничение по длине: {{ saml-limit-email }}. | `<Attribute>` с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"`
-Телефон | Используется для отправки уведомлений из сервисов {{ yandex-cloud }}.<br>Пример: +71234567890.<br> Ограничение по длине: {{ saml-limit-phone }}. | `<Attribute>` с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone"`
-Аватар | Отображается в сервисах {{ yandex-cloud }}.<br>Изображение передается в кодировке [Base64]({{ link-base64 }}).<br> Ограничение по длине: {{ saml-limit-thumbnail-photo }}. | `<Attribute>` с параметром<br>`Name="thumbnailPhoto"`
-Членство в группах | Используется для функционала динамического сопоставления членства в группах. | `<Attribute>` с параметром<br>`Name="member"`
-Название компании | Отображается в сервисах {{ yandex-cloud }}.<br>Пример: ООО «Праздник». | `<Attribute>` с параметром<br>`Name="company_name"`
-Подразделение | Отображается в сервисах {{ yandex-cloud }}.<br>Пример: Отдел АСУ. | `<Attribute>` с параметром<br>`Name="department"`
-Должность | Отображается в сервисах {{ yandex-cloud }}.<br>Пример: Разработчик. | `<Attribute>` с параметром<br>`Name="job_title"`
-Табельный номер | Отображается в сервисах {{ yandex-cloud }}.<br>Пример: 08012. | `<Attribute>` с параметром<br>`Name="employee_id"`
+#|
+|| **Данные пользователя** | **Комментарий** | **Имена атрибутов в SAML Response** ||
+|| Уникальный идентификатор пользователя | Обязательный атрибут. Рекомендуется использовать User Principal Name (UPN) или адрес электронной почты. |
+* `NameID`
+||
+|| Фамилия | Отображается в сервисах {{ yandex-cloud }}. Ограничение значения по длине: {{ saml-limit-last-name }}. |
+* `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+* `surname`
+* `lastname`
+||
+|| Имя | Отображается в сервисах {{ yandex-cloud }}. Ограничение значения по длине: {{ saml-limit-first-name }}. |
+* `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+* `givenname`
+* `firstname`
+||
+|| Полное имя | Отображается в сервисах {{ yandex-cloud }}. Пример: Иван Иванов. Ограничение значения по длине: {{ saml-limit-display-name }}. |
+* `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
+* `name`
+* `displayname`
+||
+|| Почта | Используется для отправки уведомлений из сервисов {{ yandex-cloud }}. Пример: `ivanov@example.com`. Ограничение по длине: {{ saml-limit-email }}. |
+* `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+* `emailaddress`
+* `email`
+||
+|| Телефон | Используется для отправки уведомлений из сервисов {{ yandex-cloud }}. Пример: +71234567890. Ограничение по длине: {{ saml-limit-phone }}. |
+* `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone`
+* `phone`
+* `phones`
+* `mobile`
+||
+|| Аватар | Отображается в сервисах {{ yandex-cloud }}. Изображение передается в кодировке [Base64]({{ link-base64 }}). Ограничение по длине: {{ saml-limit-thumbnail-photo }}. |
+* `thumbnailPhoto`
+* `photos`
+* `picture`
+||
+|| Членство в группах | Используется для функционала динамического сопоставления членства в группах. |
+* `member`
+* `http://schemas.xmlsoap.org/claims/group`
+* `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`
+||
+|| Название компании | Отображается в сервисах {{ yandex-cloud }}. Пример: ООО «Праздник». |
+* `company_name`
+* `companyname`
+||
+|| Подразделение | Отображается в сервисах {{ yandex-cloud }}. Пример: Отдел АСУ. |
+* `department`
+||
+|| Должность | Отображается в сервисах {{ yandex-cloud }}. Пример: Разработчик. |
+* `job_title`
+* `jobtitle`
+||
+|| Табельный номер | Отображается в сервисах {{ yandex-cloud }}. Пример: 08012. |
+* `employee_id`
+* `employeeid`
+||
+|#
 
 
 {% note info %}

@@ -110,7 +110,7 @@ description: Из статьи вы узнаете, как создавать и
          * `entry_for_access_key` — ключ секрета, который будет присвоен сохраняемому значению идентификатора статического ключа доступа.
          * `entry_for_secret_key` — ключ секрета, который будет присвоен сохраняемому значению секретного ключа.
 
-     Более подробную информацию о параметрах ресурса `yandex_iam_service_account_static_access_key` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
+     Подробнее о параметрах ресурса `yandex_iam_service_account_static_access_key` в {{ TF }} читайте в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
          
   1. Проверьте корректность конфигурационных файлов.
 
@@ -255,7 +255,7 @@ description: Из статьи вы узнаете, как создавать и
         }
         ```
 
-        Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
+        Подробнее о ресурсах, которые вы можете создать с помощью {{ TF }}, читайте в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
 
     1. Проверьте корректность конфигурационных файлов.
 

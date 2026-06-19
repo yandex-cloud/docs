@@ -6,7 +6,7 @@ In {{ yandex-cloud }}, you can move a VM to a different folder within a single c
 
 Learn more about the {{ yandex-cloud }} resource hierarchy [here](../../../resource-manager/concepts/resources-hierarchy.md).
 
-## Limitations {#limits}
+## Limits {#limits}
 
 When moving a VM, keep in mind the following limitations:
 
@@ -76,7 +76,7 @@ When moving a VM, keep in mind the following limitations:
         --destination-folder-id b1gd129pp9ha********
       ```
 
-      For more information about the `yc compute instance move` command, see this [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/move.md).
+      For more information about the `yc compute instance move` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/move.md).
 
 - {{ TF }} {#tf}
 
@@ -103,7 +103,7 @@ When moving a VM, keep in mind the following limitations:
       * `allow_stopping_for_update`: Parameter to allow the VM to stop for updates.
       * `folder_id`: ID of the folder to deploy the VM in (by default, specified from the [environment variable](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials)).
 
-      For more information about `yandex_compute_instance` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/compute_instance).
+      For more information about `yandex_compute_instance` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_instance).
 
   1. Apply the new configuration:
 
@@ -195,7 +195,7 @@ After moving a VM, its network interfaces remain connected to the [subnets](../.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you moved the VM to.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. Click the VM name.
   1. Click **{{ ui-key.yacloud.common.stop }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
@@ -357,7 +357,7 @@ After moving a VM, its network interfaces remain connected to the [subnets](../.
       * `subnet_id`: [Subnet](../../../vpc/concepts/network.md#subnet) ID.
       * `allow_stopping_for_update`: Parameter to allow your VM to stop for updates.
 
-      For more information about `yandex_compute_instance` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/compute_instance).
+      For more information about `yandex_compute_instance` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_instance).
 
   1. Apply the new configuration:
 

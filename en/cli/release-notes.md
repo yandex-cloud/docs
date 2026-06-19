@@ -7,13 +7,88 @@ description: This page presents CLI releases and their updates.
 
 ## Current version {#latest-release}
 
-### Version 1.10.0 (25/05/26) {#v-1-10-0}
+### Version 1.12.0 (04/06/26) {#v-1-12-0}
+
+#### Changes to the CLI system commands {#v-1-12-0-yc}
+
+* Added the ability to delete cached credentials when reinitializing a profile in `yc init`.
+* OAuth tokens are no longer accepted in the `yc init` command without parameters.
+
+#### {{ interconnect-name }} {#v-1-12-0-interconnect-name}
+
+* Version v1 for `cic` is used by default. 
+* Changed the parameters of the `yc cic` commands:
+  * Added the `--filter`, `--page-token`, and `--folder-id` parameters to the `list` commands:
+    * `yc cic partner list`
+    * `yc cic point-of-presence list`
+    * `yc cic private-connection list`
+    * `yc cic private-connection list-operations`
+    * `yc cic public-connection list`
+    * `yc cic public-connection list-operations`
+    * `yc cic trunk-connection list`
+    * `yc cic trunk-connection list-operations`
+    * `yc cic trunk-connection list-private-connections`
+    * `yc cic trunk-connection list-public-connections`
+
+  * Added the `--id` parameter to the `get` commands:
+    * `yc cic partner get`
+    * `yc cic point-of-presence get`
+
+  * Replaced the `--id` and `--name` parameters with `--private-connection-ids` and `--trunk-connection-ids` in the `batch-get` commands:
+    * `yc cic private-connection batch-get`
+    * `yc cic trunk-connection batch-get`
+
+  * Deleted the `--destination-folder-name` parameter from the `move` commands:
+    * `yc cic private-connection move`
+    * `yc cic public-connection move`
+    * `yc cic trunk-connection move`
+
+  * Added the `--update-mask` parameter to the `update` commands:
+    * `yc cic private-connection update`
+    * `yc cic trunk-connection update`
+
+#### {{ cr-name }} {#v-1-12-0-cr-name}
+
+* Version v1 for `cloud-router` is used by default.
+
+* Changed parameters of the following commands:  
+  * `yc cloud-router routing-instance list`: Added `--filter`, `--page-token`, and `--folder-id`.
+  * `yc cloud-router routing-instance list-operations`: Added `--page-token`.
+  * `yc cloud-router routing-instance move`: Deleted `--destination-folder-name`.
+  * `yc cloud-router routing-instance update`: Added `--update-mask`.
+  * `yc cloud-router routing-instance update-prefix-mask`: Changed the `--new-mask` data type from `int32` to `int64`.
+
+#### {{ mmy-name }} {#v-1-12-0-managed-mysql}
+
+* Supported resource groups for {{ CB }}. Added the `--cpu-max-percent`, `--cpu-weight`, `--memory-quota`, `--min-cost`, and `--io-limit` parameters for these commands:
+
+* Added the `--deletion-protection` parameter for protection against {{ MY }} user deletion to the following commands:
+  * `yc managed-mysql user create`
+  * `yc managed-mysql user update`
+
+#### {{ mgp-name }} {#v-1-12-0-mgp-name}
+
+Added support for Apache Cloudberry resource groups, namely the `--cpu-max-percent`, `--cpu-weight`, `--memory-quota`, `--min-cost`, and `--io-limit` parameters for the following commands:
+  * `yc managed-greenplum resource-groups create`
+  * `yc managed-greenplum resource-groups update`
+
+## Previous releases {#previous-release}
+
+### Version 1.11.0 (28/05/26) {#v-1-11-0}
+
+#### {{ interconnect-name }} {#v-1-11-0-cic-name}
+
+* Added the `yc cic v1 private-connection batch-get` command to get a list of private connections based on an ID list.
+
+#### {{ vpc-name }} {#v-1-11-0-vpc-name}
+
+* Added the `--service-name` parameter to the `yc vpc private-endpoint create` command.
+
+### Version 1.10.0 (21/05/26) {#v-1-10-0}
 
 #### {{ mos-name }} {#v-1-10-0-mos-name}
 
 * Added support for the `WARM` and `INGEST` roles for host groups.
-
-## Previous releases {#previous-release}
 
 ### Version 1.9.0 (21/05/26) {#v-1-9-0}
 
@@ -51,13 +126,13 @@ description: This page presents CLI releases and their updates.
 
 #### {{ mpg-name }} {#v-1-8-1-managed-postgresql}
 
-* Added options for configuring `folder-id` to create connections and their secrets in the Connection Manager integration for {{ mpg-name }}:
+* Added `folder-id` settings for creating connections and their secrets in the Connection Manager integration for {{ mpg-name }}:
   * `yc managed-postgresql cluster create`
   * `yc managed-postgresql cluster restore`
   * `yc managed-postgresql cluster update`
   * `yc managed-postgresql user create`
 
-* In the detailed output of one user, the deprecated `connection_manager` field has been removed and replaced with `ser_connection_manager`:
+* Removed the deprecated `connection_manager` field from the output with single user details and replaced it with `ser_connection_manager`:
   * `yc managed-postgresql user get`
   * `yc managed-postgresql user list`
   * `yc managed-postgresql user create`
@@ -70,8 +145,8 @@ description: This page presents CLI releases and their updates.
 
 #### Changes to the CLI system commands {#v-1-8-0-yc}
 
-* Added command trees for versions `v0` and `v1` at the service level to `yc`. The `v1` subtree uses the new CLI interface. `v1` trees are available for `yc cic`, `yc cloudrouter`, `yc smartcaptcha`, and `yc smartwebsecurity`.
-* The `--syntax` flag has been removed and is no longer supported. To select the interface, use the `v0` and `v1` versions, as well as the setting in the `services.<service>.version` configuration.
+* In `yc`, added command trees for versions `v0` and `v1` at the service level. The `v1` subtree uses the new CLI interface. `v1` trees are available for `yc cic`, `yc cloudrouter`, `yc smartcaptcha`, and `yc smartwebsecurity`.
+* The `--syntax` flag has been removed and is no longer supported. For interface selection, use the `v0` and `v1` versions, as well as the `services.<service>.version` configuration setting.
 
 #### {{ mgp-name }} {#v-1-8-0-mgp-name}
 
@@ -108,13 +183,13 @@ Added the `--network-interface-id` and `--configuration-network-interface-id` pa
 
 #### {{ dns-name }} {#v-1-7-0-dns-name}
 
-Fixed descriptions of the following commands:
+Fixed the descriptions of the following commands:
 * `yc dns zone create`
 * `yc dns firewall create`
 
 #### {{ cr-name }} {#v-1-7-0-cloudrouter-name}
 
-The `yc cloudrouter` service commands are available in a new syntax. To run the commands below, use `yc --syntax=2 cloudrouter ...`, or set `default-syntax: 2` or `services.cloudrouter.syntax: 2` in the profile:
+The `yc cloudrouter` service commands are available in a new syntax. To run the commands below, use `yc --syntax=2 cloudrouter ...`; alternatively, set `default-syntax: 2` or `services.cloudrouter.syntax: 2` in the profile:
   * `yc cloudrouter routing-instance add-private-connection`
   * `yc cloudrouter routing-instance create`
   * `yc cloudrouter routing-instance delete`
@@ -164,13 +239,13 @@ Added the `--performance-diagnostics-enabled` and `--performance-diagnostics-pro
   * `yc cic private-connection create`
   * `yc cic private-connection update`
 
-* Added the `name`, `address`, and `connection points` fields with additional information about points of presence to the `yc cic point-of-presence get` and `yc cic point-of-presence list` command output.
+* Added the `name`, `address`, and `connection points` fields with additional information about points of presence to the output of the `yc cic point-of-presence get` and `yc cic point-of-presence list` commands.
 
 * Modified the output of the following commands:
   * `yc cic get`
   * `yc cic list`
 
-* The `yc cic` service commands are available in a new syntax. To run the commands below, use `yc --syntax=2 cic ...`, or set `default-syntax: 2` or `services.cic.syntax: 2` in the profile:
+* The `yc cic` service commands are available in a new syntax. To run the commands below, use `yc --syntax=2 cic ...`; alternatively, set `default-syntax: 2` or `services.cic.syntax: 2` in the profile:
   * `yc cic partner get`
   * `yc cic partner list`
   * `yc cic point-of-presence get`
@@ -3434,7 +3509,7 @@ Added the `--container-network-settings` parameter to the `yc k8s node-group cre
 
 ##### {{ cloud-desktop-name }} {#cloud-desktop}
 
-* The `yc cloud-desktop` command group is renamed to `yc desktops`.
+* The `yc cloud-desktop` command group was renamed to `yc desktops`.
 * Added the `[PREVIEW]` mark to the `yc desktops` command group.
 * Added the `yc desktops desktop restart` command to restart a desktop.
 

@@ -1,1 +1,1 @@
-Более подробную информацию о параметрах ресурса `yandex_organizationmanager_saml_federation` смотрите в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_saml_federation).
+Подробнее о параметрах ресурса `yandex_organizationmanager_saml_federation` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_saml_federation).

@@ -55,6 +55,10 @@ If you have [deleted a VM](../../backup/operations/delete-vm.md) or {{ baremetal
 
 {% endlist %}
 
+#### Why are old backups not deleted after reconnecting a VM to {{ backup-name }}? {#old-backups-not-deleted}
+
+{% include [old-backup](../../_includes/backup/old-backups.md) %}
+
 
 #### I get an error when trying to restore a VM or {{ baremetal-name }} server from a backup {#recovery-error}
 

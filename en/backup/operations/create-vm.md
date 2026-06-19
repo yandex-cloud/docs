@@ -34,10 +34,10 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a VM.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [operating system supported in {{ backup-name }}](../concepts/vm-connection.md#linux).
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       1. Choose a subnet in the selected availability zone.
@@ -45,7 +45,7 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
       1. Select a [security group](../../vpc/concepts/security-groups.md) configured to work with {{ backup-name }}.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
   
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, select the SSH key saved in your [organization user](../../organization/concepts/membership.md) profile.
 
       If your profile has no SSH keys, click **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}** to add a new key.
@@ -127,7 +127,7 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
       * `image-id`: OS [image ID](../../compute/concepts/image.md). See the [list of supported Linux-based operating systems](../concepts/vm-connection.md#linux) for details.
       * `size`: Boot disk size.
       * `--cores`: [Number of vCPUs](../../compute/concepts/vm.md) in the VM.
-      * `--core-fraction`: Guaranteed vCPU share in %.
+      * `--core-fraction`: Guaranteed vCPU share, in %.
       * `--memory`: VM [RAM size](../../compute/concepts/vm.md).
       * `--service-account-name`: Name of the [service account](../../iam/concepts/users/service-accounts.md) with the `backup.user` role or higher.
       * `--ssh-key`: Path to the file with the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). The VM will automatically create a user named `yc-user` for this key.

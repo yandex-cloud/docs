@@ -10,7 +10,7 @@
 
 При покупке лимита на определенное количество пользователей средства списываются сразу.
 
-[Управлять тарификацией](#pricing-management) сервиса Yandex Identity Hub вы можете через [интерфейс Cloud Center](https://center.yandex.cloud/organization). Подробнее см. в разделе [Управлять тарификацией Yandex Identity Hub](operations/manage-billing.md).
+[Управлять тарификацией](#pricing-management) сервиса Yandex Identity Hub вы можете через [интерфейс Cloud Center](https://center.yandex.cloud/organization). Подробнее читайте в разделе [Управлять тарификацией Yandex Identity Hub](operations/manage-billing.md).
 
 ## Цены для региона Россия {#prices}
 

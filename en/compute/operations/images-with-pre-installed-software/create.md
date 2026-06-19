@@ -15,11 +15,11 @@ To create a VM:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a public [image](../../concepts/image.md) with the software you want to use.
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../../overview/concepts/geo-scope.md) where your VM will reside.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) where your VM will reside.
   1. Optionally, configure the boot [disk](../../concepts/disk.md) under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
 
       * Select the [disk type](../../concepts/disk.md#disks_types).
@@ -189,7 +189,7 @@ To create a VM:
        * `name`: Disk name.
        * `type`: Disk type.
        * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
-       * `size`: Disk size in GB.
+       * `size`: Disk size, in GB.
        * `image_id`: ID of the image to create the VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
 
          {% include [id-info](../../../_includes/compute/id-info.md) %}
@@ -218,22 +218,22 @@ To create a VM:
 
      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/compute_instance).
   1. Make sure the configuration files are correct.
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
   1. Deploy the cloud resources.
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` and press **Enter**.
+     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
      {% include [vm-create-check](../../../_includes/compute/vm-create-check.md) %}
 

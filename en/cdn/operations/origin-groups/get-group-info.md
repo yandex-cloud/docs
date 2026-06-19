@@ -15,7 +15,7 @@ To get the URL and other details of an origin:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your origin.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
   1. Select the origin group containing your origin.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show the origin details.
@@ -65,7 +65,7 @@ To get the name, list of origins, and other details of an origin group:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your origin group.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
   1. Select an origin group.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show the origin group details.
@@ -138,13 +138,13 @@ To get the name, list of origins, and other details of an origin group:
       * `output "my_group_origin"`: Output variable that contains information about the origin group:
         * `value`: Return value.
 
-      You can replace `origin` with any other parameter to get the information you need. For more information about the `yandex_cdn_origin_group` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/cdn_origin_group).
+      You can replace `origin` with any other parameter to get the information you need. For more information about the `yandex_cdn_origin_group` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/cdn_origin_group).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+      {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

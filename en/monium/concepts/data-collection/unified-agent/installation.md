@@ -262,8 +262,8 @@ Check the collected metrics:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where metrics are collected.
-  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monium }}**.
-  1. In the left-hand panel, select ![image](../../../../_assets/console-icons/rectangle-pulse.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_monium }}**.
+  1. In the left-hand panel, select ![image](../../../../_assets/console-icons/rectangle-pulse.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
   1. In the query editor, in the ![image](../../../../_assets/monitoring/chart.svg) line with the cloud and folder names, specify the following:
      * `service` = `custom`
      * `cluster` = `default`

@@ -57,7 +57,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [mfa-tf-code-block](../../../_includes/organization/mfa-tf-code-block.md) %}
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_mfa_enforcement` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_mfa_enforcement` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement).
 
   1. Примените изменения:
 

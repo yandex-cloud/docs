@@ -6,7 +6,7 @@
 
 {% note info %}
 
-Минимально необходимая роль, позволяющая просматривать список профилей OS Login пользователей — [роль](../security/index.md#organization-manager-osLogins-viewer) `organization-manager.osLogins.viewer`, назначенная на организацию. Информацию о других ролях, позволяющих просматривать список профилей OS Login, смотрите в разделе [Управление доступом в Yandex Identity Hub](../security/index.md#service-roles).
+Минимально необходимая роль, позволяющая просматривать список профилей OS Login пользователей — [роль](../security/index.md#organization-manager-osLogins-viewer) `organization-manager.osLogins.viewer`, назначенная на организацию. Информацию о других ролях, позволяющих просматривать список профилей OS Login, читайте в разделе [Управление доступом в Yandex Identity Hub](../security/index.md#service-roles).
 
 {% endnote %}
 

@@ -6,11 +6,11 @@
 
 ## Пользователи {#users}
 
-Инструкции по управлению пользователями см. в [документации Yandex Identity Hub](../../organization/operations/manage-users.md).
+Инструкции по управлению пользователями читайте в [документации Yandex Identity Hub](../../organization/operations/manage-users.md).
 
 ## Группы пользователей {#users-groups}
 
-Инструкции по управлению группами пользователей см. в [документации Yandex Identity Hub](../../organization/operations/manage-groups.md).
+Инструкции по управлению группами пользователей читайте в [документации Yandex Identity Hub](../../organization/operations/manage-groups.md).
 
 ## Сервисные аккаунты {#sa}
 

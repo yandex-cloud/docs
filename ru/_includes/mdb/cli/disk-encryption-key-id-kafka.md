@@ -1,4 +1,4 @@
-`--disk-encryption-key-id` — идентификатор [пользовательского ключа KMS](../../../kms/concepts/key.md). Чтобы зашифровать диск, передайте идентификатор ключа KMS в параметре. Подробнее о шифровании дисков читайте в разделе [Хранилище](../../../managed-kafka/concepts/storage.md#disk-encryption).
+`--disk-encryption-key-id` — идентификатор [пользовательского ключа KMS](../../../kms/concepts/key.md). Чтобы зашифровать диск, передайте идентификатор ключа KMS в параметре. Подробнее о шифровании дисков в разделе [Хранилище](../../../managed-kafka/concepts/storage.md#disk-encryption).
 
 {% note warning %}
    

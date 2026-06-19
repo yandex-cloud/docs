@@ -41,6 +41,6 @@
 
 Ошибка связана с превышением [квоты](concepts/limits.md#ydb-quotas) на потребление [RU (Request Units)](concepts/serverless-and-dedicated.md#capacity) в секунду.
 
-Квоту для каждой базы можно поменять в ее настройках (см. [Изменить параметры Serverless базы данных](operations/manage-databases.md#update-db-serverless)). В случае, если вам не хватает квоты на облако, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
+Квоту для каждой базы можно поменять в ее настройках (смотрите [Изменить параметры Serverless базы данных](operations/manage-databases.md#update-db-serverless)). В случае, если вам не хватает квоты на облако, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
 
 Чтобы обезопасить пользователей от незапланированного потребления большего количества Request Units, мы рекомендуем выставлять [ограничения на максимальное потребление](concepts/serverless-and-dedicated.md#capacity).

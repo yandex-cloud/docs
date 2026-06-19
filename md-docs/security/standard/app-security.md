@@ -196,7 +196,7 @@ Yandex Cloud позволяет клиентам выстроить соотве
 
 С помощью специальной сборки утилиты Cosign сохраняйте созданную [ключевую пару электронной подписи](../../kms/concepts/asymmetric-signature-key.md) в сервисе [Yandex Key Management Service](../../kms/quickstart/index.md), подписывайте файлы и артефакты закрытым ключом этой ключевой пары и проверяйте электронную подпись с помощью ее открытого ключа.
 
-Подробнее в разделе [Подпись и проверка Docker-образов Container Registry в Yandex Managed Service for Kubernetes](../../container-registry/tutorials/sign-cr-with-cosign.md).
+Подробнее читайте в разделе [Подпись и проверка Docker-образов Container Registry в Yandex Managed Service for Kubernetes](../../container-registry/tutorials/sign-cr-with-cosign.md).
 
 #### 6.8 Выполняется проверка подлинности артефактов при развертывании {#artifacts-checked}
 
@@ -368,4 +368,4 @@ Yandex Cloud позволяет клиентам выстроить соотве
 
 **Инструкции и решения по выполнению:**
 
-Используйте черные и белые списки IP-адресов для фильтрации трафика. Подробнее в разделе [Управление списками](../../smartwebsecurity/operations/list-create.md).
+Используйте черные и белые списки IP-адресов для фильтрации трафика. Подробнее читайте в разделе [Управление списками](../../smartwebsecurity/operations/list-create.md).

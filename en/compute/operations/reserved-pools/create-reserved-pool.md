@@ -16,7 +16,7 @@ To create a [reserved instance pool](../../concepts/reserved-pools.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a reserved instance pool in.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-lock.svg) **{{ ui-key.yacloud.compute.reserved-instance-pool.reserved-instance-pools_m8sWW }}**.
   1. Click **{{ ui-key.yacloud.compute.reserved-instance-pool.button_create-reserved-instance-pool_pZ1gY }}**.
   1. Select the [availability zone](../../../overview/concepts/geo-scope.md) you want to reserve [computing resources](../../concepts/vm.md#types) in.
@@ -33,7 +33,7 @@ To create a [reserved instance pool](../../concepts/reserved-pools.md):
       * Enable a [software accelerated network](../../../compute/concepts/software-accelerated-network.md) if needed.
   1. Under **{{ ui-key.yacloud.compute.reserved-instance-pool.ReservedInstancePoolFormBase.main-pool-info-section_xoPE2 }}**:
 
-      * Enter a name for the pool. Follow these naming requirements:
+      * Enter a name for the pool. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -69,18 +69,18 @@ To create a [reserved instance pool](../../concepts/reserved-pools.md):
       ```
 
       Where:
-      * `--name`: Name of the new pool. Follow these naming requirements:
+      * `--name`: Name of the new pool. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
-      * `--description`: Description of the new pool. This is an optional parameter.
+      * `--description`: Description of the new pool. This is an optional setting.
       * `--zone-id`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) to reserve [computing resources](../../concepts/vm.md#types) in.
-      * `--size`: Number of slots per pool. This is an optional parameter. The default value is `0`.
-      * `--platform`: [Platform](../../concepts/vm-platforms.md) where the computing resources are reserved. This is an optional parameter. The default value is `standard-v2` (`Intel Cascade Lake`).
-      * `--cores`: Number of vCPUs for VMs in the new pool. This is an optional parameter. The default value is `2`.
-      * `--memory`: Amount of RAM for VMs in the new pool. This is an optional parameter. The default value is `2 GB`.
-      * `--gpus`: Number of [GPUs](../../concepts/gpus.md) for VMs in the new pool. This is an optional parameter. This parameter is only available if you select a platform with [GPU support](../../concepts/gpus.md#config).
-      * `--gpu-cluster-id`: GPU [cluster](../../concepts/gpus.md#gpu-clusters) ID. This is an optional parameter.
+      * `--size`: Number of slots per pool. This is an optional setting. The default value is `0`.
+      * `--platform`: [Platform](../../concepts/vm-platforms.md) where the computing resources are reserved. This is an optional setting. The default value is `standard-v2` (`Intel Cascade Lake`).
+      * `--cores`: Number of vCPUs for VMs in the new pool. This is an optional setting. The default value is `2`.
+      * `--memory`: Amount of RAM for VMs in the new pool. This is an optional setting. The default value is `2 GB`.
+      * `--gpus`: Number of [GPUs](../../concepts/gpus.md) for VMs in the new pool. This is an optional setting. This parameter is only available if you select a platform with [GPU support](../../concepts/gpus.md#config).
+      * `--gpu-cluster-id`: GPU [cluster](../../concepts/gpus.md#gpu-clusters) ID. This is an optional setting.
       * `--allow-oversubscription`: Parameter enabling the [oversubscription mode](../../concepts/reserved-pools.md#oversubscription) for the pool. In this mode, you can attach VMs beyond the pool capacity. This is an optional parameter. The oversubscription mode is off by default.
 
       Result:

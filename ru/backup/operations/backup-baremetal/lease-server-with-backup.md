@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% note warning %}
 
-С 1 августа 2026 года роли [`baremetal.editor`](../../../baremetal/security/index.md#baremetal-editor) и [`baremetal.admin`](../../../baremetal/security/index.md#baremetal-admin) получают новый набор разрешений, позволяющий подключать серверы {{ baremetal-name }} к сервису {{ backup-full-name }}, а также привязывать и отвязывать их от [политик резервного копирования](../../concepts/policy.md).
+С 1 августа 2026 года роли [baremetal.editor](../../../baremetal/security/index.md#baremetal-editor) и [baremetal.admin](../../../baremetal/security/index.md#baremetal-admin) получают новый набор разрешений от роли [backup.user](../../security/index.md#backup-user), позволяющий подключать серверы {{ baremetal-name }} к сервису {{ backup-full-name }}, а также привязывать и отвязывать их от [политик резервного копирования](../../concepts/policy.md).
 
 {% include [denyActivation-iam-policy-pre-notice](../../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
 
@@ -52,7 +52,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-Подробнее об аренде сервера см. в [документации {{ baremetal-name }}](../../../baremetal/operations/servers/server-lease.md).
+Подробнее об аренде сервера в [документации {{ baremetal-name }}](../../../baremetal/operations/servers/server-lease.md).
 
 {% note info %}
 

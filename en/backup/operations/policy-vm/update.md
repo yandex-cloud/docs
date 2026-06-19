@@ -23,12 +23,12 @@ description: In this tutorial, you will learn how to update a backup policy in {
   {% endnote %}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update a [backup policy](../../../backup/concepts/policy.md).
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
   1. Click ![options](../../../_assets/console-icons/ellipsis.svg) next to the backup policy you want to update and select **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the backup policy parameters:
 
-      * Enter a name. Follow these naming requirements:
+      * Enter a name. The naming requirements are as follows:
 
         {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -60,7 +60,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
   1. Specify backup policy configuration in [JSON](https://en.wikipedia.org/wiki/JSON) format.
 
-      {% cut "Sample configuration file" %}
+      {% cut "Configuration file example" %}
 
       {% include [json-example](../../../_includes/backup/operations/json-example.md) %}
 
@@ -158,12 +158,12 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
      {% endcut %}
 
-     For more information about `yandex_backup_policy` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/backup_policy).
+     For more information about `yandex_backup_policy` properties, see [this provider guide]({{ tf-provider-resources-link }}/backup_policy).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can check the updates in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
+     You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
      ```bash
      yc backup policy get <backup_policy_ID>
@@ -182,7 +182,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your backup policy.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Navigate to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
   1. Select the backup policy where you want to edit the list of [VMs](../../../compute/concepts/vm.md) or {{ baremetal-name }} [servers](../../../baremetal/concepts/servers.md).
   1. Edit the list of linked resources:
@@ -217,7 +217,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
   1. Update the list of VMs and {{ baremetal-name }} servers in the backup policy.
      * To link a VM or {{ baremetal-name }} server to a backup policy:
 
-       View a description of the CLI command:
+       View the CLI command description:
 
        ```bash
        yc backup policy apply --help
@@ -235,7 +235,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
        For more information about this command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/apply.md).
      * To unlink VMs or {{ baremetal-name }} servers from a backup policy:
 
-       View a description of the CLI command:
+       View the CLI command description:
 
        ```bash
        yc backup policy revoke --help

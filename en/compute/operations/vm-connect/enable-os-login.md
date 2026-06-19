@@ -93,7 +93,7 @@ To get back the ability to [connect](ssh.md) to the VM over SSH without using {{
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to.
-        1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+        1. Navigate to **{{ compute-name }}**.
         1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** and click the name of the VM.
         1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
         1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}**.

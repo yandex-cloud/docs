@@ -12,7 +12,7 @@ description: Follow this guide to update or delete a subscription in {{ cns-name
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the topic.
-  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select **{{ ui-key.yacloud.cns.local.label_topics_vhBR3 }}** on the left.
   1. Select the topic containing the subscription.
   1. Select **{{ ui-key.yacloud.cns.shared.CnsTopicLayout.subscriptions_cp53u }}** on the left.
@@ -61,7 +61,7 @@ description: Follow this guide to update or delete a subscription in {{ cns-name
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the topic.
-  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select **{{ ui-key.yacloud.cns.local.label_topics_vhBR3 }}** on the left.
   1. Select the topic containing the subscription.
   1. Select **{{ ui-key.yacloud.cns.shared.CnsTopicLayout.subscriptions_cp53u }}** on the left.

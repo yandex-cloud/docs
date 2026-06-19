@@ -10,7 +10,7 @@ description: Follow this guide to subscribe an endpoint to notifications in a to
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the topic.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select **{{ ui-key.yacloud.cns.local.label_topics_vhBR3 }}** on the left.
   
      {% include [subscribe-ui](../../../_includes/notifications/subscribe-ui.md) %}

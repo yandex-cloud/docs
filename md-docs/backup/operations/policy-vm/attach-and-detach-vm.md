@@ -1,7 +1,7 @@
 # Привязать виртуальную машину или сервер Yandex BareMetal к политике резервного копирования
 
 
-Привязать к политике резервного копирования можно только подключенные к Yandex Cloud Backup виртуальные машины и серверы BareMetal. Подробнее см. в разделах [Управление виртуальными машинами в Cloud Backup](../index.md#connect-vm) и [Управление серверами BareMetal в Cloud Backup](../index.md#connect-baremetal).
+Привязать к политике резервного копирования можно только подключенные к Yandex Cloud Backup виртуальные машины и серверы BareMetal. Подробнее в разделах [Управление виртуальными машинами в Cloud Backup](../index.md#connect-vm) и [Управление серверами BareMetal в Cloud Backup](../index.md#connect-baremetal).
 
 {% list tabs group=instructions %}
 
@@ -112,7 +112,7 @@
       * `instance_id` — [идентификатор](../../../compute/operations/vm-info/get-info.md#outside-instance) виртуальной машины, которую вы хотите привязать к политике.
       * `policy_id` — [идентификатор](get-info.md) политики резервного копирования, к которой вы хотите привязать виртуальную машину.
 
-     Более подробную информацию о параметрах ресурса `yandex_backup_policy_bindings` см. в [документации провайдера](../../../terraform/resources/backup_policy_bindings.md).
+     Подробнее о параметрах ресурса `yandex_backup_policy_bindings` в [документации провайдера](../../../terraform/resources/backup_policy_bindings.md).
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.

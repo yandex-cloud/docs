@@ -10,7 +10,7 @@ With pre-signed URLs, any web user can perform various operations in {{ objstora
 
 A pre-signed URL is a URL containing request authorization data in its parameters. Pre-signed URLs can be created by users with static access keys.
 
-This section outlines the general principles for generating pre-signed URLs using [AWS Signature V4](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html).
+This section outlines the general principles for generating pre-signed URLs using [AWS Signature V4](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html). To get a link to [download](../../../storage/operations/objects/link-for-download.md) or [upload](../../../storage/operations/objects/link-for-upload.md) an object, use the step-by-step guide.
 
 {% note info %}
 

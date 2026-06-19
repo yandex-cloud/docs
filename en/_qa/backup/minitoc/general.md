@@ -4,6 +4,8 @@
 
 * [How do I reconnect a VM or {{ baremetal-name }} server to {{ backup-name }} after recovering its backup to another VM or server?](#how-to-renew-connection)
 
+* [Why are old backups not deleted after reconnecting a VM to {{ backup-name }}?](#old-backups-not-deleted)
+
 * [Error when trying to recover a VM or {{ baremetal-name }} server from a backup](#recovery-error)
 
 * [Error when connecting to a Windows VM](#windows-connection-issue)

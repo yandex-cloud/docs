@@ -61,7 +61,7 @@
      * `output "image"` — выходная переменная, которая содержит информацию о доменах пула:
        * `value` — возвращаемое значение.
 
-     Вместо `domains` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_organizationmanager_idp_userpool` см. в [документации провайдера](../../../terraform/data-sources/organizationmanager_idp_userpool.md).
+     Вместо `domains` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_organizationmanager_idp_userpool` читайте в [документации провайдера](../../../terraform/data-sources/organizationmanager_idp_userpool.md).
 
   1. Создайте ресурсы:
 

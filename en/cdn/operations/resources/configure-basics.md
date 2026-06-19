@@ -13,7 +13,7 @@ To update the basic settings of a [resource](../../concepts/resource.md):
 
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Click the resource name.
 
@@ -113,7 +113,6 @@ To update the basic settings of a [resource](../../concepts/resource.md):
         allowed_http_methods:
           value:
           - GET
-          - POST
           - HEAD
           - OPTIONS
       origin_group_id: "89783"
@@ -169,7 +168,7 @@ To update the basic settings of a [resource](../../concepts/resource.md):
      terraform validate
      ```
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```text
      Success! The configuration is valid.
@@ -180,9 +179,9 @@ To update the basic settings of a [resource](../../concepts/resource.md):
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
      ```bash
      terraform apply
      ```

@@ -12,9 +12,9 @@ description: Follow this guide to update or delete an endpoint.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the endpoint.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select an in-browser push notification channel.
-  1. Navigate to the ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
+  1. Navigate to the ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the endpoint and select **{{ ui-key.yacloud.common.edit }}**.
   1. Update **{{ ui-key.yacloud.cns.field_web-push-endpoint_params }}** and **{{ ui-key.yacloud.cns.field_endpoint-user-data }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -93,9 +93,9 @@ Updating an endpoint may take some time.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder containing your endpoint.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select an in-browser push notification channel.
-  1. Navigate to the ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
+  1. Navigate to the ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the endpoint and select **{{ ui-key.yacloud.common.delete }}**.
   1. Click **{{ ui-key.yacloud.common.delete }}**.
 

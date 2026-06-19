@@ -104,7 +104,7 @@
           * `internal_group_id` — имя группы Yandex Identity Hub.
           * `external_group_id` — имя группы поставщика удостоверений.
 
-          Более подробную информацию о параметрах ресурса `yandex_organizationmanager_group_mapping_item` см. в [документации провайдера](../../terraform/resources/organizationmanager_group_mapping_item.md).
+          Подробнее о параметрах ресурса `yandex_organizationmanager_group_mapping_item` читайте в [документации провайдера](../../terraform/resources/organizationmanager_group_mapping_item.md).
       1. Создайте ресурсы:
 
           1. В терминале перейдите в директорию с конфигурационным файлом.

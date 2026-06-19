@@ -68,7 +68,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-Подробнее о создании ВМ см. в разделе [{#T}](../../compute/operations/index.md#vm-create).
+Подробнее о создании ВМ в разделе [{#T}](../../compute/operations/index.md#vm-create).
 
 ## Привяжите ВМ к политике резервного копирования {#add-policy}
 

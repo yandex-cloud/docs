@@ -11,7 +11,7 @@ To get information about an instance group:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), open the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the instance group is in.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Click the name of your instance group.
 
@@ -45,7 +45,7 @@ To get information about an instance group:
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   To get information about an instance group using {{ TF }}:
-  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
 
      ```hcl
      data "yandex_compute_instance_group" "my_group" {
@@ -63,12 +63,12 @@ To get information about an instance group:
      * `output "instancegroupvm_external_ip"`: List of all [public IP addresses](../../../vpc/concepts/address.md#public-addresses) of the group instances to return in the output:
        * `value`: Return value.
 
-     For more information about the `yandex_compute_instance_group` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_instance_group).
+     For more information about the `yandex_compute_instance_group` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_instance_group).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+     {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
      ```bash
      terraform output instancegroupvm_external_ip

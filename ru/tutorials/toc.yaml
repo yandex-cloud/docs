@@ -115,9 +115,6 @@ items:
             href: security/static-key-in-lockbox/console.md
           - name: '{{ TF }}'
             href: security/static-key-in-lockbox/terraform.md
-      - name: Реагирование на утечку статического ключа доступа
-        href: security/static-key-leak-response.md
-        when: audience == "draft"
       - name: >-
           Сервисный аккаунт с профилем {{ oslogin }} для управления ВМ с помощью
           Ansible

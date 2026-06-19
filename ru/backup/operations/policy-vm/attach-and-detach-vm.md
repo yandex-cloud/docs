@@ -6,7 +6,7 @@ description: Из статьи вы узнаете, как привязать в
 # Привязать виртуальную машину или сервер {{ baremetal-full-name }} к политике резервного копирования
 
 
-Привязать к политике резервного копирования можно только подключенные к {{ backup-full-name }} виртуальные машины и серверы {{ baremetal-name }}. Подробнее см. в разделах [{#T}](../index.md#connect-vm) и [{#T}](../index.md#connect-baremetal).
+Привязать к политике резервного копирования можно только подключенные к {{ backup-full-name }} виртуальные машины и серверы {{ baremetal-name }}. Подробнее в разделах [{#T}](../index.md#connect-vm) и [{#T}](../index.md#connect-baremetal).
 
 {% list tabs group=instructions %}
 
@@ -84,7 +84,7 @@ description: Из статьи вы узнаете, как привязать в
       * `instance_id` — [идентификатор](../../../compute/operations/vm-info/get-info.md#outside-instance) виртуальной машины, которую вы хотите привязать к политике.
       * `policy_id` — [идентификатор](./get-info.md) политики резервного копирования, к которой вы хотите привязать виртуальную машину.
 
-     Более подробную информацию о параметрах ресурса `yandex_backup_policy_bindings` см. в [документации провайдера]({{ tf-provider-resources-link }}/backup_policy_bindings).
+     Подробнее о параметрах ресурса `yandex_backup_policy_bindings` в [документации провайдера]({{ tf-provider-resources-link }}/backup_policy_bindings).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

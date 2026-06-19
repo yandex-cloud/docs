@@ -12,7 +12,7 @@
 
     {% note warning %}
 
-    С 1 августа 2026 года роли [`compute.editor`](../../compute/security/index.md#compute-editor) и [`compute.admin`](../../compute/security/index.md#compute-admin) получают новый набор разрешений, позволяющий подключать виртуальные машины к сервису {{ backup-full-name }}, а также привязывать и отвязывать их от [политик резервного копирования](../concepts/policy.md).
+    С 1 августа 2026 года роли [compute.editor](../../compute/security/index.md#compute-editor) и [compute.admin](../../compute/security/index.md#compute-admin) получают новый набор разрешений от роли [backup.user](../security/index.md#backup-user), позволяющий подключать виртуальные машины к сервису {{ backup-full-name }}, а также привязывать и отвязывать их от [политик резервного копирования](../concepts/policy.md).
 
     {% include [denyActivation-iam-policy-pre-notice](../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
 
@@ -116,7 +116,7 @@
       * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
       * `subnet-name` — имя выбранной [подсети](../../vpc/concepts/network.md#subnet).
       * `security-group-ids` — идентификатор [группы безопасности](../../vpc/concepts/security-groups.md), настроенной для работы с {{ backup-name }}.
-      * `image-id` — [идентификатор образа](../../compute/concepts/image.md) операционной системы. См. [список поддерживаемых ОС на базе Windows](../concepts/vm-connection.md#windows).
+      * `image-id` — [идентификатор образа](../../compute/concepts/image.md) операционной системы. [Список поддерживаемых ОС на базе Windows](../concepts/vm-connection.md#windows).
       * `size` — размер загрузочного диска.
       * `--cores` — [количество vCPU](../../compute/concepts/vm.md) ВМ.
       * `--core-fraction` — гарантированная доля vCPU в %.

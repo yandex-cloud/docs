@@ -63,7 +63,7 @@ description: Следуя данной инструкции, вы сможете
 
      Где `status` — статус политики: `MFA_ENFORCEMENT_STATUS_ACTIVE` для активации политики. Необязательный параметр.
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_mfa_enforcement` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_mfa_enforcement` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement).
 
   1. Примените изменения:
 
@@ -137,7 +137,7 @@ description: Следуя данной инструкции, вы сможете
 
      Где `status` — статус политики: `MFA_ENFORCEMENT_STATUS_INACTIVE` для деактивации политики. Необязательный параметр.
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_mfa_enforcement` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_mfa_enforcement` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement).
 
   1. Примените изменения:
 

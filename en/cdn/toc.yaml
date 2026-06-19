@@ -57,7 +57,7 @@ items:
             href: operations/resources/location-rules.md
           - name: Setting up a server name for SNI
             href: operations/resources/configure-server-name.md
-          - name: Disabling a resource
+          - name: Suspending and resuming a resource
             href: operations/resources/disable-resource.md
           - name: Managing resource labels
             href: operations/resources/labeling.md

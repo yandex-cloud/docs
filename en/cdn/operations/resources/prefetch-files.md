@@ -22,7 +22,7 @@ To forcibly upload content from a CDN resource to the CDN server cache:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where your [resource](../../concepts/resource.md) is located.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Click the resource name.
   1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
   1. In the top-right corner, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.

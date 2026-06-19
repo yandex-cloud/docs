@@ -12,7 +12,7 @@ You can delete basic rules, as well as Smart Protection and WAF rules, from a [s
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the security profile.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Select the profile where you want to delete a [rule](../concepts/rules.md).
   1. On the **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}** tab, click ![options](../../_assets/console-icons/ellipsis.svg) next to the rule in question and select **{{ ui-key.yacloud.common.delete }}**.
@@ -298,7 +298,7 @@ You can delete basic rules, as well as Smart Protection and WAF rules, from a [s
           }
         }
 
-        # Basic rule
+        #Basic rule
         security_rule {
           name = "base-rule-geo"
           priority = 100000

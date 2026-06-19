@@ -7,7 +7,7 @@ description: Follow this guide to connect to the serial console of a {{ compute-
 
 {% include [sc-warning](../../../_includes/compute/serial-console-warning.md) %}
 
-To connect to the [serial console](../../concepts/serial-console.md) of a VM instance, first [enable access](./index.md#enable) to the serial console.
+To connect to a VM's [serial console](../../concepts/serial-console.md), first [enable serial console access](./index.md#enable) for the VM instance.
 
 You can connect to the serial console through the [management console]({{ link-console-main }}), as well as using the standard SSH client or via [{{ oslogin }}](../../../organization/concepts/os-login.md).
 
@@ -45,10 +45,10 @@ In the example below, you will create a new local Linux user account with passwo
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the VM instance resides in.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, select ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** and select the VM instance from the list that opens.
   1. In the left-hand menu, select **{{ ui-key.yacloud.compute.instance.switch_console }}**.
-  1. In the drop-down list at the top of the screen, select the [serial port](../../concepts/serial-console.md#serial-ports) used by the serial console for VM connections.
+  1. At the top of the screen, in the drop-down list, select the [serial port](../../concepts/serial-console.md#serial-ports) used by the serial console for VM connections.
 
       {% include [serial-console-default-port-linux](../../../_includes/compute/serial-console-default-port-linux.md) %}
 

@@ -109,7 +109,7 @@ description: Из статьи вы узнаете, как удалить пол
 
      {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_backup_policy` см. в [документации провайдера]({{ tf-provider-resources-link }}/backup_policy).
+     Подробнее о параметрах ресурса `yandex_backup_policy` в [документации провайдера]({{ tf-provider-resources-link }}/backup_policy).
   1. Примените изменения:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

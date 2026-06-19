@@ -1,5 +1,4 @@
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Подготовьте код навыка](#prepare-code).
 1. [Создайте инфраструктуру](#deploy).
 1. [Добавьте ссылку на функцию в навык Алисы](#add-link).
 1. [Протестируйте работу навыка](#test).
@@ -9,8 +8,6 @@
 ## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
-
-{% include [prepare-code](../../_tutorials_includes/alice-skill/prepare-code.md) %}
 
 ## Создайте инфраструктуру {#deploy}
 
@@ -25,17 +22,36 @@
 
     - Готовая конфигурация {#ready}
 
-      1. Склонируйте репозиторий с конфигурационными файлами:
+      1. Склонируйте репозиторий с конфигурационными файлами и примерами кода функции:
 
-         ```bash
-         git clone https://github.com/yandex-cloud-examples/yc-serverless-alice-skill
-         ```
-
+          ```bash
+          git clone https://github.com/yandex-cloud-examples/yc-serverless-alice-skill
+          ```
       1. Перейдите в директорию с репозиторием. В ней должны появиться файлы:
-         * `alice-skill.tf` — конфигурация создаваемой инфраструктуры.
-         * `alice-skill.auto.tfvars` — пользовательские данные.
+
+          * `alice-skill.tf` — конфигурация создаваемой инфраструктуры.
+          * `alice-skill.auto.tfvars` — пользовательские данные.
+          * `parrot.py` — файл с кодом функции на Python.
+          * `index.js` — файл с кодом функции на Node.js.
+      1. Подготовьте код для навыка Алисы. Чтобы создать [версию](*function_version) функции, вы загрузите ее код в {{ sf-full-name }} в [формате](*upload_formats) ZIP-архива.
+
+          {% list tabs group=programming_language %}
+
+          - Python {#python}
+
+              Добавьте файл `parrot.py`, расположенный в склонированном репозитории, в ZIP-архив `parrot-py.zip`.
+
+          - Node.js {#node}
+
+              Добавьте файл `index.js`, расположенный в склонированном репозитории, в ZIP-архив `parrot-js.zip`.
+
+          {% endlist %}
 
     - Вручную {#manual}
+
+      1. Подготовьте код для навыка Алисы. Чтобы создать [версию](*function_version) функции, вы загрузите ее код в {{ sf-full-name }} в [формате](*upload_formats) ZIP-архива.
+
+          {% include [prepare-code](../../_tutorials_includes/alice-skill/prepare-code.md) %}
 
       1. Создайте папку для файла с описанием инфраструктуры.
       1. Создайте в папке конфигурационный файл `alice-skill.tf`:
@@ -83,3 +99,7 @@
 1. Примените изменения:
 
     {% include [terraform-validate-plan-apply](../../_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+[*function_version]: Версия содержит код функции, параметры запуска, а также все необходимые зависимости. На разных стадиях процесса разработки вы можете работать с разными версиями одной функции. Подробнее читайте в разделе [{#T}](../../../functions/concepts/function.md#version).
+
+[*upload_formats]: Загружать код версии функции можно несколькими способами: в редакторе в консоли управления, из локальных файлов и директорий или в виде архива. Подробнее читайте в разделе [{#T}](../../../functions/concepts/function.md#upload).

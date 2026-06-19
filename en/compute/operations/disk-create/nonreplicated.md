@@ -17,7 +17,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a disk.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
   1. Enter a name for the disk. The naming requirements are as follows:
@@ -105,7 +105,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
      ```
 
      Where:
-     * `name`: Non-replicated disk name. Follow these naming requirements:
+     * `name`: Non-replicated disk name. The naming requirements are as follows:
 
        {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -121,24 +121,24 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
 
         {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
-     For more information about `yandex_compute_disk` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/compute_disk#example-usage---non-replicated-disk).
+     For more information about `yandex_compute_disk` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/compute_disk#example-usage---non-replicated-disk).
   1. Make sure the configuration files are correct.
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
   1. Deploy the cloud resources.
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
         This will create all the resources you need in the specified [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
@@ -161,7 +161,7 @@ You can only create a disk in an existing disk placement group.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
   1. Enter a name for the disk. The naming requirements are as follows:

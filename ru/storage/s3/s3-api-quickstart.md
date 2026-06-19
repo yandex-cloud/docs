@@ -1020,4 +1020,4 @@ description: Из этой статьи вы узнаете, как выполн
 * [{#T}](./index.md)
 * [{#T}](../api-ref/authentication.md)
 * [{#T}](./signing-requests.md)
-* [Вебинар: как с помощью Cloud CDN разгрузить высоконагруженную инфраструктуру](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)
+* [Вебинар: как с помощью {{ cdn-name }} и {{ objstorage-name }} разгрузить высоконагруженную инфраструктуру](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)

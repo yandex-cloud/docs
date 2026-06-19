@@ -10,7 +10,7 @@ description: Follow this guide to get information about a rule set for a WAF pro
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [WAF profile](../concepts/waf.md).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
   1. Select the profile with the rule set you need.
   1. The **{{ ui-key.yacloud.smart-web-security.advanced_waf.sets_priority_section.section_title }}** section will display the information on rule sets:
@@ -47,13 +47,13 @@ description: Follow this guide to get information about a rule set for a WAF pro
       * `output "waf_rules"`: Output variable that contains information about the WAF rule set:
         * `value`: Return value.
 
-      You can replace `rules` with any other parameter to get the information you need. For more information about the `yandex_sws_waf_rule_set_descriptor` data source properties, see [this {{ TF }} provider article]({{ tf-provider-datasources-link }}/sws_waf_rule_set_descriptor).
+      You can replace `rules` with another variable to get the information you need. For more information about the `yandex_sws_waf_rule_set_descriptor` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/sws_waf_rule_set_descriptor).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+      {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

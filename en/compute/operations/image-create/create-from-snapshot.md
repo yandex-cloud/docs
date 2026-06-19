@@ -12,15 +12,15 @@ To create an image from a disk [snapshot](../../concepts/snapshot.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create an image.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. In the line with the snapshot, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.snapshots.list.button_action-image }}**.
-  1. Specify the image name. Follow these naming requirements:
+  1. Specify the image name. The naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
   1. Provide a text description for the image, if required.
-  1. Expand the **{{ ui-key.yacloud.compute.section_additional_7yvYG }}** section:
+  1. Expand **{{ ui-key.yacloud.compute.section_additional_7yvYG }}**:
   1. Optionally, in the **{{ ui-key.yacloud.compute.hardware-generation_1iEpT }}** field, select the virtualized hardware [generation](../../concepts/hardware-generations.md#configurations) you want to assign to the new image:
 
       {% include [generation-types-console](../../../_includes/compute/generation-types-console.md) %}
@@ -57,7 +57,7 @@ To create an image from a disk [snapshot](../../concepts/snapshot.md):
       ```
 
       Where:
-      * `--name`: Image name. Follow these naming requirements:
+      * `--name`: Image name. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -118,7 +118,7 @@ To create an image from a disk [snapshot](../../concepts/snapshot.md):
      ```
 
       Where:
-      * `name`: Image name. Follow these naming requirements:
+      * `name`: Image name. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -137,14 +137,14 @@ To create an image from a disk [snapshot](../../concepts/snapshot.md):
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-       If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+       If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 

@@ -14,7 +14,7 @@ description: В данном разделе описаны федерации с
 
 Такое взаимодействие не предусматривает создания долгоживущих ключей, что повышает удобство и безопасность пользователей.
 
-Подробнее о протоколе OpenID Connect см. в [спецификации OIDC](https://openid.net/specs/openid-connect-core-1_0.html).
+Подробнее о протоколе OpenID Connect в [спецификации OIDC](https://openid.net/specs/openid-connect-core-1_0.html).
 
 [Настроить](../operations/wlif/setup-wlif.md) федерацию сервисных аккаунтов можно в [консоли управления]({{ link-console-main }}) или с помощью [{{ yandex-cloud }} CLI](../../cli/quickstart.md).
 

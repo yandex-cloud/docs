@@ -12,7 +12,7 @@ To delete a secret:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.routes.label_section-secrets }}**.
   1. Next to the secret you need, click ![image](../../_assets/console-icons/ellipsis.svg).
   1. In the menu that opens, select **{{ ui-key.yacloud.common.delete }}**.
@@ -36,16 +36,16 @@ To delete a secret:
      yc lockbox secret list --cloud-id <cloud_ID> --folder-name <folder_name>
      ```
 
-     Result:
+	 Result:
 
-     ```text
-     +----------------------+------------------+------------+---------------------+----------------------+--------+
+	 ```text
+	 +----------------------+------------------+------------+---------------------+----------------------+--------+
      |          ID          |       NAME       | KMS KEY ID |     CREATED AT      |  CURRENT VERSION ID  | STATUS |
      +----------------------+------------------+------------+---------------------+----------------------+--------+
      | e6q942hj2r5n******** | <secret_1_name>  |            | 2021-11-09 13:07:12 | e2r9pdm39tn2******** | ACTIVE |
      | e4qkyo469mu2******** | <secret_2_name>  |            | 2021-12-09 06:50:37 | e6fpq386othp******** | ACTIVE |
      +----------------------+------------------+------------+---------------------+----------------------+--------+
-     ```
+	 ```
 
   1. To delete a secret, run the command:
 
@@ -87,7 +87,7 @@ To delete a secret:
 
   1. Open the {{ TF }} configuration file and delete the part with the secret description:
 
-     {% cut "Sample secret description in the {{ TF }} configuration" %}
+     {% cut "Sample secret description in the {{ TF }}" %} configuration
 
      ```hcl
      ...

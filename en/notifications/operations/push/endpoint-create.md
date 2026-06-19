@@ -14,9 +14,9 @@ To create an endpoint:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder containing your endpoint.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select a push notification channel.
-  1. Navigate to the ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
+  1. Navigate to the ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
   1. Click **{{ ui-key.yacloud.cns.action_create-endpoint }}**.
   1. Enter **{{ ui-key.yacloud.cns.field_token }}**, a unique token on the user device, the one created by the notification service for the app.
   1. Optionally, enter **{{ ui-key.yacloud.cns.field_endpoint-user-data }}**, a [UTF-8](https://en.wikipedia.org/wiki/UTF-8) encoded text up to 2,048 characters long.

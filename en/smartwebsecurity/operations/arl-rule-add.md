@@ -12,7 +12,7 @@ You can only add ARL rules to an [ARL](../concepts/arl.md) profile. Basic [rules
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the ARL profile.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
   1. Select the profile to add a rule to.
   1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}** and in the window that opens:
@@ -84,7 +84,7 @@ You can only add ARL rules to an [ARL](../concepts/arl.md) profile. Basic [rules
   
         {% include [arl-profile-parameters](../../_includes/smartwebsecurity/arl-profile-parameters.md) %}
   
-        For more information about the `yandex_sws_advanced_rate_limiter_profile` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
+        For more information about `yandex_sws_advanced_rate_limiter_profile` properties, see [this provider guide]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
   
     1. Apply the changes:
   

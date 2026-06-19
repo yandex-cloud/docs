@@ -112,7 +112,7 @@ description: С помощью этой инструкции вы научите
 
       Сохраните значение идентификатора созданной федерации сервисных аккаунтов, оно понадобится при создании привязки.
 
-      Подробнее о команде `yc iam workload-identity oidc federation create` см. в [справочнике CLI](../../../cli/cli-ref/iam/cli-ref/workload-identity/oidc/federation/create.md).
+      Подробнее о команде `yc iam workload-identity oidc federation create` читайте в [справочнике CLI](../../../cli/cli-ref/iam/cli-ref/workload-identity/oidc/federation/create.md).
 
 - {{ TF }} {#tf}
 
@@ -148,7 +148,7 @@ description: С помощью этой инструкции вы научите
 
           Чтобы узнать это значение, обратитесь к документации или в службу технической поддержки используемого OIDC-провайдера.
 
-      Более подробную информацию о параметрах ресурса `yandex_iam_workload_identity_oidc_federation` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_workload_identity_oidc_federation).
+      Подробнее о параметрах ресурса `yandex_iam_workload_identity_oidc_federation` в {{ TF }} читайте в [документации провайдера]({{ tf-provider-resources-link }}/iam_workload_identity_oidc_federation).
 
   1. Создайте ресурсы:
 
@@ -237,7 +237,7 @@ description: С помощью этой инструкции вы научите
       created_at: "2024-12-28T16:33:47.057632267Z"
       ```
             
-      Подробнее о команде `yc iam workload-identity federated-credential create` см. в [справочнике CLI](../../../cli/cli-ref/iam/cli-ref/workload-identity/federated-credential/create.md).
+      Подробнее о команде `yc iam workload-identity federated-credential create` читайте в [справочнике CLI](../../../cli/cli-ref/iam/cli-ref/workload-identity/federated-credential/create.md).
 
 - {{ TF }} {#tf}
 
@@ -261,7 +261,7 @@ description: С помощью этой инструкции вы научите
 
           Чтобы узнать это значение, обратитесь к документации или в службу технической поддержки используемого OIDC-провайдера.
 
-      Более подробную информацию о параметрах ресурса `yandex_iam_workload_identity_federated_credential` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_workload_identity_federated_credential).
+      Подробнее о параметрах ресурса `yandex_iam_workload_identity_federated_credential` в {{ TF }} читайте в [документации провайдера]({{ tf-provider-resources-link }}/iam_workload_identity_federated_credential).
 
   1. Создайте ресурсы:
 

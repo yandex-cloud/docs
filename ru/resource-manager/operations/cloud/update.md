@@ -86,7 +86,7 @@
 
       {% endcut %}
 
-      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/resourcemanager_cloud).
+      Подробнее о параметрах ресурса `yandex_resourcemanager_cloud` в {{ TF }} читайте в [документации провайдера]({{ tf-provider-resources-link }}/resourcemanager_cloud).
   1. В командной строке перейдите в папку, где вы отредактировали конфигурационный файл.
   1. Проверьте корректность конфигурационного файла с помощью команды:
 

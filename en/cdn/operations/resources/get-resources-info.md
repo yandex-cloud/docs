@@ -9,7 +9,7 @@ title: How to get information about a resource in {{ cdn-full-name }}
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your [resource](../../concepts/resource.md).
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Select a CDN resource.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show the resource details.
 
@@ -88,13 +88,13 @@ title: How to get information about a resource in {{ cdn-full-name }}
       * `output "resource_active"`: Output variable that shows whether the CDN resource is active:
          * `value`: Return value.
 
-     You can replace `active` with any other parameter to get the information you need. For more information about the `yandex_cdn_resource` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/cdn_resource).
+     You can replace `active` with any other parameter to get the information you need. For more information about the `yandex_cdn_resource` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/cdn_resource).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+      {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output
@@ -119,7 +119,7 @@ title: How to get information about a resource in {{ cdn-full-name }}
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your resource.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Select the CDN resource you created.
   1. Under **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** on the **{{ ui-key.yacloud.common.overview }}** page, you will see a domain name in `{{ cname-example-yc }}` format.
 
@@ -150,13 +150,13 @@ title: How to get information about a resource in {{ cdn-full-name }}
       * `output "provider_cname"`: Output variable that contains information about the domain name:
          * `value`: Return value.
 
-     You can replace `provider_cname` with any other parameter to get the information you need. For more information about the `yandex_cdn_resource` data source properties, see [this {{ TF }} provider article]({{ tf-provider-datasources-link }}/cdn_resource).
+     You can replace `provider_cname` with any other parameter to get the information you need. For more information about the `yandex_cdn_resource` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/cdn_resource).
 
   1. Get information about resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+      {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

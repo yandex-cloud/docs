@@ -18,7 +18,7 @@ To [update a reserved instance pool](../../concepts/reserved-pools.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the reserved instance pool is in.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-lock.svg) **{{ ui-key.yacloud.compute.reserved-instance-pool.reserved-instance-pools_m8sWW }}**.
   1. In the pool row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the VM parameters:
@@ -87,18 +87,18 @@ To [update a reserved instance pool](../../concepts/reserved-pools.md):
       ```
 
       Where:
-      * `--new-name`: New pool name. This is an optional parameter. Follow these naming requirements:
+      * `--new-name`: New pool name. This is an optional setting. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
-      * `--description`: Pool description. This is an optional parameter.
-      * `--size`: New number of slots per pool. This is an optional parameter.
-      * `--allow-oversubscription`: Parameter enabling or disabling the [oversubscription mode](../../concepts/reserved-pools.md#oversubscription) for the pool. In this mode, you can attach VMs beyond the pool capacity. This is an optional parameter.
+      * `--description`: Pool description. This is an optional setting.
+      * `--size`: New number of slots per pool. This is an optional setting.
+      * `--allow-oversubscription`: Parameter enabling or disabling the [oversubscription mode](../../concepts/reserved-pools.md#oversubscription) for the pool. In this mode, you can attach VMs beyond the pool capacity. This is an optional setting.
 
           To enable the overcommitment mode, provide the `--allow-oversubscription` parameter in the command.
 
           To disable overcommitment where previously enabled, provide the `--allow-oversubscription=false` parameter in the command.
-      * `--allow-pending-slots`: Parameter to enable [pending slots](../../concepts/reserved-pools.md#pending-slots) when modifying pool size. This is an optional parameter. By default, when you change a pool’s size, the pending slots setting is disabled.
+      * `--allow-pending-slots`: Parameter to enable [pending slots](../../concepts/reserved-pools.md#pending-slots) when modifying pool size. This is an optional setting. By default, when you change a pool’s size, the pending slots setting is disabled.
 
       Result:
 

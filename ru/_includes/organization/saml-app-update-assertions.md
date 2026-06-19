@@ -149,7 +149,7 @@
 
              Максимальное количество передаваемых в этом поле групп — 1&nbsp;000. Если количество групп, в которые входит пользователь, превышает это число, на сторону поставщика услуг будет передана только первая тысяча групп. 
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application` смотрите в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
 
   1. Примените изменения:
 

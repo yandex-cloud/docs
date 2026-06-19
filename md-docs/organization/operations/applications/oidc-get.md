@@ -84,7 +84,7 @@
      * `output` — выходные переменные, которые содержат информацию о приложении:
        * `value` — возвращаемое значение.
 
-     Вместо указанных параметров вы можете выбрать любые другие для получения информации. Более подробно о параметрах источника данных `yandex_organizationmanager_idp_application_oauth_application` см. в [документации провайдера](../../../terraform/data-sources/organizationmanager_idp_application_oauth_application.md).
+     Вместо указанных параметров вы можете выбрать любые другие для получения информации. Подробнее о параметрах источника данных `yandex_organizationmanager_idp_application_oauth_application` читайте в [документации провайдера](../../../terraform/data-sources/organizationmanager_idp_application_oauth_application.md).
 
   1. Создайте ресурсы:
 

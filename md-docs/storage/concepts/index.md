@@ -30,4 +30,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Вебинар: как с помощью Cloud CDN разгрузить высоконагруженную инфраструктуру](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)
+* [Вебинар: как с помощью Cloud CDN и Object Storage разгрузить высоконагруженную инфраструктуру](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)
