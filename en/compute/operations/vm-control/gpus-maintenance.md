@@ -14,7 +14,7 @@ description: Follow this guide to manage maintenance of GPU virtual machines in 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to view VM maintenance tasks.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![bars-play](../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.compute.maintenance_js7p4 }}**.
 
       The window that opens displays a list of all maintenance tasks for GPU VMs, which includes:
@@ -126,7 +126,7 @@ You can reschedule a task to an earlier or later date and time:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the VM to reschedule a maintenance task for.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![bars-play](../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.compute.maintenance_js7p4 }}**.
   1. In the list that opens, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) next to the task in question and select ![arrow-uturn-cw-right](../../../_assets/console-icons/arrow-uturn-cw-right.svg) **{{ ui-key.yacloud.compute.maintenance.MaintenanceActions.reschedule_rDGt3 }}**. In the window that opens:
 
@@ -191,7 +191,7 @@ You can instantly start a scheduled VM maintenance task.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the VM to start a maintenance task for.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![bars-play](../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.compute.maintenance_js7p4 }}**.
   1. In the list that opens, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) next to the task in question and select ![play](../../../_assets/console-icons/play.svg) **{{ ui-key.yacloud.compute.maintenance.MaintenanceActions.perform-now_m8iqx }}**.
   1. In the window that opens, confirm that you want to instantly start the task.

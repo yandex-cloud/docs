@@ -185,7 +185,7 @@
 
       {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}).
 
-    Более подробную информацию о параметрах ресурса `yandex_vpc_security_group` смотрите в [документации провайдера]({{ tf-provider-datasources-link }}/vpc_security_group).
+    Подробнее о параметрах ресурса `yandex_vpc_security_group` в [документации провайдера]({{ tf-provider-datasources-link }}/vpc_security_group).
 
 - API {#api}
 
@@ -193,4 +193,4 @@
 
 {% endlist %}
 
-Подробности в разделе [{#T}](../../../vpc/operations/security-group-create.md).
+Подробнее в разделе [{#T}](../../../vpc/operations/security-group-create.md).

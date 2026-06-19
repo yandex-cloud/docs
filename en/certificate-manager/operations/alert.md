@@ -11,7 +11,7 @@ To create an alert:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) for your alert.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. On the home page, click **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** under **{{ ui-key.yacloud_monitoring.homepage.title_service-features }}**.
   1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.main-info }}**, specify the main alert parameters:
      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.list-table.name }}**. Name the channel.
@@ -45,7 +45,7 @@ To create an alert:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder for the alert.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. On the home page, click **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** under **{{ ui-key.yacloud_monitoring.homepage.title_service-features }}**.
   1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.main-info }}**, specify the main alert parameters:
      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.list-table.name }}**. Name the channel.

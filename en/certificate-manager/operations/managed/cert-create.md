@@ -9,7 +9,7 @@ You can only use a [certificate](../../concepts/managed-certificate.md) from {{ 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to add your certificate to.
-  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
   1. In the menu that opens, select **{{ ui-key.yacloud.certificate-manager.action_request }}**.
   1. In the window that opens, enter a name for your certificate in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field.
@@ -109,7 +109,7 @@ A new certificate with the `Validating` status will appear in the certificate li
 
 You can view the certificate issue status and possible issue errors in the [management console]({{ link-console-main }}):
 
-1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
 1. Select the certificate from the list.
    
    You can find the certificate's current issue status next to the **{{ ui-key.yacloud.certificate-manager.overview.general_label_validation }}** field.

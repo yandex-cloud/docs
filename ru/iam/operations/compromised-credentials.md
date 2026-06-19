@@ -36,7 +36,7 @@ OAuth-токен можно отозвать. При этом IAM-токены, 
 
 Чтобы злоумышленник не смог использовать токен:
 
-1. [Отзовите](https://id.yandex.ru/personal/data-access) OAuth-токен. Для этого нужно отозвать доступ приложения {{ yandex-cloud }}. Подробнее см. [Отзыв токенов](https://yandex.ru/dev/id/doc/dg/oauth/reference/token-invalidate.html).
+1. [Отзовите](https://id.yandex.ru/personal/data-access) OAuth-токен. Для этого нужно [отозвать](https://yandex.ru/dev/id/doc/dg/oauth/reference/token-invalidate.html) доступ приложения {{ yandex-cloud }}.
 1. [Отзовите](./iam-token/revoke-iam-token.md) все IAM-токены, для получения которых использовался скомпрометированный OAuth-токен.
 1. [Получите новый OAuth-токен]({{ link-cloud-oauth }}).
 
@@ -111,10 +111,4 @@ OAuth-токен можно отозвать. При этом IAM-токены, 
 1. Обеспечьте [управление секретами в облаке](../../security/standard/encryption.md).
 1. Обеспечьте [сбор, мониторинг и анализ аудитных логов](../../security/standard/audit-logs.md).
 
-{% if audience == "draft" %}
 
-#### См. также {#see-also}
-
-* [{#T}](../../tutorials/security/static-key-leak-response.md)
-
-{% endif %}

@@ -108,19 +108,4 @@ You are charged for push notifications sent to mobile devices and through browse
 </MDX>
 
 
-### Text message notification batches {#prices-sms}
-
-{% note warning %}
-
-On June 2, 2026, new pricing for processing text message notification events is coming into effect.
-
-{% endnote %}
-
-Processing text message notification sending events is billed in batches. The cost depends on the mobile network provider, message type, and batch size.
-
-
-
-{% include [usd-sms-packages](../_pricing/notifications/usd-sms-packages.md) %}
-
-
 

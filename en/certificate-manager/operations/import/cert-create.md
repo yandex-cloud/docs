@@ -51,7 +51,7 @@ To add a custom certificate to {{ certificate-manager-name }}:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to add a custom certificate to.
-  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
   1. In the menu that opens, select **{{ ui-key.yacloud.certificate-manager.action_import }}**.
   1. In the window that opens, in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field, enter a custom certificate name.
@@ -166,7 +166,7 @@ To avoid storing a private key of the user certificate as plain text in the {{ T
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   1. [Create a secret](../../../lockbox/operations/secret-create.md) and write the private key to it.
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
      ```hcl
      resource "yandex_cm_certificate" "example-lockbox" {

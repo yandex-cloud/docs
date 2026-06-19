@@ -6,15 +6,53 @@ description: Follow this guide to add another network interface to a VM.
 # Adding another network interface to a virtual machine
 
 
-A VM can have one or more [network interfaces](../../concepts/network.md). For more information on the maximum number of VM network interfaces, see [{#T}](../../concepts/limits.md).
+A VM can have one or more [network interfaces](../../concepts/network.md). For more information on the maximum number of VM network interfaces, see [this section](../../concepts/limits.md).
 
 You can add network interfaces to either [running](#add-to-running) or [stopped](#add-to-stopped) VMs. To maintain [network connectivity](../../../vpc/concepts/routing.md#rt-vm), we recommend adding network interfaces to stopped VMs.
+
+{% note tip %}
+
+If you want to assign a public IP address to a VM, use [this guide](vm-attach-public-ip.md).
+
+{% endnote %}
 
 ## Adding a network interface to a stopped VM {#add-to-stopped}
 
 To add another network interface to your VM:
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the VM belongs to.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Select the VM to which you want to add an additional network interface.
+  1. On the **{{ ui-key.yacloud.common.overview }}** tab, under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, click **{{ ui-key.yacloud.compute.instance.overview.button_add-network-interface }}**.
+  1. In the window that opens, specify the network interface properties:
+
+     * **{{ ui-key.yacloud.compute.instances.field_network-interface-index }}**: Responsible for the order in which network interfaces are connected. Each VM network interface must have a unique number.
+     * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: Enter the ID of a subnet in the new VM's availability zone. Alternatively, select a [cloud network](../../../vpc/concepts/network.md#network) from the list. If there is no subnet, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}** and [create](../../../vpc/operations/subnet-create.md) one.
+     * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select the IP address assignment method:
+
+       * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP address pool. In this case, you can enable [DDoS protection](../../../vpc/ddos-protection/index.md) using the appropriate option.
+       * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`: Select a public IP address from the list of previously reserved static IP addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).
+       * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`: Do not assign a public IP address.
+
+     * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: Select [security groups](../../../vpc/concepts/security-groups.md). If you leave this field empty, the virtual machine will be assigned the default security group.
+     * Expand **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** and select a method for assigning internal addresses in the **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** field:
+
+       * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`: To assign a random IP address from the pool of IP addresses available in the selected subnet.
+       * `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}`: To manually assign a private IP address to the VM.
+       * Enable **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**, if required. The option is available if you previously selected the automatic IP assignment method in the public address settings.
+
+     * Optionally, create records for your VM in the [DNS zone](../../../dns/concepts/dns-zone.md):
+     
+       * Expand **{{ ui-key.yacloud.dns.label_dns-internal-settings }}** and click **{{ ui-key.yacloud.dns.button_add-record }}**.
+       * Specify a zone, FQDN, and TTL for the record. When setting the FQDN, you can enable `{{ ui-key.yacloud.dns.label_auto-select-zone }}` for the zone.
+       
+         You can add multiple records to [internal DNS zones](../../../dns/concepts/dns-zone.md). For more information, see [Cloud DNS integration with Compute Cloud](../../../dns/concepts/compute-integration.md).
+
+       * To create another record, click **{{ ui-key.yacloud.dns.button_add-record }}**.
 
 - CLI {#cli}
 
@@ -153,7 +191,7 @@ To add another network interface to your VM:
       * `subnet_id`: [Subnet](../../../vpc/concepts/network.md#subnet) ID.
       * `allow_stopping_for_update`: Parameter to allow your VM to stop for updates.
 
-      For more information about `yandex_compute_instance` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/compute_instance).
+      For more information about `yandex_compute_instance` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_instance).
 
   1. Create the resources:
 
@@ -551,3 +589,9 @@ To test the new network interface:
       All the network interfaces are running and active.
 
 {% endlist %}
+
+#### See also {#see-also}
+
+* [{#T}](./vm-attach-public-ip.md)
+* [{#T}](./vm-set-static-ip.md)
+* [{#T}](../../../vpc/operations/set-static-ip.md)

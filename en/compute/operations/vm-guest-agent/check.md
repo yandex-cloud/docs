@@ -96,7 +96,7 @@ To get logs:
 - Management console {#console}
 
   1. Select the folder the VM belongs to.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. Click the line with the VM in question.
   1. Go to the **Serial port** tab.
   1. Select **COM4** as your port.

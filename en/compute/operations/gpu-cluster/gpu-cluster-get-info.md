@@ -11,9 +11,9 @@ description: Follow this guide to get information about a GPU cluster.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing your [GPU cluster](../../concepts/gpus.md#gpu-clusters).
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
-  1. Select your cluster.
+  1. Select the cluster.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show the GPU cluster details.
 
 - CLI {#cli}
@@ -73,13 +73,13 @@ description: Follow this guide to get information about a GPU cluster.
       * `output "gpu_cluster"`: Output variable that contains information about the GPU cluster availability zone:
         * `value`: Return value.
 
-     You can replace `zone` with any other parameter to get the information you need. For more information about the `yandex_compute_gpu_cluster` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_gpu_cluster).
+     You can replace `zone` with any other parameter to get the information you need. For more information about the `yandex_compute_gpu_cluster` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_gpu_cluster).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+      {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

@@ -25,7 +25,7 @@ To view logs, you need the [logging.viewer](../../logging/security/index.md#logg
 - {{ cloud-logging-short-name }} {#logging}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the {{ sws-name }} profile.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the list, select the load balancer linked to the security profile.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**:
@@ -41,7 +41,7 @@ To view logs, you need the [logging.viewer](../../logging/security/index.md#logg
   You can log {{ at-name }} events to a bucket in {{ objstorage-name }}, log group in {{ cloud-logging-name }}, data stream in {{ yds-name }}, or bus in {{ er-name }}. In this guide, we will set up logging of audit events to a log group.
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the {{ sws-name }} profile.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
   1. Enter a name for the trail, e.g., `trail-sws`.
   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, select **{{ ui-key.yacloud.audit-trails.label_cloudLogging }}** as the destination object.
@@ -64,7 +64,7 @@ To view logs, you need the [logging.viewer](../../logging/security/index.md#logg
 - {{ cloud-logging-short-name }} {#logging}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the {{ sws-name }} profile.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Select **{{ ui-key.yacloud.common.logs }}**.
   1. Select the number of messages per page and the time interval: 1 hour, 3 hours, 1 day, 1 week, 2 weeks.
   1. In the **Query** row, specify you query using the [filter expression language](../../logging/concepts/filter.md) and click **Run**.
@@ -143,7 +143,7 @@ To view logs, you need the [logging.viewer](../../logging/security/index.md#logg
 - {{ at-name }} {#at}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the {{ sws-name }} profile.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Select the log group receiving your {{ at-name }} events.
   1. Select the number of messages per page and the time interval: 1 hour, 3 hours, 1 day, 1 week, 2 weeks.
   1. In the **Query** field, specify you query using the [filter expression language](../../logging/concepts/filter.md) and click **Run**.

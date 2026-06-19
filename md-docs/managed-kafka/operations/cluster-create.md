@@ -791,7 +791,7 @@
 
      
      * `--kafka-ui-enabled` — использование [веб-интерфейса Kafka UI для Apache Kafka®](../concepts/kafka-ui.md): `true` или `false`.
-     * `--disk-encryption-key-id` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диск, передайте идентификатор ключа KMS в параметре. Подробнее о шифровании дисков читайте в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+     * `--disk-encryption-key-id` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диск, передайте идентификатор ключа KMS в параметре. Подробнее о шифровании дисков в разделе [Хранилище](../concepts/storage.md#disk-encryption).
        
        {% note warning %}
           
@@ -2767,7 +2767,7 @@
 
      
      * `--kafka-ui-enabled` — использование [веб-интерфейса Kafka UI для Apache Kafka®](../concepts/kafka-ui.md): `true` или `false`.
-     * `--disk-encryption-key-id` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диск, передайте идентификатор ключа KMS в параметре. Подробнее о шифровании дисков читайте в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+     * `--disk-encryption-key-id` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диск, передайте идентификатор ключа KMS в параметре. Подробнее о шифровании дисков в разделе [Хранилище](../concepts/storage.md#disk-encryption).
        
        {% note warning %}
           

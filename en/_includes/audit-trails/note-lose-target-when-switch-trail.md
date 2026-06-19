@@ -1,5 +1,5 @@
 {% note info %}
 
-Changing a destination object in an existing trail may result in a loss of events. Create a new trail if you need to change the destination object safely.
+Changing the destination object of an existing trail may result in the loss of some events. To prevent data loss, create a dedicated trail for each destination object.
 
 {% endnote %}

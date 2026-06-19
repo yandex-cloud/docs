@@ -26,9 +26,3 @@
 
 {% include [alb-settings-recommendation](../../_includes/smartwebsecurity/alb-settings-recommendation.md) %}
 
-#### See also {#see-also}
-
-* [Cloud security in Russia: Key cyberthreat trends in 2025](https://yandex.cloud/ru/blog/posts/2025/04/cloud-protection)
-* [How to set up web app security with {{ sws-full-name }}](https://yandex.cloud/ru/blog/smart-web-security-how-to)
-* [Yandex SWS and CDN: Website protection and acceleration for businesses of any size](https://yandex.cloud/ru/blog/sws-cdn-cloudflare-alternative)
-* [What is a SOC: Cybersecurity monitoring center](https://yandex.cloud/ru/blog/soc-security-operations-center)

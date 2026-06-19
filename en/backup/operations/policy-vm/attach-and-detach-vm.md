@@ -13,7 +13,7 @@ You can only link a VM or {{ baremetal-name }} server to a backup policy if they
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder where you want to link a VM or {{ baremetal-name }} server to a backup policy.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Navigate to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud_billing.backup.label_policies }}** tab.
   1. Select the policy to link the VM or {{ baremetal-name }} server to.
   1. Under **{{ ui-key.yacloud.backup.title_linked-recourses }}**, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}**, and in the window that opens:
@@ -84,12 +84,12 @@ You can only link a VM or {{ baremetal-name }} server to a backup policy if they
       * `instance_id`: [ID](../../../compute/operations/vm-info/get-info.md#outside-instance) of the VM you want to associate with the policy.
       * `policy_id`: [ID](./get-info.md) of the policy to associate the VM with.
 
-     For more information about `yandex_backup_policy_bindings` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/backup_policy_bindings).
+     For more information about `yandex_backup_policy_bindings` properties, see [this provider guide]({{ tf-provider-resources-link }}/backup_policy_bindings).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+     {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
      ```bash
       yc backup policy list-applications

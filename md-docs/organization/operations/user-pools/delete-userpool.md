@@ -55,7 +55,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_userpool` см. в [документации провайдера](../../../terraform/resources/organizationmanager_idp_userpool.md).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_idp_userpool` читайте в [документации провайдера](../../../terraform/resources/organizationmanager_idp_userpool.md).
 
   1. Примените изменения:
 

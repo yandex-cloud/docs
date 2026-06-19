@@ -165,7 +165,7 @@
         * `NONE` — поставщику услуг не будут переданы группы, в которые входит пользователь.
     * `labels` — список [меток](../../../resource-manager/concepts/labels.md). Необязательный параметр.
 
-    Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_oauth_application` см. в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_oauth_application.md).
+    Подробнее о параметрах ресурса `yandex_organizationmanager_idp_application_oauth_application` читайте в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_oauth_application.md).
 
   1. Примените изменения:
 
@@ -332,7 +332,7 @@
       * `phone` — номер телефона пользователя.
       * `groups` — группы пользователей в организации.
 
-    Более подробную информацию о параметрах ресурса `yandex_iam_oauth_client` см. в [документации провайдера](../../../terraform/resources/iam_oauth_client.md).
+    Подробнее о параметрах ресурса `yandex_iam_oauth_client` читайте в [документации провайдера](../../../terraform/resources/iam_oauth_client.md).
 
   1. Примените изменения:
 
@@ -461,7 +461,7 @@
 
     * `oauth_client_id` — идентификатор OAuth-клиента, для которого создается новый секрет. Обязательный параметр.
 
-    Более подробную информацию о параметрах ресурса `yandex_iam_oauth_client_secret` см. в [документации провайдера](../../../terraform/resources/iam_oauth_client_secret.md).
+    Подробнее о параметрах ресурса `yandex_iam_oauth_client_secret` читайте в [документации провайдера](../../../terraform/resources/iam_oauth_client_secret.md).
 
   1. Примените изменения:
 
@@ -622,7 +622,7 @@
       * `application_id` — идентификатор OIDC-приложения.
       * `subject_id` — идентификатор нужного пользователя или группы пользователей.
 
-      Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_oauth_application_assignment` смотрите в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_oauth_application_assignment.md).
+      Подробнее о параметрах ресурса `yandex_organizationmanager_idp_application_oauth_application_assignment` читайте в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_oauth_application_assignment.md).
 
   1. Создайте ресурсы:
 

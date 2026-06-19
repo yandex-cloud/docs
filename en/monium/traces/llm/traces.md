@@ -16,7 +16,7 @@ You can open a trace from [search results](../operations/traces-explorer.md) or 
 
 ## LLM span search results {#search-results}
 
-In span search mode, the results present only LLM-related spans, which is figured by the presence of the `gen_ai.response.model` attribute. The search results show the following for each such span:
+In span search mode, the results show only AI agent-related spans. Such spans are identified by attributes with the `gen_ai.*` prefix, according to the OpenTelemetry standard. The search results show the following for each such span:
 
 * **Agent and span name**: Forms as `service.name` / span name, e.g., `my-ai-agent/openai.chat`.
 * **Model input**: Input data provided to the LLM within the current span.

@@ -31,6 +31,7 @@ default:
   api-host: api.cloud.yandex.net
   api-host-airflow: airflow.api.cloud.yandex.net
   api-host-apigw: d5dm1lba80md********.i9******.apigw.yandexcloud.net
+  api-host-captcha: https://smartcaptcha.api.cloud.yandex.net
   api-host-certmanager: certificate-manager.api.cloud.yandex.net
   api-host-certmanager-certcontent: data.certificate-manager.api.cloud.yandex.net
   api-host-certmanager-validation: validation.certificate-manager.api.cloud.yandex.net
@@ -53,6 +54,7 @@ default:
   api-host-sk-tts: tts.api.cloud.yandex.net
   api-host-spark: spark.api.cloud.yandex.net
   api-host-storage-grpc: storage.api.cloud.yandex.net:443
+  api-host-sws: https://smartwebsecurity.api.cloud.yandex.net
   api-host-trino: trino.api.cloud.yandex.net
   api-host-ytsaurus: ytsaurus.api.cloud.yandex.net
   api-url-prefix: /docs
@@ -794,6 +796,7 @@ default:
   si-name: Serverless Integrations
   sk-hybrid-full-name: Yandex SpeechKit Hybrid
   sk-hybrid-name: SpeechKit Hybrid
+  spark-service-address: 10.248.0.0/13
   speechkit-full-name: Yandex SpeechKit
   speechkit-name: SpeechKit
   speechkit-short-name: SpeechKit

@@ -208,7 +208,7 @@ POST /v2/email/outbound-bulk-emails HTTP/2
 
 {% include [errors-list](../../../_includes/postbox/errors-list.md) %}
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [{#T}](../index.md)
 * [{#T}](../../api-ref/authentication.md)

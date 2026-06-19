@@ -10,7 +10,7 @@ For information about editing a VM configuration, see [{#T}](vm-update-resources
 
   To update a VM:
   1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** and click the name of the VM.
   1. Click ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
   1. Change the VM parameters, e.g., rename the VM by editing the **{{ ui-key.yacloud.common.name }}** field.
@@ -32,7 +32,7 @@ For information about editing a VM configuration, see [{#T}](vm-update-resources
 
      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
+  1. Select the `ID` or `NAME` of the VM you need, e.g., `first-instance`.
   1. Change the VM parameters, e.g., rename the VM:
 
      ```bash

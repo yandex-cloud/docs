@@ -23,10 +23,10 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a VM.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [operating system supported in {{ backup-name }}](../concepts/vm-connection.md#windows).
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       1. Choose a subnet in the selected availability zone.
@@ -115,7 +115,7 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
       * `image-id`: OS [image ID](../../compute/concepts/image.md). See the [list of supported Windows-based operating systems](../concepts/vm-connection.md#windows).
       * `size`: Boot disk size.
       * `--cores`: [Number of vCPUs](../../compute/concepts/vm.md) in the VM.
-      * `--core-fraction`: Guaranteed vCPU share in %.
+      * `--core-fraction`: Guaranteed vCPU share, in %.
       * `--memory`: VM [RAM size](../../compute/concepts/vm.md).
       * `--service-account-name`: Name of the [service account](../../iam/concepts/users/service-accounts.md) with the `backup.user` role or higher.
       * `--user-data`: Path to the previously created file with a script for installing the {{ backup-name }} agent on your VM.

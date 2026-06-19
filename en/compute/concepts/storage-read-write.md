@@ -87,6 +87,7 @@ You can test the performance of your network disks with [fio](https://fio.readth
 
         {% endnote %}
 
+    * `--filesize`: Size of the file the utility creates and uses to test input and output.
     * `--direct`: Flag that toggles buffering; `0` means buffering is used, `1` means buffering is not used.
     * `--rw`: Load template. The possible values are as follows: 
       * `read`: Sequential reads.
@@ -95,10 +96,16 @@ You can test the performance of your network disks with [fio](https://fio.readth
       * `randread`: Random reads and writes.
       * `randwrite`: Random writes.
       * `randread`: Random reads.
-    * `--bs`: Read and write block size. To get better results, specify a value that is equal to the disk block size or less.
+    * `--bs`: Read and write block size:
+      * For best results in terms of number of read and write operations per second (IOPS), specify a value smaller than or equal to disk block size.
+      * For best results in terms of bandwidth, specify 4 MB (`4M`).
+    * `--ioengine`: Establishing the procedure for test IO to a file. When set to `libaio`, asynchronous Linux IO will be used that allows multiple operations in parallel without blocking. For more information about available IO options, see [this fio guide](https://fio.readthedocs.io/en/latest/fio_doc.html#i-o-engine).
     * `--iodepth`: I/O block depth per `job`.
     * `--runtime`: Test duration in seconds.
     * `--numjobs`: Number of read and write jobs.
+    * `--time_based`: Binding test duration to the `runtime` value. If the flag is active, the test will continue even if data read or write was completed.
+    * `--group_reporting`: Groups statistics for each job.
+    * `--eta-newline`: Forces a line break each time the specified time period elapses. The period should be specified in seconds.
 
 ### Test examples {#test-examples}
 

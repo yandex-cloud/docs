@@ -10,7 +10,7 @@ description: Follow this guide to configure rule sets for a WAF profile.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [WAF profile](../concepts/waf.md).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
   1. Select the profile where you want to configure rule sets.
   1. Next to the set, click ![image](../../_assets/console-icons/gear.svg) **Configure**.
@@ -30,7 +30,7 @@ description: Follow this guide to configure rule sets for a WAF profile.
      1. Check the rules you included in the set. Add or delete them as needed. When using rules, pay attention to their anomaly scores and paranoia levels.
 
         You can configure any rule in the set to block requests. Requests matching such a rule get blocked regardless of the anomaly threshold you set. To turn a rule into a blocking one, click ![image](../../_assets/console-icons/ban.svg) on its right. Still, if you enabled **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)** mode in the security profile, requests will not get blocked.
-
+  
   1. To configure your Yandex Ruleset:
      
      1. Enable the [rule groups](../concepts/waf.md#yandex-ruleset) you want to apply as part of the set.
@@ -38,7 +38,7 @@ description: Follow this guide to configure rule sets for a WAF profile.
         In Yandex Ruleset, you can configure each rule group individually.
      
      1. Expand and specify the parameters for each rule group you enabled:
-        1. Optionally, change **Anomaly threshold** from `1` to `10,000`. The default value is `7`, since the Yandex Ruleset produces the fewest false positives.
+        1. Optionally, change **Anomaly threshold** from `1` to `10000`. The default value is `7`, since the Yandex Ruleset produces the fewest false positives.
 
         1. Select the **When threshold is exceeded** action to perform on a request in this case. Currently, only request blocking is available.
         1. Disable the rules you do not want to apply as part of the set.
@@ -127,7 +127,7 @@ description: Follow this guide to configure rule sets for a WAF profile.
          * `is_enabled`: Flag to enable or disable a rule.
          * `is_blocking`: [Blocking](../concepts/waf.md#anomaly) rule flag.
 
-      For more information about `sws_waf_profile` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/sws_waf_profile).
+      For more information about the `sws_waf_profile` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/sws_waf_profile).
 
   1. Create the resources:
 

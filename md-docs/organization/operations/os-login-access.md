@@ -151,7 +151,7 @@
 
           {% endnote %}
 
-      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../terraform/resources/organizationmanager_os_login_settings.md).
+      Подробнее о ресурсах, которые вы можете создать с помощью Terraform, читайте в [документации провайдера](../../terraform/resources/organizationmanager_os_login_settings.md).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -198,7 +198,7 @@
 
 {% note info %}
 
-Минимально необходимая роль, позволяющая просматривать список профилей OS Login пользователей — [роль](../security/index.md#organization-manager-osLogins-viewer) `organization-manager.osLogins.viewer`, назначенная на организацию. Информацию о других ролях, позволяющих просматривать список профилей OS Login, смотрите в разделе [Управление доступом в Yandex Identity Hub](../security/index.md#service-roles).
+Минимально необходимая роль, позволяющая просматривать список профилей OS Login пользователей — [роль](../security/index.md#organization-manager-osLogins-viewer) `organization-manager.osLogins.viewer`, назначенная на организацию. Информацию о других ролях, позволяющих просматривать список профилей OS Login, читайте в разделе [Управление доступом в Yandex Identity Hub](../security/index.md#service-roles).
 
 {% endnote %}
 

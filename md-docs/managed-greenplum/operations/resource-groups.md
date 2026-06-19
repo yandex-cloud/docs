@@ -14,7 +14,7 @@
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-    Чтобы посмотреть список ресурсных групп и значения их [параметров](../concepts/resource-groups.md#rg-params), выполните команду:
+    Чтобы посмотреть список ресурсных групп и значения их [параметров](../concepts/resource-groups.md#parameters), выполните команду:
 
     ```bash
     yc managed-greenplum resource-groups list --cluster-id=<идентификатор_кластера> 
@@ -31,7 +31,7 @@
 
 - SQL {#sql}
 
-    Чтобы посмотреть список ресурсных групп и значения их [параметров](../concepts/resource-groups.md#rg-params), выполните команду:
+    Чтобы посмотреть список ресурсных групп и значения их [параметров](../concepts/resource-groups.md#parameters), выполните команду:
 
     ```sql
     SELECT * FROM gp_toolkit.gp_resgroup_config;
@@ -55,26 +55,40 @@
     Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
-
-    Передайте имя ресурсной группы и значения ее [параметров](../concepts/resource-groups.md#rg-params) в команде:
+    
+    Чтобы создать ресурсную группу в кластере с СУБД Apache Cloudberry™, передайте имя ресурсной группы и значения ее [параметров](../concepts/resource-groups.md#parameters) в команде:
 
     ```bash
     yc managed-greenplum resource-groups create <имя_ресурсной_группы> \
-       --cluster-id=<идентификатор_кластера> \
-       --concurrency=<значение_параметра_CONCURRENCY> \
-       --cpu-rate-limit=<значение_параметра_CPU_RATE_LIMIT> \
-       --memory-limit=<значение_параметра_MEMORY_LIMIT> \
-       --memory-shared-quota=<значение_параметра_MEMORY_SHARED_QUOTA> \
-       --memory-spill-ratio=<значение_параметра_MEMORY_SPILL_RATIO>
+       --cluster-id <идентификатор_кластера> \
+       --concurrency <значение_параметра_CONCURRENCY> \
+       --cpu-max-percent <значение_параметра_CPU_MAX_PERCENT> \
+       --cpu-weight <значение_параметра_CPU_WEIGHT> \
+       --memory-quota <значение_параметра_MEMORY_QUOTA> \
+       --min-cost <значение_параметра_MIN_COST>
     ```
 
-    При создании ресурсной группы достаточно указать значение ее параметра `CPU_RATE_LIMIT`. Для остальных параметров будут применены значения по умолчанию.
+    При создании ресурсной группы достаточно указать значение параметра `CPU_MAX_PERCENT`. Для остальных параметров будут применены значения по умолчанию.
+
+    Чтобы создать ресурсную группу в кластере с СУБД Greenplum®, передайте имя ресурсной группы и значения ее [параметров](../concepts/resource-groups.md#parameters) в команде:
+   
+    ```bash
+    yc managed-greenplum resource-groups create <имя_ресурсной_группы> \
+       --cluster-id <идентификатор_кластера> \
+       --concurrency <значение_параметра_CONCURRENCY> \
+       --cpu-rate-limit <значение_параметра_CPU_RATE_LIMIT> \
+       --memory-limit <значение_параметра_MEMORY_LIMIT> \
+       --memory-shared-quota <значение_параметра_MEMORY_SHARED_QUOTA> \
+       --memory-spill-ratio <значение_параметра_MEMORY_SPILL_RATIO>
+    ```
+
+    При создании ресурсной группы достаточно указать значение параметра `CPU_RATE_LIMIT`. Для остальных параметров будут применены значения по умолчанию.
 
     Вместо параметра `--cluster-id` можно использовать параметр `--cluster-name`, указав в нем имя кластера. Идентификатор и имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - SQL {#sql}
 
-    Передайте имя ресурсной группы и ее [параметры](../concepts/resource-groups.md#rg-params) в команде:
+    Передайте имя ресурсной группы и ее [параметры](../concepts/resource-groups.md#parameters) в команде:
 
     ```sql
     CREATE RESOURCE GROUP <имя_ресурсной_группы> WITH (<параметр_1>, <параметр_2>, ...);
@@ -99,7 +113,9 @@
 
     {% note info %}
 
-    По умолчанию новые роли попадают в ресурсную группу `default_group`.
+    * Если при создании роли ресурсная группа не указана, роли назначается `default_group`.
+
+    * В Apache Cloudberry™ для ролей с [атрибутом SUPERUSER](../concepts/cluster-users.md#attributes) назначается группа `admin_group`.
 
     {% endnote %}
 
@@ -162,31 +178,41 @@
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-    Передайте имя ресурсной группы и новые значения ее [параметров](../concepts/resource-groups.md#rg-params), которые нужно изменить, в команде:
+    Чтобы изменить [параметры](../concepts/resource-groups.md#parameters) ресурсной группы в кластере с СУБД Apache Cloudberry™, выполните команду:
 
     ```bash
     yc managed-greenplum resource-groups update <имя_ресурсной_группы> \
-       --cluster-id=<идентификатор_кластера> \
-       --concurrency=<новое_значение_параметра_CONCURRENCY> \
-       --cpu-rate-limit=<новое_значение_параметра_CPU_RATE_LIMIT> \
-       --memory-limit=<новое_значение_параметра_MEMORY_LIMIT> \
-       --memory-shared-quota=<новое_значение_параметра_MEMORY_SHARED_QUOTA> \
-       --memory-spill-ratio=<новое_значение_параметра_MEMORY_SPILL_RATIO>
+       --cluster-id <идентификатор_кластера> \
+       --concurrency <новое_значение_параметра_CONCURRENCY> \
+       --cpu-max-percent <новое_значение_параметра_CPU_MAX_PERCENT> \
+       --cpu-weight <новое_значение_параметра_CPU_WEIGHT> \
+       --memory-quota <новое_значение_параметра_MEMORY_QUOTA> \
+       --min-cost <новое_значение_параметра_MIN_COST>
+    ```
+
+    Чтобы изменить [параметры](../concepts/resource-groups.md#parameters) ресурсной группы в кластере с СУБД Greenplum®, выполните команду:
+
+    ```bash
+    yc managed-greenplum resource-groups update <имя_ресурсной_группы> \
+       --cluster-id <идентификатор_кластера> \
+       --concurrency <новое_значение_параметра_CONCURRENCY> \
+       --cpu-rate-limit <новое_значение_параметра_CPU_RATE_LIMIT> \
+       --memory-limit <новое_значение_параметра_MEMORY_LIMIT> \
+       --memory-shared-quota <новое_значение_параметра_MEMORY_SHARED_QUOTA> \
+       --memory-spill-ratio <новое_значение_параметра_MEMORY_SPILL_RATIO>
     ```
 
     Вместо параметра `--cluster-id` можно использовать параметр `--cluster-name`, указав в нем имя кластера. Идентификатор и имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - SQL {#sql}
 
-    Передайте имя ресурсной группы и новые значения ее [параметров](../concepts/resource-groups.md#rg-params), которые нужно изменить, в команде:
+    Передайте имя ресурсной группы и новые значения ее [параметров](../concepts/resource-groups.md#parameters), которые нужно изменить, в команде:
 
     ```sql
     ALTER RESOURCE GROUP <имя_ресурсной_группы> SET <имя_параметра> <новое_значение_параметра>;
     ```
 
 {% endlist %}
-
-Параметры ресурсной группы, для которых не переданы новые значения, изменены не будут.
 
 ## Удалить ресурсную группу {#delete}
 
@@ -273,3 +299,8 @@
     ```
 
 {% endlist %}
+
+
+_Greenplum® и Greenplum Database® являются зарегистрированными товарными знаками или товарными знаками Broadcom Inc в США и/или других странах._
+
+_Apache® и Apache Cloudberry™ являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах._

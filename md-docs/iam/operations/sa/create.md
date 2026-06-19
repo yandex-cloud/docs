@@ -84,7 +84,7 @@
      * `description` — описание сервисного аккаунта. Необязательный параметр.
      * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md). Необязательный параметр. По умолчанию будет использовано значение, указанное в настройках провайдера.
 
-     Более подробную информацию о параметрах ресурса `yandex_iam_service_account` в Terraform, см. в [документации провайдера](../../../terraform/resources/iam_service_account.md).
+     Подробнее о параметрах ресурса `yandex_iam_service_account` в Terraform читайте в [документации провайдера](../../../terraform/resources/iam_service_account.md).
     
   1. Проверьте корректность конфигурационных файлов.
 

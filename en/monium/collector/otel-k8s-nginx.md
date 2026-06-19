@@ -9,7 +9,7 @@ You will set up an Nginx server in a {{ k8s }} cluster and send its metrics and 
 
 To set up web server telemetry collection in a cluster:
 
-1. [Configure the {{ k8s }} cluster](#cluster-settings).
+1. [Configure the {{ k8s }}](#cluster-settings) cluster.
 1. [Set up authentication](#auth-settings): Create a service account and API key to send data to {{ monium-name }}.
 1. [Install and configure Nginx](#nginx-install): Deploy a web server with a metric exporter.
 1. [Install OpenTelemetry Collector](#install-otel-collector): Set up metric collection and sending.
@@ -26,8 +26,8 @@ To set up web server telemetry collection in a cluster:
 ### Required paid resources {#paid-resources}
 
 The cost of resources you need for {{ monium-name }} includes:
-* Fee for using a [{{ managed-k8s-name }} master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for the [{{ managed-k8s-name }} node group's](../../managed-kubernetes/concepts/index.md#node-group) [computing resources](../../compute/concepts/vm-platforms.md) and [disks](../../compute/concepts/disk.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using a [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for the [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group) node group's [computing resources](../../compute/concepts/vm-platforms.md) and [disks](../../compute/concepts/disk.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using {{ monium-name }} (see [{{ monium-name }} pricing](../pricing.md)).
 
 ## Setting up a cluster {#cluster-settings}
@@ -52,7 +52,7 @@ In this step, you need to get and save the API key and folder ID to use them to 
 - Management console {#console}
 
   1. Create a [service account](../../iam/operations/sa/create.md) with the `monium.telemetry.writer` role.
-     1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Name your service account, e.g., `monium-ca`.
      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select `monium.telemetry.writer`.
@@ -189,7 +189,7 @@ In this step, you will install [OpenTelemetry Collector Contrib](https://github.
 
   1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}** on the left.
        
-  1. In the query string, select the following one by one:
+  1. In the query string, select the following one by one
      * `project=folder__<folder_ID>`
      * `cluster=default`
      * `service=nginx`

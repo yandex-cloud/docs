@@ -153,7 +153,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% endnote %}
 
-      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_os_login_settings).
+      Подробнее о ресурсах, которые вы можете создать с помощью {{ TF }}, читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_os_login_settings).
 
   1. Проверьте корректность конфигурационных файлов.
 

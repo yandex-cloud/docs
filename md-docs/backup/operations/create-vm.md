@@ -12,7 +12,7 @@
 
     {% note warning %}
 
-    С 1 августа 2026 года роли [`compute.editor`](../../compute/security/index.md#compute-editor) и [`compute.admin`](../../compute/security/index.md#compute-admin) получают новый набор разрешений, позволяющий подключать виртуальные машины к сервису Yandex Cloud Backup, а также привязывать и отвязывать их от [политик резервного копирования](../concepts/policy.md).
+    С 1 августа 2026 года роли [compute.editor](../../compute/security/index.md#compute-editor) и [compute.admin](../../compute/security/index.md#compute-admin) получают новый набор разрешений от роли [backup.user](../security/index.md#backup-user), позволяющий подключать виртуальные машины к сервису Yandex Cloud Backup, а также привязывать и отвязывать их от [политик резервного копирования](../concepts/policy.md).
 
     Если вы не планируете подключать ваши ресурсы к Cloud Backup и не хотите предоставлять вашим пользователям такие разрешения, вы можете заблаговременно отключить эти возможности с помощью [политики авторизации](../../iam/concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](../../iam/operations/access-policies/assign.md).
 
@@ -81,7 +81,7 @@
       
       {% endnote %}
 
-  1. Укажите другие необходимые параметры ВМ. Подробнее см. [Создать виртуальную машину из публичного образа Linux](../../compute/operations/vm-create/create-linux-vm.md).
+  1. Укажите другие необходимые параметры ВМ. Подробнее в разделе [Создать виртуальную машину из публичного образа Linux](../../compute/operations/vm-create/create-linux-vm.md).
   1. Нажмите кнопку **Создать ВМ**.
 
   Когда ВМ перейдет в статус `Running`, на нее начнет устанавливаться агент Cloud Backup. Установка займет от 5 до 10 минут.
@@ -153,7 +153,7 @@
       * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
       * `subnet-name` — имя выбранной [подсети](../../vpc/concepts/network.md#subnet).
       * `security-group-ids` — идентификатор [группы безопасности](../../vpc/concepts/security-groups.md), настроенной для работы с Cloud Backup.
-      * `image-id` — [идентификатор образа](../../compute/concepts/image.md) операционной системы. См. [список поддерживаемых ОС на базе Linux](../concepts/vm-connection.md#linux).
+      * `image-id` — [идентификатор образа](../../compute/concepts/image.md) операционной системы. [Список поддерживаемых ОС на базе Linux](../concepts/vm-connection.md#linux).
       * `size` — размер загрузочного диска.
       * `--cores` — [количество vCPU](../../compute/concepts/vm.md) ВМ.
       * `--core-fraction` — гарантированная доля vCPU в %.

@@ -115,7 +115,7 @@
 
       Вместо `scheduling` вы можете выбрать любой другой [параметр политики](../../../terraform/resources/backup_policy.md) для получения информации.
 
-      Более подробно о параметрах источника данных `yandex_backup_policy` см. в [документации провайдера](../../../terraform/data-sources/backup_policy.md).
+      Подробнее о параметрах источника данных `yandex_backup_policy` в [документации провайдера](../../../terraform/data-sources/backup_policy.md).
 
   1. Создайте ресурсы:
 

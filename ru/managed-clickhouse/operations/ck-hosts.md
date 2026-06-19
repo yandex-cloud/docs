@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Управление хостами {{ CK }}
 
-После создания кластера с отдельными хостами {{ CK }} вы можете:
+Вы можете выполнить следующие действия при управлении хостами {{ CK }}:
 
 * [получить список хостов](#list-hosts);
 * [создать хост](#add-ck);
@@ -55,7 +55,42 @@ description: Следуя данной инструкции, вы сможете
 
 ## Преобразовать нереплицируемые таблицы в реплицируемые {#replicated-tables}
 
-Чтобы автоматически преобразовать нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) в [реплицируемые](../concepts/replication.md#replicated-tables) на движке [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication), при [включении сервиса координации](update.md#enable-coordination) включите настройку **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**.
+Преобразовать нереплицируемые таблицы на движке семейства MergeTree в [реплицируемые](../concepts/replication.md#replicated-tables) на движке ReplicatedMergeTree можно:
+
+* автоматически при включении сервиса координации;
+* с помощью SQL после включения сервиса координации.
+
+Подробнее о движках таблиц читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family). 
+
+{% list tabs group=instructions %}
+
+- Автоматически {#auto}
+
+  Чтобы автоматически преобразовать нереплицируемые таблицы в реплицируемые, при [включении сервиса координации](update.md#enable-coordination) включите преобразование таблиц.
+
+- SQL {#sql}
+
+  Чтобы преобразовать нереплицируемую таблицу в реплицируемую:
+
+  1. Сделайте таблицу недоступной для использования:
+    
+      ```sql
+      DETACH TABLE <имя_таблицы>;
+      ```
+
+  1. Преобразуйте таблицу в реплицируемую:
+
+      ```sql
+      ATTACH TABLE <имя_таблицы> AS REPLICATED;
+      ```
+
+  1. Восстановите и синхронизируйте состояние реплики таблицы в {{ CK }}:
+
+      ```sql
+      SYSTEM RESTORE REPLICA <имя_таблицы>;
+      ```
+
+{% endlist %}
 
 ## Удалить хост {{ CK }} {#delete-host}
 

@@ -961,7 +961,7 @@ flowchart BT
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../terraform/index.md).
+     Подробнее о ресурсах, которые вы можете создать с помощью Terraform, читайте в [документации провайдера](../../terraform/index.md).
 
   1. Проверьте корректность конфигурационных файлов.
     
@@ -1255,7 +1255,7 @@ flowchart BT
          * `system:group:organization:<идентификатор_организации>:users` — чтобы назначить роль системной группе `All users in organization X`;
          * `system:group:federation:<идентификатор_федерации>:users` — чтобы назначить роль системной группе `All users in federation N`.
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_member` смотрите в [документации провайдера](../../terraform/resources/iam_service_account_iam_member.md).
+     Подробнее о параметрах ресурса `yandex_resourcemanager_cloud_iam_member` читайте в [документации провайдера](../../terraform/resources/iam_service_account_iam_member.md).
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -1439,7 +1439,7 @@ flowchart BT
          * `system:group:organization:<идентификатор_организации>:users` — чтобы назначить роль системной группе `All users in organization X`;
          * `system:group:federation:<идентификатор_федерации>:users` — чтобы назначить роль системной группе `All users in federation N`.
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_organization_iam_member` смотрите в [документации провайдера](../../terraform/resources/organizationmanager_organization_iam_member.md).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_organization_iam_member` читайте в [документации провайдера](../../terraform/resources/organizationmanager_organization_iam_member.md).
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.

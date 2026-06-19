@@ -68,6 +68,8 @@
 
  - [Взаимосвязь ресурсов сервиса](concepts/index.md)
 
+ - [Сеть в Yandex Managed Service for Apache Spark™](concepts/network.md)
+
  - [Квоты и лимиты](concepts/limits.md)
 
  - [Классы хостов](concepts/instance-types.md)

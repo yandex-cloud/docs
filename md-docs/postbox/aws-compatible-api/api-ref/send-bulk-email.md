@@ -230,7 +230,7 @@ POST /v2/email/outbound-bulk-emails HTTP/2
 || `400 LimitExceededException` | При вызове запроса превышен [лимит](../../concepts/limits.md). ||
 |#
 
-## См. также {#see-also}
+## Полезные ссылки {#see-also}
 
 * [Как пользоваться API Amazon для работы с Yandex Cloud Postbox](../index.md)
 * [Аутентификация в API Yandex Cloud Postbox](../../api-ref/authentication.md)

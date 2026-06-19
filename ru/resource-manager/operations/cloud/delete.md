@@ -79,7 +79,7 @@
 
       После завершения удаления облака, ответ будет содержать поле `done` со значением `true` (`done: true`).
 
-  Подробнее о команде `yc resource-manager cloud delete` см. в [справочнике CLI](../../../cli/cli-ref/resource-manager/cli-ref/cloud/delete.md).
+  Подробнее о команде `yc resource-manager cloud delete` читайте в [справочнике CLI](../../../cli/cli-ref/resource-manager/cli-ref/cloud/delete.md).
 
 - {{ TF }} {#tf}
 
@@ -102,7 +102,7 @@
 
       {% endcut %}
 
-      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/resourcemanager_cloud).
+      Подробнее о параметрах ресурса `yandex_resourcemanager_cloud` в {{ TF }} читайте в [документации провайдера]({{ tf-provider-resources-link }}/resourcemanager_cloud).
 
   1. В командной строке перейдите в папку, где вы отредактировали конфигурационный файл.
   1. Проверьте корректность конфигурационного файла с помощью команды:

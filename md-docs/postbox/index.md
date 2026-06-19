@@ -38,6 +38,8 @@ Cloud Postbox позволяет не тратить бюджет и время 
 
  - [Обзор](concepts/index.md)
 
+ - [DNS-записи](concepts/dns-records.md)
+
  - [Уведомления об операциях с письмами](concepts/notification.md)
 
  - [Отслеживание открытия писем](concepts/mail-opened.md)

@@ -14,7 +14,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder containing an asymmetric encryption key pair.
-   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
    1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
    1. On the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}** tab, click the name of the key pair.
    1. Navigate to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
@@ -106,7 +106,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
        * `role`: [Role](../security/index.md#roles-list) to assign.
        * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-       For more information about `yandex_kms_asymmetric_encryption_key_iam_member` resource properties, see this [provider guide]({{ tf-provider-resources-link }}/kms_asymmetric_encryption_key_iam_member).
+       For more information about the `yandex_kms_asymmetric_encryption_key_iam_member` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/kms_asymmetric_encryption_key_iam_member).
 
    1. Create the resources:
 
@@ -136,8 +136,8 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder containing an asymmetric encryption key pair.
-   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
-   1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+   1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
    1. On the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}** tab, click the name of the key pair.
    1. Navigate to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
    1. Select the group, user, or service account you want to grant access to the key pair.
@@ -213,9 +213,9 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
       ```bash
       yc kms asymmetric-encryption-key set-access-bindings \
         --id <key_pair_ID> \
-        --access-binding role=<role1>,service-account-id=<service_account_ID> \
-        --access-binding role=<role2>,service-account-id=<service_account_ID> \
-        --access-binding role=<role3>,service-account-id=<service_account_ID>
+        --access-binding role=<role_1>,service-account-id=<service_account_ID> \
+        --access-binding role=<role_2>,service-account-id=<service_account_ID> \
+        --access-binding role=<role_3>,service-account-id=<service_account_ID>
       ```
 
 - {{ TF }} {#tf}
@@ -252,7 +252,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
        * `role`: [Role](../security/index.md#roles-list) to assign.
        * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-       For more information about `yandex_kms_asymmetric_encryption_key_iam_member` resource properties, see this [provider guide]({{ tf-provider-resources-link }}/kms_asymmetric_encryption_key_iam_member).
+       For more information about the `yandex_kms_asymmetric_encryption_key_iam_member` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/kms_asymmetric_encryption_key_iam_member).
 
    1. Create the resources:
 

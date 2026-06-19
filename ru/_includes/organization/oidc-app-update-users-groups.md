@@ -103,7 +103,7 @@
       * `application_id` — идентификатор OIDC-приложения.
       * `subject_id` — идентификатор нужного пользователя или группы пользователей.
 
-      Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_oauth_application_assignment` смотрите в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application_assignment).
+      Подробнее о параметрах ресурса `yandex_organizationmanager_idp_application_oauth_application_assignment` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application_assignment).
 
   1. Создайте ресурсы:
 

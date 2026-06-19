@@ -1,6 +1,6 @@
 ---
 title: Step-by-step guides for {{ sws-full-name }}
-description: This page provides a list of step-by-step guides for {{ sws-name }}.
+description: This page features step-by-step guides for {{ sws-name }}.
 ---
 
 # Step-by-step guides for {{ sws-name }}
@@ -67,7 +67,7 @@ description: This page provides a list of step-by-step guides for {{ sws-name }}
 * [{#T}](alerting.md)
 * [{#T}](configure-logging.md)
 * [{#T}](configure-logging-alb.md)
-* [{#T}](waf-migration.md)
+* [{#T}](api-migration.md)
 
 ## Getting additional information {#get-additional-info}
 

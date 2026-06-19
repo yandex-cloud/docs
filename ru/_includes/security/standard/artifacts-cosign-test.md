@@ -12,4 +12,4 @@
 
 С помощью специальной сборки утилиты Cosign сохраняйте созданную [ключевую пару электронной подписи](../../../kms/concepts/asymmetric-signature-key.md) в сервисе [{{ kms-full-name }}](../../../kms/quickstart/index.md), подписывайте файлы и артефакты закрытым ключом этой ключевой пары и проверяйте электронную подпись с помощью ее открытого ключа.
 
-Подробнее в разделе [{#T}](../../../container-registry/tutorials/sign-cr-with-cosign.md).
+Подробнее читайте в разделе [{#T}](../../../container-registry/tutorials/sign-cr-with-cosign.md).

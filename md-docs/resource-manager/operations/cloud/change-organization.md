@@ -14,7 +14,7 @@
 
 {% endnote %}
 
-Чтобы перенести облако в другую организацию, у вас должна быть [роль](../../security/index.md#resource-manager-clouds-owner) `resource-manager.clouds.owner` на переносимое облако и [роль](../../../organization/security/index.md#organization-manager-organizations-owner) `organization-manager.organizations.owner` на организацию, в которую вы это облако собираетесь перенести. Подробнее о назначении ролей см. в разделах [Назначить роль на облако](set-access-bindings.md#access-to-user) и [Назначить роль на организацию](../../../organization/security/index.md#add-role).
+Чтобы перенести облако в другую организацию, у вас должна быть [роль](../../security/index.md#resource-manager-clouds-owner) `resource-manager.clouds.owner` на переносимое облако и [роль](../../../organization/security/index.md#organization-manager-organizations-owner) `organization-manager.organizations.owner` на организацию, в которую вы собираетесь перенести это облако. Подробнее о назначении ролей читайте в разделах [Назначить роль на облако](set-access-bindings.md#access-to-user) и [Назначить роль на организацию](../../../organization/security/index.md#add-role).
 
 {% list tabs group=instructions %}
 

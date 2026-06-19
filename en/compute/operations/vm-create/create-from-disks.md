@@ -19,7 +19,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
 
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../../concepts/image.md).
@@ -159,7 +159,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
        * `name`: Disk name.
        * `type`: Disk [type](../../concepts/disk.md#disks_types).
        * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
-       * `size`: Disk size in GB.
+       * `size`: Disk size, in GB.
        * `image_id`: ID of the [image](../../concepts/image.md) to create the VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
 
          {% include [id-info](../../../_includes/compute/id-info.md) %}

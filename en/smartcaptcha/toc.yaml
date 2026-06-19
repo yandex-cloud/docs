@@ -25,6 +25,8 @@ items:
             href: operations/get-info.md
       - name: Viewing operations on service resources
         href: operations/operation-logs.md
+      - name: Migrating to the new condition format in the API, CLI, and Terraform
+        href: operations/api-migration.md
   - name: Tutorials
     items:
       - name: All tutorials

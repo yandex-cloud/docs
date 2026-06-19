@@ -25,7 +25,7 @@ To get started with {{ certificate-manager-name }}, you need:
     1. Public bucket in Object Storage named exactly as the domain. If you do not have a bucket yet, create one:
 
         1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
-        1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
         1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
         1. Enter exactly the same name for the bucket as the domain name.
         1. Select the `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}` [access](../../storage/concepts/bucket.md#bucket-access) type.
@@ -35,7 +35,7 @@ To get started with {{ certificate-manager-name }}, you need:
     1. Set up [hosting](../../storage/operations/hosting/setup.md) in your bucket:
 
         1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
-        1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
         1. On the ![box](../../_assets/console-icons/box.svg) **{{ ui-key.yacloud.storage.switch_buckets }}** tab, click the bucket with the domain name.
         1. In the left-hand panel, select ![wrench](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
         1. Open the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
@@ -59,7 +59,7 @@ To get started with {{ certificate-manager-name }}, you need:
 - Management console {#console}
 
     1. Navigate to the [management console]({{ link-console-main }}).
-    1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
     1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
     1. In the menu that opens, select **{{ ui-key.yacloud.certificate-manager.action_request }}**.
     1. In the window that opens, enter a name for the certificate.
@@ -79,7 +79,7 @@ To get started with {{ certificate-manager-name }}, you need:
 - Management console {#console}
 
   1. Navigate to the [management console]({{ link-console-main }}).
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Select a certificate in the `Validating` status in the list and click it.
   1. Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**:
       1. Copy the URL from the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}** field:
@@ -96,7 +96,7 @@ To get started with {{ certificate-manager-name }}, you need:
 - Management console {#console}
 
   1. Navigate to the [management console]({{ link-console-main }}).
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. On the ![box](../../_assets/console-icons/box.svg) **{{ ui-key.yacloud.storage.switch_buckets }}** tab, click the bucket with the domain name.
   1. At the top right, click ![folder](../../_assets/console-icons/folder.svg) **{{ ui-key.yacloud.storage.bucket.button_create }}** and create a folder named `.well-known`.
   1. Under `.well-known`, create a folder named `acme-challenge`.
@@ -143,7 +143,7 @@ Certificates are not renewed automatically. Keep track of the lifecycle of your 
 - Management console {#console}
 
     1. Navigate to the [management console]({{ link-console-main }}).
-    1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. On the ![box](../../_assets/console-icons/box.svg) **{{ ui-key.yacloud.storage.switch_buckets }}** tab, click the bucket with the domain name.
     1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
     1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.

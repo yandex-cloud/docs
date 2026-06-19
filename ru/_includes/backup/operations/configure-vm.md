@@ -138,4 +138,4 @@
 
 {% endlist %}
 
-Подробности в разделах [{#T}](../../../compute/operations/vm-control/vm-change-security-groups-set.md) и [{#T}](../../../compute/operations/vm-control/vm-attach-public-ip.md).
+Подробнее в разделах [{#T}](../../../compute/operations/vm-control/vm-change-security-groups-set.md) и [{#T}](../../../compute/operations/vm-control/vm-attach-public-ip.md).

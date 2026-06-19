@@ -102,7 +102,7 @@
 
      {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder` в Terraform, см. в [документации провайдера](../../../terraform/resources/resourcemanager_folder.md).
+     Подробнее о параметрах ресурса `yandex_resourcemanager_folder` в Terraform читайте в [документации провайдера](../../../terraform/resources/resourcemanager_folder.md).
 
   1. Проверьте конфигурацию командой:
      ```

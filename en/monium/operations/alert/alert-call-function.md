@@ -30,9 +30,9 @@ To send POST requests when an alert triggers:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder containing the resources you need to track in {{ monitoring-name }}.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Specify the service account name, e.g., `sa-alert-webhook`.
+  1. Enter a name for the service account, e.g., `sa-alert-webhook`.
   1. Add the `{{ roles-functions-invoker }}` and `{{ roles-functions-viewer }}` roles.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -44,7 +44,7 @@ To send POST requests when an alert triggers:
 
 - Management console {#console}
 
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Name the function, e.g., `alert-webhook`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -124,7 +124,7 @@ To send POST requests when an alert triggers:
 
 - {{ monium-name }} UI {#console}
 
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ monium-name }}** and select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}** on the left.
+  1. Go to **{{ monium-name }}** and select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}** on the left.
   1. At the top right, click **Create** → **Notification channel**.
   1. Enter a name for your notification channel, e.g., `channel-function`.
   1. From the **{{ ui-key.yacloud_monitoring.channel.field_method }}** list, select ![image](../../../_assets/console-icons/code.svg) **{{ sf-name }}**.
@@ -158,8 +158,8 @@ To send POST requests when an alert triggers:
 
 - Management console {#console}
 
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Select `alert-webhook`.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Select the `alert-webhook` function.
   1. Select the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. As input data, enter:
 

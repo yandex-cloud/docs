@@ -27,7 +27,9 @@
 
     - Вручную {#manual}
 
+        
         {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
 
         1. [Создайте кластер-источник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации. Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластеру при его создании.
 
@@ -40,7 +42,10 @@
             * Имя базы данных — `db1`.
             * Имя пользователя — `mmg-user`.
             * В той же зоне доступности, что и кластер-источник.
+            
+            
             * Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к хостам кластера.
+
 
         
         1. Для подключения к кластерам с локальной машины пользователя настройте группы безопасности:
@@ -49,6 +54,7 @@
             * [{{ mmg-name }}](../../storedoc/operations/connect/index.md#configuring-security-groups).
 
 
+    
     - {{ TF }} {#tf}
 
         1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
@@ -69,6 +75,7 @@
             * кластер-приемник {{ mmg-name }};
             * база данных {{ SD }} `db1`;
             * пользователь {{ SD }} `mmg-user` с правами доступа `readWrite` к базе данных `db1`;
+            * эндпоинты для источника и приемника;
             * трансфер.
 
         1. Укажите в файле `data-transfer-mkf-mmg.tf` переменные:
@@ -77,7 +84,7 @@
             * `source_user_password` — пароль пользователя `mkf-user` в кластере-источнике;
             * `target_mg_version` — версия {{ SD }} в кластере-приемнике;
             * `target_user_password` — пароль пользователя `mmg-user` в кластере-приемнике;
-            * `transfer_enabled` — значение `0`, чтобы не создавать трансфер до [создания эндпоинтов вручную](#prepare-transfer).
+            * `transfer_enabled = 0` — отключает создание эндпоинтов и трансфера. Они будут созданы при [подготовке трансфера](#prepare-transfer).
 
         1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
@@ -93,6 +100,7 @@
 
             {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
+    
     {% endlist %}
 
 1. Установите утилиты:
@@ -159,126 +167,124 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [источника `{{ KF }}`](../../data-transfer/operations/endpoint/source/kafka.md):
+{% list tabs group=instructions %}
 
-    **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
+- Вручную {#manual}
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
+  1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [источника {{ KF }}](../../data-transfer/operations/endpoint/source/kafka.md):
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+      **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
+
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
+
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}** — выберите кластер-источник из списка.
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}`.
 
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.user.title }}** — `mkf-user`.
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.password.title }}** — укажите пароль пользователя.
+              * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.user.title }}** — `mkf-user`.
+              * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.password.title }}** — укажите пароль пользователя.
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}** — `sensors`.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}** — `sensors`.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}** — `json`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
 
-                Вставьте схему данных в формате JSON:
+            Вставьте схему данных в формате JSON:
 
-                {% cut "json" %}
+            {% cut "json" %}
 
-                ```json
-                [
-                    {
-                        "name": "device_id",
-                        "type": "utf8",
-                        "key": true
-                    },
-                    {
-                        "name": "datetime",
-                        "type": "utf8"
-                    },
-                    {
-                        "name": "latitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "longitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "altitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "speed",
-                        "type": "double"
-                    },
-                    {
-                        "name": "battery_voltage",
-                        "type": "double"
-                    },
-                    {
-                        "name": "cabin_temperature",
-                        "type": "uint16"
-                    },
-                    {
-                        "name": "fuel_level",
-                        "type": "uint16"
-                    }
-                ]
-                ```
+            ```json
+            [
+              {
+                "name": "device_id",
+                "type": "utf8",
+                "key": true
+              },
+              {
+                "name": "datetime",
+                "type": "utf8"
+              },
+              {
+                "name": "latitude",
+                "type": "double"
+              },
+              {
+                "name": "longitude",
+                "type": "double"
+              },
+              {
+                "name": "altitude",
+                "type": "double"
+              },
+              {
+                "name": "speed",
+                "type": "double"
+              },
+              {
+                "name": "battery_voltage",
+                "type": "double"
+              },
+              {
+                "name": "cabin_temperature",
+                "type": "uint16"
+              },
+              {
+                "name": "fuel_level",
+                "type": "uint16"
+              }
+            ]
+            ```
 
-                {% endcut %}
+            {% endcut %}
 
-1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [приемника `{{ MG }}`](../../data-transfer/operations/endpoint/target/mongodb.md):
+  1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [приемника {{ MG }}](../../data-transfer/operations/endpoint/target/mongodb.md):
 
-    **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.title }}**:
+      **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.title }}**:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.connection.title }}**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.connection.title }}**:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}`.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}`.
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}** — выберите кластер-приемник из списка.
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.auth_source.title }}** — `db1`.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.auth_source.title }}** — `db1`.
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.user.title }}** — `mmg-user`.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.user.title }}** — `mmg-user`.
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.raw_password.title }}** — укажите пароль пользователя.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.raw_password.title }}** — укажите пароль пользователя.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.database.title }}** — `db1`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.database.title }}** — `db1`.
 
-1. Создайте трансфер:
+  1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
+  1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-    {% list tabs group=instructions %}
 
-    - Вручную {#manual}
+- {{ TF }} {#tf}
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
-        1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+  1. Укажите в файле `data-transfer-mkf-mmg.tf` значение параметра `transfer_enabled = 1`.
 
-    - {{ TF }} {#tf}
+  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
-        1. Укажите в файле `data-transfer-mkf-mmg.tf` переменные:
+      ```bash
+      terraform validate
+      ```
 
-            * `source_endpoint_id` — значение идентификатора эндпоинта для источника;
-            * `target_endpoint_id` — значение идентификатора эндпоинта для приемника;
-            * `transfer_enabled` – значение `1` для создания трансфера.
+      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+  1. Создайте необходимую инфраструктуру:
 
-            ```bash
-            terraform validate
-            ```
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+      Будут созданы эндпоинты и трансфер. Трансфер активируется автоматически после создания.
 
-        1. Создайте необходимую инфраструктуру:
+  1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        1. Трансфер активируется автоматически. Дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
-
-    {% endlist %}
+{% endlist %}
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
@@ -318,21 +324,23 @@
 
 {% endnote %}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
-1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
-1. Остальные ресурсы удалите в зависимости от способа их создания:
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-   {% list tabs group=instructions %}
 
-   - Вручную {#manual}
+{% list tabs group=instructions %}
 
-       1. [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
-       1. [Удалите кластер {{ mmg-name }}](../../storedoc/operations/cluster-delete.md).
+- Вручную {#manual}
 
-   - {{ TF }} {#tf}
+  1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
+  1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
+  1. [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+  1. [Удалите кластер {{ mmg-name }}](../../storedoc/operations/cluster-delete.md).
 
-       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
+   
+- {{ TF }} {#tf}
 
-   {% endlist %}
+  {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
+    
+
+{% endlist %}

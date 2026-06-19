@@ -157,7 +157,7 @@ description: Следуя данной инструкции, вы сможете
         * `NONE` — поставщику услуг не будут переданы группы, в которые входит пользователь.
     * `labels` — список [меток](../../../resource-manager/concepts/labels.md). Необязательный параметр.
 
-    Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_oauth_application` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).
+    Подробнее о параметрах ресурса `yandex_organizationmanager_idp_application_oauth_application` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).
 
   1. Примените изменения:
 
@@ -274,7 +274,7 @@ description: Следуя данной инструкции, вы сможете
       * `phone` — номер телефона пользователя.
       * `groups` — группы пользователей в организации.
 
-    Более подробную информацию о параметрах ресурса `yandex_iam_oauth_client` см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_oauth_client).
+    Подробнее о параметрах ресурса `yandex_iam_oauth_client` читайте в [документации провайдера]({{ tf-provider-resources-link }}/iam_oauth_client).
 
   1. Примените изменения:
 
@@ -355,7 +355,7 @@ description: Следуя данной инструкции, вы сможете
 
     * `oauth_client_id` — идентификатор OAuth-клиента, для которого создается новый секрет. Обязательный параметр.
 
-    Более подробную информацию о параметрах ресурса `yandex_iam_oauth_client_secret` см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_oauth_client_secret).
+    Подробнее о параметрах ресурса `yandex_iam_oauth_client_secret` читайте в [документации провайдера]({{ tf-provider-resources-link }}/iam_oauth_client_secret).
 
   1. Примените изменения:
 

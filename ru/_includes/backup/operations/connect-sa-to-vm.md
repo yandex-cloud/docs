@@ -69,4 +69,4 @@
 
 {% endlist %}
 
-Подробности в разделе [{#T}](../../../compute/operations/vm-control/vm-update.md).
+Подробнее в разделе [{#T}](../../../compute/operations/vm-control/vm-update.md).

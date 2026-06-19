@@ -95,7 +95,7 @@ Iteration 0: The term 'acropsh' is not recognized as the name of a cmdlet, funct
 * Операционная система ВМ [поддерживается {{ backup-name }}](../../backup/concepts/vm-connection.md#os).
 * Сервисному аккаунту, привязанному к ВМ, назначена [роль](../../backup/security/index.md#backup-editor) `backup.editor`.
 * Разрешен [сетевой доступ для ВМ](../../backup/concepts/vm-connection.md#vm-network-access).
-* В политиках выполнения PowerShell разрешен запуск скриптов. Если запуск запрещен, разрешите его и перезапустите PowerShell. Подробнее см. в [документации Microsoft](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies).
+* В политиках выполнения PowerShell разрешен запуск скриптов. Если запуск запрещен, разрешите его и перезапустите PowerShell. Подробнее в [документации Microsoft](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies).
 
 
 #### Ошибка авторизации при установке агента {{ backup-name }} на ВМ Linux {#install-auth-error}
@@ -114,7 +114,7 @@ Failed to parse cloudbackup from instance attributes IAM token and instance regi
 
 #### Как обновить агент {{ backup-name }} на ВМ? {#update-backup-agent}
 
-См. инструкцию [Обновить агент {{ backup-name }} на ВМ](../../backup/operations/update-backup-agent.md).
+Используйте инструкцию [Обновить агент {{ backup-name }} на ВМ](../../backup/operations/update-backup-agent.md).
 
 #### Почему после обновления ОС перестало работать резервное копирование? {#kernel-update-consequences}
 
@@ -124,7 +124,7 @@ Failed to parse cloudbackup from instance attributes IAM token and instance regi
 
 #### Создание инкрементальных резервных копий ВМ или сервера {{ baremetal-name }} занимает больше времени, чем обычно {#av-interaction}
 
-На время создания [инкрементальных копий](../../backup/concepts/backup.md#types) в рамках политики с включенной [опцией](../../backup/concepts/policy.md#specification) быстрого резервного копирования `fastBackupEnabled` может влиять работа антивируса. Подробнее см. в [{#T}](../../backup/concepts/av-interaction.md).
+На время создания [инкрементальных копий](../../backup/concepts/backup.md#types) в рамках политики с включенной [опцией](../../backup/concepts/policy.md#specification) быстрого резервного копирования `fastBackupEnabled` может влиять работа антивируса. Подробнее в [{#T}](../../backup/concepts/av-interaction.md).
 
 #### Out-Of-Memory Killer (OOM Killer) в Linux завершает процесс агента {{ backup-name }} {#oom-solution}
 

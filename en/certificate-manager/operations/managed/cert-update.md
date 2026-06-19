@@ -15,7 +15,7 @@ To renew a Let's Encrypt certificate:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder you added the certificate to.
-    1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
     1. Select the certificate in the `Renewing` status that you need to renew.
     1. Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, you will see the details required to pass the domain rights check. For more information, see [{#T}](../../concepts/challenges.md).
     1. As soon as you pass the domain rights check, its status under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** will change to `Valid`.

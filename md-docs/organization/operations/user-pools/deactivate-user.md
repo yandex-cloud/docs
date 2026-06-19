@@ -185,7 +185,7 @@
      * `full_name` — полное имя пользователя.
      * `is_active` — флаг активации. Установите `false` для деактивации пользователя.
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_user` см. в [документации провайдера](../../../terraform/resources/organizationmanager_idp_user.md).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_idp_user` читайте в [документации провайдера](../../../terraform/resources/organizationmanager_idp_user.md).
 
   1. Создайте ресурсы:
 

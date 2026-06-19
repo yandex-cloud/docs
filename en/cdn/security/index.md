@@ -2,7 +2,7 @@
 
 {{ cdn-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access permissions.
 
-In this section, you will learn about the following:
+In this section, you will learn about:
 
 * [Resources you can assign a role for](#resources).
 * [Roles this service has](#roles-list).
@@ -53,7 +53,7 @@ Viewing resource details | `cdn.viewer` for this resource
 **Managing CDN resources** | 
 [Creating a resource](../operations/resources/create-resource.md) | `cdn.editor` for the folder to host new resources
 [Updating basic settings of a resource](../operations/resources/configure-basics.md) | `cdn.editor` for the folder with CDN resources
-[Disabling a resource](../operations/resources/disable-resource.md) | `cdn.editor` for the folder with CDN resources
+[Suspending and resuming a resource](../operations/resources/disable-resource.md) | `cdn.editor` for the folder with CDN resources
 [Configuring resource caching](../operations/resources/configure-caching.md) | `cdn.editor` for the folder with CDN resources
 [Prefetching files to the CDN server cache](../operations/resources/prefetch-files.md) | `cdn.editor` for the folder with CDN resources
 [Purging resource cache](../operations/resources/purge-cache.md) | `cdn.editor` for the folder with CDN resources

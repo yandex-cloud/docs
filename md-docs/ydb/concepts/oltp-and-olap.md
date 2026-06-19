@@ -41,7 +41,7 @@ OLAP-режим доступен в Yandex Managed Service for YDB как для
 {% note warning %}
 
 - В настоящий момент использование бессерверных баз данных `OLAP (Analytics β)` не тарифицируется. Оплачивается только используемый объем хранения данных по тарифам [Serverless Yandex Managed Service for YDB](../pricing/serverless.md#rules-storage).
-- Временное хранилище (спиллинг) в выделенных (dedicated) базах данных тарифицируется отдельно. См. [Правила тарификации для режима Dedicated в Managed Service for YDB](../pricing/dedicated.md).
+- Временное хранилище (спиллинг) в выделенных (dedicated) базах данных тарифицируется отдельно. Смотрите [Правила тарификации для режима Dedicated в Managed Service for YDB](../pricing/dedicated.md).
 - Максимальное количество параллельно выполняемых запросов в выделенных (dedicated) базах данных в режиме OLAP по умолчанию равно 10. Данное ограничение задаётся параметром `CONCURRENT_QUERY_LIMIT` в [пуле ресурсов](https://ydb.tech/docs/ru//concepts/glossary#resource-pool) `olap`. Вы можете изменить его самостоятельно. Об управлении потреблением ресурсов в YDB читайте в [документации](https://ydb.tech/docs/ru//dev/resource-consumption-management).
 
 {% endnote %}

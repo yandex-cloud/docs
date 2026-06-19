@@ -43,7 +43,7 @@ _Профиль {{ oslogin }}_ определяет параметры, кото
 
 {% endnote %}
 
-У одного пользователя или сервисного аккаунта в организации {{ org-full-name }} может быть несколько профилей {{ oslogin }} — разные профили позволяют подключаться к ВМ от имени разных локальных пользователей ВМ. Подробнее о создании дополнительных профилей {{ oslogin }} см. в инструкции [{#T}](../operations/os-login-profile-create.md).
+У одного пользователя или сервисного аккаунта в организации {{ org-full-name }} может быть несколько профилей {{ oslogin }} — разные профили позволяют подключаться к ВМ от имени разных локальных пользователей ВМ. Подробнее о создании дополнительных профилей {{ oslogin }} читайте в инструкции [{#T}](../operations/os-login-profile-create.md).
 
 Каждому профилю {{ oslogin }} присваивается числовой идентификатор UID, который соответствует идентификатору [UID](https://ru.wikipedia.org/wiki/Идентификатор_пользователя) пользователя в операционных системах виртуальных машин. UID профиля {{ oslogin }} должен быть уникальным в пределах как [организации](./organization.md), так и операционной системы виртуальной машины.
 
@@ -121,7 +121,7 @@ ssh -i ~/Downloads/cert/yc-organization-id-bpfdp4pdeg8d********-username usernam
 
 Подключиться к виртуальной машине с включенным доступом по {{ oslogin }} с помощью {{ yandex-cloud }} CLI можно как по SSH-ключу, [сохраненному](../../organization/operations/add-ssh.md) в профиле {{ oslogin }} пользователя или сервисного аккаунта, так и по SSH-сертификату этого пользователя или сервисного аккаунта.
 
-Подробнее о подключении к ВМ по {{ oslogin }} см. в инструкциях [{#T}](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli), [Подключиться к узлу {{ k8s }} по {{ oslogin }}](../../managed-kubernetes/operations/node-connect-oslogin.md#connect-via-cli) и [Подключение к кластеру {{ dataproc-name }}](../../data-proc/operations/connect-oslogin.md#os-login-cli).
+Подробнее о подключении к ВМ по {{ oslogin }} читайте в инструкциях [{#T}](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli), [Подключиться к узлу {{ k8s }} по {{ oslogin }}](../../managed-kubernetes/operations/node-connect-oslogin.md#connect-via-cli) и [Подключение к кластеру {{ dataproc-name }}](../../data-proc/operations/connect-oslogin.md#os-login-cli).
 
 ### Необходимые роли для подключения к ВМ по {{ oslogin }} {#necessary-roles}
 

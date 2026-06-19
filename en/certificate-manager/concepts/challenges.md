@@ -32,8 +32,8 @@ You cannot use the `HTTP` check type for [Wildcard certificates](https://en.wiki
 
 To check the rights for the `example.com` domain:
 
-1. In the [management console]({{ link-console-main }}), select the folder the certificate was added to.
-1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** and click the certificate name.
+1. In the [management console]({{ link-console-main }}), select the folder you added the certificate to.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** and click the certificate name.
 1. Prepare a file that will allow the Let's Encrypt certificate authority (CA) to verify your ownership of the domain specified in the certificate:
 
     1. Use your hosting control panel to create a file on the server with the name and path matching the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}** field value under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**. For example:
@@ -69,8 +69,8 @@ Using a CNAME record enables you to undergo a check only once. To do this, you n
 ### Adding a CNAME record {#cname}
 
 To automatically check the rights for the `example.com` domain:
-1. In the [management console]({{ link-console-main }}), select the folder the certificate was added to.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+1. In the [management console]({{ link-console-main }}), select the folder you added the certificate to.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
 1. In the certificate list, select the certificate to check.
 1. Further steps to follow will depend on whether your domain is managed by {{ dns-full-name }} or a third-party DNS provider.
 
@@ -82,8 +82,8 @@ To automatically check the rights for the `example.com` domain:
 ### Adding a TXT record {#txt}
 
 To check rights for the `example.com` domain, follow these steps:
-1. In the [management console]({{ link-console-main }}), select the folder the certificate was added to.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+1. In the [management console]({{ link-console-main }}), select the folder you added the certificate to.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
 1. In the certificate list, select the certificate to check.
 1. Further steps to follow will depend on whether your domain is managed by {{ dns-full-name }} or a third-party DNS provider.
 
@@ -91,9 +91,9 @@ To check rights for the `example.com` domain, follow these steps:
 
     - {{ dns-full-name }} {#dns}
 
-      Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, in the `TXT` record type section, click **{{ ui-key.yacloud.dns.button_record-set-create }}** in the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_dns-record-set }}** field. In the window that opens, do the following:
+      Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, in the `TXT` record type section, click **{{ ui-key.yacloud.dns.button_record-set-create }}** in the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_dns-record-set }}** field. In the window that opens:
 
-      1. If the current folder contains an appropriate DNS zone, it will be automatically inserted into the **{{ ui-key.yacloud.dns.label_zone }}** field. If there is no appropriate DNS zone, click **{{ ui-key.yacloud.dns.button_zone-create }}** and set its parameters to [create](../../dns/operations/zone-create-public.md) a new zone.
+      1. If the current folder contains an appropriate DNS zone, it will be automatically inserted into the **{{ ui-key.yacloud.dns.label_zone }}** field. If there is no such DNS zone, click **{{ ui-key.yacloud.dns.button_zone-create }}** and set its parameters to [create](../../dns/operations/zone-create-public.md) a new zone.
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
     - Third-party DNS provider {#third-party-dns-server}

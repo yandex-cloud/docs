@@ -10,7 +10,7 @@ description: Follow this guide to update a push notification channel.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder containing the notification channel.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the push notification channel and select **{{ ui-key.yacloud.common.edit }}**.
   1. On the **{{ ui-key.yacloud.cns.type_mobile }}** tab, edit the authentication parameters for your platform:
 
@@ -27,7 +27,7 @@ description: Follow this guide to update a push notification channel.
       ```bash
       aws sns set-platform-application-attributes \
         --platform-application-arn <notification_channel_ARN> \
-        --attributes <parameter1>=<new_value1>, ... <parameterN>=<new_valueN>
+        --attributes <parameter_1>=<new_value1>, ... <parameterN>=<new_valueN>
       ```
 
       Where:
@@ -46,7 +46,7 @@ description: Follow this guide to update a push notification channel.
       response = client.set_platform_application_attributes(
           PlatformApplicationArn="<notification_channel_ARN>",
           Attributes={
-              "<parameter1>": "<new_value1>",
+              "<parameter_1>": "<new_value1>",
               ...
               "<parameterN>": "<new_valueN>"
           }
@@ -68,7 +68,7 @@ description: Follow this guide to update a push notification channel.
       $response = $client->setPlatformApplicationAttributes([
           'PlatformApplicationArn' => '<notification_channel_ARN>',
           'Attributes' => [
-              '<parameter1>' => '<new_value1>',
+              '<parameter_1>' => '<new_value1>',
               ...
               '<parameterN>' => '<new_valueN>'
           ],

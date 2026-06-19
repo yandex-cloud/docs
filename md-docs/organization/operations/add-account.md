@@ -196,7 +196,7 @@
       * `federation_id` — идентификатор федерации для добавления пользователя.
       * `name_id` — Name ID пользователя.
 
-      Более подробную информацию о параметрах ресурса `yandex_organizationmanager_saml_federation_user_account` смотрите в [документации провайдера](../../terraform/resources/organizationmanager_saml_federation_user_account.md).
+      Подробнее о параметрах ресурса `yandex_organizationmanager_saml_federation_user_account` читайте в [документации провайдера](../../terraform/resources/organizationmanager_saml_federation_user_account.md).
 
   1. Создайте ресурсы:
 
@@ -377,7 +377,7 @@
      * `password` — пароль пользователя. Необязательный параметр. Если пароль не задан, он сгенерируется автоматически. Пользователь должен будет изменить этот пароль при первом входе в Yandex Cloud.
      * `is_active` — признак активации пользователя. Установите `true`, чтобы активировать пользователя.
  
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_user` смотрите в [документации провайдера](../../terraform/resources/organizationmanager_idp_user.md).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_idp_user` читайте в [документации провайдера](../../terraform/resources/organizationmanager_idp_user.md).
  
   1. Создайте ресурсы:
  

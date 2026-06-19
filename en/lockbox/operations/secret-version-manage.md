@@ -22,7 +22,7 @@ With secret version management, you can:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Click the name of the secret you need.
     1. Under **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-versions-section }}**, click **{{ ui-key.yacloud.lockbox.SecretOverviewPage.button_add-version }}**.
     1. Add the following parameters:
@@ -87,7 +87,7 @@ With secret version management, you can:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Click the name of the secret you need.
     1. Under **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-versions-section }}**, click **{{ ui-key.yacloud.lockbox.SecretOverviewPage.button_add-version }}**.
     1. (Optional) Add **{{ ui-key.yacloud.common.description }}** of the version.
@@ -140,7 +140,7 @@ With secret version management, you can:
          * `include_digits`: Use numbers (0...9). The default value is `true`.
          * `include_punctuation`: Use special characters. The default value is `true`.
 
-       For more information about the `yandex_lockbox_secret` settings, see [this {{ TF }} guide]({{ tf-provider-resources-link }}/lockbox_secret).
+       For more information about `yandex_lockbox_secret` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lockbox_secret).
 
     1. Apply the changes:
 
@@ -197,7 +197,7 @@ With secret version management, you can:
        * `key`: Secret key. Non-secret name you will use to identify a value.
        * `path`: Path to the secret generation script.
 
-       For more information about the `yandex_lockbox_secret_version` settings, see [this {{ TF }} guide]({{ tf-provider-resources-link }}/lockbox_secret_version).
+       For more information about `yandex_lockbox_secret_version` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lockbox_secret_version).
 
     1. Apply the changes:
 
@@ -218,7 +218,7 @@ With secret version management, you can:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Click the name of the secret you need.
     1. Under **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-versions-section }}**, you will see a list of all secret versions with information about them.
     1. Click a version to see the details about its key-value pairs.
@@ -255,7 +255,7 @@ With secret version management, you can:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Click the name of the secret you need.
     1. Under **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-versions-section }}**, next to the appropriate version, click ![image](../../_assets/console-icons/ellipsis.svg).
     1. Select **{{ ui-key.yacloud.lockbox.VersionsTable.button_action-open-version-add-dialog }}**.
@@ -318,10 +318,10 @@ With secret version management, you can:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Click the name of the secret you need.
     1. Under **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-versions-section }}**, next to the appropriate version, click ![image](../../_assets/console-icons/ellipsis.svg).
-    1. ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.lockbox.VersionsTable.button_action-make-version-current }}**.
+    1. Select ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.lockbox.VersionsTable.button_action-make-version-current }}**.
 
 - API {#api}
 
@@ -336,7 +336,7 @@ With secret version management, you can:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Click the name of the secret you need.
     1. Under **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-versions-section }}**, next to the appropriate version, click ![image](../../_assets/console-icons/ellipsis.svg).
     1. Select ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.lockbox.VersionsTable.button_action-schedule-for-destruction }}**.

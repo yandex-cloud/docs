@@ -23,7 +23,7 @@ When using {{ monium-name }} services, you pay for the following:
 * Writing data to {{ monium-logs-name }}.
 * Writing data to {{ traces-name }}.
 * Outgoing SMS and phone calls.
-* [Alert calculations](#calc-alert-prices).
+* [Calculating alerts](#calc-alert-prices).
 
 There is no charge for writing {{ yandex-cloud }} resource metrics, reading metrics via the {{ prometheus-name }} Remote API, or reading logs and traces.
 
@@ -75,15 +75,15 @@ The minimum billing unit is one metric value. Billing for logs and traces is bas
 
 
 
-### Pricing for alert calculations {#calc-alert-prices}
+### Alert calculation pricing {#calc-alert-prices}
 
 {% note warning %}
 
-These prices will take effect on June 18, 2026.
+Alert calculation prices apply starting June 18, 2026.
 
 {% endnote %}
 
-Prices are shown per 1000 alert or sub-alert operating hours (alert-hours). An alert is billed for as long as it exists in the system and its conditions are being evaluated.
+The prices below are per 1,000 hours of alert or sub-alert operation (alert hours). An alert remains billable for as long as it exists in the system and its conditions are evaluated.
 
 
 

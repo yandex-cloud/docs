@@ -52,9 +52,9 @@ To delete a template with the `Active` status, you must first [deregister](../op
 
 An SMS template text may contain letters, digits, and special characters^1^. The template text must not:
 
-* Contain any non-standard spaces (e.g., non-breaking spaces).
-* Start or end with a space.
-* Include two or more consecutive spaces.
+* Contain any non-standard spaces (e.g., non-breaking spaces)
+* Start or end with a space
+* Include two or more consecutive spaces
 * Include special characters beyond those allowed in placeholder elements^1^.
 
 The template may include the following placeholder variables:
@@ -98,7 +98,7 @@ The `%w+` variable is not allowed.
 
 {% cut "SMS template examples" %}
 
-**Transaction template**:
+**Transaction template:**
 
 ```
 Operation: withdrawal of %d RUB. Card *%d. Balance: %d RUB. %w
@@ -110,7 +110,7 @@ SMS notification example:
 Operation: withdrawal of 1500 RUB. Card *4321. Balance: 8500 RUB. Store
 ```
 
-**Service template**:
+**Service template:**
 
 ```
 Dear customer! On %d from %d to %d, maintenance work will be performed. The %w service will be unavailable.
@@ -122,7 +122,7 @@ SMS notification example:
 Dear customer! On 20/03/2026 from 02:00 to 06:00, maintenance work will be performed. The internet banking service will be unavailable.
 ```
 
-**Authentication template**:
+**Authentication template:**
 
 ```
 Verification code: %d. Do not share this code with anyone.

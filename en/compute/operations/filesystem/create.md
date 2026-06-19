@@ -13,7 +13,7 @@ To create a [file storage](../../concepts/filesystem.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a file storage.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}**.
   1. Click **{{ ui-key.yacloud.compute.nfs.button_create-filesystem }}**.
   1. Enter a name for the file storage.
@@ -57,7 +57,7 @@ To create a [file storage](../../concepts/filesystem.md):
       ```
 
       Where:
-      * `--name`: File storage name. Follow these naming requirements:
+      * `--name`: File storage name. The naming requirements are as follows:
 
         {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -93,7 +93,7 @@ To create a [file storage](../../concepts/filesystem.md):
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the properties of resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      provider "yandex" {
@@ -119,7 +119,7 @@ To create a [file storage](../../concepts/filesystem.md):
      * `size`: File storage size in GB. This is an optional setting. The default value is 150 GB.
      * `labels`: Resource [label](../../../resource-manager/concepts/labels.md) in `<key> = "<value>"` format. This is an optional setting.
 
-      For more information about the `yandex_compute_filesystem` settings, see [this {{ TF }} guide]({{ tf-provider-resources-link }}/compute_filesystem).
+      For more information about `yandex_compute_filesystem` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/compute_filesystem).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

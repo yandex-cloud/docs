@@ -53,7 +53,7 @@ description: Следуя данной инструкции, вы сможете
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_userpool` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_idp_userpool` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
 
   1. Примените изменения:
 

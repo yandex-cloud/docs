@@ -197,7 +197,7 @@
        * `group_distribution_type` — тип распределения групп.
      * `labels` — список [меток](../../../resource-manager/concepts/labels.md).
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_oauth_application` см. в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_oauth_application.md).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_idp_application_oauth_application` читайте в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_oauth_application.md).
 
   1. Примените изменения:
 
