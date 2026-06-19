@@ -10,7 +10,7 @@ While your instance is idle, you only pay for the stored instance data and the s
 
 - Management console {#console}
 
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Find the instance in the list, click ![options](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.stop }}**.
   1. In the dialog box that opens, confirm that you want to stop the instance by clicking **{{ ui-key.yacloud.common.stop }}**.
 
@@ -26,7 +26,7 @@ While your instance is idle, you only pay for the stored instance data and the s
   {{ yc-gl }} instance stop <instance_name_or_ID>
   ```
 
-  You can [request](instance-list.md#list) the instance ID or name with the list of instances in the folder.
+  You can [get](instance-list.md#list) the instance ID or name with the list of instances in the folder.
 
   Result:
 
@@ -41,7 +41,7 @@ While your instance is idle, you only pay for the stored instance data and the s
   disk_size: "32212254720"
   status: STOPPED
   admin_login: <admin_login>
-  admin_email: <email>
+  admin_email: <email_address>
   domain: example.gitlab.yandexcloud.net
   subnet_id: e9bp8qmchqh2********
   backup_retain_period_days: "7"
@@ -65,7 +65,7 @@ You can restart **Stopped** instances.
 
 - Management console {#console}
 
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Find the stopped instance in the list, click ![options](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.start }}**.
   1. In the dialog box that opens, confirm that you want to start the instance by clicking **{{ ui-key.yacloud.common.start }}**.
 
@@ -81,7 +81,7 @@ You can restart **Stopped** instances.
   {{ yc-gl }} instance start <instance_name_or_ID>
   ```
 
-  You can [request](instance-list.md#list) the instance ID or name with the list of instances in the folder.
+  You can [get](instance-list.md#list) the instance ID or name with the list of instances in the folder.
 
   Result:
 
@@ -96,7 +96,7 @@ You can restart **Stopped** instances.
   disk_size: "32212254720"
   status: RUNNING
   admin_login: <admin_login>
-  admin_email: <email>
+  admin_email: <email_address>
   domain: example.gitlab.yandexcloud.net
   subnet_id: e9bp8qmchqh2********
   backup_retain_period_days: "7"

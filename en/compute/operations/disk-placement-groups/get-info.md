@@ -11,7 +11,7 @@ description: Follow this guide to get information about a disk placement group.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your [disk placement group](../../concepts/disk-placement-group.md).
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. Navigate to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab.
   1. Select the disk placement group.
@@ -74,13 +74,13 @@ description: Follow this guide to get information about a disk placement group.
       * `output "placement_group"`: Output variable that contains information about the disk placement group:
         * `value`: Return value.
 
-      You can replace `name` with any other parameter to get the information you need. For more information about the `yandex_compute_disk_placement_group` data source variables, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_disk_placement_group).
+      You can replace `name` with any other parameter to get the information you need. For more information about the `yandex_compute_disk_placement_group` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_disk_placement_group).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+      {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

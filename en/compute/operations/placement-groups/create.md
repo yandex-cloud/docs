@@ -9,11 +9,11 @@ Create a [placement group](../../concepts/placement-groups.md).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your placement group in.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. Navigate to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab.
   1. In the top-right corner, click **{{ ui-key.yacloud.compute.placement-groups.button_create }}** and select **{{ ui-key.yacloud.compute.placement-groups.button_menu-create-instance-placement-group }}**.
-  1. Enter a name for the placement group. Follow these naming requirements:
+  1. Enter a name for the placement group. The naming requirements are as follows:
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -59,14 +59,14 @@ Create a [placement group](../../concepts/placement-groups.md).
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   1. In the configuration file, define the placement group parameters:
-     * `name`: Placement group name. Follow these naming requirements:
+     * `name`: Placement group name. The name format is as follows:
 
        {% include [name-format](../../../_includes/name-format.md) %}
 
      * `folder_id`: ID of the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create a placement group in.
      * `description`: Placement group description.
 
-     Here is the configuration file example:
+     Here is an example of the configuration file structure:
 
      ```hcl
      resource "yandex_compute_placement_group" "group1" {
@@ -84,7 +84,7 @@ Create a [placement group](../../concepts/placement-groups.md).
      terraform validate
      ```
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```text
      Success! The configuration is valid.
@@ -96,8 +96,8 @@ Create a [placement group](../../concepts/placement-groups.md).
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
-  1. Apply the changes:
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
      ```bash
      terraform apply

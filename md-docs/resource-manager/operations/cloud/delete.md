@@ -91,7 +91,7 @@
 
       После завершения удаления облака, ответ будет содержать поле `done` со значением `true` (`done: true`).
 
-  Подробнее о команде `yc resource-manager cloud delete` см. в [справочнике CLI](../../../cli/cli-ref/resource-manager/cli-ref/cloud/delete.md).
+  Подробнее о команде `yc resource-manager cloud delete` читайте в [справочнике CLI](../../../cli/cli-ref/resource-manager/cli-ref/cloud/delete.md).
 
 - Terraform {#tf}
 
@@ -117,7 +117,7 @@
 
       {% endcut %}
 
-      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud` в Terraform, см. в [документации провайдера](../../../terraform/resources/resourcemanager_cloud.md).
+      Подробнее о параметрах ресурса `yandex_resourcemanager_cloud` в Terraform читайте в [документации провайдера](../../../terraform/resources/resourcemanager_cloud.md).
 
   1. В командной строке перейдите в папку, где вы отредактировали конфигурационный файл.
   1. Проверьте корректность конфигурационного файла с помощью команды:

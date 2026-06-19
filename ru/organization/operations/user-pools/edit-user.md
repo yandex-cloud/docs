@@ -93,7 +93,7 @@ description: Следуя данной инструкции, вы сможете
      * `email` — новая электронная почта пользователя.
      * `phone_number` — новый номер телефона пользователя.
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_user` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_idp_user` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
 
   1. Примените изменения:
 

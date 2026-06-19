@@ -78,11 +78,11 @@ You can increase this quota only upon agreement with your account manager.
 
 #|
 || Type of limit | Value ||
-|| Total number of [file storages](../compute/concepts/filesystem.md) per cloud^1^ 
+|| Total number of [file storages](../compute/concepts/filesystem.md) per cloud 
 `compute.filesystems.count` | 100 ||
-|| Total [HDD](../compute/concepts/filesystem.md#types) file storage size per cloud^1^ 
+|| Total [HDD](../compute/concepts/filesystem.md#types) file storage size per cloud 
 `compute.hddFilesystems.size` | 512 GB ||
-|| Total SSD file storage size per cloud^1^ 
+|| Total SSD file storage size per cloud
 `compute.ssdFilesystems.size` | 512 GB ||
 |#
 
@@ -139,7 +139,7 @@ When deploying optimized images, the quotas for the number of images per cloud a
 `compute.reservedInstancePools.count` | 1 ||
 |#
 
-^1^ To increase [quotas]({{ link-console-quotas }}) for file storages, deployment-optimized images, dedicated hosts, or reserved instance pools, contact [support]({{ link-console-support }}).
+^1^ To increase [quotas]({{ link-console-quotas }}) for deployment-optimized images, dedicated hosts, or reserved instance pools, contact [support]({{ link-console-support }}).
 
 ## Limits {#compute-limits}
 

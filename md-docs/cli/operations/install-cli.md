@@ -359,7 +359,7 @@
 Для дальнейшей работы с CLI [создайте профиль](profile/profile-create.md).
 
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создание профиля](profile/profile-create.md)
 * [Обновление CLI](update-cli.md)

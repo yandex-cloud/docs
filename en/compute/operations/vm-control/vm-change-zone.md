@@ -189,7 +189,7 @@ The time it takes to move a VM to a different availability zone depends on the s
 
       * `--boot-disk-placement-group-id`: Disk placement group ID.
       * `--boot-disk-placement-group-partition`: Partition number in the disk placement group with the [partition placement](../../concepts/disk-placement-group.md#partition) strategy.
-      * `--secondary-disk-placement`: Placement policy for secondary disks. Parameters:
+      * `--secondary-disk-placement`: Placement policy for secondary disks. Settings:
 
         * `disk-name`: Disk name.
         * `disk-placement-group-id`: ID of the disk placement group to place the disk in.

@@ -10,7 +10,7 @@ description: In this tutorial, you will learn how to create a custom template fo
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create the template.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select **Response templates** and click **Create template**.
   1. Enter the **Page name**, which is the name of the file returned in response to the client request.
 

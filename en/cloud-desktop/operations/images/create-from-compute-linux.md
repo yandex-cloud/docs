@@ -100,7 +100,7 @@ To add a custom Linux image to {{ cloud-desktop-name }}:
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), navigate to the folder containing the VM.
-      1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. Next to your instance, click ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.stop }}**.
       1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
       1. In the line with the instance boot disk, click ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.compute.disks.button_action-image }}**.
@@ -116,7 +116,7 @@ To add a custom Linux image to {{ cloud-desktop-name }}:
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder that contains the VM and a desktop will be created in. 
-      1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
       1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.vdi.label_desktop-images }}**.
       1. Click **{{ ui-key.yacloud.vdi.button_add-image }}**.
       1. In the **{{ ui-key.yacloud.vdi.label_image-source }}** field, select `{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}`.

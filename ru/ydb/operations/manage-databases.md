@@ -30,7 +30,7 @@
       - `OLTP`;
       - `OLAP (Analytics β)`.
 
-  1. Вам будут предложены значения по умолчанию. Они подобраны таким образом, чтобы вы могли эффективно начать работу. Вы можете изменить их сейчас или в будущем, если потребуется. Подробнее о настройках БД [см. раздел Режимы работы Serverless и Dedicated](../concepts/serverless-and-dedicated.md).
+  1. Вам будут предложены значения по умолчанию. Они подобраны таким образом, чтобы вы могли эффективно начать работу. Вы можете изменить их сейчас или в будущем, если потребуется. Подробнее о настройках БД смотрите раздел [Режимы работы Serverless и Dedicated](../concepts/serverless-and-dedicated.md).
   1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
    Дождитесь, когда статус БД изменится на `Running`.
@@ -78,7 +78,7 @@
       monitoring_config: {}
       ```
 
-  Все параметры можно будет [изменить](#update-db-serverles) в дальнейшем командой `update` {{ yandex-cloud }} CLI или в консоли управления. Подробнее см. в разделе [{#T}](../concepts/serverless-and-dedicated.md#serverless-options).
+  Все параметры можно будет [изменить](#update-db-serverles) в дальнейшем командой `update` {{ yandex-cloud }} CLI или в консоли управления. Подробнее в разделе [{#T}](../concepts/serverless-and-dedicated.md#serverless-options).
 
   Любая создаваемая Serverless БД является георезервированной в трех [зонах доступности](../../overview/concepts/geo-scope.md).
 

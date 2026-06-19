@@ -15,9 +15,17 @@ If you have [deleted](delete-vm.md) a VM from {{ backup-name }} and want to reco
 
 {% endnote %}
 
-After [restoring a VM from a backup of another VM](./backup-vm/non-native-recovery.md), the source VM the backup was created from becomes outdated.
+{% note warning %}
 
-To avoid conflicts between the two VMs when making backups, update the outdated VM's connection to {{ backup-name }}:
+{% include [old-backup](../../_includes/backup/old-backups.md) %}
+
+{% endnote %}
+
+After you [restore one VM from a backup of another one](./backup-vm/non-native-recovery.md), the source VM the backup was created from becomes outdated. To avoid conflicts between the two VMs during backup, reconnect the outdated VM to {{ backup-name }}.
+
+Reconnecting can also help when the [{{ backup-name }} agent](../concepts/agent.md) stops working and goes offline.
+
+To reconnect a VM to {{ backup-name }}:
 
 1. Reconnect to {{ backup-name }} from the outdated VM:
 
@@ -35,16 +43,16 @@ To avoid conflicts between the two VMs when making backups, update the outdated 
           {% endnote %}
 
           ```bash
-          sudo apt install jq
-          sudo apt install gawk
-          sudo apt install curl
-          sudo apt install uuid-dev
+          sudo apt install jq -y
+          sudo apt install gawk -y
+          sudo apt install curl -y
+          sudo apt install uuid-dev -y
           ```
 
-          If you use the Astra Linux distribution, you also need to install the uuid-runtime package:
+          For some distributions, you may also need to install the `uuid-runtime` package:
 
           ```bash
-          sudo apt install uuid-runtime
+          sudo apt install uuid-runtime -y
           ```
 
       1. Run this command:
@@ -92,7 +100,7 @@ To avoid conflicts between the two VMs when making backups, update the outdated 
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where {{ backup-name }} is connected.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
       1. On ![machines](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_instances }}** tab, check that the outdated VM is not listed with the ![irrelevant](../../_assets/console-icons/circle-info-fill.svg) label.
 
           If the VM is still there, click ![image](../../_assets/console-icons/ellipsis.svg), select **{{ ui-key.yacloud.common.delete }}** and confirm deletion.

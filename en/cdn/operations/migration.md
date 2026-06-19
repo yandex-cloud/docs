@@ -22,7 +22,7 @@ To start using your migrated CDN resources and origin groups:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) housing your CDN resource from the EdgeCDN provider.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. In the list of resources, find your migrated CDN resource. Make sure its provider is `{{ cdn-full-name }}` and its primary domain name is the same as in EdgeCDN. 
   1. If the **Status** column of the migrated CDN resource says `Not active`, enable access to the content:
       1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the resource and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
@@ -104,7 +104,7 @@ To check whether your resource works properly:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the CDN resource was created.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Select the CDN resource you previously created.
   1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.
 

@@ -86,7 +86,7 @@
           * `internal_group_id` — имя группы {{ org-full-name }}.
           * `external_group_id` — имя группы поставщика удостоверений.
 
-          Более подробную информацию о параметрах ресурса `yandex_organizationmanager_group_mapping_item` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item).
+          Подробнее о параметрах ресурса `yandex_organizationmanager_group_mapping_item` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item).
       1. Создайте ресурсы:
 
           {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

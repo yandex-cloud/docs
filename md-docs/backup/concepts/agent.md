@@ -3,7 +3,7 @@
 
 Агент Cloud Backup обеспечивает взаимодействие защищаемых ресурсов с сервисом и провайдером резервного копирования. Он устанавливается на виртуальные машины в [Yandex Compute Cloud](../../compute/index.md) или на серверы [Yandex BareMetal](../../baremetal/index.md).
 
-Подробнее о провайдере резервного копирования и передаваемых ему данных см. в [Активация сервиса и провайдер резервного копирования](index.md#providers).
+Подробнее о провайдере резервного копирования и передаваемых ему данных в разделе [Активация сервиса и провайдер резервного копирования](index.md#providers).
 
 Агент Cloud Backup выполняет на защищаемом ресурсе следующие действия:
 
@@ -21,7 +21,7 @@
 
 Вы можете установить агент Cloud Backup на ВМ [вручную](vm-connection.md#self-install) или создать ВМ из [образов](vm-connection.md#os) Yandex Cloud Marketplace с предустановленным агентом Cloud Backup.
 
-Серверы BareMetal поддерживают только ручную установку агента Cloud Backup. Подробнее см. раздел [Подключить сервер BareMetal к Cloud Backup](../operations/backup-baremetal/backup-baremetal.md).
+Серверы BareMetal поддерживают только ручную установку агента Cloud Backup. Подробнее в разделе [Подключить сервер BareMetal к Cloud Backup](../operations/backup-baremetal/backup-baremetal.md).
 
 
 ## Примеры использования {#examples}

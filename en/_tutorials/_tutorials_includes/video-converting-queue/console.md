@@ -18,7 +18,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% include [paid-resources](paid-resources.md) %}
 
 
-## Create resources {#create-resources}
+## Set up resources {#create-resources}
 
 1. Clone the [repository](https://github.com/yandex-cloud-examples/yc-serverless-video-gif-converter) with configuration files:
 
@@ -26,7 +26,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    git clone https://github.com/yandex-cloud-examples/yc-serverless-video-gif-converter.git
    ```
 
-1. [Create](../../../iam/operations/sa/create.md) a service account named `ffmpeg-sa` and [assign](../../../iam/operations/sa/assign-role-for-sa.md) it the following roles:
+1. [Create](../../../iam/operations/sa/create.md) a service account named `ffmpeg-sa` and [assign](../../../iam/operations/sa/assign-role-for-sa.md) the following roles to it:
 
    * `ymq.reader`
    * `ymq.writer`
@@ -80,7 +80,7 @@ The function implements an API which you can use to perform the following action
         ```
 
      1. Create a file named `index.py` and paste into it the contents of the `ffmpeg-api.py` file from the `ffmpeg-api.zip` archive.
-     1. Specify the following parameters:
+     1. Specify the following settings:
 
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python312`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handle_api`.
@@ -91,7 +91,7 @@ The function implements an API which you can use to perform the following action
 
         * `DOCAPI_ENDPOINT`: **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** from the database configuration.
         * `SECRET_ID`: {{ lockbox-name }} secret **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-id }}**.
-        * `YMQ_QUEUE_URL`: **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** of the {{ message-queue-name }}-enabled queue.
+        * `YMQ_QUEUE_URL`: {{ message-queue-name }} **{{ ui-key.yacloud.ymq.queue.overview.label_url }}**.
 
 {% endlist %}
 
@@ -100,16 +100,16 @@ The function implements an API which you can use to perform the following action
 
 A converter function is run by a trigger. It processes videos and registers the result in the `tasks` table.
 
-Video conversion is based on the FFmpeg utility. The FFmpeg executable is larger than 70 MB. To upload it along with the function code, create a ZIP archive and upload it via {{ objstorage-name }}. Learn more about [code upload formats](../../../functions/concepts/function.md).
+The video is converted using FFmpeg. The FFmpeg executable is larger than 70 MB. To upload it along with the function code, create a ZIP archive and upload it through {{ objstorage-name }}. Learn more about [code upload formats](../../../functions/concepts/function.md).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. [Create](../../../functions/operations/function/function-create.md) a function named `ffmpeg-converter`.
-  1. Create an `src.zip` archive with the following files:
+  1. Create an archive named `src.zip` with the following files:
 
-     * `requirements.txt` file:
+     * `requirements.txt`:
 
        ```text
        boto3
@@ -118,16 +118,16 @@ Video conversion is based on the FFmpeg utility. The FFmpeg executable is larger
        ```
       
      * The `index.py` file with the contents of the `ffmpeg-converter.py` file from the `src.zip` archive.
-     * The FFmpeg executable. On [FFmpeg's official website](http://ffmpeg.org/download.html), navigate to the **Linux Static Builds** section, download the 64-bit FFmpeg archive, and make the file executable by running the `chmod +x ffmpeg` command.
+     * FFmpeg executable. On [FFmpeg's official website](http://ffmpeg.org/download.html), navigate to the **Linux Static Builds** section, download the 64-bit FFmpeg archive, and make the file executable by running the `chmod +x ffmpeg` command.
 
   1. [Upload](../../../storage/operations/objects/upload.md) `src.zip` to the bucket you created earlier.
   1. [Create](../../../functions/operations/function/version-manage.md) a function version:
 
-     1. Specify the following parameters:
+     1. Specify the following settings:
 
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python312`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-storage }}` upload method.
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_bucket }}**: Name of the bucket you created earlier.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_bucket }}**: Name of the bucket.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_object }}**: `src.zip`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handle_process_event`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `600`.
@@ -138,7 +138,7 @@ Video conversion is based on the FFmpeg utility. The FFmpeg executable is larger
 
         * `DOCAPI_ENDPOINT`: **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** from the database configuration.
         * `SECRET_ID`: {{ lockbox-name }} secret **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-id }}**.
-        * `YMQ_QUEUE_URL`: **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** of the {{ message-queue-name }}-enabled queue.
+        * `YMQ_QUEUE_URL`: {{ message-queue-name }} **{{ ui-key.yacloud.ymq.queue.overview.label_url }}**.
         * `S3_BUCKET`: Name of the bucket you created earlier.
 
 {% endlist %}
@@ -146,7 +146,7 @@ Video conversion is based on the FFmpeg utility. The FFmpeg executable is larger
 
 ## Create a trigger {#create-trigger}
 
-A message queue is handled using a [trigger for {{ message-queue-name }}](../../../functions/concepts/trigger/ymq-trigger.md). It invokes the converter function as messages arrive in `converter-queue`. 
+A message queue is processed using a [trigger for {{ message-queue-name }}](../../../functions/concepts/trigger/ymq-trigger.md). It invokes the converter function as messages arrive in `converter-queue`. 
 
 {% list tabs group=instructions %}
 
@@ -157,13 +157,13 @@ A message queue is handled using a [trigger for {{ message-queue-name }}](../../
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}** tab.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
-     * Enter a name for the trigger: `ffmpeg-trigger`.
+     * Name the trigger: `ffmpeg-trigger`.
      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_ymq }}`.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}**, select the `converter-queue` message queue and the service account named `ffmpeg-sa` with permission to read messages from it.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
-     * Select the function for the trigger to invoke: `ffmpeg-converter`.
+     * Select the function the trigger will invoke: `ffmpeg-converter`.
      * Specify the [function version tag](../../../functions/concepts/function.md#tag): `$latest`.
-     * Specify the service account which will invoke the function: `ffmpeg-sa`.
+     * Specify the service account that will invoke the function: `ffmpeg-sa`.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 {% endlist %}
@@ -183,4 +183,4 @@ To stop paying for the resources you created:
 1. [Delete](../../../storage/operations/objects/delete.md) all objects from the bucket.
 1. [Delete](../../../storage/operations/buckets/delete.md) the bucket.
 1. [Delete](../../../functions/operations/function/function-delete.md) the `ffmpeg-api` and `ffmpeg-converter` functions.
-1. [Delete](../../../functions/operations/trigger/trigger-delete.md) the `ffmpeg-trigger` trigger.
+1. [Delete](../../../functions/operations/trigger/trigger-delete.md) `ffmpeg-trigger`.

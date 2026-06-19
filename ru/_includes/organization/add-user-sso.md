@@ -45,7 +45,7 @@
       * `federation_id` — идентификатор федерации для добавления пользователя.
       * `name_id` — Name ID пользователя.
 
-      Более подробную информацию о параметрах ресурса `yandex_organizationmanager_saml_federation_user_account` смотрите в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_saml_federation_user_account).
+      Подробнее о параметрах ресурса `yandex_organizationmanager_saml_federation_user_account` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_saml_federation_user_account).
 
   1. Создайте ресурсы:
 

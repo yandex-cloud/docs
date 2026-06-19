@@ -20,7 +20,7 @@ To set up a location rule:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Click the CDN resource name.
   1. Select the ![image](../../../_assets/console-icons/map-pin-plus.svg) **{{ ui-key.yacloud.cdn.label_locations }}** tab.
   1. In the top-right corner, click **{{ ui-key.yacloud.cdn.button_resource-locations-empty-action }}**.
@@ -63,7 +63,7 @@ After creating a rule, you can configure its advanced settings:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Click the CDN resource name.
   1. Select the ![image](../../../_assets/console-icons/map-pin-plus.svg) **{{ ui-key.yacloud.cdn.label_locations }}** tab.
   1. Click the location rule name.

@@ -33,6 +33,8 @@ items:
     items:
       - name: Обзор
         href: concepts/index.md
+      - name: DNS-записи
+        href: concepts/dns-records.md
       - name: Уведомления об операциях с письмами
         href: concepts/notification.md
       - name: Отслеживание открытия писем

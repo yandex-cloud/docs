@@ -10,8 +10,8 @@ description: Follow this guide to find out the status of a {{ backup-name }} con
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where {{ backup-name }} is connected. 
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, click ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, click ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 
   In the **{{ ui-key.yacloud.compute.instances.column_cloud-backup }}** column, you will see the statuses of {{ backup-name }}'s connection to the VM.
 
@@ -21,7 +21,7 @@ description: Follow this guide to find out the status of a {{ backup-name }} con
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to view a list of VMs connected to {{ backup-name }}:
+  1. See the description of the CLI command for viewing a list of VMs connected to {{ backup-name }}:
 
       ```bash
       yc backup vm list compute --help

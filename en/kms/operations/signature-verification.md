@@ -34,7 +34,7 @@ A signature based on a private key is used for messages of up to 32 KB.
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the appropriate digital signature key pair.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
       1. Navigate to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab.
       1. In the line with the key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
@@ -146,7 +146,7 @@ A hash-based signature is used for messages or files over 32 KB in size.
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the appropriate digital signature key pair.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
       1. Navigate to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab.
       1. In the line with the key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
@@ -157,7 +157,7 @@ A hash-based signature is used for messages or files over 32 KB in size.
       {% include [cli-install](../../_includes/cli-install.md) %}
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
+  
       1. View the description of the CLI command to get a signature public key:
 
           ```bash
@@ -167,7 +167,7 @@ A hash-based signature is used for messages or files over 32 KB in size.
       1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder where the digital signature key pair is saved.
 
       1. {% include [get-signature-key](../../_includes/kms/get-signature-key.md) %}
-
+      
       1. {% include [cli-get-public-key](../../_includes/kms/cli-get-public-key.md) %}
 
     {% endlist %}

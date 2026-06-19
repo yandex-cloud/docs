@@ -10,7 +10,7 @@ description: Follow this guide to configure access to a secret.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click the name of the secret you need.
   1. On the left-hand panel, select ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. In the window that opens, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
@@ -82,7 +82,7 @@ description: Follow this guide to configure access to a secret.
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
       
-      {{ TF }} will create all the required resources. You can check the new resources and their settings either in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
+      {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc lockbox secret list-access-binding <secret_ID>

@@ -21,7 +21,7 @@ When creating a CAPTCHA, you can:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
   1. Click **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
 
   1. Specify the **{{ ui-key.yacloud.common.name }}** of the CAPTCHA you are creating:
@@ -145,7 +145,7 @@ When creating a CAPTCHA, you can:
  
        {% include [note-preview-captcha-variants](../../_includes/smartcaptcha/note-preview-captcha-variants.md) %}
  
-     * `--override-variants-file`: Path to a `YAML` file with challenge [options](../concepts/captcha-variants.md). This is an optional argument.
+     * `--override-variants-file`: Path to a `YAML` file with challenge [options](../concepts/captcha-variants.md). This is an optional setting.
  
        {% cut "Challenge options file example" %}
  
@@ -171,7 +171,7 @@ When creating a CAPTCHA, you can:
  
        {% endcut %}
      
-     * `--security-rules-file`: Path to a `YAML` file containing [incoming traffic rules](../concepts/captcha-variants.md#captcha-view-rules) that determine which CAPTCHA option to display. This is an optional argument.
+     * `--security-rules-file`: Path to a `YAML` file containing [incoming traffic rules](../concepts/captcha-variants.md#captcha-view-rules) that determine which CAPTCHA option to display. This is an optional setting.
  
        {% cut "Incoming traffic rules file example" %}
  
@@ -203,9 +203,9 @@ When creating a CAPTCHA, you can:
          
          Rules are processed from lowest to highest priority, e.g., `1`, `2`, etc. If the request matches multiple rules, the first matching rule will apply.
  
-       * `description`: Rule description. This is an optional argument.
+       * `description`: Rule description. This is an optional setting.
        * `override_variant_uuid`: ID of the challenge option that will appear if the request matches the rule. If this argument is not specified, the system will display the default challenge.
-       * `condition`: One or more [conditions for the incoming traffic](../concepts/captcha-variants.md#traffic-conditions). This is an optional argument.
+       * `condition`: One or more [conditions for the incoming traffic](../concepts/captcha-variants.md#traffic-conditions). This is an optional setting.
  
        {% endcut %}
 
@@ -225,7 +225,7 @@ When creating a CAPTCHA, you can:
 
      Where:
      * `name`: CAPTCHA name.
-     * `turn_off_hostname_check`: [Disable domain check](../concepts/domain-validation.md). This is an optional setting.
+     * `turn_off_hostname_check`: [Disable domain check](../concepts/domain-validation.md). This is an optional setting.     
      * `complexity`: [Difficulty](../concepts/tasks.md#task-difficulty) level of the default challenge shown to the user. The possible values are:
        * `EASY`: Easy challenge.
        * `MEDIUM`: Medium challenge.

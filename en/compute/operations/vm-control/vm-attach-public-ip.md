@@ -5,3 +5,9 @@ If you created a [VM](../../concepts/vm.md) without a [public IP address](../../
 If a VM has multiple [network interfaces](../../concepts/network.md), you can assign a public IP address to each one.
 
 {% include [vm-attach-public-ip](../../../_includes/compute/vm-attach-public-ip.md) %}
+
+#### See also {#see-also}
+
+* [{#T}](./vm-set-static-ip.md)
+* [{#T}](../../../vpc/operations/set-static-ip.md)
+* [{#T}](./attach-network-interface.md)

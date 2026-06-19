@@ -55,7 +55,7 @@ Once you have the data you need to send to notifications to a user, create an en
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder containing the notification channel.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select the **{{ ui-key.yacloud.cns.type_web }}** tab.
   1. Select a notification channel.
   1. Select the ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.

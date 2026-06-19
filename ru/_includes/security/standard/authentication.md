@@ -849,7 +849,7 @@
 
 #### 1.12 Токен для облачных функций и ВМ выдается через сервисный аккаунт {#func-token}
 
-Для получения IAM-токена в ходе выполнения функции необходимо [назначить](../../../functions/operations/function-sa.md) функции сервисный аккаунт. В этом случае функция получит {{ iam-short-name }}-токен с помощью встроенных механизмов {{ yandex-cloud }}, без необходимости передачи каких-либо секретов в функцию извне. Аналогично и [для ВМ](../../../compute/operations/vm-info/get-info.md#inside-instance). Дополнительную информацию о получении IAM-токена в функции смотрите в разделе [{#T}](../../../functions/operations/function-sa.md).
+Для получения IAM-токена в ходе выполнения функции необходимо [назначить](../../../functions/operations/function-sa.md) функции сервисный аккаунт. В этом случае функция получит {{ iam-short-name }}-токен с помощью встроенных механизмов {{ yandex-cloud }}, без необходимости передачи каких-либо секретов в функцию извне. Аналогично и [для ВМ](../../../compute/operations/vm-info/get-info.md#inside-instance). Дополнительную информацию о получении IAM-токена в функции читайте в разделе [{#T}](../../../functions/operations/function-sa.md).
 
 | ID требования | Критичность |
 | --- | --- |
@@ -1949,7 +1949,7 @@ yc compute instance update <ID_виртуальной_машины> \
 
 {% include [key-has-last-used-data](../../iam/key-has-last-used-data.md) %}
 
-Подробнее в разделе [{#T}](../../../iam/concepts/users/service-accounts.md#sa-key).
+Подробнее читайте в разделе [{#T}](../../../iam/concepts/users/service-accounts.md#sa-key).
 
 | ID требования | Критичность |
 | --- | --- |
@@ -2028,7 +2028,7 @@ yc compute instance update <ID_виртуальной_машины> \
 
 [Модуль диагностики доступов]({{ link-sd-main }}iam-diagnostics/) или {{ ciem-name }} ({{ ciem-name }}) — это инструмент, позволяющий централизованно просматривать полный список доступов [субъектов](../../../iam/concepts/access-control/index.md#subject): пользователей, сервисных аккаунтов, [групп пользователей](../../../organization/concepts/groups.md), [системных групп](../../../iam/concepts/access-control/system-group.md) и [публичных групп](../../../iam/concepts/access-control/public-group.md) к [ресурсам](../../../iam/concepts/access-control/resources-with-access-control.md) организации. Этот инструмент также позволяет легко отзывать у субъектов лишние доступы.
 
-Подробнее в разделе [{#T}](../../../security-deck/concepts/ciem.md).
+Подробнее читайте в разделе [{#T}](../../../security-deck/concepts/ciem.md).
 
 | ID требования | Критичность |
 | --- | --- |

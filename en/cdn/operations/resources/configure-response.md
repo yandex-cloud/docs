@@ -16,7 +16,7 @@ HTTP responses can be set up either globally or for a particular URI in [locatio
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Click the resource name.
   1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** tab.
   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
@@ -89,7 +89,7 @@ HTTP responses can be set up either globally or for a particular URI in [locatio
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Click the resource name.
   1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** tab.
   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.

@@ -12,7 +12,7 @@ description: Follow this guide to update or delete an in-browser push notificati
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the notification channel.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the channel and select **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the channel description.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -25,7 +25,7 @@ description: Follow this guide to update or delete an in-browser push notificati
       ```bash
       aws sns set-platform-application-attributes \
         --platform-application-arn <notification_channel_ARN> \
-        --attributes <parameter1>=<new_value1>
+        --attributes <parameter_1>=<new_value1>
       ```
 
       Where:

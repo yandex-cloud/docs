@@ -10,7 +10,7 @@ description: Follow this guide to delete a WAF exclusion rule.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [WAF profile](../concepts/waf.md).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
   1. Select the profile where you want to delete an [exclusion rule](../concepts/waf.md#exclusion-rules).
   1. In the left-hand menu, go to the ![image](../../_assets/console-icons/file-xmark.svg) **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rules }}** tab.
@@ -55,7 +55,7 @@ description: Follow this guide to delete a WAF exclusion rule.
 
       {% endcut %}
 
-      For more information about `sws_waf_profile` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/sws_waf_profile).
+      For more information about `sws_waf_profile` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/sws_waf_profile).
 
   1. Apply the changes:
 

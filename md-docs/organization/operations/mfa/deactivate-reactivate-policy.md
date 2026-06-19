@@ -65,7 +65,7 @@
 
      Где `status` — статус политики: `MFA_ENFORCEMENT_STATUS_ACTIVE` для активации политики. Необязательный параметр.
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_mfa_enforcement` см. в [документации провайдера](../../../terraform/resources/organizationmanager_mfa_enforcement.md).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_mfa_enforcement` читайте в [документации провайдера](../../../terraform/resources/organizationmanager_mfa_enforcement.md).
 
   1. Примените изменения:
 
@@ -172,7 +172,7 @@
 
      Где `status` — статус политики: `MFA_ENFORCEMENT_STATUS_INACTIVE` для деактивации политики. Необязательный параметр.
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_mfa_enforcement` см. в [документации провайдера](../../../terraform/resources/organizationmanager_mfa_enforcement.md).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_mfa_enforcement` читайте в [документации провайдера](../../../terraform/resources/organizationmanager_mfa_enforcement.md).
 
   1. Примените изменения:
 

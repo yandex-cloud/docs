@@ -11,7 +11,7 @@ To create a key:
 - Management console {#console}
 
   1. Log in to the [management console]({{ link-console-main }}).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and set the key attributes:
 
@@ -70,7 +70,7 @@ To edit a key:
 - Management console {#console}
 
   1. Log in to the [management console]({{ link-console-main }}).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. In the line with the key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. Change the key attributes and click **{{ ui-key.yacloud.common.save }}**.
@@ -115,14 +115,14 @@ To edit a key:
      ...
      ```
 
-     For more information about `yandex_kms_symmetric_key` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/kms_symmetric_key).
-  1. Check the configuration using this command:
+     For more information about `yandex_kms_symmetric_key` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/kms_symmetric_key).
+  1. Validate your configuration using this command:
 
      ```bash
      terraform validate
      ```
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```text
      Success! The configuration is valid.
@@ -134,8 +134,8 @@ To edit a key:
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
-  1. Apply the changes:
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
      ```bash
      terraform apply
@@ -172,7 +172,7 @@ To change key status:
 - Management console {#console}
 
   1. Log in to the [management console]({{ link-console-main }}).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. To deactivate a key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-keys.button_action-deactivate }}** next to an `Active` key.
   1. To activate a key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-keys.button_action-activate }}** next to an `Inactive` key.
@@ -209,15 +209,15 @@ To change key status:
      ...
      ```
 
-     For more information about `yandex_kms_symmetric_key` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/kms_symmetric_key).
+     For more information about `yandex_kms_symmetric_key` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/kms_symmetric_key).
 
-  1. Check the configuration using this command:
+  1. Validate your configuration using this command:
 
      ```bash
      terraform validate
      ```
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```text
      Success! The configuration is valid.
@@ -229,8 +229,8 @@ To change key status:
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
-  1. Apply the changes:
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
      ```bash
      terraform apply
@@ -263,7 +263,7 @@ To rotate a key:
 - Management console {#console}
 
   1. Log in to the [management console]({{ link-console-main }}).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. In the line with the key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-keys.button_action-rotate }}**.
   1. Confirm the rotation (make sure that changing the default version will not affect your work).
@@ -301,7 +301,7 @@ To destroy a key:
 - Management console {#console}
 
   1. Log in to the [management console]({{ link-console-main }}).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. In the line with the key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
@@ -339,7 +339,7 @@ To destroy a key:
      terraform validate
      ```
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```bash
      Success! The configuration is valid.
@@ -351,8 +351,8 @@ To destroy a key:
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
-  1. Apply the changes:
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
      ```bash
      terraform apply

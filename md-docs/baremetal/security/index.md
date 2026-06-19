@@ -80,7 +80,7 @@ flowchart BT
 
 {% note warning %}
 
-С 1 августа 2026 года роль `baremetal.editor` получает новый набор разрешений, позволяющий подключать серверы к сервису [Yandex Cloud Backup](../../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../../backup/concepts/policy.md).
+С 1 августа 2026 года роль `baremetal.editor` получает новый набор разрешений от роли [backup.user](../../backup/security/index.md#backup-user), позволяющий подключать серверы к сервису [Yandex Cloud Backup](../../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../../backup/concepts/policy.md).
 
 Если вы не планируете подключать ваши ресурсы к Cloud Backup и не хотите предоставлять вашим пользователям такие разрешения, вы можете заблаговременно отключить эти возможности с помощью [политики авторизации](../../iam/concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](../../iam/operations/access-policies/assign.md).
 
@@ -106,7 +106,7 @@ flowchart BT
 
 {% note warning %}
 
-С 1 августа 2026 года роль `baremetal.admin` получает новый набор разрешений, позволяющий подключать серверы к сервису [Yandex Cloud Backup](../../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../../backup/concepts/policy.md).
+С 1 августа 2026 года роль `baremetal.admin` получает новый набор разрешений от роли [backup.user](../../backup/security/index.md#backup-user), позволяющий подключать серверы к сервису [Yandex Cloud Backup](../../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../../backup/concepts/policy.md).
 
 Если вы не планируете подключать ваши ресурсы к Cloud Backup и не хотите предоставлять вашим пользователям такие разрешения, вы можете заблаговременно отключить эти возможности с помощью [политики авторизации](../../iam/concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](../../iam/operations/access-policies/assign.md).
 

@@ -3,7 +3,7 @@ title: How to configure content request redirection
 description: Follow this guide to configure redirection of requests from a CDN resource to an origin using a _rewrite_ rule.
 ---
 
-# Configuring request redirection
+# Setting up a request redirect
 
 With [request redirection](../../concepts/http-rewrite.md), you can reconfigure paths of requests to your content. This can be useful when rearranging files and folders on an [origin](../../concepts/origins.md). You can also use redirection if you want to keep search engine rankings of your content when moving your resource to a new address.
 
@@ -15,7 +15,7 @@ To enable request redirection on a CDN resource:
 
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Click the CDN resource name.
 

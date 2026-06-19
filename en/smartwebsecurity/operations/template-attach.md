@@ -16,7 +16,7 @@ The profile template is displayed when this profile is blocked by any rule. If y
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the security or ARL profile.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.smart-web-security.title_profiles }}** or **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
   1. In the row with the profile you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
   1. From the **Response page template** list, select an existing template or [create a new one](template-create.md).
@@ -33,7 +33,7 @@ The profile template is displayed when this profile is blocked by any rule. If y
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the security or ARL profile.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.smart-web-security.title_profiles }}** or **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
   1. Select the profile containing the rule of interest.
   1. Next to the rule, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.

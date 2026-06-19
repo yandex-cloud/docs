@@ -16,7 +16,7 @@ To enable log export for a [resource](../../concepts/resource.md):
   
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Click the resource name.
 
@@ -50,7 +50,7 @@ To edit export parameters:
   
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Click the resource name.
 
@@ -76,7 +76,7 @@ To disable export:
   
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Click the resource name.
 

@@ -9,7 +9,7 @@ title: How to get information about a placement group in {{ compute-full-name }}
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder the [placement group](../../concepts/placement-groups.md) is in.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. Select the group.
   1. The **{{ ui-key.yacloud.compute.placement-group.overview.label_title }}** page will show the VM placement group details.
@@ -69,13 +69,13 @@ title: How to get information about a placement group in {{ compute-full-name }}
       * `output "placement_group"`: Output variable that contains information about the placement group creation time:
         * `value`: Return value.
 
-      You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_compute_placement_group` data source properties, see [this {{ TF }} provider article]({{ tf-provider-datasources-link }}/compute_placement_group).
+      You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_compute_placement_group` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_placement_group).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+      {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

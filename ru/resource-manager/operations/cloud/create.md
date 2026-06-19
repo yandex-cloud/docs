@@ -126,7 +126,7 @@ description: Следуя данной инструкции, вы сможете
           [Идентификатор платежного аккаунта](../../../billing/concepts/billing-account.md#billing-account-id) можно узнать в [интерфейсе {{ billing-name }}]({{ link-console-billing }}) в блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-info.title_main }}** на странице нужного платежного аккаунта.
       * `cloud_id` — [идентификатор](../../../resource-manager/operations/cloud/get-id.md) облака, которое будет привязано к платежному аккаунту.
 
-      Более подробную информацию о параметрах ресурсов `yandex_resourcemanager_cloud` и `yandex_billing_cloud_binding` в {{ TF }}, см. в [документации провайдера]({{ tf-docs-link }}).
+      Подробнее о параметрах ресурсов `yandex_resourcemanager_cloud` и `yandex_billing_cloud_binding` в {{ TF }} читайте в [документации провайдера]({{ tf-docs-link }}).
 
   1. Создайте ресурсы:
 

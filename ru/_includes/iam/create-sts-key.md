@@ -99,7 +99,7 @@
       * `--duration-seconds` — время жизни ключа в секундах, не более `43200`.
       * `--policy file://` — путь к файлу с политикой доступа.
 
-      Подробнее о команде `aws sts assume-role` смотрите в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/assume-role.html).
+      Подробнее о команде `aws sts assume-role` читайте в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/assume-role.html).
 
       Результат:
 

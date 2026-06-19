@@ -119,4 +119,4 @@
 
 {% endlist %}
 
-Подробности в разделе [{#T}](../../../iam/operations/sa/create.md).
+Подробнее в разделе [{#T}](../../../iam/operations/sa/create.md).

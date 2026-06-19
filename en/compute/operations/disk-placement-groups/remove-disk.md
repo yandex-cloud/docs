@@ -13,7 +13,7 @@ Remove a [non-replicated disk](../../concepts/disk.md#nr-disks) from a [placemen
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to remove a disk from a placement group.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. Navigate to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab.
   1. Select the placement group to remove a disk from.
@@ -61,7 +61,7 @@ Remove a [non-replicated disk](../../concepts/disk.md#nr-disks) from a [placemen
      terraform validate
      ```
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```text
      Success! The configuration is valid.
@@ -73,8 +73,8 @@ Remove a [non-replicated disk](../../concepts/disk.md#nr-disks) from a [placemen
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
-  1. Apply the changes:
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
      ```bash
      terraform apply

@@ -140,7 +140,11 @@ You can also use [internal IP addresses](../../../vpc/concepts/address.md#intern
   ssh <username>@<VM_public_IP_address>
   ```
 
-  Where `<username>` is the VM account username. If you created your VM via the CLI, `yc-user` is the default user.
+  Where:
+  * `<user_name>`: VM account user name. If you created your VM via the CLI, `yc-user` is the default user.
+  * `<VM_public_IP_address>`: VM [public IP address](../../../vpc/concepts/address.md#public-addresses) for internet access.
+  
+      {% include [vm-find-public-ip](../../../_includes/compute/vm-find-public-ip.md) %}
 
   If you have multiple private keys, specify the one you need:
 
@@ -166,10 +170,15 @@ You can also use [internal IP addresses](../../../vpc/concepts/address.md#intern
   To connect to the VM, run the following command in the command line:
 
   ```shell
-  ssh <user_name>@<VM_public_IP_address>
+  ssh <username>@<VM_public_IP_address>
   ```
 
-  Where `<username>` is the VM account username. If you created your VM via the CLI, `yc-user` is the default user.
+  Where:
+  
+  * `<user_name>`: VM account user name. If you created your VM via the CLI, `yc-user` is the default user.
+  * `<VM_public_IP_address>`: VM [public IP address](../../../vpc/concepts/address.md#public-addresses) for internet access.
+
+      {% include [vm-find-public-ip](../../../_includes/compute/vm-find-public-ip.md) %}
 
   If you have multiple private keys, specify the one you need:
 
@@ -193,9 +202,11 @@ You can also use [internal IP addresses](../../../vpc/concepts/address.md#intern
   1. Run Pageant.
      1. Right-click the Pageant icon in the task bar.
      1. In the context menu, select **Add key**.
-     1. Select a PuTTY-generated private key in `.ppk` format. Enter the password for this key, if any.
+     1. Select a PuTTY-generated private key in `.ppk` format. Enter the password for this key, if it is set.
   1. Run PuTTY.
-     1. In the **Host Name (or IP address)** field, enter the public IP address of the VM you want to connect to. Specify port `22` and **SSH** connection type.
+     1. In the **Host Name (or IP address)** field, enter the [public IP address](../../../vpc/concepts/address.md#public-addresses) of the VM you want to connect to. Specify port `22` and **SSH** connection type.
+        
+        {% include [vm-find-public-ip](../../../_includes/compute/vm-find-public-ip.md) %}
 
         ![ssh_add_ip](../../../_assets/compute/ssh-putty/ssh_add_ip.png)
 
@@ -281,11 +292,13 @@ To configure users from within the VM, follow these steps:
     touch .ssh/authorized_keys
     ```
 
-1. Add the public key of the new user to the `authorized_keys` file:
+1. Add the new user's public key to the `authorized_keys` file:
 
     ```bash
     echo "<public_key>" >> /home/testuser/.ssh/authorized_keys
     ```
+
+    Where `<public_key>` is the contents of the [public key](#creating-ssh-keys) file for SSH access to the VM.
 
 1. Update access permissions for the `authorized_keys` file and `.ssh` folder:
 
@@ -301,6 +314,10 @@ To configure users from within the VM, follow these steps:
    ```bash
    ssh testuser@<VM_public_IP_address>
    ```
+
+   Where `<VM_public_IP_address>` is the VM's [public IP address](../../../vpc/concepts/address.md#public-addresses) for internet access.
+
+   {% include [vm-find-public-ip](../../../_includes/compute/vm-find-public-ip.md) %}
 
 #### What's next {#what-is-next}
 

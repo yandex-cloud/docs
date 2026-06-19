@@ -12,7 +12,7 @@ To pass a [domain rights check](../../concepts/challenges.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you added the [certificate](../../concepts/managed-certificate.md) to.
-  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Select and click the certificate you need checked.
   1. Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, you will see the details required to pass the domain rights check.
   1. As soon as you pass the domain rights check, its status under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** will change to `Valid`.
@@ -155,7 +155,7 @@ To pass a [domain rights check](../../concepts/challenges.md):
        * `name`: Record name.
        * `type`: DNS record type.
        * `data`: Record value.
-       * `ttl`: Record time to live (TTL) in seconds before updating the record value.
+       * `ttl`: Record time to live (TTL) in seconds before refreshing the record value.
        * `description`: Record set description. This is an optional setting.
      * `yandex_cm_certificate` data source properties:
        * `depends_on`: Indicates the dependence on another {{ TF }} resource.

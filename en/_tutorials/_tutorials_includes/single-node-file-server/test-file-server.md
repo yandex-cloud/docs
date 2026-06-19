@@ -1,22 +1,11 @@
-1. Install ACL on the `fileserver-tutorial` VM:
+1. Install ACL on the `fileserver-tutorial` VM and create a directory named `remote` and a file named `test.txt`.
 
    {% list tabs group=operating_system %}
 
    - Ubuntu {#ubuntu}
 
      ```bash
-     sudo apt install acl
-     ```
-
-   {% endlist %}
-
-1. Create a directory named `remote` and a file named `test.txt` on the `fileserver-tutorial` VM:
-
-   {% list tabs group=operating_system %}
-
-   - Ubuntu {#ubuntu}
-
-     ```bash
+     sudo apt-get install acl
      sudo mkdir /my_folder/remote
      sudo setfacl -m u:<your_username>:rwx /my_folder/remote
      echo "Hello world!" > /my_folder/remote/test.txt

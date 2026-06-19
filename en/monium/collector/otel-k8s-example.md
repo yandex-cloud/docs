@@ -14,8 +14,8 @@ You will set up a demo app in a {{ k8s }} cluster and send the app's telemetry d
 ### Required paid resources {#paid-resources}
 
 The cost of resources you need for {{ monium-name }} includes:
-* Fee for using a [{{ managed-k8s-name }} master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for [{{ managed-k8s-name }} node group's](../../managed-kubernetes/concepts/index.md#node-group) [computing resources](../../compute/concepts/vm-platforms.md) and [disks](../../compute/concepts/disk.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using a [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group) node group's [computing resources](../../compute/concepts/vm-platforms.md) and [disks](../../compute/concepts/disk.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using {{ monium-name }} (see [{{ monium-name }} pricing](../pricing.md)).
 
 ## Setting up a cluster {#preparation}
@@ -24,7 +24,7 @@ The cost of resources you need for {{ monium-name }} includes:
 
 - Management console {#console}
 
-  1. Create a [{{ k8s }} cluster](../../managed-kubernetes/quickstart.md).
+  1. Create an [{{ k8s }} cluster](../../managed-kubernetes/quickstart.md).
 
   1. {% include [helm-install](../../_includes/managed-kubernetes/helm-install.md) %}
 

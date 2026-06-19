@@ -6,7 +6,7 @@ description: Follow this guide to detach a file storage from a VM.
 # Detaching a file storage from a VM
 
 1. Unmount the [file storage](../../concepts/filesystem.md) from the [VM](../../concepts/vm.md):
-   1. [Connect](../vm-connect/ssh.md) to the VM via SSH.
+   1. [Connect](../vm-connect/ssh.md) to the VM over SSH.
    1. If you previously added a line to the `/etc/fstab` file to automatically mount the file storage to the VM at startup (e.g., when [attaching the storage to the VM](attach-to-vm.md)), delete that line.
    1. Run this command:
 
@@ -41,7 +41,7 @@ description: Follow this guide to detach a file storage from a VM.
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where your file storage resides.
-     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+     1. Navigate to **{{ compute-name }}**.
      1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}**.
      1. Select the storage.
      1. Go to the **{{ ui-key.yacloud.compute.nfs.label_attached-instances }}** tab.

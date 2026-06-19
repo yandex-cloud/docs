@@ -36,7 +36,7 @@ To create a channel:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to create a notification channel in.
-  1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Click **{{ ui-key.yacloud.cns.action_create-channel }}**.
   1. Select the **{{ ui-key.yacloud.cns.type_web }}** tab.
   1. Enter a name for your notification channel. The channel name must be unique within {{ cns-name }}.

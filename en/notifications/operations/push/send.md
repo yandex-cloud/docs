@@ -10,9 +10,9 @@ description: Follow this guide to send a push notification.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder containing your endpoint.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select a push notification channel.
-  1. Navigate to the ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
+  1. Navigate to the ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
   1. Select the endpoint you need.
   1. Select a notification format under **{{ ui-key.yacloud.cns.section_message-sending }}**: `Text` or `JSON`.
   1. Enter notification text or a JSON object with notification data.
@@ -50,9 +50,9 @@ description: Follow this guide to send a push notification.
 
   Where:
 
-  * `--target-arn`: Mobile endpoint ID (ARN)
-  * `--message-structure`: Message format
-  * `--message`: Message
+  * `--target-arn`: Mobile endpoint ARN.
+  * `--message-structure`: Message format.
+  * `--message`: Message.
 
   **Silent notifications (Silent Push)**
 
@@ -67,9 +67,9 @@ description: Follow this guide to send a push notification.
 
   Where:
 
-  * `--target-arn`: Mobile endpoint ID (ARN)
-  * `--message-structure`: Message format
-  * `--message`: Message
+  * `--target-arn`: Mobile endpoint ARN.
+  * `--message-structure`: Message format.
+  * `--message`: Message.
 
 - AWS SDK for Python {#python}
 
@@ -137,7 +137,7 @@ description: Follow this guide to send a push notification.
 
   Where:
 
-  * `TargetArn`: Mobile endpoint ID (ARN).
+  * `TargetArn`: Mobile endpoint ARN.
   * `MessageStructure`: Message format.
   * `Message`: Message.
 
@@ -154,8 +154,8 @@ description: Follow this guide to send a push notification.
 
   Where:
 
-  * `TargetArn`: Mobile endpoint ID (ARN)
-  * `Message`: Message
+  * `TargetArn`: Mobile endpoint ARN.
+  * `Message`: Message.
 
 - AWS SDK for PHP {#php}
 
@@ -210,7 +210,7 @@ description: Follow this guide to send a push notification.
 
   Where:
 
-  * `TargetArn`: Mobile endpoint ID (ARN).
+  * `TargetArn`: Mobile endpoint ARN.
   * `MessageStructure`: Message format.
   * `Message`: Message.
 
@@ -239,7 +239,7 @@ description: Follow this guide to send a push notification.
 
       Where:
 
-      * `TargetArn`: Mobile endpoint ID (ARN).
+      * `TargetArn`: Mobile endpoint ARN.
       * `MessageStructure`: Message format.
       * `Message`: Message.
 

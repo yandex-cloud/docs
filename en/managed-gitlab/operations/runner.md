@@ -24,7 +24,7 @@ You can get a token when creating a {{ GLR }} in {{ GL }}. You specify this toke
 
 - Management console {#console}
 
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Select the {{ mgl-name }} instance containing the runner you want to update.
   1. Select the **{{ ui-key.yacloud.gitlab.title_runners }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the runner and select **{{ ui-key.yacloud.common.edit }}**.
@@ -56,7 +56,7 @@ You can get a token when creating a {{ GLR }} in {{ GL }}. You specify this toke
 
 - Management console {#console}
 
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Select the {{ mgl-name }} instance to delete the runner from.
   1. Select the **{{ ui-key.yacloud.gitlab.title_runners }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** next to the runner you want to delete.

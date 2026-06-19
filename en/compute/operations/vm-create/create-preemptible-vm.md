@@ -19,7 +19,7 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your preemptible VM.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../../concepts/image.md) and OS version.
@@ -177,7 +177,7 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
        * `name`: Disk name.
        * `type`: Disk [type](../../concepts/disk.md#disks_types).
        * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
-       * `size`: Disk size in GB.
+       * `size`: Disk size, in GB.
        * `image_id`: ID of the [image](../../concepts/image.md) to create the preemptible VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
 
          {% include [id-info](../../../_includes/compute/id-info.md) %}
@@ -228,7 +228,7 @@ To change the type of a VM, such as making it non-preemptible:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the preemptible VM is located.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the VM you need and select **{{ ui-key.yacloud.common.stop }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. The VM status will change to `Stopped`.
@@ -320,16 +320,16 @@ To change the type of a VM, such as making it non-preemptible:
 
      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
   1. Make sure the configuration files are correct.
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
   1. Deploy the cloud resources.
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```bash
         terraform apply

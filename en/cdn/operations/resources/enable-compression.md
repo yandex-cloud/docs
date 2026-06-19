@@ -21,7 +21,7 @@ To enable [compression](../../concepts/compression.md) of [resource](../../conce
 
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Click the resource name.
 
@@ -129,7 +129,7 @@ To enable [compression](../../concepts/compression.md) of [resource](../../conce
       * The `options` section contains additional parameters of CDN resources:
          * `gzip_on`: Flag indicating whether compression will be used.
 
-      For more information about the `yandex_cdn_resource` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cdn_resource).
+      For more information about the `yandex_cdn_resource` properties in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
   1. In the command line, go to the directory with the {{ TF }} configuration file.
 

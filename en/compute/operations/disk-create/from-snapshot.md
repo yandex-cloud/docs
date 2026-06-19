@@ -18,7 +18,7 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
   1. Enter a name for the disk. The naming requirements are as follows:
@@ -86,7 +86,7 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
       ```
 
       Where:
-      * `--name`: Disk name. Follow these naming requirements:
+      * `--name`: Disk name. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -188,7 +188,7 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
 
   1. Define the parameters of the `yandex_compute_disk` resource in the configuration file.
 
-      Here is a configuration file example:
+      Here is an example of the configuration file structure:
      
       ```hcl
       resource "yandex_compute_disk" "my-disk" {
@@ -204,7 +204,7 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
       ```
 
       Where:
-      * `name`: Disk name. Follow these naming requirements:
+      * `name`: Disk name. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -224,18 +224,18 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
   1. Deploy the cloud resources.
 
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```bash
         terraform apply

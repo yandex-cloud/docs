@@ -21,7 +21,7 @@ VMs with {{ mgl-name }} instances reside in {{ yandex-cloud }} [availability zon
 
     - Management console {#console}
 
-        1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
         1. Click the instance name and select the **{{ ui-key.yacloud.gitlab.title_migration }}** tab.
         1. If you do not have access to the migration feature, request it.
 

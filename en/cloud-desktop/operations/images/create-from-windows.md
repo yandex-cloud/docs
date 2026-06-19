@@ -487,7 +487,7 @@ Upon completion, the script’s final command will stop the VM and save the VM b
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to create your image. 
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.vdi.label_desktop-images }}**.
   1. Click **{{ ui-key.yacloud.vdi.button_add-image }}**.
   1. In the **{{ ui-key.yacloud.vdi.label_image-source }}** field, select `{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}`.

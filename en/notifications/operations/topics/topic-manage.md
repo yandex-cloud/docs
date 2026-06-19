@@ -12,7 +12,7 @@ description: Follow this guide to update or delete a topic.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the topic.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select **{{ ui-key.yacloud.cns.local.label_topics_vhBR3 }}** on the left.
   1. Select the topic.
   1. At the top right, click ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
@@ -64,7 +64,7 @@ description: Follow this guide to update or delete a topic.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the topic.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select **{{ ui-key.yacloud.cns.local.label_topics_vhBR3 }}** on the left.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the topic of interest and select **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.

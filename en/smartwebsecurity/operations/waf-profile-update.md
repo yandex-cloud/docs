@@ -10,7 +10,7 @@ description: Follow this guide to edit basic WAF profile settings.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [WAF profile](../concepts/waf.md).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
   1. In the row with the profile you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
   1. On the profile editing page, update these basic parameters:
@@ -37,7 +37,7 @@ description: Follow this guide to edit basic WAF profile settings.
 
   1. Open the {{ TF }} configuration file and edit the section describing the WAF profile.
 
-     {% cut "Example of a WAF profile description in the {{ TF }}" %} configuration
+     {% cut "Example of a WAF profile description in the {{ TF }} configuration" %}
 
       ```hcl
       # In the basic set, rules of this paranoia level and below will be enabled

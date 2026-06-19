@@ -10,7 +10,7 @@ description: Follow this guide to edit basic settings of a {{ sws-full-name }} s
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security profile](../concepts/profiles.md).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. In the row with the profile you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
   1. In the window that opens, edit the following parameters:
@@ -59,10 +59,10 @@ description: Follow this guide to edit basic settings of a {{ sws-full-name }} s
 
      * `--name`: Security profile name. This is a required setting. Instead of the security profile name, you can provide its ID in the `--id` parameter.
      * `--new-name`: New name for the security profile. Skip it if the profile name remains unchanged.
-     * `--description`: Text description of the security profile. This is an optional parameter.
+     * `--description`: Text description of the security profile. This is an optional setting.
      * `--labels`: List of [labels](../../resource-manager/concepts/labels.md) to add to the profile in `KEY=VALUE` format. This is an optional setting. For example, `--labels foo=baz,bar=baz'`.
-     * `--default-action`: Action to apply to traffic that does not match any other rule. This is an optional parameter. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
-     * `--captcha-id`: ID of the CAPTCHA in [{{ captcha-name }}](../../smartcaptcha/) to verify suspicious requests. This is an optional parameter.
+     * `--default-action`: Action to apply to traffic that does not match any other rule. This is an optional setting. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
+     * `--captcha-id`: ID of the CAPTCHA in [{{ captcha-name }}](../../smartcaptcha/) to verify suspicious requests. This is an optional setting.
      * `--security-rules-file`: Path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with security rule description. This is an optional setting. Here is an example:
 
          {% include [profile-create-yaml-example](../../_includes/smartwebsecurity/profile-create-yaml-example.md) %}
@@ -113,7 +113,7 @@ description: Follow this guide to edit basic settings of a {{ sws-full-name }} s
          }
        }
 
-       # Basic rule
+       #Basic rule
        security_rule {
          name = "base-rule-geo"
          priority = 100000
@@ -144,7 +144,7 @@ description: Follow this guide to edit basic settings of a {{ sws-full-name }} s
 
      {% endcut %}
 
-      For more information about `yandex_sws_security_profile` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/sws_security_profile).
+      For more information about the `yandex_sws_security_profile` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/sws_security_profile).
 
   1. Apply the changes:
 

@@ -25,12 +25,12 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [backup policy](../../../backup/concepts/policy.md).
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
   1. Click **{{ ui-key.yacloud.backup.button_create-policy }}**.
   1. On the backup policy creation page:
 
-      * Specify the policy name. Follow these naming requirements:
+      * Specify the policy name. The naming requirements are as follows:
 
         {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -268,12 +268,12 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
      {% endnote %}
 
 
-     For more information about `yandex_backup_policy` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/backup_policy).
+     For more information about `yandex_backup_policy` properties, see [this provider guide]({{ tf-provider-resources-link }}/backup_policy).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+     {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
      ```bash
      yc backup policy list

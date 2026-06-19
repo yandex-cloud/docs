@@ -133,7 +133,7 @@ description: Следуя данной инструкции, вы сможете
      * `full_name` — полное имя пользователя.
      * `is_active` — флаг активации. Установите `false` для деактивации пользователя.
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_user` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_idp_user` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
 
   1. Создайте ресурсы:
 

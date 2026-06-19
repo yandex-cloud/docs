@@ -26,8 +26,8 @@ To enable access to the serial console when creating a new VM instance based on 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
-  1. In the left-hand panel, select ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. Navigate to **{{ compute-name }}**.
+  1. In the left-hand panel, select ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select one of the {{ marketplace-full-name }} [images](../../concepts/image.md).
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) where your VM will reside.
@@ -105,7 +105,7 @@ To enable access to the serial console for an existing VM:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the VM instance resides in.
 
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
 
   1. In the left-hand panel, select ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 
@@ -152,7 +152,7 @@ To disable serial console access for an existing VM:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the VM instance resides in.
 
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
 
   1. In the left-hand panel, select ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 

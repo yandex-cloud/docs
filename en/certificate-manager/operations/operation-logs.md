@@ -9,7 +9,7 @@ The system logs all actions with {{ certificate-manager-name }} resources as a l
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), open the folder with the certificate.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Select the certificate.
   1. Navigate to the **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
@@ -94,7 +94,7 @@ The system logs all actions with {{ certificate-manager-name }} resources as a l
 
 ## Getting operation details {#get-operations-info}
 
-1. [Get a list of operations](#get-operations) for the resource.
+1. [Get the list of operations](#get-operations) for the resource.
 1. Copy the operation ID.
 1. Get the operation details:
 

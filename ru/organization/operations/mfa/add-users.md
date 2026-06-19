@@ -82,7 +82,7 @@ description: Следуя данной инструкции, вы сможете
 
      Чтобы добавить несколько пользователей или групп, создайте отдельный ресурс `yandex_organizationmanager_mfa_enforcement_audience` для каждого из них.
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_mfa_enforcement_audience` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement_audience).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_mfa_enforcement_audience` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement_audience).
 
   1. Создайте ресурсы:
 

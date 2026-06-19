@@ -121,7 +121,7 @@
       }
       ```
 
-      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_member` в Terraform, см. в [документации провайдера](../../../terraform/resources/resourcemanager_cloud_iam_member.md).
+      Подробнее о параметрах ресурса `yandex_resourcemanager_cloud_iam_member` в Terraform читайте в [документации провайдера](../../../terraform/resources/resourcemanager_cloud_iam_member.md).
   1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
   1. Проверьте корректность конфигурационного файла с помощью команды:
 

@@ -68,7 +68,9 @@ description: Из статьи вы узнаете, как изменить по
 
       В примере приведена конфигурация политики резервного копирования, которая будет создавать [инкрементальные](../../concepts/backup.md#types) [резервные копии](../../concepts/backup.md) [виртуальной машины](../../../compute/concepts/vm.md) или [сервера {{ baremetal-name }}](../../../baremetal/concepts/servers.md) каждый понедельник в 00:05 (UTC+0). При этом храниться будут только десять последних копий.
 
-      См. [полную спецификацию](../../concepts/policy.md#specification) политики резервного копирования.
+      Полная спецификация описана в разделе [{#T}](../../concepts/policy.md#specification).
+ 
+     
   1. Узнайте идентификатор политики резервного копирования, которую нужно изменить:
 
       {% include [get-policy-id](../../../_includes/backup/operations/get-policy-id.md) %}
@@ -86,7 +88,7 @@ description: Из статьи вы узнаете, как изменить по
 
       {% include [json-output-cli](../../../_includes/backup/operations/json-output-cli.md) %}
 
-      Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/backup/cli-ref/policy/update.md).
+      Подробнее о команде в [справочнике CLI](../../../cli/cli-ref/backup/cli-ref/policy/update.md).
 
 - {{ TF }} {#tf}
 
@@ -158,7 +160,7 @@ description: Из статьи вы узнаете, как изменить по
 
      {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_backup_policy` см. в [документации провайдера]({{ tf-provider-resources-link }}/backup_policy).
+     Подробнее о параметрах ресурса `yandex_backup_policy` в [документации провайдера]({{ tf-provider-resources-link }}/backup_policy).
   1. Примените изменения:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

@@ -84,7 +84,7 @@
 
      Чтобы добавить несколько пользователей или групп, создайте отдельный ресурс `yandex_organizationmanager_mfa_enforcement_audience` для каждого из них.
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_mfa_enforcement_audience` см. в [документации провайдера](../../../terraform/resources/organizationmanager_mfa_enforcement_audience.md).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_mfa_enforcement_audience` читайте в [документации провайдера](../../../terraform/resources/organizationmanager_mfa_enforcement_audience.md).
 
   1. Создайте ресурсы:
 

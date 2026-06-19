@@ -130,7 +130,7 @@ You can also adapt this scenario for cases where different approval rules are re
 ```yaml
 # Approval rules
 ApprovalRules:
-  # Rule name (any)
+  # Any name for the rule
   - TechnicalReview:
       # List of groups whose members can approve a merge request
       groups:
@@ -143,7 +143,7 @@ ApprovalRules:
       count: 1
 # Branch groups subject to the rules
 BranchGroups:
-  # Branch group name (any)
+  # Any name for the branch group
   - Stage:
       # List of branches subject to the rules
       branches:
@@ -253,7 +253,7 @@ BranchGroups:
 * [{#T}](../operations/approval-rules.md)
 * [{#T}](../operations/instance/instance-create.md)
 
-### GitLab guides {#gl-docs}
+### {{ GL }} guides {#gl-docs}
 
 * [Merge request approval rules](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/rules.html)
 * [Syntax of CODEOWNERS file](https://docs.gitlab.com/user/project/codeowners/reference/)

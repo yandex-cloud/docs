@@ -1,250 +1,123 @@
 # Getting started with {{ at-name }}
 
-{{ at-name }} collects [audit logs](./concepts/format.md) from {{ yandex-cloud }} resources and uploads them to a [bucket](../storage/concepts/bucket.md) in {{ objstorage-name }}, [log group](../logging/concepts/log-group.md) in {{ cloud-logging-name }}, [stream](../data-streams/concepts/glossary.md#stream-concepts) in {{ yds-name }}, or [bus](../serverless-integrations/concepts/eventrouter/bus.md) in {{ er-full-name }}.
+{{ at-name }} collects [audit logs](./concepts/format.md) of {{ yandex-cloud }} resources to monitor actions with resources and access events. You can upload logs to a {{ objstorage-full-name }} [bucket](../storage/concepts/bucket.md), {{ cloud-logging-full-name }} [log group](../logging/concepts/log-group.md), or {{ yds-full-name }} [data stream](../data-streams/concepts/glossary.md#stream-concepts).
 
-Within {{ at-name }}, audit logs are managed by [trails](./concepts/trail.md).
+Audit logs are collected and delivered to {{ at-name }} using [trails](./concepts/trail.md). You need a separate trail for each storage type.
 
-Follow this guide to create a new trail that will upload audit logs of your organization resources to an {{ objstorage-name }} bucket.
-
-{% include [bucket-encryption-tip](../_includes/audit-trails/bucket-encryption-tip.md) %}
+Follow this guide to create a trail to upload the audit logs of your organization’s resources. Select the destination object, depending on your goal:
+* {{ objstorage-name }} [bucket](../storage/concepts/bucket.md) for long-term storage of audit logs and their future analysis.
+* {{ cloud-logging-name }} [log group](../logging/concepts/log-group.md) to quickly view and search logs in real time. A good option for your first introduction to the service.
 
 ## Getting started {#before-you-begin}
 
-1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
-1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
-1. Make sure your cloud has a bucket where you can store audit logs. [Create a new bucket](../storage/quickstart.md#the-first-bucket) with restricted access, if required.
+This guide assumes that you already have {{ yandex-cloud }} resources, so first make sure that:
 
-1. {% include [add-roles-to-sa](../_includes/audit-trails/add-roles-to-sa.md) %}
+* You have a [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud).
+* Your cloud has a linked [billing account](../billing/concepts/billing-account.md) with the `ACTIVE` or `TRIAL_ACTIVE` status.
 
-1. [Assign](../iam/operations/roles/grant.md) the following roles to your {{ yandex-cloud }} account:
-    * `iam.serviceAccounts.user` for the service account.
-    * `audit-trails.editor` for the folder to host the trail.
-    * `audit-trails.viewer` for the organization whose audit logs will be collected.
-    * `kms.editor` for the folder where the bucket encryption key will be created.
-    * `storage.viewer` for the bucket or folder.
+To create a trail, you will need the following roles:
 
-    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
+* `iam.serviceAccounts.user` for the service account to collect audit logs. You can create this service account when creating the trail.
+* `audit-trails.editor` for the folder to host the trail.
+* `audit-trails.viewer` for the organization whose audit logs will be collected.
+* If using a bucket:
+   * `kms.editor` for the folder the bucket encryption key will be created in.
+   * `storage.viewer` for the bucket or folder.
+* If using a log group: `logging.viewer` for the log group or folder.
 
-{% include [bucket-encryption-section](../_includes/audit-trails/bucket-encryption-section.md) %}
+{% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
 ## Creating a trail {#the-trail-creation}
 
-{% include [note-lose-target-when-switch-trail](../_includes/audit-trails/note-lose-target-when-switch-trail.md) %}
+{% list tabs group=audit-trails-destination %}
 
-To create your first trail in {{ at-name }} and start the process of management event audit log management:
-
-{% list tabs group=instructions %}
-
-- Management console {#console}
+- Bucket {#bucket}
 
   1. In the [management console]({{ link-console-main }}), select the folder to host the trail.
-  1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Navigate](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the trail.
-  1. In the **{{ ui-key.yacloud.common.description }}** field, enter the trail description (optional).
   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, configure the destination object:
-
       * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Select the [bucket](../storage/concepts/bucket.md) to upload audit logs to.
+      * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Select the bucket to upload audit logs to. If you do not have a bucket yet, click **{{ ui-key.yacloud.common.create }}** and [create a new bucket](../storage/quickstart.md#the-first-bucket) with restricted access.
       * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](./concepts/format.md#log-file-name) of the audit log file.
       
       {% include [note-bucket-prefix](../_includes/audit-trails/note-bucket-prefix.md) %}
       * **{{ ui-key.yacloud.audit-trails.title_kms-key }}**: If the bucket you selected is [encrypted](../storage/concepts/encryption.md), specify the encryption key.
+      
+  1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select an existing [service account](../iam/concepts/users/service-accounts.md) or create a new one. The trail will use this account to upload audit log files to the bucket.
+      If you are creating a new account, click **{{ ui-key.yacloud.common.create }}**, name the account, and and assign the following roles to it:
+      * `storage.uploader` for the bucket.
+      * `audit-trails.viewer` for the folder if planning to collect events from the folder.
+      * `kms.keys.encrypter` for the encryption key if the bucket is encrypted.
 
-  1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the [service account](../iam/concepts/users/service-accounts.md) that the trail will use to upload audit log files to the bucket.
-  1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, configure the collection of management event audit logs:
-
-      * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}**: Automatically populated field containing the name of the current organization.
-      * **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}**: Keep the default value, `{{ ui-key.yacloud.common.all }}`.
+  1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the following:
+      * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: `{{ ui-key.yacloud.common.enabled }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Event collection level: `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`, `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}`, or `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
+      * Depending on the event collection level you select:
+          * Assign relevant roles to the service account. For example, if you select the **Folder** level, it will need the `audit-trails.viewer` role for this folder.
+          * Specify an organization, cloud, or folder to collect audit logs from.
 
   1. {% include [data-plane-on-console](../_includes/audit-trails/data-plane-on-console.md) %}
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI {#cli}
+- Log group {#log-group}
 
-  {% include [cli-install](../_includes/cli-install.md) %}
+  1. In the [management console]({{ link-console-main }}), select the folder to host the trail.
+  1. [Navigate](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
+  1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the trail.
+  1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, configure the destination object:
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_log-group }}**: Select a log group to upload audit logs to. If you do not have a log group yet, click **{{ ui-key.yacloud.common.create }}** and [create a new log group](../logging/quickstart.md).
 
-  {% include [default-catalogue](../_includes/default-catalogue.md) %}
+  1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select an existing [service account](../iam/concepts/users/service-accounts.md) or create a new one. The trail will use this account to upload audit log files to the log group.
+      If you are creating a new account, click **{{ ui-key.yacloud.common.create }}**, name the account, and and assign the following roles to it:
+      * `logging.writer` for the log group.
+      * `audit-trails.viewer` for the folder if planning to collect events from the folder.
 
-  1. View the description of the [CLI](../cli/) command for creating a trail:
+  1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, configure the collection of management event audit logs:
+      * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select the event collection level: `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`, `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}`, or `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
+      * Depending on the event collection level you select:
+          * Assign relevant roles to the service account. For example, if you select the **Folder** level, it will need the `audit-trails.viewer` role for this folder.
+          * Specify an organization, cloud, or folder to collect audit logs from.
 
-      ```bash
-      yc audit-trails trail create --help
-      ```
-
-  1. Run the command to create a trail to collect [management event](./concepts/format.md) audit logs in the organization:
-
-      ```bash
-      yc audit-trails trail create \
-        --name <trail_name> \
-        --description "<trail_description>" \
-        --service-account-id <service_account_ID> \
-        --destination-bucket <bucket_name> \
-        --destination-bucket-object-prefix <prefix_in_bucket> \
-        --filter-from-organisation-id <organization_ID> \
-        --filter-some-cloud-ids <list_of_clouds_in_organization>
-      ```
-
-      Where:
-
-      {% include [trail-create-cli-descs_part1](../_includes/audit-trails/trail-create-cli-descs-part1.md) %}
-
-      {% include [trail-create-cli-descs_storage](../_includes/audit-trails/trail-create-cli-descs-storage.md) %}
-
-      {% include [trail-create-cli-descs_org](../_includes/audit-trails/trail-create-cli-descs-org.md) %}
-
-      Result:
-
-      ```yml
-      done (1s)
-      id: cnpe0gldjeq0********
-      folder_id: b1g9d2k0itu4********
-      created_at: "2024-03-31T16:54:56.187Z"
-      updated_at: "2024-03-31T16:54:56.187Z"
-      name: sample-trail
-      description: My very first trail
-      destination:
-        object_storage:
-          bucket_id: at-destination-bucket
-          object_prefix: sample-trail-audit-logs
-      service_account_id: ajeee339l4m5********
-      status: ACTIVE
-      filter:
-        path_filter:
-          root:
-            some_filter:
-              resource:
-                id: bpfaidqca8vd********
-                type: organization-manager.organization
-              filters:
-                - any_filter:
-                    resource:
-                      id: b1glti4eser3********
-                      type: resource-manager.cloud
-                - any_filter:
-                    resource:
-                      id: b1gssd27h7ra********
-                      type: resource-manager.cloud
-        event_filter: {}
-      cloud_id: b1glti4eser3********
-      ```
-
-      For more information about the `yc audit-trails trail create` command, see the [CLI reference](../cli/cli-ref/audit-trails/cli-ref/trail/create.md).
-
-- {{ TF }} {#tf}
-
-  {% include [terraform-definition](../_tutorials/_tutorials_includes/terraform-definition.md) %}
-
-  {% include [terraform-install](../_includes/terraform-install.md) %}
-
-  1. In the configuration file, describe the parameters of the trail that will collect audit events of the organization's resources:
-
-      ```hcl
-      resource "yandex_audit_trails_trail" "basic_trail" {
-        name = "<trail_name>"
-        folder_id   = "<folder_ID>"
-        description = "<trail_description>"
-        
-        labels = {
-          key = "value"
-        }
-        
-        service_account_id = "<service_account_ID>"
-        
-        storage_destination {
-          bucket_name   = "<bucket_name>"
-          object_prefix = "<prefix_in_bucket>"
-        }
-        
-        filter {
-          path_filter {
-            some_filter {
-              resource_id   = "<organization_ID>"
-              resource_type = "<parent_resource_type>"
-              any_filters {
-                  resource_id   = "<ID_of_cloud_1>"
-                  resource_type = "<child_resource_type>"
-              }
-              any_filters {
-                  resource_id   = "<ID_of_cloud_2>"
-                  resource_type = "<child_resource_type>"
-              }
-            }
-          }
-          event_filters {
-            service = "<ID_of_service_1>"
-            categories {
-              plane = "DATA_PLANE"
-              type  = "<action_type>"
-            }
-            path_filter {
-              any_filter {
-                resource_id = "<organization_ID>"
-                resource_type = "<resource_type>"
-              }
-            }
-          }
-          event_filters {
-            service = "<ID_of_service_2>"
-            categories {
-              plane = "DATA_PLANE"
-              type  = "<action_type>"
-            }
-            path_filter {
-              any_filter {
-                resource_id = "<organization_ID>"
-                resource_type = "<resource_type>"
-              }
-            }
-          }
-        }
-      }
-      ```
-
-      Where:
-
-      {% include [trail-create-tf-descs_part1](../_includes/audit-trails/trail-create-tf-descs-part1.md) %}
-
-      {% include [trail-create-tf-descs_storage](../_includes/audit-trails/trail-create-tf-descs-storage.md) %}
-
-      {% include [trail-create-tf-descs_part2](../_includes/audit-trails/trail-create-tf-descs-part2.md) %}
-
-      For more information about the `yandex_audit_trails_trail` resource parameters in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/audit_trails_trail).
-
-  1. Create the resources:
-
-      {% include [terraform-validate-plan-apply](../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
-      
-      {{ TF }} will create all the required resources. You can check the new resources and their settings either in the [management console]({{ link-console-main }}) or using this [CLI](../cli/) command:
-
-      ```bash
-      yc audit-trails trail get <trail_name>
-      ```
-
-- API {#api}
-
-  Use the [create](./api-ref/Trail/create.md) REST API method for the [Trail](./api-ref/Trail/index.md) resource or the [TrailService/Create](api-ref/grpc/Trail/create.md) gRPC API call.
+  1. {% include [data-plane-on-console](../_includes/audit-trails/data-plane-on-console.md) %}
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
+You can also create a trail using the [CLI](./operations/create-trail.md#cli), [Terraform](./operations/create-trail.md#tf), or [API](./operations/create-trail.md#api).
+
+{% include [note-lose-target-when-switch-trail](../_includes/audit-trails/note-lose-target-when-switch-trail.md) %}
+
 ## Viewing audit logs {#watch-logs}
 
-When uploading audit logs to a bucket, {{ at-name }} generates audit log files approximately once every 5 minutes. The trail will write all the [events](./concepts/events.md) that occurred to the organization resources during that period to one or more files. If no events occurred during the period, no files are generated.
+{% list tabs group=audit-trails-destination %}
 
-Make sure that the audit log file is in the bucket specified when creating the trail.
+- Bucket {#bucket}
 
-### Viewing audit log files {#watch-log-file}
+  {{ at-name }} generates audit log files approximately once every 5 minutes. {{ at-name }} creates log files in `JSON` format.
+  
+  Access to the contents of the audit log file using one of the following methods:
+  * [Download the object](../storage/operations/objects/download.md).
+  * [Get a public link to the object](../storage/operations/objects/link-for-download.md).
+  * Mount the bucket using [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace): [s3fs](../storage/tools/s3fs.md) or [goofys](../storage/tools/goofys.md).
 
-{{ at-name }} creates log files in `JSON` format.
+- Log group {#log-group}
 
-Access to the contents of the audit log file using one of the following methods:
-* [Download the object](../storage/operations/objects/download.md).
-* [Get a public link to the object](../storage/operations/objects/link-for-download.md).
-* Mount the bucket using [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace): [s3fs](../storage/tools/s3fs.md) or [goofys](../storage/tools/goofys.md).
+  In the {{ cloud-logging-name }} UI, you can view audit logs in real time.
+  
+  1. In the [management console]({{ link-console-main }}), select the folder with the log group.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. Click the row with the log group.
+  1. Navigate to the **{{ ui-key.yacloud.common.logs }}** tab.
+  1. Configure event search filters.
 
-## Exporting audit logs to SIEM systems {#watch-log-file}
+{% endlist %}
+
+## Exporting audit logs to SIEM {#export-to-siem}
 
 You can [export](./concepts/export-siem.md) audit log files to your SIEM solution.
 
@@ -252,3 +125,4 @@ You can [export](./concepts/export-siem.md) audit log files to your SIEM solutio
 
 * Learn more about the [service](./concepts/index.md).
 * Learn more about the [types of audit logs](./concepts/control-plane-vs-data-plane.md).
+* Read about [audit log requirements in the security standard](../security/standard/audit-logs.md).

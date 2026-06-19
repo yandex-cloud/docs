@@ -10,7 +10,7 @@ description: In this tutorial, you will learn how to get {{ captcha-full-name }}
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your [CAPTCHA](../concepts/validation.md).
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
   1. Select the CAPTCHA you need. You can check the CAPTCHA details on the **{{ ui-key.yacloud.common.overview }}** page.
 
 - CLI {#cli}

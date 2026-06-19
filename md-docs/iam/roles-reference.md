@@ -464,7 +464,7 @@
 
 Включает разрешения, предоставляемые ролями `billing.accounts.partnerEditor` и `billing.accounts.piiPartnerEditor`.
 
-Подробнее см. [Управление доступом в партнерской программе Yandex Cloud](../partner/security/index.md).
+Подробнее в [Управление доступом в партнерской программе Yandex Cloud](../partner/security/index.md).
 
 
 ## Apache Hive™ Metastore {#metastore-roles}
@@ -547,7 +547,7 @@
 
 Включает разрешения, предоставляемые ролями `logging.writer` и `monitoring.editor`.
 
-Подробнее см. [Сервисные роли для работы с метаданными в кластере Apache Hive™ Metastore](../metadata-hub/security/metastore-roles.md).
+Подробнее в [Сервисные роли для работы с метаданными в кластере Apache Hive™ Metastore](../metadata-hub/security/metastore-roles.md).
 
 
 ## Yandex AI Studio {#fm-roles}
@@ -749,7 +749,7 @@
 
 Включает разрешения, предоставляемые ролями `serverless.mcpGateways.editor`, `serverless.mcpGateways.invoker` и `serverless.mcpGateways.anonymousInvoker`.
 
-Подробнее см. [Управление доступом в Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/security/index).
+Подробнее в [Управление доступом в Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/security/index).
 
 
 ## Yandex API Gateway {#api-gateway-roles}
@@ -811,7 +811,7 @@
 
 Включает разрешения, предоставляемые ролью `api-gateway.editor`.
 
-Подробнее см. [Управление доступом в API Gateway](../api-gateway/security/index.md).
+Подробнее в [Управление доступом в API Gateway](../api-gateway/security/index.md).
 
 
 ## Yandex Application Load Balancer {#alb-roles}
@@ -916,7 +916,7 @@
 
 Для подключения публичного IP-адреса к новому или существующему L7-балансировщику дополнительно необходима [роль](../vpc/security/index.md#vpc-public-admin) `vpc.publicAdmin` на сеть, в которой находится балансировщик.
 
-Подробнее см. [Управление доступом в Application Load Balancer](../application-load-balancer/security/index.md).
+Подробнее в [Управление доступом в Application Load Balancer](../application-load-balancer/security/index.md).
 
 
 ## Yandex Audit Trails {#at-roles}
@@ -962,7 +962,7 @@
 
 Эта роль недоступна. Используйте роль `audit-trails.auditor`.
 
-Подробнее см. [Управление доступом Audit Trails](../audit-trails/security/index.md).
+Подробнее в [Управление доступом Audit Trails](../audit-trails/security/index.md).
 
 
 ## Yandex BareMetal {#baremetal-roles}
@@ -1026,7 +1026,7 @@
 
 {% note warning %}
 
-С 1 августа 2026 года роль `baremetal.editor` получает новый набор разрешений, позволяющий подключать серверы к сервису [Yandex Cloud Backup](../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
+С 1 августа 2026 года роль `baremetal.editor` получает новый набор разрешений от роли [backup.user](../backup/security/index.md#backup-user), позволяющий подключать серверы к сервису [Yandex Cloud Backup](../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
 
 Если вы не планируете подключать ваши ресурсы к Cloud Backup и не хотите предоставлять вашим пользователям такие разрешения, вы можете заблаговременно отключить эти возможности с помощью [политики авторизации](concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](operations/access-policies/assign.md).
 
@@ -1052,13 +1052,13 @@
 
 {% note warning %}
 
-С 1 августа 2026 года роль `baremetal.admin` получает новый набор разрешений, позволяющий подключать серверы к сервису [Yandex Cloud Backup](../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
+С 1 августа 2026 года роль `baremetal.admin` получает новый набор разрешений от роли [backup.user](../backup/security/index.md#backup-user), позволяющий подключать серверы к сервису [Yandex Cloud Backup](../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
 
 Если вы не планируете подключать ваши ресурсы к Cloud Backup и не хотите предоставлять вашим пользователям такие разрешения, вы можете заблаговременно отключить эти возможности с помощью [политики авторизации](concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](operations/access-policies/assign.md).
 
 {% endnote %}
 
-Подробнее см. [Управление доступом в Yandex BareMetal](../baremetal/security/index.md).
+Подробнее в [Управление доступом в Yandex BareMetal](../baremetal/security/index.md).
 
 
 ## Yandex Certificate Manager {#certificate-manager-roles}
@@ -1110,7 +1110,7 @@
 
 Роль `certificate-manager.certificates.downloader` позволяет просматривать список [сертификатов](../certificate-manager/concepts/index.md#types) и информацию о них, а также получать содержимое сертификатов.
 
-Подробнее см. [Управление доступом в Certificate Manager](../certificate-manager/security/index.md).
+Подробнее в [Управление доступом в Certificate Manager](../certificate-manager/security/index.md).
 
 
 ## Yandex Cloud Apps {#cloud-apps-roles}
@@ -1137,7 +1137,7 @@
 
 Включает разрешения, предоставляемые ролью `cloudapps.editor`.
 
-Подробнее см. [Управление доступом в Yandex Cloud Apps](../cloud-apps/security/index.md).
+Подробнее в [Управление доступом в Yandex Cloud Apps](../cloud-apps/security/index.md).
 
 
 ## Yandex Cloud Backup {#backup-roles}
@@ -1231,7 +1231,7 @@
 
 Назначить роль `backup.admin` может пользователь с ролью `admin` в облаке.
 
-Подробнее см. [Управление доступом в Cloud Backup](../backup/security/index.md).
+Подробнее в [Управление доступом в Cloud Backup](../backup/security/index.md).
 
 
 ## Yandex Cloud Billing {#billing-roles}
@@ -1507,7 +1507,7 @@
 
 Роль `billing.partners.editor` назначается на [платежный аккаунт](../billing/concepts/billing-account.md) и дает право редактировать информацию о [партнере](../partner/program/var.md) и его продуктах в [партнерском каталоге](../partner/program/var-tools.md#catalog).
 
-Подробнее см. [Управление доступом в сервисе Yandex Cloud Billing](../billing/security/index.md).
+Подробнее в [Управление доступом в сервисе Yandex Cloud Billing](../billing/security/index.md).
 
 
 ## Yandex Cloud CDN {#cdn-roles}
@@ -1546,7 +1546,7 @@
 
 Позже роль получит дополнительные возможности.
 
-Подробнее см. [Управление доступом в Cloud CDN](../cdn/security/index.md).
+Подробнее в [Управление доступом в Cloud CDN](../cdn/security/index.md).
 
 
 ## Yandex Cloud Desktop {#desktop-roles}
@@ -1617,7 +1617,7 @@
 
 Включает разрешения, предоставляемые ролями `vdi.editor` и `vdi.desktopGroups.maintainer`.
 
-Подробнее см. [Управление доступом в Yandex Cloud Desktop](../cloud-desktop/security/index.md).
+Подробнее в [Управление доступом в Yandex Cloud Desktop](../cloud-desktop/security/index.md).
 
 
 ## Yandex Cloud Detection and Response {#ycdr-roles}
@@ -1712,7 +1712,7 @@
 
 Включает разрешения, предоставляемые ролями `dns.editor` и `dns.firewallEditor`.
 
-Подробнее см. [Управление доступом в Cloud DNS](../dns/security/index.md).
+Подробнее в [Управление доступом в Cloud DNS](../dns/security/index.md).
 
 
 ## Yandex Cloud Functions {#functions-roles}
@@ -1813,7 +1813,7 @@
 
 Эта роль недоступна. Используйте роль `functions.admin`.
 
-Подробнее см. [Управление доступом в Cloud Functions](../functions/security/index.md).
+Подробнее в [Управление доступом в Cloud Functions](../functions/security/index.md).
 
 
 ## Yandex Cloud Interconnect {#interconnect-roles}
@@ -1902,7 +1902,7 @@
 
 Включает разрешения, предоставляемые ролью `cic.secretViewer`.
 
-Подробнее см. [Управление доступом в Cloud Interconnect](../interconnect/security/index.md).
+Подробнее в [Управление доступом в Cloud Interconnect](../interconnect/security/index.md).
 
 
 ## Yandex Cloud Logging {#logging-roles}
@@ -1974,7 +1974,7 @@
 
 Включает разрешения, предоставляемые ролями `logging.editor`, `logging.reader` и `logging.writer`.
 
-Подробнее см. [Управление доступом в Cloud Logging](../logging/security/index.md).
+Подробнее в [Управление доступом в Cloud Logging](../logging/security/index.md).
 
 
 ## Yandex Cloud Marketplace {#marketplace-roles}
@@ -2097,7 +2097,7 @@
 
 Роль `marketplace.publishers.member` предоставляет права участника [профиля партнера](../marketplace/quickstart.md#registration), но не дает доступа к ресурсам профиля. Чтобы предоставить пользователю доступ к [продуктам](../marketplace/concepts/product.md) или отчетам в профиле партнера, дополнительно назначьте ему роль `marketplace.publishers.viewer`, `marketplace.publishers.editor`, `marketplace.publishers.admin` или `marketplace.publishers.owner`.
 
-Подробнее см. [Управление доступом партнера в Marketplace](../marketplace/security/partners.md).
+Подробнее в [Управление доступом партнера в Marketplace](../marketplace/security/partners.md).
 
 
 ### Роли пользователя {#marketplace-user-roles}
@@ -2168,7 +2168,7 @@
 
 Включает разрешения, предоставляемые ролью `marketplace.productInstances.editor`.
 
-Подробнее см. [Управление доступом пользователя в Marketplace](../marketplace/security/index.md).
+Подробнее в [Управление доступом пользователя в Marketplace](../marketplace/security/index.md).
 
 
 ## Yandex Cloud Notification Service {#cns-roles}
@@ -2226,7 +2226,7 @@
 
 Включает разрешения, предоставляемые ролью `notifications.editor`.
 
-Подробнее см. [Управление доступом в Yandex Cloud Notification Service](../notifications/security/index.md).
+Подробнее в [Управление доступом в Yandex Cloud Notification Service](../notifications/security/index.md).
 
 
 ## Yandex Cloud Postbox {#postbox-roles}
@@ -2287,7 +2287,7 @@
 
 Включает разрешения, предоставляемые ролями `postbox.editor`, `postbox.messages.reader` и `postbox.statistics.reader`.
 
-Подробнее см. [Управление доступом в Yandex Cloud Postbox](../postbox/security/index.md).
+Подробнее в [Управление доступом в Yandex Cloud Postbox](../postbox/security/index.md).
 
 
 ## Yandex Cloud Registry {#cloud-registry-roles}
@@ -2361,7 +2361,7 @@
 * просматривать информацию о [реестрах](../cloud-registry/concepts/registry.md);
 * создавать и удалять папки внутри реестров.
 
-Подробнее см. [Управление доступом в Yandex Cloud Registry](../cloud-registry/security/index.md).
+Подробнее в [Управление доступом в Yandex Cloud Registry](../cloud-registry/security/index.md).
 
 
 
@@ -2428,7 +2428,7 @@
 
 Включает разрешения, предоставляемые ролью `cloud-router.editor`.
 
-Подробнее см. [Управление доступом в Cloud Router](../cloud-router/security/index.md).
+Подробнее в [Управление доступом в Cloud Router](../cloud-router/security/index.md).
 
 
 ## Yandex Cloud Video {#video-roles}
@@ -2598,7 +2598,7 @@
 
 {% note warning %}
 
-С 1 августа 2026 года роль `compute.editor` получает новый набор разрешений, позволяющий подключать виртуальные машины к сервису [Yandex Cloud Backup](../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
+С 1 августа 2026 года роль `compute.editor` получает новый набор разрешений от роли [backup.user](../backup/security/index.md#backup-user), позволяющий подключать виртуальные машины к сервису [Yandex Cloud Backup](../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
 
 Если вы не планируете подключать ваши ресурсы к Cloud Backup и не хотите предоставлять вашим пользователям такие разрешения, вы можете заблаговременно отключить эти возможности с помощью [политики авторизации](concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](operations/access-policies/assign.md).
 
@@ -2670,7 +2670,7 @@
 
 {% note warning %}
 
-С 1 августа 2026 года роль `compute.admin` получает новый набор разрешений, позволяющий подключать виртуальные машины к сервису [Yandex Cloud Backup](../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
+С 1 августа 2026 года роль `compute.admin` получает новый набор разрешений от роли [backup.user](../backup/security/index.md#backup-user), позволяющий подключать виртуальные машины к сервису [Yandex Cloud Backup](../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
 
 Если вы не планируете подключать ваши ресурсы к Cloud Backup и не хотите предоставлять вашим пользователям такие разрешения, вы можете заблаговременно отключить эти возможности с помощью [политики авторизации](concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](operations/access-policies/assign.md).
 
@@ -2750,7 +2750,7 @@
 
 Включает разрешения, предоставляемые ролью `compute.snapshotSchedules.viewer`.
 
-Подробнее см. [Управление доступом в Compute Cloud](../compute/security/index.md).
+Подробнее в [Управление доступом в Compute Cloud](../compute/security/index.md).
 
 
 ## Yandex Connection Manager {#connection-manager-roles}
@@ -2787,7 +2787,7 @@
 
 Включает разрешения, предоставляемые ролью `connection-manager.editor`.
 
-Подробнее см. [Управление доступом в Connection Manager](../metadata-hub/security/index.md).
+Подробнее в [Управление доступом в Connection Manager](../metadata-hub/security/index.md).
 
 
 ## Yandex Container Registry {#cr-roles}
@@ -2873,7 +2873,7 @@
 
 Включает разрешения, предоставляемые ролью `container-registry.viewer`.
 
-Подробнее см. [Управление доступом в Container Registry](../container-registry/security/index.md).
+Подробнее в [Управление доступом в Container Registry](../container-registry/security/index.md).
 
 
 ## Yandex Data Catalog {#data-catalog-roles}
@@ -3246,7 +3246,7 @@
 
 Включает разрешения, предоставляемые ролью `data-catalog.lineages.editor`.
 
-Подробнее см. [Сервисные роли для работы с метаданными в Yandex Data Catalog](../metadata-hub/security/data-catalog-roles.md).
+Подробнее в [Сервисные роли для работы с метаданными в Yandex Data Catalog](../metadata-hub/security/data-catalog-roles.md).
 
 
 ## Yandex DataLens {#datalens-roles}
@@ -3420,7 +3420,7 @@
 
 {% endnote %}
 
-Подробнее см. [Роли в Yandex DataLens](../datalens/security/roles.md).
+Подробнее в [Роли в Yandex DataLens](../datalens/security/roles.md).
 
 
 ## Yandex Data Processing {#dataproc-roles}
@@ -3600,7 +3600,7 @@
 
 Эта роль недоступна. Используйте роль `dataproc.agent`.
 
-Подробнее см. [Управление доступом в Yandex Data Processing](../data-proc/security/index.md).
+Подробнее в [Управление доступом в Yandex Data Processing](../data-proc/security/index.md).
 
 
 ## Yandex DataSphere {#datasphere-roles}
@@ -3762,7 +3762,7 @@
 
 Роль `data-sphere.admin` устарела и больше не используется.
 
-Подробнее см. [Управление доступом в DataSphere](../datasphere/security/index.md).
+Подробнее в [Управление доступом в DataSphere](../datasphere/security/index.md).
 
 
 ## Yandex Data Streams {#yds-roles}
@@ -3835,7 +3835,7 @@
 
 Включает разрешения, предоставляемые ролью `ydb.admin`.
 
-Подробнее см. [Управление доступом в Data Streams](../data-streams/security/index.md).
+Подробнее в [Управление доступом в Data Streams](../data-streams/security/index.md).
 
 
 ## Yandex Data Transfer {#data-transfer-roles}
@@ -3882,7 +3882,7 @@
 
 Сейчас эту роль можно назначить только на каталог или облако.
 
-Подробнее см. [Управление доступом в Data Transfer](../data-transfer/security/index.md).
+Подробнее в [Управление доступом в Data Transfer](../data-transfer/security/index.md).
 
 
 ## Yandex Identity and Access Management {#iam-roles}
@@ -4069,7 +4069,7 @@
 
 Включает разрешения, предоставляемые ролями `iam.editor` и `iam.serviceAccounts.admin`.
 
-Подробнее см. [Управление доступом в сервисе Identity and Access Management](security/index.md).
+Подробнее в [Управление доступом в сервисе Identity and Access Management](security/index.md).
 
 
 ## Yandex Identity Hub {#organization-roles}
@@ -4697,7 +4697,7 @@
 
 Включает разрешения, предоставляемые ролью `organization-manager.idpInstances.billingViewer`.
 
-Подробнее см. [Управление доступом в Yandex Identity Hub](../organization/security/index.md).
+Подробнее в [Управление доступом в Yandex Identity Hub](../organization/security/index.md).
 
 
 ## Yandex IoT Core {#iot-core-roles}
@@ -4722,7 +4722,7 @@
 
 Роль `iot.editor` позволяет создавать, редактировать и удалять все ресурсы Yandex IoT Core.
 
-Подробнее см. [Управление доступом в Yandex IoT Core](../iot-core/security/index.md).
+Подробнее в [Управление доступом в Yandex IoT Core](../iot-core/security/index.md).
 
 
 ## Yandex Key Management Service {#kms-roles}
@@ -4815,7 +4815,7 @@
 
 Включает разрешения, предоставляемые ролью `kms.editor`.
 
-Подробнее см. [Управление доступом в Key Management Service](../kms/security/index.md).
+Подробнее в [Управление доступом в Key Management Service](../kms/security/index.md).
 
 
 ## Yandex Load Testing {#load-testing-roles}
@@ -4902,7 +4902,7 @@
 
 Роль назначается на [сервисный аккаунт](concepts/users/service-accounts.md), от имени которого создается ВМ с агентом.
 
-Подробнее см. [Управление доступом в Load Testing](../load-testing/security/index.md).
+Подробнее в [Управление доступом в Load Testing](../load-testing/security/index.md).
 
 
 ## Yandex Lockbox {#lockbox-roles}
@@ -4947,7 +4947,7 @@
 
 Роль `lockbox.payloadViewer` позволяет просматривать содержимое [секретов](../lockbox/concepts/secret.md#secret).
 
-Подробнее см. [Управление доступом в Yandex Lockbox](../lockbox/security/index.md).
+Подробнее в [Управление доступом в Yandex Lockbox](../lockbox/security/index.md).
 
 
 ## Управляемые базы данных {#mdb}
@@ -5104,7 +5104,7 @@
 
 Роль не разрешает доступ к содержимому секретов Yandex Lockbox. Для того чтобы кластер Apache Airflow™ имел доступ к содержимому секретов в Yandex Lockbox, выдайте [сервисному аккаунту](concepts/users/service-accounts.md) дополнительную [роль](../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer` на каталог или на определенные секреты.
 
-Подробнее см. [Управление доступом в Managed Service for Apache Airflow™](../managed-airflow/security/index.md).
+Подробнее в [Управление доступом в Managed Service for Apache Airflow™](../managed-airflow/security/index.md).
 
 
 ## Yandex Managed Service for Apache Kafka® {#managed-kafka-roles}
@@ -5181,7 +5181,7 @@
 
 Роль `managed-kafka.interfaceUser` позволяет использовать [веб-интерфейс](../managed-kafka/concepts/kafka-ui.md) Kafka UI для Apache Kafka®.
 
-Подробнее см. [Управление доступом в Managed Service for Apache Kafka®](../managed-kafka/security/index.md).
+Подробнее в [Управление доступом в Managed Service for Apache Kafka®](../managed-kafka/security/index.md).
 
 
 ## Yandex Managed Service for Apache Spark™ {#msp-roles}
@@ -5277,7 +5277,7 @@
 
 Включает разрешения, предоставляемые ролями `logging.writer` и `monitoring.editor`.
 
-Подробнее см. [Управление доступом к Yandex Managed Service for Apache Spark™](../managed-spark/security.md).
+Подробнее в [Управление доступом к Yandex Managed Service for Apache Spark™](../managed-spark/security.md).
 
 
 ## Yandex Managed Service for ClickHouse® {#managed-clickhouse-roles}
@@ -5367,7 +5367,7 @@
 
 Включает разрешения, предоставляемые ролью `managed-clickhouse.maintenanceTask.viewer`.
 
-Подробнее см. [Управление доступом в Managed Service for ClickHouse®](../managed-clickhouse/security.md).
+Подробнее в [Управление доступом в Managed Service for ClickHouse®](../managed-clickhouse/security.md).
 
 
 ## Yandex Managed Service for GitLab {#managed-gitlab-roles}
@@ -5408,7 +5408,7 @@
 
 Для создания инстансов Managed Service for GitLab дополнительно необходима роль `vpc.user`.
 
-Подробнее см. [Управление доступом в Managed Service for GitLab](../managed-gitlab/security/index.md).
+Подробнее в [Управление доступом в Managed Service for GitLab](../managed-gitlab/security/index.md).
 
 
 ## Yandex MPP Analytics for PostgreSQL {#managed-greenplum-roles}
@@ -5507,7 +5507,7 @@
 
 Включает разрешения, предоставляемые ролью `managed-greenplum.maintenanceTask.viewer`.
 
-Подробнее см. [Управление доступом в Yandex MPP Analytics for PostgreSQL](../managed-greenplum/security/index.md).
+Подробнее в [Управление доступом в Yandex MPP Analytics for PostgreSQL](../managed-greenplum/security/index.md).
 
 
 ## Yandex Managed Service for Kubernetes {#managed-kubernetes-roles}
@@ -5583,7 +5583,7 @@
 
 Включает разрешения, предоставляемые ролями `k8s.tunnelClusters.agent` и `vpc.privateAdmin`.
 
-Подробнее см. [Управление доступом в Managed Service for Kubernetes](../managed-kubernetes/security/index.md).
+Подробнее в [Управление доступом в Managed Service for Kubernetes](../managed-kubernetes/security/index.md).
 
 
 ## Yandex Managed Service for MySQL® {#managed-mysql-roles}
@@ -5716,7 +5716,7 @@
 
 Включает разрешения, предоставляемые ролью `managed-mysql.maintenanceTask.viewer`.
 
-Подробнее см. [Управление доступом в Managed Service for MySQL®](../managed-mysql/security/index.md).
+Подробнее в [Управление доступом в Managed Service for MySQL®](../managed-mysql/security/index.md).
 
 
 ## Yandex Managed Service for OpenSearch {#opensearch-roles}
@@ -5802,7 +5802,7 @@
 
 Включает разрешения, предоставляемые ролью `managed-opensearch.maintenanceTask.viewer`.
 
-Подробнее см. [Управление доступом к Managed Service for OpenSearch](../managed-opensearch/security/index.md).
+Подробнее в [Управление доступом к Managed Service for OpenSearch](../managed-opensearch/security/index.md).
 
 
 ## Yandex Managed Service for PostgreSQL {#mpg-roles}
@@ -5935,7 +5935,7 @@
 
 Включает разрешения, предоставляемые ролью `managed-postgresql.maintenanceTask.viewer`.
 
-Подробнее см. [Управление доступом в Managed Service for PostgreSQL](../managed-postgresql/security/index.md).
+Подробнее в [Управление доступом в Managed Service for PostgreSQL](../managed-postgresql/security/index.md).
 
 
 ## Yandex Managed Service for Sharded PostgreSQL {#mspqr-roles}
@@ -6026,7 +6026,7 @@
 
 Включает разрешения, предоставляемые ролью `managed-spqr.maintenanceTask.viewer`.
 
-Подробнее см. [Управление доступом в Managed Service for Sharded PostgreSQL](../managed-spqr/security.md).
+Подробнее в [Управление доступом в Managed Service for Sharded PostgreSQL](../managed-spqr/security.md).
 
 
 ## Yandex Managed Service for Valkey™ {#mrd-roles}
@@ -6154,7 +6154,7 @@
 
 Включает разрешения, предоставляемые ролью `managed-redis.maintenanceTask.viewer`.
 
-Подробнее см. [Управление доступом в Yandex Managed Service for Valkey™](../managed-valkey/security/index.md).
+Подробнее в [Управление доступом в Yandex Managed Service for Valkey™](../managed-valkey/security/index.md).
 
 
 ## Yandex Managed Service for SQL Server {#mms-roles}
@@ -6321,7 +6321,7 @@
 
 Включает разрешения, предоставляемые ролями `logging.writer` и `monitoring.editor`.
 
-Подробнее см. [Управление доступом к Managed Service for Trino](../managed-trino/security.md).
+Подробнее в [Управление доступом к Managed Service for Trino](../managed-trino/security.md).
 
 
 ## Yandex Managed Service for YTsaurus {#myt-roles}
@@ -6376,7 +6376,7 @@
 
 Для создания кластеров YTsaurus дополнительно необходима роль `vpc.user`.
 
-Подробнее см. [Управление доступом в Managed Service for YTsaurus](../managed-ytsaurus/security/index.md).
+Подробнее в [Управление доступом в Managed Service for YTsaurus](../managed-ytsaurus/security/index.md).
 
 
 ## Yandex Managed Service for YDB {#ydb-roles}
@@ -6441,7 +6441,7 @@
 
 Роль `ydb.kafkaApi.client` позволяет работать с `ydb` по протоколу [Kafka API](https://ydb.tech/docs/ru/reference/kafka-api) с использованием plain-аутентификации через SSL-соединение.
 
-Подробнее см. [Управление доступом в Managed Service for YDB](../ydb/security/index.md).
+Подробнее в [Управление доступом в Managed Service for YDB](../ydb/security/index.md).
 
 
 ## Yandex StoreDoc {#storedoc-roles}
@@ -6575,7 +6575,7 @@
 
 Включает разрешения, предоставляемые ролью `managed-mongodb.maintenanceTask.viewer`.
 
-Подробнее см. [Управление доступом в Yandex StoreDoc](../storedoc/security/index.md).
+Подробнее в [Управление доступом в Yandex StoreDoc](../storedoc/security/index.md).
 
 
 ## Yandex Message Queue {#message-queue-roles}
@@ -6592,7 +6592,7 @@
 
 Роль `ymq.admin` включает права ролей `ymq.reader` и `ymq.writer`, а также дает права изменять атрибуты [очередей](../message-queue/concepts/queue.md) и удалять очереди. Позволяет получать список очередей и информацию о них.
 
-Подробнее см. [Управление доступом в Message Queue](../message-queue/security/index.md).
+Подробнее в [Управление доступом в Message Queue](../message-queue/security/index.md).
 
 
 ## Yandex Monitoring {#monitoring-roles}
@@ -6634,7 +6634,7 @@
 
 Включает разрешения, предоставляемые ролью `monitoring.editor`.
 
-Подробнее см. [Управление доступом в Monitoring](../monitoring/security/index.md).
+Подробнее в [Управление доступом в Monitoring](../monitoring/security/index.md).
 
 
 ## Yandex Network Load Balancer {#network-load-balancer-roles}
@@ -6728,7 +6728,7 @@
 
 Включает разрешения, предоставляемые ролью `load-balancer.editor`.
 
-Подробнее см. [Управление доступом в Network Load Balancer](../network-load-balancer/security/index.md).
+Подробнее в [Управление доступом в Network Load Balancer](../network-load-balancer/security/index.md).
 
 
 ## Yandex Object Storage {#storage-roles}
@@ -6911,7 +6911,7 @@
 
 Включает разрешения, предоставляемые ролями `storage.editor`, `storage.configViewer` и `storage.configurer`.
 
-Подробнее см. [Управление доступом с помощью Yandex Identity and Access Management](../storage/security/index.md).
+Подробнее в [Управление доступом с помощью Yandex Identity and Access Management](../storage/security/index.md).
 
 
 ## Yandex Query {#query-roles}
@@ -6958,7 +6958,7 @@
 
 Роль предназначена для автоматизации выполнения запросов сервисными аккаунтами. Например, для запуска запросов по событию или по расписанию.
 
-Подробнее см. [Управление доступом в Query](../query/security/index.md).
+Подробнее в [Управление доступом в Query](../query/security/index.md).
 
 
 ## Yandex Resource Manager {#resource-manager-roles}
@@ -7033,7 +7033,7 @@
 
 Включает разрешения, предоставляемые ролями `admin` и `resource-manager.clouds.member`.
 
-Подробнее см. [Управление доступом в Resource Manager](../resource-manager/security/index.md).
+Подробнее в [Управление доступом в Resource Manager](../resource-manager/security/index.md).
 
 
 ## Yandex Schema Registry {#schema-registry-roles}
@@ -7068,7 +7068,7 @@
 
 Включает разрешения, предоставляемые ролью `schema-registry.editor`.
 
-Подробнее см. [Сервисные роли для управления схемами данных с помощью Schema Registry](../metadata-hub/security/schema-registry-roles.md).
+Подробнее в [Сервисные роли для управления схемами данных с помощью Schema Registry](../metadata-hub/security/schema-registry-roles.md).
 
 
 ## Yandex Search API {#search-api-roles}
@@ -7107,7 +7107,7 @@
 
 Роль `search-api.admin` устарела и не должна использоваться.
 
-Подробнее см. [Управление доступом в Yandex Search API](https://aistudio.yandex.ru/docs/ru/search-api/security/index).
+Подробнее в [Управление доступом в Yandex Search API](https://aistudio.yandex.ru/docs/ru/search-api/security/index).
 
 
 ## Yandex Security Deck {#security-deck-roles}
@@ -7253,7 +7253,7 @@
 
 Включает разрешения, предоставляемые ролями `access-transparency.admin`, `dspm.admin`, `cspm.admin`, `kspm.admin` и `security-deck.alertSinks.admin`.
 
-Подробнее см. [Общие роли Yandex Security Deck](../security-deck/security/index.md).
+Подробнее в [Общие роли Yandex Security Deck](../security-deck/security/index.md).
 
 ### Сервисные роли для контроля данных (DSPM) {#dspm-roles}
 
@@ -7322,7 +7322,7 @@
 
 Включает разрешения, предоставляемые ролью `dspm.editor`.
 
-Подробнее см. [Управление доступом в DSPM](../security-deck/security/dspm-roles.md).
+Подробнее в [Управление доступом в DSPM](../security-deck/security/dspm-roles.md).
 
 ### Сервисные роли для модуля Контроль Kubernetes® (KSPM) {#kspm-roles}
 
@@ -7354,7 +7354,7 @@
 
 Включает разрешения, предоставляемые ролью `kspm.editor`.
 
-Подробнее см. [Управление доступом в KSPM](../security-deck/security/kspm-roles.md).
+Подробнее в [Управление доступом в KSPM](../security-deck/security/kspm-roles.md).
 
 ### Сервисные роли для модуля Контроль конфигурации (CSPM) {#cspm-roles}
 
@@ -7398,7 +7398,7 @@
 
 Включает разрешения, предоставляемые ролью `cspm.editor`.
 
-Подробнее см. [Управление доступом в CSPM](../security-deck/security/cspm-roles.md).
+Подробнее в [Управление доступом в CSPM](../security-deck/security/cspm-roles.md).
 
 ### Сервисные роли для анализа данных Access Transparency {#access-transparency-roles}
 
@@ -7428,7 +7428,7 @@
 
 Включает разрешения, предоставляемые ролью `access-transparency.viewer`.
 
-Подробнее см. [Управление доступом в Access Transparency](../security-deck/security/access-transparency-roles.md).
+Подробнее в [Управление доступом в Access Transparency](../security-deck/security/access-transparency-roles.md).
 
 ### Сервисные роли для модуля Алерты {#alerts-roles}
 
@@ -7479,7 +7479,7 @@
 
 Включает разрешения, предоставляемые ролью `security-deck.alertSinks.editor`.
 
-Подробнее см. [Управление доступом в модуле Алерты](../security-deck/security/alerts-roles.md).
+Подробнее в [Управление доступом в модуле Алерты](../security-deck/security/alerts-roles.md).
 
 
 ## Yandex Serverless Containers {#serverless-containers-roles}
@@ -7572,7 +7572,7 @@
 
 Эта роль недоступна. Используйте роль `serverless-containers.containerInvoker`.
 
-Подробнее см. [Управление доступом в Serverless Containers](../serverless-containers/security/index.md).
+Подробнее в [Управление доступом в Serverless Containers](../serverless-containers/security/index.md).
 
 
 ## Yandex Serverless Integrations {#serverless-integrations-roles}
@@ -7630,7 +7630,7 @@
 
 Включает разрешения, предоставляемые ролью `serverless.eventrouter.editor`.
 
-Подробнее см. [Управление доступом в EventRouter](../serverless-integrations/security/eventrouter.md).
+Подробнее в [Управление доступом в EventRouter](../serverless-integrations/security/eventrouter.md).
 
 ### Сервисные роли Yandex Workflows {#workflows-roles}
 
@@ -7674,7 +7674,7 @@
 
 Включает разрешения, предоставляемые ролью `serverless.workflows.editor`.
 
-Подробнее см. [Управление доступом в Workflows](../serverless-integrations/security/workflows.md).
+Подробнее в [Управление доступом в Workflows](../serverless-integrations/security/workflows.md).
 
 
 ## Yandex SIEM {#yandex-siem-roles}
@@ -7709,7 +7709,7 @@
 
 Включает разрешения, предоставляемые ролью `ycem.inspector`.
 
-Подробнее см. [Управление доступом в Yandex SIEM](../yandex-siem/security/index.md).
+Подробнее в [Управление доступом в Yandex SIEM](../yandex-siem/security/index.md).
 
 
 ## Yandex SmartCaptcha {#captcha-roles}
@@ -7746,7 +7746,7 @@
 
 Включает разрешения, предоставляемые ролью `smart-captcha.editor`.
 
-Подробнее см. [Управление доступом в SmartCaptcha](../smartcaptcha/security/index.md).
+Подробнее в [Управление доступом в SmartCaptcha](../smartcaptcha/security/index.md).
 
 
 ## Yandex Smart Web Security {#sws-roles}
@@ -7848,7 +7848,7 @@
 
 Назначить роль `smart-web-security.admin` может пользователь с ролью `admin` в облаке.
 
-Подробнее см. [Управление доступом в Smart Web Security](../smartwebsecurity/security/index.md).
+Подробнее в [Управление доступом в Smart Web Security](../smartwebsecurity/security/index.md).
 
 
 ## Yandex SpeechKit {#speechkit-roles}
@@ -7861,7 +7861,7 @@
 
 Роль `ai.speechkit-tts.user` позволяет использовать сервис Yandex SpeechKit для [синтеза](https://aistudio.yandex.ru/docs/ru/speechkit/tts/) речи, а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/limits#speechkit-quotas) сервиса.
 
-Подробнее см. [Управление доступом в SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/security/index).
+Подробнее в [Управление доступом в SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/security/index).
 
 
 ## Yandex SpeechSense {#speechsense-roles}
@@ -7904,7 +7904,7 @@
 
 Пользователи с ролями вида `speech-sense.data.*` могут просматривать и оценивать содержимое документов, но не имеют доступа к агрегированной информации.
 
-Подробнее см. [Управление доступом в SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/security/).
+Подробнее в [Управление доступом в SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/security/).
 
 
 ## Yandex Translate {#translate-roles}
@@ -7913,7 +7913,7 @@
 
 Роль `ai.translate.user` позволяет использовать сервис Yandex Translate для [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/quickstart), а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](https://aistudio.yandex.ru/docs/ru/translate/concepts/limits#translate-quotas) сервиса.
 
-Подробнее см. [Управление доступом в Translate](https://aistudio.yandex.ru/docs/ru/translate/security/index).
+Подробнее в [Управление доступом в Translate](https://aistudio.yandex.ru/docs/ru/translate/security/index).
 
 
 ## Yandex Virtual Private Cloud {#vpc-roles}
@@ -8178,7 +8178,7 @@
 
 Включает разрешения, предоставляемые ролью `vpc.privateEndpoints.editor`.
 
-Подробнее см. [Управление доступом в Virtual Private Cloud](../vpc/security/index.md).
+Подробнее в [Управление доступом в Virtual Private Cloud](../vpc/security/index.md).
 
 
 ## Yandex Vision OCR {#vision-roles}
@@ -8187,7 +8187,7 @@
 
 Роль `ai.vision.user` позволяет использовать сервис Yandex Vision OCR для [анализа изображений](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/), а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](https://aistudio.yandex.ru/docs/ru/vision/concepts/limits#vision-quotas) сервиса.
 
-Подробнее см. [Управление доступом в Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/security/index).
+Подробнее в [Управление доступом в Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/security/index).
 
 
 ## Yandex WebSQL {#websql-roles}
@@ -8306,7 +8306,7 @@
 
 Включает разрешения, предоставляемые  ролями `websql.editor`, `websql.savedQueries.admin` и `websql.executedQueries.admin`.
 
-Подробнее см. [Управление доступом в WebSQL](../websql/security/index.md).
+Подробнее в [Управление доступом в WebSQL](../websql/security/index.md).
 
 
 ## Яндекс Вики {#wiki-roles}

@@ -190,7 +190,7 @@
 
           * `force-authn` — по истечении сессии в Yandex Cloud поставщик удостоверений запросит у пользователя повторную аутентификацию. Необязательный параметр.
 
-      Более подробную информацию о параметрах ресурса `yandex_organizationmanager_saml_federation` смотрите в [документации провайдера](../../terraform/resources/organizationmanager_saml_federation.md).
+      Подробнее о параметрах ресурса `yandex_organizationmanager_saml_federation` читайте в [документации провайдера](../../terraform/resources/organizationmanager_saml_federation.md).
 
   1. Проверьте корректность файлов конфигурации Terraform:
 
@@ -551,20 +551,63 @@
 
 Чтобы корректно передавать в сервис Yandex Identity Hub информацию о пользователе, настройте сопоставление между атрибутами SAML-сообщения и персональными данными пользователя, которые хранятся на стороне поставщика удостоверений.
 
-Данные пользователя | Комментарий | Элементы SAML-сообщения
-------------------- | ----------- | ----------------------
-Уникальный идентификатор пользователя | Обязательный атрибут. Рекомендуется использовать User Principal Name (UPN) или адрес электронной почты. | `<NameID>`
-Фамилия | Отображается в сервисах Yandex Cloud.<br> Ограничение значения по длине: 64 символа. | `<Attribute>` с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"`
-Имя | Отображается в сервисах Yandex Cloud.<br> Ограничение значения по длине: 64 символа. | `<Attribute>` с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"`
-Полное имя | Отображается в сервисах Yandex Cloud.<br>Пример: Иван Иванов.<br> Ограничение значения по длине: 64 символа. | `<Attribute>` с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"`
-Почта | Используется для отправки уведомлений из сервисов Yandex Cloud.<br>Пример:&nbsp;`ivanov@example.com`.<br> Ограничение по длине: 256 символов. | `<Attribute>` с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"`
-Телефон | Используется для отправки уведомлений из сервисов Yandex Cloud.<br>Пример: +71234567890.<br> Ограничение по длине: 64 символа. | `<Attribute>` с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone"`
-Аватар | Отображается в сервисах Yandex Cloud.<br>Изображение передается в кодировке [Base64](https://ru.wikipedia.org/wiki/Base64).<br> Ограничение по длине: 204800 символов. | `<Attribute>` с параметром<br>`Name="thumbnailPhoto"`
-Членство в группах | Используется для функционала динамического сопоставления членства в группах. | `<Attribute>` с параметром<br>`Name="member"`
-Название компании | Отображается в сервисах Yandex Cloud.<br>Пример: ООО «Праздник». | `<Attribute>` с параметром<br>`Name="company_name"`
-Подразделение | Отображается в сервисах Yandex Cloud.<br>Пример: Отдел АСУ. | `<Attribute>` с параметром<br>`Name="department"`
-Должность | Отображается в сервисах Yandex Cloud.<br>Пример: Разработчик. | `<Attribute>` с параметром<br>`Name="job_title"`
-Табельный номер | Отображается в сервисах Yandex Cloud.<br>Пример: 08012. | `<Attribute>` с параметром<br>`Name="employee_id"`
+#|
+|| **Данные пользователя** | **Комментарий** | **Имена атрибутов в SAML Response** ||
+|| Уникальный идентификатор пользователя | Обязательный атрибут. Рекомендуется использовать User Principal Name (UPN) или адрес электронной почты. |
+* `NameID`
+||
+|| Фамилия | Отображается в сервисах Yandex Cloud. Ограничение значения по длине: 64 символа. |
+* `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+* `surname`
+* `lastname`
+||
+|| Имя | Отображается в сервисах Yandex Cloud. Ограничение значения по длине: 64 символа. |
+* `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+* `givenname`
+* `firstname`
+||
+|| Полное имя | Отображается в сервисах Yandex Cloud. Пример: Иван Иванов. Ограничение значения по длине: 64 символа. |
+* `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
+* `name`
+* `displayname`
+||
+|| Почта | Используется для отправки уведомлений из сервисов Yandex Cloud. Пример: `ivanov@example.com`. Ограничение по длине: 256 символов. |
+* `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+* `emailaddress`
+* `email`
+||
+|| Телефон | Используется для отправки уведомлений из сервисов Yandex Cloud. Пример: +71234567890. Ограничение по длине: 64 символа. |
+* `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone`
+* `phone`
+* `phones`
+* `mobile`
+||
+|| Аватар | Отображается в сервисах Yandex Cloud. Изображение передается в кодировке [Base64](https://ru.wikipedia.org/wiki/Base64). Ограничение по длине: 204800 символов. |
+* `thumbnailPhoto`
+* `photos`
+* `picture`
+||
+|| Членство в группах | Используется для функционала динамического сопоставления членства в группах. |
+* `member`
+* `http://schemas.xmlsoap.org/claims/group`
+* `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`
+||
+|| Название компании | Отображается в сервисах Yandex Cloud. Пример: ООО «Праздник». |
+* `company_name`
+* `companyname`
+||
+|| Подразделение | Отображается в сервисах Yandex Cloud. Пример: Отдел АСУ. |
+* `department`
+||
+|| Должность | Отображается в сервисах Yandex Cloud. Пример: Разработчик. |
+* `job_title`
+* `jobtitle`
+||
+|| Табельный номер | Отображается в сервисах Yandex Cloud. Пример: 08012. |
+* `employee_id`
+* `employeeid`
+||
+|#
 
 
 {% note info %}

@@ -15,7 +15,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the GPU cluster.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
   1. Select the GPU cluster you need.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -42,7 +42,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      yc compute gpu-cluster list
      ```
 
-  1. View a list of roles already assigned for the resource in question:
+  1. Check the list of roles already assigned for the resource:
 
      ```bash
      yc compute gpu-cluster list-access-bindings <GPU_cluster_ID>
@@ -61,7 +61,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        Where:
 
        * `--user-account-id`: [User ID](../../../organization/operations/users-get.md). To assign the role to all authenticated users, use the `--all-authenticated-users` flag.
-       * `--role`: [Role](../../security/index.md#roles-list) to assign.
+       * `--role`: [Role](../../security/index.md#roles-list).
 
      * To a service account:
 
@@ -74,7 +74,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        Where:
 
        * `--service-account-id`: [Service account ID](../../../iam/operations/sa/get-id.md).
-       * `--role`: [Role](../../security/index.md#roles-list) to assign.
+       * `--role`: [Role](../../security/index.md#roles-list).
 
 - {{ TF }} {#tf}
 
@@ -84,7 +84,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   To assign a role to access a GPU cluster using {{ TF }}:
 
-  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_compute_gpu_cluster_iam_binding" "sa-access" {
@@ -97,7 +97,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
       Where:
 
       * `gpu_cluster_id`: GPU cluster ID.
-      * `role`: [Role](../../security/index.md#roles-list) to assign.
+      * `role`: [Role](../../security/index.md#roles-list).
       * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about `yandex_compute_gpu_cluster_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_gpu_cluster_iam_binding).
@@ -126,7 +126,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the GPU cluster.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
   1. Select the GPU cluster you need.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -158,7 +158,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      yc compute gpu-cluster set-access-bindings --help
      ```
 
-  1. Assign roles:
+  1. Assign the roles:
 
      ```bash
      yc compute gpu-cluster set-access-bindings <GPU_cluster_ID> \
@@ -170,10 +170,10 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
      * `--access-binding`: Parameters for setting access permissions:
 
-       * `role`: [Role](../../security/index.md#roles-list) to assign.
+       * `role`: [Role](../../security/index.md#roles-list).
        * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
-     For example, this command will assign roles to multiple users and a single service account:
+     For example, assign roles to several users and one service account:
 
      ```bash
      yc compute gpu-cluster set-access-bindings my-gpu-cluster \
@@ -209,7 +209,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
       Where:
 
       * `gpu_cluster_id`: GPU cluster ID.
-      * `role`: [Role](../../security/index.md#roles-list) to assign.
+      * `role`: [Role](../../security/index.md#roles-list).
       * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about `yandex_compute_gpu_cluster_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_gpu_cluster_iam_binding).
@@ -244,7 +244,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the GPU cluster.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
   1. Select the GPU cluster you need.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -264,7 +264,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      yc compute gpu-cluster remove-access-binding --help
      ```
 
-  1. View the roles and assignees for the resource:
+  1. View the list of users and their roles for the resource:
 
      ```bash
      yc compute gpu-cluster list-access-bindings <GPU_cluster_ID>
@@ -280,7 +280,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
      Where:
 
-     * `--role`: ID of the role you want to revoke.
+     * `--role`: ID of the role you need to revoke.
      * `--subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) you want to revoke the role from.
 
      For example, this command revokes the `{{ roles-viewer }}` role for the GPU cluster from a user with the `ajel6l0jcb9s********` ID:
@@ -299,7 +299,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   To revoke a role assigned for a GPU cluster using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and delete the section specifying the role:
+  1. Open the {{ TF }} configuration file and delete the fragment describing the role:
 
       ```hcl
       resource "yandex_compute_gpu_cluster_iam_binding" "sa-access" {

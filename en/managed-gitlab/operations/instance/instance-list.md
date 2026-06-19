@@ -3,7 +3,7 @@ title: How to get information about {{ mgl-full-name }} instances
 description: In this guide, you will learn how to get a list of {{ mgl-name }} instances and information about them.
 ---
 
-# Getting information about instances
+# Getting {{ mgl-full-name }} instance info
 
 You can get detailed information about each [{{ GL }} instance](../../concepts/index.md#instance) you created in {{ yandex-cloud }}.
 
@@ -13,7 +13,7 @@ You can get detailed information about each [{{ GL }} instance](../../concepts/i
 
 - Management console {#console}
 
-  [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
 
 - CLI {#cli}
 
@@ -61,14 +61,14 @@ Instance details include:
 * Domain.
 * Status.
 * Resources: RAM, vCPU, and disk size.
-* Admin's username and email address.
+* Admin's login and email address.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing your {{ GL }} instance.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Click the instance name.
 
 - CLI {#cli}
@@ -125,7 +125,7 @@ Instance details include:
     * `approval_rules_id`: Approval rules. Learn more about supported rule configurations [here](../../concepts/approval-rules.md#packages).
     * `gitlab_version`: {{ GL }} version.
 
-    You can request the instance name and ID with the [list of instances in the folder](instance-list.md#list).
+    You can get the instance name and ID with the [list of instances in the folder](instance-list.md#list).
 
     For more information about this command, see the [CLI reference](../../cli-ref/instance/get.md).
 
@@ -193,12 +193,12 @@ All actions with {{ mgl-name }} instances are logged as a list of operations. Ea
   To get a list of operations for a specific instance:
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.gitlab.switch_instances }}**.
   1. Select the instance you need.
   1. Navigate to the ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the cluster you selected.
 
-     You will see the list of operations with the selected instance.
+     This will open the list of operations with the instance.
 
 {% endlist %}
 
@@ -206,7 +206,7 @@ All actions with {{ mgl-name }} instances are logged as a list of operations. Ea
 
 1. [Get the list of operations](#list-operations) for the instance.
 1. Copy the ID of the operation you need.
-1. Get operation details:
+1. Get the operation details:
 
     {% list tabs group=instructions %}
 

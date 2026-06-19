@@ -13,7 +13,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
 
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Click the resource name.
 
@@ -121,7 +121,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
       * The `options` section contains additional parameters of CDN resources:
          * `slice`: Flag indicating whether segmentation will be used. This is an optional setting. The default value is `false`.
 
-      For more information about the `yandex_cdn_resource` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cdn_resource).
+      For more information about the `yandex_cdn_resource` properties in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
   1. In the command line, go to the directory with the {{ TF }} configuration file.
 

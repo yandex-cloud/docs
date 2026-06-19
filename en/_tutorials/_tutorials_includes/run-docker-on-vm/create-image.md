@@ -19,7 +19,7 @@
 
     - OAuth token {#oauth-token}
 
-      {% include [oauth-token-deprecated-soon](../../../_includes/oauth-token-deprecated-soon.md) %}
+      {% include [oauth-token-deprecated-migration](../../../_includes/oauth-token-deprecated-migration.md) %}
 
       1. If you do not have an OAuth token yet, get one by following [this link]({{ link-cloud-oauth }}).
       1. Run this command:
@@ -71,7 +71,7 @@
           Credential helper is configured in '/home/<user>/.docker/config.json'
           ```
 
-          The current user's profile holds the saved settings.
+          The current user’s profile stores the settings.
 
           {% note warning %}
 

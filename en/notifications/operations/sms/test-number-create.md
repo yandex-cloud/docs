@@ -14,9 +14,9 @@ To add a test phone number:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to create a notification channel in.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select an SMS notification channel you need.
-  1. Navigate to the ![image](../../../_assets/console-icons/handset-arrow-in.svg) **{{ ui-key.yacloud.cns.label_phone-numbers }}** tab.
+  1. Navigate to the ![image](../../../_assets/console-icons/handset-arrow-in.svg) **{{ ui-key.yacloud.cns.label_phone-numbers }}** tab.
   1. Click **Add test phone number**.
   1. In the window that opens, enter a phone number and click **Get code**. An SMS with a confirmation code will be sent to the specified phone number.
 

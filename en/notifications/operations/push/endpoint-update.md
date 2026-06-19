@@ -10,9 +10,9 @@ description: Follow this guide to update an endpoint.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder containing your endpoint.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select a push notification channel.
-  1. Navigate to the ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
+  1. Navigate to the ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the endpoint and select **{{ ui-key.yacloud.common.edit }}**.
   1. Enter **{{ ui-key.yacloud.cns.field_token }}**, a unique token residing on the user device, created by the notification service for the app.
   1. Optionally, enter **{{ ui-key.yacloud.cns.field_endpoint-user-data }}**, a [UTF-8](https://en.wikipedia.org/wiki/UTF-8) encoded text up to 2,048 characters long.
@@ -26,7 +26,7 @@ description: Follow this guide to update an endpoint.
       ```bash
       aws sns set-endpoint-attributes \
         --endpoint-arn <endpoint_ARN> \
-        --attributes <parameter1>=<new_value1>, ... <parameterN>=<new_valueN>
+        --attributes <parameter_1>=<new_value1>, ... <parameterN>=<new_valueN>
       ```
 
       Where:
@@ -45,7 +45,7 @@ description: Follow this guide to update an endpoint.
       response = client.set_endpoint_attributes(
           EndpointArn="<endpoint_ARN>",
           Attributes={
-              "<parameter1>": "<new_value1>",
+              "<parameter_1>": "<new_value1>",
               ...
               "<parameterN>": "<new_valueN>"
           }
@@ -67,7 +67,7 @@ description: Follow this guide to update an endpoint.
       $response = $client->setEndpointAttributes([
           'EndpointArn' => '<endpoint_ARN>',
           'Attributes' => [
-              '<parameter1>' => '<new_value1>',
+              '<parameter_1>' => '<new_value1>',
               ...
               '<parameterN>' => '<new_valueN>'
           ],

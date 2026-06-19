@@ -130,7 +130,7 @@
           [Идентификатор платежного аккаунта](../../../billing/concepts/billing-account.md#billing-account-id) можно узнать в [интерфейсе Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts) в блоке **Информация об аккаунте** на странице нужного платежного аккаунта.
       * `cloud_id` — [идентификатор](get-id.md) облака, которое будет привязано к платежному аккаунту.
 
-      Более подробную информацию о параметрах ресурсов `yandex_resourcemanager_cloud` и `yandex_billing_cloud_binding` в Terraform, см. в [документации провайдера](../../../terraform/index.md).
+      Подробнее о параметрах ресурсов `yandex_resourcemanager_cloud` и `yandex_billing_cloud_binding` в Terraform читайте в [документации провайдера](../../../terraform/index.md).
 
   1. Создайте ресурсы:
 

@@ -130,7 +130,7 @@
   yc iam key create --service-account-name sa-function -o authorized_key.json
   ```
 
-  Подробнее о команде `yc iam key create` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/key/create.md).
+  Подробнее о команде `yc iam key create` читайте в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/key/create.md).
 
   В случае успеха ключ будет сохранен в файле `authorized_key.json`.
 

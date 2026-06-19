@@ -43,11 +43,11 @@ To create a new image using the link you got in [{{ objstorage-name }}](../../..
 - Management console {#console}
 
   1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create the image.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![layers](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}**.
   1. Click **{{ ui-key.yacloud.compute.images.button_upload }}**, and in the window that opens:
 
-      1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the image. Follow these naming requirements:
+      1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the image. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -79,7 +79,7 @@ To create a new image using the link you got in [{{ objstorage-name }}](../../..
       ```
 
       Where:
-      * `--name`: Name to assign to the image. Follow these naming requirements:
+      * `--name`: Name to assign to the image. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
       
@@ -129,7 +129,7 @@ To create a new image using the link you got in [{{ objstorage-name }}](../../..
       ```
 
       Where:
-      * `name`: Name to assign to the image. Follow these naming requirements:
+      * `name`: Name to assign to the image. The naming requirements are as follows:
       
           {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -141,7 +141,7 @@ To create a new image using the link you got in [{{ objstorage-name }}](../../..
           
           This is an optional setting. By default, the optimization is disabled.
 
-      For detailed information about the `yandex_compute_image` resource parameters, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_image).
+      For more information about `yandex_compute_image` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_image).
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -198,7 +198,7 @@ To create a new image using the link you got in [{{ objstorage-name }}](../../..
           * `true`: Optimization enabled.
           * `false`: Optimization disabled.
 
-          This is an optional setting. By default, the optimization is disabled.
+          This is an optional setting. By default, optimization is disabled.
 
   1. Run this http request:
 
@@ -251,11 +251,11 @@ To create an image from an existing [image](../../concepts/image.md), [snapshot]
 - Management console {#console}
 
   1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an image.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Depending on the source you want to create the new image from, select ![archive](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}**, ![picture](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**, or ![layers](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}** in the left-hand panel.
   1. Depending on the source type you selected, in the list that opens, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) next to the image, snapshot, or disk, and select ![layers](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.disks.button_action-image }}**. In the window that opens:
 
-      1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the new image. Follow these naming requirements:
+      1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the new image. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -294,7 +294,7 @@ To create an image from an existing [image](../../concepts/image.md), [snapshot]
       ```
 
       Where:
-      * `--name`: Name to assign to the image. Follow these naming requirements:
+      * `--name`: Name to assign to the image. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -360,7 +360,7 @@ To create an image from an existing [image](../../concepts/image.md), [snapshot]
       {% include [gen2-image-source-uefi-support-alert](../../../_includes/compute/gen2-image-source-uefi-support-alert.md) %}
 
       Where:
-      * `name`: Name to assign to the image. Follow these naming requirements:
+      * `name`: Name to assign to the image. The naming requirements are as follows:
       
           {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -383,7 +383,7 @@ To create an image from an existing [image](../../concepts/image.md), [snapshot]
           
           This is an optional setting. By default, the optimization is disabled.
 
-          For detailed information about the `yandex_compute_image` resource parameters, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_image).
+          For more information about `yandex_compute_image` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_image).
           
   1. Create the resources:
 
@@ -433,7 +433,7 @@ To create an image from an existing [image](../../concepts/image.md), [snapshot]
       Where:
 
       * `folderId`: [ID](../../../resource-manager/operations/folder/get-id.md) of the image folder.
-      * `name`: Image name. Follow these naming requirements:
+      * `name`: Image name. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -532,7 +532,7 @@ You can assign to a snapshot a generation different from the one assigned to the
       ```
 
       Where:
-      * `--name`: Snapshot name. Follow these naming requirements:
+      * `--name`: Snapshot name. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -579,13 +579,13 @@ You can assign to a snapshot a generation different from the one assigned to the
       ```
 
       Where:
-      * `name`: Name to assign to the snapshot. Follow these naming requirements:
+      * `name`: Name to assign to the snapshot. The naming requirements are as follows:
       
           {% include [name-format](../../../_includes/name-format.md) %}
 
       * `source_disk_id`: ID of the disk you are creating the snapshot for.
 
-      For detailed information about the `yandex_compute_snapshot` resource parameters, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_snapshot).
+      For more information about `yandex_compute_snapshot` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_snapshot).
           
   1. Create the resources:
 
@@ -632,7 +632,7 @@ You can assign to a snapshot a generation different from the one assigned to the
       Where:
 
       * `folderId`: [ID](../../../resource-manager/operations/folder/get-id.md) of the snapshot folder.
-      * `name`: Snapshot name. Follow these naming requirements:
+      * `name`: Snapshot name. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -683,15 +683,15 @@ To create a disk with the `Gen 2` hardware generation assigned:
 - Management console {#console}
 
   1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an image.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![archive](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}** and click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**. In the window that opens:
 
-      1. Name the disk in the **{{ ui-key.yacloud.compute.instances.create-disk.field_name }}** field. Follow these naming requirements:
+      1. Name the disk in the **{{ ui-key.yacloud.compute.instances.create-disk.field_name }}** field. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
       1. In the **{{ ui-key.yacloud.compute.disk-form.field_zone }}** field, select an [availability zone](../../../overview/concepts/geo-scope.md) for the new disk.
       1. Depending on the source you are creating the disk from, in the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` or `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and select the snapshot or image from the list that opens.
-      1. In the **{{ ui-key.yacloud.compute.disk-form.field_type }}** field, select disk [type](../../concepts/disk.md#disks-types). Possible values:
+      1. In the **{{ ui-key.yacloud.compute.disk-form.field_type }}** field, select disk [type](../../concepts/disk.md#disks-types). Available values:
 
           * `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}`: Fast network drive; SSD network block storage.
           * `{{ ui-key.yacloud.compute.value_disk-type-network-hdd_cw9XD }}`: Standard network drive; HDD network block storage.
@@ -726,12 +726,12 @@ To create a disk with the `Gen 2` hardware generation assigned:
       ```
 
       Where:
-      * `--name`: Disk name. Follow these naming requirements:
+      * `--name`: Disk name. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
       * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) of the new disk.
-      * `--type`: [Disk type](../../concepts/disk.md#disks-types). Possible values:
+      * `--type`: [Disk type](../../concepts/disk.md#disks-types). Available values:
 
           * `network-ssd`: Fast network drive; SSD network block storage.
           * `network-hdd`: Standard network drive; HDD network block storage.
@@ -799,11 +799,11 @@ To create a disk with the `Gen 2` hardware generation assigned:
       ```
 
       Where:
-      * `name`: Name to assign to the disk. Follow these naming requirements:
+      * `name`: Name to assign to the disk. The naming requirements are as follows:
       
           {% include [name-format](../../../_includes/name-format.md) %}
 
-      * `type`: [Disk type](../../concepts/disk.md#disks-types). Possible values:
+      * `type`: [Disk type](../../concepts/disk.md#disks-types). Available values:
 
           * `network-ssd`: Fast network drive; SSD network block storage.
           * `network-hdd`: Standard network drive; HDD network block storage.
@@ -811,7 +811,7 @@ To create a disk with the `Gen 2` hardware generation assigned:
           * `network-ssd-io-m3`: Enhanced performance network drive with redundancy.
 
       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) of the new disk.
-      * `size`: Disk size in GB.
+      * `size`: Disk size, in GB.
       * Selecting a source for your disk:
 
           * `image_id`: ID of the [image](../../concepts/image.md) you are creating the disk based on.
@@ -823,7 +823,7 @@ To create a disk with the `Gen 2` hardware generation assigned:
 
           {% endnote %}
 
-          For detailed information about the `yandex_compute_disk` resource parameters, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_disk).
+          For more information about `yandex_compute_disk` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_disk).
           
   1. Create the resources:
 
@@ -874,11 +874,11 @@ To create a disk with the `Gen 2` hardware generation assigned:
       Where:
 
       * `folderId`: [ID](../../../resource-manager/operations/folder/get-id.md) of the disk folder.
-      * `name`: Disk name. Follow these naming requirements:
+      * `name`: Disk name. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
-      * `typeId`: [Disk type](../../concepts/disk.md#disks-types). Possible values:
+      * `typeId`: [Disk type](../../concepts/disk.md#disks-types). Available values:
 
           * `network-ssd`: Fast network drive; SSD network block storage.
           * `network-hdd`: Standard network drive; HDD network block storage.
@@ -945,7 +945,7 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../../overview/concepts/geo-scope.md) where your VM will reside.
 
@@ -961,7 +961,7 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
       
           1. Make sure you selected `{{ ui-key.yacloud.compute.component.instance-storage-dialog.value_disk-attach-type-create-new }}` at the top of the screen and `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` in the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field.
           1. Select the snapshot from the list. Optionally, use the filter.
-          1. Name the VM boot disk in the **{{ ui-key.yacloud.compute.instances.create-disk.field_name }}** field. Follow these naming requirements:
+          1. Name the VM boot disk in the **{{ ui-key.yacloud.compute.instances.create-disk.field_name }}** field. The naming requirements are as follows:
 
               {% include [name-format](../../../_includes/name-format.md) %}
           1. In the **{{ ui-key.yacloud.compute.disk-form.field_type }}** and **{{ ui-key.yacloud.compute.disk-form.field_size }}** fields, select the [type](../../concepts/disk.md#disks-types) and size for your new disk.
@@ -972,7 +972,7 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
           1. Make sure you selected `{{ ui-key.yacloud.compute.component.instance-storage-dialog.value_disk-attach-type-create-new }}` at the top of the screen.
           1. In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}`.
           1. Select the image from the list. Optionally, use the filter.
-          1. Name the VM boot disk in the **{{ ui-key.yacloud.compute.instances.create-disk.field_name }}** field. Follow these naming requirements:
+          1. Name the VM boot disk in the **{{ ui-key.yacloud.compute.instances.create-disk.field_name }}** field. The naming requirements are as follows:
 
               {% include [name-format](../../../_includes/name-format.md) %}
           1. In the **{{ ui-key.yacloud.compute.disk-form.field_type }}** and **{{ ui-key.yacloud.compute.disk-form.field_size }}** fields, select the [type](../../concepts/disk.md#disks-types) and size for your new disk.
@@ -988,7 +988,7 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
   1. {% include [network-settings](../../../_includes/compute/create/section-network.md) %}
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
   
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username.
   
           {% note alert %}
   
@@ -1026,7 +1026,7 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
       ```
 
       Where:
-      * `--name`: VM name. Follow these naming requirements:
+      * `--name`: VM name. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -1039,7 +1039,7 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
           When creating a VM using a pre-prepared boot disk, the VM availability zone must be the same as that of the boot disk.
       * `--network-interface`: VM [network interface](../../concepts/network.md) settings:
           * `subnet-id`: [Subnet](../../../vpc/concepts/network.md#subnet) ID.
-          * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, omit this parameter.
+          * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, do not include this setting.
 
           {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
 
@@ -1053,11 +1053,11 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
 
           * `--create-boot-disk`: Enables creating a new boot disk for the VM, based on an image or snapshot, as follows:
 
-              * `name`: Disk name. Follow these naming requirements:
+              * `name`: Disk name. The naming requirements are as follows:
 
                   {% include [name-format](../../../_includes/name-format.md) %}
               
-              * `type`: Disk [type](../../concepts/disk.md#disks-types). Possible values:
+              * `type`: Disk [type](../../concepts/disk.md#disks-types). Available values:
 
                   * `network-ssd`: Fast network drive; SSD network block storage.
                   * `network-hdd`: Standard network drive; HDD network block storage.
@@ -1180,18 +1180,18 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
 
           {% endnote %}
 
-          * `name`: Disk name. Follow these naming requirements:
+          * `name`: Disk name. The naming requirements are as follows:
 
               {% include [name-format](../../../_includes/name-format.md) %}
 
-          * `type`: Disk [type](../../concepts/disk.md#disks-types). Possible values:
+          * `type`: Disk [type](../../concepts/disk.md#disks-types). Available values:
 
               * `network-ssd`: Fast network drive; SSD network block storage.
               * `network-hdd`: Standard network drive; HDD network block storage.
               * `network-ssd-nonreplicated`: Enhanced performance network drive without redundancy.
               * `network-ssd-io-m3`: Enhanced performance network drive with redundancy.
           * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
-          * `size`: Disk size in GB.
+          * `size`: Disk size, in GB.
           * Selecting a source for the boot disk:
 
               {% note info %}
@@ -1206,7 +1206,7 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
           For more information about `yandex_compute_disk` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_disk).
 
       * `yandex_compute_instance`: VM description:
-          * `name`: VM name. Follow these naming requirements:
+          * `name`: VM name. The naming requirements are as follows:
 
               {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -1228,7 +1228,7 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
 
           * `metadata`: In the metadata, provide the user name and public SSH key for VM access. For more information, see [{#T}](../../concepts/vm-metadata.md).
 
-      For detailed information about the `yandex_compute_instance` resource parameters, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_instance).
+      For more information about `yandex_compute_instance` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_instance).
           
   1. Create the resources:
 
@@ -1299,7 +1299,7 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
       Where:
 
       * `folderId`: [ID](../../../resource-manager/operations/folder/get-id.md) of the VM folder.
-      * `name`: VM name. Follow these naming requirements:
+      * `name`: VM name. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 

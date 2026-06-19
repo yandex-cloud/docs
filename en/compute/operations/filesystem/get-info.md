@@ -11,7 +11,7 @@ You can get the file storage size, availability zone, and other file storage inf
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing your [file storage](../../concepts/filesystem.md).
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}**.
   1. Select the file storage.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show the file storage details.
@@ -75,13 +75,13 @@ You can get the file storage size, availability zone, and other file storage inf
       * `output "filesystem"`: Output variable that contains information about the file storage size:
          * `value`: Return value.
 
-     You can replace `size` with any other parameter to get the information you need. For more information about the `yandex_compute_filesystem` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_filesystem).
+     You can replace `size` with any other parameter to get the information you need. For more information about the `yandex_compute_filesystem` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_filesystem).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+      {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

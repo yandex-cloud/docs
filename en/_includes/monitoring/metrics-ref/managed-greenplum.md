@@ -12,7 +12,7 @@ host | Host FQDN
 fqdn | Host FQDN
 
 ## CPU metrics {#managed-greenplum-cpu-metrics}
-CPU core utilization.
+CPU core workload.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
@@ -475,7 +475,7 @@ Additional labels: `dev` for the disk ID in the system.
 | `gp.master_replication_state`<br/>`DGAUGE` | Master replication state |
 | `gp.percent_xid_wraparound`<br/>`DGAUGE`, % | Using a transaction ID sequence.<br/>Additional labels: `db_name`. | 
 | `gp.ping`<br/>`DGAUGE` | <br/>Additional labels: `can_read`, `is_master`, and `can_write`.| 
-| `gp.pxf_is_alive`<br/>`DGAUGE` | PXF extension availability indicator | 
+| `gp.pxf_is_alive`<br/>`DGAUGE` | PXF availability indicator on the host: `1` means available, `0` means unavailable. |
 | `gp.replication_lag_mb`<br/>`DGAUGE`, megabytes | Replication lag between master and mirror segments  |
 | `gp.rg_cpu_used`<br/>`DGAUGE` | CPU allocation across resource groups.<br/>Additional labels: `resgroup`. | 
 | `gp.rg_mem_available`<br/>`DGAUGE` | Available RAM allocation across resource groups.<br/>Additional labels: `resgroup`. | 
@@ -552,29 +552,40 @@ Additional labels:
 * `segment`: ID of the database segment processing a specific data chunk.
 * `server`: Name of the server PXF works with to access data.
 * `user`: Name of the user running the operation.
+* `uri`: Endpoint URI (for `pxf.http_server_requests_*` metrics).
+* `status`: HTTP response status (for `pxf.http_server_requests_*` metrics).
+* `level`: Logging level (for `pxf.log4j2_events_total` metrics).
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `pxf.jvm_memory_committed_bytes`<br/>`DGAUGE`, bytes | Memory allocated by the operating system to the PXF JVM | 
-| `pxf.jvm_memory_max_bytes`<br/>`DGAUGE`, bytes | Maximum available PXF JVM memory | 
+| `pxf.jvm_memory_max_bytes`<br/>`DGAUGE`, bytes | Maximum available PXF JVM memory <br/>Additional labels include `id`, i.e., the pool ID (`G1 Eden Space`, `G1 Survivor Space`, `G1 Old Gen`, and others), and `area`, i.e., the aggregated memory area label (`heap`, `nonheap`). |
 | `pxf.jvm_memory_used_bytes`<br/>`DGAUGE`, bytes | PXF JVM memory used | 
 | `pxf.jvm_threads_daemon_threads`<br/>`DGAUGE`, count | Number of PXF JVM daemon threads | 
 | `pxf.jvm_threads_live_threads`<br/>`DGAUGE`, count | Number of active PXF JVM threads | 
 | `pxf.jvm_threads_states_threads`<br/>`DGAUGE`, count | Number of PXF JVM threads in each state | 
-| `pxf.log4j2_events_total`<br/>`DGAUGE`, count | Total number of Log4j2 events in PXF JVM | 
+| `pxf.log4j2_events_total`<br/>`DGAUGE`, count | Total number of Log4j2 events in PXF JVM.<br/>Additional label: `level` (`trace`, `debug`, `info`, `warn`, `error`, `fatal`) |
 | `pxf.process_files_max_files`<br/>`DGAUGE`, count | Maximum number of files simultaneously open in PXF | 
 | `pxf.process_files_open_files`<br/>`DGAUGE`, count | Current number of open files in PXF | 
-| `pxf.pxf_bytes_receivced_total`<br/>`DGAUGE`, bytes | Number of bytes received by PXF | 
+| `pxf.pxf_bytes_received_total`<br/>`DGAUGE`, bytes | Number of bytes received by PXF |
 | `pxf.pxf_bytes_sent_total`<br/>`DGAUGE`, bytes | Number of bytes sent by PXF | 
 | `pxf.pxf_fragments_sent`<br/>`DGAUGE`, count | Number of data fragments sent by PXF.<br/>Additional label: `outcome`. It can be either `success` if all fragment data is successfully sent or `error` if not. | 
-| `pxf.pxf_records_receivced_total`<br/>`DGAUGE`, count | Number of records received by PXF | 
+| `pxf.pxf_records_received_total`<br/>`DGAUGE`, count | Number of records received by PXF |
 | `pxf.pxf_records_sent_total`<br/>`DGAUGE`, count | Number of records sent by PXF | 
+| `pxf.http_server_requests_seconds_count`<br/>`DCOUNTER`, count | Total number of HTTP requests processed. <br/>Additional labels: `uri` (`/pxf/read`, `/pxf/write`), `status` (200, 404, 500, and others). |
+| `pxf.http_server_requests_seconds_max`<br/>`DGAUGE`, seconds | Maximum execution time of an HTTP request within the aggregation window. <br/>Additional labels: `uri` (`/pxf/read`, `/pxf/write`), `status` (200, 404, 500, and others). |
 | `pxf.tomcat_connections_config_max_connections`<br/>`DGAUGE`, count | Maximum number of connections in Tomcat PXF settings | 
 | `pxf.tomcat_connections_current_connections`<br/>`DGAUGE`, count | Current number of connections in Tomcat PXF | 
 | `pxf.tomcat_connections_keepalive_current_connections`<br/>`DGAUGE`, count | Current number of keepalive connections in Tomcat PXF | 
 | `pxf.tomcat_threads_busy_threads`<br/>`DGAUGE`, count | Number of busy threads in Tomcat PXF | 
 | `pxf.tomcat_threads_config_max_threads`<br/>`DGAUGE`, count | Maximum number of threads in Tomcat PXF settings | 
 | `pxf.tomcat_threads_current_threads`<br/>`DGAUGE`, count | Current number of threads in Tomcat PXF | 
+| `pxf.oom_count`<br/>`DGAUGE`, count | Out-of-memory event counter in the PXF process |
+| `pxf.cpu_usage_warn_limit`<br/>`DGAUGE`, % | Configured warning threshold for PXF CPU upload |
+| `pxf.cpu_usage_crit_limit`<br/>`DGAUGE`, % | Configured critical threshold for PXF CPU upload |
+| `pxf.memory_utilization_warn_limit`<br/>`DGAUGE`, % (share) | Configured warning threshold for memory usage (relative to maximum) |
+| `pxf.memory_utilization_crit_limit`<br/>`DGAUGE`, % (share) | Configured critical threshold for memory usage (relative to maximum) |
+
 
 ## SNMP metrics {#managed-greenplum-snmp-metrics}
 | Name<br/>Type, units | Description |

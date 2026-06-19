@@ -112,7 +112,7 @@
          * `entry_for_access_key` — ключ секрета, который будет присвоен сохраняемому значению идентификатора статического ключа доступа.
          * `entry_for_secret_key` — ключ секрета, который будет присвоен сохраняемому значению секретного ключа.
 
-     Более подробную информацию о параметрах ресурса `yandex_iam_service_account_static_access_key` в Terraform, см. в [документации провайдера](../../../terraform/resources/iam_service_account_static_access_key.md).
+     Подробнее о параметрах ресурса `yandex_iam_service_account_static_access_key` в Terraform читайте в [документации провайдера](../../../terraform/resources/iam_service_account_static_access_key.md).
          
   1. Проверьте корректность конфигурационных файлов.
 
@@ -260,7 +260,7 @@
         }
         ```
 
-        Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../../terraform/resources/iam_service_account_static_access_key.md).
+        Подробнее о ресурсах, которые вы можете создать с помощью Terraform, читайте в [документации провайдера](../../../terraform/resources/iam_service_account_static_access_key.md).
 
     1. Проверьте корректность конфигурационных файлов.
 

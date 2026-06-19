@@ -115,7 +115,7 @@ description: Следуя данной инструкции, вы сможете
      * `description` — описание SAML-приложения. Необязательный параметр.
      * `labels` — список [меток](../../../resource-manager/concepts/labels.md). Необязательный параметр.
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
 
   1. Создайте ресурсы:
 
@@ -268,7 +268,7 @@ description: Следуя данной инструкции, вы сможете
        * `RESPONSE_ONLY` — весь SAML-ответ целиком;
        * `RESPONSE_AND_ASSERTION` — целиком весь SAML-ответ и (отдельно) передаваемые атрибуты.
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
 
   1. Примените изменения:
 

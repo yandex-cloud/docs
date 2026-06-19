@@ -14,17 +14,17 @@ The system logs all actions with {{ compute-name }} resources as a list of opera
 
 - Management console {#console}
 
-  To view operations with all the resources, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.compute.operations_kRLeR }}** in the left-hand panel. In the list that opens, you will also see operations for the deleted resources.
+  To view operations with all the resources, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.compute.operations_kRLeR }}** in the left-hand panel. This will open the list of all operations, including those on currently deleted resources.
   
   You can get a list of operations for a specific resource. The steps below describe how you can do this for a VM. The same steps apply to other resources as well.
 
   1. In the [management console]({{ link-console-main }}), open the folder with the VM.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/compute/vm-pic.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Select the VM.
   1. Go to the ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.compute.operations_kRLeR }}** panel for the selected VM.
 
-     The list that opens shows operations with the selected VM and the resources connected to it.
+     This will open the list of operations with the VM and resources connected to it.
 
 - CLI {#cli}
 
@@ -57,7 +57,7 @@ The system logs all actions with {{ compute-name }} resources as a list of opera
   +----------------------+---------------------+----------------------+---------------------+--------+-----------------+
   ```
 
-  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
+  By default, information about operations is output as text. To get more details, use `--format` to specify the `yaml` or `json` output format:
 
   ```bash
   yc compute instance list-operations epdplu8jn7sr******** --format yaml
@@ -111,9 +111,9 @@ The system logs all actions with {{ compute-name }} resources as a list of opera
 
 {% endlist %}
 
-## Getting detailed information about an operation {#get-operations-info}
+## Getting operation details {#get-operations-info}
 
-1. [Get a list of operations](#get-operations) for the resource.
+1. [Get the list of operations](#get-operations) for the resource.
 1. Copy the operation ID.
 1. Get the operation details:
 

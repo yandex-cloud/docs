@@ -142,7 +142,7 @@ description: Следуя данной инструкции, вы сможете
        ```
      {% endlist %}
 
-  Подробнее о команде `yc organization-manager idp userpool update` см. в [справочнике CLI](../../cli-ref/idp/userpool/update.md).
+  Подробнее о команде `yc organization-manager idp userpool update` читайте в [справочнике CLI](../../cli-ref/idp/userpool/update.md).
 
 - {{ TF }} {#tf}
 
@@ -150,7 +150,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Подробнее о {{ TF }} см. в [документации](../../../tutorials/infrastructure-management/terraform-quickstart.md).
+  Подробнее о {{ TF }} читайте в [документации](../../../tutorials/infrastructure-management/terraform-quickstart.md).
 
   1. Создайте конфигурационный файл с параметрами пула пользователей и парольной политикой:
 
@@ -240,7 +240,7 @@ description: Следуя данной инструкции, вы сможете
        * `window` — интервал для подсчета неудачных попыток (например, `10m` для 10 минут или `600s` для 600 секунд).
        * `block` — продолжительность блокировки после превышения лимита попыток (например, `10m` или `600s`).
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_userpool` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
+     Подробнее о параметрах ресурса `yandex_organizationmanager_idp_userpool` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
 
   1. Создайте ресурсы:
 

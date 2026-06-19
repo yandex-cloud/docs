@@ -152,7 +152,7 @@
 
      {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в Terraform, см. в [документации провайдера](../../../terraform/resources/resourcemanager_folder_iam_member.md).
+     Подробнее о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в Terraform читайте в [документации провайдера](../../../terraform/resources/resourcemanager_folder_iam_member.md).
 
   1. Проверьте конфигурацию командой:
      ```
@@ -345,7 +345,7 @@
 
      {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в Terraform, см. в [документации провайдера](../../../terraform/resources/resourcemanager_folder_iam_member.md).
+     Подробнее о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в Terraform читайте в [документации провайдера](../../../terraform/resources/resourcemanager_folder_iam_member.md).
 
   1. Проверьте конфигурацию командой:
      ```
@@ -540,7 +540,7 @@
 
      {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в Terraform, см. в [документации провайдера](../../../terraform/resources/resourcemanager_folder_iam_member.md).
+     Подробнее о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в Terraform читайте в [документации провайдера](../../../terraform/resources/resourcemanager_folder_iam_member.md).
 
   1. Проверьте конфигурацию командой:
      ```
