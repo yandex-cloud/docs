@@ -1,4 +1,5 @@
-The `marketplace.publishers.editor` role enables managing Marketplace products and access to them, as well as their versions, pricing, trial periods, forms, and moderation requests. It also enables contacting tech support.
+
+The `marketplace.publishers.editor` role enables managing {{ marketplace-short-name }} products and access to them, as well as their versions, pricing, trial periods, forms, and moderation requests. It also enables contacting tech support.
 
 Users with this role can:
 * View the list of available [partner profiles](../../../marketplace/quickstart.md#registration), info on them and on the access permissions granted for them.

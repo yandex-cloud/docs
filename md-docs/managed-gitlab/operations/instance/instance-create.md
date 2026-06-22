@@ -2,7 +2,7 @@
 
 ## Создать инстанс Managed Service for GitLab {#create}
 
-Для создания инстанса Managed Service for GitLab нужна роль [vpc.user](../../../vpc/security/index.md#vpc-user) и роль [gitlab.editor или выше](../../security/index.md#roles-list). О том, как назначить роль, см. [документацию Identity and Access Management](../../../iam/operations/roles/grant.md).
+Для создания инстанса Managed Service for GitLab нужна роль [vpc.user](../../../vpc/security/index.md#vpc-user) и роль [gitlab.editor или выше](../../security/index.md#roles-list). Как назначить роль, описано в [документации Identity and Access Management](../../../iam/operations/roles/grant.md).
 
 {% note warning %}
 
@@ -250,7 +250,7 @@
      * `backup_retain_period_days` — срок хранения автоматических резервных копий (в днях).
      * `deletion_protection` — защита инстанса от случайного удаления пользователем. Возможные значения: `true` или `false`.
 
-     Более подробную информацию о параметрах ресурса `yandex_gitlab_instance` см. в [документации провайдера](../../../terraform/resources/gitlab_instance.md).
+     Подробнее о параметрах ресурса `yandex_gitlab_instance` в [документации провайдера](../../../terraform/resources/gitlab_instance.md).
 
   1. Создайте ресурсы:
 

@@ -123,6 +123,9 @@ POST https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters
       "logMonitoringChecks": "boolean",
       "logIndexMaintenance": "boolean",
       "logBackupOperations": "boolean"
+    },
+    "cloudStorage": {
+      "enabled": "boolean"
     }
   },
   "networkId": "string",
@@ -227,6 +230,9 @@ Snapshot management configuration. ||
 || auditLog | **[AuditLog](#yandex.cloud.mdb.opensearch.v1.config.AuditLog)**
 
 Audit log settings. ||
+|| cloudStorage | **[CloudStorage](#yandex.cloud.mdb.opensearch.v1.CloudStorage)**
+
+Cloud storage configuration. ||
 |#
 
 ## OpenSearchCreateSpec {#yandex.cloud.mdb.opensearch.v1.OpenSearchCreateSpec}
@@ -594,6 +600,17 @@ Enables indices maintenance requests logging, such as indices refreshes, flushes
 || logBackupOperations | **boolean**
 
 Enables snapshots and repositories requests logging. ||
+|#
+
+## CloudStorage {#yandex.cloud.mdb.opensearch.v1.CloudStorage}
+
+Cloud storage configuration.
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Whether to use Object Storage for storing OpenSearch data. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow}

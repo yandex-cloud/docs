@@ -845,6 +845,16 @@ items:
                 href: api-ref/grpc/FormatSchema/update.md
               - name: Delete
                 href: api-ref/grpc/FormatSchema/delete.md
+          - name: Maintenance
+            items:
+              - name: Overview
+                href: api-ref/grpc/Maintenance/index.md
+              - name: List
+                href: api-ref/grpc/Maintenance/list.md
+              - name: Get
+                href: api-ref/grpc/Maintenance/get.md
+              - name: Reschedule
+                href: api-ref/grpc/Maintenance/reschedule.md
           - name: MlModel
             items:
               - name: Overview
@@ -1047,6 +1057,16 @@ items:
                 href: api-ref/FormatSchema/update.md
               - name: Delete
                 href: api-ref/FormatSchema/delete.md
+          - name: Maintenance
+            items:
+              - name: Overview
+                href: api-ref/Maintenance/index.md
+              - name: List
+                href: api-ref/Maintenance/list.md
+              - name: Get
+                href: api-ref/Maintenance/get.md
+              - name: Reschedule
+                href: api-ref/Maintenance/reschedule.md
           - name: MlModel
             items:
               - name: Overview

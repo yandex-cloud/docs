@@ -84,7 +84,7 @@
 
 1. Если вы уводили трафик с CDN-ресурса, восстановите исходную CNAME-запись.
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Выделенная IP-адресация CDN-ресурсов](../../concepts/dedicated-ip-addressing.md)
 * [Квоты и лимиты в Cloud CDN](../../concepts/limits.md)

@@ -1,6 +1,6 @@
 To use the `billing.accounts.editor` role, you need to assign it for a billing account. It enables you to get payment invoices, redeem promo codes, link clouds and services to your billing account, create details export and budgets, generate reconciliation reports, and reserve resources.
 
-{% cut "In Yandex Cloud Billing, users with this role can:" %}
+{% cut "In {{ billing-name }}, users with this role can:" %}
 
 * Display [billing accounts](../../../billing/concepts/billing-account.md) in the list of all accounts.
 * View billing account data.
@@ -21,7 +21,7 @@ To use the `billing.accounts.editor` role, you need to assign it for a billing a
 
 {% endcut %}
 
-{% cut "On the Yandex Cloud partner portal, users with this role can:" %}
+{% cut "On the {{ yandex-cloud }} partner portal, users with this role can:" %}
 
 * Link [clouds](../../../resource-manager/concepts/resources-hierarchy.md#cloud) to [subaccounts](../../../partner/terms.md#sub-account).
 * View [rebate credit](../../../partner/terms.md#rebate) history.

@@ -21,7 +21,9 @@ Creates a MongoDB user in the specified cluster.
           "string"
         ]
       }
-    ]
+    ],
+    "auth_type": "AuthType",
+    "deletion_protection": "google.protobuf.BoolValue"
   }
 }
 ```
@@ -56,6 +58,15 @@ The maximum string length in characters is 128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
 
 Set of permissions to grant to the user. ||
+|| auth_type | enum **AuthType**
+
+Authentication type for the user. Defaults to AUTH_TYPE_PASSWORD.
+
+- `AUTH_TYPE_PASSWORD`: Password-based authentication (SCRAM).
+- `AUTH_TYPE_IAM`: IAM-based authentication via iam-auth-proxy (SASL/PLAIN, $external). ||
+|| deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Deletion Protection inhibits deletion of the user ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mongodb.v1.Permission}

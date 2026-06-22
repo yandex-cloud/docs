@@ -13,7 +13,7 @@
 1. Выберите тип и укажите [параметры провайдера аутентификации](#params).
 1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-Подробнее о работе OmniAuth в {{ GL }} см. в [документации {{ GL }}]({{ gl.docs }}/ee/integration/omniauth.html).
+Подробнее о работе OmniAuth в {{ GL }} в [документации {{ GL }}]({{ gl.docs }}/ee/integration/omniauth.html).
 
 ## Параметры провайдера аутентификации {#params}
 
@@ -31,27 +31,27 @@
 
 {% include [omniauth-common](../../_includes/managed-gitlab/omniauth-common.md) %}
 
-О том, как получить идентификатор и секретный ключ приложения, см. в [инструкции по настройке провайдера]({{ gl.docs }}/ee/integration/bitbucket.html#bitbucket-omniauth-provider).
+Как получить идентификатор и секретный ключ приложения, описано в [инструкции по настройке провайдера]({{ gl.docs }}/ee/integration/bitbucket.html#bitbucket-omniauth-provider).
 
 ### Github Enterprise {#gitlab-ee}
 
 {% include [omniauth-common](../../_includes/managed-gitlab/omniauth-common.md) %}
 * **URL** — ссылка на репозиторий в GitHub.
 
-О том, как получить идентификатор и секретный ключ приложения, см. в [инструкции по настройке провайдера]({{ gl.docs }}/ee/integration/github.html).
+Как получить идентификатор и секретный ключ приложения, описано в [инструкции по настройке провайдера]({{ gl.docs }}/ee/integration/github.html).
 
 ### {{ GL }} self-managed {#gitlab-self}
 
 {% include [omniauth-common](../../_includes/managed-gitlab/omniauth-common.md) %}
 * **Site** — ссылка на репозиторий в {{ GL }}.
 
-О том, как получить идентификатор и секретный ключ приложения, см. в [инструкции по настройке провайдера]({{ gl.docs }}/ee/integration/gitlab.html).
+Как получить идентификатор и секретный ключ приложения, описано в [инструкции по настройке провайдера]({{ gl.docs }}/ee/integration/gitlab.html).
 
 ### Google OAuth 2.0 {#google}
 
 {% include [omniauth-common](../../_includes/managed-gitlab/omniauth-common.md) %}
 
-О том, как получить идентификатор и секретный ключ приложения, см. в [инструкции по настройке провайдера]({{ gl.docs }}/ee/integration/google.html#configure-the-google-cloud-resource-manager).
+Как получить идентификатор и секретный ключ приложения, описано в [инструкции по настройке провайдера]({{ gl.docs }}/ee/integration/google.html#configure-the-google-cloud-resource-manager).
 
 ### Keycloak {#keycloak}
 
@@ -88,7 +88,7 @@
 * **Bind DN** — (опционально) уникальное имя (DN) пользователя в LDAP.
 * **User Filter** — (опционально) фильтр пользователей в LDAP в формате [RFC-4515](https://www.rfc-editor.org/rfc/rfc4515.html).
 
-О том, как выполнить минимальные настройки LDAP-сервера для работы с {{ GL }}, см. в [документации {{ GL }}]({{ gl.docs }}/ee/administration/auth/ldap/#configure-ldap).
+Как выполнить минимальные настройки LDAP-сервера для работы с {{ GL }}, описано в [документации {{ GL }}]({{ gl.docs }}/ee/administration/auth/ldap/#configure-ldap).
 
 ### {{ microsoft-idp.entra-id-full }} {#azure-ad}
 
@@ -97,7 +97,7 @@
 * **Client Secret** — секретный ключ клиента, полученный при регистрации приложения.
 * **Tenant ID** — идентификатор тенанта, полученный при регистрации приложения.
 
-О том, как зарегистрировать приложение на стороне Azure, см. в [документации {{ GL }}]({{ gl.docs }}/ee/integration/azure.html#register-an-azure-application).
+Как зарегистрировать приложение на стороне Azure, описано в [документации {{ GL }}]({{ gl.docs }}/ee/integration/azure.html#register-an-azure-application).
 
 ### Microsoft Azure OAuth 2 {#azure-oauth}
 
@@ -106,7 +106,7 @@
 * **Client Secret** — секретный ключ клиента, полученный при регистрации приложения.
 * **Tenant ID** — идентификатор тенанта, полученный при регистрации приложения.
 
-О том, как зарегистрировать приложение на стороне Azure, см. в [документации {{ GL }}]({{ gl.docs }}/ee/integration/azure.html#register-an-azure-application).
+Как зарегистрировать приложение на стороне Azure, описано в [документации {{ GL }}]({{ gl.docs }}/ee/integration/azure.html#register-an-azure-application).
 
 ### SAML {#saml}
 
@@ -117,7 +117,7 @@
 * **Issuer** — уникальный идентификатор приложения, в котором будет происходить аутентификация пользователя, например `https://example.gitlab.yandexcloud.net`.
 * **Name identifier format** — формат идентификатора имени. Выдается при настройке провайдера идентификации.
 
-О том, как настроить SAML на стороне провайдера идентификации, см. в [документации {{ GL }}]({{ gl.docs }}/ee/integration/saml.html#configure-saml-on-your-idp).
+Как настроить SAML на стороне провайдера идентификации, описано в [документации {{ GL }}]({{ gl.docs }}/ee/integration/saml.html#configure-saml-on-your-idp).
 
 ### Yandex ID {#yandex-id}
 
@@ -126,7 +126,7 @@
 * **Client Secret** — секретный ключ клиента, полученный при регистрации приложения.
 * **Site** — ссылка на репозиторий в {{ GL }}.
 
-О том, как зарегистрировать приложение на стороне провайдера идентификации, см. в [документации {{ yandex-oauth }}](https://yandex.ru/dev/id/doc/register-client). При регистрации приложения разрешите доступ к адресу электронной почты пользователя. Если в качестве платформы выбраны веб-сервисы, укажите в поле **Redirect URI** адрес URL вида:
+Как зарегистрировать приложение на стороне провайдера идентификации, описано в [документации {{ yandex-oauth }}](https://yandex.ru/dev/id/doc/register-client). При регистрации приложения разрешите доступ к адресу электронной почты пользователя. Если в качестве платформы выбраны веб-сервисы, укажите в поле **Redirect URI** адрес URL вида:
 
 ```text
 https://<адрес_инстанса_{{ GL }}>/users/auth/Yandex/callback

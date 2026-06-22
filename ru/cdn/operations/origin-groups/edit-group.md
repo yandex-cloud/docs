@@ -77,7 +77,7 @@ description: Из статьи вы узнаете, как изменить гр
        enabled: true
      ```
 
-     Подробнее о команде `yc cdn origin-group update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/origin-group/update.md).
+     Подробнее о команде `yc cdn origin-group update` в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/origin-group/update.md).
 
 - {{ TF }} {#tf}
 

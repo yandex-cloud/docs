@@ -18,7 +18,7 @@
 
   1. Выберите группу источников.
 
-  1. Укажите остальные настройки ресурса. Подробнее см. в разделе [{#T}](../resources/create-resource.md).
+  1. Укажите остальные настройки ресурса. Подробнее в разделе [{#T}](../resources/create-resource.md).
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
@@ -133,7 +133,7 @@
        status: READY
      ```
 
-     Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/create.md).
+     Подробнее о команде `yc cdn resource create` в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/create.md).
 
 - {{ TF }} {#tf}
 
@@ -152,7 +152,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/cdn_origin_group).
+     Подробнее о ресурсах, которые вы можете создать с помощью {{ TF }}, в [документации провайдера]({{ tf-provider-resources-link }}/cdn_origin_group).
 
   1. Проверьте корректность настроек.
 
@@ -184,7 +184,7 @@
 
   1. Выберите группу источников.
 
-  1. Если нужно, укажите остальные настройки ресурса. Подробнее см. в разделе [{#T}](../resources/configure-basics.md). 
+  1. Если нужно, укажите остальные настройки ресурса. Подробнее в разделе [{#T}](../resources/configure-basics.md). 
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -347,7 +347,7 @@
        status: READY
      ```
 
-     Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
+     Подробнее о команде `yc cdn resource update` в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - API {#api}
 

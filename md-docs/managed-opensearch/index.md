@@ -414,6 +414,16 @@
 
  - [Delete](api-ref/grpc/Extension/delete.md)
 
+#### Maintenance
+
+ - [Overview](api-ref/grpc/Maintenance/index.md)
+
+ - [List](api-ref/grpc/Maintenance/list.md)
+
+ - [Get](api-ref/grpc/Maintenance/get.md)
+
+ - [Reschedule](api-ref/grpc/Maintenance/reschedule.md)
+
 #### Operation
 
  - [Overview](api-ref/grpc/Operation/index.md)
@@ -525,6 +535,16 @@
  - [Update](api-ref/Extension/update.md)
 
  - [Delete](api-ref/Extension/delete.md)
+
+#### Maintenance
+
+ - [Overview](api-ref/Maintenance/index.md)
+
+ - [List](api-ref/Maintenance/list.md)
+
+ - [Get](api-ref/Maintenance/get.md)
+
+ - [Reschedule](api-ref/Maintenance/reschedule.md)
 
 #### Operation
 

@@ -1,6 +1,6 @@
 When creating your billing account, you get the `billing.accounts.owner` role automatically. Any user with the `billing.accounts.owner` role can revoke this role from the billing account creator and change the owner.
 
-{% cut "In Yandex Cloud Billing, users with this role can:" %}
+{% cut "In {{ billing-name }}, users with this role can:" %}
 
 * Display [billing accounts](../../../billing/concepts/billing-account.md) in the list of all accounts.
 * View billing account data.
@@ -31,7 +31,7 @@ When creating your billing account, you get the `billing.accounts.owner` role au
 
 {% endcut %}
 
-{% cut "On the Yandex Cloud partner portal, users with this role can:" %}
+{% cut "On the {{ yandex-cloud }} partner portal, users with this role can:" %}
 
 * [Create](../../../partner/operations/pin-client.md#client-entry) customer records ([subaccounts](../../../partner/terms.md#sub-account)).
 * View the list of subaccounts and info on them, including personal data.

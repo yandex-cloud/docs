@@ -624,6 +624,16 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
 
  - [BatchUpdate](api-ref/grpc/HBARule/batchUpdate.md)
 
+#### Maintenance
+
+ - [Overview](api-ref/grpc/Maintenance/index.md)
+
+ - [List](api-ref/grpc/Maintenance/list.md)
+
+ - [Get](api-ref/grpc/Maintenance/get.md)
+
+ - [Reschedule](api-ref/grpc/Maintenance/reschedule.md)
+
 #### Operation
 
  - [Overview](api-ref/grpc/Operation/index.md)
@@ -759,6 +769,16 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
  - [Delete](api-ref/HBARule/delete.md)
 
  - [BatchUpdate](api-ref/HBARule/batchUpdate.md)
+
+#### Maintenance
+
+ - [Overview](api-ref/Maintenance/index.md)
+
+ - [List](api-ref/Maintenance/list.md)
+
+ - [Get](api-ref/Maintenance/get.md)
+
+ - [Reschedule](api-ref/Maintenance/reschedule.md)
 
 #### Operation
 

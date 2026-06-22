@@ -40,10 +40,76 @@ apiPlayground:
           type: array
           items:
             type: string
+        externalShards:
+          description: |-
+            **[ExternalShard](#yandex.cloud.mdb.clickhouse.v1.ExternalShard)**
+            List of external shards that should be put into the new group.
+            External shards reference replicas outside this cluster.
+          type: array
+          items:
+            $ref: '#/definitions/ExternalShard'
       required:
         - shardGroupName
       additionalProperties: false
-    definitions: null
+    definitions:
+      Replica:
+        type: object
+        properties:
+          host:
+            description: |-
+              **string**
+              Name (FQDN) or IP address of the external replica host.
+            type: string
+          port:
+            description: |-
+              **string** (int64)
+              Port to connect to the external replica. If not specified, the default ClickHouse port is used.
+            type: string
+            format: int64
+          secure:
+            description: |-
+              **boolean**
+              Whether to use a secure (SSL/TLS) connection when connecting to the external replica.
+            type: boolean
+          user:
+            description: |-
+              **string**
+              Name of the user to authenticate with on the external replica.
+            type: string
+          password:
+            description: |-
+              **string**
+              Password of the user to authenticate with on the external replica.
+            type: string
+          priority:
+            description: |-
+              **string** (int64)
+              Priority of the external replica for load balancing.
+              The replica with the lowest priority value is preferred when establishing a connection.
+            type: string
+            format: int64
+      ExternalShard:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Name of the external shard.
+            type: string
+          weight:
+            description: |-
+              **string** (int64)
+              Relative weight of the external shard considered when writing data to the cluster.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/operations/table_engines/distributed/).
+            type: string
+            format: int64
+          replicas:
+            description: |-
+              **[Replica](#yandex.cloud.mdb.clickhouse.v1.ExternalShard.Replica)**
+              List of replicas contained in the external shard.
+            type: array
+            items:
+              $ref: '#/definitions/Replica'
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.CreateShardGroup
@@ -76,6 +142,22 @@ The maximum string length in characters is 50. ||
   "description": "string",
   "shardNames": [
     "string"
+  ],
+  "externalShards": [
+    {
+      "name": "string",
+      "weight": "string",
+      "replicas": [
+        {
+          "host": "string",
+          "port": "string",
+          "secure": "boolean",
+          "user": "string",
+          "password": "string",
+          "priority": "string"
+        }
+      ]
+    }
   ]
 }
 ```
@@ -94,6 +176,52 @@ Description of the new shard group. 0-256 characters long. ||
 
 List of shard names that should be put into the new group.
 To get the list, make a [ClusterService.ListShardGroups](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#ListShardGroups) request. ||
+|| externalShards[] | **[ExternalShard](#yandex.cloud.mdb.clickhouse.v1.ExternalShard)**
+
+List of external shards that should be put into the new group.
+External shards reference replicas outside this cluster. ||
+|#
+
+## ExternalShard {#yandex.cloud.mdb.clickhouse.v1.ExternalShard}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the external shard. ||
+|| weight | **string** (int64)
+
+Relative weight of the external shard considered when writing data to the cluster.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/operations/table_engines/distributed/). ||
+|| replicas[] | **[Replica](#yandex.cloud.mdb.clickhouse.v1.ExternalShard.Replica)**
+
+List of replicas contained in the external shard. ||
+|#
+
+## Replica {#yandex.cloud.mdb.clickhouse.v1.ExternalShard.Replica}
+
+#|
+||Field | Description ||
+|| host | **string**
+
+Name (FQDN) or IP address of the external replica host. ||
+|| port | **string** (int64)
+
+Port to connect to the external replica. If not specified, the default ClickHouse port is used. ||
+|| secure | **boolean**
+
+Whether to use a secure (SSL/TLS) connection when connecting to the external replica. ||
+|| user | **string**
+
+Name of the user to authenticate with on the external replica. ||
+|| password | **string**
+
+Password of the user to authenticate with on the external replica. ||
+|| priority | **string** (int64)
+
+Priority of the external replica for load balancing.
+The replica with the lowest priority value is preferred when establishing a connection. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

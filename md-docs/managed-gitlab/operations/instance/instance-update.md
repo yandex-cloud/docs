@@ -145,7 +145,7 @@
 
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создать инстанс GitLab](instance-create.md#create).
+      Как создать такой файл, описано в разделе [Создать инстанс GitLab](instance-create.md#create).
 
   1. Измените в описании инстанса GitLab значения параметров:
 
@@ -185,7 +185,7 @@
       * `backup_retain_period_days` — срок хранения автоматических резервных копий (в днях).
       * `deletion_protection` — защита инстанса от случайного удаления пользователем. Возможные значения: `true` или `false`.
 
-      Более подробную информацию о параметрах ресурса `yandex_gitlab_instance` см. в [документации провайдера](../../../terraform/resources/gitlab_instance.md).
+      Подробнее о параметрах ресурса `yandex_gitlab_instance` в [документации провайдера](../../../terraform/resources/gitlab_instance.md).
 
   1. Проверьте корректность настроек.
 
@@ -224,7 +224,7 @@
       yc managed-gitlab instance list
       ```
 
-  Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/gitlab_instance.md).
+  Подробнее в [документации провайдера Terraform](../../../terraform/resources/gitlab_instance.md).
 
 - API {#api}
 

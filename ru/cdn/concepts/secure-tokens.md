@@ -187,7 +187,7 @@ _Подписанная ссылка_ [генерируется](#link-generatio
 {% endlist %}
 
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/resources/enable-secure-token.md)
 * [{#T}](../operations/resources/create-resource.md)

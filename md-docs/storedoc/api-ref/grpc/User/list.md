@@ -54,7 +54,9 @@ The maximum string length in characters is 100. ||
             "string"
           ]
         }
-      ]
+      ],
+      "auth_type": "AuthType",
+      "deletion_protection": "google.protobuf.BoolValue"
     }
   ],
   "next_page_token": "string"
@@ -90,6 +92,15 @@ ID of the MongoDB cluster the user belongs to. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
 
 Set of permissions granted to the user. ||
+|| auth_type | enum **AuthType**
+
+Authentication type for the user.
+
+- `AUTH_TYPE_PASSWORD`: Password-based authentication (SCRAM).
+- `AUTH_TYPE_IAM`: IAM-based authentication via iam-auth-proxy (SASL/PLAIN, $external). ||
+|| deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Deletion Protection inhibits deletion of the user ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mongodb.v1.Permission}

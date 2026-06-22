@@ -97,7 +97,9 @@
             "string"
           ]
         }
-      ]
+      ],
+      "authType": "string",
+      "deletionProtection": "boolean"
     }
   },
   "requestParameters": "object",
@@ -282,6 +284,11 @@ A list of messages that carry the error details. ||
 || name | **string** ||
 || clusterId | **string** ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)** ||
+|| authType | **enum** (AuthType)
+
+- `AUTH_TYPE_PASSWORD`
+- `AUTH_TYPE_IAM` ||
+|| deletionProtection | **boolean** ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mongodb.v1.Permission}

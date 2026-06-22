@@ -785,37 +785,36 @@ apiPlayground:
           host:
             description: |-
               **string**
-              Required field. MySQL host of the replica.
-              The maximum string length in characters is 253.
+              Name (FQDN) or IP address of the external replica host.
             type: string
-          priority:
-            description: |-
-              **string** (int64)
-              The priority of the replica that ClickHouse takes into account when connecting.
-              Replica with the highest priority should have this field set to the lowest number.
-            type: string
-            format: int64
           port:
             description: |-
               **string** (int64)
-              Port to use when connecting to the replica.
-              If a port is not specified for a replica, ClickHouse uses the port specified for the source.
+              Port to connect to the external replica. If not specified, the default ClickHouse port is used.
             type: string
             format: int64
+          secure:
+            description: |-
+              **boolean**
+              Whether to use a secure (SSL/TLS) connection when connecting to the external replica.
+            type: boolean
           user:
             description: |-
               **string**
-              Name of the MySQL database user.
-              If a user is not specified for a replica, ClickHouse uses the user specified for the source.
+              Name of the user to authenticate with on the external replica.
             type: string
           password:
             description: |-
               **string**
-              Password of the MySQL database user.
-              If a password is not specified for a replica, ClickHouse uses the password specified for the source.
+              Password of the user to authenticate with on the external replica.
             type: string
-        required:
-          - host
+          priority:
+            description: |-
+              **string** (int64)
+              Priority of the external replica for load balancing.
+              The replica with the lowest priority value is preferred when establishing a connection.
+            type: string
+            format: int64
       MysqlSource:
         type: object
         properties:
@@ -847,7 +846,7 @@ apiPlayground:
             type: string
           replicas:
             description: |-
-              **[Replica](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource.Replica)**
+              **[Replica](/docs/managed-clickhouse/api-ref/Cluster/getShardGroup#yandex.cloud.mdb.clickhouse.v1.ExternalShard.Replica)**
               List of MySQL replicas of the database used as dictionary source.
             type: array
             items:
@@ -4300,6 +4299,17 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/UserQuota'
+          authMethod:
+            description: |-
+              **enum** (AuthMethod)
+              User authentication method.
+              - `AUTH_METHOD_PASSWORD`: Authentication using a password stored in the cluster.
+              - `AUTH_METHOD_IAM`: Authentication using an IAM token via the IAM authentication proxy.
+            type: string
+            enum:
+              - AUTH_METHOD_UNSPECIFIED
+              - AUTH_METHOD_PASSWORD
+              - AUTH_METHOD_IAM
         required:
           - name
       HostSpec:
@@ -5249,7 +5259,8 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
           "readRows": "string",
           "executionTime": "string"
         }
-      ]
+      ],
+      "authMethod": "string"
     }
   ],
   "hostSpecs": [
@@ -9219,6 +9230,12 @@ User settings ||
 || quotas[] | **[UserQuota](#yandex.cloud.mdb.clickhouse.v1.UserQuota)**
 
 Quotas assigned to the user. ||
+|| authMethod | **enum** (AuthMethod)
+
+User authentication method.
+
+- `AUTH_METHOD_PASSWORD`: Authentication using a password stored in the cluster.
+- `AUTH_METHOD_IAM`: Authentication using an IAM token via the IAM authentication proxy. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission}

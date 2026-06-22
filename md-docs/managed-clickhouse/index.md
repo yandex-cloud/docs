@@ -836,6 +836,16 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
 
  - [Delete](api-ref/grpc/FormatSchema/delete.md)
 
+#### Maintenance
+
+ - [Overview](api-ref/grpc/Maintenance/index.md)
+
+ - [List](api-ref/grpc/Maintenance/list.md)
+
+ - [Get](api-ref/grpc/Maintenance/get.md)
+
+ - [Reschedule](api-ref/grpc/Maintenance/reschedule.md)
+
 #### MlModel
 
  - [Overview](api-ref/grpc/MlModel/index.md)
@@ -1037,6 +1047,16 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
  - [Update](api-ref/FormatSchema/update.md)
 
  - [Delete](api-ref/FormatSchema/delete.md)
+
+#### Maintenance
+
+ - [Overview](api-ref/Maintenance/index.md)
+
+ - [List](api-ref/Maintenance/list.md)
+
+ - [Get](api-ref/Maintenance/get.md)
+
+ - [Reschedule](api-ref/Maintenance/reschedule.md)
 
 #### MlModel
 

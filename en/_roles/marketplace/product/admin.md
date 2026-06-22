@@ -1,4 +1,5 @@
-The `marketplace.product.admin` role enables managing Marketplace products and access to them, as well as their versions, pricing, trial periods, forms, and moderation requests.
+
+The `marketplace.product.admin` role enables managing {{ marketplace-short-name }} products and access to them, as well as their versions, pricing, trial periods, forms, and moderation requests.
 
 Users with this role can:
 * View info on the access permissions granted for products, as well as modify such permissions.

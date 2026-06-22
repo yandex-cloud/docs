@@ -105,9 +105,9 @@ description: Следуя данной инструкции, вы сможете
 
           {% include [the-vary-headers-purge-warning](../../../_includes/cdn/the-vary-headers-purge-warning.md) %}
 
-          Если не указать параметр `--path` с путями к файлам, кеш будет очищен для всех файлов ресурса. Подробнее см. в разделе [{#T}](../../concepts/caching.md#purge).
+          Если не указать параметр `--path` с путями к файлам, кеш будет очищен для всех файлов ресурса. Подробнее в разделе [{#T}](../../concepts/caching.md#purge).
 
-      Подробнее о команде `yc cdn cache purge` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/cache/purge.md).
+      Подробнее о команде `yc cdn cache purge` в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/cache/purge.md).
 
 - API {#api}
 

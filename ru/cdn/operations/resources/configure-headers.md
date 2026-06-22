@@ -111,7 +111,7 @@ description: Следуя данной инструкции, вы сможете
       * `--static-request-headers` добавляет заголовки запроса к источнику. Удалить их можно с помощью флага `--clear-static-request-headers`.
       * `--static-headers` добавляет заголовки ответа клиента. Удалить их можно с помощью флага `--clear-static-headers`.
 
-      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
+      Подробнее о команде `yc cdn resource update` в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
 
@@ -144,7 +144,7 @@ description: Следуя данной инструкции, вы сможете
       * Блок `options` содержит дополнительные параметры CDN-ресурсов:
          * `static_response_headers` — пользовательские заголовки, которые CDN-серверы отправляют в ответ клиенту. Необязательный параметр.
 
-      Более подробную информацию о параметрах `yandex_cdn_resource` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/cdn_resource).
+      Подробнее о параметрах `yandex_cdn_resource` в {{ TF }} в [документации провайдера]({{ tf-provider-resources-link }}/cdn_resource).
 
   1. В командной строке перейдите в папку, где расположен конфигурационный файл {{ TF }}.
 

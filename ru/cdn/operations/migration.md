@@ -85,7 +85,7 @@ noIndex: true
 
     {% include [note-dns-hosting](../../_includes/cdn/note-dns-hosting.md) %}
 
-    Новый ресурс начнет корректно работать после того, как CNAME-запись, которую вы изменили в своем DNS-хостинге, распространится по серверам DNS. На это может потребоваться несколько часов. См. [раздел о доменных именах для раздачи контента](../../cdn/concepts/resource.md#hostnames).
+    Новый ресурс начнет корректно работать после того, как CNAME-запись, которую вы изменили в своем DNS-хостинге, распространится по серверам DNS. На это может потребоваться несколько часов. Подробнее в [разделе о доменных именах для раздачи контента](../../cdn/concepts/resource.md#hostnames).
 
     {% include [note-dns-aname](../../_includes/cdn/note-dns-aname.md) %}
 
@@ -110,7 +110,7 @@ noIndex: true
 
 {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](./resources/copy-resource.md)
 * [{#T}](./resources/get-stats.md)

@@ -4,6 +4,6 @@ Users with this role can:
 * View info on [clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud), their settings, and the [access permissions](../../iam/concepts/access-control/index.md) to such clouds, as well as create, modify, and delete clouds.
 * View info on [folders](../../resource-manager/concepts/resources-hierarchy.md#folder), their settings, and the access permissions to such folders, as well as create, modify, and delete folders.
 * View [access policies](../../iam/concepts/access-control/access-policies.md) assigned to clouds and folders.
-* View info on the Resource Manager [quotas](../../resource-manager/concepts/limits.md#resmgr-quotas).
+* View info on the {{ resmgr-name }} [quotas](../../resource-manager/concepts/limits.md#resmgr-quotas).
 
 This role includes the `resource-manager.viewer` permissions.

@@ -10,7 +10,7 @@
 * создавать [эфемерные ключи доступа](../../iam/concepts/authorization/ephemeral-keys.md) сервисных аккаунтов;
 * просматривать информацию о [федерациях удостоверений](../../iam/concepts/federations.md);
 * просматривать список операций и информацию об операциях с ресурсами сервиса;
-* просматривать информацию о [квотах](../../iam/concepts/limits.md#iam-quotas) сервиса Identity and Access Management;
+* просматривать информацию о [квотах](../../iam/concepts/limits.md#iam-quotas) сервиса {{ iam-name }};
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) и его настройки;
 * просматривать информацию о [каталогах](../../resource-manager/concepts/resources-hierarchy.md#folder) и их настройки;
 * создавать, изменять, удалять и настраивать каталоги.

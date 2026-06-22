@@ -221,6 +221,9 @@
           "logMonitoringChecks": "boolean",
           "logIndexMaintenance": "boolean",
           "logBackupOperations": "boolean"
+        },
+        "cloudStorage": {
+          "enabled": "boolean"
         }
       },
       "networkId": "string",
@@ -492,6 +495,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || snapshotManagement | **[SnapshotManagement](#yandex.cloud.mdb.opensearch.v1.SnapshotManagement)** ||
 || fullVersion | **string** ||
 || auditLog | **[AuditLog](#yandex.cloud.mdb.opensearch.v1.config.AuditLog)** ||
+|| cloudStorage | **[CloudStorage](#yandex.cloud.mdb.opensearch.v1.CloudStorage)** ||
 |#
 
 ## OpenSearch {#yandex.cloud.mdb.opensearch.v1.OpenSearch}
@@ -676,6 +680,13 @@ Acceptable values are 0 to 59, inclusive. ||
 || logMonitoringChecks | **boolean** ||
 || logIndexMaintenance | **boolean** ||
 || logBackupOperations | **boolean** ||
+|#
+
+## CloudStorage {#yandex.cloud.mdb.opensearch.v1.CloudStorage}
+
+#|
+||Field | Description ||
+|| enabled | **boolean** ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow}

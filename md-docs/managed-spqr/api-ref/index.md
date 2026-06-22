@@ -11,6 +11,7 @@ This API reference is organized by resource. Actions are performed by sending HT
 || [Backup](Backup/index.md) | A set of methods for managing SPQR Backup resources. ||
 || [Cluster](Cluster/index.md) | A set of methods for managing SPQR Cluster resources. ||
 || [Database](Database/index.md) | A set of methods for managing SPQR Database resources. ||
+|| [Maintenance](Maintenance/index.md) | A set of methods for managing maintenances in a service. ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [ResourcePreset](ResourcePreset/index.md) | A set of methods for managing ResourcePreset resources. ||
 || [User](User/index.md) | A set of methods for managing SPQR User resources. ||

@@ -4,6 +4,6 @@
 * просматривать информацию об [облаках](../../resource-manager/concepts/resources-hierarchy.md#cloud), их настройках и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к облакам, а также создавать, изменять и удалять облака;
 * просматривать информацию о [каталогах](../../resource-manager/concepts/resources-hierarchy.md#folder), их настройках и назначенных правах доступа к каталогам, а также создавать, изменять и удалять каталоги;
 * просматривать [политики авторизации](../../iam/concepts/access-control/access-policies.md), назначенные на облака и каталоги;
-* просматривать информацию о [квотах](../../resource-manager/concepts/limits.md#resmgr-quotas) сервиса Resource Manager.
+* просматривать информацию о [квотах](../../resource-manager/concepts/limits.md#resmgr-quotas) сервиса {{ resmgr-name }}.
 
 Включает разрешения, предоставляемые ролью `resource-manager.viewer`.

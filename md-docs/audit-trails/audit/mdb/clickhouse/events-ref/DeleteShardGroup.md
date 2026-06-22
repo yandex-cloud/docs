@@ -92,6 +92,22 @@
       "description": "string",
       "shardNames": [
         "string"
+      ],
+      "externalShards": [
+        {
+          "name": "string",
+          "weight": "string",
+          "replicas": [
+            {
+              "host": "string",
+              "port": "string",
+              "secure": "boolean",
+              "user": "string",
+              "password": "string",
+              "priority": "string"
+            }
+          ]
+        }
       ]
     },
     "clusterName": "string"
@@ -279,4 +295,26 @@ A list of messages that carry the error details. ||
 || clusterId | **string** ||
 || description | **string** ||
 || shardNames[] | **string** ||
+|| externalShards[] | **[ExternalShard](#yandex.cloud.mdb.clickhouse.v1.ExternalShard)** ||
+|#
+
+## ExternalShard {#yandex.cloud.mdb.clickhouse.v1.ExternalShard}
+
+#|
+||Field | Description ||
+|| name | **string** ||
+|| weight | **string** (int64) ||
+|| replicas[] | **[Replica](#yandex.cloud.mdb.clickhouse.v1.ExternalShard.Replica)** ||
+|#
+
+## Replica {#yandex.cloud.mdb.clickhouse.v1.ExternalShard.Replica}
+
+#|
+||Field | Description ||
+|| host | **string** ||
+|| port | **string** (int64) ||
+|| secure | **boolean** ||
+|| user | **string** ||
+|| password | **string** ||
+|| priority | **string** (int64) ||
 |#

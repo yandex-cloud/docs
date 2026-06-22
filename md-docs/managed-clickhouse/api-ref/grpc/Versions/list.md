@@ -47,7 +47,10 @@ The maximum string length in characters is 100. ||
         "string"
       ],
       "lts": "bool",
-      "full_version": "string"
+      "full_version": "string",
+      "status": "Status",
+      "deprecated_at": "google.protobuf.Timestamp",
+      "eol_at": "google.protobuf.Timestamp"
     }
   ],
   "next_page_token": "string"
@@ -91,4 +94,25 @@ Whether version is LTS. ||
 || full_version | **string**
 
 Full version. ||
+|| status | enum **Status**
+
+Version status
+
+- `NEW`: Newly released version. New clusters can be created.
+Support may not yet be available in full scope.
+- `ACTUAL`: Newly released version. New clusters can be created.
+- `SUPPORTED`: Fully supported version.
+- `DEPRECATED`: Version approaching end of support. New cluster creation is not allowed.
+Existing clusters continue to operate. Restore from backups is available.
+- `LEGACY`: Deprecated version billed at an increased rate.
+New cluster creation and restore from backups are not allowed.
+Existing clusters continue to operate; automatic upgrade may be scheduled.
+- `EOL`: End-of-life version. Clusters are forcibly upgraded to a supported version or shut down. ||
+|| deprecated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Optional. Date when the version reaches DEPRECATED status (day precision)
+(-- api-linter: yc::1703::deprecated-annotation=disabled --) ||
+|| eol_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Optional. Date when the version reaches EOL status (day precision) ||
 |#

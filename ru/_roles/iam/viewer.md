@@ -7,7 +7,7 @@
 * просматривать список [статических ключей доступа](../../iam/concepts/authorization/access-key.md) сервисных аккаунтов и информацию о таких ключах;
 * просматривать информацию об [авторизованных ключах](../../iam/concepts/authorization/key.md) сервисных аккаунтов;
 * просматривать список операций и информацию об операциях с ресурсами сервиса;
-* просматривать информацию о [квотах](../../iam/concepts/limits.md#iam-quotas) сервиса Identity and Access Management;
+* просматривать информацию о [квотах](../../iam/concepts/limits.md#iam-quotas) сервиса {{ iam-name }};
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) и его настройки;
 * просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) и его настройки.
 

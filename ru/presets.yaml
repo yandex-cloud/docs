@@ -1404,18 +1404,6 @@ default:
         12_month: dn2v24od7g7xbleg2kjn
         3_month: dn2dp5s4he4poka7clnc
         6_month: dn2fvi7h6viwsujbcxv3
-      ba-a401-2n2h-25g:
-        1_day: dn2jdzkuxzlq7wi55fak
-        1_month: dn2qufop2xjsmygwcu2e
-        12_month: dn2ddkxmyohbt25n4dna
-        3_month: dn2mnfvvo7okilsmaw3v
-        6_month: dn2qecv45yeddo5u4bug
-      ba-a402-2n2h-25g:
-        1_day: dn2hkipm4vuzhhifv2db
-        1_month: dn2mqtcjrgtfotevrxk3
-        12_month: dn2rjddkxpre3mpgnbod
-        3_month: dn25xbol3hcbnbiw6tlg
-        6_month: dn25aaodc3xbsxqhmvse
       ba-a612-n-25g:
         1_day: dn2hdfgsbn7yuax22bqa
         1_month: dn2rn6ae5uv7qgsb7b4e
@@ -3951,11 +3939,11 @@ default:
         label_title_appearance: Оформление
         label_title_communications: Уведомления
         label_title_region: Язык и регион
-        label_yandexMessenger-link: Перейти к боту в Яндекс Мессенджере
+        label_yandexMessenger-link: Перейти к боту
         section_email: Настройки почтового ящика
         section_phone: Настройки номера телефона
-        section_settings: Настройки уведомлений
-        section_transports: Способы уведомления
+        section_settings: Категории
+        section_transports: Каналы
         value_theme-system: Системная
       ssh-key-add-dialog:
         value_radio-generate: Сгенерировать ключ
@@ -4337,6 +4325,9 @@ default:
           idp_section_download_metadata_action: Скачать файл с метаданными
           idp_section_title: Конфигурация поставщика удостоверений (IdP)
           oauth_field_auth_endpoint: Authorization endpoint
+          oauth_field_auth_method_client_secret_basic: Client secret basic
+          oauth_field_auth_method_client_secret_post: Client secret post
+          oauth_field_authentication_methods: Authentication methods
           oauth_field_client_id: ClientID
           oauth_field_open_id: OpenID Configuration
           oauth_field_redirect_uri: Redirect URI
@@ -4344,6 +4335,7 @@ default:
           oauth_field_token_endpoint: Token endpoint
           oauth_field_user_info_endpoint: Userinfo endpoint
           oauth_idp_section_title: Конфигурация поставщика удостоверений (IdP)
+          oauth_security_section_title: Безопасность OAuth/OIDC
           oauth_service_section_title: Конфигурация поставщика услуг (SP)
           saml_field_issuer: Issuer / IdP EntityID
           saml_field_login: Login URL
@@ -4618,7 +4610,7 @@ default:
             field_description: Описание
       kspm:
         TopClustersByErrorsWidget:
-          table_clusters: Топ кластеров с нарушениями
+          table_clusters: Топ кластеров с алертами
       layout:
         organization: Identity Hub
       mfa-policy-audiences:
@@ -4667,6 +4659,9 @@ default:
             field-name_1VbM1: Имя
             oauth-title_uUs4x: OIDC (OpenID Connect)
             saml-title_kyofk: SAML (Security Assertion Markup Language)
+            section-app-type_mbu85: Тип приложения
+          AppEditPage:
+            field-require-pkce_9rAab: Требовать PKCE
           AppPageLayout:
             action_add_attribute: Добавить атрибут
             action_add_group_attribute: Добавить атрибут группы
@@ -4683,6 +4678,7 @@ default:
           NameIdAttributeFormDialog:
             field_nameId_email_mqNDG: urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress
             field_nameId_persistent_kZU3P: urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+          native-title_1VrmN: Native Application
           OauthAppEditForm:
             field-description_fcXBi: Описание
             field-labels_kc4MN: Метки
@@ -4715,6 +4711,8 @@ default:
             signature-mode-assertions_thJgN: Assertions
             signature-mode-response_x7SKD: Response
             signature-mode-response-and-assertions_u2j6T: Assertions and Response
+          spa-title_1mhon: Single-Page Application
+          web-title_aeKTZ: Web Application
         billing:
           ChangeLimitsBlock:
             change_limit_action: Изменить лимит
@@ -4758,7 +4756,7 @@ default:
             action-activate: Активировать
             action-deactivate: Деактивировать
           AuthPolicyForm:
-            section_title_scope_b9vbe: Область применения
+            section_title_scope_b9vbe: Условия
           mfa-overview-action-activate: Активировать
           mfa-overview-action-suspend: Деактивировать
           mfa-policies-create-policy-action: Создать политику
@@ -4783,7 +4781,7 @@ default:
           ScopeCardBlock:
             exclude_label_4Mn7B: Исключать
             include_label_8Kp2A: Включать
-            selected_resources_qvwZX: Выбранные
+            selected_resources_qvwZX: Выбранных
           SecuritySettingsPageLayout:
             tab_auth_policies: Политики аутентификации
             tab_mfa_policies_m8oE3: Политики MFA
@@ -5035,7 +5033,7 @@ default:
             section_user_resources_title_aN75p: Пользовательские ресурсы
         kspm:
           TopControlsByErrorsWidget:
-            table_controls_rJ32E: Топ правил с нарушениями
+            table_controls_rJ32E: Топ правил с алертами
         settings:
           SettingsPageLayout:
             alertSinkLabel_gvxBa: Приёмники алертов
@@ -6724,7 +6722,7 @@ default:
             title_folder-info-dialog_c4F7i: Информация о каталоге
         label_access_2bch9: Права доступа
         label_create-resource_4KN3M: Создать ресурс
-        label_notifications_uWDue: Сервисные уведомления
+        label_notifications_uWDue: Уведомления
         label_permissions_gAtoT: Разрешения
         label_quotas_gAtoT: Квоты
         TogglCloudTreeButton:
@@ -7242,6 +7240,7 @@ default:
               button_create_service-account-key: Создать статический ключ доступа
               button_create-key-popup: Создать новый ключ
               column_key_last-used-at: Дата последнего использования
+              column_key_masked-secret: API-ключ
               column_key_scope: Область действия
               field_key-description: Описание
               field_key-expires-at: Срок действия
@@ -8706,6 +8705,7 @@ default:
           label_anomaly-threshold: Порог аномальности
           label_create-exclusion-rule: Создать правило-исключение
           label_create-profile: Создать профиль WAF
+          label_exclusion-rule-exclude-rules: Пропускать проверки
           label_paranoia-level: Уровень паранойи
           label_paranoia-option-1: Только 1
           label_profiles: Профили WAF

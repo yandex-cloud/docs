@@ -1,5 +1,5 @@
 
-Роль `marketplace.meteringAgent` позволяет регистрировать потребление [продуктов](../../marketplace/concepts/product.md) Marketplace.
+Роль `marketplace.meteringAgent` позволяет регистрировать потребление [продуктов](../../marketplace/concepts/product.md) {{ marketplace-short-name }}.
 
 Роль позволяет [партнеру](../../marketplace/quickstart.md):
 * авторизовывать приложения в Metering API;

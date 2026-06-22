@@ -805,7 +805,8 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters
           "readRows": "string",
           "executionTime": "string"
         }
-      ]
+      ],
+      "authMethod": "string"
     }
   ],
   "hostSpecs": [
@@ -4775,6 +4776,12 @@ User settings ||
 || quotas[] | **[UserQuota](#yandex.cloud.mdb.clickhouse.v1.UserQuota)**
 
 Quotas assigned to the user. ||
+|| authMethod | **enum** (AuthMethod)
+
+User authentication method.
+
+- `AUTH_METHOD_PASSWORD`: Authentication using a password stored in the cluster.
+- `AUTH_METHOD_IAM`: Authentication using an IAM token via the IAM authentication proxy. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission}

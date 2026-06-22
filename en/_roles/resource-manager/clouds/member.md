@@ -1,4 +1,5 @@
-The `resource-manager.clouds.member` role enables viewing info on the relevant cloud and contacting the Yandex Cloud support.
+
+The `resource-manager.clouds.member` role enables viewing info on the relevant cloud and contacting the {{ yandex-cloud }} support.
 
 The role can only be assigned for a cloud.
 

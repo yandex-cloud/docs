@@ -6,6 +6,6 @@
 * просматривать информацию о назначенных правах доступа к [каталогам](../../resource-manager/concepts/resources-hierarchy.md#folder) и изменять такие права доступа;
 * просматривать [политики авторизации](../../iam/concepts/access-control/access-policies.md), назначенные на облака и каталоги, а также назначать такие политики на облака и каталоги и отзывать их;
 * просматривать информацию о каталогах и их настройках, а также создавать, изменять и удалять каталоги;
-* просматривать информацию о [квотах](../../resource-manager/concepts/limits.md#resmgr-quotas) сервиса Resource Manager.
+* просматривать информацию о [квотах](../../resource-manager/concepts/limits.md#resmgr-quotas) сервиса {{ resmgr-name }}.
 
 Включает разрешения, предоставляемые ролью `resource-manager.editor`.

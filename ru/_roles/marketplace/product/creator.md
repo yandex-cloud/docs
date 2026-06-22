@@ -1,1 +1,1 @@
-Роль `marketplace.product.creator` позволяет создавать [продукты Marketplace](../../../marketplace/concepts/product.md) в [профиле партнера](../../../marketplace/quickstart.md#registration) и управлять доступом к таким продуктам.
+Роль `marketplace.product.creator` позволяет создавать [продукты {{ marketplace-short-name }}](../../../marketplace/concepts/product.md) в [профиле партнера](../../../marketplace/quickstart.md#registration) и управлять доступом к таким продуктам.

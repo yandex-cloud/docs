@@ -112,6 +112,7 @@
 * [Обзор IPsec: принципы и применение в сетевой безопасности](ipsec.md)
 * [Что такое DDoS-атаки и как от них защититься](ddos.md)
 * [JSON Web Token (JWT)](jwt.md)
+* [Proof Key for Code Exchange (PKCE)](pkce.md)
 * [Технология единого входа (SSO)](sso.md)
 * [Протокол SSH и аутентификация с помощью ключей](ssh-keygen.md)
 
@@ -262,6 +263,8 @@
  - [WAF](waf.md)
 
  - [JSON Web Token (JWT)](jwt.md)
+
+ - [Proof Key for Code Exchange (PKCE)](pkce.md)
 
  - [Технология единого входа (SSO)](sso.md)
 

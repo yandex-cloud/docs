@@ -1,4 +1,5 @@
-The `marketplace.publishers.admin` role enables managing access to the partner profile, as well as managing Marketplace products and access to them, their versions, pricing, trial periods, forms, and moderation requests. It also enables viewing reports on Marketplace products in the partner profile.
+
+The `marketplace.publishers.admin` role enables managing access to the partner profile, as well as managing {{ marketplace-short-name }} products and access to them, their versions, pricing, trial periods, forms, and moderation requests. It also enables viewing reports on {{ marketplace-short-name }} products in the partner profile.
 
 Users with this role can:
 * View the list of available [partner profiles](../../../marketplace/quickstart.md#registration), info on them and on the access permissions granted for them, as well as modify such permissions.
@@ -10,7 +11,7 @@ Users with this role can:
 * View the list of moderation requests for products and info on them, as well as create, modify, and delete such requests.
 * View the list of product forms and info on them, as well as create, modify, and delete such forms.
 * View the list of product categories.
-* View the reports on Marketplace products in the partner profile.
+* View the reports on {{ marketplace-short-name }} products in the partner profile.
 * Create technical support [requests](../../../support/overview.md), as well as view, leave comments, and close them.
 
 This role includes the `marketplace.publishers.editor` and `marketplace.publishers.reportViewer` permissions.

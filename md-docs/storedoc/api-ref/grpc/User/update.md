@@ -21,7 +21,8 @@ Updates the specified MongoDB user.
         "string"
       ]
     }
-  ]
+  ],
+  "deletion_protection": "google.protobuf.BoolValue"
 }
 ```
 
@@ -50,6 +51,9 @@ The maximum string length in characters is 128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
 
 New set of permissions for the user. ||
+|| deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Deletion Protection inhibits deletion of the user ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mongodb.v1.Permission}

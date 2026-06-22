@@ -125,7 +125,7 @@
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создать инстанс {{ GL }}](instance-create.md#create).
+      Как создать такой файл, описано в разделе [Создать инстанс {{ GL }}](instance-create.md#create).
 
   1. Измените в описании инстанса {{ GL }} значения параметров:
 
@@ -161,7 +161,7 @@
       * `backup_retain_period_days` — срок хранения автоматических резервных копий (в днях).
       * `deletion_protection` — защита инстанса от случайного удаления пользователем. Возможные значения: `true` или `false`.
 
-      Более подробную информацию о параметрах ресурса `yandex_gitlab_instance` см. в [документации провайдера]({{ tf-provider-resources-link }}/gitlab_instance).
+      Подробнее о параметрах ресурса `yandex_gitlab_instance` в [документации провайдера]({{ tf-provider-resources-link }}/gitlab_instance).
 
   1. Проверьте корректность настроек.
 
@@ -177,7 +177,7 @@
       {{ yc-gl }} instance list
       ```
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/gitlab_instance).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/gitlab_instance).
 
 - API {#api}
 

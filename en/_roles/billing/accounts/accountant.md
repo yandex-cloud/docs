@@ -1,6 +1,6 @@
 To use the `billing.accounts.accountant` role, you need to assign it for a billing account. This role enables you to view billing account data, get information about resource consumption, monitor expenses, export reconciliation reports and reporting documents, create new reconciliation reports, and top up your personal account using a bank account.
 
-{% cut "In Yandex Cloud Billing, users with this role can:" %}
+{% cut "In {{ billing-name }}, users with this role can:" %}
 
 * Display billing accounts in the list of all accounts.
 * View billing account data.
@@ -15,7 +15,7 @@ To use the `billing.accounts.accountant` role, you need to assign it for a billi
 {% endcut %}
 
 
-{% cut "On the Yandex Cloud partner portal, users with this role can:" %}
+{% cut "On the {{ yandex-cloud }} partner portal, users with this role can:" %}
 
 * View assigned [specializations](../../../partner/specializations/index.md).
 * View the history of crediting [referral program](../../../partner/program/referral.md) bonuses.
