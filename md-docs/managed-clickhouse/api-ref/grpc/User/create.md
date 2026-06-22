@@ -209,7 +209,8 @@ Creates a ClickHouse user in the specified cluster.
         "read_rows": "google.protobuf.Int64Value",
         "execution_time": "google.protobuf.Int64Value"
       }
-    ]
+    ],
+    "auth_method": "AuthMethod"
   }
 }
 ```
@@ -255,6 +256,12 @@ User settings ||
 || quotas[] | **[UserQuota](#yandex.cloud.mdb.clickhouse.v1.UserQuota)**
 
 Quotas assigned to the user. ||
+|| auth_method | enum **AuthMethod**
+
+User authentication method.
+
+- `AUTH_METHOD_PASSWORD`: Authentication using a password stored in the cluster.
+- `AUTH_METHOD_IAM`: Authentication using an IAM token via the IAM authentication proxy. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission}

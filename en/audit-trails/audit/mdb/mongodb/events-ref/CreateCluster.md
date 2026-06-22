@@ -3694,7 +3694,8 @@ editable: false
     "databases": [
       {
         "name": "string",
-        "clusterId": "string"
+        "clusterId": "string",
+        "deletionProtection": "boolean"
       }
     ],
     "users": [
@@ -3708,7 +3709,9 @@ editable: false
               "string"
             ]
           }
-        ]
+        ],
+        "authType": "string",
+        "deletionProtection": "boolean"
       }
     ]
   },
@@ -6965,6 +6968,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 ||Field | Description ||
 || name | **string** ||
 || clusterId | **string** ||
+|| deletionProtection | **boolean** ||
 |#
 
 ## User {#yandex.cloud.mdb.mongodb.v1.User}
@@ -6974,6 +6978,11 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || name | **string** ||
 || clusterId | **string** ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)** ||
+|| authType | **enum** (AuthType)
+
+- `AUTH_TYPE_PASSWORD`
+- `AUTH_TYPE_IAM` ||
+|| deletionProtection | **boolean** ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mongodb.v1.Permission}

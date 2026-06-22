@@ -13,7 +13,7 @@
 1. Выберите тип и укажите [параметры провайдера аутентификации](#params).
 1. Нажмите кнопку **Создать**.
 
-Подробнее о работе OmniAuth в GitLab см. в [документации GitLab](https://docs.gitlab.com/ee/integration/omniauth.html).
+Подробнее о работе OmniAuth в GitLab в [документации GitLab](https://docs.gitlab.com/ee/integration/omniauth.html).
 
 ## Параметры провайдера аутентификации {#params}
 
@@ -33,7 +33,7 @@
 * **Application ID** — идентификатор приложения, полученный при настройке провайдера.
 * **Application Secret** — секретный ключ, полученный при настройке провайдера.
 
-О том, как получить идентификатор и секретный ключ приложения, см. в [инструкции по настройке провайдера](https://docs.gitlab.com/ee/integration/bitbucket.html#bitbucket-omniauth-provider).
+Как получить идентификатор и секретный ключ приложения, описано в [инструкции по настройке провайдера](https://docs.gitlab.com/ee/integration/bitbucket.html#bitbucket-omniauth-provider).
 
 ### Github Enterprise {#gitlab-ee}
 
@@ -42,7 +42,7 @@
 * **Application Secret** — секретный ключ, полученный при настройке провайдера.
 * **URL** — ссылка на репозиторий в GitHub.
 
-О том, как получить идентификатор и секретный ключ приложения, см. в [инструкции по настройке провайдера](https://docs.gitlab.com/ee/integration/github.html).
+Как получить идентификатор и секретный ключ приложения, описано в [инструкции по настройке провайдера](https://docs.gitlab.com/ee/integration/github.html).
 
 ### GitLab self-managed {#gitlab-self}
 
@@ -51,7 +51,7 @@
 * **Application Secret** — секретный ключ, полученный при настройке провайдера.
 * **Site** — ссылка на репозиторий в GitLab.
 
-О том, как получить идентификатор и секретный ключ приложения, см. в [инструкции по настройке провайдера](https://docs.gitlab.com/ee/integration/gitlab.html).
+Как получить идентификатор и секретный ключ приложения, описано в [инструкции по настройке провайдера](https://docs.gitlab.com/ee/integration/gitlab.html).
 
 ### Google OAuth 2.0 {#google}
 
@@ -59,7 +59,7 @@
 * **Application ID** — идентификатор приложения, полученный при настройке провайдера.
 * **Application Secret** — секретный ключ, полученный при настройке провайдера.
 
-О том, как получить идентификатор и секретный ключ приложения, см. в [инструкции по настройке провайдера](https://docs.gitlab.com/ee/integration/google.html#configure-the-google-cloud-resource-manager).
+Как получить идентификатор и секретный ключ приложения, описано в [инструкции по настройке провайдера](https://docs.gitlab.com/ee/integration/google.html#configure-the-google-cloud-resource-manager).
 
 ### Keycloak {#keycloak}
 
@@ -96,7 +96,7 @@
 * **Bind DN** — (опционально) уникальное имя (DN) пользователя в LDAP.
 * **User Filter** — (опционально) фильтр пользователей в LDAP в формате [RFC-4515](https://www.rfc-editor.org/rfc/rfc4515.html).
 
-О том, как выполнить минимальные настройки LDAP-сервера для работы с GitLab, см. в [документации GitLab](https://docs.gitlab.com/ee/administration/auth/ldap/#configure-ldap).
+Как выполнить минимальные настройки LDAP-сервера для работы с GitLab, описано в [документации GitLab](https://docs.gitlab.com/ee/administration/auth/ldap/#configure-ldap).
 
 ### Microsoft Entra ID {#azure-ad}
 
@@ -105,7 +105,7 @@
 * **Client Secret** — секретный ключ клиента, полученный при регистрации приложения.
 * **Tenant ID** — идентификатор тенанта, полученный при регистрации приложения.
 
-О том, как зарегистрировать приложение на стороне Azure, см. в [документации GitLab](https://docs.gitlab.com/ee/integration/azure.html#register-an-azure-application).
+Как зарегистрировать приложение на стороне Azure, описано в [документации GitLab](https://docs.gitlab.com/ee/integration/azure.html#register-an-azure-application).
 
 ### Microsoft Azure OAuth 2 {#azure-oauth}
 
@@ -114,7 +114,7 @@
 * **Client Secret** — секретный ключ клиента, полученный при регистрации приложения.
 * **Tenant ID** — идентификатор тенанта, полученный при регистрации приложения.
 
-О том, как зарегистрировать приложение на стороне Azure, см. в [документации GitLab](https://docs.gitlab.com/ee/integration/azure.html#register-an-azure-application).
+Как зарегистрировать приложение на стороне Azure, описано в [документации GitLab](https://docs.gitlab.com/ee/integration/azure.html#register-an-azure-application).
 
 ### SAML {#saml}
 
@@ -125,7 +125,7 @@
 * **Issuer** — уникальный идентификатор приложения, в котором будет происходить аутентификация пользователя, например `https://example.gitlab.yandexcloud.net`.
 * **Name identifier format** — формат идентификатора имени. Выдается при настройке провайдера идентификации.
 
-О том, как настроить SAML на стороне провайдера идентификации, см. в [документации GitLab](https://docs.gitlab.com/ee/integration/saml.html#configure-saml-on-your-idp).
+Как настроить SAML на стороне провайдера идентификации, описано в [документации GitLab](https://docs.gitlab.com/ee/integration/saml.html#configure-saml-on-your-idp).
 
 ### Yandex ID {#yandex-id}
 
@@ -134,7 +134,7 @@
 * **Client Secret** — секретный ключ клиента, полученный при регистрации приложения.
 * **Site** — ссылка на репозиторий в GitLab.
 
-О том, как зарегистрировать приложение на стороне провайдера идентификации, см. в [документации Яндекс.OAuth](https://yandex.ru/dev/id/doc/register-client). При регистрации приложения разрешите доступ к адресу электронной почты пользователя. Если в качестве платформы выбраны веб-сервисы, укажите в поле **Redirect URI** адрес URL вида:
+Как зарегистрировать приложение на стороне провайдера идентификации, описано в [документации Яндекс.OAuth](https://yandex.ru/dev/id/doc/register-client). При регистрации приложения разрешите доступ к адресу электронной почты пользователя. Если в качестве платформы выбраны веб-сервисы, укажите в поле **Redirect URI** адрес URL вида:
 
 ```text
 https://<адрес_инстанса_GitLab>/users/auth/Yandex/callback

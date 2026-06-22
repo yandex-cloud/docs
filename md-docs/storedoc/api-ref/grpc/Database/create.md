@@ -12,7 +12,8 @@ Creates a new MongoDB database in the specified cluster.
 {
   "cluster_id": "string",
   "database_spec": {
-    "name": "string"
+    "name": "string",
+    "deletion_protection": "google.protobuf.BoolValue"
   }
 }
 ```
@@ -39,6 +40,9 @@ Required field. Configuration of the database to create. ||
 Required field. Name of the MongoDB database. 1-63 characters long.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Deletion Protection inhibits deletion of the database ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

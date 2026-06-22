@@ -64,7 +64,7 @@
 
 {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../concepts/index.md#managed-runners)
 * [{#T}](../tutorials/install-gitlab-runner.md)

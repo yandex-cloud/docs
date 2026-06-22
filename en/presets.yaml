@@ -1402,18 +1402,6 @@ default:
         12_month: dn2v24od7g7xbleg2kjn
         3_month: dn2dp5s4he4poka7clnc
         6_month: dn2fvi7h6viwsujbcxv3
-      ba-a401-2n2h-25g:
-        1_day: dn2jdzkuxzlq7wi55fak
-        1_month: dn2qufop2xjsmygwcu2e
-        12_month: dn2ddkxmyohbt25n4dna
-        3_month: dn2mnfvvo7okilsmaw3v
-        6_month: dn2qecv45yeddo5u4bug
-      ba-a402-2n2h-25g:
-        1_day: dn2hkipm4vuzhhifv2db
-        1_month: dn2mqtcjrgtfotevrxk3
-        12_month: dn2rjddkxpre3mpgnbod
-        3_month: dn25xbol3hcbnbiw6tlg
-        6_month: dn25aaodc3xbsxqhmvse
       ba-a612-n-25g:
         1_day: dn2hdfgsbn7yuax22bqa
         1_month: dn2rn6ae5uv7qgsb7b4e
@@ -3949,11 +3937,11 @@ default:
         label_title_appearance: Appearance
         label_title_communications: Notifications
         label_title_region: Language and region
-        label_yandexMessenger-link: Go to Yandex Messenger bot
+        label_yandexMessenger-link: Go to bot
         section_email: Email settings
         section_phone: Phone number settings
-        section_settings: Notification settings
-        section_transports: Notification methods
+        section_settings: Categories
+        section_transports: Channels
         value_theme-system: System
       ssh-key-add-dialog:
         value_radio-generate: Generate key
@@ -4335,6 +4323,9 @@ default:
           idp_section_download_metadata_action: Download metadata file
           idp_section_title: Identity provider (IdP) configuration
           oauth_field_auth_endpoint: Authorization endpoint
+          oauth_field_auth_method_client_secret_basic: Client secret basic
+          oauth_field_auth_method_client_secret_post: Client secret post
+          oauth_field_authentication_methods: Authentication methods
           oauth_field_client_id: ClientID
           oauth_field_open_id: OpenID Configuration
           oauth_field_redirect_uri: Redirect URI
@@ -4342,6 +4333,7 @@ default:
           oauth_field_token_endpoint: Token endpoint
           oauth_field_user_info_endpoint: Userinfo endpoint
           oauth_idp_section_title: Identity provider (IdP) configuration
+          oauth_security_section_title: OAuth/OIDC security
           oauth_service_section_title: Service provider (SP) configuration
           saml_field_issuer: Issuer / IdP EntityID
           saml_field_login: Login URL
@@ -4616,7 +4608,7 @@ default:
             field_description: Description
       kspm:
         TopClustersByErrorsWidget:
-          table_clusters: Tops clusters with warnings
+          table_clusters: Top clusters with alerts
       layout:
         organization: Identity Hub
       mfa-policy-audiences:
@@ -4665,6 +4657,9 @@ default:
             field-name_1VbM1: Name
             oauth-title_uUs4x: OIDC (OpenID Connect)
             saml-title_kyofk: SAML (Security Assertion Markup Language)
+            section-app-type_mbu85: Application type
+          AppEditPage:
+            field-require-pkce_9rAab: Require PKCE
           AppPageLayout:
             action_add_attribute: Add attribute
             action_add_group_attribute: Add group attribute
@@ -4681,6 +4676,7 @@ default:
           NameIdAttributeFormDialog:
             field_nameId_email_mqNDG: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress '
             field_nameId_persistent_kZU3P: urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+          native-title_1VrmN: Native Application
           OauthAppEditForm:
             field-description_fcXBi: Description
             field-labels_kc4MN: Labels
@@ -4713,6 +4709,8 @@ default:
             signature-mode-assertions_thJgN: Assertions
             signature-mode-response_x7SKD: Response
             signature-mode-response-and-assertions_u2j6T: Assertions and Response
+          spa-title_1mhon: Single-Page Application
+          web-title_aeKTZ: Web Application
         billing:
           ChangeLimitsBlock:
             change_limit_action: Change limit
@@ -4756,7 +4754,7 @@ default:
             action-activate: Activate
             action-deactivate: Deactivate
           AuthPolicyForm:
-            section_title_scope_b9vbe: Scope of application
+            section_title_scope_b9vbe: Conditions
           mfa-overview-action-activate: Activate
           mfa-overview-action-suspend: Suspend
           mfa-policies-create-policy-action: Create policy
@@ -4787,7 +4785,7 @@ default:
             tab_mfa_policies_m8oE3: MFA policies
             tab_other_kJgk8: Other parameters
           UsersAndGroupsCard:
-            scope_all: All users and groups
+            scope_all: All users
             title: Users and groups
         userpool:
           action_delete-domain: Delete
@@ -5034,7 +5032,7 @@ default:
             section_user_resources_title_aN75p: User resources
         kspm:
           TopControlsByErrorsWidget:
-            table_controls_rJ32E: Top controls with warnings
+            table_controls_rJ32E: Top rules with alerts
         settings:
           SettingsPageLayout:
             alertSinkLabel_gvxBa: Alert Sinks
@@ -6718,7 +6716,7 @@ default:
             title_folder-info-dialog_c4F7i: Folder information
         label_access_2bch9: Access rights
         label_create-resource_4KN3M: Create resource
-        label_notifications_uWDue: Service notifications
+        label_notifications_uWDue: Notifications
         label_permissions_gAtoT: Permissions
         label_quotas_gAtoT: Quotas
         TogglCloudTreeButton:
@@ -7236,6 +7234,7 @@ default:
               button_create_service-account-key: Create static access key
               button_create-key-popup: Create new key
               column_key_last-used-at: Date of last use
+              column_key_masked-secret: API key
               column_key_scope: Scope
               field_key-description: Description
               field_key-expires-at: Expires at
@@ -8698,6 +8697,7 @@ default:
           label_anomaly-threshold: Anomaly threshold
           label_create-exclusion-rule: Create exception rule
           label_create-profile: Create WAF profile
+          label_exclusion-rule-exclude-rules: Skip checks
           label_paranoia-level: Paranoia level
           label_paranoia-option-1: Only 1
           label_profiles: WAF profiles

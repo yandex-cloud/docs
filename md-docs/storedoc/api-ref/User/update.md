@@ -39,7 +39,8 @@ The maximum string length in characters is 63. Value must match the regular expr
         "string"
       ]
     }
-  ]
+  ],
+  "deletionProtection": "boolean"
 }
 ```
 
@@ -63,6 +64,9 @@ The maximum string length in characters is 128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
 
 New set of permissions for the user. ||
+|| deletionProtection | **boolean**
+
+Deletion Protection inhibits deletion of the user ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mongodb.v1.Permission}

@@ -41,7 +41,7 @@
 
       Чтобы убрать лишний запрос, в его строке нажмите ![options](../../../_assets/console-icons/ellipsis.svg) → **Удалить**.
 
-      Подробнее о языке запросов см. [документацию Monitoring](../../../monitoring/concepts/querying.md).
+      Подробнее о языке запросов в [документации Monitoring](../../../monitoring/concepts/querying.md).
 
    1. Задайте [условия срабатывания алерта](../../../monitoring/concepts/alerting/alert.md#condition):
 

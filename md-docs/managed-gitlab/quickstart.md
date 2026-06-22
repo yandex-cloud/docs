@@ -251,7 +251,7 @@
    * просматривать Issues и мерж-реквесты по группам;
    * просматривать аналитику по активности группы.
 
-   Подробнее см. в [документации GitLab](https://docs.gitlab.com/ee/user/group/).
+   Подробнее в [документации GitLab](https://docs.gitlab.com/ee/user/group/).
 
 1. [Создайте пустой проект](https://docs.gitlab.com/ee/user/project/), в котором будет размещен репозиторий.
 1. [Создайте пользователей и добавьте](operations/create-user.md) их в группу или проект с ролью `Maintainer` или `Owner`.

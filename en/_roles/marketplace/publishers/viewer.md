@@ -1,4 +1,5 @@
-The `marketplace.publishers.viewer` role enables viewing info on the partner profile and Marketplace products within it, as well as contacting tech support.
+
+The `marketplace.publishers.viewer` role enables viewing info on the partner profile and {{ marketplace-short-name }} products within it, as well as contacting tech support.
 
 Users with this role can:
 * View the list of available [partner profiles](../../../marketplace/quickstart.md#registration), info on them and on the access permissions granted for them.

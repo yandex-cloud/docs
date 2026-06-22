@@ -1,4 +1,4 @@
-Роль `viewer` предоставляет разрешения на чтение информации о любых [ресурсах]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud.
+Роль `viewer` предоставляет разрешения на чтение информации о любых [ресурсах]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) {{ yandex-cloud }}.
 
 Включает разрешения, предоставляемые ролью `auditor`.
 

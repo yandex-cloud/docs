@@ -89,7 +89,8 @@
     "clusterName": "string",
     "database": {
       "name": "string",
-      "clusterId": "string"
+      "clusterId": "string",
+      "deletionProtection": "boolean"
     }
   },
   "requestParameters": "object",
@@ -273,4 +274,5 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || name | **string** ||
 || clusterId | **string** ||
+|| deletionProtection | **boolean** ||
 |#

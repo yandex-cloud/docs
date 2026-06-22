@@ -10,7 +10,7 @@
 
 {% endnote %}
 
-Выгрузка логов — платная функция, о ее тарификации см. раздел [{#T}](../pricing.md).
+Выгрузка логов — платная функция, о ее тарификации в разделе [{#T}](../pricing.md).
 
 {% include [logs-unload-delay](../../_includes/cdn/logs-unload-delay.md) %}
 

@@ -248,13 +248,13 @@ BranchGroups:
 
 {% endnote %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Правила ревью кода в Yandex Managed Service for GitLab](approval-rules.md)
 * [Настройка правил ревью кода в Yandex Managed Service for GitLab](../operations/approval-rules.md)
 * [Создание и активация инстанса Yandex Managed Service for GitLab](../operations/instance/instance-create.md)
 
-### Документация GitLab {#gl-docs}
+#### Документация GitLab {#gl-docs}
 
 * [Merge request approval rules](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/rules.html)
 * [Syntax of CODEOWNERS file](https://docs.gitlab.com/user/project/codeowners/reference/)

@@ -232,6 +232,9 @@ The maximum string length in characters is 1000. ||
           "logMonitoringChecks": "boolean",
           "logIndexMaintenance": "boolean",
           "logBackupOperations": "boolean"
+        },
+        "cloudStorage": {
+          "enabled": "boolean"
         }
       },
       "networkId": "string",
@@ -405,13 +408,16 @@ Dashboards configuration. ||
 Access policy for external services. ||
 || snapshotManagement | **[SnapshotManagement](#yandex.cloud.mdb.opensearch.v1.SnapshotManagement)**
 
-Snapshot management configuration ||
+Snapshot management configuration. ||
 || fullVersion | **string**
 
-Full version ||
+Full version. ||
 || auditLog | **[AuditLog](#yandex.cloud.mdb.opensearch.v1.config.AuditLog)**
 
 Audit log settings. ||
+|| cloudStorage | **[CloudStorage](#yandex.cloud.mdb.opensearch.v1.CloudStorage)**
+
+Cloud storage configuration. ||
 |#
 
 ## OpenSearch {#yandex.cloud.mdb.opensearch.v1.OpenSearch}
@@ -766,6 +772,17 @@ Enables indices maintenance requests logging, such as indices refreshes, flushes
 || logBackupOperations | **boolean**
 
 Enables snapshots and repositories requests logging. ||
+|#
+
+## CloudStorage {#yandex.cloud.mdb.opensearch.v1.CloudStorage}
+
+Cloud storage configuration.
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Whether to use Object Storage for storing OpenSearch data. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow}

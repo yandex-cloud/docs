@@ -3,6 +3,6 @@
 Пользователи с этой ролью могут:
 * просматривать информацию о [лог-группах](../../logging/concepts/log-group.md);
 * просматривать информацию о приемниках логов;
-* просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ресурсам сервиса Cloud Logging;
+* просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ресурсам сервиса {{ cloud-logging-name }};
 * просматривать информацию о выгрузках логов;
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).

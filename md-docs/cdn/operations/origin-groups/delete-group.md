@@ -50,7 +50,7 @@
      yc cdn origin-group delete --id <идентификатор_группы_источников>
      ```
 
-     Подробнее о команде `yc cdn origin-group delete` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/origin-group/delete.md).
+     Подробнее о команде `yc cdn origin-group delete` в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/origin-group/delete.md).
 
 - Terraform {#tf}
 

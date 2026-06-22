@@ -1511,7 +1511,8 @@ Creates a MongoDB cluster in the specified folder.
   },
   "database_specs": [
     {
-      "name": "string"
+      "name": "string",
+      "deletion_protection": "google.protobuf.BoolValue"
     }
   ],
   "user_specs": [
@@ -1525,7 +1526,9 @@ Creates a MongoDB cluster in the specified folder.
             "string"
           ]
         }
-      ]
+      ],
+      "auth_type": "AuthType",
+      "deletion_protection": "google.protobuf.BoolValue"
     }
   ],
   "host_specs": [
@@ -5743,6 +5746,9 @@ Type of compaction. Either switch primary to run compaction on all hosts or igno
 Required field. Name of the MongoDB database. 1-63 characters long.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Deletion Protection inhibits deletion of the database ||
 |#
 
 ## UserSpec {#yandex.cloud.mdb.mongodb.v1.UserSpec}
@@ -5762,6 +5768,15 @@ The maximum string length in characters is 128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
 
 Set of permissions to grant to the user. ||
+|| auth_type | enum **AuthType**
+
+Authentication type for the user. Defaults to AUTH_TYPE_PASSWORD.
+
+- `AUTH_TYPE_PASSWORD`: Password-based authentication (SCRAM).
+- `AUTH_TYPE_IAM`: IAM-based authentication via iam-auth-proxy (SASL/PLAIN, $external). ||
+|| deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Deletion Protection inhibits deletion of the user ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mongodb.v1.Permission}

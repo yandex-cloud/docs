@@ -10,6 +10,8 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
+{% include [oidc-app-types-ui-notice](../../../_includes/organization/oidc-app-types-ui-notice.md) %}
+
 ## Создайте приложение {#create-app}
 
 {% list tabs group=instructions %}
@@ -20,6 +22,11 @@ description: Следуя данной инструкции, вы сможете
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
   1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
       1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}**.
+      1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.section-app-type_mbu85 }}** выберите [тип](*oidc_app_type) создаваемого приложения:
+
+          * [{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}](../../concepts/applications.md#oidc-web) — оптимально для аутентификации пользователей во внешних веб-приложениях, имеющих серверную часть (бэкенд);
+          * [{{ ui-key.yacloud_org.organization.apps.spa-title_1mhon }}](../../concepts/applications.md#oidc-single-page) — оптимально для аутентификации пользователей во внешних приложениях, построенных по технологии [SPA](https://ru.wikipedia.org/wiki/Одностраничное_приложение);
+          * [{{ ui-key.yacloud_org.organization.apps.native-title_1VrmN }}](../../concepts/applications.md#oidc-native) — оптимально для аутентификации пользователей во внешних мобильных или настольных приложениях, установленных на устройствах пользователей.
       1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения. Имя должно быть уникальным в пределах организации и соответствовать требованиям:
 
           {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
@@ -271,7 +278,7 @@ description: Следуя данной инструкции, вы сможете
       {% include [oidc-app-sp-parameter-list](../../../_includes/organization/oidc-app-sp-parameter-list.md) %}
 
   1. {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
-  1. На стороне поставщика услуг настройте интеграцию с OIDC-приложением {{ org-full-name }}, указав скопированные параметры и сгенерированный секрет. При необходимости обратитесь к документации или в службу поддержки вашего поставщика услуг.
+  1. На стороне поставщика услуг настройте интеграцию с OIDC-приложением {{ org-full-name }}, указав скопированные параметры и сгенерированный секрет (для приложений типа `{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}`). При необходимости обратитесь к документации или в службу поддержки вашего поставщика услуг.
 
 - URL с конфигурацией
 
@@ -281,11 +288,13 @@ description: Следуя данной инструкции, вы сможете
 
       По ссылке доступны значения всех настроек, которые необходимо задать на стороне поставщика услуг (за исключением секрета).
   1. {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
-  1. Если ваш поставщик услуг поддерживает конфигурирование приложения с помощью URL с конфигурацией, на стороне поставщика услуг настройте интеграцию с OIDC-приложением {{ org-full-name }}, указав скопированные ссылку и секрет. При необходимости обратитесь к документации или в службу поддержки вашего поставщика услуг.
+  1. Если ваш поставщик услуг поддерживает конфигурирование приложения с помощью URL с конфигурацией, на стороне поставщика услуг настройте интеграцию с OIDC-приложением {{ org-full-name }}, указав скопированные ссылку и секрет (для приложений типа `{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}`). При необходимости обратитесь к документации или в службу поддержки вашего поставщика услуг.
 
 {% endlist %}
 
 ### Настройте OIDC-приложение на стороне {{ org-full-name }} {#setup-idp}
+
+{% include [oidc-app-types-ui-notice](../../../_includes/organization/oidc-app-types-ui-notice.md) %}
 
 Прежде чем настраивать OIDC-приложение на стороне {{ org-full-name }}, получите адрес (адреса) Redirect URI у вашего поставщика услуг. Затем перейдите к настройкам OIDC-приложения в {{ org-full-name }}:
 
@@ -403,3 +412,5 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](../add-account.md)
 * [{#T}](../../concepts/applications.md#oidc)
 * [{#T}](../manage-groups.md)
+
+[*oidc_app_type]: Тип OIDC-приложения в {{ org-full-name }} (`{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}`, `{{ ui-key.yacloud_org.organization.apps.spa-title_1mhon }}` и `{{ ui-key.yacloud_org.organization.apps.native-title_1VrmN }}`) определяет возможность использования секретов приложения и ряда других настроек. Подробнее читайте в разделе [{#T}](../../concepts/applications.md#oidc-application-types).

@@ -1,1 +1,1 @@
-The `marketplace.publishers.reportViewer` role enables viewing the reports on [Marketplace products](../../../marketplace/concepts/product.md) in the [partner profile](../../../marketplace/quickstart.md#registration).
+The `marketplace.publishers.reportViewer` role enables viewing the reports on [{{ marketplace-short-name }} products](../../../marketplace/concepts/product.md) in the [partner profile](../../../marketplace/quickstart.md#registration).

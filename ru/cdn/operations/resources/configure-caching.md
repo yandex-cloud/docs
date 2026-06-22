@@ -121,7 +121,7 @@ description: Следуя данной инструкции, вы сможете
       * `--ignore-cookie` со значением `true` включает игнорирование Cookie.
       * `--ignore-query-string` включает игнорирование Query-параметров.
 
-      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
+      Подробнее о команде `yc cdn resource update` в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
 
@@ -158,7 +158,7 @@ description: Следуя данной инструкции, вы сможете
          * `ignore_query_params` — игнорировать query-параметры. Необязательный параметр, значение по умолчанию: `false`.
          * `ignore_cookie` — игнорировать cookie. Необязательный параметр, значение по умолчанию: `false`.
 
-      Более подробную информацию о параметрах `yandex_cdn_resource` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/cdn_resource).
+      Подробнее о параметрах `yandex_cdn_resource` в {{ TF }} в [документации провайдера]({{ tf-provider-resources-link }}/cdn_resource).
 
   1. В командной строке перейдите в папку, где расположен конфигурационный файл {{ TF }}.
 

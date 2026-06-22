@@ -1,6 +1,6 @@
 To use the `billing.accounts.partnerAdmin` role, you need to assign it to a billing account. It enables access to all partner portal tools and all info stored on the portal, including personal data.
 
-On the Yandex Cloud partner portal, users with this role can:
+On the {{ yandex-cloud }} partner portal, users with this role can:
 * Manage [subaccounts](../../../partner/terms.md#sub-account) regardless of the [access permissions](../../../iam/concepts/access-control/index.md) assigned at the [organization](../../../organization/concepts/organization.md) level, excepting the permission to work with a partner.
 * View the list of subaccounts and info on them, including personal data.
 * Create new subaccounts and update the existing ones, as well as suspend, resume, and delete subaccounts.

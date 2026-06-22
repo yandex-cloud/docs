@@ -1,7 +1,9 @@
-В блоке **{{ ui-key.yacloud_org.application.overview.secret_section_title }}** нажмите кнопку **{{ ui-key.yacloud_org.application.overview.secret_section_add_new_secret_action }}** и в открывшемся окне:
+Создайте секрет приложения (действие доступно только для приложений [типа](../../organization/concepts/applications.md#oidc-application-types) `{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}`):
 
-1. (Опционально) Добавьте произвольное описание создаваемого секрета.
-1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+1. В блоке **{{ ui-key.yacloud_org.application.overview.secret_section_title }}** нажмите кнопку **{{ ui-key.yacloud_org.application.overview.secret_section_add_new_secret_action }}** и в открывшемся окне:
+
+    1. (Опционально) Добавьте произвольное описание создаваемого секрета.
+    1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 В окне отобразится сгенерированный [секрет приложения](../../organization/concepts/applications.md#oidc-secret). Сохраните полученное значение.
 

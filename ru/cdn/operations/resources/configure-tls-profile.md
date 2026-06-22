@@ -7,7 +7,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [tls-profiles-intro](../../../_includes/cdn/tls-profiles-intro.md) %}
 
-Подробнее см. в разделе [{#T}](../../concepts/clients-to-servers-tls.md#tls-profiles).
+Подробнее в разделе [{#T}](../../concepts/clients-to-servers-tls.md#tls-profiles).
 
 {% list tabs group=instructions %}
 
@@ -131,7 +131,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/clients-to-servers-tls.md#tls-profiles)
 * [{#T}](../../api-ref/authentication.md)

@@ -4,7 +4,7 @@
 
 Чтобы обеспечить большую безопасность вашего CDN-ресурса, вы можете настроить для него специальный профиль с допустимыми для использования версиями протокола TLS.
 
-Подробнее см. в разделе [Профили безопасности TLS](../../concepts/clients-to-servers-tls.md#tls-profiles).
+Подробнее в разделе [Профили безопасности TLS](../../concepts/clients-to-servers-tls.md#tls-profiles).
 
 {% list tabs group=instructions %}
 
@@ -154,7 +154,7 @@
 
 {% endlist %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Профили безопасности TLS](../../concepts/clients-to-servers-tls.md#tls-profiles)
 * [Аутентификация в API](../../api-ref/authentication.md)

@@ -149,7 +149,7 @@
 
 {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Управляемые раннеры](../concepts/index.md#managed-runners)
 * [Развертывание GitLab Runner на виртуальной машине Yandex Compute Cloud](../tutorials/install-gitlab-runner.md)

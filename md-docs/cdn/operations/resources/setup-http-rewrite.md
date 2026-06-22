@@ -176,7 +176,7 @@
       yc cdn resource update <идентификатор_ресурса> --clear-rewrite
       ```
 
-      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
+      Подробнее о команде `yc cdn resource update` в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - API {#api}
 

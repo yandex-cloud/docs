@@ -77,7 +77,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. Если вы уводили трафик с CDN-ресурса, восстановите исходную CNAME-запись.
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/dedicated-ip-addressing.md)
 * [{#T}](../../concepts/limits.md)

@@ -1,10 +1,3 @@
-
-{% note warning %}
-
-Доступ к операциям по созданию и изменению ресурсов в сервисах [Cloud Interconnect](../../interconnect/concepts/index.md) и [Cloud Router](../../cloud-router/concepts/index.md) с помощью инструмента [YC CLI](../../cli/quickstart.md) или вызовов [API](../../overview/api.md) предоставляется через службу технической поддержки.
-
-{% endnote %}
-
 ## Порядок действий {#order}
 
 При создании сетевых топологий гибридного облака рекомендуется работать с ресурсами сервисов [Cloud Interconnect](../../interconnect/concepts/index.md) и [Cloud Router](../../cloud-router/concepts/index.md) в следующем порядке:
@@ -16,8 +9,8 @@
 1. *Опционально*. Добавить список определенных статических маршрутов к приватному соединению для формирования сетевой топологии `VPC Stitching`. 
 
 В настоящее время действия над ресурсами в сервисах [Cloud Interconnect](../../interconnect/concepts/index.md) и [Cloud Router](../../cloud-router/concepts/index.md) могут быть выполнены следующими способами:
-* Через обращение в службу технической поддержки.
-* С помощью инструмента [YC CLI](../../cli/quickstart.md) или [API вызовов](../../overview/api.md). В настоящее время доступность этих инструментов ограничена.
+* Через обращение в службу [технической поддержки]({{ link-console-support }}).
+* С помощью [консоли управления]({{ link-console-main }}/link/interconnect/trunk-connections), [YC CLI](../../interconnect/cli-ref/index.md) или [API вызовов](../../interconnect/api-ref/authentication.md). В настоящее время доступность этих инструментов ограничена.
 
 Ниже приведен перечень операций, которые могут быть выполнены с ресурсами в сервисах [Cloud Interconnect](../../interconnect/concepts/index.md) и [Cloud Router](../../cloud-router/concepts/index.md) со ссылками на инструкции по выполнению этих операций. Сами инструкции можно найти в разделах `Пошаговые инструкции` и `Практические руководства` соответствующего сервиса.
 

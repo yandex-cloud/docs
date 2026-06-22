@@ -89,7 +89,7 @@ _Инстанс_ GitLab — основная сущность, которой о
     * 4 vCPU, 16 ГБ RAM.
     * 8 vCPU, 64 ГБ RAM.
     * 16 vCPU, 128 ГБ RAM.
-  * Тип (HDD или SSD) и объем диска. Подробнее см. в разделе [Типы дисков](../../compute/concepts/disk.md#disks-types).
+  * Тип (HDD или SSD) и объем диска. Подробнее в разделе [Типы дисков](../../compute/concepts/disk.md#disks-types).
   * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md).
 
     {% note info %}
@@ -102,7 +102,7 @@ _Инстанс_ GitLab — основная сущность, которой о
 
   * [Группа безопасности](../../vpc/concepts/security-groups.md).
 
-Подробнее о работе с управляемыми раннерами см. на страницах:
+Подробнее о работе с управляемыми раннерами на страницах:
 * [Работа с управляемым раннером](../operations/runner.md)
 * [Развертывание GitLab Runner на виртуальной машине Yandex Compute Cloud](../tutorials/install-gitlab-runner.md)
 

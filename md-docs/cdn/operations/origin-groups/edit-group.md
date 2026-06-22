@@ -72,7 +72,7 @@
        enabled: true
      ```
 
-     Подробнее о команде `yc cdn origin-group update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/origin-group/update.md).
+     Подробнее о команде `yc cdn origin-group update` в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/origin-group/update.md).
 
 - Terraform {#tf}
 
@@ -116,7 +116,7 @@
          * `enabled` — флаг, указывающий, включен ли источник.
          * `backup` — флаг, указывающий, является ли источник резервным. Подробнее о приоритетах смотрите в разделе [Группы источников](../../concepts/origins.md#groups).
      
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, смотрите в [документации провайдера](../../../terraform/resources/cdn_origin_group.md).
+     Подробнее о ресурсах, которые вы можете создать с помощью Terraform, в [документации провайдера](../../../terraform/resources/cdn_origin_group.md).
 
   1. Примените изменения:
 

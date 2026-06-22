@@ -39,13 +39,13 @@ You are not allowed to push code to protected branches on this project.
 
 Пользователи с ролями `Guest` и `Reporter` отправлять изменения не могут.
 
-Подробнее о ролях см. в [документации {{ GL }}]({{ gl.docs }}/ee/user/permissions.html).
+Подробнее о ролях в [документации {{ GL }}]({{ gl.docs }}/ee/user/permissions.html).
 
 #### Я получаю ошибку `500 Internal Server Error` при открытии инстанса, в чем может быть проблема? {#500-error}
 
 Дисковое пространство инстанса может быть переполнено. Вы можете самостоятельно [увеличить дисковое пространство инстанса](../../managed-gitlab/operations/instance/instance-update.md).
 
-Также см. инструкцию [{#T}](../../managed-gitlab/operations/instance/clean-up-disk-space.md).
+Также используйте инструкцию [{#T}](../../managed-gitlab/operations/instance/clean-up-disk-space.md).
 
 #### Как я могу очистить логи пайплайнов, чтобы освободить место на диске? {#pipeline-cleanup}
 
@@ -60,7 +60,7 @@ You are not allowed to push code to protected branches on this project.
 
 #### Как настроить алерт, который срабатывает при заполнении определенного процента дискового пространства? {#alert-for-disk-space}
 
-См. инструкцию [Настройка алертов в {{ monitoring-name }} для {{ mgl-name }}](../../managed-gitlab/operations/instance/monitoring.md#monitoring-integration).
+С помощью инструкции [Настройка алертов в {{ monitoring-name }} для {{ mgl-name }}](../../managed-gitlab/operations/instance/monitoring.md#monitoring-integration).
 
 #### Почему резервные копии не создаются? {#backup-failed}
 
@@ -68,7 +68,7 @@ You are not allowed to push code to protected branches on this project.
 
 #### Можно ли после создания инстанса изменить его тип или размер диска? {#change-type-size}
 
-Да, можно изменить тип инстанса на более производительный, а также увеличить размер его диска. Уменьшить размер диска, а также перейти на менее производительный тип инстанса нельзя. Подробнее см. [{#T}](../../managed-gitlab/operations/instance/instance-update.md).
+Да, можно изменить тип инстанса на более производительный, а также увеличить размер его диска. Уменьшить размер диска, а также перейти на менее производительный тип инстанса нельзя. Подробнее в разделе [{#T}](../../managed-gitlab/operations/instance/instance-update.md).
 
 #### Что делать, если не удается подключиться к системному хуку на `localhost`? {#system-hooks-localhost}
 

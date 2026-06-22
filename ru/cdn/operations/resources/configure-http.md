@@ -96,7 +96,7 @@ description: Следуя данной инструкции, вы сможете
         --allowed-http-methods <разрешенные_методы>
       ```
 
-      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
+      Подробнее о команде `yc cdn resource update` в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
 
@@ -127,7 +127,7 @@ description: Следуя данной инструкции, вы сможете
       * Блок `options` содержит дополнительные параметры CDN-ресурсов:
          * `allowed_http_methods` — HTTP-методы, разрешенные для вашего контента CDN. По умолчанию разрешены следующие методы: `GET`, `HEAD`, `OPTIONS`. В случае, если некоторые методы запрещены пользователю, он получит ответ `405` (Method Not Allowed). Если метод не поддерживается, пользователь получает ответ `501` (Not Implemented).
 
-      Более подробную информацию о параметрах `yandex_cdn_resource` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/cdn_resource).
+      Подробнее о параметрах `yandex_cdn_resource` в {{ TF }} в [документации провайдера]({{ tf-provider-resources-link }}/cdn_resource).
 
   1. В командной строке перейдите в папку, где расположен конфигурационный файл {{ TF }}.
 

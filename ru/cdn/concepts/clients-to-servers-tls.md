@@ -4,7 +4,7 @@
 
 {% include [certificate-usage](../../_includes/cdn/certificate-usage.md) %}
 
-Сертификат настраивается при создании ресурса. После этого сертификат можно изменить вместе с другими основными настройками ресурса. Подробнее см. в инструкциях:
+Сертификат настраивается при создании ресурса. После этого сертификат можно изменить вместе с другими основными настройками ресурса. Подробнее в инструкциях:
 
 * [{#T}](../operations/resources/create-resource.md)
 * [{#T}](../operations/resources/configure-basics.md)
@@ -15,9 +15,9 @@
 
 {% include [tls-profiles-list](../../_includes/cdn/tls-profiles-list.md) %}
 
-Настройка доступна с помощью API при [создании](../operations/resources/create-resource.md) и [изменении](../operations/resources/configure-basics.md) CDN-ресурса. Подробнее см. на странице [{#T}](../operations/resources/configure-tls-profile.md).
+Настройка доступна с помощью API при [создании](../operations/resources/create-resource.md) и [изменении](../operations/resources/configure-basics.md) CDN-ресурса. Подробнее на странице [{#T}](../operations/resources/configure-tls-profile.md).
 
-Смотрите также [{#T}](../../glossary/tls.md).
+Подробнее о протоколе TLS в разделе [{#T}](../../glossary/tls.md).
 
 ## Проверка прав на домен {#domain-name-challenge}
 
