@@ -11,6 +11,7 @@ Actions are performed by making RPC calls. For more information about API archit
 || [Backup](Backup/index.md) | A set of methods for managing backups. ||
 || [Cluster](Cluster/index.md) | A set of methods for managing Greenplum® clusters. ||
 || [HBARule](HBARule/index.md) | A set of methods for managing Greenplum clusters. ||
+|| [Maintenance](Maintenance/index.md) |  ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [PXFDatasource](PXFDatasource/index.md) |  ||
 || [ResourceGroup](ResourceGroup/index.md) |  ||

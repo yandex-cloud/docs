@@ -36,7 +36,7 @@ description: Следуя данной инструкции, вы сможете
             1. Добавьте другие источники, если необходимо.
             1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**. В поле **{{ ui-key.yacloud.cdn.label_origins-group }}** вы увидите название созданной группы источников.
 
-          Подробнее см. в разделе [{#T}](../../concepts/origins.md).
+          Подробнее в разделе [{#T}](../../concepts/origins.md).
         * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите протокол для источников.
         * В поле **{{ ui-key.yacloud.cdn.label_personal-domain }}** укажите основное доменное имя, которое будете использовать в ссылках с сайта на контент, размещенный в CDN. Например: `cdn.example.com`.
 
@@ -239,7 +239,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [access-restrictions-cli](../../../_includes/cdn/access-restrictions-cli.md) %}
 
-     Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/create.md).
+     Подробнее о команде `yc cdn resource create` в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/create.md).
 
 - {{ TF }} {#tf}
 

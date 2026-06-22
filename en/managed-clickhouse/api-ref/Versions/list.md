@@ -76,7 +76,10 @@ The maximum string length in characters is 100. ||
         "string"
       ],
       "lts": "boolean",
-      "fullVersion": "string"
+      "fullVersion": "string",
+      "status": "string",
+      "deprecatedAt": "string",
+      "eolAt": "string"
     }
   ],
   "nextPageToken": "string"
@@ -120,4 +123,39 @@ Whether version is LTS. ||
 || fullVersion | **string**
 
 Full version. ||
+|| status | **enum** (Status)
+
+Version status
+
+- `NEW`: Newly released version. New clusters can be created.
+Support may not yet be available in full scope.
+- `ACTUAL`: Newly released version. New clusters can be created.
+- `SUPPORTED`: Fully supported version.
+- `DEPRECATED`: Version approaching end of support. New cluster creation is not allowed.
+Existing clusters continue to operate. Restore from backups is available.
+- `LEGACY`: Deprecated version billed at an increased rate.
+New cluster creation and restore from backups are not allowed.
+Existing clusters continue to operate; automatic upgrade may be scheduled.
+- `EOL`: End-of-life version. Clusters are forcibly upgraded to a supported version or shut down. ||
+|| deprecatedAt | **string** (date-time)
+
+Optional. Date when the version reaches DEPRECATED status (day precision)
+(-- api-linter: yc::1703::deprecated-annotation=disabled --)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| eolAt | **string** (date-time)
+
+Optional. Date when the version reaches EOL status (day precision)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#

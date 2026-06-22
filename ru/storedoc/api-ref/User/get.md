@@ -74,7 +74,9 @@ The maximum string length in characters is 63. Value must match the regular expr
         "string"
       ]
     }
-  ]
+  ],
+  "authType": "string",
+  "deletionProtection": "boolean"
 }
 ```
 
@@ -92,6 +94,15 @@ ID of the MongoDB cluster the user belongs to. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
 
 Set of permissions granted to the user. ||
+|| authType | **enum** (AuthType)
+
+Authentication type for the user.
+
+- `AUTH_TYPE_PASSWORD`: Password-based authentication (SCRAM).
+- `AUTH_TYPE_IAM`: IAM-based authentication via iam-auth-proxy (SASL/PLAIN, $external). ||
+|| deletionProtection | **boolean**
+
+Deletion Protection inhibits deletion of the user ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mongodb.v1.Permission}

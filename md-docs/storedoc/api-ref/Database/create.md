@@ -25,7 +25,8 @@ The maximum string length in characters is 50. ||
 ```json
 {
   "databaseSpec": {
-    "name": "string"
+    "name": "string",
+    "deletionProtection": "boolean"
   }
 }
 ```
@@ -46,6 +47,9 @@ Required field. Configuration of the database to create. ||
 Required field. Name of the MongoDB database. 1-63 characters long.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| deletionProtection | **boolean**
+
+Deletion Protection inhibits deletion of the database ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

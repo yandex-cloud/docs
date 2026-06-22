@@ -17,11 +17,17 @@ description: Следуя данной инструкции, вы сможете
   1. В строке с нужным правилом нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**. В открывшемся окне:
       1. Измените имя и описание правила-исключения.
       1. (опционально) Включите опцию **{{ ui-key.yacloud.smart-web-security.waf.field_logging }}**, чтобы логировать факты срабатывания правил-исключений.
-      1. В блоке **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-rules-section }}** измените правила из базового набора, для которых будет срабатывать исключение:
-          * `{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-yes }}` — исключение будет срабатывать для всех правил.
-          * `{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-no }}` — исключение будет срабатывать для выбранных правил.
+      1. В поле **{{ ui-key.yacloud.smart-web-security.waf.label_exclusion-rule-exclude-rules }}** выберите:
+          * **Все правила** — исключение будет срабатывать для всех правил.
+          * **Выбранные правила** — исключение будет срабатывать для выбранных правил. Нажмите **{{ ui-key.yacloud.smart-web-security.waf.action_exclusion-rule-add-rules }}**, чтобы выбрать правила.
 
-             Нажмите **{{ ui-key.yacloud.smart-web-security.waf.action_exclusion-rule-add-rules }}**, чтобы выбрать правила из базового набора.
+      1. В блоке **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-rules-section }}** выберите:
+          * **Весь запрос** — исключение будет применяться ко всему HTTP-запросу.
+          * **Часть запроса** — исключение будет применяться только к той части запроса, которая указана в параметрах. Остальной запрос будет проверяться в соответствии с настройками WAF-профиля.
+
+             В поле **Параметры исключений** выберите один или несколько параметров: `HTTP body`, `Cookie`, `HTTP header` или `Query params`. Для каждого параметра задайте значение. При необходимости включите опцию **Учитывать регистр**.
+
+             Чтобы добавить еще одно значение для параметра, нажмите ![plus-sign](../../_assets/console-icons/plus.svg) **или**.
 
       1. {% include [waf-rule-traffic-conditions](../../_includes/smartwebsecurity/waf-rule-traffic-conditions.md) %}
 

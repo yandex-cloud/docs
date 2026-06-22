@@ -528,7 +528,19 @@
 
  - [Create](api-ref/grpc/Database/create.md)
 
+ - [Update](api-ref/grpc/Database/update.md)
+
  - [Delete](api-ref/grpc/Database/delete.md)
+
+#### Maintenance
+
+ - [Overview](api-ref/grpc/Maintenance/index.md)
+
+ - [List](api-ref/grpc/Maintenance/list.md)
+
+ - [Get](api-ref/grpc/Maintenance/get.md)
+
+ - [Reschedule](api-ref/grpc/Maintenance/reschedule.md)
 
 #### Operation
 
@@ -670,7 +682,19 @@
 
  - [Create](api-ref/Database/create.md)
 
+ - [Update](api-ref/Database/update.md)
+
  - [Delete](api-ref/Database/delete.md)
+
+#### Maintenance
+
+ - [Overview](api-ref/Maintenance/index.md)
+
+ - [List](api-ref/Maintenance/list.md)
+
+ - [Get](api-ref/Maintenance/get.md)
+
+ - [Reschedule](api-ref/Maintenance/reschedule.md)
 
 #### Operation
 

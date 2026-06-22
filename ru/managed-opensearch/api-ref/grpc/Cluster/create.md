@@ -125,6 +125,9 @@ Creates an OpenSearch cluster in the specified folder.
       "log_monitoring_checks": "google.protobuf.BoolValue",
       "log_index_maintenance": "google.protobuf.BoolValue",
       "log_backup_operations": "google.protobuf.BoolValue"
+    },
+    "cloud_storage": {
+      "enabled": "google.protobuf.BoolValue"
     }
   },
   "network_id": "string",
@@ -229,6 +232,9 @@ Snapshot management configuration. ||
 || audit_log | **[AuditLog](#yandex.cloud.mdb.opensearch.v1.config.AuditLog)**
 
 Audit log settings. ||
+|| cloud_storage | **[CloudStorage](#yandex.cloud.mdb.opensearch.v1.CloudStorage)**
+
+Cloud storage configuration. ||
 |#
 
 ## OpenSearchCreateSpec {#yandex.cloud.mdb.opensearch.v1.OpenSearchCreateSpec}
@@ -596,6 +602,17 @@ Enables indices maintenance requests logging, such as indices refreshes, flushes
 || log_backup_operations | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables snapshots and repositories requests logging. ||
+|#
+
+## CloudStorage {#yandex.cloud.mdb.opensearch.v1.CloudStorage}
+
+Cloud storage configuration.
+
+#|
+||Field | Description ||
+|| enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Whether to use Object Storage for storing OpenSearch data. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow}

@@ -39,10 +39,10 @@ description: Следуя данной инструкции, вы сможете
       {% include [location-rules-pattern-tip](../../../_includes/cdn/location-rules-pattern-tip.md) %}
 
   1. Задайте настройки CDN-ресурса, которые вы хотите переопределить с помощью локационного правила:
-      * **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}** — временное хранение копий файлов из источников. Подробнее см. на странице [{#T}](./configure-caching.md).
-      * **{{ ui-key.yacloud.cdn.field_rewrite-rule-redirect }}** — перенастройка пути запросов к контенту. Полезно при изменении структуры файлов и папок на источнике. Кроме того, перенаправление запросов можно использовать, если при переезде ресурса на новый адрес вы хотите сохранить ранжирование вашего контента в поисковых системах. Подробнее см. на странице [{#T}](./setup-http-rewrite.md).
-      * **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}** — ограничение прямого доступа к контенту. Доступ к файлам будет осуществляться по подписанным ссылкам с ограниченным сроком действия. Подробнее см. на странице [{#T}](./enable-secure-token.md).
-      * **{{ ui-key.yacloud.cdn.field_address-acl }}** — ограничение доступа к контенту с помощью разрешающей или блокирующей политики. Подробнее см. на странице [{#T}](./configure-basics.md).
+      * **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}** — временное хранение копий файлов из источников. Подробнее на странице [{#T}](./configure-caching.md).
+      * **{{ ui-key.yacloud.cdn.field_rewrite-rule-redirect }}** — перенастройка пути запросов к контенту. Полезно при изменении структуры файлов и папок на источнике. Кроме того, перенаправление запросов можно использовать, если при переезде ресурса на новый адрес вы хотите сохранить ранжирование вашего контента в поисковых системах. Подробнее на странице [{#T}](./setup-http-rewrite.md).
+      * **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}** — ограничение прямого доступа к контенту. Доступ к файлам будет осуществляться по подписанным ссылкам с ограниченным сроком действия. Подробнее на странице [{#T}](./enable-secure-token.md).
+      * **{{ ui-key.yacloud.cdn.field_address-acl }}** — ограничение доступа к контенту с помощью разрешающей или блокирующей политики. Подробнее на странице [{#T}](./configure-basics.md).
 
       {% include [location-rules-additional](../../../_includes/cdn/location-rules-additional.md) %}
 
@@ -69,12 +69,12 @@ description: Следуя данной инструкции, вы сможете
   1. Нажмите на имя нужного локационного правила.
   1. Задайте дополнительные параметры правила:
 
-      * Чтобы настроить дополнительные параметры кеширования контента, перейдите на вкладку ![image](../../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud.cdn.label_resource-cache }}** и нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. Подробнее см. на странице [{#T}](./configure-caching.md).
-      * Чтобы настроить HTTP-заголовки запросов и ответов, CORS при ответах клиентам и разрешенные HTTP-методы запросов от клиентов, перейдите на вкладку ![image](../../../_assets/console-icons/arrow-up-to-line.svg) **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** и нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. Подробнее см. на страницах:
+      * Чтобы настроить дополнительные параметры кеширования контента, перейдите на вкладку ![image](../../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud.cdn.label_resource-cache }}** и нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. Подробнее на странице [{#T}](./configure-caching.md).
+      * Чтобы настроить HTTP-заголовки запросов и ответов, CORS при ответах клиентам и разрешенные HTTP-методы запросов от клиентов, перейдите на вкладку ![image](../../../_assets/console-icons/arrow-up-to-line.svg) **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** и нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. Подробнее на страницах:
           * [{#T}](configure-headers.md)
           * [{#T}](configure-cors.md)
           * [{#T}](configure-http.md)
-      * Чтобы настроить сжатие и сегментацию файлов, перейдите на вкладку ![image](../../../_assets/console-icons/box.svg) **{{ ui-key.yacloud.cdn.label_resource-content }}** и нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. Подробнее см. на страницах:
+      * Чтобы настроить сжатие и сегментацию файлов, перейдите на вкладку ![image](../../../_assets/console-icons/box.svg) **{{ ui-key.yacloud.cdn.label_resource-content }}** и нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. Подробнее на страницах:
           * [{#T}](enable-compression.md)
           * [{#T}](enable-segmentation.md)
 
@@ -86,7 +86,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/location-rules.md)
 * [{#T}](./configure-caching.md)

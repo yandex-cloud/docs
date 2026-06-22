@@ -91,7 +91,7 @@
         --allowed-http-methods <разрешенные_методы>
       ```
 
-      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
+      Подробнее о команде `yc cdn resource update` в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - Terraform {#tf}
 
@@ -125,7 +125,7 @@
       * Блок `options` содержит дополнительные параметры CDN-ресурсов:
          * `allowed_http_methods` — HTTP-методы, разрешенные для вашего контента CDN. По умолчанию разрешены следующие методы: `GET`, `HEAD`, `OPTIONS`. В случае, если некоторые методы запрещены пользователю, он получит ответ `405` (Method Not Allowed). Если метод не поддерживается, пользователь получает ответ `501` (Not Implemented).
 
-      Более подробную информацию о параметрах `yandex_cdn_resource` в Terraform см. в [документации провайдера](../../../terraform/resources/cdn_resource.md).
+      Подробнее о параметрах `yandex_cdn_resource` в Terraform в [документации провайдера](../../../terraform/resources/cdn_resource.md).
 
   1. В командной строке перейдите в папку, где расположен конфигурационный файл Terraform.
 

@@ -8,6 +8,8 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
+{% include [oidc-app-types-ui-notice](../../../_includes/organization/oidc-app-types-ui-notice.md) %}
+
 ## Измените базовые настройки приложения {#update-basic-settings}
 
 Чтобы изменить базовые настройки [OIDC-приложения](../../concepts/applications.md#oidc):
@@ -293,7 +295,35 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Измените секрет приложения {#update-secret}
+## Измените настройки безопасности приложения {#update-secret}
+
+{% note info %}
+
+Управлять настройками безопасности можно только в OIDC-приложениях [типа](*oidc_app_type) `{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}`.
+
+{% endnote %}
+
+Чтобы изменить настройки безопасности OIDC-приложения:
+
+{% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное OIDC-приложение.
+  1. Справа сверху нажмите кнопку ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. {% include [oidc-app-update-security-settings](../../../_includes/organization/oidc-app-update-security-settings.md) %}
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
+{% endlist %}
+
+### Измените секрет приложения {#update-secret}
+
+{% note info %}
+
+Управлять секретами можно только в OIDC-приложениях [типа](*oidc_app_type) `{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}`.
+
+{% endnote %}
 
 Посмотреть или изменить имеющийся в приложении [секрет](../../concepts/applications.md#oidc-secret) невозможно. Вместо этого вы можете сгенерировать новый секрет:
 
@@ -389,3 +419,5 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](../add-account.md)
 * [{#T}](../../concepts/applications.md#oidc)
 * [{#T}](../manage-groups.md)
+
+[*oidc_app_type]: Тип OIDC-приложения в {{ org-full-name }} (`{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}`, `{{ ui-key.yacloud_org.organization.apps.spa-title_1mhon }}` и `{{ ui-key.yacloud_org.organization.apps.native-title_1VrmN }}`) определяет возможность использования секретов приложения и ряда других настроек. Подробнее читайте в разделе [{#T}](../../concepts/applications.md#oidc-application-types).

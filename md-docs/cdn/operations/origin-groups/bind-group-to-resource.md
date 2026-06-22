@@ -18,7 +18,7 @@
 
   1. Выберите группу источников.
 
-  1. Укажите остальные настройки ресурса. Подробнее см. в разделе [Создание ресурса](../resources/create-resource.md).
+  1. Укажите остальные настройки ресурса. Подробнее в разделе [Создание ресурса](../resources/create-resource.md).
 
   1. Нажмите кнопку **Создать**.
 
@@ -133,7 +133,7 @@
        status: READY
      ```
 
-     Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/create.md).
+     Подробнее о команде `yc cdn resource create` в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/create.md).
 
 - Terraform {#tf}
 
@@ -155,7 +155,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../../terraform/resources/cdn_origin_group.md).
+     Подробнее о ресурсах, которые вы можете создать с помощью Terraform, в [документации провайдера](../../../terraform/resources/cdn_origin_group.md).
 
   1. Проверьте корректность настроек.
 
@@ -210,7 +210,7 @@
 
   1. Выберите группу источников.
 
-  1. Если нужно, укажите остальные настройки ресурса. Подробнее см. в разделе [Изменение основных настроек ресурса](../resources/configure-basics.md). 
+  1. Если нужно, укажите остальные настройки ресурса. Подробнее в разделе [Изменение основных настроек ресурса](../resources/configure-basics.md). 
 
   1. Нажмите кнопку **Сохранить**.
 
@@ -373,7 +373,7 @@
        status: READY
      ```
 
-     Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
+     Подробнее о команде `yc cdn resource update` в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - API {#api}
 

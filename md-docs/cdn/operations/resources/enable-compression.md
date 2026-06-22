@@ -6,7 +6,7 @@
 
 {% endnote %}
 
-Включение сжатия файлов также помогает избежать ситуации, когда сжатые файлы получают пользователи, которые не запрашивали сжатый контент. Подробнее см. в разделе [Решение проблем в Cloud CDN](../../troubleshooting.md#compressed-files).
+Включение сжатия файлов также помогает избежать ситуации, когда сжатые файлы получают пользователи, которые не запрашивали сжатый контент. Подробнее в разделе [Решение проблем в Cloud CDN](../../troubleshooting.md#compressed-files).
 
 Чтобы включить [сжатие](../../concepts/compression.md) файлов [ресурса](../../concepts/resource.md):
 
@@ -93,7 +93,7 @@
       yc cdn resource update <идентификатор_ресурса> --gzip-on
       ```
 
-      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
+      Подробнее о команде `yc cdn resource update` в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - Terraform {#tf}
 
@@ -127,7 +127,7 @@
       * Блок `options` содержит дополнительные параметры CDN-ресурсов:
          * `gzip_on` — флаг, с помощью которого указывается, будет ли использоваться сжатие.
 
-      Более подробную информацию о параметрах `yandex_cdn_resource` в Terraform см. в [документации провайдера](../../../terraform/resources/cdn_resource.md).
+      Подробнее о параметрах `yandex_cdn_resource` в Terraform в [документации провайдера](../../../terraform/resources/cdn_resource.md).
 
   1. В командной строке перейдите в папку, где расположен конфигурационный файл Terraform.
 

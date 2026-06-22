@@ -1,6 +1,6 @@
 To use the `billing.accounts.varWithoutDiscounts` role, you need to assign it for a billing account. This role grants partner accounts all administrator privileges, except the permission to get information about discounts.
 
-{% cut "In Yandex Cloud Billing, users with this role can:" %}
+{% cut "In {{ billing-name }}, users with this role can:" %}
 
 * Display [billing accounts](../../../billing/concepts/billing-account.md) in the list of all accounts.
 * View billing account data.
@@ -21,7 +21,7 @@ To use the `billing.accounts.varWithoutDiscounts` role, you need to assign it fo
 
 {% endcut %}
 
-{% cut "On the Yandex Cloud partner portal, users with this role can:" %}
+{% cut "On the {{ yandex-cloud }} partner portal, users with this role can:" %}
 
 * [Create](../../../partner/operations/pin-client.md#client-entry) customer records ([subaccounts](../../../partner/terms.md#sub-account)).
 * View the list of subaccounts and info on them.

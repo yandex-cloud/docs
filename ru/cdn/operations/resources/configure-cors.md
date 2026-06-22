@@ -96,7 +96,7 @@ description: Следуя данной инструкции, вы сможете
       ```
       Значения `*` и `"$http_origin"` разрешают доступ к контенту при любом значении заголовка `Origin`. Чтобы разрешить доступ только определенным источникам, укажите `"$http_origin"` и доменные имена источников: `["domain.com", "second.dom.com"]`.
 
-      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
+      Подробнее о команде `yc cdn resource update` в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
 
@@ -129,7 +129,7 @@ description: Следуя данной инструкции, вы сможете
          * `cors` — значение, которое CDN отправит в заголовке `Access-Control-Allow-Origin` в ответ на [CORS-запрос](../../concepts/cors.md).
          * `allowed_http_methods` — HTTP-методы, разрешенные для вашего контента CDN. По умолчанию разрешены следующие методы: `GET`, `HEAD`, `POST`, `PUT`, `PATCH`, `DELETE`, `OPTIONS`. В случае, если некоторые методы запрещены пользователю, он получит ответ `405` (Method Not Allowed). Если метод не поддерживается, пользователь получает ответ `501` (Not Implemented). Необязательный параметр, значения по умолчанию: `GET`, `HEAD`, `POST`,`OPTIONS`.
 
-      Более подробную информацию о параметрах `yandex_cdn_resource` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/cdn_resource).
+      Подробнее о параметрах `yandex_cdn_resource` в {{ TF }} в [документации провайдера]({{ tf-provider-resources-link }}/cdn_resource).
 
   1. В командной строке перейдите в папку, где расположен конфигурационный файл {{ TF }}.
 

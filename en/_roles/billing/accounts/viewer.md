@@ -1,6 +1,6 @@
 To use the `billing.accounts.viewer` role, you need to assign it for a billing account. This role enables you to view billing account data, get information about resource consumption, monitor expenses, and export reconciliation reports and reporting documents.
 
-{% cut "In Yandex Cloud Billing, users with this role can:" %}
+{% cut "In {{ billing-name }}, users with this role can:" %}
 
 * Display [billing accounts](../../../billing/concepts/billing-account.md) in the list of all accounts.
 * View billing account data.
@@ -13,7 +13,7 @@ To use the `billing.accounts.viewer` role, you need to assign it for a billing a
 {% endcut %}
 
 
-{% cut "On the Yandex Cloud partner portal, users with this role can:" %}
+{% cut "On the {{ yandex-cloud }} partner portal, users with this role can:" %}
 
 * View assigned [specializations](../../../partner/specializations/index.md).
 * View the history of crediting [referral program](../../../partner/program/referral.md) bonuses.

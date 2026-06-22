@@ -42,7 +42,7 @@ description: Следуя данной инструкции, вы сможете
 
               {% include [certificate-usage](../../../_includes/cdn/certificate-usage.md) %}
 
-          Подробнее см. в разделе [{#T}](../../concepts/clients-to-servers-tls.md).
+          Подробнее в разделе [{#T}](../../concepts/clients-to-servers-tls.md).
 
       * Чтобы включить [перенаправление запросов](../../concepts/http-rewrite.md) на CDN-ресурсе:
 
@@ -61,7 +61,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% include [enable-ip-policy](../../../_includes/cdn/enable-ip-policy.md) %}
 
-          Подробнее см. в разделе [{#T}](enable-secure-token.md).
+          Подробнее в разделе [{#T}](enable-secure-token.md).
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -149,7 +149,7 @@ description: Следуя данной инструкции, вы сможете
 
       Чтобы добавить или удалить [метки](../../concepts/labels.md), используйте параметры `--add-labels`, `--remove-labels` и `--remove-all-labels`.
 
-      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
+      Подробнее о команде `yc cdn resource update` в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
 

@@ -54,6 +54,11 @@ apiPlayground:
           type: array
           items:
             $ref: '#/definitions/Permission'
+        deletionProtection:
+          description: |-
+            **boolean**
+            Deletion Protection inhibits deletion of the user
+          type: boolean
       additionalProperties: false
     definitions:
       Permission:
@@ -114,7 +119,8 @@ The maximum string length in characters is 63. Value must match the regular expr
         "string"
       ]
     }
-  ]
+  ],
+  "deletionProtection": "boolean"
 }
 ```
 
@@ -138,6 +144,9 @@ The maximum string length in characters is 128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
 
 New set of permissions for the user. ||
+|| deletionProtection | **boolean**
+
+Deletion Protection inhibits deletion of the user ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mongodb.v1.Permission}

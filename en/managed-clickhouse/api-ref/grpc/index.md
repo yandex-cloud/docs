@@ -19,6 +19,7 @@ Actions are performed by making RPC calls. For more information about API archit
 NOTE: these methods are available only if database management through SQL is disabled. ||
 || [Extension](Extension/index.md) |  ||
 || [FormatSchema](FormatSchema/index.md) | A set of methods for managing [format schemas](https://clickhouse.com/docs/en/interfaces/formats) for input and output data. ||
+|| [Maintenance](Maintenance/index.md) | A set of methods for managing maintenances in a service. ||
 || [MlModel](MlModel/index.md) | A set of methods for managing machine learning models. ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [ResourcePreset](ResourcePreset/index.md) | A set of methods for managing ResourcePreset resources. ||

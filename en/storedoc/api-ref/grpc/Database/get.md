@@ -41,7 +41,8 @@ The maximum string length in characters is 63. Value must match the regular expr
 ```json
 {
   "name": "string",
-  "cluster_id": "string"
+  "cluster_id": "string",
+  "deletion_protection": "google.protobuf.BoolValue"
 }
 ```
 
@@ -56,4 +57,7 @@ Name of the database. ||
 || cluster_id | **string**
 
 ID of the MongoDB cluster that the database belongs to. ||
+|| deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Deletion Protection inhibits deletion of the database ||
 |#

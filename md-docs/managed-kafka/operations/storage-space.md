@@ -40,7 +40,7 @@
     1. **Уведомления** — добавьте созданный ранее канал уведомлений.
 
 
-## Увеличить размер хранилища {#change-disk-size}
+## Изменить тип диска и увеличить размер хранилища {#change-disk-size}
 
 Проверьте, что в облаке достаточно квот для увеличения хранилища. Откройте страницу [Квоты](https://console.yandex.cloud/cloud?section=quotas) для облака и убедитесь, что в секции **Managed Databases** в строке **Объём HDD-хранилищ** или **Объём SSD-хранилищ** есть квота на объем хранилищ.
 
@@ -48,15 +48,19 @@
 
 * Консоль управления {#console}
 
+   {% note warning %}
+   
+   Изменить тип диска для хостов-брокеров можно только через CLI, Terraform или API.
+   
+   {% endnote %}
+   
+
     Чтобы увеличить размер хранилища для кластера:
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
     1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
     1. В строке с нужным кластером нажмите ![image](../../_assets/console-icons/ellipsis.svg), затем выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
-    1. Измените настройки в блоке **Хранилище**.
-
-        Тип диска для кластера Apache Kafka® нельзя изменить после создания.
-
+    1. В блоке **Хранилище** укажите нужный размер диска.
     1. Нажмите кнопку **Сохранить**.
 
 * CLI {#cli}
@@ -65,7 +69,7 @@
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-    Чтобы увеличить размер хранилища для хостов:
+     Чтобы изменить тип диска и увеличить размер хранилища для хостов:
 
     1. Посмотрите описание команды CLI для изменения кластера:
 
@@ -73,16 +77,23 @@
         yc managed-kafka cluster update --help
         ```
 
-    1. Чтобы изменить объем хранилища хостов-брокеров, выполните команду:
+    1. Чтобы изменить [тип диска](../concepts/storage.md) и размер хранилища хостов-брокеров, выполните команду (размер хранилища должен быть не меньше, чем значение `disk_size` в свойствах кластера):
 
         ```bash
         yc managed-kafka cluster update <имя_или_идентификатор_кластера> \
-           --disk-size <объем_хранилища>
+           --disk-type <тип_диска> \
+           --disk-size <размер_хранилища>
         ```
 
         Если не указаны единицы размера, то используются гигабайты.
 
-    1. Чтобы изменить объем хранилища хостов ZooKeeper, выполните команду:
+        {% note warning %}
+        
+        Тип диска хостов-брокеров можно изменить только для [высокодоступного кластера](../concepts/ha-cluster.md) Apache Kafka®.
+        
+        {% endnote %}
+
+    1. Чтобы изменить размер хранилища хостов ZooKeeper, выполните команду (размер хранилища должен быть не меньше, чем значение `disk_size` в свойствах кластера):
 
         ```bash
         yc managed-kafka cluster update <имя_или_идентификатор_кластера> \
@@ -91,23 +102,33 @@
 
         Если не указаны единицы размера, то используются гигабайты.
 
-    Тип диска для кластера Apache Kafka® нельзя изменить после создания.
+        Тип диска для хостов ZooKeeper нельзя изменить после создания.
 
 * Terraform {#tf}
 
-  Чтобы увеличить размер хранилища для кластера:
+  Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         Как создать такой файл, описано в разделе [Создание кластера Apache Kafka®](cluster-create.md).
 
-    1. Измените в описании кластера Managed Service for Apache Kafka® значение параметра `disk_size` в блоках `kafka.resources` и `zookeeper.resources` для хостов Apache Kafka® и ZooKeeper соответственно:
+    1. Измените в описании кластера Managed Service for Apache Kafka® значения параметров:
+       * `disk_size` и `disk_type_id` в блоке `kafka.resources` для хостов-брокеров Apache Kafka®.
+          
+          {% note warning %}
+          
+          Тип диска хостов-брокеров можно изменить только для [высокодоступного кластера](../concepts/ha-cluster.md) Apache Kafka®.
+          
+          {% endnote %}
+
+       * `disk_size` в блоке `zookeeper.resources` для хостов ZooKeeper.
 
         ```hcl
         resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
           ...
           kafka {
             resources {
+              disk_type_id = "<тип_диска>"
               disk_size = <размер_хранилища_ГБ>
               ...
             }
@@ -121,8 +142,6 @@
           }
         }
         ```
-
-        Тип диска для кластера Apache Kafka® нельзя изменить после создания.
 
     1. Проверьте корректность настроек.
 
@@ -205,10 +224,11 @@
             --header "Content-Type: application/json" \
             --url 'https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/<идентификатор_кластера>' \
             --data '{
-                      "updateMask": "configSpec.kafka.resources.diskSize,configSpec.zookeeper.resources.diskSize",
+                      "updateMask": "configSpec.kafka.resources.diskTypeId,configSpec.kafka.resources.diskSize,configSpec.zookeeper.resources.diskSize",
                       "configSpec": {
                         "kafka": {
                           "resources": {
+                            "diskTypeId": "<тип_диска>",
                             "diskSize": "<размер_хранилища_байт>"
                           }
                         },
@@ -226,6 +246,14 @@
         * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
             Укажите нужные параметры:
+            * `configSpec.kafka.resources.diskTypeId` — если нужно изменить тип диска хостов-брокеров.
+               
+               {% note warning %}
+               
+               Тип диска хостов-брокеров можно изменить только для [высокодоступного кластера](../concepts/ha-cluster.md) Apache Kafka®.
+               
+               {% endnote %}
+               
             * `configSpec.kafka.resources.diskSize` — если нужно изменить размер хранилища хостов-брокеров.
             * `configSpec.zookeeper.resources.diskSize` — если нужно изменить размер хранилища хостов ZooKeeper. Применяется только для кластеров с версией Apache Kafka® 3.5.
         * `configSpec.kafka.resources.diskSize` – размер хранилища хостов-брокеров в байтах.
@@ -285,6 +313,7 @@
                   "cluster_id": "<идентификатор_кластера>",
                   "update_mask": {
                     "paths": [
+                      "config_spec.kafka.resources.disk_type_id",
                       "config_spec.kafka.resources.disk_size",
                       "config_spec.zookeeper.resources.disk_size"
                     ]
@@ -292,6 +321,7 @@
                   "config_spec": {
                     "kafka": {
                       "resources": {
+                        "disk_type_id": "<тип_диска>",
                         "disk_size": "<размер_хранилища_байт>"
                       }
                     },
@@ -311,6 +341,14 @@
         * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
             Укажите нужные параметры:
+            * `config_spec.kafka.resources.disk_type_id` — если нужно изменить тип диска хостов-брокеров.
+
+               {% note warning %}
+               
+               Тип диска хостов-брокеров можно изменить только для [высокодоступного кластера](../concepts/ha-cluster.md) Apache Kafka®.
+               
+               {% endnote %}
+
             * `config_spec.kafka.resources.disk_size` — если нужно изменить размер хранилища хостов-брокеров.
             * `config_spec.brokers_count` — если нужно изменить размер хранилища хостов ZooKeeper. Применяется только для кластеров с версией Apache Kafka® 3.5.
         * `config_spec.kafka.resources.disk_size` — размер хранилища хостов-брокеров в байтах.

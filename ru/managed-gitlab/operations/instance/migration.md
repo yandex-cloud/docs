@@ -75,14 +75,14 @@
    1. Если для пользовательской инсталляции вы использовали [кастомизированное доменное имя]({{ gl.docs }}/administration/dedicated/configure_instance/network_security/#custom-domains) и хотите его сохранить, сообщите это доменное имя технической поддержке. Она настроит его для инстанса {{ mgl-name }}.
    1. В пользовательской инсталляции [настройте DNS-запись]({{ gl.docs }}/omnibus/settings/dns/) `CNAME`, чтобы перенаправлять пользователей с [домена инстанса](../../concepts/index.md#config) {{ mgl-name }} на ваш кастомизированный домен.
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/migration.md)
 * [{#T}](../../concepts/index.md)
 * [{#T}](instance-create.md)
 * [{#T}](instance-list.md)
 
-### Документация {{ GL }} {#gl-docs}
+#### Документация {{ GL }} {#gl-docs}
 
 * [Import and export settings]({{ gl.docs }}/administration/settings/import_and_export_settings/)
 * [Migrate {{ GL }} data by using file exports]({{ gl.docs }}/user/project/settings/import_export/)

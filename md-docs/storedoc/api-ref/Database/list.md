@@ -48,7 +48,8 @@ The maximum string length in characters is 100. ||
   "databases": [
     {
       "name": "string",
-      "clusterId": "string"
+      "clusterId": "string",
+      "deletionProtection": "boolean"
     }
   ],
   "nextPageToken": "string"
@@ -81,4 +82,7 @@ Name of the database. ||
 || clusterId | **string**
 
 ID of the MongoDB cluster that the database belongs to. ||
+|| deletionProtection | **boolean**
+
+Deletion Protection inhibits deletion of the database ||
 |#

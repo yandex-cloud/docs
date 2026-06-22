@@ -7,7 +7,7 @@ description: Из статьи вы узнаете, как создать инс
 
 ## Создать инстанс {{ mgl-name }} {#create}
 
-Для создания инстанса {{ mgl-name }} нужна роль [{{ roles-vpc-user }}](../../../vpc/security/index.md#vpc-user) и роль [{{ roles.gitlab.editor }} или выше](../../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../../iam/operations/roles/grant.md).
+Для создания инстанса {{ mgl-name }} нужна роль [{{ roles-vpc-user }}](../../../vpc/security/index.md#vpc-user) и роль [{{ roles.gitlab.editor }} или выше](../../security/index.md#roles-list). Как назначить роль, описано в [документации {{ iam-name }}](../../../iam/operations/roles/grant.md).
 
 {% include [warn-subnet](../../../_includes/managed-gitlab/warn-subnet.md) %}
 
@@ -74,7 +74,7 @@ description: Из статьи вы узнаете, как создать инс
      * `backup_retain_period_days` — срок хранения автоматических резервных копий (в днях).
      * `deletion_protection` — защита инстанса от случайного удаления пользователем. Возможные значения: `true` или `false`.
 
-     Более подробную информацию о параметрах ресурса `yandex_gitlab_instance` см. в [документации провайдера]({{ tf-provider-resources-link }}/gitlab_instance).
+     Подробнее о параметрах ресурса `yandex_gitlab_instance` в [документации провайдера]({{ tf-provider-resources-link }}/gitlab_instance).
 
   1. Создайте ресурсы:
 

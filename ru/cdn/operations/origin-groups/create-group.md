@@ -17,9 +17,9 @@ description: Следуя данной инструкции, вы сможете
   1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_origins-group-create }}**.
   1. Введите название группы источников.
   1. Настройте **{{ ui-key.yacloud.cdn.label_section-origins-list }}**:
-     * Укажите **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}` или `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`. Подробнее о типах см. в разделе [{#T}](../../concepts/origins.md).
+     * Укажите **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}` или `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`. Подробнее о типах в разделе [{#T}](../../concepts/origins.md).
      * Укажите источник.
-     * Выберите **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.value_active }}` или `{{ ui-key.yacloud.cdn.value_backup }}`. Подробнее о приоритетах см. в разделе [{#T}](../../concepts/origins.md#groups).
+     * Выберите **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.value_active }}` или `{{ ui-key.yacloud.cdn.value_backup }}`. Подробнее о приоритетах в разделе [{#T}](../../concepts/origins.md#groups).
      * Добавьте другие источники, если необходимо.
   1. Выберите провайдера CDN. Единственное возможное значение — `{{ cdn-full-name }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
@@ -47,7 +47,7 @@ description: Следуя данной инструкции, вы сможете
      Где `--origin` — спецификация [источника](../../concepts/resource.md):
      * `source` — [IP-адрес](../../../vpc/concepts/address.md) или доменное имя источника.
      * `enabled` — флаг, указывающий, включен ли источник.
-     * `backup` — флаг, указывающий, является ли источник резервным. Подробнее о приоритетах см. в разделе [{#T}](../../concepts/origins.md#groups).
+     * `backup` — флаг, указывающий, является ли источник резервным. Подробнее о приоритетах в разделе [{#T}](../../concepts/origins.md#groups).
 
      Результат:
 
@@ -68,7 +68,7 @@ description: Следуя данной инструкции, вы сможете
        enabled: true
      ```
 
-     Подробнее о команде `yc cdn origin-group create` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/origin-group/create.md).
+     Подробнее о команде `yc cdn origin-group create` в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/origin-group/create.md).
 
 - {{ TF }} {#tf}
 

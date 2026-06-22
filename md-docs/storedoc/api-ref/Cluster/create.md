@@ -1514,7 +1514,8 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters
   },
   "databaseSpecs": [
     {
-      "name": "string"
+      "name": "string",
+      "deletionProtection": "boolean"
     }
   ],
   "userSpecs": [
@@ -1528,7 +1529,9 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters
             "string"
           ]
         }
-      ]
+      ],
+      "authType": "string",
+      "deletionProtection": "boolean"
     }
   ],
   "hostSpecs": [
@@ -5770,6 +5773,9 @@ Type of compaction. Either switch primary to run compaction on all hosts or igno
 Required field. Name of the MongoDB database. 1-63 characters long.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| deletionProtection | **boolean**
+
+Deletion Protection inhibits deletion of the database ||
 |#
 
 ## UserSpec {#yandex.cloud.mdb.mongodb.v1.UserSpec}
@@ -5789,6 +5795,15 @@ The maximum string length in characters is 128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
 
 Set of permissions to grant to the user. ||
+|| authType | **enum** (AuthType)
+
+Authentication type for the user. Defaults to AUTH_TYPE_PASSWORD.
+
+- `AUTH_TYPE_PASSWORD`: Password-based authentication (SCRAM).
+- `AUTH_TYPE_IAM`: IAM-based authentication via iam-auth-proxy (SASL/PLAIN, $external). ||
+|| deletionProtection | **boolean**
+
+Deletion Protection inhibits deletion of the user ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mongodb.v1.Permission}

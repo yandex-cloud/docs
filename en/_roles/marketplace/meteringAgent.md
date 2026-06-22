@@ -1,5 +1,5 @@
 
-The `marketplace.meteringAgent` role enables tracking Marketplace [product](../../marketplace/concepts/product.md) usage.
+The `marketplace.meteringAgent` role enables tracking {{ marketplace-short-name }} [product](../../marketplace/concepts/product.md) usage.
 
 This role allows a [partner](../../marketplace/quickstart.md) to:
 - Authenticate apps in the Metering API.

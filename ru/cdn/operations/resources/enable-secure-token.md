@@ -125,7 +125,7 @@ description: Следуя данной инструкции, вы сможете
         * `secure_key` — секретный ключ, созданный ранее.
         * `enable_ip_url_signing` — (опционально) параметр, `true` или `false`. Включает ограничение доступа к CDN-ресурсу по IP-адресу. Сам доверенный IP-адрес задается вне CDN-ресурса и указывается в качестве параметра при формировании [MD5](https://{{ lang }}.wikipedia.org/wiki/MD5)-хэша для подписанной ссылки. Если параметр не задан, доступ к файлам будет разрешен с любых IP-адресов.
 
-        Более подробную информацию о параметрах `yandex_cdn_resource` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/cdn_resource).
+        Подробнее о параметрах `yandex_cdn_resource` в {{ TF }} в [документации провайдера]({{ tf-provider-resources-link }}/cdn_resource).
      1. Примените изменения:
 
         {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -190,7 +190,7 @@ description: Следуя данной инструкции, вы сможете
      }
      ```
 
-     Более подробную информацию о параметрах `yandex_cdn_resource` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/cdn_resource).
+     Подробнее о параметрах `yandex_cdn_resource` в {{ TF }} в [документации провайдера]({{ tf-provider-resources-link }}/cdn_resource).
   1. Примените изменения:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

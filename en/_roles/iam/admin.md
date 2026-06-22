@@ -9,8 +9,8 @@ Users with this role can:
 * View info on service accounts' [authorized keys](../../iam/concepts/authorization/key.md), as well as create, modify, and delete them.
 * Create [ephemeral access keys](../../iam/concepts/authorization/ephemeral-keys.md) for service accounts.
 * View info on [identity federations](../../iam/concepts/federations.md).
-* View the list of operations and info on Identity and Access Management resource operations.
-* View info on Identity and Access Management [quotas](../../iam/concepts/limits.md#iam-quotas).
+* View the list of operations and info on {{ iam-name }} resource operations.
+* View info on {{ iam-name }} [quotas](../../iam/concepts/limits.md#iam-quotas).
 * View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and its settings.
 * View info on [folders](../../resource-manager/concepts/resources-hierarchy.md#folder) and their settings.
 * Create, modify, delete, and set up folders.
