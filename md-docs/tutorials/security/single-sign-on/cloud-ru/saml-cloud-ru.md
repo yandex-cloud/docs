@@ -2,7 +2,7 @@
 
 [Cloud.ru](https://cloud.ru/) — российский провайдер облачных услуг, предоставляющий IaaS- и PaaS-сервисы, инструменты для AI/ML-разработки, а также решения для публичных, частных и гибридных облаков с поддержкой миграции и эксплуатации ИТ-инфраструктуры.
 
-Чтобы пользователи вашей [организации](../../../../organization/concepts/organization.md) могли аутентифицироваться в Cloud.ru с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../../organization/concepts/applications.md#saml) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне Cloud.ru.
+Чтобы пользователи вашей [организации](../../../../organization/concepts/organization.md) могли аутентифицироваться в Cloud.ru с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../../organization/concepts/applications/saml.md) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне Cloud.ru.
 
 Управлять SAML-приложениями может пользователь, которому назначена [роль](../../../../organization/security/index.md#organization-manager-samlApplications-admin) `organization-manager.samlApplications.admin` или выше.
 

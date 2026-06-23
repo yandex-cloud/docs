@@ -3,7 +3,7 @@
 
 [OpenVPN Community Edition](https://openvpn.net/community/) — бесплатная версия OpenVPN с открытым исходным кодом для организации защищенных VPN-соединений. Начиная с версии 2.6.2, OpenVPN Community Edition поддерживает аутентификацию через внешние провайдеры по протоколу [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC) с помощью плагина [openvpn-auth-oauth2](https://github.com/jkroepke/openvpn-auth-oauth2).
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в OpenVPN Community Edition с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications.md#oidc) и настройте его на стороне Yandex Identity Hub и на стороне OpenVPN.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в OpenVPN Community Edition с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications/oidc.md) и настройте его на стороне Yandex Identity Hub и на стороне OpenVPN.
 
 Управлять OIDC-приложениями может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-oauthApplications-admin) `organization-manager.oauthApplications.admin` или выше.
 
@@ -35,7 +35,7 @@
 В стоимость поддержки инфраструктуры входят:
 
 * плата за постоянно запущенную [виртуальную машину](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование [OIDC-приложения](../../../organization/concepts/applications.md#oidc) ([тарифы Yandex Identity Hub](../../../organization/pricing.md)).
+* плата за использование [OIDC-приложения](../../../organization/concepts/applications/oidc.md) ([тарифы Yandex Identity Hub](../../../organization/pricing.md)).
 
 ## Создайте инфраструктуру {#deploy}
 
@@ -262,6 +262,9 @@ sudo cp /etc/openvpn/easy-rsa/pki/dh.pem /etc/openvpn/
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
   1. В центре страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
       1. Выберите метод единого входа **OIDC (OpenID Connect)**.
+      1. В поле **Тип приложения** выберите тип [Web Application](*web_app_type).
+         
+         [*web_app_type]: OIDC-приложения типа `Web Application` оптимально подходят для аутентификации пользователей во внешних веб-приложениях, имеющих серверную часть (бэкенд), в которой может безопасно храниться секрет приложения. Подробнее о типах OIDC-приложений читайте в разделе [Типы OIDC-приложений в Yandex Identity Hub](../../../organization/concepts/applications/oidc.md#oidc-application-types).
       1. В поле **Имя** задайте имя создаваемого приложения, например `openvpn-oidc-app`.
       1. В поле **Каталог** выберите каталог, в котором будет создан OAuth-клиент для приложения.
       1. (Опционально) В поле **Описание** задайте описание приложения.
@@ -275,14 +278,14 @@ sudo cp /etc/openvpn/easy-rsa/pki/dh.pem /etc/openvpn/
 
       1. В поле **Scopes** отметьте атрибуты `email`, `profile`.
       1. Нажмите **Сохранить**.
-  1. Создайте секрет приложения (действие доступно только для приложений [типа](../../../organization/concepts/applications.md#oidc-application-types) `Web Application`):
+  1. Создайте секрет приложения (действие доступно только для приложений [типа](../../../organization/concepts/applications/oidc.md#oidc-application-types) `Web Application`):
      
      1. В блоке **Секреты приложения** нажмите кнопку **Добавить секрет** и в открывшемся окне:
      
          1. (Опционально) Добавьте произвольное описание создаваемого секрета.
          1. Нажмите **Создать**.
      
-     В окне отобразится сгенерированный [секрет приложения](../../../organization/concepts/applications.md#oidc-secret). Сохраните полученное значение.
+     В окне отобразится сгенерированный [секрет приложения](../../../organization/concepts/applications/oidc.md#oidc-secret). Сохраните полученное значение.
      
      {% note warning %}
      

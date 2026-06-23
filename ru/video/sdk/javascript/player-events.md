@@ -216,6 +216,34 @@ player.on('TextTracksChange', ({ textTracks }) => {
 });
 ```
 
+#### VideoTracksChange {#videotrackschange}
+
+Изменение списка доступных видеодорожек.
+
+В объекте `{ videoTracks }` в обработчик поступает новый массив [доступных дорожек](./player-state.md#state-videoTracks).
+
+Пример:
+
+```javascript
+player.on('VideoTracksChange', ({ videoTracks }) => {
+    console.log(videoTracks);
+});
+```
+
+#### VideoTrackChange {#videotrackchange}
+
+Изменение текущей видеодорожки.
+
+В объекте `{ videoTrack }` в обработчик поступает новое значение [текущей дорожки](./player-state.md#state-videoTrack).
+
+Пример:
+
+```javascript
+player.on('VideoTrackChange', ({ videoTrack }) => {
+    console.log(videoTrack);
+});
+```
+
 #### Полезные ссылки {#see-also}
 
-* [Interface: PlayerSdkEventHandlers](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) в справочнике API
+[Interface: PlayerSdkEventHandlers](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) — описание обработчиков событий плеера в справочнике API.

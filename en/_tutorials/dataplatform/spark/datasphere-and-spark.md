@@ -88,7 +88,7 @@ Create a network the {{ SPRK }} cluster will operate in.
 
 {% endlist %}
 
-### Create a service account for the cluster {#create-sa}
+### Create a service account for the {{ msp-full-name }} cluster {#create-sa}
 
 {% list tabs group=instructions %}
 
@@ -132,6 +132,16 @@ To work with {{ SPRK }} clusters in {{ ml-platform-name }}, create and set up a 
 
 1. Click **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
+### Edit the community settings {#change-settings-community}
+
+To set up a connection to {{ SPRK }} clusters:
+
+1. Select the community you [created the project](#create-project) in.
+1. Navigate to the **{{ ui-key.yc-ui-datasphere.common.settings-key-value }}** tab.
+1. Under **{{ ui-key.yc-ui-datasphere.spaces-page.ssa.settings.title }}**, click **{{ ui-key.yc-ui-datasphere.spaces-page.ssa.add-service-account.button }}**.
+1. In the window that opens, select the service account you [created earlier](#create-sa) and click **{{ ui-key.yc-ui-datasphere.common.add }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.spaces-page.data-processing-sa.title }}**, click **{{ ui-key.yc-ui-datasphere.spaces-page.ssa.add-service-account.button }}** and select the service account you created earlier.
+
 ## Create a {{ msp-name }} cluster and a Spark connector {#create-spark}
 
 1. [Create a {{ msp-name }} cluster](../../../managed-spark/operations/cluster-create.md) with your preferred configuration and the following properties:
@@ -145,7 +155,7 @@ To work with {{ SPRK }} clusters in {{ ml-platform-name }}, create and set up a 
 1. Open the community you [created the project](#create-project) in and select the project you need.
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![spark-connector](../../../_assets/console-icons/route.svg) **{{ ui-key.yc-ui-datasphere.common.spark-connector }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.open-project.create-connector }}**.
-1. In the **{{ ui-key.yc-ui-datasphere.common.name }}** field, enter a name for your connector. Follow these naming requirements:
+1. In the **{{ ui-key.yc-ui-datasphere.common.name }}** field, enter a name for your connector. The name format is as follows:
 
    {% include [name-format](../../../_includes/name-format-2.md) %}
 

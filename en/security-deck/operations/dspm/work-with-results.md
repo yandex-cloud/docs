@@ -5,6 +5,8 @@ description: Follow this guide to learn about the operations you can perform wit
 
 # Managing scan results in {{ dspm-name }}
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 Once the [scan](../../concepts/dspm.md#scanning) is complete, you can do the following with the results:
 
 * [View](#view)

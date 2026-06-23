@@ -33,7 +33,7 @@ Schema names specified in the rules are not validated. If a schema name contains
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ mtr-name }} cluster.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}** and set the cluster parameters.
   1. Under **{{ ui-key.yacloud.trino.section_rbac }}**, click ![image](../../_assets/console-icons/chevron-down.svg).
   1. In the **{{ ui-key.yacloud.trino.label_rbac-schema }}** field, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**.
@@ -105,7 +105,7 @@ Schema names specified in the rules are not validated. If a schema name contains
 
        * `schema`: Schemas specified by one of the following:
          * `names`: List of schema names.
-         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
+         * `name_regexp`: Regular expression for schema names.
 
          Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
@@ -214,7 +214,7 @@ Schema names specified in the rules are not validated. If a schema name contains
 
        * `schema`: Schemas specified by one of the following:
          * `names`: List of schema names.
-         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
+         * `name_regexp`: Regular expression for schema names.
 
          Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
@@ -357,7 +357,7 @@ Schema names specified in the rules are not validated. If a schema name contains
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -450,7 +450,7 @@ Schema names specified in the rules are not validated. If a schema name contains
 
         * `schema`: Schemas specified by one of the following:
           * `names`: List of schema names.
-          * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
+          * `name_regexp`: Regular expression for schema names.
 
           Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
@@ -498,7 +498,7 @@ Schema names specified in the rules are not validated. If a schema name contains
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** → **{{ ui-key.yacloud.trino.label_rbac-schema }}**.
   1. To add a rule, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**. In the window that opens, set up the rule:
@@ -579,7 +579,7 @@ Schema names specified in the rules are not validated. If a schema name contains
 
        * `schema`: Schemas specified by one of the following:
          * `names`: List of schema names.
-         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
+         * `name_regexp`: Regular expression for schema names.
 
          Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
@@ -608,7 +608,7 @@ Schema names specified in the rules are not validated. If a schema name contains
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
       For more on how to create this file, see [Creating a cluster](cluster-create.md).
   
@@ -689,7 +689,7 @@ Schema names specified in the rules are not validated. If a schema name contains
 
        * `schema`: Schemas specified by one of the following:
          * `names`: List of schema names.
-         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
+         * `name_regexp`: Regular expression for schema names.
 
          Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
@@ -949,7 +949,7 @@ Schema names specified in the rules are not validated. If a schema name contains
 
         * `schema`: Schemas specified by one of the following:
           * `names`: List of schema names.
-          * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
+          * `name_regexp`: Regular expression for schema names.
 
           Omitting the `schema` section is equivalent to using the `.*` regular expression.
 

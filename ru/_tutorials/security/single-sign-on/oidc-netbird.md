@@ -3,7 +3,7 @@
 
 [NetBird](https://netbird.io/) — это платформа для организации защищенного доступа к сетевым ресурсам. NetBird поддерживает аутентификацию по стандарту [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC), что позволяет настроить единый вход пользователей организации через {{ org-full-name }}.
 
-В этом руководстве вы создадите OIDC-приложение и [пул пользователей](../../../organization/concepts/user-pools.md) в {{ org-full-name }}, получите `Client ID`, секрет приложения и [URL с конфигурацией](../../../organization/concepts/applications.md#oidc-sp-setup), а затем настроите внешний OIDC-провайдер в NetBird Dashboard.
+В этом руководстве вы создадите OIDC-приложение и [пул пользователей](../../../organization/concepts/user-pools.md) в {{ org-full-name }}, получите `Client ID`, секрет приложения и [URL с конфигурацией](../../../organization/concepts/applications/oidc.md#oidc-sp-setup), а затем настроите внешний OIDC-провайдер в NetBird Dashboard.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -23,7 +23,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит плата за использование [OIDC-приложения](../../../organization/concepts/applications.md#oidc) ([тарифы {{ org-full-name }}](../../../organization/pricing.md)).
+В стоимость поддержки инфраструктуры входит плата за использование [OIDC-приложения](../../../organization/concepts/applications/oidc.md) ([тарифы {{ org-full-name }}](../../../organization/pricing.md)).
 
 ### Перед началом работы {#check-to-begin}
 
@@ -50,6 +50,7 @@
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
   1. Нажмите кнопку ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
       1. Выберите метод единого входа (SSO) **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}**.
+      1. {% include [org-oidc-app-select-web-type-step](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-step.md) %}
       1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** укажите `netbird-oidc-app`.
       1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-folder_rANM4 }}** выберите каталог, в котором будет создан OAuth-клиент для приложения.
       1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** укажите описание, например `OIDC-приложение для интеграции с NetBird`.
@@ -139,7 +140,7 @@
 
 ### Настройте OIDC-атрибуты пользователя {#setup-scopes}
 
-Для NetBird обычно используются стандартные [атрибуты](../../../organization/concepts/applications.md#oidc-attributes) (scopes):
+Для NetBird обычно используются стандартные [атрибуты](../../../organization/concepts/applications/oidc.md#oidc-attributes) (scopes):
 
 **Минимально необходимый набор**: `openid, email, profile`.
 

@@ -379,7 +379,7 @@ description: Следуя данной инструкции, вы сможете
          clickhouse-client --host {{ host-name }}.{{ dns-zone }} \
                            --user user1 \
                            --database db1 \
-                           --port 9440 \
+                           --port 9000 \
                            --ask-password \
                            --idle_connection_timeout 60
          ```

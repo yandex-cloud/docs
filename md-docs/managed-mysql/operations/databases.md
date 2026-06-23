@@ -176,7 +176,7 @@
 
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Как создать такой файл описано в разделе [Создание кластера](cluster-create.md).
 
   1. Добавьте ресурс `yandex_mdb_mysql_database`:
 
@@ -220,7 +220,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mysql_database.md).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_database` смотрите в [документации провайдера](../../terraform/resources/mdb_mysql_database.md).
 
 - REST API {#api}
 
@@ -321,7 +321,7 @@
 
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Как создать такой файл описано в разделе [Создание кластера](cluster-create.md).
 
   1. Удалите ресурс `yandex_mdb_mysql_database` с именем удаляемой базы данных.
 
@@ -356,7 +356,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mysql_database.md).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_database` смотрите в [документации провайдера](../../terraform/resources/mdb_mysql_database.md).
 
 - REST API {#api}
 
@@ -461,7 +461,7 @@
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Как создать такой файл описано в разделе [Создание кластера](cluster-create.md).
 
     1. Задайте нужные режимы SQL в значении параметра `sql_mode` блока `mysql_config`, например:
 
@@ -506,7 +506,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mysql_cluster.md#mysql-config).
+    Подробнее о параметрах ресурса yandex_mdb_mysql_cluster смотрите в [документации провайдера](../../terraform/resources/mdb_mysql_cluster.md#mysql-config).
 
     {% note warning "Ограничения по времени" %}
     
@@ -577,7 +577,7 @@
 
           В данном случае передается только один параметр.
 
-      * `configSpec.mysqlConfig_<версия_MySQL®>.sqlMode` — список режимов SQL. Доступные режимы см. в документации MySQL®:
+      * `configSpec.mysqlConfig_<версия_MySQL®>.sqlMode` — список режимов SQL. Доступные режимы приведены в документации MySQL®:
 
           * [для версии 5.7](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting);
           * [для версии 8.0](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting).
@@ -656,7 +656,7 @@
 
           В данном случае передается только один параметр.
 
-      * `config_spec.mysql_config_<версия_MySQL®>.sql_mode` — список режимов SQL. Доступные режимы см. в документации MySQL®:
+      * `config_spec.mysql_config_<версия_MySQL®>.sql_mode` — список режимов SQL. Доступные режимы приведены в документации MySQL®:
 
           * [для версии 5.7](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting);
           * [для версии 8.0](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting).

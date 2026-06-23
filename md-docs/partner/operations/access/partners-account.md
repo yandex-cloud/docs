@@ -6,7 +6,7 @@
 
 - Консоль управления {#console}
 
-  См. инструкцию [Добавление пользователя](../../../billing/security/index.md#set-member-role).
+  Подробнее в инструкции [Добавление пользователя](../../../billing/security/index.md#set-member-role).
 
 - Партнёрский портал {#partner}
 

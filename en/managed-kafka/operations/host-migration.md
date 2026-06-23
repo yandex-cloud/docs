@@ -37,7 +37,7 @@ To move an {{ KF }} host to a different availability zone in a {{ mkf-name }} cl
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-      1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
       1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
       1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, specify the new availability zone.
       1. If the new availability zone has multiple subnets, specify the one you need.
@@ -81,7 +81,7 @@ To move an {{ KF }} host to a different availability zone in a {{ mkf-name }} cl
 
          If there is only one subnet in the new availability zone, you do not need to specify `subnet_ids`.
 
-      1. Validate your configuration.
+      1. Make sure the settings are correct.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -239,7 +239,7 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} 3.5 clust
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-      1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
       1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab. The **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** column lists the availability zones for each host.
 
    - CLI {#cli}
@@ -315,7 +315,7 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} 3.5 clust
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-      1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
       1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
       1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, set the new availability zones. Their total number must not decrease.
 
@@ -394,7 +394,7 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} 3.5 clust
          }
          ```
 
-      1. Validate your configuration.
+      1. Make sure the settings are correct.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -552,7 +552,7 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} cluster v
          }
          ```
 
-      1. Validate your configuration.
+      1. Make sure the settings are correct.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

@@ -14,7 +14,7 @@ You can stop and restart an {{ AF }} cluster as needed. When stopped, a cluster 
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
     1. Find the cluster in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select ![stop](../../_assets/console-icons/square.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
     1. In the dialog box that opens, confirm that you want to stop the cluster and click **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}**.
 
@@ -73,7 +73,7 @@ You can stop and restart an {{ AF }} cluster as needed. When stopped, a cluster 
             yandex.cloud.airflow.v1.ClusterService.Stop
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -88,7 +88,7 @@ You can restart clusters with the `Stopped` status.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
     1. Find the stopped cluster in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select ![start](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
     1. In the dialog box that opens, click **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}**.
 
@@ -147,7 +147,7 @@ You can restart clusters with the `Stopped` status.
             yandex.cloud.airflow.v1.ClusterService.Start
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

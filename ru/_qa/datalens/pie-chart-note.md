@@ -26,4 +26,4 @@
 
 Формула: `[Category] + ' ' + STR(INT(SUM([Sales])/SUM(SUM([Sales]) TOTAL) * 100)) + '%'`
 
-См. [изображение](https://storage.yandexcloud.net/doc-files/pie-chart.png).
+Подробнее на [скриншоте](https://storage.yandexcloud.net/doc-files/pie-chart.png).

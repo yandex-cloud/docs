@@ -1,6 +1,6 @@
 ---
 title: Updating a {{ dataproc-name }} cluster
-description: After creating an {{ dataproc-name }} cluster, you can edit its basic and advanced settings.
+description: After creating a {{ dataproc-name }} cluster, you can edit its basic and advanced settings.
 ---
 
 # Updating a {{ dataproc-name }} cluster
@@ -9,7 +9,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
 You can disable sending cluster logs to {{ cloud-logging-full-name }}. For more information, see [Working with logs](logging.md#disable-logs).
 
-You can also move a {{ dataproc-name }} cluster to a different availability zone. This process depends on the cluster type:
+You can also migrate a {{ dataproc-name }} cluster to a different availability zone. This process depends on the cluster type:
 
 * [Migrating a lightweight cluster to a different availability zone](migration-to-an-availability-zone.md).
 * [Migrating an HDFS cluster to a different availability zone](../tutorials/hdfs-cluster-migration.md).
@@ -18,14 +18,14 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
 
 - Management console {#console}
 
-    To change a {{ dataproc-name }} cluster’s settings:
+    To change {{ dataproc-name }} cluster settings:
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Change the cluster name and description in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** and **{{ ui-key.yacloud.mdb.forms.base_field_description }}** fields.
     1. Add or delete cluster [labels](../../resource-manager/concepts/labels.md) in the **{{ ui-key.yacloud.component.label-set.label_labels }}** field:
-    1. Update cluster settings:
+    1. Update the following cluster settings as needed:
 
         * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: [Service account](../../iam/concepts/users/service-accounts.md) of the {{ dataproc-full-name }} cluster.
 
@@ -37,23 +37,23 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
 
         * **{{ ui-key.yacloud.mdb.forms.config_field_properties }}**: Cluster [component properties](../concepts/settings-list.md).
 
-            Add, edit, or delete the required properties:
+            Add, edit, or delete the properties as needed.
 
             {% note tip %}
 
-            If you want a property to be included into a configuration file [relating to a specific component](../concepts/settings-list.md#available-properties), specify a [prefix](../concepts/settings-list.md) for the key.
+            To include a property into the configuration file [related to a specific component](../concepts/settings-list.md#available-properties), specify a [prefix](../concepts/settings-list.md) for the key.
 
             {% endnote %}
 
-        * **{{ ui-key.yacloud.mdb.forms.config_field_form-bucket-type }}**: [Bucket](../../storage/concepts/bucket.md) name selection format, **{{ ui-key.yacloud.forms.label_form-list }}** or **{{ ui-key.yacloud.forms.label_form-id }}**.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_form-bucket-type }}**: Format for specifying the [bucket](../../storage/concepts/bucket.md) name, **{{ ui-key.yacloud.forms.label_form-list }}** or **{{ ui-key.yacloud.forms.label_form-id }}**.
 
         * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Name of the bucket that the cluster will use.
 
-            Depending on the format you selected, either pick a name from the list or specify it manually. You can request the bucket name with the [list of buckets in the folder](../../storage/operations/buckets/get-info.md#get-information).
+            Depending on the format you selected, either pick a name from the list or specify it manually. You can get the bucket name with the [list of buckets in the folder](../../storage/operations/buckets/get-info.md#get-information).
 
         * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: [Security groups](../concepts/network.md#security-groups) that the cluster will use.
 
-            Select one or more security groups. If the required security group is not in the list, [create it](../../vpc/operations/security-group-create.md).
+            Select one or more security groups. If the security group you need is missing from the list, [create it](../../vpc/operations/security-group-create.md).
 
             {% note warning %}
 
@@ -67,15 +67,15 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
 
         * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_log-group }}**: {{ cloud-logging-full-name }} [log group](../../logging/concepts/log-group.md) the cluster will send logs to.
 
-            Select the default log group or another existing log group. If the required log group is not in the list, [create it](../../logging/operations/create-group.md).
+            Select the default log group or another existing log group. If the log group you need is missing from the list, [create it](../../logging/operations/create-group.md).
 
-            To enable the cluster to send logs, [assign](../../iam/operations/roles/grant.md) the `logging.writer` role to its service account. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
+            To enable the cluster to send logs, [assign](../../iam/operations/roles/grant.md) the `logging.writer` role to the cluster’s service account. For more details, see [this {{ cloud-logging-full-name }} guide](../../logging/security/index.md).
 
-    1. In the advanced cluster settings, select the required **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** value.
+    1. In the advanced cluster settings, set **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** as needed.
 
         This option manages cluster protection against accidental deletion by a user.
 
-        Even with cluster deletion protection enabled, one can still connect to the cluster manually and delete its data.
+        Even with cluster deletion protection enabled, you can still connect to the cluster manually and delete the data.
 
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -114,9 +114,9 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
            --log-group-id=<log_group_ID>
         ```
 
-        You can request the log group ID with the [list of log groups in the folder](../../logging/operations/list.md).
+        You can get the log group ID with the [list of log groups in the folder](../../logging/operations/list.md).
 
-    1. To protect a cluster from accidental deletion by a user of your cloud, add the `--deletion-protection` parameter:
+    1. To protect your cluster against accidental deletion by a user of your cloud, provide the `--deletion-protection` parameter:
 
         ```bash
         {{ yc-dp }} cluster update <cluster_name_or_ID> \
@@ -134,7 +134,7 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
 
         {% note warning %}
 
-        The `--property` option will reset all component properties that were not explicitly provided, to their default values. To save the properties you updated, list them in your request along with the ones you want to update.
+        The `--property` parameter will reset all component properties that you do not explicitly provide to their default values. To save the properties you updated earlier, list them in your request along with the ones you want to update.
 
         {% endnote %}
 
@@ -144,11 +144,11 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
 
     To change a {{ dataproc-name }} cluster’s settings:
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
-    1. To activate cluster deletion protection and access to the [web interfaces](../concepts/interfaces.md) of the {{ dataproc-name }} components, update the values in the appropriate fields of the {{ dataproc-name }} cluster description:
+    1. To enable cluster deletion protection and access to the [web interfaces](../concepts/interfaces.md) of the {{ dataproc-name }} components, update the values of the appropriate fields in the {{ dataproc-name }} cluster description:
 
         ```hcl
         resource "yandex_dataproc_cluster" "data_cluster" {

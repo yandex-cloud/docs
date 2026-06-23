@@ -56,13 +56,13 @@ _Политики аутентификации_ — это инструмент 
 * [Активировать и деактивировать политику аутентификации](../operations/authentication-policies/activate-deactivate.md)
 * [Изменить политику аутентификации](../operations/authentication-policies/update.md)
 * [Удалить политику аутентификации](../operations/authentication-policies/delete.md)
-* [Приложения в Yandex Identity Hub](applications.md)
+* [Приложения в Yandex Identity Hub](applications/index.md)
 
 [*organization]: Организация — это высший ресурс в иерархии ресурсной модели Yandex Cloud, который объединяет ресурсы всех остальных сервисов, а также используется для управления пользователями и параметрами их аутентификации и авторизации. Подробнее читайте в разделе [Организация](organization.md).
 
 [*user_groups]: Пользователей Yandex Identity Hub можно объединять в группы, что упрощает управление доступом в Yandex Cloud. Подробнее читайте в разделе [Группы пользователей](groups.md).
 
-[*applications]: SAML- и OIDC-приложения Yandex Identity Hub позволяют пользователям Yandex Cloud аутентифицироваться в сервисах сторонних поставщиков услуг. Подробнее читайте в разделе [Приложения в Yandex Identity Hub](applications.md).
+[*applications]: SAML- и OIDC-приложения Yandex Identity Hub позволяют пользователям Yandex Cloud аутентифицироваться в сервисах сторонних поставщиков услуг. Подробнее читайте в разделе [Приложения в Yandex Identity Hub](applications/index.md).
 
 [*user_accounts]: В Yandex Cloud используются аккаунты пользователей на Яндексе, а также федеративные и локальные пользовательские аккаунты. Подробнее читайте в разделе [Аккаунты в Yandex Cloud](../../iam/concepts/users/accounts.md).
 

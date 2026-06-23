@@ -12,10 +12,10 @@ description: You can delete all access rules applied within the cluster in one s
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to the **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** section.
-  1. Click ![trash-bin](../../_assets/console-icons/trash-bin.svg) next to the rule you want to delete.
+  1. Click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the row of the rule you want to delete.
 
 - CLI {#cli}
 

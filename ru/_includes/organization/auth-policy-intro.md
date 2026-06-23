@@ -2,7 +2,7 @@
 
 [*user_groups]: Пользователей {{ org-full-name }} можно объединять в группы, что упрощает управление доступом в {{ yandex-cloud }}. Подробнее читайте в разделе [{#T}](../../organization/concepts/groups.md).
 
-[*applications]: SAML- и OIDC-приложения {{ org-full-name }} позволяют пользователям {{ yandex-cloud }} аутентифицироваться в сервисах сторонних поставщиков услуг. Подробнее читайте в разделе [{#T}](../../organization/concepts/applications.md).
+[*applications]: SAML- и OIDC-приложения {{ org-full-name }} позволяют пользователям {{ yandex-cloud }} аутентифицироваться в сервисах сторонних поставщиков услуг. Подробнее читайте в разделе [{#T}](../../organization/concepts/applications/index.md).
 
 [*user_accounts]: В {{ yandex-cloud }} используются аккаунты пользователей на Яндексе, а также федеративные и локальные пользовательские аккаунты. Подробнее читайте в разделе [{#T}](../../iam/concepts/users/accounts.md).
 

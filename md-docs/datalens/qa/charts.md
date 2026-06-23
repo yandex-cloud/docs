@@ -11,7 +11,7 @@
 
 В чарте добавьте измерение **Measure names** в секцию **Подписи**.
 
-См. [пример отображения легенды](https://storage.yandexcloud.net/doc-files/masure-names.png).
+[Пример отображения легенды](https://storage.yandexcloud.net/doc-files/masure-names.png).
 
 ### Можно ли скрыть легенду в чарте? {#hide-legend-in-chart}
 
@@ -31,7 +31,7 @@
 
 ### Как сделать столбчатую диаграмму с группировкой? {#how-to-create-grouped-column-chart}
 
-По умолчанию отображается диаграмма с накоплением (см. [изображение](https://storage.yandexcloud.net/doc-files/bar-chart.png)).
+По умолчанию отображается диаграмма с накоплением (подробнее на [скриншоте](https://storage.yandexcloud.net/doc-files/bar-chart.png)).
 
 Воспользуйтесь [инструкцией](../visualization-ref/column-chart.md#grouped-column-chart), чтобы отобразить столбчатую диаграмму с группировкой.
 
@@ -85,7 +85,7 @@
 
 Формула: `[Category] + ' ' + STR(INT(SUM([Sales])/SUM(SUM([Sales]) TOTAL) * 100)) + '%'`
 
-См. [изображение](https://storage.yandexcloud.net/doc-files/pie-chart.png).
+Подробнее на [скриншоте](https://storage.yandexcloud.net/doc-files/pie-chart.png).
 
 ### Как на линейной диаграмме сделать логарифмическую шкалу? {#make-logarithmic-scale}
 
@@ -115,7 +115,7 @@ if(
 
 Для линейной диаграммы в секцию **Подписи** можно перенести только показатели, в том числе показатель [Measure Values](../concepts/chart/measure-values.md).
 
-Если перенести в секцию **Подписи** тот же показатель, что и в секции оси **Y**, то на графике появятся подписи (см. [изображение](https://storage.yandexcloud.net/doc-files/signatures.png)).
+Если перенести в секцию **Подписи** тот же показатель, что и в секции оси **Y**, то на графике появятся подписи (подробнее на [скриншоте](https://storage.yandexcloud.net/doc-files/signatures.png)).
 
 ### Как на графике подписать несколько линий? {#sign-multiple-lines}
 
@@ -168,7 +168,7 @@ if(
 
 Если в исходных данных совсем нет строки, настройки секции чарта не изменят отображение показателя на диаграмме. Например, если в источнике нет строки с определенной датой (`20.07.2022`), данные на эту дату не отобразятся. На графике будут соединены значения полей, между которыми отсутствуют значения.
 
-Подробнее см. раздел [Настройка отображения пустых (null) значений в чарте Yandex DataLens](../operations/chart/chart-null-settings.md)
+Подробнее в разделе [Настройка отображения пустых (null) значений в чарте Yandex DataLens](../operations/chart/chart-null-settings.md)
 
 
 

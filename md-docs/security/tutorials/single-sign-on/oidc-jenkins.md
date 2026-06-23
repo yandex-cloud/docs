@@ -2,7 +2,7 @@
 
 [Jenkins](https://www.jenkins.io/) — программная система с открытым исходным кодом на Java, предназначенная для обеспечения процесса непрерывной интеграции программного обеспечения.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Jenkins с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications.md#oidc) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне Jenkins.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Jenkins с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications/oidc.md) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне Jenkins.
 
 Управлять OIDC-приложениями может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-oauthApplications-admin) `organization-manager.oauthApplications.admin` или выше.
 
@@ -28,6 +28,9 @@
    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
       1. Выберите метод единого входа **OIDC (OpenID Connect)**.
+      1. В поле **Тип приложения** выберите тип [Web Application](*web_app_type).
+         
+         [*web_app_type]: OIDC-приложения типа `Web Application` оптимально подходят для аутентификации пользователей во внешних веб-приложениях, имеющих серверную часть (бэкенд), в которой может безопасно храниться секрет приложения. Подробнее о типах OIDC-приложений читайте в разделе [Типы OIDC-приложений в Yandex Identity Hub](../../../organization/concepts/applications/oidc.md#oidc-application-types).
       1. В поле **Имя** задайте имя создаваемого приложения: `jenkins-oidc`.
       1. В поле **Каталог** выберите каталог, в котором будет создан OAuth-клиент для приложения.
       1. (Опционально) В поле **Описание** задайте описание приложения.
@@ -38,16 +41,16 @@
          1. Нажмите **Enter**.
       1. Нажмите **Создать приложение**.
    1. В открывшемся окне на вкладке **Обзор** в блоке **Конфигурация поставщика удостоверений (IdP)** скопируйте и сохраните значение параметров `ClientID` и `OpenID Configuration`.
-   1. Создайте [секрет приложения](../../../organization/concepts/applications.md#oidc-secret):
+   1. Создайте [секрет приложения](../../../organization/concepts/applications/oidc.md#oidc-secret):
 
-      Создайте секрет приложения (действие доступно только для приложений [типа](../../../organization/concepts/applications.md#oidc-application-types) `Web Application`):
+      Создайте секрет приложения (действие доступно только для приложений [типа](../../../organization/concepts/applications/oidc.md#oidc-application-types) `Web Application`):
       
       1. В блоке **Секреты приложения** нажмите кнопку **Добавить секрет** и в открывшемся окне:
       
           1. (Опционально) Добавьте произвольное описание создаваемого секрета.
           1. Нажмите **Создать**.
       
-      В окне отобразится сгенерированный [секрет приложения](../../../organization/concepts/applications.md#oidc-secret). Сохраните полученное значение.
+      В окне отобразится сгенерированный [секрет приложения](../../../organization/concepts/applications/oidc.md#oidc-secret). Сохраните полученное значение.
       
       {% note warning %}
       

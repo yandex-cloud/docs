@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
 
 Максимальное количество подключений определяется настройкой [Max connections](../../concepts/settings-list.md#setting-max-connections), которая [зависит от класса хостов](../../concepts/settings-list.md#settings-instance-dependent).
 
-Подробнее см. в разделе [{#T}](../../concepts/network.md).
+Подробнее в разделе [{#T}](../../concepts/network.md).
 
 
 ## Настройка групп безопасности {#configure-security-groups}
@@ -78,7 +78,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-Подробнее о группах безопасности см. в разделе [{#T}](../../concepts/network.md#security-groups).
+Подробнее о группах безопасности смотрите в разделе [{#T}](../../concepts/network.md#security-groups).
 
 
 ## Получение SSL-сертификата {#get-ssl-cert}

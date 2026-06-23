@@ -3,7 +3,7 @@
 
 [1С:Предприятие](https://scloud.ru/1s-predpriyatie/) — это технологическая платформа, на которой разрабатываются программы 1С для автоматизации учета и бизнеса. Платформа поддерживает [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC) — аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в 1С:Предприятие с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications.md#oidc) в Yandex Identity Hub, настройте его на стороне Yandex Identity Hub и на стороне 1С:Предприятие.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в 1С:Предприятие с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications/oidc.md) в Yandex Identity Hub, настройте его на стороне Yandex Identity Hub и на стороне 1С:Предприятие.
 
 Управлять OIDC-приложениями может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-oauthApplications-admin) `organization-manager.oauthApplications.admin` или выше.
 
@@ -29,6 +29,9 @@
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
     1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
         1. Выберите метод единого входа **OIDC (OpenID Connect)**.
+        1. В поле **Тип приложения** выберите тип [Web Application](*web_app_type).
+           
+           [*web_app_type]: OIDC-приложения типа `Web Application` оптимально подходят для аутентификации пользователей во внешних веб-приложениях, имеющих серверную часть (бэкенд), в которой может безопасно храниться секрет приложения. Подробнее о типах OIDC-приложений читайте в разделе [Типы OIDC-приложений в Yandex Identity Hub](../../../organization/concepts/applications/oidc.md#oidc-application-types).
         1. В поле **Имя** укажите `enterprise-1c-oidc-app`.
         1. В поле **Каталог** выберите каталог, в котором будет создан OAuth-клиент для приложения.
         1. Нажмите **Создать приложение**.
@@ -155,14 +158,14 @@
         * `ClientID` — уникальный идентификатор приложения.
         * `OpenID Configuration` — URL с конфигурацией всех необходимых для настройки интеграции параметров.
 
-  1. Создайте секрет приложения (действие доступно только для приложений [типа](../../../organization/concepts/applications.md#oidc-application-types) `Web Application`):
+  1. Создайте секрет приложения (действие доступно только для приложений [типа](../../../organization/concepts/applications/oidc.md#oidc-application-types) `Web Application`):
      
      1. В блоке **Секреты приложения** нажмите кнопку **Добавить секрет** и в открывшемся окне:
      
          1. (Опционально) Добавьте произвольное описание создаваемого секрета.
          1. Нажмите **Создать**.
      
-     В окне отобразится сгенерированный [секрет приложения](../../../organization/concepts/applications.md#oidc-secret). Сохраните полученное значение.
+     В окне отобразится сгенерированный [секрет приложения](../../../organization/concepts/applications/oidc.md#oidc-secret). Сохраните полученное значение.
      
      {% note warning %}
      
@@ -236,14 +239,17 @@
   1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное OIDC-приложение.
   1. Справа сверху нажмите  ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать** и в открывшемся окне:
+
       1. В поле **Redirect URI** укажите URL информационной базы 1С, по которому будет обрабатываться ответ от OIDC-приложения, в форме:
 
-        ```text
-        <домен_публикации_ИБ_1С>/<имя_приложения>/authform.html
-        ```
+          ```text
+          <домен_публикации_ИБ_1С>/<имя_приложения>/authform.html
+          ```
 
-        Например: `https://your.company.ru/your-app/authform.html`.
-
+          Например: `https://your.company.ru/your-app/authform.html`.
+      1. В блоке **Безопасность OAuth/OIDC** отключите опцию **Требовать PKCE**, чтобы приложение Yandex Identity Hub при обмене данными не требовало от внешнего приложения использовать расширение безопасности [PKCE](*pkce_info).
+         
+         [*pkce_info]: PKCE — это расширение безопасности, применяемое в стандарте OAuth 2.0 с целью минимизировать риски перехвата аутентификационных данных. Подробнее читайте в разделе [PKCE](../../../organization/concepts/applications/oidc.md#pkce).
       1. Нажмите **Сохранить**.
 
 - CLI {#cli}

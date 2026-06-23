@@ -3,7 +3,7 @@
 
 [Grafana Cloud](https://grafana.com/products/cloud/) — это управляемая облачная платформа для мониторинга и наблюдаемости (observability), которая включает в себя Grafana, Prometheus, Loki и другие инструменты визуализации и анализа данных. Grafana Cloud поддерживает [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC) аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Grafana Cloud с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications.md#oidc) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне Grafana Cloud.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Grafana Cloud с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications/oidc.md) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне Grafana Cloud.
 
 Управлять OIDC-приложениями может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-oauthApplications-admin) `organization-manager.oauthApplications.admin` или выше.
 
@@ -44,6 +44,9 @@
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
     1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
         1. Выберите метод единого входа **OIDC (OpenID Connect)**.
+        1. В поле **Тип приложения** выберите тип [Web Application](*web_app_type).
+           
+           [*web_app_type]: OIDC-приложения типа `Web Application` оптимально подходят для аутентификации пользователей во внешних веб-приложениях, имеющих серверную часть (бэкенд), в которой может безопасно храниться секрет приложения. Подробнее о типах OIDC-приложений читайте в разделе [Типы OIDC-приложений в Yandex Identity Hub](../../../organization/concepts/applications/oidc.md#oidc-application-types).
         1. В поле **Имя** задайте имя создаваемого приложения: `grafana-cloud-oidc-app`.
         1. В поле **Каталог** выберите каталог, в котором будет создан OAuth-клиент для приложения.
         1. (Опционально) В поле **Описание** задайте описание приложения.
@@ -174,14 +177,14 @@
         * `ClientID` — уникальный идентификатор приложения.
         * `OpenID Configuration` — URL с конфигурацией всех необходимых для настройки интеграции параметров.
 
-  1. Создайте секрет приложения (действие доступно только для приложений [типа](../../../organization/concepts/applications.md#oidc-application-types) `Web Application`):
+  1. Создайте секрет приложения (действие доступно только для приложений [типа](../../../organization/concepts/applications/oidc.md#oidc-application-types) `Web Application`):
      
      1. В блоке **Секреты приложения** нажмите кнопку **Добавить секрет** и в открывшемся окне:
      
          1. (Опционально) Добавьте произвольное описание создаваемого секрета.
          1. Нажмите **Создать**.
      
-     В окне отобразится сгенерированный [секрет приложения](../../../organization/concepts/applications.md#oidc-secret). Сохраните полученное значение.
+     В окне отобразится сгенерированный [секрет приложения](../../../organization/concepts/applications/oidc.md#oidc-secret). Сохраните полученное значение.
      
      {% note warning %}
      
@@ -258,14 +261,14 @@
   1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное OIDC-приложение.
   1. Справа сверху нажмите  ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать** и в открывшемся окне:
+
       1. В поле **Redirect URI** укажите эндпоинт аутентификации для вашего экземпляра Grafana Cloud в форме:
 
-        ```text
-        <URL_экземпляра_Grafana_Cloud>/login/generic_oauth
-        ```
+          ```text
+          <URL_экземпляра_Grafana_Cloud>/login/generic_oauth
+          ```
 
-        Например: `https://your-org.grafana.net/login/generic_oauth`.
-
+          Например: `https://your-org.grafana.net/login/generic_oauth`.
       1. Нажмите **Сохранить**.
 
 - CLI {#cli}
@@ -317,6 +320,7 @@
 1. В поле **Client Secret** укажите значение, скопированное при настройке OIDC-приложения в Yandex Identity Hub в блоке **Секреты приложения**.
 1. Нажмите **Enter OpenID Connect Discovery URL** и в открывшемся окне укажите URL, скопированный при настройке OIDC-приложения в Yandex Identity Hub в поле **OpenID Configuration**.
 1. **Allow sign up**: активируйте для автоматического создания пользователей при первом входе.
+1. Разверните блок **Extra security measures** и включите опцию **Use PKCE**.
 
 ### Добавьте пользователя {#add-user}
 

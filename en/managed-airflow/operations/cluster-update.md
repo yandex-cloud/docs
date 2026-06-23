@@ -8,7 +8,7 @@ keywords:
   - Airflow
 ---
 
-# Updating a {{ AF }} cluster
+# Updating an {{ AF }} cluster
 
 After creating a cluster, you can edit its basic and advanced settings.
 
@@ -19,7 +19,7 @@ After creating a cluster, you can edit its basic and advanced settings.
     To change the cluster settings:
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
 
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
 
@@ -79,7 +79,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. View the description of the CLI command for updating a cluster:
+    1. See the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-af }} cluster update --help
@@ -133,7 +133,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -171,7 +171,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -340,7 +340,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         * `deletionProtection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
-            Even if it is enabled, one can still connect to the cluster manually and delete it.
+            Even with deletion protection on, one can still connect to the cluster manually and delete it.
 
         * `serviceAccountId`: ID of the service account with the `managed-airflow.integrationProvider` [role](../../iam/concepts/access-control/roles.md). The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
 
@@ -375,7 +375,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -466,7 +466,7 @@ After creating a cluster, you can edit its basic and advanced settings.
         Where:
 
         * `cluster_id`: Cluster ID. You can get it with the [list of clusters in the folder](cluster-list.md#list-clusters).
-        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -563,7 +563,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
-            Even if it is enabled, one can still connect to the cluster manually and delete it.
+            Even with deletion protection on, one can still connect to the cluster manually and delete it.
 
         * `service_account_id`: ID of the service account with the `managed-airflow.integrationProvider` [role](../../iam/concepts/access-control/roles.md). The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
 

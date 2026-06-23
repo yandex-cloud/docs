@@ -10,7 +10,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Деактивируйте приложение {#deactivate}
 
-Если вам требуется временно отключить возможность аутентификации пользователей вашей [организации](../../concepts/organization.md) во внешнем приложении с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), деактивируйте соответствующее [SAML-приложение](../../concepts/applications.md#saml) в {{ org-full-name }}:
+Если вам требуется временно отключить возможность аутентификации пользователей вашей [организации](../../concepts/organization.md) во внешнем приложении с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), деактивируйте соответствующее [SAML-приложение](../../concepts/applications/saml.md) в {{ org-full-name }}:
 
 {% list tabs group=instructions %}
 
@@ -186,5 +186,5 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](./saml-create.md)
 * [{#T}](./saml-update.md)
 * [{#T}](../add-account.md)
-* [{#T}](../../concepts/applications.md#saml)
+* [{#T}](../../concepts/applications/saml.md)
 * [{#T}](../manage-groups.md)

@@ -14,7 +14,7 @@ You can get detailed information about each {{ SPRK }} cluster you created.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
 
 - CLI {#cli}
 
@@ -40,7 +40,7 @@ You can get detailed information about each {{ SPRK }} cluster you created.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -68,15 +68,15 @@ You can get detailed information about each {{ SPRK }} cluster you created.
 
 {% endlist %}
 
-## Getting detailed information about a cluster {#get-cluster}
+## Getting cluster details {#get-cluster}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Click the name of your cluster.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. Click the cluster name.
 
 - CLI {#cli}
 
@@ -94,7 +94,7 @@ You can get detailed information about each {{ SPRK }} cluster you created.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -116,7 +116,7 @@ You can get detailed information about each {{ SPRK }} cluster you created.
            yandex.cloud.spark.v1.ClusterService.Get
        ```
 
-       You can get the cluster ID from the [list of clusters in your folder](#list-clusters).
+       You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.spark.v1.Cluster) to make sure your request was successful.
 
@@ -124,7 +124,7 @@ You can get detailed information about each {{ SPRK }} cluster you created.
 
 ## Viewing operations with clusters {#list-operations}
 
-All actions with {{ SPRK }} clusters are logged as a list of operations. Each operation gets its own unique ID.
+All actions with {{ SPRK }} clusters are logged as a list of operations. Each operation gets an ID.
 
 ### Getting a list of operations {#get-operations}
 
@@ -134,13 +134,13 @@ All actions with {{ SPRK }} clusters are logged as a list of operations. Each op
 
     To get a list of operations for a {{ SPRK }} cluster:
 
-    1. In the [management console]({{ link-console-main }}), open the folder containing your cluster.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
     1. Select the cluster.
     1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the cluster you selected.
 
-        You will see the list of operations with this cluster.
+        This will open the list of operations with the cluster.
 
 - CLI {#cli}
 
@@ -166,7 +166,7 @@ All actions with {{ SPRK }} clusters are logged as a list of operations. Each op
 
     You can get the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter. For example:
+    By default, information about operations is output as text. To get more details, use `--format` to specify the `yaml` or `json` output format. For example:
 
     ```bash
     {{ yc-mdb-sp }} cluster list-operations <cluster_name_or_ID> --format yaml
@@ -189,7 +189,7 @@ All actions with {{ SPRK }} clusters are logged as a list of operations. Each op
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -211,7 +211,7 @@ All actions with {{ SPRK }} clusters are logged as a list of operations. Each op
            yandex.cloud.spark.v1.ClusterService.ListOperations
        ```
 
-       You can get the cluster ID from the [list of clusters in your folder](#list-clusters).
+       You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.spark.v1.ListClusterOperationsResponse) to make sure your request was successful.
 

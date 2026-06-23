@@ -2,7 +2,7 @@
 
 [VK Cloud](https://cloud.vk.com/) — российская облачная платформа, предоставляющая IaaS- и PaaS-сервисы, инструменты для работы с данными и AI/ML, а также решения для построения облачной инфраструктуры. VK Cloud поддерживает аутентификацию пользователей через федерацию удостоверений по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML).
 
-Чтобы пользователи вашей [организации](../../../concepts/organization.md) могли аутентифицироваться в VK Cloud с помощью технологии единого входа по стандарту SAML, создайте [SAML-приложение](../../../concepts/applications.md#saml) в Yandex Identity Hub и настройте его на стороне Yandex Cloud и на стороне VK Cloud.
+Чтобы пользователи вашей [организации](../../../concepts/organization.md) могли аутентифицироваться в VK Cloud с помощью технологии единого входа по стандарту SAML, создайте [SAML-приложение](../../../concepts/applications/saml.md) в Yandex Identity Hub и настройте его на стороне Yandex Cloud и на стороне VK Cloud.
 
 Управлять SAML-приложениями может пользователь, которому назначена [роль](../../../security/index.md#organization-manager-samlApplications-admin) `organization-manager.samlApplications.admin` или выше.
 

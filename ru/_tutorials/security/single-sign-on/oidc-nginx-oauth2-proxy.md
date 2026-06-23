@@ -4,7 +4,7 @@
 
 В данном руководстве вы воспользуетесь утилитой [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/) в связке с прокси-сервером, чтобы настроить интеграцию простейшего приложения с {{ org-full-name }} и организовать доступ к этому приложению только для заданных пользователей {{ org-full-name }} с помощью технологии единого входа по стандарту [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC).
 
-В качестве прокси-сервера в данном руководстве используется [nginx](https://nginx.org/ru/), а в качестве тестового приложения — статическая HTML-страница. Чтобы ваши пользователи {{ org-full-name }} могли получить доступ к тестовому приложению, вы создадите и настроите [OIDC-приложение](../../../organization/concepts/applications.md#oidc). Дополнительно вам потребуется [виртуальная машина](../../../compute/concepts/vm.md) {{ compute-full-name }}, на которой будут запущены `nginx` и `OAuth2 Proxy`, а также размещено тестовое приложение. Кроме этого, для реализации защищенного доступа к тестовому приложению вам понадобятся доменное имя и выпущенный для него [SSL-сертификат](../../../glossary/ssl-certificate.md).
+В качестве прокси-сервера в данном руководстве используется [nginx](https://nginx.org/ru/), а в качестве тестового приложения — статическая HTML-страница. Чтобы ваши пользователи {{ org-full-name }} могли получить доступ к тестовому приложению, вы создадите и настроите [OIDC-приложение](../../../organization/concepts/applications/oidc.md). Дополнительно вам потребуется [виртуальная машина](../../../compute/concepts/vm.md) {{ compute-full-name }}, на которой будут запущены `nginx` и `OAuth2 Proxy`, а также размещено тестовое приложение. Кроме этого, для реализации защищенного доступа к тестовому приложению вам понадобятся доменное имя и выпущенный для него [SSL-сертификат](../../../glossary/ssl-certificate.md).
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -28,6 +28,7 @@
   1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
 
       1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}**.
+      1. {% include [org-oidc-app-select-web-type-step](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-step.md) %}
       1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения: `website-oidc-app`.
       1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-folder_rANM4 }}** выберите каталог, в котором будет создан OAuth-клиент для приложения.
       1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** задайте описание приложения.
@@ -38,7 +39,7 @@
           1. Нажмите **Enter**.
       1. Нажмите **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
   1. В открывшемся окне на вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте и сохраните значение параметра `{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}` с уникальным идентификатором OAuth-клиента. Это значение понадобится позднее при настройке утилиты `OAuth2 Proxy`.
-  1. Создайте [секрет приложения](../../../organization/concepts/applications.md#oidc-secret):
+  1. Создайте [секрет приложения](../../../organization/concepts/applications/oidc.md#oidc-secret):
   
       {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
 
@@ -556,7 +557,7 @@
         * `cookie_secret` — секрет cookie, сгенерированный и сохраненный ранее.
         * `email_domains` — список доменов в адресе электронной почты, для которых будет разрешена аутентификация пользователя {{ org-full-name }} в тестовом приложении.
 
-            Утилита `OAuth2 Proxy` проверяет домен электронной почты, указанной в поле `{{ ui-key.yacloud_org.page.user.field_user-email }}` настроек пользователя в {{ org-full-name }} ([атрибут](../../../organization/concepts/applications.md#oidc-attributes) `email`).
+            Утилита `OAuth2 Proxy` проверяет домен электронной почты, указанной в поле `{{ ui-key.yacloud_org.page.user.field_user-email }}` настроек пользователя в {{ org-full-name }} ([атрибут](../../../organization/concepts/applications/oidc.md#oidc-attributes) `email`).
 
             В поле `email_domains` укажите домен электронной почты того пользователя, которого вы добавили ранее в ваше OIDC-приложение. Если в OIDC-приложение вы добавляли группу пользователей, укажите домен электронной почты того пользователя группы, от имени которого вы будете тестировать аутентификацию. Вы можете указать несколько доменов через запятую.
 

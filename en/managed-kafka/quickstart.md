@@ -1,6 +1,6 @@
 ---
 title: Getting started with {{ mkf-full-name }}
-description: Follow this guide to set up and configure an {{ KF }} cluster.
+description: In this guide, you will learn how to create and configure a {{ KF }} cluster.
 ---
 
 # Getting started with {{ mkf-name }}
@@ -20,7 +20,7 @@ To get started:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mkf.editor }} role or higher](security/index.md#roles-list) to your {{ yandex-cloud }} account. These roles allow creating a cluster.
+1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mkf.editor }} role (or higher)](security/index.md#roles-list) to your {{ yandex-cloud }} account. These roles allow creating a cluster.
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
@@ -51,9 +51,9 @@ To get started:
 
 To create a cluster:
 1. In the management console, select the folder where you want to create a cluster.
-1. [Go to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-1. Configure your cluster and click **{{ ui-key.yacloud.common.create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
+1. Specify the cluster settings and click **{{ ui-key.yacloud.common.create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
 1. Wait until the cluster is ready: its status on the {{ mkf-name }} dashboard will change to `Running`, and its state, to `Alive`. This may take a while.
 
 Then create a topic in the cluster.
@@ -64,8 +64,8 @@ A [topic](concepts/topics.md) is used to group message streams by category. [Pro
 
 To create a topic:
 1. In the management console, select the folder with the cluster.
-1. [Go to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-1. Click the name of the cluster you created earlier and select the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+1. Click the cluster name and select the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
 1. Click **{{ ui-key.yacloud.kafka.button_create-topic }}**.
 1. Specify the topic settings and click **{{ ui-key.yacloud.common.create }}**. For details, see [{#T}](operations/cluster-topics.md).
 
@@ -79,7 +79,7 @@ Learn more about the permissions you get with each role [here](concepts/account-
 
 To create a user:
 1. In the management console, select the folder with the cluster.
-1. [Go to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
 1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
 1. Enter a username and password (from 8 to 128 characters).

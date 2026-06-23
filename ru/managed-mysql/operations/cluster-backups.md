@@ -516,7 +516,7 @@ description: Вы можете создавать резервные копии 
 
   {{ TF }} создаст новый кластер. Базы данных и пользователи будут развернуты из резервной копии.
 
-  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_cluster` смотрите в [документации провайдера]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -731,7 +731,7 @@ description: Вы можете создавать резервные копии 
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_cluster` смотрите в [документации провайдера]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -873,7 +873,7 @@ description: Вы можете создавать резервные копии 
 
         О том, как создать такой файл, читайте в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера {{ mmy-name }} в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+        Полный список доступных для изменения полей конфигурации кластера {{ mmy-name }} смотрите в [документации провайдера]({{ tf-provider-mpg }}).
 
     1. Чтобы задать срок хранения автоматических резервных копий, добавьте к описанию кластера {{ mmy-name }} блок `backup_retain_period_days`:
 
@@ -892,7 +892,7 @@ description: Вы можете создавать резервные копии 
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_cluster` смотрите в [документации провайдера]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 

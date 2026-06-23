@@ -25,6 +25,12 @@
 
 * `receiveBufferSize`: Socket read buffer size (`SO_RCVBUF`) in bytes. The default value is `-1`, unlimited.
 * `sendBufferSize`: Socket write buffer size (`SO_SNDBUF`) in bytes. The default value is `-1`, unlimited.
-* `targetServerType`: Defines which server type to connect to. The possible values are `any` (default), `master`, `primary`, `slave`, `secondary`, `preferSlave`, `preferSecondary`, and `preferPrimary`. We do not recommend using the `master`, `slave`, and `preferSlave` values, as they have been deprecated and replaced with `primary`, `secondary`, and `preferSecondary`, respectively.
+* `targetServerType`: Defines which server type to connect to. The possible values are:
+
+    * `any` (default)
+    * `primary`
+    * `secondary`
+    * `preferPrimary`
+    * `preferSecondary`
 
 {% endcut %}

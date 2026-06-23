@@ -1,6 +1,6 @@
 ---
 title: How to manage MapReduce jobs in {{ dataproc-full-name }}
-description: In this tutorial, you will learn how to manage MapReduce jobs in {{ dataproc-full-name }}.
+description: In this guide, you will learn how to manage MapReduce jobs in {{ dataproc-full-name }}.
 ---
 
 # Managing MapReduce jobs
@@ -14,7 +14,7 @@ description: In this tutorial, you will learn how to manage MapReduce jobs in {{
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
     1. Click **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
     1. Optionally, enter a name for the job.
@@ -45,7 +45,7 @@ description: In this tutorial, you will learn how to manage MapReduce jobs in {{
 
     To create a job:
 
-    1. View the description of the CLI create command for `Mapreduce` jobs:
+    1. See the description of the CLI command for creating `Mapreduce` jobs:
 
         ```bash
         {{ yc-dp }} job create-mapreduce --help
@@ -84,15 +84,15 @@ description: In this tutorial, you will learn how to manage MapReduce jobs in {{
 
 {% endlist %}
 
-## Cancel a job {#cancel}
+## Canceling a job {#cancel}
 
 {% include [jobs-cancel](../../_includes/data-processing/jobs-cancel.md) %}
 
-## Get a list of jobs {#list}
+## Getting a list of jobs {#list}
 
 {% include [jobs-list](../../_includes/data-processing/jobs-list.md) %}
 
-## Get general info about a job {#get-info}
+## Getting general info about a job {#get-info}
 
 {% include [jobs-get-info](../../_includes/data-processing/jobs-get-info.md) %}
 

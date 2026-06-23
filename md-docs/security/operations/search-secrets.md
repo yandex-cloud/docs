@@ -16,7 +16,7 @@ Yandex Cloud ищет следующие типы секретов в откры
 
 * [Серверные ключи SmartCaptcha](../../smartcaptcha/concepts/keys.md).
 * [Refresh-токены](../../iam/concepts/authorization/refresh-token.md).
-* [Секреты OIDC-приложений](../../organization/concepts/applications.md#oidc-secret).
+* [Секреты OIDC-приложений](../../organization/concepts/applications/oidc.md#oidc-secret).
 
 Yandex Cloud подключен к следующим программам поиска секретов:
 

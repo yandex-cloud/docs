@@ -1,21 +1,3 @@
-title: '{{ mtr-full-name }}'
-description:
-  - >-
-    With {{ mtr-name }}, you can manage {{ TR }}, a distributed SQL analysis
-    engine, in the {{ yandex-cloud }} infrastructure.
-  - >-
-    The {{ yandex-cloud }} infrastructure is <a
-    href="/docs/security/conform">protected</a> pursuant to the following
-    standards: <ul> <li>Russian Federal Law No. 152-FZ on Personal Data</li>
-    <li>Payment Card Industry Data Security Standard (PCI DSS).</li> <li>ISO
-    27001.</li> <li>ISO 27017.</li> <li>ISO 27018.</li> <li>GOST
-    57580.1-2017.</li> </ul>
-  - >-
-    This service is subject to a <a
-    href="https://yandex.com/legal/cloud_sla/en/">service level agreement</a>.
-    The service level is set out in the document titled <a
-    href="https://yandex.com/legal/cloud_sla_trino/en/">Yandex Managed Service
-    for Trino Service Level</a>.
 meta:
   title: '{{ mtr-full-name }}'
   description: >-
@@ -24,7 +6,7 @@ meta:
   keywords:
     - keyword: '{{ mtr-name }}'
     - keyword: '{{ mtr-full-name }}'
-    - keyword: Service {{ mtr-name }}
+    - keyword: '{{ mtr-name }}'
     - keyword: '{{ TR }} in {{ yandex-cloud }}'
     - keyword: '{{ TR }} cluster'
     - keyword: '{{ TR }} server clusters'
@@ -32,22 +14,120 @@ meta:
     - keyword: Trino engine
     - keyword: SQL engine
     - keyword: '{{ TR }} in cloud'
-links:
-  - title: Getting started
-    description: Create your first {{ TR }} cluster
-    href: quickstart
-  - title: Step-by-step guides
-    description: How to perform routine operations
-    href: operations/
-  - title: Quotas and limits
-    description: Technical and organizational limitations
-    href: concepts/limits
-  - title: Access management
-    description: Configure access permissions for the service
-    href: security
-  - title: Pricing policy
-    description: Service pricing and cost calculation
-    href: pricing
-  - title: Release notes
-    description: Releases and updates
-    href: release-notes
+blocks:
+  - type: card-layout-block
+    title: Yandex Managed Service for Trino
+    description: >-
+      With Managed Service for Trino, you can manage Trino, a distributed SQL
+      analysis engine, in the Yandex Cloud infrastructure.
+    size: l
+    colSizes:
+      all: 12
+      lg: 4
+      md: 6
+      sm: 12
+      xl: 4
+    background: ''
+    children:
+      - type: basic-card
+        title: Getting started
+        text: Create your first Trino cluster
+        icon: _assets/icons/rocket.svg
+        urlTitle: Getting started with Yandex Managed Service for Trino
+        url: quickstart
+        controlPosition: content
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Step-by-step guides
+        text: Follow our guides for routine operations
+        icon: _assets/icons/list-ol.svg
+        urlTitle: All step-by-step guides for Yandex Managed Service for Trino
+        url: operations/index
+        controlPosition: content
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Quotas and limits
+        text: Technical and organizational limitations
+        urlTitle: Quotas and limits
+        url: concepts/limits
+        controlPosition: content
+        centered: true
+        animated: false
+        icon: _assets/icons/sliders.svg
+        size: s
+      - type: basic-card
+        title: Manage access
+        text: Configure access permissions for the service
+        urlTitle: Access management in Yandex Managed Service for Trino
+        url: security
+        centered: true
+        controlPosition: content
+        animated: false
+        icon: _assets/icons/persons-lock.svg
+        size: s
+      - type: basic-card
+        title: Pricing policy
+        text: Prices and cost calculation rules
+        urlTitle: Yandex Managed Service for Trino pricing policy
+        url: pricing
+        centered: true
+        controlPosition: content
+        animated: false
+        icon: _assets/icons/calculator.svg
+        size: s
+      - type: basic-card
+        title: Release notes
+        text: Releases and updates
+        urlTitle: Yandex Managed Service for Trino release notes
+        url: release-notes
+        centered: true
+        controlPosition: content
+        animated: false
+        icon: _assets/icons/timeline.svg
+        size: s
+  - type: card-layout-block
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+    background: ''
+    title: Terms of use
+    description: >-
+      This service is subject to a [service level
+      agreement](https://yandex.com/legal/cloud_sla/en/).
+    iconPosition: left
+    children:
+      - type: basic-card
+        title: ''
+        text: >-
+          The Yandex Cloud infrastructure protection complies with the following
+          standards:
+
+          * [Federal Law No. 152-FZ on Personal
+          Data](https://yandex.cloud/en/docs/security/conform#law)
+
+
+          * [GOST
+          57580.1-2017](https://yandex.cloud/en/docs/security/conform#gost)
+
+          * [PCI DSS](https://yandex.cloud/en/docs/security/conform#pci-dss)
+
+          * [ISO standards](https://yandex.cloud/en/docs/security/conform#iso)
+        icon: _assets/icons/file-text.svg
+        centered: true
+        size: s
+      - type: basic-card
+        title: ''
+        text: >-
+          The service level is set out in the document titled
+
+          * [Yandex Managed Service for Trino Service
+          Level](https://yandex.com/legal/cloud_sla_trino/en/)
+        icon: _assets/icons/file-text.svg
+        centered: true
+        size: s
+links: []
