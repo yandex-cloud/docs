@@ -13,7 +13,7 @@
 
 * Добавлена функциональность управления [сессиями](concepts/sessions.md) пользователей: администраторы могут [просматривать](operations/manage-sessions.md#view-sessions) и [завершать](operations/manage-sessions.md#end-sessions) сессии федеративных и локальных пользователей организации.
 * Добавлена настройка срока жизни сессии при [создании](operations/user-pools/create-userpool.md) и [изменении](operations/user-pools/edit-userpool.md) пула пользователей.
-* Добавлен формат `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` для атрибута `NameID` в [SAML-приложениях](concepts/applications.md#saml-attributes).
+* Добавлен формат `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` для атрибута `NameID` в [SAML-приложениях](concepts/applications/saml.md#saml-attributes).
 * Добавлена возможность ограничить использование распространенных паролей в политике пула пользователей.
 
 
@@ -23,7 +23,7 @@
 * Добавлена поддержка дополнительных параметров для привязки политик авторизации к организации.
 
 
-* Расширены возможности настройки атрибута `NameID` в [SAML-приложениях](concepts/applications.md#saml-attributes): теперь можно изменять не только формат, но и значение атрибута. Для формата `email` добавлено значение `SubjectClaims.email`, для формата `persistent` — значения `SubjectClaims.external_id` и `SubjectClaims.employee_id`.
+* Расширены возможности настройки атрибута `NameID` в [SAML-приложениях](concepts/applications/saml.md#saml-attributes): теперь можно изменять не только формат, но и значение атрибута. Для формата `email` добавлено значение `SubjectClaims.email`, для формата `persistent` — значения `SubjectClaims.external_id` и `SubjectClaims.employee_id`.
 * Добавлены атрибуты организационной информации пользователя. Атрибуты доступны при создании и редактировании локальных пользователей в пулах пользователей, [сопоставлении атрибутов SAML-федерации](operations/setup-federation.md#claims-mapping) и на портале [Мой аккаунт](concepts/my-account.md).
 * Исправлена обработка `update_mask` и удаление полей для ресурса `yandex_organizationmanager_idp_userpool` в Terraform.
 
@@ -32,7 +32,7 @@
 ## Февраль 2026 {#february-2026}
 
 * Добавлена настройка [брендирования](concepts/branding.md) страниц аутентификации для внешних приложений.
-* Добавлена поддержка проверки подписи SAML-запросов от поставщика услуг и шифрования SAML-ответов в [SAML-приложениях](concepts/applications.md#saml).
+* Добавлена поддержка проверки подписи SAML-запросов от поставщика услуг и шифрования SAML-ответов в [SAML-приложениях](concepts/applications/saml.md).
 
 
 ## Январь 2026 {#january-2026}

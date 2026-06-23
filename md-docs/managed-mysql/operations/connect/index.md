@@ -18,7 +18,7 @@
 
 Максимальное количество подключений определяется настройкой [Max connections](../../concepts/settings-list.md#setting-max-connections), которая [зависит от класса хостов](../../concepts/settings-list.md#settings-instance-dependent).
 
-Подробнее см. в разделе [Сеть и кластеры в Managed Service for MySQL®](../../concepts/network.md).
+Подробнее в разделе [Сеть и кластеры в Managed Service for MySQL®](../../concepts/network.md).
 
 
 ## Настройка групп безопасности {#configure-security-groups}
@@ -77,7 +77,7 @@
 
 {% endnote %}
 
-Подробнее о группах безопасности см. в разделе [Группы безопасности](../../concepts/network.md#security-groups).
+Подробнее о группах безопасности смотрите в разделе [Группы безопасности](../../concepts/network.md#security-groups).
 
 
 ## Получение SSL-сертификата {#get-ssl-cert}

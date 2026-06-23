@@ -360,7 +360,7 @@
 Также вы можете создать параметры [на уровне чарта](../operations/chart/add-parameter-chart.md).
 
 
-Пример использования параметров в источнике см. в практическом руководстве [Параметризация источников в DataLens](../tutorials/data-from-ch-dataset-parametrization.md).
+Пример использования параметров в источнике приведен в практическом руководстве [Параметризация источников в DataLens](../tutorials/data-from-ch-dataset-parametrization.md).
 
 
 ## Добавить фильтры {#add-filters}

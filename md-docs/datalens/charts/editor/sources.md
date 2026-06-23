@@ -8,7 +8,7 @@
 * [подключение к базам данных через SQL-запрос](tabs.md#sources-database);
 * [подключение через API Connector](tabs.md#sources-api-connector).
 
-Подробнее см. [Sources](tabs.md#sources).
+Подробнее о вкладке [Sources](tabs.md#sources).
 
 
 Editor может работать с несколькими источниками данных.

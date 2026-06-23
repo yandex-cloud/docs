@@ -10,7 +10,7 @@
 
 [*user_groups]: Пользователей Yandex Identity Hub можно объединять в группы, что упрощает управление доступом в Yandex Cloud. Подробнее читайте в разделе [Группы пользователей](../../concepts/groups.md).
 
-[*applications]: SAML- и OIDC-приложения Yandex Identity Hub позволяют пользователям Yandex Cloud аутентифицироваться в сервисах сторонних поставщиков услуг. Подробнее читайте в разделе [Приложения в Yandex Identity Hub](../../concepts/applications.md).
+[*applications]: SAML- и OIDC-приложения Yandex Identity Hub позволяют пользователям Yandex Cloud аутентифицироваться в сервисах сторонних поставщиков услуг. Подробнее читайте в разделе [Приложения в Yandex Identity Hub](../../concepts/applications/index.md).
 
 [*user_accounts]: В Yandex Cloud используются аккаунты пользователей на Яндексе, а также федеративные и локальные пользовательские аккаунты. Подробнее читайте в разделе [Аккаунты в Yandex Cloud](../../../iam/concepts/users/accounts.md).
 
@@ -96,7 +96,7 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Приложения в Yandex Identity Hub](../../concepts/applications.md)
+* [Приложения в Yandex Identity Hub](../../concepts/applications/index.md)
 * [Политики аутентификации в Yandex Identity Hub](../../concepts/authentication-policy.md)
 * [Активировать и деактивировать политику аутентификации](activate-deactivate.md)
 * [Изменить политику аутентификации](update.md)

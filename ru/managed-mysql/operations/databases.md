@@ -158,7 +158,7 @@
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Как создать такой файл описано в разделе [Создание кластера](cluster-create.md).
 
   1. Добавьте ресурс `yandex_mdb_mysql_database`:
 
@@ -179,7 +179,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mysql_database).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_database` смотрите в [документации провайдера]({{ tf-provider-resources-link }}/mdb_mysql_database).
 
 - REST API {#api}
 
@@ -270,7 +270,7 @@
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Как создать такой файл описано в разделе [Создание кластера](cluster-create.md).
 
   1. Удалите ресурс `yandex_mdb_mysql_database` с именем удаляемой базы данных.
 
@@ -282,7 +282,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mysql_database).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_database` смотрите в [документации провайдера]({{ tf-provider-resources-link }}/mdb_mysql_database).
 
 - REST API {#api}
 
@@ -377,7 +377,7 @@
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](./cluster-create.md).
+        Как создать такой файл описано в разделе [Создание кластера](./cluster-create.md).
 
     1. Задайте нужные режимы SQL в значении параметра `sql_mode` блока `mysql_config`, например:
 
@@ -399,7 +399,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mysql_cluster#mysql-config).
+    Подробнее о параметрах ресурса yandex_mdb_mysql_cluster смотрите в [документации провайдера]({{ tf-provider-resources-link }}/mdb_mysql_cluster#mysql-config).
 
     {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -437,7 +437,7 @@
 
           В данном случае передается только один параметр.
 
-      * `configSpec.mysqlConfig_<версия_{{ MY }}>.sqlMode` — список режимов SQL. Доступные режимы см. в документации {{ MY }}:
+      * `configSpec.mysqlConfig_<версия_{{ MY }}>.sqlMode` — список режимов SQL. Доступные режимы приведены в документации {{ MY }}:
 
           * [для версии 5.7](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting);
           * [для версии 8.0](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting).
@@ -489,7 +489,7 @@
 
           В данном случае передается только один параметр.
 
-      * `config_spec.mysql_config_<версия_{{ MY }}>.sql_mode` — список режимов SQL. Доступные режимы см. в документации {{ MY }}:
+      * `config_spec.mysql_config_<версия_{{ MY }}>.sql_mode` — список режимов SQL. Доступные режимы приведены в документации {{ MY }}:
 
           * [для версии 5.7](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting);
           * [для версии 8.0](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting).

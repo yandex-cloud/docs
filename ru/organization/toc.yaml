@@ -348,7 +348,13 @@ items:
       - name: Домены
         href: concepts/domains.md
       - name: Приложения (SSO)
-        href: concepts/applications.md
+        items:
+          - name: Обзор
+            href: concepts/applications/index.md
+          - name: SAML-приложения
+            href: concepts/applications/saml.md
+          - name: OIDC-приложения
+            href: concepts/applications/oidc.md
       - name: '{{ oslogin }}'
         href: concepts/os-login.md
       - name: MFA

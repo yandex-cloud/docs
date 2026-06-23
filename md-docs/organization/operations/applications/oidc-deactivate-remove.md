@@ -5,7 +5,7 @@
 
 ## Деактивируйте приложение {#deactivate}
 
-Если вам требуется временно отключить возможность аутентификации пользователей вашей [организации](../../concepts/organization.md) во внешнем приложении с помощью технологии единого входа по стандарту [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC), деактивируйте соответствующее [OIDC-приложение](../../concepts/applications.md#oidc) в Yandex Identity Hub:
+Если вам требуется временно отключить возможность аутентификации пользователей вашей [организации](../../concepts/organization.md) во внешнем приложении с помощью технологии единого входа по стандарту [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC), деактивируйте соответствующее [OIDC-приложение](../../concepts/applications/oidc.md) в Yandex Identity Hub:
 
 {% list tabs group=instructions %}
 
@@ -248,5 +248,5 @@
 * [Создать OIDC-приложение в Yandex Identity Hub](oidc-create.md)
 * [Изменить OIDC-приложение в Yandex Identity Hub](oidc-update.md)
 * [Добавить пользователя](../add-account.md)
-* [OIDC-приложения](../../concepts/applications.md#oidc)
+* [OIDC-приложения](../../concepts/applications/oidc.md)
 * [Управление группами пользователей](../manage-groups.md)

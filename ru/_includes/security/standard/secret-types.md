@@ -8,4 +8,4 @@
 
 * [Серверные ключи {{ captcha-name }}](../../../smartcaptcha/concepts/keys.md).
 * [Refresh-токены](../../../iam/concepts/authorization/refresh-token.md).
-* [Секреты OIDC-приложений](../../../organization/concepts/applications.md#oidc-secret).
+* [Секреты OIDC-приложений](../../../organization/concepts/applications/oidc.md#oidc-secret).

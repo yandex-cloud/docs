@@ -2,4 +2,4 @@
 
 В чарте добавьте измерение **Measure names** в секцию **Подписи**.
 
-См. [пример отображения легенды](https://storage.yandexcloud.net/doc-files/masure-names.png).
+[Пример отображения легенды](https://storage.yandexcloud.net/doc-files/masure-names.png).

@@ -18,7 +18,7 @@ After creating a cluster, you can edit its basic and advanced settings.
     To change the cluster settings:
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
@@ -35,7 +35,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Edit the cluster settings by changing the value of the relevant field in the configuration file. You can only edit a single setting per cluster resource update operation.
 
@@ -106,7 +106,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -116,7 +116,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -156,7 +156,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         Where:
 
-        * `clusterId`: Cluster ID. You can get it with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        * `clusterId`: Cluster ID. You can get it from the [list of clusters in the folder](cluster-list.md#list-clusters).
         * `updateMask`: Name of the setting you are updating.
         * `name`: Cluster name.
         * `description`: Cluster description.
@@ -190,7 +190,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -233,7 +233,7 @@ After creating a cluster, you can edit its basic and advanced settings.
         Where:
 
         * `cluster_id`: Cluster ID. You can get it with the [list of clusters in the folder](cluster-list.md#list-clusters).
-        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
             In this case, the array consists of a single element.
 

@@ -1,7 +1,7 @@
 # Создать SAML-приложение в Yandex Identity Hub
 
 
-Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться во внешних приложениях с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../concepts/applications.md#saml) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне поставщика услуг.
+Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться во внешних приложениях с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../concepts/applications/saml.md) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне поставщика услуг.
 
 Управлять SAML-приложениями может пользователь, которому назначена [роль](../../security/index.md#organization-manager-samlApplications-admin) `organization-manager.samlApplications.admin` или выше.
 
@@ -823,5 +823,5 @@
 * [Изменить SAML-приложение в Yandex Identity Hub](saml-update.md)
 * [Деактивировать и удалить SAML-приложение в Yandex Identity Hub](saml-deactivate-remove.md)
 * [Добавить пользователя](../add-account.md)
-* [SAML-приложения](../../concepts/applications.md#saml)
+* [SAML-приложения](../../concepts/applications/saml.md)
 * [Управление группами пользователей](../manage-groups.md)

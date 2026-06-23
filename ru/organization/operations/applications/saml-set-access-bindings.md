@@ -6,7 +6,7 @@ description: Из этой статьи вы узнаете, как настро
 # Настроить доступ к SAML-приложению в {{ org-full-name }}
 
 
-Чтобы предоставить доступ к [SAML-приложению](../../concepts/applications.md#saml), назначьте [роли](../../../iam/concepts/access-control/roles.md) субъектам. [Узнайте](../../security/index.md#roles-list), какие роли действуют в сервисе, чтобы назначить нужные.
+Чтобы предоставить доступ к [SAML-приложению](../../concepts/applications/saml.md), назначьте [роли](../../../iam/concepts/access-control/roles.md) субъектам. [Узнайте](../../security/index.md#roles-list), какие роли действуют в сервисе, чтобы назначить нужные.
 
 {% list tabs group=instructions %}
 

@@ -52,7 +52,7 @@ To get started:
 To create a cluster:
 
 1. In the management console, open the folder where you want to create a cluster.
-1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_empty-create }}**.
 1. Configure your cluster and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
 1. When the cluster is ready for operation, its status will change to **Alive**. This may take a while.

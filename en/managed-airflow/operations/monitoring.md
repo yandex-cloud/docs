@@ -3,7 +3,7 @@ title: '{{ maf-full-name }} cluster state monitoring'
 description: In this tutorial, you will learn how to monitor the state of your {{ maf-name }} cluster.
 ---
 
-# {{ maf-name }} cluster state monitoring
+# Cluster health state monitoring {{ maf-name }}
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -13,16 +13,16 @@ Charts are updated once a minute.
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
-## Cluster state monitoring {#monitoring-cluster}
+## Cluster health state monitoring {#monitoring-cluster}
 
-To view detailed information on the state of a {{ maf-name }} cluster:
+To view detailed information on the health state of a {{ maf-name }} cluster:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
 
       The page that opens will display the performance charts for the {{ maf-name }} cluster.
@@ -63,11 +63,11 @@ To configure [cluster](#monitoring-cluster) state indicator alerts:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to configure alerts.
-  1. [Go](../../console/operations/select-service.md#select-service) to ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to set up alerts.
+  1. Navigate to ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select **{{ maf-name }} — Cluster Overview**.
   1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-  1. If the chart shows multiple metrics, select the data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in [this {{ monitoring-full-name }} article](../../monitoring/concepts/querying.md).
+  1. If the chart displays multiple metrics, select the data query for the relevant metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in [this {{ monitoring-full-name }} article](../../monitoring/concepts/querying.md).
   1. Set the `{{ ui-key.yacloud_monitoring.alert.label_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.label_warning }}` threshold values to trigger the alert.
   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
@@ -81,13 +81,13 @@ For a complete list of supported metrics, see [this {{ monitoring-name }} articl
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 
-To view the state and status of a cluster:
+To view the health state and status of a cluster:
 
 1. Open the [folder dashboard]({{ link-console-main }}).
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
 1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
-### Cluster states {#cluster-health}
+### Cluster health states {#cluster-health}
 
 State | Description | Suggested actions
 :--- | :--- | :---

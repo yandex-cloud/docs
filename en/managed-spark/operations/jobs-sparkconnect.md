@@ -20,7 +20,7 @@ Once created, the job will run automatically.
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
     1. Click **{{ ui-key.yacloud.spark.jobs.create_action }}**.
     1. Enter the job name.
@@ -160,18 +160,18 @@ For running SparkConnect jobs, there is an endpoint available you can use to [co
 
 > For example: `sc://connect-api-c9q9veov4uql********-c9q8ml85r1oh********.spark.yandexcloud.net:443`.
 
-## Cancel a job {#cancel}
+## Canceling a job {#cancel}
 
 {% include [jobs-cancel](../../_includes/managed-spark/jobs-cancel.md) %}
 
-## Get a list of jobs {#list}
+## Getting a list of jobs {#list}
 
 {% include [jobs-list](../../_includes/managed-spark/jobs-list.md) %}
 
-## Get general info about a job {#get-info}
+## Getting general info about a job {#get-info}
 
 {% include [jobs-get-info](../../_includes/managed-spark/jobs-get-info.md) %}
 
-## Get job execution logs {#get-logs}
+## Getting job execution logs {#get-logs}
 
 {% include [jobs-get-logs](../../_includes/managed-spark/jobs-get-logs.md) %}

@@ -5,7 +5,7 @@
 
 ## Измените базовые настройки приложения {#update-basic-settings}
 
-Чтобы изменить базовые настройки [SAML-приложения](../../concepts/applications.md#saml):
+Чтобы изменить базовые настройки [SAML-приложения](../../concepts/applications/saml.md):
 
 {% list tabs group=instructions %}
 
@@ -960,5 +960,5 @@
 * [Создать SAML-приложение в Yandex Identity Hub](saml-create.md)
 * [Деактивировать и удалить SAML-приложение в Yandex Identity Hub](saml-deactivate-remove.md)
 * [Добавить пользователя](../add-account.md)
-* [SAML-приложения](../../concepts/applications.md#saml)
+* [SAML-приложения](../../concepts/applications/saml.md)
 * [Управление группами пользователей](../manage-groups.md)

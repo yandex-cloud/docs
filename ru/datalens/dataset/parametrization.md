@@ -30,7 +30,7 @@ description: Параметризация источников датасета 
 
 
 
-Пример использования параметров в источнике см. в практическом руководстве [{#T}](../tutorials/data-from-ch-dataset-parametrization.md).
+Пример использования параметров в источнике приведен в практическом руководстве [{#T}](../tutorials/data-from-ch-dataset-parametrization.md).
 
    
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

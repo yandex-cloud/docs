@@ -32,7 +32,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ SPRK }} cluster.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
@@ -59,7 +59,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        * Driver configuration: Number of driver hosts and [their class](../concepts/instance-types.md). It can be either fixed or autoscalable.
        * Executor configuration: Number of executor hosts and [their class](../concepts/instance-types.md). It can be either fixed or autoscalable.
 
-    1. If needed, configure advanced cluster settings:
+    1. If needed, configure the advanced cluster settings:
         
         1. **{{ ui-key.yacloud.mdb.forms.title_pip-packages }}** and **{{ ui-key.yacloud.mdb.forms.title_deb-packages }}**: Pip and deb package names for installing additional libraries and applications.
            
@@ -235,7 +235,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
     
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
     

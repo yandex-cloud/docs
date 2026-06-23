@@ -7,4 +7,4 @@
 1. В списке **Другие программы и сервисы** выберите {{ datalens-short-name }}.
 1. Нажмите **Удалить**.
 
-После отзыва токена подключения, в которых он использовался, перестанут работать (см. ошибку [{#T}](../../datalens/troubleshooting/errors/ERR-DS_API-SOURCE_ACCESS_DENIED-INVALID_TOKEN.md)).
+После отзыва токена подключения, в которых он использовался, перестанут работать (подробнее об ошибке [{#T}](../../datalens/troubleshooting/errors/ERR-DS_API-SOURCE_ACCESS_DENIED-INVALID_TOKEN.md)).

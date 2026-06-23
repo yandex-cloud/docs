@@ -2,7 +2,7 @@
 
 [Selectel](https://selectel.ru/) — это провайдер облачной инфраструктуры и услуг дата-центров, предоставляющий выделенные серверы, облачные платформы и сервисы хранения данных. Selectel поддерживает SAML-аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Selectel с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне Selectel.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Selectel с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications/saml.md) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне Selectel.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 

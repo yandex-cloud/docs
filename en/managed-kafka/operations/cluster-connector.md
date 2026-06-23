@@ -23,7 +23,7 @@ You can:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Select the cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
 
 - CLI {#cli}
@@ -106,7 +106,7 @@ You can:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Select the cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. Click the connector name.
 
@@ -189,7 +189,7 @@ You can:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Select the cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. Click **{{ ui-key.yacloud.kafka.button_create-connector }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify:
@@ -924,8 +924,8 @@ Specify the Iceberg Sink connector parameters as follows:
   * **{{ ui-key.yacloud.kafka.field_connector-topics-source }}**: Select the topic source from which the data will be transferred to Iceberg tables:
      * **Topic list**: Comma-separated topic names.
      * **Topic Regex**: A regular expression for selecting topics. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
-  * **{{ ui-key.yacloud.kafka.field_connector-table-routing }}**: Select a rule for routing each message from an {{ KF }} topic to Iceberg tables:
-     * **{{ ui-key.yacloud.kafka.field_connector-table-routing-static }}**: Destination tables are predetermined. Each topic, along with all its messages, will be routed to a separate Iceberg table. 
+  * **{{ ui-key.yacloud.kafka.field_connector-table-routing }}**: Select the rule for routing each message from an {{ KF }} topic to Iceberg tables:
+     * **{{ ui-key.yacloud.kafka.field_connector-table-routing-static }}**: Destination tables are predetermined. Each topic, with all its messages, will be routed to a separate Iceberg table. 
         
         In the **{{ ui-key.yacloud.kafka.field_connector-static-tables }}** field, list the names of the Iceberg tables separated by commas.
     
@@ -944,20 +944,20 @@ Specify the Iceberg Sink connector parameters as follows:
      * **{{ ui-key.yacloud.kafka.field_connector-access-key-id }}**, **{{ ui-key.yacloud.kafka.field_connector-secret-access-key }}**: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md). 
 
   * Optionally, under **{{ ui-key.yacloud.kafka.section_iceberg-optional-settings }}**:
-     * **{{ ui-key.yacloud.kafka.section_iceberg-tables-config }}** section:
+     * Section **{{ ui-key.yacloud.kafka.section_iceberg-tables-config }}**:
         * The default branch name is **{{ ui-key.yacloud.kafka.field_connector-default-commit-branch }}**. The connector will commit data to this branch of the Iceberg table. The default value is `main`.
         * **{{ ui-key.yacloud.kafka.field_connector-default-id-columns }}**: Comma-separated list of default columns that define the ID row in Iceberg tables (primary key). This parameter is required when UPSERT mode is enabled.
-        * **{{ ui-key.yacloud.kafka.field_connector-default-partition-by }}**: Comma-separated list of columns or transformation expressions for partitioning data in the Iceberg table. It defines the physical placement of data to streamline queries, e.g., `date`, `year`, `month`, `year (timestamp)`, `month (timestamp)`, `days (timestamp)`, and `bucket (16, user_id)`.
+        * **{{ ui-key.yacloud.kafka.field_connector-default-partition-by }}**: Comma-separated list of columns or transformation expressions for partitioning data in the Iceberg table. Defines the physical placement of data to optimize queries, e.g., `date`, `year`, `month`, `year (timestamp)`, `month (timestamp)`, `days (timestamp)`, and `bucket (16, user_id)`.
         * **{{ ui-key.yacloud.kafka.field_connector-evolve-schema-enabled }}**: This setting specifies whether the connector should automatically update the Iceberg table schema if the schema of incoming messages from {{ KF }} changes.
-        * **{{ ui-key.yacloud.kafka.field_connector-schema-force-optional }}**: This setting indicates whether to make all fields of the Iceberg table schema `nullable`, regardless of how they are defined in the incoming message schema.
-        * **{{ ui-key.yacloud.kafka.field_connector-schema-case-insensitive }}**: This setting specifies whether the connector should ignore case when matching the fields of an incoming message to the columns of the Iceberg table.
+        * **{{ ui-key.yacloud.kafka.field_connector-schema-force-optional }}**: This setting indicates whether to make all fields of the Iceberg table schema nullable (`nullable`), regardless of how they are defined in the incoming message schema.
+        * **{{ ui-key.yacloud.kafka.field_connector-schema-case-insensitive }}**: This setting specifies whether the connector should ignore case when matching fields of the incoming message to columns of the Iceberg table.
 
      * Section **{{ ui-key.yacloud.kafka.section_iceberg-control-config }}**:
         * **{{ ui-key.yacloud.kafka.field_connector-group-id-prefix }}**: Prefix for the `Consumer Group ID` that the connector uses when reading from {{ KF }} topics. The default value is `cg-control`.
         * **{{ ui-key.yacloud.kafka.field_connector-commit-interval-ms }}**: Specifies how often the connector commits data to the Iceberg table, milliseconds. The default value is `300000`.
         * **{{ ui-key.yacloud.kafka.field_connector-commit-timeout-ms }}**: Specifies how long the coordinator waits for confirmation from all workers before considering the commit failed, milliseconds. The default value is `30000`.
         * **{{ ui-key.yacloud.kafka.field_connector-commit-threads }}**: Number of threads used to commit data to the Iceberg table.
-        * **{{ ui-key.yacloud.kafka.field_connector-transactional-prefix }}**: Prefix for the `Transactional ID` that the connector uses when writing to {{ KF }} within transactions.
+        * **{{ ui-key.yacloud.kafka.field_connector-transactional-prefix }}**: Prefix for `Transactional ID` that the connector uses when writing to {{ KF }} within transactions.
 
 - CLI {#cli}
 
@@ -974,7 +974,7 @@ Specify the Iceberg Sink connector parameters as follows:
 
   * `--topics`: Comma-separated list of topics whose data will be transferred to Iceberg tables.
   * `--topics-regex`: Regular expression to select topics whose data will be transferred to Iceberg tables. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
-  * `--control-topic`: Name of the management topic used for coordinating and managing data writing to Iceberg tables.
+  * `--control-topic`: Name of the management topic used for coordination and managing the data writing process to Iceberg tables.
   * `--catalog-uri`: URI for connection to the {{ metastore-name }} cluster in `thrift://<host>:<port>` format.
   * `--warehouse`: Root directory for storing managed table data in S3 in `s3a://bucket-name/path/to/warehouse` format.
   * `--access-key-id`, `--secret-access-key`: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
@@ -987,15 +987,15 @@ Specify the Iceberg Sink connector parameters as follows:
   * `--route-field`: Field in the message that determines the target table for dynamic routing.
   * The default branch name is `--default-commit-branch`. The connector will commit data to this branch of the Iceberg table. The default value is `main`.
   * `--default-id-columns`: Comma-separated list of default columns that define the ID row in Iceberg tables (primary key). This parameter is required when UPSERT mode is enabled.
-  * `--default-partition-by`: Comma-separated list of columns or transformation expressions for partitioning data in the Iceberg table. It defines the physical placement of data to streamline queries, e.g., `date`, `year`, `month`, `year (timestamp)`, `month (timestamp)`, `days (timestamp)`, and `bucket (16, user_id)`.
+  * `--default-partition-by`: Comma-separated list of columns or transformation expressions for partitioning data in the Iceberg table. Defines the physical placement of data to optimize queries, e.g., `date`, `year`, `month`, `year (timestamp)`, `month (timestamp)`, `days (timestamp)`, and `bucket (16, user_id)`.
   * `--evolve-schema-enabled`: This setting specifies whether the connector should automatically update the Iceberg table schema if the schema of incoming messages from {{ KF }} changes. The default value is `false`.
-  * `--schema-force-optional`: This setting indicates whether to make all fields of the Iceberg table schema `nullable`, regardless of how they are defined in the incoming message schema. The default value is `false`.
-  * `--schema-case-insensitive`: This setting specifies whether the connector should ignore case when matching the fields of an incoming message to the columns of the Iceberg table. The default value is `false`.
+  * `--schema-force-optional`: This setting indicates whether to make all fields of the Iceberg table schema nullable (`nullable`), regardless of how they are defined in the incoming message schema. The default value is `false`.
+  * `--schema-case-insensitive`: This setting specifies whether the connector should ignore case when matching fields of the incoming message to columns of the Iceberg table. The default value is `false`.
   * `--group-id-prefix`: Prefix for the `Consumer Group ID` that the connector uses when reading from {{ KF }} topics. The default value is `cg-control`.
   * `--commit-interval-ms`: Specifies how often the connector commits data to the Iceberg table, milliseconds. The default value is `300000`.
   * `--commit-timeout-ms`: Specifies how long the coordinator waits for confirmation from all workers before considering the commit failed, milliseconds. The default value is `30000`.
   * `--commit-threads`: Number of threads used to commit data to the Iceberg table. The default value is `vCPU × 2`.
-  * `--transactional-prefix`: Prefix for the `Transactional ID` that the connector uses when writing to {{ KF }} within transactions.
+  * `--transactional-prefix`: Prefix for `Transactional ID` that the connector uses when writing to {{ KF }} within transactions.
 
 - {{ TF }} {#tf}
 
@@ -1009,7 +1009,7 @@ Specify the Iceberg Sink connector parameters as follows:
 
   * **tasks_max**: Maximum number of concurrently running connector tasks.
   * **connector_config_iceberg_sink**: Section with the Iceberg Sink connector configuration:
-     * **control_topic**: Management topic name used for coordinating and managing data writing to Iceberg tables.
+     * **control_topic**: The management topic name, it is used for coordination and managing the data writing process to Iceberg tables.
      * **topics**: Comma-separated list of topics whose data will be transferred to Iceberg tables.
      * **topics_regex**: Regular expression to select topics whose data will be transferred to Iceberg tables. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
      * `secrets`: Section with additional settings:
@@ -1017,7 +1017,7 @@ Specify the Iceberg Sink connector parameters as follows:
         * **commit_threads**: Number of threads used to commit data to the Iceberg table. The default value is `vCPU × 2`.
         * **commit_timeout_ms**: Specifies how long the coordinator waits for confirmation from all workers before considering the commit failed, milliseconds. The default value is `30000`.
         * **group_id_prefix**: Prefix for the `Consumer Group ID` that the connector uses when reading from {{ KF }} topics. The default value is `cg-control`.
-        * **transactional_prefix**: Prefix for the `Transactional ID` that the connector uses when writing to {{ KF }} within transactions.
+        * **transactional_prefix**: Prefix for `Transactional ID` that the connector uses when writing to {{ KF }} within transactions.
      * **dynamic_tables**: Section with settings for dynamic table routing:
         * **route_field**: Field in the message that determines the target table for dynamic routing.
      * **metastore_connection**: Section with {{ metastore-name }} connection settings:
@@ -1037,21 +1037,21 @@ Specify the Iceberg Sink connector parameters as follows:
      * **tables_config**: Section with table settings:
         * **default_commit_branch**: Default branch name. The connector will commit data to this branch of the Iceberg table. The default value is `main`.
         * **default_id_columns**: Comma-separated list of default columns that define the ID row in Iceberg tables (primary key). This parameter is required when UPSERT mode is enabled.
-        * **default_partition_by**: Comma-separated list of columns or transformation expressions for partitioning data in the Iceberg table. It defines the physical placement of data to streamline queries, e.g., `date`, `year`, `month`, `year (timestamp)`, `month (timestamp)`, `days (timestamp)`, and `bucket (16, user_id)`.
+        * **default_partition_by**: Comma-separated list of columns or transformation expressions for partitioning data in the Iceberg table. Defines the physical placement of data to optimize queries, e.g., `date`, `year`, `month`, `year (timestamp)`, `month (timestamp)`, `days (timestamp)`, and `bucket (16, user_id)`.
         * **evolve_schema_enabled**: This setting specifies whether the connector should automatically update the Iceberg table schema if the schema of incoming messages from {{ KF }} changes. The default value is `false`.
-        * **schema_case_insensitive**: This setting specifies whether the connector should ignore case when matching the fields of an incoming message to the columns of the Iceberg table. The default value is `false`.
-        * **schema_force_optional**: This setting indicates whether to make all fields of the Iceberg table schema `nullable`, regardless of how they are defined in the incoming message schema. The default value is `false`.
+        * **schema_case_insensitive**: This setting specifies whether the connector should ignore case when matching fields of the incoming message to columns of the Iceberg table. The default value is `false`.
+        * **schema_force_optional**: This setting indicates whether to make all fields of the Iceberg table schema nullable (`nullable`), regardless of how they are defined in the incoming message schema. The default value is `false`.
 
 - REST API {#api}
 
-  The Iceberg Sink connector settings are configured in the `connectorSpec.connectorConfigIcebergSink` parameter:
+  The Iceberg Sink connector settings are set in the `connectorSpec.connectorConfigIcebergSink` parameter:
 
   * `topics`: Comma-separated list of topics whose data will be transferred to Iceberg tables.
   * `topicsRegex`: Regular expression to select topics whose data will be transferred to Iceberg tables. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
 
   To select topics, use either the `topics`or `topicsRegex` parameter.
     
-  * `controlTopic`: Name of the management topic used for coordinating and managing data writing to Iceberg tables.
+  * `controlTopic`: Name of the management topic used for coordination and managing the data writing process to Iceberg tables.
   * `metastoreConnection`: {{ metastore-name }} connection settings:
       * `catalogUri`: URI for connection to the {{ metastore-name }} cluster in `thrift://<host>:<port>` format.
       * `warehouse`: Root directory for storing managed table data in S3 in `s3a://bucket-name/path/to/warehouse` format.
@@ -1074,27 +1074,27 @@ Specify the Iceberg Sink connector parameters as follows:
   * `tablesConfig`: Section with table settings:
       * The default branch name is `defaultCommitBranch`. The connector will commit data to this branch of the Iceberg table. The default value is `main`.
       * `defaultIdColumns`: Comma-separated list of default columns that define the ID row in Iceberg tables (primary key). This parameter is required when UPSERT mode is enabled.
-      * `defaultPartitionBy`: Comma-separated list of columns or transformation expressions for partitioning data in the Iceberg table. It defines the physical placement of data to streamline queries, e.g., `date`, `year`, `month`, `year (timestamp)`, `month (timestamp)`, `days (timestamp)`, and `bucket (16, user_id)`.
+      * `defaultPartitionBy`: Comma-separated list of columns or transformation expressions for partitioning data in the Iceberg table. Defines the physical placement of data to optimize queries, e.g., `date`, `year`, `month`, `year (timestamp)`, `month (timestamp)`, `days (timestamp)`, and `bucket (16, user_id)`.
       * `evolveSchemaEnabled`: This setting specifies whether the connector should automatically update the Iceberg table schema if the schema of incoming messages from {{ KF }} changes. The default value is `false`.
-      * `schemaForceOptional`: This setting indicates whether to make all fields of the Iceberg table schema `nullable`, regardless of how they are defined in the incoming message schema. The default value is `false`.
-      * `schemaCaseInsensitive`: This setting specifies whether the connector should ignore case when matching the fields of an incoming message to the columns of the Iceberg table. The default value is `false`.
+      * `schemaForceOptional`: This setting indicates whether to make all fields of the Iceberg table schema nullable (`nullable`), regardless of how they are defined in the incoming message schema. The default value is `false`.
+      * `schemaCaseInsensitive`: This setting specifies whether the connector should ignore case when matching fields of the incoming message to columns of the Iceberg table. The default value is `false`.
   * `controlConfig`: Section with additional settings:
       * `groupIdPrefix`: Prefix for the `Consumer Group ID` that the connector uses when reading from {{ KF }} topics. The default value is `cg-control`.
       * `commitIntervalMs`: Specifies how often the connector commits data to the Iceberg table, milliseconds. The default value is `300000`.
       * `commitTimeoutMs`: Specifies how long the coordinator waits for confirmation from all workers before considering the commit failed, milliseconds. The default value is `30000`.
       * `commitThreads`: Number of threads used to commit data to the Iceberg table. The default value is `vCPU × 2`.
-      * `transactionalPrefix`: Prefix for the `Transactional ID` that the connector uses when writing to {{ KF }} within transactions.
+      * `transactionalPrefix`: Prefix for `Transactional ID` that the connector uses when writing to {{ KF }} within transactions.
 
 - gRPC API {#grpc-api}
 
-  The Iceberg Sink connector settings are configured the `connector_spec.connector_config_iceberg_sink` parameter:
+  The Iceberg Sink connector settings are set in the `connector_spec.connector_config_iceberg_sink` parameter:
 
   * `topics`: Comma-separated list of topics whose data will be transferred to Iceberg tables.
   * `topics_regex`: Regular expression to select topics whose data will be transferred to Iceberg tables. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
 
   To select topics, use either the `topics` or `topics_regex` parameter.
     
-  * `control_topic`: Name of the management topic used for coordinating and managing data writing to Iceberg tables.
+  * `control_topic`: Name of the management topic used for coordination and managing the data writing process to Iceberg tables.
   * `metastore_connection`: {{ metastore-name }} connection settings:
       * `catalog_uri`: URI for connection to the {{ metastore-name }} cluster in `thrift://<host>:<port>` format.
       * `warehouse`: Root directory for storing managed table data in S3 in `s3a://bucket-name/path/to/warehouse` format.
@@ -1117,16 +1117,16 @@ Specify the Iceberg Sink connector parameters as follows:
     * `tables_config`: Section with table settings:
        * The default branch name is `default_commit_branch`. The connector will commit data to this branch of the Iceberg table. The default value is `main`.
        * `default_id_columns`: Comma-separated list of default columns that define the ID row in Iceberg tables (primary key). This parameter is required when UPSERT mode is enabled.
-       * `default_partition_by`: Comma-separated list of columns or transformation expressions for partitioning data in the Iceberg table. It defines the physical placement of data to streamline queries, e.g., `date`, `year`, `month`, `year (timestamp)`, `month (timestamp)`, `days (timestamp)`, and `bucket (16, user_id)`.
+       * `default_partition_by`: Comma-separated list of columns or transformation expressions for partitioning data in the Iceberg table. Defines the physical placement of data to optimize queries, e.g., `date`, `year`, `month`, `year (timestamp)`, `month (timestamp)`, `days (timestamp)`, and `bucket (16, user_id)`.
        * `evolve_schema_enabled`: This setting specifies whether the connector should automatically update the Iceberg table schema if the schema of incoming messages from {{ KF }} changes. The default value is `false`.
-       * `schema_force_optional`: This setting indicates whether to make all fields of the Iceberg table schema `nullable`, regardless of how they are defined in the incoming message schema. The default value is `false`.
-       * `schema_case_insensitive`: This setting specifies whether the connector should ignore case when matching the fields of an incoming message to the columns of the Iceberg table. The default value is `false`.
+       * `schema_force_optional`: This setting indicates whether to make all fields of the Iceberg table schema nullable (`nullable`), regardless of how they are defined in the incoming message schema. The default value is `false`.
+       * `schema_case_insensitive`: This setting specifies whether the connector should ignore case when matching fields of the incoming message to columns of the Iceberg table. The default value is `false`.
     * `control_config`: Section with additional settings:
        * `group_id_prefix`: Prefix for the `Consumer Group ID` that the connector uses when reading from {{ KF }} topics. The default value is `cg-control`.
        * `commit_interval_ms`: Specifies how often the connector commits data to the Iceberg table, milliseconds. The default value is `300000`.
        * `commit_timeout_ms`: Specifies how long the coordinator waits for confirmation from all workers before considering the commit failed, milliseconds. The default value is `30000`.
        * `commit_threads`: Number of threads used to commit data to the Iceberg table. The default value is `vCPU × 2`.
-       * `transactional_prefix`: Prefix for the `Transactional ID` that the connector uses when writing to {{ KF }} within transactions.
+       * `transactional_prefix`: Prefix for `Transactional ID` that the connector uses when writing to {{ KF }} within transactions.
 
 {% endlist %}
 
@@ -1137,7 +1137,7 @@ Specify the Iceberg Sink connector parameters as follows:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Select the cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. In the connector row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kafka.button_edit-connector }}**.
     1. Edit the connector properties as needed.
@@ -1196,7 +1196,7 @@ Specify the Iceberg Sink connector parameters as follows:
         {{ yc-mdb-kf }} connector-iceberg-sink update --help
         ```
 
-    1. Run an operation, e.g., the task limit update operation:
+    1. Run this command, e.g., to update the task limit:
 
         ```bash
         {{ yc-mdb-kf }} connector-iceberg-sink update <connector_name> \
@@ -1375,7 +1375,7 @@ Specify the Iceberg Sink connector parameters as follows:
             * `connectorSpec.connectorConfigS3Sink.<configuring_S3_Sink_connector>`: To update the [S3 Sink](#settings-s3) connector settings.
             * `connectorSpec.connectorConfigIcebergSink.<IcebergSink_connector_configuration_setup>`: To update the [Iceberg Sink](#settings-iceberg) connector settings.
 
-       * `connectorSpec`: Specify the MirrorMaker, S3 Sink, or Iceberg Sink connector settings.
+       * `connectorSpec`: Specify connector settings, MirrorMaker, S3 Sink, or Iceberg Sink.
 
        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters), and the connector name, with the [list of connectors in the cluster](#list).
 
@@ -1470,7 +1470,7 @@ To pause a connector:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Select the cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the connector name and select **{{ ui-key.yacloud.compute.groups.popup-confirm_button_pause }}**.
 
@@ -1544,7 +1544,7 @@ To pause a connector:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Select the cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the connector name and select **{{ ui-key.yacloud.compute.groups.popup-confirm_button_resume }}**.
 
@@ -1642,7 +1642,7 @@ You can import the existing connectors to manage them with {{ TF }}.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Select the cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the connector name and select **{{ ui-key.yacloud.common.delete }}**.
     1. Click **{{ ui-key.yacloud.common.delete }}**.

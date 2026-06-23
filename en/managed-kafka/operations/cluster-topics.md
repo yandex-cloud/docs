@@ -32,7 +32,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
   1. Click **{{ ui-key.yacloud.kafka.button_create-topic }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, set the basic topic properties:
@@ -96,7 +96,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
      {% include [topic-name](../../_includes/mdb/mkf/note-info-topic-name.md) %}
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -199,7 +199,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the topic in question and select **{{ ui-key.yacloud.common.edit }}**.
   1. Change the basic topic settings:
@@ -253,7 +253,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
      }
      ```
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -384,7 +384,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
 
 - CLI {#cli}
@@ -454,7 +454,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
   1. Click the topic name.
 
@@ -704,7 +704,7 @@ When upgrading to a new {{ TF }} provider version, the state file and configurat
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the topic in question and select **{{ ui-key.yacloud.kafka.button_delete-topic }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
@@ -734,7 +734,7 @@ When upgrading to a new {{ TF }} provider version, the state file and configurat
 
      For information about creating this file, see [{#T}](cluster-create.md).
   1. Delete the `yandex_mdb_kafka_topic` resource with the topic description.
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

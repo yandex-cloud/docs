@@ -1,0 +1,3 @@
+В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.section-app-type_mbu85 }}** выберите тип [{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}](*web_app_type).
+
+[*web_app_type]: OIDC-приложения типа `{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}` оптимально подходят для аутентификации пользователей во внешних веб-приложениях, имеющих серверную часть (бэкенд), в которой может безопасно храниться секрет приложения. Подробнее о типах OIDC-приложений читайте в разделе [{#T}](../../organization/concepts/applications/oidc.md#oidc-application-types).

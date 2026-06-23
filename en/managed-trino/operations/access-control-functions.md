@@ -34,7 +34,7 @@ Function and schema names specified in the rules are not validated. If a functio
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ mtr-name }} cluster.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}** and set the cluster parameters.
   1. Under **{{ ui-key.yacloud.trino.section_rbac }}**, click ![image](../../_assets/console-icons/chevron-down.svg).
   1. In the **{{ ui-key.yacloud.trino.label_rbac-function }}** field, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**.
@@ -127,13 +127,13 @@ Function and schema names specified in the rules are not validated. If a functio
 
        * `schema`: Schemas specified by one of the following:
          * `names`: List of schema names.
-         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
+         * `name_regexp`: Regular expression for schema names.
 
          Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
        * `function`: Functions specified by one of the following:
          * `names`: List of function names.
-         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for function names.
+         * `name_regexp`: Regular expression for function names.
 
          Omitting the `function` section is equivalent to using the `.*` regular expression.
 
@@ -249,13 +249,13 @@ Function and schema names specified in the rules are not validated. If a functio
 
        * `schema`: Schemas specified by one of the following:
          * `names`: List of schema names.
-         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
+         * `name_regexp`: Regular expression for schema names.
 
          Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
        * `function`: Functions specified by one of the following:
          * `names`: List of function names.
-         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for function names.
+         * `name_regexp`: Regular expression for function names.
 
          Omitting the `function` section is equivalent to using the `.*` regular expression.
 
@@ -417,7 +417,7 @@ Function and schema names specified in the rules are not validated. If a functio
 
 - gRPC API {#grpc-api}
   
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -523,13 +523,13 @@ Function and schema names specified in the rules are not validated. If a functio
 
         * `schema`: Schemas specified by one of the following:
           * `names`: List of schema names.
-          * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
+          * `name_regexp`: Regular expression for schema names.
 
           Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
         * `function`: Functions specified by one of the following:
           * `names`: List of function names.
-          * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for function names.
+          * `name_regexp`: Regular expression for function names.
 
           Omitting the `function` section is equivalent to using the `.*` regular expression.
 
@@ -577,7 +577,7 @@ Function and schema names specified in the rules are not validated. If a functio
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** → **{{ ui-key.yacloud.trino.label_rbac-function }}**.
   1. To add a rule, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**. In the window that opens, set up the rule:
@@ -679,13 +679,13 @@ Function and schema names specified in the rules are not validated. If a functio
 
        * `schema`: Schemas specified by one of the following:
          * `names`: List of schema names.
-         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
+         * `name_regexp`: Regular expression for schema names.
 
          Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
        * `function`: Functions specified by one of the following:
          * `names`: List of function names.
-         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for function names.
+         * `name_regexp`: Regular expression for function names.
 
          Omitting the `function` section is equivalent to using the `.*` regular expression.
 
@@ -802,13 +802,13 @@ Function and schema names specified in the rules are not validated. If a functio
 
        * `schema`: Schemas specified by one of the following:
          * `names`: List of schema names.
-         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
+         * `name_regexp`: Regular expression for schema names.
 
          Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
        * `function`: Functions specified by one of the following:
          * `names`: List of function names.
-         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for function names.
+         * `name_regexp`: Regular expression for function names.
 
          Omitting the `function` section is equivalent to using the `.*` regular expression.
 
@@ -1106,13 +1106,13 @@ Function and schema names specified in the rules are not validated. If a functio
 
         * `schema`: Schemas specified by one of the following:
           * `names`: List of schema names.
-          * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
+          * `name_regexp`: Regular expression for schema names.
 
           Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
         * `function`: Functions specified by one of the following:
           * `names`: List of function names.
-          * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for function names.
+          * `name_regexp`: Regular expression for function names.
 
           Omitting the `function` section is equivalent to using the `.*` regular expression.
 

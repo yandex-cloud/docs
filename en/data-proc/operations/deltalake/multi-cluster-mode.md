@@ -67,7 +67,7 @@ You can now use Delta Lake in multi-cluster mode.
 
 ## Delta Lake use case {#example}
 
-This use case was tested on a {{ dataproc-name }} cluster of version 2.1.7.
+This use case was tested on a {{ dataproc-name }} 2.1.7 cluster.
 
 1. [Use SSH to connect](../connect-ssh.md) to the {{ dataproc-name }} cluster master host.
 

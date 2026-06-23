@@ -25,7 +25,7 @@
 
 
 
-Пример использования параметров в источнике см. в практическом руководстве [Параметризация источников в DataLens](../tutorials/data-from-ch-dataset-parametrization.md).
+Пример использования параметров в источнике приведен в практическом руководстве [Параметризация источников в DataLens](../tutorials/data-from-ch-dataset-parametrization.md).
 
    
 _ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

@@ -1,7 +1,7 @@
 # Настроить доступ к OIDC-приложению в Yandex Identity Hub
 
 
-Чтобы предоставить доступ к [OIDC-приложению](../../concepts/applications.md#oidc), назначьте [роли](../../../iam/concepts/access-control/roles.md) субъектам. [Узнайте](../../security/index.md#roles-list), какие роли действуют в сервисе, чтобы назначить нужные.
+Чтобы предоставить доступ к [OIDC-приложению](../../concepts/applications/oidc.md), назначьте [роли](../../../iam/concepts/access-control/roles.md) субъектам. [Узнайте](../../security/index.md#roles-list), какие роли действуют в сервисе, чтобы назначить нужные.
 
 {% list tabs group=instructions %}
 

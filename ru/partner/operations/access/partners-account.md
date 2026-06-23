@@ -11,7 +11,7 @@ description: В этой инструкции вы научитесь предо
 
 - Консоль управления {#console}
 
-  См. инструкцию [{#T}](../../../billing/security/index.md#set-member-role).
+  Подробнее в инструкции [{#T}](../../../billing/security/index.md#set-member-role).
 
 - Партнёрский портал {#partner}
 

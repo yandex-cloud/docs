@@ -38,7 +38,7 @@
 
   {% note info %}
   
-  Актуальные условия см. в [оферте](https://yandex.ru/legal/cloud_partnership_deal_registration/).
+  Актуальные условия в [оферте](https://yandex.ru/legal/cloud_partnership_deal_registration/).
   
   {% endnote %}
 
@@ -49,7 +49,7 @@
 
   {% note info %}
   
-  Актуальные условия см. в [оферте](https://yandex.com/legal/deal_reg_kz/).
+  Актуальные условия в [оферте](https://yandex.com/legal/deal_reg_kz/).
   
   {% endnote %}
 
@@ -57,8 +57,8 @@
 
 
 
-      
-О том, как создать сделку, см. [инструкцию](../operations/deal-registration.md).
+
+О том, как создать сделку, читайте в [инструкции](../operations/deal-registration.md).
 
 
 ## Регистрация сделки в рамках регламентированной закупки {#tender}
@@ -86,7 +86,7 @@
 
   {% note info %}
   
-  Актуальные условия см. в [оферте](https://yandex.ru/legal/cloud_partnership_procurement/).
+  Актуальные условия в [оферте](https://yandex.ru/legal/cloud_partnership_procurement/).
   
   {% endnote %}
 
@@ -98,7 +98,7 @@
 
   {% note info %}
   
-  Актуальные условия см. в [оферте](https://yandex.com/legal/cloud_partnership_procurement_kz/).
+  Актуальные условия в [оферте](https://yandex.com/legal/cloud_partnership_procurement_kz/).
   
   {% endnote %}
 
@@ -139,7 +139,7 @@
 
   {% note info %}
   
-  Актуальные условия см. в [оферте](https://yandex.ru/legal/cloud_partnership_project_protect/).
+  Актуальные условия в [оферте](https://yandex.ru/legal/cloud_partnership_project_protect/).
   
   {% endnote %}
 
@@ -153,7 +153,7 @@
 
   {% note info %}
   
-  Актуальные условия см. в [оферте](https://yandex.com/legal/cloud_partnership_project_protect_kz/ru/).
+  Актуальные условия в [оферте](https://yandex.com/legal/cloud_partnership_project_protect_kz/ru/).
   
   {% endnote %}
 
@@ -162,14 +162,14 @@
 
 
 
-О том, как создать проект, см. [инструкцию](../operations/project-registration.md).
+О том, как создать проект, читайте в [инструкции](../operations/project-registration.md).
 
 
 ## Заявка на пресейл {#presale}
 
 Вы можете подключить специалистов Yandex Cloud к работе с вашим заказчиком, подав заявку на пресейл. Заказчик может быть как новым клиентом Yandex Cloud, так и существующим.
 
-О том, как оставить заявку на пресейл, см. [инструкцию](../operations/presale-request.md).
+О том, как оставить заявку на пресейл, читайте в [инструкции](../operations/presale-request.md).
 
 
 ## Программа акселерации {#acceleration}
@@ -227,7 +227,7 @@
 
 Бюджет предоставляется партнерам с присвоенным статусом **Yandex Cloud Expert** или **Yandex Cloud Professional**:
 
-* 1.5% для **Yandex Cloud Expert** и 3% для **Yandex Cloud Professional** (подробнее см. [Вознаграждение партнеров](../specializations/index.md#award));
+* 1.5% для **Yandex Cloud Expert** и 3% для **Yandex Cloud Professional** (подробнее в разделе [Вознаграждение партнеров](../specializations/index.md#award));
 * рассчитывается и обновляется ежеквартально.
 
 Бюджет может быть использован для покрытия:

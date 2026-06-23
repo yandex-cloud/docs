@@ -28,7 +28,7 @@ You can set query access rules when creating a {{ mtr-name }} cluster.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ mtr-name }} cluster.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}** and set the cluster parameters.
   1. Under **{{ ui-key.yacloud.trino.section_rbac }}**, click ![image](../../_assets/console-icons/chevron-down.svg).
   1. In the **{{ ui-key.yacloud.trino.label_rbac-query }}** field, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**.
@@ -258,7 +258,7 @@ You can set query access rules when creating a {{ mtr-name }} cluster.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -348,7 +348,7 @@ You can set or update query access rules in an existing {{ mtr-name }} cluster.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** → **{{ ui-key.yacloud.trino.label_rbac-query }}**.
   1. To add a rule, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**. In the window that opens, set up the rule:

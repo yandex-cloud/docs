@@ -3,7 +3,7 @@
 
 [МТС Web Services (MWS)](https://mws.ru/) — это экосистема сервисов и платформенных решений для построения IT-инфраструктуры и управления ею. MWS поддерживает [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC) аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в MWS с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications.md#oidc) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне MWS.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в MWS с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications/oidc.md) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне MWS.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -40,6 +40,7 @@
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
     1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
         1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}**.
+        1. {% include [org-oidc-app-select-web-type-step](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-step.md) %}
         1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения: `mws-oidc-app`.
         1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-folder_rANM4 }}** выберите каталог, в котором будет создан OAuth-клиент для приложения.
         1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** задайте описание приложения.
@@ -262,7 +263,7 @@
           ```text
           https://auth.mws.ru/api/iam/v1/organizations/organization-test/userFederations/federation-test/providers/-testprov/login-callback
           ```
-
+      1. {% include [org-oidc-app-disable-pkce](../../../_tutorials/_tutorials_includes/org-oidc-app-disable-pkce.md) %}
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}

@@ -2,7 +2,7 @@
 
 [Zabbix](https://www.zabbix.com/) — это система мониторинга корпоративного уровня с открытым исходным кодом для отслеживания производительности и состояния серверов, сетей, приложений и других ИТ-ресурсов. Zabbix поддерживает SAML-аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Zabbix с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне Zabbix.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Zabbix с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications/saml.md) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне Zabbix.
 
 Управлять SAML-приложениями может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-samlApplications-admin) `organization-manager.samlApplications.admin` или выше.
 

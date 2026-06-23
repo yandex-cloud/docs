@@ -19,7 +19,7 @@ An unexpected error occurred while checking the cluster for the presence of Kyve
 
 ## Cluster version too old {#outdated-cluster}
 
-The specified cluster version is not supported. Upgrade the cluster to a [supported version](../concepts/kspm.md).
+The specified cluster version is not supported. Upgrade the cluster to a [supported version](../operations/kspm/enable-kspm.md).
 
 ## Insufficient permissions in the cluster {#insufficient-permissions}
 

@@ -1,6 +1,6 @@
 ---
 title: Getting information about {{ mtr-name }} clusters
-description: You can get detailed information about each {{ mtr-name }} cluster you created. To get a list of clusters in a folder, go to the folder dashboard and select {{ mtr-name }}.
+description: You can request detailed information for each {{ mtr-name }} cluster you have created. To get a list of clusters in a folder, go to the folder dashboard and select {{ mtr-name }}.
 ---
 
 # Getting information on existing {{ mtr-name }} clusters
@@ -14,7 +14,7 @@ You can get detailed information about each {{ mtr-name }} cluster you created.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
 
 - CLI {#cli}
 
@@ -56,7 +56,7 @@ You can get detailed information about each {{ mtr-name }} cluster you created.
 
         You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
-    1. View the [server response](../api-ref/Cluster/list.md#yandex.cloud.trino.v1.ListClustersResponse) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/list.md#yandex.cloud.trino.v1.ListClustersResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -88,14 +88,14 @@ You can get detailed information about each {{ mtr-name }} cluster you created.
 
 {% endlist %}
 
-## Getting detailed information about a cluster {#get-cluster}
+## Getting cluster details {#get-cluster}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Click the cluster name.
 
 - CLI {#cli}
@@ -104,7 +104,7 @@ You can get detailed information about each {{ mtr-name }} cluster you created.
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get information about a {{ mtr-name }} cluster, run the following command:
+    To get {{ mtr-name }} cluster details, run the following command:
 
     ```bash
     {{ yc-mdb-tr }} cluster get <cluster_name_or_ID>
@@ -163,7 +163,7 @@ You can get detailed information about each {{ mtr-name }} cluster you created.
 
 ## Viewing operations with clusters {#list-operations}
 
-All actions with {{ mtr-name }} clusters are logged as a list of operations. Each operation gets its own unique ID.
+All actions with {{ mtr-name }} clusters are logged as a list of operations. Each operation gets an ID.
 
 ### Getting a list of operations {#get-operations}
 
@@ -173,13 +173,13 @@ All actions with {{ mtr-name }} clusters are logged as a list of operations. Eac
 
     To get a list of operations for a {{ mtr-name }} cluster:
 
-    1. In the [management console]({{ link-console-main }}), open the folder containing your cluster.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
-    1. Select the cluster you need.
+    1. Select the cluster.
     1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the cluster you selected.
 
-        You will see the list of operations with this cluster.
+        This will open the list of operations with the cluster.
 
 - CLI {#cli}
 
@@ -205,7 +205,7 @@ All actions with {{ mtr-name }} clusters are logged as a list of operations. Eac
 
     You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter. Here is an example:
+    By default, information about operations is output as text. To get more details, use `--format` to specify the `yaml` or `json` output format. For example:
 
     ```bash
     {{ yc-mdb-tr }} cluster list-operations <cluster_name_or_ID> --format yaml
@@ -277,7 +277,7 @@ All actions with {{ mtr-name }} clusters are logged as a list of operations. Eac
 
 ### Getting operation details {#get-operations-info}
 
-1. [Get the list of operations](#get-operations) for your cluster.
+1. [Get the list of operations](#get-operations) for the cluster.
 1. Copy the ID of the operation you need.
 1. Get the operation details:
 
@@ -318,7 +318,7 @@ All actions with {{ mtr-name }} clusters are logged as a list of operations. Eac
 
             {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-        1. Use the [Operation.Get](../api-ref/Operation/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+        1. Call the [Operation.Get](../api-ref/Operation/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
             ```bash
             curl \
@@ -327,7 +327,7 @@ All actions with {{ mtr-name }} clusters are logged as a list of operations. Eac
                 --url 'https://{{ api-host-operation }}/operations/<operation_ID>'
             ```
 
-        1. View the [server response](../api-ref/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+        1. Check the [server response](../api-ref/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
     - gRPC API {#grpc-api}
 
@@ -353,7 +353,7 @@ All actions with {{ mtr-name }} clusters are logged as a list of operations. Eac
                 yandex.cloud.operation.OperationService.Get
             ```
 
-        1. View the [server response](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+        1. Check the [server response](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
     {% endlist %}
 

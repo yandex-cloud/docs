@@ -15,17 +15,17 @@ Updates and fixes within a version are installed automatically during [maintenan
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}).
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select a cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** on the top panel. This will open the cluster editing page.
       
         You can see the list of available versions in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
 
 {% endlist %}
 
-## Before upgrading a version {#before-update}
+## Before a version upgrade {#before-update}
 
-Make sure the update does not affect your applications:
+Make sure the upgrade will not disrupt your applications:
 
 1. Check the {{ TR }} [release notes](https://trino.io/docs/current/release.html) to learn how upgrades may affect your applications.
 1. Try upgrading the {{ TR }} version on a test cluster.
@@ -36,8 +36,8 @@ Make sure the update does not affect your applications:
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}).
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select a cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** on the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select {{ TR }}.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -50,7 +50,7 @@ Make sure the update does not affect your applications:
 
     To change the {{ TR }} version:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster update --help
@@ -112,7 +112,7 @@ Make sure the update does not affect your applications:
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
 
             {% endnote %}
 
@@ -134,7 +134,7 @@ Make sure the update does not affect your applications:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -181,7 +181,7 @@ Make sure the update does not affect your applications:
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
             {% endnote %}
 

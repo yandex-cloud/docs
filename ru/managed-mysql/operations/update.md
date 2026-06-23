@@ -107,7 +107,7 @@ description: Из статьи вы узнаете, как изменить на
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](./cluster-create.md).
+      Как создать такой файл описано в разделе [Создание кластера](./cluster-create.md).
 
   1. Измените в описании кластера {{ mmy-name }} значение параметра `resource_preset_id` в блоке `resources`:
 
@@ -129,7 +129,7 @@ description: Из статьи вы узнаете, как изменить на
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
+    Подробнее о параметрах ресурса `yandex_mdb_mysql_cluster` смотрите в [документации провайдера]({{ tf-provider-mmy }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -267,7 +267,7 @@ description: Из статьи вы узнаете, как изменить на
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](./cluster-create.md).
+      Как создать такой файл описано в разделе [Создание кластера](./cluster-create.md).
 
   1. Измените значения параметров `disk_type_id` и `disk_size` в блоке `resources`:
 
@@ -290,7 +290,7 @@ description: Из статьи вы узнаете, как изменить на
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_cluster` смотрите в [документации провайдера]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -429,7 +429,7 @@ description: Из статьи вы узнаете, как изменить на
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](./cluster-create.md).
+      Как создать такой файл описано в разделе [Создание кластера](./cluster-create.md).
 
   1. Добавьте или измените в описании кластера {{ mmy-name }} параметры [настроек СУБД](../concepts/settings-list.md) в блоке `mysql_config`:
 
@@ -451,7 +451,7 @@ description: Из статьи вы узнаете, как изменить на
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mysql_cluster#mysql-config).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_cluster` смотрите в [документации провайдера]({{ tf-provider-resources-link }}/mdb_mysql_cluster#mysql-config).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -492,7 +492,7 @@ description: Из статьи вы узнаете, как изменить на
 
       * `configSpec.mysqlConfig_<версия_{{ MY }}>` — набор настроек {{ MY }}. Укажите каждую настройку на отдельной строке через запятую.
 
-          Список версий {{ MY }}, доступных для параметра, см. в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterRequest). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md#dbms-cluster-settings).
+          Список версий {{ MY }}, доступных для параметра, приведен в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterRequest). Описание и возможные значения настроек приведены в разделе [{#T}](../concepts/settings-list.md#dbms-cluster-settings).
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -544,7 +544,7 @@ description: Из статьи вы узнаете, как изменить на
 
       * `configSpec.mysqlConfig_<версия_{{ MY }}>` — набор настроек {{ MY }}. Укажите каждую настройку на отдельной строке через запятую.
 
-          Список версий {{ MY }}, доступных для параметра, см. в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterReques). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md#dbms-cluster-settings).
+          Список версий {{ MY }}, доступных для параметра, приведен в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterReques). Описание и возможные значения настроек приведены в разделе [{#T}](../concepts/settings-list.md#dbms-cluster-settings).
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -552,7 +552,7 @@ description: Из статьи вы узнаете, как изменить на
 
 {% endlist %}
 
-Подробнее об изменении настроек {{ MY }} см. в разделе [Вопросы и ответы](../qa/configuring.md).
+Подробнее об изменении настроек {{ MY }} смотрите в разделе [Вопросы и ответы](../qa/configuring.md).
 
 ## Изменить дополнительные настройки кластера {#change-additional-settings}
 
@@ -615,7 +615,7 @@ description: Из статьи вы узнаете, как изменить на
 
     * `--backup-retain-period-days` — срок хранения автоматических резервных копий (в днях). Допустимые значения: от `7` до `60`. Значение по умолчанию — `7`.
 
-    * `--datalens-access` — разрешает доступ к кластеру из {{ datalens-name }}. Значение по умолчанию — `false`. Подробнее о настройке подключения см в разделе [{#T}](datalens-connect.md).
+    * `--datalens-access` — разрешает доступ к кластеру из {{ datalens-name }}. Значение по умолчанию — `false`. Подробнее о настройке подключения смотрите в разделе [{#T}](datalens-connect.md).
 
     * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
 
@@ -640,7 +640,7 @@ description: Из статьи вы узнаете, как изменить на
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Как создать такой файл описано в разделе [Создание кластера](cluster-create.md).
 
   1. Чтобы изменить время начала резервного копирования, добавьте к описанию кластера {{ mmy-name }} блок `backup_window_start`:
 
@@ -715,7 +715,7 @@ description: Из статьи вы узнаете, как изменить на
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_cluster` смотрите в [документации провайдера]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -786,7 +786,7 @@ description: Из статьи вы узнаете, как изменить на
 
           * `access` — настройки доступа к кластеру из сервисов {{ yandex-cloud }}:
 
-            * `dataLens` — доступ из {{ datalens-name }}. Подробнее о настройке подключения см. в разделе [Подключение из {{ datalens-name }}](datalens-connect.md).
+            * `dataLens` — доступ из {{ datalens-name }}. Подробнее о настройке подключения смотрите в разделе [Подключение из {{ datalens-name }}](datalens-connect.md).
             * `webSql` — [выполнение SQL-запросов](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
             * `yandexQuery` — выполнение YQL-запросов к базам данных кластера из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
@@ -900,7 +900,7 @@ description: Из статьи вы узнаете, как изменить на
 
           * `access` — настройки доступа к кластеру из сервисов {{ yandex-cloud }}:
 
-              * `data_lens` — доступ из {{ datalens-name }}. Подробнее о настройке подключения см. в разделе [Подключение из {{ datalens-name }}](datalens-connect.md).
+              * `data_lens` — доступ из {{ datalens-name }}. Подробнее о настройке подключения смотрите в разделе [Подключение из {{ datalens-name }}](datalens-connect.md).
               * `web_sql` — [выполнение SQL-запросов](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
               * `yandex_query` — выполнение YQL-запросов к базам данных кластера из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
@@ -973,7 +973,7 @@ description: Из статьи вы узнаете, как изменить на
 * Нельзя сделать мастером каскадную реплику.
 * Если явно не указать имя хоста-реплики, мастер переключится на реплику с наибольшим приоритетом или наименьшим отставанием.
 
-Подробнее см. в разделе [Репликация](../concepts/replication.md).
+Подробнее в разделе [Репликация](../concepts/replication.md).
 
 Чтобы переключить мастер:
 
@@ -1099,7 +1099,7 @@ description: Из статьи вы узнаете, как изменить на
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](./cluster-create.md).
+        Как создать такой файл описано в разделе [Создание кластера](./cluster-create.md).
 
     1. Измените или добавьте в описании кластера {{ mmy-name }} значение параметра `folder_id`:
 
@@ -1118,7 +1118,7 @@ description: Из статьи вы узнаете, как изменить на
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
+    Подробнее о параметрах ресурса `yandex_mdb_mysql_cluster` смотрите в [документации провайдера]({{ tf-provider-mmy }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -1215,7 +1215,7 @@ description: Из статьи вы узнаете, как изменить на
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](./cluster-create.md).
+      Как создать такой файл описано в разделе [Создание кластера](./cluster-create.md).
 
   1. Измените в описании кластера {{ mmy-name }} значение параметра `security_group_ids`:
 
@@ -1234,7 +1234,7 @@ description: Из статьи вы узнаете, как изменить на
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_cluster` смотрите в [документации провайдера]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 

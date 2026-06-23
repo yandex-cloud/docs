@@ -10,7 +10,7 @@ items:
         href: operations/index.md
       - name: Working with documents
         items:
-          - name: Understanding your invoice
+          - name: Understanding your payment invoice
             href: operations/spell-out-bill.md
           - name: Downloading reporting documents
             href: operations/download-reporting-docs.md
@@ -160,7 +160,7 @@ items:
     href: pricing.md
   - name: FAQ
     items:
-      - name: All questions on a single page
+      - name: All questions on one page
         href: qa/all.md
       - name: General questions
         href: qa/common.md
@@ -367,4 +367,6 @@ items:
                     href: api-ref/Sku/list.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Release notes
+    href: release-notes.md
 path: en/billing/toc.yaml

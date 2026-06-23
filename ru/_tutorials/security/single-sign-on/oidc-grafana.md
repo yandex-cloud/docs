@@ -3,7 +3,7 @@
 
 [Grafana Cloud](https://grafana.com/products/cloud/) — это управляемая облачная платформа для мониторинга и наблюдаемости (observability), которая включает в себя Grafana, Prometheus, Loki и другие инструменты визуализации и анализа данных. Grafana Cloud поддерживает [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC) аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Grafana Cloud с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications.md#oidc) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне Grafana Cloud.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Grafana Cloud с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications/oidc.md) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне Grafana Cloud.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -44,6 +44,7 @@
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
     1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
         1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}**.
+        1. {% include [org-oidc-app-select-web-type-step](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-step.md) %}
         1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения: `grafana-cloud-oidc-app`.
         1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-folder_rANM4 }}** выберите каталог, в котором будет создан OAuth-клиент для приложения.
         1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** задайте описание приложения.
@@ -241,14 +242,14 @@
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное OIDC-приложение.
   1. Справа сверху нажмите  ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:
+
       1. В поле **{{ ui-key.yacloud_org.application.overview.oauth_field_redirect_uri }}** укажите эндпоинт аутентификации для вашего экземпляра Grafana Cloud в форме:
 
-        ```text
-        <URL_экземпляра_Grafana_Cloud>/login/generic_oauth
-        ```
+          ```text
+          <URL_экземпляра_Grafana_Cloud>/login/generic_oauth
+          ```
 
-        Например: `https://your-org.grafana.net/login/generic_oauth`.
-
+          Например: `https://your-org.grafana.net/login/generic_oauth`.
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -300,6 +301,7 @@
 1. В поле **Client Secret** укажите значение, скопированное при настройке OIDC-приложения в {{ org-full-name }} в блоке **{{ ui-key.yacloud_org.application.overview.secret_section_title }}**.
 1. Нажмите **Enter OpenID Connect Discovery URL** и в открывшемся окне укажите URL, скопированный при настройке OIDC-приложения в {{ org-full-name }} в поле **{{ ui-key.yacloud_org.application.overview.oauth_field_open_id }}**.
 1. **Allow sign up**: активируйте для автоматического создания пользователей при первом входе.
+1. Разверните блок **Extra security measures** и включите опцию **Use PKCE**.
 
 ### Добавьте пользователя {#add-user}
 

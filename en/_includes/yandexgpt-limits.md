@@ -30,8 +30,8 @@ Maximum size of one dataset | 5 GB
 Total size of datasets | 300 GB
 **MCP servers** |
 Number of MCP servers per cloud | 30 
-Number of tools per server | 50
-**Voice agents** (`{{ realtime-model }}` model) |
+Number of tools per server | 150
+**Voice agents** (Realtime models) |
 Number of concurrent sessions with the model | 10
 Number of session creation queries per second | 10
 **AI agents** |

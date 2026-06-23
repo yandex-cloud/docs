@@ -3,7 +3,7 @@
 
 [1С:Предприятие](https://scloud.ru/1s-predpriyatie/) — это технологическая платформа, на которой разрабатываются программы 1С для автоматизации учета и бизнеса. Платформа поддерживает [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC) — аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в 1С:Предприятие с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications.md#oidc) в {{ org-full-name }}, настройте его на стороне {{ org-full-name }} и на стороне 1С:Предприятие.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в 1С:Предприятие с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications/oidc.md) в {{ org-full-name }}, настройте его на стороне {{ org-full-name }} и на стороне 1С:Предприятие.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -29,6 +29,7 @@
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
     1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
         1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}**.
+        1. {% include [org-oidc-app-select-web-type-step](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-step.md) %}
         1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** укажите `enterprise-1c-oidc-app`.
         1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-folder_rANM4 }}** выберите каталог, в котором будет создан OAuth-клиент для приложения.
         1. Нажмите **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
@@ -219,14 +220,15 @@
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное OIDC-приложение.
   1. Справа сверху нажмите  ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:
+
       1. В поле **{{ ui-key.yacloud_org.application.overview.oauth_field_redirect_uri }}** укажите URL информационной базы 1С, по которому будет обрабатываться ответ от OIDC-приложения, в форме:
 
-        ```text
-        <домен_публикации_ИБ_1С>/<имя_приложения>/authform.html
-        ```
+          ```text
+          <домен_публикации_ИБ_1С>/<имя_приложения>/authform.html
+          ```
 
-        Например: `https://your.company.ru/your-app/authform.html`.
-
+          Например: `https://your.company.ru/your-app/authform.html`.
+      1. {% include [org-oidc-app-disable-pkce](../../../_tutorials/_tutorials_includes/org-oidc-app-disable-pkce.md) %}
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}

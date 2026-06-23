@@ -2,7 +2,7 @@
 
 [SonarQube](https://www.sonarsource.com/products/sonarqube/) — это платформа для автоматического анализа качества исходного кода, которая выявляет ошибки, уязвимости и оценивает покрытие тестами. SonarQube поддерживает SAML-аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в SonarQube с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне SonarQube.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в SonarQube с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications/saml.md) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне SonarQube.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 

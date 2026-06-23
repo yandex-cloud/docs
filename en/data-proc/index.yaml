@@ -1,21 +1,3 @@
-title: Yandex Data Processing
-description:
-  - >-
-    This service helps to deploy Apache Hadoop<sup>®</sup> and Apache Spark™
-    clusters in Yandex Cloud infrastructure. You can configure the cluster size,
-    node capacity, and the Apache<sup>®</sup> service stack (including Spark™,
-    HDFS, YARN, Hive, HBase<sup>®</sup>, Oozie™, Sqoop™, Flume™,
-    Tez<sup>®</sup>, and Zeppelin™) to meet your requirements.
-  - >-
-    Yandex Cloud infrastructure is <a href="/docs/security/conform">secured</a>
-    in accordance with the following standards: <ul> <li>Russian Federal Law No.
-    152-FZ on Personal Data.</li> <li>Payment Card Industry Data Security
-    Standard (PCI DSS).</li> <li>ISO 27001.</li> <li>ISO 27017.</li> <li>ISO
-    27018.</li> <li>GOST 57580.1-2017.</li> </ul>
-  - >-
-    <em>Apache<sup>®</sup>, Apache Hadoop<sup>®</sup>, and Apache Spark™ are
-    registered trademarks or trademarks of the Apache Software Foundation in the
-    United States and/or other countries.</em>
 meta:
   title: Yandex Data Processing
   description: >-
@@ -33,22 +15,134 @@ meta:
     - keyword: Apache in {{ yandex-cloud }}
     - keyword: '{{ dataproc-name }} in {{ yandex-cloud }}'
     - keyword: '{{ dataproc-name }}'
-links:
-  - title: Step-by-step guides
-    description: How to perform routine operations
-    href: operations/
-  - title: Concepts
-    description: Service concepts and architecture overview
-    href: concepts/
-  - title: API reference
-    description: HTTP API method reference
-    href: api-ref/
-  - title: Quotas and limits
-    description: Technical and organizational limitations
-    href: concepts/limits
-  - title: Access management
-    description: Configuring access permissions for the service
-    href: security/
-  - title: Pricing policy
-    description: Service pricing and cost calculation
-    href: pricing
+blocks:
+  - type: card-layout-block
+    title: Yandex Data Processing
+    description: >-
+      This service helps to deploy Apache Hadoop® and Apache Spark™ clusters on
+      Yandex Cloud infrastructure. The cluster size, node capacity, and the
+      selection of Apache® services (Spark™, HDFS, YARN, Hive, HBase®, Oozie™,
+      Sqoop™, Flume™, Tez®, Zeppelin™) are all up to you.
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+      lg: 3
+    children:
+      - type: basic-card
+        title: Getting started
+        text: Create your first cluster
+        icon: _assets/icons/rocket.svg
+        urlTitle: Getting started with Yandex Data Processing
+        url: quickstart
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Step-by-step guides
+        text: Follow our guides for routine operations
+        urlTitle: Step-by-step guides for Yandex Data Processing
+        url: operations/index
+        centered: true
+        size: s
+        animated: false
+        icon:
+          light: _assets/icons/list-ol.svg
+          dark: _assets/icons/list-ol.svg
+      - type: basic-card
+        title: Concepts
+        text: Introduction to the basic terms and concepts
+        urlTitle: All concepts
+        url: concepts/index
+        centered: true
+        size: s
+        animated: false
+        icon:
+          light: _assets/icons/bookmark.svg
+          dark: _assets/icons/bookmark.svg
+      - type: basic-card
+        title: API reference
+        text: Use HTTP API methods for cluster management
+        urlTitle: Authentication in the Yandex Data Processing API
+        url: api-ref/authentication
+        centered: true
+        size: s
+        animated: false
+        icon:
+          light: _assets/icons/code.svg
+          dark: _assets/icons/code.svg
+      - type: basic-card
+        title: Pricing policy
+        text: Prices and cost calculation rules
+        urlTitle: Yandex Data Processing pricing policy
+        url: pricing
+        centered: true
+        animated: false
+        size: s
+        icon:
+          light: _assets/icons/calculator.svg
+          dark: _assets/icons/calculator.svg
+      - type: basic-card
+        title: Quotas and limits
+        text: Technical and organizational limitations
+        urlTitle: Quotas and limits
+        url: concepts/limits
+        centered: true
+        size: s
+        animated: false
+        icon:
+          light: _assets/icons/sliders.svg
+          dark: _assets/icons/sliders.svg
+      - type: basic-card
+        title: Manage access
+        text: Configure access permissions for the service
+        urlTitle: Access management in Yandex Data Processing
+        url: security/index
+        centered: true
+        animated: false
+        size: s
+        icon:
+          light: _assets/icons/persons-lock.svg
+          dark: _assets/icons/persons-lock.svg
+      - type: basic-card
+        title: Release notes
+        text: Releases and updates
+        icon: _assets/icons/timeline.svg
+        urlTitle: Yandex Data Processing release notes
+        url: release-notes/index
+        centered: true
+        size: s
+  - type: card-layout-block
+    colSizes:
+      all: 12
+    title: Terms of use
+    description: ''
+    iconPosition: left
+    children:
+      - type: basic-card
+        title: ''
+        text: >-
+          The Yandex Cloud infrastructure protection complies with the following
+          standards:
+
+          * [Federal Law No. 152-FZ on Personal
+          Data](https://yandex.cloud/en/docs/security/conform#law)
+
+
+          * [GOST
+          57580.1-2017](https://yandex.cloud/en/docs/security/conform#gost)
+
+          * [PCI DSS](https://yandex.cloud/en/docs/security/conform#pci-dss)
+
+          * [ISO standards](https://yandex.cloud/en/docs/security/conform#iso)
+        icon: _assets/icons/file-text.svg
+        centered: true
+        size: s
+  - type: content-layout-block
+    textContent:
+      title: ''
+      text: >-
+        _Apache®, Apache Hadoop®, and Apache Spark™ are registered trademarks or
+        trademarks of the Apache Software Foundation in the United States and/or
+        other countries._
+links: []

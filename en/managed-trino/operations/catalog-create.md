@@ -20,8 +20,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 - Management console {#console}
 
   1. Go to the [resource folder]({{ link-console-main }}) page.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-  1. Click the name of your cluster.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Click the cluster name.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
   1. Click **{{ ui-key.yacloud.trino.catalogs.create_action }}**.
   1. In the **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** field, enter a name for the {{ TR }} catalog.
@@ -57,7 +57,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -85,7 +85,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -117,7 +117,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -179,15 +179,15 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
         To find out the connection ID:
         1. Go to the [resource folder]({{ link-console-main }}) page.
-        1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-        1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+        1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
     * **Database**: DB name in the {{ CH }} cluster.
     * **Client parameters**: {{ CH }} client parameters in `key: value` format.
 
         {% include [client-parameters-ch](../../_includes/managed-trino/client-parameters-ch.md) %}
 
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/clickhouse.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/clickhouse.html).
 
 - CLI {#cli}
 
@@ -209,15 +209,15 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
       To find out the connection ID:
         1. Go to the [resource folder]({{ link-console-main }}) page.
-        1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-        1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.   
+        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+        1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.   
 
     * `--connection-manager-database`: DB name in the {{ CH }} cluster.
     * `--connection-manager-connection-properties`: {{ CH }} client parameters in `key=value` format.
 
         {% include [client-parameters-ch](../../_includes/managed-trino/client-parameters-ch.md) %}
 
-    * `additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/clickhouse.html).
+    * `additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/clickhouse.html).
 
 - {{ TF }} {#tf}
 
@@ -249,15 +249,15 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
             To find out the connection ID:
             1. In the management console, go to the [resource folder]({{ link-console-main }}) page.
-            1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-            1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+            1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+            1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
         * `database`: DB name in the {{ CH }} cluster.
         * `connection_properties`: List of {{ CH }} client settings in `"key" = "value"` format.
 
             {% include [client-parameters-ch](../../_includes/managed-trino/client-parameters-ch.md) %}
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/clickhouse.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/clickhouse.html).
 
 - REST API {#api}
 
@@ -300,15 +300,15 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
             To find out the connection ID:
             1. In the management console, go to the [resource folder]({{ link-console-main }}) page.
-            1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-            1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+            1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+            1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
         * `database`: DB name in the {{ CH }} cluster.
         * `connectionProperties`: List of {{ CH }} client settings in `"key": "value"` format.
 
             {% include [client-parameters-ch](../../_includes/managed-trino/client-parameters-ch.md) %}
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/clickhouse.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/clickhouse.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -357,15 +357,15 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
             To find out the connection ID:
             1. In the management console, go to the [resource folder]({{ link-console-main }}) page.
-            1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-            1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+            1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+            1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
         * `database`: DB name in the {{ CH }} cluster.
         * `connection_properties`: List of {{ CH }} client settings in `"key": "value"` format.
 
             {% include [client-parameters-ch](../../_includes/managed-trino/client-parameters-ch.md) %}
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/clickhouse.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/clickhouse.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -380,7 +380,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
     * **URL**: URL for connecting to the {{ CH }} DB, in `jdbc:clickhouse://<host_address>:<port>/<DB_name>` format.
     * **Username**: Username for connecting to the {{ CH }} DB.
     * **Password**: User password for connection to the {{ CH }} DB.
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/clickhouse.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/clickhouse.html).
 
 - CLI {#cli}
 
@@ -401,7 +401,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
     * `--on-premise-connection-url`: URL for connecting to the {{ CH }} DB, in the following format: `jdbc:clickhouse://<host_address>:<port>/<DB_name>`.
     * `--on-premise-user-name`: Username for connection to the {{ CH }} DB.
     * `--on-premise-password`: User password for connection to the {{ CH }} DB.
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/clickhouse.html).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/clickhouse.html).
 
 - {{ TF }} {#tf}
 
@@ -431,7 +431,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
         * `user_name`: Username for connection to the {{ CH }} DB.
         * `password`: User password for connection to the {{ CH }} DB.
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/clickhouse.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/clickhouse.html).
 
 - REST API {#api}
 
@@ -472,7 +472,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
         * `userName`: Username for connection to the {{ CH }} DB.
         * `password`: User password for connection to the {{ CH }} DB.
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/clickhouse.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/clickhouse.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -519,7 +519,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
         * `user_name`: Username for connection to the {{ CH }} DB.
         * `password`: User password for connection to the {{ CH }} DB.
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/clickhouse.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/clickhouse.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -533,7 +533,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
 
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/delta-lake.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/delta-lake.html).
 
 - CLI {#cli}
 
@@ -555,7 +555,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [cli-connector-settings](../../_includes/managed-trino/cli-connector-settings.md) %}
 
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/delta-lake.html).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/delta-lake.html).
 
 - {{ TF }} {#tf}
 
@@ -582,7 +582,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [connector-settings-terraform](../../_includes/managed-trino/terraform/connector-settings.md) %}
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/delta-lake.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/delta-lake.html).
 
 - REST API {#api}
 
@@ -620,7 +620,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [connector-settings-rest-api](../../_includes/managed-trino/api/connector-settings-rest.md) %}
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/delta-lake.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/delta-lake.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -664,9 +664,370 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [connector-settings-grpc-api](../../_includes/managed-trino/api/connector-settings-grpc.md) %}
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/delta-lake.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/delta-lake.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+{% endlist %}
+
+### {{ GP }}/Cloudberry {{ preview-stage }} connector {#gp-clouberry}
+
+{% include [connection-type](../../_includes/managed-trino/connection-type.md) %}
+
+To enable [parallel data reading](../concepts/greenplum-connector.md#parallel-reading), assign read privileges for the `pg_catalog.gp_segment_configuration` table to the {{ GP }} user intended to run the connection:
+
+```sql
+GRANT SELECT ON pg_catalog.gp_segment_configuration TO <{{ GP }}_username>;
+```
+
+To enable [reading data directly from segments](../concepts/greenplum-connector.md#gpfdist-reading) over GPFDIST, assign the {{ GP }} user permissions to create external tables:
+
+```sql
+ALTER ROLE <{{ GP }}_username> CREATEEXTTABLE (type='writable');
+```
+
+{% note warning %}
+
+Data transmitted between the {{ mtr-name }} and {{ mgp-name }} clusters over the GPFDIST protocol is unencrypted. To secure your connection, [configure cluster security groups](connect.md#security-groups-for-greenplum).
+
+{% endnote %}
+
+To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connector.md).
+
+#### {{ connection-manager-name }} {#gp-clouberry-connection-manager}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    * **Connection ID**: {{ GP }} cluster connection ID in {{ connection-manager-name }}.
+
+        {% include [get-connection-id](../../_includes/managed-trino/get-connection-id.md) %}
+
+    * **Database**: DB name in the {{ GP }} cluster.
+    * **Additional settings**: Provide them in `key:value` format. For the list of available settings, see [{{ GP }} connector](../concepts/greenplum-connector.md#settings).
+
+- CLI {#cli}
+
+    Command example:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create greenplum <{{ TR }}_catalog_name> \
+      --cluster-id <{{ TR }}_cluster_ID> \
+      --connection-manager-connection-id <connection_ID> \
+      --connection-manager-database <DB_name> \
+      --connection-manager-connection-properties <list_of_{{ GP }}_client_settings> \
+      --additional-properties <list_of_additional_settings>
+    ```
+
+    Where:
+
+    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can get the ID along with the [list of clusters](cluster-list.md#list-clusters).
+    * `--connection-manager-connection-id`: {{ GP }} cluster connection ID in {{ connection-manager-name }}.
+
+        {% include [get-connection-id](../../_includes/managed-trino/get-connection-id.md) %}
+
+    * `--connection-manager-database`: DB name in the {{ GP }} cluster.
+    * `--connection-manager-connection-properties`: List of {{ GP }} client settings in `key=value` format.
+
+        {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
+
+    * `--additional-properties`: Additional settings in `key=value` format. For the list of available settings, see [{{ GP }} connector](../concepts/greenplum-connector.md#settings).
+
+- {{ TF }} {#tf}
+
+    Configuration example:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<{{ TR }}_catalog_name>" {
+      ...
+      greenplum = {
+        connection_manager = {
+          connection_id = "<connection_ID>"
+          database      = "<DB_name>"
+          connection_properties = {
+            <list_of_{{ GP }}_client_settings>
+          }
+        }
+        additional_properties = {
+          <list_of_additional_settings>
+        }
+      }
+    }
+    ```
+
+    Where:
+
+    * `connection_manager`: {{ connection-manager-name }} settings:
+
+        * `connection_id`: {{ GP }} cluster connection ID in {{ connection-manager-name }}.
+
+            {% include [get-connection-id](../../_includes/managed-trino/get-connection-id.md) %}
+
+        * `database`: DB name in the {{ GP }} cluster.
+        * `connection_properties`: List of {{ GP }} client settings in `"key" = "value"` format.
+
+            {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
+
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For the list of available settings, see [{{ GP }} connector](../concepts/greenplum-connector.md#settings).
+
+- REST API {#api}
+
+    Command example:
+
+    ```bash
+    curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<{{ TR }}>_cluster_ID/catalogs' \
+        --data '{
+                  "catalog": {
+                    "name": "<{{ TR }}_catalog_name>",
+                    "connector": {
+                      "greenplum": {
+                        "connection": {
+                          "connectionManager": {
+                            "connectionId": "<connection_ID>",
+                            "database": "<DB_name>",
+                            "connectionProperties": {
+                              <list_of_{{ GP }}_client_settings>
+                            }
+                          }
+                        },
+                        "additionalProperties": {
+                          <list_of_additional_settings>
+                        }
+                      }
+                    }
+                  }
+                }'
+    ```
+
+    Where:
+
+    * `connectionManager`: {{ connection-manager-name }} settings:
+
+        * `connectionId`: {{ GP }} cluster connection ID in {{ connection-manager-name }}.
+
+            {% include [get-connection-id](../../_includes/managed-trino/get-connection-id.md) %}
+
+        * `database`: DB name in the {{ GP }} cluster.
+        * `connectionProperties`: List of {{ GP }} client settings in `"key": "value"` format.
+
+            {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
+
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For the list of available settings, see [{{ GP }} connector](../concepts/greenplum-connector.md#settings).
+
+    You can get the {{ TR }} cluster ID with the [list of clusters in the catalog](cluster-list.md#list-clusters).
+
+- gRPC API {#grpc-api}
+
+    Command example:
+
+    ```bash
+    grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<{{ TR }}_cluster_ID>",
+              "catalog": {
+                "name": "<{{ TR }}_catalog_name>",
+                "connector": {
+                  "greenplum": {
+                    "connection": {
+                      "connection_manager": {
+                        "connection_id": "<connection_ID>",
+                        "database": "<DB_name>",
+                        "connection_properties": {
+                          <list_of_{{ GP }}_client_settings>
+                        }
+                      }
+                    },
+                    "additional_properties": {
+                      <list_of_additional_settings>
+                    }
+                  }
+                }
+              }
+            }' \
+        {{ api-host-trino }}:{{ port-https }} \
+        yandex.cloud.trino.v1.CatalogService.Create
+    ```
+
+    Where:
+
+    * `connection_manager`: {{ connection-manager-name }} settings:
+
+        * `connection_id`: {{ GP }} cluster connection ID in {{ connection-manager-name }}.
+
+            {% include [get-connection-id](../../_includes/managed-trino/get-connection-id.md) %}
+
+        * `database`: DB name in the {{ GP }} cluster.
+        * `connection_properties`: List of {{ GP }} client settings in `"key": "value"` format.
+
+            {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
+
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For the list of available settings, see [{{ GP }} connector](../concepts/greenplum-connector.md#settings).
+
+    You can get the {{ TR }} cluster ID with the [list of clusters in the catalog](cluster-list.md#list-clusters).
+
+{% endlist %}
+
+#### Manual setup {#gp-cloudberry-on-premise}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    * **URL**: URL for connecting to the {{ GP }} DB, in `jdbc:postgresql://<host_address>:<port>/<DB_name>` format.
+    * **Username**: Username for connecting to the {{ GP }} DB.
+    * **Password**: User password for connection to the {{ GP }} DB.
+    * **Additional settings**: Provide them in `key:value` format. For the list of available settings, see [{{ GP }} connector](../concepts/greenplum-connector.md#settings).
+
+- CLI {#cli}
+
+    Command example:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create greenplum <{{ TR }}_catalog_name> \
+      --cluster-id <{{ TR }}_cluster_ID> \
+      --on-premise-connection-url <URL_for_connection> \
+      --on-premise-user-name <username> \
+      --on-premise-password <user_password> \
+      --additional-properties <list_of_additional_settings>
+    ```
+
+    Where:
+
+    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters).
+    * `--on-premise-connection-url`: URL for connecting to the {{ GP }} DB, in `jdbc:postgresql://<host_address>:<port>/<DB_name>` format.
+    * `--on-premise-user-name`: Username for connection to the {{ GP }} DB.
+    * `--on-premise-password`: User password for connection to the {{ GP }} DB.
+    * `--additional-properties`: Additional settings in `key=value` format. For the list of available settings, see [{{ GP }} connector](../concepts/greenplum-connector.md#settings).
+
+- {{ TF }} {#tf}
+
+    Configuration example:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<{{ TR }}_catalog_name>" {
+      ...
+      greenplum = {
+        on_premise = {
+          connection_url = "<URL_for_connection>"
+          user_name      = "<username>"
+          password       = "<user_password>"
+        }
+        additional_properties = {
+          <list_of_additional_settings>
+        }
+      }
+    }
+    ```
+
+    Where:
+
+    * `on_premise`: Settings for connecting to the custom installation:
+
+        * `connection_url`: URL for connecting to the {{ GP }} DB, in `jdbc:postgresql://<host_address>:<port>/<DB_name>` format.
+        * `user_name`: Username for connection to the {{ GP }} DB.
+        * `password`: User password for connection to the {{ GP }} DB.
+
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For the list of available settings, see [{{ GP }} connector](../concepts/greenplum-connector.md#settings).
+
+- REST API {#api}
+
+    Command example:
+
+    ```bash
+    curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<{{ TR }}_cluster_ID>/catalogs' \
+        --data '{
+                  "catalog": {
+                    "name": "<{{ TR }}_catalog_name>",
+                    "connector": {
+                      "greenplum": {
+                        "connection": {
+                          "onPremise": {
+                            "connectionUrl": "<URL_for_connection>",
+                            "userName": "<username>",
+                            "password": "<user_password>"
+                          }
+                        },
+                        "additionalProperties": {
+                          <list_of_additional_settings>
+                        }
+                      }
+                    }
+                  }
+                }'
+    ```
+
+    Where:
+
+    * `onPremise`: Settings for connecting to the custom installation:
+
+        * `connectionUrl`: URL for connecting to the {{ GP }} DB, in `jdbc:postgresql://<host_address>:<port>/<DB_name>` format.
+        * `userName`: Username for connection to the {{ GP }} DB.
+        * `password`: User password for connection to the {{ GP }} DB.
+
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For the list of available settings, see [{{ GP }} connector](../concepts/greenplum-connector.md#settings).
+
+    You can get the {{ TR }} cluster ID with the [list of clusters in the catalog](cluster-list.md#list-clusters).
+
+- gRPC API {#grpc-api}
+
+    Command example:
+
+    ```bash
+    grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<{{ TR }}_cluster_ID>",
+              "catalog": {
+                "name": "<{{ TR }}_catalog_name>",
+                "connector": {
+                  "greenplum": {
+                    "connection": {
+                      "on_premise": {
+                        "connection_url": "<URL_for_connection>",
+                        "user_name": "<username>",
+                        "password": "<user_password>"
+                      }
+                    },
+                    "additional_properties": {
+                      <list_of_additional_settings>
+                    }
+                  }
+                }
+              }
+            }' \
+        {{ api-host-trino }}:{{ port-https }} \
+        yandex.cloud.trino.v1.CatalogService.Create
+    ```
+
+    Where:
+
+    * `on_premise`: Settings for connecting to the custom installation:
+
+        * `connection_url`: URL for connecting to the {{ GP }} DB, in `jdbc:postgresql://<host_address>:<port>/<DB_name>` format.
+        * `user_name`: Username for connection to the {{ GP }} DB.
+        * `password`: User password for connection to the {{ GP }} DB.
+
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For the list of available settings, see [{{ GP }} connector](../concepts/greenplum-connector.md#settings).
+
+    You can get the {{ TR }} cluster ID with the [list of clusters in the catalog](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -678,7 +1039,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
 
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/hive.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/hive.html).
 
 - CLI {#cli}
 
@@ -700,7 +1061,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [cli-connector-settings](../../_includes/managed-trino/cli-connector-settings.md) %}
 
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/hive.html).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/hive.html).
 
 - {{ TF }} {#tf}
 
@@ -727,7 +1088,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [connector-settings-terraform](../../_includes/managed-trino/terraform/connector-settings.md) %}
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/hive.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/hive.html).
 
 - REST API {#api}
 
@@ -765,7 +1126,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [connector-settings-rest-api](../../_includes/managed-trino/api/connector-settings-rest.md) %}
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/hive.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/hive.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -809,7 +1170,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [connector-settings-grpc-api](../../_includes/managed-trino/api/connector-settings-grpc.md) %}
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/hive.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/hive.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -823,7 +1184,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
 
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/hudi.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/hudi.html).
 
 - CLI {#cli}
 
@@ -845,7 +1206,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [cli-connector-settings](../../_includes/managed-trino/cli-connector-settings.md) %}
 
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/hudi.html).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/hudi.html).
 
 - {{ TF }} {#tf}
 
@@ -872,7 +1233,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [connector-settings-terraform](../../_includes/managed-trino/terraform/connector-settings.md) %}
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/hive.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/hive.html).
 
 - REST API {#api}
 
@@ -910,7 +1271,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [connector-settings-rest-api](../../_includes/managed-trino/api/connector-settings-rest.md) %}
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/hudi.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/hudi.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -954,7 +1315,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [connector-settings-grpc-api](../../_includes/managed-trino/api/connector-settings-grpc.md) %}
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/hudi.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/hudi.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -968,7 +1329,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
 
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/iceberg.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/iceberg.html).
 
 - CLI {#cli}
 
@@ -990,7 +1351,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [cli-connector-settings](../../_includes/managed-trino/cli-connector-settings.md) %}
 
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/iceberg.html).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/iceberg.html).
 
 - {{ TF }} {#tf}
 
@@ -1017,7 +1378,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [connector-settings-terraform](../../_includes/managed-trino/terraform/connector-settings.md) %}
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/iceberg.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/iceberg.html).
 
 - REST API {#api}
 
@@ -1055,7 +1416,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [connector-settings-rest-api](../../_includes/managed-trino/api/connector-settings-rest.md) %}
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/iceberg.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/iceberg.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1099,7 +1460,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [connector-settings-grpc-api](../../_includes/managed-trino/api/connector-settings-grpc.md) %}
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/iceberg.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/iceberg.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1111,11 +1472,11 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
 - Management console {#console}
 
-    * **Connection type**: On-premise.
+    * **Connection type**: Manual setup.
     * **URL**: URL for connecting to the Oracle DB, in `jdbc:oracle:thin:@<host_address>:<port>:<SID>` format, where `SID` is the Oracle system ID.
     * **Username**: Username for connecting to the Oracle DB.
     * **Password**: User password for connection to the Oracle DB.
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/oracle.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/oracle.html).
 
 - CLI {#cli}
 
@@ -1132,11 +1493,11 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     Where:
 
-    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can get the cluster ID from the [list of clusters](cluster-list.md#list-clusters).
+    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters).
     * `--on-premise-connection-url`: URL for connecting to the Oracle DB, in `jdbc:oracle:thin:@<host_address>:<port>:<SID>`, where `SID` is the Oracle system ID.
     * `--on-premise-user-name`: Username for connection to the Oracle DB.
     * `--on-premise-password`: User password for connection to the Oracle DB.
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/oracle.html).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/oracle.html).
 
 - {{ TF }} {#tf}
 
@@ -1166,7 +1527,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
         * `user_name`: Username for connection to the Oracle DB.
         * `password`: User password for connection to the Oracle DB.
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/oracle.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/oracle.html).
 
 - REST API {#api}
 
@@ -1207,7 +1568,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
         * `userName`: Username for connection to the Oracle DB.
         * `password`: User password for connection to the Oracle DB.
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/oracle.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/oracle.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1254,7 +1615,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
         * `user_name`: Username for connection to the Oracle DB.
         * `password`: User password for connection to the Oracle DB.
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/oracle.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/oracle.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1274,11 +1635,11 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
         To find out the connection ID:
         1. Go to the [resource folder]({{ link-console-main }}) page.
-        1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-        1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+        1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
     * **Database**: DB name in the {{ PG }} cluster.
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/postgresql.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/postgresql.html).
 
 - CLI {#cli}
 
@@ -1300,15 +1661,15 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
         To find out the connection ID:
         1. Go to the [resource folder]({{ link-console-main }}) page.
-        1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-        1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+        1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
     * `--connection-manager-database`: DB name in the {{ PG }} cluster.
     * `--connection-manager-connection-properties`: List of {{ PG }} client settings in `key=value` format.
 
         {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
 
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/postgresql.html).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/postgresql.html).
 
 - {{ TF }} {#tf}
 
@@ -1340,15 +1701,15 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
             To find out the connection ID:
             1. In the management console, go to the [resource folder]({{ link-console-main }}) page.
-            1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-            1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+            1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+            1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
         * `database`: DB name in the {{ PG }} cluster.
         * `connection_properties`: List of {{ PG }} client settings in `"key" = "value"` format.
 
             {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/postgresql.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/postgresql.html).
 
 - REST API {#api}
 
@@ -1391,15 +1752,15 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
             To find out the connection ID:
             1. In the management console, go to the [resource folder]({{ link-console-main }}) page.
-            1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-            1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+            1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+            1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
         * `database`: DB name in the {{ PG }} cluster.
         * `connectionProperties`: List of {{ PG }} client settings in `"key": "value"` format.
 
             {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/postgresql.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/postgresql.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1419,7 +1780,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
               "catalog": {
                 "name": "<{{ TR }}_catalog_name>",
                 "connector": {
-                  "postgesql": {
+                  "postgresql": {
                     "connection": {
                       "connection_manager": {
                         "connection_id": "<connection_ID>",
@@ -1448,15 +1809,15 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
             To find out the connection ID:
             1. In the management console, go to the [resource folder]({{ link-console-main }}) page.
-            1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-            1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+            1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+            1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
         * `database`: DB name in the {{ PG }} cluster.
         * `connection_properties`: List of {{ PG }} client settings in `"key": "value"` format.
 
             {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/postgresql.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/postgresql.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1471,7 +1832,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
     * **URL**: URL for connecting to the {{ PG }} DB, in `jdbc:postgresql://<host_address>:<port>/<DB_name>` format.
     * **Username**: Username for connecting to the {{ PG }} DB.
     * **Password**: User password for connection to the {{ PG }} DB.
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/postgresql.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/postgresql.html).
 
 - CLI {#cli}
 
@@ -1492,7 +1853,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
     * `--on-premise-connection-url`: URL for connecting to the {{ PG }} DB, in `jdbc:postgresql://<host_address>:<port>/<DB_name>` format.
     * `--on-premise-user-name`: Username for connection to the {{ PG }} DB.
     * `--on-premise-password`: User password for connection to the {{ PG }} DB.
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/postgresql.html).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/postgresql.html).
 
 - {{ TF }} {#tf}
 
@@ -1522,7 +1883,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
         * `user_name`: Username for connection to the {{ PG }} DB.
         * `password`: User password for connection to the {{ PG }} DB.
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/postgresql.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/postgresql.html).
 
 - REST API {#api}
 
@@ -1538,7 +1899,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
                   "catalog": {
                     "name": "<{{ TR }}_catalog_name>",
                     "connector": {
-                      "postgesql": {
+                      "postgresql": {
                         "connection": {
                           "onPremise": {
                             "connectionUrl": "<URL_for_connection>",
@@ -1563,7 +1924,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
         * `userName`: Username for connection to the {{ PG }} DB.
         * `password`: User password for connection to the {{ PG }} DB.
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/postgresql.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/postgresql.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1610,7 +1971,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
         * `user_name`: Username for connection to the {{ PG }} DB.
         * `password`: User password for connection to the {{ PG }} DB.
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/postgresql.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/postgresql.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1630,14 +1991,14 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
         To find out the connection ID:
         1. Go to the [resource folder]({{ link-console-main }}) page.
-        1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-        1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+        1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
     * **Connection properties**: {{ MY }} connection settings in `key: value` format.
 
         {% include [client-parameters-mysql](../../_includes/managed-trino/client-parameters-mysql.md) %}
 
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/mysql.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/mysql.html).
 
 - CLI {#cli}
 
@@ -1658,14 +2019,14 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
         To find out the connection ID:
         1. Go to the [resource folder]({{ link-console-main }}) page.
-        1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-        1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+        1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
     * `--connection-manager-connection-properties`: List of {{ MY }} connection settings in `key=value` format.
 
        {% include [client-parameters-mysql](../../_includes/managed-trino/client-parameters-mysql.md) %}
 
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/mysql.html).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/mysql.html).
 
 - {{ TF }} {#tf}
 
@@ -1696,14 +2057,14 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
             To find out the connection ID:
             1. In the management console, go to the [resource folder]({{ link-console-main }}) page.
-            1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-            1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+            1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+            1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
         * `connection_properties`: List of {{ MY }} connection settings in `"key" = "value"` format.
 
            {% include [client-parameters-mysql](../../_includes/managed-trino/client-parameters-mysql.md) %}
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/mysql.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/mysql.html).
 
 - REST API {#api}
 
@@ -1745,14 +2106,14 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
             To find out the connection ID:
             1. In the management console, go to the [resource folder]({{ link-console-main }}) page.
-            1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-            1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+            1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+            1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
         * `connectionProperties`: List of {{ MY }} connection settings in `"key": "value"` format.
 
            {% include [client-parameters-mysql](../../_includes/managed-trino/client-parameters-mysql.md) %}
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/mysql.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/mysql.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1800,14 +2161,14 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
             To find out the connection ID:
             1. In the management console, go to the [resource folder]({{ link-console-main }}) page.
-            1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-            1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+            1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+            1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
         * `connection_properties`: List of {{ MY }} connection settings in `"key": "value"` format.
 
            {% include [client-parameters-mysql](../../_includes/managed-trino/client-parameters-mysql.md) %}
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/mysql.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/mysql.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1822,7 +2183,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
     * **URL**: URL for connecting to the {{ MY }} server, in `jdbc:mysql://<host_address>:<port>/` format. You do not need to specify a database name, {{ TR }} will automatically detect all available databases.
     * **Username**: Username for connection to the {{ MY }} server.
     * **Password**: User password for connection to the {{ MY }} server.
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/mysql.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/mysql.html).
 
 - CLI {#cli}
 
@@ -1843,7 +2204,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
     * `--on-premise-connection-url`: URL for connecting to the {{ MY }} server, in `jdbc:mysql://<host_address>:<port>/` format. You do not need to specify a database name, {{ TR }} will automatically detect all available databases.
     * `--on-premise-user-name`: Username for connection to the {{ MY }} server.
     * `--on-premise-password`: User password for connection to the {{ MY }} server.
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/mysql.html).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/mysql.html).
 
 - {{ TF }} {#tf}
 
@@ -1873,7 +2234,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
         * `user_name`: Username for connection to the {{ MY }} server.
         * `password`: User password for connection to the {{ MY }} server.
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/mysql.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/mysql.html).
 
 - REST API {#api}
 
@@ -1914,7 +2275,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
         * `userName`: Username for connection to the {{ MY }} server.
         * `password`: User password for connection to the {{ MY }} server.
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/mysql.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/mysql.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1961,7 +2322,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
         * `user_name`: Username for connection to the {{ MY }} server.
         * `password`: User password for connection to the {{ MY }} server.
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/mysql.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/mysql.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1977,7 +2338,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
     * **URL**: URL for connecting to the Microsoft SQL Server DB, in `jdbc:sqlserver://<host_address>:<port>;databaseName=<DB_name>` format.
     * **Username**: Username for connecting to the Microsoft SQL Server DB.
     * **Password**: User password for connection to the Microsoft SQL Server DB.
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/sqlserver.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/sqlserver.html).
 
 - CLI {#cli}
 
@@ -1998,7 +2359,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
     * `--on-premise-connection-url`: URL for connecting to the Microsoft SQL Server DB, in `jdbc:sqlserver://<host_address>:<port>;databaseName=<DB_name>` format.
     * `--on-premise-user-name`: Username for connecting to the Microsoft SQL Server DB.
     * `--on-premise-password`: User password for connection to the Microsoft SQL Server DB.
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/sqlserver.html).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/sqlserver.html).
 
 - {{ TF }} {#tf}
 
@@ -2028,7 +2389,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
         * `user_name`: Username for connecting to the Microsoft SQL Server DB.
         * `password`: User password for connection to the Microsoft SQL Server DB.
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/sqlserver.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/sqlserver.html).
 
 - REST API {#api}
 
@@ -2069,7 +2430,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
         * `userName`: Username for connecting to the Microsoft SQL Server DB.
         * `password`: User password for connection to the Microsoft SQL Server DB.
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/sqlserver.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/sqlserver.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -2116,7 +2477,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
         * `user_name`: Username for connecting to the Microsoft SQL Server DB.
         * `password`: User password for connection to the Microsoft SQL Server DB.
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/sqlserver.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/sqlserver.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -2130,7 +2491,7 @@ The TPC-DS connector has no required settings. Optionally, you can configure adv
 
 - Management console {#console}
 
-    You can specify additional settings in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/tpcds.html).
+    You can specify additional settings in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/tpcds.html).
 
 - CLI {#cli}
 
@@ -2145,7 +2506,7 @@ The TPC-DS connector has no required settings. Optionally, you can configure adv
     Where:
 
     * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters).
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/tpcds.html).  
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/tpcds.html).  
 
 - {{ TF }} {#tf}
 
@@ -2162,7 +2523,7 @@ The TPC-DS connector has no required settings. Optionally, you can configure adv
     }
     ```
 
-    Where `additional_properties` is a list of advanced settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/tpcds.html).
+    Where `additional_properties` is a list of advanced settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/tpcds.html).
 
 - REST API {#api}
 
@@ -2188,7 +2549,7 @@ The TPC-DS connector has no required settings. Optionally, you can configure adv
                 }'
     ```
 
-    Where `additionalProperties` is a list of advanced settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/tpcds.html).
+    Where `additionalProperties` is a list of advanced settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/tpcds.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -2220,7 +2581,7 @@ The TPC-DS connector has no required settings. Optionally, you can configure adv
         yandex.cloud.trino.v1.CatalogService.Create
     ```
 
-    Where `additional_properties` is a list of advanced settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/tpcds.html).
+    Where `additional_properties` is a list of advanced settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/tpcds.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -2234,7 +2595,7 @@ The TPC-H connector has no required settings. Optionally, you can configure adva
 
 - Management console {#console}
 
-    You can specify additional settings in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/tpch.html).
+    You can specify additional settings in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/tpch.html).
 
 - CLI {#cli}
 
@@ -2249,7 +2610,7 @@ The TPC-H connector has no required settings. Optionally, you can configure adva
     Where:
 
     * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters).
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/tpch.html).      
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/tpch.html).      
 
 - {{ TF }} {#tf}
 
@@ -2266,7 +2627,7 @@ The TPC-H connector has no required settings. Optionally, you can configure adva
     }
     ```
 
-    Where `additional_properties` is a list of advanced settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/tpch.html).
+    Where `additional_properties` is a list of advanced settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/tpch.html).
 
 - REST API {#api}
 
@@ -2292,7 +2653,7 @@ The TPC-H connector has no required settings. Optionally, you can configure adva
                 }'
     ```
 
-    Where `additionalProperties` is a list of advanced settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/tpch.html).
+    Where `additionalProperties` is a list of advanced settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/tpch.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -2324,7 +2685,7 @@ The TPC-H connector has no required settings. Optionally, you can configure adva
         yandex.cloud.trino.v1.CatalogService.Create
     ```
 
-    Where `additional_properties` is a list of advanced settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/tpch.html).
+    Where `additional_properties` is a list of advanced settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/tpch.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 

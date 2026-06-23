@@ -76,7 +76,7 @@
 ## Частые вопросы {#qa}
 
 
-Смотрите о том, [как заменить подключение Google Sheets старого типа на новое](../../qa/connections.md#google-sheets-v2).
+Подробнее о том, [как заменить подключение Google Sheets старого типа на новое](../../qa/connections.md#google-sheets-v2).
 
 
 {% cut "Что делать, если таблица из Google Sheets работает некорректно?" %}

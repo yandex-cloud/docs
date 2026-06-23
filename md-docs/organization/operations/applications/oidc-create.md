@@ -1,13 +1,13 @@
 # Создать OIDC-приложение в Yandex Identity Hub
 
 
-Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться во внешних приложениях с помощью технологии единого входа по стандарту [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC), создайте [OIDC-приложение](../../concepts/applications.md#oidc) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне поставщика услуг.
+Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться во внешних приложениях с помощью технологии единого входа по стандарту [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC), создайте [OIDC-приложение](../../concepts/applications/oidc.md) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне поставщика услуг.
 
 Управлять OIDC-приложениями может пользователь, которому назначена [роль](../../security/index.md#organization-manager-oauthApplications-admin) `organization-manager.oauthApplications.admin` или выше.
 
 {% note info %}
 
-В настоящее время создавать OIDC-приложения [типов](../../concepts/applications.md#oidc-application-types) `Single-Page Application` и `Native Application`, а также управлять такими приложениями можно только в [интерфейсе Cloud Center](https://center.yandex.cloud/organization).
+В настоящее время создавать OIDC-приложения [типов](../../concepts/applications/oidc.md#oidc-application-types) `Single-Page Application` и `Native Application`, а также управлять такими приложениями можно только в [интерфейсе Cloud Center](https://center.yandex.cloud/organization).
 
 {% endnote %}
 
@@ -23,9 +23,9 @@
       1. Выберите метод единого входа **OIDC (OpenID Connect)**.
       1. В поле **Тип приложения** выберите [тип](*oidc_app_type) создаваемого приложения:
 
-          * [Web Application](../../concepts/applications.md#oidc-web) — оптимально для аутентификации пользователей во внешних веб-приложениях, имеющих серверную часть (бэкенд);
-          * [Single-Page Application](../../concepts/applications.md#oidc-single-page) — оптимально для аутентификации пользователей во внешних приложениях, построенных по технологии [SPA](https://ru.wikipedia.org/wiki/Одностраничное_приложение);
-          * [Native Application](../../concepts/applications.md#oidc-native) — оптимально для аутентификации пользователей во внешних мобильных или настольных приложениях, установленных на устройствах пользователей.
+          * [Web Application](../../concepts/applications/oidc.md#oidc-web) — оптимально для аутентификации пользователей во внешних веб-приложениях, имеющих серверную часть (бэкенд);
+          * [Single-Page Application](../../concepts/applications/oidc.md#oidc-single-page) — оптимально для аутентификации пользователей во внешних приложениях, построенных по технологии [SPA](https://ru.wikipedia.org/wiki/Одностраничное_приложение);
+          * [Native Application](../../concepts/applications/oidc.md#oidc-native) — оптимально для аутентификации пользователей во внешних мобильных или настольных приложениях, установленных на устройствах пользователей.
       1. В поле **Имя** задайте имя создаваемого приложения. Имя должно быть уникальным в пределах организации и соответствовать требованиям:
 
           * длина — от 1 до 63 символов;
@@ -167,7 +167,7 @@
   
   Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  1. Опишите в конфигурационном файле Terraform параметры [OAuth-клиента](../../concepts/applications.md):
+  1. Опишите в конфигурационном файле Terraform параметры [OAuth-клиента](../../concepts/applications/oidc.md):
 
      ```hcl
      resource "yandex_iam_oauth_client" "example_oauth_client" {
@@ -191,7 +191,7 @@
 
      Подробнее о параметрах ресурса `yandex_iam_oauth_client` читайте в [документации провайдера](../../../terraform/resources/iam_oauth_client.md).
 
-  1. Опишите в конфигурационном файле Terraform параметры [секрета](../../concepts/applications.md#oidc-secret) OAuth-клиента:
+  1. Опишите в конфигурационном файле Terraform параметры [секрета](../../concepts/applications/oidc.md#oidc-secret) OAuth-клиента:
 
      ```hcl
      resource "yandex_iam_oauth_client_secret" "example_oauth_client_secret" {
@@ -205,7 +205,7 @@
 
      Подробнее о параметрах ресурса `yandex_iam_oauth_client_secret` читайте в [документации провайдера](../../../terraform/resources/iam_oauth_client_secret.md).
 
-  1. Опишите в конфигурационном файле Terraform параметры [OIDC-приложения](../../concepts/applications.md#oidc):
+  1. Опишите в конфигурационном файле Terraform параметры [OIDC-приложения](../../concepts/applications/oidc.md):
 
      ```hcl
      resource "yandex_organizationmanager_idp_application_oauth_application" "example_oidc_app" {
@@ -318,14 +318,14 @@
       * `Token endpoint` — адрес, на который от внешнего приложения поступает запрос на получение ID-токена и токена доступа.
       * `Userinfo endpoint` — адрес, по которому внешнее приложение может получить атрибуты пользователя.
 
-  1. Создайте секрет приложения (действие доступно только для приложений [типа](../../concepts/applications.md#oidc-application-types) `Web Application`):
+  1. Создайте секрет приложения (действие доступно только для приложений [типа](../../concepts/applications/oidc.md#oidc-application-types) `Web Application`):
      
      1. В блоке **Секреты приложения** нажмите кнопку **Добавить секрет** и в открывшемся окне:
      
          1. (Опционально) Добавьте произвольное описание создаваемого секрета.
          1. Нажмите **Создать**.
      
-     В окне отобразится сгенерированный [секрет приложения](../../concepts/applications.md#oidc-secret). Сохраните полученное значение.
+     В окне отобразится сгенерированный [секрет приложения](../../concepts/applications/oidc.md#oidc-secret). Сохраните полученное значение.
      
      {% note warning %}
      
@@ -345,14 +345,14 @@
   1. На вкладке **Обзор** в блоке **Конфигурация поставщика удостоверений (IdP)** скопируйте значение поля **OpenID Configuration**.
 
       По ссылке доступны значения всех настроек, которые необходимо задать на стороне поставщика услуг (за исключением секрета).
-  1. Создайте секрет приложения (действие доступно только для приложений [типа](../../concepts/applications.md#oidc-application-types) `Web Application`):
+  1. Создайте секрет приложения (действие доступно только для приложений [типа](../../concepts/applications/oidc.md#oidc-application-types) `Web Application`):
      
      1. В блоке **Секреты приложения** нажмите кнопку **Добавить секрет** и в открывшемся окне:
      
          1. (Опционально) Добавьте произвольное описание создаваемого секрета.
          1. Нажмите **Создать**.
      
-     В окне отобразится сгенерированный [секрет приложения](../../concepts/applications.md#oidc-secret). Сохраните полученное значение.
+     В окне отобразится сгенерированный [секрет приложения](../../concepts/applications/oidc.md#oidc-secret). Сохраните полученное значение.
      
      {% note warning %}
      
@@ -371,7 +371,7 @@
 
 {% note info %}
 
-В настоящее время создавать OIDC-приложения [типов](../../concepts/applications.md#oidc-application-types) `Single-Page Application` и `Native Application`, а также управлять такими приложениями можно только в [интерфейсе Cloud Center](https://center.yandex.cloud/organization).
+В настоящее время создавать OIDC-приложения [типов](../../concepts/applications/oidc.md#oidc-application-types) `Single-Page Application` и `Native Application`, а также управлять такими приложениями можно только в [интерфейсе Cloud Center](https://center.yandex.cloud/organization).
 
 {% endnote %}
 
@@ -388,11 +388,11 @@
      1. В блоке **Конфигурация поставщика услуг (SP)** в поле **Redirect URI** укажите полученный у поставщика услуг адрес.
      
          Используйте кнопку **Добавить URI**, чтобы указать одновременно несколько адресов Redirect URI.
-     1. Настройте параметры безопасности OIDC-приложения (действие доступно только для приложений [типа](../../concepts/applications.md#oidc-application-types) `Web Application`):
+     1. Настройте параметры безопасности OIDC-приложения (действие доступно только для приложений [типа](../../concepts/applications/oidc.md#oidc-application-types) `Web Application`):
         
         В блоке **Безопасность OAuth/OIDC**:
         
-        * В поле **Authentication methods** выберите нужные [способы](../../concepts/applications.md#secret-delivery) передачи секрета приложения:
+        * В поле **Authentication methods** выберите нужные [способы](../../concepts/applications/oidc.md#secret-delivery) передачи секрета приложения:
         
             * `Client secret basic` — чтобы секрет приложения передавался в HTTP-заголовке `Authorization: Basic`.
             * `Client secret post` — чтобы секрет приложения передавался в теле POST-запроса.
@@ -415,7 +415,7 @@
      
      1. Нажмите кнопку **Сохранить**.
      
-     [*pkce_info]: PKCE — это расширение безопасности, применяемое в стандарте OAuth 2.0 с целью минимизировать риски перехвата аутентификационных данных. Подробнее читайте в разделе [PKCE](../../concepts/applications.md#pkce).
+     [*pkce_info]: PKCE — это расширение безопасности, применяемое в стандарте OAuth 2.0 с целью минимизировать риски перехвата аутентификационных данных. Подробнее читайте в разделе [PKCE](../../concepts/applications/oidc.md#pkce).
 
 - CLI {#cli}
 
@@ -714,7 +714,7 @@
 * [Изменить OIDC-приложение в Yandex Identity Hub](oidc-update.md)
 * [Деактивировать и удалить OIDC-приложение в Yandex Identity Hub](oidc-deactivate-remove.md)
 * [Добавить пользователя](../add-account.md)
-* [OIDC-приложения](../../concepts/applications.md#oidc)
+* [OIDC-приложения](../../concepts/applications/oidc.md)
 * [Управление группами пользователей](../manage-groups.md)
 
-[*oidc_app_type]: Тип OIDC-приложения в Yandex Identity Hub (`Web Application`, `Single-Page Application` и `Native Application`) определяет возможность использования секретов приложения и ряда других настроек. Подробнее читайте в разделе [Типы OIDC-приложений в Yandex Identity Hub](../../concepts/applications.md#oidc-application-types).
+[*oidc_app_type]: Тип OIDC-приложения в Yandex Identity Hub (`Web Application`, `Single-Page Application` и `Native Application`) определяет возможность использования секретов приложения и ряда других настроек. Подробнее читайте в разделе [Типы OIDC-приложений в Yandex Identity Hub](../../concepts/applications/oidc.md#oidc-application-types).

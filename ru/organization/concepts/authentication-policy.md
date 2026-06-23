@@ -53,13 +53,13 @@ _Политики аутентификации_ — это инструмент 
 * [{#T}](../operations/authentication-policies/activate-deactivate.md)
 * [{#T}](../operations/authentication-policies/update.md)
 * [{#T}](../operations/authentication-policies/delete.md)
-* [{#T}](./applications.md)
+* [{#T}](./applications/index.md)
 
 [*organization]: Организация — это высший ресурс в иерархии ресурсной модели {{ yandex-cloud }}, который объединяет ресурсы всех остальных сервисов, а также используется для управления пользователями и параметрами их аутентификации и авторизации. Подробнее читайте в разделе [{#T}](./organization.md).
 
 [*user_groups]: Пользователей {{ org-full-name }} можно объединять в группы, что упрощает управление доступом в {{ yandex-cloud }}. Подробнее читайте в разделе [{#T}](./groups.md).
 
-[*applications]: SAML- и OIDC-приложения {{ org-full-name }} позволяют пользователям {{ yandex-cloud }} аутентифицироваться в сервисах сторонних поставщиков услуг. Подробнее читайте в разделе [{#T}](./applications.md).
+[*applications]: SAML- и OIDC-приложения {{ org-full-name }} позволяют пользователям {{ yandex-cloud }} аутентифицироваться в сервисах сторонних поставщиков услуг. Подробнее читайте в разделе [{#T}](./applications/index.md).
 
 [*user_accounts]: В {{ yandex-cloud }} используются аккаунты пользователей на Яндексе, а также федеративные и локальные пользовательские аккаунты. Подробнее читайте в разделе [{#T}](../../iam/concepts/users/accounts.md).
 

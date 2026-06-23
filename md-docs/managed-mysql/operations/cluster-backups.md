@@ -614,7 +614,7 @@
 
   Terraform создаст новый кластер. Базы данных и пользователи будут развернуты из резервной копии.
 
-  Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_mysql_cluster.md).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_cluster` смотрите в [документации провайдера](../../terraform/resources/mdb_mysql_cluster.md).
 
   {% note warning "Ограничения по времени" %}
   
@@ -889,7 +889,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_mysql_cluster.md).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_cluster` смотрите в [документации провайдера](../../terraform/resources/mdb_mysql_cluster.md).
 
   {% note warning "Ограничения по времени" %}
   
@@ -1091,7 +1091,7 @@
 
         О том, как создать такой файл, читайте в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера Managed Service for MySQL® в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера Managed Service for MySQL® смотрите в [документации провайдера](../../terraform/resources/mdb_postgresql_cluster.md).
 
     1. Чтобы задать срок хранения автоматических резервных копий, добавьте к описанию кластера Managed Service for MySQL® блок `backup_retain_period_days`:
 
@@ -1133,7 +1133,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_mysql_cluster.md).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_cluster` смотрите в [документации провайдера](../../terraform/resources/mdb_mysql_cluster.md).
 
   {% note warning "Ограничения по времени" %}
   

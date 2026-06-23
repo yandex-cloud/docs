@@ -10,7 +10,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Деактивируйте приложение {#deactivate}
 
-Если вам требуется временно отключить возможность аутентификации пользователей вашей [организации](../../concepts/organization.md) во внешнем приложении с помощью технологии единого входа по стандарту [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC), деактивируйте соответствующее [OIDC-приложение](../../concepts/applications.md#oidc) в {{ org-full-name }}:
+Если вам требуется временно отключить возможность аутентификации пользователей вашей [организации](../../concepts/organization.md) во внешнем приложении с помощью технологии единого входа по стандарту [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC), деактивируйте соответствующее [OIDC-приложение](../../concepts/applications/oidc.md) в {{ org-full-name }}:
 
 {% list tabs group=instructions %}
 
@@ -220,5 +220,5 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](./oidc-create.md)
 * [{#T}](./oidc-update.md)
 * [{#T}](../add-account.md)
-* [{#T}](../../concepts/applications.md#oidc)
+* [{#T}](../../concepts/applications/oidc.md)
 * [{#T}](../manage-groups.md)

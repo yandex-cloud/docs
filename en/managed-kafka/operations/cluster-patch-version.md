@@ -12,7 +12,7 @@ To find out the {{ KF }} patch version installed in a {{ mkf-name }} cluster, fo
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Find the **{{ ui-key.yacloud.mdb.cluster.overview.label_version }}** field containing the {{ KF }} version and patch version info.
 
 - CLI {#cli}
@@ -58,7 +58,7 @@ To find out the {{ KF }} patch version installed in a {{ mkf-name }} cluster, fo
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -79,7 +79,7 @@ To find out the {{ KF }} patch version installed in a {{ mkf-name }} cluster, fo
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

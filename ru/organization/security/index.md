@@ -37,8 +37,8 @@
   * [Организация](../operations/security.md)
   * [Пул пользователей](../concepts/user-pools.md)
   * [Группа пользователей](../operations/access-manage-group.md)
-  * [SAML-приложение](../concepts/applications.md#saml)
-  * [OIDC-приложение](../concepts/applications.md#oidc)
+  * [SAML-приложение](../concepts/applications/saml.md)
+  * [OIDC-приложение](../concepts/applications/oidc.md)
 
 - {{ TF }} {#tf}
 
@@ -54,8 +54,8 @@
   * [Организация](../operations/security.md)
   * [Пул пользователей](../concepts/user-pools.md)
   * [Группа пользователей](../operations/access-manage-group.md)
-  * [SAML-приложение](../concepts/applications.md#saml)
-  * [OIDC-приложение](../concepts/applications.md#oidc)
+  * [SAML-приложение](../concepts/applications/saml.md)
+  * [OIDC-приложение](../concepts/applications/oidc.md)
 
 {% endlist %}
 

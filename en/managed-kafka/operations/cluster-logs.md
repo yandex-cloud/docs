@@ -17,7 +17,7 @@ In this context, the log refers to the system logs of a cluster and its hosts. T
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Click the name of your cluster and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** tab.
     1. Select **{{ ui-key.yacloud.kafka.label_filter_origin }}**, **{{ ui-key.yacloud.mdb.cluster.logs.label_hosts }}**, and **{{ ui-key.yacloud.mdb.cluster.logs.label_severity }}**.
     1. Specify a time period for the log entries you want to view.

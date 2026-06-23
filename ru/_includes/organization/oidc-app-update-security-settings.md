@@ -1,8 +1,8 @@
-Настройте параметры безопасности OIDC-приложения (действие доступно только для приложений [типа](../../organization/concepts/applications.md#oidc-application-types) `{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}`):
+Настройте параметры безопасности OIDC-приложения (действие доступно только для приложений [типа](../../organization/concepts/applications/oidc.md#oidc-application-types) `{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}`):
 
 В блоке **{{ ui-key.yacloud_org.application.overview.oauth_security_section_title }}**:
 
-* В поле **{{ ui-key.yacloud_org.application.overview.oauth_field_authentication_methods }}** выберите нужные [способы](../../organization/concepts/applications.md#secret-delivery) передачи секрета приложения:
+* В поле **{{ ui-key.yacloud_org.application.overview.oauth_field_authentication_methods }}** выберите нужные [способы](../../organization/concepts/applications/oidc.md#secret-delivery) передачи секрета приложения:
 
     * `{{ ui-key.yacloud_org.application.overview.oauth_field_auth_method_client_secret_basic }}` — чтобы секрет приложения передавался в HTTP-заголовке `Authorization: Basic`.
     * `{{ ui-key.yacloud_org.application.overview.oauth_field_auth_method_client_secret_post }}` — чтобы секрет приложения передавался в теле POST-запроса.

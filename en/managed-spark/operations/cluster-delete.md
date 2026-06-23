@@ -18,7 +18,7 @@ Before deleting a cluster, disable its deletion protection if it is enabled.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a cluster.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster in question and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
   1. In the window that opens, confirm the deletion and click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
 
@@ -42,7 +42,7 @@ Before deleting a cluster, disable its deletion protection if it is enabled.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
   
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
   
@@ -64,7 +64,7 @@ Before deleting a cluster, disable its deletion protection if it is enabled.
          yandex.cloud.spark.v1.ClusterService.Delete
      ```
   
-     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
   
   1. Check the [server response](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

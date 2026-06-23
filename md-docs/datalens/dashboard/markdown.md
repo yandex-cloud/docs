@@ -251,7 +251,7 @@ DataLens позволяет использовать язык разметки M
 |#
 ```
 
-См. подробнее в [документации YFM](https://ydocs.tech/ru/syntax/tables/multiline).
+Подробнее в [документации YFM](https://ydocs.tech/ru/syntax/tables/multiline).
 
 ## Каты {#cuts}
 
@@ -528,7 +528,7 @@ graph TD;
 
 ![mermaid-flowcharts-example](../../_assets/datalens/internal/editor/mermaid-flowcharts-example.svg)
 
-См. подробнее в [документации Mermaid](https://mermaid.js.org/intro/).
+Подробнее в [документации Mermaid](https://mermaid.js.org/intro/).
 
 {% note info %}
 

@@ -3,7 +3,7 @@
 
 [NetBird](https://netbird.io/) — это платформа для организации защищенного доступа к сетевым ресурсам. NetBird поддерживает аутентификацию по стандарту [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC), что позволяет настроить единый вход пользователей организации через Yandex Identity Hub.
 
-В этом руководстве вы создадите OIDC-приложение и [пул пользователей](../../../organization/concepts/user-pools.md) в Yandex Identity Hub, получите `Client ID`, секрет приложения и [URL с конфигурацией](../../../organization/concepts/applications.md#oidc-sp-setup), а затем настроите внешний OIDC-провайдер в NetBird Dashboard.
+В этом руководстве вы создадите OIDC-приложение и [пул пользователей](../../../organization/concepts/user-pools.md) в Yandex Identity Hub, получите `Client ID`, секрет приложения и [URL с конфигурацией](../../../organization/concepts/applications/oidc.md#oidc-sp-setup), а затем настроите внешний OIDC-провайдер в NetBird Dashboard.
 
 Управлять OIDC-приложениями может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-oauthApplications-admin) `organization-manager.oauthApplications.admin` или выше.
 
@@ -29,7 +29,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит плата за использование [OIDC-приложения](../../../organization/concepts/applications.md#oidc) ([тарифы Yandex Identity Hub](../../../organization/pricing.md)).
+В стоимость поддержки инфраструктуры входит плата за использование [OIDC-приложения](../../../organization/concepts/applications/oidc.md) ([тарифы Yandex Identity Hub](../../../organization/pricing.md)).
 
 ### Перед началом работы {#check-to-begin}
 
@@ -56,6 +56,9 @@
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
   1. Нажмите кнопку ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
       1. Выберите метод единого входа (SSO) **OIDC (OpenID Connect)**.
+      1. В поле **Тип приложения** выберите тип [Web Application](*web_app_type).
+         
+         [*web_app_type]: OIDC-приложения типа `Web Application` оптимально подходят для аутентификации пользователей во внешних веб-приложениях, имеющих серверную часть (бэкенд), в которой может безопасно храниться секрет приложения. Подробнее о типах OIDC-приложений читайте в разделе [Типы OIDC-приложений в Yandex Identity Hub](../../../organization/concepts/applications/oidc.md#oidc-application-types).
       1. В поле **Имя** укажите `netbird-oidc-app`.
       1. В поле **Каталог** выберите каталог, в котором будет создан OAuth-клиент для приложения.
       1. (Опционально) В поле **Описание** укажите описание, например `OIDC-приложение для интеграции с NetBird`.
@@ -145,7 +148,7 @@
 
 ### Настройте OIDC-атрибуты пользователя {#setup-scopes}
 
-Для NetBird обычно используются стандартные [атрибуты](../../../organization/concepts/applications.md#oidc-attributes) (scopes):
+Для NetBird обычно используются стандартные [атрибуты](../../../organization/concepts/applications/oidc.md#oidc-attributes) (scopes):
 
 **Минимально необходимый набор**: `openid, email, profile`.
 
@@ -327,14 +330,14 @@
       * `ClientID` — Client ID.
       * `OpenID Configuration` — URL OpenID Connect Discovery.
 
-  1. Создайте секрет приложения (действие доступно только для приложений [типа](../../../organization/concepts/applications.md#oidc-application-types) `Web Application`):
+  1. Создайте секрет приложения (действие доступно только для приложений [типа](../../../organization/concepts/applications/oidc.md#oidc-application-types) `Web Application`):
      
      1. В блоке **Секреты приложения** нажмите кнопку **Добавить секрет** и в открывшемся окне:
      
          1. (Опционально) Добавьте произвольное описание создаваемого секрета.
          1. Нажмите **Создать**.
      
-     В окне отобразится сгенерированный [секрет приложения](../../../organization/concepts/applications.md#oidc-secret). Сохраните полученное значение.
+     В окне отобразится сгенерированный [секрет приложения](../../../organization/concepts/applications/oidc.md#oidc-secret). Сохраните полученное значение.
      
      {% note warning %}
      

@@ -9,7 +9,7 @@ You can find the list of supported versions in the [Versioning](../concepts/vers
 
 {% include [version-update-rules](../../_includes/managed-airflow/version-update-rules.md) %}
 
-To learn about updates within the same version and host maintenance, see [Maintenance](../concepts/maintenance.md).
+To learn about upgrades within the same version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
 {% note alert %}
 
@@ -26,7 +26,7 @@ Once your {{ AF }} version is upgraded, you cannot revert the cluster to the pre
     To upgrade your {{ AF }} or Python version:
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
     1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the {{ AF }} and Python version you need.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -58,7 +58,7 @@ Once your {{ AF }} version is upgraded, you cannot revert the cluster to the pre
           --airflow-version=<new_version_number>
         ```
 
-    1. To upgrade your Python version, run this command:
+    1. To upgrade a Python version, run this command:
 
         ```bash
         {{ yc-mdb-af }} cluster update <cluster_name_or_ID> \
@@ -69,7 +69,7 @@ Once your {{ AF }} version is upgraded, you cannot revert the cluster to the pre
 
     To upgrade your {{ AF }} or Python version:
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -83,7 +83,7 @@ Once your {{ AF }} version is upgraded, you cannot revert the cluster to the pre
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -286,7 +286,7 @@ Let's assume you need to upgrade {{ AF }} from `2.10` to `2.11`, and Python from
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
     1. In the cluster description, set the `airflow_version` field value to `2.11`.
 
         ```hcl

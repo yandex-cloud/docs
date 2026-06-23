@@ -5,7 +5,7 @@
 
 ## Деактивируйте приложение {#deactivate}
 
-Если вам требуется временно отключить возможность аутентификации пользователей вашей [организации](../../concepts/organization.md) во внешнем приложении с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), деактивируйте соответствующее [SAML-приложение](../../concepts/applications.md#saml) в Yandex Identity Hub:
+Если вам требуется временно отключить возможность аутентификации пользователей вашей [организации](../../concepts/organization.md) во внешнем приложении с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), деактивируйте соответствующее [SAML-приложение](../../concepts/applications/saml.md) в Yandex Identity Hub:
 
 {% list tabs group=instructions %}
 
@@ -210,5 +210,5 @@
 * [Создать SAML-приложение в Yandex Identity Hub](saml-create.md)
 * [Изменить SAML-приложение в Yandex Identity Hub](saml-update.md)
 * [Добавить пользователя](../add-account.md)
-* [SAML-приложения](../../concepts/applications.md#saml)
+* [SAML-приложения](../../concepts/applications/saml.md)
 * [Управление группами пользователей](../manage-groups.md)

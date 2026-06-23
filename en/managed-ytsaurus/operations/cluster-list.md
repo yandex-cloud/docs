@@ -5,7 +5,7 @@ description: You can request detailed information for each {{ ytsaurus-name }} c
 
 # Information about existing clusters
 
-You can request detailed information for each {{ ytsaurus-name }} cluster you have created.
+You can get detailed information about each {{ ytsaurus-name }} cluster you created.
 
 ## Getting a list of clusters in a folder {#list-clusters}
 
@@ -14,7 +14,7 @@ You can request detailed information for each {{ ytsaurus-name }} cluster you ha
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
 
 - CLI {#cli}
 
@@ -40,7 +40,7 @@ You can request detailed information for each {{ ytsaurus-name }} cluster you ha
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -60,7 +60,7 @@ You can request detailed information for each {{ ytsaurus-name }} cluster you ha
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -88,15 +88,15 @@ You can request detailed information for each {{ ytsaurus-name }} cluster you ha
 
 {% endlist %}
 
-## Getting detailed information about a cluster {#get-cluster}
+## Getting cluster details {#get-cluster}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
-    1. Click the name of your cluster.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
+    1. Click the cluster name.
 
 - CLI {#cli}
 
@@ -114,7 +114,7 @@ You can request detailed information for each {{ ytsaurus-name }} cluster you ha
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -133,7 +133,7 @@ You can request detailed information for each {{ ytsaurus-name }} cluster you ha
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -163,7 +163,7 @@ You can request detailed information for each {{ ytsaurus-name }} cluster you ha
 
 ## Viewing operations with clusters {#list-operations}
 
-All actions performed on {{ ytsaurus-name }} clusters are logged, Each operation gets its own unique ID.
+All actions with {{ ytsaurus-name }} clusters are logged as a list of operations. Each operation gets an ID.
 
 ### Getting a list of operations {#get-operations}
 
@@ -173,22 +173,22 @@ All actions performed on {{ ytsaurus-name }} clusters are logged, Each operation
 
     To get a list of operations for a {{ ytsaurus-name }} cluster:
 
-    1. In the [management console]({{ link-console-main }}), open the folder containing your cluster.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
+    1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
     1. Select the cluster.
-    1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected cluster.
+    1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the cluster you selected.
 
-       You will see a list of operations with the cluster.
+       You will see the list of operations with the cluster.
 
 
 {% endlist %}
 
 ### Getting operation details {#get-operations-info}
 
-1. [Get the list of cluster operations](#get-operations).
+1. [Get the list of operations](#get-operations) for the cluster.
 1. Copy the ID of the operation you need.
-1. Get operation details:
+1. Get the operation details:
 
     {% list tabs group=instructions %}
 
@@ -223,7 +223,7 @@ All actions performed on {{ ytsaurus-name }} clusters are logged, Each operation
 
     - REST API {#api}
 
-        1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+        1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
             {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -240,7 +240,7 @@ All actions performed on {{ ytsaurus-name }} clusters are logged, Each operation
 
     - gRPC API {#grpc-api}
 
-        1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+        1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
             {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

@@ -39,7 +39,7 @@
 
 ## Управление тарификацией Yandex Identity Hub {#pricing-management}
 
-С помощью [SAML-приложений](concepts/applications.md#saml) и [OIDC-приложений](concepts/applications.md#oidc) пользователи Yandex Identity Hub могут аутентифицироваться во [внешних приложениях](tutorials/single-sign-on/index.md), таких как [Grafana Cloud](https://grafana.com/products/cloud/), [Zabbix](https://www.zabbix.com) и др. Подключение пользователей Yandex Identity Hub к таким внешним приложениям [тарифицируется](#rules). [Управлять тарификацией](operations/manage-billing.md) сервиса Yandex Identity Hub вы можете через [интерфейс Cloud Center](https://center.yandex.cloud/organization).
+С помощью [SAML-приложений](concepts/applications/saml.md) и [OIDC-приложений](concepts/applications/oidc.md) пользователи Yandex Identity Hub могут аутентифицироваться во [внешних приложениях](tutorials/single-sign-on/index.md), таких как [Grafana Cloud](https://grafana.com/products/cloud/), [Zabbix](https://www.zabbix.com) и др. Подключение пользователей Yandex Identity Hub к таким внешним приложениям [тарифицируется](#rules). [Управлять тарификацией](operations/manage-billing.md) сервиса Yandex Identity Hub вы можете через [интерфейс Cloud Center](https://center.yandex.cloud/organization).
 
 Чтобы управлять тарификацией Yandex Identity Hub и использовать тарифицируемые возможности сервиса, привяжите [платежный аккаунт](../billing/concepts/billing-account.md) к Yandex Identity Hub.
 
