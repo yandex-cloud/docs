@@ -10,7 +10,7 @@ description: Follow this guide to delete a catalog from a {{ mtr-name }} cluster
 - Management console {#console}
 
   1. Go to the [resource folder]({{ link-console-main }}) page.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
   1. Next to the {{ TR }} catalog, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
@@ -31,7 +31,7 @@ description: Follow this guide to delete a catalog from a {{ mtr-name }} cluster
 
     You can get the {{ TR }} catalog ID and name together with the [list of {{ TR }} catalogs in the cluster](catalog-list.md#list-catalogs).
 
-    You can get the cluster ID from the [list of clusters](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -50,7 +50,7 @@ description: Follow this guide to delete a catalog from a {{ mtr-name }} cluster
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the folder ID, with the [list of {{ TR }} catalogs in the cluster](catalog-list.md).
 
-    1. View the [server response](../api-ref/Catalog/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Catalog/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -77,8 +77,8 @@ description: Follow this guide to delete a catalog from a {{ mtr-name }} cluster
             yandex.cloud.trino.v1.ClusterService.Delete
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the folder ID, with the [list of {{ TR }} catalogs in the cluster](catalog-list.md).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the folder ID with the [list of {{ TR }} catalogs in the cluster](catalog-list.md).
 
-    1. View the [server response](../api-ref/grpc/Catalog/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Catalog/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

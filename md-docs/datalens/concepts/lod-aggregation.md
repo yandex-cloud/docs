@@ -6,7 +6,7 @@
 
 ## Группировка в LOD-выражениях {#lod-grouping}
 
-Уровень детализации в LOD-выражениях задается с помощью указания ключевых слов (см. раздел [Синтаксис](../function-ref/aggregation-functions.md#syntax)):
+Уровень детализации в LOD-выражениях задается с помощью указания ключевых слов (подробнее в разделе [Синтаксис](../function-ref/aggregation-functions.md#syntax)):
 
 * [FIXED](#fixed)
 * [INCLUDE](#include)

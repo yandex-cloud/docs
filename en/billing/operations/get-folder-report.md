@@ -38,6 +38,11 @@ You can get a CSV file with your general or per-resource spending details. You c
 1. Optionally, for additional details protection, set up [bucket encryption](../../storage/operations/buckets/encrypt.md).
    To export details to an encrypted bucket, you need a service account that will be handling the export. To manage this service account, the billing account needs the `iam.serviceAccounts.user` role.
 
+   To upload data to an encrypted bucket, you will additionally need the following roles:
+   * `storage.uploader`
+   * `storage.configurer`
+   * `kms.keys.encrypter`
+
 1. Verify that your billing account has the roles required for operations involving regular exports.
    To create, stop, or resume regular exports, the user needs one of the following roles:
      * `billing.accounts.editor`

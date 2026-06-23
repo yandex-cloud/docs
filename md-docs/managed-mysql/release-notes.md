@@ -29,7 +29,7 @@
 
 ## Ноябрь 2025 {#nov-2025}
 
-Добавлена роль `managed-mysql.restorer`, позволяющая восстанавливать кластеры из резервных копий. Подробнее см. в разделе [Управление доступом](security/index.md#managed-mysql-restorer).
+Добавлена роль `managed-mysql.restorer`, позволяющая восстанавливать кластеры из резервных копий. Подробнее в разделе [Управление доступом](security/index.md#managed-mysql-restorer).
 
 ## Октябрь 2025 {#oct-2025}
 
@@ -74,7 +74,7 @@
 ## II квартал 2023 {#q2-2023}
 
 * Доступны новые версии MySQL® [5.7.39](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-39.html) и [8.0.30](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-30.html).
-* В версии MySQL® 5.7 добавлена возможность анализа запросов при помощи `query_response_time_stats`. Подробнее см. в [документации Percona](https://docs.percona.com/percona-server/5.7/diagnostics/response_time_distribution.html).
+* В версии MySQL® 5.7 добавлена возможность анализа запросов при помощи `query_response_time_stats`. Подробнее в [документации Percona](https://docs.percona.com/percona-server/5.7/diagnostics/response_time_distribution.html).
 * Добавлены новые глобальные разрешения для пользователей `FLUSH_OPTIMIZER_COSTS` и `SHOW_ROUTINE`.
 
 ## IV квартал 2022 {#q4-2022}

@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
 
-     Отобразятся все [OIDC-приложения](../../concepts/applications.md#oidc), доступные в вашей организации.
+     Отобразятся все [OIDC-приложения](../../concepts/applications/oidc.md), доступные в вашей организации.
 
 - CLI {#cli}
 
@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для получения списка [OIDC-приложений](../../concepts/applications.md#oidc):
+  1. Посмотрите описание команды CLI для получения списка [OIDC-приложений](../../concepts/applications/oidc.md):
 
      ```bash
      yc organization-manager idp application oauth application list --help

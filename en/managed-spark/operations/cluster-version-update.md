@@ -3,9 +3,9 @@ title: How to change {{ SPRK }} version in a {{ msp-full-name }} cluster
 description: Follow this guide to change {{ SPRK }} version in a {{ msp-full-name }} cluster.
 ---
 
-# {{ SPRK }} version upgrade
+# {{ SPRK }} version update
 
-You can change the {{ SPRK }} version to any of the versions [supported](#available-versions) by {{ msp-name }}. You can only upgrade the version.
+You can change the {{ SPRK }} version to any of the versions [supported](#available-versions) by {{ msp-name }}. You can only upgrade versions.
 
 Updates and fixes within a version are installed automatically during maintenance.
 
@@ -16,7 +16,7 @@ Updates and fixes within a version are installed automatically during maintenanc
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
     1. Select a cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** on the top panel. This will open the cluster editing page.
       
         You can see the list of available versions in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
@@ -37,7 +37,7 @@ Make sure the upgrade will not disrupt your applications:
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
     1. Select a cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** on the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select {{ SPRK }}.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -67,9 +67,9 @@ Make sure the upgrade will not disrupt your applications:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ SPRK }} configuration file that defines your infrastructure.
+    1. Open the current {{ SPRK }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
         
     1. Edit the `spark_version` parameter in the cluster's description:
       
@@ -89,13 +89,13 @@ Make sure the upgrade will not disrupt your applications:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -142,7 +142,7 @@ Make sure the upgrade will not disrupt your applications:
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
             {% endnote %}
 

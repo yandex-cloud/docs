@@ -14,7 +14,7 @@ You can get detailed information about each {{ maf-name }} cluster you created.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
 
 - CLI {#cli}
 
@@ -41,7 +41,7 @@ You can get detailed information about each {{ maf-name }} cluster you created.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -96,7 +96,7 @@ You can get detailed information about each {{ maf-name }} cluster you created.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
     1. Click the cluster name.
 
 - CLI {#cli}
@@ -156,7 +156,7 @@ You can get detailed information about each {{ maf-name }} cluster you created.
             yandex.cloud.airflow.v1.ClusterService.Get
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.airflow.v1.Cluster) to make sure your request was successful.
 
@@ -175,7 +175,7 @@ All actions with {{ maf-name }} clusters are logged as a list of operations. Eac
     To get a list of operations for a {{ maf-name }} cluster:
 
     1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
     1. Select the cluster.
     1. Navigate to the **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
@@ -210,7 +210,7 @@ All actions with {{ maf-name }} clusters are logged as a list of operations. Eac
             --url 'https://{{ api-host-airflow }}/managed-airflow/v1/clusters/<cluster_ID>/operations'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.airflow.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
@@ -238,7 +238,7 @@ All actions with {{ maf-name }} clusters are logged as a list of operations. Eac
             yandex.cloud.airflow.v1.ClusterService.ListOperations
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.airflow.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
@@ -248,7 +248,7 @@ All actions with {{ maf-name }} clusters are logged as a list of operations. Eac
 
 1. [Get the list of operations](#get-operations) for the cluster.
 1. Copy the ID of the operation you need.
-1. Get operation details:
+1. Get the operation details:
 
     {% list tabs group=instructions %}
 

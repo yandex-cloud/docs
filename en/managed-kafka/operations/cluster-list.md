@@ -14,7 +14,7 @@ You can get detailed information about each {{ mkf-name }} cluster you created.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 
 - CLI {#cli}
 
@@ -100,7 +100,7 @@ You can get detailed information about each {{ mkf-name }} cluster you created.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name.
 
 - CLI {#cli}
@@ -168,7 +168,7 @@ You can get detailed information about each {{ mkf-name }} cluster you created.
 
 ## Viewing operations with clusters {#list-operations}
 
-All actions with {{ mkf-name }} clusters are logged as a list of operations. Each operation gets its own unique ID.
+All actions with {{ mkf-name }} clusters are logged as a list of operations. Each operation gets an ID.
 
 ### Getting a list of operations {#get-operations}
 
@@ -179,8 +179,8 @@ All actions with {{ mkf-name }} clusters are logged as a list of operations. Eac
   To get a list of operations for a cluster:
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
   1. Select the cluster and open the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
      You will see the list of operations with the cluster.
@@ -209,7 +209,7 @@ All actions with {{ mkf-name }} clusters are logged as a list of operations. Eac
 
   You can get the cluster ID and name with the [list of clusters in the folder](#list-clusters).
 
-  By default, information about transactions is displayed in text format. To get more details, specify `yaml` or `json` for the output data using the `--format` argument:
+  By default, information about operations is output as text. To get more details, specify `yaml` or `json` for the output data using the `--format` argument:
 
   ```bash
   yc managed-kafka cluster list-operations c9qk2926qqu9******** --format yaml
@@ -285,7 +285,7 @@ All actions with {{ mkf-name }} clusters are logged as a list of operations. Eac
 
 1. [Get the list of operations](#get-operations) for the cluster.
 1. Copy the ID of the operation you need.
-1. Get operation details:
+1. Get the operation details:
 
    {% list tabs group=instructions %}
 

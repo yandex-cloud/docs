@@ -2,7 +2,7 @@
 
 [Selectel](https://selectel.ru/) — это провайдер облачной инфраструктуры и услуг дата-центров, предоставляющий выделенные серверы, облачные платформы и сервисы хранения данных. Selectel поддерживает SAML-аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться в Selectel с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../concepts/applications.md#saml) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне Selectel.
+Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться в Selectel с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../concepts/applications/saml.md) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне Selectel.
 
 Управлять SAML-приложениями может пользователь, которому назначена [роль](../../security/index.md#organization-manager-samlApplications-admin) `organization-manager.samlApplications.admin` или выше.
 

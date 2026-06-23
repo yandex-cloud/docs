@@ -3,7 +3,7 @@
 
 [МТС Web Services (MWS)](https://mws.ru/) — это экосистема сервисов и платформенных решений для построения IT-инфраструктуры и управления ею. MWS поддерживает [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC) аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться в MWS с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../concepts/applications.md#oidc) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне MWS.
+Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться в MWS с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../concepts/applications/oidc.md) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне MWS.
 
 Управлять OIDC-приложениями может пользователь, которому назначена [роль](../../security/index.md#organization-manager-oauthApplications-admin) `organization-manager.oauthApplications.admin` или выше.
 
@@ -40,6 +40,9 @@
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
     1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
         1. Выберите метод единого входа **OIDC (OpenID Connect)**.
+        1. В поле **Тип приложения** выберите тип [Web Application](*web_app_type).
+           
+           [*web_app_type]: OIDC-приложения типа `Web Application` оптимально подходят для аутентификации пользователей во внешних веб-приложениях, имеющих серверную часть (бэкенд), в которой может безопасно храниться секрет приложения. Подробнее о типах OIDC-приложений читайте в разделе [Типы OIDC-приложений в Yandex Identity Hub](../../concepts/applications/oidc.md#oidc-application-types).
         1. В поле **Имя** задайте имя создаваемого приложения: `mws-oidc-app`.
         1. В поле **Каталог** выберите каталог, в котором будет создан OAuth-клиент для приложения.
         1. (Опционально) В поле **Описание** задайте описание приложения.
@@ -163,14 +166,14 @@
   1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное OIDC-приложение.
   1. На вкладке **Обзор** в блоке **Конфигурация поставщика удостоверений (IdP)** разверните секцию **Дополнительные атрибуты** и скопируйте значение параметра **ClientID**, которое необходимо задать на стороне MWS.
-  1. Создайте секрет приложения (действие доступно только для приложений [типа](../../concepts/applications.md#oidc-application-types) `Web Application`):
+  1. Создайте секрет приложения (действие доступно только для приложений [типа](../../concepts/applications/oidc.md#oidc-application-types) `Web Application`):
      
      1. В блоке **Секреты приложения** нажмите кнопку **Добавить секрет** и в открывшемся окне:
      
          1. (Опционально) Добавьте произвольное описание создаваемого секрета.
          1. Нажмите **Создать**.
      
-     В окне отобразится сгенерированный [секрет приложения](../../concepts/applications.md#oidc-secret). Сохраните полученное значение.
+     В окне отобразится сгенерированный [секрет приложения](../../concepts/applications/oidc.md#oidc-secret). Сохраните полученное значение.
      
      {% note warning %}
      
@@ -279,7 +282,9 @@
           ```text
           https://auth.mws.ru/api/iam/v1/organizations/organization-test/userFederations/federation-test/providers/-testprov/login-callback
           ```
-
+      1. В блоке **Безопасность OAuth/OIDC** отключите опцию **Требовать PKCE**, чтобы приложение Yandex Identity Hub при обмене данными не требовало от внешнего приложения использовать расширение безопасности [PKCE](*pkce_info).
+         
+         [*pkce_info]: PKCE — это расширение безопасности, применяемое в стандарте OAuth 2.0 с целью минимизировать риски перехвата аутентификационных данных. Подробнее читайте в разделе [PKCE](../../concepts/applications/oidc.md#pkce).
       1. Нажмите **Сохранить**.
 
 - CLI {#cli}

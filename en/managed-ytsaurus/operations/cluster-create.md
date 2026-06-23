@@ -148,12 +148,12 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
                 * `hdd`: HDD parameters:
 
-                    * `size_gb`: Disk size in GB.
+                    * `size_gb`: Disk size, in GB.
                     * `count`: Number of disks.
 
                 * `ssd`: SSD parameters:
 
-                    * `size_gb`: Disk size in GB.
+                    * `size_gb`: Disk size, in GB.
                     * `type`: Disk type.
                     * `count`: Number of disks.
 
@@ -168,7 +168,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
                 * `preset`: [Computing resource configuration](../concepts/component-types.md#exec-node).
                 * `disks`: Parameters of the storage you will use to run jobs.
 
-                    * `size_gb`: Disk size in GB.
+                    * `size_gb`: Disk size, in GB.
                     * `type`: Disk type.
 
                 * `scale_policy.fixed.size`: Number of exec nodes for the fixed scaling policy.
@@ -201,11 +201,11 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        This will create all the resources you need in the specified folder. You can verify that the new resources have appeared and check their configuration in the [management console]({{ link-console-main }}).
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings in the [management console]({{ link-console-main }}).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -284,12 +284,12 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
                 * `hdd`: HDD parameters:
 
-                    * `sizeGb`: Disk size in GB.
+                    * `sizeGb`: Disk size, in GB.
                     * `count`: Number of disks.
 
                 * `ssd`: SSD parameters:
 
-                    * `sizeGb`: Disk size in GB.
+                    * `sizeGb`: Disk size, in GB.
                     * `type`: Disk type.
                     * `count`: Number of disks.
 
@@ -305,7 +305,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
                 * `disks`: Parameters of the storage you will use to run jobs.
 
                     * `type`: Disk type.
-                    * `sizeGb`: Disk size in GB.
+                    * `sizeGb`: Disk size, in GB.
 
                 * `scalePolicy.fixed.size`: Number of exec nodes for the fixed scaling policy.
 
@@ -341,7 +341,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -422,12 +422,12 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
                 * `hdd`: HDD parameters:
 
-                    * `size_gb`: Disk size in GB.
+                    * `size_gb`: Disk size, in GB.
                     * `count`: Number of disks.
 
                 * `ssd`: SSD parameters:
 
-                    * `size_gb`: Disk size in GB.
+                    * `size_gb`: Disk size, in GB.
                     * `type`: Disk type.
                     * `count`: Number of disks.
 
@@ -443,7 +443,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
                 * `disks`: Parameters of the storage you will use to run jobs.
 
                     * `type`: Disk type.
-                    * `size_gb`: Disk size in GB.
+                    * `size_gb`: Disk size, in GB.
 
                 * `scale_policy.fixed.size`: Number of exec nodes for the fixed scaling policy.
 
@@ -491,7 +491,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ myt-name }} cluster.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Select **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.cluster-kind-card_production_title_dVEmq }}** to create a cluster with manual setup.
     1. Under **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.base-params-section_title_nfKo2 }}**:
@@ -664,12 +664,12 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
                 * `hdd`: HDD parameters:
 
-                    * `size_gb`: Disk size in GB.
+                    * `size_gb`: Disk size, in GB.
                     * `count`: Number of disks.
 
                 * `ssd`: SSD parameters:
 
-                    * `size_gb`: Disk size in GB.
+                    * `size_gb`: Disk size, in GB.
                     * `type`: Disk type, `network-ssd` or `network-ssd-nonreplicated`.
                     * `count`: Number of disks.
 
@@ -691,7 +691,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
                 * `preset`: [Computing resource configuration](../concepts/component-types.md#exec-node).
                 * `disks`: Parameters of the storage you will use to run jobs.
 
-                    * `size_gb`: Disk size in GB.
+                    * `size_gb`: Disk size, in GB.
                     * `type`: Disk type, `network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`.
 
                     The selected type determines the increments in which you can set your disk size when creating a cluster:
@@ -732,11 +732,11 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        This will create all the resources you need in the specified folder. You can verify that the new resources have appeared and check their configuration in the [management console]({{ link-console-main }}).
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings in the [management console]({{ link-console-main }}).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -821,12 +821,12 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
                 * `hdd`: HDD parameters:
 
-                    * `sizeGb`: Disk size in GB.
+                    * `sizeGb`: Disk size, in GB.
                     * `count`: Number of disks.
 
                 * `ssd`: SSD parameters:
 
-                    * `sizeGb`: Disk size in GB.
+                    * `sizeGb`: Disk size, in GB.
                     * `type`: Disk type, `network-ssd` or `network-ssd-nonreplicated`.
                     * `count`: Number of disks.
 
@@ -849,7 +849,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
                 * `disks`: Parameters of the storage you will use to run jobs.
 
                     * `type`: Disk type, `network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`.
-                    * `sizeGb`: Disk size in GB.
+                    * `sizeGb`: Disk size, in GB.
 
                     The selected type determines the increments in which you can set your disk size when creating a cluster:
 
@@ -893,7 +893,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -980,12 +980,12 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
                 * `hdd`: HDD parameters:
 
-                    * `size_gb`: Disk size in GB.
+                    * `size_gb`: Disk size, in GB.
                     * `count`: Number of disks.
 
                 * `ssd`: SSD parameters:
 
-                    * `size_gb`: Disk size in GB.
+                    * `size_gb`: Disk size, in GB.
                     * `type`: Disk type, `network-ssd` or `network-ssd-nonreplicated`.
                     * `count`: Number of disks.
 
@@ -1008,7 +1008,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
                 * `disks`: Parameters of the storage you will use to run jobs.
 
                     * `type`: Disk type, `network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`.
-                    * `size_gb`: Disk size in GB.
+                    * `size_gb`: Disk size, in GB.
 
                     The selected type determines the increments in which you can set your disk size when creating a cluster:
 

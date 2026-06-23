@@ -4,7 +4,7 @@
 
 Поддерживается язык разметки [GitHub Flavored Markdown (GFM)](https://github.github.com/gfm/), за исключением вставок raw HTML , части плагинов и функциональности [Yandex Flavored Markdown](https://diplodoc.com/docs/ru/index-yfm).
 
-Для отрисовки чарта используется библиотека [@diplodoc/transform](https://www.npmjs.com/package/@diplodoc/transform). Подробнее см. [документацию Diplodoc](https://diplodoc.com/docs/ru/tools/transform/).
+Для отрисовки чарта используется библиотека [@diplodoc/transform](https://www.npmjs.com/package/@diplodoc/transform). Подробнее в [документации Diplodoc](https://diplodoc.com/docs/ru/tools/transform/).
 
 ## Доступные элементы разметки {#about-markdown}
 
@@ -253,7 +253,7 @@ module.exports = {
 - Пункт 4||
 |#
 ```
-См. подробнее в [документации YFM](https://ydocs.tech/ru/syntax/tables/multiline).
+Подробнее в [документации YFM](https://ydocs.tech/ru/syntax/tables/multiline).
 
 
 ### Каты {#cuts}
@@ -549,7 +549,7 @@ graph TD;
 
 ![mermaid-flowcharts-example](../../../../_assets/datalens/internal/editor/mermaid-flowcharts-example.svg)
 
-См. подробнее в [документации Mermaid](https://mermaid.js.org/intro/).
+Подробнее в [документации Mermaid](https://mermaid.js.org/intro/).
 
 {% note info %}
 

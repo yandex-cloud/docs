@@ -5,13 +5,9 @@ description: '{{ dspm-full-name }}, or {{ dspm-name }}, is a {{ sd-name }} modul
 
 # {{ dspm-full-name }} ({{ dspm-name }})
 
+{% include [note-preview](../../_includes/note-preview.md) %}
+
 [{{ dspm-full-name }}]({{ link-sd-main }}dspm/), or {{ dspm-name }}, is a tool that helps you quickly detect sensitive information stored in {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md) and {{ yandex-360 }} disks for timely action to protect it through [access policies](../../storage/concepts/policy.md), anonymization, etc.
-
-{% note info %}
-
-The {{ yandex-360 }} disk scanning feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. To get access, contact [support]({{ link-console-support }}) or your account manager.
-
-{% endnote %}
 
 ## Data analysis {#discovery-mode}
 

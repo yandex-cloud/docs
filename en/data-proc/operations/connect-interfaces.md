@@ -1,6 +1,6 @@
 # Connecting to component interfaces
 
-You can connect to {{ dataproc-name }} component interfaces either using [UI Proxy](#ui-proxy) or a [jump host VM](#routing). For more information, see [Component interfaces and ports](../concepts/interfaces.md).
+You can connect to the {{ dataproc-name }} component interfaces either using [UI Proxy](#ui-proxy) or a [jump host VM](#routing). For more information, see [Component interfaces and ports](../concepts/interfaces.md).
 
 ## UI Proxy {#ui-proxy}
 
@@ -13,8 +13,8 @@ You can connect to {{ dataproc-name }} component interfaces either using [UI Pro
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-    1. Select your cluster and click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Select the cluster and click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_configuration }}**, enable **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}**.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -37,7 +37,7 @@ You can connect to {{ dataproc-name }} component interfaces either using [UI Pro
 
     Use the [update](../api-ref/Cluster/update.md) API method and provide the following in the request:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list).
+    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get the list of clusters in the folder](cluster-list.md#list).
     * `true` in the `uiProxy` parameter.
     * List of cluster configuration fields to update, in the `updateMask` parameter (in this case, `uiProxy`).
 
@@ -45,16 +45,16 @@ You can connect to {{ dataproc-name }} component interfaces either using [UI Pro
 
 {% endlist %}
 
-### Retrieving a list of connection URLs {#ui-proxy-list}
+### Getting a list of connection URLs {#ui-proxy-list}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-    1. Click the name of your cluster.
-    1. You can find links for connecting to component web interfaces under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Click the cluster name.
+    1. You can find links for connecting to the component web interfaces under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
 
 - CLI {#cli}
 
@@ -62,7 +62,7 @@ You can connect to {{ dataproc-name }} component interfaces either using [UI Pro
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get a list of URLs for connecting to the web interfacess of the {{ dataproc-name }} cluster components, run the following command:
+    To get a list of URLs for connecting to the web interfaces of the {{ dataproc-name }} cluster components, run the following command:
 
     ```bash
     {{ yc-dp }} cluster list-ui-links <cluster_name_or_ID>
@@ -72,7 +72,7 @@ You can connect to {{ dataproc-name }} component interfaces either using [UI Pro
 
 - API {#api}
 
-    Use the [listUILinks](../api-ref/Cluster/listUILinks.md) API method and include the cluster ID in the `clusterId` request parameter.
+    Call the [listUILinks](../api-ref/Cluster/listUILinks.md) API method, providing the cluster ID in the `clusterId` request parameter.
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list).
 
@@ -80,13 +80,13 @@ You can connect to {{ dataproc-name }} component interfaces either using [UI Pro
 
 ## Port forwarding {#routing}
 
-To access a component's network interface from the internet, [create](../../compute/operations/vm-create/create-linux-vm.md) an intermediate virtual machine in {{ compute-full-name }}.
+To access a component's network interface from the internet, [create](../../compute/operations/vm-create/create-linux-vm.md) a jump host VM in {{ compute-full-name }}.
 
 Requirements for a jump host VM:
 
-* It must have an assigned public IP address.
-* It must be hosted in the same network as the required {{ dataproc-name }} cluster.
-* [Security group settings](../concepts/network.md#security-groups) must allow traffic exchange with the cluster via the ports of the appropriate components.
+* It must have a public IP address assigned.
+* It must be hosted in the same network as your {{ dataproc-name }} cluster.
+* [Security group settings](../concepts/network.md#security-groups) must allow traffic exchange with the cluster via the ports of the components in question.
 
 Learn more about configuring security groups for connections with port forwarding [here](security-groups.md).
 
@@ -100,12 +100,12 @@ ssh -A \
 
 Where:
 
-* `-A`: Activates connection redirects from the authentication agent with the jump host VM to the target host of the {{ dataproc-name }} cluster.
-* `-J`: Connection to the target host via a jump host VM. Establishes a connection over SSH to the jump host VM that will redirect packages to the target host in the {{ dataproc-name }} cluster.
-* `-L`: Local port redirection to the {{ dataproc-name }} cluster host.
+* `-A`: Enables forwarding the authentication agent connection from the jump host VM to the target host in the {{ dataproc-name }} cluster.
+* `-J`: Connects to the target host through the jump host: establishes an SSH connection to the jump host VM, which forwards traffic to the target host in the {{ dataproc-name }} cluster.
+* `-L`: Forwards a local port to the target host in the {{ dataproc-name }} cluster.
 
-    To connect to cluster hosts with [image version](../concepts/environment.md) 1.x, use `root` as the username; for version 2.x, use `ubuntu`.
+    To connect to cluster hosts with [image](../concepts/environment.md) 1.x, use `root` as the username; for version 2.x, use `ubuntu`.
 
-You can find the {{ dataproc-name }} host’s FQDN on the {{ dataproc-name }} cluster page, in the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** column of the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** tab.
+You can find the {{ dataproc-name }} host’s FQDN in the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab of the {{ dataproc-name }} cluster page, in the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column.
 
-You can find port numbers for {{ dataproc-name }} components under [Component interfaces and ports](../concepts/interfaces.md#port-numbers).
+For {{ dataproc-name }} component port numbers, see [Component interfaces and ports](../concepts/interfaces.md#port-numbers).

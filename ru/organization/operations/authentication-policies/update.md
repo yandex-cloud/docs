@@ -38,7 +38,7 @@ description: Следуя данной инструкции, вы сможете
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](../../concepts/applications.md)
+* [{#T}](../../concepts/applications/index.md)
 * [{#T}](../../concepts/authentication-policy.md)
 * [{#T}](./create.md)
 * [{#T}](./activate-deactivate.md)

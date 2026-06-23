@@ -18,7 +18,7 @@
 
 ## Логи входа {#auth-logs}
 
-_Логи входа_ отображают события аутентификации в приложениях, связанных с организацией (консоль Yandex Cloud, [SourceCraft](https://sourcecraft.dev/portal/docs/ru)), а также [внешних приложениях](applications.md), для которых настроен вход по SSO.
+_Логи входа_ отображают события аутентификации в приложениях, связанных с организацией (консоль Yandex Cloud, [SourceCraft](https://sourcecraft.dev/portal/docs/ru)), а также во [внешних приложениях](applications/index.md), для которых настроен вход по SSO.
 
 ## Аудитные логи {#audit-logs}
 

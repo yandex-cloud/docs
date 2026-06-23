@@ -5,6 +5,8 @@ description: Follow this tutorial to create scans in {{ sd-full-name }} {{ dspm-
 
 # Creating a {{ dspm-name }} scan
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 [{{ dspm-full-name }}](../../concepts/dspm.md) ({{ dspm-name }}) scans [data sources](../../concepts/dspm.md#data-source) – {{ objstorage-full-name }} [buckets](../../../storage/concepts/bucket.md) and {{ yandex-360 }} [Yandex Disks]({{ link-yandex }}/support/yandex-360/business/disk/web/{{ lang }}/index.html) – to locate sensitive information in storage.
 
 ## Getting started {#before-begin}
@@ -49,8 +51,6 @@ description: Follow this tutorial to create scans in {{ sd-full-name }} {{ dspm-
 
 
 ## Creating a scan for {{ yandex-360 }} {#yandex-360}
-
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
 {% list tabs group=instructions %}
 

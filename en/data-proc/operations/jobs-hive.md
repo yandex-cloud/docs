@@ -1,6 +1,6 @@
 # Managing Hive jobs
 
-In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and receive execution logs for them. For sample jobs, see [{#T}](../tutorials/job-overview.md).
+In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and receive execution logs for them. For examples of jobs, see [{#T}](../tutorials/job-overview.md).
 
 ## Creating a job {#create}
 
@@ -9,7 +9,7 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
     1. Click **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
     1. Optionally, enter a name for the job.
@@ -18,15 +18,15 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
 
        {% include [job-properties-requirements](../../_includes/data-processing/job-properties-requirements.md) %}
 
-    1. Optionally, enable the **{{ ui-key.yacloud.dataproc.jobs.field_continue-on-failure }}** setting.
+    1. Optionally, enable **{{ ui-key.yacloud.dataproc.jobs.field_continue-on-failure }}**.
     1. Specify **{{ ui-key.yacloud.dataproc.jobs.field_script-variables }}** as a `key-value` pair.
     1. Optionally, specify the paths to JAR files, if any.
 
         {% include [jar-file-path-requirements](../../_includes/data-processing/jar-file-path-requirements.md) %}
 
     1. Select one of the driver types and specify which to use to run the job:
-        * List of queries to execute.
-        * Path to the file with the queries to execute.
+        * List of queries to run.
+        * Path to the file with the queries to run.
     1. Click **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
 
 - CLI {#cli}
@@ -37,7 +37,7 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
 
     To create a job:
 
-    1. View the description of the CLI create command for `Hive` jobs:
+    1. See the description of the CLI command for creating `Hive` jobs:
 
         ```bash
         {{ yc-dp }} job create-hive --help
@@ -53,7 +53,7 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
            --script-variables=<list_of_values>
         ```
 
-        Where `--script-variables` is a comma-separated list of variable values.
+        Where `--script-variables` is the comma-separated list of variable values.
 
         Provide the paths to the files required for the job in the following format:
 
@@ -75,14 +75,14 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
 
 {% include [jobs-cancel](../../_includes/data-processing/jobs-cancel.md) %}
 
-## Get a list of jobs {#list}
+## Getting a list of jobs {#list}
 
 {% include [jobs-list](../../_includes/data-processing/jobs-list.md) %}
 
-## Get general info about a job {#get-info}
+## Getting general info about a job {#get-info}
 
 {% include [jobs-get-info](../../_includes/data-processing/jobs-get-info.md) %}
 
-## Get job execution logs {#get-logs}
+## Getting job execution logs {#get-logs}
 
 {% include [jobs-get-logs](../../_includes/data-processing/jobs-get-logs.md) %}

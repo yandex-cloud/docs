@@ -2,7 +2,7 @@
 
 [Grafana Cloud](https://grafana.com/products/cloud/) — это управляемая облачная платформа для мониторинга и наблюдаемости (observability), которая включает в себя Grafana, Prometheus, Loki и другие инструменты визуализации и анализа данных. Grafana Cloud поддерживает SAML-аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../concepts/organization.md) могли аутентифицироваться в Grafana Cloud с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../concepts/applications.md#saml) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне Grafana Cloud.
+Чтобы пользователи вашей [организации](../../../concepts/organization.md) могли аутентифицироваться в Grafana Cloud с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../concepts/applications/saml.md) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне Grafana Cloud.
 
 Управлять SAML-приложениями может пользователь, которому назначена [роль](../../../security/index.md#organization-manager-samlApplications-admin) `organization-manager.samlApplications.admin` или выше.
 

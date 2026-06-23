@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Измените базовые настройки приложения {#update-basic-settings}
 
-Чтобы изменить базовые настройки [OIDC-приложения](../../concepts/applications.md#oidc):
+Чтобы изменить базовые настройки [OIDC-приложения](../../concepts/applications/oidc.md):
 
 {% list tabs group=instructions %}
 
@@ -109,7 +109,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. В конфигурационном файле {{ TF }} измените параметры [OIDC-приложения](../../concepts/applications.md#oidc):
+  1. В конфигурационном файле {{ TF }} измените параметры [OIDC-приложения](../../concepts/applications/oidc.md):
 
     ```hcl
     resource "yandex_organizationmanager_idp_application_oauth_application" "example_oidc_app" {
@@ -325,7 +325,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-Посмотреть или изменить имеющийся в приложении [секрет](../../concepts/applications.md#oidc-secret) невозможно. Вместо этого вы можете сгенерировать новый секрет:
+Посмотреть или изменить имеющийся в приложении [секрет](../../concepts/applications/oidc.md#oidc-secret) невозможно. Вместо этого вы можете сгенерировать новый секрет:
 
 {% list tabs group=instructions %}
 
@@ -417,7 +417,7 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](./oidc-create.md)
 * [{#T}](./oidc-deactivate-remove.md)
 * [{#T}](../add-account.md)
-* [{#T}](../../concepts/applications.md#oidc)
+* [{#T}](../../concepts/applications/oidc.md)
 * [{#T}](../manage-groups.md)
 
-[*oidc_app_type]: Тип OIDC-приложения в {{ org-full-name }} (`{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}`, `{{ ui-key.yacloud_org.organization.apps.spa-title_1mhon }}` и `{{ ui-key.yacloud_org.organization.apps.native-title_1VrmN }}`) определяет возможность использования секретов приложения и ряда других настроек. Подробнее читайте в разделе [{#T}](../../concepts/applications.md#oidc-application-types).
+[*oidc_app_type]: Тип OIDC-приложения в {{ org-full-name }} (`{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}`, `{{ ui-key.yacloud_org.organization.apps.spa-title_1mhon }}` и `{{ ui-key.yacloud_org.organization.apps.native-title_1VrmN }}`) определяет возможность использования секретов приложения и ряда других настроек. Подробнее читайте в разделе [{#T}](../../concepts/applications/oidc.md#oidc-application-types).

@@ -436,7 +436,7 @@
          clickhouse-client --host rc1a-goh2a9tr********.mdb.yandexcloud.net \
                            --user user1 \
                            --database db1 \
-                           --port 9440 \
+                           --port 9000 \
                            --ask-password \
                            --idle_connection_timeout 60
          ```

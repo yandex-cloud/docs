@@ -146,5 +146,5 @@ var player = Ya.playerSdk.init({ ..., startPosition: 10, ...});
 
 #### Полезные ссылки {#see-also}
 
-* [Interface: PlayerSdkInitConfig](../../api-ref/javascript/interfaces/PlayerSdkInitConfig.md) в справочнике API
-* [Interface: PlayerSdkSourceParams](../../api-ref/javascript/interfaces/PlayerSdkSourceParams.md) в справочнике API
+* [Interface: PlayerSdkInitConfig](../../api-ref/javascript/interfaces/PlayerSdkInitConfig.md) — описание параметров инициализации плеера в справочнике API.
+* [Interface: PlayerSdkSourceParams](../../api-ref/javascript/interfaces/PlayerSdkSourceParams.md) — описание параметров источника видео в справочнике API.

@@ -43,7 +43,7 @@
 
    {% endcut %}
 
-   Подробнее о доступных методах см. [Gateway API — Таблицы атрибутов методов](https://disk.yandex.ru/d/gsRt3rHTsTkC4w).
+   Подробнее о доступных методах в разделе [Gateway API — Таблицы атрибутов методов](https://disk.yandex.ru/d/gsRt3rHTsTkC4w).
 
 1. Добавлен разовый и регулярный экспорт [партнерской детализации](../operations/get-partner-report.md).
 

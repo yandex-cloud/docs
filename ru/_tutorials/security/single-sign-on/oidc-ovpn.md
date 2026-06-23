@@ -3,7 +3,7 @@
 
 [OpenVPN Community Edition](https://openvpn.net/community/) — бесплатная версия OpenVPN с открытым исходным кодом для организации защищенных VPN-соединений. Начиная с версии 2.6.2, OpenVPN Community Edition поддерживает аутентификацию через внешние провайдеры по протоколу [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC) с помощью плагина [openvpn-auth-oauth2](https://github.com/jkroepke/openvpn-auth-oauth2).
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в OpenVPN Community Edition с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications.md#oidc) и настройте его на стороне {{ org-full-name }} и на стороне OpenVPN.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в OpenVPN Community Edition с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications/oidc.md) и настройте его на стороне {{ org-full-name }} и на стороне OpenVPN.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -29,7 +29,7 @@
 В стоимость поддержки инфраструктуры входят:
 
 * плата за постоянно запущенную [виртуальную машину](../../../compute/concepts/vm.md) ([тарифы {{ compute-full-name }}](../../../compute/pricing.md));
-* плата за использование [OIDC-приложения](../../../organization/concepts/applications.md#oidc) ([тарифы {{ org-full-name }}](../../../organization/pricing.md)).
+* плата за использование [OIDC-приложения](../../../organization/concepts/applications/oidc.md) ([тарифы {{ org-full-name }}](../../../organization/pricing.md)).
 
 ## Создайте инфраструктуру {#deploy}
 
@@ -256,6 +256,7 @@ sudo cp /etc/openvpn/easy-rsa/pki/dh.pem /etc/openvpn/
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
   1. В центре страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
       1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}**.
+      1. {% include [org-oidc-app-select-web-type-step](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-step.md) %}
       1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения, например `openvpn-oidc-app`.
       1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-folder_rANM4 }}** выберите каталог, в котором будет создан OAuth-клиент для приложения.
       1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** задайте описание приложения.

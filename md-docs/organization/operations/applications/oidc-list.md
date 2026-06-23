@@ -8,7 +8,7 @@
   1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
 
-     Отобразятся все [OIDC-приложения](../../concepts/applications.md#oidc), доступные в вашей организации.
+     Отобразятся все [OIDC-приложения](../../concepts/applications/oidc.md), доступные в вашей организации.
 
 - CLI {#cli}
 
@@ -16,7 +16,7 @@
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  1. Посмотрите описание команды CLI для получения списка [OIDC-приложений](../../concepts/applications.md#oidc):
+  1. Посмотрите описание команды CLI для получения списка [OIDC-приложений](../../concepts/applications/oidc.md):
 
      ```bash
      yc organization-manager idp application oauth application list --help

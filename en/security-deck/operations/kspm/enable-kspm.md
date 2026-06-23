@@ -13,7 +13,7 @@ description: How to activate and configure {{ kspm-full-name }} ({{ kspm-name }}
 
 Before onboarding clusters to {{ kspm-name }}, make sure they meet the following requirements:
 
-* {{ k8s }} 1.28 or higher.
+* {{ k8s }} 1.30 or higher.
 * There is no [Kyverno](https://yandex.cloud/en/marketplace/products/yc/kyverno)-based [admission control](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/) in the {{ k8s }} cluster. If Kyverno was previously deployed, remove it along with all [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) resources it has created.
 * Networking must be set up between the {{ k8s }} cluster nodes and [{{ container-registry-full-name }}](../../../managed-kubernetes/tutorials/container-registry.md).
 * Network access must be allowed on port `54321` from the pod running a runtime security monitoring sensor to the cluster pods.

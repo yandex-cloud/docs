@@ -10,7 +10,7 @@ description: Follow this guide to update catalog parameters in a {{ mtr-name }} 
 - Management console {#console}
 
     1. Go to the [resource folder]({{ link-console-main }}) page.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Click the cluster name.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
     1. Next to the {{ TR }} catalog, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
@@ -47,9 +47,9 @@ description: Follow this guide to update catalog parameters in a {{ mtr-name }} 
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Edit the {{ TR }} catalog settings in the `yandex_trino_catalog` section:
 
@@ -107,7 +107,7 @@ description: Follow this guide to update catalog parameters in a {{ mtr-name }} 
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the folder ID with the [list of {{ TR }} catalogs in the cluster](catalog-list.md).
 
-    1. View the [server response](../api-ref/Catalog/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Catalog/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -157,8 +157,8 @@ description: Follow this guide to update catalog parameters in a {{ mtr-name }} 
 
         [Learn more about the {{ TR }}](#catalog-settings) catalog settings for various connector types.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the folder ID with the [list of {{ TR }} catalogs in the cluster](catalog-list.md).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the folder ID, with the [list of {{ TR }} catalogs in the cluster](catalog-list.md).
 
-    1. View the [server response](../api-ref/grpc/Catalog/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Catalog/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

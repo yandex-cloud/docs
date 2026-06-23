@@ -87,6 +87,8 @@ items:
         href: concepts/resource-groups.md
       - name: Maintenance
         href: concepts/maintenance.md
+      - name: Connector {{ GP }}
+        href: concepts/greenplum-connector.md
   - name: CLI reference
     items:
       - name: Overview

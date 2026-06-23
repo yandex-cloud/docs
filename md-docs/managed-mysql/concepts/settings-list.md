@@ -1072,4 +1072,4 @@
 
   Подробнее [в документации MySQL®](https://dev.mysql.com/doc/refman/8.0/en/user-resources.html).
 
-Об управлении правами пользователей на доступ к объектам баз данных см. раздел [Права пользователей в Managed Service for MySQL®](user-rights.md).
+Об управлении правами пользователей на доступ к объектам баз данных читайте в разделе [Права пользователей в Managed Service for MySQL®](user-rights.md).

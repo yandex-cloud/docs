@@ -18,7 +18,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to the **{{ ui-key.yacloud.trino.section_resource-management }}** section.
 
@@ -51,7 +51,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
             --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<cluster_ID>'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
     1. The description of resource groups and selector rules in the {{ mtr-name }} cluster is in the `resourceGroups` field of the [server response](../api-ref/Cluster/get.md#yandex.cloud.trino.v1.Cluster).
 
@@ -79,7 +79,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
             yandex.cloud.trino.v1.ClusterService.Get
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
     1. The description of resource groups and selector rules in the {{ mtr-name }} cluster is in the `resource_groups` field of the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.trino.v1.Cluster).
 
@@ -92,7 +92,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ mtr-name }} cluster.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}** and set the cluster parameters.
   1. Go to the **{{ ui-key.yacloud.trino.section_resource-management }}** section.
   1. In the **{{ ui-key.yacloud.trino.ClusterView.label_cpu-quota-period_tD5vD }}** field, set the CPU quota calculation period for resource groups.
@@ -230,7 +230,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
                {
                  "user": "<regular_expression_for_usernames>",
                  "userGroup": "<regular_expression_for_user_groups>",
-                 "queryType": "<request_type>",
+                 "queryType": "<query_type>",
                  "source": "<regular_expression_for_query_sources>",
                  "clientTags": ["<list_of_tags>"],
                  "group": "<resource_group_name>"
@@ -327,7 +327,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
                {
                  "user": "<regular_expression_for_usernames>",
                  "user_group": "<regular_expression_for_user_groups>",
-                 "query_type": "<request_type>",
+                 "query_type": "<query_type>",
                  "source": "<regular_expression_for_query_sources>",
                  "client_tags": ["<list_of_tags>"],
                  "group": "<resource_group_name>"
@@ -380,7 +380,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to the **{{ ui-key.yacloud.trino.section_resource-management }}** section.
   1. In the **{{ ui-key.yacloud.trino.ClusterView.label_cpu-quota-period_tD5vD }}** field, set the new CPU quota calculation period for resource groups.
@@ -529,7 +529,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
                {
                  "user": "<regular_expression_for_usernames>",
                  "userGroup": "<regular_expression_for_user_groups>",
-                 "queryType": "<request_type>",
+                 "queryType": "<query_type>",
                  "source": "<regular_expression_for_query_sources>",
                  "clientTags": ["<list_of_tags>"],
                  "group": "<resource_group_name>"
@@ -639,7 +639,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
                {
                  "user": "<regular_expression_for_usernames>",
                  "user_group": "<regular_expression_for_user_groups>",
-                 "query_type": "<request_type>",
+                 "query_type": "<query_type>",
                  "source": "<regular_expression_for_query_sources>",
                  "client_tags": ["<list_of_tags>"],
                  "group": "<resource_group_name>"
@@ -667,9 +667,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
          You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
      * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
-
          {% cut "Format for listing settings" %}
-
          ```yaml
          "update_mask": {
            "paths": [
@@ -680,7 +678,6 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
            ]
          }
          ```
-
          {% endcut %}
 
          {% note warning %}
@@ -717,7 +714,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to the **{{ ui-key.yacloud.trino.section_resource-management }}** section.
   1. To delete resource groups you no longer need:

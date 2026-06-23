@@ -1,0 +1,3 @@
+В блоке **{{ ui-key.yacloud_org.application.overview.oauth_security_section_title }}** отключите опцию **{{ ui-key.yacloud_org.organization.apps.AppEditPage.field-require-pkce_9rAab }}**, чтобы приложение {{ org-full-name }} при обмене данными не требовало от внешнего приложения использовать расширение безопасности [PKCE](*pkce_info).
+
+[*pkce_info]: PKCE — это расширение безопасности, применяемое в стандарте OAuth 2.0 с целью минимизировать риски перехвата аутентификационных данных. Подробнее читайте в разделе [{#T}](../../organization/concepts/applications/oidc.md#pkce).

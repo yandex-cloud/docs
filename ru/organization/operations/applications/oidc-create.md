@@ -6,7 +6,7 @@ description: Следуя данной инструкции, вы сможете
 # Создать OIDC-приложение в {{ org-full-name }}
 
 
-Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться во внешних приложениях с помощью технологии единого входа по стандарту [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC), создайте [OIDC-приложение](../../concepts/applications.md#oidc) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне поставщика услуг.
+Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться во внешних приложениях с помощью технологии единого входа по стандарту [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC), создайте [OIDC-приложение](../../concepts/applications/oidc.md) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне поставщика услуг.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -24,9 +24,9 @@ description: Следуя данной инструкции, вы сможете
       1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}**.
       1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.section-app-type_mbu85 }}** выберите [тип](*oidc_app_type) создаваемого приложения:
 
-          * [{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}](../../concepts/applications.md#oidc-web) — оптимально для аутентификации пользователей во внешних веб-приложениях, имеющих серверную часть (бэкенд);
-          * [{{ ui-key.yacloud_org.organization.apps.spa-title_1mhon }}](../../concepts/applications.md#oidc-single-page) — оптимально для аутентификации пользователей во внешних приложениях, построенных по технологии [SPA](https://ru.wikipedia.org/wiki/Одностраничное_приложение);
-          * [{{ ui-key.yacloud_org.organization.apps.native-title_1VrmN }}](../../concepts/applications.md#oidc-native) — оптимально для аутентификации пользователей во внешних мобильных или настольных приложениях, установленных на устройствах пользователей.
+          * [{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}](../../concepts/applications/oidc.md#oidc-web) — оптимально для аутентификации пользователей во внешних веб-приложениях, имеющих серверную часть (бэкенд);
+          * [{{ ui-key.yacloud_org.organization.apps.spa-title_1mhon }}](../../concepts/applications/oidc.md#oidc-single-page) — оптимально для аутентификации пользователей во внешних приложениях, построенных по технологии [SPA](https://ru.wikipedia.org/wiki/Одностраничное_приложение);
+          * [{{ ui-key.yacloud_org.organization.apps.native-title_1VrmN }}](../../concepts/applications/oidc.md#oidc-native) — оптимально для аутентификации пользователей во внешних мобильных или настольных приложениях, установленных на устройствах пользователей.
       1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения. Имя должно быть уникальным в пределах организации и соответствовать требованиям:
 
           {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
@@ -157,7 +157,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Опишите в конфигурационном файле {{ TF }} параметры [OAuth-клиента](../../concepts/applications.md):
+  1. Опишите в конфигурационном файле {{ TF }} параметры [OAuth-клиента](../../concepts/applications/oidc.md):
 
      ```hcl
      resource "yandex_iam_oauth_client" "example_oauth_client" {
@@ -181,7 +181,7 @@ description: Следуя данной инструкции, вы сможете
 
      Подробнее о параметрах ресурса `yandex_iam_oauth_client` читайте в [документации провайдера]({{ tf-provider-resources-link }}/iam_oauth_client).
 
-  1. Опишите в конфигурационном файле {{ TF }} параметры [секрета](../../concepts/applications.md#oidc-secret) OAuth-клиента:
+  1. Опишите в конфигурационном файле {{ TF }} параметры [секрета](../../concepts/applications/oidc.md#oidc-secret) OAuth-клиента:
 
      ```hcl
      resource "yandex_iam_oauth_client_secret" "example_oauth_client_secret" {
@@ -195,7 +195,7 @@ description: Следуя данной инструкции, вы сможете
 
      Подробнее о параметрах ресурса `yandex_iam_oauth_client_secret` читайте в [документации провайдера]({{ tf-provider-resources-link }}/iam_oauth_client_secret).
 
-  1. Опишите в конфигурационном файле {{ TF }} параметры [OIDC-приложения](../../concepts/applications.md#oidc):
+  1. Опишите в конфигурационном файле {{ TF }} параметры [OIDC-приложения](../../concepts/applications/oidc.md):
 
      ```hcl
      resource "yandex_organizationmanager_idp_application_oauth_application" "example_oidc_app" {
@@ -410,7 +410,7 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](./oidc-update.md)
 * [{#T}](./oidc-deactivate-remove.md)
 * [{#T}](../add-account.md)
-* [{#T}](../../concepts/applications.md#oidc)
+* [{#T}](../../concepts/applications/oidc.md)
 * [{#T}](../manage-groups.md)
 
-[*oidc_app_type]: Тип OIDC-приложения в {{ org-full-name }} (`{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}`, `{{ ui-key.yacloud_org.organization.apps.spa-title_1mhon }}` и `{{ ui-key.yacloud_org.organization.apps.native-title_1VrmN }}`) определяет возможность использования секретов приложения и ряда других настроек. Подробнее читайте в разделе [{#T}](../../concepts/applications.md#oidc-application-types).
+[*oidc_app_type]: Тип OIDC-приложения в {{ org-full-name }} (`{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}`, `{{ ui-key.yacloud_org.organization.apps.spa-title_1mhon }}` и `{{ ui-key.yacloud_org.organization.apps.native-title_1VrmN }}`) определяет возможность использования секретов приложения и ряда других настроек. Подробнее читайте в разделе [{#T}](../../concepts/applications/oidc.md#oidc-application-types).

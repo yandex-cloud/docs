@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы получит
 
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-  1. Нажмите на строку с [SAML-приложением](../../concepts/applications.md#saml), о котором вы хотите получить информацию.
+  1. Нажмите на строку с [SAML-приложением](../../concepts/applications/saml.md), о котором вы хотите получить информацию.
 
 - CLI {#cli}
 
@@ -20,7 +20,7 @@ description: Следуя данной инструкции, вы получит
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для получения информации об [SAML-приложении](../../concepts/applications.md#saml):
+  1. Посмотрите описание команды CLI для получения информации об [SAML-приложении](../../concepts/applications/saml.md):
 
      ```bash
      yc organization-manager idp application saml application get --help

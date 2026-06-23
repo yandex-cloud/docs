@@ -23,7 +23,7 @@ DataLens работает с датами в формате ISO. Это знач
 
 ### Как добавить нумерацию строк в таблице? {#add-line-numeration}
 
-Добавьте нумерацию строк с помощью вычисляемого поля, например, `RSUM(MIN(1))`. См. [изображение](https://storage.yandexcloud.net/doc-files/add-line-numeration.png).
+Добавьте нумерацию строк с помощью вычисляемого поля, например, `RSUM(MIN(1))`. Подробнее на [скриншоте](https://storage.yandexcloud.net/doc-files/add-line-numeration.png).
 
 ### Как преобразовать поле с Unix-временем в поле с типом данных Дата и время DataLens? {#unix-time}
 
@@ -40,7 +40,7 @@ DataLens работает с датами в формате ISO. Это знач
 Раньше для таких задач можно было использовать функцию `GEOCODE()`. Сейчас она недоступна.
 Вы можете воспользоваться [геокодером](https://yandex.ru/dev/maps/geocoder) через API Яндекс Карт. Обратите внимание на [условия лицензирования](https://yandex.ru/dev/maps/commercial/doc/concepts/jsapi-geocoder.html) API.
 
-См. [пример Jupyter ноутбука](https://github.com/yandex-cloud-examples/yc-datalens-get-coordinates-by-location) со скриптами геокодинга адресов.
+[Пример Jupyter ноутбука](https://github.com/yandex-cloud-examples/yc-datalens-get-coordinates-by-location) со скриптами геокодинга адресов.
 
 ### Где взять геополигоны/геоточки регионов/районов/городов? {#get-geo}
 

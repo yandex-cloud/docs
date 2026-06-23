@@ -570,7 +570,6 @@ default:
   quota-manager-short-name: Quota Manager
   RD: Redis
   realtime-api: Realtime API
-  realtime-model: speech-realtime-250923
   region-id: ru-central1
   registry: cr.yandex
   resmgr-full-name: Yandex Resource Manager
@@ -1839,6 +1838,23 @@ default:
         v1: dn27wruc3zutdqdc45cg
     cspm:
       resources: dn2muudyflujxdk7e32n
+    dspm:
+      t1_5:
+        subscription:
+          monthly_usage:
+            v1: dn233k5ozolpslveo3jx
+      t11:
+        subscription:
+          monthly_usage:
+            v1: dn2goet36a5vh2jdqdzf
+      t3:
+        subscription:
+          monthly_usage:
+            v1: dn2ih5ta2ay3ztmre2rf
+      t5_5:
+        subscription:
+          monthly_usage:
+            v1: dn2nk3uheuixi6rwb7uv
     kspm:
       nodes: dn2ukunmpcmrnab3u5ko
   pc|storage:

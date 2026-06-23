@@ -192,6 +192,31 @@ player.once('TextTracksChange', ({ textTracks }) => {
 player.setTextTrack(null);
 ```
 
+#### setVideoTrack {#setvideotrack}
+
+Переключает видеодорожку.
+
+В качестве параметра передается значение `value` из объекта дорожки, полученного из [videoTracks](player-state.md#state-videoTracks).
+
+Пример переключения дорожки:
+
+```javascript
+var tracks = player.getState().videoTracks;
+if (tracks.length > 0) {
+    player.setVideoTrack(tracks[0].value);
+}
+```
+
+Пример переключения дорожки с начала воспроизведения:
+
+```javascript
+player.once('VideoTracksChange', ({ videoTracks }) => {
+    if (videoTracks.length > 0) {
+        player.setVideoTrack(videoTracks[0].value);
+    }
+});
+```
+
 #### setPlaybackSpeed {#setplaybackspeed}
 
 Устанавливает скорость воспроизведения видео.
@@ -262,4 +287,4 @@ player.destroy();
 
 #### Полезные ссылки {#see-also}
 
-* [Interface: PlayerSdkApi](../../api-ref/javascript/interfaces/PlayerSdkApi.md) в справочнике API
+[Interface: PlayerSdkApi](../../api-ref/javascript/interfaces/PlayerSdkApi.md) — описание методов управления плеером в справочнике API.

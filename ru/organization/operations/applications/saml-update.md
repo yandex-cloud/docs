@@ -10,7 +10,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Измените базовые настройки приложения {#update-basic-settings}
 
-Чтобы изменить базовые настройки [SAML-приложения](../../concepts/applications.md#saml):
+Чтобы изменить базовые настройки [SAML-приложения](../../concepts/applications/saml.md):
 
 {% list tabs group=instructions %}
 
@@ -387,5 +387,5 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](./saml-create.md)
 * [{#T}](./saml-deactivate-remove.md)
 * [{#T}](../add-account.md)
-* [{#T}](../../concepts/applications.md#saml)
+* [{#T}](../../concepts/applications/saml.md)
 * [{#T}](../manage-groups.md)

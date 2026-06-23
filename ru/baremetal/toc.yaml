@@ -79,6 +79,8 @@ items:
     items:
       - name: Обзор сервиса
         href: concepts/index.md
+      - name: Интеграции с другими сервисами {{ yandex-cloud }}
+        href: concepts/integrations.md
       - name: Серверы
         expanded: true
         items:

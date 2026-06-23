@@ -5,6 +5,8 @@ description: Follow this guide to create data sources from {{ objstorage-full-na
 
 # Creating a {{ dspm-name }} data source
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 A [data source](../../concepts/dspm.md#data-source) contains information about the storages to scan and additional settings. The available storages are {{ objstorage-full-name }} [buckets](../../../storage/concepts/bucket.md) and [disks]({{ link-yandex }}/support/yandex-360/business/disk/web/{{ lang }}/index.html) in {{ yandex-360 }}. You cannot use both [{{ objstorage-name }}](../../../storage/) and [{{ yandex-360 }}]({{ link-yandex }}/support/yandex-360/business/admin/{{ lang }}/) storage in the same data source.
 
 ## Getting started {#before-begin}
@@ -52,8 +54,6 @@ A [data source](../../concepts/dspm.md#data-source) contains information about t
 
 
 ## Creating a data source for {{ yandex-360 }} {#yandex-360}
-
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
 {% list tabs group=instructions %}
 
