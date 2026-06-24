@@ -10,7 +10,7 @@ kubectl delete crd $(kubectl get crd -o name | grep kyverno.io)
 
 ## Unable to check for existing Kyverno installation {#kyverno-check-error}
 
-Произошла непредвиденная ошибка во время проверки на наличие Kyverno в кластере. Обратитесь в [службу поддержки](https://center.yandex.cloud/support)
+Произошла непредвиденная ошибка во время проверки на наличие Kyverno в кластере. Обратитесь в [службу поддержки](https://center.yandex.cloud/support).
 
 ## Cluster version too old {#outdated-cluster}
 
@@ -24,10 +24,10 @@ kubectl delete crd $(kubectl get crd -o name | grep kyverno.io)
 
  Произошла непредвиденная ошибка во время проверки прав доступа в кластере. Возможно, кластер недоступен, либо доступ ограничен [сетевыми политиками](../../managed-kubernetes/concepts/network-policy.md). 
 
- ## Component is unhealthy {#unhealthy-component}
+## Component is unhealthy {#unhealthy-component}
  
- Ошибка в работе компонента. Обратитесь в [службу поддержки](https://center.yandex.cloud/support)
+Ошибка в работе компонента. Обратитесь в [службу поддержки](https://center.yandex.cloud/support).
 
- ## Component sync failed {#failed-sync}
+## Component sync failed {#failed-sync}
  
- Произошла непредвиденная ошибка во время изменения компонента. Обратитесь в [службу поддержки](https://center.yandex.cloud/support)
+Произошла непредвиденная ошибка во время изменения компонента. Обратитесь в [службу поддержки](https://center.yandex.cloud/support).

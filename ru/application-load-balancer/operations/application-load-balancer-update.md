@@ -278,7 +278,7 @@ description: Следуя данной инструкции, вы сможете
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/alb_load_balancer).
+     Подробнее о параметрах ресурса `yandex_alb_load_balancer` в [документации провайдера]({{ tf-provider-resources-link }}/alb_load_balancer).
 
   1. Проверьте конфигурацию командой:
 
@@ -399,7 +399,7 @@ description: Следуя данной инструкции, вы сможете
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/alb_load_balancer).
+     Подробнее о параметрах ресурса `yandex_alb_load_balancer` в [документации провайдера]({{ tf-provider-resources-link }}/alb_load_balancer).
 
   1. Проверьте конфигурацию командой:
 

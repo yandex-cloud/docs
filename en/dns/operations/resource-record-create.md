@@ -14,7 +14,7 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the DNS zone where you want to create a resource record.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Select the zone from the list.
   1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
   1. Specify the record settings:

@@ -19,7 +19,7 @@ description: After you delete a {{ CH }} database cluster, its backups are retai
 - Management console {#console}
   
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster in question and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
   
 - CLI {#cli}
@@ -86,7 +86,7 @@ description: After you delete a {{ CH }} database cluster, its backups are retai
         yandex.cloud.mdb.clickhouse.v1.ClusterService.Delete
       ```
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

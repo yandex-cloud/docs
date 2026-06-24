@@ -13,7 +13,7 @@ You can add and remove cluster hosts, as well as manage their settings. To learn
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
 
 - CLI {#cli}
@@ -98,7 +98,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
   1. Specify the following host settings:
@@ -207,11 +207,11 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
      * `assign_public_ip`: Public access to the host, `true` or `false`.
      * `priority`: Host priority for promotion to master, between `0` and `100`.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -307,7 +307,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
       
       * `subnet_id`: Subnet ID.
-      * `assign_public_ip`: Host accessibility from the internet via a public IP address, `true` or `false`.
+      * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
 
 
       * `replication_source`: Host’s replication source for [manual replication stream management](../concepts/replication.md#manual-source). Specify the [FQDN of the host](connect/fqdn.md) that will be used as the replication source.
@@ -347,7 +347,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
 - Management console {#console}
 
   To change the cluster host settings:
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
   1. Find the host you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yacloud.common.edit }}**.
   1. Specify new host settings:
@@ -419,11 +419,11 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
      * `assign_public_ip`: Public access to the host, `true` or `false`.
      * `priority`: Host priority for promotion to master, between `0` and `100`.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -467,7 +467,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
       * `hostName`: [FQDN of the host being updated](connect/fqdn.md).
 
       
-      * `assignPublicIp`: Host accessibility from the internet via a public IP address, `true` or `false`.
+      * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
 
 
       * `replicationSource`: Host’s replication source for [manual replication stream management](../concepts/replication.md#manual-source). Specify the [FQDN of the host](connect/fqdn.md) that will be used as the replication source.
@@ -523,7 +523,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
       * `host_name`: [FQDN of the host being updated](connect/fqdn.md).
 
       
-      * `assign_public_ip`: Host accessibility from the internet via a public IP address, `true` or `false`.
+      * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
 
 
       * `replication_source`: Host’s replication source for [manual replication stream management](../concepts/replication.md#manual-source). Specify the [FQDN of the host](connect/fqdn.md) that will be used as the replication source.
@@ -554,7 +554,7 @@ If you are deleting the master host, {{ mmy-name }} will automatically promote t
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row and select **{{ ui-key.yacloud.common.delete }}**.
 
@@ -579,7 +579,7 @@ If you are deleting the master host, {{ mmy-name }} will automatically promote t
 
      For more on how to create this file, see [Creating a cluster](cluster-create.md).
   1. Delete the `host` section from the {{ mmy-name }} cluster description.
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

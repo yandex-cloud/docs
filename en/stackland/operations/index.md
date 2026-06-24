@@ -73,6 +73,7 @@
 ## Disk subsystem {#disk-storage}
 
 * [Diagnosing a disk subsystem](disk-storage/troubleshooting.md)
+* [Switching storage class of a component](disk-storage/change-storage-class.md)
 
 ## Managing a cluster {#cluster-management}
 

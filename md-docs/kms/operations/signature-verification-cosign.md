@@ -104,4 +104,4 @@ Verified OK
 
 #### Полезные ссылки {#see-also}
 
-* [Подпись и проверка Docker-образов Container Registry в Managed Service for Kubernetes](../../container-registry/tutorials/sign-cr-with-cosign.md).
+[Подпись и проверка Docker-образов Container Registry в Managed Service for Kubernetes](../../container-registry/tutorials/sign-cr-with-cosign.md)

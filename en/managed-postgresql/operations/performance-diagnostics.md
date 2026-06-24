@@ -218,7 +218,7 @@ To learn how to identify and resolve cluster performance issues, see the [Perfor
 
 - Management console {#console}
 
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Click the name of your cluster and select **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}**.
 
     To view session statistics:
@@ -278,7 +278,7 @@ To learn what statistics you can get, see the [{{ PG }} guides](https://www.post
 
 - Management console {#console}
 
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Click the name of your cluster and select **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}**.
 
     To view query statistics for a specific time interval:
@@ -324,7 +324,7 @@ To learn what statistics you can get, see the [{{ PG }} guides](https://www.post
      * `from_time`: Start of the time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, e.g., `2024-09-18T15:04:05Z`.
      * `to_time`: End of the time range in the same format as `from_time`.
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/PerformanceDiagnostics/listRawStatements.md#yandex.cloud.mdb.postgresql.v1.ListRawStatementsResponse) to make sure your request was successful.
 

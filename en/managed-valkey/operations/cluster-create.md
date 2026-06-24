@@ -50,7 +50,7 @@ There are no restrictions for non-sharded clusters.
   To create a {{ mrd-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), go to the folder where you want to create your database cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
@@ -421,7 +421,7 @@ There are no restrictions for non-sharded clusters.
         * `valkey_search.reader_threads`: Number of request processing threads in the `Valkey-Search` module.
         * `valkey_search.writer_threads`: Number of indexing threads in the `Valkey-Search` module.
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -429,7 +429,7 @@ There are no restrictions for non-sharded clusters.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    This will create all the resources you need in the specified folder, and the terminal will display the [FQDNs of the cluster hosts](../concepts/network.md#hostname). You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+    This will create all the resources you need in the specified folder, and the terminal will display the [FQDNs of the cluster hosts](../concepts/network.md#hostname). You can check the new resources and their settings in the [management console]({{ link-console-main }}).
 
     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mrd }}).
 
@@ -603,7 +603,7 @@ There are no restrictions for non-sharded clusters.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

@@ -33,7 +33,7 @@
 
     1. Чтобы отключить логирование, передайте пустое значение для атрибута `LoggingPath`.        
 
-    Подробнее о команде `aws sns set-endpoint-attributes` см. в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-endpoint-attributes.html).
+    Подробнее о команде `aws sns set-endpoint-attributes` в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-endpoint-attributes.html).
 
 
 {% endlist %}

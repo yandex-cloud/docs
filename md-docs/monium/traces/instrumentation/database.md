@@ -4,7 +4,7 @@
 
 ## Конвенция именования {#naming}
 
-Имя спана формируется как `<db.operation> <db.name>.<db.sql.table>`, например `SELECT shop.orders`. Если какой-то из компонентов недоступен, его можно опустить: `SELECT shop`, `SELECT orders`. Подробнее см. в [спецификации именования DB-спанов](https://opentelemetry.io/docs/specs/semconv/database/database-spans/#name).
+Имя спана формируется как `<db.operation> <db.name>.<db.sql.table>`, например `SELECT shop.orders`. Если какой-то из компонентов недоступен, его можно опустить: `SELECT shop`, `SELECT orders`. Подробнее в [спецификации именования DB-спанов](https://opentelemetry.io/docs/specs/semconv/database/database-spans/#name).
 
 ## Атрибуты {#attributes}
 

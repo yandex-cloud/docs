@@ -12,7 +12,7 @@ description: Follow this guide to attach a target group to a network load balanc
   To attach a [target group](../concepts/target-resources.md) to a network load balancer:
   
   1. In the [management console]({{ link-console-main }}), select the folder where you want to attach a target group to a load balancer.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Next to the load balancer to which you want to attach a target group, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_attach-tg }}**.
   1. Select a target group or [create a new one](target-group-create.md).
   1. Configure health check settings.

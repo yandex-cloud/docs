@@ -8,7 +8,7 @@ You can request detailed information about each network load balancer you create
 
 - Management console {#console}
 
-    [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
 
 - CLI {#cli}
 
@@ -46,7 +46,7 @@ You can request detailed information about each network load balancer you create
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), go to the folder housing the [network load balancer](../concepts/index.md).
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. Click the name of the load balancer in question.
     1. The **Overview** page shows the load balancer details.
 
@@ -97,13 +97,13 @@ You can request detailed information about each network load balancer you create
       * `output "network_load_balancer"`: Output variable containing information about the load balancer creation date:
          * `value`: Return value.
 
-      You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_lb_network_load_balancer` data source properties, see [this {{ TF }} provider article]({{ tf-provider-datasources-link }}/lb_network_load_balancer).
+      You can replace `created_at` with another variable to get the information you need. For more information about the `yandex_lb_network_load_balancer` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/lb_network_load_balancer).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+      {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

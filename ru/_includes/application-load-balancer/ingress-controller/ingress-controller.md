@@ -4,7 +4,7 @@
 
 Ingress-контроллер, установленный в кластер, будет автоматически разворачивать [L7-балансировщики](../../../application-load-balancer/concepts/application-load-balancer.md) со всеми необходимыми ресурсами {{ alb-name }}, основываясь на конфигурации созданных вами ресурсов [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/).
 
-Полную конфигурацию ресурсов для Ingress-контроллера {{ alb-name }} смотрите в следующих разделах:
+Полная конфигурация ресурсов для Ingress-контроллера {{ alb-name }} описана в следующих разделах:
 
 * [Ingress]({{ configuration-local-link }}/ingress.md) — правила распределения трафика между бэкендами и настройки Ingress-контроллера.
 * [HttpBackendGroup]({{ configuration-local-link }}/http-backend-group.md) и [GrpcBackendGroup]({{ configuration-local-link }}/grpc-backend-group.md) — объединение бэкендов в группы.
@@ -87,7 +87,7 @@ spec:
 
 #### Полезные ссылки {#see-also}
 
-* [Принципы работы контроллера]({{ ingress-local-link }}/principles.md).
-* [Настройка групп безопасности]({{ alb-local-link }}/security-groups.md) для кластера {{ k8s }} и балансировщика.
-* [Сервисный аккаунт]({{ alb-local-link }}/service-account.md) для работы контроллера.
-* [ALB Ingress Controller в {{ marketplace-full-name }}]({{ link-cloud-marketplace }}/products/yc/alb-ingress-controller).
+* [Принципы работы контроллера]({{ ingress-local-link }}/principles.md)
+* [Настройка групп безопасности]({{ alb-local-link }}/security-groups.md) для кластера {{ k8s }} и балансировщика
+* [Сервисный аккаунт]({{ alb-local-link }}/service-account.md) для работы контроллера
+* [ALB Ingress Controller в {{ marketplace-full-name }}]({{ link-cloud-marketplace }}/products/yc/alb-ingress-controller)

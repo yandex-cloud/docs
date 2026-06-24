@@ -6,7 +6,7 @@
 
 ## Построить графики по метрикам {#add-graph}
 
-Как строить графики по метрикам Prometheus, см. в разделе [Чтение и визуализация метрик в Monitoring](../prometheus/querying/monitoring.md).
+Построение графиков по метрикам Prometheus описано в разделе [Чтение и визуализация метрик в Monitoring](../prometheus/querying/monitoring.md).
 
 1. Откройте [главную страницу сервиса](https://monitoring.yandex.cloud).
 1. Слева выберите раздел **Метрики**.
@@ -135,5 +135,5 @@
 
 #### Полезные ссылки {#see-also}
 
-[Создание и управление дашбордом в Monitoring](../dashboard/create.md)
-[Создание алерта](../alert/create-alert.md)
+* [Создание и управление дашбордом в Monitoring](../dashboard/create.md)
+* [Создание алерта](../alert/create-alert.md)

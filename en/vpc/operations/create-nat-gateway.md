@@ -15,7 +15,7 @@ To create and set up a NAT gateway:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you need to create a gateway.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.switch_gateways }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
   1. Enter a name for the gateway. The naming requirements are as follows:
@@ -148,7 +148,7 @@ To create and set up a NAT gateway:
   1. Associate the NAT gateway with the new route table by using the [create](../api-ref/RouteTable/create.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Create](../api-ref/grpc/RouteTable/create.md) gRPC API call, and provide the following in the request:
 
       * ID of the folder the route table will reside in, in the `folderId` parameter.
-      * Route table name in the `name` parameter. Follow these naming requirements:
+      * Route table name in the `name` parameter. The name format is as follows:
 
         {% include [name-format](../../_includes/name-format.md) %}
       * ID of the network the route table will reside in, in the `networkId` parameter.

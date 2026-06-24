@@ -47,7 +47,7 @@ When changing the host class:
 
 * A single-host cluster will be unavailable for a few minutes and all database connections will be dropped.
 * A multi-host cluster will switch to a new master host The hosts will undergo a rolling update, with each host unavailable for a few minutes while it is stopped and updated.
-* A cluster with local SSD storage may be unavailable for an extended period in case data migration to another physical server is required.
+* A cluster with local SSD storage may be unavailable for an extended period if data migration to another physical server is required.
 * Using a [special FQDN](./connect/fqdn.md#special-fqdns) does not guarantee a stable database connection: user sessions may be terminated.
 
 We recommend changing the host class only when the cluster is idle.
@@ -56,7 +56,7 @@ We recommend changing the host class only when the cluster is idle.
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the {{ PG }} host class.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -236,7 +236,7 @@ You can change the DBMS settings for the hosts in your cluster.
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Change the [{{ PG }} settings](../concepts/settings-list.md) by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
   1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
@@ -420,7 +420,7 @@ Changing additional settings will restart the cluster. The only exceptions are t
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   
   
@@ -665,10 +665,10 @@ Changing additional settings will restart the cluster. The only exceptions are t
 
          Here, specify the backup start time. Allowed values:
 
-         * `hours`: From `0` to `23` hours.
-         * `minutes`: From `0` to `59` minutes.
-         * `seconds`: From `0` to `59` seconds.
-         * `nanos`: From `0` to `999999999` nanoseconds.
+         * `hours`: Between `0` and `23` hours.
+         * `minutes`: Between `0` and `59` minutes.
+         * `seconds`: Between `0` and `59` seconds.
+         * `nanos`: Between `0` and `999999999` nanoseconds.
 
        * `backupRetainPeriodDays`: Number of days to retain the cluster backup. Possible values: between `7` and `60` days.
 
@@ -802,10 +802,10 @@ Changing additional settings will restart the cluster. The only exceptions are t
 
          Here, specify the backup start time. Allowed values:
 
-         * `hours`: From `0` to `23` hours.
-         * `minutes`: From `0` to `59` minutes.
-         * `seconds`: From `0` to `59` seconds.
-         * `nanos`: From `0` to `999999999` nanoseconds.
+         * `hours`: Between `0` and `23` hours.
+         * `minutes`: Between `0` and `59` minutes.
+         * `seconds`: Between `0` and `59` seconds.
+         * `nanos`: Between `0` and `999999999` nanoseconds.
 
        * `backup_retain_period_days`: Number of days to retain the cluster backup. Possible values: between `7` and `60` days.
 
@@ -907,7 +907,7 @@ To perform a master failover:
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the ![icon-hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
   1. Click ![icon-autofailover.svg](../../_assets/console-icons/shuffle.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.button_manual-failover }}**.
       * To switch the master to one of the quorum replicas, leave the **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_auto }}** option enabled.
@@ -1021,7 +1021,7 @@ To perform a master failover:
 
 - Management console {#console}
 
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the cluster you want to move.
     1. Select **{{ ui-key.yacloud.mdb.clusters.button_action-move }}**.
     1. Select the destination folder for your cluster.
@@ -1145,7 +1145,7 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select the security groups for cluster network traffic.
 

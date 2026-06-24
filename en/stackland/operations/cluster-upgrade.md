@@ -239,7 +239,7 @@ The `status` field displays:
 To read logs of the upgrade job, run this command:
 
 ```bash
-kubectl logs -n stackland-system job/<job_name>
+kubectl logs -n stackland-install job/<job_name>
 ```
 
 You can get the job name from the `status.jobName` field in the `TargetInstallationState` resource.

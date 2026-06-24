@@ -15,14 +15,12 @@ GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/resourcePresets
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `pageSize`, the service returns a [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListResourcePresetsResponse) that can be used to get the next page of results in subsequent list requests.
 
 The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token.
-
 To get the next page of results, set `pageToken` to the [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListResourcePresetsResponse), returned by the previous list request.
 
 The maximum string length in characters is 100. ||
@@ -56,7 +54,6 @@ List of resource presets. ||
 || nextPageToken | **string**
 
 This token allows you to get the next page of results for list requests.
-
 If the number of results is larger than [ListResourcePresetsRequest.pageSize](#yandex.cloud.mdb.kafka.v1.ListResourcePresetsRequest), use `nextPageToken` as the value for the [ListResourcePresetsRequest.pageToken](#yandex.cloud.mdb.kafka.v1.ListResourcePresetsRequest) parameter in the next list request.
 Each subsequent list request will have its own `nextPageToken` to continue paging through the results.
 

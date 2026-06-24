@@ -21,7 +21,8 @@ Updates the specified user.
   "company_name": "string",
   "department": "string",
   "job_title": "string",
-  "employee_id": "string"
+  "employee_id": "string",
+  "expires_at": "google.protobuf.Timestamp"
 }
 ```
 
@@ -87,6 +88,9 @@ The maximum string length in characters is 256. ||
 New employee ID for the user.
 
 The maximum string length in characters is 256. ||
+|| expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Timestamp when the user account expires. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

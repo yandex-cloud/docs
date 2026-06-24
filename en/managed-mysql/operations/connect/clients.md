@@ -109,7 +109,7 @@ Set up your {{ mmy-name }} cluster for connection:
 
 - Management console {#console}
 
-  1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the cluster name.
   1. Enable public access for the cluster hosts:
      1. Select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
@@ -204,7 +204,7 @@ To connect to a {{ mmy-name }} database:
 
 1. Assign the `managed-mysql.clusters.connector` role to the user account that will connect to the database:
 
-    1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
     1. Click the cluster name.
     1. Select the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
     1. Enter the user account’s email.

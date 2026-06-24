@@ -248,7 +248,7 @@
 
      {% endcut %}
 
-      Более подробную информацию о параметрах ресурса `yandex_sws_security_profile` в Terraform, см. в [документации провайдера](../../terraform/resources/sws_security_profile.md).
+      Подробнее о параметрах ресурса `yandex_sws_security_profile` в [документации провайдера](../../terraform/resources/sws_security_profile.md).
 
   1. Примените изменения:
 
@@ -292,7 +292,7 @@
 
 {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Добавить правило в профиль безопасности](rule-add.md)
 * [Изменить правило в профиле безопасности](rule-update.md)

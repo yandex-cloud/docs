@@ -86,7 +86,7 @@
      }
      ```
 
-     Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера Terraform](../../terraform/resources/alb_backend_group.md).
+     Подробнее о параметрах ресурса `yandex_alb_backend_group` в [документации провайдера](../../terraform/resources/alb_backend_group.md).
   1. Примените изменения:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.

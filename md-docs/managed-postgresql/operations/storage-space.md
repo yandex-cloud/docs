@@ -550,7 +550,7 @@
                  "maintenanceWindow": {
                    "weeklyMaintenanceWindow": {
                      "day": "<день_недели>",
-                     "hour": "<час>"
+                     "hour": "<порядковый_номер_часового_интервала>"
                    }
                  }
                }'
@@ -665,7 +665,7 @@
              "maintenance_window": {
                "weekly_maintenance_window": {
                  "day": "<день_недели>",
-                 "hour": "<час>"
+                 "hour": "<порядковый_номер_часового_интервала>"
                }
              }
            }' \

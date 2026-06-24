@@ -55,7 +55,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
   1. In the **Geobase uri** field, enter a link to the geobase archive in {{ objstorage-full-name }}.
@@ -106,7 +106,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -155,7 +155,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
         * `configSpec.clickhouse.config.geobaseUri`: Link to the geobase archive in {{ objstorage-name }}.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure your request was successful.
 
@@ -204,7 +204,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
         * `config_spec.clickhouse.config.geobase_uri`: Link to the geobase archive in {{ objstorage-name }}.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -217,7 +217,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
     1. Delete the value in the **Geobase uri** field.
@@ -282,7 +282,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
         * `configSpec.clickhouse.config.geobaseUri`: Link to the geobase archive in {{ objstorage-name }}. Set an empty value for this parameter.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure your request was successful.
 
@@ -332,7 +332,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
         * `config_spec.clickhouse.config.geobase_uri`: Link to the geobase archive in {{ objstorage-name }}. Set an empty value for this parameter.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

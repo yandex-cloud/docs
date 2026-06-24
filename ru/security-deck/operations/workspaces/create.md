@@ -5,8 +5,6 @@ description: Из этой инструкции вы узнаете, как в {
 
 # Создать окружение {{ sd-name }}
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 Перед созданием [окружения](../../concepts/workspace.md) убедитесь, что у вас есть необходимые [права](../../security/index.md) для работы с модулями {{ sd-name }}. Оптимальные роли для работы:
 
 * `security-deck.admin` на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будут храниться ресурсы {{ sd-name }} и его модули.

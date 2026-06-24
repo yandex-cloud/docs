@@ -75,7 +75,7 @@
      * `--platform-application-arn` — идентификатор (ARN) канала уведомлений.
      * `--token` — объект [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) в формате [JSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON), который получен в браузере пользователя.
 
-     Подробнее о команде `aws sns create-platform-endpoint` см. в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-platform-endpoint.html).
+     Подробнее о команде `aws sns create-platform-endpoint` в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-platform-endpoint.html).
 
 - AWS SDK для Python {#python}
 

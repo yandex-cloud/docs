@@ -1,11 +1,5 @@
 # Посмотреть правила контроля безопасности модуля CSPM и их нарушения
 
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 [Правила](../../concepts/cspm.md#rules) контроля безопасности модуля CSPM используются в [окружениях](../../concepts/workspace.md) Security Deck. Если у вас еще нет окружения, [создайте](../workspaces/create.md) его.
 
 ## Посмотреть общую информацию о правилах контроля безопасности {#general-info}

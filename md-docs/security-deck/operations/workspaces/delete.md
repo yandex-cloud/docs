@@ -1,11 +1,5 @@
 # Удалить окружение Security Deck
 
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 Чтобы удалить [окружение](../../concepts/workspace.md) Security Deck:
 
 {% list tabs group=instructions %}

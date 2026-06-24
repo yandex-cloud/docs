@@ -1,6 +1,6 @@
 ---
 title: '{{ SPQR }} cluster maintenance'
-description: In this guide, you will learn how to view the {{ SPQR }} cluster’s scheduled and completed maintenance jobs and schedule new maintenance windows.
+description: Follow this guide to view the {{ SPQR }} cluster’s scheduled and completed maintenance jobs and schedule a maintenance window.
 ---
 
 # {{ SPQR }} cluster maintenance
@@ -15,7 +15,7 @@ You can manage {{ mspqr-name }} cluster maintenance, including the following:
 
 ## Getting a list of maintenance jobs {#list-maintenance}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
 
 To view maintenance jobs with a specific status, click **{{ ui-key.yacloud.mdb.maintenance.label_task-status }}** above the maintenance list and select the status you want from the drop-down menu. You can also find a maintenance job by its ID or job name using the search field above the list.
@@ -24,7 +24,7 @@ Click an ID to see how the maintenance job affects cluster availability. Look up
 
 ## Getting maintenance-related cluster logs {#maintenance-logs}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. Click the ID of the maintenance job you need.
   1. Click **{{ ui-key.yacloud.mdb.maintenance.label_task-logs }}**.
@@ -39,7 +39,7 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
 
   To reschedule maintenance for a new date and time:
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the maintenance job with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** status.
   1. In the drop-down menu, select ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_change-task-time }}**.
@@ -61,7 +61,7 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
       yc managed-sharded-postgresql cluster reschedule-maintenance --help
       ```
 
-  1. To reschedule the maintenance to the next available window, run this command specifying the `next-available-window` reschedule type (available only in a cluster with a scheduled [maintenance window](#set-maintenance-window)). To reschedule the maintenance to a specific date and time, use the `specific-time` reschedule type:
+  1. To reschedule the maintenance to the next available window, run this command specifying the `next-available-window` reschedule type (available only in a cluster with a scheduled [maintenance window](#set-maintenance-window)). To reschedule to a specific date and time, use the `specific-time` reschedule type:
 
       ```bash
       yc managed-sharded-postgresql cluster reschedule-maintenance <cluster_name_or_ID> \
@@ -153,7 +153,7 @@ If you need to, you can perform a maintenance with the **{{ ui-key.yacloud.mdb.m
 
   To run a scheduled cluster maintenance job immediately:
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the maintenance job you need.
   1. In the drop-down menu, select ![image](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_exec-task-now }}**.
@@ -244,7 +244,7 @@ Selecting a new maintenance interval will automatically cancel any scheduled mai
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. Click ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
   1. In the window that opens:
@@ -290,7 +290,7 @@ Selecting a new maintenance interval will automatically cancel any scheduled mai
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -323,11 +323,11 @@ Selecting a new maintenance interval will automatically cancel any scheduled mai
 
      Where:
 
-     * `updateMask`: Comma-separated list of settings you want to update.
+     * `updateMask`: Comma-separated string of settings to update.
 
        Here, we provide only one setting.
 
-     * `maintenanceWindow`: Maintenance window settings, applying to both running and stopped clusters. In `maintenanceWindow`, provide one of the following values:
+     * `maintenanceWindow`: Maintenance window settings, applying to both running and stopped clusters. In `maintenanceWindow`, provide one of these two parameters:
 
        * `anytime`: Maintenance can be scheduled for any time.
        * `weeklyMaintenanceWindow`: Maintenance can only be scheduled for a specific day of week and hour:
@@ -373,11 +373,11 @@ Selecting a new maintenance interval will automatically cancel any scheduled mai
 
      Where:
 
-     * `update_mask`: List of settings to update as an array of strings (`paths[]`).
+     * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
        Here, we provide only one setting.
 
-     * `maintenance_window`: Maintenance window settings, applying to both running and stopped clusters. In `maintenance_window`, provide one of the following values:
+     * `maintenance_window`: Maintenance window settings, applying to both running and stopped clusters. In `maintenance_window`, provide one of these two parameters:
 
        * `anytime`: Maintenance can be scheduled for any time.
        * `weekly_maintenance_window`: Maintenance can only be scheduled for a specific day of week and hour:

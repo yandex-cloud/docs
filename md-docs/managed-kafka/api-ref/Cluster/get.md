@@ -1,7 +1,6 @@
 # Managed Service for Apache Kafka® API, REST: Cluster.Get
 
 Returns the specified Apache Kafka® cluster.
-
 To get the list of available Apache Kafka® clusters, make a [List](list.md#List) request.
 
 ## HTTP request
@@ -17,7 +16,6 @@ GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}
 || clusterId | **string**
 
 Required field. ID of the Apache Kafka® Cluster resource to return.
-
 To get the cluster ID, make a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -154,17 +152,17 @@ The maximum string length in characters is 50. ||
     "restApiConfig": {
       "enabled": "boolean"
     },
-    "diskSizeAutoscaling": {
-      "plannedUsageThreshold": "string",
-      "emergencyUsageThreshold": "string",
-      "diskSizeLimit": "string"
-    },
     "kraft": {
       "resources": {
         "resourcePresetId": "string",
         "diskSize": "string",
         "diskTypeId": "string"
       }
+    },
+    "diskSizeAutoscaling": {
+      "plannedUsageThreshold": "string",
+      "emergencyUsageThreshold": "string",
+      "diskSizeLimit": "string"
     },
     "kafkaUiConfig": {
       "enabled": "boolean"
@@ -347,12 +345,12 @@ Access policy for external services. ||
 || restApiConfig | **[RestAPIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.RestAPIConfig)**
 
 Configuration of REST API. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.kafka.v1.DiskSizeAutoscaling)**
-
-DiskSizeAutoscaling settings ||
 || kraft | **[KRaft](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KRaft)**
 
 Configuration and resource allocation for KRaft-controller hosts. ||
+|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.kafka.v1.DiskSizeAutoscaling)**
+
+DiskSizeAutoscaling settings ||
 || kafkaUiConfig | **[KafkaUIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig)**
 
 Configuration of Kafka UI. ||
@@ -426,13 +424,11 @@ Cluster topics compression type.
 || logFlushIntervalMessages | **string** (int64)
 
 The number of messages accumulated on a log partition before messages are flushed to disk.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flushMessages](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
 || logFlushIntervalMs | **string** (int64)
 
 The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk.
 If not set, the value of `logFlushSchedulerIntervalMs` is used.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flushMs](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
 || logFlushSchedulerIntervalMs | **string** (int64)
 
@@ -442,7 +438,6 @@ This check is done by the log flusher. ||
 
 Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_8.cleanupPolicy](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) is in effect.
 This setting is helpful if you need to control the size of a log due to limited disk space.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retentionBytes](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
 || logRetentionHours | **string** (int64)
 
@@ -450,24 +445,19 @@ The number of hours to keep a log segment file before deleting it. ||
 || logRetentionMinutes | **string** (int64)
 
 The number of minutes to keep a log segment file before deleting it.
-
 If not set, the value of `logRetentionHours` is used. ||
 || logRetentionMs | **string** (int64)
 
 The number of milliseconds to keep a log segment file before deleting it.
-
 If not set, the value of `logRetentionMinutes` is used.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retentionMs](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
 || logSegmentBytes | **string** (int64)
 
 The maximum size of a single log file.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.segmentBytes](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
 || logPreallocate | **boolean**
 
 Should pre allocate file when create new segment?
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting.
 Deprecated. Feature useless for Yandex Cloud. ||
 || socketSendBufferBytes | **string** (int64)
@@ -527,13 +517,11 @@ Cluster topics compression type.
 || logFlushIntervalMessages | **string** (int64)
 
 The number of messages accumulated on a log partition before messages are flushed to disk.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flushMessages](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
 || logFlushIntervalMs | **string** (int64)
 
 The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk.
 If not set, the value of `logFlushSchedulerIntervalMs` is used.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flushMs](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
 || logFlushSchedulerIntervalMs | **string** (int64)
 
@@ -543,7 +531,6 @@ This check is done by the log flusher. ||
 
 Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig3.cleanupPolicy](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig3) is in effect.
 This setting is helpful if you need to control the size of a log due to limited disk space.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retentionBytes](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
 || logRetentionHours | **string** (int64)
 
@@ -551,24 +538,19 @@ The number of hours to keep a log segment file before deleting it. ||
 || logRetentionMinutes | **string** (int64)
 
 The number of minutes to keep a log segment file before deleting it.
-
 If not set, the value of `logRetentionHours` is used. ||
 || logRetentionMs | **string** (int64)
 
 The number of milliseconds to keep a log segment file before deleting it.
-
 If not set, the value of `logRetentionMinutes` is used.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retentionMs](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
 || logSegmentBytes | **string** (int64)
 
 The maximum size of a single log file.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.segmentBytes](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
 || logPreallocate | **boolean**
 
 Should pre allocate file when create new segment?
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting.
 Deprecated. Feature useless for Yandex Cloud. ||
 || socketSendBufferBytes | **string** (int64)
@@ -628,13 +610,11 @@ Cluster topics compression type.
 || logFlushIntervalMessages | **string** (int64)
 
 The number of messages accumulated on a log partition before messages are flushed to disk.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flushMessages](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
 || logFlushIntervalMs | **string** (int64)
 
 The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk.
 If not set, the value of `logFlushSchedulerIntervalMs` is used.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.flushMs](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig4) setting. ||
 || logFlushSchedulerIntervalMs | **string** (int64)
 
@@ -644,7 +624,6 @@ This check is done by the log flusher. ||
 
 Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig4.cleanupPolicy](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig4) is in effect.
 This setting is helpful if you need to control the size of a log due to limited disk space.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retentionBytes](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
 || logRetentionHours | **string** (int64)
 
@@ -652,19 +631,15 @@ The number of hours to keep a log segment file before deleting it. ||
 || logRetentionMinutes | **string** (int64)
 
 The number of minutes to keep a log segment file before deleting it.
-
 If not set, the value of `logRetentionHours` is used. ||
 || logRetentionMs | **string** (int64)
 
 The number of milliseconds to keep a log segment file before deleting it.
-
 If not set, the value of `logRetentionMinutes` is used.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.retentionMs](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig4) setting. ||
 || logSegmentBytes | **string** (int64)
 
 The maximum size of a single log file.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.segmentBytes](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig4) setting. ||
 || socketSendBufferBytes | **string** (int64)
 
@@ -731,6 +706,15 @@ Allow access for DataTransfer. ||
 Is REST API enabled for this cluster. ||
 |#
 
+## KRaft {#yandex.cloud.mdb.kafka.v1.ConfigSpec.KRaft}
+
+#|
+||Field | Description ||
+|| resources | **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
+
+Resources allocated to KRaft controller hosts. ||
+|#
+
 ## DiskSizeAutoscaling {#yandex.cloud.mdb.kafka.v1.DiskSizeAutoscaling}
 
 #|
@@ -748,15 +732,6 @@ Acceptable values are 0 to 100, inclusive. ||
 || diskSizeLimit | **string** (int64)
 
 New storage size (in bytes) that is set when one of the thresholds is achieved. ||
-|#
-
-## KRaft {#yandex.cloud.mdb.kafka.v1.ConfigSpec.KRaft}
-
-#|
-||Field | Description ||
-|| resources | **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
-
-Resources allocated to KRaft controller hosts. ||
 |#
 
 ## KafkaUIConfig {#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig}

@@ -450,6 +450,16 @@
 
  - [Pause](api-ref/grpc/Connector/pause.md)
 
+#### Maintenance
+
+ - [Overview](api-ref/grpc/Maintenance/index.md)
+
+ - [List](api-ref/grpc/Maintenance/list.md)
+
+ - [Get](api-ref/grpc/Maintenance/get.md)
+
+ - [Reschedule](api-ref/grpc/Maintenance/reschedule.md)
+
 #### Operation
 
  - [Overview](api-ref/grpc/Operation/index.md)
@@ -497,6 +507,12 @@
  - [GrantPermission](api-ref/grpc/User/grantPermission.md)
 
  - [RevokePermission](api-ref/grpc/User/revokePermission.md)
+
+#### Versions
+
+ - [Overview](api-ref/grpc/Versions/index.md)
+
+ - [List](api-ref/grpc/Versions/list.md)
 
 ### REST (англ.)
 
@@ -556,6 +572,16 @@
 
  - [Pause](api-ref/Connector/pause.md)
 
+#### Maintenance
+
+ - [Overview](api-ref/Maintenance/index.md)
+
+ - [List](api-ref/Maintenance/list.md)
+
+ - [Get](api-ref/Maintenance/get.md)
+
+ - [Reschedule](api-ref/Maintenance/reschedule.md)
+
 #### Operation
 
  - [Overview](api-ref/Operation/index.md)
@@ -603,6 +629,12 @@
  - [GrantPermission](api-ref/User/grantPermission.md)
 
  - [RevokePermission](api-ref/User/revokePermission.md)
+
+#### Versions
+
+ - [Overview](api-ref/Versions/index.md)
+
+ - [List](api-ref/Versions/list.md)
 
  - [Метрики Yandex Monitoring](metrics.md)
 

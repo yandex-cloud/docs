@@ -1,7 +1,6 @@
 # Managed Service for Apache Kafka® API, gRPC: ResourcePresetService.Get
 
 Returns the specified resource preset.
-
 To get the list of available resource presets, make a [List](list.md#List) request.
 
 ## gRPC request
@@ -21,7 +20,6 @@ To get the list of available resource presets, make a [List](list.md#List) reque
 || resource_preset_id | **string**
 
 Required field. ID of the resource preset to return.
-
 To get the resource preset ID, use a [ResourcePresetService.List](list.md#List) request. ||
 |#
 

@@ -9,7 +9,7 @@ title: How to get a list of DNS zones
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder contaning [DNS zones](../concepts/dns-zone.md) you want to view.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. You will see the list of DNS zones on the **{{ ui-key.yacloud.dns.label_zones-list }}** page.
 
 - CLI {#cli}

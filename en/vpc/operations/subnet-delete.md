@@ -17,7 +17,7 @@ You cannot restore a subnet after it is deleted.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you need to delete a subnet.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the subnet you need and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.

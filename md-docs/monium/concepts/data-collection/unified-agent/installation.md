@@ -6,7 +6,7 @@ Unified Agent с версии 25.03.80 может собирать и перед
 
 {% endnote %}
 
-Подробнее см. раздел [Агент для сбора метрик Prometheus](../../../operations/prometheus/ingestion/prometheus-agent.md).
+Подробнее в разделе [Агент для сбора метрик Prometheus](../../../operations/prometheus/ingestion/prometheus-agent.md).
 
 ## Список поддерживаемых операционных систем {#supported-os}
 
@@ -242,7 +242,7 @@ Unified Agent с версии 25.03.80 может собирать и перед
       bash -c 'curl --silent --remote-name https://storage.yandexcloud.net/yc-unified-agent/releases/$ua_version/unified_agent && chmod +x ./unified_agent'
       ```
   
-  1. После скачивания исполняемого файла с агентом создайте конфигурационный файл, например, с настройками для [поставки системных метрик Linux](../../../../monitoring/operations/unified-agent/linux_metrics.md). Подробнее про конфигурацию агента смотрите в разделе [Конфигурирование](../../../../monitoring/concepts/data-collection/unified-agent/configuration.md).
+  1. После скачивания исполняемого файла с агентом создайте конфигурационный файл, например, с настройками для [поставки системных метрик Linux](../../../../monitoring/operations/unified-agent/linux_metrics.md). Конфигурация агента описана в разделе [Конфигурирование](../../../../monitoring/concepts/data-collection/unified-agent/configuration.md).
   
   
   1. Переместите скачанный файл в папку `/bin/unified_agent`.
@@ -264,7 +264,7 @@ Unified Agent с версии 25.03.80 может собирать и перед
       bash -c 'curl --silent --remote-name https://storage.yandexcloud.net/yc-unified-agent/releases/$ua_version/unified_agent && chmod +x ./unified_agent'
       ```
   
-  1. После скачивания исполняемого файла с агентом создайте конфигурационный файл, например, с настройками для [поставки системных метрик Linux](../../../../monitoring/operations/unified-agent/linux_metrics.md). Подробнее про конфигурацию агента смотрите в разделе [Конфигурирование](../../../../monitoring/concepts/data-collection/unified-agent/configuration.md).
+  1. После скачивания исполняемого файла с агентом создайте конфигурационный файл, например, с настройками для [поставки системных метрик Linux](../../../../monitoring/operations/unified-agent/linux_metrics.md). Конфигурация агента описана в разделе [Конфигурирование](../../../../monitoring/concepts/data-collection/unified-agent/configuration.md).
   
   
   1. Переместите скачанный файл в папку `/bin/unified_agent`.

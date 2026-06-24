@@ -22,7 +22,7 @@ To set up SAML authentication:
     https://c-<{{ OS }}_cluster_ID>.rw.{{ dns-zone }}/_opendistro/_security/saml/acs
     ```
 
-    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     URL example: `https://c-e4ut2....rw.{{ dns-zone }}/_opendistro/_security/saml/acs`
 
@@ -60,7 +60,7 @@ Incorrect settings may cause the cluster to fail.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.opensearch.auth.section_auth }}** tab.
     1. Click **{{ ui-key.yacloud.opensearch.auth.button_settings }}**.
     1. Specify the parameters of your external authentication source:
@@ -128,7 +128,7 @@ Incorrect settings may cause the cluster to fail.
 
             If there is no value or `0`, the session lifetime is unlimited (default).
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/updateAuthSettings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -179,7 +179,7 @@ Incorrect settings may cause the cluster to fail.
 
             If there is no value or `0`, the session lifetime is unlimited (default).
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request  the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/updateAuthSettings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

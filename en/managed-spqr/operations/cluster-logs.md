@@ -10,7 +10,7 @@
 
 - Management console {#console}
 
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
     1. Click the name of your cluster and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_logs }}** tab.
     1. Specify a time period for the log entries you want to view: enter it manually or select in the calendar using the date input field.
     1. Optionally, add log filters in the row with the date input field:

@@ -1,11 +1,5 @@
 # Настроить права доступа к окружению Security Deck
 
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 Чтобы настроить доступ к [окружению](../../concepts/workspace.md) Security Deck для других пользователей:
 
 {% list tabs group=instructions %}

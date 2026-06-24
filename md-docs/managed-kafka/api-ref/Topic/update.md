@@ -15,14 +15,12 @@ PATCH https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/top
 || clusterId | **string**
 
 Required field. ID of the Apache Kafka® cluster to update a topic in.
-
 To get the cluster ID, make a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || topicName | **string**
 
 Required field. Name of the topic to update.
-
 To get the name of the topic, make a [TopicService.List](list.md#List) request.
 
 The string length in characters must be 1-256. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
@@ -106,7 +104,6 @@ The rest of the fields will be reset to the default. ||
 || topicSpec | **[TopicSpec](#yandex.cloud.mdb.kafka.v1.TopicSpec)**
 
 New configuration of the topic.
-
 Use `updateMask` to prevent reverting all topic settings that are not listed in `topicSpec` to their default values. ||
 |#
 
@@ -119,10 +116,14 @@ Use `updateMask` to prevent reverting all topic settings that are not listed in 
 Name of the topic. ||
 || partitions | **string** (int64)
 
-The number of the topic's partitions. ||
+The number of the topic's partitions.
+
+Value must be greater than 0. ||
 || replicationFactor | **string** (int64)
 
-Amount of copies of a topic data kept in the cluster. ||
+Amount of copies of a topic data kept in the cluster.
+
+Value must be greater than 0. ||
 || topicConfig_2_8 | **[TopicConfig2_8](#yandex.cloud.mdb.kafka.v1.TopicConfig2_8)**
 
 Configuration of the Apache Kafka® 2.8 topic.
@@ -178,12 +179,10 @@ The time to wait before deleting a file from the filesystem. ||
 || flushMessages | **string** (int64)
 
 The number of messages accumulated on a log partition before messages are flushed to disk.
-
 This setting overrides the cluster-level [KafkaConfig2_8.logFlushIntervalMessages](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
 || flushMs | **string** (int64)
 
 The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk.
-
 This setting overrides the cluster-level [KafkaConfig2_8.logFlushIntervalMs](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
 || minCompactionLagMs | **string** (int64)
 
@@ -192,12 +191,10 @@ The minimum time in milliseconds a message will remain uncompacted in the log. |
 
 The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanupPolicy` is in effect.
 It is helpful if you need to control the size of log due to limited disk space.
-
 This setting overrides the cluster-level [KafkaConfig2_8.logRetentionBytes](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
 || retentionMs | **string** (int64)
 
 The number of milliseconds to keep a log segment's file before deleting it.
-
 This setting overrides the cluster-level [KafkaConfig2_8.logRetentionMs](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
 || maxMessageBytes | **string** (int64)
 
@@ -210,12 +207,10 @@ to be considered successful (when a producer sets acks to "all"). ||
 
 This configuration controls the segment file size for the log. Retention and cleaning is always done a file
 at a time so a larger segment size means fewer files but less granular control over retention.
-
 This setting overrides the cluster-level [KafkaConfig2_8.logSegmentBytes](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
 || preallocate | **boolean**
 
 True if we should preallocate the file on disk when creating a new log segment.
-
 This setting overrides the cluster-level [KafkaConfig2_8.logPreallocate](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
 || messageTimestampType | **enum** (MessageTimestampType)
 
@@ -257,12 +252,10 @@ The time to wait before deleting a file from the filesystem. ||
 || flushMessages | **string** (int64)
 
 The number of messages accumulated on a log partition before messages are flushed to disk.
-
 This setting overrides the cluster-level [KafkaConfig3.logFlushIntervalMessages](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
 || flushMs | **string** (int64)
 
 The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk.
-
 This setting overrides the cluster-level [KafkaConfig3.logFlushIntervalMs](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
 || minCompactionLagMs | **string** (int64)
 
@@ -271,12 +264,10 @@ The minimum time in milliseconds a message will remain uncompacted in the log. |
 
 The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanupPolicy` is in effect.
 It is helpful if you need to control the size of log due to limited disk space.
-
 This setting overrides the cluster-level [KafkaConfig3.logRetentionBytes](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
 || retentionMs | **string** (int64)
 
 The number of milliseconds to keep a log segment's file before deleting it.
-
 This setting overrides the cluster-level [KafkaConfig3.logRetentionMs](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
 || maxMessageBytes | **string** (int64)
 
@@ -289,12 +280,10 @@ to be considered successful (when a producer sets acks to "all"). ||
 
 This configuration controls the segment file size for the log. Retention and cleaning is always done a file
 at a time so a larger segment size means fewer files but less granular control over retention.
-
 This setting overrides the cluster-level [KafkaConfig3.logSegmentBytes](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
 || preallocate | **boolean**
 
 True if we should preallocate the file on disk when creating a new log segment.
-
 This setting overrides the cluster-level [KafkaConfig3.logPreallocate](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
 || messageTimestampType | **enum** (MessageTimestampType)
 
@@ -336,12 +325,10 @@ The time to wait before deleting a file from the filesystem. ||
 || flushMessages | **string** (int64)
 
 The number of messages accumulated on a log partition before messages are flushed to disk.
-
 This setting overrides the cluster-level [KafkaConfig4.logFlushIntervalMessages](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
 || flushMs | **string** (int64)
 
 The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk.
-
 This setting overrides the cluster-level [KafkaConfig4.logFlushIntervalMs](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
 || minCompactionLagMs | **string** (int64)
 
@@ -350,12 +337,10 @@ The minimum time in milliseconds a message will remain uncompacted in the log. |
 
 The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanupPolicy` is in effect.
 It is helpful if you need to control the size of log due to limited disk space.
-
 This setting overrides the cluster-level [KafkaConfig4.logRetentionBytes](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
 || retentionMs | **string** (int64)
 
 The number of milliseconds to keep a log segment's file before deleting it.
-
 This setting overrides the cluster-level [KafkaConfig4.logRetentionMs](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
 || maxMessageBytes | **string** (int64)
 
@@ -368,12 +353,10 @@ to be considered successful (when a producer sets acks to "all"). ||
 
 This configuration controls the segment file size for the log. Retention and cleaning is always done a file
 at a time so a larger segment size means fewer files but less granular control over retention.
-
 This setting overrides the cluster-level [KafkaConfig4.logSegmentBytes](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
 || preallocate | **boolean**
 
 True if we should preallocate the file on disk when creating a new log segment.
-
 This setting overrides the cluster-level [KafkaConfig4.log_preallocate] setting on the topic level. ||
 || messageTimestampType | **enum** (MessageTimestampType)
 
@@ -395,10 +378,7 @@ Define whether the timestamp in the message is message create time or log append
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "clusterId": "string",
-    "topicName": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -407,62 +387,7 @@ Define whether the timestamp in the message is message create time or log append
       "object"
     ]
   },
-  "response": {
-    "name": "string",
-    "clusterId": "string",
-    "partitions": "string",
-    "replicationFactor": "string",
-    // Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`
-    "topicConfig_2_8": {
-      "cleanupPolicy": "string",
-      "compressionType": "string",
-      "deleteRetentionMs": "string",
-      "fileDeleteDelayMs": "string",
-      "flushMessages": "string",
-      "flushMs": "string",
-      "minCompactionLagMs": "string",
-      "retentionBytes": "string",
-      "retentionMs": "string",
-      "maxMessageBytes": "string",
-      "minInsyncReplicas": "string",
-      "segmentBytes": "string",
-      "preallocate": "boolean",
-      "messageTimestampType": "string"
-    },
-    "topicConfig_3": {
-      "cleanupPolicy": "string",
-      "compressionType": "string",
-      "deleteRetentionMs": "string",
-      "fileDeleteDelayMs": "string",
-      "flushMessages": "string",
-      "flushMs": "string",
-      "minCompactionLagMs": "string",
-      "retentionBytes": "string",
-      "retentionMs": "string",
-      "maxMessageBytes": "string",
-      "minInsyncReplicas": "string",
-      "segmentBytes": "string",
-      "preallocate": "boolean",
-      "messageTimestampType": "string"
-    },
-    "topicConfig_4": {
-      "cleanupPolicy": "string",
-      "compressionType": "string",
-      "deleteRetentionMs": "string",
-      "fileDeleteDelayMs": "string",
-      "flushMessages": "string",
-      "flushMs": "string",
-      "minCompactionLagMs": "string",
-      "retentionBytes": "string",
-      "retentionMs": "string",
-      "maxMessageBytes": "string",
-      "minInsyncReplicas": "string",
-      "segmentBytes": "string",
-      "preallocate": "boolean",
-      "messageTimestampType": "string"
-    }
-    // end of the list of possible fields
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -504,7 +429,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateTopicMetadata](#yandex.cloud.mdb.kafka.v1.UpdateTopicMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -519,7 +444,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Topic](#yandex.cloud.mdb.kafka.v1.Topic)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -534,18 +459,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateTopicMetadata {#yandex.cloud.mdb.kafka.v1.UpdateTopicMetadata}
-
-#|
-||Field | Description ||
-|| clusterId | **string**
-
-ID of the Apache Kafka® cluster where a topic is being updated. ||
-|| topicName | **string**
-
-Name of the Kafka topic that is being updated. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -563,285 +476,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Topic {#yandex.cloud.mdb.kafka.v1.Topic}
-
-An Kafka topic.
-For more information, see the [Concepts -> Topics and partitions](../../concepts/topics.md) section of the documentation.
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Name of the topic. ||
-|| clusterId | **string**
-
-ID of an Apache Kafka® cluster that the topic belongs to.
-
-To get the Apache Kafka® cluster ID, make a [ClusterService.List](../Cluster/list.md#List) request. ||
-|| partitions | **string** (int64)
-
-The number of the topic's partitions. ||
-|| replicationFactor | **string** (int64)
-
-Amount of data copies (replicas) for the topic in the cluster. ||
-|| topicConfig_2_8 | **[TopicConfig2_8](#yandex.cloud.mdb.kafka.v1.TopicConfig2_82)**
-
-Configuration of the Apache Kafka® 2.8 topic.
-
-Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`.
-
-User-defined settings for the topic. ||
-|| topicConfig_3 | **[TopicConfig3](#yandex.cloud.mdb.kafka.v1.TopicConfig32)**
-
-Configuration of the Apache Kafka® 3.x topic.
-
-Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`.
-
-User-defined settings for the topic. ||
-|| topicConfig_4 | **[TopicConfig4](#yandex.cloud.mdb.kafka.v1.TopicConfig42)**
-
-Configuration of the Apache Kafka® 4.x topic.
-
-Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`.
-
-User-defined settings for the topic. ||
-|#
-
-## TopicConfig2_8 {#yandex.cloud.mdb.kafka.v1.TopicConfig2_82}
-
-Topic settings for 2.8
-
-#|
-||Field | Description ||
-|| cleanupPolicy | **enum** (CleanupPolicy)
-
-Retention policy to use on old log messages.
-
-- `CLEANUP_POLICY_DELETE`: This policy discards log segments when either their retention time or log size limit is reached. See also: [KafkaConfig2_8.logRetentionMs](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) and other similar parameters.
-- `CLEANUP_POLICY_COMPACT`: This policy compacts messages in log.
-- `CLEANUP_POLICY_COMPACT_AND_DELETE`: This policy use both compaction and deletion for messages and log segments. ||
-|| compressionType | **enum** (CompressionType)
-
-The compression type for a given topic.
-
-- `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
-- `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
-- `COMPRESSION_TYPE_LZ4`: LZ4 codec.
-- `COMPRESSION_TYPE_SNAPPY`: Snappy codec.
-- `COMPRESSION_TYPE_GZIP`: GZip codec.
-- `COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs). ||
-|| deleteRetentionMs | **string** (int64)
-
-The amount of time in milliseconds to retain delete tombstone markers for log compacted topics. ||
-|| fileDeleteDelayMs | **string** (int64)
-
-The time to wait before deleting a file from the filesystem. ||
-|| flushMessages | **string** (int64)
-
-The number of messages accumulated on a log partition before messages are flushed to disk.
-
-This setting overrides the cluster-level [KafkaConfig2_8.logFlushIntervalMessages](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
-|| flushMs | **string** (int64)
-
-The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk.
-
-This setting overrides the cluster-level [KafkaConfig2_8.logFlushIntervalMs](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
-|| minCompactionLagMs | **string** (int64)
-
-The minimum time in milliseconds a message will remain uncompacted in the log. ||
-|| retentionBytes | **string** (int64)
-
-The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanupPolicy` is in effect.
-It is helpful if you need to control the size of log due to limited disk space.
-
-This setting overrides the cluster-level [KafkaConfig2_8.logRetentionBytes](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
-|| retentionMs | **string** (int64)
-
-The number of milliseconds to keep a log segment's file before deleting it.
-
-This setting overrides the cluster-level [KafkaConfig2_8.logRetentionMs](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
-|| maxMessageBytes | **string** (int64)
-
-The largest record batch size allowed in topic. ||
-|| minInsyncReplicas | **string** (int64)
-
-This configuration specifies the minimum number of replicas that must acknowledge a write to topic for the write
-to be considered successful (when a producer sets acks to "all"). ||
-|| segmentBytes | **string** (int64)
-
-This configuration controls the segment file size for the log. Retention and cleaning is always done a file
-at a time so a larger segment size means fewer files but less granular control over retention.
-
-This setting overrides the cluster-level [KafkaConfig2_8.logSegmentBytes](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
-|| preallocate | **boolean**
-
-True if we should preallocate the file on disk when creating a new log segment.
-
-This setting overrides the cluster-level [KafkaConfig2_8.logPreallocate](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
-|| messageTimestampType | **enum** (MessageTimestampType)
-
-Define whether the timestamp in the message is message create time or log append time.
-
-- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
-- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time. ||
-|#
-
-## TopicConfig3 {#yandex.cloud.mdb.kafka.v1.TopicConfig32}
-
-Topic settings for 3.x
-
-#|
-||Field | Description ||
-|| cleanupPolicy | **enum** (CleanupPolicy)
-
-Retention policy to use on old log messages.
-
-- `CLEANUP_POLICY_DELETE`: This policy discards log segments when either their retention time or log size limit is reached. See also: [KafkaConfig3.logRetentionMs](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig3) and other similar parameters.
-- `CLEANUP_POLICY_COMPACT`: This policy compacts messages in log.
-- `CLEANUP_POLICY_COMPACT_AND_DELETE`: This policy use both compaction and deletion for messages and log segments. ||
-|| compressionType | **enum** (CompressionType)
-
-The compression type for a given topic.
-
-- `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
-- `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
-- `COMPRESSION_TYPE_LZ4`: LZ4 codec.
-- `COMPRESSION_TYPE_SNAPPY`: Snappy codec.
-- `COMPRESSION_TYPE_GZIP`: GZip codec.
-- `COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs). ||
-|| deleteRetentionMs | **string** (int64)
-
-The amount of time in milliseconds to retain delete tombstone markers for log compacted topics. ||
-|| fileDeleteDelayMs | **string** (int64)
-
-The time to wait before deleting a file from the filesystem. ||
-|| flushMessages | **string** (int64)
-
-The number of messages accumulated on a log partition before messages are flushed to disk.
-
-This setting overrides the cluster-level [KafkaConfig3.logFlushIntervalMessages](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
-|| flushMs | **string** (int64)
-
-The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk.
-
-This setting overrides the cluster-level [KafkaConfig3.logFlushIntervalMs](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
-|| minCompactionLagMs | **string** (int64)
-
-The minimum time in milliseconds a message will remain uncompacted in the log. ||
-|| retentionBytes | **string** (int64)
-
-The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanupPolicy` is in effect.
-It is helpful if you need to control the size of log due to limited disk space.
-
-This setting overrides the cluster-level [KafkaConfig3.logRetentionBytes](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
-|| retentionMs | **string** (int64)
-
-The number of milliseconds to keep a log segment's file before deleting it.
-
-This setting overrides the cluster-level [KafkaConfig3.logRetentionMs](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
-|| maxMessageBytes | **string** (int64)
-
-The largest record batch size allowed in topic. ||
-|| minInsyncReplicas | **string** (int64)
-
-This configuration specifies the minimum number of replicas that must acknowledge a write to topic for the write
-to be considered successful (when a producer sets acks to "all"). ||
-|| segmentBytes | **string** (int64)
-
-This configuration controls the segment file size for the log. Retention and cleaning is always done a file
-at a time so a larger segment size means fewer files but less granular control over retention.
-
-This setting overrides the cluster-level [KafkaConfig3.logSegmentBytes](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
-|| preallocate | **boolean**
-
-True if we should preallocate the file on disk when creating a new log segment.
-
-This setting overrides the cluster-level [KafkaConfig3.logPreallocate](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
-|| messageTimestampType | **enum** (MessageTimestampType)
-
-Define whether the timestamp in the message is message create time or log append time.
-
-- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
-- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time. ||
-|#
-
-## TopicConfig4 {#yandex.cloud.mdb.kafka.v1.TopicConfig42}
-
-Topic settings for 4.x
-
-#|
-||Field | Description ||
-|| cleanupPolicy | **enum** (CleanupPolicy)
-
-Retention policy to use on old log messages.
-
-- `CLEANUP_POLICY_DELETE`: This policy discards log segments when either their retention time or log size limit is reached. See also: [KafkaConfig4.logRetentionMs](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig4) and other similar parameters.
-- `CLEANUP_POLICY_COMPACT`: This policy compacts messages in log.
-- `CLEANUP_POLICY_COMPACT_AND_DELETE`: This policy use both compaction and deletion for messages and log segments. ||
-|| compressionType | **enum** (CompressionType)
-
-The compression type for a given topic.
-
-- `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
-- `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
-- `COMPRESSION_TYPE_LZ4`: LZ4 codec.
-- `COMPRESSION_TYPE_SNAPPY`: Snappy codec.
-- `COMPRESSION_TYPE_GZIP`: GZip codec.
-- `COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs). ||
-|| deleteRetentionMs | **string** (int64)
-
-The amount of time in milliseconds to retain delete tombstone markers for log compacted topics. ||
-|| fileDeleteDelayMs | **string** (int64)
-
-The time to wait before deleting a file from the filesystem. ||
-|| flushMessages | **string** (int64)
-
-The number of messages accumulated on a log partition before messages are flushed to disk.
-
-This setting overrides the cluster-level [KafkaConfig4.logFlushIntervalMessages](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
-|| flushMs | **string** (int64)
-
-The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk.
-
-This setting overrides the cluster-level [KafkaConfig4.logFlushIntervalMs](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
-|| minCompactionLagMs | **string** (int64)
-
-The minimum time in milliseconds a message will remain uncompacted in the log. ||
-|| retentionBytes | **string** (int64)
-
-The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanupPolicy` is in effect.
-It is helpful if you need to control the size of log due to limited disk space.
-
-This setting overrides the cluster-level [KafkaConfig4.logRetentionBytes](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
-|| retentionMs | **string** (int64)
-
-The number of milliseconds to keep a log segment's file before deleting it.
-
-This setting overrides the cluster-level [KafkaConfig4.logRetentionMs](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
-|| maxMessageBytes | **string** (int64)
-
-The largest record batch size allowed in topic. ||
-|| minInsyncReplicas | **string** (int64)
-
-This configuration specifies the minimum number of replicas that must acknowledge a write to topic for the write
-to be considered successful (when a producer sets acks to "all"). ||
-|| segmentBytes | **string** (int64)
-
-This configuration controls the segment file size for the log. Retention and cleaning is always done a file
-at a time so a larger segment size means fewer files but less granular control over retention.
-
-This setting overrides the cluster-level [KafkaConfig4.logSegmentBytes](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
-|| preallocate | **boolean**
-
-True if we should preallocate the file on disk when creating a new log segment.
-
-This setting overrides the cluster-level [KafkaConfig4.log_preallocate] setting on the topic level. ||
-|| messageTimestampType | **enum** (MessageTimestampType)
-
-Define whether the timestamp in the message is message create time or log append time.
-
-- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
-- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time. ||
 |#

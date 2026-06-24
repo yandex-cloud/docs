@@ -5136,6 +5136,10 @@ default:
             workspace_title_365xt: Workspace name
           WorkspaceKspmResourcesForm:
             section-title_iYCNY: Scope of control
+          WorkspaceModuleErrorsTable:
+            field_date_d5R8n: Date
+            field_message_b4Q1s: Message
+            field_source_y9C3p: Source
           WorkspaceOnboardingForm:
             accessRightsTitle: Access bindings
             createAndContinue_1yfFr: Create and continue
@@ -7822,6 +7826,7 @@ default:
             label_indexes: Suggested indexes
             label_interval-first: Interval 1
             label_interval-second: Interval 2
+            label_plan-text: Plan text
             label_profiling: Profiling
             label_queries: Queries
             label_sessions: Sessions
@@ -10724,6 +10729,13 @@ default:
         yds_properties_topic_view_spec_layout_title: Topic
         ymq_integration_title: Message Queue
         ymq_properties_queue_arn_view_spec_layout_title: ARN of the queue
+    yc-ui-ai-studio:
+      components:
+        LabelSet:
+          button_add-label_7L5iz: Add label
+      ui:
+        add-description_dYQ89: Add description
+        field_logging_qiiYa: Write logs
     yc-ui-datasphere:
       alias:
         private: Private

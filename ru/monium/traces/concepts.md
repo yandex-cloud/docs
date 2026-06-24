@@ -101,7 +101,7 @@
 
 Основное ограничение head sampling — невозможно принять решение на основе данных всего трейса. Например, нельзя гарантировать сохранение всех трейсов с ошибками.
 
-Для настройки head sampling в OpenTelemetry SDK доступны несколько встроенных семплеров — от полного сохранения всех трейсов до процентного отбора. Подробнее см. в [документации OpenTelemetry](https://opentelemetry.io/docs/concepts/sampling/).
+Для настройки head sampling в OpenTelemetry SDK доступны несколько встроенных семплеров — от полного сохранения всех трейсов до процентного отбора. Подробнее в [документации OpenTelemetry](https://opentelemetry.io/docs/concepts/sampling/).
 
 {% note warning %}
 

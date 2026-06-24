@@ -142,7 +142,13 @@
 
  - [Ошибки в работе KSPM](diagnostics/kspm-diagnostics.md)
 
+ - [Ошибки в работе CSPM](diagnostics/cspm-diagnostics.md)
+
  - [Ошибки в работе DSPM](diagnostics/dspm-diagnostics.md)
+
+ - [Ошибки в работе TD](diagnostics/td-diagnostics.md)
+
+ - [Ошибки в работе VM](diagnostics/vm-diagnostic.md)
 
 ## Управление доступом
 

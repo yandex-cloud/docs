@@ -19,7 +19,12 @@ POST https://iam.api.cloud.yandex.net/iam/v1/oauthClients
   "scopes": [
     "string"
   ],
-  "folderId": "string"
+  "folderId": "string",
+  "authenticationMethods": [
+    "string"
+  ],
+  "profileId": "string",
+  "pkceRequired": "boolean"
 }
 ```
 
@@ -47,6 +52,17 @@ Required field. ID of the folder to create an oauth client in.
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request.
 
 The maximum string length in characters is 255. ||
+|| authenticationMethods[] | **string**
+
+The maximum string length in characters for each value is 255. The maximum number of elements is 1000. ||
+|| profileId | **string**
+
+ID of the profile that defines the set of allowed settings for the oauth client.
+
+The maximum string length in characters is 32. ||
+|| pkceRequired | **boolean**
+
+Whether PKCE (Proof Key for Code Exchange) is required for the oauth client during the authorization code flow. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

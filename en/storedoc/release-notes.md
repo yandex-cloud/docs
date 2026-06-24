@@ -5,11 +5,16 @@ description: This section contains the {{ mmg-name }} release notes.
 
 # {{ mmg-full-name }} release notes
 
+## May 2026 {#may-2026}
+
+* Added the ability to [create and restore](./operations/cluster-backups.md) clusters with encrypted local disks from a backup. The encryption uses a custom KMS key.
+* Maximum local disk size per host is increased to 36 TB. Disks of this size are available for Intel Ice Lake (`standard-v3`) configurations with 16 or more cores. To create extra large clusters, you may need to contact [support]({{ link-console-support }}) to reserve the required resources.
+
 ## March 2026 {#mar-2026}
 
 * Added the `--redactClientLogData` option to mask client request data before it is written to logs. This option hides the content of messages associated with events but keeps technical metadata (error codes, line numbers, file names).
 * If a {{ SD }} replica is far behind, the service can now use [backup](./concepts/backup.md) recovery tools to update its data faster and without placing additional load on the master host.
-* Added separate [roles](./security/index.md) to view and edit (reschedule) [maintenance](./concepts/maintenance.md) without access to the cluster.
+* Added separate [roles](./security/index.md) for viewing and editing (rescheduling) [maintenance](./concepts/maintenance.md) without access to the cluster.
 
 ## January 2026 {#jan-2026}
 

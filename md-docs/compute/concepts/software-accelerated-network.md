@@ -67,7 +67,7 @@ SAN нельзя включить для виртуальной машины с 
 
 * На ВМ с пользовательскими инсталляциями баз данных при интенсивной работе с [диском](disk.md) и высокой утилизацией CPU (более 70-80%).
 * Если внутри ВМ наблюдается большое значение метрики `CPU steal time`.
-* В группах узлов кластеров [Yandex Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md) при работе внутрикластерных балансировщиков L7, например [Ingress NGINX Controller](https://kubernetes.github.io/ingress-nginx/) или [Istio Ingress Gateways](https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-control/).
+* В группах узлов кластеров [Yandex Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md) при работе внутрикластерных балансировщиков L7, например [Istio Ingress Gateways](https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-control/).
 
 {% note warning %}
 

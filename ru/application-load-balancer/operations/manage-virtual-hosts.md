@@ -48,7 +48,7 @@ description: Следуя данной инструкции, вы сможете
   1. {% include [cli-vh-list-http-routers](../../_includes/application-load-balancer/instruction-steps/cli-vh-list-http-routers.md) %}
   1. {% include [cli-vh-create](../../_includes/application-load-balancer/instruction-steps/cli-vh-create.md) %}
 
-  Подробнее о команде `alb virtual-host create` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/create.md).
+  Подробнее о команде `alb virtual-host create` в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/create.md).
 
 - {{ TF }} {#tf}
 
@@ -98,7 +98,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% endlist %}
 
-      Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
+      Параметры используемых ресурсов приведены в документации провайдера {{ TF }}: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
 
   1. Создайте ресурсы:
 
@@ -212,7 +212,7 @@ description: Следуя данной инструкции, вы сможете
           Необязательный параметр: если не задан, ограничение на частоту запросов не применяется.
 
           Чтобы очистить все заданные для виртуального хоста ограничения на количество запросов, передайте в команде параметр `--clear-rate-limit`.
-      * `--security-profile-id` — идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../smartwebsecurity/index.yaml). Профиль безопасности позволяет настроить фильтрацию входящих запросов, подключить [WAF](../../smartwebsecurity/concepts/waf.md) и установить лимиты на количество запросов для защиты от вредоносной активности. Подробнее см. [{#T}](../../smartwebsecurity/concepts/profiles.md). Необязательный параметр.
+      * `--security-profile-id` — идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../smartwebsecurity/index.yaml). Профиль безопасности позволяет настроить фильтрацию входящих запросов, подключить [WAF](../../smartwebsecurity/concepts/waf.md) и установить лимиты на количество запросов для защиты от вредоносной активности. Подробнее в разделе [{#T}](../../smartwebsecurity/concepts/profiles.md). Необязательный параметр.
 
           Чтобы отвязать профиль безопасности от виртуального хоста, передайте в параметре пустое значение: `--security-profile-id ""`
 
@@ -237,7 +237,7 @@ description: Следуя данной инструкции, вы сможете
           per_second: "80"
       ```
 
-  Подробнее о команде `yc alb virtual-host update` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update.md).
+  Подробнее о команде `yc alb virtual-host update` в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update.md).
 
 - {{ TF }} {#tf}
 
@@ -287,7 +287,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% endlist %}
 
-      Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
+      Параметры используемых ресурсов приведены в документации провайдера {{ TF }}: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
   1. Обновите ресурсы:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -343,7 +343,7 @@ description: Следуя данной инструкции, вы сможете
 
       Где `--http-router-name` — имя HTTP-роутера. Вместо имени HTTP-роутера вы можете передать его идентификатор в параметре `--http-router-id`.
 
-  Подробнее о команде `yc alb virtual-host delete` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/delete.md).
+  Подробнее о команде `yc alb virtual-host delete` в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/delete.md).
 
 - {{ TF }} {#tf}
 

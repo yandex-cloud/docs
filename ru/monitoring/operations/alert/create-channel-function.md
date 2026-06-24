@@ -50,4 +50,4 @@ description: Следуя данной инструкции, вы сможете
 * `alertStatus` — [статус алерта](../../concepts/alerting/alert.md#alert-statuses), текст;
 * `annotations` — значения аннотаций сработавшего алерта, словарь значений `key:value`.
 
-Пример вызова функции см. в разделе [{#T}](alert-call-function.md).
+Пример вызова функции описан в разделе [{#T}](alert-call-function.md).

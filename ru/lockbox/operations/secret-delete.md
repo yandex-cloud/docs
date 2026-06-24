@@ -123,6 +123,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [{#T}](../concepts/secret.md)
+[{#T}](../concepts/secret.md)

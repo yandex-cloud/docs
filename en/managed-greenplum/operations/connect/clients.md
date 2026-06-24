@@ -115,7 +115,7 @@ Set up your {{ mgp-name }} cluster for connection:
 
 - Management console {#console}
 
-  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
 
   1. Click the cluster name.
 

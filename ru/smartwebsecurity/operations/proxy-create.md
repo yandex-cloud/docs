@@ -46,4 +46,4 @@ description: Следуя данной инструкции, вы сможете
 
 ### Полезные ссылки {#see-also}
 
-* [{#T}](domain-create.md)
+[{#T}](domain-create.md)

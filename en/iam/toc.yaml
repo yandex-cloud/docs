@@ -709,6 +709,8 @@ items:
                 href: api-ref/grpc/OAuthClient/get.md
               - name: List
                 href: api-ref/grpc/OAuthClient/list.md
+              - name: ListProfiles
+                href: api-ref/grpc/OAuthClient/listProfiles.md
               - name: Create
                 href: api-ref/grpc/OAuthClient/create.md
               - name: Update
@@ -761,6 +763,10 @@ items:
                 href: api-ref/grpc/ServiceAccount/updateAccessBindings.md
               - name: ListOperations
                 href: api-ref/grpc/ServiceAccount/listOperations.md
+              - name: Suspend
+                href: api-ref/grpc/ServiceAccount/suspend.md
+              - name: Reactivate
+                href: api-ref/grpc/ServiceAccount/reactivate.md
           - name: ServiceControl
             items:
               - name: Overview
@@ -775,6 +781,16 @@ items:
                 href: api-ref/grpc/ServiceControl/disable.md
               - name: ResolveAgent
                 href: api-ref/grpc/ServiceControl/resolveAgent.md
+          - name: SubjectDetails
+            items:
+              - name: Overview
+                href: api-ref/grpc/SubjectDetails/index.md
+              - name: Get
+                href: api-ref/grpc/SubjectDetails/get.md
+              - name: List
+                href: api-ref/grpc/SubjectDetails/list.md
+              - name: BatchGet
+                href: api-ref/grpc/SubjectDetails/batchGet.md
           - name: UserAccount
             items:
               - name: Overview
@@ -1028,6 +1044,10 @@ items:
                 href: api-ref/ServiceAccount/updateAccessBindings.md
               - name: ListOperations
                 href: api-ref/ServiceAccount/listOperations.md
+              - name: Suspend
+                href: api-ref/ServiceAccount/suspend.md
+              - name: Reactivate
+                href: api-ref/ServiceAccount/reactivate.md
           - name: ServiceControl
             items:
               - name: Overview

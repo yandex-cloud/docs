@@ -1,11 +1,5 @@
 # Требования стандарта CIS Benchmark™ для Kubernetes
 
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 Этот набор правил содержит рекомендации стандарта [CIS Kubernetes Benchmark](https://www.cisecurity.org/benchmark/kubernetes), помогающие обеспечить безопасную работу компонентов, запущенных на узлах Kubernetes.
 
 Набор содержит только автоматические проверки, соответствующие разделу `4. Worker Nodes`:

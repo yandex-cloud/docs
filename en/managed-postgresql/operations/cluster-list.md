@@ -13,7 +13,7 @@ You can get detailed information about each {{ mpg-short-name }} cluster you cre
 
 - Management console {#console}
 
-  [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 
 - CLI {#cli}
 
@@ -38,7 +38,7 @@ You can get detailed information about each {{ mpg-short-name }} cluster you cre
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -95,7 +95,7 @@ You can get detailed information about each {{ mpg-short-name }} cluster you cre
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name.
 
 - CLI {#cli}
@@ -127,7 +127,7 @@ You can get detailed information about each {{ mpg-short-name }} cluster you cre
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>'
      ```
 
-     You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+     You can get the cluster ID from the [folder’s cluster list](#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure your request was successful.
 
@@ -170,16 +170,16 @@ All actions with {{ mpg-name }} clusters are logged as a list of operations. Eac
 
 - Management console {#console}
 
-  To view operations with all {{ mpg-name }} clusters, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.postgresql.switch_operations_9JzwJ }}** in the left-hand panel. In the list that opens, you will also see operations for the deleted resources.
+  To view operations with all {{ mpg-name }} clusters, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.postgresql.switch_operations_9JzwJ }}** in the left-hand panel. This will open the list of all operations, including those on currently deleted resources.
 
   You can get a list of cluster operations as follows:
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.postgresql.switch_list_9AfbP }}**.
   1. Select the cluster and open the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.postgresql.switch_operations_9JzwJ }}** tab.
 
-     You will see the list of operations with the cluster.
+     This will open the list of operations with the cluster.
 
 - CLI {#cli}
 
@@ -207,7 +207,7 @@ All actions with {{ mpg-name }} clusters are logged as a list of operations. Eac
 
   You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-  By default, information about transactions is displayed in text format. To get more details, specify `yaml` or `json` for the output data using the `--format` argument:
+  By default, information about operations is output as text. To get more details, use `--format` to specify the `yaml` or `json` output format:
 
   ```bash
   yc managed-postgresql cluster list-operations c9qk2926qqu9******** --format yaml

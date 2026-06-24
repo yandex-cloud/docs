@@ -177,7 +177,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% include [tf-vh-create-legend-last-part](../../_includes/application-load-balancer/instruction-steps/tf-vh-create-legend-last-part.md) %}
 
-      Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+      Параметры используемых ресурсов приведены в документации провайдера {{ TF }}:
       * [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router)
       * [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host)
   1. Создайте ресурсы:

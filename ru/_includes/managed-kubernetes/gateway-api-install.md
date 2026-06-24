@@ -109,9 +109,9 @@
 
 ## Примеры использования {#examples}
 
-* [{#T}](../../managed-kubernetes/tutorials/marketplace/gateway-api.md).
+[{#T}](../../managed-kubernetes/tutorials/marketplace/gateway-api.md)
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Описание проекта Gateway API](https://gateway-api.sigs.k8s.io/).
-* [Описание и конфигурация Gateway API](../../application-load-balancer/tools/k8s-gateway-api/index.md) в документации {{ alb-name }}.
+* [Описание проекта Gateway API](https://gateway-api.sigs.k8s.io/)
+* [Описание и конфигурация Gateway API](../../application-load-balancer/tools/k8s-gateway-api/index.md) в документации {{ alb-name }}

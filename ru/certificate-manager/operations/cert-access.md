@@ -98,7 +98,7 @@ description: Следуя данной инструкции, вы сможете
       * `role` — назначаемая [роль](../security/index.md#roles-list).
       * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-       Подробнее о параметрах ресурса `yandex_cm_certificate_iam_member` см. в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
+       Подробнее о параметрах ресурса `yandex_cm_certificate_iam_member` в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
 
   1. Создайте ресурсы:
 
@@ -196,7 +196,7 @@ description: Следуя данной инструкции, вы сможете
       * `role` — назначаемая [роль](../security/index.md#roles-list).
       * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-       Подробнее о параметрах ресурса `yandex_cm_certificate_iam_member` см. в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
+       Подробнее о параметрах ресурса `yandex_cm_certificate_iam_member` в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
 
   1. Создайте ресурсы:
 

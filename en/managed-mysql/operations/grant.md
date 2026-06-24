@@ -15,7 +15,7 @@ You can manage [user permissions](../concepts/user-rights.md) for the whole clus
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 
   1. Click the name of your cluster and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
 
@@ -91,7 +91,7 @@ You can manage [user permissions](../concepts/user-rights.md) for the whole clus
       * `database_name`: Name of the database the user will have access to.
       * `roles`: List of user privileges for the DB.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

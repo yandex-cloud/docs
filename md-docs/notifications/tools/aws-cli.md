@@ -103,7 +103,7 @@
 
 {% endcut %}
 
-Подробнее о настройке AWS CLI см. в [документации AWS](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html).
+Подробнее о настройке AWS CLI в [документации AWS](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html).
 
 ## Создайте канал уведомлений {#create-channel}
 
@@ -172,7 +172,7 @@ aws sns create-platform-application \
 
 В результате вы получите идентификатор (ARN) канала уведомлений. Сохраните его для использования в дальнейшем.
 
-Подробнее о команде `aws sns create-platform-application` смотрите в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-platform-application.html).
+Подробнее о команде `aws sns create-platform-application` в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-platform-application.html).
 
 
 ## Получите список каналов уведомлений {#list-channel}
@@ -183,7 +183,7 @@ aws sns list-platform-applications
 
 В результате будет выведен список каналов уведомлений, размещенных в том же каталоге, в котором находится сервисный аккаунт.
 
-Подробнее о команде `aws sns list-platform-applications` см. в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/list-platform-applications.html).
+Подробнее о команде `aws sns list-platform-applications` в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/list-platform-applications.html).
 
 ## Создайте эндпоинт {#create-endpoint}
 
@@ -202,7 +202,7 @@ aws sns create-platform-endpoint \
 
 В результате вы получите идентификатор (ARN) мобильного эндпоинта. Сохраните его для дальнейшего использования.
 
-Подробнее о команде `aws sns create-platform-endpoint` смотрите в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-platform-endpoint.html).
+Подробнее о команде `aws sns create-platform-endpoint` в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-platform-endpoint.html).
 
 
 ## Отправьте уведомление {#publish}
@@ -250,7 +250,7 @@ aws sns publish \
 * `--message-structure` — формат сообщения.
 * `--message` — сообщение.
 
-Подробнее о команде `aws sns publish` см. в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html).
+Подробнее о команде `aws sns publish` в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html).
 
 ## Примеры {#examples}
 
@@ -268,7 +268,7 @@ aws sns publish \
 * `--message` — текст SMS.
 * `--message-attributes` — атрибуты SMS, где `AWS.SNS.SMS.SenderID.StringValue` — текстовое имя отправителя.
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Начало работы](../quickstart.md)
 * [AWS SDK для Python (boto3)](sdk-python.md)

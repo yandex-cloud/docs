@@ -24,7 +24,7 @@ description: Follow this guide to migrate {{ VLK }} cluster hosts to a different
 
    - Management console {#console}
 
-      1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
       1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
       1. Specify the following host settings:
@@ -75,7 +75,7 @@ description: Follow this guide to migrate {{ VLK }} cluster hosts to a different
 
          In the `zone` parameter, specify the target availability zone for your hosts.
 
-      1. Validate your configuration.
+      1. Make sure the settings are correct.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -109,7 +109,7 @@ description: Follow this guide to migrate {{ VLK }} cluster hosts to a different
 
    - Management console {#console}
 
-      1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
       1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
       1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 

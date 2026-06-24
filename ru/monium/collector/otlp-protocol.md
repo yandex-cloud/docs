@@ -48,7 +48,7 @@ API-ключ создается для сервисного аккаунта с 
 
 {% include [shard-distribution](../../_includes/monium/shard-distribution.md) %}
 
-Подробнее о параметрах шардирования см. в разделе [Основные понятия](../concepts/glossary.md#shard).
+Параметры шардирования описаны в разделе [Основные понятия](../concepts/glossary.md#shard).
 
 ## Компрессия данных {#compression}
 
@@ -182,7 +182,7 @@ OpenTelemetry использует следующие типы метрик:
 
 {{ monium-name }} поддерживает формат **OTLP Protobuf** для всех видов телеметрии. Формат OTLP JSON в настоящее время поддерживается для логов и трейсов.
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](otlp-sdk.md)
 * [{#T}](opentelemetry.md)

@@ -16,8 +16,8 @@ You can create multiple shards in a cluster in one go.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
   1. Click **{{ ui-key.yacloud.clickhouse.Cluster.Shards.action_add-shards_iULX7 }}**.
   1. Click ![pencil](../../_assets/console-icons/pencil.svg) next to the new shard to update its parameters:
@@ -92,7 +92,7 @@ You can create multiple shards in a cluster in one go.
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
      For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -208,7 +208,7 @@ You can create multiple shards in a cluster in one go.
 
           {% include [warning-schema-copy](../../_includes/managed-clickhouse/warning-schema-copy.md) %}
 
-     1. Run this request:
+     1. Run this query:
 
         ```bash
         curl \
@@ -219,7 +219,7 @@ You can create multiple shards in a cluster in one go.
           --data '@body.json'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/addShards.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -297,7 +297,7 @@ You can create multiple shards in a cluster in one go.
 
           {% include [warning-schema-copy](../../_includes/managed-clickhouse/warning-schema-copy.md) %}
 
-     1. Run this request:
+     1. Run this query:
 
         ```bash
         grpcurl \
@@ -322,8 +322,8 @@ You can create multiple shards in a cluster in one go.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
 
 - CLI {#cli}
@@ -355,7 +355,7 @@ You can create multiple shards in a cluster in one go.
        --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/shards'
      ```
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/listShards.md#yandex.cloud.mdb.clickhouse.v1.ListClusterShardsResponse) to make sure your request was successful.
 
@@ -382,7 +382,7 @@ You can create multiple shards in a cluster in one go.
        yandex.cloud.mdb.clickhouse.v1.ClusterService.ListShards
      ```
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/listShards.md#yandex.cloud.mdb.clickhouse.v1.ListClusterShardsResponse) to make sure your request was successful.
 
@@ -394,20 +394,18 @@ You can edit the shard weight as well as the [host class](../concepts/instance-t
 
 {% include [note-change-disk-type-data-loss](../../_includes/mdb/mch/note-change-disk-type-data-loss.md) %}
 
-{% note info %}
-
-To change the disk type to `local-ssd`, contact [support]({{ link-console-support }}).
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
   1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+  1. Edit as needed and click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. If you have changes the disk type for a shard with {{ CH }} hosts:
+      1. In the window that opens, look up the number of non-replicated tables in the **Non-replicated MergeTree tables** chart and their size in **Size of non-replicated MergeTree tables**. The data in the non-replicated tables will be lost. If you need to keep it, [convert]({{ ch.docs }}{{ lang }}/sql-reference/statements/attach#attach-mergetree-table-as-replicatedmergetree) the non-replicated tables to replicated ones before you change the disk type.
+      1. Confirm resource changes.
 
 - CLI {#cli}
 
@@ -431,7 +429,8 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
        --weight <shard_weight> \
        --clickhouse-resource-preset <host_class> \
        --clickhouse-disk-size <storage_size> \
-       --clickhouse-disk-type <disk_type>
+       --clickhouse-disk-type <disk_type> \
+       --allow-host-recreation
      ```
 
      Where:
@@ -441,6 +440,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
      * `--clickhouse-resource-preset`: [Host class](../concepts/instance-types.md).
      * `--clickhouse-disk-size`: Storage size, in GB.
      * `--clickhouse-disk-type`: [Disk type](../concepts/storage.md).
+     * `--allow-host-recreation`: Allows your cluster to recreate hosts. This setting is required when changing the disk type.
 
      You can get the shard name with the [list of shards in the cluster](#list-shards).
 
@@ -461,7 +461,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
          --header "Content-Type: application/json" \
          --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/shards/<shard_name>' \
          --data '{
-                   "updateMask": "configSpec.clickhouse.config.<{{ CH }}_setup>,configSpec.clickhouse.resources,configSpec.clickhouse.weight",
+                   "updateMask": "configSpec.clickhouse.config.<{{ CH }}_setup>,configSpec.clickhouse.resources,configSpec.clickhouse.weight,allowHostRecreation",
                    "configSpec": {
                      "clickhouse": {
                        "config": {
@@ -474,7 +474,8 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
                        },
                        "weight": "<shard_weight>"
                      }
-                   }
+                   },
+                   "allowHostRecreation": "true"
                  }'
      ```
 
@@ -498,6 +499,8 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
          To calculate the shard priority for data distribution, the system adds up the weights of all shards and then divides each shard's weight by the total. For example, if one shard has a weight of `1` and another has a weight of `3`, then the first shard's priority is `1/4` and the second shard's priority is `3/4`. The higher the priority, the more data the shard will get.
 
          For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed).
+
+     * `allowHostRecreation`: Allows your cluster to recreate hosts. This setting is required when changing the disk type.
 
      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the shard name from the [list of cluster shards](#list-shards).
 
@@ -528,7 +531,8 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
                "paths": [
                  "config_spec.clickhouse.config.<{{ CH }}_setup>",
                  "config_spec.clickhouse.resources",
-                 "config_spec.clickhouse.weight"
+                 "config_spec.clickhouse.weight",
+                 "allow_host_recreation"
                ]
              },
              "config_spec": {
@@ -543,7 +547,8 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
                  },
                  "weight": "<shard_weight>"
                }
-             }
+             },
+             "allow_host_recreation": "true"
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.clickhouse.v1.ClusterService.UpdateShard
@@ -570,6 +575,8 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
 
          For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed).
 
+     * `allow_host_recreation`: Allows your cluster to recreate hosts. This setting is required when changing the disk type.
+
      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the shard name from the [list of cluster shards](#list-shards).
 
   1. View the [server response](../api-ref/grpc/Cluster/updateShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
@@ -588,8 +595,8 @@ Deleting a shard will delete all tables and data stored on that shard.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
     1. Delete one or multiple shards:
         * To delete one shard, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
@@ -617,7 +624,7 @@ Deleting a shard will delete all tables and data stored on that shard.
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
      For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -657,7 +664,7 @@ Deleting a shard will delete all tables and data stored on that shard.
 
      Where `shardNames` is an array of strings. Each string is the name of a shard to delete. You can get the shard names with the [list of shards in the cluster](#list-shards).
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/deleteShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -689,7 +696,7 @@ Deleting a shard will delete all tables and data stored on that shard.
 
      Where `shard_names` is an array of strings. Each string is the name of a shard to delete. You can get the shard names with the [list of shards in the cluster](#list-shards).
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/deleteShards.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

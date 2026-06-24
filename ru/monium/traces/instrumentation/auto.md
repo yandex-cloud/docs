@@ -19,7 +19,7 @@
 * Клиенты баз данных (PostgreSQL, MySQL, Redis, MongoDB)
 * Очереди сообщений (Kafka, RabbitMQ)
 
-Полный список поддерживаемых библиотек для каждого языка см. в [реестре инструментации OpenTelemetry](https://opentelemetry.io/ecosystem/registry/?language=python&component=instrumentation).
+Полный список поддерживаемых библиотек для каждого языка приведен в [реестре инструментации OpenTelemetry](https://opentelemetry.io/ecosystem/registry/?language=python&component=instrumentation).
 
 ## Общие параметры подключения {#common-config}
 

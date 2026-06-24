@@ -45,8 +45,6 @@ See these guides:
 
 * [{#T}](../tutorials/new-kubernetes-project.md)
 * [{#T}](../tutorials/alb-ingress-controller.md)
-* [{#T}](../tutorials/ingress-cert-manager.md)
-* [Installing an NGINX ingress controller with a {{ certificate-manager-full-name }} certificate](../tutorials/nginx-ingress-certificate-manager.md#check-service-availability)
 
 {% endcut %}
 

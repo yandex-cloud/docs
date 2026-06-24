@@ -19,8 +19,8 @@ You can enable and disable availability zones one by one or as a comma-separated
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. In the [management console]({{ link-console-main }}), select the relevant folder.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Select the network load balancer in question.
   1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings_button }}**.
   1. Enable **{{ ui-key.yacloud.components.BalancerAllocationDialog.AllocationForm.form_disable_traffic_3z2cs }}** next to the availability zones you want to disable.
@@ -142,8 +142,8 @@ You can enable and disable availability zones one by one or as a comma-separated
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. In the [management console]({{ link-console-main }}), select the relevant folder.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Select the network load balancer in question.
   1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings_button }}**.
   1. Disable **{{ ui-key.yacloud.components.BalancerAllocationDialog.AllocationForm.form_disable_traffic_3z2cs }}** next to the availability zones you want to enable.

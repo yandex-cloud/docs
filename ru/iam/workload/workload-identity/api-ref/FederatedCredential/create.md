@@ -24,13 +24,12 @@ apiPlayground:
         externalSubjectId:
           description: |-
             **string**
-            Required field. Id of the external subject.
+            Id of the external subject (exact match).
             The maximum string length in characters is 1000.
           type: string
       required:
         - serviceAccountId
         - federationId
-        - externalSubjectId
       additionalProperties: false
     definitions: null
 ---
@@ -70,7 +69,7 @@ Required field. ID of the workload identity federation that is used for authenti
 The maximum string length in characters is 50. ||
 || externalSubjectId | **string**
 
-Required field. Id of the external subject.
+Id of the external subject (exact match).
 
 The maximum string length in characters is 1000. ||
 |#

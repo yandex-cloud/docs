@@ -24,14 +24,12 @@ Returns information about an Apache Kafka® connector.
 || cluster_id | **string**
 
 Required field. ID of the Apache Kafka® cluster the connector belongs to.
-
 To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || connector_name | **string**
 
 Required field. Name of the Apache Kafka® connector to return information about.
-
 To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/grpc/Connector/list#List) request.
 
 The maximum string length in characters is 256. Value must match the regular expression ` [-_.a-zA-Z0-9]* `. ||

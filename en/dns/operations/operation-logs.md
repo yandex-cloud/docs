@@ -14,7 +14,7 @@ All {{ dns-name }} zone activities are logged as a list of operations. Each oper
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your DNS zone.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Select the zone you need.
   1. Navigate to the ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected zone.
 

@@ -21,7 +21,7 @@ To view detailed information on the health state of a {{ mmy-name }} cluster:
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}** tab.
       
       The page that opens will display performance charts for the cluster.
@@ -89,7 +89,7 @@ To view detailed information on the state of individual {{ mmy-name }} hosts:
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}** tab.
   1. Navigate to the **Hosts** tab and select the host.
 
@@ -190,7 +190,7 @@ To view detailed information on the state of individual {{ mmy-name }} hosts:
 
     1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to set up alerts.
 
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}** service.
+    1. Navigate to ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 
     1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
 
@@ -233,7 +233,7 @@ You can check the current storage size in the [cluster details](cluster-list.md#
 
 To view the health state and status of a cluster:
 
-1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
 ### Cluster health states {#cluster-health}

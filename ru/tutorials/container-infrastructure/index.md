@@ -36,11 +36,6 @@ description: Различные сценарии использования ко
 * [{#T}](vpa-autoscaling.md)
 * [{#T}](loadtesting-grpc-autoscaling.md)
 
-### Установка NGINX {#nginx}
-
-* [{#T}](ingress-cert-manager.md)
-* [{#T}](nginx-ingress-certificate-manager.md)
-
 ### Использование {{ container-registry-full-name }} {#container-registry}
 
 * [{#T}](container-registry.md)

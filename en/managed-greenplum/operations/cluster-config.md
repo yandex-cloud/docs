@@ -30,7 +30,7 @@ We recommend changing the host class only when your cluster has no active worklo
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the relevant class for {{ mgp-name }} master hosts or segment hosts.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -228,7 +228,7 @@ We recommend changing the host class only when your cluster has no active worklo
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Select the cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:

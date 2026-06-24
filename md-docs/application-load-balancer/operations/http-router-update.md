@@ -79,7 +79,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_http_router` в Terraform см. в [документации провайдера](../../terraform/resources/alb_http_router.md).
+     Подробнее о параметрах ресурса `yandex_alb_http_router` в [документации провайдера](../../terraform/resources/alb_http_router.md).
 
   1. Чтобы добавить, изменить или удалить виртуальные хосты HTTP-роутера, используйте ресурс `yandex_alb_virtual_host` с указанием на роутер в поле `http_router_id`:
 
@@ -100,7 +100,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_virtual_host` в Terraform см. в [документации провайдера](../../terraform/resources/alb_virtual_host.md).
+     Подробнее о параметрах ресурса `yandex_alb_virtual_host` в [документации провайдера](../../terraform/resources/alb_virtual_host.md).
 
   1. Примените изменения:
 
@@ -487,7 +487,7 @@
           
           {% endcut %}
           
-          Подробную информацию о команде `yc alb virtual-host append-http-route` с полным перечнем параметров смотрите в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
+          Подробнее о команде `yc alb virtual-host append-http-route` с полным перечнем параметров в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
     
     - prepend-http-route
     
@@ -627,7 +627,7 @@
     
           {% endcut %}
     
-          Подробную информацию о команде `yc alb virtual-host prepend-http-route` с полным перечнем параметров смотрите в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-http-route.md).
+          Подробнее о команде `yc alb virtual-host prepend-http-route` с полным перечнем параметров в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-http-route.md).
     
     - insert-http-route
     
@@ -847,7 +847,7 @@
     
           {% endcut %}
     
-          Подробную информацию о команде `yc alb virtual-host insert-http-route` с полным перечнем параметров смотрите в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route.md).
+          Подробнее о команде `yc alb virtual-host insert-http-route` с полным перечнем параметров в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route.md).
     
     {% endlist %}
 
@@ -1000,7 +1000,7 @@
           
           {% endcut %}
           
-          Подробную информацию о команде `yc alb virtual-host append-grpc-route` с полным перечнем параметров смотрите в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-grpc-route.md).
+          Подробнее о команде `yc alb virtual-host append-grpc-route` с полным перечнем параметров в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-grpc-route.md).
     
     - prepend-grpc-route
     
@@ -1141,7 +1141,7 @@
     
           {% endcut %}
     
-          Подробную информацию о команде `yc alb virtual-host prepend-grpc-route` с полным перечнем параметров смотрите в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-grpc-route.md).
+          Подробнее о команде `yc alb virtual-host prepend-grpc-route` с полным перечнем параметров в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-grpc-route.md).
     
     
     - insert-grpc-route
@@ -1357,7 +1357,7 @@
     
           {% endcut %}
     
-          Подробную информацию о команде `yc alb virtual-host insert-grpc-route` с полным перечнем параметров смотрите в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-grpc-route.md).
+          Подробнее о команде `yc alb virtual-host insert-grpc-route` с полным перечнем параметров в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-grpc-route.md).
     
     {% endlist %}
 
@@ -1546,7 +1546,7 @@
 
       {% endlist %}
 
-      Более подробную информацию о параметрах используемых ресурсов в Terraform смотрите в документации провайдера: [yandex_alb_virtual_host](../../terraform/resources/alb_virtual_host.md).
+      Параметры используемых ресурсов описаны в документации провайдера Terraform: [yandex_alb_virtual_host](../../terraform/resources/alb_virtual_host.md).
   1. Создайте ресурсы:
 
       1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -1766,7 +1766,7 @@
       
       {% endcut %}
 
-      Информацию о параметрах используемых ресурсов в Terraform смотрите в документации провайдера: [yandex_alb_virtual_host](../../terraform/resources/alb_virtual_host.md).
+      Параметры используемых ресурсов описаны в документации провайдера Terraform: [yandex_alb_virtual_host](../../terraform/resources/alb_virtual_host.md).
   1. Обновите ресурсы:
 
       1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -1925,7 +1925,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_virtual_host` в Terraform см. в [документации провайдера](../../terraform/resources/alb_virtual_host.md).
+     Подробнее о параметрах ресурса `yandex_alb_virtual_host` в [документации провайдера](../../terraform/resources/alb_virtual_host.md).
 
   1. Примените изменения:
 

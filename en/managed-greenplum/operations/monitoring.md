@@ -22,7 +22,7 @@ To streamline troubleshooting, the management console provides dashboards for vi
 
 ## Signaling system
 
-The top of the dashboard displays composite signals that aggregate the state of multiple metrics. They use a traffic-light color-coding system:
+The top of the dashboard displays signals that aggregate the state of multiple metrics. They use a traffic-light color-coding system:
 
 | Stage | Value | Description |
 | :--- | :--- | :--- |
@@ -31,7 +31,7 @@ The top of the dashboard displays composite signals that aggregate the state of 
 | 🔴&nbsp;**Crit** | `0` | Critical degradation. The cluster is unstable, components are unavailable, or resources are exhausted. Immediate remediation is required. |
 | ⚪&nbsp;**Unknown** | `-1` | Data is missing or the status is undefined. |
 
-## Cluster dashboard {#monitoring-cluster}
+## {{ ui-key.yacloud.mdb.cluster.label_mdb }} dashboard {#monitoring-cluster}
 
 The primary diagnostic tool is the **Cluster** dashboard, which serves as a single pane of glass for cluster state management.
 
@@ -40,7 +40,7 @@ The primary diagnostic tool is the **Cluster** dashboard, which serves as a sing
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the name of your cluster and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** tab.
       
         This opens a page displaying a dashboard with your {{ mgp-name }} cluster charts and signals.
@@ -49,7 +49,7 @@ The primary diagnostic tool is the **Cluster** dashboard, which serves as a sing
 
     The dashboard consists of the following sections:
 
-    * **Composite signals (top level)**:
+    * **Signals**:
         * **Cluster**: General cluster status.
         * **Pooler**: Connection pooler status.
         * **Connections**: Connection status.
@@ -135,16 +135,16 @@ The primary diagnostic tool is the **Cluster** dashboard, which serves as a sing
 
 {% endlist %}
 
-## Host state monitoring {#monitoring-hosts}
+## {{ ui-key.yacloud.mdb.cluster.switch_hosts }} dashboard {#monitoring-hosts}
 
-To view detailed information on the state of individual {{ mgp-name }} hosts:
+To view detailed information on the state of individual {{ mgp-name }} hosts, refer to the **Hosts** dashboard. At the top of the dashboard, there are resource status signals (CPU, Memory, Disk), while below, detailed charts by category.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
     1. Select the host you need.
 
@@ -152,93 +152,53 @@ To view detailed information on the state of individual {{ mgp-name }} hosts:
 
     1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
-    The page displays the following charts:
-    
-    * **Disk usage**: Amount of occupied disk space, in bytes.
-    * **Load Average**: Average load on CPU cores over one minute, five minutes, and 15 minutes.
-    * **CPU**: Processor core workload. As the workload goes up, the `Idle` value goes down.
-    * **Virtual memory usage**: Amount of VRAM used, in bytes.
-    * **Disk Await**: Average time per disk operation.
-    * **Memory usage**: Use of RAM, in bytes. At high workloads, the `Free` value goes down, while the other values go up.
-    * **Disk IOPS**: Number of disk operations per second.
-    * **Network Bytes**: Network data exchange rate.
-    * **Disk IOPS in progress**: Number of pending disk operations.
-    * **Network Packets**: Network packet rate.
-    * **Disk Metrics Details**:
-      * **Disk used quota**: Disk operation quota usage.
-      * **Disk write throttler latency (percentiles)**: Write delay introduced by exceeding disk quota, in percentiles.
-      * **Disk read throttler latency (percentiles)**: Read delay introduced by exceeding disk quota, in percentiles.
-      * **Disk read latency (percentiles)**: Disk read time, in percentiles.
-      * **Disk write latency (percentiles)**: Disk write time, in percentiles.
-      * **Disk read operations**: Average and maximum number of read operations per second.
-      * **Disk write operations**: Average and maximum number of write operations per second.
-      * **Disk read bytes**: Average and maximum disk read rate.
-      * **Disk write bytes**: Average and maximum disk write rate.
+    The dashboard consists of the following sections:
 
-{% endlist %}
-
-## Network state monitoring {#monitoring-network}
-
-To view detailed information about the network state of each host in a {{ mgp-name }} cluster:
-
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Click the cluster name and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.mdb.cluster.switch_network }}** tab.
-
-        The page that opens will display network state charts for each cluster host.
-
-        {% note info %}
-        
-        You can select a host to see the network state charts for that host alone.
-
-        {% endnote %}
-
-    1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
-
-    The page displays the following charts:
-
-    * **Interfaces**:
-        * **Client Interface Packets**: Number of received and sent packets on the client network interface.
-        * **Service Interface Packets**: Number of received and sent packets on the service network interface.
-        * **Client Interface Packets**: Total amount of received and sent data on the client network interface, in bytes.
-        * **Service Interface Packets**: Total amount of received and sent data on the service network interface, in bytes.
-        * **Client Interface Drops and Errors**: Number of errors and drops on the client network interface when sending or transmitting packets.
-        * **Service Interface Drops and Errors**: Number of errors and drops on the service network interface when sending or transmitting packets.
-
+    * **Signals**:
+        * **CPU**: Processor load.
+        * **Memory**: Virtual memory usage and availability.
+        * **Disk**: Used data disk space.
     * **CPU**:
-        * **CPU Usage**: Usage of processor cores (percentage).
+        * **Load average 15 min**: 15-minute average CPU load.
+        * **Load average 5 min**: Five-minute average CPU load.
+        * **Load average 1 min**: One-minute average CPU load.
+        * **CPU utilization**: Percentage of CPU core utilization.
+        * **CPU pressure time**: Time in microseconds during which processes were waiting for CPU access.
+        * **CPU**: CPU time breakdown across states (`user`, `system`, `idle`, `iowait`, and so on).
+        * **Process statuses**: Number of processes in various states: `running`, `idle`, `interruptible sleep`, `uninterruptible sleep`, and `zombie`.
+    * **Memory**:
+        * **Virtual memory utilization**: Percentage of virtual memory used.
+        * **Virtual memory usage**: Amount of virtual memory used, in bytes.
+        * **Out of memory count**: Number of out-of-memory events.
+        * **Memory utilization**: Percentage of physical RAM used.
+        * **Memory usage**: Amount of physical memory used, in bytes.
+        * **Memory pressure time**: Time during which processes were waiting for memory access.
 
-    * **Ping and SSH response time**:
-        * **Host Ping Average Response**: Average ping response time, in milliseconds.
-        * **Host SSH Response Time**: Response time when connecting over SSH, in milliseconds.
-        * **Host Ping Packet Loss**: Lost ping packets (percentage).
-        
-    * **TCP counters**:
-        * **TcpActiveConnection**: Number of active TCP connections in the `ESTABLISHED` or `CLOSE-WAIT` state.
-        * **TcpEstabPresets**: Number of times TCP connections have made a direct transition to the `CLOSED` state from either the `ESTABLISHED` or `CLOSE-WAIT` state.
-        * **TCP Errors**: Number of errors when transmitting TCP packets.
-        * **TCP Retransmission**: Number of retransmitted TCP packets.
+    * **Disk**:
+        * **Disk usage percent**: Percentage of data disk space used.
+        * **Disk usage**: Amount of data stored on disk, in bytes.
+        * **Disk read/write operations**: Number of read and write operations per second.
+        * **Disk read/write bytes**: Volume of data read from and written to disk per second, in bytes.
+        * **Disk read and write time**: Average time to complete read and write operations.
+    * **Disk Metrics Details**:
+        * **Disk read latency (percentiles)**: Disk read operation latencies, percentiles.
+        * **Disk write latency (percentiles)**: Disk write operation latencies, percentiles.
+        * **Disk read throttler latency (percentiles)**: Throttler-introduced disk read operation delay, percentiles.
+        * **Disk write throttler latency (percentiles)**: Throttler-introduced disk write operation delay, percentiles.
+        * **Disk read operations**: Average and maximum number of disk read operations per second.
+        * **Disk write operations**: Average and maximum number of disk write operations per second.
+        * **Disk used quota**: Percentage of disk operation quota usage.
+        * **Disk read bytes**: Average and maximum number of bytes read from disk.
+        * **Disk write bytes**: Average and maximum number of bytes written to disk.
 
-    * **ICMP Counters**:
-        * **IcmpErrors**: Number of ICMP error messages.
-        * **IcmpDestUnreached**: Number of ICMP and ICMPv6 Destination Unreachable messages.
-        * **Icmp6PacketsTooBig**: Number of ICMPv6 Packet Too Big messages.
-
-    * **UDP counters**:
-        * **UdpSndbufErrors**: Number of buffer errors when sending UDP packets.
-        * **UdpRcvbufErrors**: Number of buffer errors when receiving UDP packets.
-        * **UDP Datagrams**: Number of UDP packets.
-        * **UDP NoPorts**: Number of UDP packets received without a listener on the destination port.
-
-    * **IP**:
-        * **IpMulticastPackets**: Number of received and sent multicast packets.
-        * **IpBroadcastPackets**: Number of received and sent broadcast packets.
-        * **Ip6 Neighbor Discovery**: Number of sent requests and router advertisements.
-        * **Ip6NoRoutes**: Number of IPv6 packets discarded because no route could be found.
+    * **Network**:
+        * **Client network reliability**: Network interface reliability indicator.
+        * **Client network packets sent**: Number of packets sent on the interface per second.
+        * **Client network packets received**: Number of packets received on the interface per second.
+        * **Client network errors**: Number of errors sending and receiving packets.
+        * **Client network drops**: Number of dropped packets.
+        * **Client network interface errors/drops**: Detailed breakdown of errors and drops per interface.
+        * **Client network bytes**: Network traffic volume on the interface, in bytes per second.
 
 {% endlist %}
 
@@ -251,7 +211,7 @@ To view detailed information about the [PXF](external-tables.md) state:
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.greenplum.cluster.pxf.value_pxf }}** tab.
 
         The page that opens will display PXF state charts.
@@ -276,61 +236,6 @@ To view detailed information about the [PXF](external-tables.md) state:
 {% endlist %}
 
 
-## Monitoring dashboard {#monitoring-dashboard}
-
-To view a dashboard for a {{ mgp-name }} cluster, do the following:
-
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-    1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Click the cluster name and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **Dashboard** tab.
-
-        The page that opens will display the cluster dashboard charts.
-
-    1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
-
-    The page displays the following charts:
-
-    * **Running queries**:
-        * **Test write query**: Execution time of a test write query with the `DISTRIBUTED REPLICATED` policy.
-        * **Test read query**: Execution time of a test read query from a random segment.
-        * **Overall cluster's query execution time**: Cluster query execution time histogram.
-
-    * **Cluster liveliness**:
-        * **Cluster sessions**: Number of sessions in these states:
-            * **active**: Processing a query.
-            * **waiting**: Awaiting a command.
-            * **idle in transaction**: Transaction started but no query is being executed (e.g., pending `COMMIT`).
-        * **Number of live segments**: Number of running segment instances, including mirrors.
-        * **Queries sent to the cluster**: Number of accepted and interrupted (canceled) queries.
-
-    * **Segments health**:
-        * **Idle CPU**: Unused CPU capacity by segment host; the lower the value, the higher the host load.
-        * **Reserved memory**: RAM usage (in bytes) by segment host. To avoid errors, remember to keep the value within the limit.
-        * **IOPS**: Total size of disk operations (in bytes) across all segment hosts.
-        * **Number of network packets**: Number of received and sent packets on network interfaces by segment host. Values close to the limit may cause delays in processing queries.
-        * **Number of network packets in queues**: Number of packets in queues on network interfaces by segment host. Values close to the limit may cause delays in processing queries.
-        * **Network traffic**: Bandwidth utilization for incoming network traffic by segment host. Values close to the limit may cause delays in processing queries.
-        * **Ping time**: Ping time from the master host to the cluster's segment hosts.
-        * **Query execution time per segment**: Total time spent on query slices on each of the cluster's segment hosts.
-
-    * **Database internal metrics**:
-        * **Free memory for resource groups**: Available RAM by [resource group](../concepts/resource-groups.md).
-        * **Summary CPU usage for resource groups**: Total CPU usage by the cluster's resource groups. This value is collected from all cluster hosts and may exceed 100%.
-        * **CPU throttle time for cgroups**: Time during which resource group processes get no CPU time due to its full utilization (by host). An exponential increase in this value (from milliseconds to minutes) may cause delays in processing queries.
-        * **Summary spill size**: Total size of temporary (spill) files created as a result of RAM shortage.
-        * **Interconnect quality**: Packet retransmissions between segments ([{{ GP }} Interconnect]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-intro-arch_overview.html#arch_interconnect) traffic) as a percentage of the total volume of packets sent from each segment host. The higher the value, the less stable the network.
-        * **Background activity - the number of sessions**: Number of system sessions on each segment in the following states:
-            * **active**: Processing a query.
-            * **idle**: Awaiting a command.
-            * **aborted**: Terminated with an error.
-        * **Background activity - the longest query**: Execution time of the longest system query on each segment.
-
-{% endlist %}
-
 ## Monitoring resource groups {#monitoring-resgroup}
 
 To view information on {{ mgp-name }} resource groups:
@@ -340,7 +245,7 @@ To view information on {{ mgp-name }} resource groups:
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name and select ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **Resource groups**.
       
         The page that opens will display performance charts for resource groups.
@@ -366,7 +271,7 @@ You can also view information on resource groups for each {{ mgp-name }} cluster
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name and select ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **Resource groups per host**.
       
         The page that opens will display performance charts for resource groups by host.
@@ -388,8 +293,8 @@ To configure state indicator alerts for a [cluster](#monitoring-cluster) and [ho
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster where you want to set up alerts.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}** service.
+  1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to set up alerts.
+  1. Navigate to ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
       * **{{ mgp-name }} — Cluster Overview** to configure cluster alerts.
       * **{{ mgp-name }} — Host Overview** to configure host alerts.
@@ -397,7 +302,7 @@ To configure state indicator alerts for a [cluster](#monitoring-cluster) and [ho
   1. If the chart shows multiple indicators, select a data query to create a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
   1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds for notifications.
   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-  1. For composite signals, we recommend configuring alerts for when the status switches to `Crit` (`0`) or `Warn` (`1`).
+  1. For signals, we recommend configuring alerts for when the status switches to `Crit` (`0`) or `Warn` (`1`).
 
 {% endlist %}
 
@@ -406,14 +311,14 @@ To configure state indicator alerts for a [cluster](#monitoring-cluster) and [ho
 For a complete list of supported metrics, see [this {{ monitoring-name }} guide](../../monitoring/metrics-ref/managed-greenplum-ref.md).
 
 
-## Cluster state and status {#cluster-health-and-status}
+## Cluster health and status {#cluster-health-and-status}
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 
 To view the health state and status of a cluster:
 
 1. Open the [folder dashboard]({{ link-console-main }}).
-1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
 1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column.
 
 ### Cluster health states {#cluster-health}

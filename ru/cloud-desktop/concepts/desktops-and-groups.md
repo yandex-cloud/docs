@@ -19,4 +19,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Как организовать удаленные рабочие места с помощью {{ cloud-desktop-full-name }}](https://yandex.cloud/ru/blog/remote-workplaces)
+[Как организовать удаленные рабочие места с помощью {{ cloud-desktop-full-name }}](https://yandex.cloud/ru/blog/remote-workplaces)

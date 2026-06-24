@@ -115,7 +115,7 @@
 * `span.critical_path` — принадлежность спана к критическому пути: `PRESENT` или `ABSENT`, поддерживает оператор `=`.
 * `trace.id` — идентификатор трейса (для поиска логов по трейсу).
 
-Подробнее о поиске трейсов см. в разделе [Поиск трейсов и спанов](../traces/operations/traces-explorer.md).
+Поиск трейсов описан в разделе [Поиск трейсов и спанов](../traces/operations/traces-explorer.md).
 
 Язык запросов Monium используется для преобразования метрик при настройке [дашбордов](visualization/dashboard.md) и [алертов](alerting.md), а также в API-методе [MetricsData.read](../api-ref/MetricsData/read.md).
 

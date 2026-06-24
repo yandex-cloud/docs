@@ -5,8 +5,6 @@ description: Из этой инструкции вы узнаете, как по
 
 # Посмотреть дашборд и операции с окружением {{ sd-name }}
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 ## Посмотреть дашборд {#view-dashboard}
 
 Чтобы посмотреть [дашборд окружения](../../concepts/workspace.md#dashboard) {{ sd-name }}:

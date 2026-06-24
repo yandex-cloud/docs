@@ -13,7 +13,7 @@ description: In this tutorial, you will learn how to view {{ mmg-name }} cluster
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
-## Monitoring cluster health status {#cluster}
+## Cluster health state monitoring {#cluster}
 
 To view detailed information on the health state of a {{ mmg-name }} cluster:
 
@@ -22,7 +22,7 @@ To view detailed information on the health state of a {{ mmg-name }} cluster:
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}** tab.
       
       The page that opens will display performance charts for the cluster.
@@ -124,14 +124,14 @@ To view detailed information on the health state of a {{ mmg-name }} cluster:
 
 ## Host state monitoring {#hosts}
 
-To view the detailed status of individual {{ mmg-name }} hosts:
+To view detailed information on the state of individual {{ mmg-name }} hosts:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}** tab.
   1. Navigate to the **Hosts** tab and select the host.
 
@@ -153,11 +153,11 @@ To view the detailed status of individual {{ mmg-name }} hosts:
   * **Disk write latency (percentiles)**: Disk write latency, in percentiles.
   * **Disk write bytes**: Average and maximum disk write rate.
   * **Disk write operations**: Average and maximum number of write operations per second.
-  * **Disk read latency (percentiles)**: Disk read latency, in percentiles.
+  * **Disk read latency (percentiles)**: Disk read latency, percentiles.
   * **Disk read bytes**: Average and maximum disk read rate.
   * **Disk read operations**: Average and maximum number of read operations per second.
-  * **Disk write throttler latency (percentiles)**: Write delay introduced by exceeding disk quota, in percentiles.
-  * **Disk read throttler latency (percentiles)**: Read delay introduced by exceeding disk quota, in percentiles.
+  * **Disk write throttler latency (percentiles)**: Write delay introduced by exceeding disk quota, percentiles.
+  * **Disk read throttler latency (percentiles)**: Read delay introduced by exceeding disk quota, percentiles.
   * **Disk used quota**: Percentage of disk operation quota usage.
 
 {% endlist %}
@@ -171,7 +171,7 @@ To view detailed information on the health state of {{ mmg-name }} shards:
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}** tab.
   1. Navigate to the **Shards** tab and select a shard.
       
@@ -279,8 +279,8 @@ To view detailed information on the health state of {{ mmg-name }} shards:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster where you want to set up alerts.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}** service.
+    1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to set up alerts.
+    1. Navigate to ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
     1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
 
         * **{{ mmg-name }}** to set up cluster alerts.
@@ -338,11 +338,11 @@ To track storage fill levels on the cluster hosts and receive notifications when
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 
-To check the cluster’s health and status:
+To view the health state and status of a cluster:
 
 1. Open the [folder dashboard]({{ link-console-main }}).
-1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
-1. Locate the cluster you need in the list and hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column.
 
 ### Cluster health states {#cluster-health}
 

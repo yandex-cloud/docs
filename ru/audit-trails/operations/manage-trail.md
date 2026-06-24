@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится трейл.
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. В строке с нужным трейлом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. Измените параметры трейла. Список настроек трейла, которые можно изменить, см. в разделе [{#T}](../concepts/trail.md#trail-settings).
+  1. Измените параметры трейла. Список настроек трейла, которые можно изменить, приведен в разделе [{#T}](../concepts/trail.md#trail-settings).
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -111,7 +111,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [trail-create-tf-descs_part2](../../_includes/audit-trails/trail-create-tf-descs-part2.md) %}
 
-      Более подробную информацию о параметрах ресурса `yandex_audit_trails_trail` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/audit_trails_trail).
+      Подробнее о параметрах ресурса `yandex_audit_trails_trail` в [документации провайдера]({{ tf-provider-resources-link }}/audit_trails_trail).
 
   1. Создайте ресурсы:
 

@@ -54,6 +54,14 @@ For example, the cost of an inactive public static address will be:
 
 You will be charged per hour of NAT gateway usage and for outgoing traffic via the gateway. Charges will apply as soon as you add a gateway to a route table.
 
+
+#### Service connections {#vpc-pe}
+
+All service connections of [any type](concepts/private-endpoint.md#pe-services) of all clients use a shared resource pool. In this mode, resources are distributed between connections; bandwidth is not guaranteed and depends on the current load on the service.
+
+Each service connection has a nominal limit, [Maximum load per service connection](concepts/limits.md#vpc-limits). If the limit is exceeded or there is no technical possibility, such traffic will not be processed.
+
+
 #### {{ ddos-protection-full-name }} {#prices-ddos-protection}
 
 Legitimate traffic is incoming traffic that passes through the DDoS Protection system to the user's cloud resources. You are only charged for the legitimate traffic.

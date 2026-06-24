@@ -44,7 +44,6 @@ To renew a certificate:
 
 ## Use cases {#examples}
 
-* [{#T}](../tutorials/nginx-ingress-certificate-manager.md)
 * [{#T}](../tutorials/gatsby-static-website.md)
 * [{#T}](../tutorials/virtual-hosting.md)
 * [{#T}](../tutorials/tls-termination/index.md)

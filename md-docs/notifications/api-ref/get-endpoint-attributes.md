@@ -70,10 +70,10 @@ POST https://notifications.yandexcloud.net/
 
 При возникновении ошибки Cloud Notification Service отвечает сообщением с соответствующим HTTP-кодом.
 
-Перечень общих кодов ошибок для всех действий см. в разделе [Ошибки](common-errors.md).
+Перечень общих кодов ошибок для всех действий приведен в разделе [Ошибки](common-errors.md).
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Обзор HTTP API Yandex Cloud Notification Service](index.md)
 * [Отправить запрос HTTP API к Yandex Cloud Notification Service](send-request.md)
-* [API action GetEndpointAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetEndpointAttributes.html) в документации AWS.
+* [API action GetEndpointAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetEndpointAttributes.html) в документации AWS

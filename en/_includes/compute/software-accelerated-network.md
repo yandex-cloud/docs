@@ -55,7 +55,7 @@ We recommend enabling a software-accelerated network to shorten request processi
 
 * On VMs with custom DB installations in the case of high [disk](../../compute/concepts/disk.md) and CPU utilization (over 70-80%).
 * If you see a high `CPU steal time` metric value inside a VM.
-* In [{{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md) cluster node groups when using intra-cluster L7 load balancers, e.g., [Ingress NGINX controllers](https://kubernetes.github.io/ingress-nginx/) or [Istio ingress gateways](https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-control/).
+* In [{{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md) cluster node groups when using intra-cluster L7 load balancers, e.g., [Istio ingress gateways](https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-control/).
 
 {% note warning %}
 

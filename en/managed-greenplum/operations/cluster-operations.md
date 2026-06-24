@@ -9,8 +9,8 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
   1. Select the cluster and open the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
      You will see the list of operations with the cluster.
@@ -77,7 +77,7 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
           --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>/operations'
       ```
 
-      You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.mdb.greenplum.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
@@ -105,7 +105,7 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
           yandex.cloud.mdb.greenplum.v1.ClusterService.ListOperations
       ```
 
-      You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.mdb.greenplum.v1.ListClusterOperationsResponse) to make sure your request was successful.
 

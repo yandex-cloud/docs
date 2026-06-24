@@ -1,11 +1,5 @@
 # Посмотреть дашборд и операции с окружением Security Deck
 
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 ## Посмотреть дашборд {#view-dashboard}
 
 Чтобы посмотреть [дашборд окружения](../../concepts/workspace.md#dashboard) Security Deck:

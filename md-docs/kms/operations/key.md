@@ -193,7 +193,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_kms_symmetric_key` в Terraform см. в [документации провайдера](../../terraform/resources/kms_symmetric_key.md).
+     Подробнее о параметрах ресурса `yandex_kms_symmetric_key` в [документации провайдера](../../terraform/resources/kms_symmetric_key.md).
   1. Проверьте конфигурацию командой:
 
      ```bash
@@ -287,7 +287,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_kms_symmetric_key` в Terraform см. в [документации провайдера](../../terraform/resources/kms_symmetric_key.md).
+     Подробнее о параметрах ресурса `yandex_kms_symmetric_key` в [документации провайдера](../../terraform/resources/kms_symmetric_key.md).
 
   1. Проверьте конфигурацию командой:
 
@@ -460,6 +460,6 @@
 
 {% endnote %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Управление ключами Key Management Service с Terraform](../tutorials/terraform-key.md).
+[Управление ключами Key Management Service с Terraform](../tutorials/terraform-key.md)

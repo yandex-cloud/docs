@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Настроить логирование через {{ sws-name }}
 
-{% include [logging-preview](../../_includes/smartwebsecurity/logging-preview.md) %}
-
 {% include [logging-services](../../_includes/smartwebsecurity/logging-services.md) %}
 
 ### Включить логирование {#enable-logging}
@@ -64,7 +62,7 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** создайте или выберите аккаунт с ролью `logging.writer`.
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
-  Другие способы включения записи событий см. в разделе [{#T}](../../audit-trails/operations/create-trail.md).
+  Другие способы включения записи событий описаны в разделе [{#T}](../../audit-trails/operations/create-trail.md).
 
   Чтобы {{ sws-full-name }} передавал события в {{ at-name }}:
 
@@ -181,7 +179,7 @@ description: Следуя данной инструкции, вы сможете
      yandex.cloud.audit.smartwebsecurity.<имя_события>
      ```
 
-     Примеры составления запросов см. в разделе [{#T}](../../audit-trails/tutorials/search-events-audit-logs/examples.md).
+     Примеры составления запросов приведены в разделе [{#T}](../../audit-trails/tutorials/search-events-audit-logs/examples.md).
 
   1. Чтобы посмотреть содержимое лога, разверните его.
 

@@ -15,8 +15,8 @@
 
 С рабочим столом могут работать пользователи организации, созданные в [Yandex Identity Hub](../../organization/index.md).
 
-В Cloud Desktop управление доступом реализовано с помощью [разграничения ролей Yandex Identity and Access Management](../security/index.md) и [списков управления доступом (ACL)](acl.md). Смотрите [пример использования механизмов доступа](acl.md#example).
+В Cloud Desktop управление доступом реализовано с помощью [разграничения ролей Yandex Identity and Access Management](../security/index.md) и [списков управления доступом (ACL)](acl.md). [Пример использования механизмов доступа](acl.md#example).
 
 #### Полезные ссылки {#see-also}
 
-* [Как организовать удаленные рабочие места с помощью Yandex Cloud Desktop](https://yandex.cloud/ru/blog/remote-workplaces)
+[Как организовать удаленные рабочие места с помощью Yandex Cloud Desktop](https://yandex.cloud/ru/blog/remote-workplaces)

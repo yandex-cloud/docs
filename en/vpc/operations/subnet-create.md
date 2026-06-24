@@ -13,7 +13,7 @@ description: Follow this guide to create a subnet.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you need to create a subnet.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. At the top right, click **{{ ui-key.yacloud.common.create }}**.
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** field, specify the subnet name. The naming requirements are as follows:
@@ -180,7 +180,7 @@ description: Follow this guide to create a subnet.
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
   1. Deploy the cloud resources.
 
@@ -190,7 +190,7 @@ description: Follow this guide to create a subnet.
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` and press **Enter**.
+     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
         This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 
@@ -275,7 +275,7 @@ description: Follow this guide to create a subnet.
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
   1. Deploy the cloud resources.
 
@@ -285,7 +285,7 @@ description: Follow this guide to create a subnet.
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` and press **Enter**.
+     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
         This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 

@@ -5,8 +5,6 @@ description: В данном разделе вы узнаете, как вруч
 
 # Проверить окружение на соответствие правилам контроля
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 {% include [cspm-use-in-workspaces](../../../_includes/security-deck/cspm-use-in-workspaces.md) %}
 
 Проверка на соответствие правилам контроля безопасности модуля {{ cspm-name }} выполняется автоматически каждые 8 часов, но пользователи с [ролью](../../security/cspm-roles.md#cspm-editor) `cspm.editor` и выше могут запустить ее вручную.

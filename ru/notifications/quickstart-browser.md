@@ -100,7 +100,7 @@ description: С помощью {{ cns-name }} вы можете отправля
 
 {% endlist %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Как начать работать с мобильными push-уведомлениями](quickstart-push.md)
 * [Как начать работать с SMS](quickstart-sms.md)

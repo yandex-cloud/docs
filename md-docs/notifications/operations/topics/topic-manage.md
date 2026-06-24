@@ -33,7 +33,7 @@
       --topic-arn <ARN_топика>
      ```
      
-  Подробнее о командах см. в документации AWS: [set-topic-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/set-topic-attributes.html) и [get-topic-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/get-topic-attributes.html).
+  Подробнее о командах в документации AWS: [set-topic-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/set-topic-attributes.html) и [get-topic-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/get-topic-attributes.html).
 
 - AWS SDK для Python {#python}
 
@@ -72,7 +72,7 @@
   aws sns delete-topic --topic-arn <ARN_топика>
   ```
 
-  Подробнее о команде `aws sns delete-topic` см. в [документации AWS](https://docs.amazonaws.cn/en_us/sns/latest/dg/sns-delete-subscription-topic.html).
+  Подробнее о команде `aws sns delete-topic` в [документации AWS](https://docs.amazonaws.cn/en_us/sns/latest/dg/sns-delete-subscription-topic.html).
 
 - AWS SDK для Python {#python}
 

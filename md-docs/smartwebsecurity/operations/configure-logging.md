@@ -1,11 +1,5 @@
 # Настроить логирование через Smart Web Security
 
-{% note info %}
-
-Функциональность сбора логов через Smart Web Security находится на стадии [Preview](../../overview/concepts/launch-stages.md). Для получения доступа обратитесь в [службу поддержки](https://center.yandex.cloud/support).
- 
-{% endnote %}
-
 Для записи логов Smart Web Security используются сервисы [Cloud Logging](../../logging/index.md) и [Audit Trails](../../audit-trails/index.md). Они решают разные задачи:
 
 * Cloud Logging — для анализа HTTP-запросов и сработавших правил в профилях безопасности, WAF и ARL.
@@ -94,7 +88,7 @@
   1. В блоке **Сервисный аккаунт** создайте или выберите аккаунт с ролью `logging.writer`.
   1. Нажмите **Создать**.
 
-  Другие способы включения записи событий см. в разделе [Создание трейла для загрузки аудитных логов](../../audit-trails/operations/create-trail.md).
+  Другие способы включения записи событий описаны в разделе [Создание трейла для загрузки аудитных логов](../../audit-trails/operations/create-trail.md).
 
   Чтобы Yandex Smart Web Security передавал события в Audit Trails:
 
@@ -211,7 +205,7 @@
      yandex.cloud.audit.smartwebsecurity.<имя_события>
      ```
 
-     Примеры составления запросов см. в разделе [Примеры запросов для поиска событий в аудитных логах](../../audit-trails/tutorials/search-events-audit-logs/examples.md).
+     Примеры составления запросов приведены в разделе [Примеры запросов для поиска событий в аудитных логах](../../audit-trails/tutorials/search-events-audit-logs/examples.md).
 
   1. Чтобы посмотреть содержимое лога, разверните его.
 

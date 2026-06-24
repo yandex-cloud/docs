@@ -81,15 +81,10 @@ For online endpoints, we recommend allocating an independent {{ k8s }} cluster o
 
 To enable incoming network access to your workloads via HTTP/HTTPS, use the [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource.
 
-There are at least two Ingress controller options that you can use in {{ yandex-cloud }}:
-- [NGINX Ingress Controller](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
+There are at least two controller options that you can use in {{ yandex-cloud }}:
+- [Yandex Cloud Gwin Controller](../../managed-kubernetes/alb-ref/gwin-index.md).
 - [{{ alb-name }} Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
-Benefits of {{ alb-name }} Ingress controller:
-* Integration with the [{{ certificate-manager-full-name }}](../../certificate-manager/) cloud service.
-* No need to install a controller to the cluster because everything is deployed on the [{{ alb-name }}](../../application-load-balancer/) side.
-
-{% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
 
 #### Restricting access to the metadata of VMs in the node group {#metadata-access-restriction}
 

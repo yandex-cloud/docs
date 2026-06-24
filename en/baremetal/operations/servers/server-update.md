@@ -10,11 +10,11 @@ description: In this tutorial, you will learn how to update your {{ baremetal-fu
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the server belongs to.
-  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. Find the server you need in the list, click ![image](../../../_assets/console-icons/ellipsis.svg) in its row, and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Push your changes to the server configuration:
 
-      * Optionally, change the server's name in the **{{ ui-key.yacloud.baremetal.field_name_dFuVW }}** field. Follow these naming requirements:
+      * Optionally, change the server's name in the **{{ ui-key.yacloud.baremetal.field_name_dFuVW }}** field. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 

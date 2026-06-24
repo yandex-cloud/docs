@@ -13,7 +13,7 @@ You can get detailed information about each {{ mspqr-short-name }} cluster you c
 
 - Management console {#console}
 
-  [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
 
 - CLI {#cli}
 
@@ -95,7 +95,7 @@ You can get detailed information about each {{ mspqr-short-name }} cluster you c
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the cluster name.
 
 - CLI {#cli}
@@ -162,7 +162,7 @@ You can get detailed information about each {{ mspqr-short-name }} cluster you c
 
 ## Viewing operations with clusters {#list-operations}
 
-All actions with {{ mspqr-name }} clusters are logged as a list of operations. Each operation gets its own unique ID.
+All actions with {{ mspqr-name }} clusters are logged as a list of operations. Each operation gets an ID.
 
 ### Getting a list of operations {#get-operations}
 
@@ -170,13 +170,13 @@ All actions with {{ mspqr-name }} clusters are logged as a list of operations. E
 
 - Management console {#console}
 
-  To view operations with all {{ mspqr-name }} clusters, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.postgresql.switch_operations_9JzwJ }}** in the left-hand panel. In the list that opens, you will also see operations for the deleted resources.
+  To view operations with all {{ mspqr-name }} clusters, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.postgresql.switch_operations_9JzwJ }}** in the left-hand panel. This will open the list of all operations, including those on currently deleted resources.
 
   To get a list of operations for an existing cluster:
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.postgresql.switch_list_9AfbP }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.postgresql.switch_list_9AfbP }}**.
   1. Select the cluster and open the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.postgresql.switch_operations_9JzwJ }}** tab.
 
      You will see the list of operations with the cluster.
@@ -207,7 +207,7 @@ All actions with {{ mspqr-name }} clusters are logged as a list of operations. E
 
   You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-  By default, information about transactions is displayed in text format. To get more details, specify `yaml` or `json` for the output data using the `--format` argument:
+  By default, information about operations is output as text. To get more details, specify the `yaml` or `json` output data format using `--format`:
 
   ```bash
   yc managed-sharded-postgresql cluster list-operations c9qk2926qqu9******** --format yaml

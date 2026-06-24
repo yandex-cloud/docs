@@ -26,14 +26,12 @@ The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `pageSize`, the service returns a [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests.
 
 The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token.
-
 To get the next page of results, set `pageToken` to the [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListClusterOperationsResponse) returned by the previous list request.
 
 The maximum string length in characters is 100. ||
@@ -78,7 +76,6 @@ List of operations for the specified Apache Kafka® cluster. ||
 || nextPageToken | **string**
 
 Token that allows you to get the next page of results for list requests.
-
 If the number of results is larger than [ListClusterOperationsRequest.pageSize](#yandex.cloud.mdb.kafka.v1.ListClusterOperationsRequest), use `nextPageToken` as the value for the [ListClusterOperationsRequest.pageToken](#yandex.cloud.mdb.kafka.v1.ListClusterOperationsRequest) query parameter in the next list request.
 Each subsequent list request will have its own `nextPageToken` to continue paging through the results. ||
 |#

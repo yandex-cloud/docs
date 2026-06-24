@@ -16,7 +16,7 @@
   1. (Опционально) В поле **Описание** введите описание сертификата.
   1. В поле **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** введите список доменов, для которых нужно выпустить сертификат.
 
-     Имена доменов могут содержать маску, например `*.example.com`. В этом случае при выборе типа проверки прав на домен необходимо будет выбрать `DNS`. Подробнее см. в разделе [Проверка прав на домен](../../concepts/challenges.md#dns).
+     Имена доменов могут содержать маску, например `*.example.com`. В этом случае при выборе типа проверки прав на домен необходимо будет выбрать `DNS`. Подробнее в разделе [Проверка прав на домен](../../concepts/challenges.md#dns).
   1. Выберите [тип проверки прав на домен](../../concepts/challenges.md): `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}` или `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_http }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
 
@@ -80,7 +80,7 @@
        * `DNS_TXT` — необходимо создать DNS-запись в формате [TXT](../../../dns/concepts/resource-record.md#txt) с указанным значением.
        * `HTTP` — необходимо поместить указанное значение в указанный URL.
 
-     Подробную информацию о параметрах ресурса `yandex_cm_certificate` см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/cm_certificate).
+     Подробнее о параметрах ресурса `yandex_cm_certificate` в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -115,10 +115,10 @@
    Напротив поля **{{ ui-key.yacloud.certificate-manager.overview.general_label_validation }}** будет указан текущий этап выпуска сертификата.
 1. Чтобы посмотреть описание этапа и его результаты, нажмите ![receipt](../../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.certificate-manager.overview.button_validation_show-logs }}**.
 
-   Подробнее об этапах выпуска сертификата см. в разделе [Сертификат от Let's Encrypt](../../concepts/managed-certificate.md#issue-statuses).
+   Подробнее об этапах выпуска сертификата в разделе [Сертификат от Let's Encrypt](../../concepts/managed-certificate.md#issue-statuses).
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](cert-get-content.md).
-* [{#T}](cert-validate.md).
-* [{#T}](cert-update.md).
+* [{#T}](cert-get-content.md)
+* [{#T}](cert-validate.md)
+* [{#T}](cert-update.md)

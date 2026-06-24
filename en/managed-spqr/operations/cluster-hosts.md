@@ -18,7 +18,7 @@ You can manage the {{ mspqr-name }} cluster hosts, including the following opera
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
 
 - CLI {#cli}
@@ -100,7 +100,7 @@ The number of `INFRA`, `ROUTER`, and `COORDINATOR` hosts in the {{ mspqr-short-n
 - Management console {#console}
 
   To create a host:
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
 
@@ -159,7 +159,7 @@ The number of `INFRA`, `ROUTER`, and `COORDINATOR` hosts in the {{ mspqr-short-n
 
 
      
-     If your availability zone contains more than one subnet, make sure to specify the subnet ID; otherwise, {{ mspqr-short-name }} will automatically select a single subnet.
+     You should specify the subnet ID if the availability zone contains more than one subnet; otherwise, {{ mspqr-short-name }} will automatically select the only subnet.
 
 
      Possible [host type](../concepts/index.md#router) values: `infra` (for a cluster with standard sharding), `router`, or `coordinator` (for a cluster with advanced sharding).
@@ -313,7 +313,7 @@ You can change public access settings for any host in a {{ mspqr-short-name }} c
 
      * `updateMask`: Comma-separated string of settings to update.
      * `hostName`: Target host name.
-     * `assignPublicIp`: Host accessibility from the internet via a public IP address, `true` or `false`.
+     * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
 
      You can get the host name with the [list of hosts in the cluster](#list).
 
@@ -362,7 +362,7 @@ You can change public access settings for any host in a {{ mspqr-short-name }} c
 
      * `update_mask`: List of settings to update as an array of strings (`paths[]`).
      * `host_name`: Target host name.
-     * `assign_public_ip`: Host accessibility from the internet via a public IP address, `true` or `false`.
+     * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
 
      You can get the host name with the [list of hosts in the cluster](#list).
 
@@ -380,7 +380,7 @@ You can remove an `INFRA`, `ROUTER`, or `COORDINATOR` type host from a {{ SPQR }
 - Management console {#console}
 
   To delete a host from a cluster:
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the host you want to delete, select **{{ ui-key.yacloud.common.delete }}**, and confirm deletion.
 

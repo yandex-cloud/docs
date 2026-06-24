@@ -1,6 +1,6 @@
 # Creating a user
 
-If you have a [project](../projects/create-project.md), you can create an [{{ KF }}](../../concepts/components/kafka.md) user in it.
+If you have `../projects/create-project.md`, you can create an [{{ KF }}](../../concepts/components/kafka.md) user in it.
 
 ## Using the CLI
 

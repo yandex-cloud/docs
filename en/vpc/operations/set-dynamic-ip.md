@@ -7,7 +7,7 @@ You can convert a static [public IP address](../concepts/address.md#public-addre
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing the address.
-   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the IP address and select **{{ ui-key.yacloud.vpc.addresses.button_action-dynamic }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_dynamic }}**.

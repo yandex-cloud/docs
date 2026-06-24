@@ -7,7 +7,7 @@ You can move [public IP addresses](../concepts/address.md) between folders withi
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your address.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the address to move and select **{{ ui-key.yacloud.common.move }}**.
   1. In the window that opens, select the destination folder.

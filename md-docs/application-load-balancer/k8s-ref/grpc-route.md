@@ -33,7 +33,7 @@ spec: <GRPCRouteSpec>
 
   * `name` (`string`, обязательное)
 
-    Имя ресурса. Подробнее о формате в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Формат описан в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
     Не является именем маршрута в Application Load Balancer.
  

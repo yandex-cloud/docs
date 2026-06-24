@@ -25,7 +25,7 @@ With sharding, you can:
 
 - Improve query performance. {#processing-speed}
 
-  Queries compete for the computing resources of cluster hosts, which may reduce the query processing rate. This rate drop usually becomes obvious as the number of reads or CPU time per query increases. However, in a sharded cluster, queries to the same table can run in parallel without competing for shared resources, which reduces the query processing time.
+  Queries compete for computing resources of cluster hosts, which may reduce query processing rate. This rate drop usually becomes obvious as the number of reads or CPU time per query increases. However, in a sharded cluster, queries to the same table can run in parallel without competing for shared resources, which reduces the query processing time.
 
 ## Use of sharding {#uses}
 

@@ -63,7 +63,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [Terraform timeouts](../../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
 
-  Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` см. в [документации провайдера]({{ tf-provider-datasources-link }}/alb_load_balancer).
+  Подробнее о параметрах ресурса `yandex_alb_load_balancer` в [документации провайдера]({{ tf-provider-datasources-link }}/alb_load_balancer).
 
 - API {#api}
 
@@ -124,7 +124,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [Terraform timeouts](../../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
 
-  Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` см. в [документации провайдера]({{ tf-provider-datasources-link }}/alb_load_balancer).
+  Подробнее о параметрах ресурса `yandex_alb_load_balancer` в [документации провайдера]({{ tf-provider-datasources-link }}/alb_load_balancer).
 
 - API {#api}
 
@@ -137,4 +137,4 @@ description: Следуя данной инструкции, вы сможете
 
 #### Что дальше {whats-next}
 
-* [{#T}](start-and-cancel-shift.md)
+[{#T}](start-and-cancel-shift.md)

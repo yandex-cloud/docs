@@ -9,7 +9,7 @@ title: How to get information about a subnet in {{ vpc-full-name }}
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [subnet](../concepts/network.md#subnet).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.section_subnetworks }}**.
   1. Select the subnet you need.
   1. The **{{ ui-key.yacloud.common.overview }}** page will display detailed information about the subnet.

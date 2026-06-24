@@ -57,7 +57,7 @@
 
       {% endcut %}
 
-      Более подробную информацию о параметрах ресурса `sws_waf_profile` в Terraform, см. в [документации провайдера](../../terraform/resources/sws_waf_profile.md).
+      Подробнее о параметрах ресурса `sws_waf_profile` в [документации провайдера](../../terraform/resources/sws_waf_profile.md).
 
   1. Примените изменения:
 

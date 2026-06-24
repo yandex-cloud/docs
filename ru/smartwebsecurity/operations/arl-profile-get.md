@@ -41,7 +41,7 @@ description: Следуя данной инструкции, вы сможете
      * `output "profile-created"` — выходная переменная, которая содержит информацию о временной метке создания профиля ARL:
        * `value` — возвращаемое значение.
 
-     Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_sws_advanced_rate_limiter_profile` см. в [документации провайдера]({{ tf-provider-datasources-link }}/sws_advanced_rate_limiter_profile).
+     Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_sws_advanced_rate_limiter_profile` в [документации провайдера]({{ tf-provider-datasources-link }}/sws_advanced_rate_limiter_profile).
 
   1. Создайте ресурсы:
 

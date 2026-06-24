@@ -29,7 +29,7 @@
       * `--endpoint-arn` — идентификатор (ARN) эндпоинта.
       * `--attributes` — параметры эндпоинта, которые вы хотите изменить, через запятую в формате `<параметр>=<новое_значение>`.
 
-      Подробнее о команде `aws sns set-endpoint-attributes` см. в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-endpoint-attributes.html).
+      Подробнее о команде `aws sns set-endpoint-attributes` в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-endpoint-attributes.html).
 
 - AWS SDK для Python {#python}
 

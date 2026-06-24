@@ -1,11 +1,5 @@
 # Работать с дашбордом модуля KSPM
 
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 Для работы с дашбордом необходима роль `security-deck.viewer` или выше на каталог, в котором находятся ресурсы модуля KSPM.
 
 {% list tabs group=instructions %}

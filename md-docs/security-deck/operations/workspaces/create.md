@@ -1,11 +1,5 @@
 # Создать окружение Security Deck
 
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 Перед созданием [окружения](../../concepts/workspace.md) убедитесь, что у вас есть необходимые [права](../../security/index.md) для работы с модулями Security Deck. Оптимальные роли для работы:
 
 * `security-deck.admin` на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будут храниться ресурсы Security Deck и его модули.

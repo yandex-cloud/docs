@@ -7,7 +7,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the subnet you want to update.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the subnet you need and select **{{ ui-key.yacloud.common.edit }}**.
   1. Edit as appropriate.

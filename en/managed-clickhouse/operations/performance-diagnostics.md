@@ -31,7 +31,7 @@ This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage
 - Management console {#console}
   
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and select the ![image](../../_assets/console-icons/heart-pulse.svg) **Performance diagnostics** tab.
 
       To view query history or statistics, select the relevant tab. The data is displayed for the selected time period.
@@ -61,7 +61,7 @@ This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage
 - Management console {#console}
   
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and select the ![image](../../_assets/console-icons/heart-pulse.svg) **Performance diagnostics** tab.
   1. Navigate to the **{{ ui-key.yacloud.clickhouse.PerformanceDiagnostics.ClusterDiagnosticsTabs.label_query-groups_w3anM }}** tab.
 

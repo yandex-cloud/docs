@@ -598,12 +598,6 @@
 
  - [Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием](container-infrastructure/loadtesting-grpc-autoscaling.md)
 
-#### Установка NGINX
-
- - [Установка Ingress-контроллера NGINX с Let's Encrypt®](container-infrastructure/ingress-cert-manager.md)
-
- - [Установка Ingress-контроллера NGINX с сертификатом из Certificate Manager](container-infrastructure/nginx-ingress-certificate-manager.md)
-
 #### Использование Container Registry
 
  - [Интеграция с Container Registry](container-infrastructure/container-registry.md)

@@ -81,7 +81,7 @@ Gwin — инструмент для управления балансировщ
 
             {% endnote %}
 
-      Подробнее на странице [{#T}](../../../managed-kubernetes/tutorials/wlif-managed-k8s-integration.md).
+      Подробнее в руководстве [{#T}](../../../managed-kubernetes/tutorials/wlif-managed-k8s-integration.md).
 
     - Авторизованный ключ {#authorized-key}
 

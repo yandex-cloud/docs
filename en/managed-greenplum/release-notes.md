@@ -5,9 +5,13 @@ description: This section contains the {{ mgp-name }} release notes.
 
 # {{ mgp-full-name }} release notes
 
+## May 2026 {#may-2026}
+
+Maximum local disk size per host is increased to 36 TB. Disks of this size are available for Intel Ice Lake (`standard-v3`) configurations with 16 or more cores. To create extra large clusters, you may need to contact [support]({{ link-console-support }}) to reserve the required resources.
+
 ## March 2026 {#mar-2026}
 
-* Added separate [roles](./security/index.md) enabling you to view and edit (reschedule) maintenance without cluster access.
+* Added separate [roles](./security/index.md) for viewing and editing (rescheduling) maintenance without access to the cluster.
 
 ## December 2025 {#dec-2025}
 

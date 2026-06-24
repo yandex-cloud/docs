@@ -32,7 +32,7 @@
         * `Token` — объект [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) в формате [JSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON), который получен в браузере пользователя.
         * `CustomUserData` – дополнительная информация.
 
-      Подробнее о команде `aws sns set-endpoint-attributes` см. в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-endpoint-attributes.html).
+      Подробнее о команде `aws sns set-endpoint-attributes` в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-endpoint-attributes.html).
 
 - AWS SDK для Python {#python}
 
@@ -103,7 +103,7 @@
 
       Где `--endpoint-arn` — идентификатор (ARN) эндпоинта.
 
-      Подробнее о команде `aws sns delete-endpoint` см. в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/delete-endpoint.html).
+      Подробнее о команде `aws sns delete-endpoint` в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/delete-endpoint.html).
 
 - AWS SDK для Python {#python}
 

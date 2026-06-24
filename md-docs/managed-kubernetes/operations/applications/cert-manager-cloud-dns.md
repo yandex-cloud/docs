@@ -171,7 +171,6 @@
 ## Примеры использования {#examples}
 
 * [Проверка DNS Challenge для сертификатов Let's Encrypt®](../../tutorials/dnschallenge.md).
-* [Установка Ingress-контроллера NGINX с менеджером для сертификатов Let's Encrypt®](../../tutorials/ingress-cert-manager.md).
 
 ## Полезные ссылки {#see-also}
 

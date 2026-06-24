@@ -26,7 +26,7 @@ After the upgrade, it is impossible to revert the cluster to a previous version.
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select the cluster you need from the list and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Select the new version number in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -66,7 +66,7 @@ After the upgrade, it is impossible to revert the cluster to a previous version.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
        To learn how to create this file, see [Creating a cluster](cluster-create.md).
   
@@ -81,7 +81,7 @@ After the upgrade, it is impossible to revert the cluster to a previous version.
        }
        ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
   
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -95,7 +95,7 @@ After the upgrade, it is impossible to revert the cluster to a previous version.
 
 - REST API {#api}
 
-   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -125,13 +125,13 @@ After the upgrade, it is impossible to revert the cluster to a previous version.
 
       * `configSpec.version`: New {{ SD }} version.
 
-      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -171,7 +171,7 @@ After the upgrade, it is impossible to revert the cluster to a previous version.
 
         * `version`: New {{ SD }} version.
 
-        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -202,7 +202,7 @@ Updating the cluster compatibility version is irreversible.
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select the cluster you need from the list and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_fcv }}** field, select the required version number.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -230,7 +230,7 @@ Updating the cluster compatibility version is irreversible.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
        To learn how to create this file, see [Creating a cluster](cluster-create.md).
   
@@ -245,7 +245,7 @@ Updating the cluster compatibility version is irreversible.
        }
        ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
   
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -259,7 +259,7 @@ Updating the cluster compatibility version is irreversible.
 
 - REST API {#api}
 
-   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -289,13 +289,13 @@ Updating the cluster compatibility version is irreversible.
 
       * `configSpec.featureCompatibilityVersion`: New {{ SD }} compatibility version.
 
-      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -335,7 +335,7 @@ Updating the cluster compatibility version is irreversible.
 
         * `feature_compatibility_version`: New {{ SD }} compatibility version.
 
-        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

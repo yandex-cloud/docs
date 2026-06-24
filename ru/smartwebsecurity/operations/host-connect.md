@@ -196,6 +196,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [{#T}](host-delete.md)
+[{#T}](host-delete.md)

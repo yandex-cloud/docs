@@ -15,7 +15,7 @@ description: Follow this guide to migrate {{ PG }} cluster hosts to a different 
 
    - Management console {#console}
 
-      1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
       1. Click the cluster name and navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
       1. Specify the following host settings:
@@ -61,17 +61,17 @@ description: Follow this guide to migrate {{ PG }} cluster hosts to a different 
 
          In the `zone` parameter, specify the target availability zone for your hosts.
 
-      1. Validate your configuration.
+      1. Make sure the settings are correct.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      1. Confirm resource changes.
+      1. Confirm updating the resources.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    - REST API {#api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
          {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -134,7 +134,7 @@ description: Follow this guide to migrate {{ PG }} cluster hosts to a different 
 
    {% endlist %}
 
-1. To connect to the database after migration, specify the new host’s FQDN in your backend or client, e.g., in your application code or graphical IDE. Delete the original host's FQDN in your source availability zone.
+1. To connect to the database after migration, specify the new host’s FQDN in your backend or client, e.g., in your application code or graphical IDE. Delete the original host's FQDN in the source availability zone.
 
    You can get this FQDN from the list of hosts in your cluster:
 
@@ -150,7 +150,7 @@ description: Follow this guide to migrate {{ PG }} cluster hosts to a different 
 
    - Management console {#console}
 
-      1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** service.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
       1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
       1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
@@ -165,7 +165,7 @@ description: Follow this guide to migrate {{ PG }} cluster hosts to a different 
    - {{ TF }} {#tf}
 
       1. In your {{ TF }} infrastructure configuration file, locate your cluster description and delete the `host` sections with the source availability zone.
-      1. Validate your configuration.
+      1. Make sure the settings are correct.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -225,7 +225,7 @@ description: Follow this guide to migrate {{ PG }} cluster hosts to a different 
 
    {% endlist %}
 
-1. Wait for the cluster state to change to **Alive**. In the management console, [go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**. You can check the cluster state in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+1. Wait for the cluster state to change to **Alive**. In the management console, navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**. You can check the cluster state in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 

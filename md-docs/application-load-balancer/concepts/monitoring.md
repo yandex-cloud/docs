@@ -29,13 +29,13 @@
 
 В Application Load Balancer доступна обобщенная статистика балансировщика. В Monitoring можно смотреть статистику с разбивкой по ресурсам, привязанным к балансировщику (HTTP-роутерам, виртуальным хостам, маршрутам и т. д.), а также [создавать алерты](../../monitoring/operations/alert/create-alert.md).
 
-Инструкции по просмотру статистики см. в разделе [Посмотреть статистику L7-балансировщика](../operations/application-load-balancer-get-stats.md).
+Просмотр статистики описан в инструкции [Посмотреть статистику L7-балансировщика](../operations/application-load-balancer-get-stats.md).
 
 ## Логирование {#logging}
 
 Вы можете [настроить](../operations/application-load-balancer-manage-logs.md) поставку логов балансировщика в [лог-группу](../../logging/concepts/log-group.md) Yandex Cloud Logging.
 
-Подробности о просмотре логов см. в [Посмотреть логи L7-балансировщика](../operations/application-load-balancer-get-logs.md).
+Просмотр логов описан в инструкции [Посмотреть логи L7-балансировщика](../operations/application-load-balancer-get-logs.md).
 
 Значение заголовка [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) (XFF) передается в логи в соответствии со стандартом [RFC 7239](https://datatracker.ietf.org/doc/html/rfc7239). Полный список сохраняемых параметров представлен в [справочнике логов](../logs-ref.md). 
 

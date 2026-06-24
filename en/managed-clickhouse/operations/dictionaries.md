@@ -24,8 +24,8 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
 
 - CLI {#cli}
@@ -93,7 +93,7 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
             yandex.cloud.mdb.clickhouse.v1.ClusterService.ListExternalDictionaries
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/listExternalDictionaries.md#yandex.cloud.mdb.clickhouse.v1.ListClusterExternalDictionariesResponse) to make sure your request was successful.
 
@@ -123,8 +123,8 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 
     {% endnote %}
 
-    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
     1. In the top-right corner, click **{{ ui-key.yacloud.mdb.cluster.dictionaries.button-action_add-dictionary }}**.
     1. [Configure your dictionary](#settings).
@@ -246,7 +246,7 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
               --data '@body.json'
             ```
 
-            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/createExternalDictionary.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -325,9 +325,9 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 
             For a detailed description of the dictionary attributes and other settings, see [below](#settings).
 
-            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-        1. Run this request:
+        1. Run this query:
 
             ```bash
             grpcurl \
@@ -390,8 +390,8 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the dictionary and select **{{ ui-key.yacloud.common.edit }}**.
     1. Change the [dictionary settings](#settings) as needed.
@@ -503,7 +503,7 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
               --data '@body.json'
             ```
 
-            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/updateExternalDictionary.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -579,9 +579,9 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 
             For a detailed description of the dictionary attributes and other settings, see [below](#settings).
 
-            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-        1. Run this request:
+        1. Run this query:
 
             ```bash
             grpcurl \
@@ -606,8 +606,8 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the dictionary and select **{{ ui-key.yacloud.mdb.cluster.dictionaries.button_action-delete }}**.
 
@@ -685,7 +685,7 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 
         Where `external_dictionary_name` is the name of the dictionary you need to delete. You can get the dictionary name with the [list of external dictionaries in the cluster](#get-dicts-list).
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/deleteExternalDictionary.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

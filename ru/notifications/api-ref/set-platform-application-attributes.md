@@ -55,7 +55,7 @@ POST https://{{ cns-host }}/
 `PlatformPrincipal` | **string**<br/>Идентификатор проекта.
 `PlatformCredential` | **string**<br/>Сервисный токен.
 
-Подробнее об атрибутах для аутентификации см. в подразделе [Каналы мобильных Push-уведомлений](../concepts/push.md).
+Атрибуты для аутентификации описаны в разделе [Каналы мобильных Push-уведомлений](../concepts/push.md).
 
 ## Ответ {#response}
 
@@ -98,10 +98,10 @@ POST https://{{ cns-host }}/
 
 При возникновении ошибки {{ cns-name }} отвечает сообщением с соответствующим HTTP-кодом.
 
-Перечень общих кодов ошибок для всех действий см. в разделе [{#T}](common-errors.md).
+Перечень общих кодов ошибок для всех действий приведен в разделе [{#T}](common-errors.md).
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)
-* [API action SetPlatformApplicationAttributes](https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html) в документации AWS.
+* [API action SetPlatformApplicationAttributes](https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html) в документации AWS

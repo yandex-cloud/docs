@@ -12,7 +12,7 @@ description: Следуя данному руководству, вы сможе
 * [Добавьте правила алертинга](#alerting-rule-add).
 * [Настройте Alert Manager](#alert-manager-set) для обработки и доставки уведомлений.
 
-В этом разделе описаны особенности работы с правилами алертинга и конфигурацией Alert Manager. Управление файлами см. в разделе [{#T}](./recording-rules.md).
+В этом разделе описаны особенности работы с правилами алертинга и конфигурацией Alert Manager. Управление файлами — в разделе [{#T}](./recording-rules.md).
 
 Вы можете настраивать алертинг через [консоль управления]({{ link-console-main }}) или API.
 
@@ -125,7 +125,7 @@ groups:
 
 Следить за статусами алертов можно на отдельной вкладке **{{ prometheus-name }}** → **{{ ui-key.yacloud_monitoring.prometheus.managing-rule.tabs.alerts }}** в [консоли управления]({{ link-monitoring }}).
 
-Подробнее о действиях с файлами и вычислении правил см. в разделе [{#T}](./recording-rules.md).
+Действия с файлами и вычисление правил описаны в разделе [{#T}](./recording-rules.md).
 
 ## Настройка Alert Manager {#alert-manager-create}
 
@@ -174,7 +174,7 @@ receivers:
     - channel_names: [ 'telegram', 'sms-channel' ]
 ```
 
-Подробнее о настройке динамической маршрутизации уведомлений см. в [документации Prometheus](https://prometheus.io/docs/alerting/latest/configuration/#route).
+Настройка динамической маршрутизации уведомлений описана в [документации Prometheus](https://prometheus.io/docs/alerting/latest/configuration/#route).
 
 ### Добавление и замена файла конфигурации {#alert-manager-create}
 

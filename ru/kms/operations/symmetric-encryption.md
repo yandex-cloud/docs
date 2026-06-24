@@ -152,8 +152,8 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Интерфейс командной строки CLI](../../cli).
-* [Симметричное шифрование в {{ kms-full-name }}](../concepts/symmetric-encryption.md).
-* [Асимметричное шифрование в {{ kms-full-name }}](../concepts/asymmetric-encryption.md).
-* [Управление ключами в KMS](./index.md).
-* [Шифрование секретов в HashiCorp Terraform](../../kms/tutorials/terraform-secret.md).
+* [Интерфейс командной строки CLI](../../cli)
+* [Симметричное шифрование в {{ kms-full-name }}](../concepts/symmetric-encryption.md)
+* [Асимметричное шифрование в {{ kms-full-name }}](../concepts/asymmetric-encryption.md)
+* [Управление ключами в KMS](./index.md)
+* [Шифрование секретов в HashiCorp Terraform](../../kms/tutorials/terraform-secret.md)

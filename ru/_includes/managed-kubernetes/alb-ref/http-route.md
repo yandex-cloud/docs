@@ -66,7 +66,7 @@ spec: <HTTPRouteSpec>
 
   * `name` (`string`, обязательное)
 
-    Имя ресурса. Подробнее о формате в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Формат описан в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
     Не является именем маршрута в {{ alb-name }}.
 
@@ -285,7 +285,7 @@ rules:
 
 * `parentRefs` (`[]ParentReference`, обязательное)
 
-  Список ресурсов `Gateway` (или их обработчиков из поля `spec.listeners` — смотрите [справочник]({{ configuration-local-link }}/gateway.md#spec)), к которым должен быть привязан `HTTPRoute`.
+  Список ресурсов `Gateway` (или их обработчиков из поля `spec.listeners` — подробнее в [справочнике]({{ configuration-local-link }}/gateway.md#spec)), к которым должен быть привязан `HTTPRoute`.
 
   Также маршрут должен удовлетворять правилам, описанным в [конфигурации]({{ configuration-local-link }}/gateway.md#spec) `Gateway` (поле `spec.listeners.allowedRoutes`).
   

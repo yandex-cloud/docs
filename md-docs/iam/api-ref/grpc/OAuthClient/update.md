@@ -18,7 +18,11 @@ Updates the specified oauth client.
   ],
   "scopes": [
     "string"
-  ]
+  ],
+  "authentication_methods": [
+    "string"
+  ],
+  "pkce_required": "bool"
 }
 ```
 
@@ -49,6 +53,12 @@ The maximum string length in characters for each value is 1000. The maximum numb
 List of oauth scopes requested by the oauth client.
 
 The maximum string length in characters for each value is 255. Each value must match the regular expression ` [!#-\[\]-~]+ `. The maximum number of elements is 1000. ||
+|| authentication_methods[] | **string**
+
+The maximum string length in characters for each value is 255. The maximum number of elements is 1000. ||
+|| pkce_required | **bool**
+
+Whether PKCE (Proof Key for Code Exchange) is required for the oauth client during the authorization code flow. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

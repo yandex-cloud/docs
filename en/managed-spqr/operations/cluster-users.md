@@ -13,7 +13,7 @@ You can add and remove users, as well as manage their individual settings.
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.spqr.cluster.switch_users }}** tab.
 
 - REST API {#api}
@@ -115,7 +115,7 @@ You can add and remove users, as well as manage their individual settings.
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.spqr.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   1. Specify the database user name.
@@ -126,9 +126,9 @@ You can add and remove users, as well as manage their individual settings.
 
   1. Set the maximum number of user connections to the database.
 
-  1. Set the number of reconnect attempts from the [router](../concepts/index.md#router) to the [shards](../concepts/index.md#shard).
+  1. Set the number of reconnect attempts between the [router](../concepts/index.md#router) and the [shards](../concepts/index.md#shard).
 
-  1. Select one or more grants to assign to the user.
+  1. Select one or multiple grants to be assigned to the user.
 
      The possible values are:
      - **reader**
@@ -193,12 +193,12 @@ You can add and remove users, as well as manage their individual settings.
 
      * `password`: User password. The password must be from 8 to 128 characters long.
 
-     * `permissions`: List of databases the user needs access to. Each element in the list contains the `databaseName` parameter, which is the database name.
+     * `permissions`: List of databases the user needs access to. Each element in the list contains the `databaseName` parameter: The database name.
 
      * `settings`: Connection settings:
 
        * `connLimit`: Maximum number of user connections to the database.
-       * `connectionRetries`: Number of reconnect attempts from the [router](../concepts/index.md#router) to the [shards](../concepts/index.md#shard).
+       * `connectionRetries`: Number of reconnect attempts between the [router](../concepts/index.md#router) and the [shards](../concepts/index.md#shard).
 
      * `grants`: List of grants to be assigned to the user.
 
@@ -260,12 +260,12 @@ You can add and remove users, as well as manage their individual settings.
 
      * `password`: User password. The password must be from 8 to 128 characters long.
 
-     * `permissions`: List of databases the user needs access to. Each element in the list contains the `database_name` parameter, which is the database name.
+     * `permissions`: List of databases the user needs access to. Each element in the list contains the `database_name` parameter: The database name.
 
      * `settings`: Connection settings:
 
        * `connection_limit`: Maximum number of user connections to the database.
-       * `connection_retries`: Number of reconnect attempts from the [router](../concepts/index.md#router) to the [shards](../concepts/index.md#shard).
+       * `connection_retries`: Number of reconnect attempts between the [router](../concepts/index.md#router) and the [shards](../concepts/index.md#shard).
 
      * `grants`: List of grants to be assigned to the user.
 
@@ -287,14 +287,14 @@ You can add and remove users, as well as manage their individual settings.
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.spqr.cluster.switch_users }}** tab.
   1. Locate the user you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in their row, and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Change the maximum number of user connections to the database.
 
-  1. Change the number of reconnect attempts from the [router](../concepts/index.md#router) to the [shards](../concepts/index.md#shard).
+  1. Change the number of reconnect attempts between the [router](../concepts/index.md#router) and the [shards](../concepts/index.md#shard).
 
-  1. Configure the grants assigned to the user.
+  1. Configure the set of grants assigned to the user.
 
      The possible values are:
      - **reader**
@@ -309,8 +309,8 @@ You can add and remove users, as well as manage their individual settings.
      - **{{ ui-key.yacloud.mdb.dialogs.action_deletion-protection-enabled }}**
      - **{{ ui-key.yacloud.mdb.dialogs.action_deletion-protection-disabled }}**
 
-  1. Configure user access to databases:
-     1. To provide access to databases:
+  1. Configure user access to the databases:
+     1. To grant access to databases:
         1. In the **{{ ui-key.yacloud.mdb.dialogs.popup_field_permissions }}** field, click ![image](../../_assets/console-icons/plus.svg) next to the drop-down list.
         1. Select the database from the drop-down list.
         1. Repeat the previous two steps until all the required databases are selected.
@@ -358,12 +358,12 @@ You can add and remove users, as well as manage their individual settings.
 
      * `password`: New password. It must be from 8 to 128 characters long.
 
-     * `permissions`: List of databases the user needs access to. Each element in the list contains the `databaseName` parameter, which is the database name.
+     * `permissions`: List of databases the user needs access to. Each element in the list contains the `databaseName` parameter: The database name.
 
      * `settings`: Connection settings:
 
        * `connLimit`: Maximum number of user connections to the database.
-       * `connectionRetries`: Number of reconnect attempts from the [router](../concepts/index.md#router) to the [shards](../concepts/index.md#shard).
+       * `connectionRetries`: Number of reconnect attempts between the [router](../concepts/index.md#router) and the [shards](../concepts/index.md#shard).
 
      * `grants`: List of grants to be assigned to the user.
 
@@ -428,12 +428,12 @@ You can add and remove users, as well as manage their individual settings.
 
      * `password`: Password. The password must be from 8 to 128 characters long.
 
-     * `permissions`: List of databases the user needs access to. Each element in the list contains the `database_name` parameter, which is the database name.
+     * `permissions`: List of databases the user needs access to. Each element in the list contains the `database_name` parameter: The database name.
 
      * `settings`: Connection settings:
 
        * `connection_limit`: Maximum number of user connections to the database.
-       * `connection_retries`: Number of reconnect attempts from the [router](../concepts/index.md#router) to the [shards](../concepts/index.md#shard).
+       * `connection_retries`: Number of reconnect attempts between the [router](../concepts/index.md#router) and the [shards](../concepts/index.md#shard).
 
      * `grants`: List of grants to be assigned to the user.
 
@@ -455,7 +455,7 @@ You can add and remove users, as well as manage their individual settings.
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.spqr.cluster.switch_users }}** tab.
   1. Locate the user you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in their row, and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
   1. Specify a new password. It must be from 8 to 128 characters long.
@@ -542,7 +542,7 @@ You can add and remove users, as well as manage their individual settings.
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.spqr.cluster.switch_users }}** tab.
   1. Locate the user you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in their row, and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Change the deletion protection type in the **{{ ui-key.yacloud.mdb.dialogs.field_deletion_protection }}** field.
@@ -633,7 +633,7 @@ A user account can have deletion protection enabled. To delete such a user, [dis
 
   To delete a user:
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.spqr.cluster.switch_users }}** tab.
   1. Locate the user you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in their row, and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. Confirm the deletion.

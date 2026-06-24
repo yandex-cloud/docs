@@ -9,7 +9,7 @@ title: Getting information about a route table in {{ vpc-full-name }}
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [route table](../concepts/routing.md).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.switch_route-tables }}**.
   1. Select the route table you need.
   1. The **{{ ui-key.yacloud.common.overview }}** page will display detailed information about the route table.

@@ -15,7 +15,7 @@ description: '{{ cns-name }} ({{ cns-short-name }}) — сервис для му
 
 Начните работу с [push-уведомлениями](quickstart-push.md) или [SMS](quickstart-sms.md).
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Как начать работать с сервисом с помощью AWS CLI](./tools/aws-cli.md)
 * [Обзор сервиса](./concepts/index.md)

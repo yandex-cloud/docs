@@ -81,15 +81,10 @@
 
 Чтобы организовать входящий сетевой доступ к рабочим нагрузкам по протоколу HTTP/HTTPS используйте ресурс [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/).
 
-Существует как минимум 2 варианта Ingress-контроллера, которые можно использовать в {{ yandex-cloud }}:
-- [NGINX Ingress Controller](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
-- [{{ alb-name }} Ingress-контроллера](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
+Существует как минимум два варианта контроллера, которые можно использовать в {{ yandex-cloud }}:
+- [Контроллер Yandex Cloud Gwin](../../managed-kubernetes/alb-ref/gwin-index.md).
+- [{{ alb-name }} Ingress-контроллер](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
-Преимущества {{ alb-name }} Ingress-контроллера:
-* интеграция с облачным сервисом [{{ certificate-manager-full-name }}](../../certificate-manager/);
-* отсутствие необходимости установки контроллера в кластер, так как все разворачивается на стороне [{{ alb-name }}](../../application-load-balancer/).
-
-{% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
 
 #### Ограничение доступа к метаданным ВМ группы узлов {#metadata-access-restriction}
 

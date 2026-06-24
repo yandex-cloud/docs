@@ -139,7 +139,7 @@
       }
       ```
 
-      Более подробную информацию о параметрах ресурса `yandex_sws_advanced_rate_limiter_profile`, см. в [документации провайдера](../../terraform/resources/sws_advanced_rate_limiter_profile.md).
+      Подробнее о параметрах ресурса `yandex_sws_advanced_rate_limiter_profile` в [документации провайдера](../../terraform/resources/sws_advanced_rate_limiter_profile.md).
 
   1. Примените изменения:
 
@@ -179,6 +179,6 @@
 
 {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Удалить правило из профиля безопасности](rule-delete.md)
+[Удалить правило из профиля безопасности](rule-delete.md)

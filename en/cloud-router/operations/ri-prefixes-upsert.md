@@ -5,8 +5,6 @@ description: Follow this guide to update a list of networks and IP prefixes in a
 
 # Managing networks and IP prefixes in a routing instance
 
-{% include [cic-cr-access](../../_includes/interconnect/cic-cr-access.md) %}
-
 ## Updating networks and IP prefixes in a routing instance {#update-networks}
 
 You can use the `yc cloudrouter routing-instance update-networks` {{ yandex-cloud }} CLI [command](../cli-ref/routing-instance/update-networks.md) to simultaneously manage multiple [announced IP prefixes](../concepts/announces.md) of {{ vpc-full-name }} cloud [networks](../../vpc/concepts/network.md#network) added to a [routing instance](../concepts/routing-instance.md), as well as add new networks to a routing instance and delete the existing ones. 

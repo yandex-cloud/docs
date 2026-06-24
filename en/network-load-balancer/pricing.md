@@ -15,7 +15,6 @@ editable: false
 
 {% include [vat](../_includes/vat.md) %}
 
-
 When using {{ network-load-balancer-full-name }}, you pay for the inbound and outbound traffic processed by a network load balancer and for the number of network load balancers you use.
 
 For a network load balancer with a public IP address, you additionally pay for outgoing internet traffic based on the [outgoing traffic pricing](../vpc/pricing.md#prices-traffic). Outbound traffic also includes target responses to health checks.

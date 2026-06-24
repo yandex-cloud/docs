@@ -9,8 +9,8 @@ noIndex: true
 
 {% include [install-prometheus-operator](../../../_includes/managed-kubernetes/install-prometheus-operator.md) %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [{{ managed-k8s-full-name }}](../../../managed-kubernetes/)
+[{{ managed-k8s-full-name }}](../../../managed-kubernetes/)
 
 {% include [trademark](../../../_includes/monitoring/trademark.md) %}

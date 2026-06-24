@@ -5,8 +5,6 @@ description: Follow this guide to update routing instance parameters in {{ cr-na
 
 # Updating routing instance parameters
 
-{% include [cic-cr-access](../../_includes/interconnect/cic-cr-access.md) %}
-
 Currently, you can update the following routing instance parameters:
 * `new-name`: Private connection name
 * `description`: Private connection description
@@ -63,4 +61,3 @@ You need the [cloud-router.editor](../security/index.md#cloudrouter-editor) role
      ```
 
 {% endlist %}
-

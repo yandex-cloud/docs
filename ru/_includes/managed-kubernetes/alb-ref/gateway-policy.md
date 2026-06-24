@@ -93,7 +93,7 @@ status:
 
   * `name` (`string`, обязательное)
   
-    Имя ресурса. Подробнее о формате в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Формат описан в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
   * `namespace` (`string`)
   
@@ -119,7 +119,7 @@ status:
 
   Текущее состояние политики.
 
-  * `conditions` — массив условий статуса. Подробнее о формате в [документации {{ k8s }}](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#condition-v1-meta).
+  * `conditions` — массив условий статуса. Формат описан в [документации {{ k8s }}](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#condition-v1-meta).
 
   * `attachedGateways` — количество привязанных ресурсов `Gateway`.
 

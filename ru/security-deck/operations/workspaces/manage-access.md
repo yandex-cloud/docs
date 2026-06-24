@@ -5,8 +5,6 @@ description: Из этой инструкции вы узнаете, как на
 
 # Настроить права доступа к окружению {{ sd-name }}
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 Чтобы настроить доступ к [окружению](../../concepts/workspace.md) {{ sd-name }} для других пользователей:
 
 {% list tabs group=instructions %}

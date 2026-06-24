@@ -406,7 +406,7 @@ description: Следуя данной инструкции, вы сможете
 
             Вы можете задать больше одного правила.
 
-      Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/alb_load_balancer).
+      Подробнее о параметрах ресурса `yandex_alb_load_balancer` в [документации провайдера]({{ tf-provider-resources-link }}/alb_load_balancer).
 
   1. Проверьте корректность конфигурационных файлов.
 

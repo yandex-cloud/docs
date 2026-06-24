@@ -89,9 +89,9 @@ We do not recommend granting access to the {{ k8s }} API and node groups from no
 * [Security group setup guide](../../../managed-kubernetes/operations/connect/security-groups.md).
 * Use network policy configuration tools via the [Calico](../../../managed-kubernetes/concepts/network-policy.md#calico) (basic) or [Cilium CNI](../../../managed-kubernetes/concepts/network-policy.md#cilium) (advanced) plugins in {{ yandex-cloud }}. By default, apply the `default deny` rules for incoming and outgoing traffic with only the relevant traffic allowed.
 * For online endpoints, allocate an independent {{ k8s }} cluster or independent node groups (using such mechanisms as [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/#:~:text=Node%20affinity%20is%20a%20property,onto%20nodes%20with%20matching%20taints) + [Node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/)). By doing this, you establish a DMZ so that if your nodes are compromised online, your attack surface is small.
-* To enable incoming network access to your workloads via HTTP/HTTPS, use the [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource. There are at least two Ingress controller options that you can use in {{ yandex-cloud }}:
+* To enable incoming network access to your workloads via HTTP/HTTPS, use the [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource. There are at least two controller options that you can use in {{ yandex-cloud }}:
 
-  * [NGINX Ingress Controller](../../../managed-kubernetes/tutorials/ingress-cert-manager.md).
+  * [Yandex Cloud Gwin Controller](../../../managed-kubernetes/alb-ref/gwin-index.md).
   * [Application Load Balancer of an Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
 #### 7.4 Authentication and access management are configured in {{ managed-k8s-name }} {#kubernetes-auth}

@@ -4,7 +4,7 @@
 
 Основными целевыми ресурсами в группе являются ВМ, которые подключены к [подсетям](../../vpc/concepts/network.md#subnet) Virtual Private Cloud. Чтобы L7-балансировщик работал корректно, подсети целевых ресурсов должны находиться в одной [облачной сети](../../vpc/concepts/network.md#network).
 
-Также вы можете добавлять в целевую группу ресурсы, которые размещены вне Virtual Private Cloud, например в вашем ЦОД, подключенном к Yandex Cloud через [Cloud Interconnect](../../interconnect/index.md). Адреса ресурсов должны входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее см. [Подсети](../../vpc/concepts/network.md#subnet).
+Также вы можете добавлять в целевую группу ресурсы, которые размещены вне Virtual Private Cloud, например в вашем ЦОД, подключенном к Yandex Cloud через [Cloud Interconnect](../../interconnect/index.md). Адреса ресурсов должны входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее в разделе [Подсети](../../vpc/concepts/network.md#subnet).
 
 Целевые группы можно создавать:
 

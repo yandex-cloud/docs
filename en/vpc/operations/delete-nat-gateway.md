@@ -9,7 +9,7 @@ If you no longer need the [NAT gateway](../concepts/gateways.md), you can [delet
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the NAT gateway you want to dissociate.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
   1. In the list that opens, find the route table with the NAT gateway listed in its **Static routes** column.
   1. In the table row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Edit**.
@@ -147,7 +147,7 @@ Before deleting a NAT gateway, [disassociate it](#unlink-route-table) from all r
 
   To delete a NAT gateway:
   1. In the [management console]({{ link-console-main }}), select the folder where you need to delete a NAT gateway.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/vpc/gateways.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the NAT gateway name and select **Delete**.
   1. In the window that opens, click **Delete**.

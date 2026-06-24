@@ -15,7 +15,7 @@
 || `exception.stacktrace` | Стектрейс исключения ||
 |#
 
-Полный перечень атрибутов см. в [спецификации OpenTelemetry для exception-событий](https://opentelemetry.io/docs/specs/semconv/exceptions/exceptions-spans/).
+Полный перечень атрибутов приведен в [спецификации OpenTelemetry для exception-событий](https://opentelemetry.io/docs/specs/semconv/exceptions/exceptions-spans/).
 
 ## Пример {#example}
 

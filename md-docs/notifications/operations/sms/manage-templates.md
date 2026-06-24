@@ -84,4 +84,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Шаблоны SMS](../../concepts/sms.md#templates)
+[Шаблоны SMS](../../concepts/sms.md#templates)

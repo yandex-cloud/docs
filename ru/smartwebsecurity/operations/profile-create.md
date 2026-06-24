@@ -49,7 +49,7 @@ description: Следуя данной инструкции, вы сможете
         * Все выбранные правила применили действие (вердикт) **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.denyAndCaptchaTitle_tCthP }}**.
         * Все выбранные правила применили действие **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.allowTitle_g6CLe }}** (легитимные запросы).
   
-     Подробнее о настройке логирования см. в разделе [{#T}](configure-logging.md).
+     Настройка логирования описана в разделе [{#T}](configure-logging.md).
 
   1. Нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. В окне создания правила:
@@ -182,7 +182,7 @@ description: Следуя данной инструкции, вы сможете
 
       Если не указать тип правила `smart_protection` или `waf`, будет создано базовое правило с простой фильтрацией по заданным условиям в блоке `rule_condition`.
 
-      Более подробную информацию о параметрах ресурса `yandex_sws_security_profile` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/sws_security_profile).
+      Подробнее о параметрах ресурса `yandex_sws_security_profile` в [документации провайдера]({{ tf-provider-resources-link }}/sws_security_profile).
 
   1. Создайте ресурсы:
 
@@ -200,7 +200,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](host-connect.md)
 * [{#T}](profile-update.md)

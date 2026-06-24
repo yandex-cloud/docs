@@ -92,7 +92,6 @@ To avoid issues with access to resources that depend on the certificate with the
 
 ## Use cases {#examples}
 
-* [{#T}](../tutorials/nginx-ingress-certificate-manager.md)
 * [{#T}](../tutorials/gatsby-static-website.md)
 * [{#T}](../tutorials/virtual-hosting.md)
 * [{#T}](../tutorials/tls-termination/index.md)

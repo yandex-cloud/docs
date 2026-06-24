@@ -26,7 +26,7 @@ Read more about the `catboostEvaluate()` function in [this {{ CH }} guide]({{ ch
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
 
 - CLI {#cli}
@@ -58,7 +58,7 @@ Read more about the `catboostEvaluate()` function in [this {{ CH }} guide]({{ ch
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/mlModels'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/MlModel/list.md#yandex.cloud.mdb.clickhouse.v1.ListMlModelsResponse) to make sure your request was successful.
 
@@ -85,7 +85,7 @@ Read more about the `catboostEvaluate()` function in [this {{ CH }} guide]({{ ch
             yandex.cloud.mdb.clickhouse.v1.MlModelService.List
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/MlModel/list.md#yandex.cloud.mdb.clickhouse.v1.ListMlModelsResponse) to make sure your request was successful.
 
@@ -98,7 +98,7 @@ Read more about the `catboostEvaluate()` function in [this {{ CH }} guide]({{ ch
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
 
 - CLI {#cli}
@@ -180,7 +180,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
     1. Select the cluster:
 
         1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-        1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
         1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
         1. Click **{{ ui-key.yacloud.clickhouse.cluster.ml-models.button-action_add-ml-model }}**.
 
@@ -269,7 +269,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
         * `type`: Model type, which is always `ML_MODEL_TYPE_CATBOOST`.
         * `uri`: Link to the model file in {{ objstorage-name }}.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/MlModel/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -305,7 +305,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
         * `type`: Model type, which is always `ML_MODEL_TYPE_CATBOOST`.
         * `uri`: Link to the model file in {{ objstorage-name }}.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/MlModel/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -352,7 +352,7 @@ To update the contents of a model that is already added to the cluster:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
     1. Find your model, click ![image](../../_assets/console-icons/ellipsis-vertical.svg), and select **{{ ui-key.yacloud.clickhouse.cluster.ml-models.button_action-edit-ml-model }}**.
 
@@ -435,7 +435,7 @@ To update the contents of a model that is already added to the cluster:
 
         * `uri`: Link to the new schema file in {{ objstorage-name }}.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/MlModel/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -478,7 +478,7 @@ To update the contents of a model that is already added to the cluster:
 
         * `uri`: Link to the new schema file in {{ objstorage-name }}.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/MlModel/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -499,7 +499,7 @@ After removing a model, the related object remains in the {{ objstorage-full-nam
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
     1. Find your model, click ![image](../../_assets/console-icons/ellipsis-vertical.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
@@ -583,7 +583,7 @@ After removing a model, the related object remains in the {{ objstorage-full-nam
             yandex.cloud.mdb.clickhouse.v1.MlModelService.Delete
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/MlModel/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

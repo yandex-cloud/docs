@@ -21,21 +21,18 @@ Retrieves a list of hosts for the specified Apache Kafka® cluster.
 || cluster_id | **string**
 
 Required field. ID of the Apache Kafka® cluster.
-
 To get the Apache Kafka® cluster ID, make a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests.
 
 The maximum value is 1000. ||
 || page_token | **string**
 
 Page token.
-
 To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) returned by the previous list request.
 
 The maximum string length in characters is 100. ||
@@ -73,7 +70,6 @@ List of hosts. ||
 || next_page_token | **string**
 
 Token that allows you to get the next page of results for list requests.
-
 If the number of results is larger than [ListClusterHostsRequest.page_size](#yandex.cloud.mdb.kafka.v1.ListClusterHostsRequest), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#yandex.cloud.mdb.kafka.v1.ListClusterHostsRequest) query parameter in the next list request.
 Each subsequent list request will have its own `next_page_token` to continue paging through the results. ||
 |#
@@ -117,7 +113,6 @@ ID of the subnet the host resides in. ||
 || assign_public_ip | **bool**
 
 The flag that defines whether a public IP address is assigned to the node.
-
 If the value is `true`, then this node is available on the Internet via it's public IP address. ||
 |#
 

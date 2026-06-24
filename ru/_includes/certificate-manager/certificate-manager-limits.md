@@ -18,4 +18,4 @@
 
 #### Полезные ссылки {#certificate-manager-see-also}
 
-- [Документация Let's Encrypt. Ограничения](https://letsencrypt.org/ru/docs/rate-limits/)
+[Документация Let's Encrypt. Ограничения](https://letsencrypt.org/ru/docs/rate-limits/)

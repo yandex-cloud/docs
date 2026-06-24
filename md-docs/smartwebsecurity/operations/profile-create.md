@@ -8,7 +8,7 @@
 
 ![profiles-rules](../../_assets/smartwebsecurity/profiles-rules.svg)
 
-Для работы с профилем безопасности, который подключается к балансировщику, потребуется сервисный аккаунт с ролями `monitoring.editor`, `smart-web-security.admin`, `certificate-manager.admin` и `logging.writer`. Подробнее смотрите [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
+Для работы с профилем безопасности, который подключается к балансировщику, потребуется сервисный аккаунт с ролями `monitoring.editor`, `smart-web-security.admin`, `certificate-manager.admin` и `logging.writer`. Подробнее в разделе [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
 
 {% list tabs group=instructions %}
 
@@ -69,7 +69,7 @@
         * Все выбранные правила применили действие (вердикт) **DENY и CAPTCHA**.
         * Все выбранные правила применили действие **ALLOW** (легитимные запросы).
   
-     Подробнее о настройке логирования см. в разделе [Настроить логирование через Smart Web Security](configure-logging.md).
+     Настройка логирования описана в разделе [Настроить логирование через Smart Web Security](configure-logging.md).
 
   1. Нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **Добавить правило**.
   1. В окне создания правила:
@@ -86,7 +86,7 @@
           
           {% endnote %}
       
-          Подробнее о приоритете правил смотрите в разделе [Общие принципы работы правил](../concepts/rules.md#rules-order).
+          Приоритет правил описан в разделе [Общие принципы работы правил](../concepts/rules.md#rules-order).
       
       1. (опционально) Включите опцию **Только логирование (dry run)**, если вы хотите только фиксировать информацию о трафике, который соответствует заданным условиям, но не применять к нему никаких действий.
       1. Выберите тип правила:
@@ -348,7 +348,7 @@
 
       Если не указать тип правила `smart_protection` или `waf`, будет создано базовое правило с простой фильтрацией по заданным условиям в блоке `rule_condition`.
 
-      Более подробную информацию о параметрах ресурса `yandex_sws_security_profile` в Terraform, см. в [документации провайдера](../../terraform/resources/sws_security_profile.md).
+      Подробнее о параметрах ресурса `yandex_sws_security_profile` в [документации провайдера](../../terraform/resources/sws_security_profile.md).
 
   1. Создайте ресурсы:
 
@@ -392,7 +392,7 @@
 
 {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Подключить профиль безопасности к ресурсу](host-connect.md)
 * [Изменить основные параметры профиля безопасности](profile-update.md)

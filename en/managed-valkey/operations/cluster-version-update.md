@@ -14,7 +14,7 @@ All {{ VLK }} versions supported in {{ mrd-name }} remain available as long as t
 
 - Management console {#console}
 
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Open the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
 
@@ -48,7 +48,7 @@ Make sure the upgrade will not disrupt your applications:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder containing the cluster to upgrade.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Select the cluster you need from the list and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the new version.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -100,7 +100,7 @@ Make sure the upgrade will not disrupt your applications:
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

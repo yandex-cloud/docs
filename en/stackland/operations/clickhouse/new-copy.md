@@ -1,6 +1,6 @@
 # Create a backup
 
-If you have a [{{ CH }}](../../concepts/components/clickhouse.md) cluster in your [project](../projects/create-project.md), you can create a backup for it.
+You can create a backup for any [{{ CH }}](../../concepts/components/clickhouse.md) cluster existing in your [project](../projects/create-project.md).
 
 {% list tabs group=instructions %}
 

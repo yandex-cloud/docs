@@ -328,7 +328,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в Terraform см. в [документации провайдера](../../terraform/resources/alb_load_balancer.md).
+     Подробнее о параметрах ресурса `yandex_alb_load_balancer` в [документации провайдера](../../terraform/resources/alb_load_balancer.md).
 
   1. Проверьте конфигурацию командой:
 
@@ -475,7 +475,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в Terraform, см. в [документации провайдера](../../terraform/resources/alb_load_balancer.md).
+     Подробнее о параметрах ресурса `yandex_alb_load_balancer` в [документации провайдера](../../terraform/resources/alb_load_balancer.md).
 
   1. Проверьте конфигурацию командой:
 

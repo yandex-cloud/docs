@@ -153,7 +153,7 @@
         match: "{name=gauge-*}"  # обязательный
 ```
 
-Смотрите также [описание синтаксиса запросов](../../../concepts/querying.md#selectors).
+Читайте также [описание синтаксиса запросов](../../../concepts/querying.md#selectors).
 
 ## Фильтр match {#match_filter}
 
@@ -232,4 +232,4 @@
         - l4: "-" # обязательный
 ```
 
-Смотрите также [описание синтаксиса запросов](../../../concepts/querying.md#selectors).
+Читайте также [описание синтаксиса запросов](../../../concepts/querying.md#selectors).

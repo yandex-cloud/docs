@@ -22,7 +22,7 @@ description: Для создания целевой группы {{ alb-full-nam
      1. В поле **{{ ui-key.yacloud.alb.column_target }}** укажите адрес ресурса и выберите [подсеть](../../vpc/concepts/network.md#subnet).
      1. (Опционально) Если [IP-адрес](../../vpc/concepts/address.md) ресурса находится вне [{{ vpc-full-name }}](../../vpc/), выберите опцию **{{ ui-key.yacloud.alb.label_target-private-ip }}**.
 
-        Например, укажите частный IPv4-адрес из вашего ЦОД, подключенного к {{ yandex-cloud }} через [{{ interconnect-full-name }}](../../interconnect/). Адрес должен входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее см. [Подсети](../../vpc/concepts/network.md#subnet).
+        Например, укажите частный IPv4-адрес из вашего ЦОД, подключенного к {{ yandex-cloud }} через [{{ interconnect-full-name }}](../../interconnect/). Адрес должен входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее в разделе [Подсети](../../vpc/concepts/network.md#subnet).
 
 
      1. Нажмите **{{ ui-key.yacloud.alb.button_add-target }}**.
@@ -66,7 +66,7 @@ description: Для создания целевой группы {{ alb-full-nam
       created_at: "2021-02-11T11:16:27.770674538Z
       ```
 
-      Также вы можете создать целевую группу с ресурсами, которые размещены вне [{{ vpc-full-name }}](../../vpc/), например в вашем ЦОД, подключенном к {{ yandex-cloud }} через [{{ interconnect-full-name }}](../../interconnect/). Адреса ресурсов должны входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее см. [Подсети](../../vpc/concepts/network.md#subnet).
+      Также вы можете создать целевую группу с ресурсами, которые размещены вне [{{ vpc-full-name }}](../../vpc/), например в вашем ЦОД, подключенном к {{ yandex-cloud }} через [{{ interconnect-full-name }}](../../interconnect/). Адреса ресурсов должны входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее в разделе [Подсети](../../vpc/concepts/network.md#subnet).
 
 
       Выполните команду, указав в параметрах имя целевой группы и частные IPv4-адреса ресурсов:
@@ -158,9 +158,9 @@ description: Для создания целевой группы {{ alb-full-nam
      * `name` — имя целевой группы.
      * `target` — параметры целевого ресурса:
        * `private_ipv4_address` — параметр, который означает, что IP-адрес находится вне {{ vpc-name }}.
-       * `ip_address` — частный IPv4-адрес ресурса. Адреса должны входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее см. [Подсети](../../vpc/concepts/network.md#subnet).
+       * `ip_address` — частный IPv4-адрес ресурса. Адреса должны входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее в разделе [Подсети](../../vpc/concepts/network.md#subnet).
 
-     Подробную информацию о параметрах ресурса `yandex_alb_target_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-targetgroup }}).
+     Подробнее о параметрах ресурса `yandex_alb_target_group` в [документации провайдера]({{ tf-provider-alb-targetgroup }}).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

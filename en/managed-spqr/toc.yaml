@@ -56,6 +56,8 @@ items:
         href: concepts/limits.md
       - name: '{{ SPQR }} settings'
         href: concepts/settings-list.md
+      - name: '{{ SPQR }} versioning policy'
+        href: concepts/update-policy.md
   - name: Access management
     href: security.md
   - name: Pricing policy
@@ -503,5 +505,23 @@ items:
   - name: Release notes
     href: release-notes.md
   - name: FAQ
-    href: qa/index.md
+    items:
+      - name: General questions
+        href: qa/general.md
+      - name: Distributed queries
+        href: qa/distributed-queries.md
+      - name: Connection
+        href: qa/connection.md
+      - name: Security
+        href: qa/security.md
+      - name: Performance
+        href: qa/performance.md
+      - name: Migration
+        href: qa/migration.md
+      - name: Limitations
+        href: qa/limitations.md
+      - name: Troubleshooting
+        href: qa/troubleshooting.md
+      - name: All questions on one page
+        href: qa/all.md
 path: en/managed-spqr/toc.yaml

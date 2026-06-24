@@ -6,7 +6,7 @@
     bash -c 'curl --silent --remote-name https://{{ s3-storage-host }}/yc-unified-agent/releases/$ua_version/unified_agent && chmod +x ./unified_agent'
     ```
 
-1. После скачивания исполняемого файла с агентом создайте конфигурационный файл, например, с настройками для [поставки системных метрик Linux](../../monitoring/operations/unified-agent/linux_metrics.md). Подробнее про конфигурацию агента смотрите в разделе [{#T}](../../monitoring/concepts/data-collection/unified-agent/configuration.md).
+1. После скачивания исполняемого файла с агентом создайте конфигурационный файл, например, с настройками для [поставки системных метрик Linux](../../monitoring/operations/unified-agent/linux_metrics.md). Конфигурация агента описана в разделе [{#T}](../../monitoring/concepts/data-collection/unified-agent/configuration.md).
 
 
 1. Переместите скачанный файл в папку `/bin/unified_agent`.

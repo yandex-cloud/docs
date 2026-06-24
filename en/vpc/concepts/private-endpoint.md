@@ -10,57 +10,75 @@ keywords:
 # Service connections in {{ vpc-full-name }}
 
 
-{% include [vpc-pe-preview](../../_includes/vpc/pe-preview.md) %}
+**Service connection** (VPC private endpoint) enables cloud resources within {{ vpc-short-name }} to connect to {{ yandex-cloud }} services over the internal network without using [public IP addresses](address.md#public-addresses).
 
-A **service connection** (Private Endpoint) provides direct IP connectivity between resources within {{ vpc-short-name }} and {{ yandex-cloud }} services that are hosted outside {{ vpc-short-name }}. 
+{{ yandex-cloud }} services remain accessible via both public IPs and service connections. 
 
-In this case, direct IP connectivity refers to availability of such services [via {{ vpc-short-name }}](./address.md#internal-addresses) internal IP addresses without using [public IP addresses](address.md#public-addresses).
+Service connections are regional and distributed across availability zones. If there is a failure in one zone, traffic is automatically rerouted to other zones.
 
-We can look at the [Object Storage](../../storage/) service as an example. 
-
-## Service connection structure {#private-endpoint-architecture}
+Bandwidth for an individual service connection is not guaranteed and depends on the current workload on the target service. For stable operation, monitor usage via [monitoring](../metrics.md) and adhere to [limits in place](./limits.md#vpc-limits).
 
 A service connection can be divided into two parts:
 
-* The client part (Private Endpoint, PE) is responsible for presenting the service in {{ vpc-short-name }}. It is implemented within {{ vpc-short-name }}. This is a common part for all types of service connections.
-* The service part (Provider) is responsible for interaction with the client part and is implemented on the service side. This part is unique for each service and service connection type.
+* A **private endpoint** (PE) represents (connects) the target service within {{ vpc-short-name }}. It is implemented within {{ vpc-short-name }}. This is a common part for all types of service connections.
+* **Provider** stands for integration implemented on the target service side to interact with the private endpoint.
 
-A service connection has the following specifications:
+## How to use service connections {#pe-notes1}
 
-* {{ vpc-short-name }} connection IP address from subnet CIDR ranges in the network you want to create a service connection for.
-* Connection type: Service you are connecting to. For a list of available service connection types, see [below](#private-endpoint-types).
+Within a single [virtual network](./network.md#network), you can create service connections of [different types](#pe-services), but only one connection per type. Creating two or more connections of the same type is not allowed.
 
-When creating a service connection in {{ vpc-short-name }}, the following objects are created:
+The private endpoint is assigned an IP address from the subnets' CIDR ranges in the {{ vpc-short-name }} network where the service connection is being created. Once you service connection is created, all cloud resources in that network gain IP connectivity to the target service.
 
-1. **Internal IP address** to which the created connection is bound.
-1. **A type DNS record** with a special FQDN for the new service connection, e.g., `storage.pe.yandexcloud.net`, which will specify the internal IP address allocated for the service connection.
-1. Optionally, if required, an additional A type DNS record can be created for the public FQDN service. It will also include the internal IP address allocated for the service connection.
+Upon creation, every private endpoint automatically gets a **PE record**, which is an A-type DNS record with a special FQDN for that service connection. For example, for [{{ objstorage-short-name }}](../../storage/), the PE record would be `storage.pe.yandexcloud.net`.
 
-Once you create a service connection, all cloud resources that will be added to subnets on the network with this connection will be linked to it through the internal IP address (1). To use the services, you can use either a fully qualified domain name (FQDN) (2) or its part (3). (2) and (3) A type DNS records will be created in the [internal service zone](../../dns/concepts/dns-zone.md#service-zones).
+Optionally, you can also create a **Primary record**, i.e., an A-type DNS record for the service's public FQDN. It will also include the internal IP address allocated for the service connection. This is defined by the `private-dns-records-enabled` parameter. For [{{ objstorage-short-name }}](../../storage/), the Primary record would be `storage.yandexcloud.net`.
 
-To use service connections outside the cloud infrastructure, you need to provide IP connectivity between your infrastructure and {{ yandex-cloud }} using VPN technologies (IPsec, Wireguard, etc.) or [Cloud Interconnect](../../interconnect/) services.
+These A-type DNS records are created in the [internal service zone](../../dns/concepts/dns-zone.md#service-zones).
 
-{% note info %}
+When using [{{ interconnect-name }}](../../interconnect/), the service connection is accessible via [private connections](../../interconnect/concepts/priv-con.md), just like other {{ vpc-short-name }} resources. To access the service connection via FQDN from outside {{ yandex-cloud }}, configure A-type records on your corporate DNS server so that the service's FQDN resolves to the corresponding service connection IP address.
 
-If you need to access the service connection via FQDN from outside {{ yandex-cloud }}, you must configure the appropriate A records on the corporate DNS server so that the FQDN of the service points to the IP address of the connection.
+## Service connection types {#pe-services}
 
-{% endnote %}
+Currently, you can create service connections for the following cloud services:
 
-## Service connection types {#private-endpoint-types}
+| **Service name** | **Creation method** | **PE record** | **Primary record** |
+| --- | --- | --- | --- |
+| [{{ objstorage-short-name }}](../../storage/) | [UI, CLI, {{ TF }}](../operations/private-endpoint-create.md) | `storage.pe.yandexcloud.net` | `storage.yandexcloud.net` |
+| [{{ cloud-registry-name }}](../../cloud-registry) | [Contacting support](../operations/private-endpoint-create-support.md) | `registry.pe.yandexcloud.net` | `registry.yandexcloud.net` |
+| [{{ ai-studio-name }}](../../ai-studio/concepts/) | [Contacting support](../operations/private-endpoint-create-support.md) | `ai.pe.api.cloud.yandex.net` | `ai.api.cloud.yandex.net` |
+| [{{ mtr-name }}](../../managed-trino) | [Contacting support](../operations/private-endpoint-create-support.md) | `trino.pe.yandexcloud.net`, `*.trino.pe.yandexcloud.net` | - |
+| [{{ serverless-containers-name }}](../../serverless-containers) |  [Contacting support](../operations/private-endpoint-create-support.md) | `*.containers.pe.yandexcloud.net` | `*.containers.yandexcloud.net` |
+| [{{ sf-name }}](../../functions) | [Contacting support](../operations/private-endpoint-create-support.md) | `functions.pe.yandexcloud.net` | `functions.yandexcloud.net` |
+| Public API Gateway | [Contacting support](../operations/private-endpoint-create-support.md) | `-` | `*.api.cloud.yandex.net` |
+| [AI Studio MCP Gateway](https://aistudio.yandex.ru/docs/ai-studio/mcp-gateway/api-ref/) |  [Contacting support](../operations/private-endpoint-create-support.md) | `*.mcpgw.serverless.pe.yandexcloud.net` | `*.mcpgw.serverless.yandexcloud.net` |
 
-| Service name (Connection type) | API service FQDN |
-| --- | --- |
-| [{{ objstorage-short-name }}](../../storage/) | {{ s3-storage-host }} |
+## How to use certain types of service connections {#pe-notes2}
 
+### {{ objstorage-name }} {#pe-s3}
 
-### Object Storage. Access from {{ vpc-short-name }} {#private-endpoint-storage}
+#### Bucket policies
 
 To allow access to {{ objstorage-short-name }} only from {{ vpc-short-name }} via a service connection, you must apply the following access policy to the bucket:
 
 {% include [policy-scheme-json](../../_includes/vpc/policy-scheme-json.md) %}
 
+### {{ cloud-registry-name }} {#pe-cr}
 
-## Use cases {#examples}
+Before creating a service connection for {{ cloud-registry-name }}, you must first create a service connection for {{ objstorage-name }}.
+
+### Public API Gateway {#pe-pubapi}
+
+This PE type currently has the following limitations:
+1. PE-record-only access is not supported. When creating this PE type, you must always ensure Primary record creation.
+1. The following services are not supported when accessed via PE:
+   * [Certificate Manager](../../certificate-manager/)
+   * [Lockbox](../../lockbox/)
+   * [Cloud Backup](../../backup/)
+   * [Object Storage S3 API](../../storage/s3/)
+
+
+## Examples of connecting to services without a VPC PE {#no-pe-examples}
 
 * [{#T}](../tutorials/storage-vpc-access.md)
 * [{#T}](../tutorials/vpc-cr-access.md)
+

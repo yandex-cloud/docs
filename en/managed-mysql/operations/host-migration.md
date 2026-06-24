@@ -15,8 +15,8 @@ description: Follow this guide to migrate {{ MY }} cluster hosts to a different 
 
    - Management console {#console}
 
-      1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
-      1. Click the cluster name and go to the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+      1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
       1. Specify the following host settings:
 
@@ -61,17 +61,17 @@ description: Follow this guide to migrate {{ MY }} cluster hosts to a different 
 
          In the `zone` parameter, specify the target availability zone for your hosts.
 
-      1. Validate your configuration.
+      1. Make sure the settings are correct.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      1. Confirm resource changes.
+      1. Confirm updating the resources.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    - REST API {#api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
          {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -100,7 +100,7 @@ description: Follow this guide to migrate {{ MY }} cluster hosts to a different 
 
    - gRPC API {#grpc-api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
          {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -134,7 +134,7 @@ description: Follow this guide to migrate {{ MY }} cluster hosts to a different 
 
    {% endlist %}
 
-1. To connect to the database after migration, specify the new host’s FQDN in your backend or client, e.g., in your application code or graphical IDE. Delete the original host's FQDN in your source availability zone.
+1. To connect to the database after migration, specify the new host’s FQDN in your backend or client, e.g., in your application code or graphical IDE. Delete the original host's FQDN in the source availability zone.
 
    You can get this FQDN from the list of hosts in your cluster:
 
@@ -150,9 +150,9 @@ description: Follow this guide to migrate {{ MY }} cluster hosts to a different 
 
    - Management console {#console}
 
-      1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
       1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
-      1. Find the host you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
+      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
    - CLI {#cli}
 
@@ -165,7 +165,7 @@ description: Follow this guide to migrate {{ MY }} cluster hosts to a different 
    - {{ TF }} {#tf}
 
       1. In your {{ TF }} infrastructure configuration file, locate your cluster description and delete the `host` sections with the source availability zone.
-      1. Validate your configuration.
+      1. Make sure the settings are correct.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

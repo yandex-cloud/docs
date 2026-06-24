@@ -2,7 +2,7 @@
 
 You can upgrade a {{ mos-name }} cluster to a newer {{ OS }} version.
 
-Learn more about minor version updates and host maintenance in [Maintenance](../concepts/maintenance.md).
+To learn about updates within the same version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
 ## Viewing a list of available versions {#version-list}
 
@@ -29,7 +29,7 @@ Make sure the upgrade will not disrupt your applications:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the {{ OS }} version you need.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -65,9 +65,9 @@ Make sure the upgrade will not disrupt your applications:
 
         To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of {{ mos-name }} cluster configuration fields you can update, see [this {{ TF }} provider guide]({{ tf-provider-mos }}).
+        For a complete list of configurable {{ mos-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mos }}).
 
-    1. Edit the `version` value in the `config` section of your cluster description. If there is no such parameter, add it.
+    1. Edit the `version` value in the `config` section of your cluster description: If there is no such parameter, add it.
 
         ```hcl
         resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
@@ -91,7 +91,7 @@ Make sure the upgrade will not disrupt your applications:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -115,7 +115,7 @@ Make sure the upgrade will not disrupt your applications:
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             Here, we provide only one setting.
 
@@ -123,11 +123,11 @@ Make sure the upgrade will not disrupt your applications:
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -168,6 +168,6 @@ Make sure the upgrade will not disrupt your applications:
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

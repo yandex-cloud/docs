@@ -32,7 +32,7 @@
 
       {% include [tf-route-reorder-delete-route](./tf-route-reorder-delete-route.md) %}
 
-      Информацию о параметрах используемых ресурсов в {{ TF }} смотрите в документации провайдера: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
+      Параметры используемых ресурсов описаны в документации провайдера {{ TF }}: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
   1. Обновите ресурсы:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

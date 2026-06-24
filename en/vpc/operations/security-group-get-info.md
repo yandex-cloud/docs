@@ -9,7 +9,7 @@ title: How to get information about a security group in {{ vpc-full-name }}
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security group](../concepts/security-groups.md).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Select the security group you need.
   1. The **{{ ui-key.yacloud.common.overview }}** page will display detailed information about the security group.
@@ -73,7 +73,7 @@ title: How to get information about a security group in {{ vpc-full-name }}
 
      You can replace `ingress` with any other parameter to get the information you need. For more information about the `yandex_vpc_security_group` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_security_group).    
 
-  1. Create resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -143,7 +143,7 @@ title: How to get information about a security group in {{ vpc-full-name }}
 
      You can replace `direction` with any other parameter to get the information you need. For more information about the `datasource_vpc_security_group_rule` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_security_group_rule).
 
-  1. Create resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

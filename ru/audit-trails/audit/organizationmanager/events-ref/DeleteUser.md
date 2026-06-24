@@ -102,7 +102,8 @@ editable: false
     "companyName": "string",
     "department": "string",
     "jobTitle": "string",
-    "employeeId": "string"
+    "employeeId": "string",
+    "avatarUrl": "string"
   },
   "requestParameters": "object",
   "response": "object"
@@ -300,4 +301,5 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || department | **string** ||
 || jobTitle | **string** ||
 || employeeId | **string** ||
+|| avatarUrl | **string** ||
 |#

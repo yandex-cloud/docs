@@ -1,6 +1,6 @@
 # Viewing {{ CH }} cluster logs
 
-{{ mch-name }} allows you to [get a cluster log snippet](#get-log) for the selected period and [view logs in real time](#get-log-stream).
+{{ mch-name }} allows you to [get a cluster log snippet](#get-log) for a selected time period and [view logs in real time](#get-log-stream).
 
 {% include [log-duration](../../_includes/mdb/log-duration.md) %}
 
@@ -10,15 +10,15 @@
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.clickhouse.cluster.switch_logs }}** tab.
     1. Specify a time period for the log entries you want to view: enter it manually or select in the calendar using the date input field.
-    1. Specify the hosts and logging level in the row with the date input field, if required.
+    1. If needed, specify the hosts and logging level in the row containing the date field.
 
-    You will see a list of log entries for the time period you specified. To view detailed information about an event, click the relevant entry in the list.
+    You will see a list of log entries for the chosen time period. To see details of a specific event, click its entry in the list.
 
-    If there are too many entries and not all of them are displayed, click **{{ ui-key.yacloud.common.label_load-more }}** at the end of the list.
+    If the list is too long to display all entries at once, click **{{ ui-key.yacloud.common.label_load-more }}** at the end of the list.
 
 - CLI {#cli}
 
@@ -37,7 +37,7 @@
         ```bash
         {{ yc-mdb-ch }} cluster list-logs <cluster_name_or_ID> \
            --limit <entry_number_limit> \
-           --columns <list_of_data_columns> \
+           --columns <list_of_output_data_columns> \
            --filter <entry_filtration_settings> \
            --since <time_range_start> \
            --until <time_range_end>
@@ -148,7 +148,7 @@
 
 ## Getting a cluster log stream {#get-log-stream}
 
-This method allows you to get cluster logs in real time.
+This method allows you to stream cluster logs in real time.
 
 {% list tabs group=instructions %}
 
@@ -257,7 +257,7 @@ This method allows you to get cluster logs in real time.
 
             {% include [tail-f-semantics](../../_includes/mdb/api/tail-f-semantics.md) %}
 
-        * `filter`: Log filter. You can filter logs so that the stream contains only the logs you need.
+        * `filter`: Log filter. You can use a filter to stream only the logs you need.
 
             {% include [stream-logs-filter](../../_includes/mdb/api/stream-logs-filter.md) %}
 
@@ -267,7 +267,7 @@ This method allows you to get cluster logs in real time.
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 
-    1. View the [server response](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.clickhouse.v1.StreamLogRecord) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.clickhouse.v1.StreamLogRecord) to make sure your request was successful.
 
 {% endlist %}
 

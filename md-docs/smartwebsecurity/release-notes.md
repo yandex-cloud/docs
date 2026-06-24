@@ -82,7 +82,7 @@
 * Для базовых правил добавлена возможность отправки запросов на [Yandex SmartCaptcha](../smartcaptcha/index.md).
 * Реализована отправка в Yandex Audit Trails [событий уровня сервиса](at-ref.md#data-plane-events): `ArlMatchedRequest`, `WafMatchedExclusionRule` и `WafMatchedRule`.
 * Добавлена поддержка API, CLI и Terraform.
-* Для условий на трафик, в которых используются регулярные выражения, добавлена возможность задать поиск строки с учетом регистра. Подробнее см. в разделе [Формат регулярных выражений](concepts/conditions.md#regular-expressions).
+* Для условий на трафик, в которых используются регулярные выражения, добавлена возможность задать поиск строки с учетом регистра. Подробнее в разделе [Формат регулярных выражений](concepts/conditions.md#regular-expressions).
 
 ## II квартал 2024 {#q2-2024}
 

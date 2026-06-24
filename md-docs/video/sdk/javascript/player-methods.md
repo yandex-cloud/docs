@@ -33,7 +33,7 @@ player.setSource({
     /**
      * @type {boolean} (необязательный параметр) автовоспроизведение при переключении на контент.
      * по умолчанию сохраняется состояние воспроизведения на момент вызова метода.
-     * Автоплей может не сработать. См. https://developer.chrome.com/blog/autoplay/
+     * Автоплей может не сработать. Подробнее https://developer.chrome.com/blog/autoplay/
      * autoplay
      */
     autoplay,
@@ -287,4 +287,4 @@ player.destroy();
 
 #### Полезные ссылки {#see-also}
 
-[Interface: PlayerSdkApi](../../api-ref/javascript/interfaces/PlayerSdkApi.md) — описание методов управления плеером в справочнике API.
+[Interface: PlayerSdkApi](../../api-ref/javascript/interfaces/PlayerSdkApi.md) — описание методов управления плеером в справочнике API

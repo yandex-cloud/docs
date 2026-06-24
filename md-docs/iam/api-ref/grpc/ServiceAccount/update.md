@@ -14,7 +14,8 @@ Updates the specified service account.
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "map<string, string>"
+  "labels": "map<string, string>",
+  "expires_at": "google.protobuf.Timestamp"
 }
 ```
 
@@ -45,6 +46,9 @@ The maximum string length in characters is 256. ||
 Resource labels as `` key:value `` pairs.
 
 The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
+|| expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Timestamp when the service account expires. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

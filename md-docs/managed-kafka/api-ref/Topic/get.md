@@ -1,7 +1,6 @@
 # Managed Service for Apache Kafka® API, REST: Topic.Get
 
 Returns the specified Kafka topic.
-
 To get the list of available Kafka topics, make a [List](list.md#List) request.
 
 ## HTTP request
@@ -17,14 +16,12 @@ GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/topic
 || clusterId | **string**
 
 Required field. ID of the Apache Kafka® cluster that the topic belongs to.
-
 To get the cluster ID, make a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || topicName | **string**
 
 Required field. Name of the Kafka topic resource to return.
-
 To get the name of the topic, make a [TopicService.List](list.md#List) request.
 
 The string length in characters must be 1-256. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
@@ -104,7 +101,6 @@ Name of the topic. ||
 || clusterId | **string**
 
 ID of an Apache Kafka® cluster that the topic belongs to.
-
 To get the Apache Kafka® cluster ID, make a [ClusterService.List](../Cluster/list.md#List) request. ||
 || partitions | **string** (int64)
 
@@ -167,12 +163,10 @@ The time to wait before deleting a file from the filesystem. ||
 || flushMessages | **string** (int64)
 
 The number of messages accumulated on a log partition before messages are flushed to disk.
-
 This setting overrides the cluster-level [KafkaConfig2_8.logFlushIntervalMessages](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
 || flushMs | **string** (int64)
 
 The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk.
-
 This setting overrides the cluster-level [KafkaConfig2_8.logFlushIntervalMs](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
 || minCompactionLagMs | **string** (int64)
 
@@ -181,12 +175,10 @@ The minimum time in milliseconds a message will remain uncompacted in the log. |
 
 The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanupPolicy` is in effect.
 It is helpful if you need to control the size of log due to limited disk space.
-
 This setting overrides the cluster-level [KafkaConfig2_8.logRetentionBytes](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
 || retentionMs | **string** (int64)
 
 The number of milliseconds to keep a log segment's file before deleting it.
-
 This setting overrides the cluster-level [KafkaConfig2_8.logRetentionMs](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
 || maxMessageBytes | **string** (int64)
 
@@ -199,12 +191,10 @@ to be considered successful (when a producer sets acks to "all"). ||
 
 This configuration controls the segment file size for the log. Retention and cleaning is always done a file
 at a time so a larger segment size means fewer files but less granular control over retention.
-
 This setting overrides the cluster-level [KafkaConfig2_8.logSegmentBytes](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
 || preallocate | **boolean**
 
 True if we should preallocate the file on disk when creating a new log segment.
-
 This setting overrides the cluster-level [KafkaConfig2_8.logPreallocate](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
 || messageTimestampType | **enum** (MessageTimestampType)
 
@@ -246,12 +236,10 @@ The time to wait before deleting a file from the filesystem. ||
 || flushMessages | **string** (int64)
 
 The number of messages accumulated on a log partition before messages are flushed to disk.
-
 This setting overrides the cluster-level [KafkaConfig3.logFlushIntervalMessages](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
 || flushMs | **string** (int64)
 
 The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk.
-
 This setting overrides the cluster-level [KafkaConfig3.logFlushIntervalMs](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
 || minCompactionLagMs | **string** (int64)
 
@@ -260,12 +248,10 @@ The minimum time in milliseconds a message will remain uncompacted in the log. |
 
 The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanupPolicy` is in effect.
 It is helpful if you need to control the size of log due to limited disk space.
-
 This setting overrides the cluster-level [KafkaConfig3.logRetentionBytes](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
 || retentionMs | **string** (int64)
 
 The number of milliseconds to keep a log segment's file before deleting it.
-
 This setting overrides the cluster-level [KafkaConfig3.logRetentionMs](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
 || maxMessageBytes | **string** (int64)
 
@@ -278,12 +264,10 @@ to be considered successful (when a producer sets acks to "all"). ||
 
 This configuration controls the segment file size for the log. Retention and cleaning is always done a file
 at a time so a larger segment size means fewer files but less granular control over retention.
-
 This setting overrides the cluster-level [KafkaConfig3.logSegmentBytes](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
 || preallocate | **boolean**
 
 True if we should preallocate the file on disk when creating a new log segment.
-
 This setting overrides the cluster-level [KafkaConfig3.logPreallocate](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
 || messageTimestampType | **enum** (MessageTimestampType)
 
@@ -325,12 +309,10 @@ The time to wait before deleting a file from the filesystem. ||
 || flushMessages | **string** (int64)
 
 The number of messages accumulated on a log partition before messages are flushed to disk.
-
 This setting overrides the cluster-level [KafkaConfig4.logFlushIntervalMessages](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
 || flushMs | **string** (int64)
 
 The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk.
-
 This setting overrides the cluster-level [KafkaConfig4.logFlushIntervalMs](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
 || minCompactionLagMs | **string** (int64)
 
@@ -339,12 +321,10 @@ The minimum time in milliseconds a message will remain uncompacted in the log. |
 
 The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanupPolicy` is in effect.
 It is helpful if you need to control the size of log due to limited disk space.
-
 This setting overrides the cluster-level [KafkaConfig4.logRetentionBytes](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
 || retentionMs | **string** (int64)
 
 The number of milliseconds to keep a log segment's file before deleting it.
-
 This setting overrides the cluster-level [KafkaConfig4.logRetentionMs](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
 || maxMessageBytes | **string** (int64)
 
@@ -357,12 +337,10 @@ to be considered successful (when a producer sets acks to "all"). ||
 
 This configuration controls the segment file size for the log. Retention and cleaning is always done a file
 at a time so a larger segment size means fewer files but less granular control over retention.
-
 This setting overrides the cluster-level [KafkaConfig4.logSegmentBytes](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
 || preallocate | **boolean**
 
 True if we should preallocate the file on disk when creating a new log segment.
-
 This setting overrides the cluster-level [KafkaConfig4.log_preallocate] setting on the topic level. ||
 || messageTimestampType | **enum** (MessageTimestampType)
 
