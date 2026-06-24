@@ -114,7 +114,7 @@ description: Следуя данной инструкции, вы сможете
       1. Введите запрос на языке запросов:
 
           ```text
-          {project = "folder__<идентификатор_каталога>", service = "__backup__", cluster = "default", resource_type = "agent", name = "BackupError", action = "CompleteFailed", resource_name = "<имя_ВМ>"}
+          {project = "folder__<идентификатор_каталога>", service = "__backup__", cluster = "default", resource_type = "backup", name = "BackupError", action = "CompleteFailed", resource_name = "<имя_ВМ>"}
           ```
 
           Где:

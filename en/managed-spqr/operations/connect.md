@@ -28,7 +28,7 @@ Security group settings will vary depending on the connection method you choose:
 
 - Over the internet {#internet}
 
-    [Configure all cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port `{{ port-mpg }}` from any IP address. To do this, create the following ingress rule:
+    [Configure all cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port `{{ port-mpg }}` from any IP address. To do this, create the following inbound rule:
 
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mpg }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
@@ -64,7 +64,7 @@ Security group settings will vary depending on the connection method you choose:
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-            This rule permits all outbound traffic, allowing you to connect to the cluster and install any necessary certificates and tools on your VM.
+            This rule permits all outbound traffic, allowing you to install any necessary certificates and tools on your VM.
 
 {% endlist %}
 
@@ -79,7 +79,7 @@ Make sure to properly configure security groups for all subnets where the cluste
 
 ## Obtaining an SSL certificate {#get-ssl-cert}
 
-Publicly accessible {{ SPQR }} hosts only support encrypted connections. To assess them, get an SSL certificate:
+Publicly accessible {{ SPQR }} hosts support only encrypted connections. To assess them, get an SSL certificate:
 
 {% include [install-certificate](../../_includes/mdb/mpg/install-certificate.md) %}
 
@@ -116,9 +116,9 @@ sudo apt update && sudo apt install --yes postgresql-client
               target_session_attrs=read-write"
         ```
 
-        Where `target_session_attrs` defines the type of request to the host. For example, `read-write` enables both reading and writing. For more information, see the [SPQR documentation](https://pg-sharding.tech/routing/hints#spqr-target-session-attrs).
+        Where `target_session_attrs` defines the type of request to the host. For example, `read-write` enables both reading and writing. For more information, see the [SPQR documentation](https://docs.pg-sharding.tech/routing/hints#__spqr__target_session_attrs).
 
-        After you run this command, enter the user password to complete the connection procedure.
+        After runing this command, enter the user password to complete your connection.
 
     1. To check the connection, run the following query:
 
@@ -141,7 +141,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 
         Where `target_session_attrs` defines the type of request to the host. For example, `read-write` enables both reading and writing. For more information, see the [SPQR documentation](https://pg-sharding.tech/routing/hints#spqr-target-session-attrs).
 
-        After you run this command, enter the user password to complete the connection procedure.
+        After runing this command, enter the user password to complete your connection.
 
     1. To check the connection, run the following query:
 

@@ -40,7 +40,7 @@ Create a {{ mgp-name }} cluster with public access. You can [connect](./operatio
 To create a cluster:
 
 1. In the management console, select the folder where you want to create your database cluster.
-1. [Navigate to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 
 
@@ -87,7 +87,7 @@ For more information about creating a cluster, see [{#T}](./operations/cluster-c
 Get the cluster ID required to [connect](#connect) to the cluster:
 
 1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-1. [Navigate to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
 1. Click the name of your cluster and select the ![image](../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.common.overview }}** tab.
 1. Copy the cluster ID specified under **{{ ui-key.yacloud.common.section-base }}**.
 

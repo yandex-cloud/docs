@@ -12,7 +12,7 @@
 
 {% note info %}
 
-По умолчанию в сервисе действуют лимиты на отправку уведомлений. Подробнее см. [Квоты и лимиты Yandex Cloud Notification Service](concepts/limits.md). Если вы хотите отправлять больше уведомлений, обратитесь в [службу поддержки](https://center.yandex.cloud/support).
+По умолчанию в сервисе действуют лимиты на отправку уведомлений. Подробнее в разделе [Квоты и лимиты Yandex Cloud Notification Service](concepts/limits.md). Если вы хотите отправлять больше уведомлений, обратитесь в [службу поддержки](https://center.yandex.cloud/support).
 
 {% endnote %}
 

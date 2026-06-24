@@ -15,4 +15,6 @@ A set of methods for managing ServiceAccount resources.
 || [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the service account. ||
 || [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified service account. ||
 || [ListOperations](listOperations.md) | Lists operations for the specified service account. ||
+|| [Suspend](suspend.md) | Suspends the specified service account. ||
+|| [Reactivate](reactivate.md) | Reactivates the specified service account. ||
 |#

@@ -376,6 +376,8 @@ Yandex Cloud Video — комплексная платформа управле�
 
  - [Create](api-ref/grpc/Subtitle/create.md)
 
+ - [GenerateDownloadURL](api-ref/grpc/Subtitle/generateDownloadURL.md)
+
  - [GenerateUploadURL](api-ref/grpc/Subtitle/generateUploadURL.md)
 
  - [Delete](api-ref/grpc/Subtitle/delete.md)
@@ -571,6 +573,8 @@ Yandex Cloud Video — комплексная платформа управле�
  - [List](api-ref/Subtitle/list.md)
 
  - [Create](api-ref/Subtitle/create.md)
+
+ - [GenerateDownloadURL](api-ref/Subtitle/generateDownloadURL.md)
 
  - [GenerateUploadURL](api-ref/Subtitle/generateUploadURL.md)
 

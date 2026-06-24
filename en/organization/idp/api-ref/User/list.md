@@ -100,7 +100,8 @@ The maximum string length in characters is 1000. ||
       "companyName": "string",
       "department": "string",
       "jobTitle": "string",
-      "employeeId": "string"
+      "employeeId": "string",
+      "expiresAt": "string"
     }
   ],
   "nextPageToken": "string"
@@ -205,4 +206,14 @@ User's job title. ||
 || employeeId | **string**
 
 User's employee ID ||
+|| expiresAt | **string** (date-time)
+
+Timestamp when the user account expires.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#

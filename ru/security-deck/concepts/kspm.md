@@ -5,8 +5,6 @@ description: Контроль {{ k8s }}® ({{ kspm-name }}) контролиру
 
 # Контроль {{ k8s }}® ({{ kspm-name }})
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 {% include [kspm-basic-intro](../../_includes/security-deck/kspm-basic-intro.md) %}
 
 Конфигурация {{ kspm-name }} задается при [создании](../operations/workspaces/create.md) окружения и может включать проверку соответствия кластеров следующим стандартам:

@@ -688,6 +688,8 @@
 
  - [List](api-ref/grpc/OAuthClient/list.md)
 
+ - [ListProfiles](api-ref/grpc/OAuthClient/listProfiles.md)
+
  - [Create](api-ref/grpc/OAuthClient/create.md)
 
  - [Update](api-ref/grpc/OAuthClient/update.md)
@@ -740,6 +742,10 @@
 
  - [ListOperations](api-ref/grpc/ServiceAccount/listOperations.md)
 
+ - [Suspend](api-ref/grpc/ServiceAccount/suspend.md)
+
+ - [Reactivate](api-ref/grpc/ServiceAccount/reactivate.md)
+
 #### ServiceControl
 
  - [Overview](api-ref/grpc/ServiceControl/index.md)
@@ -753,6 +759,16 @@
  - [Disable](api-ref/grpc/ServiceControl/disable.md)
 
  - [ResolveAgent](api-ref/grpc/ServiceControl/resolveAgent.md)
+
+#### SubjectDetails
+
+ - [Overview](api-ref/grpc/SubjectDetails/index.md)
+
+ - [Get](api-ref/grpc/SubjectDetails/get.md)
+
+ - [List](api-ref/grpc/SubjectDetails/list.md)
+
+ - [BatchGet](api-ref/grpc/SubjectDetails/batchGet.md)
 
 #### UserAccount
 
@@ -987,6 +1003,10 @@
  - [UpdateAccessBindings](api-ref/ServiceAccount/updateAccessBindings.md)
 
  - [ListOperations](api-ref/ServiceAccount/listOperations.md)
+
+ - [Suspend](api-ref/ServiceAccount/suspend.md)
+
+ - [Reactivate](api-ref/ServiceAccount/reactivate.md)
 
 #### ServiceControl
 

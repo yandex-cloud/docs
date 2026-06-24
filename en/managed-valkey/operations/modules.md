@@ -13,7 +13,7 @@ You can connect modules to a [new](cluster-create.md) or [existing](#enable-modu
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Select the cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.redis.local.valkey_modules_aQacT }}**, enable the required {{ VLK }} modules.
@@ -231,7 +231,7 @@ You can connect modules to a [new](cluster-create.md) or [existing](#enable-modu
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Select the cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.redis.local.valkey_modules_aQacT }}**, edit the {{ VLK }} module settings.

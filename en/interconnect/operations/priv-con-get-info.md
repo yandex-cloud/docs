@@ -13,6 +13,13 @@ You need the [cic.viewer](../security/index.md#cic-viewer) role to run this oper
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), click ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) or ![chevron-down](../../_assets/console-icons/chevron-down.svg) in the top panel and select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
+  1. In the left-hand panel, select ![nodes-left](../../_assets/console-icons/nodes-left.svg) **{{ ui-key.yacloud.interconnect.private-connection.private-connections_daeaR }}**. The window that opens will list all private connections in the selected folder.
+  1. To view detailed information about a specific private connection, click its row in the list.
+
 - CLI {#cli}
 
   1. View the description of the CLI command to get information about a [private connection](../concepts/priv-con.md):
@@ -24,7 +31,7 @@ You need the [cic.viewer](../security/index.md#cic-viewer) role to run this oper
   1. Get a list of private connections in the specified folder:
 
       ```bash
-      yc cic private-connection list --folder-id b1gqf2hjizv2jw******
+      yc cic private-connection list --folder-id b1gt6g8ht345********
       ```
 
       Result:
@@ -33,26 +40,25 @@ You need the [cic.viewer](../security/index.md#cic-viewer) role to run this oper
       +----------------------+--------------------+----------------------+
       |          ID          |        NAME        | TRUNK CONNECTION ID  |
       +----------------------+--------------------+----------------------+
-      | euuiog88zphgsq****** | customer-name-prc1 | euuqqctbrflq3i****** |
-      | euucr7p47329kq****** | customer-name-prc2 | euuvdjl5shd0fv****** |
+      | euuiog88zphg******** | customer-name-prc1 | euuqqctbrflq******** |
+      | euucr7p47329******** | customer-name-prc2 | euuvdjl5shd0******** |
       +----------------------+--------------------+----------------------+      
       ```
 
   1. Get information about the private connection by specifying its ID obtained in the previous step:
 
       ```bash
-      # yc cic private-connection get <private_connection_ID>
-      yc cic private-connection get euuiog88zphgsq******
+      yc cic private-connection get euuiog88zphg********
       ```
 
       Result:
 
       ```yml
-      id: euuiog88zphgsq******
+      id: euuiog88zphg********
       name: customer-name-prc1
-      folder_id: b1gqf2hjizv2jw******
+      folder_id: b1gt6g8ht345********
       region_id: {{ region-id }}
-      trunk_connection_id: euuqqctbrflq3i******
+      trunk_connection_id: euuqqctbrflq********
       vlan_id: "1531"
       ipv4_peering:
         peering_subnet: 10.211.10.0/30
@@ -63,6 +69,7 @@ You need the [cic.viewer](../security/index.md#cic-viewer) role to run this oper
       ```
 
       Where:
+
       * `id`: Private connection ID.
       * `name`: Private connection name.
       * `folder_id`: ID of the cloud folder where you created the private connection.

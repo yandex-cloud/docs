@@ -362,6 +362,8 @@ If there is only one argument, it must be a dictionary mapping Unicode ordinals 
 
 ### *class* yandex\_ai\_studio\_sdk.\_search\_api.by\_image.by\_image.**ByImageSearchTypeT**{#yandex_ai_studio_sdk._search_api.by_image.by_image.ByImageSearchTypeT}
 
+### *class* yandex\_ai\_studio\_sdk.\_search\_api.wordstat.wordstat.**WordstatTypeT**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.WordstatTypeT}
+
 ### *class* yandex\_ai\_studio\_sdk.\_search\_api.types.**XMLSearchDocumentTypeT**{#yandex_ai_studio_sdk._search_api.types.XMLSearchDocumentTypeT}
 
 ### *class* yandex\_ai\_studio\_sdk.\_types.model\_config.**ConfigTypeT**{#yandex_ai_studio_sdk._types.model_config.ConfigTypeT}

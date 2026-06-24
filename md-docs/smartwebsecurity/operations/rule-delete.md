@@ -346,7 +346,7 @@
       }
       ```
 
-      Более подробную информацию о параметрах ресурса `yandex_sws_security_profile` в Terraform, см. в [документации провайдера](../../terraform/resources/sws_security_profile.md).
+      Подробнее о параметрах ресурса `yandex_sws_security_profile` в [документации провайдера](../../terraform/resources/sws_security_profile.md).
 
   1. Создайте ресурсы:
 

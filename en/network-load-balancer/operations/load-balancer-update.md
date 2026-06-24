@@ -25,7 +25,7 @@ After you create a network load balancer, you can:
 
 - Management console {#console}
 
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. Select a load balancer and click **{{ ui-key.yacloud.common.edit }}** at the top of the page.
     1. Enter a new name and description for the load balancer.
     1. Click **{{ ui-key.yacloud.common.edit }}**.
@@ -62,11 +62,11 @@ After you create a network load balancer, you can:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        Learn how to create this file in [{#T}](load-balancer-create.md).
+        For more info on how to create such a file, see [{#T}](load-balancer-create.md).
 
-        For a complete list of updatable network load balancer configuration fields, see [this provider article]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+        For a complete list of updatable network load balancer configuration fields, see [this provider guide]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
     1. In the network load balancer description, change the `name` and `description` values:
 
@@ -81,7 +81,7 @@ After you create a network load balancer, you can:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -104,7 +104,7 @@ After you create a network load balancer, you can:
 
 - Management console {#console}
 
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. Select a load balancer and click **{{ ui-key.yacloud.common.edit }}** at the top of the page.
     1. Change the load balancer labels.
     1. Click **{{ ui-key.yacloud.common.edit }}**.
@@ -140,11 +140,11 @@ After you create a network load balancer, you can:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        Learn how to create this file in [{#T}](load-balancer-create.md).
+        For more info on how to create such a file, see [{#T}](load-balancer-create.md).
 
-        For a complete list of updatable network load balancer configuration fields, see [this provider article]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+        For a complete list of updatable network load balancer configuration fields, see [this provider guide]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
     1. In the network load balancer description, change the `name` and `description` values:
 
@@ -163,7 +163,7 @@ After you create a network load balancer, you can:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -185,7 +185,7 @@ After you create a network load balancer, you can:
 
 - Management console {#console}
 
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. Select a load balancer and click **{{ ui-key.yacloud.common.edit }}** at the top of the page.
     1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**, select a different target group from the drop-down list or [create a new one](target-group-create.md).
     1. To change target group health check settings:
@@ -231,11 +231,11 @@ After you create a network load balancer, you can:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        Learn how to create this file in [{#T}](load-balancer-create.md).
+        For more info on how to create such a file, see [{#T}](load-balancer-create.md).
 
-        For a complete list of updatable network load balancer configuration fields, see [this provider article]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+        For a complete list of updatable network load balancer configuration fields, see [this provider guide]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
     1. In the network load balancer description, change the target group ID and its health check settings under `attached_target_group`:
 
@@ -271,7 +271,7 @@ After you create a network load balancer, you can:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -22,7 +22,7 @@ To view detailed information on the health state of a {{ mch-name }} cluster:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** tab. 
 
@@ -197,7 +197,7 @@ To view detailed information on the state of individual {{ mch-name }} hosts:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** tab.
 
@@ -301,8 +301,8 @@ To view detailed information on the state of individual {{ mch-name }} hosts:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster where you want to set up alerts.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}** service.
+  1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to set up alerts.
+  1. Navigate to ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
       * **{{ mch-name }} — Cluster Overview** to set up cluster alerts.
       * **{{ mch-name }} — ZooKeeper** to set up ZooKeeper host alerts.
@@ -346,7 +346,7 @@ To check the cluster state and status:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column.
 
 {% endlist %}

@@ -19,7 +19,7 @@ description: In this tutorial, you will learn how to delete a {{ mgp-name }} clu
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster in question, select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**, and confirm the deletion.
 
 - CLI {#cli}
@@ -85,7 +85,7 @@ description: In this tutorial, you will learn how to delete a {{ mgp-name }} clu
             yandex.cloud.mdb.greenplum.v1.ClusterService.Delete
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

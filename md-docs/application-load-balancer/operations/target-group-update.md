@@ -19,7 +19,7 @@
      1. В поле **IP-адрес** укажите [IP-адрес](../../vpc/concepts/address.md) ресурса и выберите [подсеть](../../vpc/concepts/network.md#subnet).
      1. (Опционально) Если IP-адрес ресурса находится вне [Yandex Virtual Private Cloud](../../vpc/index.md), выберите опцию **Не из VPC**.
 
-        Например, укажите частный IPv4-адрес из вашего ЦОД, подключенного к Yandex Cloud через [Yandex Cloud Interconnect](../../interconnect/index.md). IP-адрес должен входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее см. [Подсети](../../vpc/concepts/network.md#subnet).
+        Например, укажите частный IPv4-адрес из вашего ЦОД, подключенного к Yandex Cloud через [Yandex Cloud Interconnect](../../interconnect/index.md). IP-адрес должен входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее в разделе [Подсети](../../vpc/concepts/network.md#subnet).
 
 
      1. Нажмите **Добавить целевой ресурс**.
@@ -58,7 +58,7 @@
      created_at: "2021-02-11T11:16:27.770674538Z"
      ```
 
-     Также вы можете добавить в целевую группу ресурсы, которые размещены вне [Yandex Virtual Private Cloud](../../vpc/index.md), например в вашем ЦОД, подключенном к Yandex Cloud через [Yandex Cloud Interconnect](../../interconnect/index.md). IP-адреса ресурсов должны входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее см. [Подсети](../../vpc/concepts/network.md#subnet).
+     Также вы можете добавить в целевую группу ресурсы, которые размещены вне [Yandex Virtual Private Cloud](../../vpc/index.md), например в вашем ЦОД, подключенном к Yandex Cloud через [Yandex Cloud Interconnect](../../interconnect/index.md). IP-адреса ресурсов должны входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее в разделе [Подсети](../../vpc/concepts/network.md#subnet).
 
 
      Выполните команду, указав в параметрах имя целевой группы и частный IPv4-адрес ресурса:
@@ -157,9 +157,9 @@
      * `name` — имя целевой группы.
      * `target` — параметры целевого ресурса:
        * `private_ipv4_address` — параметр, который означает, что IP-адрес находится вне Virtual Private Cloud.
-       * `ip_address` — частный IPv4-адрес ресурса. IP-адреса должны входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее см. [Подсети](../../vpc/concepts/network.md#subnet).
+       * `ip_address` — частный IPv4-адрес ресурса. IP-адреса должны входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее в разделе [Подсети](../../vpc/concepts/network.md#subnet).
 
-     Подробную информацию о параметрах ресурса `yandex_alb_target_group` см. в [документации провайдера Terraform](../../terraform/resources/alb_target_group.md).
+     Подробнее о параметрах ресурса `yandex_alb_target_group` в [документации провайдера](../../terraform/resources/alb_target_group.md).
   1. Примените изменения:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -326,7 +326,7 @@
      }
      ```
 
-     Подробную информацию о параметрах ресурса `yandex_alb_target_group` см. в [документации провайдера Terraform](../../terraform/resources/alb_target_group.md).
+     Подробнее о параметрах ресурса `yandex_alb_target_group` в [документации провайдера](../../terraform/resources/alb_target_group.md).
   1. Примените изменения:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.

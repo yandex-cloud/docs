@@ -76,7 +76,7 @@ description: Следуя данной инструкции, вы сможете
       * `output "ref_description"` — выходная переменная, которая содержит информацию о [клиентском ключе](../concepts/keys) (`client_key`):
          * `value` — возвращаемое значение.
 
-     Вместо `client_key` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_smartcaptcha_captcha` см. в [документации провайдера]({{ tf-provider-datasources-link }}/smartcaptcha_captcha).
+     Вместо `client_key` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_smartcaptcha_captcha` в [документации провайдера]({{ tf-provider-datasources-link }}/smartcaptcha_captcha).
 
   1. Создайте ресурсы:
 

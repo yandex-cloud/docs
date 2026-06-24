@@ -1,6 +1,6 @@
 ---
 title: How to create a {{ mgp-name }} cluster
-description: In this tutorial, you will learn how to create a {{ mgp-full-name }} cluster.
+description: Follow this guide to create a {{ mgp-full-name }} cluster.
 ---
 
 # Creating a cluster {{ mgp-name }}
@@ -24,7 +24,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
     To create a {{ mgp-name }} cluster:
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database cluster.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Enter a name for the cluster. It must be unique within the folder.
     1. Optionally, enter a description for the cluster.

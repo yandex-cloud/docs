@@ -23,7 +23,7 @@
 
       Где `--endpoint-arn` — идентификатор (ARN) эндпоинта.
 
-      Подробнее о команде `aws sns delete-endpoint` см. в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/delete-endpoint.html).
+      Подробнее о команде `aws sns delete-endpoint` в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/delete-endpoint.html).
 
 - AWS SDK для Python {#python}
 

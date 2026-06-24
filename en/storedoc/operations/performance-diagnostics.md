@@ -24,7 +24,7 @@ For read, write, and other database queries, such as `aggregate` operations, you
 To get this data:
 
 1. Open the [folder dashboard]({{ link-console-main }}).
-1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 1. Click the name of your cluster and select **{{ ui-key.yacloud.mongodb.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_profiling }}**.
 1. Specify a time range and adjust filters as needed.
 1. Select:
@@ -52,7 +52,7 @@ To get this data:
 The system provides collection access statistics and indexing recommendations for specific fields to improve query speed.
 
 1. Open the [folder dashboard]({{ link-console-main }}).
-1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 1. Click the name of your cluster and select **{{ ui-key.yacloud.mongodb.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_indexes }}**.
 1. Specify a time range and adjust filters as needed.
 

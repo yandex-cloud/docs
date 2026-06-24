@@ -144,7 +144,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% endcut %}
 
-      Более подробную информацию о параметрах ресурса `yandex_sws_security_profile` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/sws_security_profile).
+      Подробнее о параметрах ресурса `yandex_sws_security_profile` в [документации провайдера]({{ tf-provider-resources-link }}/sws_security_profile).
 
   1. Примените изменения:
 
@@ -162,7 +162,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](rule-add.md)
 * [{#T}](rule-update.md)

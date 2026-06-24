@@ -54,8 +54,8 @@ To connect {{ mch-name }} clusters to {{ objstorage-name }}, we recommend using 
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your bucket. If you have no bucket, [create](../../storage/operations/buckets/create.md) one and [upload](../../storage/operations/objects/upload.md) the data you need to it.
 
-  1. In the [management console]({{ link-console-main }}), select the folder where the cluster is located.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 
   1. Set up the [bucket ACL](../../storage/operations/buckets/edit-acl.md) or [object ACL](../../storage/operations/objects/edit-acl.md):
 

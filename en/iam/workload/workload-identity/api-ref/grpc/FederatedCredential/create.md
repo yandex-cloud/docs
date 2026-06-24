@@ -35,7 +35,7 @@ Required field. ID of the workload identity federation that is used for authenti
 The maximum string length in characters is 50. ||
 || external_subject_id | **string**
 
-Required field. Id of the external subject.
+Id of the external subject (exact match).
 
 The maximum string length in characters is 1000. ||
 |#

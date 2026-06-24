@@ -12,9 +12,9 @@ HTTP API сервиса Cloud Notification Service совместим с [Amazon
 
 {% endnote %}
 
-Чтобы не подписывать запросы API к Cloud Notification Service, вместо статического ключа вы можете использовать [IAM-токен](../../iam/concepts/authorization/iam-token.md). Подробнее см. [Отправить запрос HTTP API к Yandex Cloud Notification Service](send-request.md).
+Чтобы не подписывать запросы API к Cloud Notification Service, вместо статического ключа вы можете использовать [IAM-токен](../../iam/concepts/authorization/iam-token.md). Подробнее в разделе [Отправить запрос HTTP API к Yandex Cloud Notification Service](send-request.md).
 
-Перечень общих кодов ошибок для всех действий см. в разделе [Ошибки](common-errors.md).
+Перечень общих кодов ошибок для всех действий приведен в разделе [Ошибки](common-errors.md).
 
 ## Поддерживаемые действия {#actions}
 

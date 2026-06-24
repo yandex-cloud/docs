@@ -9,7 +9,7 @@ You can manage the [technical maintenance](../concepts/maintenance.md) of a {{ m
 
 ## Getting a list of maintenance jobs {#list-maintenance}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
 
 To view maintenance jobs with a specific status, click **{{ ui-key.yacloud.mdb.maintenance.label_task-status }}** above the maintenance list and select the status you want from the drop-down menu. You can also find a maintenance job by its ID or job name using the search field above the list.
@@ -18,7 +18,7 @@ Click an ID to see [how the maintenance job affects cluster availability](../con
 
 ## Getting maintenance-related cluster logs {#maintenance-logs}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. Click the ID of the maintenance job you need.
   1. Click **{{ ui-key.yacloud.mdb.maintenance.label_task-logs }}**.
@@ -33,7 +33,7 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
 
   To reschedule maintenance for a new date and time:
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the maintenance job with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** status.
   1. In the drop-down menu, select ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_change-task-time }}**.
@@ -153,7 +153,7 @@ If necessary, you can run a maintenance job with the **{{ ui-key.yacloud.mdb.mai
 
   To run a scheduled cluster maintenance job immediately:
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the maintenance job you need.
   1. In the drop-down menu, select ![image](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_exec-task-now }}**.
@@ -250,7 +250,7 @@ When you select a new maintenance window, any scheduled maintenance that does no
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. Click ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
   1. In the window that opens:

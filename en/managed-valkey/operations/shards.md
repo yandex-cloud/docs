@@ -17,7 +17,7 @@ You can [create a sharded cluster](./cluster-create.md#create-cluster) or [enabl
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.redis.cluster.switch_shards }}** tab.
 
 - CLI {#cli}
@@ -171,7 +171,7 @@ For clusters with the **local-ssd** disk type, the minimum allowed number of hos
 
   To add a shard:
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.redis.cluster.switch_shards }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
   1. Specify **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}**.
@@ -293,7 +293,7 @@ For clusters with the **local-ssd** disk type, the minimum allowed number of hos
             * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet). You must specify this setting if the selected availability zone has more than one subnet.
             * `shardName`: Shard name for the host.
             * `replicaPriority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
-            * `assignPublicIp`: Host accessibility from the internet via a public IP address, `true` or `false`. You can only enable public access if your cluster supports TLS.
+            * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`. You can only enable public access if your cluster supports TLS.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -345,7 +345,7 @@ For clusters with the **local-ssd** disk type, the minimum allowed number of hos
             * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet). You must specify this setting if the selected availability zone has more than one subnet.
             * `shard_name`: Shard name for the host.
             * `replica_priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
-            * `assign_public_ip`: Host accessibility from the internet via a public IP address, `true` or `false`. You can only enable public access if your cluster supports TLS.
+            * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`. You can only enable public access if your cluster supports TLS.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -369,7 +369,7 @@ To enable data placement on the new shard, run {{ mrd-name }} cluster [rebalanci
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder containing the cluster to delete the shard from.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.redis.cluster.switch_shards }}** tab.
   1. Next to the shard in question, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.shards.popup-confirm_button_delete }}**.
@@ -469,7 +469,7 @@ For more information, see [{#T}](../concepts/sharding.md#scaling).
 
   To rebalance a cluster:
   1. In the [management console]({{ link-console-main }}), select the folder with your cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the cluster name.
   1. In the **{{ ui-key.yacloud.common.overview }}** tab, click **{{ ui-key.yacloud.mdb.cluster.hosts.button_rebalance-cluster-short }}**.
 

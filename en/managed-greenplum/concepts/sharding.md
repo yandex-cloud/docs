@@ -9,7 +9,9 @@ _Sharding_ is a horizontal {{ mgp-name }} cluster scaling strategy that spreads 
 
 ## Distribution key {#distribution-key}
 
-To optimize `JOIN` operations on large tables, you can specify a [distribution key]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-CREATE_TABLE.html) explicitly. In this case, when joining tables by the fields specified in the key, a join operation will be performed locally at the segment level, and the query processing will be faster.
+To optimize `JOIN` operations on large tables, you can specify a distribution key explicitly. In this case, when joining tables by the fields specified in the key, a join operation will be performed locally at the segment level, and the query processing will be faster.
+
+Learn more about the distribution key in [Greenplum 6]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-sql_commands-CREATE_TABLE.html) and [Cloudberry](https://cloudberry.apache.org/docs/sql-stmts/create-table/).
 
 To create a table with a distribution key, provide one or more required fields in the `DISTRIBUTED BY` clause:
 
@@ -34,3 +36,7 @@ If you choose a key incorrectly, most of the data might be stored in a single se
 If you do not specify a distribution key when creating a table, data will be distributed across host segments either by the primary key (if specified) or by the first table field.
 
 {% endnote %}
+
+{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [cloudberry-trademark](../../_includes/mdb/mgp/trademark-cloudberry.md) %}

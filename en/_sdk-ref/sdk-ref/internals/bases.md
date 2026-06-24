@@ -537,6 +537,10 @@ API for [text image search](https://aistudio.yandex.ru/docs/search-api/concepts/
 
 API for [search by image](https://aistudio.yandex.ru/docs/search-api/concepts/image-search#search-by-image) service
 
+**wordstat**\: *[BaseWordstatFunction](#yandex_ai_studio_sdk._search_api.wordstat.function.BaseWordstatFunction)*{#yandex_ai_studio_sdk._search_api.domain.BaseSearchAPIDomain.wordstat}
+
+API for [Wordstat](https://aistudio.yandex.ru/docs/ru/search-api/concepts/wordstat.html) service
+
 ## *class* yandex\_ai\_studio\_sdk.\_search\_api.generative.function.**BaseGenerativeSearchFunction**{#yandex_ai_studio_sdk._search_api.generative.function.BaseGenerativeSearchFunction}
 
 Generative search function for creating search object which provides methods for invoking generative search.
@@ -961,7 +965,7 @@ To learn more about parameters and their formats and possible values, refer to [
 - **groups\_on\_page** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Maximum number of groups that can be returned per page.
 - **docs\_in\_group** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Maximum number of documents that can be returned per group.
 - **max\_passages** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Maximum number of passages that can be used when generating a document.
-- **region** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Search country or region ID that affects the document ranking rules.
+- **region** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Region*](../types/search_api.md#yandex_ai_studio_sdk._search_api.types.Region) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Search country or region ID that affects the document ranking rules.
 - **user\_agent** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – String containing the User-Agent header. Use this parameter to have your search results optimized for a specific device and browser, including mobile search results.
 - **metadata** ([*Mapping*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) ||
 || Return type | [*WebSearchTypeT*](../types/other.md#yandex_ai_studio_sdk._search_api.web.web.WebSearchTypeT) ||
@@ -1010,6 +1014,313 @@ To learn more about parameters and their formats and possible values, refer to [
 - **site** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Restricts the search to the specific website. ||
 || Return type | [*ByImageSearchTypeT*](../types/other.md#yandex_ai_studio_sdk._search_api.by_image.by_image.ByImageSearchTypeT) ||
 |#
+
+## *class* yandex\_ai\_studio\_sdk.\_search\_api.wordstat.function.**BaseWordstatFunction**{#yandex_ai_studio_sdk._search_api.wordstat.function.BaseWordstatFunction}
+
+Wordstat function for creating wordstat object which provides methods for invoking Wordstat service.
+
+**\_\_call\_\_**(){#yandex_ai_studio_sdk._search_api.wordstat.function.BaseWordstatFunction.__call__i}
+
+Creates Wordstat object which provides methods for invoking [Wordstat service](https://aistudio.yandex.ru/docs/ru/search-api/concepts/wordstat.html).
+
+#|
+|| Return type | [*WordstatTypeT*](../types/other.md#yandex_ai_studio_sdk._search_api.wordstat.wordstat.WordstatTypeT) ||
+|#
+
+## *class* yandex\_ai\_studio\_sdk.\_search\_api.wordstat.wordstat.**BaseWordstat**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat}
+
+Wordstat class which provides concrete methods for working with Wordstat service.
+
+**configure**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.configure}
+
+Returns the new object, but actually do nothing.
+
+#|
+|| Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
+|#
+
+#### *class* **DeviceType**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.DeviceType}
+
+Device type
+
+*classmethod* **Unknown**(*name*, *value*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.DeviceType.Unknown}
+
+#|
+|| Parameters | 
+
+- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+|#
+
+**\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.DeviceType.__new__i}
+
+**conjugate**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.DeviceType.conjugate}
+
+Returns self, the complex conjugate of any int.
+
+**bit\_length**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.DeviceType.bit_length}
+
+Number of bits necessary to represent self in binary.
+
+```python
+>>> bin(37)
+'0b100101'
+>>> (37).bit_length()
+6
+```
+
+**bit\_count**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.DeviceType.bit_count}
+
+Number of ones in the binary representation of the absolute value of self.
+
+Also known as the population count.
+
+```python
+>>> bin(13)
+'0b1101'
+>>> (13).bit_count()
+3
+```
+
+**as\_integer\_ratio**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.DeviceType.as_integer_ratio}
+
+Return a pair of integers, whose ratio is equal to the original int.
+
+The ratio is in lowest terms and has a positive denominator.
+
+```python
+>>> (10).as_integer_ratio()
+(10, 1)
+>>> (-10).as_integer_ratio()
+(-10, 1)
+>>> (0).as_integer_ratio()
+(0, 1)
+```
+
+**is\_integer**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.DeviceType.is_integer}
+
+Returns True. Exists for duck type compatibility with float.is\_integer.
+
+**real**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.DeviceType.real}
+
+the real part of a complex number
+
+**imag**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.DeviceType.imag}
+
+the imaginary part of a complex number
+
+**numerator**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.DeviceType.numerator}
+
+the numerator of a rational number in lowest terms
+
+**denominator**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.DeviceType.denominator}
+
+the denominator of a rational number in lowest terms
+
+**ALL** = *1*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.DeviceType.ALL}
+
+**DESKTOP** = *2*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.DeviceType.DESKTOP}
+
+**PHONE** = *3*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.DeviceType.PHONE}
+
+**TABLET** = *4*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.DeviceType.TABLET}
+
+**\_\_init\_\_**(*\*args*, *\*\*kwds*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.DeviceType.__init__i}
+
+#### *class* **PeriodType**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.PeriodType}
+
+Requested period type
+
+*classmethod* **Unknown**(*name*, *value*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.PeriodType.Unknown}
+
+#|
+|| Parameters | 
+
+- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+|#
+
+**\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.PeriodType.__new__i}
+
+**conjugate**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.PeriodType.conjugate}
+
+Returns self, the complex conjugate of any int.
+
+**bit\_length**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.PeriodType.bit_length}
+
+Number of bits necessary to represent self in binary.
+
+```python
+>>> bin(37)
+'0b100101'
+>>> (37).bit_length()
+6
+```
+
+**bit\_count**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.PeriodType.bit_count}
+
+Number of ones in the binary representation of the absolute value of self.
+
+Also known as the population count.
+
+```python
+>>> bin(13)
+'0b1101'
+>>> (13).bit_count()
+3
+```
+
+**as\_integer\_ratio**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.PeriodType.as_integer_ratio}
+
+Return a pair of integers, whose ratio is equal to the original int.
+
+The ratio is in lowest terms and has a positive denominator.
+
+```python
+>>> (10).as_integer_ratio()
+(10, 1)
+>>> (-10).as_integer_ratio()
+(-10, 1)
+>>> (0).as_integer_ratio()
+(0, 1)
+```
+
+**is\_integer**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.PeriodType.is_integer}
+
+Returns True. Exists for duck type compatibility with float.is\_integer.
+
+**real**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.PeriodType.real}
+
+the real part of a complex number
+
+**imag**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.PeriodType.imag}
+
+the imaginary part of a complex number
+
+**numerator**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.PeriodType.numerator}
+
+the numerator of a rational number in lowest terms
+
+**denominator**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.PeriodType.denominator}
+
+the denominator of a rational number in lowest terms
+
+**MONTHLY** = *1*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.PeriodType.MONTHLY}
+
+**WEEKLY** = *2*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.PeriodType.WEEKLY}
+
+**DAILY** = *3*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.PeriodType.DAILY}
+
+**\_\_init\_\_**(*\*args*, *\*\*kwds*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.PeriodType.__init__i}
+
+#### *class* **RegionsDistributionType**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.RegionsDistributionType}
+
+Requested type of regions distribution
+
+*classmethod* **Unknown**(*name*, *value*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.RegionsDistributionType.Unknown}
+
+#|
+|| Parameters | 
+
+- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+|#
+
+**\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.RegionsDistributionType.__new__i}
+
+**conjugate**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.RegionsDistributionType.conjugate}
+
+Returns self, the complex conjugate of any int.
+
+**bit\_length**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.RegionsDistributionType.bit_length}
+
+Number of bits necessary to represent self in binary.
+
+```python
+>>> bin(37)
+'0b100101'
+>>> (37).bit_length()
+6
+```
+
+**bit\_count**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.RegionsDistributionType.bit_count}
+
+Number of ones in the binary representation of the absolute value of self.
+
+Also known as the population count.
+
+```python
+>>> bin(13)
+'0b1101'
+>>> (13).bit_count()
+3
+```
+
+**as\_integer\_ratio**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.RegionsDistributionType.as_integer_ratio}
+
+Return a pair of integers, whose ratio is equal to the original int.
+
+The ratio is in lowest terms and has a positive denominator.
+
+```python
+>>> (10).as_integer_ratio()
+(10, 1)
+>>> (-10).as_integer_ratio()
+(-10, 1)
+>>> (0).as_integer_ratio()
+(0, 1)
+```
+
+**is\_integer**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.RegionsDistributionType.is_integer}
+
+Returns True. Exists for duck type compatibility with float.is\_integer.
+
+**real**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.RegionsDistributionType.real}
+
+the real part of a complex number
+
+**imag**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.RegionsDistributionType.imag}
+
+the imaginary part of a complex number
+
+**numerator**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.RegionsDistributionType.numerator}
+
+the numerator of a rational number in lowest terms
+
+**denominator**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.RegionsDistributionType.denominator}
+
+the denominator of a rational number in lowest terms
+
+**ALL** = *1*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.RegionsDistributionType.ALL}
+
+**CITIES** = *2*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.RegionsDistributionType.CITIES}
+
+**REGIONS** = *3*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.RegionsDistributionType.REGIONS}
+
+**\_\_init\_\_**(*\*args*, *\*\*kwds*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.RegionsDistributionType.__init__i}
+
+**\_\_init\_\_**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *sdk*, *uri*, *config=None*, *owner=None*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.__init__i}
+
+#|
+|| Parameters | 
+
+- **sdk** ([*yandex\_ai\_studio\_sdk.\_sdk.BaseSDK*](#yandex_ai_studio_sdk._sdk.BaseSDK))
+- **uri** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **config** ([*ConfigTypeT*](../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT) *\| None*)
+- **owner** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\| None*) ||
+|#
+
+*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT)*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.config}
+
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.fine_tuned}
+
+*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.name}
+
+*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.owner}
+
+*property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.uri}
+
+*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.version}
 
 ## *class* yandex\_ai\_studio\_sdk.\_speechkit.domain.**BaseSpeechKitDomain**{#yandex_ai_studio_sdk._speechkit.domain.BaseSpeechKitDomain}
 

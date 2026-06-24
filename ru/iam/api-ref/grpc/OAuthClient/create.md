@@ -21,7 +21,12 @@ Creates an oauth client in the specified folder.
   "scopes": [
     "string"
   ],
-  "folder_id": "string"
+  "folder_id": "string",
+  "authentication_methods": [
+    "string"
+  ],
+  "profile_id": "string",
+  "pkce_required": "bool"
 }
 ```
 
@@ -49,6 +54,17 @@ Required field. ID of the folder to create an oauth client in.
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
 
 The maximum string length in characters is 255. ||
+|| authentication_methods[] | **string**
+
+The maximum string length in characters for each value is 255. The maximum number of elements is 1000. ||
+|| profile_id | **string**
+
+ID of the profile that defines the set of allowed settings for the oauth client.
+
+The maximum string length in characters is 32. ||
+|| pkce_required | **bool**
+
+Whether PKCE (Proof Key for Code Exchange) is required for the oauth client during the authorization code flow. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

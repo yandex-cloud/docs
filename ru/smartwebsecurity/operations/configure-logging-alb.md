@@ -34,7 +34,7 @@ description: Следуя данной инструкции, вы сможете
      1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-discard-rule }}** и настройте его [параметры](../../application-load-balancer/concepts/application-load-balancer.md#discard-logs-rules).
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
-  Другие способы включения логов см. в разделе [{#T}](../../application-load-balancer/operations/application-load-balancer-manage-logs.md).
+  Другие способы включения логов описаны в разделе [{#T}](../../application-load-balancer/operations/application-load-balancer-manage-logs.md).
 
 - {{ at-name }} {#at}
 
@@ -53,7 +53,7 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** создайте или выберите аккаунт с ролью `logging.writer`.
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
-  Другие способы включения записи событий см. в разделе [{#T}](../../audit-trails/operations/create-trail.md).
+  Другие способы включения записи событий описаны в разделе [{#T}](../../audit-trails/operations/create-trail.md).
 
 {% endlist %}
 
@@ -73,7 +73,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Чтобы посмотреть содержимое лога, разверните его.
 
-  Другие способы просмотра логов см. в разделах [{#T}](../../application-load-balancer/operations/application-load-balancer-get-logs.md) и [{#T}](../../logging/operations/read-logs.md).
+  Другие способы просмотра логов описаны в разделах [{#T}](../../application-load-balancer/operations/application-load-balancer-get-logs.md) и [{#T}](../../logging/operations/read-logs.md).
 
 
   ## Примеры готовых фильтров для логов {#filtration}
@@ -154,11 +154,11 @@ description: Следуя данной инструкции, вы сможете
      yandex.cloud.audit.smartwebsecurity.<имя_события>
      ```
 
-     Примеры составления запросов см. в разделе [{#T}](../../audit-trails/tutorials/search-events-audit-logs/examples.md).
+     Примеры составления запросов приведены в разделе [{#T}](../../audit-trails/tutorials/search-events-audit-logs/examples.md).
 
   1. Чтобы посмотреть содержимое лога, разверните его.
 
-Другие способы просмотра логов см. в разделе [{#T}](../../application-load-balancer/operations/application-load-balancer-get-logs.md).
+Другие способы просмотра логов описаны в разделе [{#T}](../../application-load-balancer/operations/application-load-balancer-get-logs.md).
 
 {% endlist %}
 

@@ -9,7 +9,7 @@ To view a list of internal addresses used in a subnet:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the subnet.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. Click the subnet name.
   1. Navigate to the **{{ ui-key.yacloud.vpc.subnetworks.switch_ip-addresses }}** tab.

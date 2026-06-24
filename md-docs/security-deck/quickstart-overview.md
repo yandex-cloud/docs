@@ -2,12 +2,6 @@
 
 Сервис Security Deck предлагает инструменты для обеспечения безопасности данных и соответствия нормативным требованиям и отраслевым стандартам.
 
-{% note info %}
-
-Сервис находится на стадии [Preview](../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 ## Перед началом работы {#before-begin}
 
 Чтобы начать работать с Security Deck в Yandex Cloud:

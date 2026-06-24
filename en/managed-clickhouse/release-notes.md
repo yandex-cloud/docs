@@ -24,6 +24,17 @@ Meet {{ CK }}! It will help you coordinate and distribute queries among hosts in
 
 # {{ mch-full-name }} release notes
 
+## May 2026 {#may-2026}
+
+* Added the ability to [create and restore](./operations/cluster-backups.md) clusters with encrypted local disks from a backup. The encryption uses a custom KMS key.
+* Maximum local disk size per host is increased to 36 TB. Disks of this size are available for Intel Ice Lake (`standard-v3`) configurations with 16 or more cores. To create extra large clusters, you may need to contact [support]({{ link-console-support }}) to reserve the required resources.
+* Added optional [performance diagnostics](./operations/performance-diagnostics.md) in {{ TF }} 0.202.0 and CLI 1.8.0. {{ tag-tf }} {{ tag-cli }}
+* Added the ability to [restore a cluster](./operations/cluster-backups.md) using {{ TF }}. {{ tag-tf }}
+* Added support for the `SET DEFINER` privilege. For clusters with user management via SQL, the `admin` user gets the `SET DEFINER` privilege for all users. For clusters managed via API, each user gets the `SET DEFINER` only for themselves.
+* Maximum username length is increased to 64 characters.
+* Added the ability to use custom CAs (Certificate Authority).
+* New {{ CH }} versions are out: [26.3 LTS](https://clickhouse.com/blog/clickhouse-release-26-03) and [26.4](https://clickhouse.com/blog/clickhouse-release-26-04).
+
 ## April 2026 {#apr-2026}
 
 * Added the `performance_diagnostics` object to the cluster configuration for setting up diagnostic data collection.
@@ -33,7 +44,7 @@ Meet {{ CK }}! It will help you coordinate and distribute queries among hosts in
 
 * Now you can use self-signed certificates. To enable the feature, contact support.
 * Creating a [backup](./concepts/backup.md) via the management console now requires additional confirmation in a pop-up window.
-* Added an ability to change the [disk type](./concepts/storage.md#storage-type-selection). Data is preserved for replicated tables and clusters compliant with the [service level agreement (SLA)](https://yandex.com/legal/cloud_sla_mdb/en/). When changing the disk type, {{ TF }} now includes a `allow host recreation` warning flag, and the management console displays a warning dashboard listing non-replicated tables.
+* Added an ability to change the [disk type](./concepts/storage.md#storage-type-selection). Data is preserved for replicated tables and clusters compliant with the [service level agreement (SLA)](https://yandex.com/legal/cloud_sla_mdb/en/). Added the `allow host recreation` warning flag you get when changing disk type in the YC CLI; the management console now displays a warning dashboard with a list of non-replicated tables.
 * Added support for partial recovery of databases or individual tables from a backup to a new cluster. The feature allows you to quickly restore only the data you need.
 * Added separate [roles](./security.md) to view and edit (reschedule) [maintenance](./concepts/maintenance.md) without access to the cluster.
 

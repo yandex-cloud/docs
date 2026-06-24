@@ -127,9 +127,9 @@
 
 ## Примеры использования {#examples}
 
-* [Настройка Gateway API](../../managed-kubernetes/tutorials/marketplace/gateway-api.md).
+[Настройка Gateway API](../../managed-kubernetes/tutorials/marketplace/gateway-api.md)
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Описание проекта Gateway API](https://gateway-api.sigs.k8s.io/).
-* [Описание и конфигурация Gateway API](../tools/k8s-gateway-api/index.md) в документации Application Load Balancer.
+* [Описание проекта Gateway API](https://gateway-api.sigs.k8s.io/)
+* [Описание и конфигурация Gateway API](../tools/k8s-gateway-api/index.md) в документации Application Load Balancer

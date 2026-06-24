@@ -15,7 +15,6 @@ GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}:strea
 || clusterId | **string**
 
 Required field. ID of the Apache Kafka® cluster.
-
 To get the Apache Kafka® cluster ID, make a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -28,7 +27,6 @@ The maximum string length in characters is 50. ||
 || columnFilter[] | **string**
 
 Columns from logs table to get in the response.
-
 If no columns are specified, full log records are returned. ||
 || fromTime | **string** (date-time)
 
@@ -43,7 +41,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || toTime | **string** (date-time)
 
 End timestamp for the logs request.
-
 If this field is not set, all existing logs will be sent and then the new ones as they appear.
 In essence it has `tail -f` semantics.
 
@@ -56,19 +53,16 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || recordToken | **string**
 
 Record token.
-
 Set `recordToken` to the [StreamLogRecord.nextRecordToken](#yandex.cloud.mdb.kafka.v1.StreamLogRecord) returned by a previous [ClusterService.StreamLogs](#StreamLogs) request to start streaming from next log record.
 
 The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
-
 The expression must specify:
 1. The field name to filter by. Currently filtering can be applied to the `hostname` field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-
 Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`
 
 The maximum string length in characters is 1000. ||
@@ -96,9 +90,7 @@ One of the requested log records. ||
 || nextRecordToken | **string**
 
 This token allows you to continue streaming logs starting from the exact same record.
-
 To continue streaming, specify value of `nextRecordToken` as value for [StreamClusterLogsRequest.recordToken](#yandex.cloud.mdb.kafka.v1.StreamClusterLogsRequest) parameter in the next StreamLogs request.
-
 This value is interchangeable with [ListClusterLogsResponse.nextPageToken](listLogs.md#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse) from ListLogs method. ||
 |#
 

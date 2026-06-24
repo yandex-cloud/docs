@@ -28,7 +28,7 @@
       * `--platform-application-arn` — идентификатор (ARN) канала уведомлений.
       * `--attributes` — параметры канала уведомлений.
 
-      Подробнее о команде `aws sns set-platform-application-attributes` см. в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-platform-application-attributes.html).
+      Подробнее о команде `aws sns set-platform-application-attributes` в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-platform-application-attributes.html).
 
 - API {#api}
 
@@ -61,7 +61,7 @@
 
       Где `--platform-application-arn` — идентификатор (ARN) канала уведомлений.
 
-      Подробнее о команде `aws sns delete-platform-application` см. в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/delete-platform-application.html).
+      Подробнее о команде `aws sns delete-platform-application` в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/delete-platform-application.html).
 
 - API {#api}
 

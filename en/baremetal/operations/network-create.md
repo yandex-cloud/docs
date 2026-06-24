@@ -10,7 +10,7 @@ description: In this tutorial, you will learn how to create a virtual routing an
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [VRF](../concepts/private-network.md#vrf-segment).
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}**.
   1. At the top right, click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, specify your VRF name. The naming requirements are as follows:
@@ -43,7 +43,7 @@ description: In this tutorial, you will learn how to create a virtual routing an
      ```
 
      Where:
-     * `--name`: VRF name. Follow these naming requirements:
+     * `--name`: VRF name. The naming requirements are as follows:
        
        {% include [name-format](../../_includes/name-format.md) %}
 
@@ -105,7 +105,7 @@ Create a virtual routing and forwarding segment with a name, description, and la
 
   * `<IAM_token>`: IAM token used for authentication.
   * `folderId`: Folder ID.
-  * `name`: Image name. Follow these naming requirements:
+  * `name`: Image name. The naming requirements are as follows:
 
     {% include [name-format](../../_includes/name-format.md) %}
   

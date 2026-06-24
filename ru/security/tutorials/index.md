@@ -115,7 +115,6 @@ description: Различные практические руководства 
 
 ## Защита приложений {#app-security}
 
-* [{#T}](app-security/nginx-ingress-certificate-manager.md)
 * [{#T}](app-security/ci-cd-serverless.md)
 * [{#T}](app-security/websocket-app.md)
 * [{#T}](app-security/balancer-with-sws-profile/index.md)

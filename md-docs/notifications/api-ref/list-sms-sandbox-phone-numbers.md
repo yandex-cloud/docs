@@ -119,10 +119,10 @@ POST https://notifications.yandexcloud.net/
 * `Code` — код ошибки.
 * `Message` — описание ошибки.
 
-Перечень общих кодов ошибок для всех действий см. в разделе [Ошибки](common-errors.md).
+Перечень общих кодов ошибок для всех действий приведен в разделе [Ошибки](common-errors.md).
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Обзор HTTP API Yandex Cloud Notification Service](index.md)
 * [Отправить запрос HTTP API к Yandex Cloud Notification Service](send-request.md)
-* [ListSMSSandboxPhoneNumbers](https://docs.aws.amazon.com/sns/latest/api/API_ListSMSSandboxPhoneNumbers.html) в документации AWS.
+* [ListSMSSandboxPhoneNumbers](https://docs.aws.amazon.com/sns/latest/api/API_ListSMSSandboxPhoneNumbers.html) в документации AWS

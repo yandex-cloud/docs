@@ -1,7 +1,6 @@
 # Managed Service for Apache Kafka® API, gRPC: ClusterService.Get
 
 Returns the specified Apache Kafka® cluster.
-
 To get the list of available Apache Kafka® clusters, make a [List](list.md#List) request.
 
 ## gRPC request
@@ -21,7 +20,6 @@ To get the list of available Apache Kafka® clusters, make a [List](list.md#List
 || cluster_id | **string**
 
 Required field. ID of the Apache Kafka® Cluster resource to return.
-
 To get the cluster ID, make a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -156,17 +154,17 @@ The maximum string length in characters is 50. ||
     "rest_api_config": {
       "enabled": "bool"
     },
-    "disk_size_autoscaling": {
-      "planned_usage_threshold": "int64",
-      "emergency_usage_threshold": "int64",
-      "disk_size_limit": "int64"
-    },
     "kraft": {
       "resources": {
         "resource_preset_id": "string",
         "disk_size": "int64",
         "disk_type_id": "string"
       }
+    },
+    "disk_size_autoscaling": {
+      "planned_usage_threshold": "int64",
+      "emergency_usage_threshold": "int64",
+      "disk_size_limit": "int64"
     },
     "kafka_ui_config": {
       "enabled": "bool"
@@ -342,12 +340,12 @@ Access policy for external services. ||
 || rest_api_config | **[RestAPIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.RestAPIConfig)**
 
 Configuration of REST API. ||
-|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.kafka.v1.DiskSizeAutoscaling)**
-
-DiskSizeAutoscaling settings ||
 || kraft | **[KRaft](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KRaft)**
 
 Configuration and resource allocation for KRaft-controller hosts. ||
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.kafka.v1.DiskSizeAutoscaling)**
+
+DiskSizeAutoscaling settings ||
 || kafka_ui_config | **[KafkaUIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig)**
 
 Configuration of Kafka UI. ||
@@ -421,13 +419,11 @@ Cluster topics compression type.
 || log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of messages accumulated on a log partition before messages are flushed to disk.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_messages](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
 || log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk.
 If not set, the value of `log_flush_scheduler_interval_ms` is used.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_ms](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
 || log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
@@ -437,7 +433,6 @@ This check is done by the log flusher. ||
 
 Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_8.cleanup_policy](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) is in effect.
 This setting is helpful if you need to control the size of a log due to limited disk space.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_bytes](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
 || log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
@@ -445,24 +440,19 @@ The number of hours to keep a log segment file before deleting it. ||
 || log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of minutes to keep a log segment file before deleting it.
-
 If not set, the value of `log_retention_hours` is used. ||
 || log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of milliseconds to keep a log segment file before deleting it.
-
 If not set, the value of `log_retention_minutes` is used.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_ms](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
 || log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum size of a single log file.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.segment_bytes](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
 || log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Should pre allocate file when create new segment?
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting.
 Deprecated. Feature useless for Yandex Cloud. ||
 || socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
@@ -522,13 +512,11 @@ Cluster topics compression type.
 || log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of messages accumulated on a log partition before messages are flushed to disk.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_messages](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
 || log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk.
 If not set, the value of `log_flush_scheduler_interval_ms` is used.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_ms](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
 || log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
@@ -538,7 +526,6 @@ This check is done by the log flusher. ||
 
 Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig3.cleanup_policy](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig3) is in effect.
 This setting is helpful if you need to control the size of a log due to limited disk space.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_bytes](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
 || log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
@@ -546,24 +533,19 @@ The number of hours to keep a log segment file before deleting it. ||
 || log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of minutes to keep a log segment file before deleting it.
-
 If not set, the value of `log_retention_hours` is used. ||
 || log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of milliseconds to keep a log segment file before deleting it.
-
 If not set, the value of `log_retention_minutes` is used.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_ms](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
 || log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum size of a single log file.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.segment_bytes](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
 || log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Should pre allocate file when create new segment?
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting.
 Deprecated. Feature useless for Yandex Cloud. ||
 || socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
@@ -623,13 +605,11 @@ Cluster topics compression type.
 || log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of messages accumulated on a log partition before messages are flushed to disk.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_messages](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
 || log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk.
 If not set, the value of `log_flush_scheduler_interval_ms` is used.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.flush_ms](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig4) setting. ||
 || log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
@@ -639,7 +619,6 @@ This check is done by the log flusher. ||
 
 Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig4.cleanup_policy](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig4) is in effect.
 This setting is helpful if you need to control the size of a log due to limited disk space.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_bytes](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
 || log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
@@ -647,19 +626,15 @@ The number of hours to keep a log segment file before deleting it. ||
 || log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of minutes to keep a log segment file before deleting it.
-
 If not set, the value of `log_retention_hours` is used. ||
 || log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of milliseconds to keep a log segment file before deleting it.
-
 If not set, the value of `log_retention_minutes` is used.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.retention_ms](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig4) setting. ||
 || log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum size of a single log file.
-
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.segment_bytes](create.md#yandex.cloud.mdb.kafka.v1.TopicConfig4) setting. ||
 || socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
@@ -726,6 +701,15 @@ Allow access for DataTransfer. ||
 Is REST API enabled for this cluster. ||
 |#
 
+## KRaft {#yandex.cloud.mdb.kafka.v1.ConfigSpec.KRaft}
+
+#|
+||Field | Description ||
+|| resources | **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
+
+Resources allocated to KRaft controller hosts. ||
+|#
+
 ## DiskSizeAutoscaling {#yandex.cloud.mdb.kafka.v1.DiskSizeAutoscaling}
 
 #|
@@ -743,15 +727,6 @@ Acceptable values are 0 to 100, inclusive. ||
 || disk_size_limit | **int64**
 
 New storage size (in bytes) that is set when one of the thresholds is achieved. ||
-|#
-
-## KRaft {#yandex.cloud.mdb.kafka.v1.ConfigSpec.KRaft}
-
-#|
-||Field | Description ||
-|| resources | **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
-
-Resources allocated to KRaft controller hosts. ||
 |#
 
 ## KafkaUIConfig {#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig}

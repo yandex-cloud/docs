@@ -63,5 +63,5 @@ Certificate Manager — сервис для управления [TLS-серти
 
 #### Полезные ссылки {#see-also}
 
-* [Интегрированные с Certificate Manager сервисы](services.md).
-* [Проверка прав на домен](challenges.md).
+* [Интегрированные с Certificate Manager сервисы](services.md)
+* [Проверка прав на домен](challenges.md)

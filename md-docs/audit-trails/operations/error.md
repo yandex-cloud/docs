@@ -95,6 +95,6 @@
 
 Обратитесь в [поддержку](https://center.yandex.cloud/support) за дополнительной информацией и рекомендациями.
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md)
+[Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md)

@@ -23,9 +23,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure support costs include:
 * Fee for VM computing resources (see [{{ compute-name }} pricing](../../compute/pricing.md#prices-instance-resources)).
 * Fee for VM [disks](../../compute/concepts/disk.md) (see [{{ compute-name }} pricing](../../compute/pricing.md#prices-storage)).
-* Fee for using a dynamic or static [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* [Secret](../../lockbox/concepts/secret.md) storage and request fees (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
-* Fee for the number of function calls, computing resources allocated to run a function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Fee for a static or dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for the number of function calls, computing resources allocated for the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 * Fee for logging operations and data storage in a [log group](../../logging/concepts/log-group.md) (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)) when using [{{ cloud-logging-name }}](../../logging/).
 
 ## Set up your environment {#prepare}
@@ -33,41 +32,42 @@ The infrastructure support costs include:
 1. [Create](../../iam/operations/sa/create.md) a [service account](../../iam/concepts/users/service-accounts.md) for calling the function and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-functions-invoker }}` and `compute.operator` [roles](../../iam/concepts/access-control/roles.md) to it.
 1. [Create](../../compute/operations/vm-create/create-preemptible-vm.md#create-preemptible) a preemptible VM.
 
-## Prepare a ZIP archive with the function code {#zip-archive}
+## Create a ZIP archive with the function code {#zip-archive}
 
-1. Save this code to a file named `index.js`:
+1. Save the following code to a file named `index.js`:
 
-   ```javascript      import { Session } from '@yandex-cloud/nodejs-sdk';
-      import { instanceService, instance } from '@yandex-cloud/nodejs-sdk/compute-v1';
+   ```javascript
+   import { Session } from '@yandex-cloud/nodejs-sdk';
+   import { instanceService, instance } from '@yandex-cloud/nodejs-sdk/compute-v1';
 
-      const FOLDER_ID = process.env.FOLDER_ID;
-      const INSTANCE_ID = process.env.INSTANCE_ID;
+   const FOLDER_ID = process.env.FOLDER_ID;
+   const INSTANCE_ID = process.env.INSTANCE_ID;
 
-      export const handler = async function (event, context) {
-        const session = new Session({ iamToken: context.token.access_token });
-        const instanceClient = session.client(instanceService.InstanceServiceClient);
+   export const handler = async function (event, context) {
+     const session = new Session({ iamToken: context.token.access_token });
+     const instanceClient = session.client(instanceService.InstanceServiceClient);
 
-        const list = await instanceClient.list(instanceService.ListInstancesRequest.fromPartial({
-          folderId: FOLDER_ID,
-        }));
+     const list = await instanceClient.list(instanceService.ListInstancesRequest.fromPartial({
+       folderId: FOLDER_ID,
+     }));
 
-        const state = await instanceClient.get(instanceService.GetInstanceRequest.fromPartial({
-          instanceId: INSTANCE_ID,
-        }));
+     const state = await instanceClient.get(instanceService.GetInstanceRequest.fromPartial({
+       instanceId: INSTANCE_ID,
+     }));
 
-        var status = state.status;
+     var status = state.status;
 
-        if (status == 4) {
-          await instanceClient.start(instanceService.StartInstanceRequest.fromPartial({
-            instanceId: INSTANCE_ID,
-          }));
-        }
+     if (status == 4) {
+       await instanceClient.start(instanceService.StartInstanceRequest.fromPartial({
+         instanceId: INSTANCE_ID,
+       }));
+     }
 
-        return {
-          statusCode: 200,
-          body: { status },
-        };
-      };
+     return {
+       statusCode: 200,
+       body: { status },
+     };
+   };
    ```
 
 1. Save this code to a file named `package.json`:
@@ -91,14 +91,14 @@ The infrastructure support costs include:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your function.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Create a function:
      1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
      1. In the window that opens, enter `function-restart-vms` as the function name.
      1. Click **{{ ui-key.yacloud.common.create }}**.
   1. Create a [function version](../../functions/concepts/function.md#version):
-     1. Select `nodejs22` as the runtime environment, disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+     1. Select `nodejs22` as the runtime, disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** field, click **Attach file** and select the `function-js.zip` archive you created earlier.
      1. Specify the entry point: `index.handler`.
@@ -150,7 +150,7 @@ The infrastructure support costs include:
      * `--function-name`: Name of the function whose version you are creating.
      * `--memory`: Amount of RAM.
      * `--execution-timeout`: Maximum function runtime before timeout.
-     * `--runtime`: Runtime environment.
+     * `--runtime`: Runtime.
      * `--entrypoint`: Entry point.
      * `--service-account-id`: [ID](../../iam/operations/sa/get-id.md) of the service account with permissions to invoke the function.
      * `--environment`: Environment variables:
@@ -198,8 +198,8 @@ The infrastructure support costs include:
 
      Where:
      * `name`: Function name.
-     * `user_hash`: User-defined string that identifies the function version.
-     * `runtime`: Function [runtime environment](../../functions/concepts/runtime/index.md).
+     * `user_hash`: Any string to identify the function version.
+     * `runtime`: Function [runtime](../../functions/concepts/runtime/index.md).
      * `entrypoint`: Entry point.
      * `memory`: Amount of memory allocated for the function, in MB.
      * `execution_timeout`: Function execution timeout.
@@ -219,7 +219,7 @@ The infrastructure support costs include:
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
   1. Deploy the cloud resources.
      1. If the configuration is correct, run this command:
 
@@ -264,7 +264,7 @@ The infrastructure support costs include:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [trigger](../../functions/concepts/trigger/index.md).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
@@ -340,7 +340,7 @@ The infrastructure support costs include:
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
   1. Deploy the cloud resources.
      1. If the configuration is correct, run this command:
 
@@ -381,7 +381,7 @@ The infrastructure support costs include:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder where you created your preemptible VM.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the VM name and select **{{ ui-key.yacloud.common.stop }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. The VM status will change to `Stopped`.

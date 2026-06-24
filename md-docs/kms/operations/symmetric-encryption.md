@@ -243,8 +243,8 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Интерфейс командной строки CLI](../../cli/index.md).
-* [Симметричное шифрование в Yandex Key Management Service](../concepts/symmetric-encryption.md).
-* [Асимметричное шифрование в Yandex Key Management Service](../concepts/asymmetric-encryption.md).
-* [Управление ключами в KMS](index.md).
-* [Шифрование секретов в HashiCorp Terraform](../tutorials/terraform-secret.md).
+* [Интерфейс командной строки CLI](../../cli/index.md)
+* [Симметричное шифрование в Yandex Key Management Service](../concepts/symmetric-encryption.md)
+* [Асимметричное шифрование в Yandex Key Management Service](../concepts/asymmetric-encryption.md)
+* [Управление ключами в KMS](index.md)
+* [Шифрование секретов в HashiCorp Terraform](../tutorials/terraform-secret.md)

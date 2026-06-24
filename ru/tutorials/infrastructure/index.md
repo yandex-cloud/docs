@@ -45,7 +45,6 @@ description: Различные сценарии использования си
 * [Маршрутизация через NAT-инстанс](../routing/nat-instance/index.md)
 * [Установка виртуального роутера Cisco CSR 1000v](../routing/cisco.md)
 * [Установка виртуального роутера Mikrotik CHR](../routing/mikrotik.md)
-* [Установка Ingress-контроллера NGINX с сертификатом из {{ certificate-manager-name }}](../container-infrastructure/nginx-ingress-certificate-manager.md)
 
 ## VPNs {#vpns}
 

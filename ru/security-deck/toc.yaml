@@ -146,8 +146,14 @@ items:
         href: diagnostics/index.md
       - name: Ошибки в работе {{ kspm-name }}
         href: diagnostics/kspm-diagnostics.md
+      - name: Ошибки в работе {{ cspm-name }}
+        href: diagnostics/cspm-diagnostics.md
       - name: Ошибки в работе {{ dspm-name }}
         href: diagnostics/dspm-diagnostics.md
+      - name: Ошибки в работе {{ td-name }}
+        href: diagnostics/td-diagnostics.md
+      - name: Ошибки в работе {{ vuln-man-short-name }}
+        href: diagnostics/vm-diagnostic.md
   - name: Управление доступом
     items:
       - name: Общие роли {{ sd-name }}

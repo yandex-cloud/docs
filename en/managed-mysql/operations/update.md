@@ -54,7 +54,7 @@ We recommend changing the host class only when the cluster is idle.
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. To change the {{ MY }} host class, select the one you need under **{{ ui-key.yacloud.mdb.forms.section_resource }}**.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -213,7 +213,7 @@ We recommend changing the host class only when the cluster is idle.
 
       * `config_spec.resources.resource_preset_id`: New host class.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -229,7 +229,7 @@ We recommend changing the host class only when the cluster is idle.
 
   To change the disk type and expand the storage size for a cluster:
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
@@ -393,7 +393,7 @@ We recommend changing the host class only when the cluster is idle.
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Change the [{{ MY }} settings](../concepts/settings-list.md#dbms-cluster-settings) by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
   1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
@@ -545,7 +545,7 @@ We recommend changing the host class only when the cluster is idle.
 
           See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterReques) for the list of {{ MY }} versions available for this parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for a description and possible values for each setting.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -559,7 +559,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Configure advanced cluster settings:
 
@@ -821,7 +821,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -918,7 +918,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
           {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Call the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
@@ -978,7 +978,7 @@ To perform a master failover:
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of your cluster and select the ![icon-hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
   1. Click ![icon-autofailover.svg](../../_assets/console-icons/shuffle.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.button_manual-failover }}**.
       * To switch the master to one of the replicas, leave the **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_auto }}** option enabled.
@@ -1021,7 +1021,7 @@ To perform a master failover:
 
      Where `hostName` is the [FQDN of the replica](./connect/fqdn.md) promoted to master.
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/startFailover.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1051,7 +1051,7 @@ To perform a master failover:
 
      Where `host_name` is the [FQDN of the replica](connect/fqdn.md) which becomes the master host.
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/startFailover.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1063,7 +1063,7 @@ To perform a master failover:
 
 - Management console {#console}
 
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the cluster you want to move.
     1. Select **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
     1. Select the destination folder for your cluster.
@@ -1170,7 +1170,7 @@ To perform a master failover:
 
       Where `destination_folder_id` is the ID of the folder to which you are moving your cluster. You can get it from the [list of your cloud folders](../../resource-manager/operations/folder/get-id.md)
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/move.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1183,7 +1183,7 @@ To perform a master failover:
 
 - Management console {#console}
 
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select the security groups for cluster network traffic.
 
@@ -1318,7 +1318,7 @@ To perform a master failover:
 
       * `security_group_ids`: New [security groups](../concepts/network.md#security-groups), formatted as an array.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

@@ -51,6 +51,11 @@ index: 1
 
 # История изменений в {{ mpg-full-name }}
 
+## Май 2026 {#may-2026}
+
+* В разделе [Диагностика производительности](operations/performance-diagnostics.md) реализован переход от вкладки **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}** к детальной информации о запросе. Также на вкладке **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_plan-text }}** добавлены всплывающие подсказки для плана запроса.
+* Улучшена логика операции [переключение мастера](operations/connect/fqdn.md#automatic-master-host-selection). Теперь вы можете настроить приоритет хостов, которые являются кандидатами в мастер.
+
 ## Апрель 2026 {#apr-2026}
 
 * Добавлен инструмент [MDB Advisor](./operations/performance-diagnostics.md) для анализа производительности кластера и получения рекомендаций по оптимизации.

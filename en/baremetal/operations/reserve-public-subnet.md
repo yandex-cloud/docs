@@ -16,7 +16,7 @@ You can lease a new dedicated public subnet or convert an existing [ephemeral pu
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to reserve a [dedicated public subnet](../concepts/public-network.md#public-subnet).
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.baremetal.label_public-subnets_v16CV }}**.
   1. At the top right, click **{{ ui-key.yacloud.baremetal.label_create-public-subnet-full }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_zone-id }}** field, select the [availability zone](../../overview/concepts/geo-scope.md) where the subnet will be available.
@@ -59,7 +59,7 @@ You can lease a new dedicated public subnet or convert an existing [ephemeral pu
 
        You can only order subnets of size `/29` (six available IP addresses) and `/28` (14 available IP addresses).
      
-     * `--name`: Subnet name. Follow these naming requirements:
+     * `--name`: Subnet name. The naming requirements are as follows:
        
        {% include [name-format](../../_includes/name-format.md) %}
        
@@ -85,7 +85,7 @@ You can only convert an ephemeral public subnet to a dedicated public subnet of 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the ephemeral public subnet you want to convert to a dedicated one.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.baremetal.label_public-subnets_v16CV }}**.
   1. In the list of public subnets that opens, in the ephemeral subnet row, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.baremetal.action_dedicate-ephemeral-subnet }}**.
   1. {% include [reserve-priv-subnet-step-1](../../_includes/baremetal/instruction-steps/reserve-priv-subnet-step-1.md) %}
@@ -195,7 +195,7 @@ Lease a new dedicated public subnet of the `/29` size:
   * `folderId`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
   * `hardwarePoolIds`: [Pool](../concepts/servers.md#server-pools) IDs.
   * `prefixLength`: Size of the subnet you want to order.
-  * `name`: Name of the public subnet. Follow these naming requirements:
+  * `name`: Name of the public subnet. The naming requirements are as follows:
     
     {% include [name-format](../../_includes/name-format.md) %}
     
@@ -295,7 +295,7 @@ Change the public subnet type from `ephemeral` to `dedicated`:
   
   * `updateMask`: List of parameters to update, comma-separated.
   * `type`: New subnet type. The `DEDICATED` value for conversion into a dedicated subnet.
-  * `name`: Name of the dedicated subnet. Follow these naming requirements:
+  * `name`: Name of the dedicated subnet. The naming requirements are as follows:
     
     {% include [name-format](../../_includes/name-format.md) %}
     

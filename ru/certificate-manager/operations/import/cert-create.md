@@ -136,7 +136,7 @@
      * `certificate` — содержимое файла с [сертификатом](../../concepts/imported-certificate.md).
      * `private_key` — содержимое файла с приватным ключом.
 
-     Более подробную информацию о параметрах ресурса `yandex_cm_certificate` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate).
+     Подробнее о параметрах ресурса `yandex_cm_certificate` в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -192,7 +192,7 @@
      * `id` — идентификатор секрета {{ lockbox-name }}, в котором находится приватный ключ.
      * `key` — ключ секрета {{ lockbox-name }}, в котором находится приватный ключ.
 
-     Более подробную информацию о параметрах ресурса `yandex_cm_certificate` см. в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate).
+     Подробнее о параметрах ресурса `yandex_cm_certificate` в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

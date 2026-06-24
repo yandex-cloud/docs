@@ -20,7 +20,7 @@ To get started:
 
     {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mos.editor }} role or higher](security/index.md#roles-list) to your {{ yandex-cloud }} account. These roles allow you to create a cluster.
+1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mos.editor }} role (or higher)](security/index.md#roles-list) to your {{ yandex-cloud }} account. These roles allow you to create a cluster.
 
     To attach the service account to a cluster, e.g., to [use {{ objstorage-full-name }}](operations/s3-access.md), your account also needs the [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) role or higher.
 
@@ -42,7 +42,7 @@ This guide deals with connecting to the cluster from the internet.
 ## Create a cluster {#create-cluster}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-1. [Navigate to](../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
 1. Configure the cluster.
 

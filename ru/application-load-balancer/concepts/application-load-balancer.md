@@ -23,7 +23,7 @@
 
 * Группы безопасности ВМ бэкендов должны разрешать получение входящего трафика от балансировщика на портах, указанных в [группах бэкендов](backend-group.md). Например, любые входящие соединения из подсетей, в которых [расположен балансировщик](#lb-location), или хотя бы из одной из его групп безопасности.
 
-О том, как настроить группы безопасности для Ingress-контроллера и Gateway API, см. в разделе [{#T}](../tools/k8s-ingress-controller/security-groups.md).
+Настройка групп безопасности для Ingress-контроллера и Gateway API описана в разделе [{#T}](../tools/k8s-ingress-controller/security-groups.md).
 
 ## Расположение балансировщика и его внутренние IP-адреса {#lb-location}
 
@@ -31,7 +31,7 @@
 
 {% include [backend-healthcheck](../../_includes/application-load-balancer/backend-healthcheck.md) %}
 
-О рекомендуемом размере подсетей для балансировщика см. [ниже](#lcu-scaling-subnet-sizes).
+О рекомендуемом размере подсетей для балансировщика в разделе [Рекомендуемые размеры подсетей](#lcu-scaling-subnet-sizes).
 
 ### Внутренние IP-адреса {#internal-ips}
 
@@ -43,7 +43,7 @@
 1. Чтобы узлы могли свободно взаимодействовать с бэкендами, добавьте эти CIDR в список разрешенных источников.
 
 > Например, балансировщик использует подсети с CIDR `10.0.1.0/24` и `10.0.2.0/24`, а бэкенды принимают трафик на порт `8080`. Тогда, чтобы разрешить трафик от узлов балансировщика, потребуется два [правила](../../vpc/concepts/security-groups.md#security-groups-rules):
-> 
+>
 > | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
 > | --- | --- | --- | --- | --- |
 > | Входящий | `8080` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.0.1.0/24` |
@@ -51,7 +51,7 @@
 
 ## Автомасштабирование и ресурсные единицы {#lcu-scaling}
 
-В каждой зоне доступности балансировщика создается внутренняя группа виртуальных машин, которые называются _ресурсными единицами_. 
+В каждой зоне доступности балансировщика создается внутренняя группа виртуальных машин, которые называются _ресурсными единицами_.
 
 {% include [lcu-thresholds](../../_includes/application-load-balancer/lcu-thresholds.md) %}
 
@@ -64,9 +64,9 @@
 >
 > {% include [lcu-example-amounts](../../_includes/application-load-balancer/lcu-example-amounts.md) %}
 
-По умолчанию минимальное количество ресурсных единиц в каждой зоне доступности — 2. Его можно увеличить в настройках автомасштабирования. Подробнее см. [ниже](#lcu-scaling-settings).
+По умолчанию минимальное количество ресурсных единиц в каждой зоне доступности — 2. Его можно увеличить в настройках автомасштабирования. Подробнее в разделе [Настройки автомасштабирования](#lcu-scaling-settings).
 
-От количества ресурсных единиц зависит стоимость использования балансировщика. Подробнее см. в разделе [{#T}](../pricing.md).
+От количества ресурсных единиц зависит стоимость использования балансировщика. Подробнее в разделе [{#T}](../pricing.md).
 
 {% include [alb-ig-zonal-inc](../../_includes/application-load-balancer/alb-ig-zonal-inc.md) %}
 
@@ -89,7 +89,6 @@
   Значение должно быть не меньше, чем количество зон доступности балансировщика, умноженное на минимальное количество ресурсных единиц в каждой зоне.
 
 Настроить автомасштабирование группы ресурсных единиц балансировщика можно при его [создании](../operations/application-load-balancer-create.md) или [изменении](../operations/application-load-balancer-update.md).
-
 
 ### Рекомендуемые размеры подсетей {#lcu-scaling-subnet-sizes}
 
@@ -153,4 +152,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Балансировщики нагрузки в облаке: повышение доступности и отказоустойчивости](https://yandex.cloud/ru/blog/posts/2025/04/load-balancers-guide)
+[Балансировщики нагрузки в облаке: повышение доступности и отказоустойчивости](https://yandex.cloud/ru/blog/posts/2025/04/load-balancers-guide)

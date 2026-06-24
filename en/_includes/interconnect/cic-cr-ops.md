@@ -32,6 +32,7 @@ Creating a direct trunk | [Description](../../interconnect/tutorials/trunk-priv-
 Creating a partner trunk | [Description](../../interconnect/tutorials/partner-trunk-priv-add.md) | [Description](../../interconnect/operations/trunk-create.md#partner)
 Updating trunk parameters | Yes | [Description](../../interconnect/operations/trunk-update.md)
 Updating trunk capacity | [Description](../../interconnect/tutorials/trunk-capacity-change.md) | Not supported
+Moving a trunk to another folder | — | [Description](../../interconnect/operations/trunk-move.md)
 Deleting a trunk | [Description](../../interconnect/tutorials/trunk-del.md) | [Description](../../interconnect/operations/trunk-delete.md)
 
 
@@ -43,9 +44,10 @@ Get information about a private connection | — | [Description](../../interconn
 Getting a list of operations for a private connection | — | [Description](../../interconnect/operations/priv-con-operations.md)
 Create a private connection | [Description](../../interconnect/tutorials/trunk-priv-add.md#priv-create) | [Description](../../interconnect/operations/priv-con-create.md)
 Updating private connection parameters | Yes | [Description](../../interconnect/operations/priv-con-update.md)
+Moving a private connection to another folder | — | [Description](../../interconnect/operations/priv-con-move.md)
 Deleting a private connection | [Description](../../interconnect/tutorials/priv-del.md) | [Description](../../interconnect/operations/priv-con-delete.md)
-**Adding static routes to a private connection** (VPC stitching) | **Yes** | [Description](../../interconnect/operations/priv-con-static-upsert.md)
-**Removing static routes from a private connection** (VPC stitching) | **Yes** | [Description](../../interconnect/operations/priv-con-static-remove.md)
+**Adding static routes to a private connection** (VPC stitching) | **Yes** | [Description](../../interconnect/operations/priv-con-update.md)
+**Removing static routes from a private connection** (VPC stitching) | **Yes** | [Description](../../interconnect/operations/priv-con-update.md)
 
 
 ## Routing instance {#ri}

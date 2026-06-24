@@ -295,9 +295,9 @@
 * [Настройте для кластера группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md).
 * Используйте инструменты для настройки network policy с помощью плагинов [Calico](../../managed-kubernetes/concepts/network-policy.md#calico) (базовый) или [Cilium CNI](../../managed-kubernetes/concepts/network-policy.md#cilium) (продвинутый) в Yandex Cloud, применяя правило `default deny` для входящего и исходящего трафика по умолчанию и разрешая явно только необходимый трафик.
 * Выделите отдельный кластер Kubernetes для конечных точек, которые взаимодействуют с интернетом, либо отдельные группы узлов (с помощью механизмов: [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/#:~:text=Node%20affinity%20is%20a%20property,onto%20nodes%20with%20matching%20taints) + [Node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/)). Таким образом, выделяется сегмент DMZ, и в случае компрометации узлов из интернета поверхность атаки ограничится.
-* Используйте ресурс [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/), чтобы организовать входящий сетевой доступ к рабочим нагрузкам по протоколу HTTP/HTTPS. В Yandex Cloud вы можете использовать как минимум два варианта Ingress-контроллера:
+* Используйте ресурс [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/), чтобы организовать входящий сетевой доступ к рабочим нагрузкам по протоколу HTTP/HTTPS. В Yandex Cloud вы можете использовать как минимум два варианта контроллера:
 
-    * [Ingress-контроллер NGINX](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
+    * [Контроллер Yandex Cloud Gwin](../../managed-kubernetes/alb-ref/gwin-index.md).
     * [Ingress-контроллер Yandex Application Load Balancer](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
 ### В Managed Service for Kubernetes® используется безопасная конфигурация {#secure-configuration}

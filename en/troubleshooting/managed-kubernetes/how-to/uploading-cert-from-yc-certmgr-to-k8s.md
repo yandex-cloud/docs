@@ -16,7 +16,7 @@ To get the certificate chain file in PEM format once, use the following command:
 yc certificate-manager certificate content --id <CERTIFICATE_ID> --chain CERT_FILE_NAME_HERE.PEM
 ```
 
-This option does not provide automatic certificate updates in the web application when the certificate is re-issued. If you need the certificate automatically re-issued and loaded into your application, follow [this tutorial](../../../certificate-manager/tutorials/nginx-ingress-certificate-manager.md) that explains how to install a NGINX ingress controller with a certificate from {{ certificate-manager-name }}.
+This option does not provide automatic certificate updates in the web application when the certificate is re-issued.
 
 ## If nothing helped {#if-issue-still-persists}
 

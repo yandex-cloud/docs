@@ -81,6 +81,6 @@ Fluent Bit отрезает поле `startTimestampNanos` у метрик. Не
 
 1. Проверьте поступление логов в [Monium](https://monium.yandex.cloud).
 
-Простейший вариант использования Fluent Bit для отправки всех видов телеметрии из Java приложения в Monium см. в разделе [Пример для демо-приложения Java с Fluent Bit](otel-clinic-fluentbit-example.md).
+Простейший вариант использования Fluent Bit для отправки всех видов телеметрии из Java-приложения в Monium описан в разделе [Пример для демо-приложения Java с Fluent Bit](otel-clinic-fluentbit-example.md).
 
-Подробные примеры конфигурации (Docker, Kubernetes, парсеры) см. в разделе [Отправка логов через Fluent Bit](../logs/write/fluent-bit.md).
+Подробные примеры конфигурации (Docker, Kubernetes, парсеры) приведены в разделе [Отправка логов через Fluent Bit](../logs/write/fluent-bit.md).

@@ -1,11 +1,5 @@
 # Окружения Security Deck
 
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 _Окружение Security Deck_ — это контейнер, который содержит настройки и ресурсы модулей Security Deck, перечень контролируемых ресурсов, параметры контроля и другие настройки. Окружения позволяют более гранулярно управлять безопасностью инфраструктуры в Yandex Cloud, проверяя ее на соответствие отраслевым стандартам безопасности.
 
 В качестве ресурсов, контролируемых окружением, можно выбирать [организации](../../organization/concepts/organization.md) Yandex Identity Hub, отдельные [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоги](../../resource-manager/concepts/resources-hierarchy.md#folder) в них. Доступ окружения к контролируемым ресурсам осуществляется с использованием [коннекторов](#connectors).

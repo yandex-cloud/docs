@@ -46,7 +46,8 @@ Offset of the last successfully processed change. ||
   "offset": "int64",
   "expires_at": "google.protobuf.Timestamp",
   "operation_expires_at": "google.protobuf.Timestamp",
-  "generated": "bool"
+  "generated": "bool",
+  "old_password": "string"
 }
 ```
 
@@ -78,4 +79,11 @@ Timestamp when the writeback operation expires. ||
 || generated | **bool**
 
 Whether the password was system-generated. ||
+|| old_password | **string**
+
+The user's previous password. Present only for user-initiated changes
+(empty for administrative resets and system-generated passwords). It lets
+the sync agent perform a policy-enforcing change (LDAP DELETE old + ADD new)
+instead of a reset (REPLACE), so the directory enforces minimum password
+age and password history. ||
 |#

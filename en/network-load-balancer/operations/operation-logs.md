@@ -13,7 +13,7 @@ The system logs all actions with {{ network-load-balancer-name }} resources as a
   You can get a list of operations for a specific resource. The steps below describe how you can do this for a network load balancer. The same steps apply to target groups as well.
 
   1. In the [management console]({{ link-console-main }}), open the folder with your network load balancer.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Select the network load balancer in question.
   1. Navigate to the ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel.
 
@@ -51,7 +51,7 @@ The system logs all actions with {{ network-load-balancer-name }} resources as a
   +----------------------+---------------------+----------------------+---------------------+--------+----------------------------+
   ```
 
-  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using `--format`:
+  By default, information about operations is output as text. To get more details, use `--format` to specify the `yaml` or `json` output format:
 
   ```bash
   yc load-balancer network-load-balancer list-operations enp87akr8sdr******** --format yaml
@@ -84,9 +84,9 @@ The system logs all actions with {{ network-load-balancer-name }} resources as a
 
 {% endlist %}
 
-## Getting detailed information about an operation {#get-operations-info}
+## Getting operation details {#get-operations-info}
 
-1. [Get a list of operations](#get-operations) for the resource.
+1. [Get the list of operations](#get-operations) for the resource.
 1. Copy the operation ID.
 1. Get the operation details:
 

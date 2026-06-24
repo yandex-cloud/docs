@@ -16,7 +16,7 @@ If deletion protection is enabled for the network load balancer, [disable it](./
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you need to delete a load balancer.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Next to the load balancer you need to delete, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 

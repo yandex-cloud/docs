@@ -41,7 +41,7 @@ For more information about setting up a service account, see [Configuring access
     To change a service account attached to a {{ mos-name }} cluster:
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select the account you need from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up a service account, see [Configuring access to {{ objstorage-name }}](s3-access.md).
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -82,7 +82,7 @@ For more information about setting up a service account, see [Configuring access
 
         For more information about setting up a service account, see [Configuring access to {{ objstorage-name }}](s3-access.md).
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -120,7 +120,7 @@ For more information about setting up a service account, see [Configuring access
 
         * `serviceAccountId`: ID of the service account used for cluster operations.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -163,7 +163,7 @@ For more information about setting up a service account, see [Configuring access
 
         * `service_account_id`: ID of the service account used for cluster operations.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -177,7 +177,7 @@ For more information about setting up a service account, see [Configuring access
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. In the **{{ ui-key.yacloud.mdb.forms.database_field_admin-password }}** field, enter a new password.
 
@@ -230,7 +230,7 @@ For more information about setting up a service account, see [Configuring access
 
         {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -272,7 +272,7 @@ For more information about setting up a service account, see [Configuring access
 
             {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -319,7 +319,7 @@ For more information about setting up a service account, see [Configuring access
 
             {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -393,7 +393,7 @@ For more information about setting up a service account, see [Configuring access
 
             * `reindexRemoteWhitelist`: New list of remote hosts whose indexes contain documents to copy for reindexing. Specify the [host FQDN](connect/fqdn.md) and port 9200, separated by a colon. To specify multiple hosts, list them separated by commas after the port. For more information, see [this {{ OS }} guide]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -452,7 +452,7 @@ For more information about setting up a service account, see [Configuring access
 
             * `reindex_remote_whitelist`: New list of remote hosts whose indexes contain documents to copy for reindexing. Specify the [host FQDN](connect/fqdn.md) and port 9200, separated by a colon. To specify multiple hosts, list them separated by commas after the port. For more information, see [this {{ OS }} guide]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -465,7 +465,7 @@ For more information about setting up a service account, see [Configuring access
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Change additional cluster settings:
 
@@ -554,7 +554,7 @@ For more information about setting up a service account, see [Configuring access
 
         Even with cluster deletion protection enabled, it is still possible to delete a user or connect to the cluster manually and delete the data.
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -620,7 +620,7 @@ For more information about setting up a service account, see [Configuring access
             * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
             * `hour`: Hour, in `HH` format, for scheduled maintenance. The possible values range from `1` to `24`. Use the UTC time zone.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -695,7 +695,7 @@ For more information about setting up a service account, see [Configuring access
             * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
             * `hour`: Hour, in `HH` format, for scheduled maintenance. The possible values range from `1` to `24`. Use the UTC time zone.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -711,7 +711,7 @@ After you assign other [security groups](../concepts/network.md#security-groups)
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the security groups for cluster network traffic.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -748,7 +748,7 @@ After you assign other [security groups](../concepts/network.md#security-groups)
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -791,7 +791,7 @@ After you assign other [security groups](../concepts/network.md#security-groups)
 
         * `securityGroupIds`: Security group IDs.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -839,7 +839,7 @@ After you assign other [security groups](../concepts/network.md#security-groups)
 
         * `security_group_ids`: Security group IDs.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

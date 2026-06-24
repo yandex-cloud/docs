@@ -1,6 +1,6 @@
 ---
 title: Creating a {{ SD }} cluster
-description: In this tutorial, you will learn how to create a {{ SD }} cluster.
+description: Follow this guide to create a {{ SD }} cluster.
 ---
 
 # Creating a {{ SD }} cluster
@@ -37,7 +37,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your database cluster.
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 
@@ -121,7 +121,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       * Username.
       * Password. It must be at least 8 characters long. 
 
-  1. If needed, configure advanced cluster settings:
+  1. If needed, configure the advanced cluster settings:
 
       {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings.md) %}
 
@@ -627,7 +627,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -681,9 +681,9 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             {
               "name": "<DB_name>"
             },
-            { <similar_configuration_for_DB_2> },
+            { <similar_settings_for_DB_2> },
             { ... },
-            { <similar_configuration_for_DB_N> }
+            { <similar_settings_for_DB_N> }
           ],
           "userSpecs": [
             {
@@ -778,9 +778,9 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             {
               "name": "<DB_name>"
             },
-            { <similar_configuration_for_DB_2> },
+            { <similar_settings_for_DB_2> },
             { ... },
-            { <similar_configuration_for_DB_N> }
+            { <similar_settings_for_DB_N> }
           ],
           "userSpecs": [
             {
@@ -819,7 +819,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             },
             { <similar_settings_for_host_3> },
             { ... },
-            { <similar_configuration_for_host_N> }
+            { <similar_settings_for_host_N> }
           ]
         }
         ```
@@ -889,9 +889,9 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             {
               "name": "<DB_name>"
             },
-            { <similar_configuration_for_DB_2> },
+            { <similar_settings_for_DB_2> },
             { ... },
-            { <similar_configuration_for_DB_N> }
+            { <similar_settings_for_DB_N> }
           ],
           "userSpecs": [
             {
@@ -936,7 +936,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             },
             { <similar_settings_for_host_4> },
             { ... },
-            { <similar_configuration_for_host_N> }
+            { <similar_settings_for_host_N> }
           ]
         }
         ```
@@ -1097,9 +1097,9 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             {
               "name": "<DB_name>"
             },
-            { <similar_configuration_for_DB_2> },
+            { <similar_settings_for_DB_2> },
             { ... },
-            { <similar_configuration_for_DB_N> }
+            { <similar_settings_for_DB_N> }
           ],
           "user_specs": [
             {
@@ -1194,9 +1194,9 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             {
               "name": "<DB_name>"
             },
-            { <similar_configuration_for_DB_2> },
+            { <similar_settings_for_DB_2> },
             { ... },
-            { <similar_configuration_for_DB_N> }
+            { <similar_settings_for_DB_N> }
           ],
           "user_specs": [
             {
@@ -1235,7 +1235,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             },
             { <similar_settings_for_host_3> },
             { ... },
-            { <similar_configuration_for_host_N> }
+            { <similar_settings_for_host_N> }
           ]
         }
         ```
@@ -1305,9 +1305,9 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             {
               "name": "<DB_name>"
             },
-            { <similar_configuration_for_DB_2> },
+            { <similar_settings_for_DB_2> },
             { ... },
-            { <similar_configuration_for_DB_N> }
+            { <similar_settings_for_DB_N> }
           ],
           "user_specs": [
             {
@@ -1352,7 +1352,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             },
             { <similar_settings_for_host_4> },
             { ... },
-            { <similar_configuration_for_host_N> }
+            { <similar_settings_for_host_N> }
           ]
         }
         ```

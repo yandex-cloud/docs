@@ -52,7 +52,7 @@ Id of the service account that the federated credential belongs to. ||
 ID of the workload identity federation which is used for authentication. ||
 || external_subject_id | **string**
 
-Id of the external subject. ||
+Id of the external subject (exact match). ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||

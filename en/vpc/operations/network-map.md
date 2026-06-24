@@ -9,7 +9,7 @@ You can open your [cloud network map](../concepts/network.md#map) in your folder
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with the network you want to explore.
-   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, click **More**, then click **{{ ui-key.yacloud.vpc.title_network-map-page }}**.
 
 {% endlist %}

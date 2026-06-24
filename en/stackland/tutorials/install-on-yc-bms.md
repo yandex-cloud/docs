@@ -4,6 +4,8 @@
 
 In this tutorial, you will learn how to rent {{ baremetal-full-name }} servers and get them ready for {{ stackland-name }} deployment, as well as how to prepare a configuration file for installing {{ stackland-name }} on your rented servers. For details as to deploying a {{ stackland-full-name }} cluster on a ready-to-go infrastructure, see our [Installation guide](../quickstart.md).
 
+If you want to use network boot instead of manually booting the ISO image via the KVM console, see the [Installing {{ stackland-name }} on {{ baremetal-full-name }} via PXE](install-on-yc-bms-pxe.md) guide.
+
 To configure the environment, this tutorial employs the [Yandex Cloud management console](http://console.yandex.cloud). To use a different {{ baremetal-full-name }} interface, refer to the [relevant articles](https://yandex.cloud/en/services/baremetal).
 
 ## Introduction {#introduction}
@@ -18,7 +20,7 @@ When selecting a server configuration, consider the expected workload of your ne
 
 The diagram below provides a high-level overview of the installation process:
 
-![qis-install](../_assets/yc-bms-install.svg)
+![sladm-install](../_assets/yc-bms-install.svg)
 
 ## Step 1: Create a private subnet {#create-private-subnet}
 
@@ -91,7 +93,7 @@ The bastion fulfills three primary functions:
 * Enables {{ stackland-name }} cluster nodes to access the internet.
 * Hosts infrastructure services required for {{ stackland-name }} operation, such as DNS and NTP. When deploying within the enterprise environment, they are typically part of the organization's IT infrastructure.
 
-Before you start configuring your bastion, connect to it over SSH using its public IP address incremented by one.
+Before starting the setup, access your bastion over SSH using the public IP address listed on the server page. If the server is connected to an ephemeral public subnet, check the actual connection address in the server's public network interface settings.
 
 ### 3.1. Configuring network access {#net-settings}
 
@@ -273,6 +275,16 @@ When deploying {{ stackland-name }} within an enterprise environment, you can us
     ```bash
     sudo rndc reload
     ```
+
+    Before rebooting zones, you can check the configuration using the following commands:
+
+    ```bash
+    named-checkconf
+    named-checkzone internal /etc/bind/db.internal
+    named-checkzone baremetal.internal /etc/bind/db.baremetal.internal
+    ```
+
+    If the `stackland.internal` zone is configured to delegate to future cluster nodes, `named-checkzone` may display warnings about NS records without A/AAAA records in the parent zone. Make sure node names resolve in the `baremetal.internal` zone.
 
 1. If no errors occur, verify that domain name resolution works as expected:
 

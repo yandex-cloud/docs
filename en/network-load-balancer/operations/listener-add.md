@@ -12,7 +12,7 @@ description: Follow this guide to add a listener to a network load balancer.
   To add a [listener](../concepts/listener.md) to a network load balancer:
   
   1. In the [management console]({{ link-console-main }}), select the folder where you need to add a listener to a load balancer.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Next to the load balancer to add a listener to, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
   1. In the window that opens, specify these listener settings:
 
@@ -85,7 +85,7 @@ description: Follow this guide to add a listener to a network load balancer.
        * `external_address_spec`: Specification of the listener for the external load balancer settings:
          * `ip_version`: External IP address specification. Specify the IP address version, `ipv4` or `ipv6`. The default value is `ipv4`.
 
-     For more information about `yandex_lb_network_load_balancer` settings, see [this {{ TF }} article]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+     For more information about `yandex_lb_network_load_balancer` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
   1. Make sure the settings are correct.
 

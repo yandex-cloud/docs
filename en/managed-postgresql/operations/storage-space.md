@@ -19,7 +19,7 @@ To prevent issues with database write operations, use one of the following metho
 
 ## Setting up alerts in {{ monitoring-full-name }} {#set-alert}
 
-1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. Select the **{{ ui-key.yacloud_monitoring.services.label_postgresql }}** service dashboard.
 1. [Create a notification channel](../../monitoring/operations/alert/create-channel.md).
 1. [Create an alert](../../monitoring/operations/alert/create-alert.md) with the following settings:
@@ -92,7 +92,7 @@ To disable read-only mode:
 
     To change the disk type and expand the storage size for a cluster:
 
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
@@ -266,7 +266,7 @@ To disable read-only mode:
 
 - Management console {#console}
 
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ mpg-name }}**.
+    1. Navigate to **{{ mpg-name }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**:
 

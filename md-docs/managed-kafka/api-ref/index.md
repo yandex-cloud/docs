@@ -10,8 +10,10 @@ This API reference is organized by resource. Actions are performed by sending HT
 ||Service | Description ||
 || [Cluster](Cluster/index.md) | A set of methods for managing Apache Kafka® clusters. ||
 || [Connector](Connector/index.md) | A set of methods for managing Apache Kafka® connectors. ||
+|| [Maintenance](Maintenance/index.md) | A set of methods for managing maintenances in a service. ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [ResourcePreset](ResourcePreset/index.md) | A set of methods for managing Kafka resource presets. ||
 || [Topic](Topic/index.md) | A set of methods for managing Kafka topics. ||
 || [User](User/index.md) | A set of methods for managing Kafka users. ||
+|| [Versions](Versions/index.md) |  ||
 |#

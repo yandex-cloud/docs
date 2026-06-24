@@ -1,6 +1,6 @@
 # Viewing {{ MY }} cluster logs
 
-{{ mmy-name }} allows you to [get a cluster log snippet](#get-log) for the selected period and to [view logs in real time](#get-log-stream).
+{{ mmy-name }} allows you to [get a cluster log snippet](#get-log) for the selected time period and [view logs in real time](#get-log-stream).
 
 {% include [log-duration](../../_includes/mdb/log-duration.md) %}
 
@@ -10,15 +10,15 @@
 
 - Management console {#console}
 
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
     1. Click the name of your cluster and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mysql.cluster.switch_logs }}** tab.
     1. Specify a time period for the log entries you want to view by entering it manually or selecting it in the calendar using the date input field.
     1. Select the type of events to display. The default type is `MYSQL_ERROR`.
     1. Specify the hosts and logging level in the row with the date input field, if required.
 
-    You will see a list of log entries for the time period you specified. To view detailed information about an event, click the relevant entry in the list.
+    You will see a list of log entries for the chosen time period. To see details of a specific event, click its entry in the list.
 
-    If there are too many entries and not all of them are displayed, click **{{ ui-key.yacloud.common.label_load-more }}** at the end of the list.
+    If the list is too long to display all entries at once, click **{{ ui-key.yacloud.common.label_load-more }}** at the end of the list.
 
 - CLI {#cli}
 
@@ -49,11 +49,11 @@
 
         * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
         * {% include [logs output format](../../_includes/cli/logs/format.md) %}
-        * `--service-type`: Type of the service for which you want to output entries (`mysql-error`, `mysql-general`, `mysql-slow-query`, or `mysql-audit`).
+        * `--service-type`: Service type for log entries. Possible values are `mysql-error`, `mysql-general`, `mysql-slow-query`, and `mysql-audit`.
         * `--columns`: List of data columns:
 
             * `hostname`: [Host name](hosts.md#list-hosts).
-            * `id`: Query ID.
+            * `id`: Request ID.
             * `message`: Message output by the service.
             * `status`: Message status, e.g., `Note` or `Warning`.
 
@@ -73,7 +73,7 @@
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -115,11 +115,11 @@
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -177,7 +177,7 @@
 
 ## Getting a cluster log stream {#get-log-stream}
 
-This method allows you to get cluster logs in real time.
+This method allows you to stream cluster logs in real time.
 
 {% list tabs group=instructions %}
 
@@ -197,7 +197,7 @@ This method allows you to get cluster logs in real time.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -218,10 +218,10 @@ This method allows you to get cluster logs in real time.
 
             {% include [Log types](../../_includes/mdb/mmy/log-types.md) %}
 
-        * `columnFilter`: List of output data columns:
+        * `columnFilter`: List of output columns:
 
             * `hostname`: [Host name](hosts.md#list-hosts).
-            * `id`: Query ID.
+            * `id`: Request ID.
             * `message`: Message output by the service.
             * `status`: Message status, e.g., `Note` or `Warning`.
             * `raw`: Raw data for all columns.
@@ -234,13 +234,13 @@ This method allows you to get cluster logs in real time.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. Check the [server response](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.mysql.v1.StreamLogRecord) to make sure your request was successful.
+    1. View the [server response](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.mysql.v1.StreamLogRecord) to make sure your request was successful.
 
-        The command continues running after execution, displaying new logs in its output in real time.
+        Once you launch the command, it will continue running, displaying new logs in its output in real time.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -271,10 +271,10 @@ This method allows you to get cluster logs in real time.
 
             {% include [Log types](../../_includes/mdb/mmy/log-types.md) %}
 
-        * `column_filter`: List of output data columns:
+        * `column_filter`: List of output columns:
 
             * `hostname`: [Host name](hosts.md#list-hosts).
-            * `id`: Query ID.
+            * `id`: Request ID.
             * `message`: Message output by the service.
             * `status`: Message status, e.g., `Note` or `Warning`.
             * `raw`: Raw data for all columns.
@@ -290,7 +290,7 @@ This method allows you to get cluster logs in real time.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. Check the [server response](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.mysql.v1.StreamLogRecord) to make sure your request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.mysql.v1.StreamLogRecord) to make sure your request was successful.
 
         Once you launch the command, it will continue running, displaying new logs in its output in real time.
 

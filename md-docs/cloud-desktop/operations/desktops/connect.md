@@ -134,7 +134,7 @@
 
   #### Полезные ссылки {#mac-see-also}
 
-  * [Начало работы с удаленным рабочим столом в macOS](https://docs.microsoft.com/ru-ru/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac)
+  [Начало работы с удаленным рабочим столом в macOS](https://docs.microsoft.com/ru-ru/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac)
 
 - Linux {#linux}
 
@@ -159,6 +159,6 @@
 
   #### Полезные ссылки {#lin-see-also}
 
-  * [Установка Remmina на дистрибутивы Linux, отличные от Ubuntu](https://remmina.org/how-to-install-remmina/)
+  [Установка Remmina на дистрибутивы Linux, отличные от Ubuntu](https://remmina.org/how-to-install-remmina/)
 
 {% endlist %}

@@ -15,10 +15,9 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](setup-infrastructure.md)
 * [{#T}](proxy-create.md)
 * [{#T}](domain-create.md)
 * [{#T}](host-connect.md)
-

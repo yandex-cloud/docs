@@ -12,7 +12,7 @@ description: Follow this guide to delete a rule from a security group.
   To delete a [rule](../concepts/security-groups.md#security-groups-structure) from a [security group](../concepts/security-groups.md):
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the security group you want to update.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the security group you need to delete a rule from and select **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the rule you need to delete.

@@ -230,7 +230,7 @@ description: Следуя данной инструкции, вы сможете
       }
       ```
 
-      Более подробную информацию о параметрах ресурса `yandex_sws_security_profile` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/sws_security_profile).
+      Подробнее о параметрах ресурса `yandex_sws_security_profile` в [документации провайдера]({{ tf-provider-resources-link }}/sws_security_profile).
 
   1. Создайте ресурсы:
 
@@ -248,6 +248,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [{#T}](rule-delete.md)
+[{#T}](rule-delete.md)

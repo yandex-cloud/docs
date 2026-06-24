@@ -32,7 +32,8 @@ Creates a user in the specified userpool.
   "company_name": "string",
   "department": "string",
   "job_title": "string",
-  "employee_id": "string"
+  "employee_id": "string",
+  "expires_at": "google.protobuf.Timestamp"
 }
 ```
 
@@ -117,6 +118,9 @@ The maximum string length in characters is 256. ||
 User's employee ID
 
 The maximum string length in characters is 256. ||
+|| expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Timestamp when the user account expires. ||
 |#
 
 ## PasswordSpec {#yandex.cloud.organizationmanager.v1.idp.PasswordSpec}
@@ -152,7 +156,12 @@ The maximum string length in characters is 128. ||
 
 Required field. Type of the password hash.
 
-- `AD_MD4`: Microsoft Active Directory MD4 hash. ||
+- `AD_MD4`: Microsoft Active Directory MD4 hash.
+- `LDAP_PBKDF2_SHA256`: 389 legacy format `{PBKDF2_SHA256}` (underscore).
+Supported by 389 DS, FreeIPA, ALD Pro.
+- `LDAP_PBKDF2_SHA256_OPENLDAP`: OpenLDAP-compatible format `{PBKDF2-SHA256}` (hyphen). Supported by 389 DS, FreeIPA, ALD Pro.
+- `LDAP_PBKDF2_SHA512`: Supported by 389 DS, FreeIPA, ALD Pro.
+- `LDAP_PKCS5S2`: Supported by Apache Directory Server. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

@@ -19,7 +19,7 @@
      1. В поле **{{ ui-key.yacloud.alb.column_target }}** укажите [IP-адрес](../../vpc/concepts/address.md) ресурса и выберите [подсеть](../../vpc/concepts/network.md#subnet).
      1. (Опционально) Если IP-адрес ресурса находится вне [{{ vpc-full-name }}](../../vpc/), выберите опцию **{{ ui-key.yacloud.alb.label_target-private-ip }}**.
 
-        Например, укажите частный IPv4-адрес из вашего ЦОД, подключенного к {{ yandex-cloud }} через [{{ interconnect-full-name }}](../../interconnect/). IP-адрес должен входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее см. [Подсети](../../vpc/concepts/network.md#subnet).
+        Например, укажите частный IPv4-адрес из вашего ЦОД, подключенного к {{ yandex-cloud }} через [{{ interconnect-full-name }}](../../interconnect/). IP-адрес должен входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее в разделе [Подсети](../../vpc/concepts/network.md#subnet).
 
 
      1. Нажмите **{{ ui-key.yacloud.alb.button_add-target }}**.
@@ -58,7 +58,7 @@
      created_at: "2021-02-11T11:16:27.770674538Z"
      ```
 
-     Также вы можете добавить в целевую группу ресурсы, которые размещены вне [{{ vpc-full-name }}](../../vpc/), например в вашем ЦОД, подключенном к {{ yandex-cloud }} через [{{ interconnect-full-name }}](../../interconnect/). IP-адреса ресурсов должны входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее см. [Подсети](../../vpc/concepts/network.md#subnet).
+     Также вы можете добавить в целевую группу ресурсы, которые размещены вне [{{ vpc-full-name }}](../../vpc/), например в вашем ЦОД, подключенном к {{ yandex-cloud }} через [{{ interconnect-full-name }}](../../interconnect/). IP-адреса ресурсов должны входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее в разделе [Подсети](../../vpc/concepts/network.md#subnet).
 
 
      Выполните команду, указав в параметрах имя целевой группы и частный IPv4-адрес ресурса:
@@ -150,9 +150,9 @@
      * `name` — имя целевой группы.
      * `target` — параметры целевого ресурса:
        * `private_ipv4_address` — параметр, который означает, что IP-адрес находится вне {{ vpc-name }}.
-       * `ip_address` — частный IPv4-адрес ресурса. IP-адреса должны входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее см. [Подсети](../../vpc/concepts/network.md#subnet).
+       * `ip_address` — частный IPv4-адрес ресурса. IP-адреса должны входить в [частные диапазоны из RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3). Подробнее в разделе [Подсети](../../vpc/concepts/network.md#subnet).
 
-     Подробную информацию о параметрах ресурса `yandex_alb_target_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-targetgroup }}).
+     Подробнее о параметрах ресурса `yandex_alb_target_group` в [документации провайдера]({{ tf-provider-alb-targetgroup }}).
   1. Примените изменения:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -263,7 +263,7 @@
      }
      ```
 
-     Подробную информацию о параметрах ресурса `yandex_alb_target_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-targetgroup }}).
+     Подробнее о параметрах ресурса `yandex_alb_target_group` в [документации провайдера]({{ tf-provider-alb-targetgroup }}).
   1. Примените изменения:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

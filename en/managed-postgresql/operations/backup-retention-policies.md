@@ -8,7 +8,7 @@
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
   1. On the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** page, select the **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}** tab.
   1. Click **Create policy**.
@@ -221,7 +221,7 @@
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
   1. On the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** page, select the **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}** tab.
 
@@ -321,7 +321,7 @@
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
   1. On the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** page, select the **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}** tab.
 

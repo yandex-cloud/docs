@@ -33,7 +33,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
   To restore an existing cluster from a backup:
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to restore the cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.redis.switch_backups }}** tab.
   1. Next to the backup you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Configure the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
@@ -42,9 +42,9 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
   To restore a previously deleted cluster from a backup:
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to restore the cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
-  1. Find the backup you need using its creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
+  1. Find your backup using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
   1. In the line of the appropriate backup, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Configure the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
@@ -108,7 +108,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -172,7 +172,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -216,7 +216,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
         Where:
 
-        * `backup_id`: Backup ID. To learn the ID, [get the list of backups in the folder](#list-backups).
+        * `backup_id`: Backup ID. To find out the ID, [get a list of backups in the folder](#list-backups).
         * `name`: Cluster name.
         * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
         * `config_spec.redis.password`: User password.
@@ -225,7 +225,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
              * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
             * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet). You must specify this setting if the selected availability zone has more than one subnet.
             * `replica_priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
-            * `assign_public_ip`: Controls whether the host is accessible via a public IP address, `true` or `false`. You can enable public access only if `tlsEnabled` is set to `true`.
+            * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if `tlsEnabled` is set to `true`.
 
         * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be deployed in.
 
@@ -248,7 +248,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), where you want to create a backup.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.redis.switch_backups }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
@@ -278,7 +278,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -291,13 +291,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>:backup'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -319,7 +319,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
             yandex.cloud.mdb.redis.v1.ClusterService.Backup
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -335,12 +335,12 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
   To get a list of cluster backups:
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.redis.switch_backups }}** tab.
 
   To get a list of all backups in a folder:
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
 
 - CLI {#cli}
@@ -368,7 +368,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -383,7 +383,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
                 --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>/backups'
             ```
 
-            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         1. Check the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.redis.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
@@ -407,7 +407,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -431,7 +431,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
                 yandex.cloud.mdb.redis.v1.ClusterService.ListBackups
             ```
 
-            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         1. Check the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.redis.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
@@ -469,12 +469,12 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
   To get information about a backup of an existing cluster:
   1. In the [management console]({{ link-console-main }}), go to the folder with the cluster whose backup information you want to get.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.redis.switch_backups }}** tab.
 
   To get information about a backup of a previously deleted cluster:
   1. In the [management console]({{ link-console-main }}), go to the folder that previously stored the deleted cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
 
 - CLI {#cli}
@@ -493,7 +493,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -512,7 +512,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -573,11 +573,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -602,7 +602,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             Here, we provide only one setting.
 
@@ -615,13 +615,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
             * `seconds`: Between `0` and `59` seconds.
             * `nanos`: Between `0` and `999999999` nanoseconds.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -671,7 +671,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
             * `seconds`: Between `0` and `59` seconds.
             * `nanos`: Between `0` and `999999999` nanoseconds.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

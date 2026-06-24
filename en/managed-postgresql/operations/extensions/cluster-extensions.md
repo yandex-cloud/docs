@@ -38,7 +38,7 @@ Loading a shared library will cause {{ PG }} on the master host to restart.
 
 - Management console {#console}
 
-  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** section.
   1. The **{{ ui-key.yacloud.mdb.cluster.databases.column_extensions }}** column will show the list of extensions loaded for each database.
 
@@ -116,7 +116,7 @@ Loading a shared library will cause {{ PG }} on the master host to restart.
 
 - Management console {#console}
 
-  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
   1. Find the database you need in the list, click ![options](../../../_assets/console-icons/ellipsis.svg) in its row, then select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-manage }}**.
   1. Select the extensions you need and click **{{ ui-key.yacloud.postgresql.databases.dialog.button_submit }}**.
@@ -157,7 +157,7 @@ Loading a shared library will cause {{ PG }} on the master host to restart.
       }
       ```
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 

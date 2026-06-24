@@ -15,7 +15,7 @@ description: In this tutorial, you will learn how to migrate {{ SD }} cluster ho
    - Management console {#console}
 
       1. Open the [folder dashboard]({{ link-console-main }}).
-      1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
       1. Click the name of your {{ mmg-name }} cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
       1. Specify the following host settings:
@@ -70,17 +70,17 @@ description: In this tutorial, you will learn how to migrate {{ SD }} cluster ho
 
          In the `zone` argument, provide the target availability zone for your hosts.
 
-      1. Validate your configuration.
+      1. Make sure the settings are correct.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      1. Confirm resource changes.
+      1. Confirm updating the resources.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    - REST API {#api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
             {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -109,25 +109,25 @@ description: In this tutorial, you will learn how to migrate {{ SD }} cluster ho
                       }'
             ```
 
-            Where `hostSpecs` is an array of new hosts, in which each element contains the settings for a single host:
+            Where `hostSpecs` is an array of new hosts. One array element contains settings for a single host:
 
             * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
             * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-            * `assignPublicIp`: Controls whether the host is accessible via a public IP address, `true` or `false`.
+            * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
             * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`. For a non-sharded cluster, use `MONGOD`.
             * `shardName`: Shard name in a sharded cluster.
             * `hidden`: Determines whether the host is hidden, `true` or `false`.
-            * `secondaryDelaySecs`: Host's replication lag behind the master.
+            * `secondaryDelaySecs`: Host’s replication lag behind the master.
             * `priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
             * `tags`: Host tags.
 
-            You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
       1. Check the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    - gRPC API {#grpc-api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
             {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -165,7 +165,7 @@ description: In this tutorial, you will learn how to migrate {{ SD }} cluster ho
 
             * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
             * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-            * `assign_public_ip`: Controls whether the host is accessible via a public IP address, `true` or `false`.
+            * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
             * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`. For a non-sharded cluster, use `MONGOD`.
             * `shard_name`: Shard name in a sharded cluster.
             * `hidden`: Determines whether the host is hidden, `true` or `false`.
@@ -173,13 +173,13 @@ description: In this tutorial, you will learn how to migrate {{ SD }} cluster ho
             * `priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
             * `tags`: Host tags.
 
-            You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
       1. Check the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    {% endlist %}
 
-1. To connect to the database after migration, specify the new host’s FQDN in your backend or client, e.g., in your application code or graphical IDE. Delete the original host's FQDN in your source availability zone.
+1. To connect to the database after migration, specify the new host’s FQDN in your backend or client, e.g., in your application code or graphical IDE. Delete the original host's FQDN in the source availability zone.
 
    You can get this FQDN from the list of hosts in your cluster:
 
@@ -198,7 +198,7 @@ description: In this tutorial, you will learn how to migrate {{ SD }} cluster ho
    - Management console {#console}
 
       1. Open the [folder dashboard]({{ link-console-main }}).
-      1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
       1. Locate the {{ mmg-name }} cluster you need in the list, click its name, and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
       1. Find the host you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
@@ -213,7 +213,7 @@ description: In this tutorial, you will learn how to migrate {{ SD }} cluster ho
    - {{ TF }} {#tf}
 
       1. In your {{ TF }} infrastructure configuration file, locate your cluster description and delete the `host` sections with the source availability zone.
-      1. Validate your configuration.
+      1. Make sure the settings are correct.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -223,7 +223,7 @@ description: In this tutorial, you will learn how to migrate {{ SD }} cluster ho
 
    - REST API {#api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
             {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -244,13 +244,13 @@ description: In this tutorial, you will learn how to migrate {{ SD }} cluster ho
 
             Where `hostNames` is the array containing the host you want to delete. You can get the host name from the [list of hosts in your cluster](hosts.md#list-hosts).
 
-            You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
       1. Check the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    - gRPC API {#grpc-api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
             {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -276,13 +276,13 @@ description: In this tutorial, you will learn how to migrate {{ SD }} cluster ho
 
             Where `host_names` is an array containing the host names you want to delete. You can get the host name from the [list of hosts in your cluster](hosts.md#list-hosts).
 
-            You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
       1. Check the [server response](../api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    {% endlist %}
 
-1. Wait for the cluster state to change to **Alive**. In the [management console]({{ link-console-main }}), navigate to the folder containing your cluster. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service. You can check the cluster state in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+1. Wait for the cluster state to change to **Alive**. In the [management console]({{ link-console-main }}), navigate to the folder containing your cluster. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**. You can check the cluster state in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 

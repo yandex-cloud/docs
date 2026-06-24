@@ -57,6 +57,18 @@ apiPlayground:
           type: array
           items:
             type: string
+        authenticationMethods:
+          description: |-
+            **string**
+            The maximum string length in characters for each value is 255. The maximum number of elements is 1000.
+          type: array
+          items:
+            type: string
+        pkceRequired:
+          description: |-
+            **boolean**
+            Whether PKCE (Proof Key for Code Exchange) is required for the oauth client during the authorization code flow.
+          type: boolean
       required:
         - name
       additionalProperties: false
@@ -96,7 +108,11 @@ The maximum string length in characters is 50. ||
   ],
   "scopes": [
     "string"
-  ]
+  ],
+  "authenticationMethods": [
+    "string"
+  ],
+  "pkceRequired": "boolean"
 }
 ```
 
@@ -128,6 +144,12 @@ The maximum string length in characters for each value is 1000. The maximum numb
 List of oauth scopes requested by the oauth client.
 
 The maximum string length in characters for each value is 255. Each value must match the regular expression ` [!#-\[\]-~]+ `. The maximum number of elements is 1000. ||
+|| authenticationMethods[] | **string**
+
+The maximum string length in characters for each value is 255. The maximum number of elements is 1000. ||
+|| pkceRequired | **boolean**
+
+Whether PKCE (Proof Key for Code Exchange) is required for the oauth client during the authorization code flow. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

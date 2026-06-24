@@ -12,7 +12,7 @@ If necessary, you can stop and restart your {{ SD }} cluster. During cluster dow
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Locate the cluster you need in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
   1. Confirm that you want to stop the cluster by clicking **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}**.
 
@@ -32,7 +32,7 @@ If necessary, you can stop and restart your {{ SD }} cluster. During cluster dow
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -46,13 +46,13 @@ If necessary, you can stop and restart your {{ SD }} cluster. During cluster dow
             --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>:stop'
         ```
 
-        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -74,7 +74,7 @@ If necessary, you can stop and restart your {{ SD }} cluster. During cluster dow
             yandex.cloud.mdb.mongodb.v1.ClusterService.Stop
         ```
 
-        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -89,7 +89,7 @@ You can restart a cluster if its status is **STOPPED**.
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. In the list, locate the stopped cluster you want to restart, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
   1. In the dialog box that opens, click **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}** to confirm the cluster launch.
 
@@ -105,11 +105,11 @@ You can restart a cluster if its status is **STOPPED**.
     {{ yc-mdb-mg }} cluster start <cluster_name_or_ID>
     ```
 
-    You can get the cluster’s name and ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+    You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -123,13 +123,13 @@ You can restart a cluster if its status is **STOPPED**.
             --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>:start'
         ```
 
-        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/start.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -150,7 +150,7 @@ You can restart a cluster if its status is **STOPPED**.
             yandex.cloud.mdb.mongodb.v1.ClusterService.Start
         ```
 
-        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/start.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

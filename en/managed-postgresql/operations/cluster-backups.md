@@ -30,7 +30,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
   **To restore an existing cluster from a backup:**
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need, then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
@@ -42,7 +42,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
   **To restore a previously deleted cluster from a backup:
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select the **{{ ui-key.yacloud.postgresql.switch_backups_xgJVM }}** tab.
   1. Find your backup using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need, then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
@@ -224,7 +224,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
        Where `backup-id` is the ID of the deleted cluster’s backup.
 
-   1. Validate your configuration.
+   1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -310,7 +310,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -395,7 +395,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
 - Management console {#console}
   
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
@@ -465,7 +465,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
        yandex.cloud.mdb.postgresql.v1.ClusterService.Backup
      ```
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -480,11 +480,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 - Management console {#console}
 
   To get a list of cluster backups:
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
 
   To get a list of all backups in your folder:
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select the **{{ ui-key.yacloud.postgresql.switch_backups_xgJVM }}** tab.
   
 - CLI {#cli}
@@ -523,7 +523,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
            --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/backups'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
      1. Check the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.postgresql.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
@@ -570,7 +570,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
           yandex.cloud.mdb.postgresql.v1.ClusterService.ListBackups
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
      1. Check the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.postgresql.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
@@ -607,11 +607,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 - Management console {#console}
 
   To get backup details for an existing cluster:
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
 
   To get backup details for a previously deleted cluster:
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select the **{{ ui-key.yacloud.postgresql.switch_backups_xgJVM }}** tab.
   
 - CLI {#cli}
@@ -713,7 +713,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -740,7 +740,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
         * `hours`: Backup start hour (UTC).
         * `minutes`: Backup start minute (UTC).
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -794,7 +794,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
        * `seconds`: Between `0` and `59` seconds.
        * `nanos`: Between `0` and `999999999` nanoseconds.
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -851,7 +851,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
        * `seconds`: Between `0` and `59` seconds.
        * `nanos`: Between `0` and `999999999` nanoseconds.
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure your request was successful.
 
@@ -878,13 +878,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
        --backup-retain-period-days=<retention_period_in_days>
     ```
 
-  Allowed values range from `7` to `60`. The default value is `7`.
+  The valid values range from `7` to `60`. The default value is `7`.
 
   You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -906,9 +906,9 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
        Where `backup_retain_period_days` is the automatic backup retention period. 
        
-       Allowed values range from `7` to `60`. The default value is `7`.
+       The valid values range from `7` to `60`. The default value is `7`.
 
-  1. Validate your settings.
+  1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -952,7 +952,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
  
          The valid values range from `7` to `60`. The default value is `7`.
 
-       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -998,9 +998,9 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
      * `config_spec.backup_retain_period_days`: Automatic backup retention period.
 
-       Allowed values range from `7` to `60`. The default value is `7`.
+       The valid values range from `7` to `60`. The default value is `7`.
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure your request was successful.
 
@@ -1014,7 +1014,7 @@ You can only delete backups that were created manually.
 
 - Management console {#console}
 
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Select the {{ mpg-name }} cluster whose backup you want to delete.
     1. In the left-hand panel, select **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the backup you want to delete.

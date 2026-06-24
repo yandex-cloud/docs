@@ -38,7 +38,12 @@ The maximum string length in characters is 50. ||
     "string"
   ],
   "folder_id": "string",
-  "status": "Status"
+  "authentication_methods": [
+    "string"
+  ],
+  "status": "Status",
+  "profile_id": "string",
+  "pkce_required": "bool"
 }
 ```
 
@@ -61,6 +66,7 @@ List of oauth scopes requested by the oauth client. ||
 || folder_id | **string**
 
 ID of the folder oauth client belongs to. ||
+|| authentication_methods[] | **string** ||
 || status | enum **Status**
 
 Current status of the oauth client.
@@ -68,4 +74,10 @@ Current status of the oauth client.
 - `CREATING`: OAuth client is being created.
 - `ACTIVE`: OAuth client is active.
 - `DELETING`: OAuth client is being deleted. ||
+|| profile_id | **string**
+
+ID of the profile that defines the set of allowed settings for the oauth client. ||
+|| pkce_required | **bool**
+
+Whether PKCE (Proof Key for Code Exchange) is required for the oauth client during the authorization code flow. ||
 |#

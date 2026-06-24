@@ -14,7 +14,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Click the cluster name and open the ![image](../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. Optionally, select a maintenance status above the maintenance list.
 
@@ -27,7 +27,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Click the cluster name and open the ![image](../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. Select the maintenance. The maintenance page will open.
   1. Click **{{ ui-key.yacloud.mdb.maintenance.label_task-logs }}**.
@@ -41,7 +41,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Click the cluster name and open the ![image](../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the maintenance with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** status and select ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_change-task-time }}**.
   1. Select the reschedule type for the planned maintenance:
@@ -176,7 +176,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Click the cluster name and open the ![image](../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. In the maintenance row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_exec-task-now }}**.
 
@@ -264,7 +264,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Click the cluster name and open the ![image](../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. Click ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}** in the top-right corner of the page.
   1. Select a maintenance window:
@@ -308,7 +308,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
       For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -382,7 +382,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 
         {% endnote %}
 
-      * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md#maintenance-window) settings. Provide one of the values:
+      * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md#maintenance-window) settings. Provide one of these parameters:
 
         * `anytime`: Allows performing maintenance at any time; default option.
           
@@ -459,7 +459,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 
         {% endnote %}
 
-      * `maintenance_window`: [Maintenance window](../concepts/maintenance.md#maintenance-window) settings. Provide one of the values:
+      * `maintenance_window`: [Maintenance window](../concepts/maintenance.md#maintenance-window) settings. Provide one of these parameters:
 
         * `anytime`: Allows performing maintenance at any time; default option.
           

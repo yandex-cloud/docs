@@ -53,13 +53,13 @@
 
 * Добавлена возможность **разложить графики** по какому-либо параметру для [drill down](https://en.wikipedia.org/wiki/Data_drilling) анализа (детализация данных). Разложение графиков позволяет переходить от общего обзора к анализу метрик конкретных элементов системы, помогая быстрее выявлять причины аномалий или инцидентов.
 
-   Подробнее о возможностях работы с метриками см. раздел [Посмотреть метрики в Yandex Monitoring](operations/metric/metric-explorer.md).
+   Возможности работы с метриками описаны в разделе [Посмотреть метрики в Yandex Monitoring](operations/metric/metric-explorer.md).
 
 * Добавлена возможность задать количество минимальных, максимальных или средних значений при разложении графиков. Например, при анализе использования процессора можно отобразить 10 всплесков высокой нагрузки на процессор за последние 24 часа.
 
 * В каналы уведомлений для алертов добавлена возможность вызова функции [Cloud Functions](../functions/index.md). Это позволяет создать webhook для автоматической обработки инцидентов и других событий в вашем облаке.
 
-   Подробнее см. разделы [Создание канала уведомлений с вызовом функции](operations/alert/create-channel-function.md) и [Webhook с использованием Cloud Functions](operations/alert/alert-call-function.md).
+   Подробнее в разделах [Создание канала уведомлений с вызовом функции](operations/alert/create-channel-function.md) и [Webhook с использованием Cloud Functions](operations/alert/alert-call-function.md).
 
 * При создании виртуальной машины можно [установить агент](operations/prometheus/ingestion/prometheus-agent.md) для сбора метрик в формате Prometheus. По умолчанию в Yandex Managed Service for Prometheus® передаются системные метрики Linux. Также при создании ВМ или позднее вы можете настроить передачу метрик ваших приложений.
 
@@ -131,4 +131,4 @@
 
 * Ускорили [экспорт метрик в формате Prometheus](operations/metric/prometheusExport.md).
 
-_© 2025 Linux Foundation. Все права защищены. Linux Foundation зарегистрировала товарные знаки и использует товарные знаки. Список товарных знаков Linux Foundation смотрите на странице [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage)._
+_© 2025 Linux Foundation. Все права защищены. Linux Foundation зарегистрировала товарные знаки и использует товарные знаки. Список товарных знаков Linux Foundation приведен на странице [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage)._

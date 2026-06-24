@@ -14,8 +14,7 @@ editable: false
 
 
 
-
-For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=f05a4ab8c08f#calculator) on our website or check out the pricing below.
+For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=392907c9b322#calculator) on our website or check out the pricing below.
 
 
 {% endnote %}

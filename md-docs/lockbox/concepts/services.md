@@ -34,11 +34,11 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Передать секреты Yandex Lockbox в функцию](../../functions/operations/function/lockbox-secret-transmit.md).
-* [Создание подключения Connection Manager](../../metadata-hub/operations/create-connection.md).
-* [Синхронизация с секретами Yandex Lockbox в Managed Service for Kubernetes](../../managed-kubernetes/tutorials/kubernetes-lockbox-secrets.md).
-* [Передать секреты Yandex Lockbox в контейнер](../../serverless-containers/operations/lockbox-secret-transmit.md).
-* [Безопасное хранение паролей для GitLab CI в виде секретов Yandex Lockbox](../../managed-gitlab/tutorials/gitlab-lockbox-integration.md).
+* [Передать секреты Yandex Lockbox в функцию](../../functions/operations/function/lockbox-secret-transmit.md)
+* [Создание подключения Connection Manager](../../metadata-hub/operations/create-connection.md)
+* [Синхронизация с секретами Yandex Lockbox в Managed Service for Kubernetes](../../managed-kubernetes/tutorials/kubernetes-lockbox-secrets.md)
+* [Передать секреты Yandex Lockbox в контейнер](../../serverless-containers/operations/lockbox-secret-transmit.md)
+* [Безопасное хранение паролей для GitLab CI в виде секретов Yandex Lockbox](../../managed-gitlab/tutorials/gitlab-lockbox-integration.md)
 
 ## Примеры использования {#examples}
 

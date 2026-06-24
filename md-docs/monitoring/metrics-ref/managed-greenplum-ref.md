@@ -563,6 +563,7 @@ PXF помечает все метрики, которые он возвраща
 
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
+| `pxf_availability.signal`<br/>`DGAUGE` | Комплексный сигнал доступности сервиса PXF за последние 5 минут: `2` — все инстансы PXF доступны, `0` — часть инстансов недоступна. |
 | `pxf.jvm_memory_committed_bytes`<br/>`DGAUGE`, байты | Размер выделенной операционной системой памяти для JVM PXF. | 
 | `pxf.jvm_memory_max_bytes`<br/>`DGAUGE`, байты | Максимальный размер доступной JVM PXF памяти. <br/>Дополнительные метки: `id` — идентификатор пула (`G1 Eden Space`, `G1 Survivor Space`, `G1 Old Gen` и другие), `area` — агрегированная метка области памяти (`heap`, `nonheap`). |
 | `pxf.jvm_memory_used_bytes`<br/>`DGAUGE`, байты | Размер использованной памяти JVM PXF. | 
@@ -570,6 +571,7 @@ PXF помечает все метрики, которые он возвраща
 | `pxf.jvm_threads_live_threads`<br/>`DGAUGE`, штуки | Количество активных потоков JVM PXF. | 
 | `pxf.jvm_threads_states_threads`<br/>`DGAUGE`, штуки | Количество потоков JVM PXF в каждом состоянии. | 
 | `pxf.log4j2_events_total`<br/>`DGAUGE`, штуки | Общее количество событий Log4j2 в JVM PXF.<br/>Дополнительная метка: `level` (`trace`, `debug`, `info`, `warn`, `error`, `fatal`) |
+| `pxf.process_cpu_usage`<br/>`DGAUGE`, доля | Текущая загрузка CPU процессом PXF в долях от одного ядра (значение `1` соответствует полной загрузке одного ядра). | 
 | `pxf.process_files_max_files`<br/>`DGAUGE`, штуки | Максимальное количество одновременно открытых файлов в процессе PXF. | 
 | `pxf.process_files_open_files`<br/>`DGAUGE`, штуки | Количество текущих открытых файлов в процессе PXF. | 
 | `pxf.pxf_bytes_received_total`<br/>`DGAUGE`, байты | Количество байтов, полученных PXF. |

@@ -49,4 +49,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Управлять шаблонами SMS](manage-templates.md)
+[Управлять шаблонами SMS](manage-templates.md)

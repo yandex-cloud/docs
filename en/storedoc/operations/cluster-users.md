@@ -1,6 +1,6 @@
 ---
 title: Managing {{ SD }} users in {{ mmg-full-name }}
-description: In this tutorial, you will learn how to add users, remove users, and manage individual user settings in the {{ SD }} database management service.
+description: In this tutorial, you will learn how to add and remove users and how to manage individual user settings in the {{ SD }} database management service.
 ---
 
 # Managing {{ SD }} users
@@ -14,7 +14,7 @@ You can add and remove users, manage individual user settings, and change databa
 - Management console {#console}
   
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Locate the cluster you need in the list, click its name, and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
   
 - CLI {#cli}
@@ -30,11 +30,11 @@ You can add and remove users, manage individual user settings, and change databa
     --cluster-name <cluster_name>
   ```
   
-  You can get the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters).
+  You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
   
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -47,13 +47,13 @@ You can add and remove users, manage individual user settings, and change databa
        --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/users'
      ```
 
-     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/User/list.md#yandex.cloud.mdb.mongodb.v1.ListUsersResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -74,7 +74,7 @@ You can add and remove users, manage individual user settings, and change databa
        yandex.cloud.mdb.mongodb.v1.UserService.List
      ```
 
-     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/User/list.md#yandex.cloud.mdb.mongodb.v1.ListUsersResponse) to make sure your request was successful.
 
@@ -87,9 +87,9 @@ You can add and remove users, manage individual user settings, and change databa
 - Management console {#console}
   
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-  1. Click the name of your cluster and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
+  1. Click the cluster name and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
 
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
 
@@ -135,9 +135,9 @@ You can add and remove users, manage individual user settings, and change databa
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Add the `yandex_mdb_mongodb_user` resource:
 
@@ -157,11 +157,11 @@ You can add and remove users, manage individual user settings, and change databa
 
         {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -169,7 +169,7 @@ You can add and remove users, manage individual user settings, and change databa
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -197,7 +197,7 @@ You can add and remove users, manage individual user settings, and change databa
                }'
      ```
 
-     Where `userSpec` are the new database user’s settings:
+     Where `userSpec` are the settings for the new database user:
 
      * `name`: Username.
      * `password`: Password.
@@ -207,17 +207,17 @@ You can add and remove users, manage individual user settings, and change databa
      * `permissions`: User permissions:
 
        * `databaseName`: Name of the database the user can access.
-       * `roles`: User roles as an array of strings, one per role. Possible values are listed in [Users and roles](../concepts/users-and-roles.md).
+       * `roles`: Array of user roles. Each role is provided as a separate string in the array. For a list of possible values, see [Users and roles](../concepts/users-and-roles.md).
 
        In the `permissions` array, add a separate element with permission settings for each database.
 
-     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -260,11 +260,11 @@ You can add and remove users, manage individual user settings, and change databa
      * `permissions`: User permissions:
 
        * `database_name`: Name of the database the user can access.
-       * `roles`: User roles as an array of strings, one per role. Possible values are listed in [Users and roles](../concepts/users-and-roles.md).
+       * `roles`: Array of user roles. Each role is provided as a separate string in the array. For a list of possible values, see [Users and roles](../concepts/users-and-roles.md).
 
        In the `permissions` array, add a separate element with permission settings for each database.
 
-     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -277,9 +277,9 @@ You can add and remove users, manage individual user settings, and change databa
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-  1. Click the name of your cluster and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
+  1. Click the cluster name and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
 
   1. To change a user’s password, locate the user in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in their row, and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
 
@@ -357,7 +357,7 @@ You can add and remove users, manage individual user settings, and change databa
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -378,11 +378,11 @@ You can add and remove users, manage individual user settings, and change databa
 
         {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
   
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -390,7 +390,7 @@ You can add and remove users, manage individual user settings, and change databa
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -428,7 +428,7 @@ You can add and remove users, manage individual user settings, and change databa
      * `permissions`: User permissions:
 
        * `database_name`: Name of the database the user can access.
-       * `roles`: User roles as an array of strings, one per role. Possible values are listed in [Users and roles](../concepts/users-and-roles.md).
+       * `roles`: Array of user roles. Each role is provided as a separate string in the array. Possible values are listed in [Users and roles](../concepts/users-and-roles.md).
  
      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the username from the [list of cluster users](#list-users).
 
@@ -436,7 +436,7 @@ You can add and remove users, manage individual user settings, and change databa
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -486,7 +486,7 @@ You can add and remove users, manage individual user settings, and change databa
      * `permissions`: User permissions:
 
        * `database_name`: Name of the database the user can access.
-       * `roles`: User roles as an array of strings, one per role. Possible values are listed in [Users and roles](../concepts/users-and-roles.md).
+       * `roles`: Array of user roles. Each role is provided as a separate string in the array. Possible values are listed in [Users and roles](../concepts/users-and-roles.md).
 
      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the username from the [list of cluster users](#list-users).
 
@@ -501,8 +501,8 @@ You can add and remove users, manage individual user settings, and change databa
 - Management console {#console}
   
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
-  1. Click the name of your cluster and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Click the cluster name and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
   1. Locate the user you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in their row, and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   
 - CLI {#cli}
@@ -518,21 +518,21 @@ You can add and remove users, manage individual user settings, and change databa
     --cluster-name <cluster_name>
   ```
   
-  You can get the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters).
+  You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Delete the `yandex_mdb_mongodb_user` resource with the target user’s description.
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -540,7 +540,7 @@ You can add and remove users, manage individual user settings, and change databa
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -559,7 +559,7 @@ You can add and remove users, manage individual user settings, and change databa
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

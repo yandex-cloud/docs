@@ -73,7 +73,7 @@ annotations:
 || **Поле**      | **Значение или тип** | **Описание** ||
 || `name`        | `string`             | **Обязательное**.
 
-Имя ресурса. Подробнее о формате в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+Имя ресурса. Формат описан в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
 Имя также указывается в поле [spec.ingressClassName](ingress.md#spec) в ресурсе `Ingress`. ||
 || `labels`      | `map[string]string`  | Kubernetes-метки для управления объектами Kubernetes и мониторинга этих объектов.

@@ -8,8 +8,8 @@ If you no longer need the [route table](../concepts/routing.md), you can [delete
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the route table you want to disassociate.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the route table you want to dissociate.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Go to the cloud network the route table belongs to.
 
      {% note info %}
@@ -154,7 +154,7 @@ Before deleting a table, [disassociate it](#unlink-route-table) from all subnets
 
   To delete a route table:
   1. In the [management console]({{ link-console-main }}), select the folder containing the route table you want to delete.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the table name and select **Delete**.
   1. In the window that opens, click **Delete**.

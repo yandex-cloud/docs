@@ -12,7 +12,7 @@ To learn about upgrades within the same version and host maintenance, see [Maint
 
 {% note info %}
 
-Upgrade from a standard version to a _1С:Enterprise_ version (e.g., `14` to `14-1c`) is not supported.
+Upgrade from a standard version to a _1C:Enterprise_ version (e.g., `14` to `14-1c`) is not supported.
 
 {% endnote %}
 
@@ -39,7 +39,7 @@ To upgrade a major version, the following must be free:
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select your cluster from the list and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the new version number.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -177,7 +177,7 @@ To upgrade a major version, the following must be free:
 
      * `config_spec.version`: New {{ PG }} version.
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

@@ -1,7 +1,6 @@
 # Managed Service for Apache Kafka® API, REST: Cluster.ListLogs
 
 Retrieves logs for the specified Apache Kafka® cluster.
-
 For more information about logs, see the [Logs](../../operations/cluster-logs.md) section in the documentation.
 
 ## HTTP request
@@ -17,7 +16,6 @@ GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}:logs
 || clusterId | **string**
 
 Required field. ID of the Apache Kafka® cluster to request logs for.
-
 To get the Apache Kafka® cluster ID, make a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -30,7 +28,6 @@ The maximum string length in characters is 50. ||
 || columnFilter[] | **string**
 
 Columns from the logs table to request.
-
 If no columns are specified, full log records are returned. ||
 || fromTime | **string** (date-time)
 
@@ -55,31 +52,26 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `pageSize`, the service returns a [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse) that can be used to get the next page of results in subsequent list requests.
 
 The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token.
-
 To get the next page of results, set `pageToken` to the [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse) returned by the previous list request.
 
 The maximum string length in characters is 100. ||
 || alwaysNextPageToken | **boolean**
 
 The flag that defines behavior of providing the next page token.
-
 If this flag is set to `true`, this API method will always return [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse), even if current page is empty. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
-
 The expression must specify:
 1. The field name to filter by. Currently filtering can be applied to the `hostname` field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`.
-
 Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`
 
 The maximum string length in characters is 1000. ||
@@ -109,7 +101,6 @@ Requested log records. ||
 || nextPageToken | **string**
 
 Token that allows you to get the next page of results for list requests.
-
 If the number of results is larger than [ListClusterLogsRequest.pageSize](#yandex.cloud.mdb.kafka.v1.ListClusterLogsRequest), use `nextPageToken` as the value for the [ListClusterLogsRequest.pageToken](#yandex.cloud.mdb.kafka.v1.ListClusterLogsRequest) query parameter in the next list request.
 Each subsequent list request will have its own `nextPageToken` to continue paging through the results.
 This value is interchangeable with [StreamLogRecord.nextRecordToken](streamLogs.md#yandex.cloud.mdb.kafka.v1.StreamLogRecord) from StreamLogs method. ||

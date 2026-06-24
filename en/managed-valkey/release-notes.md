@@ -5,6 +5,15 @@ description: This section contains the {{ mrd-name }} release notes.
 
 # {{ mrd-full-name }} release notes
 
+## May 2026 {#may-2026}
+
+* Added the ability to [create and restore](./operations/cluster-backups.md) clusters with encrypted local disks from a backup. The encryption uses a custom KMS key.
+* Maximum local disk size per host is increased to 36 TB. Disks of this size are available for Intel Ice Lake (`standard-v3`) configurations with 16 or more cores. To create extra large clusters, you may need to contact [support]({{ link-console-support }}) to reserve the required resources.
+* Published the updated [versioning policies](./concepts/update-policy.md) describing in detail the periods and terms of support for various DBMS versions.
+* A new [Valkey-Search](concepts/modules.md#valkey-search) version is out: 1.2.0.
+* A new [Valkey-Bloom](concepts/modules.md#valkey-bloom) version is out: 1.0.1.
+* Added support for authorization with an [IAM token](../iam/concepts/authorization/iam-token.md).
+
 ## April 2026 {#apr-2026}
 
 * You can now view {{ VLK }} [module](./concepts/modules.md) versions (`version`).

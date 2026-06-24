@@ -7,7 +7,7 @@ description: Из статьи вы узнаете, как установить 
 
 Чтобы передавать метрики из виртуальной машины в {{ managed-prometheus-name }}, надо установить агент для сбора метрик. Вы можете установить любой агент, который поддерживает передачу метрик, либо воспользоваться {{ unified-agent-short-name }} с возможностью передачи метрик {{ prometheus-name }}. 
 
-В этом разделе описана установка агента при создании виртуальной машины. Другие способы установки см. в разделе [{#T}](../../../concepts/data-collection/unified-agent/installation.md).
+В этом разделе описана установка агента при создании виртуальной машины. Другие способы установки — в разделе [{#T}](../../../concepts/data-collection/unified-agent/installation.md).
 
 {% include [agent-version](../../../../_includes/monitoring/agent-version.md) %}
 
@@ -199,7 +199,7 @@ routes:
 
         Пример: `{job="linux_metrics", instance="my_vm", __name__="sys_cpu_CpuCores"}`.
 
-        Список метрик, которые передает агент {{ prometheus-name }}, см. в разделе [{#T}](../../../metrics-ref/unifiedagent-ref.md).
+        Список метрик, которые передает агент {{ prometheus-name }}, приведен в разделе [{#T}](../../../metrics-ref/unifiedagent-ref.md).
      
      * Пользовательских метрик, если их передача была настроена на агенте, — `{job="имя_набора_метрик", instance="<имя_ВМ>:<порт>", __name__="<имя_метрики>"}`.
 

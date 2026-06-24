@@ -5,8 +5,6 @@ description: Контроль данных ({{ dspm-name }}) — это один
 
 # Модуль контроля данных ({{ dspm-name }})
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 [Модуль контроля данных]({{ link-sd-main }}dspm/) или {{ dspm-name }} ({{ dspm-full-name }}) — это инструмент, помогающий оперативно обнаруживать чувствительную информацию, сохраненную в [бакетах](../../storage/concepts/bucket.md) {{ objstorage-full-name }} и на дисках в {{ yandex-360 }}. Это позволит своевременно настраивать [политики доступа](../../storage/concepts/policy.md), обезличивать данные и принимать другие меры защиты.
 
 ## Анализ данных {#discovery-mode}

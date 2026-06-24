@@ -41,12 +41,10 @@ title: Обеспечение доступа к приложению, запущ
 
 {% cut "Как обеспечить доступ к приложению с помощью HTTPS?" %}
 
-См. документацию:
+Читайте документацию:
 
 * [{#T}](../tutorials/new-kubernetes-project.md)
 * [{#T}](../tutorials/alb-ingress-controller.md)
-* [{#T}](../tutorials/ingress-cert-manager.md)
-* [Установка Ingress-контроллера NGINX с сертификатом из {{ certificate-manager-full-name }}](../tutorials/nginx-ingress-certificate-manager.md#check-service-availability)
 
 {% endcut %}
 

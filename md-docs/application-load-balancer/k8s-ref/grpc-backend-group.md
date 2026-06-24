@@ -100,9 +100,9 @@ spec:
 
   * `name` (`string`, обязательное)
 
-    Имя ресурса. Подробнее о формате читайте в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Формат описан в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
   
-    Это имя нужно указать в поле `spec.rules.http.paths.backend.resource.name` ресурса `Ingress` (подробнее в [конфигурации](ingress.md)).
+    Это имя нужно указать в поле `spec.rules.http.paths.backend.resource.name` [ресурса `Ingress`](ingress.md).
 
     Не является именем группы бэкендов в Application Load Balancer.
 

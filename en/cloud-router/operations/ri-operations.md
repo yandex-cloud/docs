@@ -2,13 +2,11 @@
 title: Getting a list of routing instance operations
 ---
 
-# Getting a list of operations in a routing instance
-
-{% include [cic-cr-access](../../_includes/interconnect/cic-cr-access.md) %}
+# How to get a list of routing instance operations
 
 {% note info %}
 
-You need the [cloud-router.viewer](../security/index.md#cloudrouter-viewer) role for this operation.
+You need the [cloud-router.viewer](../security/index.md#cloudrouter-viewer) role to run this operation.
 
 {% endnote %}
 
@@ -48,11 +46,10 @@ You need the [cloud-router.viewer](../security/index.md#cloudrouter-viewer) role
       * `STATUS`: Current operation status (`RUNNING`: in progress, `DONE`: completed).
       * `DESCRIPTION`: Description of the command type performed in the operation. 
 
-  1. If you need more details about the operation, get them by its ID:
+  1. If you need additional information about the operation, get it by its ID:
 
     ```bash
     yc operation get al49a**********ft8lq
     ```
   
 {% endlist %}
-

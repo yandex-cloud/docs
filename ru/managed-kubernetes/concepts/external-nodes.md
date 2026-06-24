@@ -64,7 +64,7 @@ description: В данной статье описаны особенности 
 
 Продукты Marketplace [Ingress-контроллер](../tutorials/alb-ingress-controller.md) и [Gateway API](../tutorials/marketplace/gateway-api.md) на базе [{{ alb-full-name }}](../../application-load-balancer/) не поддерживают балансировку трафика на внешние узлы.
 
-Для балансировки трафика на внешние узлы воспользуйтесь контроллером [Gwin](../alb-ref/gwin-index.md) или одним из [альтернативных Ingress-контроллеров](../tutorials/ingress-cert-manager.md).
+Для балансировки трафика на внешние узлы воспользуйтесь контроллером [Gwin](../alb-ref/gwin-index.md).
 
 Чтобы использовать контроллер Gwin для балансировки трафика на внешние узлы:
 * Адрес внешнего узла должен быть доступен L7-балансировщику {{ alb-name }}.

@@ -18,8 +18,8 @@ Deleting a dedicated public subnet is irreversible. Following the deletion, the 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) the public subnet belongs to.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. In the left-hand panel, select ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.baremetal.label_public-subnets_v16CV }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. In the left-hand panel, select ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.baremetal.label_public-subnets_v16CV }}**.
   1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the subnet and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, confirm the deletion.
 

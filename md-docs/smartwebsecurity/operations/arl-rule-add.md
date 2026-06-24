@@ -166,7 +166,7 @@
               *  `simple_characteristic` — блок параметров с автоматической группировкой. Т.е. запросы группируются автоматически по указанному параметру.
                  *  `type` – тип группировки. Возможные значения: `REQUEST_PATH`, `HTTP_METHOD`, `IP`, `GEO`, `HOST`.
   
-        Более подробную информацию о параметрах ресурса `yandex_sws_advanced_rate_limiter_profile`, см. в [документации провайдера](../../terraform/resources/sws_advanced_rate_limiter_profile.md).
+        Подробнее о параметрах ресурса `yandex_sws_advanced_rate_limiter_profile` в [документации провайдера](../../terraform/resources/sws_advanced_rate_limiter_profile.md).
   
     1. Примените изменения:
   
@@ -206,7 +206,7 @@
 
 {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Изменить правило в профиле безопасности](rule-update.md)
 * [Удалить правило из профиля безопасности](rule-delete.md)

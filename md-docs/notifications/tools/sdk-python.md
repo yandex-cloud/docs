@@ -266,7 +266,7 @@ client.publish(PhoneNumber="<номер_получателя>",
 * `Message` — текст SMS.
 * `MessageAttributes` — атрибуты SMS, где `AWS.SNS.SMS.SenderID.StringValue` — текстовое имя отправителя.
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Начало работы](../quickstart.md)
 * [AWS CLI](aws-cli.md)

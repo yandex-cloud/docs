@@ -145,7 +145,6 @@ description: Следуя данной инструкции, вы сможете
 ## Примеры использования {#examples}
 
 * [{#T}](../../tutorials/dnschallenge.md).
-* [{#T}](../../tutorials/ingress-cert-manager.md).
 
 ## Полезные ссылки {#see-also}
 

@@ -14,7 +14,7 @@ If you cannot boot the main server OS, you can start the server using the [Syste
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your server.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. Find the server you need in the list, click ![image](../../../_assets/console-icons/ellipsis.svg) in its row, and select **KVM console**.
   1. Click the CD icon or select **Media** → **Virtual Media Wizard...** in the top menu of the KVM console window. In the window that opens:
 

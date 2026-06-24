@@ -429,7 +429,7 @@
 
        {% note info %}
        
-       Для подключения профиля безопасности к виртуальному хосту Application Load Balancer у сервисного аккаунта, от имени которого работает Ingress-контроллер, должна быть роль [smart-web-security.editor](../../smartwebsecurity/security/index.md#smart-web-security-editor) на каталог, в котором размещены ресурсы Application Load Balancer и Smart Web Security. Подробнее смотрите [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
+       Для подключения профиля безопасности к виртуальному хосту Application Load Balancer у сервисного аккаунта, от имени которого работает Ingress-контроллер, должна быть роль [smart-web-security.editor](../../smartwebsecurity/security/index.md#smart-web-security-editor) на каталог, в котором размещены ресурсы Application Load Balancer и Smart Web Security. Подробнее в разделе [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
        
        {% endnote %}
 
@@ -779,7 +779,7 @@
 
        {% note info %}
        
-       Для подключения профиля безопасности к виртуальному хосту Application Load Balancer у сервисного аккаунта, от имени которого работает Ingress-контроллер, должна быть роль [smart-web-security.editor](../../smartwebsecurity/security/index.md#smart-web-security-editor) на каталог, в котором размещены ресурсы Application Load Balancer и Smart Web Security. Подробнее смотрите [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
+       Для подключения профиля безопасности к виртуальному хосту Application Load Balancer у сервисного аккаунта, от имени которого работает Ingress-контроллер, должна быть роль [smart-web-security.editor](../../smartwebsecurity/security/index.md#smart-web-security-editor) на каталог, в котором размещены ресурсы Application Load Balancer и Smart Web Security. Подробнее в разделе [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
        
        {% endnote %}
 

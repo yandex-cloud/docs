@@ -4,7 +4,7 @@
 
 ## Конвенция именования {#naming}
 
-Имя спана формируется как `{messaging.operation.name} {destination}`, например `send orders` или `process orders`. Если имя топика имеет высокую кардинальность, используйте шаблон (`messaging.destination.template`). Если топик неизвестен, вместо него указывается `unknown`. Подробнее см. в [спецификации именования messaging-спанов](https://opentelemetry.io/docs/specs/semconv/messaging/messaging-spans/#span-name).
+Имя спана формируется как `{messaging.operation.name} {destination}`, например `send orders` или `process orders`. Если имя топика имеет высокую кардинальность, используйте шаблон (`messaging.destination.template`). Если топик неизвестен, вместо него указывается `unknown`. Подробнее в [спецификации именования messaging-спанов](https://opentelemetry.io/docs/specs/semconv/messaging/messaging-spans/#span-name).
 
 ## Атрибуты {#attributes}
 
@@ -18,7 +18,7 @@
 || `messaging.batch.message_count` | Количество сообщений в батче ||
 |#
 
-Полный перечень атрибутов см. в [спецификации OpenTelemetry для messaging-спанов](https://opentelemetry.io/docs/specs/semconv/messaging/messaging-spans/).
+Полный перечень атрибутов приведен в [спецификации OpenTelemetry для messaging-спанов](https://opentelemetry.io/docs/specs/semconv/messaging/messaging-spans/).
 
 ## Примеры {#examples}
 

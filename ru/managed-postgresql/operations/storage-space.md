@@ -370,7 +370,7 @@ description: При заполнении хранилища более чем н
                  "maintenanceWindow": {
                    "weeklyMaintenanceWindow": {
                      "day": "<день_недели>",
-                     "hour": "<час>"
+                     "hour": "<порядковый_номер_часового_интервала>"
                    }
                  }
                }'
@@ -439,7 +439,7 @@ description: При заполнении хранилища более чем н
              "maintenance_window": {
                "weekly_maintenance_window": {
                  "day": "<день_недели>",
-                 "hour": "<час>"
+                 "hour": "<порядковый_номер_часового_интервала>"
                }
              }
            }' \

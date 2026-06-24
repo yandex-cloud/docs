@@ -81,7 +81,7 @@ description: Следуя данной инструкции, вы сможете
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_http_router` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/alb_http_router).
+     Подробнее о параметрах ресурса `yandex_alb_http_router` в [документации провайдера]({{ tf-provider-resources-link }}/alb_http_router).
 
   1. Чтобы добавить, изменить или удалить виртуальные хосты HTTP-роутера, используйте ресурс `yandex_alb_virtual_host` с указанием на роутер в поле `http_router_id`:
 
@@ -102,7 +102,7 @@ description: Следуя данной инструкции, вы сможете
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_virtual_host` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/alb_virtual_host).
+     Подробнее о параметрах ресурса `yandex_alb_virtual_host` в [документации провайдера]({{ tf-provider-resources-link }}/alb_virtual_host).
 
   1. Примените изменения:
 
@@ -213,7 +213,7 @@ description: Следуя данной инструкции, вы сможете
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_virtual_host` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/alb_virtual_host).
+     Подробнее о параметрах ресурса `yandex_alb_virtual_host` в [документации провайдера]({{ tf-provider-resources-link }}/alb_virtual_host).
 
   1. Примените изменения:
 

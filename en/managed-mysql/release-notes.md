@@ -5,6 +5,14 @@ description: This section contains the {{ mmy-name }} release notes.
 
 # {{ mmy-full-name }} release notes
 
+## May 2026 {#may-2026}
+
+* Added the ability to [create and restore](./operations/cluster-backups.md) clusters with encrypted local disks from a backup. The encryption uses a custom KMS key.
+* Maximum local disk size per host is increased to 36 TB. Disks of this size are available for Intel Ice Lake (`standard-v3`) configurations with 16 or more cores. To create extra large clusters, you may need to contact [support]({{ link-console-support }}) to reserve the required resources.
+* Published the updated [versioning policies](./concepts/update-policy.md) describing in detail the periods and terms of support for various DBMS versions.
+* Added the **Innodb adaptive hash index** setting that sets the number of InnoDB [adaptive hash index](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_adaptive_hash_index) settings. Partitioning reduces contention between threads and improves performance in highly parallel systems. For more information, see [{{ MY }} settings](./concepts/settings-list.md).
+* Added the **Max write lock count** setting that sets the maximum number of consecutive write locks allowed before the server starts processing pending read lock requests. For more information, see [{{ MY }} settings](./concepts/settings-list.md).
+
 ## April 2026 {#apr-2026}
 
 * Users with the `mdb.admin` [role](./security/index.md#mdb-admin) can now [view the list](./operations/cluster-users.md#list-users) of users they created via the `mysql.v_user`, `mysql.v_db`, and `mysql.v_procs_priv` views.

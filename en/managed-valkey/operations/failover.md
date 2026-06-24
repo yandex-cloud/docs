@@ -13,7 +13,7 @@ A [sharded cluster](../concepts/sharding.md) contains one or more master hosts: 
     To switch the master in a non-sharded cluster:
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder with the non-sharded cluster.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
     1. Next to the host with the `MASTER` role, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_label-title }}**.
     1. In the window that opens, select **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_label_confirmation }}** and click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_button }}**.
@@ -21,7 +21,7 @@ A [sharded cluster](../concepts/sharding.md) contains one or more master hosts: 
     To switch the master in a sharded cluster:
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder with the sharded cluster.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
     1. Next to the host with the `MASTER` role, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_label-title }}**.
     1. In the window that opens, click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_button }}**.
@@ -51,7 +51,7 @@ A [sharded cluster](../concepts/sharding.md) contains one or more master hosts: 
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -87,7 +87,7 @@ A [sharded cluster](../concepts/sharding.md) contains one or more master hosts: 
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

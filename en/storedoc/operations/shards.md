@@ -33,7 +33,7 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.button_sharding-enable }}**.
   1. Select sharding type:
@@ -136,7 +136,7 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
 
   1. {% include [update-provider-version](../../_includes/mdb/mmg/terraform/update-provider-version.md) %}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
      To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -220,11 +220,11 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
 
      {% endcut %}
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -232,7 +232,7 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -266,7 +266,7 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
                         },
                         { <similar_settings_for_host_2> },
                         { ... },
-                        { <similar_configuration_for_host_N> }
+                        { <similar_settings_for_host_N> }
                       ]
                     }'
         ```
@@ -279,7 +279,7 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
 
           * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-          * `assignPublicIp`: Controls whether the host is accessible via a public IP address, `true` or `false`.
+          * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
           * `type`: Host type, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`.
           * `shardName`: Shard name.
           * `hidden`: Determines whether the host is hidden, `true` or `false`.
@@ -287,13 +287,13 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
           * `priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
           * `tags`: Host tags.
 
-        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/enableSharding.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -330,7 +330,7 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
                   },
                   { <similar_settings_for_host_2> },
                   { ... },
-                  { <similar_configuration_for_host_N> }
+                  { <similar_settings_for_host_N> }
                 ]
               }' \
           {{ api-host-mdb }}:{{ port-https }} \
@@ -345,15 +345,15 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
 
         * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
         * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-        * `assign_public_ip`: Controls whether the host is accessible via a public IP address, `true` or `false`.
+        * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
         * `type`: Host type, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`.
         * `shard_name`: Shard name.
-        * `hidden`: Determines whether the host is hidden, `true` or `false`.
+        * `hidden`: The host will either be visible (`false`) or hidden (`true`).
         * `secondary_delay_secs`: Host’s replication lag behind the master.
         * `priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
         * `tags`: Host tags.
 
-      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/enableSharding.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -366,7 +366,7 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
 
 - CLI {#cli}
@@ -396,7 +396,7 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -409,13 +409,13 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
             --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/shards'
         ```
 
-        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/listShards.md#yandex.cloud.mdb.mongodb.v1.ListClusterShardsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -437,7 +437,7 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
             yandex.cloud.mdb.mongodb.v1.ClusterService.ListShards
         ```
 
-        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/listShards.md#yandex.cloud.mdb.mongodb.v1.ListClusterShardsResponse) to make sure your request was successful.
 
@@ -452,7 +452,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
   1. Specify the shard name and add the required number of hosts.
@@ -483,7 +483,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
   1. {% include [update-provider-version](../../_includes/mdb/mmg/terraform/update-provider-version.md) %}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
      To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -501,11 +501,11 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
      }
      ```
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -513,7 +513,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -541,7 +541,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
                         },
                         { <similar_settings_for_host_2> },
                         { ... },
-                        { <similar_configuration_for_host_N> }
+                        { <similar_settings_for_host_N> }
                       ]
                     }'
 
@@ -554,7 +554,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
           * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-          * `assignPublicIp`: Controls whether the host is accessible via a public IP address, `true` or `false`.
+          * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
           * `type`: Host type. Specify `MONGOD`.
           * `shardName`: Shard name.
           * `hidden`: Determines whether the host is hidden, `true` or `false`.
@@ -562,13 +562,13 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
           * `priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
           * `tags`: Host tags.
 
-        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/addShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -600,7 +600,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
                     },
                     { <similar_settings_for_host_2> },
                     { ... },
-                    { <similar_configuration_for_host_N> }
+                    { <similar_settings_for_host_N> }
                   ]
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
@@ -614,15 +614,15 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
           * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-          * `assign_public_ip`: Controls whether the host is accessible via a public IP address, `true` or `false`.
+          * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
           * `type`: Host type. Specify `MONGOD`.
           * `shard_name`: Shard name.
-          * `hidden`: Determines whether the host is hidden, `true` or `false`.
+          * `hidden`: The host will either be visible (`false`) or hidden (`true`).
           * `secondary_delay_secs`: Host’s replication lag behind the master.
           * `priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
           * `tags`: Host tags.
 
-        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/addShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.    
 
@@ -643,7 +643,7 @@ The system will invoke the `removeShard` operation for the shard slated for remo
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
   1. Find the shard you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.shards.popup-confirm_button_delete }}**.
@@ -665,12 +665,12 @@ The system will invoke the `removeShard` operation for the shard slated for remo
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
      To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Delete all shard-related `host` blocks from the {{ mmg-name }} cluster description.
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -682,7 +682,7 @@ The system will invoke the `removeShard` operation for the shard slated for remo
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -701,7 +701,7 @@ The system will invoke the `removeShard` operation for the shard slated for remo
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -724,7 +724,7 @@ The system will invoke the `removeShard` operation for the shard slated for remo
             yandex.cloud.mdb.mongodb.v1.ClusterService.DeleteShard
         ```
 
-        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the shard name from the [list of cluster shards](#list-shards).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the shard name, with the [list of shards in the cluster](#list-shards).
 
     1. Check the [server response](../api-ref/grpc/Cluster/deleteShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

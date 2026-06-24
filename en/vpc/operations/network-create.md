@@ -8,7 +8,7 @@ In addition to the cloud network in the default folder, you can create cloud net
 
   To create a [cloud network](../concepts/network.md):
   1. In the [management console]({{ link-console-main }}), select the folder where you need to create a cloud network.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the top-right corner, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter a name for the network. The naming requirements are as follows:
 
@@ -114,13 +114,13 @@ In addition to the cloud network in the default folder, you can create cloud net
   1. Make sure the configuration files are correct.
 
      1. In the terminal, navigate to the directory where you created your configuration file.
-     1. Run a check using the following command:
+     1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-     If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors. 
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
   1. Deploy the cloud resources.
 
@@ -130,7 +130,7 @@ In addition to the cloud network in the default folder, you can create cloud net
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` and press **Enter**.
+     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
         This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 
@@ -182,13 +182,13 @@ Create a cloud network with a name and description in the selected folder:
   1. Make sure the configuration files are correct.
 
      1. In the terminal, navigate to the directory where you created your configuration file.
-     1. Run a check using the following command:
+     1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-     If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors. 
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
   1. Deploy the cloud resources.
 
@@ -198,7 +198,7 @@ Create a cloud network with a name and description in the selected folder:
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` and press **Enter**.
+     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
         This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 

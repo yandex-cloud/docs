@@ -4,7 +4,7 @@
 
 ## Конвенция именования {#naming}
 
-Имя спана формируется как `<package>.<service>/<method>`, например `grpc.users.UserService/GetUserInfo`. Если имя пакета отсутствует или неизвестно, часть `<package>.` опускается. Подробнее см. в [спецификации именования RPC-спанов](https://opentelemetry.io/docs/specs/semconv/rpc/rpc-spans/#span-name).
+Имя спана формируется как `<package>.<service>/<method>`, например `grpc.users.UserService/GetUserInfo`. Если имя пакета отсутствует или неизвестно, часть `<package>.` опускается. Подробнее в [спецификации именования RPC-спанов](https://opentelemetry.io/docs/specs/semconv/rpc/rpc-spans/#span-name).
 
 ## Атрибуты {#attributes}
 
@@ -20,7 +20,7 @@
 || `client.port` | Порт клиента ||
 |#
 
-Полный перечень атрибутов см. в [спецификации OpenTelemetry для RPC-спанов](https://opentelemetry.io/docs/specs/semconv/rpc/rpc-spans/).
+Полный перечень атрибутов приведен в [спецификации OpenTelemetry для RPC-спанов](https://opentelemetry.io/docs/specs/semconv/rpc/rpc-spans/).
 
 ## Пример {#example}
 

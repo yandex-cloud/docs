@@ -5,6 +5,12 @@ description: This section contains the {{ mos-name }} release notes.
 
 # {{ mos-full-name }} release notes
 
+## May 2026 {#may-2026}
+
+* Added the ability to [create and restore](./operations/cluster-backups.md) clusters with encrypted local disks from a backup. The encryption uses a custom KMS key.
+* Maximum local disk size per host is increased to 36 TB. Disks of this size are available for Intel Ice Lake (`standard-v3`) configurations with 16 or more cores. To create extra large clusters, you may need to contact [support]({{ link-console-support }}) to reserve the required resources.
+* An MCP server is available starting from {{ OS }} 3.0. It allows connecting an MCP client directly to the cluster to view indexes, schemas, and perform search. For more information, see [Using an MCP server in {{ OS }}](./tutorials/mcp.md).
+
 ## April 2026 {#apr-2026}
 
 Added seamless [disk type](./concepts/storage.md#storage-type-selection) swap from HDD to `network-ssd`.

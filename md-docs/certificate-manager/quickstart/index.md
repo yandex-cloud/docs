@@ -173,6 +173,6 @@
 
 #### Полезные ссылки {#see-also}
 
-- [Сертификат от Let's Encrypt](../concepts/managed-certificate.md)
-- [Проверка прав на домен](../concepts/challenges.md)
-- [Настройка HTTPS в бакете](../../storage/operations/hosting/certificate.md)
+* [Сертификат от Let's Encrypt](../concepts/managed-certificate.md)
+* [Проверка прав на домен](../concepts/challenges.md)
+* [Настройка HTTPS в бакете](../../storage/operations/hosting/certificate.md)

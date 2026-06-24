@@ -691,14 +691,6 @@ items:
                   Развертывание и нагрузочное тестирование gRPC-сервиса с
                   масштабированием
                 href: container-infrastructure/loadtesting-grpc-autoscaling.md
-          - name: Установка NGINX
-            items:
-              - name: Установка Ingress-контроллера NGINX с {{ lets-encrypt }}
-                href: container-infrastructure/ingress-cert-manager.md
-              - name: >-
-                  Установка Ingress-контроллера NGINX с сертификатом из {{
-                  certificate-manager-name }}
-                href: container-infrastructure/nginx-ingress-certificate-manager.md
           - name: Использование {{ container-registry-name }}
             items:
               - name: Интеграция с {{ container-registry-name }}

@@ -14,7 +14,7 @@ If deletion protection is enabled for the address, disable it before deleting th
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the address.
-   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
    1. Select the subnet containing the reserved address.
    1. Navigate to the ![addresses](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.subnetworks.switch_ip-addresses }}** tab.

@@ -14,7 +14,8 @@ Sets a password hash for the specified user.
   "hash": {
     "password_hash": "string",
     "password_hash_type": "PasswordHashType"
-  }
+  },
+  "need_change": "bool"
 }
 ```
 
@@ -30,6 +31,9 @@ The maximum string length in characters is 50. ||
 || hash | **[PasswordHash](#yandex.cloud.organizationmanager.v1.idp.PasswordHash)**
 
 Password hash to set. ||
+|| need_change | **bool**
+
+Whether the user must change their password on next login. ||
 |#
 
 ## PasswordHash {#yandex.cloud.organizationmanager.v1.idp.PasswordHash}
@@ -47,7 +51,12 @@ The maximum string length in characters is 128. ||
 
 Required field. Type of the password hash.
 
-- `AD_MD4`: Microsoft Active Directory MD4 hash. ||
+- `AD_MD4`: Microsoft Active Directory MD4 hash.
+- `LDAP_PBKDF2_SHA256`: 389 legacy format `{PBKDF2_SHA256}` (underscore).
+Supported by 389 DS, FreeIPA, ALD Pro.
+- `LDAP_PBKDF2_SHA256_OPENLDAP`: OpenLDAP-compatible format `{PBKDF2-SHA256}` (hyphen). Supported by 389 DS, FreeIPA, ALD Pro.
+- `LDAP_PBKDF2_SHA512`: Supported by 389 DS, FreeIPA, ALD Pro.
+- `LDAP_PKCS5S2`: Supported by Apache Directory Server. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

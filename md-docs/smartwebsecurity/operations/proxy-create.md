@@ -47,4 +47,4 @@
 
 ### Полезные ссылки {#see-also}
 
-* [Добавить домен](domain-create.md)
+[Добавить домен](domain-create.md)

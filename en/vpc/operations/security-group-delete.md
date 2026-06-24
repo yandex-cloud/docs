@@ -18,7 +18,7 @@ To delete a [security group](../concepts/security-groups.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you need to delete a security group.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the group you need to delete.
   1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.

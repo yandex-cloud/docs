@@ -46,7 +46,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
   To create a {{ mch-name }} cluster with the {{ CK }} coordination service:
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your database cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Enter a cluster name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
   1. Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
@@ -76,9 +76,25 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host your cluster and security groups for cluster network traffic. You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to be able connect to the cluster.
 
 
+  1. Optionally, under **{{ ui-key.yacloud.clickhouse.cluster.title_cluster-shards-settings }}**:
+
+      * Enable **{{ ui-key.yacloud.clickhouse.cluster.field_cluster-sharding }}** to create a cluster with multiple [shards](../concepts/sharding.md) from the outset. You can add shards either when creating or updating a cluster.
+
+      * Set up shards created together with the cluster. To change a shard's settings, click ![pencil](../../_assets/console-icons/pencil.svg) next to its number:
+
+          * **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}** and its **{{ ui-key.yacloud.mdb.forms.base_field_shard-weight }}**.
+
+          * **{{ ui-key.yacloud.clickhouse.cluster.field_shard-resources-type }}** of shard hosts:
+
+              * **{{ ui-key.yacloud.clickhouse.cluster.value_shard-resources-type-default }}**: Hosts will inherit the cluster configuration.
+
+              * **{{ ui-key.yacloud.clickhouse.cluster.value_shard-resources-type-override }}**: Set the host class, storage settings, and DBMS settings for all shard hosts.
+
+      To add shards to a cluster, click **{{ ui-key.yacloud.clickhouse.cluster.add_shard-btn }}**.
+
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
-      
-      * Configure the settings for database hosts created along with the cluster. To change the host settings, click ![pencil](../../_assets/console-icons/pencil.svg) next to the host number:
+
+      * Set up database hosts created together with the cluster. To change the host settings, click ![pencil](../../_assets/console-icons/pencil.svg) next to the host number:
 
         * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}**: Select the [availability zone](../../overview/concepts/geo-scope.md).
 
@@ -88,7 +104,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**: Allow [access](connect/index.md) to the host from the internet.
 
 
-        * If [sharding](../concepts/sharding.md) is enabled for the cluster and the number of hosts is greater than that of shards, select a shard.
+        * If cluster [sharding](../concepts/sharding.md) is enabled, select a shard.
 
         To add hosts to your cluster, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
 
@@ -97,19 +113,19 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
 
   1. If **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}** is selected, configure the following settings:
-      
+
       * Under **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-resource }}**, select the platform, VM type, and [host class](../concepts/instance-types.md).
       * Under **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-disk }}**, select the [disk type](../concepts/storage.md) and storage size. Optionally, configure [automatic increase of storage size](../concepts/storage.md#autoscaling) for {{ CK }}.
       * Under **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-hosts }}**, change the settings of the automatically added {{ CK }} hosts as appropriate.
-        
+
         To change the host settings, click ![pencil](../../_assets/console-icons/pencil.svg) next to the host and specify the following:
-          
+
         * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}**: Select the [availability zone](../../overview/concepts/geo-scope.md).
 
         
         * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}**: Select the [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
 
-  
+
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
       * If you want to manage cluster users via SQL, select **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** from the drop-down list in the **{{ ui-key.yacloud.common.enabled }}** field and enter the `admin` password. This disables user management through other interfaces.
@@ -139,8 +155,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       * Specify a database name. The database name may include Latin letters, numbers, and underscores. It may be up to 63 characters long. You cannot create a database named `default`.
 
-      * Select the database engine: 
-      
+      * Select the database engine:
+
         * `Atomic`, the default option, supports the non-blocking `DROP TABLE` and `RENAME TABLE` operations and atomic `EXCHANGE TABLES` operations.
         * `Replicated` supports table metadata replication across all database replicas. The set of tables and their schemas will be the same for all replicas.
 
@@ -198,10 +214,12 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         --name <cluster_name> \
         --environment <environment> \
         --network-name <network_name> \
-        --host type=<host_type>,`
-             `zone-id=<availability_zone>,`
-             `subnet-id=<subnet_ID>,`
-             `assign-public-ip=<public_access_to_host> \
+        --shard name=<shard_name>,weight=<shard_weight> \
+        --host type=clickhouse,`
+              `zone-id=<availability_zone>,`
+              `subnet-id=<subnet_ID>,`
+              `assign-public-ip=<public_access_to_host>,`
+              `shard-name=<shard_name> \
         --clickhouse-resource-preset <host_class> \
         --clickhouse-disk-type <disk_type> \
         --clickhouse-disk-size <storage_size_in_GB> \
@@ -213,27 +231,32 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         --deletion-protection
       ```
 
-      You need to specify `subnet-id` if the selected availability zone has two or more subnets.
-
 
       Where:
 
       * `--environment`: Cluster environment, `prestable` or `production`.
+      * `--shard`: [Shard](../concepts/sharding.md) properties, such as name and weight.
+
+        To create a cluster with multiple shards from the outset, specify this flag as many times as needed. If you do not specify the `--shard` flag, the new cluster will have a single shard named `shard1`.
+
       * `--host`: Host settings:
         * `type`: Host type, `clickhouse`.
         * `zone-id`: Availability zone.
 
         
+        * `subnet-id`: Subnet ID. Specify if the selected availability zone has two or more subnets.
         * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
 
           {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
 
 
-        Specify a separate `--host` flag for each host.
+        * `shard-name`: Name of the shard the host will reside in.
 
         
         {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
+
+        Specify a separate `--host` flag for each host.
 
       * `--clickhouse-resource-preset`: {{ CH }} [host class](../concepts/instance-types.md).
       * `--clickhouse-disk-type`: {{ CH }} [disk type](../concepts/storage.md).
@@ -264,9 +287,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       
       * `--security-group-ids`: Security group IDs, comma-separated.
-        
+
           {% include [note-sg](../../_includes/mdb/mch/note-sg.md) %}
-      
+
 
       * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
 
@@ -301,7 +324,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
            ...
            --enable-sql-user-management true \
            --enable-sql-database-management true \
-           --admin-password "<admin_password>"
+           --admin-password "<admin_user_password>"
          ```
 
       
@@ -341,7 +364,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
          * `--cloud-storage-prefer-not-to-merge`: Disables merging of data parts in a cluster and object storage, `true` or `false`.
 
       1. To configure automatic {{ CH }} storage expansion settings, use the `--disk-size-autoscaling` flag:
-        
+
          ```bash
          {{ yc-mdb-ch }} cluster create \
            ...
@@ -352,37 +375,38 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
          ```
 
          Where:
-         
+
          * `clickhouse-disk-size-limit`: Maximum {{ CH }} storage size, in GB.
          * `clickhouse-planned-usage-threshold`: {{ CH }} storage utilization threshold to trigger an increase during the next maintenance window, in percent. The default value is `0` (auto increase disabled).
-           
-           Allowed values range from `0` to `100`.
-         
+
+           The valid values range from `0` to `100`.
+
          * `clickhouse-emergency-usage-threshold`: Utilization threshold for the {{ CH }} storage capacity, in percent, to trigger an immediate increase. The default value is `0` (auto increase disabled).
-           
-           Allowed values range from `0` to `100`.
-         
+
+           The valid values range from `0` to `100`.
+
          {% note warning %}
-                  
+
          * If you specify both thresholds for {{ CH }}, `clickhouse-emergency-usage-threshold` must not be less than `clickhouse-planned-usage-threshold`.
-         
+
          * When using `clickhouse-planned-usage-threshold`, make sure to set up a [maintenance window](../concepts/maintenance.md).
-         
+
          {% endnote %}
-         
-         The automatic storage size increase settings for {{ CH }} apply to all existing shards. If you add a new shard, it will use the settings of the oldest shard. These values are not saved in the {{ CH }} configuration and not displayed in the `{{ yc-mdb-ch }} cluster get` command output. 
-                  
-         To view a specific shard's info, including automatic storage size increase settings, use this command: 
-                  
+
+         The automatic storage expansion settings specified for {{ CH }} apply to all shards. To use individual settings for a particular shard, provide the same parameters in the `--shard` flag.
+
          ```bash
-         {{ yc-mdb-ch }} shards get <shard_name> --cluster-id <cluster_ID>
+         {{ yc-mdb-ch }} cluster create \
+           ...
+           --shard name=<shard_name>,`
+                  `disk-size-limit=<maximum_storage_size_in_GB>,`
+                  `planned-usage-threshold=<scheduled_expansion_threshold_in_percent>,`
+                  `emergency-usage-threshold=<immediate_expansion_threshold_in_percent>
+           ...
          ```
-         You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
-         
-         You can get the shard name with the [list of shards](shards.md#list-shards) in the cluster.
-      
+
       1. To set a [maintenance window](../concepts/maintenance.md), use the `--maintenance-window` flag:
-         
+
          ```bash
          {{ yc-mdb-ch }} cluster create \
            ...
@@ -391,20 +415,20 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                                `day=<day_of_week>
            ...
          ```
-         
+
          Where `--maintenance-window` defines the maintenance window settings:
 
          * `type`: Maintenance window type. Valid values:
-           
+
            * `anytime`: Any time (default).
            * `weekly`: On schedule. To use this value, you need to provide `hour` and `day`.
-        
+
          * `hour`: Time of day (UTC). The valid values range from `1` to `24`.
          * `day`: Day of week. The valid values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, and `SUN`.
 
 
 - {{ TF }} {#tf}
-  
+
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   To create a {{ mch-name }} cluster with the built-in {{ CK }} coordination service:
@@ -525,7 +549,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
        * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
-       * `shards`: Cluster [shards](../concepts/sharding.md) as an associative array of elements. The key specifies the shard name, and the value includes the `weight` parameter, i.e., the shard weight. 
+       * `shards`: Cluster [shards](../concepts/sharding.md) as an associative array of elements. The key specifies the shard name, and the value includes the `weight` parameter, i.e., the shard weight.
 
        * `hosts`: Cluster hosts as an associative array of elements. The key specifies the host name, and the value, the host parameters. Each element in the array has the following structure:
 
@@ -535,9 +559,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
           * `assign_public_ip`: Public access to the {{ CH }} host, `true` or `false`.
 
             {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
-          
+
           * `shard_name`: Shard name.
-          
+
           {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
        For a user, specify the following:
@@ -608,7 +632,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
        For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mch }}).
 
-    1. Validate your {{ TF }} configuration:
+    1. Make sure the {{ TF }} configuration files are correct:
 
        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -676,7 +700,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                   "dataCacheMaxSize": "<maximum_memory_for_file_storage>",
                   "preferNotToMerge": <disabling_data_part_merging>
                 },
-                "adminPassword": "<admin_password>",
+                "adminPassword": "<admin_user_password>",
                 "sqlUserManagement": <user_management_via_SQL>,
                 "sqlDatabaseManagement": <database_management_via_SQL>
               },
@@ -715,6 +739,32 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                 { ... },
                 { <similar_settings_for_host_N> }
               ],
+              "shardSpecs": [
+                {
+                  "name": "<shard_name>",
+                  "configSpec": {
+                    "clickhouse": {
+                      "weight": "<shard_weight>", 
+                      "resources": {
+                        "resourcePresetId": "<host_class_in_shard>",
+                        "diskSize": "<storage_size_in_bytes>",
+                        "diskTypeId": "<disk_type>"
+                      },
+                      "diskSizeAutoscaling": {
+                        "plannedUsageThreshold": "<scheduled_expansion_threshold_in_percent>",
+                        "emergencyUsageThreshold": "<immediate_expansion_threshold_in_percent>",
+                        "diskSizeLimit": "<maximum_storage_size_in_bytes>"
+                      },
+                      "config": {
+                        <DBMS_settings>
+                      }
+                    }
+                  }
+                },
+                { <similar_set_of_settings_for_shard_2> },
+                { ... },
+                { <similar_set_of_settings_for_shard_N> }
+              ],
               "deletionProtection": <cluster_deletion_protection>,
               "maintenanceWindow": {
                 "weeklyMaintenanceWindow": {
@@ -751,7 +801,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                     * `resources.diskSize`: Disk size, in bytes.
                     * `resources.diskTypeId`: [Disk type](../concepts/storage.md).
                     * `diskSizeAutoscaling`: Automatic storage expansion settings for {{ CH }}:
-                      
+
                       {% include [disk-size-autoscaling-rest-ch](../../_includes/mdb/mch/disk-size-autoscaling-rest-ch.md) %}
 
                 * `access`: Settings enabling cluster access from other services and [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
@@ -771,11 +821,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                     {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-            * `databaseSpecs`: Database settings as an array of elements, one per database. Each element has the following structure: 
-              
+            * `databaseSpecs`: Database settings as an array of elements, one per database. Each element has the following structure:
+
                 * `name`: Database name.
                 * `engine`: Database engine. The possible values are:
-                  
+
                   {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
 
             * `userSpecs`: User settings as an array of elements, one per user. Each element has the following structure:
@@ -801,15 +851,21 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                 {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
 
-            * `deletionProtection`: Cluster protection against accidental deletion, `true` or `false`. The default value is `false`.
+            * `shardSpecs`: Shard settings as an array of elements, one per shard. If you skip this section in the request, the new cluster will have a single shard named `shard1`. You can specify the following settings:
+
+                * `name`: Shard name.
+                * `weight`: Shard weight.
+                * `configSpec.clickhouse`: Shard host configuration, i.e., host class, storage settings, and DBMS settings. If you skip the shard host configuration, it will be inherited from the cluster configuration.
+
+            * `deletionProtection`: Cluster deletion protection, `true` or `false`. The default value is `false`.
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
             * `maintenanceWindow`: Maintenance window settings:
-              
+
                 * `weeklyMaintenanceWindow.day`: Day of week. The valid values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, and `SUN`.
-                * `weeklyMaintenanceWindow.hour`: Time of day (UTC). Allowed values range from `1` to `24`.
-              
+                * `weeklyMaintenanceWindow.hour`: Time of day (UTC). The valid values range from `1` to `24`.
+
             
             You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
@@ -884,7 +940,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                   "data_cache_max_size": "<maximum_memory_for_file_storage>",
                   "prefer_not_to_merge": <disabling_data_part_merging>
                 },
-                "admin_password": "<admin_password>",
+                "admin_password": "<admin_user_password>",
                 "sql_user_management": <user_management_via_SQL>,
                 "sql_database_management": <database_management_via_SQL>
               },
@@ -923,6 +979,32 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                 { ... },
                 { <similar_settings_for_host_N> }
               ],
+              "shard_specs": [
+                {
+                  "name": "<shard_name>",
+                  "config_spec": {
+                    "clickhouse": {
+                      "weight": "<shard_weight>",
+                      "resources": {
+                        "resource_preset_id": "<host_class>",
+                        "disk_size": "<storage_size_in_bytes>",
+                        "disk_type_id": "<disk_type>"
+                      },
+                      "disk_size_autoscaling": {
+                        "planned_usage_threshold": "<scheduled_expansion_threshold_in_percent>",
+                        "emergency_usage_threshold": "<immediate_expansion_threshold_in_percent>",
+                        "disk_size_limit": "<maximum_storage_size_in_bytes>"
+                      },
+                      "config": {
+                        <DBMS_settings>
+                      }
+                    }
+                  }
+                },
+                { <similar_set_of_settings_for_shard_2> },
+                { ... },
+                { <similar_set_of_settings_for_shard_N> }
+              ],
               "deletion_protection": <cluster_deletion_protection>,
               "maintenance_window": {
                 "weekly_maintenance_window": {
@@ -942,7 +1024,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
             
             * `security_group_ids`: [Security group](../../vpc/concepts/security-groups.md) IDs as an array of strings. Each string is a security group ID.
-                
+
                 {% include [note-sg](../../_includes/mdb/mch/note-sg.md) %}
 
 
@@ -961,7 +1043,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                     * `resources.disk_type_id`: [Disk type](../concepts/storage.md).
 
                     * `disk_size_autoscaling`: Automatic storage expansion settings for {{ CH }}:
-                      
+
                         {% include [disk-size-autoscaling-grpc-ch](../../_includes/mdb/mch/disk-size-autoscaling-grpc-ch.md) %}
 
                 * `access`: Settings enabling cluster access from other services and [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
@@ -981,11 +1063,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                     {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-            * `database_specs`: Database settings as an array of elements, one per database. Each element has the following structure: 
-              
+            * `database_specs`: Database settings as an array of elements, one per database. Each element has the following structure:
+
                 * `name`: Database name.
                 * `engine`: Database engine. The possible values are:
-                  
+
                   {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
 
             * `user_specs`: User settings as an array of elements, one per user. Each element has the following structure:
@@ -1011,20 +1093,26 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                 {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
 
+            * `shard_specs`: Shard settings as an array of elements, one per shard. If you skip this section in the request, the new cluster will have a single shard named `shard1`. You can specify the following settings:
+
+                * `name`: Shard name.
+                * `weight`: Shard weight.
+                * `config_spec.clickhouse`: Shard host configuration, i.e., including host class, storage settings, and DBMS settings. If you skip the shard host configuration, it will be inherited from the cluster configuration.
+
             * `deletion_protection`: Cluster deletion protection, `true` or `false`. The default value is `false`.
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
             * `maintenance_window`: Maintenance window settings:
-              
+
               * `weekly_maintenance_window.day`: Day of week. The valid values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, and `SUN`.
-              * `weekly_maintenance_window.hour`: Time of day (UTC). Allowed values range from `1` to `24`.
+              * `weekly_maintenance_window.hour`: Time of day (UTC). The valid values range from `1` to `24`.
 
             
             You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-        1. Run this request:
+        1. Run this query:
 
             ```bash
             grpcurl \
@@ -1052,7 +1140,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
   To create a {{ mch-name }} cluster with the {{ ZK }} coordination service:
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your database cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Enter a cluster name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
   1. Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
@@ -1082,9 +1170,25 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host your cluster and security groups for cluster network traffic. You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to be able connect to the cluster.
 
 
+    1. Optionally, under **{{ ui-key.yacloud.clickhouse.cluster.title_cluster-shards-settings }}**:
+
+        * Enable **{{ ui-key.yacloud.clickhouse.cluster.field_cluster-sharding }}** to create a cluster with multiple [shards](../concepts/sharding.md) from the outset. You can also add shards after you create a cluster.
+
+        * Set up shards created together with the cluster. To change a shard's settings, click ![pencil](../../_assets/console-icons/pencil.svg) next to its number:
+
+            * **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}** and its **{{ ui-key.yacloud.mdb.forms.base_field_shard-weight }}**.
+
+            * **{{ ui-key.yacloud.clickhouse.cluster.field_shard-resources-type }}** of shard hosts:
+
+                * **{{ ui-key.yacloud.clickhouse.cluster.value_shard-resources-type-default }}**: Hosts will inherit the cluster configuration.
+
+                * **{{ ui-key.yacloud.clickhouse.cluster.value_shard-resources-type-override }}**: Set the host class, storage settings, and DBMS settings for all shard hosts.
+
+        To add shards to a cluster, click **{{ ui-key.yacloud.clickhouse.cluster.add_shard-btn }}**.
+
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
-      
-      * Configure the settings for database hosts created along with the cluster. To change the host settings, click ![pencil](../../_assets/console-icons/pencil.svg) next to the host number:
+
+      * Set up database hosts created together with the cluster. To change the host settings, click ![pencil](../../_assets/console-icons/pencil.svg) next to the host number:
 
         * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}**: Select the [availability zone](../../overview/concepts/geo-scope.md).
 
@@ -1093,26 +1197,26 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**: Allow [access](connect/index.md) to the host from the internet.
 
 
-        * If [sharding](../concepts/sharding.md) is enabled for the cluster and the number of hosts is greater than that of shards, select a shard.
+        * If cluster [sharding](../concepts/sharding.md) is enabled, select a shard.
 
         To add hosts to your cluster, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
 
       * Select the **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-zookeeper }}** [coordination service](../concepts/coordination-system.md).
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**, select the platform, VM type, and [host class](../concepts/instance-types.md) for your {{ ZK }} hosts.
-  
+
   1. Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**, select the [disk type](../concepts/storage.md) and storage size. Optionally, configure [automatic increase of storage size](../concepts/storage.md#autoscaling) for {{ ZK }} hosts.
-  
+
   1. Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-hosts }}**, change the settings of the automatically added {{ ZK }} hosts as appropriate.
-        
+
       To change the host settings, click ![pencil](../../_assets/console-icons/pencil.svg) next to the host and specify the following:
-          
+
       * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}**: Select the [availability zone](../../overview/concepts/geo-scope.md).
+
       
-            
       * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}**: Select the [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
-      
-  
+
+
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
       * If you want to manage cluster users via SQL, select **{{ ui-key.yacloud.common.enabled }}** from the drop-down list in the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** field and enter the `admin` password. This disables user management through other interfaces.
@@ -1142,8 +1246,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       * Specify a database name. The database name may include Latin letters, numbers, and underscores. It may be up to 63 characters long. You cannot create a database named `default`.
 
-      * Select the database engine: 
-      
+      * Select the database engine:
+
         * `Atomic`, the default option, supports the non-blocking `DROP TABLE` and `RENAME TABLE` operations and atomic `EXCHANGE TABLES` operations.
         * `Replicated` supports table metadata replication across all database replicas. The set of tables and their schemas will be the same for all replicas.
 
@@ -1201,10 +1305,12 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         --name <cluster_name> \
         --environment <environment> \
         --network-name <network_name> \
+        --shard name=<shard_name>,weight=<shard_weight> \
         --host type=<host_type>,`
-             `zone-id=<availability_zone>,`
-             `subnet-id=<subnet_ID>,`
-             `assign-public-ip=<public_access_to_host> \
+              `zone-id=<availability_zone>,`
+              `subnet-id=<subnet_ID>,`
+              `assign-public-ip=<public_access_to_host>,`
+              `shard-name=<shard_name> \
         --clickhouse-resource-preset <host_class> \
         --clickhouse-disk-type <disk type> \
         --clickhouse-disk-size <storage_size_in_GB> \
@@ -1218,21 +1324,28 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         --deletion-protection
       ```
 
-      You need to specify `subnet-id` if the selected availability zone has two or more subnets.
-
 
       Where:
 
       * `--environment`: Cluster environment, `prestable` or `production`.
+      * `--shard`: [Shard](../concepts/sharding.md) properties, such as name and weight.
+
+        To create a cluster with multiple shards from the outset, specify this flag as many times as needed. If you do not specify the `--shard` flag, the new cluster will have a single shard named `shard1`.
+
       * `--host`: Host settings:
         * `type`: Host type, `clickhouse` or `zookeeper`.
         * `zone-id`: Availability zone.
 
         
+        * `subnet-id`: Subnet ID. Specify if the selected availability zone has two or more subnets.
         * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`. This setting is only relevant for `CLICKHOUSE` hosts.
 
           {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
 
+
+        * `shard-name`: Name of the shard the host will reside in.
+
+        
         {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
 
@@ -1266,10 +1379,10 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       
       * `--security-group-ids`: Security group IDs, comma-separated.
-        
+
           {% include [note-sg](../../_includes/mdb/mch/note-sg.md) %}
-      
-      
+
+
       * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
 
       * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
@@ -1303,7 +1416,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
            ...
            --enable-sql-user-management true \
            --enable-sql-database-management true \
-           --admin-password "<admin_password>"
+           --admin-password "<admin_user_password>"
          ```
 
       
@@ -1343,7 +1456,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
          * `--cloud-storage-prefer-not-to-merge`: Disables merging of data parts in a cluster and object storage, `true` or `false`.
 
       1. To configure automatic expansion settings for your {{ CH }} and {{ ZK }} storages, use the `--disk-size-autoscaling` flag:
-        
+
          ```bash
          {{ yc-mdb-ch }} cluster create \
            ...
@@ -1357,11 +1470,23 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
          ```
 
          Where `--disk-size-autoscaling` defines the automatic storage size increase settings:
-         
+
          {% include [disk-size-autoscaling-cli](../../_includes/mdb/mch/disk-size-autoscaling-cli.md) %}
-      
+
+         The automatic storage expansion settings specified for {{ CH }} apply to all shards. To use individual settings for a particular shard, provide the same parameters in the `--shard` flag.
+
+         ```bash
+         {{ yc-mdb-ch }} cluster create \
+           ...
+           --shard name=<shard_name>,`
+                  `disk-size-limit=<maximum_storage_size_in_GB>,`
+                  `planned-usage-threshold=<scheduled_expansion_threshold_in_percent>,`
+                  `emergency-usage-threshold=<immediate_expansion_threshold_in_percent>
+           ...
+         ```
+
       1. To set a [maintenance window](../concepts/maintenance.md), use the `--maintenance-window` flag:
-         
+
          ```bash
          {{ yc-mdb-ch }} cluster create \
            ...
@@ -1370,14 +1495,14 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                                `day=<day_of_week>
            ...
          ```
-         
+
          Where `--maintenance-window` defines the maintenance window settings:
 
          * `type`: Maintenance window type. Valid values:
-           
+
            * `anytime`: Any time (default).
            * `weekly`: On schedule. To use this value, you need to provide `hour` and `day`.
-        
+
          * `hour`: Time of day (UTC). The valid values range from `1` to `24`.
          * `day`: Day of week. The valid values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, and `SUN`.
 
@@ -1516,8 +1641,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        Where:
 
        * `deletion_protection`: Cluster deletion protection, `true` or `false`.
-        
-       * `shards`: Cluster [shards](../concepts/sharding.md) as an associative array of elements. The key specifies the shard name, and the value includes the `weight` parameter, i.e., the shard weight. 
+
+       * `shards`: Cluster [shards](../concepts/sharding.md) as an associative array of elements. The key specifies the shard name, and the value includes the `weight` parameter, i.e., the shard weight.
 
        * `hosts`: Cluster hosts as an associative array of elements. The key specifies the host name, and the value, the host parameters. Each element in the array has the following structure:
 
@@ -1527,9 +1652,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
           * `assign_public_ip`: Public access to the {{ CH }} host, `true` or `false`. This setting is only relevant for `CLICKHOUSE` hosts.
 
             {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
-          
+
           * `shard_name`: Shard name. This setting is only relevant for `CLICKHOUSE` hosts.
-          
+
           {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
        For a user, specify the following:
@@ -1600,7 +1725,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
        For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mch }}).
 
-    1. Validate your {{ TF }} configuration:
+    1. Make sure the {{ TF }} configuration files are correct:
 
        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1679,7 +1804,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                   "dataCacheMaxSize": "<maximum_memory_for_file_storage>",
                   "preferNotToMerge": <disabling_data_part_merging>
                 },
-                "adminPassword": "<admin_password>",
+                "adminPassword": "<admin_user_password>",
                 "sqlUserManagement": <user_management_via_SQL>,
                 "sqlDatabaseManagement": <database_management_via_SQL>
               },
@@ -1718,6 +1843,32 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                 { ... },
                 { <similar_settings_for_host_N> }
               ],
+              "shardSpecs": [
+                {
+                  "name": "<shard_name>",
+                  "configSpec": {
+                    "clickhouse": {
+                      "weight": "<shard_weight>", 
+                      "resources": {
+                        "resourcePresetId": "<host_class_in_shard>",
+                        "diskSize": "<storage_size_in_bytes>",
+                        "diskTypeId": "<disk_type>"
+                      },
+                      "diskSizeAutoscaling": {
+                        "plannedUsageThreshold": "<scheduled_expansion_threshold_in_percent>",
+                        "emergencyUsageThreshold": "<immediate_expansion_threshold_in_percent>",
+                        "diskSizeLimit": "<maximum_storage_size_in_bytes>"
+                      },
+                      "config": {
+                        <DBMS_settings>
+                      }
+                    }
+                  }
+                },
+                { <similar_set_of_settings_for_shard_2> },
+                { ... },
+                { <similar_set_of_settings_for_shard_N> }
+              ],
               "deletionProtection": <cluster_deletion_protection>,
               "maintenanceWindow": {
                 "weeklyMaintenanceWindow": {
@@ -1751,7 +1902,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                     * `resources.diskTypeId`: [Disk type](../concepts/storage.md).
 
                     * `diskSizeAutoscaling`: Automatic storage expansion settings for {{ CH }}:
-                      
+
                       {% include [disk-size-autoscaling-rest-ch](../../_includes/mdb/mch/disk-size-autoscaling-rest-ch.md) %}
 
                 * `zookeeper`: [{{ ZK }}](../concepts/coordination-system.md#zk) configuration:
@@ -1761,7 +1912,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                     * `resources.diskTypeId`: [Disk type](../concepts/storage.md).
 
                     * `diskSizeAutoscaling`: Automatic storage expansion settings for {{ ZK }}:
-                      
+
                       {% include [disk-size-autoscaling-rest-zk](../../_includes/mdb/mch/disk-size-autoscaling-rest-zk.md) %}
 
                 * `access`: Settings enabling cluster access from other services and [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
@@ -1781,11 +1932,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                     {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-            * `databaseSpecs`: Database settings as an array of elements, one per database. Each element has the following structure: 
-              
+            * `databaseSpecs`: Database settings as an array of elements, one per database. Each element has the following structure:
+
                 * `name`: Database name.
                 * `engine`: Database engine. The possible values are:
-                  
+
                   {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
 
             * `userSpecs`: User settings as an array of elements, one per user. Each element has the following structure:
@@ -1809,17 +1960,23 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                    {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
 
                 {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
-                
+
+
+            * `shardSpecs`: Shard settings as an array of elements, one per shard. If you skip this section in the request, the new cluster will have a single shard named `shard1`. You can specify the following settings:
+
+                * `name`: Shard name.
+                * `weight`: Shard weight.
+                * `configSpec.clickhouse`: Shard host configuration, i.e., host class, storage settings, and DBMS settings. If you skip the shard host configuration, it will be inherited from the cluster configuration.
 
             * `deletionProtection`: Cluster deletion protection, `true` or `false`. The default value is `false`.
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
             * `maintenanceWindow`: Maintenance window settings:
-              
+
                 * `weeklyMaintenanceWindow.day`: Day of week. The valid values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, and `SUN`.
-                * `weeklyMaintenanceWindow.hour`: Time of day (UTC). Allowed values range from `1` to `24`.
-              
+                * `weeklyMaintenanceWindow.hour`: Time of day (UTC). The valid values range from `1` to `24`.
+
             
             You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
@@ -1905,7 +2062,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                   "data_cache_max_size": "<maximum_memory_for_file_storage>",
                   "prefer_not_to_merge": <disabling_data_part_merging>
                 },
-                "admin_password": "<admin_password>",
+                "admin_password": "<admin_user_password>",
                 "sql_user_management": <user_management_via_SQL>,
                 "sql_database_management": <database_management_via_SQL>
               },
@@ -1944,6 +2101,32 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                 { ... },
                 { <similar_settings_for_host_N> }
               ],
+              "shard_specs": [
+                {
+                  "name": "<shard_name>",
+                  "config_spec": {
+                    "clickhouse": {
+                      "weight": "<shard_weight>",
+                      "resources": {
+                        "resource_preset_id": "<host_class>",
+                        "disk_size": "<storage_size_in_bytes>",
+                        "disk_type_id": "<disk_type>"
+                      },
+                      "disk_size_autoscaling": {
+                        "planned_usage_threshold": "<scheduled_expansion_threshold_in_percent>",
+                        "emergency_usage_threshold": "<immediate_expansion_threshold_in_percent>",
+                        "disk_size_limit": "<maximum_storage_size_in_bytes>"
+                      },
+                      "config": {
+                        <DBMS_settings>
+                      }
+                    }
+                  }
+                },
+                { <similar_set_of_settings_for_shard_2> },
+                { ... },
+                { <similar_set_of_settings_for_shard_N> }
+              ],
               "deletion_protection": <cluster_deletion_protection>,
               "maintenance_window": {
                 "weekly_maintenance_window": {
@@ -1978,17 +2161,17 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                     * `resources.disk_type_id`: [Disk type](../concepts/storage.md).
 
                     * `disk_size_autoscaling`: Automatic storage expansion settings for {{ CH }}:
-                      
+
                         {% include [disk-size-autoscaling-grpc-ch](../../_includes/mdb/mch/disk-size-autoscaling-grpc-ch.md) %}
 
                 * `zookeeper`: [{{ ZK }}](../concepts/coordination-system.md#zk) configuration:
-                    
+
                     * `resources.resource_preset_id`: Host class ID. You can get the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
                     * `resources.disk_size`: Disk size, in bytes.
                     * `resources.disk_type_id`: [Disk type](../concepts/storage.md).
 
                     * `disk_size_autoscaling`: Automatic storage expansion settings for {{ ZK }}:
-                      
+
                         {% include [disk-size-autoscaling-grpc-zk](../../_includes/mdb/mch/disk-size-autoscaling-grpc-zk.md) %}
 
                 * `access`: Settings enabling cluster access from other services and [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
@@ -2008,11 +2191,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                     {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-            * `database_specs`: Database settings as an array of elements, one per database. Each element has the following structure: 
-              
+            * `database_specs`: Database settings as an array of elements, one per database. Each element has the following structure:
+
                 * `name`: Database name.
                 * `engine`: Database engine. The possible values are:
-                  
+
                   {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
 
             * `user_specs`: User settings as an array of elements, one per user. Each element has the following structure:
@@ -2036,22 +2219,28 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                    {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
 
                 {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
-                
+
+
+            * `shard_specs`: Shard settings as an array of elements, one per shard. If you skip this section in the request, the new cluster will have a single shard named `shard1`. You can specify the following settings:
+
+                * `name`: Shard name.
+                * `weight`: Shard weight.
+                * `config_spec.clickhouse`: Shard host configuration, i.e., including host class, storage settings, and DBMS settings. If you skip the shard host configuration, it will be inherited from the cluster configuration.
 
             * `deletion_protection`: Cluster deletion protection, `true` or `false`. The default value is `false`.
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
             * `maintenance_window`: Maintenance window settings:
-              
+
               * `weekly_maintenance_window.day`: Day of week. The valid values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, and `SUN`.
-              * `weekly_maintenance_window.hour`: Time of day (UTC). Allowed values range from `1` to `24`.
+              * `weekly_maintenance_window.hour`: Time of day (UTC). The valid values range from `1` to `24`.
 
             
             You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-        1. Run this request:
+        1. Run this query:
 
             ```bash
             grpcurl \
@@ -2203,7 +2392,6 @@ To create a {{ CH }} cluster copy:
   * Folder ID: `{{ tf-folder-id }}`.
   * New cloud network: `cluster-net`.
   * New [default security group](connect/index.md#configuring-security-groups): `cluster-sg` (in the `cluster-net` network). It must allow connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
-  
   * One shard, `shard1`.
   * One `{{ host-class }}` host in `shard1`. The host resides in the new subnet, `cluster-subnet-{{ region-id }}-a`.
 
@@ -2238,6 +2426,99 @@ To create a {{ CH }} cluster copy:
 
 {% endlist %}
 
+### Creating a sharded cluster {#creating-a-sharded-cluster}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  Create a {{ mch-name }} cluster with the following test specifications:
+
+  
+  * Name: `mych`.
+  * Environment: `production`.
+  * Network: `{{ network-name }}`.
+  * Security group: `{{ security-group }}`.
+  * Three `{{ host-class }}` class {{ CH }} hosts residing in different shards and different subnets:
+
+      * In `shard1`, subnet ID `e9bhbia2scnk********`, availability zone `{{ region-id }}-a`.
+      * In `shard2`, subnet ID `e2lfqbm5nt9r********`, availability zone `{{ region-id }}-b`.
+      * In `shard3`, subnet ID `fl8beqmjckv8********`, availability zone `{{ region-id }}-d`.
+
+  * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
+  * User: `user1`, password: `user1user1`.
+  * Database: `db1`.
+  * Cluster protection against accidental deletion: Enabled.
+
+
+  Run this command:
+
+  
+  ```bash
+  {{ yc-mdb-ch }} cluster create \
+    --name mych \
+    --environment=production \
+    --network-name {{ network-name }} \
+    --shard name=shard1,weight=1 \
+    --shard name=shard2,weight=1 \
+    --shard name=shard3,weight=1 \
+    --host type=clickhouse,zone-id={{ region-id }}-a,subnet-id=e9bhbia2scnk********,shard-name=shard1 \
+    --host type=clickhouse,zone-id={{ region-id }}-b,subnet-id=e2lfqbm5nt9r********,shard-name=shard2 \
+    --host type=clickhouse,zone-id={{ region-id }}-d,subnet-id=fl8beqmjckv8********,shard-name=shard3 \
+    --clickhouse-resource-preset {{ host-class }} \
+    --clickhouse-disk-type {{ disk-type-example }} \
+    --clickhouse-disk-size 20 \
+    --user name=user1,password=user1user1 \
+    --database name=db1 \
+    --security-group-ids {{ security-group }} \
+    --deletion-protection
+  ```
+
+
+
+- {{ TF }} {#tf}
+
+  Create a {{ mch-name }} cluster and its network with the following test specifications:
+
+  * Name: `mych`.
+  * Environment: `PRESTABLE`.
+  * Cloud ID: `{{ tf-cloud-id }}`.
+  * Folder ID: `{{ tf-folder-id }}`.
+  * New cloud network: `cluster-net`.
+
+  * Three `{{ host-class }}` class {{ CH }} hosts residing in different shards and in new subnets belonging to the `cluster-net` network:
+
+      * In `shard1`, subnet `cluster-subnet-{{ region-id }}-a` (range `172.16.1.0/24`, availability zone `{{ region-id }}-a`).
+      * In `shard2`, subnet `cluster-subnet-{{ region-id }}-b` (range `172.16.2.0/24`, availability zone `{{ region-id }}-b`).
+      * In `shard3`, subnet `cluster-subnet-{{ region-id }}-d` (range `172.16.3.0/24`, availability zone `{{ region-id }}-d`).
+
+  * New [default security group](connect/index.md#configuring-security-groups): `cluster-sg` (in the `cluster-net` network). It must allow connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
+  * Network SSD storage (`{{ disk-type-example }}`) for each of the {{ CH }} hosts: 20 GB.
+  * Database name: `db1`.
+  * User: `user1`, password: `user1user1`.
+  * Maintenance takes place at any time.
+
+  The configuration files for this cluster are as follows:
+
+  1. Configuration file with a description of the provider settings:
+
+      {% include [terraform-provider](../../_includes/mdb/terraform-provider.md) %}
+
+  1. Configuration file with a description of the cloud network and subnets:
+
+      {% include [terraform-mdb-multiple-networks](../../_includes/mdb/terraform-multiple-networks.md) %}
+
+  1. Configuration file with a description of the security group:
+
+      {% include [terraform-mch-sg](../../_includes/mdb/mch/terraform/security-groups.md) %}
+
+  1. Configuration file with a description of the cluster and its hosts:
+
+      {% include [example-sharded-cluster](../../_includes/mdb/mch/terraform/example-sharded-cluster.md) %}
+
+
+{% endlist %}
+
 ### Creating a cluster with the {{ ZK }} coordination service {#creating-a-multi-host-cluster}
 
 
@@ -2253,13 +2534,13 @@ To create a {{ CH }} cluster copy:
   * Network: `{{ network-name }}`.
   * Security group: `{{ security-group }}`.
   * Three {{ CH }} hosts of class `{{ host-class }}` residing in subnets across three different availability zones:
-      
+
     * In subnet with ID `e9bhbia2scnk********` in the `{{ region-id }}-a` availability zone
     * In subnet with ID `e2lfqbm5nt9r********` in the `{{ region-id }}-b` availability zone
     * In subnet with ID `fl8beqmjckv8********` in the `{{ region-id }}-d` availability zone
-  
+
   * Three {{ ZK }} hosts of class `{{ zk-host-class }}` residing in subnets across three different availability zones:
-      
+
     * In subnet with ID `e9bhbia2scnk********` in the `{{ region-id }}-a` availability zone
     * In subnet with ID `e2lfqbm5nt9r********` in the `{{ region-id }}-b` availability zone
     * In subnet with ID `fl8beqmjckv8********` in the `{{ region-id }}-d` availability zone

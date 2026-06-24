@@ -84,7 +84,7 @@ description: Следуя данной инструкции, вы сможете
      }
      ```
 
-     Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
+     Подробнее о параметрах ресурса `yandex_alb_backend_group` в [документации провайдера]({{ tf-provider-alb-backendgroup }}).
   1. Примените изменения:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

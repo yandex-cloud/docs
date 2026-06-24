@@ -24,7 +24,7 @@
 
 Для работы с квотами доступны интерфейсы: [консоль управления](https://console.yandex.cloud/cloud?section=quotas), [API](api-ref/authentication.md) и [CLI](cli-ref/index.md).
 
-Управление квотами через CLI и API выполняется по идентификатору квоты. Список идентификаторов см. в разделе [Квоты для сервисов Yandex Cloud](all-quotas.md).
+Управление квотами через CLI и API выполняется по идентификатору квоты. Список идентификаторов приведен в разделе [Квоты для сервисов Yandex Cloud](all-quotas.md).
 
 ## Перед началом работы {#before-you-begin}
 

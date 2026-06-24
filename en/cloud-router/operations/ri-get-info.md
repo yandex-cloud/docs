@@ -14,16 +14,24 @@ You need the [cloud-router.viewer](../security/index.md#cloudrouter-viewer) role
 
 - CLI {#cli}
 
+  You can view information about a routing instance using the following commands:
+  * [yc cloudrouter routing-instance get](../../cli/cli-ref/cloudrouter/cli-ref/routing-instance/get.md): Allows you to get information about a routing instance using its name or ID.
+  * [yc cloudrouter routing-instance get-by-cic-private-connection-id](../../cli/cli-ref/cloudrouter/cli-ref/routing-instance/get-by-cic-private-connection-id.md): Allows you to get information about a routing instance using the ID of the {{ interconnect-full-name }} [private connection](../../interconnect/concepts/priv-con.md) to the routing instance.
+  * [yc cloudrouter routing-instance get-by-vpc-network-id](../../cli/cli-ref/cloudrouter/cli-ref/routing-instance/get-by-vpc-network-id.md): Allows you to get information about a routing instance using the ID of the [cloud network](../../vpc/concepts/network.md#network) the routing instance ensures connectivity with.
+
+  **yc cloudrouter routing-instance get**
+
   1. See the description of the CLI command to get routing instance information:
 
       ```bash
       yc cloudrouter routing-instance get --help
       ```
 
-  1. Get a list of `Routing Instance` objects (RIs) for the specified folder:
+  1. Get the list of routing instances in the specified [folder](../../resource-manager/concepts/resources-hierarchy.md#folder):
 
       ```bash
-      yc cloudrouter routing-instance list --folder-id b1gqf2hjizv2jw****** 
+      yc cloudrouter routing-instance list \
+        --folder-id <folder_ID>
       ```
 
       Result:
@@ -32,34 +40,95 @@ You need the [cloud-router.viewer](../security/index.md#cloudrouter-viewer) role
       +----------------------+--------------------+--------+-----------------------+
       |          ID          |        NAME        | STATUS | PRIVATE CONNECTION ID |
       +----------------------+--------------------+--------+-----------------------+
-      | cf3jqdc4gjpxig****** | routing-instance   | ACTIVE | euuiog88zphgsq******, |
-      |                      |                    |        | euucr7p47329kq******  |
+      | cf3jqdc4gjpx******** | routing-instance   | ACTIVE | euuiog88zphg********, |
+      |                      |                    |        | euucr7p47329********  |
       +----------------------+--------------------+--------+-----------------------+
       ```
 
-  1. Get information about the RI by specifying its ID you obtained in the previous step:
+  1. Get information about a routing instance by providing its ID obtained in the previous step:
 
       ```bash
-      # yc cloudrouter routing-instance get <RI_ID>
-      yc cloudrouter routing-instance get cf3jqdc4gjpxig******
+      yc cloudrouter routing-instance get cf3jqdc4gjpx********
+      ```
+
+      {% cut "Result:" %}
+
+      {% include [ri-get-cli-output](../../_includes/cloud-router/ri-get-cli-output.md) %}
+
+      {% endcut %}
+
+  **yc cloudrouter routing-instance get-by-cic-private-connection-id**
+
+  1. See the description of the CLI command to get routing instance information:
+
+      ```bash
+      yc cloudrouter routing-instance get-by-cic-private-connection-id --help
+      ```
+  1. Get the list of private connections in the specified folder:
+
+      ```bash
+      yc cic private-connection list \
+        --folder-id <folder_ID>
       ```
 
       Result:
 
+      ```text
+      +----------------------+------+----------------------+
+      |          ID          | NAME | TRUNK CONNECTION ID  |
+      +----------------------+------+----------------------+
+      | cf3r5ke20fo0******** |      | cf3dcodot14p******** |
+      | cf3r3mfr4bm5******** |      | cf3dcodot14p******** |
+      +----------------------+------+----------------------+
+      ```
+  1. Get information about a routing instance by providing the ID of the private connection made to it:
 
+      ```bash
+      yc cloudrouter routing-instance get-by-cic-private-connection-id \
+        --cic-prc-id cf3r5ke20fo0********
+      ```
 
-      Where:
-      * `id`: ID of the routing instance.
-      * `name`: RI name.
-      * `description`: RI description.
-      * `folder_id`: ID of the cloud folder the RI was created in.
-      * `region_id`: ID of the region the RI was created in.
-      * `vpc_info`: Information about virtual networks and their IP prefixes with the prefixes grouped by [availability zone](../../overview/concepts/geo-scope.md). A routing instance may have one or more connected [virtual networks](../../vpc/concepts/network.md).
-      * `cic_private_connection_info`: Information about [private connections](../../interconnect/concepts/priv-con.md) to this RI.
-      * `status`: RI state. It may take the following values: 
-        * `ACTIVE`: RI is active.
-        * `CREATING`: RI is being created.
-        * `UPDATING`: RI is being updated.
-        * `DELETING`: RI is being deleted.
+      {% cut "Result:" %}
+
+      {% include [ri-get-cli-output](../../_includes/cloud-router/ri-get-cli-output.md) %}
+
+      {% endcut %}
+
+  **yc cloudrouter routing-instance get-by-vpc-network-id**
+
+  1. See the description of the CLI command to get routing instance information:
+
+      ```bash
+      yc cloudrouter routing-instance get-by-vpc-network-id --help
+      ```
+  1. Get the list of cloud networks in the specified folder:
+
+      ```bash
+      yc vpc network list \
+        --folder-id <folder_ID>
+      ```
+
+      Result:
+
+      ```
+      +----------------------+-------------+
+      |          ID          |    NAME     |
+      +----------------------+-------------+
+      | enpcfncr6uld******** | my-network1 |
+      | enpcuntrql7d******** | my-network2 |
+      +----------------------+-------------+
+      ```
+  1. Get information about a routing instance by providing the ID of the cloud network the it ensures connectivity with:
+
+      ```bash
+      yc cloudrouter routing-instance get-by-vpc-network-id \
+        --vpc-id enpcfncr6uld********
+      ```
+
+      {% cut "Result:" %}
+
+      {% include [ri-get-cli-output](../../_includes/cloud-router/ri-get-cli-output.md) %}
+
+      {% endcut %}
 
 {% endlist %}

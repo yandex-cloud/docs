@@ -61,9 +61,9 @@ spec:
 
   * `name` (`string`, обязательное)
 
-    Имя ресурса. Подробнее о формате в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Формат описан в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
   
-    Это имя нужно указать в поле `spec.rules.http.paths.backend.resource.name` ресурса `Ingress` (читайте [конфигурацию](ingress.md)).
+    Это имя нужно указать в поле `spec.rules.http.paths.backend.resource.name` [ресурса `Ingress`](ingress.md).
 
     Не является именем группы бэкендов в Application Load Balancer.
 
@@ -129,7 +129,7 @@ spec:
         
     * `storageBucket` (`StorageBucketBackend`)
 
-      Указание на [бакет Yandex Object Storage](../../storage/concepts/bucket.md), который должен обрабатывать запросы в качестве бэкенда. Подробнее об использовании бакета как бэкенда в разделе [Типы бэкендов](../../application-load-balancer/concepts/backend-group.md#types).
+      Указание на [бакет Yandex Object Storage](../../storage/concepts/bucket.md), который должен обрабатывать запросы в качестве бэкенда. Использование бакета в качестве бэкенда описано в разделе [Типы бэкендов](../../application-load-balancer/concepts/backend-group.md#types).
 
       {% note warning %}
         

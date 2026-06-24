@@ -114,7 +114,7 @@
       
       {% endnote %}
 
-  Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` см. в [документации провайдера](../../../terraform/data-sources/alb_load_balancer.md).
+  Подробнее о параметрах ресурса `yandex_alb_load_balancer` в [документации провайдера](../../../terraform/data-sources/alb_load_balancer.md).
 
 - API {#api}
 
@@ -231,7 +231,7 @@
       
       {% endnote %}
 
-  Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` см. в [документации провайдера](../../../terraform/data-sources/alb_load_balancer.md).
+  Подробнее о параметрах ресурса `yandex_alb_load_balancer` в [документации провайдера](../../../terraform/data-sources/alb_load_balancer.md).
 
 - API {#api}
 
@@ -244,4 +244,4 @@
 
 #### Что дальше {whats-next}
 
-* [Отключить и включить зону доступности](start-and-cancel-shift.md)
+[Отключить и включить зону доступности](start-and-cancel-shift.md)

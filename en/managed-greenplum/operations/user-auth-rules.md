@@ -23,7 +23,7 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
 
 - CLI {#cli}
@@ -113,7 +113,7 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_edit-rules }}**.
     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_add-rule }}** and specify its settings:
@@ -252,7 +252,7 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_edit-rules }}** and update the rule settings:
 
@@ -389,7 +389,7 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_edit-rules }}**.
     1. Click ![image](../../_assets/console-icons/grip.svg) for your rule and move it up or down.
@@ -404,7 +404,7 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_edit-rules }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) for your rule and select **{{ ui-key.yacloud.common.delete }}**.

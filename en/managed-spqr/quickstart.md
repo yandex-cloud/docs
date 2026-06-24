@@ -55,7 +55,7 @@ To get started:
 ## Create a cluster {#cluster-create}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ SPQR }} cluster.
-1. [Navigate to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter a name for the cluster.
 1. Select the `PRODUCTION` environment.

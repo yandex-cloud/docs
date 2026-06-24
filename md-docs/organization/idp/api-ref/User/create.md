@@ -34,7 +34,8 @@ POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/i
   "companyName": "string",
   "department": "string",
   "jobTitle": "string",
-  "employeeId": "string"
+  "employeeId": "string",
+  "expiresAt": "string"
 }
 ```
 
@@ -119,6 +120,16 @@ The maximum string length in characters is 256. ||
 User's employee ID
 
 The maximum string length in characters is 256. ||
+|| expiresAt | **string** (date-time)
+
+Timestamp when the user account expires.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#
 
 ## PasswordSpec {#yandex.cloud.organizationmanager.v1.idp.PasswordSpec}
@@ -154,7 +165,12 @@ The maximum string length in characters is 128. ||
 
 Required field. Type of the password hash.
 
-- `AD_MD4`: Microsoft Active Directory MD4 hash. ||
+- `AD_MD4`: Microsoft Active Directory MD4 hash.
+- `LDAP_PBKDF2_SHA256`: 389 legacy format `{PBKDF2_SHA256}` (underscore).
+Supported by 389 DS, FreeIPA, ALD Pro.
+- `LDAP_PBKDF2_SHA256_OPENLDAP`: OpenLDAP-compatible format `{PBKDF2-SHA256}` (hyphen). Supported by 389 DS, FreeIPA, ALD Pro.
+- `LDAP_PBKDF2_SHA512`: Supported by 389 DS, FreeIPA, ALD Pro.
+- `LDAP_PKCS5S2`: Supported by Apache Directory Server. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

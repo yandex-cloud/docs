@@ -43,7 +43,7 @@ description: Следуя данной инструкции, вы научите
         php composer.phar require aws/aws-sdk-php
         ```
 
-    Другие способы установки см. в [документации AWS](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_installation.html).
+    Другие способы установки описаны в [документации AWS](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_installation.html).
 
 1. Создайте клиент:
 
@@ -182,7 +182,7 @@ var_dump($response->get('PlatformApplications'));
   print($response->get('MessageId'));
   ```
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Начало работы](../quickstart.md)
 * [AWS CLI](aws-cli.md)

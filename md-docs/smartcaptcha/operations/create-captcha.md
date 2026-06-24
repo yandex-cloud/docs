@@ -399,7 +399,7 @@ SmartCaptcha позволяет создавать [капчи](../concepts/vali
        * `override_variant_uuid` — идентификатор варианта задания, которое будет отображаться в случае соответствия трафика правилу. Если параметр не указан, будет отображаться задание по умолчанию.
        * `condition` — одно или несколько [условий для входящего трафика](../concepts/captcha-variants.md#traffic-conditions). Необязательный параметр.
 
-     Более подробную информацию о параметрах ресурса `yandex_smartcaptcha_captcha`, см. в [документации провайдера](../../terraform/resources/smartcaptcha_captcha.md).
+     Подробнее о параметрах ресурса `yandex_smartcaptcha_captcha` в [документации провайдера](../../terraform/resources/smartcaptcha_captcha.md).
 
   1. Создайте ресурсы:
 
@@ -485,7 +485,7 @@ SmartCaptcha позволяет создавать [капчи](../concepts/vali
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_smartcaptcha_captcha`, см. в [документации провайдера](../../terraform/resources/smartcaptcha_captcha.md).
+     Подробнее о параметрах ресурса `yandex_smartcaptcha_captcha` в [документации провайдера](../../terraform/resources/smartcaptcha_captcha.md).
 
   1. Создайте капчу:
 
@@ -735,7 +735,7 @@ SmartCaptcha позволяет создавать [капчи](../concepts/vali
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_smartcaptcha_captcha`, см. в [документации провайдера](../../terraform/resources/smartcaptcha_captcha.md).
+     Подробнее о параметрах ресурса `yandex_smartcaptcha_captcha` в [документации провайдера](../../terraform/resources/smartcaptcha_captcha.md).
 
   1. Создайте капчу:
 

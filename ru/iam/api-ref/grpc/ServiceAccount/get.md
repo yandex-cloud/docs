@@ -39,7 +39,9 @@ The maximum string length in characters is 50. ||
   "name": "string",
   "description": "string",
   "labels": "map<string, string>",
-  "last_authenticated_at": "google.protobuf.Timestamp"
+  "last_authenticated_at": "google.protobuf.Timestamp",
+  "status": "Status",
+  "expires_at": "google.protobuf.Timestamp"
 }
 ```
 
@@ -69,4 +71,19 @@ Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || last_authenticated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp for the last authentication of this service account. ||
+|| status | enum **Status**
+
+Current status of the service account.
+Determines whether the service account can authenticate and access the system.
+
+- `CREATING`: The service account is in the process of being created.
+- `ACTIVE`: The service account is active and can authenticate.
+Active service accounts have full access to the system according to their permissions.
+- `SUSPENDED`: The service account is suspended and cannot authenticate.
+Suspended service accounts retain their data but cannot access the system.
+- `DELETING`: The service account is in the process of being deleted.
+This is a transitional state before the service account is completely removed from the system. ||
+|| expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Timestamp when the service account expires. ||
 |#

@@ -1,6 +1,6 @@
 ---
 title: How to update {{ SD }} cluster settings in {{ mmg-full-name }}
-description: In this tutorial, you will learn how to update {{ SD }} cluster settings.
+description: Follow this guide to update {{ SD }} cluster settings.
 ---
 
 # Updating {{ SD }} cluster settings 
@@ -33,7 +33,7 @@ We recommend changing the host class only when the cluster is idle.
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
 
@@ -256,7 +256,7 @@ We recommend changing the host class only when the cluster is idle.
   To change the disk type and expand the storage size for a cluster:
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Depending on the [sharding type](../concepts/sharding.md#shard-management) you select, go to the section of the cluster resources you need to update: **Resources**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongod-resources_ncXUZ }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongoinfra-resources_13TPT }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongocfg-resources_1cuU2 }}**, or **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongos-resources_wBGnr }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
@@ -470,7 +470,7 @@ You can change the DBMS settings for your cluster hosts.
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. To change the [{{ SD }} settings](../concepts/settings-list.md#dbms-cluster-settings), click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -607,7 +607,7 @@ You can change the DBMS settings for your cluster hosts.
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Configure advanced cluster settings:
 
@@ -805,7 +805,7 @@ You can change the DBMS settings for your cluster hosts.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -908,7 +908,7 @@ You can change the DBMS settings for your cluster hosts.
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the cluster you want to move.
     1. Select **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
     1. Select the destination folder for your cluster.
@@ -1017,7 +1017,7 @@ You can change the DBMS settings for your cluster hosts.
 
       Where `destination_folder_id` is the ID of the target folder for your cluster. You can get it from the [list of your cloud folders](../../resource-manager/operations/folder/get-id.md)
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/move.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1031,7 +1031,7 @@ You can change the DBMS settings for your cluster hosts.
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select the security groups that control the cluster’s network traffic.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -1121,7 +1121,7 @@ You can change the DBMS settings for your cluster hosts.
 
       * `securityGroupIds`: List of [security group](../concepts/network.md#security-groups) IDs.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1169,7 +1169,7 @@ You can change the DBMS settings for your cluster hosts.
 
       * `security_group_ids`: List of [security group](../concepts/network.md#security-groups) IDs.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

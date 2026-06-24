@@ -15,7 +15,6 @@ POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/user
 || clusterId | **string**
 
 Required field. ID of the Apache Kafka® cluster to create a user in.
-
 To get the cluster ID, make a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -56,7 +55,7 @@ Required field. Configuration of the user to create. ||
 
 Required field. Name of the Kafka user.
 
-The string length in characters must be 1-256. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
+The string length in characters must be 1-256. Value must match the regular expression ` [a-zA-Z0-9_][a-zA-Z0-9_-]* `. ||
 || password | **string**
 
 Required field. Password of the Kafka user.
@@ -75,7 +74,6 @@ Set of permissions granted to the user. ||
 
 Name or prefix-pattern with wildcard for the topic that the permission grants access to.
 With roles SCHEMA_READER and SCHEMA_WRITER: string that contains set of schema registry subjects, separated by ';'.
-
 To get the topic name, make a [TopicService.List](../Topic/list.md#List) request. ||
 || role | **enum** (AccessRole)
 
@@ -94,7 +92,6 @@ Access role type to grant to the user.
 Lists hosts allowed for this permission.
 Only ip-addresses allowed as value of single host.
 When not defined, access from any host is allowed.
-
 Bare in mind that the same host might appear in multiple permissions at the same time,
 hence removing individual permission doesn't automatically restricts access from the `allowHosts` of the permission.
 If the same host(s) is listed for another permission of the same principal/topic, the host(s) remains allowed. ||
@@ -112,10 +109,7 @@ If the same host(s) is listed for another permission of the same principal/topic
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "clusterId": "string",
-    "userName": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -124,19 +118,7 @@ If the same host(s) is listed for another permission of the same principal/topic
       "object"
     ]
   },
-  "response": {
-    "name": "string",
-    "clusterId": "string",
-    "permissions": [
-      {
-        "topicName": "string",
-        "role": "string",
-        "allowHosts": [
-          "string"
-        ]
-      }
-    ]
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -178,7 +160,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateUserMetadata](#yandex.cloud.mdb.kafka.v1.CreateUserMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -193,7 +175,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[User](#yandex.cloud.mdb.kafka.v1.User)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -208,18 +190,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateUserMetadata {#yandex.cloud.mdb.kafka.v1.CreateUserMetadata}
-
-#|
-||Field | Description ||
-|| clusterId | **string**
-
-ID of the Apache Kafka® cluster the user is being created in. ||
-|| userName | **string**
-
-Name of the user that is being created. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -237,57 +207,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## User {#yandex.cloud.mdb.kafka.v1.User}
-
-A Kafka user.
-For more information, see the [Operations -> Accounts](../../operations/cluster-accounts.md) section of the documentation.
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Name of the Kafka user. ||
-|| clusterId | **string**
-
-ID of the Apache Kafka® cluster the user belongs to.
-
-To get the Apache Kafka® cluster ID, make a [ClusterService.List](../Cluster/list.md#List) request. ||
-|| permissions[] | **[Permission](#yandex.cloud.mdb.kafka.v1.Permission2)**
-
-Set of permissions granted to this user. ||
-|#
-
-## Permission {#yandex.cloud.mdb.kafka.v1.Permission2}
-
-#|
-||Field | Description ||
-|| topicName | **string**
-
-Name or prefix-pattern with wildcard for the topic that the permission grants access to.
-With roles SCHEMA_READER and SCHEMA_WRITER: string that contains set of schema registry subjects, separated by ';'.
-
-To get the topic name, make a [TopicService.List](../Topic/list.md#List) request. ||
-|| role | **enum** (AccessRole)
-
-Access role type to grant to the user.
-
-- `ACCESS_ROLE_PRODUCER`: Producer role for the user.
-- `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
-- `ACCESS_ROLE_ADMIN`: Admin role for the user.
-- `ACCESS_ROLE_TOPIC_ADMIN`: Admin permissions on topics role for the user.
-- `ACCESS_ROLE_TOPIC_PRODUCER`
-- `ACCESS_ROLE_TOPIC_CONSUMER`
-- `ACCESS_ROLE_SCHEMA_READER`
-- `ACCESS_ROLE_SCHEMA_WRITER` ||
-|| allowHosts[] | **string**
-
-Lists hosts allowed for this permission.
-Only ip-addresses allowed as value of single host.
-When not defined, access from any host is allowed.
-
-Bare in mind that the same host might appear in multiple permissions at the same time,
-hence removing individual permission doesn't automatically restricts access from the `allowHosts` of the permission.
-If the same host(s) is listed for another permission of the same principal/topic, the host(s) remains allowed. ||
 |#

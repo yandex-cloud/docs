@@ -38,7 +38,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   To create a {{ mmy-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your database cluster.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Enter a name for the {{ mmy-name }} cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
   1. Select the environment where you want to create your {{ mmy-name }} cluster (you cannot change the environment once the cluster is created):
@@ -504,9 +504,9 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
               {
                   "name": "<DB_name>"
               },
-              { <similar_configuration_for_DB_2> },
+              { <similar_settings_for_DB_2> },
               { ... },
-              { <similar_configuration_for_DB_N> }
+              { <similar_settings_for_DB_N> }
           ],
           "userSpecs": [
               {
@@ -635,7 +635,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -683,9 +683,9 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                 {
                     "name": "<DB_name>"
                 },
-                { <similar_configuration_for_DB_2> },
+                { <similar_settings_for_DB_2> },
                 { ... },
-                { <similar_configuration_for_DB_N> }
+                { <similar_settings_for_DB_N> }
             ],
           "user_specs": [
               {

@@ -17,7 +17,7 @@ description: You can monitor the state of a {{ SPQR }} cluster and its individua
 
 To view health details for a {{ mspqr-name }} cluster:
 
-1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
 
 1. Click the cluster name and open the **Monitoring** tab.
 
@@ -51,7 +51,7 @@ You will see the following charts:
 
 To view detailed information about the status of individual {{ mspqr-name }} hosts:
 
-1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
 1. Click the cluster name and open the **Monitoring** → **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
 1. Click the line of the host in the list.
 
@@ -75,7 +75,7 @@ To configure automatic monitoring of key cluster health metrics:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to set up alerts.
-    1. [Go to](../../console/operations/select-service.md#select-service) ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+    1. Navigate to ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
     1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select:
         * **{{ mspqr-name }} — Cluster Overview** to configure cluster alerts.
         * **{{ mspqr-name }} — Host Overview** to set up host alerts.

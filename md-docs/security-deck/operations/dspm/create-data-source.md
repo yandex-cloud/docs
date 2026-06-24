@@ -1,11 +1,5 @@
 # Создать источник данных DSPM
 
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 [Источник данных](../../concepts/dspm.md#data-source) содержит информацию о хранилищах, в которых будет выполняться сканирование, а также дополнительные настройки. В качестве хранилищ доступны [бакеты](../../../storage/concepts/bucket.md) Yandex Object Storage и [диски](https://yandex.ru/support/yandex-360/business/disk/web/ru/index.html) в Яндекс 360. В одном источнике данных нельзя одновременно использовать хранилища [Object Storage](../../../storage/index.md) и [Яндекс 360](https://yandex.ru/support/yandex-360/business/admin/ru/).
 
 ## Перед началом работы {#before-begin}

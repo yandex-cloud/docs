@@ -150,7 +150,7 @@ Set up your {{ PG }} cluster for connection:
 
 - Management console {#console}
 
-  1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name.
   1. Enable public access for the cluster hosts:
      1. Select the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.

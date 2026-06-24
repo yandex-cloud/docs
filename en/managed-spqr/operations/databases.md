@@ -13,7 +13,7 @@ You can add and delete databases, and view their info.
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.spqr.cluster.switch_databases }}** tab.
 
 - REST API {#api}
@@ -115,7 +115,7 @@ You can add and delete databases, and view their info.
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.spqr.cluster.switch_databases }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
   1. Specify database settings:
@@ -210,7 +210,7 @@ You can add and delete databases, and view their info.
 - Management console {#console}
 
   To delete a database:
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.spqr.cluster.switch_databases }}** tab.
   1. Find the database you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**, then confirm the deletion.
 

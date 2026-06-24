@@ -7,7 +7,7 @@ description: Из статьи вы узнаете, как установить 
 
 {% include [agent-version](../../../../_includes/monitoring/agent-version.md) %}
 
-Подробнее см. раздел [{#T}](../../../operations/prometheus/ingestion/prometheus-agent.md).
+Подробнее в разделе [{#T}](../../../operations/prometheus/ingestion/prometheus-agent.md).
 
 ## Список поддерживаемых операционных систем {#supported-os}
 

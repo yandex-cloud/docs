@@ -785,7 +785,7 @@ Managed Service for PostgreSQL резервирует 15 подключений 
        "maintenanceWindow": {
          "weeklyMaintenanceWindow": {
            "day": "<день_недели>",
-           "hour": "<час>"
+           "hour": "<порядковый_номер_часового_интервала>"
          }
        }
      }
@@ -899,7 +899,7 @@ Managed Service for PostgreSQL резервирует 15 подключений 
        * `weeklyMaintenanceWindow` — техническое обслуживание проводится раз в неделю в указанное время:
 
          * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
-         * `hour` — час по UTC: от `1` до `24`.
+         * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
 
            > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
@@ -1009,7 +1009,7 @@ Managed Service for PostgreSQL резервирует 15 подключений 
        "maintenance_window": {
          "weekly_maintenance_window": {
            "day": "<день_недели>",
-           "hour": "<час>"
+           "hour": "<порядковый_номер_часового_интервала>"
          }
        }
      }

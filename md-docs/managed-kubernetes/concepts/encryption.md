@@ -66,7 +66,6 @@
 ## Примеры использования {#examples}
 
 * [Шифрование секретов в Managed Service for Kubernetes](../tutorials/kms-k8s.md)
-* [Установка Ingress-контроллера NGINX с сертификатом из Yandex Certificate Manager](../tutorials/nginx-ingress-certificate-manager.md)
 * [Использование зашифрованных дисков для постоянных томов](../operations/volumes/encrypted-disks.md)
 
 

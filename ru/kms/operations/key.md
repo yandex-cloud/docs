@@ -115,7 +115,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_kms_symmetric_key` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/kms_symmetric_key).
+     Подробнее о параметрах ресурса `yandex_kms_symmetric_key` в [документации провайдера]({{ tf-provider-resources-link }}/kms_symmetric_key).
   1. Проверьте конфигурацию командой:
 
      ```bash
@@ -209,7 +209,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_kms_symmetric_key` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/kms_symmetric_key).
+     Подробнее о параметрах ресурса `yandex_kms_symmetric_key` в [документации провайдера]({{ tf-provider-resources-link }}/kms_symmetric_key).
 
   1. Проверьте конфигурацию командой:
 
@@ -378,6 +378,6 @@
 
 {% endnote %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Управление ключами {{ kms-name }} с {{ TF }}](../../kms/tutorials/terraform-key.md).
+[Управление ключами {{ kms-name }} с {{ TF }}](../../kms/tutorials/terraform-key.md)

@@ -5,8 +5,6 @@ description: Follow this guide to add a private connection to a routing instance
 
 # Adding a private connection to a routing instance
 
-{% include [cic-cr-access](../../_includes/interconnect/cic-cr-access.md) %}
-
 {% note info %}
 
 You need the [cloud-router.editor](../security/index.md#cloudrouter-editor) role to run this operation.
@@ -81,4 +79,3 @@ You need the [cloud-router.editor](../security/index.md#cloudrouter-editor) role
       * `async`: Running the operation in asynchronous mode. This is the recommended mode for all operations that involve changes to resources.
 
 {% endlist %}
-

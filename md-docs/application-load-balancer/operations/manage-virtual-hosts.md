@@ -127,7 +127,7 @@
          Для одного виртуального хоста вы можете задать только один вид ограничения: либо свойство `all-requests`, либо — `requests-per-ip`.
      
          Необязательный параметр: если не задан, ограничение на частоту запросов не применяется.
-     * `--security-profile-id` — идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [Yandex Smart Web Security](../../smartwebsecurity/index.md). Профиль безопасности позволяет настроить фильтрацию входящих запросов, подключить [WAF](../../smartwebsecurity/concepts/waf.md) и установить лимиты на количество запросов для защиты от вредоносной активности. Подробнее смотрите [Профили безопасности](../../smartwebsecurity/concepts/profiles.md). Необязательный параметр.
+     * `--security-profile-id` — идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [Yandex Smart Web Security](../../smartwebsecurity/index.md). Профиль безопасности позволяет настроить фильтрацию входящих запросов, подключить [WAF](../../smartwebsecurity/concepts/waf.md) и установить лимиты на количество запросов для защиты от вредоносной активности. Подробнее в разделе [Профили безопасности](../../smartwebsecurity/concepts/profiles.md). Необязательный параметр.
      
      
      Результат:
@@ -149,7 +149,7 @@
          per_second: "100"
      ```
 
-  Подробнее о команде `alb virtual-host create` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/create.md).
+  Подробнее о команде `alb virtual-host create` в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/create.md).
 
 - Terraform {#tf}
 
@@ -484,7 +484,7 @@
 
       {% endlist %}
 
-      Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера: [yandex_alb_virtual_host](../../terraform/resources/alb_virtual_host.md).
+      Параметры используемых ресурсов приведены в документации провайдера Terraform: [yandex_alb_virtual_host](../../terraform/resources/alb_virtual_host.md).
 
   1. Создайте ресурсы:
 
@@ -708,7 +708,7 @@
           Необязательный параметр: если не задан, ограничение на частоту запросов не применяется.
 
           Чтобы очистить все заданные для виртуального хоста ограничения на количество запросов, передайте в команде параметр `--clear-rate-limit`.
-      * `--security-profile-id` — идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [Yandex Smart Web Security](../../smartwebsecurity/index.md). Профиль безопасности позволяет настроить фильтрацию входящих запросов, подключить [WAF](../../smartwebsecurity/concepts/waf.md) и установить лимиты на количество запросов для защиты от вредоносной активности. Подробнее см. [Профили безопасности](../../smartwebsecurity/concepts/profiles.md). Необязательный параметр.
+      * `--security-profile-id` — идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [Yandex Smart Web Security](../../smartwebsecurity/index.md). Профиль безопасности позволяет настроить фильтрацию входящих запросов, подключить [WAF](../../smartwebsecurity/concepts/waf.md) и установить лимиты на количество запросов для защиты от вредоносной активности. Подробнее в разделе [Профили безопасности](../../smartwebsecurity/concepts/profiles.md). Необязательный параметр.
 
           Чтобы отвязать профиль безопасности от виртуального хоста, передайте в параметре пустое значение: `--security-profile-id ""`
 
@@ -733,7 +733,7 @@
           per_second: "80"
       ```
 
-  Подробнее о команде `yc alb virtual-host update` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update.md).
+  Подробнее о команде `yc alb virtual-host update` в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update.md).
 
 - Terraform {#tf}
 
@@ -1068,7 +1068,7 @@
 
       {% endlist %}
 
-      Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера: [yandex_alb_virtual_host](../../terraform/resources/alb_virtual_host.md).
+      Параметры используемых ресурсов приведены в документации провайдера Terraform: [yandex_alb_virtual_host](../../terraform/resources/alb_virtual_host.md).
   1. Обновите ресурсы:
 
       1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -1207,7 +1207,7 @@
 
       Где `--http-router-name` — имя HTTP-роутера. Вместо имени HTTP-роутера вы можете передать его идентификатор в параметре `--http-router-id`.
 
-  Подробнее о команде `yc alb virtual-host delete` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/delete.md).
+  Подробнее о команде `yc alb virtual-host delete` в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/delete.md).
 
 - Terraform {#tf}
 

@@ -122,7 +122,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
 - Management console {#console}
 
-   1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Select your cluster from the list and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
    1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the new version number.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -220,7 +220,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
       * `configSpec.version`: New {{ MY }} version.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -265,7 +265,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
       * `config_spec.version`: New {{ MY }} version.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

@@ -43,6 +43,10 @@ items:
         items:
           - name: Creating a filter
             href: operations/filter-create.md
+      - name: DNS connections
+        items:
+          - name: Creating an inbound DNS connection
+            href: operations/connection-inbound-create.md
   - name: Concepts
     items:
       - name: Overview
@@ -55,6 +59,8 @@ items:
         href: concepts/dns-filter.md
       - name: DNS resolver
         href: concepts/dns-resolver.md
+      - name: DNS connections
+        href: concepts/dns-connection.md
       - name: Integration with {{ compute-name }}
         href: concepts/compute-integration.md
       - name: Quotas and limits

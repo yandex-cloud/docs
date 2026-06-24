@@ -13,6 +13,12 @@ description: Вы можете создать L4-балансировщик на
 
 {% endnote %}
 
+{% include [load-balancer-intro](../../_includes/mdb/load-balancer-intro.md) %}
+
+Схема регулировки сетевого трафика кластера с помощью балансировщика отображена ниже:
+
+![mdb-balancer-routing](../../_assets/mdb/mpg-db-proxy-schema.svg)
+
 {% include [load-balancer](../../_includes/mdb/load-balancer.md) %}
 
 {% note info %}

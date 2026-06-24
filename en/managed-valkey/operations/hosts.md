@@ -8,7 +8,7 @@ You can add and remove cluster hosts, as well as manage their settings. To learn
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
 
 - CLI {#cli}
@@ -41,7 +41,7 @@ You can add and remove cluster hosts, as well as manage their settings. To learn
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -105,7 +105,7 @@ You can configure public access to hosts only for clusters created with TLS enab
 - Management console {#console}
 
   To create a host:
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
   1. Specify the following host settings:
@@ -223,7 +223,7 @@ You can configure public access to hosts only for clusters created with TLS enab
 
      The host name must be unique within the cluster.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -264,7 +264,7 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
 - Management console {#console}
 
   To change the cluster host settings:
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row and select **{{ ui-key.yacloud.common.edit }}**.
 
@@ -336,7 +336,7 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
      * `replica_priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
      * `shard_name`: Name of the shard the host resides in.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -461,7 +461,7 @@ You cannot delete a host if the number of hosts in the cluster or shard is equal
 - Management console {#console}
 
   To delete a host from a cluster:
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. In the host row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, enable **Delete host** and click **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
@@ -488,7 +488,7 @@ You cannot delete a host if the number of hosts in the cluster or shard is equal
 
      For more on how to create this file, see [Creating a cluster](cluster-create.md).
   1. In the {{ mrd-name }} cluster description, delete the relevant host from the `hosts` section.
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

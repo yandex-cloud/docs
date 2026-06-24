@@ -6,19 +6,19 @@
 
 ## Architecture {#architecture}
 
-{{ speechsense-name }} comprises three components:
+{{ speechsense-name }} is comprised of three components:
 
-* **YaGPT**: Handles natural language processing and text generation. It is used to create conversation summaries and classify interactions. Requires GPU resources.
-* **SpeechKit**: Performs speech recognition and synthesis, converts audio files to text. Requires GPU resources.
-* **SpeechSense**: Provides speech analytics, data processing, and the web UI. SpeechSense orchestrates the YaGPT and SpeechKit workflows and features a UI for managing analysis results.
+* **YandexGPT for SpeechSense**: Natural language processing and text generation. Used to summarize conversations and classify interactions. Requires GPU resources.
+* **SpeechKit**: Speech recognition and synthesis. Converts audio to text. Requires GPU resources.
+* **SpeechSense**: Speech analytics, data processing, and web UI. Coordinates YandexGPT and SpeechKit, provides a UI to process the results of analysis.
 
 ## Infrastructure requirements {#infrastructure}
 
 ### GPU {#gpu-requirements}
 
-{{ speechsense-name }} requires the following {{ nvidia }} GPU nodes:
+{{ speechsense-name }} requires {{ nvidia }} GPU nodes:
 
-* YaGPT Pro: 2 × {{ nvidia }} H100
+* YandexGPT Pro: 2 × {{ nvidia }} H100
 * SpeechKit STT Backend: 1 × {{ nvidia }} A100
 * SpeechKit Embeddings: 1 × {{ nvidia }} H100
 
@@ -51,7 +51,7 @@ Here is an example:
 
 Where:
 
-* `enabled`: Enables and disables the component.
+* `enabled`: Enables/disables the component.
 * `settings.s3.endpoint`: {{ objstorage-name }} address.
 * `settings.s3.accessKeyID`: Storage access key ID.
 * `settings.s3.secretAccessKey`: Storage secret access key.

@@ -18,6 +18,8 @@ items:
         href: operations/trunk-update.md
       - name: Getting information about operations in a trunk
         href: operations/trunk-operations.md
+      - name: Moving a trunk to another folder
+        href: operations/trunk-move.md
       - name: Deleting a trunk
         href: operations/trunk-delete.md
       - name: Getting information about private connections
@@ -28,10 +30,8 @@ items:
         href: operations/priv-con-update.md
       - name: Getting a list of operations for a private connection
         href: operations/priv-con-operations.md
-      - name: Updating the list of static routes for a private connection
-        href: operations/priv-con-static-upsert.md
-      - name: Removing static routes for a private connection
-        href: operations/priv-con-static-remove.md
+      - name: Moving a private connection to another folder
+        href: operations/priv-con-move.md
       - name: Deleting a private connection
         href: operations/priv-con-delete.md
       - name: Getting information about public connections

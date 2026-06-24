@@ -47,7 +47,7 @@ description: Следуя данной инструкции, вы сможете
       * `output "waf_rules"` — выходная переменная, которая содержит информацию о наборе правил WAF:
         * `value` — возвращаемое значение.
 
-      Вместо `rules` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_sws_waf_rule_set_descriptor` см. в [документации провайдера]({{ tf-provider-datasources-link }}/sws_waf_rule_set_descriptor).
+      Вместо `rules` вы можете выбрать любой другой параметр для получения информации. Подробнее о параметрах источника данных `yandex_sws_waf_rule_set_descriptor` в [документации провайдера]({{ tf-provider-datasources-link }}/sws_waf_rule_set_descriptor).
 
   1. Создайте ресурсы:
 

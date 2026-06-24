@@ -10,7 +10,7 @@ You can add and remove databases, view database details, and manage some databas
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
 
 - CLI {#cli}
@@ -43,7 +43,7 @@ You can add and remove databases, view database details, and manage some databas
         --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/databases'
       ```
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Database/list.md#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) to make sure your request was successful.
 
@@ -70,7 +70,7 @@ You can add and remove databases, view database details, and manage some databas
         yandex.cloud.mdb.mysql.v1.DatabaseService.List
       ```
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Database/list.md#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) to make sure your request was successful.
 
@@ -78,7 +78,7 @@ You can add and remove databases, view database details, and manage some databas
 
   To get a list of all user databases in a {{ MY }} cluster:
 
-  1. [Grant](grant.md) the `mdb_admin` permissions to the user on whose behalf you will be connecting to the cluster database.
+  1. [Grant](grant.md) the `mdb_admin` permissions to a user on whose behalf you will connect to the cluster database.
 
   1. [Connect to the database](connect/clients.md).
 
@@ -117,7 +117,7 @@ You can add and remove databases, view database details, and manage some databas
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the cluster name.
   1. If you want a new user to become the database owner, [create it](cluster-users.md#adduser).
   1. Select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
@@ -171,7 +171,7 @@ You can add and remove databases, view database details, and manage some databas
 
       {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -204,7 +204,7 @@ You can add and remove databases, view database details, and manage some databas
 
       {% include [database-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -236,7 +236,7 @@ You can add and remove databases, view database details, and manage some databas
 
       {% include [database-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -248,7 +248,7 @@ You can add and remove databases, view database details, and manage some databas
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the database in question and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
@@ -274,7 +274,7 @@ You can add and remove databases, view database details, and manage some databas
 
   1. Remove the `yandex_mdb_mysql_database` resource with the name of the database you want to delete.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -347,7 +347,7 @@ You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mo
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
   1. In the list of the settings, locate **sql_mode**.
@@ -391,7 +391,7 @@ You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mo
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -442,7 +442,7 @@ You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mo
           * [Version 5.7](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting)
           * [Version 8.0](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting)
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -494,7 +494,7 @@ You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mo
           * [Version 5.7](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting)
           * [Version 8.0](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting)
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

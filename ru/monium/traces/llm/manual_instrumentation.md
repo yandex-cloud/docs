@@ -30,21 +30,21 @@ description: Руководство по ручной инструментаци
 || **Какие данные** | **Атрибут** | **Тип** | **Комментарий** ||
 || Количество токенов во входных данных | `gen_ai.usage.input_tokens` | int | ||
 || Количество токенов в ответе | `gen_ai.usage.output_tokens` | int | ||
-|| Входные сообщения (промпты, история диалога, результаты вызова инструментов) | `gen_ai.input.messages` | JSON array | Формат — см. [раздел «Формат сообщений»](#messages-format) ||
+|| Входные сообщения (промпты, история диалога, результаты вызова инструментов) | `gen_ai.input.messages` | JSON array | Формат — подробнее в [разделе «Формат сообщений»](#messages-format) ||
 || Системный промпт | `gen_ai.system_instructions` или элемент с `role == system` в `gen_ai.input.messages` | JSON / string | Системное сообщение отдельно от истории чата. При использовании `gen_ai.input.messages` передавайте в элементе с `role == system` и полем `parts` ||
-|| Ответ модели | `gen_ai.output.messages` | JSON array | Формат — см. [раздел «Формат сообщений»](#messages-format) ||
+|| Ответ модели | `gen_ai.output.messages` | JSON array | Формат — подробнее в [разделе «Формат сообщений»](#messages-format) ||
 || Тип операции | `gen_ai.operation.name` | string | Определяет отображение спана. Допустимые значения: `chat`, `text_completion`, `create_agent`, `invoke_agent`, `execute_tool`, `embeddings`, `generate_content` ||
 || Название ответившей модели | `gen_ai.response.model` | string | ||
 || Список доступных инструментов (tools) | `gen_ai.tool.definitions` | JSON array | Сигнатуры тулов для LLM. В интерфейсе отображается блок «Доступные инструменты» ||
 |#
 
-Кроме указанных атрибутов в стандарте OpenTelemetry описаны и другие полезные атрибуты для GenAI-спанов, такие как `gen_ai.system`, `gen_ai.request.model`, `gen_ai.tool.definitions` и другие. Полный список и их описание см. в [конвенции OpenTelemetry для GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-spans/).
+Кроме указанных атрибутов в стандарте OpenTelemetry описаны и другие полезные атрибуты для GenAI-спанов, такие как `gen_ai.system`, `gen_ai.request.model`, `gen_ai.tool.definitions` и другие. Полный список с описаниями приведен в [конвенции OpenTelemetry для GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-spans/).
 
 ### Формат сообщений {#messages-format}
 
 Атрибуты `gen_ai.input.messages` и `gen_ai.output.messages` содержат JSON, сериализованный в строку. Не упрощайте структуру до `{role, content}` — используйте поле `parts` с указанием `type`.
 
-**Системный промпт** можно передать двумя способами: элементом с `role == system` внутри `gen_ai.input.messages` (см. примеры ниже) или отдельным атрибутом `gen_ai.system_instructions` (JSON-массив с объектами `{ "type": "text", "content": "..." }`).
+**Системный промпт** можно передать двумя способами: элементом с `role == system` внутри `gen_ai.input.messages` (примеры ниже) или отдельным атрибутом `gen_ai.system_instructions` (JSON-массив с объектами `{ "type": "text", "content": "..." }`).
 
 **Входные сообщения** (`gen_ai.input.messages`):
 
@@ -177,12 +177,12 @@ description: Руководство по ручной инструментаци
 || `gen_ai.operation.name` | Тип операции. Для спанов инструментов должен быть `execute_tool` | `execute_tool` ||
 || `gen_ai.tool.name` | Имя вызываемого инструмента | `get_weather` ||
 || `gen_ai.tool.description` | Описание функции инструмента | `Get current weather for a city` ||
-|| `gen_ai.tool.definitions` | JSON-массив с описанием инструмента в формате JSON Schema (сериализованный в строку) | См. пример в коде ||
+|| `gen_ai.tool.definitions` | JSON-массив с описанием инструмента в формате JSON Schema (сериализованный в строку) | Пример в коде ||
 || `gen_ai.tool.call.arguments` | Аргументы вызова (сериализованные в строку через `json.dumps()`) | `{"location": "Paris"}` ||
 || `gen_ai.tool.call.result` | Результат выполнения (сериализованный в строку через `json.dumps()`) | `{"temperature": 18, "condition": "cloudy"}` ||
 |#
 
-Дополнительные примеры правильной инструментации различных сценариев (вызовы инструментов, стриминг, мультимодальность) см. в разделе [Examples: LLM Calls](https://opentelemetry.io/docs/specs/semconv/gen-ai/non-normative/examples-llm-calls/) документации OpenTelemetry.
+Дополнительные примеры правильной инструментации различных сценариев (вызовы инструментов, стриминг, мультимодальность) приведены в разделе [Examples: LLM Calls](https://opentelemetry.io/docs/specs/semconv/gen-ai/non-normative/examples-llm-calls/) документации OpenTelemetry.
 
 {% cut "Пример отображения спана с вызовом инструмента" %}
        
@@ -225,7 +225,7 @@ export OPENAI_API_KEY="<ваш_ключ_OpenAI>"
 - `<ваш_API-ключ>` — API-ключ сервисного аккаунта с ролью `monium.traces.writer`.
 - `<имя_проекта>` — имя проекта в формате `folder__<идентификатор_каталога>`, например `folder__b1g2e3abc4def5ghij6k`.
 
-Подробнее о специальных заголовках {{ monium-name }} см. в разделе [{#T}](../../collector/otlp-protocol.md#headers).
+Подробнее о специальных заголовках {{ monium-name }} в разделе [{#T}](../../collector/otlp-protocol.md#headers).
 
 
 ### Код агента

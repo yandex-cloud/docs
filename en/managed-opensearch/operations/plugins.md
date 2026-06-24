@@ -9,7 +9,7 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Click the cluster name.
 
 - CLI {#cli}
@@ -30,7 +30,7 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -45,13 +45,13 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
 
         You will see enabled plugins on the `config.opensearch.plugins` list.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -74,7 +74,7 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
 
         You will see enabled plugins on the `config.opensearch.plugins` list.
 
@@ -87,7 +87,7 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Select the cluster and click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify the plugins to install.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -113,9 +113,9 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of {{ mos-name }} cluster configuration fields you can update, see [this {{ TF }} provider guide]({{ tf-provider-mos }}).
+        For a complete list of configurable {{ mos-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mos }}).
 
     1. In the cluster description, edit the list of clusters for the `plugins` parameter under `config`. If there is no such parameter, add it.
 
@@ -139,7 +139,7 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -170,7 +170,7 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             Here, we provide only one setting.
 
@@ -178,11 +178,11 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -230,6 +230,6 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

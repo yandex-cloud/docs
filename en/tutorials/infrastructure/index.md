@@ -45,7 +45,6 @@ description: Various use cases for core infrastructure management systems in {{ 
 * [Routing through a NAT instance](../routing/nat-instance/index.md)
 * [Installing the Cisco CSR 1000v virtual router](../routing/cisco.md)
 * [Installing a Mikrotik CHR virtual router](../routing/mikrotik.md)
-* [Installing an NGINX ingress controller with a {{ certificate-manager-name }} certificate](../container-infrastructure/nginx-ingress-certificate-manager.md)
 
 ## VPNs {#vpns}
 

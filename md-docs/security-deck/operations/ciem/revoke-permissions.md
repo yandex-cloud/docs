@@ -1,5 +1,11 @@
 # Отозвать доступ у субъекта
 
+{% note info %}
+
+Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
+
+{% endnote %}
+
 [Модуль диагностики доступов](../../concepts/ciem.md) (Cloud Infrastructure Entitlement Management) позволяет централизованно просматривать список доступов [субъектов](../../../iam/concepts/access-control/index.md#subject) и групп к [ресурсам](../../../iam/concepts/access-control/resources-with-access-control.md) организации и отзывать лишние доступы.
 
 Отозвать доступ может пользователь, обладающий одной из ролей: `admin`, `resource-manager.admin`, `organization-manager.admin`, `resource-manager.clouds.owner`, `organization-manager.organizations.owner` или ролью администратора того [сервиса](../../../overview/concepts/services.md), к ресурсу которого у субъекта отзывается доступ.

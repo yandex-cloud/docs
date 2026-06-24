@@ -54,7 +54,6 @@
 * [Настройка контроллера сетевых политик Calico](calico.md)
 * [Настройка контроллера сетевых политик Cilium](cilium.md)
 * [Настройка NodeLocal DNS для контроллера сетевых политик Cilium](cilium-node-local-dns.md)
-* [Создание сетевого балансировщика с помощью Ingress-контроллера NGINX](create-load-balancer-with-ingress-nginx.md)
 
 ## Работа с постоянными томами {#persistent-volumes}
 

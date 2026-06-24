@@ -12,9 +12,9 @@ HTTP API сервиса {{ cns-name }} совместим с [Amazon SNS API](ht
 
 {% endnote %}
 
-Чтобы не подписывать запросы API к {{ cns-name }}, вместо статического ключа вы можете использовать [IAM-токен](../../iam/concepts/authorization/iam-token.md). Подробнее см. [{#T}](send-request.md).
+Чтобы не подписывать запросы API к {{ cns-name }}, вместо статического ключа вы можете использовать [IAM-токен](../../iam/concepts/authorization/iam-token.md). Подробнее в разделе [{#T}](send-request.md).
 
-Перечень общих кодов ошибок для всех действий см. в разделе [{#T}](common-errors.md).
+Перечень общих кодов ошибок для всех действий приведен в разделе [{#T}](common-errors.md).
 
 ## Поддерживаемые действия {#actions}
 

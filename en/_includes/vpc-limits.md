@@ -17,6 +17,8 @@
 || Maximum number of security groups
 `vpc.securityGroups.count` | 10 ||
 || Maximum number of security groups per interface | 5 ||
+|| Maximum number of service connections per cloud 
+`vpc.privateEndpoints.count` | 2 ||
 |#
 
 #### Limits {#vpc-limits}
@@ -31,9 +33,11 @@ Maximum number of CIDRs per rule | 50
 Size of the DNS server IP address list | 100 characters
 Maximum number of DNS requests to a DNS server (second address [in a subnet](../vpc/concepts/network.md#subnet)) | 1,000 requests per second
 Maximum number of NAT gateways | 20
+Maximum load per service connection^3^ | 10 Gbps
 
 ^1^ Counts all TCP and UDP connections opened and half-opened within 180 seconds. If there are no data or keep-alive packets in the connection during this time, it is forcibly closed.
 ^2^ The old network diagram had a limit of 50,000 connections.
+^3^ If you exceed the limits in place, the platform reserves the right to restrict the service connection. If you need to use your service connections beyond the specified limit, please contact [support](../support/overview.md).
 
 #### Outgoing traffic filtering {#vpc-egress-traffic-filter}
 

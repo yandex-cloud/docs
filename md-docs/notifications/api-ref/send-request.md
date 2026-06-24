@@ -32,7 +32,7 @@ HTTP API сервиса совместим с [Amazon SNS API](https://docs.aws.
 
 {% endnote %}
 
-Как получить IAM-токен, см. в инструкциях:
+Как получить IAM-токен, описано в инструкциях:
 * [Получение IAM-токена для аккаунта на Яндексе](../../iam/operations/iam-token/create.md)
 * [Получение IAM-токена для федеративного аккаунта](../../iam/operations/iam-token/create-for-federation.md)
 * [Получение IAM-токена для сервисного аккаунта](../../iam/operations/iam-token/create-for-sa.md)
@@ -110,7 +110,7 @@ curl \
 
 В результате вы получите идентификатор (ARN) канала уведомлений.
 
-Подробнее см. на странице [Действие CreatePlatformApplication](create-platform-application.md).
+Подробнее на странице [Действие CreatePlatformApplication](create-platform-application.md).
 
 ## Получите список каналов {#list-channel}
 
@@ -131,7 +131,7 @@ curl \
 * `ResponseFormat` — формат ответа: JSON или XML.
 * `FolderId` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
 
-Подробнее см. на странице [Действие ListPlatformApplications](list-platform-applications.md).
+Подробнее на странице [Действие ListPlatformApplications](list-platform-applications.md).
 
 ## Создайте эндпоинт {#create-endpoint}
 
@@ -156,7 +156,7 @@ curl \
 
 В результате вы получите идентификатор (ARN) мобильного эндпоинта.
 
-Подробнее см. на странице [Действие CreatePlatformEndpoint](create-platform-endpoint.md).
+Подробнее на странице [Действие CreatePlatformEndpoint](create-platform-endpoint.md).
 
 ## Отправьте уведомление {#publish}
 
@@ -206,4 +206,4 @@ curl \
 * `Message` — сообщение.
 * `MessageStructure` — формат сообщения.
 
-Подробнее см. на странице [Действие Publish](publish.md).
+Подробнее на странице [Действие Publish](publish.md).

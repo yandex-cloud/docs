@@ -147,6 +147,6 @@
 
 {% endlist %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Секреты в Yandex Lockbox](../concepts/secret.md)
+[Секреты в Yandex Lockbox](../concepts/secret.md)

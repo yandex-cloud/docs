@@ -76,7 +76,7 @@ description: Следуя данной инструкции, вы сможете
       * `role` — назначаемая [роль](../security/index.md#roles-list).
       * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-      Более подробную информацию о параметрах ресурса `yandex_lockbox_secret_iam_member` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/lockbox_secret_iam_member).
+      Подробнее о параметрах ресурса `yandex_lockbox_secret_iam_member` в [документации провайдера]({{ tf-provider-resources-link }}/lockbox_secret_iam_member).
 
   1. Создайте ресурсы
 
@@ -102,7 +102,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../concepts/secret.md)
 * [{#T}](../../iam/concepts/access-control/index.md)

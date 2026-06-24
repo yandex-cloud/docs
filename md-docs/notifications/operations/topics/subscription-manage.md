@@ -32,7 +32,7 @@
       --subscription-arn <ARN_подписки>
      ```
 
-  Подробнее о командах см. в документации AWS: [set-subscription-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/set-subscription-attributes.html) и [get-subscription-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/get-subscription-attributes.html).
+  Подробнее о командах в документации AWS: [set-subscription-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/set-subscription-attributes.html) и [get-subscription-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/get-subscription-attributes.html).
 
 - AWS SDK для Python {#python}
 
@@ -71,7 +71,7 @@
   aws sns unsubscribe --subscription-arn <ARN_подписки>
   ```
 
-  Подробнее о команде `aws sns unsubscribe` см. в [документации AWS](https://docs.aws.amazon.com/cli/latest/reference/sns/unsubscribe.html).
+  Подробнее о команде `aws sns unsubscribe` в [документации AWS](https://docs.aws.amazon.com/cli/latest/reference/sns/unsubscribe.html).
 
 - AWS SDK для Python {#python}
 

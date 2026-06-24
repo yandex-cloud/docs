@@ -45,7 +45,7 @@ To get started:
 ## Create a cluster {#cluster-create}
 
 1. In the management console, select the folder where you want to create your database cluster.
-1. [Navigate to](../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. Specify your {{ mmy-name }} cluster settings and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
 1. Wait until the {{ mmy-name }} cluster is ready: its status on the {{ mmy-name }} dashboard will change to **Running** and its state, to **Alive**. This may take a while.

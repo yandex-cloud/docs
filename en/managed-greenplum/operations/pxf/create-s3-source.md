@@ -13,7 +13,7 @@ To get started, [create a static access key](../../../iam/operations/authenticat
     To create an external S3 data source:
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Open the page of the {{ mgp-name }} cluster in question.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}**.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.pxf.action_create-datasource }}**.

@@ -16,12 +16,12 @@ apiPlayground:
         oldPassword:
           description: |-
             **string**
-            Required field. Current password for verification.
+            Current password for verification.
+            Optional for one time passwords
             The maximum string length in characters is 128.
           type: string
       required:
         - passwordSpec
-        - oldPassword
       additionalProperties: false
     definitions:
       PasswordSpec:
@@ -74,7 +74,8 @@ Request to set the authenticated user's password.
 Required field. New password specification. ||
 || oldPassword | **string**
 
-Required field. Current password for verification.
+Current password for verification.
+Optional for one time passwords
 
 The maximum string length in characters is 128. ||
 |#

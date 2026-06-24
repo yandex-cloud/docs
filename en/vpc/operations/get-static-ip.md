@@ -19,7 +19,7 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to reserve an address.
-   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
    1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
    1. In the window that opens:
@@ -119,7 +119,7 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
   To reserve a static IP address, use the [create](../api-ref/Address/create.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Create](../api-ref/grpc/Address/create.md) gRPC API call, and provide the following in the request:
 
     * ID of the folder the static IP address will reside in, in the `folderId` parameter.
-    * Name of the static public IP address, in the `name` parameter. Follow these naming requirements:
+    * Name of the static public IP address, in the `name` parameter. The name format is as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 

@@ -44,11 +44,10 @@ description: Из статьи вы узнаете, что такое польз
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/nginx-ingress-certificate-manager.md)
 * [{#T}](../tutorials/gatsby-static-website.md)
 * [{#T}](../tutorials/virtual-hosting.md)
 * [{#T}](../tutorials/tls-termination/index.md)
 
 #### Полезные ссылки {#see-also}
 
-* [Интеграция с сервисами {{ yandex-cloud }}](services.md)
+[Интеграция с сервисами {{ yandex-cloud }}](services.md)

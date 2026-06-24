@@ -81,19 +81,10 @@
 
 Чтобы организовать входящий сетевой доступ к рабочим нагрузкам по протоколу HTTP/HTTPS используйте ресурс [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/).
 
-Существует как минимум 2 варианта Ingress-контроллера, которые можно использовать в Yandex Cloud:
-- [NGINX Ingress Controller](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
-- [Application Load Balancer Ingress-контроллера](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
+Существует как минимум два варианта контроллера, которые можно использовать в Yandex Cloud:
+- [Контроллер Yandex Cloud Gwin](../../managed-kubernetes/alb-ref/gwin-index.md).
+- [Application Load Balancer Ingress-контроллер](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
-Преимущества Application Load Balancer Ingress-контроллера:
-* интеграция с облачным сервисом [Yandex Certificate Manager](../../certificate-manager/index.md);
-* отсутствие необходимости установки контроллера в кластер, так как все разворачивается на стороне [Application Load Balancer](../../application-load-balancer/index.md).
-
-{% note tip %}
-
-Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [Yandex Cloud Gwin](../../application-load-balancer/tools/gwin/index.md).
-
-{% endnote %}
 
 #### Ограничение доступа к метаданным ВМ группы узлов {#metadata-access-restriction}
 

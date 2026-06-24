@@ -376,6 +376,8 @@ items:
                 href: api-ref/grpc/Subtitle/list.md
               - name: Create
                 href: api-ref/grpc/Subtitle/create.md
+              - name: GenerateDownloadURL
+                href: api-ref/grpc/Subtitle/generateDownloadURL.md
               - name: GenerateUploadURL
                 href: api-ref/grpc/Subtitle/generateUploadURL.md
               - name: Delete
@@ -572,6 +574,8 @@ items:
                 href: api-ref/Subtitle/list.md
               - name: Create
                 href: api-ref/Subtitle/create.md
+              - name: GenerateDownloadURL
+                href: api-ref/Subtitle/generateDownloadURL.md
               - name: GenerateUploadURL
                 href: api-ref/Subtitle/generateUploadURL.md
               - name: Delete

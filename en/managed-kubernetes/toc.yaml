@@ -109,8 +109,6 @@ items:
             href: operations/cilium.md
           - name: Configuring NodeLocal DNS for the Cilium network policy controller
             href: operations/cilium-node-local-dns.md
-          - name: Creating a network load balancer using an NGINX ingress controller
-            href: operations/create-load-balancer-with-ingress-nginx.md
       - name: Working with persistent volumes
         items:
           - name: Dynamic volume provisioning
@@ -244,14 +242,6 @@ items:
             href: tutorials/vpa-autoscaling.md
           - name: Deploying and load testing a scalable gRPC service
             href: tutorials/load-testing-grpc-autoscaling.md
-      - name: Installing NGINX
-        items:
-          - name: Installing an NGINX ingress controller with Let's Encrypt®
-            href: tutorials/ingress-cert-manager.md
-          - name: >-
-              Installing an NGINX ingress controller with a {{
-              certificate-manager-name }} certificate
-            href: tutorials/nginx-ingress-certificate-manager.md
       - name: Using {{ container-registry-name }}
         items:
           - name: Integration with {{ container-registry-name }}
