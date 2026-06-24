@@ -24,7 +24,7 @@ request.path
 stacktrace
 ```
 
-Дополнительно про имена ключей см. в документации [OpenTelemetry](https://opentelemetry.io/docs/specs/semconv/general/attribute-naming/).
+Дополнительно про имена ключей в [документации OpenTelemetry](https://opentelemetry.io/docs/specssemconv/general/attribute-naming/).
 
 Помимо группировки атрибутов при отображении, такой подход облегчает работу с подсказками. Чтобы не вспоминать ключ нужного атрибута, начните вводить его неймспейсы — система подскажет варианты подходящих ключей. Для примера выше можно ввести `request.` и система отобразит все возможные ключи: `request.auth.login`, `request.auth.type` и так далее. 
 

@@ -11,7 +11,8 @@ Suspends the specified user.
 ```json
 {
   "user_id": "string",
-  "reason": "string"
+  "reason": "string",
+  "expires_at": "google.protobuf.Timestamp"
 }
 ```
 
@@ -29,6 +30,9 @@ The maximum string length in characters is 50. ||
 Reason for suspending the user.
 
 The maximum string length in characters is 256. ||
+|| expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Timestamp when the user account expires. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

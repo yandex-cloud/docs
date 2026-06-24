@@ -89,9 +89,9 @@
 * [Инструкция по настройке групп безопасности](../../../managed-kubernetes/operations/connect/security-groups.md).
 * Используйте инструменты для настройки network policy с помощью плагинов [Calico](../../../managed-kubernetes/concepts/network-policy.md#calico) (базовый) или [Cilium CNI](../../../managed-kubernetes/concepts/network-policy.md#cilium) (продвинутый) в {{ yandex-cloud }}, используя `default deny` правила для входящего и исходящего трафика по умолчанию и разрешать только необходимый трафик.
 * Выделите отдельный кластер {{ k8s }} для конечных точек, которые взаимодействуют с интернетом, либо отдельные группы узлов (с помощью механизмов: [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/#:~:text=Node%20affinity%20is%20a%20property,onto%20nodes%20with%20matching%20taints) + [Node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/)). Таким образом, выделяется DMZ, и в случае компрометации узлов из интернета поверхность атаки ограничится.
-* Чтобы организовать входящий сетевой доступ к рабочим нагрузкам по протоколу HTTP/HTTPS используйте ресурс [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/). Существует как минимум 2 варианта Ingress-контроллера, которые можно использовать в {{ yandex-cloud }}:
+* Чтобы организовать входящий сетевой доступ к рабочим нагрузкам по протоколу HTTP/HTTPS используйте ресурс [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/). Существует как минимум 2 варианта контроллера, которые можно использовать в {{ yandex-cloud }}:
 
-  * [NGINX Ingress Controller](../../../managed-kubernetes/tutorials/ingress-cert-manager.md).
+  * [Контроллер Yandex Cloud Gwin](../../../managed-kubernetes/alb-ref/gwin-index.md).
   * [Application Load Balancer Ingress-контроллера](../../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
 #### 7.4 В {{ managed-k8s-name }} настроены аутентификация и управление доступом {#kubernetes-auth}

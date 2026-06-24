@@ -106,7 +106,7 @@ description: Следуя данной инструкции, вы сможете
        * `role` — назначаемая [роль](../security/index.md#roles-list).
        * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-       Подробнее о параметрах ресурса `yandex_kms_asymmetric_signature_key` см. в [документации провайдера]({{ tf-provider-resources-link }}/kms_asymmetric_signature_key).
+       Подробнее о параметрах ресурса `yandex_kms_asymmetric_signature_key` в [документации провайдера]({{ tf-provider-resources-link }}/kms_asymmetric_signature_key).
 
    1. Создайте ресурсы:
 
@@ -252,7 +252,7 @@ description: Следуя данной инструкции, вы сможете
        * `role` — назначаемая [роль](../security/index.md#roles-list).
        * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-       Подробнее о параметрах ресурса `yandex_kms_asymmetric_signature_key` см. в [документации провайдера]({{ tf-provider-resources-link }}/kms_asymmetric_signature_key).
+       Подробнее о параметрах ресурса `yandex_kms_asymmetric_signature_key` в [документации провайдера]({{ tf-provider-resources-link }}/kms_asymmetric_signature_key).
 
    1. Создайте ресурсы:
 

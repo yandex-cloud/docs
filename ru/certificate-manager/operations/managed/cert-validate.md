@@ -162,7 +162,7 @@ description: Следуя данной инструкции, вы сможете
        * `certificate_id` — идентификатор сертификата.
        * `wait_validation` — флаг ожидания валидации сертификата. Если значение `true`, операция не будет завершена, пока сертификат находится в статусе `VALIDATING`. Значение по умолчанию `false`.
 
-     Подробную информацию о параметрах ресурсов см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}).
+     Подробнее о параметрах ресурсов в [документации провайдера {{ TF }}]({{ tf-provider-link }}).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

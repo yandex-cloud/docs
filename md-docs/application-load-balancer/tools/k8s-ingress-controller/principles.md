@@ -65,7 +65,7 @@
 
   {% note warning %}
   
-  Сервисы Kubernetes, используемые в качестве бэкендов (указанные в правилах `Ingress` напрямую или в `HttpBackendGroup`/`GrpcBackendGroup`), должны иметь тип `NodePort`. Подробнее об этом типе читайте в [документации Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport).
+  Сервисы Kubernetes, используемые в качестве бэкендов (указанные в правилах `Ingress` напрямую или в `HttpBackendGroup`/`GrpcBackendGroup`), должны иметь тип `NodePort`. Подробнее об этом типе в [документации Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport).
   
   {% endnote %}
 

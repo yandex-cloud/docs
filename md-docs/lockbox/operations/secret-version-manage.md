@@ -181,7 +181,7 @@
          * `include_digits` — использовать цифры (0...9). Значение по умолчанию `true`.
          * `include_punctuation` — использовать специальные символы. Значение по умолчанию `true`.
 
-       Более подробную информацию о параметрах ресурса `yandex_lockbox_secret` в Terraform, см. в [документации провайдера](../../terraform/resources/lockbox_secret.md).
+       Подробнее о параметрах ресурса `yandex_lockbox_secret` в [документации провайдера](../../terraform/resources/lockbox_secret.md).
 
     1. Примените изменения:
 
@@ -264,7 +264,7 @@
        * `key` — ключ секрета. Несекретное название для значения, по которому вы будете его идентифицировать.
        * `path` — путь к скрипту для генерации значения секрета.
 
-       Более подробную информацию о параметрах ресурса `yandex_lockbox_secret_version` в Terraform, см. в [документации провайдера](../../terraform/resources/lockbox_secret_version.md).
+       Подробнее о параметрах ресурса `yandex_lockbox_secret_version` в [документации провайдера](../../terraform/resources/lockbox_secret_version.md).
 
     1. Примените изменения:
 
@@ -476,6 +476,6 @@
 
 {% endlist %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Секреты в Yandex Lockbox](../concepts/secret.md)
+[Секреты в Yandex Lockbox](../concepts/secret.md)

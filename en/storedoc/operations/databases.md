@@ -9,7 +9,7 @@ You can add and remove databases, as well as view their details.
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_databases }}** tab.
 
 - CLI {#cli}
@@ -25,11 +25,11 @@ You can add and remove databases, as well as view their details.
      --cluster-name <cluster_name>
   ```
 
-  You can get the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters).
+  You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -42,13 +42,13 @@ You can add and remove databases, as well as view their details.
        --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/databases'
      ```
 
-     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Database/list.md#yandex.cloud.mdb.mongodb.v1.ListDatabasesResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -69,7 +69,7 @@ You can add and remove databases, as well as view their details.
        yandex.cloud.mdb.mongodb.v1.DatabaseService.List
      ```
 
-     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Database/list.md#yandex.cloud.mdb.mongodb.v1.ListDatabasesResponse) to make sure your request was successful.
 
@@ -84,8 +84,8 @@ You can add and remove databases, as well as view their details.
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
-  1. Click the name of your cluster.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Click the cluster name.
   1. Select the **{{ ui-key.yacloud.mongodb.cluster.switch_databases }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
   1. Specify the database name and click **{{ ui-key.yacloud.mdb.dialogs.popup-add-db_button_add }}**.
@@ -117,7 +117,7 @@ You can add and remove databases, as well as view their details.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -132,11 +132,11 @@ You can add and remove databases, as well as view their details.
 
         {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -144,7 +144,7 @@ You can add and remove databases, as well as view their details.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -167,13 +167,13 @@ You can add and remove databases, as well as view their details.
 
      {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
-     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -201,7 +201,7 @@ You can add and remove databases, as well as view their details.
 
      {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
-     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -214,7 +214,7 @@ You can add and remove databases, as well as view their details.
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_databases }}** tab.
   1. Find the database you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
@@ -231,21 +231,21 @@ You can add and remove databases, as well as view their details.
      --cluster-name <cluster_name>
   ```
 
-  You can get the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters).
+  You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Remove the `yandex_mdb_mongodb_database` resource with the name of the database you want to delete.
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -253,7 +253,7 @@ You can add and remove databases, as well as view their details.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -272,7 +272,7 @@ You can add and remove databases, as well as view their details.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -294,7 +294,7 @@ You can add and remove databases, as well as view their details.
        yandex.cloud.mdb.mongodb.v1.DatabaseService.Delete
      ```
 
-     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the database name from the [list of databases in your cluster](#list-db).
+     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the database name, from the [list of databases in your cluster](#list-db).
 
   1. Check the [server response](../api-ref/grpc/Database/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

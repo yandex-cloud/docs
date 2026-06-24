@@ -83,7 +83,7 @@
      }
      ```
 
-     Подробную информацию о параметрах ресурса `yandex_alb_target_group` см. в [документации провайдера Terraform](../../terraform/resources/alb_target_group.md).
+     Подробнее о параметрах ресурса `yandex_alb_target_group` в [документации провайдера](../../terraform/resources/alb_target_group.md).
   1. Примените изменения:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.

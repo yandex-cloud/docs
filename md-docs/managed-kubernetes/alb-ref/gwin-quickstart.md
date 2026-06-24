@@ -89,7 +89,7 @@ Gwin — инструмент для управления балансировщ
 
             {% endnote %}
 
-      Подробнее на странице [Доступ к API Yandex Cloud из кластера Managed Service for Kubernetes с помощью федерации сервисных аккаунтов Identity and Access Management](../tutorials/wlif-managed-k8s-integration.md).
+      Подробнее в руководстве [Доступ к API Yandex Cloud из кластера Managed Service for Kubernetes с помощью федерации сервисных аккаунтов Identity and Access Management](../tutorials/wlif-managed-k8s-integration.md).
 
     - Авторизованный ключ {#authorized-key}
 

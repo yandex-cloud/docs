@@ -259,7 +259,7 @@ description: Следуя данной инструкции, вы сможете
        * `override_variant_uuid` — идентификатор варианта задания, которое будет отображаться в случае соответствия трафика правилу. Если параметр не указан, будет отображаться задание по умолчанию.
        * `condition` — одно или несколько [условий для входящего трафика](../concepts/captcha-variants.md#traffic-conditions). Необязательный параметр.
 
-     Более подробную информацию о параметрах ресурса `yandex_smartcaptcha_captcha`, см. в [документации провайдера]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
+     Подробнее о параметрах ресурса `yandex_smartcaptcha_captcha` в [документации провайдера]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
 
   1. Создайте ресурсы:
 
@@ -319,7 +319,7 @@ description: Следуя данной инструкции, вы сможете
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_smartcaptcha_captcha`, см. в [документации провайдера]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
+     Подробнее о параметрах ресурса `yandex_smartcaptcha_captcha` в [документации провайдера]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
 
   1. Создайте капчу:
 
@@ -543,7 +543,7 @@ description: Следуя данной инструкции, вы сможете
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_smartcaptcha_captcha`, см. в [документации провайдера]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
+     Подробнее о параметрах ресурса `yandex_smartcaptcha_captcha` в [документации провайдера]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
 
   1. Создайте капчу:
 

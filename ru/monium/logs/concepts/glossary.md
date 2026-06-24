@@ -24,4 +24,4 @@
 
 {% include [logs-terms](../../../_includes/monium/logs-terms.md) %}
 
-Все термины см. в разделе [{#T}](../concepts/glossary.md).
+Все термины в разделе [{#T}](../concepts/glossary.md).

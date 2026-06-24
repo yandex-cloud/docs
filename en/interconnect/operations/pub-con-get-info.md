@@ -13,6 +13,13 @@ You need the [cic.viewer](../security/index.md#cic-viewer) role to run this oper
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), click ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) or ![chevron-down](../../_assets/console-icons/chevron-down.svg) in the top panel and select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
+  1. In the left-hand panel, select ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.interconnect.public-connection.public-connections_7xYcV }}**. The window that opens will list all public connections in the selected folder.
+  1. To view detailed information about a specific public connection, click the relevant row in the list.
+
 - CLI {#cli}
 
   1. To get information about [public connections](../concepts/pub-con.md), see the description of the CLI command:
@@ -24,7 +31,8 @@ You need the [cic.viewer](../security/index.md#cic-viewer) role to run this oper
   1. Get a list of public connections in the specified folder:
 
       ```bash
-      yc cic public-connection list --folder-id b1gqf2hjizv2jw******
+      yc cic public-connection list \
+        --folder-id b1gt6g8ht345********
       ```
 
       Result:
@@ -33,26 +41,25 @@ You need the [cic.viewer](../security/index.md#cic-viewer) role to run this oper
       +----------------------+--------------------+----------------------+---------------+
       |          ID          |        NAME        | TRUNK CONNECTION ID  | SERVICE TYPES |
       +----------------------+--------------------+----------------------+---------------+
-      | euuiog88zphgsq****** | customer-name-pub1 | euuqqctbrflq3i****** | APIGW, ML     |
-      | euucr7p47329kq****** | customer-name-pub2 | euuvdjl5shd0fv****** | APIGW, ML     |
+      | euuiog88zphg******** | customer-name-pub1 | euuqqctbrflq******** | APIGW, ML     |
+      | euucr7p47329******** | customer-name-pub2 | euuvdjl5shd0******** | APIGW, ML     |
       +----------------------+--------------------+----------------------+---------------+
       ```
 
   1. Get information about the public connection by specifying its ID obtained in the previous step:
 
       ```bash
-      # yc cic public-connection get <public_connection_ID>
-      yc cic public-connection get euuiog88zphgsq****** 
+      yc cic public-connection get euuiog88zphg******** 
       ```
 
       Result:
 
       ```text
-      id: euuiog88zphgsq******
+      id: euuiog88zphg********
       name: customer-name-pub1
-      folder_id: b1gqf2hjizv2jw******
-      region_id: ru-central1
-      trunk_connection_id: euuqqctbrflq3i******
+      folder_id: b1gt6g8ht345********
+      region_id: {{ region-id }}
+      trunk_connection_id: euuqqctbrflq********
       vlan_id: "1428"
       ipv4_peering:
         peering_subnet: 178.170.2xx.x2/31
@@ -68,6 +75,7 @@ You need the [cic.viewer](../security/index.md#cic-viewer) role to run this oper
       ```
 
       Where:
+
       * `id`: Public connection ID.
       * `name`: Public connection name.
       * `folder_id`: ID of the cloud folder containing the new public connection.

@@ -1,6 +1,6 @@
 ---
 title: Getting started with {{ mmg-full-name }}
-description: In this tutorial, you will learn how to set up and configure a {{ SD }} cluster.
+description: In this guide, you will learn how to create and configure a {{ SD }} cluster.
 ---
 
 # Getting started with {{ mmg-name }}
@@ -15,7 +15,7 @@ To get started:
 
 ## Getting started {#before-you-begin}
 
-1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if you do not have an account yet.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 
 1. If you do not have a folder yet, create one:
 
@@ -51,7 +51,7 @@ To get started:
 ## Create a cluster {#cluster-create}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create your database cluster.
-1. [Navigate to](../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. Specify the cluster settings and click **{{ ui-key.yacloud.mdb.clusters.button_create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
 1. Wait until the cluster is ready: its status on the {{ mmg-short-name }} dashboard will change to **Running**, and its state to **Alive**. This may take a while.
@@ -76,4 +76,5 @@ To get started:
 
 * Read about the [service concepts](concepts/index.md).
 * Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to a database](operations/connect/index.md).
+* View the "{{ mmg-short-name }} guide" webinar on [YouTube](https://www.youtube.com/live/uTt52jcvJ98) or [{{ video-name }}](https://runtime.strm.yandex.ru/player/episode/vple7zg5c6ekr4mgkoqf).
 * Check out the [questions and answers](qa/general.md).

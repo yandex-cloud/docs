@@ -12,7 +12,7 @@ You can reserve an [internal IP address](../concepts/address.md#internal-address
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to reserve an IP address.
-   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
    1. Select the subnet where you want to reserve the address.
    1. Navigate to the ![addresses](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.subnetworks.switch_ip-addresses }}** tab.

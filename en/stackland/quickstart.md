@@ -1,6 +1,11 @@
 # Installation guide
 
-This page describes how to deploy a {{ stackland-full-name }} cluster on a pre-configured infrastructure.
+This page outlines the general process of deploying a {{ stackland-full-name }} cluster on a pre-configured infrastructure. You can use it across different environments, e.g., {{ baremetal-full-name }} servers or {{ compute-name }} virtual machines.
+
+The practical infrastructure preparation scenarios are described separately:
+
+* [Installing {{ stackland-name }} on {{ baremetal-full-name }}](tutorials/install-on-yc-bms.md)
+* [Installing {{ stackland-name }} on {{ yandex-cloud }} VMs](tutorials/install-on-yc-vm.md)
 
 ## Getting started {#prerequisites}
 
@@ -9,9 +14,12 @@ This page describes how to deploy a {{ stackland-full-name }} cluster on a pre-c
 To deploy {{ stackland-name }}, you need the following minimum infrastructure:
 
 * Three servers or VMs with 32 vCPUs and 64 GB RAM connected via an L2 network.
-* Each server must have at least two disks of 100 GB or more: one to install the system and the other, to store data. On `control-plane` servers, make sure to use an SSD to install the system.
-* Computer or jump host to access the cluster from.
-* Servers that are able to synchronize time: preferably a local NTP or an NTP web server.
+* Each server must have at least two disks: one for the system and the other for the data. The latter stores internal data of {{ stackland-name }} components, database files, {{ objstorage-name }} objects, etc.
+* The minimum system disk size is 150 GB. For servers with the `control-plane` and `combined` roles (see below), you need an SSD or NVMe as the system disk. Servers with the `worker` role can take any system disk type (HDD, SSD, or NVMe).
+* The cluster must have at least 1 TB of total data storage disk capacity.
+* Servers need to be able to synchronize time: preferably a local NTP or an NTP web server.
+
+You will also need a computer or jump host to access the cluster from.
 
 {{ stackland-name }} servers may have one of these three roles:
 * `control-plane`: Managing server to deploy core {{ stackland-name }} components on.
@@ -77,9 +85,15 @@ No matter how resources are distributed across files, the {{ stackland-name }} c
 * **Host configuration** (the `StacklandHostsList` resource): Includes cluster server details, such as host names, roles, and node-specific settings.
 * **Secrets** (the `StacklandSecretsConfig` resource): Includes secrets, such as a license key or an internal CA certificate. Use the `sladm secrets` command to manage this resource.
 
-Below is an example of a configuration file that, for simplicity's sake, includes all resources:
+Below is an example of a configuration file (to make it simple, all resources are combined into one file):
 
 {% include notitle [YAML-file](_includes/yamls/quickstart/configuration.md) %}
+
+{% note tip %}
+
+If an individual component requires a storage class other than the default one, configure it prior to starting the component for the first time. For more information, see [Switching storage class of a component](operations/disk-storage/change-storage-class.md).
+
+{% endnote %}
 
 ### Prior to installation
 
@@ -144,6 +158,8 @@ This command will generate a new self-signed intermediate CA certificate and key
 ## Pre-configuring servers {#server-installation}
 
 Boot your servers from the installation ISO image. On the boot screen, select **Talos ISO**.
+
+If your servers support network booting and share the same L2 domain with the bastion, you can use PXE instead of an ISO image. This scenario is described in [Installing {{ stackland-name }} on {{ baremetal-full-name }} via PXE](tutorials/install-on-yc-bms-pxe.md).
 
 If the cluster's host network does not use DHCP, press F3 after booting and navigate to the server network settings. Fill in the fields according to your configuration:
 
@@ -298,7 +314,7 @@ Once you make sure the console is available, create a user on whose behalf you w
 
 ## Installation errors and how to fix them {#troubleshooting}
 
-If the {{ stackland-name }} cluster deployment still fails, resolve the issue and reset all cluster machines to their initial state before re-running the installation. Proceed as follows:
+If the {{ stackland-name }} cluster deployment still fails, resolve the issue and reset all cluster machines to their initial state before re-running the installation. Follow these steps:
 
 * Boot the server from the {{ stackland-name }} installation image.
 * In the menu that opens, select **Reset Talos installation and return to maintenance mode**.

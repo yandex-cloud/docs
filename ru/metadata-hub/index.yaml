@@ -16,6 +16,9 @@ meta:
 blocks:
   - type: card-layout-block
     title: Yandex MetaData Hub
+    visible:
+      sm: false
+      md: true
     description: "Сервис Yandex\_Cloud для управления подключениями к базам данных, хранения схем обмена данными и описания наборов данных, а также систему управления метаданными."
     colSizes:
       all: 12

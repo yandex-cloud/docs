@@ -27,7 +27,7 @@
 
 {% include [quota-trigger-count](quota-trigger-count.md) %}
 
-Подробнее о взаимосвязи квот читайте в разделе [{#T}](../functions/concepts/limits.md#related-quotas).
+Взаимосвязь квот описана в разделе [{#T}](../functions/concepts/limits.md#related-quotas).
 
 #### Лимиты {#functions-limits}
 

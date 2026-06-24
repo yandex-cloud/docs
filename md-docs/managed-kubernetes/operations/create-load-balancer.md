@@ -37,12 +37,10 @@
 
 {% cut "Как обеспечить доступ к приложению с помощью HTTPS?" %}
 
-См. документацию:
+Читайте документацию:
 
 * [Создание нового Kubernetes-проекта в Yandex Cloud](../tutorials/new-kubernetes-project.md)
 * [Настройка L7-балансировщика Yandex Application Load Balancer с помощью Ingress-контроллера](../tutorials/alb-ingress-controller.md)
-* [Установка Ingress-контроллера NGINX с менеджером для сертификатов Let's Encrypt®](../tutorials/ingress-cert-manager.md)
-* [Установка Ingress-контроллера NGINX с сертификатом из Yandex Certificate Manager](../tutorials/nginx-ingress-certificate-manager.md#check-service-availability)
 
 {% endcut %}
 

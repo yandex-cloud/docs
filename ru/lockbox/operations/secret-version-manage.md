@@ -140,7 +140,7 @@ description: Следуя данной инструкции, вы сможете
          * `include_digits` — использовать цифры (0...9). Значение по умолчанию `true`.
          * `include_punctuation` — использовать специальные символы. Значение по умолчанию `true`.
 
-       Более подробную информацию о параметрах ресурса `yandex_lockbox_secret` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/lockbox_secret).
+       Подробнее о параметрах ресурса `yandex_lockbox_secret` в [документации провайдера]({{ tf-provider-resources-link }}/lockbox_secret).
 
     1. Примените изменения:
 
@@ -197,7 +197,7 @@ description: Следуя данной инструкции, вы сможете
        * `key` — ключ секрета. Несекретное название для значения, по которому вы будете его идентифицировать.
        * `path` — путь к скрипту для генерации значения секрета.
 
-       Более подробную информацию о параметрах ресурса `yandex_lockbox_secret_version` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/lockbox_secret_version).
+       Подробнее о параметрах ресурса `yandex_lockbox_secret_version` в [документации провайдера]({{ tf-provider-resources-link }}/lockbox_secret_version).
 
     1. Примените изменения:
 
@@ -383,6 +383,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [{#T}](../concepts/secret.md)
+[{#T}](../concepts/secret.md)

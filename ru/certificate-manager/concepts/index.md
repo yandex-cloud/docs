@@ -63,5 +63,5 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Интегрированные с {{ certificate-manager-name }} сервисы](services.md).
-* [Проверка прав на домен](challenges.md).
+* [Интегрированные с {{ certificate-manager-name }} сервисы](services.md)
+* [Проверка прав на домен](challenges.md)

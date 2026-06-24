@@ -9,7 +9,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
 
 - CLI {#cli}
@@ -42,7 +42,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
        --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/shardGroups'
      ```
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/listShardGroups.md#yandex.cloud.mdb.clickhouse.v1.ListClusterShardGroupsResponse) to make sure your request was successful.
 
@@ -69,7 +69,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
        yandex.cloud.mdb.clickhouse.v1.ClusterService.ListShardGroups
      ```
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/listShardGroups.md#yandex.cloud.mdb.clickhouse.v1.ListClusterShardGroupsResponse) to make sure your request was successful.
 
@@ -82,7 +82,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
   1. Select the shard group to view detailed information.
 
@@ -158,7 +158,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.shard-groups.button_add-group }}**.
   1. Fill in the form fields and click **{{ ui-key.yacloud.common.apply }}**.
@@ -209,7 +209,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
      }
      ```
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -251,7 +251,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
      * `description`: Shard group description.
      * `shardNames`: List of shards to include in the new group.
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/createShardGroup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -289,7 +289,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
      * `description`: Shard group description.
      * `shard_names`: List of shards to include in the new group.
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/createShardGroup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -302,7 +302,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the shard group in question and select **{{ ui-key.yacloud.common.edit }}**.
 
@@ -356,7 +356,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
      }
      ```
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -462,7 +462,7 @@ Tables created on the deleted group remain but become unusable: any attempts to 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the shard group in question and select **{{ ui-key.yacloud.common.delete }}**.
 
@@ -491,7 +491,7 @@ Tables created on the deleted group remain but become unusable: any attempts to 
 
      For more on how to create this file, see [Creating a cluster](cluster-create.md).
   1. Delete the `shard_group` section for the group in question from the {{ mch-name }} cluster description.
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

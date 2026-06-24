@@ -45,4 +45,4 @@
 * `alertStatus` — [статус алерта](../../concepts/alerting/alert.md#alert-statuses), текст;
 * `annotations` — значения аннотаций сработавшего алерта, словарь значений `key:value`.
 
-Пример вызова функции см. в разделе [Webhook с использованием Cloud Functions](alert-call-function.md).
+Пример вызова функции приведен в разделе [Webhook с использованием Cloud Functions](alert-call-function.md).

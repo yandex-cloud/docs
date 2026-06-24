@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Как начать работать с хостингом видео в {{ video-full-name }}
 
-Чтобы загрузить [видео](./concepts/index.md#videos) на [канал](./concepts/index.md#channels) сервиса:
+Чтобы загрузить [видео](./concepts/videos.md) на [канал](./concepts/index.md#channels) сервиса:
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте канал](#create-channel).
 1. [Загрузите видео](#upload-video).
@@ -58,8 +58,6 @@ description: Следуя данной инструкции, вы сможете
 1. {% include [add-translation-optional](../_includes/video/add-translation-optional.md) %}
 1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
 
-Подробнее о видео см. в разделе [{#T}](./concepts/videos.md).
-
 ## Опубликуйте видео {#publish-video}
 
 В открывшемся окне с параметрами видео дождитесь, пока видео полностью загрузится, обработается и перейдет в статус `{{ ui-key.yacloud_video.videos.status_ready }}`. Значение поля `{{ ui-key.yacloud_video.videos.label_visibility-status }}` изменится на `{{ ui-key.yacloud_video.videos.status_published }}`.
@@ -76,7 +74,7 @@ description: Следуя данной инструкции, вы сможете
 1. Откройте новую страницу браузера и вставьте в адресной строке полученную ссылку.
 1. Нажмите кнопку воспроизведения.
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](streaming.md)
 * [Обзор сервиса {{ video-full-name }}](./concepts/index.md)

@@ -8,6 +8,6 @@
 
 #### Полезные ссылки {#see-also}
 
-- [{#T}](../../operations/dashboard/create.md)
-- [{#T}](../../operations/dashboard/copy.md)
-- [{#T}](../../operations/dashboard/add-widget.md)
+* [{#T}](../../operations/dashboard/create.md)
+* [{#T}](../../operations/dashboard/copy.md)
+* [{#T}](../../operations/dashboard/add-widget.md)

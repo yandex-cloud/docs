@@ -11,9 +11,9 @@
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the name of your cluster and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** tab.
-    1. Specify a time period for the log entries you want to view: enter it manually or select in the calendar using the date input field.
+    1. Specify a time period for the log entries you want to view by entering it manually or selecting it in the calendar using the date input field.
     1. Select the type of service for which you want to output logs:
 
         * `GREENPLUM`: DBMS operations log.
@@ -125,7 +125,7 @@
 
         * `toTime`: End of the time range in the same format as `fromTime`.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.greenplum.v1.ListClusterLogsResponse) to make sure your request was successful.
 
@@ -186,7 +186,7 @@
 
         * `to_time`: End of the time range in the same format as `from_time`.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/listLogs.md#yandex.cloud.mdb.greenplum.v1.ListClusterLogsResponse) to make sure your request was successful.
 
@@ -265,7 +265,7 @@ This method allows you to stream cluster logs in real time.
 
             For more information about filters and their syntax, see the [API reference](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.greenplum.v1.StreamClusterLogsRequest).
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.greenplum.v1.StreamLogRecord) to make sure your request was successful.
 
@@ -333,7 +333,7 @@ This method allows you to stream cluster logs in real time.
 
             For more information about filters and their syntax, see the [API reference](../api-ref/grpc/Cluster/streamLogs.md).
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.greenplum.v1.StreamLogRecord) to make sure your request was successful.
 

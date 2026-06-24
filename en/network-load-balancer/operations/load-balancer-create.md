@@ -20,9 +20,9 @@ Before you create a network load balancer, make sure to [create](target-group-cr
   To create a [network load balancer](../concepts/index.md):
 
   1. In the [management console]({{ link-console-main }}), select the folder where you need to create a load balancer.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
-  1. Name the load balancer. Follow these naming requirements:
+  1. Name the load balancer. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -129,7 +129,7 @@ Before you create a network load balancer, make sure to [create](target-group-cr
 
   1. Describe the network load balancer settings in the configuration file.
 
-     Here is a configuration file example:
+     Here is an example of the configuration file structure:
 
      ```hcl
      resource "yandex_lb_network_load_balancer" "foo" {
@@ -178,7 +178,7 @@ Before you create a network load balancer, make sure to [create](target-group-cr
 
         * `healthcheck`: Health check settings. Enter a name, a port number ranging from `1` to `32767`, and a path for health checks.
 
-     For more information about `yandex_lb_network_load_balancer` settings in {{ TF }}, see [this article]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+     For more information about `yandex_lb_network_load_balancer` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
   1. Make sure the settings are correct.
 
@@ -212,7 +212,7 @@ Create a network load balancer named `test-load-balancer-1` without a listener a
 
 - {{ TF }} {#tf}
 
-  1. In the configuration file, describe the load balancer settings, skipping the `listener` and `attached_target_group` sections:
+  1. In the configuration file, describe the resource without the `listener` and `attached_target_group` sections:
 
      ```hcl
      resource "yandex_lb_network_load_balancer" "foo" {
@@ -232,7 +232,7 @@ Create a network load balancer named `test-load-balancer-1` without a listener a
 
 - API {#api}
 
-  Use the [create](../api-ref/NetworkLoadBalancer/create.md) API method, providing the following in the request body:
+  Call the [create](../api-ref/NetworkLoadBalancer/create.md) API method, providing the following information in the request body:
 
   ```api
   {
@@ -334,7 +334,7 @@ Create a network load balancer with a listener and attached target group with th
 
 - API {#api}
 
-  Use the [create](../api-ref/NetworkLoadBalancer/create.md) API method, providing the following in the request body:
+  Call the [create](../api-ref/NetworkLoadBalancer/create.md) API method, providing the following information in the request body:
 
   ```api
   {

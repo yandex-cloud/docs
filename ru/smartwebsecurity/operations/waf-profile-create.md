@@ -94,7 +94,7 @@ description: Следуя данной инструкции, вы сможете
             * `is_enabled` — флаг включения или отключения правила.
             * `is_blocking` — флаг, который назначает правило [блокирующим](../concepts/waf.md#anomaly).
 
-      Более подробную информацию о параметрах ресурса `yandex_sws_waf_profile` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/sws_waf_profile).
+      Подробнее о параметрах ресурса `yandex_sws_waf_profile` в [документации провайдера]({{ tf-provider-resources-link }}/sws_waf_profile).
 
   1. Создайте ресурсы:
 
@@ -110,7 +110,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](configure-set-rules.md)
 * [{#T}](rule-add.md)

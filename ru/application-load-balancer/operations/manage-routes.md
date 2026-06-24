@@ -203,7 +203,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% endcut %}
 
-        Подробную информацию о команде `yc alb virtual-host update-http-route` с полным перечнем параметров см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update-http-route.md).
+        Подробнее о команде `yc alb virtual-host update-http-route` с полным перечнем параметров в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update-http-route.md).
 
   - gRPC {#grpc}
 
@@ -355,7 +355,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% endcut %}
 
-        Подробную информацию о команде `yc alb virtual-host update-grpc-route` с полным перечнем параметров см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update-grpc-route.md).
+        Подробнее о команде `yc alb virtual-host update-grpc-route` с полным перечнем параметров в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update-grpc-route.md).
 
   {% endlist %}
 
@@ -395,7 +395,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% endlist %}
 
-      Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
+      Параметры используемых ресурсов приведены в документации провайдера {{ TF }}: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
   1. Обновите ресурсы:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -483,7 +483,7 @@ description: Следуя данной инструкции, вы сможете
             substitute: /api/v1/users/\\1
   ```
 
-  Подробную информацию о команде `yc alb virtual-host append-http-route` с полным перечнем параметров см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
+  Подробнее о команде `yc alb virtual-host append-http-route` с полным перечнем параметров в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
 
 - {{ TF }} {#tf}
 
@@ -552,7 +552,7 @@ description: Следуя данной инструкции, вы сможете
 
               {% endnote %}
 
-          Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
+          Параметры используемых ресурсов приведены в документации провайдера {{ TF }}: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
 
   1. Создайте или обновите ресурсы:
 
@@ -674,7 +674,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% endcut %}
 
-        Подробную информацию о команде `yc alb virtual-host remove-http-route` с полным перечнем параметров см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/remove-http-route.md).
+        Подробнее о команде `yc alb virtual-host remove-http-route` с полным перечнем параметров в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/remove-http-route.md).
 
   - gRPC {#grpc}
 
@@ -753,7 +753,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% endcut %}
 
-        Подробную информацию о команде `yc alb virtual-host remove-grpc-route` с полным перечнем параметров см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/remove-grpc-route.md).
+        Подробнее о команде `yc alb virtual-host remove-grpc-route` с полным перечнем параметров в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/remove-grpc-route.md).
 
   {% endlist %}
 
@@ -767,7 +767,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [tf-route-reorder-delete-route](../../_includes/application-load-balancer/instruction-steps/tf-route-reorder-delete-route.md) %}
 
-      Информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
+      Информация о параметрах используемых ресурсов приведена в документации провайдера {{ TF }}: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
   1. Обновите ресурсы:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

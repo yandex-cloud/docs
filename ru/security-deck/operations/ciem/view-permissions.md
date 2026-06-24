@@ -5,6 +5,8 @@ description: В данном разделе вы узнаете, как в {{ ci
 
 # Просмотреть список доступов субъекта
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 [Модуль диагностики доступов](../../concepts/ciem.md) ({{ ciem-full-name }}) позволяет централизованно просматривать полный список прав доступа индивидуальных [субъектов](../../../iam/concepts/access-control/index.md#subject) и групп к [ресурсам](../../../iam/concepts/access-control/resources-with-access-control.md) организации.
 
 Просматривать доступы в [интерфейсе {{ sd-name }}]({{ link-sd-main }}iam-diagnostics/) могут [члены организации](../../../organization/concepts/membership.md), которым на эту организацию назначена [роль](../../../organization/security/index.md#organization-manager-viewer) `organization-manager.viewer` или выше.

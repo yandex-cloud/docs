@@ -64,7 +64,7 @@ You can manage traffic at L7 instead of doing it using L3 load balancers. To do 
 
 Marketplace products [Ingress controller](../tutorials/alb-ingress-controller.md) and [Gateway API](../tutorials/marketplace/gateway-api.md) based on [{{ alb-full-name }}](../../application-load-balancer/) do not support balancing to external nodes.
 
-Use the [Gwin](../alb-ref/gwin-index.md) controller or one of the [alternative Ingress controllers](../tutorials/ingress-cert-manager.md) for balancing to external nodes.
+Use the [Gwin](../alb-ref/gwin-index.md) controller for balancing to external nodes.
 
 To use the Gwin controller for balancing to external nodes:
 * The {{ alb-name }} L7 load balancer must have access to the external node address.

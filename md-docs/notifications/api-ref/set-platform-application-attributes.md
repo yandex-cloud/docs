@@ -55,7 +55,7 @@ POST https://notifications.yandexcloud.net/
 `PlatformPrincipal` | **string**<br/>Идентификатор проекта.
 `PlatformCredential` | **string**<br/>Сервисный токен.
 
-Подробнее об атрибутах для аутентификации см. в подразделе [Каналы мобильных Push-уведомлений](../concepts/push.md).
+Атрибуты для аутентификации описаны в разделе [Каналы мобильных Push-уведомлений](../concepts/push.md).
 
 ## Ответ {#response}
 
@@ -98,10 +98,10 @@ POST https://notifications.yandexcloud.net/
 
 При возникновении ошибки Cloud Notification Service отвечает сообщением с соответствующим HTTP-кодом.
 
-Перечень общих кодов ошибок для всех действий см. в разделе [Ошибки](common-errors.md).
+Перечень общих кодов ошибок для всех действий приведен в разделе [Ошибки](common-errors.md).
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Обзор HTTP API Yandex Cloud Notification Service](index.md)
 * [Отправить запрос HTTP API к Yandex Cloud Notification Service](send-request.md)
-* [API action SetPlatformApplicationAttributes](https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html) в документации AWS.
+* [API action SetPlatformApplicationAttributes](https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html) в документации AWS

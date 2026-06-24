@@ -14,7 +14,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится трейл.
   1. Перейдите в сервис **Audit Trails**.
   1. В строке с нужным трейлом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
-  1. Измените параметры трейла. Список настроек трейла, которые можно изменить, см. в разделе [Настройки трейла](../concepts/trail.md#trail-settings).
+  1. Измените параметры трейла. Список настроек трейла, которые можно изменить, приведен в разделе [Настройки трейла](../concepts/trail.md#trail-settings).
   1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
@@ -276,7 +276,7 @@
               * `included_events` — собирать только указанные события. Необязательный параметр. Если не указать, то будут собираться все события. Вместо `included_events` можно указать `excluded_events` — собирать все события, кроме указанных. Эти параметры — взаимоисключающие.
                   Полный перечень событий можно получить в [справочнике событий уровня сервисов](../concepts/events-data-plane.md).
 
-      Более подробную информацию о параметрах ресурса `yandex_audit_trails_trail` в Terraform см. в [документации провайдера](../../terraform/resources/audit_trails_trail.md).
+      Подробнее о параметрах ресурса `yandex_audit_trails_trail` в [документации провайдера](../../terraform/resources/audit_trails_trail.md).
 
   1. Создайте ресурсы:
 

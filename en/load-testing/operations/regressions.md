@@ -20,7 +20,7 @@ To create and configure a regression dashboard:
 ## Create a dashboard {#create-dashboard}
 
 1. In the [management console]({{ link-console-main }}), open the folder where you want to create your dashboard.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. In the left-hand panel, select ![image](../../_assets/load-testing/regressions.svg) **{{ ui-key.yacloud.load-testing.label_regressions-title }}**.
 1. Create your first dashboard by clicking **{{ ui-key.yacloud.load-testing.button_create-regression-dashboard }}**.
 1. In the dialog that opens, give your dashboard a name and, optionally, add a description. Click **{{ ui-key.yc-ui-datasphere.common.apply }}**.

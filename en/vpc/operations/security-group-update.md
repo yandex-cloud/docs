@@ -9,7 +9,7 @@ After creating a [security group](../concepts/security-groups.md), you can chang
   To change the name or description of a group:
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the security group you want to update.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the group you need to update.
   1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
@@ -45,7 +45,7 @@ After creating a [security group](../concepts/security-groups.md), you can chang
 
      {% note info %}
 
-     To manage the [default security group](../../vpc/concepts/security-groups#default-security-group), use the [vpc_default_security_group]({{ tf-provider-resources-link }}/vpc_default_security_group) resource.
+     To manage the [default security group](../../vpc/concepts/security-groups.md#default-security-group), use the [vpc_default_security_group]({{ tf-provider-resources-link }}/vpc_default_security_group) resource.
 
      {% endnote %}
 

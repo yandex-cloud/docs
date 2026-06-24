@@ -13,7 +13,7 @@ You can add and remove cluster hosts, as well as manage their settings. To learn
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
 
 - CLI {#cli}
@@ -46,7 +46,7 @@ You can add and remove cluster hosts, as well as manage their settings. To learn
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -101,7 +101,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 - Management console {#console}
 
   To create a host:
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
 
@@ -161,7 +161,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
 
      
-     You should specify the subnet ID if the availability zone contains more than one subnet; otherwise, {{ mpg-short-name }} will automatically select the only subnet. You can get the cluster name from the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You should specify the subnet ID if the availability zone contains more than one subnet; otherwise, {{ mpg-short-name }} will automatically select the only subnet. You can get the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
      You can specify extra options in the `--host` argument to manage public access to the host and cluster replication:
      * Use the host’s `replication-source` option for [manual replication stream management](../concepts/replication.md#replication-manual).
@@ -204,7 +204,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
      * `replication_source_name`: Replication source, i.e., the `name` attribute of the corresponding `host` section.
      * `assign_public_ip`: [Public access to the host](../concepts/network.md#public-access-to-a-host), `true` or `false`.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -217,7 +217,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -258,7 +258,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
      
      * `subnetId`: Subnet ID.
-     * `assignPublicIp`: Host accessibility from the internet via a public IP address, `true` or `false`.
+     * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
 
 
      * `replicationSource`: Host’s replication source for [manual replication stream management](../concepts/replication.md#replication-manual). Specify the [FQDN of the host](connect/fqdn.md#special-fqdns) that will be used as the replication source.
@@ -319,7 +319,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
      
      * `subnet_id`: Subnet ID.
-     * `assign_public_ip`: Host accessibility from the internet via a public IP address, `true` or `false`.
+     * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
 
 
      * `replication_source`: Host’s replication source for [manual replication stream management](../concepts/replication.md#replication-manual). Specify the [FQDN of the host](connect/fqdn.md#special-fqdns) that will be used as the replication source.
@@ -351,7 +351,7 @@ In a {{ mpg-short-name }} cluster, you can configure the [replication](../concep
 - Management console {#console}
 
   To change the cluster host settings:
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
   1. Find the host you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, then select **{{ ui-key.yacloud.common.edit }}**.
   1. Specify new host settings:
@@ -419,7 +419,7 @@ In a {{ mpg-short-name }} cluster, you can configure the [replication](../concep
   * `replication_source_name`: Replication source, i.e., the `name` attribute of the corresponding `host` section.
   * `assign_public_ip`: [Public access to the host](../concepts/network.md#public-access-to-a-host), `true` or `false`.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -475,7 +475,7 @@ In a {{ mpg-short-name }} cluster, you can configure the [replication](../concep
      * `hostName`: [FQDN of the host being updated](connect/fqdn.md).
 
      
-     * `assignPublicIp`: Host accessibility from the internet via a public IP address, `true` or `false`.
+     * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
 
 
      * `replicationSource`: Host’s replication source for [manual replication stream management](../concepts/replication.md#replication-manual). Specify the FQDN of the host that will be used as the replication source.
@@ -542,7 +542,7 @@ In a {{ mpg-short-name }} cluster, you can configure the [replication](../concep
      * `host_name`: [FQDN of the host being updated](connect/fqdn.md).
 
      
-     * `assign_public_ip`: Host accessibility from the internet via a public IP address, `true` or `false`.
+     * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
 
 
      * `replication_source`: Host’s replication source for [manual replication stream management](../concepts/replication.md#replication-manual). Specify the FQDN of the host that will be used as the replication source.
@@ -576,7 +576,7 @@ If you are deleting the master host, {{ mpg-short-name }} will automatically pro
 - Management console {#console}
 
   To delete a host from a cluster:
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
   1. Find the host you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
@@ -604,7 +604,7 @@ If you are deleting the master host, {{ mpg-short-name }} will automatically pro
 
      For a complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
   1. Delete the `host` section referring to the host you want to delete from the {{ mpg-name }} cluster description.
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

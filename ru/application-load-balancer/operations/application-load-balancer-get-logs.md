@@ -67,7 +67,7 @@
     ]
     ```
 
-    Подробнее о чтении логов с помощью CLI см. в разделе [{#T}](../../logging/operations/read-logs.md).
+    Чтение логов с помощью CLI описано в разделе [{#T}](../../logging/operations/read-logs.md).
 
 - API {#api}
 

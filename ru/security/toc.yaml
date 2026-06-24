@@ -363,10 +363,6 @@ items:
       - name: Защита приложений
         items:
           - name: >-
-              Установка Ingress-контроллера NGINX с сертификатом из {{
-              certificate-manager-name }}
-            href: tutorials/app-security/nginx-ingress-certificate-manager.md
-          - name: >-
               Построение пайплайна CI/CD в {{ GL }} с использованием
               serverless-продуктов
             href: tutorials/app-security/ci-cd-serverless.md

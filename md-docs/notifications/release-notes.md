@@ -12,25 +12,25 @@
 
 Формат работы с топиками в Cloud Notification Service совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
 
-Примеры команд для работы с топиками см. в [консоли управления](https://console.yandex.cloud) и в разделах с [пошаговыми инструкциями](operations/index.md#topics).
+Примеры команд для работы с топиками приведены в [консоли управления](https://console.yandex.cloud) и в разделах с [пошаговыми инструкциями](operations/index.md#topics).
 
 ## I квартал 2025 {#q1-2025}
 
 * Добавлена возможность отправлять push-уведомления в браузеры и прогрессивные веб-приложения [PWA](https://ru.wikipedia.org/wiki/Прогрессивное_веб-приложение). Интеграция с браузерами доступна в консоли управления, CLI, API, SDK.
 
-   Подробнее см. [Push-уведомления в браузере](concepts/browser.md).
+   Подробнее в разделе [Push-уведомления в браузере](concepts/browser.md).
 
 * Реализована настройка push-уведомлений для платформы [RuStore](https://www.rustore.ru/help/users/about-rustore) в консоли управления. Ранее были доступны интерфейсы CLI, API, SDK.
 
-  Подробнее см. [Как начать работать с push-уведомлениями в Yandex Cloud Notification Service](quickstart-push.md).
+  Подробнее в разделе [Как начать работать с push-уведомлениями в Yandex Cloud Notification Service](quickstart-push.md).
 
 * Добавлена возможность записывать и просматривать логи сервиса в Yandex Cloud Logging.
   
-   Подробнее см. [Логи Cloud Logging](concepts/logging.md).
+   Подробнее в разделе [Логи Cloud Logging](concepts/logging.md).
 
 * Добавлена возможность строить графики по метрикам уведомлений в Yandex Monitoring.
 
-   Подробнее см. [Справочник метрик Yandex Monitoring](metrics.md).
+   Подробнее в разделе [Справочник метрик Yandex Monitoring](metrics.md).
 
 * Реализована поддержка AWS SDK для [C++](tools/sdk-cpp.md), [Go](tools/sdk-go.md), [Java](tools/sdk-java.md), [JavaScript](tools/sdk-javascript.md), [Kotlin](tools/sdk-kotlin.md), [.NET](tools/sdk-dot-net.md). В консоли управления добавлены примеры для этих SDK:
   

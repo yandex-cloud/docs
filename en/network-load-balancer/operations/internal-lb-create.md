@@ -20,9 +20,9 @@ To create an internal network load balancer:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a load balancer.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
-  1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the load balancer. Follow these naming requirements:
+  1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the load balancer. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -160,7 +160,7 @@ To create an internal network load balancer:
 
   1. Describe the network load balancer settings in the configuration file.
 
-     Here is the configuration file example:
+     Here is an example of the configuration file structure:
 
      ```hcl
      resource "yandex_lb_network_load_balancer" "foo" {
@@ -250,7 +250,7 @@ Create an internal network load balancer named `internal-lb-test-1` without a li
 
 - {{ TF }} {#tf}
 
-  1. In the configuration file, describe the load balancer settings, skipping the `listener` and `attached_target_group` sections:
+  1. In the configuration file, describe the resource without the `listener` and `attached_target_group` sections:
 
      ```hcl
      resource "yandex_lb_network_load_balancer" "foo" {
@@ -271,7 +271,7 @@ Create an internal network load balancer named `internal-lb-test-1` without a li
 
 - API {#api}
 
-  Use the [create](../api-ref/NetworkLoadBalancer/create.md) API method, providing the following in the request body:
+  Call the [create](../api-ref/NetworkLoadBalancer/create.md) API method, providing the following information in the request body:
 
   ```api
   {
@@ -334,7 +334,7 @@ Create an internal network load balancer with a listener and attached target gro
 
 - {{ TF }} {#tf}
 
-  1. In the configuration file, describe the load balancer, including the `listener` and `attached_target_group` sections:
+  1. In the configuration file, describe the resource including the `listener` and `attached_target_group` sections:
 
      ```hcl
      resource "yandex_lb_network_load_balancer" "internal-lb-test" {
@@ -381,7 +381,7 @@ Create an internal network load balancer with a listener and attached target gro
 
 - API {#api}
 
-  Use the [create](../api-ref/NetworkLoadBalancer/create.md) API method, providing the following in the request body:
+  Call the [create](../api-ref/NetworkLoadBalancer/create.md) API method, providing the following information in the request body:
 
   ```api
   {

@@ -84,7 +84,7 @@ description: Следуя данной инструкции, вы сможете
   
         {% include [arl-profile-parameters](../../_includes/smartwebsecurity/arl-profile-parameters.md) %}
   
-        Более подробную информацию о параметрах ресурса `yandex_sws_advanced_rate_limiter_profile`, см. в [документации провайдера]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
+        Подробнее о параметрах ресурса `yandex_sws_advanced_rate_limiter_profile` в [документации провайдера]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
   
     1. Примените изменения:
   
@@ -98,7 +98,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](rule-update.md)
 * [{#T}](rule-delete.md)

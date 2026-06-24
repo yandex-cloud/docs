@@ -26,7 +26,7 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}{{ lang }}
    To configure {{ CH }}:
 
    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-   1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
    1. Specify the [{{ CH }} settings](../concepts/settings-list.md#server-level-settings).
@@ -225,7 +225,7 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}{{ lang }}
       * `update_mask`: List of settings to update as an array of strings (`paths[]`).
       * `config_spec.clickhouse.config`: {{ CH }} server-level settings. For the list of possible parameters and their values, see the [method description](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterRequest).
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

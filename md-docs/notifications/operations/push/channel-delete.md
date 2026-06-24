@@ -21,7 +21,7 @@
 
       Где `--platform-application-arn` — идентификатор (ARN) канала уведомлений.
 
-      Подробнее о команде `aws sns delete-platform-application` см. в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/delete-platform-application.html).
+      Подробнее о команде `aws sns delete-platform-application` в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/delete-platform-application.html).
 
 - AWS SDK для Python {#python}
 

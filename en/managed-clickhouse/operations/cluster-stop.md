@@ -1,11 +1,11 @@
 ---
 title: Stopping and starting a {{ CH }} cluster
-description: You can stop and restart a {{ CH }} DB cluster as needed. While your cluster is idle, you only pay for the size of your storage and backups.
+description: You can stop and restart a {{ CH }} database cluster as needed. While your cluster is idle, you only pay for the size of your storage and backups.
 ---
 
-# Stopping and starting a {{ CH }} cluster
+# Stopping and restarting a {{ CH }} cluster
 
-You can stop and restart a {{ CH }} DB cluster as needed. While your cluster is idle, you only pay for the size of your storage and backups based on the [pricing policy](../pricing.md#prices-storage).
+You can stop and restart a {{ CH }} database cluster as needed. While your cluster is idle, you only pay for the size of your storage and backups as per the [pricing policy](../pricing.md#prices-storage).
 
 {% include [pricing-status-warning.md](../../_includes/mdb/pricing-status-warning.md) %}
 
@@ -19,8 +19,8 @@ You can stop and restart a {{ CH }} DB cluster as needed. While your cluster is 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Select your cluster from the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Find your cluster in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
   1. Click **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}** to confirm stopping the cluster.
 
 - CLI {#cli}
@@ -53,9 +53,9 @@ You can stop and restart a {{ CH }} DB cluster as needed. While your cluster is 
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>:stop'
         ```
 
-        You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -88,15 +88,15 @@ You can stop and restart a {{ CH }} DB cluster as needed. While your cluster is 
 
 ## Starting a cluster {#start-cluster}
 
-You can restart **STOPPED** clusters.
+You can restart a cluster if its status is **STOPPED**.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Select the stopped cluster from the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Find the stopped cluster in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
   1. In the dialog box that opens, click **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}** to confirm starting the cluster.
 
 - CLI {#cli}
@@ -129,9 +129,9 @@ You can restart **STOPPED** clusters.
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>:start'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/start.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/start.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 

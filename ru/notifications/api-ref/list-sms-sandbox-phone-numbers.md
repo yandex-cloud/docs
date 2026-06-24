@@ -119,10 +119,10 @@ POST https://{{ cns-host }}/
 * `Code` — код ошибки.
 * `Message` — описание ошибки.
 
-Перечень общих кодов ошибок для всех действий см. в разделе [{#T}](common-errors.md).
+Перечень общих кодов ошибок для всех действий приведен в разделе [{#T}](common-errors.md).
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)
-* [ListSMSSandboxPhoneNumbers](https://docs.aws.amazon.com/sns/latest/api/API_ListSMSSandboxPhoneNumbers.html) в документации AWS.
+* [ListSMSSandboxPhoneNumbers](https://docs.aws.amazon.com/sns/latest/api/API_ListSMSSandboxPhoneNumbers.html) в документации AWS

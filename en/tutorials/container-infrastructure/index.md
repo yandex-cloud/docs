@@ -36,11 +36,6 @@ description: Various container infrastructure use cases in {{ yandex-cloud }}
 * [{#T}](vpa-autoscaling.md)
 * [{#T}](loadtesting-grpc-autoscaling.md)
 
-### Installing NGINX {#nginx}
-
-* [{#T}](ingress-cert-manager.md)
-* [{#T}](nginx-ingress-certificate-manager.md)
-
 ### Using {{ container-registry-full-name }} {#container-registry}
 
 * [{#T}](container-registry.md)

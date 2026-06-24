@@ -127,7 +127,7 @@ subcluster_name | Тип подкластера: `zookeeper_subcluster`, `kafka_
 * Если на брокере есть хотя бы один HA-топик, алгоритм проверяет только HA-топики. У каждого HA-топика количество реплик должно быть равно или больше значения `Minimum number of in-sync replicas`.
 * Если на брокере отсутствуют HA-топики, алгоритм проверяет все топики. У каждого топика количество реплик должно быть равно или больше значения `Minimum number of in-sync replicas`.
 
-Подробнее о `Minimum number of in-sync replicas` смотрите в [разделе Настройки Apache Kafka®](../../managed-kafka/concepts/settings-list.md#topic-settings).
+Подробнее о `Minimum number of in-sync replicas` в разделе [Настройки Apache Kafka®](../../managed-kafka/concepts/settings-list.md#topic-settings).
 
 Принимает значение `1`, если брокер работает, `0`, если нет. ||
 || `kafka_network_RequestChannel_RequestQueueSize`<br/>`DGAUGE`, штуки | Число запросов в очереди. ||
@@ -189,7 +189,7 @@ subcluster_name | Тип подкластера: `zookeeper_subcluster`, `kafka_
 * Если на хосте есть хотя бы один HA-топик, алгоритм проверяет только HA-топики. У каждого HA-топика количество реплик должно быть равно или больше значения `Minimum number of in-sync replicas`.
 * Если на хосте отсутствуют HA-топики, алгоритм проверяет все топики. У каждого топика количество реплик должно быть равно или больше значения `Minimum number of in-sync replicas`.
 
-Подробнее о `Minimum number of in-sync replicas` смотрите в [разделе Настройки Apache Kafka®](../../managed-kafka/concepts/settings-list.md#topic-settings).
+Подробнее о `Minimum number of in-sync replicas` в разделе [Настройки Apache Kafka®](../../managed-kafka/concepts/settings-list.md#topic-settings).
 
 Дополнительно проверяется наличие свободного места в [хранилище](../../managed-kafka/concepts/storage.md). Оно должно быть более 5%. При недостатке места хост недоступен на запись.
 

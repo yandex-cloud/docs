@@ -1,6 +1,6 @@
-title: "Reading {{ mgp-full-name }} cluster logs via SQL"
-description: "How to access DBMS logs in a {{ mgp-full-name }} cluster via SQL using the mdb_toolkit.gp_log view."
-
+---
+title: Reading {{ mgp-full-name }} cluster logs via SQL
+description: How to access DBMS logs in a {{ mgp-full-name }} cluster via SQL using the mdb_toolkit.gp_log view.
 keywords:
   - greenplum logs sql
   - Greenplum external table logs

@@ -9,7 +9,7 @@ description: Follow this guide to connect to a {{ CH }} cluster from {{ datalens
 
 To use an existing cluster as a data source for {{ datalens-name }}:
 1. [Activate {{ datalens-full-name }}](#activate-datalens).
-1. [Enable access to the cluster from {{ datalens-name }}](#allow-access).
+1. [Allow access to the cluster from {{ datalens-name }}](#allow-access).
 1. [Create a cluster connection in {{ datalens-name }}](#create-connector).
 
 ## Activating {{ datalens-name }} {#activate-datalens}
@@ -20,9 +20,9 @@ If {{ datalens-name }} is activated in a different folder, you can connect a clu
 
 {% include [mdb-activate-datalens](../../_includes/mdb/datalens-activate.md) %}
 
-## Enabling access to a cluster from {{ datalens-name }} {#allow-access}
+## Allowing access to a cluster from {{ datalens-name }} {#allow-access}
 
-To enable {{ datalens-name }} to connect to your cluster and work with its data, enable **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}** when [creating](cluster-create.md) or [reconfiguring](update.md#change-additional-settings) the cluster.
+To allow {{ datalens-name }} to connect to your cluster and work with its data, enable **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}** when [creating](cluster-create.md) or [reconfiguring](update.md#change-additional-settings) the cluster.
 
 ## Creating a cluster connection {#create-connector}
 
@@ -30,9 +30,9 @@ To enable {{ datalens-name }} to connect to your cluster and work with its data,
 
 - Management console {#console}
 
-  1. Make sure **{{ datalens-name }}** is [activated](#activate-datalens) in the appropriate folder and you [can access](#allow-access) the cluster from it.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
+  1. Make sure **{{ datalens-name }}** is [activated](#activate-datalens) in the relevant folder and has [permission](#allow-access) to access the cluster.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}**.
 
      {% cut "I have no **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}** button" %}
@@ -64,9 +64,9 @@ See also an [example of {{ CH }} data visualization](../../tutorials/datalens/da
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
 
      {% cut "My connection is not on the list" %}
 
@@ -82,9 +82,9 @@ See also an [example of {{ CH }} data visualization](../../tutorials/datalens/da
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
   1. Select the connection from the list.
 
      {% cut "My connection is not on the list" %}
@@ -105,14 +105,14 @@ See also an [example of {{ CH }} data visualization](../../tutorials/datalens/da
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
   1. Select the connection from the list.
 
      {% cut "My connection is not on the list" %}
 
-     If your connection is missing from the list, it means the cluster is connected to {{ datalens-name }} as an external source. Learn more about {{ datalens-name }} [here](../../datalens/).
+     If your connection is missing from the list, it means the cluster is connected to {{ datalens-name }} as an external source. [Learn more about {{ datalens-name }} here](../../datalens/).
 
      {% endcut %}
 

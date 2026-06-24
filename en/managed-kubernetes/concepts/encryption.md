@@ -71,7 +71,6 @@ Secrets are decrypted in a similar way.
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/kms-k8s.md)
-* [{#T}](../tutorials/nginx-ingress-certificate-manager.md)
 * [{#T}](../operations/volumes/encrypted-disks.md)
 
 

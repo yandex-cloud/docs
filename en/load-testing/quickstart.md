@@ -23,7 +23,7 @@ Using this guide, you will create a test agent in your cloud, configure a simple
 ## Create an agent {#create-agent}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create the agent.
-1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. In the **{{ ui-key.yacloud.load-testing.label_agents-list }}** tab, click **{{ ui-key.yacloud.load-testing.button_create-agent }}**.
 1. Enter a name for the agent: `test-agent`.
 1. Specify the same availability zone where the test target is located.
@@ -69,7 +69,7 @@ As a load generator, we will use Pandora, the one best suited for testing cloud 
       * **Responses per second**: `100`.
       * **Duration**: `300s`.
 
-      This instructs the generator to increase the load from 1 to 100 requests per second for the first 60 seconds, and then maintain a load of 100 requests per second for 5 minutes.
+      This instructs the generator to increase the load from 1 to 100 requests per second for the first 60 seconds and then maintain a load of 100 requests per second for 5 minutes.
    1. **Request type**: `URI`.
    1. In the **Test data** field, select **{{ ui-key.yacloud.load-testing.label_settings-type-form }}**. In the menu that opens:
       * In the **Requests** submenu, add the following requests:

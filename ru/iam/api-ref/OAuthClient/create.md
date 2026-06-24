@@ -40,6 +40,24 @@ apiPlayground:
             To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
             The maximum string length in characters is 255.
           type: string
+        authenticationMethods:
+          description: |-
+            **string**
+            The maximum string length in characters for each value is 255. The maximum number of elements is 1000.
+          type: array
+          items:
+            type: string
+        profileId:
+          description: |-
+            **string**
+            ID of the profile that defines the set of allowed settings for the oauth client.
+            The maximum string length in characters is 32.
+          type: string
+        pkceRequired:
+          description: |-
+            **boolean**
+            Whether PKCE (Proof Key for Code Exchange) is required for the oauth client during the authorization code flow.
+          type: boolean
       required:
         - name
         - folderId
@@ -68,7 +86,12 @@ POST https://iam.{{ api-host }}/iam/v1/oauthClients
   "scopes": [
     "string"
   ],
-  "folderId": "string"
+  "folderId": "string",
+  "authenticationMethods": [
+    "string"
+  ],
+  "profileId": "string",
+  "pkceRequired": "boolean"
 }
 ```
 
@@ -96,6 +119,17 @@ Required field. ID of the folder to create an oauth client in.
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
 
 The maximum string length in characters is 255. ||
+|| authenticationMethods[] | **string**
+
+The maximum string length in characters for each value is 255. The maximum number of elements is 1000. ||
+|| profileId | **string**
+
+ID of the profile that defines the set of allowed settings for the oauth client.
+
+The maximum string length in characters is 32. ||
+|| pkceRequired | **boolean**
+
+Whether PKCE (Proof Key for Code Exchange) is required for the oauth client during the authorization code flow. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

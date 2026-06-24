@@ -18,7 +18,7 @@ VMs with public IP addresses use the default static route (`0.0.0.0/0`). If you 
   To create a route table with [static routes](../concepts/routing.md):
 
   1. In the [management console]({{ link-console-main }}), select the folder where you need to create a static route.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
   1. Enter a name for the route table. Follow these naming requirements:
@@ -186,7 +186,7 @@ VMs with public IP addresses use the default static route (`0.0.0.0/0`). If you 
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 
@@ -196,7 +196,7 @@ VMs with public IP addresses use the default static route (`0.0.0.0/0`). If you 
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` and press **Enter**.
+     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
         This will create all the resources you need in the specified folder. You can see their detailed description using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
@@ -219,7 +219,7 @@ VMs with public IP addresses use the default static route (`0.0.0.0/0`). If you 
   To create a route table and add [static routes](../concepts/routing.md) to it, use the [create](../api-ref/RouteTable/create.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Create](../api-ref/grpc/RouteTable/create.md) gRPC API call, and provide the following in the request:
 
   * ID of the folder the route table will reside in, in the `folderId` parameter.
-  * Route table name in the `name` parameter. Follow these naming requirements:
+  * Route table name in the `name` parameter. The name format is as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 

@@ -8,6 +8,6 @@ Yandex Monitoring предоставляет инструменты визуал
 
 #### Полезные ссылки {#see-also}
 
-- [Создание и управление дашбордом в Monitoring](../../operations/dashboard/create.md)
-- [Копирование дашборда](../../operations/dashboard/copy.md)
-- [Добавление виджета на дашборд](../../operations/dashboard/add-widget.md)
+* [Создание и управление дашбордом в Monitoring](../../operations/dashboard/create.md)
+* [Копирование дашборда](../../operations/dashboard/copy.md)
+* [Добавление виджета на дашборд](../../operations/dashboard/add-widget.md)

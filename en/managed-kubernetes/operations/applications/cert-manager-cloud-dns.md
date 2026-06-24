@@ -145,7 +145,6 @@ To test the installed application, get a test certificate. We are going to use `
 ## Use cases {#examples}
 
 * [{#T}](../../tutorials/dnschallenge.md)
-* [{#T}](../../tutorials/ingress-cert-manager.md)
 
 ## See also {#see-also}
 

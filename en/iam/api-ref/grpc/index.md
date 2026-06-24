@@ -24,6 +24,7 @@ Actions are performed by making RPC calls. For more information about API archit
 || [Role](Role/index.md) | A set of methods for managing Role resources. ||
 || [ServiceAccount](ServiceAccount/index.md) | A set of methods for managing ServiceAccount resources. ||
 || [ServiceControl](ServiceControl/index.md) | A set of methods for managing Service resources. ||
+|| [SubjectDetails](SubjectDetails/index.md) |  ||
 || [UserAccount](UserAccount/index.md) | A set of methods for managing user accounts. Currently applicable only for [Yandex accounts](/docs/iam/concepts/users/accounts#passport). ||
 || [YandexPassportUserAccount](YandexPassportUserAccount/index.md) | A set of methods for managing YandexPassportUserAccount resources. ||
 |#

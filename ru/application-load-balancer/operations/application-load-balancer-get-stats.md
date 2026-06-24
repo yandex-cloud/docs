@@ -46,7 +46,7 @@
      * **Route** — маршрут виртуального хоста.
      * **Backend Group** — [группа бэкендов](../concepts/backend-group.md).
      * **Backend** — бэкенд.
-     * **Zone** — [зона доступности](../../overview/concepts/geo-scope.md), в которой расположены узлы балансировщика. Подробнее см. в разделе [{#T}](../concepts/application-load-balancer.md#lb-location).
+     * **Zone** — [зона доступности](../../overview/concepts/geo-scope.md), в которой расположены узлы балансировщика. Подробнее в разделе [{#T}](../concepts/application-load-balancer.md#lb-location).
 
      Если в поле выбрано значение `*`, на дашборде будет отображаться обобщенная статистика по всем ресурсам соответствующего типа, например по всем HTTP-роутерам.
 

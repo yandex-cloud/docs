@@ -11,7 +11,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Select a cluster and open the ![hosts-edit](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
     1. Click **{{ ui-key.yacloud.greenplum.action_expand-open }}** in the top-right corner.
     1. Specify the cluster expansion settings:

@@ -5136,6 +5136,10 @@ default:
             workspace_title_365xt: Имя окружения
           WorkspaceKspmResourcesForm:
             section-title_iYCNY: Область действия контроля
+          WorkspaceModuleErrorsTable:
+            field_date_d5R8n: Дата
+            field_message_b4Q1s: Сообщение
+            field_source_y9C3p: Источник
           WorkspaceOnboardingForm:
             accessRightsTitle: Права доступа
             createAndContinue_1yfFr: Создать и продолжить
@@ -7828,6 +7832,7 @@ default:
             label_indexes: Предлагаемые индексы
             label_interval-first: Интервал 1
             label_interval-second: Интервал 2
+            label_plan-text: Текст плана
             label_profiling: Профайлинг
             label_queries: Запросы
             label_sessions: Сессии
@@ -10732,6 +10737,13 @@ default:
         yds_properties_topic_view_spec_layout_title: Топик
         ymq_integration_title: Message Queue
         ymq_properties_queue_arn_view_spec_layout_title: ARN очереди
+    yc-ui-ai-studio:
+      components:
+        LabelSet:
+          button_add-label_7L5iz: Добавить метку
+      ui:
+        add-description_dYQ89: Добавить описание
+        field_logging_qiiYa: Запись логов
     yc-ui-datasphere:
       alias:
         private: Приватный

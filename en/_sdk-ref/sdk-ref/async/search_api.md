@@ -20,6 +20,10 @@ API for [text image search](https://aistudio.yandex.ru/docs/search-api/concepts/
 
 API for [search by image](https://aistudio.yandex.ru/docs/search-api/concepts/image-search#search-by-image) service
 
+**wordstat**\: *[AsyncWordstatFunction](#yandex_ai_studio_sdk._search_api.wordstat.function.AsyncWordstatFunction)*{#yandex_ai_studio_sdk._search_api.domain.AsyncSearchAPIDomain.wordstat}
+
+API for [Wordstat](https://aistudio.yandex.ru/docs/ru/search-api/concepts/wordstat.html) service
+
 ## Generative search
 
 ### *class* yandex\_ai\_studio\_sdk.\_search\_api.generative.function.**AsyncGenerativeSearchFunction**{#yandex_ai_studio_sdk._search_api.generative.function.AsyncGenerativeSearchFunction}
@@ -160,7 +164,7 @@ To learn more about parameters and their formats and possible values, refer to [
 - **groups\_on\_page** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Maximum number of groups that can be returned per page.
 - **docs\_in\_group** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Maximum number of documents that can be returned per group.
 - **max\_passages** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Maximum number of passages that can be used when generating a document.
-- **region** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Search country or region ID that affects the document ranking rules.
+- **region** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Region*](../types/search_api.md#yandex_ai_studio_sdk._search_api.types.Region) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Search country or region ID that affects the document ranking rules.
 - **user\_agent** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – String containing the User-Agent header. Use this parameter to have your search results optimized for a specific device and browser, including mobile search results.
 - **metadata** ([*Mapping*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) ||
 || Return type | [*WebSearchTypeT*](../types/other.md#yandex_ai_studio_sdk._search_api.web.web.WebSearchTypeT) ||
@@ -237,7 +241,7 @@ To learn more about parameters and their formats and possible values, refer to [
 - **groups\_on\_page** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Maximum number of groups that can be returned per page.
 - **docs\_in\_group** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Maximum number of documents that can be returned per group.
 - **max\_passages** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Maximum number of passages that can be used when generating a document.
-- **region** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Search country or region ID that affects the document ranking rules.
+- **region** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Region*](../types/search_api.md#yandex_ai_studio_sdk._search_api.types.Region) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Search country or region ID that affects the document ranking rules.
 - **user\_agent** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – String containing the User-Agent header. Use this parameter to have your search results optimized for a specific device and browser, including mobile search results.
 - **metadata** ([*Mapping*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
@@ -571,3 +575,365 @@ Supporting start and stop arguments is optional, but recommended.
 **page**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._search_api.by_image.result.AsyncByImageSearchResult.page}
 
 Returned search page number.
+
+## Wordstat
+
+### *class* yandex\_ai\_studio\_sdk.\_search\_api.wordstat.function.**AsyncWordstatFunction**{#yandex_ai_studio_sdk._search_api.wordstat.function.AsyncWordstatFunction}
+
+Wordstat function for creating wordstat object which provides methods for invoking Wordstat service.
+
+**\_\_call\_\_**(){#yandex_ai_studio_sdk._search_api.wordstat.function.AsyncWordstatFunction.__call__i}
+
+Creates Wordstat object which provides methods for invoking [Wordstat service](https://aistudio.yandex.ru/docs/ru/search-api/concepts/wordstat.html).
+
+#|
+|| Return type | [*WordstatTypeT*](../types/other.md#yandex_ai_studio_sdk._search_api.wordstat.wordstat.WordstatTypeT) ||
+|#
+
+### *class* yandex\_ai\_studio\_sdk.\_search\_api.wordstat.wordstat.**AsyncWordstat**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat}
+
+Wordstat class which provides concrete methods for working with Wordstat service.
+
+*async* **get\_regions\_tree**(*timeout=60*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.get_regions_tree}
+
+Return a tree of Wordstat-supported regions.
+
+#|
+|| Parameters | **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) ||
+|| Return type | [*RegionsTree*](../types/search_api.md#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsTree) ||
+|#
+
+*async* **get\_top**(*phrase*, *num\_phrases*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *regions=Undefined*, *devices=Undefined*, *timeout=60*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.get_top}
+
+The method returns the last 30 days data about popular queries containing the specified keyword and queries that are similar to the specified one.
+
+#|
+|| Parameters | 
+
+- **phrase** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – Keyword. The maximum string length in characters is 400.
+- **num\_phrases** ([*int*](https://docs.python.org/3/library/functions.html#int)) – Number of the phrases in the response. Acceptable values are 1 to 2000, inclusive.
+- **regions** ([*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Region*](../types/search_api.md#yandex_ai_studio_sdk._search_api.types.Region)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Region*](../types/search_api.md#yandex_ai_studio_sdk._search_api.types.Region) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – A list of regions or IDs of the regions a query was made from. The maximum number of elements is 100.
+- **devices** ([*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*DeviceType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*DeviceType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int)*] \|* [*DeviceType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*DeviceType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – A list of device types a query was made from.
+- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) ||
+|| Return type | [*Top*](../types/search_api.md#yandex_ai_studio_sdk._search_api.wordstat.result.Top) ||
+|#
+
+*async* **get\_dynamics**(*phrase*, *period*, *from\_date*, *to\_date*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *regions=Undefined*, *devices=Undefined*, *timeout=60*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.get_dynamics}
+
+The method returns the last 30 days data about popular queries containing the specified keyword and queries that are similar to the specified one.
+
+#|
+|| Parameters | 
+
+- **phrase** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – Keyword. The maximum string length in characters is 400.
+- **period** ([*PeriodType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.wordstat.config.PeriodType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*PeriodType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.wordstat.config.PeriodType)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int)) – The period of aggregation of the number of queries
+- **from\_date** ([*date*](https://docs.python.org/3/library/datetime.html#datetime.date) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*float*](https://docs.python.org/3/library/functions.html#float)) – The start of the period data is requested for. [**datetime.date**](https://docs.python.org/3/library/datetime.html#datetime.date) and [**datetime.datetime**](https://docs.python.org/3/library/datetime.html#datetime.datetime) without timezone, will be converted to timestamp with UTC timezone.
+- **to\_date** ([*date*](https://docs.python.org/3/library/datetime.html#datetime.date) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*float*](https://docs.python.org/3/library/functions.html#float)) – The end of the period data is requested for. [**datetime.date**](https://docs.python.org/3/library/datetime.html#datetime.date) and [**datetime.datetime**](https://docs.python.org/3/library/datetime.html#datetime.datetime) without timezone, will be converted to timestamp with UTC timezone.
+- **regions** ([*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Region*](../types/search_api.md#yandex_ai_studio_sdk._search_api.types.Region)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Region*](../types/search_api.md#yandex_ai_studio_sdk._search_api.types.Region) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – A list of regions or IDs of the regions a query was made from. The maximum number of elements is 100.
+- **devices** ([*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*DeviceType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*DeviceType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int)*] \|* [*DeviceType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*DeviceType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – A list of device types a query was made from.
+- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) ||
+|| Return type | [*Dynamics*](../types/search_api.md#yandex_ai_studio_sdk._search_api.wordstat.result.Dynamics) ||
+|#
+
+*async* **get\_regions\_distribution**(*phrase*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *distribution\_type=Undefined*, *devices=Undefined*, *resolve\_regions=False*, *timeout=60*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.get_regions_distribution}
+
+#|
+|| Parameters | 
+
+- **phrase** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **distribution\_type** ([*RegionsDistributionType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.wordstat.config.RegionsDistributionType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*RegionsDistributionType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.wordstat.config.RegionsDistributionType)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
+- **devices** ([*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*DeviceType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*DeviceType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int)*] \|* [*DeviceType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*DeviceType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
+- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) ||
+|| Return type | [*RegionsDistribution*](../types/search_api.md#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsDistribution) ||
+|#
+
+##### *class* **DeviceType**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.DeviceType}
+
+Device type
+
+*classmethod* **Unknown**(*name*, *value*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.DeviceType.Unknown}
+
+#|
+|| Parameters | 
+
+- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+|#
+
+**\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.DeviceType.__new__i}
+
+**conjugate**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.DeviceType.conjugate}
+
+Returns self, the complex conjugate of any int.
+
+**bit\_length**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.DeviceType.bit_length}
+
+Number of bits necessary to represent self in binary.
+
+```python
+>>> bin(37)
+'0b100101'
+>>> (37).bit_length()
+6
+```
+
+**bit\_count**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.DeviceType.bit_count}
+
+Number of ones in the binary representation of the absolute value of self.
+
+Also known as the population count.
+
+```python
+>>> bin(13)
+'0b1101'
+>>> (13).bit_count()
+3
+```
+
+**as\_integer\_ratio**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.DeviceType.as_integer_ratio}
+
+Return a pair of integers, whose ratio is equal to the original int.
+
+The ratio is in lowest terms and has a positive denominator.
+
+```python
+>>> (10).as_integer_ratio()
+(10, 1)
+>>> (-10).as_integer_ratio()
+(-10, 1)
+>>> (0).as_integer_ratio()
+(0, 1)
+```
+
+**is\_integer**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.DeviceType.is_integer}
+
+Returns True. Exists for duck type compatibility with float.is\_integer.
+
+**real**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.DeviceType.real}
+
+the real part of a complex number
+
+**imag**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.DeviceType.imag}
+
+the imaginary part of a complex number
+
+**numerator**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.DeviceType.numerator}
+
+the numerator of a rational number in lowest terms
+
+**denominator**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.DeviceType.denominator}
+
+the denominator of a rational number in lowest terms
+
+**ALL** = *1*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.DeviceType.ALL}
+
+**DESKTOP** = *2*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.DeviceType.DESKTOP}
+
+**PHONE** = *3*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.DeviceType.PHONE}
+
+**TABLET** = *4*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.DeviceType.TABLET}
+
+**\_\_init\_\_**(*\*args*, *\*\*kwds*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.DeviceType.__init__i}
+
+##### *class* **PeriodType**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.PeriodType}
+
+Requested period type
+
+*classmethod* **Unknown**(*name*, *value*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.PeriodType.Unknown}
+
+#|
+|| Parameters | 
+
+- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+|#
+
+**\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.PeriodType.__new__i}
+
+**conjugate**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.PeriodType.conjugate}
+
+Returns self, the complex conjugate of any int.
+
+**bit\_length**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.PeriodType.bit_length}
+
+Number of bits necessary to represent self in binary.
+
+```python
+>>> bin(37)
+'0b100101'
+>>> (37).bit_length()
+6
+```
+
+**bit\_count**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.PeriodType.bit_count}
+
+Number of ones in the binary representation of the absolute value of self.
+
+Also known as the population count.
+
+```python
+>>> bin(13)
+'0b1101'
+>>> (13).bit_count()
+3
+```
+
+**as\_integer\_ratio**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.PeriodType.as_integer_ratio}
+
+Return a pair of integers, whose ratio is equal to the original int.
+
+The ratio is in lowest terms and has a positive denominator.
+
+```python
+>>> (10).as_integer_ratio()
+(10, 1)
+>>> (-10).as_integer_ratio()
+(-10, 1)
+>>> (0).as_integer_ratio()
+(0, 1)
+```
+
+**is\_integer**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.PeriodType.is_integer}
+
+Returns True. Exists for duck type compatibility with float.is\_integer.
+
+**real**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.PeriodType.real}
+
+the real part of a complex number
+
+**imag**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.PeriodType.imag}
+
+the imaginary part of a complex number
+
+**numerator**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.PeriodType.numerator}
+
+the numerator of a rational number in lowest terms
+
+**denominator**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.PeriodType.denominator}
+
+the denominator of a rational number in lowest terms
+
+**MONTHLY** = *1*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.PeriodType.MONTHLY}
+
+**WEEKLY** = *2*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.PeriodType.WEEKLY}
+
+**DAILY** = *3*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.PeriodType.DAILY}
+
+**\_\_init\_\_**(*\*args*, *\*\*kwds*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.PeriodType.__init__i}
+
+##### *class* **RegionsDistributionType**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.RegionsDistributionType}
+
+Requested type of regions distribution
+
+*classmethod* **Unknown**(*name*, *value*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.RegionsDistributionType.Unknown}
+
+#|
+|| Parameters | 
+
+- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+|#
+
+**\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.RegionsDistributionType.__new__i}
+
+**conjugate**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.RegionsDistributionType.conjugate}
+
+Returns self, the complex conjugate of any int.
+
+**bit\_length**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.RegionsDistributionType.bit_length}
+
+Number of bits necessary to represent self in binary.
+
+```python
+>>> bin(37)
+'0b100101'
+>>> (37).bit_length()
+6
+```
+
+**bit\_count**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.RegionsDistributionType.bit_count}
+
+Number of ones in the binary representation of the absolute value of self.
+
+Also known as the population count.
+
+```python
+>>> bin(13)
+'0b1101'
+>>> (13).bit_count()
+3
+```
+
+**as\_integer\_ratio**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.RegionsDistributionType.as_integer_ratio}
+
+Return a pair of integers, whose ratio is equal to the original int.
+
+The ratio is in lowest terms and has a positive denominator.
+
+```python
+>>> (10).as_integer_ratio()
+(10, 1)
+>>> (-10).as_integer_ratio()
+(-10, 1)
+>>> (0).as_integer_ratio()
+(0, 1)
+```
+
+**is\_integer**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.RegionsDistributionType.is_integer}
+
+Returns True. Exists for duck type compatibility with float.is\_integer.
+
+**real**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.RegionsDistributionType.real}
+
+the real part of a complex number
+
+**imag**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.RegionsDistributionType.imag}
+
+the imaginary part of a complex number
+
+**numerator**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.RegionsDistributionType.numerator}
+
+the numerator of a rational number in lowest terms
+
+**denominator**{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.RegionsDistributionType.denominator}
+
+the denominator of a rational number in lowest terms
+
+**ALL** = *1*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.RegionsDistributionType.ALL}
+
+**CITIES** = *2*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.RegionsDistributionType.CITIES}
+
+**REGIONS** = *3*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.RegionsDistributionType.REGIONS}
+
+**\_\_init\_\_**(*\*args*, *\*\*kwds*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.RegionsDistributionType.__init__i}
+
+**\_\_init\_\_**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *sdk*, *uri*, *config=None*, *owner=None*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.__init__i}
+
+#|
+|| Parameters | 
+
+- **sdk** ([*yandex\_ai\_studio\_sdk.\_sdk.BaseSDK*](../internals/bases.md#yandex_ai_studio_sdk._sdk.BaseSDK))
+- **uri** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **config** ([*ConfigTypeT*](../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT) *\| None*)
+- **owner** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\| None*) ||
+|#
+
+*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT)*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.config}
+
+**configure**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.configure}
+
+Returns the new object, but actually do nothing.
+
+#|
+|| Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
+|#
+
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.fine_tuned}
+
+*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.name}
+
+*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.owner}
+
+*property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.uri}
+
+*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.AsyncWordstat.version}

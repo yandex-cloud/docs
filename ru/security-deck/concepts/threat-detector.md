@@ -5,6 +5,8 @@ description: Модуль {{ td-full-name }} ({{ td-name }}) позволяет 
 
 # {{ td-full-name }} ({{ td-name }})
 
+{% include [note-preview](../../_includes/note-preview.md) %}
+
 {% include [td-basic-intro](../../_includes/security-deck/td-basic-intro.md) %}
 
 {% note info %}

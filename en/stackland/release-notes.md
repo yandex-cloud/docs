@@ -1,3 +1,80 @@
+# What's new in {{ stackland-name }} 26.1.5
+
+{{ stackland-name }} version 26.1.5 has fixed installation and cluster update issues related to Talos release images and OS version checks.
+
+## Fixed issues
+
+### Cluster installation and update
+
+Fixed Talos version check during update: `sladm` now compares the full version string, including Stackland kernel build, to correctly identify obsolete nodes.
+
+# What's new in {{ stackland-name }} 26.1.4
+
+Updated the base Talos build in {{ stackland-name }} 26.1.4.
+
+## Improvements
+
+### Cluster installation and update
+
+Uses Linux kernel `6.12.85‑lvc19` with a fix for vulnerability CVE‑2026‑31431 (Copy Fail).
+
+# What's new in {{ stackland-name }} 26.1.3
+
+{{ stackland-name }} version 26.1.3 features improved cluster installation and update stability, interface updates, and fixes in managed database services.
+
+## Improvements
+
+### {{ mpg-name }}
+
+* Added support for {{ PG }} for 1C versions, which are now available in the cluster creation form.
+* Unified the backup management interface between cluster creation and editing forms: the backup, schedule, and retention period toggles now work in the same way.
+* In the cluster view form, the backup settings fields are read-only.
+* Set resource requests and limits for {{ PG }} cluster containers.
+
+### {{ mkf-name }}
+
+Set resource requests and limits for UserOperator, TopicOperator, CruiseControl, and Exporter containers.
+
+### {{ mch-name }}
+
+Set default resources for sidecar containers.
+
+### Cluster installation and update
+
+* Disk checks now recognize that some block devices are LVM volumes and look for the total size of data disks, not that of each individual disk. For control-plane nodes, no total data disk size checks are performed.
+* The update process uses local registry-based extension images instead of re-downloading them from an external registry.
+* Migrated cluster host configuration to a new custom resource named `StacklandHostConfig`.
+
+## Fixed issues
+
+### Security
+
+Further restricted the use of Pod Security Admission labels on namespaces: now the action is allowed only to cluster administrators.
+
+### Projects
+
+Fixed deletion of `ProjectNamespace` and the associated folder in {{ iam-name }} when deleting a namespace created manually via `kubectl`.
+
+### Cluster installation and update
+
+* Fixed Talos installation freeze when adding nodes to a baremetal cluster due to "half-open" TCP connections after node reboot.
+* Fixed an intermittent cluster deployment fault at the node update stage (`Upgrade failed: system is still outdated`).
+* Improved reconciliation error processing in `sladm`: reconciliation is no longer interrupted on recoverable errors.
+
+### {{ mpg-name }}
+
+* Fixed the superuser secret name in the Performance Diagnostics configuration.
+* Fixed a port conflict between backup sidecars and Performance Diagnostics: now both functions can be used simultaneously.
+* Fixed the resumption of the backup schedule when the schedule is returned to the cluster specification.
+* Fixed the `fromBackup` parameter in the cluster creation form when restoring from a backup.
+* Fixed the processing of the backup schedule toggle in the cluster creation form.
+* Updated the `cloudnative-pg` and `pg-perfdiag` images.
+
+### {{ mch-name }}
+
+* Fixed the resumption of the backup schedule when the schedule is returned to the cluster specification.
+* Removed an excessive port of the `accesscontroller` sidecar container.
+
 # What's new in {{ stackland-name }} 26.1.0
 
 In version 26.1.0, {{ stackland-name }} enters the [General Availability](https://yandex.cloud/en/docs/overview/concepts/launch-stages) stage. We introduced new features and improvements that make the platform more user friendly and versatile.
@@ -102,7 +179,7 @@ Added the {{ gpu-operator }} component, a tool that manages your GPU resources i
 
 ### {{ iam-name }}
 
-Added the {{ iam-name }} component, which is a system for centralized management of users, groups, and access permissions. Main features:
+Added the {{ iam-name }} component, which is a system for centralized management of users, groups, and access permissions. Its main features include:
 
 * SAML federation support.
 * AWS-compatible AccessKeys for software access to services.

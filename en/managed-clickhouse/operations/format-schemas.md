@@ -16,7 +16,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-   1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
 
 - CLI {#cli}
@@ -48,7 +48,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/formatSchemas'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/FormatSchema/list.md#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse) to make sure your request was successful.
 
@@ -75,7 +75,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
             yandex.cloud.mdb.clickhouse.v1.FormatSchemaService.List
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/FormatSchema/list.md#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse) to make sure your request was successful.
 
@@ -175,7 +175,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
     1. Click **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.button-action_add-format-schema }}**.
     1. In the **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.dialog.title_add }}** dialog box, fill out the form by specifying the schema file link generated earlier in the **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.dialog.field_format-schema-uri }}** field.
@@ -230,7 +230,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 
         Where `type` is the schema type, `FORMAT_SCHEMA_TYPE_CAPNPROTO` or `FORMAT_SCHEMA_TYPE_PROTOBUF`.
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -270,7 +270,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
         * `type`: Schema type, `FORMAT_SCHEMA_TYPE_CAPNPROTO` or `FORMAT_SCHEMA_TYPE_PROTOBUF`.
         * `uri`: Link to the schema file in {{ objstorage-name }}.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/FormatSchema/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -306,7 +306,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
         * `type`: Schema type, `FORMAT_SCHEMA_TYPE_CAPNPROTO` or `FORMAT_SCHEMA_TYPE_PROTOBUF`.
         * `uri`: Link to the schema file in {{ objstorage-name }}.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/FormatSchema/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -329,7 +329,7 @@ To update the contents of a schema that is already added to the cluster:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
     1. Find the schema you need, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
 
@@ -369,7 +369,7 @@ To update the contents of a schema that is already added to the cluster:
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -412,7 +412,7 @@ To update the contents of a schema that is already added to the cluster:
 
         * `uri`: Link to the new schema file in {{ objstorage-name }}.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/FormatSchema/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -455,7 +455,7 @@ To update the contents of a schema that is already added to the cluster:
 
         * `uri`: Link to the new schema file in {{ objstorage-name }}.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/FormatSchema/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -476,7 +476,7 @@ After removing a format schema, the related object remains in the {{ objstorage-
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-   1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
    1. Find the schema you need, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
@@ -504,7 +504,7 @@ After removing a format schema, the related object remains in the {{ objstorage-
 
     1. Delete the `format_schema` section in question from the {{ mch-name }} cluster description.
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

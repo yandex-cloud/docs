@@ -20,7 +20,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
 
 - CLI {#cli}
@@ -40,7 +40,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -53,13 +53,13 @@ While you can use SQL commands to assign user privileges, you cannot use them to
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/users'
      ```
 
-     You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/User/list.md#yandex.cloud.mdb.postgresql.v1.ListUsersResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -80,7 +80,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
        yandex.cloud.mdb.postgresql.v1.UserService.List
      ```
 
-     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/User/list.md#yandex.cloud.mdb.postgresql.v1.ListUsersResponse) to make sure your request was successful.
 
@@ -94,7 +94,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
 
@@ -119,7 +119,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
 
      * **{{ ui-key.yacloud.mdb.AuthMethodColumn.value_iam_boWet }}**: Authentication with a [Yandex account](../../iam/concepts/users/accounts.md#passport), [federated account](../../iam/concepts/users/accounts.md#saml-federation), or [local user](../../iam/concepts/users/accounts.md#local).
 
-       In the **{{ ui-key.yacloud.common.user }}** field, open the list of available user accounts and select the one you need. To find the account you need, use the search bar above the list.
+       In the **{{ ui-key.yacloud.common.user }}** field, open the list of available user accounts and select the one you need. To find the account, use the search bar above the list.
 
 
   1. Select the password verification algorithm. The possible values are:
@@ -183,9 +183,9 @@ While you can use SQL commands to assign user privileges, you cannot use them to
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     To learn how to create this file, see [Creating a cluster](cluster-create.md).
+     For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
      For a complete list of {{ mpg-name }} cluster user configuration fields you can update, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
@@ -196,7 +196,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
         cluster_id = "<cluster_ID>"
         name       = "<username>"
         password   = "<password>"
-        grants     = [ "<role1>","<role2>" ]
+        grants     = [ "<role_1>","<role_2>" ]
         login      = <DB_login_permission>
         conn_limit = <maximum_number_of_connections>
         deletion_protection = <deletion_protection>
@@ -227,13 +227,13 @@ While you can use SQL commands to assign user privileges, you cannot use them to
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -285,13 +285,13 @@ While you can use SQL commands to assign user privileges, you cannot use them to
      
        If you do not provide the algorithm, the value of the cluster-level `password_encryption` [DBMS setting](../concepts/settings-list.md#dbms-cluster-settings) applies. The default setting value is `USER_PASSWORD_ENCRYPTION_MD5`.
 
-     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -348,7 +348,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
      
        If you do not provide the algorithm, the value of the cluster-level `password_encryption` [DBMS setting](../concepts/settings-list.md#dbms-cluster-settings) applies. The default setting value is `USER_PASSWORD_ENCRYPTION_MD5`.
 
-     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -366,7 +366,7 @@ Newly created users only get the `CONNECT` privilege for selected databases and 
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
 
@@ -408,7 +408,7 @@ Newly created users only get the `CONNECT` privilege for selected databases and 
     The password must be from 8 to 128 characters long.
 
     
-    You can also generate a new password using [{{ connection-manager-name }}](cluster-create.md#conn-man). Do it by specifying `--generate-password` instead of `--password=<new_password>`.
+    You can also generate a new password using [{{ connection-manager-name }}](cluster-create.md#conn-man). To do this, specify `--generate-password` instead of `--password=<new_password>`.
 
     To view the new password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
@@ -419,7 +419,7 @@ Newly created users only get the `CONNECT` privilege for selected databases and 
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
       To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -440,7 +440,7 @@ Newly created users only get the `CONNECT` privilege for selected databases and 
       The password must be from 8 to 128 characters long.
 
       
-      You can also generate a new password using [Connection Manager](cluster-create.md#conn-man). Do it by specifying `generate_password = true` instead of `password = "<new_password>"`.
+      You can also generate a new password using [Connection Manager](cluster-create.md#conn-man). To do this, specify `generate_password = true` instead of `password = "<new_password>"`.
 
       To view the new password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
@@ -455,13 +455,13 @@ Newly created users only get the `CONNECT` privilege for selected databases and 
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -517,7 +517,7 @@ Newly created users only get the `CONNECT` privilege for selected databases and 
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -603,7 +603,7 @@ To learn how to assign privileges and roles to a user, see [this article](grant.
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Configure user access to specific databases:
@@ -659,7 +659,7 @@ To learn how to assign privileges and roles to a user, see [this article](grant.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -698,17 +698,17 @@ To learn how to assign privileges and roles to a user, see [this article](grant.
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -732,7 +732,7 @@ To learn how to assign privileges and roles to a user, see [this article](grant.
 
      Where:
 
-     * `updateMask`: Comma-separated string of settings you want to update.
+     * `updateMask`: Comma-separated string of settings to update.
 
        Here, we provide only one setting.
 
@@ -744,7 +744,7 @@ To learn how to assign privileges and roles to a user, see [this article](grant.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -778,7 +778,7 @@ To learn how to assign privileges and roles to a user, see [this article](grant.
 
      Where:
 
-     * `update_mask`: List of settings to update as an array of strings (`paths[]`).
+     * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
        Here, we provide only one setting.
 
@@ -796,7 +796,7 @@ To learn how to assign privileges and roles to a user, see [this article](grant.
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Configure user deletion protection by selecting the relevant value in the **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** field.
@@ -804,7 +804,7 @@ To learn how to assign privileges and roles to a user, see [this article](grant.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
     1. Locate the `yandex_mdb_postgresql_user` resource for the user in question.
 
@@ -818,17 +818,17 @@ To learn how to assign privileges and roles to a user, see [this article](grant.
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -851,7 +851,7 @@ To learn how to assign privileges and roles to a user, see [this article](grant.
 
      Where:
 
-     * `updateMask`: Comma-separated string of settings you want to update.
+     * `updateMask`: Comma-separated string of settings to update.
 
        Here, we provide only one setting.
 
@@ -863,7 +863,7 @@ To learn how to assign privileges and roles to a user, see [this article](grant.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -895,7 +895,7 @@ To learn how to assign privileges and roles to a user, see [this article](grant.
 
      Where:
 
-     * `update_mask`: List of settings to update as an array of strings (`paths[]`).
+     * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
        Here, we provide only one setting.
 
@@ -923,7 +923,7 @@ A user account can have deletion protection enabled. To delete such a user, [dis
 
   To delete a user:
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. Confirm the deletion.
@@ -947,25 +947,25 @@ A user account can have deletion protection enabled. To delete such a user, [dis
 
   To delete a user:
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     Learn how to create this file in [Creating a cluster](cluster-create.md).
+     For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
      For a complete list of {{ mpg-name }} cluster configuration fields you can update, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
 
   1. Delete the `yandex_mdb_postgresql_user` resource with the user description.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -984,7 +984,7 @@ A user account can have deletion protection enabled. To delete such a user, [dis
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

@@ -13,4 +13,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Плейлисты в Cloud Video](../../concepts/playlists.md)
+[Плейлисты в Cloud Video](../../concepts/playlists.md)

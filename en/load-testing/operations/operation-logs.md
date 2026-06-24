@@ -12,7 +12,7 @@ The system logs all actions with {{ load-testing-name }} resources as a list of 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), open the folder where you want to view operations.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. In the left-hand panel, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
 
   This will open the list of all operations, including those on currently deleted resources.
@@ -21,7 +21,7 @@ The system logs all actions with {{ load-testing-name }} resources as a list of 
 
 ## Getting operation details {#get-operations-info}
 
-1. [Get a list of operations](#get-operations) for the resource.
+1. [Get the list of operations](#get-operations) for the resource.
 1. Copy the operation ID.
 1. Get the operation details:
 

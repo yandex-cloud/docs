@@ -157,6 +157,6 @@
 
 #### Полезные ссылки {#see-also}
 
-- [{#T}](../concepts/managed-certificate.md)
-- [{#T}](../concepts/challenges.md)
-- [Настройка HTTPS в бакете](../../storage/operations/hosting/certificate.md)
+* [{#T}](../concepts/managed-certificate.md)
+* [{#T}](../concepts/challenges.md)
+* [Настройка HTTPS в бакете](../../storage/operations/hosting/certificate.md)

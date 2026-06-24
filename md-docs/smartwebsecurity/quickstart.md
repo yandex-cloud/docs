@@ -203,7 +203,7 @@ Smart Web Security — это набор инструментов защиты, 
 
 {% endlist %}
 
-Рекомендации по настройке профиля безопасности см. в руководстве [Базовая настройка защиты в Smart Web Security](tutorials/sws-basic-protection.md).
+Рекомендации по настройке профиля безопасности приведены в руководстве [Базовая настройка защиты в Smart Web Security](tutorials/sws-basic-protection.md).
 
 ### Проверьте настройки профиля безопасности {#profile-check}
 

@@ -31,7 +31,7 @@
 
 {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Проверить доступность ресурсов](validate-availability.md)
 * [Создать прокси-сервер](proxy-create.md)

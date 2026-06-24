@@ -1,6 +1,6 @@
 # Viewing {{ PG }} cluster logs
 
-{{ mpg-name }} allows you to [get a cluster log snippet](#get-log) for the selected period and [view logs in real time](#get-log-stream).
+{{ mpg-name }} allows you to [get a cluster log snippet](#get-log) for a selected time period and [view logs in real time](#get-log-stream).
 
 {% include [log-duration](../../_includes/mdb/log-duration.md) %}
 
@@ -14,7 +14,7 @@ To identify potential cluster problems, [use other health analysis tools](../tut
 
 - Management console {#console}
 
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Click the name of your cluster and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_logs }}** tab.
     1. Specify a time period for the log entries you want to view: enter it manually or select in the calendar using the date input field.
     
@@ -22,9 +22,9 @@ To identify potential cluster problems, [use other health analysis tools](../tut
     1. If needed, you can request the log `POOLER` and specify particular hosts and logging level in the row with the date input field.
     
 
-    You will see a list of log entries for the time period you specified. To view detailed information about an event, click the relevant entry in the list.
+    You will see a list of log entries for the time period you specified. To see details of a specific event, click its entry in the list.
 
-    If there are too many entries and not all of them are displayed, click **{{ ui-key.yacloud.common.label_load-more }}** at the end of the list.
+    If the list is too long to display all entries at once, click **{{ ui-key.yacloud.common.label_load-more }}** at the end of the list.
 
 - CLI {#cli}
 
@@ -79,7 +79,7 @@ To identify potential cluster problems, [use other health analysis tools](../tut
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -122,13 +122,13 @@ To identify potential cluster problems, [use other health analysis tools](../tut
      * `fromTime`: Start of the time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, e.g., `2024-09-18T15:04:05Z`.
      * `toTime`: End of the time range in the same format as `fromTime`.
 
-     You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.postgresql.v1.ListClusterLogsResponse) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.postgresql.v1.ListClusterLogsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -189,7 +189,7 @@ To identify potential cluster problems, [use other health analysis tools](../tut
 
 ## Getting a cluster log stream {#get-log-stream}
 
-This method allows you to get cluster logs in real time.
+This method allows you to stream cluster logs in real time.
 
 {% list tabs group=instructions %}
 
@@ -209,7 +209,7 @@ This method allows you to get cluster logs in real time.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -249,13 +249,13 @@ This method allows you to get cluster logs in real time.
 
      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.postgresql.v1.StreamLogRecord) to make sure your request was successful.
+  1. View the [server response](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.postgresql.v1.StreamLogRecord) to make sure your request was successful.
 
      Once you launch the command, it will continue running, displaying new logs in its output in real time.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -287,7 +287,7 @@ This method allows you to get cluster logs in real time.
        * `POSTGRESQL`: {{ PG }} operation logs.
        * `POOLER`: Connection pooler operation logs.
 
-     * `column_filter`: List of output data columns:
+     * `column_filter`: List of output columns:
 
        * `hostname`: [Host name](hosts.md#list-hosts).
        * `db`: [Database name](databases.md#list-db).

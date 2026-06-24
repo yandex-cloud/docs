@@ -9,7 +9,7 @@
 
 Доступ к сервису Cloud Video регулируется путем назначения прав в [организации](../../organization/concepts/organization.md). Управление организациями осуществляется с помощью сервиса [Yandex Identity Hub](../../organization/index.md).
 
-Список операций, доступных пользователю Cloud Video, определяется его ролью. Роли можно назначить аккаунту на Яндексе, [федеративным](../../iam/concepts/users/accounts.md#saml-federation) или [локальным](../../iam/concepts/users/accounts.md#local) пользователям, [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md). Подробнее об управлении доступом в Yandex Cloud см. раздел [Как устроено управление доступом в Yandex Cloud](../../iam/concepts/access-control/index.md).
+Список операций, доступных пользователю Cloud Video, определяется его ролью. Роли можно назначить аккаунту на Яндексе, [федеративным](../../iam/concepts/users/accounts.md#saml-federation) или [локальным](../../iam/concepts/users/accounts.md#local) пользователям, [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md). Управление доступом в Yandex Cloud описано в разделе [Как устроено управление доступом в Yandex Cloud](../../iam/concepts/access-control/index.md).
 
 Назначать роли на ресурс могут пользователи, у которых на этот ресурс есть роль `video.admin` или одна из следующих ролей:
 

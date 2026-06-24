@@ -40,7 +40,7 @@
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -64,7 +64,7 @@
         * `sessions_sampling_interval`: Session sampling interval, from `5` to `86400` seconds.
         * `statements_sampling_interval`: Statement sampling interval, from `60` to `86400` seconds.
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -80,7 +80,7 @@
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. To enable the collection of statistics when creating a cluster:
+    1. To enable collection of statistics when creating a cluster:
 
         1. Use the [Cluster.create](../api-ref/Cluster/create.md) method and add the `configSpec.performanceDiagnostics` parameter to the [cURL cluster creation command](cluster-create.md#create-cluster):
 
@@ -111,7 +111,7 @@
 
         1. Check the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
-    1. To enable the collection of statistics when updating an existing cluster:
+    1. To enable collection of statistics when updating an existing cluster:
 
         1. Call the [Cluster.update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -228,7 +228,7 @@
 
 ## Getting session statistics {#get-sessions}
 
-1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Click the name of your cluster and select **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}**.
 
     To view session statistics or the history of queries run within a session, select the relevant tab.
@@ -256,7 +256,7 @@
 
 ## Getting query statistics {#get-queries}
 
-1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Click the name of your cluster and select **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}**.
 
     To view query statistics or compare them across two time intervals, select the relevant tab.

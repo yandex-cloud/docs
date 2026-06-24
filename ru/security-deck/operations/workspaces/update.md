@@ -5,8 +5,6 @@ description: Из этой инструкции вы узнаете, как из
 
 # Изменить окружение {{ sd-name }} и его компоненты
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 ## Изменить окружение {#update-workspace}
 
 Чтобы изменить [окружение](../../concepts/workspace.md) {{ sd-name }}:

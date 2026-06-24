@@ -11,7 +11,7 @@ description: С помощью инструкции вы сможете посм
 
 ## Построить графики по метрикам {#add-graph}
 
-Как строить графики по метрикам {{ prometheus-name }}, см. в разделе [{#T}](../prometheus/querying/monitoring.md).
+Построение графиков по метрикам {{ prometheus-name }} описано в разделе [{#T}](../prometheus/querying/monitoring.md).
 
 1. Откройте [главную страницу сервиса]({{ link-monitoring }}).
 1. Слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
@@ -140,5 +140,5 @@ description: С помощью инструкции вы сможете посм
 
 #### Полезные ссылки {#see-also}
 
-[{#T}](../dashboard/create.md)
-[{#T}](../alert/create-alert.md)
+* [{#T}](../dashboard/create.md)
+* [{#T}](../alert/create-alert.md)

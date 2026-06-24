@@ -46,7 +46,7 @@
 
 Ниже приведена инструкция по сборке и установке исходных файлов на Linux и macOS.
 
-Для Windows см. [документацию AWS](https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/setup-windows.html).
+Для Windows читайте [документацию AWS](https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/setup-windows.html).
 
 Пререквизиты и инструкция также описаны в [документации AWS](https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/welcome.html).
 
@@ -526,7 +526,7 @@ try {
 * `senderIdAttribute.SetStringValue` — текстовое имя отправителя.
 
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Начало работы](../quickstart.md)
 * [AWS CLI](aws-cli.md)

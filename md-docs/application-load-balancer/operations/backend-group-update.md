@@ -34,7 +34,7 @@
 
        Для типа `Stream` привязка сессий всегда работает по [IP-адресу](../../vpc/concepts/address.md).
 
-       Подробнее о привязке сессий и ее режимах см. в [разделе](../concepts/backend-group.md#session-affinity).
+       Привязка сессий и ее режимы описаны в [разделе](../concepts/backend-group.md#session-affinity).
   1. Внизу страницы нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
@@ -171,7 +171,7 @@
        
        {% endnote %}
 
-     Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера Terraform](../../terraform/resources/alb_backend_group.md).
+     Подробнее о параметрах ресурса `yandex_alb_backend_group` в [документации провайдера](../../terraform/resources/alb_backend_group.md).
   1. Примените изменения:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -254,7 +254,7 @@
 
      * **Имя** бэкенда.
      * **Вес** — относительный вес бэкенда при распределении трафика. Если опция в поле отключена, эндпоинты бэкенда не будут получать трафик (вес будет равен 0).
-     * **Тип** бэкенда (для группы бэкендов типа `HTTP`): `Целевая группа` ([целевые группы](../concepts/target-group.md) Application Load Balancer) или `Бакет` ([бакет](../../storage/concepts/bucket.md) Object Storage). Для группы бэкендов типа `gRPC` или Stream тип любого бэкенда — `Целевая группа`. Подробнее о типах бэкендов читайте в разделе [Типы бэкендов](../concepts/backend-group.md#types).
+     * **Тип** бэкенда (для группы бэкендов типа `HTTP`): `Целевая группа` ([целевые группы](../concepts/target-group.md) Application Load Balancer) или `Бакет` ([бакет](../../storage/concepts/bucket.md) Object Storage). Для группы бэкендов типа `gRPC` или Stream тип любого бэкенда — `Целевая группа`. Типы бэкендов описаны в разделе [Типы бэкендов](../concepts/backend-group.md#types).
      
      * Следующие настройки доступны только для типа бэкенда **Целевая группа**:
      
@@ -558,7 +558,7 @@
        
        {% endnote %}
 
-     Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера Terraform](../../terraform/resources/alb_backend_group.md).
+     Подробнее о параметрах ресурса `yandex_alb_backend_group` в [документации провайдера](../../terraform/resources/alb_backend_group.md).
   1. Примените изменения:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -637,7 +637,7 @@
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**.
   1. Нажмите на имя нужной группы.
   1. Напротив имени бэкенда нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
-  1. В открывшемся окне задайте настройки бэкенда. Подробнее о настройках см. [выше](#add-backend).
+  1. В открывшемся окне задайте настройки бэкенда. Подробнее о настройках в разделе [Добавить бэкенд в группу](#add-backend).
   1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
@@ -871,7 +871,7 @@
        
        {% endnote %}
 
-     Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера Terraform](../../terraform/resources/alb_backend_group.md).
+     Подробнее о параметрах ресурса `yandex_alb_backend_group` в [документации провайдера](../../terraform/resources/alb_backend_group.md).
   1. Примените изменения:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -1042,7 +1042,7 @@
      }
      ```
 
-     Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера Terraform](../../terraform/resources/alb_backend_group.md).
+     Подробнее о параметрах ресурса `yandex_alb_backend_group` в [документации провайдера](../../terraform/resources/alb_backend_group.md).
   1. Примените изменения:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -1085,6 +1085,6 @@
 
 {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Рекомендации по настройке проверок состояния Yandex Application Load Balancer](../concepts/best-practices.md)
+[Рекомендации по настройке проверок состояния Yandex Application Load Balancer](../concepts/best-practices.md)

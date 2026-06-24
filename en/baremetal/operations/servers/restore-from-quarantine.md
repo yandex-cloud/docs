@@ -18,7 +18,7 @@ You have 72 hours to restore a quarantined server for further use. Upon restorat
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your server.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. Find the server you need in the list, click ![image](../../../_assets/console-icons/ellipsis.svg) in its row, then select **{{ ui-key.yacloud.baremetal.action_server-prolongate-ended-rent }}**.
   1. In the confirmation window that opens, review the message: `{{ ui-key.yacloud.baremetal.message_confirm-server-prolongate-ended-rent }}`. Click **{{ ui-key.yacloud.baremetal.action_server-prolongate-ended-rent }}**.
 

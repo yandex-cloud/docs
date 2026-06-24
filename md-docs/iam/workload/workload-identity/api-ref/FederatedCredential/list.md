@@ -87,7 +87,7 @@ Id of the service account that the federated credential belongs to. ||
 ID of the workload identity federation which is used for authentication. ||
 || externalSubjectId | **string**
 
-Id of the external subject. ||
+Id of the external subject (exact match). ||
 || createdAt | **string** (date-time)
 
 Creation timestamp.

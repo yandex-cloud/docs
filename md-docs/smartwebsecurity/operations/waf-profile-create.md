@@ -96,7 +96,7 @@
             * `is_enabled` — флаг включения или отключения правила.
             * `is_blocking` — флаг, который назначает правило [блокирующим](../concepts/waf.md#anomaly).
 
-      Более подробную информацию о параметрах ресурса `yandex_sws_waf_profile` в Terraform, см. в [документации провайдера](../../terraform/resources/sws_waf_profile.md).
+      Подробнее о параметрах ресурса `yandex_sws_waf_profile` в [документации провайдера](../../terraform/resources/sws_waf_profile.md).
 
   1. Создайте ресурсы:
 
@@ -138,7 +138,7 @@
 
 {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Настроить наборы правил WAF](configure-set-rules.md)
 * [Добавить правило в профиль безопасности](rule-add.md)

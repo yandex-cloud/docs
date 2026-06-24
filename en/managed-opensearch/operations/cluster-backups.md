@@ -28,13 +28,13 @@ You can get a list of backups created for the past 14 days.
     To get a list of cluster backups:
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Click the cluster name and open the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
     To get a list of all backups in your folder:
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Select ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
 
 - CLI {#cli}
@@ -165,13 +165,13 @@ You can get a list of backups created for the past 14 days.
     To get backup details for an existing cluster:
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Click the cluster name and open the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
     To get backup details for a previously deleted cluster:
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Select ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
 
 - CLI {#cli}
@@ -270,7 +270,7 @@ You can get a list of backups created for the past 14 days.
 - Management console {#console}
   
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Click the cluster name and open the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
@@ -367,7 +367,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
     To restore an existing cluster from a backup:
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Click the cluster name and open the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
     1. Configure the new cluster.
@@ -376,7 +376,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
     To restore a previously deleted cluster from a backup:
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Select ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
     1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
@@ -773,6 +773,51 @@ You cannot create a snapshot in the `yc-automatic-backups` repository.
     ```http
     PUT https://admin:<password>@<ID_of_{{ OS }}_host_with_DATA_role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository_name>/<snapshot_name>
     ```
+
+
+### Restoring an index from a snapshot {#restore-index-from-snapshot}
+
+To restore one or multiple indexes from a snapshot:
+
+1. Close any existing indexes that you want to restore:
+    
+    ```http
+    POST https://admin:<password>@<FQDN_of_{{ OS }}_host_with_DATA_role>.{{ dns-zone }}:{{ port-mos }}/<index_list>/_close
+    ```
+
+    To learn how to get a host’s FQDN, see [{#T}](connect/fqdn.md).
+
+    For more information on closing indexes, see [this {{ OS }} guide]({{ os.docs }}/api-reference/index-apis/close-index/).
+
+1. Restore the indexes from the snapshot:
+
+    ```http
+    POST https://admin:<password>@<FQDN_of_{{ OS }}_host_with_DATA_role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository_name>/<snapshot_name>/_restore?wait_for_completion=true&pretty
+    
+    {
+      "indices": "<list_of_indexes>",
+      "ignore_unavailable": false,
+      "include_global_state": false
+    }
+    ```
+
+    Where:
+    
+    * `indices`: Comma-separated list of indexes to restore.
+    * `ignore_unavailable`: Behavior if a requested index is missing from the snapshot.
+      
+      * `true`: Missing indexes are ignored.
+      * `false`: Restore operation fails with an error.
+    
+    * `include_global_state`: Restoring the global state of the cluster:
+
+      * `true`: Cluster state is restored.
+      * `false`: Cluster state is not restored.
+
+    You can get the snapshot name with the [list of snapshots](#list-snapshots).
+
+    For more on restoration from snapshots, see [this {{ OS }} guide]({{ os.docs }}/api-reference/snapshots/restore-snapshot/).
+
 
 ### Restoring a cluster from a snapshot {#restore-from-snapshot}
 

@@ -29,3 +29,7 @@ description: 'Step-by-step guide for working with DNS zones and resource records
 ## DNS filters {#dns-filter}
 
 - [{#T}](filter-create.md)
+
+## DNS connections {#dns-connection}
+
+- [{#T}](connection-inbound-create.md)

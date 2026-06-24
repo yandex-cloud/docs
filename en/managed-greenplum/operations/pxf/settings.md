@@ -9,7 +9,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
     To edit PXF settings:
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name and select ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}** in the left-hand panel.
     1. Click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.greenplum.cluster.pxf.action_edit-settings }}** at the top of the page.
     1. Edit the settings:
@@ -177,7 +177,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * `xmx`: Maximum size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
         * `xms`: Initial size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
 
-        You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
     1. View the [server response](../../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -249,7 +249,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * `xmx`: Maximum size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
         * `xms`: Initial size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
 
-        You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
     1. View the [server response](../../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

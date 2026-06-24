@@ -321,10 +321,6 @@ items:
             href: tutorials/audit-logs/coi-fluent-bit-logging.md
       - name: Application protection
         items:
-          - name: >-
-              Installing an NGINX ingress controller with a certificate from {{
-              certificate-manager-name }}
-            href: tutorials/app-security/nginx-ingress-certificate-manager.md
           - name: Building a CI/CD pipeline in {{ GL }} using serverless products
             href: tutorials/app-security/ci-cd-serverless.md
           - name: Creating an interactive serverless application using WebSocket

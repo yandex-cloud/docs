@@ -45,8 +45,6 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Installing an NGINX Ingress controller in {{ managed-k8s-name }}
-        href: tutorials/nginx-ingress-certificate-manager.md
       - name: Setting up virtual hosting
         href: tutorials/virtual-hosting.md
       - name: Hosting a static Gatsby website in {{ objstorage-name }}

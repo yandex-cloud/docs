@@ -102,10 +102,10 @@ POST https://{{ cns-host }}/
 
 При возникновении ошибки {{ cns-name }} отвечает сообщением с соответствующим HTTP-кодом.
 
-Перечень общих кодов ошибок для всех действий см. в разделе [{#T}](common-errors.md).
+Перечень общих кодов ошибок для всех действий приведен в разделе [{#T}](common-errors.md).
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)
-* [API action ListPlatformApplications](https://docs.aws.amazon.com/sns/latest/api/API_ListPlatformApplications.html) в документации AWS.
+* [API action ListPlatformApplications](https://docs.aws.amazon.com/sns/latest/api/API_ListPlatformApplications.html) в документации AWS

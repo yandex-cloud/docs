@@ -10,7 +10,7 @@ You can add, rename, and delete databases, and view their info.
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
 
 - CLI {#cli}
@@ -42,7 +42,7 @@ You can add, rename, and delete databases, and view their info.
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/databases'
      ```
 
-     You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Database/list.md#yandex.cloud.mdb.postgresql.v1.ListDatabasesResponse) to make sure your request was successful.
 
@@ -83,7 +83,7 @@ You can add, rename, and delete databases, and view their info.
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name.
   1. If necessary, [create](cluster-users.md#adduser) a new user account for database owner.
   1. Select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
@@ -148,13 +148,13 @@ You can add, rename, and delete databases, and view their info.
 
      {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-     You can get the cluster name from the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
      {{ mpg-short-name }} will start creating the database.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -180,7 +180,7 @@ You can add, rename, and delete databases, and view their info.
 
         {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -309,7 +309,7 @@ You can add, rename, and delete databases, and view their info.
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
       For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -328,11 +328,11 @@ You can add, rename, and delete databases, and view their info.
 
       {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -426,7 +426,7 @@ You can add, rename, and delete databases, and view their info.
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the relevant database row and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Select your preferred option in the **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** field.
@@ -434,7 +434,7 @@ You can add, rename, and delete databases, and view their info.
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
   1. Find the `yandex_mdb_postgresql_database` resource describing your target database.
 
@@ -448,11 +448,11 @@ You can add, rename, and delete databases, and view their info.
         }
         ```
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -551,7 +551,7 @@ A database can have deletion protection enabled. To delete it, first [disable de
 - Management console {#console}
 
   To delete a database:
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
   1. Find the database you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**, then confirm the deletion.
 
@@ -573,7 +573,7 @@ A database can have deletion protection enabled. To delete it, first [disable de
 - {{ TF }} {#tf}
 
   To delete a database:
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
      For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -581,11 +581,11 @@ A database can have deletion protection enabled. To delete it, first [disable de
 
   1. Remove the `yandex_mdb_postgresql_database` resource with the name of the database you are deleting.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

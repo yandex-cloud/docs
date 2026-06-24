@@ -93,7 +93,7 @@ description: Следуя данной инструкции, вы сможете
       }
       ```
 
-      Более подробную информацию о параметрах ресурса `sws_waf_profile` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/sws_waf_profile).
+      Подробнее о параметрах ресурса `sws_waf_profile` в [документации провайдера]({{ tf-provider-resources-link }}/sws_waf_profile).
 
   1. Примените изменения:
 
@@ -107,7 +107,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](exclusion-rule-add.md)
 * [{#T}](exclusion-rule-delete.md)

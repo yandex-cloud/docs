@@ -13,7 +13,7 @@ You can get detailed information about each {{ mch-short-name }} cluster you cre
 
 - Management console {#console}
 
-  [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
 - CLI {#cli}
 
@@ -36,7 +36,7 @@ You can get detailed information about each {{ mch-short-name }} cluster you cre
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -94,8 +94,8 @@ You can get detailed information about each {{ mch-short-name }} cluster you cre
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name.
 
 - CLI {#cli}
@@ -176,11 +176,11 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
   You can get a list of cluster operations as follows:
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
-  1. [Go to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.clickhouse.switch_list }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.clickhouse.switch_list }}**.
   1. Select the cluster and open the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.clickhouse.switch_operations }}** tab.
 
-     You will see the list of operations with the cluster.
+     This will open the list of operations with the cluster.
 
 - CLI {#cli}
 
@@ -210,9 +210,9 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
   +----------------------+---------------------+----------------------+---------------------+---- ---+--------------------------------+
   ```
 
-  You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can get the cluster ID and name with the [list of clusters in the folder](#list).
 
-  By default, information about transactions is displayed in text format. To get more details, specify `yaml` or `json` for the output data using the `--format` argument:
+  By default, information about operations is output as text. To get more details, use `--format` to specify the `yaml` or `json` output format:
 
   ```bash
   yc managed-clickhouse cluster list-operations epdplu8jn7sr******** --format yaml
@@ -289,7 +289,7 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
 
 1. [Get the list of operations](#get-operations) for the cluster.
 1. Copy the ID of the operation you need.
-1. Get operation details:
+1. Get the operation details:
 
     {% list tabs group=instructions %}
 

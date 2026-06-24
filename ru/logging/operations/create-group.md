@@ -95,7 +95,7 @@ description: Из статьи вы узнаете, как создать лог
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_logging_group` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/logging_group).
+     Подробнее о параметрах ресурса `yandex_logging_group` в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/logging_group).
 
   1. Проверьте корректность конфигурационных файлов.
 

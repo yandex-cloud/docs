@@ -46,5 +46,5 @@ description: Следуя данной инструкции, вы сможете
 
 #### Полезные ссылки {#see-also}
 
-[{#T}](get-link.md)
-[{#T}](download.md)
+* [{#T}](get-link.md)
+* [{#T}](download.md)

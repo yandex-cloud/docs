@@ -6,5 +6,3 @@ description: To perform operations via {{ mgp-full-name }} API, you need to obta
 # Authentication with the {{ mgp-name }} API
 
 {% include notitle [auth](../../_includes/authentication.md) %}
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

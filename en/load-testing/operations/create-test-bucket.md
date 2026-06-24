@@ -19,7 +19,7 @@ You can upload test data to {{ load-testing-name }} from a [bucket](../../storag
 1. [Create](../../storage/operations/buckets/create.md) a bucket and [upload](../../storage/operations/objects/upload.md) the payload file to it.
 1. Grant the service account linked to the [agent](../concepts/agent.md) read permissions for the bucket. To do this, edit the bucket [ACL](../../storage/concepts/acl.md):
     1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the bucket and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
     1. In the window that opens, enter the service account name, select `READ` for bucket permissions, and click **{{ ui-key.yacloud.common.add }}**.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -42,7 +42,7 @@ You can upload test data to {{ load-testing-name }} from a [bucket](../../storag
 
 - Management console {#console}
   1. In the [management console]({{ link-console-main }}), select the folder for testing.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. In the ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab, click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
   1. [Select](../concepts/agent-select.md) a test agent or create a new one.
   1. Under **Attached files**:

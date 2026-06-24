@@ -192,7 +192,7 @@
          Для одного виртуального хоста вы можете задать только один вид ограничения: либо свойство `all-requests`, либо — `requests-per-ip`.
      
          Необязательный параметр: если не задан, ограничение на частоту запросов не применяется.
-     * `--security-profile-id` — идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [Yandex Smart Web Security](../../smartwebsecurity/index.md). Профиль безопасности позволяет настроить фильтрацию входящих запросов, подключить [WAF](../../smartwebsecurity/concepts/waf.md) и установить лимиты на количество запросов для защиты от вредоносной активности. Подробнее смотрите [Профили безопасности](../../smartwebsecurity/concepts/profiles.md). Необязательный параметр.
+     * `--security-profile-id` — идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [Yandex Smart Web Security](../../smartwebsecurity/index.md). Профиль безопасности позволяет настроить фильтрацию входящих запросов, подключить [WAF](../../smartwebsecurity/concepts/waf.md) и установить лимиты на количество запросов для защиты от вредоносной активности. Подробнее в разделе [Профили безопасности](../../smartwebsecurity/concepts/profiles.md). Необязательный параметр.
      
      
      Результат:
@@ -315,7 +315,7 @@
       
       {% endcut %}
       
-      Подробную информацию о команде `yc alb virtual-host append-http-route` с полным перечнем параметров смотрите в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
+      Подробнее о команде `yc alb virtual-host append-http-route` с полным перечнем параметров в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
 
 - Terraform {#tf}
 
@@ -506,7 +506,7 @@
           * `route_options` — (опционально) дополнительные параметры виртуального хоста:
               * `security_profile_id` — идентификатор профиля безопасности. Профиль безопасности позволяет настроить фильтрацию входящих запросов, подключить [WAF](../../smartwebsecurity/concepts/waf.md) и установить лимиты на количество запросов для защиты от вредоносной активности. Подробнее в разделе [Профили безопасности](../../smartwebsecurity/concepts/profiles.md).
 
-      Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+      Параметры используемых ресурсов приведены в документации провайдера Terraform:
       * [yandex_alb_http_router](../../terraform/resources/alb_http_router.md)
       * [yandex_alb_virtual_host](../../terraform/resources/alb_virtual_host.md)
   1. Создайте ресурсы:

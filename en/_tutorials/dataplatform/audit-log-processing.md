@@ -28,6 +28,7 @@ In this use case, you will create [trails](../../audit-trails/concepts/trail.md)
 
 ## Set up integration between {{ at-name }} and {{ yq-name }} {#integration}
 
+
 To set up integration:
 
 1. Open the list of trails in the {{ yandex-cloud }} console.
@@ -55,6 +56,7 @@ You can do the following with analytical query results:
 <!-- * [Visualize them](../../query/tutorials/datalens.md) in {{ datalens-full-name }}. -->
 
 ## Streaming queries to {{ yds-name }} data
+
 
 To query {{ at-name }} streaming data transferred through {{ yds-name }}:
 

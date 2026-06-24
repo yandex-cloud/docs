@@ -27,7 +27,7 @@ var player = Ya.playerSdk.init({
 
 Где `https://runtime.video.cloud.yandex.net/player/...` — ссылка на [видео](../../operations/video/get-link.md), [трансляцию](../../operations/streams/get-link.md) или [плейлист](../../operations/playlists/get-link.md).
 
-Подробнее об инициализации плеера см. в разделах:
+Инициализация плеера описана в разделах:
 
 * [Параметры инициализации плеера](initialization.md)
 * [Interface: PlayerSdkInitConfig](../../api-ref/javascript/interfaces/PlayerSdkInitConfig.md) в справочнике API
@@ -35,21 +35,21 @@ var player = Ya.playerSdk.init({
 
 ## Управление плеером {#player-controls}
 
-Информацию о методах управления плеером см. в разделах:
+Информация о методах управления плеером представлена в разделах:
 
 * [Методы плеера](player-methods.md)
 * [Interface: PlayerSdkApi](../../api-ref/javascript/interfaces/PlayerSdkApi.md) в справочнике API
 
 ## Состояние плеера {#player-state}
     
-Информацию об объекте, содержащем параметры состояния плеера см. в разделах:
+Информация об объекте, содержащем параметры состояния плеера, представлена в разделах:
 
 * [Состояние плеера](player-state.md)
 * [Interface: PlayerSdkState](../../api-ref/javascript/interfaces/PlayerSdkState.md) в справочнике API
 
 ## События плеера {#player-events}
 
-Информацию о событиях плеера см. в разделах:
+Информация о событиях плеера представлена в разделах:
 
 * [События плеера](player-events.md)
 * [Interface: PlayerSdkEventHandlers](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) в справочнике API

@@ -290,8 +290,6 @@
 
 ### Защита приложений
 
- - [Установка Ingress-контроллера NGINX с сертификатом из Certificate Manager](tutorials/app-security/nginx-ingress-certificate-manager.md)
-
  - [Построение пайплайна CI/CD в GitLab с использованием serverless-продуктов](tutorials/app-security/ci-cd-serverless.md)
 
  - [Создание интерактивного serverless-приложения с использованием WebSocket](tutorials/app-security/websocket-app.md)

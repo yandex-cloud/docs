@@ -2,7 +2,7 @@
 
 Чтобы передавать метрики из виртуальной машины в Yandex Managed Service for Prometheus®, надо установить агент для сбора метрик. Вы можете установить любой агент, который поддерживает передачу метрик, либо воспользоваться Unified Agent с возможностью передачи метрик Prometheus. 
 
-В этом разделе описана установка агента при создании виртуальной машины. Другие способы установки см. в разделе [Установка и обновление Unified Agent](../../../concepts/data-collection/unified-agent/installation.md).
+В этом разделе описана установка агента при создании виртуальной машины. Другие способы установки — в разделе [Установка и обновление Unified Agent](../../../concepts/data-collection/unified-agent/installation.md).
 
 {% note info %}
 
@@ -198,7 +198,7 @@ routes:
 
         Пример: `{job="linux_metrics", instance="my_vm", __name__="sys_cpu_CpuCores"}`.
 
-        Список метрик, которые передает агент Prometheus, см. в разделе [Метрики Unified Agent](../../../metrics-ref/unifiedagent-ref.md).
+        Список метрик, которые передает агент Prometheus, приведен в разделе [Метрики Unified Agent](../../../metrics-ref/unifiedagent-ref.md).
      
      * Пользовательских метрик, если их передача была настроена на агенте, — `{job="имя_набора_метрик", instance="<имя_ВМ>:<порт>", __name__="<имя_метрики>"}`.
 

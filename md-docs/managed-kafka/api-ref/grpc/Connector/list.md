@@ -21,21 +21,18 @@ Retrieves the list of Apache Kafka® connectors in a cluster.
 || cluster_id | **string**
 
 Required field. ID of the Apache Kafka® cluster to list connectors in.
-
 To get this ID, make a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `page_size`, the API returns a [ListConnectorsResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListConnectorsResponse) that can be used to get the next page of results in the subsequent [ConnectorService.List](#List) requests.
 
 The maximum value is 1000. ||
 || page_token | **string**
 
 Page token that can be used to iterate through multiple pages of results.
-
 To get the next page of results, set `page_token` to the [ListConnectorsResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListConnectorsResponse) returned by the previous [ConnectorService.List](#List) request.
 
 The maximum string length in characters is 100. ||
@@ -155,7 +152,6 @@ List of Apache Kafka® Connectors. ||
 || next_page_token | **string**
 
 The token that can be used to get the next page of results.
-
 If the number of results is larger than [ListConnectorsRequest.page_size](#yandex.cloud.mdb.kafka.v1.ListConnectorsRequest), use the `next_page_token` as the value for the [ListConnectorsRequest.page_token](#yandex.cloud.mdb.kafka.v1.ListConnectorsRequest) in the subsequent [ConnectorService.List](#List) request to iterate through multiple pages of results. ||
 |#
 

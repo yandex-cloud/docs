@@ -23,16 +23,13 @@ Settings dependent on storage size:
 
 ## Cluster-level DBMS settings {#dbms-cluster-settings}
 
-This section contains information about DBMS configuration settings that can be edited by the user as well as important default settings the user cannot edit.
+This section contains information about the DBMS configuration settings that can be edited by the user as well as those default settings the user cannot edit.
 
-The list of settings partially duplicates the one found in the
-[official guides]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html).
+Some {{ mgp-name }} settings here differ from those given in the [official guides](https://cloudberry.apache.org/docs/config-params-guc-list/), in particular:
 
-The important distinctions of this list of parameters are the following:
-
-- Within the service, the possible (boundary) values are different for some properties.
-- Within the service, the default values are different for some properties.
-- Some properties within the service are build-specific for [open-gpdb](https://github.com/open-gpdb/gpdb).
+- Possible (boundary) values.
+- Default values.
+- Build-specific settings for [open-gpdb](https://github.com/open-gpdb/gpdb).
 
 {% include [mgp-dbms-settings](../../_includes/mdb/mgp/dbms-settings.md) %}
 
@@ -44,13 +41,9 @@ The following settings are available:
 
     S3 storage public access key.
 
-    For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio_cfg).
-
 * **Secret Key**{#setting-secret-key} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     S3 storage secret access key.
-
-    For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio_cfg).
 
 * **Fast Upload**{#setting-fast-upload} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -58,13 +51,9 @@ The following settings are available:
 
     Fast upload is enabled by default.
 
-    For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio_cfg).
-
 * **Endpoint**{#setting-endpoint} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     S3 storage address. The value for {{ objstorage-full-name }} is `{{ s3-storage-host }}`. This is the default value.
-
-    For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio_cfg).
 
 ## External JDBC data source settings {#jdbc-settings}
 
@@ -76,27 +65,19 @@ The following settings are available:
 
     {% include [JBDC driver](../../_includes/mdb/mgp/jdbc-driver.md) %}
 
-    For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#cfg_server).
-
 * **Url**{#setting-url} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Database URL. Here are some examples:
 
     {% include [URL examples](../../_includes/mdb/mgp/url-examples.md) %}
 
-    For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#cfg_server).
-
 * **User**{#setting-user} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     DB owner username.
 
-    For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#cfg_server).
-
 * **Password**{#setting-password} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     DB user password.
-
-    For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#cfg_server).
 
 * **Statement Batch Size**{#setting-statement-batch-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -104,15 +85,11 @@ The following settings are available:
 
     The default value is `100`.
 
-    For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#stateprop).
-
 * **Statement Fetch Size**{#setting-statement-fetch-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Number of rows to buffer when reading from an external table.
 
     The default value is `1000`.
-
-    For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#stateprop).
 
 * **Statement Query Timeout**{#setting-statement-query-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -120,13 +97,9 @@ The following settings are available:
 
     The default value is `60`.
 
-    For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#stateprop).
-
 * **Pool Enabled**{#setting-pool-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     This setting determines whether the JDBC connection pool is used. It is enabled by default.
-
-    For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbcconpool).
 
 * **Pool Maximum Size**{#setting-pool-maximum-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -134,15 +107,11 @@ The following settings are available:
 
     The default value is `5`.
 
-    For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbcconpool).
-
 * **Pool Connection Timeout**{#setting-pool-connection-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Maximum time (in milliseconds) to wait for a connection from the pool.
 
     The default value is `30000`.
-
-    For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbcconpool).
 
 * **Pool Idle Timeout**{#setting-pool-idle-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -150,15 +119,11 @@ The following settings are available:
 
     The default value is `30000`.
 
-    For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbcconpool).
-
 * **Pool Minimum Idle**{#setting-pool-minimum-idle} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Minimum number of idle connections in the pool.
 
     The default value is `0`.
-
-    For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbcconpool).
 
 ## External HDFS data source settings {#hdfs-settings}
 
@@ -222,8 +187,6 @@ The following settings are available:
 
     This setting determines whether predicate pushdown is enabled for external table queries. This parameter is enabled by default.
 
-    For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_server.html#pxf-site).
-
 * **Metastore Uris**{#setting-metastore-uris} {{ tag-con }} {{ tag-api }}
 
     List of comma-separated URIs. To request metadata, the external DBMS connects to Metastore using one of these URIs.
@@ -235,5 +198,3 @@ The following settings are available:
 * **Auth Kerberos Principal**{#setting-auth-kerberos-principal} {{ tag-con }} {{ tag-api }}
 
     Kerberos server principal.
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

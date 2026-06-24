@@ -32,7 +32,7 @@
 
      * **Имя** бэкенда.
      * **Вес** — относительный вес бэкенда при распределении трафика. Если опция в поле отключена, эндпоинты бэкенда не будут получать трафик (вес будет равен 0).
-     * **Тип** бэкенда (для группы бэкендов типа `HTTP`): `Целевая группа` ([целевые группы](../concepts/target-group.md) Application Load Balancer) или `Бакет` ([бакет](../../storage/concepts/bucket.md) Object Storage). Для группы бэкендов типа `gRPC` или Stream тип любого бэкенда — `Целевая группа`. Подробнее о типах бэкендов читайте в разделе [Типы бэкендов](../concepts/backend-group.md#types).
+     * **Тип** бэкенда (для группы бэкендов типа `HTTP`): `Целевая группа` ([целевые группы](../concepts/target-group.md) Application Load Balancer) или `Бакет` ([бакет](../../storage/concepts/bucket.md) Object Storage). Для группы бэкендов типа `gRPC` или Stream тип любого бэкенда — `Целевая группа`. Типы бэкендов описаны в разделе [Типы бэкендов](../concepts/backend-group.md#types).
      
      * Следующие настройки доступны только для типа бэкенда **Целевая группа**:
      
@@ -428,7 +428,7 @@
        
        {% endnote %}
 
-     Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера Terraform](../../terraform/resources/alb_backend_group.md).
+     Подробнее о параметрах ресурса `yandex_alb_backend_group` в [документации провайдера](../../terraform/resources/alb_backend_group.md).
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -496,6 +496,6 @@
 
 {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Рекомендации по настройке проверок состояния Yandex Application Load Balancer](../concepts/best-practices.md)
+[Рекомендации по настройке проверок состояния Yandex Application Load Balancer](../concepts/best-practices.md)

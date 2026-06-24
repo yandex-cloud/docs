@@ -301,7 +301,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [trail-create-tf-descs_part2](../../_includes/audit-trails/trail-create-tf-descs-part2.md) %}
 
-      Более подробную информацию о параметрах ресурса `yandex_audit_trails_trail` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/audit_trails_trail).
+      Подробнее о параметрах ресурса `yandex_audit_trails_trail` в [документации провайдера]({{ tf-provider-resources-link }}/audit_trails_trail).
 
   1. Создайте ресурсы:
 

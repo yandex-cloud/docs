@@ -1,6 +1,6 @@
 ---
 title: '{{ CH }} cluster maintenance'
-description: In this guide, you will learn how to view the {{ CH }} cluster’s scheduled and completed maintenance jobs and schedule new maintenance windows.
+description: Follow this guide to view the {{ CH }} cluster’s scheduled and completed maintenance jobs and schedule a maintenance window.
 ---
 
 # {{ CH }} cluster maintenance
@@ -9,7 +9,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mch-full-name }
 
 ## Getting a list of maintenance jobs {#list-maintenance}
 
-1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
 
 To view maintenance jobs with a specific status, click **{{ ui-key.yacloud.mdb.maintenance.label_task-status }}** above the maintenance list and select the status you want from the drop-down menu. You can also find a maintenance job by its ID or job name using the search field above the list.
@@ -18,7 +18,7 @@ Click an ID to see how the maintenance job affects cluster availability. Look up
 
 ## Getting maintenance-related cluster logs {#maintenance-logs}
 
-1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
 1. Click the ID of the maintenance job you need.
 1. Click **{{ ui-key.yacloud.mdb.maintenance.label_task-logs }}**.
@@ -33,7 +33,7 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
 
     To reschedule maintenance for a new date and time:
 
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the maintenance job with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** status.
     1. In the drop-down menu, select ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_change-task-time }}**.
@@ -101,7 +101,7 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
 
         The timestamp must be in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`. When selecting the `NEXT_AVAILABLE_WINDOW` reschedule type, you do not need to specify `delayedUntil`.
 
-        You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -137,7 +137,7 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
 
         The timestamp must be in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`. When selecting the `NEXT_AVAILABLE_WINDOW` reschedule type, you do not need to specify `delayed_until`.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.mdb.clickhouse.v1.Cluster) to make sure your request was successful.
 
@@ -153,7 +153,7 @@ If necessary, you can run a maintenance job with the **{{ ui-key.yacloud.mdb.mai
 
     To run a scheduled cluster maintenance job immediately:
 
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the maintenance job you need.
     1. In the drop-down menu, select ![image](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_exec-task-now }}**.
@@ -202,7 +202,7 @@ If necessary, you can run a maintenance job with the **{{ ui-key.yacloud.mdb.mai
                 }'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -230,7 +230,7 @@ If necessary, you can run a maintenance job with the **{{ ui-key.yacloud.mdb.mai
           yandex.cloud.mdb.clickhouse.v1.ClusterService.RescheduleMaintenance
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.mdb.clickhouse.v1.Cluster) to make sure your request was successful.
 
@@ -250,7 +250,7 @@ If a scheduled maintenance does not fall within the new interval, it will be aut
 
 - Management console {#console}
 
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
     1. Click ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
     1. In the window that opens:
@@ -287,7 +287,7 @@ If a scheduled maintenance does not fall within the new interval, it will be aut
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -295,7 +295,7 @@ If a scheduled maintenance does not fall within the new interval, it will be aut
 
     1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -339,7 +339,7 @@ If a scheduled maintenance does not fall within the new interval, it will be aut
 
             Here, we provide only one setting.
 
-        * `maintenanceWindow`: [Maintenance](../concepts/maintenance.md) window settings, including for stopped clusters. In `maintenanceWindow`, provide one of the two values:
+        * `maintenanceWindow`: [Maintenance](../concepts/maintenance.md) window settings, including for stopped clusters. In `maintenanceWindow`, provide one of these two parameters:
 
             * `anytime`: Maintenance can be scheduled for any time.
             * `weeklyMaintenanceWindow`: Maintenance can only be scheduled for a specific day of week and hour:
@@ -347,7 +347,7 @@ If a scheduled maintenance does not fall within the new interval, it will be aut
                 * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                 * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -391,7 +391,7 @@ If a scheduled maintenance does not fall within the new interval, it will be aut
 
             Here, we provide only one setting.
 
-        * `maintenance_window`: [Maintenance](../concepts/maintenance.md) window settings, including for stopped clusters. In `maintenance_window`, provide one of the two values:
+        * `maintenance_window`: [Maintenance](../concepts/maintenance.md) window settings, including for stopped clusters. In `maintenance_window`, provide one of these two parameters:
 
             * `anytime`: Maintenance can be scheduled for any time.
             * `weekly_maintenance_window`: Maintenance can only be scheduled for a specific day of week and hour:
@@ -399,7 +399,7 @@ If a scheduled maintenance does not fall within the new interval, it will be aut
                 * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                 * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.clickhouse.v1.Cluster) to make sure your request was successful.
 

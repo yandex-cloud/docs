@@ -42,7 +42,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
   1. Find the user you want to update in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in their row, and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Expand the **{{ ui-key.yacloud.mdb.dialogs.button_advanced-settings }}** list and select the roles you want to assign to the user in the **Grants** field.
@@ -70,7 +70,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
   To assign roles to a cluster user:
   
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
         For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -88,11 +88,11 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
   
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -275,7 +275,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
         {% include [see-fqdn](../../_includes/mdb/mpg/fqdn-host.md) %}
 
-        The full list of settings is available in the [provider documentation](https://registry.terraform.io/providers/cyrilgdn/postgresql/latest/docs).
+        For a full list of settings, see [this provider guide](https://registry.terraform.io/providers/cyrilgdn/postgresql/latest/docs).
 
     1. Add the `postgresql_grant` resource:
 
@@ -314,7 +314,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
   
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -338,11 +338,11 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
         To revoke all privileges, leave the `privileges` array empty or remove the entire `postgresql_grant` section.
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
   
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

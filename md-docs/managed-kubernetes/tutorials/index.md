@@ -26,11 +26,6 @@ C помощью Managed Service for Kubernetes вы можете работат
 * [Вертикальное масштабирование приложения в кластере](vpa-autoscaling.md)
 * [Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием](load-testing-grpc-autoscaling.md)
 
-## Установка NGINX {#nginx}
-
-* [Установка Ingress-контроллера NGINX с менеджером для сертификатов Let's Encrypt®](ingress-cert-manager.md)
-* [Установка Ingress-контроллера NGINX с сертификатом из Yandex Certificate Manager](nginx-ingress-certificate-manager.md)
-
 ## Использование Yandex Container Registry {#container-registry}
 
 * [Интеграция с Container Registry](container-registry.md)

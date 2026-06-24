@@ -50,7 +50,7 @@ description: '{{ monium-name }} — платформа для наблюдени
 
 {% include [configuration-model](../_includes/monium/configuration-model.md) %}
 
-Описание других объектов и понятий {{ monium-name }} см. в разделе [Основные понятия](concepts/glossary.md).
+Описание других объектов и понятий {{ monium-name }} приведено в разделе [Основные понятия](concepts/glossary.md).
 
 ## Обзор возможностей платформы {#features}
 
@@ -138,4 +138,4 @@ description: '{{ monium-name }} — платформа для наблюдени
 
 #### Полезные ссылки {#see-also}
 
-* [{{ monium-full-name }}: платформа для мониторинга и управления состоянием IT-систем](https://yandex.cloud/ru/blog/yandex-monium)
+[{{ monium-full-name }}: платформа для мониторинга и управления состоянием IT-систем](https://yandex.cloud/ru/blog/yandex-monium)

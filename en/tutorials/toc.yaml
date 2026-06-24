@@ -661,14 +661,6 @@ items:
                 href: container-infrastructure/vpa-autoscaling.md
               - name: Deploying and load testing a scalable gRPC service
                 href: container-infrastructure/loadtesting-grpc-autoscaling.md
-          - name: Installing NGINX
-            items:
-              - name: Installing an NGINX ingress controller with {{ lets-encrypt }}
-                href: container-infrastructure/ingress-cert-manager.md
-              - name: >-
-                  Installing an NGINX ingress controller with a certificate from
-                  {{ certificate-manager-name }}
-                href: container-infrastructure/nginx-ingress-certificate-manager.md
           - name: Usage {{ container-registry-name }}
             items:
               - name: Integration with {{ container-registry-name }}

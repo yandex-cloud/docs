@@ -5,6 +5,8 @@
 
 In this scenario, Packer will create and launch a [Debian 11](/marketplace/products/yc/debian-11) virtual machine from {{ marketplace-name }}, with a [nginx](https://nginx.org/en/) web server installed on it. Following that, it will delete the VM and create an image of its boot disk. After that, it will also delete the disk.
 
+For more information about the resources you can create with Packer, see [this provider guide](https://www.packer.io/docs/builders/yandex).
+
 To create an image:
 
 1. [Get your cloud ready](#before-you-begin).
@@ -279,7 +281,7 @@ Make sure you created the image:
 - Management console {#console}
 
   1. Navigate to the [management console]({{ link-console-main }}).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Open the ![image](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}** section. Make sure the new disk image is there.
 
 - CLI {#cli}

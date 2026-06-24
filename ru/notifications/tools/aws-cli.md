@@ -91,7 +91,7 @@ description: HTTP API {{ cns-name }} совместим с Amazon SNS API.
 
 {% endcut %}
 
-Подробнее о настройке AWS CLI см. в [документации AWS](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html).
+Подробнее о настройке AWS CLI в [документации AWS](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html).
 
 ## Создайте канал уведомлений {#create-channel}
 
@@ -108,7 +108,7 @@ aws sns list-platform-applications
 
 В результате будет выведен список каналов уведомлений, размещенных в том же каталоге, в котором находится сервисный аккаунт.
 
-Подробнее о команде `aws sns list-platform-applications` см. в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/list-platform-applications.html).
+Подробнее о команде `aws sns list-platform-applications` в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/list-platform-applications.html).
 
 ## Создайте эндпоинт {#create-endpoint}
 
@@ -162,7 +162,7 @@ aws sns publish \
 * `--message-structure` — формат сообщения.
 * `--message` — сообщение.
 
-Подробнее о команде `aws sns publish` см. в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html).
+Подробнее о команде `aws sns publish` в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html).
 
 ## Примеры {#examples}
 
@@ -180,7 +180,7 @@ aws sns publish \
 * `--message` — текст SMS.
 * `--message-attributes` — атрибуты SMS, где `AWS.SNS.SMS.SenderID.StringValue` — текстовое имя отправителя.
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Начало работы](../quickstart.md)
 * [AWS SDK для Python (boto3)](sdk-python.md)

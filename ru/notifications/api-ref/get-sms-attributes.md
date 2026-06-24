@@ -112,10 +112,10 @@ POST https://{{ cns-host }}/
 * `Code` — код ошибки.
 * `Message` — описание ошибки.
 
-Перечень общих кодов ошибок для всех действий см. в разделе [{#T}](common-errors.md).
+Перечень общих кодов ошибок для всех действий приведен в разделе [{#T}](common-errors.md).
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)
-* [API action GetSMSAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetSMSAttributes.html) в документации AWS.
+* [API action GetSMSAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetSMSAttributes.html) в документации AWS

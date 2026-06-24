@@ -2,6 +2,10 @@
 
 In this tutorial, we will analyze the [kcat](https://github.com/edenhill/kcat) commands for external and internal [connections to an {{ KF }} cluster](#how-to) and send a message from the producer to the consumer.
 
+If you need a quick look at cluster connection settings, use the **Connect** button on the cluster page in the management console. Clicking the button brings up the complete connection data.
+
+The instructions below describe the manual `kubectl`-based scenario, which you can use as a fallback in case you need to get the connection properties via the CLI.
+
 ## Getting started {#before-begin}
 
 1. Install [kcat](https://github.com/edenhill/kcat).

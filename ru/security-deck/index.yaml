@@ -50,10 +50,6 @@ blocks:
     textContent:
       title: Yandex Security Deck
       text: >-
-        Сервис Yandex Security Deck находится на [стадии
-        Preview](https://yandex.cloud/ru/docs/overview/concepts/launch-stages).
-
-
         Предоставляемые сервисом инструменты позволяют вести мониторинг и
         реагировать на инциденты, обнаруживать уязвимости в контейнерных
         образах, контролировать конфигурацию облачной инфраструктуры и

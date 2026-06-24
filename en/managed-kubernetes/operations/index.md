@@ -59,7 +59,6 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](calico.md)
 * [{#T}](cilium.md)
 * [{#T}](cilium-node-local-dns.md)
-* [{#T}](create-load-balancer-with-ingress-nginx.md)
 
 ## Working with persistent volumes {#persistent-volumes}
 

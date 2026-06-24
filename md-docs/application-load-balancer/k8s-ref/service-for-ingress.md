@@ -83,7 +83,7 @@ annotations:
 
 # Аннотации
 
-Аннотации — это коллекция пар `ключ:значение`, которые используются для присвоения метаданных объекту. Значения аннотаций всегда имеют тип данных `string`. Подробнее об аннотациях читайте в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
+Аннотации — это коллекция пар `ключ:значение`, которые используются для присвоения метаданных объекту. Значения аннотаций всегда имеют тип данных `string`. Подробнее об аннотациях в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
 
 В Application Load Balancer аннотации используются в ресурсах `Service` только для настройки Ingress-контроллеров.
 
@@ -105,7 +105,7 @@ annotations:
 
    Если аннотация не указана, балансировщик соединяется с бэкендами без шифрования.
 
-   Для бэкендов, входящих в состав групп, значение аннотации игнорируется. Шифрование соединений балансировщика с бэкендами из групп настраивается с помощью поля `spec.backend.tls` ресурса `HttpBackendGroup` (смотрите [конфигурацию ресурса](http-backend-group.md)).
+   Для бэкендов, входящих в состав групп, значение аннотации игнорируется. Шифрование соединений балансировщика с бэкендами из групп настраивается с помощью поля `spec.backend.tls` [ресурса `HttpBackendGroup`](http-backend-group.md).
 
 * **ingress.alb.yc.io/health-checks** {#annot-health-checks}
 
@@ -155,7 +155,7 @@ ports:
 
 {% note warning %}
 
-Сервисы Kubernetes, используемые в качестве бэкендов (указанные в правилах `Ingress` напрямую или в `HttpBackendGroup`/`GrpcBackendGroup`), должны иметь тип `NodePort`. Подробнее об этом типе читайте в [документации Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport).
+Сервисы Kubernetes, используемые в качестве бэкендов (указанные в правилах `Ingress` напрямую или в `HttpBackendGroup`/`GrpcBackendGroup`), должны иметь тип `NodePort`. Подробнее об этом типе в [документации Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport).
 
 {% endnote %} ||
 || `ports`    | `[]ServicePort`      | **Обязательное**.
@@ -181,15 +181,15 @@ nodePort: <int32>
 
 Номер используется при указании сервиса в качестве бэкенда:
 
-* в `Ingress` — в поле `spec.rules.http.paths.backend.service.port.number` (смотрите [конфигурацию](ingress.md#backend));
-* в группе бэкендов `HttpBackendGroup` — в поле `spec.backends.service.port.number` (смотрите [конфигурацию](http-backend-group.md)).
+* в [Ingress](ingress.md#backend) — в поле `spec.rules.http.paths.backend.service.port.number`;
+* в группе бэкендов [HttpBackendGroup](http-backend-group.md) — в поле `spec.backends.service.port.number`.
 ||
 || `name` | `string` | Имя порта внутри сервиса.
 
 Имя используется при указании сервиса в качестве бэкенда:
 
-* в `Ingress` — в поле `spec.rules.http.paths.backend.service.port.name` (смотрите [конфигурацию](ingress.md#backend));
-* в группе бэкендов `HttpBackendGroup` — в поле `spec.backends.service.port.name` (смотрите [конфигурацию](http-backend-group.md)).
+* в [Ingress](ingress.md#backend) — в поле `spec.rules.http.paths.backend.service.port.name`;
+* в группе бэкендов [HttpBackendGroup](http-backend-group.md) — в поле `spec.backends.service.port.name`.
 ||
 || `protocol` | `TCP` | Сетевой протокол для порта. Только `TCP`. ||
 || `nodePort` | `int32` | Номер порта, открытого на узлах кластера, на которых развернут сервис. Балансировщик отправляет трафик на этот порт, а Kubernetes перенаправляет трафик сервису на его порт в параметре `port`.

@@ -71,7 +71,6 @@ description: Из статьи вы узнаете, что такое шифро
 ## Примеры использования {#examples}
 
 * [{#T}](../tutorials/kms-k8s.md)
-* [{#T}](../tutorials/nginx-ingress-certificate-manager.md)
 * [{#T}](../operations/volumes/encrypted-disks.md)
 
 

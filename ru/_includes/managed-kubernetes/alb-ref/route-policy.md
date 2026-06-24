@@ -143,7 +143,7 @@ spec:
 
   * `name` (`string`, обязательное)
 
-    Имя ресурса. Подробнее о формате в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Формат описан в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
     Не является именем балансировщика в {{ alb-name }}.
   
@@ -215,7 +215,7 @@ http:
 
 * `backends` (`Backend`)
 
-  Настройки группы бэкендов. Подробнее читайте [Backend](#backend).
+  Настройки группы бэкендов. Подробнее в разделе [Backend](#backend).
 
 * `sessionAffinity` (`SessionAffinity`)
 

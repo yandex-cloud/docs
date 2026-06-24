@@ -14,7 +14,7 @@
 
 {% include [channels-push-preview](../../_includes/notifications/channels-push-preview.md) %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Как начать работать c сервисом](../quickstart.md)
 * [Как начать работать с сервисом с помощью AWS CLI](../tools/aws-cli.md)

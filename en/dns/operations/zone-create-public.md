@@ -12,7 +12,7 @@ To create a public [DNS zone](../concepts/dns-zone.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your DNS zone.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
   1. Specify zone settings:
      1. **{{ ui-key.yacloud.dns.label_zone }}**: Domain zone name. Note that it must end with a trailing dot. You cannot create top-level domain (TLD) zones. To create a domain name with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.

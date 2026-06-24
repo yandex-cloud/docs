@@ -184,6 +184,38 @@ Raises ValueError if the value is not present.
 
 Supporting start and stop arguments is optional, but recommended.
 
+### *class* yandex\_ai\_studio\_sdk.\_search\_api.types.**Region**{#yandex_ai_studio_sdk._search_api.types.Region}
+
+Region(id: ‘str’, label: ‘str’, children: ‘RegionsMapping | None’)
+
+**id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.types.Region.id}
+
+**label**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.types.Region.label}
+
+**children**\: *[RegionsMapping](#yandex_ai_studio_sdk._search_api.types.RegionsMapping) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.types.Region.children}
+
+### *class* yandex\_ai\_studio\_sdk.\_search\_api.types.**RegionsMapping**{#yandex_ai_studio_sdk._search_api.types.RegionsMapping}
+
+RegionsMapping(\_regions: ‘MappingProxyType[str, Region]’)
+
+**get**(*k*[, *d*]) → D[k] if k in D, else d.  d defaults to None.{#yandex_ai_studio_sdk._search_api.types.RegionsMapping.get}
+
+**items**() → a set-like object providing a view on D's items{#yandex_ai_studio_sdk._search_api.types.RegionsMapping.items}
+
+**keys**() → a set-like object providing a view on D's keys{#yandex_ai_studio_sdk._search_api.types.RegionsMapping.keys}
+
+**values**() → an object providing a view on D's values{#yandex_ai_studio_sdk._search_api.types.RegionsMapping.values}
+
+**dfs**(){#yandex_ai_studio_sdk._search_api.types.RegionsMapping.dfs}
+
+#|
+|| Return type | [*Iterator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterator)[[*Region*](#yandex_ai_studio_sdk._search_api.types.Region)] ||
+|#
+
+**search\_by\_label**(*label\: [str](https://docs.python.org/3/library/stdtypes.html#str)*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *first\: [Literal](https://docs.python.org/3/library/typing.html#typing.Literal)[False] = False*) → [tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Region](#yandex_ai_studio_sdk._search_api.types.Region)]{#yandex_ai_studio_sdk._search_api.types.RegionsMapping.search_by_label}
+
+**search\_by\_label**(*label\: [str](https://docs.python.org/3/library/stdtypes.html#str)*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *first\: [Literal](https://docs.python.org/3/library/typing.html#typing.Literal)[True]*) → [Region](#yandex_ai_studio_sdk._search_api.types.Region) | [None](https://docs.python.org/3/library/constants.html#None)
+
 ## Web search
 
 ### *class* yandex\_ai\_studio\_sdk.\_search\_api.web.result.**WebSearchDocument**{#yandex_ai_studio_sdk._search_api.web.result.WebSearchDocument}
@@ -261,6 +293,176 @@ Document title.
 **page\_url**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.by_image.result.ByImageSearchDocument.page_url}
 
 Document URL.
+
+## Wordstat
+
+### *class* yandex\_ai\_studio\_sdk.\_search\_api.wordstat.result.**BaseWordstatResult**{#yandex_ai_studio_sdk._search_api.wordstat.result.BaseWordstatResult}
+
+A class representing the result of a generative search request.
+
+**\_\_init\_\_**(){#yandex_ai_studio_sdk._search_api.wordstat.result.BaseWordstatResult.__init__i}
+
+#|
+|| Return type | None ||
+|#
+
+### *class* yandex\_ai\_studio\_sdk.\_search\_api.wordstat.result.**Top**{#yandex_ai_studio_sdk._search_api.wordstat.result.Top}
+
+Top(results: ‘MappingProxyType[str, int]’, associations: ‘MappingProxyType[str, int]’)
+
+**results**\: *[MappingProxyType](https://docs.python.org/3/library/types.html#types.MappingProxyType)*{#yandex_ai_studio_sdk._search_api.wordstat.result.Top.results}
+
+**associations**\: *[MappingProxyType](https://docs.python.org/3/library/types.html#types.MappingProxyType)*{#yandex_ai_studio_sdk._search_api.wordstat.result.Top.associations}
+
+**\_\_init\_\_**(*results*, *associations*){#yandex_ai_studio_sdk._search_api.wordstat.result.Top.__init__i}
+
+#|
+|| Parameters | 
+
+- **results** ([*MappingProxyType*](https://docs.python.org/3/library/types.html#types.MappingProxyType))
+- **associations** ([*MappingProxyType*](https://docs.python.org/3/library/types.html#types.MappingProxyType)) ||
+|| Return type | None ||
+|#
+
+### *class* yandex\_ai\_studio\_sdk.\_search\_api.wordstat.result.**DynamicsItem**{#yandex_ai_studio_sdk._search_api.wordstat.result.DynamicsItem}
+
+DynamicsItem(date: ‘datetime.date’, share: ‘float’, count: ‘int’)
+
+**date**\: *[date](https://docs.python.org/3/library/datetime.html#datetime.date)*{#yandex_ai_studio_sdk._search_api.wordstat.result.DynamicsItem.date}
+
+**share**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._search_api.wordstat.result.DynamicsItem.share}
+
+**count**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._search_api.wordstat.result.DynamicsItem.count}
+
+**\_\_init\_\_**(*date*, *share*, *count*){#yandex_ai_studio_sdk._search_api.wordstat.result.DynamicsItem.__init__i}
+
+#|
+|| Parameters | 
+
+- **date** ([*date*](https://docs.python.org/3/library/datetime.html#datetime.date))
+- **share** ([*float*](https://docs.python.org/3/library/functions.html#float))
+- **count** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+|| Return type | None ||
+|#
+
+### *class* yandex\_ai\_studio\_sdk.\_search\_api.wordstat.result.**Dynamics**{#yandex_ai_studio_sdk._search_api.wordstat.result.Dynamics}
+
+Dynamics(dynamics: ‘tuple[DynamicsItem, …]’)
+
+**dynamics**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[DynamicsItem](#yandex_ai_studio_sdk._search_api.wordstat.result.DynamicsItem)*]... ,{#yandex_ai_studio_sdk._search_api.wordstat.result.Dynamics.dynamics}
+
+**\_\_init\_\_**(*dynamics*){#yandex_ai_studio_sdk._search_api.wordstat.result.Dynamics.__init__i}
+
+#|
+|| Parameters | **dynamics** ([*tuple*](https://docs.python.org/3/library/stdtypes.html#tuple)*[*[*DynamicsItem*](#yandex_ai_studio_sdk._search_api.wordstat.result.DynamicsItem)*, ...]*) ||
+|| Return type | None ||
+|#
+
+**count**(*value*) → integer -- return number of occurrences of value{#yandex_ai_studio_sdk._search_api.wordstat.result.Dynamics.count}
+
+**index**(*value*[, *start*[, *stop*]]) → integer -- return first index of value.{#yandex_ai_studio_sdk._search_api.wordstat.result.Dynamics.index}
+
+Raises ValueError if the value is not present.
+
+Supporting start and stop arguments is optional, but recommended.
+
+### *class* yandex\_ai\_studio\_sdk.\_search\_api.wordstat.result.**RegionItem**{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionItem}
+
+RegionItem(region: ‘Region | None’, region\_id: ‘str’, count: ‘int’, share: ‘float’, affinity\_index: ‘float’)
+
+**region**\: *[Region](#yandex_ai_studio_sdk._search_api.types.Region) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionItem.region}
+
+**region\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionItem.region_id}
+
+**count**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionItem.count}
+
+**share**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionItem.share}
+
+**affinity\_index**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionItem.affinity_index}
+
+**\_\_init\_\_**(*region*, *region\_id*, *count*, *share*, *affinity\_index*){#yandex_ai_studio_sdk._search_api.wordstat.result.RegionItem.__init__i}
+
+#|
+|| Parameters | 
+
+- **region** ([*Region*](#yandex_ai_studio_sdk._search_api.types.Region) *\| None*)
+- **region\_id** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **count** ([*int*](https://docs.python.org/3/library/functions.html#int))
+- **share** ([*float*](https://docs.python.org/3/library/functions.html#float))
+- **affinity\_index** ([*float*](https://docs.python.org/3/library/functions.html#float)) ||
+|| Return type | None ||
+|#
+
+### *class* yandex\_ai\_studio\_sdk.\_search\_api.wordstat.result.**RegionsDistributionContext**{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsDistributionContext}
+
+RegionsDistributionContext(resolve\_regions: ‘bool’, regions\_tree: ‘RegionsTree | None’)
+
+**resolve\_regions**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsDistributionContext.resolve_regions}
+
+**regions\_tree**\: *[RegionsTree](#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsTree) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsDistributionContext.regions_tree}
+
+**\_\_init\_\_**(*resolve\_regions*, *regions\_tree*){#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsDistributionContext.__init__i}
+
+#|
+|| Parameters | 
+
+- **resolve\_regions** ([*bool*](https://docs.python.org/3/library/functions.html#bool))
+- **regions\_tree** ([*RegionsTree*](#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsTree) *\| None*) ||
+|| Return type | None ||
+|#
+
+### *class* yandex\_ai\_studio\_sdk.\_search\_api.wordstat.result.**RegionsDistribution**{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsDistribution}
+
+RegionsDistribution(\_distribution: ‘tuple[RegionItem, …]’)
+
+**\_\_init\_\_**(*\_distribution*){#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsDistribution.__init__i}
+
+#|
+|| Parameters | **\_distribution** ([*tuple*](https://docs.python.org/3/library/stdtypes.html#tuple)*[*[*RegionItem*](#yandex_ai_studio_sdk._search_api.wordstat.result.RegionItem)*, ...]*) ||
+|| Return type | None ||
+|#
+
+**count**(*value*) → integer -- return number of occurrences of value{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsDistribution.count}
+
+**index**(*value*[, *start*[, *stop*]]) → integer -- return first index of value.{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsDistribution.index}
+
+Raises ValueError if the value is not present.
+
+Supporting start and stop arguments is optional, but recommended.
+
+### *class* yandex\_ai\_studio\_sdk.\_search\_api.wordstat.result.**RegionsTree**{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsTree}
+
+RegionsTree(\_regions: ‘MappingProxyType[str, Region]’)
+
+**\_\_init\_\_**(*\_regions*){#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsTree.__init__i}
+
+#|
+|| Parameters | **\_regions** ([*MappingProxyType*](https://docs.python.org/3/library/types.html#types.MappingProxyType)) ||
+|| Return type | None ||
+|#
+
+**dfs**(){#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsTree.dfs}
+
+#|
+|| Return type | [*Iterator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterator)[[*Region*](#yandex_ai_studio_sdk._search_api.types.Region)] ||
+|#
+
+**get**(*k*[, *d*]) → D[k] if k in D, else d.  d defaults to None.{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsTree.get}
+
+**items**() → a set-like object providing a view on D's items{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsTree.items}
+
+**keys**() → a set-like object providing a view on D's keys{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsTree.keys}
+
+**search\_by\_label**(*label*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *first=False*){#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsTree.search_by_label}
+
+#|
+|| Parameters | 
+
+- **label** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **first** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) ||
+|#
+
+**values**() → an object providing a view on D's values{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsTree.values}
 
 ## Enum-like settings
 
@@ -1379,3 +1581,263 @@ the numerator of a rational number in lowest terms
 the denominator of a rational number in lowest terms
 
 **\_\_init\_\_**(*\*args*, *\*\*kwds*){#yandex_ai_studio_sdk._search_api.enums.ImageColor.__init__i}
+
+### *class* yandex\_ai\_studio\_sdk.\_search\_api.wordstat.config.**DeviceType**{#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType}
+
+Device type
+
+**ALL** = *1*{#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType.ALL}
+
+**DESKTOP** = *2*{#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType.DESKTOP}
+
+**PHONE** = *3*{#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType.PHONE}
+
+**TABLET** = *4*{#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType.TABLET}
+
+*classmethod* **Unknown**(*name*, *value*){#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType.Unknown}
+
+#|
+|| Parameters | 
+
+- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+|#
+
+**\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType.__new__i}
+
+**conjugate**(){#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType.conjugate}
+
+Returns self, the complex conjugate of any int.
+
+**bit\_length**(){#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType.bit_length}
+
+Number of bits necessary to represent self in binary.
+
+```python
+>>> bin(37)
+'0b100101'
+>>> (37).bit_length()
+6
+```
+
+**bit\_count**(){#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType.bit_count}
+
+Number of ones in the binary representation of the absolute value of self.
+
+Also known as the population count.
+
+```python
+>>> bin(13)
+'0b1101'
+>>> (13).bit_count()
+3
+```
+
+**as\_integer\_ratio**(){#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType.as_integer_ratio}
+
+Return a pair of integers, whose ratio is equal to the original int.
+
+The ratio is in lowest terms and has a positive denominator.
+
+```python
+>>> (10).as_integer_ratio()
+(10, 1)
+>>> (-10).as_integer_ratio()
+(-10, 1)
+>>> (0).as_integer_ratio()
+(0, 1)
+```
+
+**is\_integer**(){#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType.is_integer}
+
+Returns True. Exists for duck type compatibility with float.is\_integer.
+
+**real**{#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType.real}
+
+the real part of a complex number
+
+**imag**{#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType.imag}
+
+the imaginary part of a complex number
+
+**numerator**{#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType.numerator}
+
+the numerator of a rational number in lowest terms
+
+**denominator**{#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType.denominator}
+
+the denominator of a rational number in lowest terms
+
+**\_\_init\_\_**(*\*args*, *\*\*kwds*){#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType.__init__i}
+
+### *class* yandex\_ai\_studio\_sdk.\_search\_api.wordstat.config.**PeriodType**{#yandex_ai_studio_sdk._search_api.wordstat.config.PeriodType}
+
+Requested period type
+
+**MONTHLY** = *1*{#yandex_ai_studio_sdk._search_api.wordstat.config.PeriodType.MONTHLY}
+
+**WEEKLY** = *2*{#yandex_ai_studio_sdk._search_api.wordstat.config.PeriodType.WEEKLY}
+
+**DAILY** = *3*{#yandex_ai_studio_sdk._search_api.wordstat.config.PeriodType.DAILY}
+
+*classmethod* **Unknown**(*name*, *value*){#yandex_ai_studio_sdk._search_api.wordstat.config.PeriodType.Unknown}
+
+#|
+|| Parameters | 
+
+- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+|#
+
+**\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.wordstat.config.PeriodType.__new__i}
+
+**conjugate**(){#yandex_ai_studio_sdk._search_api.wordstat.config.PeriodType.conjugate}
+
+Returns self, the complex conjugate of any int.
+
+**bit\_length**(){#yandex_ai_studio_sdk._search_api.wordstat.config.PeriodType.bit_length}
+
+Number of bits necessary to represent self in binary.
+
+```python
+>>> bin(37)
+'0b100101'
+>>> (37).bit_length()
+6
+```
+
+**bit\_count**(){#yandex_ai_studio_sdk._search_api.wordstat.config.PeriodType.bit_count}
+
+Number of ones in the binary representation of the absolute value of self.
+
+Also known as the population count.
+
+```python
+>>> bin(13)
+'0b1101'
+>>> (13).bit_count()
+3
+```
+
+**as\_integer\_ratio**(){#yandex_ai_studio_sdk._search_api.wordstat.config.PeriodType.as_integer_ratio}
+
+Return a pair of integers, whose ratio is equal to the original int.
+
+The ratio is in lowest terms and has a positive denominator.
+
+```python
+>>> (10).as_integer_ratio()
+(10, 1)
+>>> (-10).as_integer_ratio()
+(-10, 1)
+>>> (0).as_integer_ratio()
+(0, 1)
+```
+
+**is\_integer**(){#yandex_ai_studio_sdk._search_api.wordstat.config.PeriodType.is_integer}
+
+Returns True. Exists for duck type compatibility with float.is\_integer.
+
+**real**{#yandex_ai_studio_sdk._search_api.wordstat.config.PeriodType.real}
+
+the real part of a complex number
+
+**imag**{#yandex_ai_studio_sdk._search_api.wordstat.config.PeriodType.imag}
+
+the imaginary part of a complex number
+
+**numerator**{#yandex_ai_studio_sdk._search_api.wordstat.config.PeriodType.numerator}
+
+the numerator of a rational number in lowest terms
+
+**denominator**{#yandex_ai_studio_sdk._search_api.wordstat.config.PeriodType.denominator}
+
+the denominator of a rational number in lowest terms
+
+**\_\_init\_\_**(*\*args*, *\*\*kwds*){#yandex_ai_studio_sdk._search_api.wordstat.config.PeriodType.__init__i}
+
+### *class* yandex\_ai\_studio\_sdk.\_search\_api.wordstat.config.**RegionsDistributionType**{#yandex_ai_studio_sdk._search_api.wordstat.config.RegionsDistributionType}
+
+Requested type of regions distribution
+
+**ALL** = *1*{#yandex_ai_studio_sdk._search_api.wordstat.config.RegionsDistributionType.ALL}
+
+**CITIES** = *2*{#yandex_ai_studio_sdk._search_api.wordstat.config.RegionsDistributionType.CITIES}
+
+**REGIONS** = *3*{#yandex_ai_studio_sdk._search_api.wordstat.config.RegionsDistributionType.REGIONS}
+
+*classmethod* **Unknown**(*name*, *value*){#yandex_ai_studio_sdk._search_api.wordstat.config.RegionsDistributionType.Unknown}
+
+#|
+|| Parameters | 
+
+- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+|#
+
+**\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.wordstat.config.RegionsDistributionType.__new__i}
+
+**conjugate**(){#yandex_ai_studio_sdk._search_api.wordstat.config.RegionsDistributionType.conjugate}
+
+Returns self, the complex conjugate of any int.
+
+**bit\_length**(){#yandex_ai_studio_sdk._search_api.wordstat.config.RegionsDistributionType.bit_length}
+
+Number of bits necessary to represent self in binary.
+
+```python
+>>> bin(37)
+'0b100101'
+>>> (37).bit_length()
+6
+```
+
+**bit\_count**(){#yandex_ai_studio_sdk._search_api.wordstat.config.RegionsDistributionType.bit_count}
+
+Number of ones in the binary representation of the absolute value of self.
+
+Also known as the population count.
+
+```python
+>>> bin(13)
+'0b1101'
+>>> (13).bit_count()
+3
+```
+
+**as\_integer\_ratio**(){#yandex_ai_studio_sdk._search_api.wordstat.config.RegionsDistributionType.as_integer_ratio}
+
+Return a pair of integers, whose ratio is equal to the original int.
+
+The ratio is in lowest terms and has a positive denominator.
+
+```python
+>>> (10).as_integer_ratio()
+(10, 1)
+>>> (-10).as_integer_ratio()
+(-10, 1)
+>>> (0).as_integer_ratio()
+(0, 1)
+```
+
+**is\_integer**(){#yandex_ai_studio_sdk._search_api.wordstat.config.RegionsDistributionType.is_integer}
+
+Returns True. Exists for duck type compatibility with float.is\_integer.
+
+**real**{#yandex_ai_studio_sdk._search_api.wordstat.config.RegionsDistributionType.real}
+
+the real part of a complex number
+
+**imag**{#yandex_ai_studio_sdk._search_api.wordstat.config.RegionsDistributionType.imag}
+
+the imaginary part of a complex number
+
+**numerator**{#yandex_ai_studio_sdk._search_api.wordstat.config.RegionsDistributionType.numerator}
+
+the numerator of a rational number in lowest terms
+
+**denominator**{#yandex_ai_studio_sdk._search_api.wordstat.config.RegionsDistributionType.denominator}
+
+the denominator of a rational number in lowest terms
+
+**\_\_init\_\_**(*\*args*, *\*\*kwds*){#yandex_ai_studio_sdk._search_api.wordstat.config.RegionsDistributionType.__init__i}

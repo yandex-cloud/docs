@@ -31,11 +31,6 @@
 * [Вертикальное масштабирование приложения в кластере Yandex Managed Service for Kubernetes](vpa-autoscaling.md)
 * [Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием в Yandex Managed Service for Kubernetes](loadtesting-grpc-autoscaling.md)
 
-### Установка NGINX {#nginx}
-
-* [Установка Ingress-контроллера NGINX с менеджером для сертификатов Let's Encrypt® в Yandex Managed Service for Kubernetes](ingress-cert-manager.md)
-* [Установка Ingress-контроллера NGINX с сертификатом из Yandex Certificate Manager](nginx-ingress-certificate-manager.md)
-
 ### Использование Yandex Container Registry {#container-registry}
 
 * [Интеграция Managed Service for Kubernetes с Container Registry](container-registry.md)

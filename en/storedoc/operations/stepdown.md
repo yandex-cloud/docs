@@ -10,7 +10,7 @@ The switchover typically takes less than a minute. During the switchover, the cl
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_hosts }}** tab.
     1. Locate the `PRIMARY` host in the list, click ![options](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yacloud.mongodb.hosts.action_stepdown-host }}**.
 
@@ -31,7 +31,7 @@ The switchover typically takes less than a minute. During the switchover, the cl
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -56,7 +56,7 @@ The switchover typically takes less than a minute. During the switchover, the cl
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

@@ -25,7 +25,7 @@ After creating a cluster, you can:
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** at the top of the page.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enter a new name and description for the cluster.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -68,7 +68,7 @@ After creating a cluster, you can:
 
     To update the cluster description:
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -170,7 +170,7 @@ After creating a cluster, you can:
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** at the top of the page.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, enable or disable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -230,7 +230,7 @@ After creating a cluster, you can:
 
         * `assignPublicIp`: Public access to cluster hosts, `true` or `false`.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -274,7 +274,7 @@ After creating a cluster, you can:
 
         * `assign_public_ip`: Public access to cluster hosts, `true` or `false`.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -297,7 +297,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Change additional cluster settings:
 
@@ -390,7 +390,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -537,7 +537,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings to update.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
         * `config`: Cluster settings:
 
@@ -596,13 +596,13 @@ If you enabled public access to the cluster but cannot access it from the inter
             --data "@body.json"
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -716,7 +716,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
@@ -746,7 +746,7 @@ You can change your cluster's [scheduled maintenance operations](../concepts/mai
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.greenplum.section_background-activities }}**, change these parameters:
 
@@ -857,7 +857,7 @@ You can change your cluster's [scheduled maintenance operations](../concepts/mai
             * `analyze_timeout`: Maximum duration of the `ANALYZE` operation, in seconds. The values range from `7200` to `86399`, the default one is `36000`. As soon as this period expires, the `ANALYZE` operation will be forced to terminate.
             * `vacuum_timeout`: Maximum duration of the `VACUUM` operation, in seconds. The values range from `7200` to `86399`, the default one is `36000`. As soon as this period expires, the `VACUUM` operation will be forced to terminate.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -890,7 +890,7 @@ For a full list of settings, see the [{{ GP }} guide](https://techdocs.broadcom.
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Update the [DBMS settings](../concepts/settings-list.md) by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
   1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
@@ -929,7 +929,7 @@ For a full list of settings, see the [{{ GP }} guide](https://techdocs.broadcom.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -997,7 +997,7 @@ For a full list of settings, see the [{{ GP }} guide](https://techdocs.broadcom.
 
             Available DBMS versions: {{ GP }} `6.28` and `6.29` and {{ CB }} `2.0-cb`.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1064,7 +1064,7 @@ For a full list of settings, see the [{{ GP }} guide](https://techdocs.broadcom.
 You can change the host class for both master hosts and segment hosts. When changing the host class:
 
 * The cluster's primary master host will change.
-* A cluster with local SSD storage may be unavailable for an extended period of time in case of data migration to another physical server.
+* A cluster with local SSD storage may be unavailable for an extended period if data migration to another physical server is required.
 * Using a [special FQDN](./connect/fqdn.md#fqdn-master) does not guarantee a stable database connection: user sessions may be terminated.
 
 Changing the segment host class [affects](../concepts/instance-types.md#select-class-segment-hosts) the maximum amount of memory allocated to each {{ mgp-name }} server process.
@@ -1076,7 +1076,7 @@ We recommend changing the host class only when the cluster is idle.
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select a class for {{ mgp-name }} master hosts or segment hosts.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -1132,7 +1132,7 @@ We recommend changing the host class only when the cluster is idle.
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
       For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -1201,7 +1201,7 @@ We recommend changing the host class only when the cluster is idle.
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings to update.
+        * `updateMask`: Comma-separated string of settings you want to update.
 
         * `masterConfig.resources.resourcePresetId` and `segmentConfig.resources.resourcePresetId`: New [host class](../concepts/instance-types.md) for master and segment hosts.
 
@@ -1274,7 +1274,7 @@ We recommend changing the host class only when the cluster is idle.
   To change the disk type and increase the storage size for a cluster:
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Select the cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
@@ -1308,7 +1308,7 @@ We recommend changing the host class only when the cluster is idle.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -1381,7 +1381,7 @@ We recommend changing the host class only when the cluster is idle.
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings to update.
+        * `updateMask`: Comma-separated string of settings you want to update.
 
         * `masterConfig.resources`, `segmentConfig.resources`: Storage properties for master hosts and segment hosts:
 
@@ -1461,7 +1461,7 @@ We recommend changing the host class only when the cluster is idle.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Select the cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select a service account from the list or [create a new one](../../iam/operations/sa/create.md).
@@ -1490,7 +1490,7 @@ We recommend changing the host class only when the cluster is idle.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -1602,7 +1602,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Select the cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable or disable logging using the **{{ ui-key.yacloud.logging.field_logging }}** option. If you turn logging on, configure it:
@@ -1656,13 +1656,13 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
         For a complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
 
-    1. In the {{ mpg-name }} cluster description, edit the attribute values in the `logging` section:
+    1. In the {{ mgp-name }} cluster description, edit the attribute values in the `logging` section:
 
         ```hcl
         resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {

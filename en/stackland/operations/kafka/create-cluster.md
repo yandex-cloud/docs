@@ -1,6 +1,6 @@
 # Creating a {{ KF }} cluster
 
-If you have a [project](../projects/create-project.md), you can create an [{{ KF }}](../../concepts/components/kafka.md) cluster in it.
+If you have `../projects/create-project.md`, you can create an [{{ KF }}](../../concepts/components/kafka.md) cluster in it.
 
 {% list tabs group=instructions %}
 

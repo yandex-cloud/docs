@@ -135,7 +135,7 @@ annotations:
   ingress.alb.yc.io/modify-header-response-replace: X-Robots-Tag=noarchive,X-Robots-Tag=nofollow,X-Robots-Tag=noindex
   ```
 
-Подробнее об аннотациях читайте в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
+Подробнее об аннотациях в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
 
 Для объекта `ObjectMeta` можно передать следующие аннотации:
 
@@ -231,7 +231,7 @@ annotations:
 
   Если аннотация не указана, балансировщик соединяется с бэкендами без шифрования.
 
-  Для бэкендов, входящих в состав групп, значение аннотации игнорируется. Шифрование соединений балансировщика с бэкендами из групп настраивается с помощью поля `spec.backend.tls` ресурса `HttpBackendGroup` (читайте [справочник ресурса]({{ configuration-local-link }}/http-backend-group.md)).
+  Для бэкендов, входящих в состав групп, значение аннотации игнорируется. Шифрование соединений балансировщика с бэкендами из групп настраивается с помощью поля `spec.backend.tls` [ресурса `HttpBackendGroup`]({{ configuration-local-link }}/http-backend-group.md).
 
 * **ingress.alb.yc.io/prefix-rewrite** {#annot-prefix-rewrite}
 

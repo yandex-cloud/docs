@@ -60,7 +60,7 @@
      1. Нажмите кнопку **Добавить правило отбрасывания логов** и настройте его [параметры](../../application-load-balancer/concepts/application-load-balancer.md#discard-logs-rules).
   1. Нажмите **Сохранить**.
 
-  Другие способы включения логов см. в разделе [Настроить запись логов L7-балансировщика](../../application-load-balancer/operations/application-load-balancer-manage-logs.md).
+  Другие способы включения логов описаны в разделе [Настроить запись логов L7-балансировщика](../../application-load-balancer/operations/application-load-balancer-manage-logs.md).
 
 - Audit Trails {#at}
 
@@ -79,7 +79,7 @@
   1. В блоке **Сервисный аккаунт** создайте или выберите аккаунт с ролью `logging.writer`.
   1. Нажмите **Создать**.
 
-  Другие способы включения записи событий см. в разделе [Создание трейла для загрузки аудитных логов](../../audit-trails/operations/create-trail.md).
+  Другие способы включения записи событий описаны в разделе [Создание трейла для загрузки аудитных логов](../../audit-trails/operations/create-trail.md).
 
 {% endlist %}
 
@@ -99,7 +99,7 @@
 
   1. Чтобы посмотреть содержимое лога, разверните его.
 
-  Другие способы просмотра логов см. в разделах [Посмотреть логи L7-балансировщика](../../application-load-balancer/operations/application-load-balancer-get-logs.md) и [Чтение записей](../../logging/operations/read-logs.md).
+  Другие способы просмотра логов описаны в разделах [Посмотреть логи L7-балансировщика](../../application-load-balancer/operations/application-load-balancer-get-logs.md) и [Чтение записей](../../logging/operations/read-logs.md).
 
 
   ## Примеры готовых фильтров для логов {#filtration}
@@ -180,10 +180,10 @@
      yandex.cloud.audit.smartwebsecurity.<имя_события>
      ```
 
-     Примеры составления запросов см. в разделе [Примеры запросов для поиска событий в аудитных логах](../../audit-trails/tutorials/search-events-audit-logs/examples.md).
+     Примеры составления запросов приведены в разделе [Примеры запросов для поиска событий в аудитных логах](../../audit-trails/tutorials/search-events-audit-logs/examples.md).
 
   1. Чтобы посмотреть содержимое лога, разверните его.
 
-Другие способы просмотра логов см. в разделе [Посмотреть логи L7-балансировщика](../../application-load-balancer/operations/application-load-balancer-get-logs.md).
+Другие способы просмотра логов описаны в разделе [Посмотреть логи L7-балансировщика](../../application-load-balancer/operations/application-load-balancer-get-logs.md).
 
 {% endlist %}

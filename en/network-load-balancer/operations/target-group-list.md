@@ -8,8 +8,8 @@ You can request detailed information about each target group you created.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. In the left-hand panel, select ![trgroups.svg](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
 
 - CLI {#cli}
@@ -48,7 +48,7 @@ You can request detailed information about each target group you created.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your [target group](../concepts/target-resources.md).
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. In the left-hand panel, select ![trgroups.svg](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
     1. Click your group name.
     1. The **Overview** page will show the target group details.
@@ -100,13 +100,13 @@ You can request detailed information about each target group you created.
       * `output "target_group"`: Output variable with target group creation date information:
          * `value`: Return value.
 
-      You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_lb_target_group` data source properties, see [this {{ TF }} provider article]({{ tf-provider-datasources-link }}/lb_target_group).
+      You can replace `created_at` with another variable to get the information you need. For more information about the `yandex_lb_target_group` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/lb_target_group).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+      {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

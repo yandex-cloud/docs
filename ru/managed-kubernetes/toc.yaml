@@ -105,10 +105,6 @@ items:
             href: operations/cilium.md
           - name: Настройка NodeLocal DNS для контроллера сетевых политик Cilium
             href: operations/cilium-node-local-dns.md
-          - name: >-
-              Создание сетевого балансировщика с помощью Ingress-контроллера
-              NGINX
-            href: operations/create-load-balancer-with-ingress-nginx.md
       - name: Работа с постоянными томами
         items:
           - name: Динамическая подготовка тома
@@ -244,14 +240,6 @@ items:
               Развертывание и нагрузочное тестирование gRPC-сервиса с
               масштабированием
             href: tutorials/load-testing-grpc-autoscaling.md
-      - name: Установка NGINX
-        items:
-          - name: Установка Ingress-контроллера NGINX с Let's Encrypt®
-            href: tutorials/ingress-cert-manager.md
-          - name: >-
-              Установка Ingress-контроллера NGINX с сертификатом из {{
-              certificate-manager-name }}
-            href: tutorials/nginx-ingress-certificate-manager.md
       - name: Использование {{ container-registry-name }}
         items:
           - name: Интеграция с {{ container-registry-name }}

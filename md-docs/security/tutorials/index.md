@@ -110,7 +110,6 @@
 
 ## Защита приложений {#app-security}
 
-* [Установка Ingress-контроллера NGINX с сертификатом из Yandex Certificate Manager](app-security/nginx-ingress-certificate-manager.md)
 * [Построение пайплайна CI/CD в GitLab с использованием serverless-продуктов](app-security/ci-cd-serverless.md)
 * [Создание интерактивного serverless-приложения с использованием WebSocket](app-security/websocket-app.md)
 * [Создание L7-балансировщика Yandex Application Load Balancer с профилем безопасности Yandex Smart Web Security](app-security/balancer-with-sws-profile/index.md)

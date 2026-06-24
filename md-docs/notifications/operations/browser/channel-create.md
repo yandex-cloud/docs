@@ -29,7 +29,7 @@
 
      Где `--name` — имя канала уведомлений, задается пользователем.
 
-     Подробнее о команде `aws sns create-platform-application` см. в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-platform-application.html).
+     Подробнее о команде `aws sns create-platform-application` в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-platform-application.html).
 
 - AWS SDK для Python {#python}
 

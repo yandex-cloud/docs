@@ -45,7 +45,8 @@ The maximum string length in characters is 50. ||
   "company_name": "string",
   "department": "string",
   "job_title": "string",
-  "employee_id": "string"
+  "employee_id": "string",
+  "expires_at": "google.protobuf.Timestamp"
 }
 ```
 
@@ -119,4 +120,7 @@ User's job title. ||
 || employee_id | **string**
 
 User's employee ID ||
+|| expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Timestamp when the user account expires. ||
 |#

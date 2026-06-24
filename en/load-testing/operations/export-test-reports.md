@@ -13,7 +13,7 @@ In {{ load-testing-name }}, you can export test results to a [{{ objstorage-full
 ## Exporting a report to {{ objstorage-full-name }} {#export-report}
 
 1. In the [management console]({{ link-console-main }}), select a folder.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. In the ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab, select the test you need.
 1. On the test page, click ![image](../../_assets/console-icons/ellipsis.svg) in the top-right corner and select **{{ ui-key.yacloud.load-testing.button_export-report }}**.
 1. In the **{{ ui-key.yacloud.load-testing.label_report-export-title }}** dialog:
@@ -26,7 +26,7 @@ In {{ load-testing-name }}, you can export test results to a [{{ objstorage-full
 ## Downloading a report from {{ objstorage-full-name }} {#download-report}
 
 1. In the [management console]({{ link-console-main }}), select a folder.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. In the ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab, select the test you need.
 1. In the **{{ ui-key.yacloud.load-testing.label_report-exports-history-title }}** tab, make sure the export operation you need is shown as **{{ ui-key.yacloud.common.operations.column_value_done }}**.
 1. Use the link in the **File path** column to go to the export operation page.

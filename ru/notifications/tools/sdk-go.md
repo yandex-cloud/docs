@@ -297,7 +297,7 @@ if err != nil {
 * `stringValue` — текстовое имя отправителя.
 
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Начало работы](../quickstart.md)
 * [AWS CLI](aws-cli.md)

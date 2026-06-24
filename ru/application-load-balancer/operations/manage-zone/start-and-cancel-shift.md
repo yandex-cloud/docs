@@ -172,7 +172,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Отключить и включить зоны доступности для группы ВМ {{ compute-full-name }}](../../../compute/operations/instance-groups/disable-enable-zone.md)
 * [Отключить и включить зоны доступности в {{ network-load-balancer-full-name }}](../../../network-load-balancer/operations/manage-zone/disable-enable-zone.md)

@@ -40,7 +40,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.service
     1. In the [management console]({{ link-console-main }}), select the folder with the bucket you need. If there is no such bucket, [create](../../storage/operations/buckets/create.md) one.
 
 
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the **{{ ui-key.yacloud.storage.buckets.label_title }}** tab.
     1. Set up the [bucket ACL](../../storage/operations/buckets/edit-acl.md):
         1. In the **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** drop-down list, specify the service account [attached to the cluster](#connect-service-account).

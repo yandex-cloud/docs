@@ -39,11 +39,11 @@ description: Из статьи вы узнаете, в каких сервиса
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](../../functions/operations/function/lockbox-secret-transmit.md).
-* [Создание подключения {{ connection-manager-name }}](../../metadata-hub/operations/create-connection.md).
-* [Синхронизация с секретами {{ lockbox-name }} в {{ managed-k8s-name }}](../../managed-kubernetes/tutorials/kubernetes-lockbox-secrets.md).
-* [{#T}](../../serverless-containers/operations/lockbox-secret-transmit.md).
-* [{#T}](../../managed-gitlab/tutorials/gitlab-lockbox-integration.md).
+* [{#T}](../../functions/operations/function/lockbox-secret-transmit.md)
+* [Создание подключения {{ connection-manager-name }}](../../metadata-hub/operations/create-connection.md)
+* [Синхронизация с секретами {{ lockbox-name }} в {{ managed-k8s-name }}](../../managed-kubernetes/tutorials/kubernetes-lockbox-secrets.md)
+* [{#T}](../../serverless-containers/operations/lockbox-secret-transmit.md)
+* [{#T}](../../managed-gitlab/tutorials/gitlab-lockbox-integration.md)
 
 ## Примеры использования {#examples}
 

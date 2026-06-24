@@ -33,11 +33,9 @@ For more information about {{ CK }} hosts, see [{#T}](../concepts/coordination-s
   1. Select the [availability zone](../../overview/concepts/geo-scope.md) and a subnet inside it.
   1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
-{% endlist %}  
+{% endlist %}
 
 ## Changing {{ CK }} settings {#update-keeper-settings}
-
-{% include [note-change-disk-type-data-loss](../../_includes/mdb/mch/note-change-disk-type-data-loss.md) %}
 
 {% list tabs group=instructions %}
 

@@ -108,7 +108,7 @@
 
 #### Полезные ссылки {#certificate-manager-see-also}
 
-- [Документация Let's Encrypt. Ограничения](https://letsencrypt.org/ru/docs/rate-limits/)
+[Документация Let's Encrypt. Ограничения](https://letsencrypt.org/ru/docs/rate-limits/)
 
 ## Yandex Cloud Backup {#backup}
 
@@ -234,7 +234,7 @@
 
 ^1^ Квота `Количество триггеров в одном облаке` — общая для сервисов API Gateway, Cloud Functions и Serverless Containers. В [консоли управления](https://console.yandex.cloud/cloud?section=quotas) она отображается в списке квот сервиса Cloud Functions.
 
-Подробнее о взаимосвязи квот читайте в разделе [Взаимосвязь квот](../functions/concepts/limits.md#related-quotas).
+Взаимосвязь квот описана в разделе [Взаимосвязь квот](../functions/concepts/limits.md#related-quotas).
 
 #### Лимиты {#functions-limits}
 

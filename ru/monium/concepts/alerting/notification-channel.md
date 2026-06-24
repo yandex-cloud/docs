@@ -35,6 +35,6 @@
 `{{ ui-key.yacloud_monitoring.channel.status-description_error }}` | Не удалось отправить уведомление из-за ошибки.
 `{{ ui-key.yacloud_monitoring.channel.status-description_resource_exhausted }}` | Не удалось отправить уведомление из-за ограничения метода отправки.
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Создание канала уведомлений](../../operations/alert/create-channel.md)
+[Создание канала уведомлений](../../operations/alert/create-channel.md)

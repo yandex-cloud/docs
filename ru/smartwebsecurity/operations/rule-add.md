@@ -52,7 +52,7 @@ description: Следуя данной инструкции, вы сможете
 
          {% include [profile-create-yaml-result](../../_includes/smartwebsecurity/profile-create-yaml-result.md) %}
 
-  Подробнее о команде `yc smartwebsecurity security-profile update` читайте в [справочнике CLI](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/update.md).
+  Подробнее о команде `yc smartwebsecurity security-profile update` в [справочнике CLI](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/update.md).
 
 - {{ TF }} {#tf}
 
@@ -108,7 +108,7 @@ description: Следуя данной инструкции, вы сможете
       }
       ```
 
-      Более подробную информацию о параметрах ресурса `yandex_sws_security_profile` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/sws_security_profile).
+      Подробнее о параметрах ресурса `yandex_sws_security_profile` в [документации провайдера]({{ tf-provider-resources-link }}/sws_security_profile).
 
   1. Создайте ресурсы:
 
@@ -126,9 +126,9 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-Если для базового правила по умолчанию установлено действие `Запретить` и запросы отправляются на проверку в {{ captcha-name }}, [добавьте](captcha-rule.md) разрешающее правило. О приоритете правил см. в разделе [{#T}](../concepts/rules.md#rules-order).
+Если для базового правила по умолчанию установлено действие `Запретить` и запросы отправляются на проверку в {{ captcha-name }}, [добавьте](captcha-rule.md) разрешающее правило. Приоритет правил описан в разделе [{#T}](../concepts/rules.md#rules-order).
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](rule-update.md)
 * [{#T}](rule-delete.md)

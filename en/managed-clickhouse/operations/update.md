@@ -39,8 +39,8 @@ To attach a service account to a {{ mch-name }} cluster, [assign](../../iam/oper
 
     To change the service account settings:
 
-    1. In the [management console]({{ link-console-main }}), select the folder where the cluster is located.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, select your service account from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up a service account, see [{#T}](s3-access.md).
 
@@ -74,8 +74,8 @@ The minimum number of cores per {{ ZK }} host depends on the total number of cor
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. To change the {{ CH }} host class, select the platform, VM type, and required host class under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**.
   1. To change the {{ ZK }} host class, select the platform, VM type, and required {{ ZK }} host class under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**.
@@ -125,7 +125,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of cor
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -325,24 +325,21 @@ When changing the disk type or storage size, a cluster with local SSD storage ma
 
 You can also [change the disk type and storage size for an individual shard](shards.md#shard-update).
 
-{% note info %}
-
-To change the disk type to `local-ssd`, contact [support]({{ link-console-support }}).
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   To change the disk type and expand the storage size for a cluster:
 
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
-  1. To change the disk type and increase the storage size for your {{ CH }} hosts, select the appropriate value under **{{ ui-key.yacloud.mdb.forms.section_disk }}**.
-  1. To change the disk type and increase the storage size for your {{ ZK }} hosts, select the appropriate value under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**.
+  1. To change the disk type and increase the storage size for your {{ CH }} hosts, select the appropriate values under **{{ ui-key.yacloud.mdb.forms.section_disk }}**.
+  1. To change the disk type and increase the storage size for your {{ CK }} or {{ ZK }} hosts, select the appropriate values under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}** or **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-disk }}**, respectively.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. If you have changed the disk type for {{ CH }} hosts:
+      1. In the window that opens, look up the number of non-replicated tables in the **Non-replicated MergeTree tables** chart and their size in **Size of non-replicated MergeTree tables**. The data in the non-replicated tables will be lost. If you need to keep it, [convert]({{ ch.docs }}{{ lang }}/sql-reference/statements/attach#attach-mergetree-table-as-replicatedmergetree) the non-replicated tables to replicated ones before you change the disk type.
+      1. Confirm resource changes.
 
 - CLI {#cli}
 
@@ -363,8 +360,11 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
      ```bash
      {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
        --clickhouse-disk-size <storage_size_in_GB> \
-       --clickhouse-disk-type <disk_type>
+       --clickhouse-disk-type <disk_type> \
+       --allow-host-recreation
      ```
+
+     When changing the disk type, the `--allow-host-recreation` parameter is required to allow your cluster to recreate the hosts.
 
           
      The new storage size must be at least as large as the `disk_size` in the cluster properties.
@@ -372,18 +372,24 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
 
      You can get the cluster name and ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-  1. To change the disk type and increase the storage size for your {{ ZK }} hosts, provide the appropriate values in the `--zookeeper-disk-size` parameter.
+  1. To change the disk type and increase the storage size for your {{ ZK }} hosts, provide the appropriate values in the `--zookeeper-disk-size` and `--zookeeper-disk-type` parameters.
 
 
 - {{ TF }} {#tf}
 
-  To change the [disk type](../concepts/storage.md) and increase the storage size, do the following:
+  {% note info %}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+  {{ TF }} cannot change the disk type.
+
+  {% endnote %}
+
+  To increase the storage size:
+
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
-    1. In the {{ mch-name }} cluster description, change the `disk_size` and `disk_type_id` values in the `clickhouse.resources` and `zookeeper.resources` sections for {{ CH }} and {{ ZK }} hosts, respectively:
+    1. In the {{ mch-name }} cluster description, change the `disk_size` value in the `zookeeper.resources` or `clickhouse.resources` section for {{ CH }} and {{ ZK }} hosts, respectively:
 
         ```hcl
         resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
@@ -391,14 +397,12 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
           clickhouse = {
             resources = {
               disk_size = <storage_size_in_GB>
-              disk_type_id = "<disk_type>"
               ...
             }
           }
           zookeeper = {
             resources = {
               disk_size = <storage_size_in_GB>
-              disk_type_id = "<disk_type>"
               ...
             }
           }
@@ -435,7 +439,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
             --header "Content-Type: application/json" \
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>' \
             --data '{
-                      "updateMask": "configSpec.clickhouse.resources.diskSize,configSpec.clickhouse.resources.diskTypeId,configSpec.zookeeper.resources.diskSize,configSpec.zookeeper.resources.diskTypeId",
+                      "updateMask": "configSpec.clickhouse.resources.diskSize,configSpec.clickhouse.resources.diskTypeId,configSpec.zookeeper.resources.diskSize,configSpec.zookeeper.resources.diskTypeId,allowHostRecreation",
                       "configSpec": {
                         "clickhouse": {
                           "resources": {
@@ -449,7 +453,8 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
                             "diskTypeId": "<disk_type>"
                           }
                         }
-                      }
+                      },
+                      "allowHostRecreation": "true"
                     }'
         ```
 
@@ -468,6 +473,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
         * `configSpec.clickhouse.resources.diskTypeId`: [Disk type](../concepts/storage.md) of {{ CH }} hosts.
         * `configSpec.zookeeper.resources.diskSize`: {{ ZK }} host storage size, in bytes.
         * `configSpec.zookeeper.resources.diskTypeId`: Disk type of {{ ZK }} hosts.
+        * `allowHostRecreation`: Allows your cluster to recreate hosts. This setting is required when changing the disk type.
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -499,7 +505,8 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
                       "config_spec.clickhouse.resources.disk_size",
                       "config_spec.clickhouse.resources.disk_type_id",
                       "config_spec.zookeeper.resources.disk_size",
-                      "config_spec.zookeeper.resources.disk_type_id"
+                      "config_spec.zookeeper.resources.disk_type_id",
+                      "allow_host_recreation"
                     ]
                   },
                   "config_spec": {
@@ -515,13 +522,15 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
                         "disk_type_id": "<disk_type>"
                       }
                     }
-                  }
+                  },
+                  "allow_host_recreation": "true"
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
         ```
 
         Where:
+
         * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             Specify the relevant parameters:
@@ -537,6 +546,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
         * `config_spec.clickhouse.resources.disk_type_id`: [Disk type](../concepts/storage.md) of {{ CH }} hosts.
         * `config_spec.zookeeper.resources.disk_size`: {{ ZK }} host storage size, in bytes.
         * `config_spec.zookeeper.resources.disk_type_id`: Disk type of {{ ZK }} hosts.
+        * `allow_host_recreation`: Allows your cluster to recreate hosts. This setting is required when changing the disk type.
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -565,25 +575,25 @@ You can turn on the {{ CK }} or {{ ZK }} [coordination service](#enable-coordina
   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-coordinator }}** in the top-right corner of the page.
   1. Under **{{ ui-key.yacloud.clickhouse.AddCoordinatorHost.title_main-settings_68Grp }}**, select the [coordination service](../concepts/coordination-system.md).
   1. Configure the following settings depending on the service you selected:
-      
+
       * For the **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-zookeeper }}** coordination service:
 
         * Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**, select the platform, VM type, and [host class](../concepts/instance-types.md).
         * Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**, select the [disk type](../concepts/storage.md) and storage size. Optionally, configure [automatic increase of storage size](../concepts/storage.md#autoscaling) for {{ ZK }}.
 
         * Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-hosts }}**:
-          
+
           * Optionally, change the settings of the automatically added {{ ZK }} hosts.
-        
+
             To change the host settings, click ![pencil](../../_assets/console-icons/pencil.svg) next to the host and specify the following:
-          
+
             * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}**: Select the [availability zone](../../overview/concepts/geo-scope.md).
             * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}**: Select the [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
 
           * To convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables) ones, enable **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**.
-          
+
             This will automatically convert non-replicated tables [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication)-based replicated ones.
-            
+
             Once this option is enabled, you cannot disable it.
 
       * For the **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}** coordination service:
@@ -591,18 +601,18 @@ You can turn on the {{ CK }} or {{ ZK }} [coordination service](#enable-coordina
         * Under **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-resource }}**, select the platform, VM type, and [host class](../concepts/instance-types.md).
         * Under **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-disk }}**, select the [disk type](../concepts/storage.md) and storage size. Optionally, configure [automatic increase of storage size](../concepts/storage.md#autoscaling) for {{ CK }}.
         * Under **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-hosts }}**:
-        
+
           * Optionally, change the settings of the automatically added {{ CK }} hosts as appropriate.
-        
+
             To change the host settings, click ![pencil](../../_assets/console-icons/pencil.svg) next to the host and specify the following:
-          
+
             * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}**: Select the [availability zone](../../overview/concepts/geo-scope.md).
             * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}**: Select the [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
 
           * To convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables) ones, enable **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**.
-          
+
             This will automatically convert non-replicated tables [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication)-based replicated ones.
-            
+
             Once this option is enabled, you cannot disable it.
 
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -618,7 +628,7 @@ You can turn on the {{ CK }} or {{ ZK }} [coordination service](#enable-coordina
   1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Configure the following settings depending on the coordination service you selected:
-      
+
       * For the **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}** coordination service:
 
         * Under **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-resource }}**, select the platform, VM type, and [host class](../concepts/instance-types.md).
@@ -650,8 +660,8 @@ You cannot disable settings for user or database management via SQL once they ar
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. To [manage users via SQL](../concepts/user-access-rights.md#sql-user-management), enable **{{ ui-key.yacloud.mdb.forms.section_settings }}** under **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** and specify the `admin` password.
   1. To [manage databases via SQL](databases.md#sql-database-management), enable **{{ ui-key.yacloud.mdb.forms.section_settings }}** and **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** under **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** and specify the `admin` password.
@@ -691,7 +701,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -824,8 +834,8 @@ You cannot disable settings for user or database management via SQL once they ar
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
@@ -916,7 +926,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -1070,7 +1080,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        1. Run this request:
+        1. Run this query:
 
             ```bash
             curl \
@@ -1181,7 +1191,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
             You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-        1. Run this request:
+        1. Run this query:
 
             ```bash
             grpcurl \
@@ -1228,8 +1238,8 @@ The following resources will be created for each database user:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the cluster you want to move.
     1. Select **{{ ui-key.yacloud.common.move }}**.
     1. Select the folder you want to move your cluster to.
@@ -1261,7 +1271,7 @@ The following resources will be created for each database user:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         For more on how to create this file, see [Creating a cluster](./cluster-create.md).
 
@@ -1352,8 +1362,8 @@ The following resources will be created for each database user:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the security groups for cluster network traffic.
 
@@ -1380,7 +1390,7 @@ The following resources will be created for each database user:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         For more on how to create this file, see [Creating a cluster](cluster-create.md).
 

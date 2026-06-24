@@ -24,7 +24,7 @@
           
           {% endnote %}
       
-          Подробнее о приоритете правил смотрите в разделе [Общие принципы работы правил](../concepts/rules.md#rules-order).
+          Приоритет правил описан в разделе [Общие принципы работы правил](../concepts/rules.md#rules-order).
       
       1. (опционально) Включите опцию **Только логирование (dry run)**, если вы хотите только фиксировать информацию о трафике, который соответствует заданным условиям, но не применять к нему никаких действий.
       1. Выберите тип правила:
@@ -364,7 +364,7 @@
          
          {% endcut %}
 
-  Подробнее о команде `yc smartwebsecurity security-profile update` читайте в [справочнике CLI](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/update.md).
+  Подробнее о команде `yc smartwebsecurity security-profile update` в [справочнике CLI](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/update.md).
 
 - Terraform {#tf}
 
@@ -427,7 +427,7 @@
       }
       ```
 
-      Более подробную информацию о параметрах ресурса `yandex_sws_security_profile` в Terraform, см. в [документации провайдера](../../terraform/resources/sws_security_profile.md).
+      Подробнее о параметрах ресурса `yandex_sws_security_profile` в [документации провайдера](../../terraform/resources/sws_security_profile.md).
 
   1. Создайте ресурсы:
 
@@ -471,9 +471,9 @@
 
 {% endlist %}
 
-Если для базового правила по умолчанию установлено действие `Запретить` и запросы отправляются на проверку в SmartCaptcha, [добавьте](captcha-rule.md) разрешающее правило. О приоритете правил см. в разделе [Общие принципы работы правил](../concepts/rules.md#rules-order).
+Если для базового правила по умолчанию установлено действие `Запретить` и запросы отправляются на проверку в SmartCaptcha, [добавьте](captcha-rule.md) разрешающее правило. Приоритет правил описан в разделе [Общие принципы работы правил](../concepts/rules.md#rules-order).
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Изменить правило в профиле безопасности](rule-update.md)
 * [Удалить правило из профиля безопасности](rule-delete.md)

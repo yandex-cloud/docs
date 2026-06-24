@@ -9,16 +9,16 @@ description: Follow this guide to connect to a {{ MY }} cluster from {{ datalens
 
 To use an existing cluster as a data source for {{ datalens-full-name }}:
 1. [Activate {{ datalens-name }}](#activate-datalens).
-1. [Enable access to the cluster from {{ datalens-name }}](#allow-access).
+1. [Allow access to the cluster from {{ datalens-name }}](#allow-access).
 1. [Create a cluster connection in {{ datalens-name }}](#create-connector).
 
 ## Activating {{ datalens-name }} {#activate-datalens}
 
 {% include [mdb-activate-datalens](../../_includes/mdb/datalens-activate.md) %}
 
-## Enabling access to a cluster from {{ datalens-name }} {#allow-access}
+## Allowing access to a cluster from {{ datalens-name }} {#allow-access}
 
-To enable {{ datalens-name }} to connect to your cluster and work with its data, enable **{{ ui-key.yacloud.mdb.cluster.overview.label_access-datalens }}** when [creating](cluster-create.md) or [reconfiguring](update.md#change-additional-settings) the cluster.
+To allow {{ datalens-name }} to connect to your cluster and work with its data, enable **{{ ui-key.yacloud.mdb.cluster.overview.label_access-datalens }}** when [creating](cluster-create.md) or [reconfiguring](update.md#change-additional-settings) the cluster.
 
 ## Creating a cluster connection {#create-connector}
 
@@ -27,8 +27,8 @@ To enable {{ datalens-name }} to connect to your cluster and work with its data,
 - Management console {#console}
 
   1. Make sure {{ datalens-name }} is [activated](#activate-datalens) in the relevant folder and has [permission](#allow-access) to access the cluster.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_datalens }}** tab.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_datalens }}** tab.
   1. Click **Create connection**.
 
      {% cut "I have no **Create connection** button" %}
@@ -59,8 +59,8 @@ After creating the connection, you can:
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_datalens }}** tab.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_datalens }}** tab.
 
 {% endlist %}
 
@@ -70,8 +70,8 @@ After creating the connection, you can:
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_datalens }}** tab.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_datalens }}** tab.
   1. Select the connection from the list.
   1. Edit the connection [settings](#connector-settings) and scope as needed.
   1. Check that the settings are correct by clicking **Check connection**.
@@ -85,7 +85,7 @@ After creating the connection, you can:
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **Managed Service for MySQL**.
+  1. Navigate to **Managed Service for MySQL**.
   1. Click the name of your cluster and open the **DataLens** tab.
   1. Select the connection from the list.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) at the top of the page and select **Delete**.

@@ -4,6 +4,6 @@
 
 Если этот параметр в ссылке не указан, по умолчанию будет использоваться значение `object_fit=cover`.
 
-Подробнее о параметре `object_fit` смотрите в [документации CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit).
+Подробнее о параметре `object_fit` в [документации CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit).
 
 {% endnote %}

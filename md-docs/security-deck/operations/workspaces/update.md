@@ -1,11 +1,5 @@
 # Изменить окружение Security Deck и его компоненты
 
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 ## Изменить окружение {#update-workspace}
 
 Чтобы изменить [окружение](../../concepts/workspace.md) Security Deck:

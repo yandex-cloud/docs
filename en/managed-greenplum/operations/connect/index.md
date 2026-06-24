@@ -73,81 +73,10 @@ Rule settings depends on the connection method you select:
 {% endlist %}
 
 
-
 ### Security groups for {{ mtr-full-name }} {#sg-for-trino}
 
-The connector uses the GPFDIST protocol for connection to {{ mtr-name }}:
+{% include [trino-greenplum-security-groups](../../../_includes/managed-trino/greenplum-security-groups.md) %}
 
-* {{ mtr-name }} coordinators and workers send queries to the {{ mgp-name }} master over TCP port {{ port-mgp }}.
-* {{ mgp-name }} segments forward data to {{ mtr-name }} workers over the GPFDIST TCP port, e.g., 31111.
-
-To ensure a secure connection to {{ mtr-name }}, we recommend that you configure security groups in [{{ mgp-name }}](#configuring-sg-greenplum) and, optionally, in [{{ mtr-name }}](#configuring-sg-trino).
-
-If {{ mgp-name }} interacts with other clusters or entities inside the user network, you need to separately configure security group rules for any such clusters or entities.
-
-#### {{ mgp-name }} side setup {#configuring-sg-greenplum}
-
-{% list tabs group=traffic %}
-
-- Incoming traffic {#incoming}
-
-    * Rule for internal {{ mgp-name }} cluster traffic:
-
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`.
-
-    * Rule for connections from a {{ mtr-name }} cluster:
-
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mgp }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: Specify the {{ mtr-name }} cluster security group.
-
-- Outgoing traffic {#outgoing}
-
-    * Rule for internal {{ mgp-name }} cluster traffic:
-
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`.
-
-    * Rule for connections to a {{ mtr-name }} cluster:
-
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `30078-30085`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: Specify the {{ mtr-name }} cluster security group.
-
-{% endlist %}
-
-#### {{ mtr-name }} side setup {#configuring-sg-trino}
-
-To configure security group rules in {{ mtr-name }}, invert the {{ mgp-name }} rule settings. Setting up rules for a {{ mtr-name }} cluster is optional, but this provides added security for your cluster.
-
-{% list tabs group=traffic %}
-
-- Incoming traffic {#incoming}
-
-    Rule for receiving data from {{ mgp-name }} segments:
-
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `30078-30085`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: Specify the {{ mgp-name }} cluster security group.
-
-- Outgoing traffic {#outgoing}
-
-    Rule for connections to a {{ mgp-name }} master:
-
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mgp }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: Specify the {{ mgp-name }} cluster security group.
-
-{% endlist %}
 
 ## Obtaining an SSL certificate {#get-ssl-cert}
 

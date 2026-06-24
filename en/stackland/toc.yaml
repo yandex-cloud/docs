@@ -15,6 +15,11 @@ items:
         href: tutorials/index.md
       - name: Installing Stackland on Yandex BareMetal
         href: tutorials/install-on-yc-bms.md
+      - name: Installing {{ stackland-name }} on {{ baremetal-full-name }} via PXE
+        href: tutorials/install-on-yc-bms-pxe.md
+        hidden: true
+      - name: Installing {{ stackland-name }} on {{ yandex-cloud }} VMs
+        href: tutorials/install-on-yc-vm.md
       - name: Setting up external access to a pod in a cluster
         href: tutorials/expose-app-domain.md
   - name: Step-by-step guides
@@ -36,7 +41,7 @@ items:
         items:
           - name: '{{ mpg-short-name }}'
             items:
-              - name: Creating a cluster {{ PG }}
+              - name: Creating a {{ PG }} cluster
                 href: operations/postgresql/create-cluster.md
               - name: Updating cluster settings
                 href: operations/postgresql/edit-cluster.md
@@ -50,7 +55,7 @@ items:
                 href: operations/postgresql/delete-cluster.md
           - name: '{{ mch-short-name }}'
             items:
-              - name: Creating a cluster {{ CH }}
+              - name: Creating a {{ CH }} cluster
                 href: operations/clickhouse/create-cluster.md
               - name: Updating cluster settings
                 href: operations/clickhouse/edit-cluster.md
@@ -142,10 +147,20 @@ items:
             href: operations/speechsense/configure.md
           - name: Disable
             href: operations/speechsense/disable.md
+      - name: Secrets Store
+        items:
+          - name: Injecting secrets into environment variables
+            href: operations/secrets-store/inject-secrets-env.md
+          - name: Injecting secrets via ConfigMap
+            href: operations/secrets-store/inject-secrets-configmap.md
+          - name: Secrets Store diagnostics
+            href: operations/secrets-store/troubleshooting.md
       - name: Disk subsystem
         items:
-          - name: Diagnosing a disk subsystem
+          - name: Troubleshooting a disk subsystem
             href: operations/disk-storage/troubleshooting.md
+          - name: Switching storage class of a component
+            href: operations/disk-storage/change-storage-class.md
       - name: Managing a cluster
         items:
           - name: Upgrading a cluster

@@ -24,6 +24,11 @@ apiPlayground:
             **[PasswordHash](#yandex.cloud.organizationmanager.v1.idp.PasswordHash)**
             Password hash to set.
           $ref: '#/definitions/PasswordHash'
+        needChange:
+          description: |-
+            **boolean**
+            Whether the user must change their password on next login.
+          type: boolean
       additionalProperties: false
     definitions:
       PasswordHash:
@@ -40,10 +45,19 @@ apiPlayground:
               **enum** (PasswordHashType)
               Required field. Type of the password hash.
               - `AD_MD4`: Microsoft Active Directory MD4 hash.
+              - `LDAP_PBKDF2_SHA256`: 389 legacy format `{PBKDF2_SHA256}` (underscore).
+              Supported by 389 DS, FreeIPA, ALD Pro.
+              - `LDAP_PBKDF2_SHA256_OPENLDAP`: OpenLDAP-compatible format `{PBKDF2-SHA256}` (hyphen). Supported by 389 DS, FreeIPA, ALD Pro.
+              - `LDAP_PBKDF2_SHA512`: Supported by 389 DS, FreeIPA, ALD Pro.
+              - `LDAP_PKCS5S2`: Supported by Apache Directory Server.
             type: string
             enum:
               - PASSWORD_HASH_TYPE_UNSPECIFIED
               - AD_MD4
+              - LDAP_PBKDF2_SHA256
+              - LDAP_PBKDF2_SHA256_OPENLDAP
+              - LDAP_PBKDF2_SHA512
+              - LDAP_PKCS5S2
         required:
           - passwordHash
           - passwordHashType
@@ -79,7 +93,8 @@ The maximum string length in characters is 50. ||
   "hash": {
     "passwordHash": "string",
     "passwordHashType": "string"
-  }
+  },
+  "needChange": "boolean"
 }
 ```
 
@@ -90,6 +105,9 @@ Request to set a password hash for a user.
 || hash | **[PasswordHash](#yandex.cloud.organizationmanager.v1.idp.PasswordHash)**
 
 Password hash to set. ||
+|| needChange | **boolean**
+
+Whether the user must change their password on next login. ||
 |#
 
 ## PasswordHash {#yandex.cloud.organizationmanager.v1.idp.PasswordHash}
@@ -107,7 +125,12 @@ The maximum string length in characters is 128. ||
 
 Required field. Type of the password hash.
 
-- `AD_MD4`: Microsoft Active Directory MD4 hash. ||
+- `AD_MD4`: Microsoft Active Directory MD4 hash.
+- `LDAP_PBKDF2_SHA256`: 389 legacy format `{PBKDF2_SHA256}` (underscore).
+Supported by 389 DS, FreeIPA, ALD Pro.
+- `LDAP_PBKDF2_SHA256_OPENLDAP`: OpenLDAP-compatible format `{PBKDF2-SHA256}` (hyphen). Supported by 389 DS, FreeIPA, ALD Pro.
+- `LDAP_PBKDF2_SHA512`: Supported by 389 DS, FreeIPA, ALD Pro.
+- `LDAP_PKCS5S2`: Supported by Apache Directory Server. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
