@@ -13,6 +13,19 @@
 * Настройки, заданные при [создании](../../data-proc/operations/cluster-create.md) кластера, влияют на все запущенные в кластере задания.
 * Настройки, заданные при создании заданий, переопределяют настройки уровня кластера и могут быть индивидуальными для каждого задания.
 
+
+## Перед началом работы {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ dataproc-name }}: использование вычислительных ресурсов с наценкой за сервис {{ dataproc-name }}, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы {{ dataproc-name }}](../../data-proc/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+
+
 ## DistCp {#distcp}
 
 Для копирования файлов из {{ objstorage-name }} в HDFS используйте утилиту [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html). Она предназначена для копирования данных как внутри кластера, так и между кластерами и внешними хранилищами.
@@ -316,3 +329,11 @@ hadoop distcp \
 {% endlist %}
 
 Подробнее на странице [{#T}](../../data-proc/concepts/settings-list.md#spark-settings).
+
+
+## Удалите созданные ресурсы {#clear-out}
+
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+
+1. [Удалите кластер {{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
+1. [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md). Перед удалением бакета [удалите из него все объекты](../../storage/operations/objects/delete.md).

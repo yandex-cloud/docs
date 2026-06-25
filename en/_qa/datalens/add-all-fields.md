@@ -1,4 +1,4 @@
-### How to create a chart with all columns without dragging them all manually? {#add-all-fields}
+### How do I create a chart with all columns without dragging them all manually? {#add-all-fields}
 
 You cannot add all data fields at once to a chart section. Add each field with one of the following methods:
 

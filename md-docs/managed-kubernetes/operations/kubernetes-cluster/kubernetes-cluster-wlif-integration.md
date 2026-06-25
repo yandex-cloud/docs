@@ -10,7 +10,7 @@
 
 {% note tip %}
 
-В инструкции описана настройка кластера и групп узлов Managed Service for Kubernetes, полное руководство по интеграции с федерациями сервисных аккаунтов Identity and Access Management см. на странице [Доступ к API Yandex Cloud из кластера Managed Service for Kubernetes с помощью федерации сервисных аккаунтов Identity and Access Management](../../tutorials/wlif-managed-k8s-integration.md).
+В инструкции описана настройка кластера и групп узлов Managed Service for Kubernetes, полное руководство по интеграции с федерациями сервисных аккаунтов Identity and Access Management смотрите на странице [Доступ к API Yandex Cloud из кластера Managed Service for Kubernetes с помощью федерации сервисных аккаунтов Identity and Access Management](../../tutorials/wlif-managed-k8s-integration.md).
 
 {% endnote %}
 

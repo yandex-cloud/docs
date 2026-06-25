@@ -1,14 +1,13 @@
 # Развертывание сервера Minecraft в Yandex Cloud
 
-С помощью руководства вы развернете сервер [Minecraft](https://www.minecraft.net/) ([Java Edition](https://www.minecraft.net/en-us/store/minecraft-java-edition/)) актуальной версии в Yandex Cloud на [виртуальной машине](../../compute/concepts/vm.md) с Ubuntu 24.04.
+С помощью руководства вы развернете сервер [Minecraft](https://www.minecraft.net/) [Java Edition](https://www.minecraft.net/en-us/download/server) или [Bedrock Edition](https://www.minecraft.net/en-us/download/server/bedrock) актуальной версии в Yandex Cloud на [виртуальной машине](../../compute/concepts/vm.md) с Ubuntu 24.04.
 
 Чтобы развернуть сервер Minecraft в Yandex Cloud:
 
 1. [Подготовьте облако к работе](#prepare-cloud).
 1. [Создайте группу безопасности](#create-sg).
 1. [Создайте ВМ для сервера Minecraft](#vm-minecraft).
-1. [Установите необходимые утилиты](#install-tools).
-1. [Скачайте и запустите сервер Minecraft](#get-and-launch-server).
+1. [Установите утилиты и запустите сервер](#install-and-launch-server).
 1. [Проверьте работу сервера](#test-functionality).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
@@ -27,12 +26,12 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
-* плата за постоянно запущенную [ВМ](../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование публичного IP-адреса и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* плата за постоянно запущенную [ВМ](../../compute/concepts/vm.md) (смотрите [тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за использование публичного IP-адреса и исходящий трафик (смотрите [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Создайте группу безопасности {#create-sg}
 
-Создайте [группу безопасности](../../vpc/concepts/security-groups.md), с правилом, разрешающим входящий трафик к порту `25565`. Этот порт для доступа клиентов задан по умолчанию в файле конфигурации сервера Minecraft. Также в группу безопасности будут добавлены правила, разрешающие доступ на ВМ по SSH для настройки сервера и доступ ВМ в интернет для скачивания ПО.
+Создайте [группу безопасности](../../vpc/concepts/security-groups.md) с правилом, разрешающим входящий трафик к порту `25565` для Java Edition или `19132` для Bedrock Edition. Эти порты для доступа клиентов заданы по умолчанию в файле конфигурации сервера Minecraft. Также в группу безопасности будут добавлены правила, разрешающие доступ на ВМ по SSH для настройки сервера и доступ ВМ в интернет для скачивания ПО.
 
 {% list tabs group=instructions %}
 
@@ -40,7 +39,7 @@
 
    1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
    1. Перейдите в сервис **Virtual Private Cloud**.
-   1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **Группы безопасности**. 
+   1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **Группы безопасности**.
    1. Нажмите кнопку **Создать группу безопасности**.
    1. В поле **Имя** укажите имя `minecraft-sg`.
    1. В поле **Сеть** выберите сеть `default`.
@@ -49,29 +48,26 @@
       #|
       || **Направление**
       **трафика**
-      | **Описание** 
+      | **Описание**
       | **Диапазон портов**
       | **Протокол**
       | **Источник** /
       **Назначение**
       | **CIDR блоки** ||
       || Входящий
-      | `Доступ клиента к`
-      `серверу Minecraft`
-      | `25565`
+      | `Доступ клиента к серверу Minecraft`
+      | `25565`/`19132`
       | `Любой`
       | `CIDR`
       | `0.0.0.0/0` ||
       || Входящий
-      | `Доступ на ВМ по`
-      `SSH`
+      | `Доступ на ВМ по SSH`
       | `22`
       | `Любой`
       | `CIDR`
       | `0.0.0.0/0` ||
       || Исходящий
-      | `Доступ ВМ в`
-      `интернет`
+      | `Доступ ВМ в интернет`
       | `0-65535`
       | `Любой`
       | `CIDR`
@@ -113,7 +109,7 @@
           * **Платформа** — `Intel Ice Lake`.
           * **vCPU** — `2`.
           * **Гарантированная доля vCPU** — `100%`.
-          * **RAM** — `2 ГБ`.
+          * **RAM** — `2 ГБ` для Java Edition или `4 ГБ` для Bedrock Edition.
 
       1. В блоке **Сетевые настройки**:
 
@@ -162,7 +158,7 @@
 
    {% endlist %}
 
-   Рекомендуемая конфигурация виртуальной машины:
+   Рекомендуемая конфигурация виртуальной машины для Java Edition:
 
    | Конфигурация     |   Количество игроков  |   vCPU  |   RAM  |   Объем диска        |
    |------------------|-----------------------|---------|--------|----------------------|
@@ -177,128 +173,347 @@
    {% endnote %}
 
 
-## Установите необходимые утилиты {#install-tools}
+## Установите утилиты и запустите сервер {#install-and-launch-server}
 
-1. [Подключитесь по протоколу SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) к созданной ВМ.
-1. Установите необходимые пакеты Java из репозитория и утилиту `screen` для запуска терминальной сессии в фоновом режиме:
+{% list tabs group=edition %}
 
-   {% note info %}
+- Java Edition {#java}
 
-   Команда ниже устанавливает версию `23` среды OpenJDK. Для запуска актуальной версии сервера Minecraft может потребоваться более новая версия OpenJDK, поэтому, прежде чем устанавливать этот пакет, уточните актуальную версию OpenJDK на [сайте проекта](https://openjdk.org/).
+   1. [Подключитесь по протоколу SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) к созданной ВМ.
 
-   {% endnote %}
+   1. Установите необходимые пакеты Java из репозитория и утилиту `screen` для запуска терминальной сессии в фоновом режиме:
 
-   ```bash
-   sudo add-apt-repository -y ppa:openjdk-r/ppa \
-     && sudo apt update -y \
-     && sudo apt install -y openjdk-23-jre-headless screen
-   ```
+      {% note info %}
 
-## Скачайте и запустите сервер Minecraft {#get-and-launch-server}
+      Команда ниже устанавливает версию `25` среды JRE. Для запуска актуальной версии сервера Minecraft может потребоваться более новая версия JRE, поэтому, прежде чем устанавливать этот пакет, уточните подходящую версию на [Minecraft Wiki](https://minecraft.wiki/w/Tutorial:Setting_up_a_Java_Edition_server#Version_requirements).
 
-1. Создайте отдельную директорию и перейдите в нее:
-   ```bash
-   mkdir minecraft-server && cd minecraft-server
-   ```
+      {% endnote %}
 
-1. Перейдите по [ссылке](https://www.minecraft.net/en-us/download/server/) и скопируйте URL для скачивания дистрибутива актуальной версии сервера.
-1. Скачайте актуальный дистрибутив в текущую директорию с помощью `wget`:
-   ```bash
-   wget -O minecraft_server.jar <ссылка_на_скачивание>
-   ```
+      ```bash
+      sudo apt update -y \
+         && sudo apt install -y openjdk-25-jre-headless screen
+      ```
 
-   Где `<ссылка_на_скачивание>` — полученная на предыдущем шаге ссылка для скачивания дистрибутива. Например: `https://piston-data.mojang.com/v1/objects/4707d00eb834b446575d89a61a11b5d548d8c001/server.jar`
+   1. Создайте отдельного системного пользователя `minecraft` для запуска сервера:
 
-1. Создайте файл `eula.txt` для автоматического согласия с условиями лицензионного соглашения [EULA](https://aka.ms/MinecraftEULA):
+      ```bash
+      sudo useradd -r -m -d /opt/minecraft-server -s /bin/bash minecraft
+      ```
 
-   ```bash
-   cat << EOF > eula.txt
-   eula=true
-   EOF
-   ```
+      Где:
+      * `-r` — создать системного пользователя.
+      * `-m -d /opt/minecraft-server` — создать домашнюю директорию пользователя по пути `/opt/minecraft-server`. В ней будут размещаться файлы сервера.
+      * `-s /bin/bash` — назначить пользователю командную оболочку `bash`.
 
-1. Запустите фоновую сессию `screen`:
+   1. Перейдите по [ссылке](https://www.minecraft.net/en-us/download/server/) и скопируйте URL для скачивания дистрибутива актуальной версии сервера.
 
-   ```bash
-   screen
-   ```
+   1. Скачайте актуальный дистрибутив в директорию сервера с помощью `wget`:
 
-1. В фоновой сессии запустите сервер:
+      ```bash
+      sudo wget -O /opt/minecraft-server/minecraft_server.jar <ссылка_на_скачивание>
+      ```
 
-   ```bash
-   java -Xms1024M -Xmx1024M -jar minecraft_server.jar nogui
-   ```
+      Где `<ссылка_на_скачивание>` — полученная на предыдущем шаге ссылка для скачивания дистрибутива. Например: `https://piston-data.mojang.com/v1/objects/97ccd4c0ed3f81bbb7bfacddd1090b0c56f9bc51/server.jar`
 
-   Дождитесь успешного завершения создания игрового мира.
+   1. Создайте файл `eula.txt` для автоматического согласия с условиями лицензионного соглашения [EULA](https://aka.ms/MinecraftEULA):
 
-   ```text
-   [09:18:58] [Worker-Main-2/INFO]: Preparing spawn area: 81%
-   [09:18:59] [Worker-Main-2/INFO]: Preparing spawn area: 82%
-   [09:19:00] [Worker-Main-2/INFO]: Preparing spawn area: 83%
-   ...
-   [09:19:08] [Worker-Main-2/INFO]: Preparing spawn area: 97%
-   [09:19:09] [Server thread/INFO]: Time elapsed: 75917 ms
-   [09:19:09] [Server thread/INFO]: Done (92.666s)! For help, type "help"
-   ```
+      ```bash
+      echo "eula=true" | sudo tee /opt/minecraft-server/eula.txt
+      ```
 
-1. (Опционально) Можно оставить сессию `screen` работать в фоне, используя горячие клавиши **Ctrl + A + D** и вернуться в основной терминал виртуальной машины.
+   1. Передайте пользователю `minecraft` права на директорию сервера и все ее содержимое:
 
-   Чтобы вернуться к фоновой сессии с запущенным сервером, если такая фоновая сессия только одна, выполните команду:
+      ```bash
+      sudo chown -R minecraft:minecraft /opt/minecraft-server
+      ```
 
-   ```bash
-   screen -r
-   ```
+   1. Запустите в директории сервера фоновую сессию `screen` от имени пользователя `minecraft`:
 
-   Если фоновых сессий несколько, получите их список, выполнив команду:
+      ```bash
+      sudo -u minecraft bash -c 'cd /opt/minecraft-server && screen -S minecraft'
+      ```
 
-   ```bash
-   screen -list
-   ```
+   1. В фоновой сессии запустите сервер:
 
-   Результат выполнения:
+      ```bash
+      java -Xms1024M -Xmx1024M -jar minecraft_server.jar nogui
+      ```
 
-   ```text
-   There is a screen on:
-      24257.pts-0.mcft-test	(02/28/2024 09:17:15 AM)	(Detached)
-   1 Socket in /run/screen/S-username.
-   ```
+      Дождитесь успешного завершения создания игрового мира.
 
-   Затем перейдите в сессию по нужному номеру ID из списка:
-   
-   ```bash
-   screen -r 24257
-   ```
+      ```text
+      [14:16:47] [Server thread/INFO]: Preparing level "world"
+      [14:16:48] [Server thread/INFO]: Selecting global world spawn...
+      [14:17:05] [Server thread/INFO]: Loading 0 persistent chunks...
+      ...
+      [14:17:05] [Server thread/INFO]: Preparing spawn area: 100%
+      [14:17:05] [Server thread/INFO]: Time elapsed: 17317 ms
+      [14:17:05] [Server thread/INFO]: Done (17.788s)! For help, type "help"
+      ```
 
-1. После запуска сервера в директории будут созданы новые директории и необходимые файлы для работы и конфигурации сервера, в том числе логи:
+   1. (Опционально) Можно оставить сессию `screen` работать в фоне, используя горячие клавиши **Ctrl + A + D**, и вернуться в основной терминал виртуальной машины.
 
-   ```text
-       4096 Mar 16 09:50 .
-       4096 Mar 16 09:52 ..
-          2 Mar 16 09:16 banned-ips.json
-          2 Mar 16 09:16 banned-players.json
-         10 Mar 16 09:48 eula.txt
-       4096 Mar 16 09:50 libraries
-       4096 Mar 16 09:16 logs
-   49150256 Dec  7 09:04 minecraft_server_1.20.4.jar
-          2 Mar 16 09:16 ops.json
-       1303 Mar 16 09:16 server.properties
-          2 Mar 16 09:16 usercache.json
-       4096 Mar 16 09:50 versions
-          2 Mar 16 09:50 whitelist.json
-       4096 Mar 16 09:13 world
-   ```
+      Чтобы вернуться к фоновой сессии с запущенным сервером, если такая фоновая сессия только одна, выполните команду:
 
+      ```bash
+      sudo -u minecraft screen -r
+      ```
+
+      Если фоновых сессий несколько, получите их список, выполнив команду:
+
+      ```bash
+      sudo -u minecraft screen -list
+      ```
+
+      Результат выполнения:
+
+      ```text
+      There is a screen on:
+         35154.minecraft (06/12/26 14:15:56)     (Detached)
+      1 Socket in /run/screen/S-minecraft.
+      ```
+
+      Затем перейдите в сессию по нужному номеру ID из списка:
+
+      ```bash
+      sudo -u minecraft screen -r 35154
+      ```
+
+      {% note info %}
+
+      У пользователя `minecraft` нет пароля и SSH-ключа, поэтому подключиться к ВМ напрямую под ним нельзя. Чтобы в дальнейшем выполнять операции от его имени, подключитесь к ВМ по SSH под своим пользователем и переключитесь на `minecraft` командой:
+
+      ```bash
+      sudo -iu minecraft
+      ```
+
+      Будет запущена сессия входа, а текущей директорией сразу станет `/opt/minecraft-server`. Чтобы выйти обратно в свою сессию, выполните команду `exit` или нажмите **Ctrl + D**.
+
+      {% endnote %}
+
+   1. После запуска сервера в директории будут созданы новые директории и необходимые файлы для работы и конфигурации сервера, в том числе логи:
+
+      ```text
+          4096 Jun 12 14:16 .
+          4096 Jun 12 14:07 ..
+           220 Mar 31  2024 .bash_logout
+          3771 Mar 31  2024 .bashrc
+          4096 Jun 12 14:16 .cache
+           807 Mar 31  2024 .profile
+             2 Jun 12 14:16 banned-ips.json
+             2 Jun 12 14:16 banned-players.json
+            10 Jun 12 14:10 eula.txt
+          4096 Jun 12 14:16 libraries
+          4096 Jun 12 14:16 logs
+      60417480 Apr  9 10:20 minecraft_server.jar
+             2 Jun 12 14:16 ops.json
+          1676 Jun 12 14:16 server.properties
+             2 Jun 12 14:16 usercache.json
+          4096 Jun 12 14:16 versions
+             2 Jun 12 14:16 whitelist.json
+          4096 Jun 12 14:18 world
+      ```
+
+- Bedrock Edition {#bedrock}
+
+   1. [Подключитесь по протоколу SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) к созданной ВМ.
+
+   1. Установите утилиту `screen` для запуска терминальной сессии в фоновом режиме, а также утилиту `unzip` для распаковки дистрибутива:
+
+      ```bash
+      sudo apt update -y \
+         && sudo apt install -y screen unzip
+      ```
+
+   1. Создайте отдельного системного пользователя `minecraft` для запуска сервера:
+
+      ```bash
+      sudo useradd -r -m -d /opt/minecraft-server -s /bin/bash minecraft
+      ```
+
+      Где:
+      * `-r` — создать системного пользователя.
+      * `-m -d /opt/minecraft-server` — создать домашнюю директорию пользователя по пути `/opt/minecraft-server`. В ней будут размещаться файлы сервера.
+      * `-s /bin/bash` — назначить пользователю командную оболочку `bash`.
+
+   1. Перейдите по [ссылке](https://www.minecraft.net/en-us/download/server/bedrock) и скопируйте URL для скачивания дистрибутива актуальной версии сервера.
+
+   1. Скачайте актуальный дистрибутив в директорию сервера с помощью `wget`:
+
+      ```bash
+      sudo wget -O /opt/minecraft-server/bedrock-server.zip <ссылка_на_скачивание>
+      ```
+
+      Где `<ссылка_на_скачивание>` — полученная на предыдущем шаге ссылка для скачивания дистрибутива. Например: `https://www.minecraft.net/bedrockdedicatedserver/bin-linux/bedrock-server-1.26.23.1.zip`
+
+   1. Распакуйте архив с дистрибутивом в директорию сервера, а затем удалите его:
+
+      ```bash
+      sudo unzip /opt/minecraft-server/bedrock-server.zip -d /opt/minecraft-server \
+         && sudo rm /opt/minecraft-server/bedrock-server.zip
+      ```
+
+   1. Передайте пользователю `minecraft` права на распакованные файлы:
+
+      ```bash
+      sudo chown -R minecraft:minecraft /opt/minecraft-server
+      ```
+
+   1. Запустите в директории сервера фоновую сессию `screen` от имени пользователя `minecraft`:
+
+      ```bash
+      sudo -u minecraft bash -c 'cd /opt/minecraft-server && screen -S minecraft'
+      ```
+
+   1. В фоновой сессии запустите сервер. Серверу Bedrock Edition требуются библиотеки из директории сервера, поэтому укажите ее в переменной `LD_LIBRARY_PATH`:
+
+      ```bash
+      LD_LIBRARY_PATH=. ./bedrock_server
+      ```
+
+      Дождитесь сообщения о готовности сервера:
+
+      ```text
+      [2026-06-14 13:36:44:060 INFO] Starting Server
+      [2026-06-14 13:36:44:060 INFO] Version: 1.26.23.1
+      [2026-06-14 13:36:44:060 INFO] Session ID: 4a018b28-5121-4abe-a814-e4ee70455c37
+      [2026-06-14 13:36:44:060 INFO] Build ID: 45295249
+      [2026-06-14 13:36:44:060 INFO] Branch: r/26_u2
+      [2026-06-14 13:36:44:060 INFO] Commit ID: 49b09b8167bf5f877690429d12747f30342d1db6
+      [2026-06-14 13:36:44:060 INFO] Configuration: Publish
+      [2026-06-14 13:36:44:060 INFO] Level Name: Bedrock level
+      [2026-06-14 13:36:44:061 INFO] No CDN config file found at: cdn_config.json for dedicated server
+      [2026-06-14 13:36:44:061 INFO] Game mode: 0 Survival
+      [2026-06-14 13:36:44:061 INFO] Difficulty: 1 EASY
+      [2026-06-14 13:36:44:063 WARN] Content logging to console is disabled.  Enable it with content-log-console-output-enabled=true in server.properties
+      [2026-06-14 13:36:44:608 INFO] Opening level 'worlds/Bedrock level/db'
+      [2026-06-14 13:36:44:626 INFO] Pack Stack - None
+      [2026-06-14 13:36:45:565 INFO] IPv4 supported, port: 19132: Used for gameplay and LAN discovery
+      [2026-06-14 13:36:45:565 INFO] IPv6 supported, port: 19133: Used for gameplay
+      [2026-06-14 13:36:45:605 INFO] Waiting for Minecraft services...
+      [2026-06-14 13:36:45:806 INFO] Server started.
+      ```
+
+   1. (Опционально) Можно оставить сессию `screen` работать в фоне, используя горячие клавиши **Ctrl + A + D**, и вернуться в основной терминал виртуальной машины.
+
+      Чтобы вернуться к фоновой сессии с запущенным сервером, если такая фоновая сессия только одна, выполните команду:
+
+      ```bash
+      sudo -u minecraft screen -r
+      ```
+
+      Если фоновых сессий несколько, получите их список, выполнив команду:
+
+      ```bash
+      sudo -u minecraft screen -list
+      ```
+
+      Результат выполнения:
+
+      ```text
+      There is a screen on:
+         30989.minecraft (06/17/26 12:23:18)     (Detached)
+      1 Socket in /run/screen/S-minecraft.
+      ```
+
+      Затем перейдите в сессию по нужному номеру ID из списка:
+
+      ```bash
+      sudo -u minecraft screen -r 30989
+      ```
+
+      {% note info %}
+
+      У пользователя `minecraft` нет пароля и SSH-ключа, поэтому подключиться к ВМ напрямую под ним нельзя. Чтобы в дальнейшем выполнять операции от его имени, подключитесь к ВМ по SSH под своим пользователем и переключитесь на `minecraft` командой:
+
+      ```bash
+      sudo -iu minecraft
+      ```
+
+      Будет запущена сессия входа, а текущей директорией сразу станет `/opt/minecraft-server`. Чтобы выйти обратно в свою сессию, выполните команду `exit` или нажмите **Ctrl + D**.
+
+      {% endnote %}
+
+   1. После запуска сервера в директории будут созданы новые директории и необходимые файлы для работы и конфигурации сервера:
+
+      ```text
+           4096 Jun 14 13:49 .
+           4096 Jun 14 12:43 ..
+             36 Jun 14 13:49 .bash_history
+            220 Mar 31  2024 .bash_logout
+           3771 Mar 31  2024 .bashrc
+            807 Mar 31  2024 .profile
+              0 Jun 15 12:56 Dedicated_Server.txt
+              3 May 20 23:35 allowlist.json
+      222788240 May 20 23:36 bedrock_server
+          31241 May 20 23:35 bedrock_server_how_to.html
+           4096 May 20 23:36 behavior_packs
+           4096 May 20 23:36 config
+           4096 May 20 23:36 data
+           4096 May 20 23:36 definitions
+           4096 Jun 14 13:36 development_behavior_packs
+           4096 Jun 14 13:36 development_resource_packs
+           4096 Jun 14 13:36 development_skin_packs
+           4096 Jun 14 13:36 minecraftpe
+            484 May 20 23:35 packetlimitconfig.json
+              3 May 20 23:35 permissions.json
+           4096 Jun 14 13:36 premium_cache
+           8548 May 20 23:17 profanity_filter.wlist
+            398 May 20 23:35 release-notes.txt
+           4096 May 20 23:36 resource_packs
+          11650 May 20 23:35 server.properties
+           4096 Jun 14 13:36 treatments
+           4096 Jun 14 13:36 world_templates
+           4096 Jun 14 13:36 worlds
+      ```
+
+{% endlist %}
 
 ## Проверьте работу сервера {#test-functionality}
 
-1. Добавьте сервер в список серверов в клиенте Minecraft. Название сервера задайте произвольно, а в поле **Адрес сервера** укажите [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) виртуальной машины `minecraft-server`.
+{% list tabs group=edition %}
 
-   ![add-server-address](../../_assets/tutorials/infrastructure/minecraft-add-server-address.png =750x447)
+- Java Edition {#java}
 
-1. В списке серверов выберите добавленный сервер и нажмите кнопку `Подключиться`.
+   1. Скачайте и установите [клиент Minecraft](https://www.minecraft.net/en-us/download).
 
-   ![server-list](../../_assets/tutorials/infrastructure/minecraft-server-list.png =750x449)
+   1. Запустите Minecraft Java Edition.
 
+   1. Нажмите кнопку **Сетевая игра**.
+
+      ![je-main-screen](../../_assets/tutorials/infrastructure/minecraft-je-main-screen.png){width=750}
+
+   1. Выберите **По адресу**.
+
+      ![je-online-game](../../_assets/tutorials/infrastructure/minecraft-je-online-game.png){width=750}
+
+   1. В поле **Адрес сервера** укажите [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) виртуальной машины `minecraft-server` и нажмите **Подключиться**.
+
+      ![je-add-server](../../_assets/tutorials/infrastructure/minecraft-je-add-server.png){width=750}
+
+      ![je-connecting](../../_assets/tutorials/infrastructure/minecraft-je-connecting.png){width=750}
+
+- Bedrock Edition {#bedrock}
+
+   1. Скачайте и установите [клиент Minecraft](https://www.minecraft.net/en-us/download).
+
+   1. Запустите Minecraft Bedrock Edition.
+
+   1. Нажмите кнопку **Начать**.
+
+      ![be-main-screen](../../_assets/tutorials/infrastructure/minecraft-be-main-screen.png){width=750}
+
+   1. Выберите **Серверы**, затем нажмите **+ Добавить сервер**.
+
+      ![be-online-game](../../_assets/tutorials/infrastructure/minecraft-be-online-game.png){width=750}
+
+   1. Название сервера задайте произвольно, в поле **Адрес сервера** укажите [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) виртуальной машины `minecraft-server`, порт оставьте по умолчанию. Нажмите кнопку **Добавить и играть**.
+
+      ![be-add-server](../../_assets/tutorials/infrastructure/minecraft-be-add-server.png){width=750}
+
+      ![be-connecting](../../_assets/tutorials/infrastructure/minecraft-be-connecting.png){width=750}
+
+{% endlist %}
 
 ## Как удалить созданные ресурсы {#clear-out}
 

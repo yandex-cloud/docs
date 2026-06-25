@@ -84,7 +84,7 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       yc compute snapshot-schedule list-disks <имя_или_идентификатор_расписания>
       ```
-      См. [подробнее](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/list-disks.md).
+      [Подробнее](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/list-disks.md).
 
   1. Получите имя и идентификатор расписания:
 

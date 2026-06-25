@@ -7,7 +7,7 @@ We will use data from a [{{ CH }} demo database](../../datalens/quickstart.md#cr
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Get the Geocoder API key](#get-key).
-1. [Convert your data to {{ ml-platform-short-name }}](#datasphere).
+1. [Convert your data in {{ ml-platform-short-name }}](#datasphere).
 1. [Create a connection to the file in {{ datalens-short-name }}](#create-connection).
 1. [Create a dataset based on the connection](#create-dataset).
 1. [Create a chart](#create-chart).
@@ -20,7 +20,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note tip %}
 
-To make sure {{ datalens-full-name }} and {{ ml-platform-full-name }} can run within the {{ yandex-cloud }} network, create their instances in the same organization.
+To use {{ datalens-full-name }} and {{ ml-platform-full-name }} within the {{ yandex-cloud }} network, create their instances in the same organization.
 
 {% endnote %}
 
@@ -43,7 +43,7 @@ Get a key required to use the Geocoder API:
 
    ![image](../../_assets/datalens/solution-geocoder/developer-key.png)
 
-## Convert your data to {{ ml-platform-short-name }} {#datasphere}
+## Convert your data in {{ ml-platform-short-name }} {#datasphere}
 
 ### Create a project {#create-project}
 
@@ -55,7 +55,7 @@ Create a [secret](../../datasphere/concepts/secrets.md) to store the [Geocoder A
 
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** on the project page, click ![secret](../../_assets/datasphere/jupyterlab/secret.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
-1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter a name for the secret: `API_KEY`.
+1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter the name for the secret: `API_KEY`.
 1. In the **{{ ui-key.yc-ui-datasphere.secret.content }}** field, enter the key value.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**. You will see a page with detailed info on the secret you created.
 
@@ -68,7 +68,7 @@ Create a [secret](../../datasphere/concepts/secrets.md) to store the [Geocoder A
 
    ![image](../../_assets/datalens/solution-geocoder/new-notebook.png)
 
-### Install dependencies {#dependencies}
+### Install the dependencies {#dependencies}
 
 1. Paste the code given below into the notebook cell and click ![run](../../_assets/datasphere/jupyterlab/run.svg):
 
@@ -79,9 +79,9 @@ Create a [secret](../../datasphere/concepts/secrets.md) to store the [Geocoder A
 
 1. Restart the kernel by clicking **Kernel** → **Restart Kernel** in the top panel of the project window.
 
-### Install certificates {#certificates}
+### Install the certificates {#certificates}
 
-Install certificates into the project's local storage:
+Install the certificates into the project's local storage:
 
 ```bash
 #!:bash
@@ -129,7 +129,7 @@ wget "{{ crt-web-path-int }}" \
            return f'[{lon},{lat}]'
     ```
 
-1. Connect to the {{ CH }} demo DB:
+1. Connect to the {{ CH }} demo database:
 
    ```py
    from clickhouse_driver import Client
@@ -175,7 +175,7 @@ wget "{{ crt-web-path-int }}" \
    encoded_data
    ```
 
-1. Save the resulting data to a file:
+1. Save the data to a file:
 
    ```py
    import csv
@@ -210,7 +210,7 @@ wget "{{ crt-web-path-int }}" \
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![image](../../_assets/console-icons/thunderbolt.svg) **Connections** and click **Create connection**.
 1. Under **Files and services**, select the **Files** connection.
-1. Click **Upload files** and select the `encoded_data.csv` file.
+1. Click **Upload files** and specify the `encoded_data.csv` file.
 
    ![image](../../_assets/datalens/solution-geocoder/connection.png)
 

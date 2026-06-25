@@ -167,4 +167,4 @@ description: Из статьи вы узнаете, как задать наст
 
 {% include [overloaded](../../../../_includes/data-transfer/troubles/overloaded.md) %}
 
-См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
+Смотрите полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).

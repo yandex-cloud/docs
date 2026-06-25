@@ -7,7 +7,7 @@ description: Вы можете временно отключить зону до
 
 {% include [disable-enable-zone-intro](../../../_includes/instance-groups/disable-enable-zone-intro.md) %}
 
-Подробнее см. на странице [{#T}](../../operations/instance-groups/disable-enable-zone.md).
+Подробнее на странице [{#T}](../../operations/instance-groups/disable-enable-zone.md).
 
 При временном отключении зоны доступности группа ВМ работает в следующем режиме:
 * ВМ из отключенной зоны [не будут обновляться](disable-enable-zone.md#update) при обновлении группы.

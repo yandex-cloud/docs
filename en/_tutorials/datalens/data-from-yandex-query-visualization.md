@@ -3,11 +3,11 @@
 
 By integrating {{ yq-full-name }} with {{ datalens-full-name }}, you can visualize data stored in {{ objstorage-full-name }}. {{ datalens-short-name }} generates a YQL query, while {{ yq-full-name }} runs it and returns the results, which are visualized using charts.
 
-Below is the architecture used thereby.
+For the solution architecture, see below.
 
 ![datalens-architecture](../../_assets/datalens/data-lens-architecture.png)
 
-As an example, let's visualize how the time of day affects the number and average cost of New York City yellow taxi rides. The data was pre-uploaded to a public {{ objstorage-full-name }} bucket named `yq-sample-data`, in the `nyc_taxi_csv` folder.
+As an example, let's visualize how the number and average cost of New York City yellow taxi rides depend on the time of day. The data was pre-uploaded to a public {{ objstorage-full-name }} bucket named `yq-sample-data`, in the `nyc_taxi_csv` folder.
 
 {% note info %}
 
@@ -15,7 +15,7 @@ As an example, let's visualize how the time of day affects the number and averag
 
 {% endnote %}
 
-To visualize and explore data, [get your cloud ready](#before-you-begin) and follow these steps:
+To visualize and explore data, [set up your cloud](#before-you-begin) and follow these steps:
 
 1. [Connect to the data in {{ objstorage-name }}](#create_connection).
 1. [Create a connection in {{ datalens-full-name }}](#create_connection_lens).
@@ -28,23 +28,23 @@ To visualize and explore data, [get your cloud ready](#before-you-begin) and fol
 
 {% note info %}
 
-To create a {{ datalens-short-name }} connection to {{ yq-full-name }}, you will need a [service account](../../iam/concepts/users/service-accounts.md)with the `{{ roles-editor }}` [role](../../iam/operations/sa/assign-role-for-sa.md) for the folder where you will be creating the {{ objstorage-short-name }} [bucket](../../storage/concepts/bucket.md) [connection](#create_connection).
+To create a {{ datalens-short-name }} connection to {{ yq-full-name }}, you will need a [service account](../../iam/concepts/users/service-accounts.md) with the `{{ roles-editor }}` [role](../../iam/operations/sa/assign-role-for-sa.md) for the folder where you will create the {{ objstorage-short-name }} [bucket](../../storage/concepts/bucket.md) [connection](#create_connection).
 
 {% endnote %}
 
-## Connect to data in {{ objstorage-name }} {#create_connection}
+## Connect to the data in {{ objstorage-name }} {#create_connection}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [connection](../../query/concepts/glossary.md#connection).
 
    ![select-catalog](../../_assets/datalens/yandex-query-visualization/select-catalog.png)
 
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 
    ![select-yq](../../_assets/datalens/yandex-query-visualization/select-yq.png)
 
 1. In the left-hand panel, select ![study](../../_assets/console-icons/graduation-cap.svg) **{{ ui-key.yql.yq-navigation.tutorial.menu-text }}**.
-1. Click **{{ ui-key.yql.yq-tutorial.create-connection.button-label }}**. In the Create connection section, all parameter fields have been pre-filled. Optionally, enter a description; then click **{{ ui-key.yql.yq-connection-form.create.button-text }}**. This will take you to the screen for creating a data [binding](../../query/concepts/glossary.md#binding).
-1. Optionally, enter the data binding description; then click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**. This will create the appropriate training resources.
+1. Click **{{ ui-key.yql.yq-tutorial.create-connection.button-label }}**. In the **Create connection** section, all the parameter fields are pre-filled. Just enter an optional description and click **{{ ui-key.yql.yq-connection-form.create.button-text }}**. You will see the screen for creating a data [binding](../../query/concepts/glossary.md#binding).
+1. Enter the optional data binding description and click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**. This will create the resources required for this tutorial.
 
 ## Create a connection in {{ datalens-full-name }} {#create_connection_lens}
 
@@ -52,13 +52,13 @@ To create a {{ yq-full-name }} connection:
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![image](../../_assets/console-icons/thunderbolt.svg) **Connections** and click **Create connection**.
-1. Select a **{{ yq-full-name }}** connection.
+1. Select the **{{ yq-full-name }}** connection.
 1. Configure the connection as follows:
 
-   * **Cloud and folder**. Select the folder with your service account.
-   * **Service account**. Select an existing [service account](../../iam/concepts/users/service-accounts.md) or create a new one.
-   * **Cache TTL in seconds**. Specify the cache time-to-live or leave the default value.
-   * **Raw SQL level**. Select **Allow subqueries from datasets and queries from charts**.
+   * **Cloud and folder**: Select the folder with your service account.
+   * **Service account**: Select an existing [service account](../../iam/concepts/users/service-accounts.md) or create a new one.
+   * **Cache TTL in seconds**: Specify the cache TTL or leave the default value.
+   * **Raw SQL level**: Select **Allow subqueries from datasets and queries from charts**.
 
 1. Click **Create connection**.
 1. Enter `yq-connect` as your connection name and click **Create**.
@@ -78,7 +78,7 @@ To create a {{ yq-full-name }} connection:
        bindings.`tutorial-analytics`
    ```
 
-   If the configuration is correct, the **Preview** section in the lower part of the screen will contain the following data:
+   If the configuration is correct, the **Preview** section at the bottom of the screen will contain the following data:
 
    ![dataset-results](../../_assets/datalens/yandex-query-visualization/datalens-dataset-results.png)
 
@@ -101,7 +101,7 @@ To create a {{ yq-full-name }} connection:
 
    ![field-agg](../../_assets/datalens/yandex-query-visualization/field-agg.png)
 
-1. In the top-right corner, click **Save**. Enter the dataset name, `yellow-taxi-dataset`, and click **Create**.
+1. In the top-right corner, click **Save**. Enter `yellow-taxi-dataset` for the dataset name and click **Create**.
 1. Once the dataset is saved, click **Create chart** in the top-right corner.
 
    ![create-chart](../../_assets/datalens/yandex-query-visualization/create-chart.png)
@@ -114,13 +114,13 @@ To visualize and analyze the data, use a [combined](../../datalens/concepts/char
 
    ![chart-type](../../_assets/datalens/yandex-query-visualization/chart-type.png)
 
-1. Drag the `hour_trip` dimension to the **X** section. The dimension in the **X** section will be common for all layers.
+1. Drag the `hour_trip` dimension to the **X** section. The dimension in the **X** section will be shared by all layers.
 1. For the first layer, select **Bar chart**.
 
    ![select-layer-column](../../_assets/datalens/yandex-query-visualization/select-layer-column.png)
 
 1. Drag the `total_amount` measure to the **Y** section. You will see a bar chart in the visualization area.
-1. Add a layer. To do this, click ![plus](../../_assets/console-icons/plus.svg) to the right of the first layer's name.
+1. Add a layer by clicking ![plus](../../_assets/console-icons/plus.svg) next to the first layer's name.
 1. For the second layer, select **Line chart**.
 
    ![select-layer-line](../../_assets/datalens/yandex-query-visualization/select-layer-line.png)
@@ -143,8 +143,8 @@ To visualize and analyze the data, use a [combined](../../datalens/concepts/char
 1. Drag the new `count_trip` measure to the **Y2** section. You will see a line chart on top of the first chart in the visualization area.
 1. In the top-right corner, click **Save**. Enter `yellow-taxi-combo-chart` as the chart name and click **Save**.
 
-The chart you created shows how the time of day affects the number of trips (line chart) and the average ride cost (bar chart).
+The chart you created shows how the number of trips (line chart) and the average ride cost (bar chart) depend on the time of day.
 
 ![datalens-yq-combo-chart](../../_assets/datalens/yandex-query-visualization/datalens-yq-combo-chart.png)
 
-In the same way, you can create additional [charts](../../datalens/operations/chart/create-chart.md) and [dashboards](../../datalens/operations/dashboard/create.md) or [share the results](../../datalens/concepts/datalens-public.md) with your teammates.
+Similarly, you can build additional [charts](../../datalens/operations/chart/create-chart.md) and [dashboards](../../datalens/operations/dashboard/create.md) or [share the results](../../datalens/concepts/datalens-public.md) with your teammates.

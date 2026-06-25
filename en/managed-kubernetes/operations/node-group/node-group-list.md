@@ -11,7 +11,7 @@ Get a list of [node groups](../../concepts/index.md#node-group) in a {{ k8s }} c
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ k8s }} cluster.
   1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
 
@@ -48,7 +48,7 @@ To access a node group, use the `ID` or `NAME` parameter from the [previous](nod
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ k8s }} cluster.
   1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Click the name of the node group.
@@ -134,7 +134,7 @@ To access a node group, use the `ID` or `NAME` parameter from the [previous](nod
 
       {{ TF }} will display output variables in the terminal.
 
-  1. To check the result, run the following command by specifying the required variable, e.g.:
+  1. To check the results, run the following command specifying the required variable, e.g.:
 
       ```bash
       terraform output node_group_status

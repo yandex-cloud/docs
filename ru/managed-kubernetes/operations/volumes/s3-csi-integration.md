@@ -141,7 +141,7 @@
 
   {% endnote %}
 
-* Если вам нужно изменить опции клиента [GeeseFS](../../../storage/tools/geesefs.md) для работы с бакетом, укажите их в параметре `spec.csi.volumeAttributes.options` при создании `PersistentVolume`. Например, в опции `--uid` можно указать идентификатор пользователя-владельца всех файлов в хранилище. Список опций GeeseFS см. с помощью команды `geesefs -h` или в [репозитории на GitHub](https://github.com/yandex-cloud/geesefs/blob/master/internal/flags.go#L88).
+* Если вам нужно изменить опции клиента [GeeseFS](../../../storage/tools/geesefs.md) для работы с бакетом, укажите их в параметре `spec.csi.volumeAttributes.options` при создании `PersistentVolume`. Например, в опции `--uid` можно указать идентификатор пользователя-владельца всех файлов в хранилище. Список опций GeeseFS смотрите с помощью команды `geesefs -h` или в [репозитории на GitHub](https://github.com/yandex-cloud/geesefs/blob/master/internal/flags.go#L88).
 
   Опции GeeseFS, указанные в параметре `parameters.options` (в настройках приложения {{ marketplace-full-name }} — поле **Опции монтирования GeeseFS**) класса хранилища (`StorageClass`), для статических `PersistentVolume` игнорируются. Подробнее читайте в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/storage/storage-classes/#mount-options).
 
@@ -314,7 +314,7 @@
             options: "--memory-limit=1000 --dir-mode=0777 --file-mode=0666 --uid=1001"
       ```
 
-      В этом примере настройки GeeseFS для работы с бакетом изменены по сравнению со `StorageClass`. В них добавлена опция `--uid`, в которой указан идентификатор пользователя-владельца всех файлов в хранилище — `1001`. Подробнее о настройке GeeseFS для статического `PersistentVolume` см. [выше](#spvc-csi-usage).
+      В этом примере настройки GeeseFS для работы с бакетом изменены по сравнению со `StorageClass`. В них добавлена опция `--uid`, в которой указан идентификатор пользователя-владельца всех файлов в хранилище — `1001`. Подробнее о настройке GeeseFS для статического `PersistentVolume` смотрите [выше](#spvc-csi-usage).
 
       В параметре `volumeHandle` путь к каталогу в бакете задается опционально.
 

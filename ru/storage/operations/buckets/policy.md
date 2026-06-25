@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы научите
 
 ## Применить или изменить политику {#apply-policy}
 
-Минимально необходимая роль для применения или изменения политики доступа — `storage.configurer`. См. [описание роли](../../../storage/security/index.md#storage-configurer).
+Минимально необходимая роль для применения или изменения политики доступа — `storage.configurer`. Смотрите [описание роли](../../../storage/security/index.md#storage-configurer).
 
 {% note info %}
 
@@ -76,7 +76,7 @@ description: Следуя данной инструкции, вы научите
         {% include [conditions-combining-or](../../../_includes/storage/conditions-combining-or.md) %}
 
   1. При необходимости добавьте другие правила и настройте их.
-  1. (Опционально) Чтобы разрешить доступ к бакету через консоль управления, нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_add-console-rule }}**. Подробнее см. [{#T}](../../concepts/policy.md#console-access).
+  1. (Опционально) Чтобы разрешить доступ к бакету через консоль управления, нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_add-console-rule }}**. Подробнее в разделе [{#T}](../../concepts/policy.md#console-access).
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}** и подтвердите удаление.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -359,7 +359,7 @@ description: Следуя данной инструкции, вы научите
 
 ## Просмотреть политику {#view-policy}
 
-Минимально необходимая роль для просмотра политики доступа — `storage.configViewer`. См. [описание роли](../../../storage/security/index.md#storage-config-viewer).
+Минимально необходимая роль для просмотра политики доступа — `storage.configViewer`. Смотрите [описание роли](../../../storage/security/index.md#storage-config-viewer).
 
 Чтобы просмотреть примененную к бакету политику доступа:
 
@@ -400,7 +400,7 @@ description: Следуя данной инструкции, вы научите
 
 ## Удалить политику {#delete-policy}
 
-Минимально необходимая роль для удаления политики доступа — `storage.configurer`. См. [описание роли](../../../storage/security/index.md#storage-configurer).
+Минимально необходимая роль для удаления политики доступа — `storage.configurer`. Смотрите [описание роли](../../../storage/security/index.md#storage-configurer).
 
 Чтобы удалить политику доступа:
 

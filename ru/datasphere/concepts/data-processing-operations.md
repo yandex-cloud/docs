@@ -1,6 +1,6 @@
 # Вычисления на кластерах Apache Spark™
 
-Для работы с кластерами {{ dataproc-name }} требуется предварительная настройка проекта, см. подробнее в [концепции](data-processing.md#settings).
+Для работы с кластерами {{ dataproc-name }} требуется предварительная настройка проекта, подробнее смотрите в [концепции](data-processing.md#settings).
 
 Все кластеры {{ dataproc-name }} вне зависимости от варианта развертывания тарифицируются по [правилам сервиса {{ dataproc-full-name }}](../../data-proc/pricing.md). Все кластеры, доступные в проекте, можно посмотреть в разделе **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** ⟶ ![image](../../_assets/data-processing/data-processing.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}** на странице проекта.
 

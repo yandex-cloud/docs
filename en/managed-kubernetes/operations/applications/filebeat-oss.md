@@ -62,7 +62,7 @@ description: Follow this guide to install Filebeat OSS.
 ## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
 1. In the [management console]({{ link-console-main }}), select a folder.
-1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Filebeat OSS](/marketplace/products/yc/filebeat-oss) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
@@ -111,5 +111,5 @@ description: Follow this guide to install Filebeat OSS.
 
 ## See also {#see-also}
 
-* [{{ mos-name }} documentation](../../../managed-opensearch/)
+* [{{ mos-name }} guides](../../../managed-opensearch/)
 * [Filebeat documentation](https://www.elastic.co/guide/en/beats/filebeat/master/index.html)

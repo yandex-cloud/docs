@@ -24,7 +24,7 @@ For more information, see [{#T}](../concepts/release-channels-and-updates.md).
 
   To get a list of available versions for a {{ managed-k8s-name }} cluster:
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ managed-k8s-name }} cluster.
   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. View the list of available versions in the **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** field under **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**.
@@ -32,7 +32,7 @@ For more information, see [{#T}](../concepts/release-channels-and-updates.md).
   To get a list of available versions for a {{ managed-k8s-name }} node group:
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of your {{ managed-k8s-name }} cluster and open the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Select the {{ managed-k8s-name }} node group from the list and click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. Get a list of available versions in the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field.
@@ -280,7 +280,7 @@ You can upgrade the {{ managed-k8s-name }} cluster version manually. In one step
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ managed-k8s-name }} cluster.
   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. In the **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** field, select the `Upgrade to version <version_number>` option.
@@ -644,7 +644,7 @@ Upgrade the {{ managed-k8s-name }} cluster version before updating the node grou
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ managed-k8s-name }} cluster.
   1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Select the {{ managed-k8s-name }} node group from the list.
@@ -668,7 +668,7 @@ Upgrade the {{ managed-k8s-name }} cluster version before updating the node grou
 
   1. Open the current configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create this file, see [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
+     For more on how to create such a file, see [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
   1. Change the version in the {{ managed-k8s-name }} node group description:
 
      ```hcl
@@ -722,7 +722,7 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ managed-k8s-name }} cluster.
   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. In the **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** field, select `Get the latest improvements and fixes for version...`
@@ -759,7 +759,7 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ managed-k8s-name }} cluster.
   1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Select the {{ managed-k8s-name }} node group from the list.
@@ -810,7 +810,7 @@ If your cluster is set to update at any time, the required update will take plac
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ managed-k8s-name }} cluster.
   1. Under **Updates**, click **Update now**.
 
@@ -823,7 +823,7 @@ If your cluster is set to update at any time, the required update will take plac
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ managed-k8s-name }} cluster.
   1. Under **Updates**, click **Reschedule**.
   1. Select a new update date and click **Reschedule**.

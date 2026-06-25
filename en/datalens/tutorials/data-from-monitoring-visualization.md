@@ -1,6 +1,6 @@
 ---
 title: Visualizing {{ monitoring-full-name }} data
-description: In this tutorial, you will create and add to the dashboard a chart using the {{ monitoring-short-name }} query language.
+description: In this tutorial, you will create a chart using the {{ monitoring-short-name }} query language and add it to the dashboard.
 canonical: '{{ link-docs }}/tutorials/datalens/data-from-monitoring-visualization'
 ---
 

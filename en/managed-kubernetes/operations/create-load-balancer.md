@@ -306,7 +306,7 @@ To create a `LoadBalancer` type service:
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select your default folder.
-     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. The **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_list }}** tab shows the network load balancer with the `k8s` prefix in the name and the unique ID of your {{ k8s }} cluster in the description.
 
         Copy the balancer address in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.column_ip-address }}** column.

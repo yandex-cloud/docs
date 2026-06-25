@@ -235,7 +235,7 @@ description: Из статьи вы узнаете, как задать наст
 * [Не переносятся данные](#no-transfer)
 * [Неподдерживаемый диапазон дат](#date-range)
 
-См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
+Смотрите полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
 {% include [no-new-tables](../../../../_includes/data-transfer/troubles/clickhouse/no-new-tables.md) %}
 

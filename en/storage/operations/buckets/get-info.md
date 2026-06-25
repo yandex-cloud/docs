@@ -14,7 +14,7 @@ To view full information about a [bucket](../../concepts/bucket.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket from the list.
   1. In the left-hand panel, select the appropriate section with bucket information.
      * ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**: List of objects stored in the bucket.
@@ -77,7 +77,7 @@ To view bucket statistics:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**. 
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**. 
   1. Select the bucket from the list.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
   1. On the page that opens, you can view bucket statistics for a certain period:

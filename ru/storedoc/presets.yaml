@@ -1,16 +1,12 @@
 default:
-  region: ru
   lang: ru
-  product: yandex-cloud
-  policy: keep
   versions:
-    tf:
-      latest: '8.0'
-      str: 6.0, 7.0 или 8.0
     cli:
       latest: '8.0'
       str: 6.0, 7.0 или 8.0
     console:
       latest: '8.0'
       str: 6.0, 7.0 и 8.0
-  shell-link: https://www.mongodb.com/try/download/shell
+    tf:
+      latest: '8.0'
+      str: 6.0, 7.0 или 8.0

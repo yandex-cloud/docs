@@ -171,7 +171,7 @@ description: В этой инструкции вы создадите класт
      cl17i6943n92********-itif  Ready   <none>  31m  v1.13.3
      ```
   
-     Подробнее о подключении к кластеру {{ managed-k8s-name }} см. на странице [Обзор способов подключения](operations/connect/index.md).
+     Подробнее о подключении к кластеру {{ managed-k8s-name }} смотрите на странице [Обзор способов подключения](operations/connect/index.md).
 
 {% endlist %}
 

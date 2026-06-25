@@ -42,6 +42,12 @@
    * **GPU** — укажите нужное количество GPU.
    * **Группы безопасности** — выберите созданные ранее группы безопасности.
 
+   {% note info %}
+        
+   Механизм управления ресурсами [cgroup v2](https://www.kernel.org/doc/html/latest/admin-guide/cgroup-v2.html) не поддерживается для узлов на [платформе](../../compute/concepts/vm-platforms.md#gpu-platforms) Gen2 (`gpu-standard-v3i`).
+   
+   {% endnote %}
+
 1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
 
 ## Создайте под с GPU {#create-pod-gpu}

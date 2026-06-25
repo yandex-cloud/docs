@@ -16,7 +16,7 @@ description: В этой инструкции вы научитесь созда
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит плата за использование бакета {{ objstorage-full-name }} (см. [тарифы {{ objstorage-name }}](../storage/pricing.md)).
+В стоимость поддержки инфраструктуры входит плата за использование бакета {{ objstorage-full-name }} ([тарифы {{ objstorage-name }}](../storage/pricing.md)).
 
 ## Подготовьте облако к работе {#prepare-cloud}
 

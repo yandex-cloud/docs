@@ -1,7 +1,7 @@
-# Creating charts in {{ datalens-full-name }} Editor
+# Creating charts in the {{ datalens-full-name }} Editor
 
 
-[Editor](../../datalens/charts/editor/index.md) is a JavaScript-based data and selector visualization tool. With Editor, you can upload data from one or more sources, manage chart parameters, and configure visualizations. You can use datasets and connections as data sources.
+[Editor](../../datalens/charts/editor/index.md) is a JavaScript-based data and selector visualization tool. With Editor, you can upload data from one or multiple sources, manage chart parameters, and configure visualizations. You can use datasets and connections as data sources.
 
 You can use Editor to create standalone {{ datalens-short-name }} objects:
 
@@ -43,7 +43,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
 1. In the top-right corner, click **Create** → **Create workbook**.
-1. Enter a [workbook](../../datalens/workbooks-collections/index.md) name: `Charts in Editor`.
+1. Name your [workbook](../../datalens/workbooks-collections/index.md): `Charts in Editor`.
 1. Click **Create**.
 
 
@@ -58,12 +58,12 @@ Create a [dataset](../../datalens/dataset/index.md) based on the `Sample ClickHo
 1. In the top-right corner of the connection page, click **Create dataset**.
 1. Drag the `MS_SalesFacts` table to the workspace.
 1. Drag the `MS_Products` table to the workspace. The tables will be linked together automatically.
-1. Navigate to the **Fields** tab.
-1. Delete the duplicate field left over from joining the tables: `ProductID (1)`. To do this, on the right side of the field row, click ![image](../../_assets/console-icons/ellipsis.svg) → **Delete**.
+1. Go to the **Fields** tab.
+1. Delete the `ProductID (1)` duplicate field left over from joining the tables. To do this, on the right side of the field row, click ![image](../../_assets/console-icons/ellipsis.svg) → **Delete**.
 1. Create an order date field named `OrderDate`:
 
    1. Duplicate the `OrderDatetime` field: on the right side of the row with the field, click ![image](../../_assets/console-icons/ellipsis.svg) → **Duplicate**.
-   1. Rename the `OrderDatetime (1)` duplicate field as `OrderDate`: click the field name, delete the current name, and enter the new one.
+   1. Rename the `OrderDatetime (1)` duplicate field to `OrderDate`: click the field name, delete the current name, and enter the new one.
    1. In the **Type** column, change the data type from **Date and time** to **Date**.
 1. Create a measure for the order amount: in the **Aggregation** column, select **Sum** for the `Sales` field. The aggregation field will change its color to blue: it is now a measure.
 1. Create a measure for the number of orders:
@@ -118,7 +118,7 @@ Create a [dataset](../../datalens/dataset/index.md) based on the `Sample ClickHo
 
    Where:
 
-   * `metrics_list`: List of dataset metrics to display in the chart.
+   * `metrics_list`: List of dataset measures to display in the chart.
    * `date_interval`: Date range for data filtering.
    * `date_dimension`: Dataset field of the `Date` type used for filtering.
    * `limit`: Limit on the number of requested rows.
@@ -127,7 +127,7 @@ Create a [dataset](../../datalens/dataset/index.md) based on the `Sample ClickHo
    
    {% note info %}
    
-   * In this example, the `const {buildSource} = require('libs/dataset/v2');` service module is used for more convenient operations with datasets.
+   * In this example, we use the `const {buildSource} = require('libs/dataset/v2');` service module for more convenient operations with datasets.
    * To output data to the console as JSON objects for debugging, use the `console.log(<variable_name>)` method.
 
    {% endnote %}
@@ -150,7 +150,7 @@ Create a [dataset](../../datalens/dataset/index.md) based on the `Sample ClickHo
    let filled_params = []
 
 
-   // Basic date filter setup as-is
+   // Basic date filter setup as is
    // Field to filter by
    const date_dim = params.date_dimension[0];
    // Parsing dates from the interval
@@ -237,7 +237,7 @@ Create a [dataset](../../datalens/dataset/index.md) based on the `Sample ClickHo
    };
    ```
 
-   Where all fields are optional:
+   Where all the fields are optional:
 
    * `title`: Object in the following format:
 
@@ -257,7 +257,7 @@ Create a [dataset](../../datalens/dataset/index.md) based on the `Sample ClickHo
      * `text`: Table header.
      * `style`: Description of CSS styles for the table header. The value type is an object from CSS properties.
    
-   * `size`: Table size, including font size, line spacing, and indentation within cells. String value type from these possible values: `l`, `m`, or `s`.
+   * `size`: Table size, including the font size, line spacing, and indentation within cells. The value type is a string of the `l`, `m`, or `s` value.
 
 1. On the **Prepare** tab, create a table:
 
@@ -325,17 +325,17 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) and add your chart:
 
 1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks** and go to the `Charts in Editor` workbook.
 1. In the top-right corner, click **Create** → ![image](../../_assets/console-icons/layout-cells-large.svg) **Dashboard**.
-1. In the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it to the required area.
+1. In the panel at the bottom of the page, drag ![image](../../_assets/console-icons/chart-column.svg) **Chart** where you need.
 1. In the window that opens, click **Select**.
 1. Select `Simple chart in Editor`.
 1. Click **Add**.
 
 ### Add selectors to the dashboard {#add-selectors-on-dashboard}
 
-1. Add a period selector. To do this, in the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/sliders.svg) **Selector** and drag it to the required area. Configure the selector settings:
+1. Add a period selector. To do this, in the panel at the bottom of the page, drag ![image](../../_assets/console-icons/sliders.svg) **Selector** where you need. Configure the selector:
 
    1. Select `Manual input` as the source type.
-   1. Under **Field or parameter name**, enter `date_interval`.
+   1. In **Field or parameter name**, enter `date_interval`.
    1. Select `Calendar` as the selector type.
    1. Enable **Range**.
    1. Set **Default value** to this range: `15.05.2019 - 10.06.2019`.
@@ -346,8 +346,8 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) and add your chart:
 1. Add a metric selector:
 
    1. Select `Manual input` as the source type.
-   1. Under **Field or parameter name**, enter `metrics_list`.
-   1. Choose `List` as your selector type.
+   1. In **Field or parameter name**, enter `metrics_list`.
+   1. Select `List` as your selector type.
    1. Enable **Multiple choice**.
    1. Add `Sales` and `OrderCount` as possible values.
    1. Select `Sales` as the default value.
@@ -358,7 +358,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) and add your chart:
 1. Add a selector for the number of output rows:
 
    1. Select `Manual input` as the source type.
-   1. Under **Field or parameter name**, enter `limit`.
+   1. In **Field or parameter name**, enter `limit`.
    1. Select `Input field` as the selector type.
    1. The default value is `5`.
    1. In the **Header** field, enter `Number of rows`.
@@ -383,7 +383,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) and add your chart:
    The dashboard parameters and their values are displayed at the top.
 ## Create a chart processing dashboard filters and parameters {#processing-filter-parameters-values}
 
-Create an Editor chart with more flexible processing of dashboard filters and parameters and add the new chart to your dashboard.
+Create a chart in Editor with more flexible processing of dashboard filters and parameters and add the new chart to your dashboard.
 
 ### Create a chart in Editor {#chart-editor-create}
 
@@ -447,7 +447,7 @@ Create an Editor chart with more flexible processing of dashboard filters and pa
 
    {% endcut %}
 
-1. On the **Source** tab, create a query to get data using the `buildSource` module.
+1. On the **Source** tab, create a data query using the `buildSource` module.
 
    1. In the `params` object, get the parameter values using the [Editor.getParams()](../../datalens/charts/editor/methods.md#get-params) method. For convenience, set a separate variable for each parameter:
 
@@ -464,7 +464,7 @@ Create an Editor chart with more flexible processing of dashboard filters and pa
       const filter_mass = params.mass_filter_fields_ids.length > 0? params.mass_filter_fields_ids['0'].split('|'):[];
       ```
 
-      For this operation, the following requirements apply:
+      In this case, the following applies:
       
       * All parameters are provided as arrays.
       * In this example, only the `metrics_list` parameter is specified as a list of values, so it is put into a variable without any additional processing. The remaining parameters are specified as a single value, so only the first array element is used.
@@ -490,14 +490,14 @@ Create an Editor chart with more flexible processing of dashboard filters and pa
 
    1. Process dashboard filters and parameters:
 
-      * Separately process the manual selector’s date range filter by using the `getDateFilters()` function and adding the filter to the `where` array:
+      * Separately process the manual selector’s date interval filter by using the `getDateFilters()` function and adding the filter to the `where` array:
 
         ```javascript
         let q = getDateFilters(date_interval, filter_date_dimension, date_scale);
         where.push(q)
         ```
 
-        You can reuse the `getDateFilters()` function to handle date intervals. It returns a filter object in the following format:
+        You can reuse the `getDateFilters()` function to process date intervals. It returns a filter object in the following format:
         
         ```javascript
         {
@@ -529,15 +529,15 @@ Create an Editor chart with more flexible processing of dashboard filters and pa
 
         {% endcut %}
 
-      * All parameters and filters are provided to the chart as parameters; process them within a single loop.
+      * All parameters and filters are provided to the chart as parameters; process them within a single run.
       
-        {% cut "Parameter and filter processing loop" %}
+        {% cut "Parameter and filter processing run" %}
 
         ```javascript
         for (const [key, value] of Object.entries(params)) {
             // Adding all provided non-empty parameters
 
-            // If in the `params_to_send` parameter list, adding to the `filled_params` array
+            // If in the `params_to_send` list, adding to the `filled_params` array
             if (params_to_send.includes(key)) {
                filled_params.push({id:key,value:value.toString()});
             };
@@ -582,7 +582,7 @@ Create an Editor chart with more flexible processing of dashboard filters and pa
 
         {% endcut %}
 
-        For this operation, the following requirements apply:
+        In this case, the following applies:
 
         * Add the parameter specified in the `filter_fields` list on the `Params` tab to the `where` array:
         
@@ -600,7 +600,7 @@ Create an Editor chart with more flexible processing of dashboard filters and pa
 
           Before adding the parameter, process its value:
 
-          * Values starting with `__` are parsed using the [Editor.resolveOperation(args)](../../datalens/charts/editor/methods.md#resolve-oper) method to form an expression. Multiple values are added as an array:
+          * Values starting with `__` are parsed using the [Editor.resolveOperation(args)](../../datalens/charts/editor/methods.md#resolve-oper) method to generate an expression. Multiple values are added as an array:
 
             ```javascript
             if (value[0] && value[0].substr(0, 2) === '__') {
@@ -660,7 +660,7 @@ Create an Editor chart with more flexible processing of dashboard filters and pa
 
           For an example of using parameters in a source, see [{#T}](../../datalens/tutorials/data-from-ch-dataset-parametrization.md).
 
-   1. Generate a query to the dataset using the `buildSource` module and these generated variables: `where`, `cols`, `field_params`, and `row_limit`:
+   1. Generate a query against the dataset using the `buildSource` module and these generated variables: `where`, `cols`, `field_params`, and `row_limit`:
 
       ```javascript
       module.exports = {
@@ -743,11 +743,11 @@ Create an Editor chart with more flexible processing of dashboard filters and pa
    let q = getDateFilters(date_interval, filter_date_dimension, date_scale);
    where.push(q)
    
-   // 2) Dashboard filters and parameters: following the loop
+   // 2) Dashboard filters and parameters: following the run
    for (const [key, value] of Object.entries(params)) {
        // Adding all provided non-empty parameters
    
-       // If in the `params_to_send` parameter list, adding to the `filled_params` array
+       // If in the `params_to_send` list, adding to the `filled_params` array
        if (params_to_send.includes(key)) {
           filled_params.push({id:key,value:value.toString()});
        };
@@ -886,7 +886,7 @@ Create an Editor chart with more flexible processing of dashboard filters and pa
 1. Save the chart:
 
    1. In the top-right corner, click **Save**.
-   1. Enter your chart name: `Chart with parameter processing in Editor`. Click **Save**.
+   1. Enter your chart name: `Chart with parameter processing in Editor`. Then click **Save**.
 
 ### Create a new dashboard and add the chart and selectors {#create-dashboard2}
 
@@ -894,15 +894,15 @@ Create an Editor chart with more flexible processing of dashboard filters and pa
 1. In the top-right corner, click **Create** → ![image](../../_assets/console-icons/layout-cells-large.svg) **Dashboard**.
 1. Add the selector chart to the dashboard:
 
-   1. In the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it to the required area.
+   1. In the panel at the bottom of the page, drag ![image](../../_assets/console-icons/chart-column.svg) **Chart** where you need.
    1. In the window that opens, click **Select**.
-   1. Select `Chart with parameter processing in the Editor`.
+   1. Select `Chart with parameter processing in Editor`.
    1. Click **Add**.
 
-1. Add a period selector: in the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/sliders.svg) **Selector** and drag it to the required area. Specify the following settings:
+1. Add a period selector: in the panel at the bottom of the page, drag ![image](../../_assets/console-icons/sliders.svg) **Selector** where you need. Specify the following settings:
 
    1. Select `Manual input` as the source type.
-   1. Under **Field or parameter name**, enter `date_interval`.
+   1. In **Field or parameter name**, enter `date_interval`.
    1. Select `Calendar` as the selector type.
    1. Enable **Range**.
    1. Set **Default value** to this range: `15.05.2019 - 10.06.2019`.
@@ -915,7 +915,7 @@ Create an Editor chart with more flexible processing of dashboard filters and pa
    1. Select `Based on dataset` as the source type.
    1. Under **Dataset**, select `Sales dataset`.
    1. Under **Field**, select `ProductCategory`.
-   1. Choose `List` as your selector type.
+   1. Select `List` as your selector type.
    1. In the **Operation** field, select `Equals to`.
    1. In the **Header** field, enter `Product category`.
    1. Click **Save**.
@@ -925,7 +925,7 @@ Create an Editor chart with more flexible processing of dashboard filters and pa
    1. Select `Based on dataset` as the source type.
    1. Under **Dataset**, select `Sales dataset`.
    1. Under **Field**, select `ProductSubcategory`.
-   1. Choose `List` as your selector type.
+   1. Select `List` as your selector type.
    1. Enable **Multiple choice**.
    1. In the **Operation** field, select `Does not belong to a set`.
    1. In the **Header** field, enter `Exclude subcategories`.
@@ -934,8 +934,8 @@ Create an Editor chart with more flexible processing of dashboard filters and pa
 1. Add a selector to set the period scale:
 
    1. Select `Manual input` as the source type.
-   1. Under **Field or parameter name**, enter `date_scale`.
-   1. Choose `List` as your selector type.
+   1. In **Field or parameter name**, enter `date_scale`.
+   1. Select `List` as your selector type.
    1. Add `day`, `week`, and `month` as possible values.
    1. Select `week` as the default value.
    1. In the **Header** field, enter `Period scale`.

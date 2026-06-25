@@ -241,4 +241,4 @@ description: Из статьи вы узнаете, что такое AWS SDK д
 
 {% endlist %}
 
-Также см. [примеры кода](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3) и [справочник Go SDK API](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3).
+Также смотрите [примеры кода](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3) и [справочник Go SDK API](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3).

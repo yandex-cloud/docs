@@ -25,7 +25,7 @@ description: Из статьи вы узнаете, как изменить пу
 
        * Тип пула.
        * Размер пула.
-       * Если нужно расширить пул, даже когда свободных ресурсов в зоне доступности недостаточно, включите опцию **{{ ui-key.yacloud.compute.reserved-instance-pool.PendingSlotsRow.row-title_qGybc }}**. Подробнее см. [{#T}](../../concepts/reserved-pools.md#pending-slots).
+       * Если нужно расширить пул, даже когда свободных ресурсов в зоне доступности недостаточно, включите опцию **{{ ui-key.yacloud.compute.reserved-instance-pool.PendingSlotsRow.row-title_qGybc }}**. Подробнее в разделе [{#T}](../../concepts/reserved-pools.md#pending-slots).
        * В блоке **{{ ui-key.yacloud.compute.reserved-instance-pool.ReservedInstancePoolFormBase.main-pool-info-section_xoPE2 }}** измените имя, описание пула, добавьте или удалите [метки](../../../resource-manager/concepts/labels.md) пула.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.

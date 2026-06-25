@@ -184,7 +184,7 @@
      cl17i6943n92********-itif  Ready   <none>  31m  v1.13.3
      ```
   
-     Подробнее о подключении к кластеру Managed Service for Kubernetes см. на странице [Обзор способов подключения](operations/connect/index.md).
+     Подробнее о подключении к кластеру Managed Service for Kubernetes смотрите на странице [Обзор способов подключения](operations/connect/index.md).
 
 {% endlist %}
 

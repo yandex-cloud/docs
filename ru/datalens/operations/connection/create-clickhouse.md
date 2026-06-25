@@ -59,7 +59,6 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [datalens-db-connection-parameters](../../../_includes/datalens/datalens-db-connection-parameters.md) %}
      
-     ![image](../../../_assets/datalens/operations/connection/connection-clickhouse.png)
 
      Чтобы проверить корректность введенных параметров, нажмите кнопку **Проверить подключение**.
 

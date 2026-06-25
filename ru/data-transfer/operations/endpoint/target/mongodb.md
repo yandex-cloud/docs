@@ -240,7 +240,7 @@ description: Из статьи вы узнаете, как задать наст
 * [Ошибка при переносе коллекций timeseries](#timeseries)
 * [Не распознается IP-адрес или FQDN внешнего кластера](#cluster-config-issue)
 
-См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
+Смотрите полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
 {% include [string-size](../../../../_includes/data-transfer/troubles/mongodb/string-size.md) %}
 

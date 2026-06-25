@@ -2,7 +2,7 @@
 
 Доступ к сервису Yandex DataSphere регулируется путем назначения прав в организации. Управление организациями осуществляется с помощью сервиса [Yandex Identity Hub](../../organization/index.md).
 
-Список операций, доступных пользователю DataSphere, определяется его ролью. Роли можно назначить аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным](../../iam/concepts/users/accounts.md#saml-federation) или [локальным](../../iam/concepts/users/accounts.md#local) пользователям, [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md). Подробнее об управлении доступом в Yandex Cloud см. раздел [Как устроено управление доступом в Yandex Cloud](../../iam/concepts/access-control/index.md).
+Список операций, доступных пользователю DataSphere, определяется его ролью. Роли можно назначить аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным](../../iam/concepts/users/accounts.md#saml-federation) или [локальным](../../iam/concepts/users/accounts.md#local) пользователям, [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md). Подробнее об управлении доступом в Yandex Cloud смотрите раздел [Как устроено управление доступом в Yandex Cloud](../../iam/concepts/access-control/index.md).
 
 ## На какие ресурсы можно назначить роль {#resources}
 

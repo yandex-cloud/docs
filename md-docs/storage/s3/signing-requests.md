@@ -95,7 +95,7 @@ signature = Hex(sign(SigningKey, StringToSign))
 
 {% note info %}
 
-Убедитесь, что сервисный аккаунт, от имени которого вы выполняете команды `aws`, имеет необходимые права для выполнения запрашиваемых действий. Например, для создания бакета [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../security/index.md#storage-uploader) `storage.editor` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Подробнее см. [Обзор способов управления доступом в Object Storage](../security/overview.md).
+Убедитесь, что сервисный аккаунт, от имени которого вы выполняете команды `aws`, имеет необходимые права для выполнения запрашиваемых действий. Например, для создания бакета [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../security/index.md#storage-uploader) `storage.editor` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Подробнее на странице [Обзор способов управления доступом в Object Storage](../security/overview.md).
 
 {% endnote %}
 

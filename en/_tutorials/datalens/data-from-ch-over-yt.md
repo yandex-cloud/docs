@@ -3,7 +3,7 @@
 
 
 
-This section explains how to connect CHYT using public clique as a data source for {{ datalens-short-name }}.
+This section explains how to connect CHYT using a public clique as a data source for {{ datalens-short-name }}.
 
 ## Getting started {#before-you-begin}
 
@@ -24,14 +24,14 @@ Before creating a connector in CHYT, prepare your table on {{ ytsaurus-name }}:
 
 - The table must be static. [Learn more about static tables in {{ ytsaurus-name }}](https://ytsaurus.tech/docs/ru/user-guide/storage/static-tables).
 
-- The table must be schematized. {{ datalens-short-name }} runs a query to the table and gets its schema to form a dataset. [Learn more about schemas in {{ ytsaurus-name }}](https://ytsaurus.tech/docs/ru/user-guide/storage/static-schema).
+- The table must be schematized. {{ datalens-short-name }} queries the table and gets its schema to create a dataset. [Learn more about schemas in {{ ytsaurus-name }}](https://ytsaurus.tech/docs/ru/user-guide/storage/static-schema).
 
 {% note tip %}
 
-We recommend:
+What we recommend:
 
-* Sorting tables by the basic fields the filtering is done by. For example, by fields containing dates.
-* Enabling the [columnar chunk storage format](https://ytsaurus.tech/docs/ru/user-guide/storage/chunks#columns) using the `optimize_for = scan` attribute. This will enable {{ datalens-short-name }} to process the table faster.
+* Sorting tables by the main fields used for filtering, e.g., by fields containing dates.
+* Enabling the [columnar chunk storage format](https://ytsaurus.tech/docs/ru/user-guide/storage/chunks#columns) using the `optimize_for = scan` attribute. Thus {{ datalens-short-name }} will process the table faster.
 
 {% endnote %}
 
@@ -46,14 +46,14 @@ To work with CHYT, create a **CHYT** connection.
 
  {% include [datalens-yt-connection](../../_includes/datalens/internal/datalens-yt-connection.md) %}
  
-You can go straight to creating a dataset from the connection creation interface. To do this, in the upper-right corner, click **Create dataset**.
+You can go straight to creating a dataset from the connection creation interface. To do this, in the top-right corner, click **Create dataset**.
 
 #### Create a dataset {#create-dataset}
 
 After creating a connection, you can create a dataset over it.
 
 1. In the left-hand navigation menu, click ![icon-datasets](../../_assets/console-icons/circles-intersection.svg) and then click **Create dataset** in the top-right corner.
-1. In the window that opens, in the **Connections** section, click **+ Add**. Select the **CHYT** connection that you created earlier.
+1. In the window that opens, in the **Connections** section, click **+ Add**. Select the **CHYT** connection you created earlier.
 
 1. Select the source indication method:
 
@@ -61,7 +61,7 @@ After creating a connection, you can create a dataset over it.
 
     - **List**: Multiple tables on {{ ytsaurus-name }}. URL from the browser or a full path to a table. Use a new row for each table.
 
-    - **Range**: A range of tables on {{ ytsaurus-name }}. You can set your own table range using the **Start with** and **Finish at** fields. {{ datalens-short-name }} will add all the tables specified in the range to the dataset in alphabetical order. If the limit values are left blank, {{ datalens-short-name }} will use all the tables in the specified folder. You can also set only one limit value.
+    - **Range**: Range of tables on {{ ytsaurus-name }}. You can set your own table range using the **Start with** and **Finish at** fields. {{ datalens-short-name }} will add all the tables specified in the range to the dataset in alphabetical order. If the limit values are left blank, {{ datalens-short-name }} will use all the tables in the specified folder. You can also set only one limit value.
 
       {% note info %}
 
@@ -73,20 +73,20 @@ After creating a connection, you can create a dataset over it.
 
       {% note warning %}
 
-      First, process the query you got from Query: delete all semicolon characters (`;`). An entire Query query from {{ datalens-short-name }} is executed as a subquery.
+      First, process the query you got from Query: delete all semicolon characters (`;`). An entire Query query from {{ datalens-short-name }} is run as a subquery.
 
       {% endnote %}
 
-1. Click **Save**. Make sure that the data is displayed in the dataset preview.
+1. Click **Save**. Make sure the data is displayed in the dataset preview.
 
-1. Click Save in the upper-right corner. Enter a name for the dataset and click **Create**. The dataset will appear in the list of datasets available to you.
+1. Click **Save** in the top-right corner. Enter a name for the dataset and click **Create**. The dataset will appear in the list of datasets available to you.
 
-Above the created dataset, you can create various charts and place them on dashboards.
+On top of the created dataset, you can create various charts and place them on dashboards.
 
 ## Frequently asked questions {#questions}
 
 
-{% cut "Error in the interface Access to table was denied" %}
+{% cut "Interface error: Access to table was denied" %}
 
 `ERR.DS_API.DB.CHYT.TABLE_ACCESS_DENIED `
 
@@ -95,7 +95,7 @@ If you do not know who created the connection, create a new one.
 
 {% endcut %}
 
-{% cut "Error in the interface Clique not running" %}
+{% cut "Interface error: Clique not running" %}
 
 `ERR.DS_API.CLIQUE_STOPPED` 
 
@@ -103,11 +103,11 @@ The CHYT clique specified in the current connection is not running. Restart the 
 
 {% endcut %}
 
-{% cut "Error in the interface Column used in join expression is not a key column" %}
+{% cut "Interface error: Column used in join expression is not a key column" %}
 
 `ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN`
 
-When you use a CHYT connection, key columns of {{ ytsaurus-name }} tables are significant. In multi-table datasets, you can link tables (execute JOIN) only by key columns of joined tables. To do this, the following requirements must be met:
+When you use a CHYT connection, key columns of {{ ytsaurus-name }} tables are significant. In multi-table datasets, you can only link tables (by running JOINs) by key columns in these tables. To do this, the following requirements must be met:
 * All the columns used to join two tables must form a part of the key for both of them.
 * The keys of both tables must begin with exactly those columns.
 * The columns must be listed in the same order in the keys of both tables.
@@ -117,16 +117,16 @@ To work around this issue, recreate the source tables and specify the keys that 
 {% endcut %}
 
 
-{% cut "Error in the interface {{ ytsaurus-name }} table has no schema. Only schematized tables are supported" %}
+{% cut "Interface error: {{ ytsaurus-name }} table has no schema. Only schematized tables are supported" %}
 
 `ERR.DS_API.DB.CHYT.TABLE_HAS_NO_SCHEMA`
 
-The {{ ytsaurus-name }} table that I use has no schema. You cannot use such tables in {{ datalens-short-name }}. Recreate the table with a schema (specify the data types)
+Your {{ ytsaurus-name }} table has no schema. You cannot use such tables in {{ datalens-short-name }}. Recreate the table with a schema (specify the data types).
 
 {% endcut %}
 
 
-{% cut "Requested database column does not exist error in the interface" %}
+{% cut "Interface error: Requested database column does not exist" %}
 
 For details, see [here](../../datalens/troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md).
 

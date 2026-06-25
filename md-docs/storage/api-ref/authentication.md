@@ -31,7 +31,7 @@
 
 - Аутентификация с помощью статического ключа {#static-key}
 
-  Для аутентификации в [AWS S3 API](../s3/api-ref/index.md) и работы с Terraform и другими [поддерживаемыми инструментами](../tools/index.md) вы можете использовать [статический ключ доступа](../../iam/concepts/authorization/access-key.md). Статический ключ доступа выпускается на [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), и все действия с использованием этого ключа выполняются от имени этого сервисного аккаунта. Подробнее см. [Как пользоваться S3 API](../s3/index.md).
+  Для аутентификации в [AWS S3 API](../s3/api-ref/index.md) и работы с Terraform и другими [поддерживаемыми инструментами](../tools/index.md) вы можете использовать [статический ключ доступа](../../iam/concepts/authorization/access-key.md). Статический ключ доступа выпускается на [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), и все действия с использованием этого ключа выполняются от имени этого сервисного аккаунта. Подробнее на странице [Как пользоваться S3 API](../s3/index.md).
 
   {% note info %}
   
@@ -61,7 +61,7 @@
 
 {% note warning %}
 
-Убедитесь, что аккаунт, от имени которого вы выполняете запрос, имеет необходимые права для выполнения запрашиваемого действия. Например, для загрузки объекта в бакет [назначьте](../../iam/operations/sa/assign-role-for-sa.md) аккаунту [роль](../security/index.md#storage-uploader) `storage.uploader` на бакет. Подробнее см. [Обзор способов управления доступом в Object Storage](../security/overview.md).
+Убедитесь, что аккаунт, от имени которого вы выполняете запрос, имеет необходимые права для выполнения запрашиваемого действия. Например, для загрузки объекта в бакет [назначьте](../../iam/operations/sa/assign-role-for-sa.md) аккаунту [роль](../security/index.md#storage-uploader) `storage.uploader` на бакет. Подробнее на странице [Обзор способов управления доступом в Object Storage](../security/overview.md).
 
 {% endnote %}
 
@@ -116,7 +116,7 @@
 
   Начиная с версии [8.3.0](https://curl.se/changes.html) утилита `curl` поддерживает автоматическое формирование [строки для подписи](../s3/signing-requests.md#string-to-sign-gen), [подпись запроса](../s3/signing-requests.md#signing) и подстановку необходимых заголовков при работе с AWS S3 API.
 
-  Также вы можете вручную сформировать указанные заголовки и подписать запрос. См. пример для **Версии curl 8.2.1 и ниже**.
+  Также вы можете вручную сформировать указанные заголовки и подписать запрос. Смотрите пример для **Версии curl 8.2.1 и ниже**.
 
   {% cut "Версия curl 8.3.0 и выше" %}
 
@@ -254,7 +254,7 @@ Authorization: Bearer ${IAM_TOKEN}
 
   Где:
 
-  * `IAM_TOKEN` — IAM-токен. Подробнее см. [Получение IAM-токена](../../iam/operations/index.md#authentication).
+  * `IAM_TOKEN` — IAM-токен. Подробнее в разделе [Получение IAM-токена](../../iam/operations/index.md#authentication).
   * `name` — имя бакета.
   * `folder_id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога.
   * `default_storage_class` — [класс](../concepts/storage-class.md) хранилища.
@@ -304,7 +304,7 @@ Authorization: Bearer ${IAM_TOKEN}
 
   Где:
 
-  * `IAM_TOKEN` — IAM-токен. Подробнее см. [Получение IAM-токена](../../iam/operations/index.md#authentication).
+  * `IAM_TOKEN` — IAM-токен. Подробнее в разделе [Получение IAM-токена](../../iam/operations/index.md#authentication).
   * `name` — имя бакета.
   * `folderId` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога.
   * `default_storage_class` — [класс](../concepts/storage-class.md) хранилища.

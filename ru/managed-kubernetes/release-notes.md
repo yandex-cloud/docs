@@ -152,7 +152,7 @@ index: 1
 
 ### Новые возможности {#q2-2025-new-features}
 
-* Поддержан {{ k8s }} версии [1.32](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md). Подробнее см. [{#T}](./concepts/release-channels-and-updates.md).
+* Поддержан {{ k8s }} версии [1.32](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md). Подробнее на странице [{#T}](./concepts/release-channels-and-updates.md).
 * Добавлена возможность указать одно и то же значение для минимального и максимального количества узлов в группе с [автоматическим масштабированием](./concepts/node-group/cluster-autoscaler.md). Таким образом можно, не меняя тип группы на фиксированный, добиться фиксированного размера и фактически отключить автоматическое масштабирование.
 * Поддержаны [шифрованные диски](./concepts/volume.md#encrypted-disks) {{ compute-full-name }} для статической и динамической подготовки постоянных томов.
 * Добавлена передача в {{ at-full-name }} [события уровня конфигурации](./at-ref.md#control-plane-events) `UpdateClusterCertificate` при обновлении [сертификата кластера](./concepts/release-channels-and-updates.md#certificates).
@@ -194,7 +194,7 @@ index: 1
 
 ### Новые возможности {#q4-2024-new-features}
 
-* Добавлена поддержка {{ k8s }} версии [1.31](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md). Подробнее см. [{#T}](./concepts/release-channels-and-updates.md).
+* Добавлена поддержка {{ k8s }} версии [1.31](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md). Подробнее на странице [{#T}](./concepts/release-channels-and-updates.md).
 * Обновлен [Cilium](https://cilium.io/) с версии [1.12.9](https://github.com/cilium/cilium/releases/tag/v1.12.9) до [1.15.10](https://github.com/cilium/cilium/releases/tag/v1.15.10) для кластеров с {{ k8s }} версии 1.31 и выше.
 * Обновлен [CoreDNS](https://coredns.io/) с версии [1.9.4](https://github.com/coredns/coredns/releases/tag/v1.9.4) до [1.11.3](https://github.com/coredns/coredns/releases/tag/v1.11.3) для всех поддерживаемых версий {{ k8s }}.
 
@@ -223,7 +223,7 @@ index: 1
 
 ### Новые возможности {#h1-2024-new-features}
 
-* Добавлена поддержка {{ k8s }} версий [1.28](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.28.md), [1.29](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.29.md) и [1.30](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.30.md). Подробнее см. [{#T}](./concepts/release-channels-and-updates.md).
+* Добавлена поддержка {{ k8s }} версий [1.28](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.28.md), [1.29](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.29.md) и [1.30](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.30.md). Подробнее на странице [{#T}](./concepts/release-channels-and-updates.md).
 * Обновлены лимиты [CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md) для поддержки дисков объемом более 200 ТБ.
 
 ### Исправления и улучшения {#h1-2024-problems-solved}
@@ -240,7 +240,7 @@ index: 1
 
 В релизных каналах `rapid`, `regular` и `stable` доступны следующие изменения:
 * Добавлена поддержка [сверхбыстрых сетевых хранилищ с тремя репликами (SSD)](../compute/concepts/disk.md#disks-types) для [классов хранилищ](./operations/volumes/manage-storage-class.md) и [постоянных томов](./concepts/volume.md#persistent-volume).
-* Появилась возможность использовать группы узлов c [GPU](../compute/concepts/gpus.md) без предустановленных драйверов. Теперь вы можете самостоятельно выбирать подходящую версию драйвера с помощью приложения [GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html). Подробнее см. [{#T}](./tutorials/driverless-gpu.md).
+* Появилась возможность использовать группы узлов c [GPU](../compute/concepts/gpus.md) без предустановленных драйверов. Теперь вы можете самостоятельно выбирать подходящую версию драйвера с помощью приложения [GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html). Подробнее на странице [{#T}](./tutorials/driverless-gpu.md).
 * Убрано ограничение ресурса CPU у подов [CoreDNS](https://kubernetes.io/docs/tasks/administer-cluster/coredns/) для предотвращения троттлинга.
 * Добавлена поддержка [групп размещения нереплицируемых дисков](../compute/concepts/disk-placement-group.md) в CSI-драйвере {{ k8s }}. Параметры групп размещения доступны для [классов хранилищ](./operations/volumes/manage-storage-class.md).
 * Исправлена ошибка игнорирования идентификатора [лог-группы](../logging/concepts/log-group.md) при обновлении параметра `master_logging` в кластере.

@@ -1,4 +1,4 @@
-# Bitrix24: direct connection
+# Bitrix24: Direct connection
 
 
 {% include [datalens-folder-navigation-note](../../_includes/datalens/datalens-folder-navigation-note.md) %}
@@ -9,8 +9,8 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 1. [Create a workbook](#create-workbook).
 1. [Create a connection to Bitrix24](#create-connection-bitrix24).
-1. [Review the dashboard and charts](#view-dashboard-bitrix24).
-1. [Review the dataset. Create your dataset and chart](#create-dataset-and-chart).
+1. [Explore the dashboard and charts](#view-dashboard-bitrix24).
+1. [Explore the dataset. Create your dataset and chart](#create-dataset-and-chart).
 
 ## Getting started {#before-you-begin}
 
@@ -21,7 +21,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
 1. In the top-right corner, click **Create** → **Create workbook**.
-1. Enter a name for the [workbook](../../datalens/workbooks-collections/index.md), `Bitrix24`.
+1. Enter `Bitrix24` for the [workbook](../../datalens/workbooks-collections/index.md) name.
 1. Click **Create**.
 
 ## Create a connection to Bitrix24 {#create-connection-bitrix24}
@@ -30,17 +30,17 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 1. In the top-right corner of the workbook, click **Create** → ![image](../../_assets/console-icons/thunderbolt.svg) **Connection**.
 1. Under **Partner connections**, select the **Bitrix24** connection.
-1. To connect to a demo data source, specify:
+1. To connect to a demo data source, specify the following:
 
    * **Portal**: `gds.office.bitrix.ru`.
    * **Token**: `wJZIFjdYtbLRtfewYcnq71oSFyEgxlbQ`.
 
-   When connecting to a working [Bitrix24](../../datalens/operations/connection/create-bitrix24.md) data source, specify:
+   When connecting to a working [Bitrix24](../../datalens/operations/connection/create-bitrix24.md) data source, specify the following:
 
    * **Portal**: URL of your Bitrix24 portal in `test.bitrix24.ru` format.
    * **Token**: Get a secret key in Bitrix24 by selecting **CRM** → **Analytics** → **BI analytics** in the **Yandex DataLens** tab. For more information, see [this guide](https://helpdesk.bitrix24.ru/open/17402692).
 
-   Leave the **Automatically create a dashboard, charts, and a dataset on the connection** option enabled.
+   Leave the **Automatically create dashboard, charts, and dataset on top of connection** option enabled.
 
 1. Check the connection and click **Create connection**.
 
@@ -50,7 +50,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
    Once the connection is created, a workbook named `Bitrix24` will open with the demo `Bitrix24 dashboard`, `Leads` and `Deals` datasets, and charts inside.
 
-## Review the dashboard {#view-dashboard-bitrix24}
+## Explore the dashboard {#view-dashboard-bitrix24}
 
 Open the `Bitrix24 dashboard`. The dashboard is interactive. You can:
 
@@ -96,19 +96,19 @@ You can customize the standard dashboard by deleting, moving, or editing charts.
 1. Add the chart to the dashboard:
 
    1. Return to the tab with the dashboard and click **Edit** at the top of the page.
-   1. In the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it to the required area.
+   1. In the panel at the bottom of the page, drag ![image](../../_assets/console-icons/chart-column.svg) **Chart** where you need.
    
       ![06-add-chart](../../_assets/datalens/solution-bitrix24/06-add-chart.png)
    
    1. In the window that opens, click **Select**.
-   1. Select the `Number of leads by channel` chart. This will automatically fill in the **Name** field.
+   1. Select the `Number of leads by channel` chart. The **Name** field will be populated automatically.
    1. Click **Add**. The widget will appear on the dashboard.
    1. Adjust the size of the widgets with your mouse and place them on the dashboard as you prefer.
    1. In the top-right corner of the dashboard, click **Save** to save your dashboard.
 
    ![07-bitrix24-updated-dashboard](../../_assets/datalens/solution-bitrix24/07-bitrix24-updated-dashboard.png)
 
-## Review the connection and dataset. Create your dataset and chart {#create-dataset-and-chart}
+## Explore the connection and dataset. Create your dataset and chart {#create-dataset-and-chart}
 
 1. Go to the `Bitrix24` workbook by clicking its name in the dashboard path. 
 
@@ -144,7 +144,7 @@ You can customize the standard dashboard by deleting, moving, or editing charts.
 
    {% endcut %}
 
-1. Go to the `Bitrix24` workbook and open the `Deal` dataset. Review the contents of the **Fields** and **Sources** tabs.
+1. Go to the `Bitrix24` workbook and open the `Deal` dataset. Check the contents of the **Fields** and **Sources** tabs.
 
 ### Create your dataset {#create-dataset}
 
@@ -153,7 +153,7 @@ To use the `Bitrix24` connection data, you can create a custom dataset based on 
 1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks** and go to the `Bitrix24` workbook.
 1. In the top-right corner, click **Create** → ![image](../../_assets/console-icons/circles-intersection.svg) **Create dataset**.
 1. Go to the **Sources** tab.
-1. Under **Connections**, click ![image](../../_assets/console-icons/plus.svg)** Add** and select the previously created Bitrix24 connection.
+1. Under **Connections**, click ![image](../../_assets/console-icons/plus.svg) **Add** and select your Bitrix24 connection.
 1. Drag the `crm_activity` table to the workspace. Wait for the data to load.
 
    ![11-dataset-new-source](../../_assets/datalens/solution-bitrix24/11-dataset-new-source.png)
@@ -181,27 +181,27 @@ To use the `Bitrix24` connection data, you can create a custom dataset based on 
 
 ### Create a new chart {#create-chart}
 
-To visualize interaction by type, create a column chart.
+To visualize interaction by type, create a column chart:
 
 1. Click **Create chart** in the top-right corner of the dataset page.
 1. Add the types of customer contacts on the chart. To do this, drag the `TYPE_NAME` field from **Dimensions** to the **X** section.
-1. Add the number of interactions of each type to the chart. To do this, drag the `ID_COUNT` field from **Measures** to the **Y** section.
+1. Add the number of contacts of each type to the chart. To do this, drag the `ID_COUNT` field from **Measures** to the **Y** section.
 
    ![13-new-chart-sections](../../_assets/datalens/solution-bitrix24/13-new-chart-sections.png)
 
 1. Save the chart:
 
    1. Click ![image](../../_assets/console-icons/chevron-down.svg) in the top-right corner and select **Save**.
-   1. Enter `Number of interactions by type` as the new chart's name and click **Save**.
+   1. Enter `Number of contacts by type` as the new chart name and click **Save**.
 
-### Add a chart to your dashboard {#add-chart-on-dashboard}
+### Add the chart to your dashboard {#add-chart-on-dashboard}
 
 Add the chart to your dashboard:
 
 1. Go to the `Bitrix24` workbook and open `Bitrix24 dashboard` or [create a dashboard](../../datalens/operations/dashboard/create.md).
 1. At the top of the page, click **Edit**.
 1. Click **Add** and select **Chart**.
-1. Choose the `Number of interactions by type` chart.
+1. Select the `Number of contacts by type` chart.
 1. Click **Add**. The widget will appear on the dashboard.
 1. Adjust the size of the widgets with your mouse and place them on the dashboard as you prefer.
 1. Click **Save** to save your changes to the dashboard.

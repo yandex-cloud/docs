@@ -45,7 +45,7 @@ Set up your cluster node for connection:
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the {{ managed-k8s-name }} cluster whose node you need access to.
-        1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
         1. Click the name of the {{ managed-k8s-name }} cluster.
         1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
         1. Select the node group you need.

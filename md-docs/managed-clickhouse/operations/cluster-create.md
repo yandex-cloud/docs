@@ -998,7 +998,7 @@
 
             * `configSpec` — конфигурация кластера:
 
-                * `version` — версия ClickHouse®: 24.8, 25.3, 25.8, 25.9 или 25.10.
+                * `version` — версия ClickHouse®: 25.8.24.21 LTS, 26.3.12.3 LTS, 26.4.4.38 и 26.5.2.39.
                 * `embeddedKeeper` — использование встроенного [сервиса координации](../concepts/coordination-system.md) ClickHouse® Keeper: `true` или `false`.
 
                     {% note alert %}
@@ -1342,7 +1342,7 @@
 
             * `config_spec` — конфигурация кластера:
 
-                * `version` — версия ClickHouse®: 24.8, 25.3, 25.8, 25.9 или 25.10.
+                * `version` — версия ClickHouse®: 25.8.24.21 LTS, 26.3.12.3 LTS, 26.4.4.38 и 26.5.2.39.
 
                 * `embedded_keeper` — использование встроенного [сервиса координации](../concepts/coordination-system.md) ClickHouse® Keeper: `true` или `false`.
 
@@ -2522,7 +2522,7 @@
 
             * `configSpec` — конфигурация кластера:
 
-                * `version` — версия ClickHouse®: 24.8, 25.3, 25.8, 25.9 или 25.10.
+                * `version` — версия ClickHouse®: 25.8.24.21 LTS, 26.3.12.3 LTS, 26.4.4.38 и 26.5.2.39.
                 * `clickhouse` — конфигурация ClickHouse®:
 
                     * `resources.resourcePresetId` — идентификатор [класса хостов](../concepts/instance-types.md). Список доступных классов хостов с их идентификаторами можно запросить с помощью метода [ResourcePreset.list](../api-ref/ResourcePreset/list.md).
@@ -2896,7 +2896,7 @@
 
             * `config_spec` — конфигурация кластера:
 
-                * `version` — версия ClickHouse®: 24.8, 25.3, 25.8, 25.9 или 25.10.
+                * `version` — версия ClickHouse®: 25.8.24.21 LTS, 26.3.12.3 LTS, 26.4.4.38 и 26.5.2.39.
 
                 * `clickhouse` — конфигурация ClickHouse®:
 

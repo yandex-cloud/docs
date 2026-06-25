@@ -1,4 +1,4 @@
-### How to change data in a source using {{ datalens-short-name }}? {#how-to-change-source-data}
+### How do I change data in a source using {{ datalens-short-name }}? {#how-to-change-source-data}
 
 You cannot change data in a source using {{ datalens-short-name }}.
 

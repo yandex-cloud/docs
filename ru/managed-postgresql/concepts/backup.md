@@ -62,7 +62,9 @@ keywords:
 
     * Резервные копии, созданные вручную, хранятся бессрочно.
 
-* После удаления кластера все его резервные копии хранятся 7 дней.
+* После удаления кластера все его резервные копии хранятся 7 дней, включая созданные вручную. Хранение резервных копий в этот период не тарифицируется.
+
+* {% include [manual-backup-delete-restriction](../../_includes/mdb/backups/manual-backup-delete-restriction.md) %}
 
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 

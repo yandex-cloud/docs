@@ -1,3 +1,3 @@
-### What permissions does an object copied to a directory get? {#copy-into-folder}
+### What permissions does an object copied to a folder get? {#copy-into-folder}
 
-If you copy an object to a directory, it gets the same permission settings as the directory has. For more information about rights settings, see the [documentation](../../datalens/security/index.md).
+If you copy an object to a folder, it gets the same permissions as the folder. For more information about configuring permissions, see [these guides](../../datalens/security/index.md).

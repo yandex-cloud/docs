@@ -8,7 +8,33 @@
 
 {% endnote %}
 
+Чтобы выполнить задания с удаленных хостов, не входящих в кластер:
+
+1. [Подготовьте инфраструктуру](#infra).
+1. [Запустите задания](#spark-submit).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+
 ## Перед началом работы {#before-you-begin}
+
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер Yandex Data Processing: использование вычислительных ресурсов с наценкой за сервис Yandex Data Processing, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы Yandex Data Processing](../../data-proc/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+
+
+## Подготовьте инфраструктуру {#infra}
 
 Создайте и настройте хост для удаленного запуска заданий на кластере Yandex Data Processing:
 
@@ -16,6 +42,7 @@
 
 - Версия образа 1.4
 
+  1. [Создайте кластер Yandex Data Processing](../../data-proc/operations/cluster-create.md).
   1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с операционной системой Ubuntu 16.04 LTS.
   1. Чтобы обеспечить сетевой доступ к кластеру Yandex Data Processing с созданной ВМ, [настройте группы безопасности](../../data-proc/operations/security-groups.md) кластера.
   1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по [SSH](../../glossary/ssh-keygen.md):
@@ -82,6 +109,7 @@
 
 - Версия образа 2.0
 
+  1. [Создайте кластер Yandex Data Processing](../../data-proc/operations/cluster-create.md).
   1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с операционной системой Ubuntu 20.04 LTS.
   1. Чтобы обеспечить сетевой доступ к кластеру Yandex Data Processing с созданной ВМ, [настройте группы безопасности](../../data-proc/operations/security-groups.md) кластера.
   1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по [SSH](../../glossary/ssh-keygen.md):
@@ -324,3 +352,11 @@
 Вы можете просматривать логи выполнения заданий и искать в них информацию с помощью сервиса [Yandex Cloud Logging](../../logging/index.md). Подробнее в разделе [Работа с логами](../../data-proc/operations/logging.md).
 
 {% endnote %}
+
+
+## Удалите созданные ресурсы {#clear-out}
+
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+
+1. [Удалите кластер Yandex Data Processing](../../data-proc/operations/cluster-delete.md).
+1. [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).

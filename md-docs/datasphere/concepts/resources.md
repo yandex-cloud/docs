@@ -24,4 +24,4 @@
 * [Модели](models/index.md)
 * [Файловые хранилища](filestores.md)
 
-Подробнее о ресурсной модели DataSphere см. [Взаимосвязь ресурсов в DataSphere](resource-model.md).
+Подробнее о ресурсной модели DataSphere смотрите [Взаимосвязь ресурсов в DataSphere](resource-model.md).

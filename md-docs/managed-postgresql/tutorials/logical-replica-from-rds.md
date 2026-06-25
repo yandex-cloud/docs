@@ -196,7 +196,7 @@
 
     {% endnote %}
 
-    Подробнее о создании подписок см. в [документации PostgreSQL](https://www.postgresql.org/docs/current/sql-createsubscription.html).
+    Подробнее о создании подписок смотрите в [документации PostgreSQL](https://www.postgresql.org/docs/current/sql-createsubscription.html).
 
 1. Чтобы получить статус репликации, обратитесь к каталогам `pg_subscription_rel`.
 
@@ -224,7 +224,7 @@
 
     Обратите внимание на используемый паттерн `*.*_seq`. Если в переносимой базе есть не соответствующие ему последовательности, то для их выгрузки укажите другой паттерн.
 
-    Подробнее о паттернах см. в [документации PostgreSQL](https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-PATTERNS).
+    Подробнее о паттернах смотрите в [документации PostgreSQL](https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-PATTERNS).
 
 1. Восстановите дамп с последовательностями в кластере-приемнике:
 

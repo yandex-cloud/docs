@@ -109,7 +109,7 @@ description: Из статьи вы узнаете, как задать наст
 * [Ошибка SSL is required](#ssl-required)
 * [Не удалось найти ни одной таблицы](#no-tables)
 
-См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
+Смотрите полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
 {% include [ambiguous-object-resolution-os](../../../../_includes/data-transfer/troubles/elastic-opensearch/ambiguous-object-resolution-os.md) %}
 

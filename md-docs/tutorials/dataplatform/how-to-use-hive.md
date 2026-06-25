@@ -10,6 +10,25 @@
 
 {% endnote %}
 
+
+## Перед началом работы {#before-you-begin}
+
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластеры Yandex Data Processing: использование вычислительных ресурсов с наценкой за сервис Yandex Data Processing, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы Yandex Data Processing](../../data-proc/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Бакеты Yandex Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
+
+
 ## Работа с заданиями в CLI Yandex Cloud {#run-hive-job-cli}
 
 Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
@@ -25,7 +44,7 @@ SQL-запрос для Hive можно передать двумя способ
 
 Результат выполнения запроса сохраняется в привязанный к кластеру бакет Yandex Object Storage вместе с сервисным выводом.
 
-### Перед началом работы {#before-you-begin-yc-cli}
+### Подготовьте инфраструктуру {#infra-yc-cli}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
 
@@ -292,7 +311,7 @@ SQL-запрос для Hive можно передать двумя способ
 
 ## Работа с заданиями в Hive CLI {#hive-shell}
 
-### Перед началом работы {#before-you-begin-hive-shell}
+### Подготовьте инфраструктуру {#infra-hive-shell}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
 
@@ -390,3 +409,11 @@ SQL-запрос для Hive можно передать двумя способ
     ```
 
     {% endcut %}
+
+
+## Удалите созданные ресурсы {#clear-out}
+
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+
+1. [Удалите кластеры Yandex Data Processing](../../data-proc/operations/cluster-delete.md).
+1. [Удалите бакеты Object Storage](../../storage/operations/buckets/delete.md). Перед удалением бакетов [удалите из них все объекты](../../storage/operations/objects/delete.md).

@@ -62,6 +62,38 @@ Use the [{{ yandex-cloud }} CLI]({{ link-docs }}/cli/) and [{{ TF }}]({{ link-do
 
 {{ managed-k8s-full-name }} [release channels](./concepts/release-channels-and-updates.md) receive updates in the set order. First, updates with new features and improvements are released in the `rapid` channel, after a while, in the `regular` channel, and only then they become available in the `stable` channel.
 
+## Q1 2026 {#q1-2026}
+
+### New features {#q1-2026-new-features}
+
+* Added support for [virtual machine reserve pools](./concepts/node-group/reserved-pools.md). Reserved resources' availability will be guaranteed for creating fixed-size cluster node groups. You can use reserve pools via the [{{ yandex-cloud }} CLI](../cli/), [{{ TF }}](../terraform/), and the [API](./managed-kubernetes/api-ref/NodeGroup/create.md), and provide them using [variables in the virtual machine template](./concepts/node-group/variables-in-the-template.md).
+* Improved [integration](../iam/concepts/workload-identity.md) with the {{ iam-name }} workload identity federation:
+  * Added integration with a workload identity federation via the `yc-metadata-server` DaemonSet controller on nodes for automatic exchange of {{ k8s }} service account tokens for an IAM token.
+  * Integration management for masters and node groups is available through the management console, CLI, {{ TF }}, and the API.
+* Added the [`k8s.cluster-api.admin`](./security/index.md#k8s-cluster-api-admin) role. Users with this role get the `yc:k8s-core-admin` group and the `admin` role in [Kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
+* Added support for {{ org-full-name }} [user groups](../organization/concepts/groups.md) as subjects in [Kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/). Now you can specify a user group in `RoleBinding` and `ClusterRoleBinding`: all members of the group will automatically receive the permissions assigned to it in the cluster.
+* Virtual machine groups and disks created while running in {{ managed-k8s-name }} are now tagged with [cloud labels](../resource-manager/concepts/labels.md) indicating their cluster membership and additional information that allows them to be associated with {{ k8s }} objects.
+  * VM groups created along with a node group require specifying the `managed-kubernetes-node-group-id`, `managed-kubernetes-cluster-id`, and custom `labels` set at node group creation.
+  * Disks for Persistent Volume require specifying the `managed-kubernetes-cluster-id`, `managed-kubernetes-cluster-name`, and the appropriate `managed-kubernetes-volume-name`.
+* Added the ability to create volumes larger than 8 TB using the `blockSize` field in the [storage class specification](./operations/volumes/manage-storage-class.md#sc-spec).
+
+### Improvements {#q1-2026-improvements}
+
+* Added support for {{ k8s }} [1.35](https://kubernetes.io/blog/2025/12/17/kubernetes-v1-35-release/). For more information, see [{#T}](./concepts/release-channels-and-updates.md).
+* Operations to change the [master's computing resources](./concepts/index.md#master-resources) are now displayed in the cluster operations list.
+* For clusters with {{ k8s }} version 1.35 and higher, the [cgroup v2](https://www.kernel.org/doc/html/latest/admin-guide/cgroup-v2.html) resource management mechanism is used.
+* Updated the [containerd](https://containerd.io/) runtime to version [2.2.1](https://github.com/containerd/containerd/releases/tag/v2.2.1) for clusters with {{ k8s }} 1.31 or higher.
+* Updated [runc](https://github.com/opencontainers/runc) to version 1.3.4 for clusters with {{ k8s }} 1.31 or higher.
+* Added the `CriticalAddonsOnly` [toleration](./concepts/index.md#taints-tolerations) for [`cilium-operator`](https://docs.cilium.io/en/stable/network/concepts/ipam/cluster-pool/#cilium-operator) and [`hubble-relay`](https://docs.cilium.io/en/stable/observability/hubble/setup/#hubble-relay) pods, allowing you to place them on dedicated nodes for system loads.
+
+### Fixes {#q1-2026-problems-solved}
+
+* Fixed the [containerd configuration](https://containerd.io/docs/1.7/man/containerd-config.toml.5) format. Converted configuration to a format compatible with versions 1.7 and 2.0 and higher. Previously, the format could lead to errors when connecting external nodes and updating GPU Operator above version 24.9.2.
+
+### Other updates {#q1-2026-other-changes}
+
+* Deleted the [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) component from cluster masters with all current versions of {{ k8s }} in all release channels.
+
 ## Q4 2025 {#q4-2025}
 
 ### Improvements {#q4-2025-improvements}

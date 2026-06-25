@@ -8,7 +8,27 @@
 
 {% endnote %}
 
+Чтобы выполнить задания с удаленных хостов, не входящих в кластер:
+
+1. [Подготовьте инфраструктуру](#infra).
+1. [Запустите задания](#spark-submit).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+
 ## Перед началом работы {#before-you-begin}
+
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ dataproc-name }}: использование вычислительных ресурсов с наценкой за сервис {{ dataproc-name }}, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы {{ dataproc-name }}](../../../data-proc/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы {{ compute-full-name }}](../../../compute/pricing.md)).
+
+
+## Подготовьте инфраструктуру {#infra}
 
 Создайте и настройте хост для удаленного запуска заданий на кластере {{ dataproc-name }}:
 
@@ -16,6 +36,7 @@
 
 - Версия образа 1.4
 
+  1. [Создайте кластер {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md).
   1. [Создайте виртуальную машину](../../../compute/operations/vm-create/create-linux-vm.md) с операционной системой Ubuntu 16.04 LTS.
   1. Чтобы обеспечить сетевой доступ к кластеру {{ dataproc-name }} с созданной ВМ, [настройте группы безопасности](../../../data-proc/operations/security-groups.md) кластера.
   1. [Подключитесь](../../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по [SSH](../../../glossary/ssh-keygen.md):
@@ -82,6 +103,7 @@
 
 - Версия образа 2.0
 
+  1. [Создайте кластер {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md).
   1. [Создайте виртуальную машину](../../../compute/operations/vm-create/create-linux-vm.md) с операционной системой Ubuntu 20.04 LTS.
   1. Чтобы обеспечить сетевой доступ к кластеру {{ dataproc-name }} с созданной ВМ, [настройте группы безопасности](../../../data-proc/operations/security-groups.md) кластера.
   1. [Подключитесь](../../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по [SSH](../../../glossary/ssh-keygen.md):
@@ -320,3 +342,11 @@
 {% endlist %}
 
 {% include [get-logs-info](../../../_includes/data-processing/note-info-get-logs.md) %}
+
+
+## Удалите созданные ресурсы {#clear-out}
+
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+
+1. [Удалите кластер {{ dataproc-name }}](../../../data-proc/operations/cluster-delete.md).
+1. [Удалите виртуальную машину](../../../compute/operations/vm-control/vm-delete.md).

@@ -34,7 +34,7 @@ description: Из статьи вы узнаете, что такое AWS SDK д
    SetEnv HOME <домашний_каталог>
    ```
    
-   Подробнее о расположении и названии конфигурационного файла Apache для разных ОС см. на [Apache HTTP Server Wiki](https://cwiki.apache.org/confluence/display/HTTPD/DistrosDefaultLayout).
+   Подробнее о расположении и названии конфигурационного файла Apache для разных ОС смотрите на [Apache HTTP Server Wiki](https://cwiki.apache.org/confluence/display/HTTPD/DistrosDefaultLayout).
 
 Вместо файла `.aws/credentials` вы также можете использовать переменные среды `AWS_ACCESS_KEY_ID` и `AWS_SECRET_ACCESS_KEY`.
 
@@ -76,4 +76,4 @@ description: Из статьи вы узнаете, что такое AWS SDK д
 
 {% endlist %}
 
-Также см. [примеры кода](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/s3-examples.html) и [справочник PHP API](https://docs.aws.amazon.com/aws-sdk-php/v3/api/index.html) в документации AWS.
+Также смотрите [примеры кода](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/s3-examples.html) и [справочник PHP API](https://docs.aws.amazon.com/aws-sdk-php/v3/api/index.html) в документации AWS.

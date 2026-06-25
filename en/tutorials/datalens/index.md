@@ -1,6 +1,6 @@
 ---
 title: Data analysis and visualization tutorials
-description: This page presents a list of tutorials for data analysis and visualization with {{ datalens-full-name }}.
+description: This page presents a list of tutorials on data analysis and visualization using {{ datalens-full-name }}.
 ---
 
 # Data analysis and visualization tutorials
@@ -29,19 +29,19 @@ description: This page presents a list of tutorials for data analysis and visual
 
 * Service analytics
 
-  * [Yandex Metrica: direct connection](data-from-metrica-visualization.md)
-  * [Yandex Metrica: data export, post-processing, and visualization](data-from-metrica-yc-visualization.md)
-  * [AppMetrica: direct connection](data-from-appmetrica-visualization.md)
-  * [AppMetrica: data export, post-processing, and visualization](data-from-appmetrica-yc-visualization.md)
-  * [Bitrix24: direct connection](data-from-bitrix24-visualization.md)
-  * [{{ tracker-full-name }}: data export and visualization](data-from-tracker.md)
+  * [Yandex Metrica: Direct connection](data-from-metrica-visualization.md)
+  * [Yandex Metrica: Data export, post-processing, and visualization](data-from-metrica-yc-visualization.md)
+  * [AppMetrica: Direct connection](data-from-appmetrica-visualization.md)
+  * [AppMetrica: Data export, post-processing, and visualization](data-from-appmetrica-yc-visualization.md)
+  * [Bitrix24: Direct connection](data-from-bitrix24-visualization.md)
+  * [{{ tracker-full-name }}: Data export and visualization](data-from-tracker.md)
   * [Analyzing {{ objstorage-name }} logs](storage-logs-analysis.md)
-  * [Yandex Music podcasts: statistics](data-from-podcasts.md)
+  * [Yandex Music podcasts: Statistics](data-from-podcasts.md)
   * [Visualizing {{ yq-full-name }} data](data-from-yandex-query-visualization.md)
   * [Visualizing {{ monitoring-full-name }} data](data-from-monitoring-visualization.md)
   * [Visualizing {{ ytsaurus-name }} CHYT data](data-from-ch-over-yt.md)
 
-* Functional
+* Tutorials for features
 
   * [Using parameters in calculated fields](data-from-ch-with-parameters.md)
   * [Source parameterization](data-from-ch-dataset-parametrization.md)

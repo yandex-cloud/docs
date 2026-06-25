@@ -1,4 +1,4 @@
-### Why does a permission error occur? {#permission-error}
+### Why do I get a permission error? {#permission-error}
 
 
 To fix the error, check the following:

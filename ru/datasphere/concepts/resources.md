@@ -20,4 +20,4 @@
 * [Модели](models/index.md)
 * [Файловые хранилища](filestores.md)
 
-Подробнее о ресурсной модели {{ ml-platform-name }} см. [{#T}](resource-model.md).
+Подробнее о ресурсной модели {{ ml-platform-name }} смотрите [{#T}](resource-model.md).

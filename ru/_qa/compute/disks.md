@@ -22,7 +22,7 @@ sudo growpart /dev/vda 2
 sudo resize2fs /dev/vda2
 ```
 
-Для незагрузочных дисков размер раздела автоматически не увеличивается, используйте стандартные средства операционной системы для работы с дисками и их разделами (например: `parted`, `fdisk`, `cfdisk`, `sfdisk`, `growpart`). Подробнее см. в разделе [{#T}](../../compute/operations/disk-control/update.md#change-part-size-linux).
+Для незагрузочных дисков размер раздела автоматически не увеличивается, используйте стандартные средства операционной системы для работы с дисками и их разделами (например: `parted`, `fdisk`, `cfdisk`, `sfdisk`, `growpart`). Подробнее в разделе [{#T}](../../compute/operations/disk-control/update.md#change-part-size-linux).
 
 Чтобы случайно не потерять данные при изменении размера, рекомендуем сначала [создать](../../compute/operations/disk-control/create-snapshot.md) снимок диска.
 
@@ -85,7 +85,7 @@ Swap настоятельно не рекомендуется использов
    * роль на облако: `resource-manager.clouds.member`.
    * роль на каталог: `viewer` или `compute.images.user`.
 
-   См. инструкцию [{#T}](../../iam/operations/roles/grant.md).
+   Смотрите инструкцию [{#T}](../../iam/operations/roles/grant.md).
 1. Создайте образ из вашего снимка в разделе **{{ ui-key.yacloud.compute.snapshots_81jHX }}** или из самого диска в разделе **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
 
 Пользователю в другом облаке необходимо:
@@ -106,7 +106,7 @@ Swap настоятельно не рекомендуется использов
 
 Для резервного копирования дисков в {{ compute-name }} с них можно снимать копии — [снимки](../../compute/concepts/snapshot.md). Чтобы снимки дисков создавались автоматически, используйте [расписания](../../compute/concepts/snapshot-schedule.md).
 
-Подробнее см. в разделе [{#T}](../../compute/concepts/backups.md).
+Подробнее в разделе [{#T}](../../compute/concepts/backups.md).
 
 
 #### Почему снимок диска был создан не в точное время, указанное в расписании, а позже? {#snapshot-schedule-delays}
@@ -131,7 +131,7 @@ Swap настоятельно не рекомендуется использов
 
 #### Какой формат cron-выражений поддерживается в расписаниях для снимков дисков? {#snapshot-schedule-cron-format}
 
-См. раздел [{#T}](../../compute/concepts/snapshot-schedule.md#cron).
+Смотрите раздел [{#T}](../../compute/concepts/snapshot-schedule.md#cron).
 
 
 #### Если в расписании настроено хранение последних нескольких снимков диска, старые снимки удаляются до создания новых или после? {#snapshot-schedule-retention-order}

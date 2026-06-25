@@ -1,23 +1,8 @@
 default:
-  audience: external
-  state: ga
-  versions-gp:
-    tf:
-      latest: '6.29'
-      str: 6.28 or 6.29
-    cli:
-      latest: '6.29'
-      str: 6.28 or 6.29
-    console:
-      latest: '6.29'
-      str: 6.28 or 6.29
   versions-cb:
-    tf:
-      latest: Cloudberry 2
-      str: Cloudberry 2
     cli:
-      latest: Cloudberry 2
       str: Cloudberry 2
-    console:
-      latest: Cloudberry 2
-      str: Cloudberry 2
+  versions-gp:
+    cli:
+      latest: '6.29'
+      str: 6.28 or 6.29

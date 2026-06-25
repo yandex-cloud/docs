@@ -31,7 +31,7 @@
 
 Названия топиков в кластере-приемнике совпадают с их названиями в кластере-источнике.
 
-Подробнее о том, как MirrorMaker выполняет перенос данных, см. [в документации {{ KF }}](https://kafka.apache.org/42/operations/geo-replication-cross-cluster-data-mirroring/).
+Подробнее о том, как MirrorMaker выполняет перенос данных, в [документации {{ KF }}](https://kafka.apache.org/42/operations/geo-replication-cross-cluster-data-mirroring/).
 
 ### S3 Sink {#s3-sink}
 

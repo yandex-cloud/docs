@@ -2493,7 +2493,7 @@ gt4.1 ^1^ | 0
 
 #### Квоты {#ca-quotas}
 
-Квоты SourceCraft Code Assistant устанавливаются в зависимости от используемого тарифного плана. Подробнее см. на странице [Тарифные планы Code Assistant](https://sourcecraft.dev/portal/docs/ru/sourcecraft/pricing#ca-plans).
+Квоты SourceCraft Code Assistant устанавливаются в зависимости от используемого тарифного плана. Подробнее на странице [Тарифные планы Code Assistant](https://sourcecraft.dev/portal/docs/ru/sourcecraft/pricing#ca-plans).
 
 
 ### Yandex SpeechKit {#speechkit}

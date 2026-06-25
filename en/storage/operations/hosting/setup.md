@@ -134,7 +134,7 @@ For more information, see [{#T}](../../security/overview.md).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to redirect all requests for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
@@ -261,7 +261,7 @@ For more information, see [{#T}](../../security/overview.md).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to configure conditional request redirects for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
@@ -291,7 +291,7 @@ For more information, see [{#T}](../../security/overview.md).
      yc storage bucket update --help
      ```
      
-  1. Create a conditional redirect configuration file in JSON format. Here is an example:
+  1. Create a conditional redirect configuration file in JSON format. For example:
      
      ```json
      {

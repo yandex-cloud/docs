@@ -102,6 +102,6 @@ description: Из статьи вы узнаете, как задать наст
 
 ## Решение проблем, возникающих при переносе данных {#troubleshooting}
 
-См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
+Смотрите полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
 {% include [update-not-supported](../../../../_includes/data-transfer/troubles/object-storage/update-not-supported.md) %}

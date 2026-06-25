@@ -3,13 +3,13 @@
 
 A parameter is a variable that can substitute constant values in calculated fields.
 
-You will learn how to manage visulizations using parameters:
+You will learn how to manage visualizations using parameters:
 
 * Create parameters at the dataset level and chart level.
 * Work with formulas and visualizations in charts using parameters.
-* Edit a parameter value on the dashboard using selectors with manual input.
+* Edit a parameter value on a dashboard using selectors with manual input.
 
-You will use a direct connection to a demo database as your {{ CH }} data source.
+You will use a direct connection to a demo {{ CH }} database as your data source.
 
 
 To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin) and follow the steps below:
@@ -18,7 +18,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. [Create a connection](#create-connection).
 1. [Create a dataset](#create-dataset).
 1. [Add parameters to the dataset](#create-dataset-parameters).
-1. [Create a chart with a configurable date dimension](#create-chart-grouping).
+1. [Create a chart with configurable grouping by date](#create-chart-grouping).
 1. [Create a chart with a configurable visualization dimension](#create-chart-measure-select).
 1. [Create a dashboard](#create-dashboard).
 1. [Add charts to the dashboard](#add-charts-on-dashboard).
@@ -38,7 +38,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 1. In the top-right corner, click **Create dataset**.
 
-1. Drag the **MS_SalesMiniTable** table to the workspace.
+1. Drag the **MS_SalesFullTable** table to the workspace.
 
    ![image](../../_assets/datalens/solution-parameters/add-table.png)
 
@@ -61,10 +61,10 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
    ![image](../../_assets/datalens/solution-parameters/dataset-choose-agg.png)
 
-   The aggregation field will become a measure and change color to blue.
+   The aggregation field will become a measure and change its color to blue.
 
 1. In the top-right corner, click **Save**.
-1. Name the dataset: **Moscow Sales dataset with parameters**, then click **Create**.
+1. Enter **Moscow Sales dataset with parameters** for the dataset name, then click **Create**.
 
 ## Add parameters to the dataset {#create-dataset-parameters}
 
@@ -94,7 +94,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 1. Click **Save**.
 
-## Create a chart with a configurable date dimension {#create-chart-grouping}
+## Create a chart with configurable grouping by date {#create-chart-grouping}
 
 1. In the top-right corner of the dataset, click **Create chart**.
 1. Select **Area chart** as the visualization type.
@@ -104,7 +104,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. Add a calculated field to the chart:
 
    1. On the left of the screen, click ![image](../../_assets/console-icons/plus.svg) under the dataset and select **Field**.
-   1. In the **Field settings** window, enter:
+   1. In the **Field settings** window, enter the following:
 
       * In the **Name** field, `Date`.
       * In the formula field, `DATETRUNC([OrderDate], [scale])`. The order date will be rounded depending on the value of the `scale` dataset parameter.
@@ -112,14 +112,14 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
         ![image](../../_assets/datalens/solution-parameters/chart-add-field.png)
 
    1. Click **Create**.
-   1. Drag the created **Date** field to the **X** section.
+   1. Drag the new **Date** field to the **X** section.
 
 1. Drag the **Sales** measure to the **Y** section.
-1. Add a product category dimension to the chart. To do this, drag the **ProductCategory** field from **Dimensions** to the **Colors** section. The diagram areas corresponding to each product category will get different color fills.
+1. Add grouping by product category to the chart. To do this, drag the **ProductCategory** field from **Dimensions** to the **Colors** section. The chart areas mapping to each product category will get different color fills.
 1. Save the chart.
 
    1. In the top-right corner, click **Save**.
-   1. Enter the chart name **Sales by product category**, then click **Save**.
+   1. Enter **Sales by product category** for the chart name, then click **Save**.
 
       ![image](../../_assets/datalens/solution-parameters/save-chart-grouping.png)
 
@@ -130,7 +130,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. Add a calculated field for selecting a dimension to the chart:
 
    1. On the left of the screen, click ![image](../../_assets/console-icons/plus.svg) under the dataset and select **Field**.
-   1. In the **Field settings** window, enter:
+   1. In the **Field settings** window, enter the following:
 
       * In the **Name** field, `Field`.
       * In the formula field:
@@ -147,13 +147,13 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
         The visualized dimensions will change depending on the value of the `dimension` dataset parameter.
 
    1. Click **Create**.
-   1. Drag the created **Field** field to the **Y** section.
+   1. Drag the new **Field** field to the **Y** section.
 
 1. Drag the **Sales** measure to the **X** section.
 1. Save the chart.
 
    1. In the top-right corner, click **Save**.
-   1. Enter the chart name **Chart with a configurable visualization dimension**, then click **Save**.
+   1. Enter **Chart with a configurable visualization dimension** for the chart name, then click **Save**.
 
       ![image](../../_assets/datalens/solution-parameters/save-chart-measure-select.png)
 
@@ -172,17 +172,17 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) for the charts.
    ![image](../../_assets/datalens/solution-parameters/add-chart.png)
 
 1. In the **Chart** field, click **Select**.
-1. Select the **Sales by product category** chart. This will automatically fill in the **Name** field.
+1. Select the **Sales by product category** chart. The **Name** field will be populated automatically.
 1. Click **Add**.
 
    ![image](../../_assets/datalens/solution-parameters/add-chart-window.png)
 
-1. In a similar manner, add the **Chart with a configurable visualization dimension**.
-1. Position the charts on the dashboard however you like.
+1. Similarly, add **Chart with a configurable visualization dimension**.
+1. Position the charts on the dashboard however you prefer.
 1. Save the dashboard:
 
    1. In the top-right corner, click **Save**.
-   1. Enter **Visualizing data using the parameters** for the dashboard name and click **Create**.
+   1. Enter **Visualizing data using parameters** for the dashboard name and click **Create**.
 
 ## Add selectors to the dashboard {#add-selectors-on-dashboard}
 
@@ -190,7 +190,7 @@ Add [selectors](../../datalens/dashboard/selector.md) with manual input to edit 
 
 {% note warning %}
 
-After you add a selector, unlink it from other selectors in this dashboard tab.
+After adding a selector, unlink it from other selectors in this dashboard tab.
 
 {% endnote %}
 
@@ -203,9 +203,9 @@ After you add a selector, unlink it from other selectors in this dashboard tab.
       ![image](../../_assets/datalens/solution-parameters/add-selector.png)
 
    1. Select **Manual input** as the source type.
-   1. Under **Field or parameter name**, enter `scale`. The selected selector value will be provided to this dataset parameter.
-   1. Choose **List** as your selector type.
-   1. Click the input field next to the **Default value** parameter and add the values:
+   1. In **Field or parameter name**, enter `scale`. The selected selector value will be provided to this dataset parameter.
+   1. Select **List** as your selector type.
+   1. Click the input field next to the **Default value** parameter and add these values:
 
       * `day`
       * `week`
@@ -218,25 +218,25 @@ After you add a selector, unlink it from other selectors in this dashboard tab.
 
    1. In the **Default value** list, specify **month**.
    1. Enable the **Name** option and enter `Grouping`.
-   1. Verify the specified selector parameters.
+   1. Check the specified selector parameters.
 
       ![image](../../_assets/datalens/solution-parameters/add-selector-parameters.png)
 
    1. Click **Add**.
-   1. Place the selector on the dashboard on top of the **Sales by product category type**. Now you can manage data grouping in this chart.
+   1. Place the selector on the dashboard above the **Sales by product category** chart. Now you can manage grouping by date in this chart.
 
       ![image](../../_assets/datalens/solution-parameters/chart-grouping-w.png)
 
       ![image](../../_assets/datalens/solution-parameters/chart-grouping-y.png)
 
-1. Add a selector for the **Chart with a visualization dimension change**:
+1. Add a selector for **Chart with a configurable visualization dimension**:
 
    1. At the top of the page, click **Add**.
    1. Choose **Selector**.
    1. Select **Manual input** as the source type.
-   1. Under **Field or parameter name**, enter `dimension`. The selected selector value will be provided to this dataset parameter.
-   1. Choose **List** as your selector type.
-   1. Click the input field next to the **Default value** parameter and add the values:
+   1. In **Field or parameter name**, enter `dimension`. The selected selector value will be provided to this dataset parameter.
+   1. Select **List** as your selector type.
+   1. Click the input field next to the **Default value** parameter and add these values:
 
       * `Status`
       * `Category`
@@ -245,10 +245,10 @@ After you add a selector, unlink it from other selectors in this dashboard tab.
       Click **Apply**.
 
    1. In the **Default value** list, specify **Status**.
-   1. Enable the **Name** option and enter `Grouping`.
+   1. Enable the **Name** option and enter `Dimension`.
    1. Click **Add**.
-   1. Place the selector on the dashboard above the **Chart with a configurable visualization dimension** chart.
-   1. Unlink this selector with the **Grouping** selector:
+   1. Place the selector on the dashboard above **Chart with a configurable visualization dimension**.
+   1. Unlink this selector from the **Grouping** selector:
 
       1. Click ![image](../../_assets/console-icons/gear.svg) at the top of the screen. The settings window will open on the right.
       1. In the settings window, click **Links** ![image](../../_assets/console-icons/sliders-vertical.svg).
@@ -257,7 +257,7 @@ After you add a selector, unlink it from other selectors in this dashboard tab.
 
          ![image](../../_assets/datalens/solution-parameters/alias-ignor.png)
 
-      1. Click **Save**. Now, you can use this selector to select the visualized dimension.
+      1. Click **Save**. Now, you can use this selector to select a dimension for visualization.
 
          ![image](../../_assets/datalens/solution-parameters/chart-measure-select-cat.png)
 

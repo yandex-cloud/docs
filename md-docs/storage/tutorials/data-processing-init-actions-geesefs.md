@@ -9,6 +9,7 @@
 
 Чтобы настроить GeeseFS:
 
+1. [Подготовьте инфраструктуру](#infra).
 1. [Подготовьте скрипт инициализации](#prepare-init-scripts).
 1. [Создайте кластер, использующий скрипт инициализации](#create-cluster).
 1. [Проверьте доступность бакета](#check-availability).
@@ -16,19 +17,26 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Необходимые платные ресурсы {#paid-resources}
-
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер Yandex Data Processing ([тарифы Yandex Data Processing](../../data-proc/pricing.md)).
-* Плата за NAT-шлюз ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за бакет Object Storage: хранение данных и выполнение операций с ними ([тарифы Object Storage](../pricing.md)).
-* Плата за публичные IP-адреса для хостов кластера ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-
-
 ## Перед началом работы {#before-you-begin}
 
-Подготовьте инфраструктуру:
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер Yandex Data Processing: использование вычислительных ресурсов с наценкой за сервис Yandex Data Processing, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы Yandex Data Processing](../../data-proc/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../pricing.md)).
+
+
+## Подготовьте инфраструктуру {#infra}
 
 {% list tabs group=instructions %}
 
@@ -234,7 +242,7 @@
 
 {% endnote %}
 
-Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
 {% list tabs group=instructions %}
 
@@ -242,7 +250,7 @@
 
   1. [Удалите кластер Yandex Data Processing](../../data-proc/operations/cluster-delete.md).
   1. Если для доступа к хостам кластера использовались статические публичные IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
-  1. [Удалите бакет](../operations/buckets/delete.md) Object Storage.
+  1. [Удалите бакет Object Storage](../operations/buckets/delete.md).
   1. [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).
 
 - Terraform {#tf}

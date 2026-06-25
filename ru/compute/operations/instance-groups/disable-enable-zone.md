@@ -7,7 +7,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [disable-enable-zone-intro](../../../_includes/instance-groups/disable-enable-zone-intro.md) %}
 
-Подробнее о режиме работы при отключении зоны см. на странице [{#T}](../../concepts/instance-groups/disable-enable-zone.md).
+Подробнее о режиме работы при отключении зоны смотрите на странице [{#T}](../../concepts/instance-groups/disable-enable-zone.md).
 
 ## Отключить зону доступности {#disable}
 

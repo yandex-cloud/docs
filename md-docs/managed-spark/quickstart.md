@@ -11,7 +11,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит плата за использование бакета Yandex Object Storage (см. [тарифы Object Storage](../storage/pricing.md)).
+В стоимость поддержки инфраструктуры входит плата за использование бакета Yandex Object Storage ([тарифы Object Storage](../storage/pricing.md)).
 
 ## Подготовьте облако к работе {#prepare-cloud}
 

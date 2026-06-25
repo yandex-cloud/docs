@@ -5,12 +5,12 @@
 {% include [datalens-folder-navigation-note](../../_includes/datalens/datalens-folder-navigation-note.md) %}
 
 
-This guide demonstrates how to use {{ datalens-short-name }} to analyze dependencies, for example:
+This tutorial shows how to use {{ datalens-short-name }} to analyze dependencies, for example:
 
 * Superhero’s eye and hair color on their gender.
 * Superhero’s eye and hair color on their good or evil alignment.
 
-For source data, we are going to use the `SuperHeroes.csv` file with data about the superheroes: name, gender, race, comics publisher, etc. [Download](https://storage.yandexcloud.net/datalens/SuperHeroes.csv) it before going through the guide.
+For source data, we are going to use the `SuperHeroes.csv` file with data about the superheroes: name, gender, race, comics publisher, etc. [Download](https://storage.yandexcloud.net/datalens/SuperHeroes.csv) it before going through the tutorial.
 
 To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin) and follow the steps below:
 
@@ -21,7 +21,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. [Create a donut chart](#create-ring-chart).
 1. [Create a dashboard and add charts to it](#create-dashboard).
 1. [Add selectors to the dashboard](#add-selectors).
-1. [Start analyzing superhero dependencies and data](#search-on-dashboard).
+1. [Start analyzing the superhero dependencies and data](#search-on-dashboard).
 
 
 ## Getting started {#before-you-begin}
@@ -33,7 +33,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
 1. In the top-right corner, click **Create** → **Create workbook**.
-1. Enter a name for the [workbook](../../datalens/workbooks-collections/index.md): `Tutorials`.
+1. Enter `Tutorials` for the [workbook](../../datalens/workbooks-collections/index.md) name.
 1. Click **Create**.
 
 
@@ -48,12 +48,12 @@ Create a [connection](../../datalens/concepts/connection/index.md) to the source
 
 1. Under **Files and services**, select the **Files** connection.
 1. Click ![image](../../_assets/console-icons/plus.svg) **Upload files**.
-1. Select the **SuperHeroes.csv** file. Wait until the table content appears on the screen.
+1. Select **SuperHeroes.csv**. Wait until the table content appears on the screen.
 1. Click **Create connection**.
 
    ![image](../../_assets/datalens/solution-01/01-save-file-connection.png)
 
-1. Enter `SuperHeroes` for connection name and click **Create**.
+1. Enter `SuperHeroes` for the connection name and click **Create**.
 
 ## Create a dataset {#create-dataset}
 
@@ -64,7 +64,7 @@ Create a [dataset](../../datalens/dataset/index.md) based on the `SuperHeroes` c
 1. Create a measure field with the number of superheroes:
 
    1. Duplicate the `Name` field: on the right side of the row with the field, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Duplicate**.
-   1. Rename the `Name (1)` duplicate field as `Heroes count`: click the field name, delete the current name, and enter the new one.
+   1. Rename the `Name (1)` duplicate field to `Heroes count`: click the field name, delete the current name, and enter the new one.
    1. In the **Aggregation** column, select **Number of unique**. The aggregation field will change its color to blue: it is now a measure.
 
       ![image](../../_assets/datalens/solution-01/03-count-heroes.png)
@@ -76,7 +76,7 @@ Create a [dataset](../../datalens/dataset/index.md) based on the `SuperHeroes` c
 
 ## Create a column chart {#create-column-chart}
 
-To visualize superheroes split into good and evil, create a [chart](../../datalens/concepts/chart/index.md), e.g., a [column chart](../../datalens/visualization-ref/column-chart.md):
+To visualize superheroes split into good and evil, create a [column](../../datalens/visualization-ref/column-chart.md) [chart](../../datalens/concepts/chart/index.md):
 
 1. Click **Create chart** in the top-right corner of the dataset page.
 1. Add the good or evil property to your chart. To do this, drag the `Alignment` field from **Dimensions** to the **X** section.
@@ -88,7 +88,7 @@ To visualize superheroes split into good and evil, create a [chart](../../datale
 1. Color code superheroes in the chart based on whether they are good or evil. To do this, drag the `Alignment` field from **Dimensions** to the **Colors** section.
 1. Redefine the colors for the `Alignment` dimension:
 
-   1. Click ![image](../../_assets/console-icons/gear.svg) in the **Colors** section (the icon is displayed when you hover over the section).
+   1. Click ![image](../../_assets/console-icons/gear.svg) in the **Colors** section (the icon appears when you hover over the section).
    1. Select the colors: green for **good**; blue for **neutral**; red for **evil**; orange for **unknown**.
    1. Click **Apply**.
 
@@ -101,7 +101,7 @@ To visualize superheroes split into good and evil, create a [chart](../../datale
 1. Save the chart:
 
    1. In the top-right corner, click **Save**.
-   1. In the window that opens, enter a name for the chart: `SuperHeroes: Alignment`, then click **Save**.
+   1. In the window that opens, enter `SuperHeroes: Alignment` for the chart name, then click **Save**.
 
    ![image](../../_assets/datalens/solution-01/08-chart-save.png)
 
@@ -115,7 +115,7 @@ To display the number of heroes of each gender, create a [donut chart](../../dat
 
       ![save-chart-as-copy](../../_assets/datalens/solution-01/09-save-chart-as-copy.png)
 
-   1. In the window that opens, enter a name for the new chart: `SuperHeroes: Gender`, then click **Save**.
+   1. In the window that opens, enter `SuperHeroes: Gender` for the new chart name, then click **Save**.
 
 1. Select the **Donut chart** visualization type.
 
@@ -124,8 +124,8 @@ To display the number of heroes of each gender, create a [donut chart](../../dat
 1. Replace the good-evil color code with the gender color code. To do this, drag the `Gender` field from **Dimensions** to **Color** and hold it over the `Alignment` field until the latter turns red.
 1. Redefine the colors for the `Gender` dimension:
 
-   1. Click ![image](../../_assets/console-icons/gear.svg) in the **Colors** section (the icon is displayed when you hover over the section).
-   1. Select colors: Pink for **Female**; blue for **Male**; orange for **unknown**.
+   1. Click ![image](../../_assets/console-icons/gear.svg) in the **Colors** section (the icon appears when you hover over the section).
+   1. Select colors: pink for **Female**; blue for **Male**; orange for **unknown**.
    1. Click **Apply**.
 
 1. Set the chart to display the number of superheroes by gender as a percentage:
@@ -149,7 +149,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 
 
-1. In the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it to the required area.
+1. In the panel at the bottom of the page, drag ![image](../../_assets/console-icons/chart-column.svg) **Chart** where you need.
 
    ![add-chart](../../_assets/datalens/solution-01/11-add-chart.png)
 
@@ -168,11 +168,11 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 Add [selectors](../../datalens/dashboard/selector.md) to filter superheroes by `Eye color` and `Hair color`:
 
-1. In the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/sliders.svg) **Selector** and drag it to the required area.
+1. In the panel at the bottom of the page, drag ![image](../../_assets/console-icons/sliders.svg) **Selector** where you need.
 
    ![add-selector](../../_assets/datalens/solution-01/14-add-selector.png)
 
-1. Add a selector for eye color:
+1. Add a selector for the eye color:
 
    1. Select `SuperHeroes dataset`.
    1. Select the `Eye color` field.
@@ -181,14 +181,14 @@ Add [selectors](../../datalens/dashboard/selector.md) to filter superheroes by `
 
    ![image](../../_assets/datalens/solution-01/15-selector-eye-color.png)
 
-1. Add a selector for hair color:
+1. Add a selector for the hair color:
 
-   1. Make sure you selected the `SuperHeroes dataset` dataset.
+   1. Make sure you selected `SuperHeroes dataset`.
    1. Select the `Hair color` field.
    1. Enable **Multiple choice**.
    1. Click **Save**.
 
-1. Position the selectors on the dashboard however you like.
+1. Position the selectors on the dashboard however you prefer.
 1. Save the dashboard:
 
    1. In the top-right corner of the dashboard, click **Save**.
@@ -198,13 +198,13 @@ Add [selectors](../../datalens/dashboard/selector.md) to filter superheroes by `
 
    ![image](../../_assets/datalens/solution-01/16-dashboard-saved.png)
 
-## Analyze data about superheroes {#search-on-dashboard}
+## Analyze the data about superheroes {#search-on-dashboard}
 
 1. Apply various filters and analyze the eye and hair color dependencies on a superhero's gender and good or bad alignment.
 
    ![image](../../_assets/datalens/solution-01/17-final-dashboard.png)
 
-   In the analyzed dataset, the following dependencies can be traced:
+   In the analyzed dataset, the following dependencies exist:
 
    * There are more men with black eyes and more women with green eyes.
    * There are more good ones with blue eyes and evil ones with red eyes.

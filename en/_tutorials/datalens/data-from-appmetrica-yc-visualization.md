@@ -1,15 +1,15 @@
 # AppMetrica: data export, post-processing, and visualization
 
 
-In this scenario, you will analyze user behavior in a mobile app based on AppMetrica data:
+In this tutorial, you will analyze user behavior in a mobile app based on AppMetrica data:
 
 * Process the data using Python scripts in {{ jlab }} Notebooks in {{ ml-platform-full-name }}.
 * Build charts and dashboards in {{ datalens-full-name }}.
 * Compare products by reach and frequency.
 
-Customer journey is a sequence of user actions. User behavior analysis helps you find out how people use your product: which pages they visit, which functions they use, and where they run into problems. This information makes it easier for you to find the right solutions to develop your product.
+Customer journey is a sequence of user actions. User behavior analysis helps you find out how people use your product: pages they visit, functions they use, and issues they face. This information makes it easier for you to find the right solutions to develop your product.
 
-As a data source, you'll use sampled and anonymized data from the [auto.ru](https://auto.ru) mobile app, exported from AppMetrica.
+As a data source, we will use sampled and anonymized data from the [auto.ru](https://auto.ru) mobile app, exported from AppMetrica.
 
 {% cut "Data architecture scheme" %}
 
@@ -19,13 +19,13 @@ As a data source, you'll use sampled and anonymized data from the [auto.ru](http
 
 {% note tip %}
 
-The script uses a file with pre-exported AppMetrica data so you can run the script without accessing the mobile app and AppMetrica.
+This tutorial uses a file with pre-exported AppMetrica data so you can follow this tutorial without accessing the mobile app and AppMetrica.
 
 For your own tasks, we recommend directly [exporting data](https://appmetrica.yandex.com/docs/common/cloud/about.html) from AppMetrica to {{ CH }}.
 
 {% endnote %}
 
-[First prepare the cloud](#before-you-begin) and then explore and visualize the data step-by-step:
+[First get your cloud ready](#before-you-begin) and then explore and visualize the data step-by-step:
 
 1. [Connect {{ CH }} and {{ ml-platform-short-name }}](#ch-datasphere-connection).
     1. [Connect {{ CH }}](#ch-connection).
@@ -33,7 +33,7 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
     1. [Clone the repository to {{ ml-platform-short-name }}](#clone-repo-to-datasphere).
 1. [Get and upload data to {{ CH }}](#get-download-data-in-ch).
     1. [{{ ml-platform-short-name }}. Export the test app data via Yandex Disk](#uploading-data-counter-from-disk).
-    1. [Export data from AppMetrica](#uploading-data-from-appmetrica).
+    1. [Export the data from AppMetrica](#uploading-data-from-appmetrica).
     1. [{{ CH }}. Get the cluster address](#getting-ch-cluster-host).
     1. [{{ ml-platform-short-name }}. Upload the data to {{ CH }}](#uploading-data-counter-to-ch).
 1. [{{ ml-platform-short-name }}. Compare products by reach and frequency](#compare-by-coverage-frequency).
@@ -42,7 +42,7 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
     1. [Create a connection to {{ CH }} in {{ datalens-short-name }}](#creation-datalens-connection-to-ch).
     1. [Create a dataset based on the connection](#creating-dataset-based-on-connection).
     1. [Create a scatter chart](#creating-scatter-chart).
-    1. [Create a table](#creating-table-chart).
+    1. [Create a table chart](#creating-table-chart).
 1. [Create and configure a dashboard in {{ datalens-short-name }}](#creating-configuring-dashboard).
 1. [Customer journey. Create a QL chart and a Sankey chart](#customer-journey).
     1. [Create a QL chart in {{ datalens-short-name }}](#creating-sql-chart).
@@ -54,12 +54,12 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 
 ## 1. Connect {{ CH }} and {{ ml-platform-short-name }} {#ch-datasphere-connection}
 
-### 1.1. Enable {{ CH }} {#ch-connection}
+### 1.1. Connect {{ CH }} {#ch-connection}
 
 1. Navigate to the [management console]({{ link-console-main }}).
 1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. Click **Create cluster**.
-1. Specify the settings for a {{ CH }} cluster.
+1. Configure your {{ CH }} cluster.
 
    1. **Basic parameters**: Enter `appmetrica_analysis` as the cluster name. 
    1. **Host class**: Select **burstable** as the virtual machine type and **b2.medium** as the host type.
@@ -72,28 +72,28 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 
       ![image](../../_assets/datalens/solution-13/01-cluster-ch-settings.png)
    
-   1. **Storage size**: Leave the value at 10 GB.
+   1. **Storage size**: Leave 10 GB.
    1. **Database**: Specify the database name (`autoru_appmetrica`), username, and password. Memorize these credentials.
      
       ![image](../../_assets/datalens/solution-13/02-ch-settings-storage.png)
       
    1. **Hosts**: Click the ![pencil](../../_assets/console-icons/pencil.svg) icon. Enable **Public access** and click **Save**.
-   1. **Advanced settings**: Enable 4 options:
+   1. **Advanced settings**: Enable these four options:
 
         * Access from {{ datalens-short-name }}
         * Access from the management console
         * Access from Yandex Metrica and AppMetrica
         * Access from Serverless
 
-   1. After configuring all settings, click **Create cluster**.
+   1. After specifying all the settings, click **Create cluster**.
 
-### 1.2. Enable {{ ml-platform-short-name }} {#datasphere-connection}
+### 1.2. Connect {{ ml-platform-short-name }} {#datasphere-connection}
 
 1. Navigate to the [management console]({{ link-console-main }}).
 1. [Go](../../console/operations/select-service.md#select-service) to **{{ ml-platform-name }}**.
 1. Click **Create project**.
 1. Specify `appmetrica-analysis` as the project name and click **Create**. 
-1. Open your project. To do this, in the line with the project name, click ![image](../../_assets/console-icons/ellipsis.svg) → **Open**.
+1. Open your project. To do this, in the row with the project name, click ![image](../../_assets/console-icons/ellipsis.svg) → **Open**.
 
 ### 1.3. Clone the repository to {{ ml-platform-short-name }} {#clone-repo-to-datasphere}
 
@@ -103,11 +103,11 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 
 1. In the window that opens, specify the repository **URI**, `https://github.com/firstsvet/yandex_appmetrika_cloud_case`, and click **CLONE**.
 
-## 2. Retrieve and upload data to {{ CH }} {#get-download-data-in-ch}
+## 2. Get and upload data to {{ CH }} {#get-download-data-in-ch}
 
-If you do not have a Yandex Metrica tag, it has not accumulated enough data, or if you want to make sure that you will get a result by completing all the guide steps, go to step [2.1](#uploading-data-counter-from-disk) (skip step [2.2](#uploading-data-from-appmetrica)).
+If you do not have a Yandex Metrica app, it has not accumulated enough data, or if you want to make sure that you will get a result by completing all the tutorial steps, go to step [2.1](#uploading-data-counter-from-disk) (skip step [2.2](#uploading-data-from-appmetrica)).
 
-If you have the AppMetrica app and access to it, go to step [2.2](#uploading-data-from-appmetrica): this is recommended for experienced users who might need to edit scripts (skip step [2.1](#uploading-data-counter-from-disk)).
+If you have an AppMetrica app and access to it, go to step [2.2](#uploading-data-from-appmetrica). We recommend this for experienced users as you might need to edit scripts (skip step [2.1](#uploading-data-counter-from-disk)).
 
 ### 2.1. {{ ml-platform-short-name }}. Download the test app data via Yandex Disk {#uploading-data-counter-from-disk}
 
@@ -117,34 +117,34 @@ Skip this step if you are using your own app data.
 
 {% endnote %}
 
-1. In the menu on the left, open the **yandex_appmetrika_cloud_case** folder → notebook **1.upload_data_from_yadisk.ipynb**.
-1. Complete all the steps (cells with code) in the notebook **1.upload_data_from_yadisk.ipynb**.
+1. In the left-hand menu, open the **yandex_appmetrika_cloud_case** folder → **1.upload_data_from_yadisk.ipynb** notebook.
+1. Complete all the steps, i.e., run cells with code, in the **1.upload_data_from_yadisk.ipynb** notebook.
 
-    To run the step, click the number to the left of the cell, then the run button at the top. The number will change to `[*]`. After the number appears again, run the next step.
+    To run a step, click the number to the left of the cell, then the run button at the top. The number will change to `[*]`. After the number appears again, run the next step.
 
     ![image](../../_assets/datalens/solution-13/03-2-run-cell.png)
 
 ### 2.2. Export the data from AppMetrica {#uploading-data-from-appmetrica}
 
-To set up the connection and export data from your app, see [Export data to {{ yandex-cloud }}](https://appmetrica.yandex.ru/docs/common/cloud/about.html).
+To set up the connection and export data from your app, see the guide in [Exporting data in {{ yandex-cloud }}](https://appmetrica.yandex.ru/docs/common/cloud/about.html).
 
 ### 2.3. {{ CH }}. Get the cluster address {#getting-ch-cluster-host}
 
-1. Go to the `appmetrica_analysis` {{ CH }} cluster you created in step [1.1](#ch-connection). Wait until the cluster status changes to **Alive**. Then open the cluster by clicking it.
+1. Go to the `appmetrica_analysis` {{ CH }} cluster you created in step [1.1](#ch-connection). Wait for the cluster status to change to **Alive**. Then open the cluster by clicking it.
 
      ![image](../../_assets/datalens/solution-13/04-alive-cluster.png)
 
 1. Select **Hosts** from the list on the left.
-1. On the **Overview** tab, go to the **Hostname** column. To copy a hostname, point to the right of the hostname and click the copy icon.
+1. On the **Overview** tab, go to the **Host name** column. To copy a host name, point to the right of the host name and click the copy icon.
 
 ### 2.4. {{ ml-platform-short-name }}. Upload the data to {{ CH }} {#uploading-data-counter-to-ch}
 
-1. Open the **yandex_appmetrika_cloud_case** folder → notebook **2. upload_data_to_{{ CH }}.ipynb**.
-1. Paste data in the variables:
+1. Open the **yandex_appmetrika_cloud_case** folder → **2.upload_data_to_{{ CH }}.ipynb** notebook.
+1. Insert the data into the variables:
 
-    * Host name from step [2.3](#uploading-data-counter-to-ch): In the **CH_HOST_NAME** variable.
-    * Username from step [1.1](#ch-connection): In the **CH_USER** variable.
-    * Database name from step [1.1](#ch-connection): In the **CH_DB_NAME** variable.
+    * Host name from step [2.3](#uploading-data-counter-to-ch): Into the **CH_HOST_NAME** variable.
+    * Username from step [1.1](#ch-connection): Into the **CH_USER** variable.
+    * Database name from step [1.1](#ch-connection): Into the **CH_DB_NAME** variable.
     
       ![image](../../_assets/datalens/solution-13/05-ch-parameters.png)
     
@@ -152,19 +152,19 @@ To set up the connection and export data from your app, see [Export data to {{ y
     
     ![image](../../_assets/datalens/solution-13/06-new-file.png)
 
-1. Enter the password of the logged-in user in the **chpass.txt** file. Save and close the file.
-1. Complete all the steps (the cells with the code) in the notebook.
+1. Specify the password of the logged-in user in the **chpass.txt** file. Save and close the file.
+1. Complete all the steps, i.e., run the cells with code, in the notebook.
 
-## 3. {{ ml-platform-short-name }}. You will compare products by breadth and frequency of coverage {#compare-by-coverage-frequency}
+## 3. {{ ml-platform-short-name }}. Compare products by reach and frequency {#compare-by-coverage-frequency}
 
 1. Open the **yandex_appmetrika_cloud_case** folder → **Case_1.ipynb** notebook.
-1. Paste data in the variables:
+1. Insert the data into the variables:
 
-    * Host name from step [2.3](#uploading-data-counter-to-ch): In the **CH_HOST_NAME** variable.
-    * Username from step [1.1](#ch-connection): In the **CH_USER** variable.
-    * Database name from step [1.1](#ch-connection): In the **CH_DB_NAME** variable.
+    * Host name from step [2.3](#uploading-data-counter-to-ch): Into the **CH_HOST_NAME** variable.
+    * Username from step [1.1](#ch-connection): Into the **CH_USER** variable.
+    * Database name from step [1.1](#ch-connection): Into the **CH_DB_NAME** variable.
 
-1. Complete all the steps (the cells with the code) in the notebook.
+1. Complete all the steps, i.e., run the cells with code, in the notebook.
 
 1. View the intermediate results.
 
@@ -180,10 +180,10 @@ To set up the connection and export data from your app, see [Export data to {{ y
 
 ### 4.2. Create a connection to {{ CH }} in {{ datalens-short-name }} {#creation-datalens-connection-to-ch}
 
-1. Fill in the connection settings:
+1. Set up your connection:
 
-   1. Enter the name: `AppMetrica_workshop`.
-   1. Select a {{ CH }} host from the **Host name** drop-down list.
+   1. Enter `AppMetrica_workshop` for the name.
+   1. Select the {{ CH }} host from the **Host name** drop-down list.
    1. Select the username and enter the password from step [1.1](#ch-connection).
    1. Enable **Allow subqueries in datasets and queries from charts**.
   
@@ -191,17 +191,17 @@ To set up the connection and export data from your app, see [Export data to {{ y
 
    1. Click **Check connection**.
 
-1. When the connection check succeeds, click **Create connection**. In the window that opens, enter the connection name and click **Create**.
+1. After a successful check, click **Create connection**. In the window that opens, enter the connection name and click **Create**.
 
 ### 4.3. Create a dataset based on the connection {#creating-dataset-based-on-connection}
 
 1. In the top-right corner, click **Create dataset**.
-1. Select the `autoru_appmetrica.auto_data` table as the source. To do this, drag the table from the list on the left to the editing area.
+1. Select the `autoru_appmetrica.auto_data` table as the source by dragging the table from the list on the left to the editing area.
 1. Open the **Fields** tab.
 1. Create the **users** calculated field:
 
     1. In the top-right corner, click **Add field**.
-    1. At the top left, enter the `users` field name.
+    1. At the top left, enter `users` for the field name.
     1. Paste the `countd([appmetrica_device_id])` formula in the area on the right.
     1. Click **Create**.
 
@@ -216,30 +216,30 @@ To set up the connection and export data from your app, see [Export data to {{ y
 1. In the top-right corner, click **Save**.
 1. Name the dataset `autoru_backend_data` and click **Create**.
 
-### 4.4. Create a chart: scatter chart {#creating-scatter-chart}
+### 4.4. Create a scatter chart {#creating-scatter-chart}
 
 1. In the top-right corner, click **Create chart**.
 1. Select **Scatter chart** as the type.
-1. Drag the fields to the chart section:
+1. Drag these fields to the chart section:
 
-    * Drag the **reach** measure to the **X** section.
-    * Drag the **events per user** measure to the **Y** section.
-    * Drag the **mark** dimension to the **Points** section.
-    * Drag the **event_name** dimension to the **Colors** section.
+    * **reach** measure to the **X** section.
+    * **events per user** measure to the **Y** section.
+    * **mark** dimension to the **Points** section.
+    * **event_name** dimension to the **Colors** section.
 
    ![image](../../_assets/datalens/solution-13/10-scatter-chart.png)
 
 1. In the top-right corner, click **Save**.
 1. In the window that opens, enter `Coverage and events` as the chart name and click **Save**.
 
-### 4.5. Create a chart: table {#creating-table-chart}
+### 4.5. Create a table chart {#creating-table-chart}
 
 1. Select the **Table** type.
-1. Drag the fields to the chart section:
+1. Drag these fields to the chart section:
 
-    * Drag the **mark** measure to the **Columns** section.
-    * Drag the **users** measure to the **Columns** section.
-    * Drag the **users** measure to the **Sorting** section.
+    * **mark** measure to the **Columns** section.
+    * **users** measure to the **Columns** section.
+    * **users** measure to the **Sorting** section.
 
    ![image](../../_assets/datalens/solution-13/11-table-chart.png)
 
@@ -284,10 +284,10 @@ Try to change **event name** in the selector to another value to see how the das
 
 Use QL charts to delve into event sequences and experiment in {{ datalens-short-name }}.
 
-1. Open the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}) and select **Connections** in the menu on the left.
+1. Open the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}) and select **Connections** in the left-hand menu.
 1. Select the `AppMetrica_workshop` connection you created in step [4.2](#creation-datalens-connection-to-ch).
 1. At the top right, click **Create QL chart**.
-1. Enter the query:
+1. Enter this query:
 
      ```sql
      SELECT uniqExact(t.appmetrica_device_id) as counts, events_seq, 
@@ -338,7 +338,7 @@ Use QL charts to delve into event sequences and experiment in {{ datalens-short-
 1. In the top-right corner, click **Save**, then enter the chart name: `Event chains`.
 1. Add the QL chart to the dashboard.
 
-    1. In the menu on the left, click **Dashboards**.
+    1. In the left-hand menu, click **Dashboards**.
     1. Select the **auto.ru app** dashboard from the list.
     1. Click **Edit** at the top right.
     1. Click **Add** → **Chart**.
@@ -347,12 +347,12 @@ Use QL charts to delve into event sequences and experiment in {{ datalens-short-
 
       ![image](../../_assets/datalens/solution-13/15-sql-chart.png)
 
-### 6.2. Create a Sankey diagram in {{ ml-platform-short-name }} {#creating-sankey-chart}
+### 6.2. Create a Sankey chart in {{ ml-platform-short-name }} {#creating-sankey-chart}
 
 1. Navigate to the [management console]({{ link-console-main }}).
 1. [Go](../../console/operations/select-service.md#select-service) to **{{ ml-platform-name }}**.
 1. Open the **yandex_appmetrika_cloud_case** folder → **Case_2.ipynb** notebook.
-1. Complete all the steps (cells with code) in the notebook **Case_2.ipynb**.
-1. You will get an interactive Sankey diagram that shows user behavior scenarios. You can move the chart blocks and save the result as an image.
+1. Complete all the steps, i.e., run the cells with code, in the **Case_2.ipynb** notebook.
+1. You will get an interactive Sankey chart that shows user behavior scenarios. You can move the chart blocks and save the result as an image.
 
    ![image](../../_assets/datalens/solution-13/16-sankey-chart.png)
