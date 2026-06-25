@@ -221,7 +221,6 @@ default:
   forms-full-name: Яндекс Формы
   forms-name: Формы
   forms-short-name: Forms
-  foundation-models-full-name: Yandex AI Studio
   foundation-models-name: AI Studio
   GL: GitLab
   gl:
@@ -483,9 +482,9 @@ default:
   mtr-full-name: Yandex Managed Service for Trino
   mtr-name: Managed Service for Trino
   mtr-short-name: Managed Service for Trino
+  MY: MySQL®
   my:
     docs: https://dev.mysql.com/doc
-  MY: MySQL®
   myt-full-name: Yandex Managed Service for YTsaurus
   myt-name: Managed Service for YTsaurus
   network-load-balancer-full-name: Yandex Network Load Balancer
@@ -569,7 +568,6 @@ default:
   quota-manager-name: Cloud Quota Manager
   quota-manager-short-name: Quota Manager
   RD: Redis
-  realtime-api: Realtime API
   region-id: ru-central1
   registry: cr.yandex
   resmgr-full-name: Yandex Resource Manager
@@ -896,6 +894,7 @@ default:
   video-full-name: Yandex Cloud Video
   video-name: Cloud Video
   video-player-name: Cloud Video Player
+  video-short-name: Cloud Video
   vision-full-name: Yandex Vision OCR
   vision-name: Vision OCR
   vision-short-name: Vision OCR
@@ -1043,66 +1042,11 @@ default:
   pcs|yt: dn2thrwhzxl2ygay7nvq
   pc|baremetal:
     component:
-      bms_1029p_body:
-        1_month: dn2n6sqhzm4i7eg4w4f5
-        12_month: dn2p6himjfj4hnjshxco
-        3_month: dn2idsw46rbwcnkndlhn
-        6_month: dn2hi7cbvh3bnbkef4up
-      bms_6017r_1p_body:
-        1_month: dn2q2frxpt6tvufg4dbj
-        12_month: dn2jbwhte5bfbbaktedf
-        3_month: dn2rbrihkjxszdhcqspo
-        6_month: dn2b2nlopzirnvkm6jui
-      bms_6017r_2p_body:
-        1_month: dn2so47gvuqx5azgciwy
-        12_month: dn2tcjv6cx76pi5bpxb5
-        3_month: dn2bwgkxfxqi2he7idmx
-        6_month: dn2d5amh7npq6uybeid2
-      bms_6018r_body:
-        1_month: dn2inhbs6bc4xt5qslnx
-        12_month: dn2nzwmnpelqxxvtwye5
-        3_month: dn2lzxls7ofr42crh4dw
-        6_month: dn2gupw4x3udejwq5e5u
-      bms_cpu_i6230:
-        1_month: dn2dxqjz3vqfxeq6fqbz
-        12_month: dn25uptp35c3njgv25wn
-        3_month: dn2oxbuy2kziiorp7436
-        6_month: dn27jt4jbpgrabnckmlm
-      bms_cpu_i6230r:
-        1_month: dn2j734aagfsgjhhnst5
-        12_month: dn2pydc6l4pylhxzylql
-        3_month: dn2revpxepujo6i4wvqv
-        6_month: dn2r4dbzpdsyoxjryx7n
-      bms_cpu_ie5_2660v4:
-        1_month: dn2l54dob4rh7tcdtjzv
-        12_month: dn2ig6lvlsqelfhir524
-        3_month: dn2taonqwhl2vrfzys37
-        6_month: dn2mtpccuek5frawr5c6
-      bms_cpu_ie5_2683v4:
-        1_month: dn2dfnvwxwtlpfjbxk3e
-        12_month: dn2ksjdod7xaford5gb7
-        3_month: dn2drrgaldi27t2xgthq
-        6_month: dn2yixalmc2pietpjnth
-      bms_ram3_512:
-        1_month: dn272obotmhjs6qugtzr
-        12_month: dn2dmubcjjn6l2mtrj7t
-        3_month: dn25p4ghrem3sn243lyb
-        6_month: dn2dhr4kosajyu44vuwo
-      bms_ram4_16:
-        1_month: dn23h2is6g3cbqeptfvz
-        12_month: dn2c7sqmplx7xdxmaqdh
-        3_month: dn2kfl2eqfpzcf2w3wmt
-        6_month: dn2lt74sflg4e3poxhzr
-      bms_ram4_32:
-        1_month: dn2mgfustyk26cx5rnrk
-        12_month: dn2cte6dlvabkmfwxryi
-        3_month: dn2qm5zh6wthji2febzy
-        6_month: dn26pe7pi3th4wrcboym
-      bms_ram4_64:
-        1_month: dn2fumiz6cxhwgmz76cy
-        12_month: dn2cxcdjpeocox42tkmk
-        3_month: dn2sbp4q2d4kch7jro77
-        6_month: dn2dg23ibbqvgkcyo2t5
+      bms-1029p-body:
+        1-month: dn2n6sqhzm4i7eg4w4f5
+        12-month: dn2p6himjfj4hnjshxco
+        3-month: dn2idsw46rbwcnkndlhn
+        6-month: dn2hi7cbvh3bnbkef4up
       bms-4-body:
         1-month: dn2hf2sf5kjjsy24igas
         12-month: dn26l6yl7fy772frgm57
@@ -1111,6 +1055,21 @@ default:
         1-month: dn23jkrdimocsz35cb3j
         12-month: dn2fvsnp4xv57a3343yi
         6-month: dn24ca2sok3s4f2gzt2p
+      bms-6017r-1p-body:
+        1-month: dn2q2frxpt6tvufg4dbj
+        12-month: dn2jbwhte5bfbbaktedf
+        3-month: dn2rbrihkjxszdhcqspo
+        6-month: dn2b2nlopzirnvkm6jui
+      bms-6017r-2p-body:
+        1-month: dn2so47gvuqx5azgciwy
+        12-month: dn2tcjv6cx76pi5bpxb5
+        3-month: dn2bwgkxfxqi2he7idmx
+        6-month: dn2d5amh7npq6uybeid2
+      bms-6018r-body:
+        1-month: dn2inhbs6bc4xt5qslnx
+        12-month: dn2nzwmnpelqxxvtwye5
+        3-month: dn2lzxls7ofr42crh4dw
+        6-month: dn2gupw4x3udejwq5e5u
       bms-cpu-9374f:
         1-month: dn2pfqosztwi37a46var
         12-month: dn2utlf3nvipm32zcpay
@@ -1135,6 +1094,16 @@ default:
         1-month: dn2coxmovsx46wkqlnxo
         12-month: dn275k7ro6ghfulaxtko
         6-month: dn2r7sywy6x2zge3edlx
+      bms-cpu-i6230:
+        1-month: dn2dxqjz3vqfxeq6fqbz
+        12-month: dn25uptp35c3njgv25wn
+        3-month: dn2oxbuy2kziiorp7436
+        6-month: dn27jt4jbpgrabnckmlm
+      bms-cpu-i6230r:
+        1-month: dn2j734aagfsgjhhnst5
+        12-month: dn2pydc6l4pylhxzylql
+        3-month: dn2revpxepujo6i4wvqv
+        6-month: dn2r4dbzpdsyoxjryx7n
       bms-cpu-i6338:
         1-month: dn23xg3gocgea4ggcfms
         12-month: dn2nzcswxno72krkmbgm
@@ -1143,6 +1112,16 @@ default:
         1-month: dn2q7b3ksu3nllqyqn5n
         12-month: dn23azulygrw3ol2v46k
         6-month: dn2fpm7sil3qemax3fux
+      bms-cpu-ie5-2660v4:
+        1-month: dn2l54dob4rh7tcdtjzv
+        12-month: dn2ig6lvlsqelfhir524
+        3-month: dn2taonqwhl2vrfzys37
+        6-month: dn2mtpccuek5frawr5c6
+      bms-cpu-ie5-2683v4:
+        1-month: dn2dfnvwxwtlpfjbxk3e
+        12-month: dn2ksjdod7xaford5gb7
+        3-month: dn2drrgaldi27t2xgthq
+        6-month: dn2yixalmc2pietpjnth
       bms-disk-h10t:
         1-month: dn2rxn3jel5ho6onhjbv
         12-month: dn2n7wwo3bt5xdi5rzzt
@@ -1211,6 +1190,11 @@ default:
         1-month: dn2eoyyipzikrm3cqc5n
         12-month: dn23ik6vvs2qq46zszjh
         6-month: dn2hzeojco7xuqvr2f4t
+      bms-ram3-512:
+        1-month: dn272obotmhjs6qugtzr
+        12-month: dn2dmubcjjn6l2mtrj7t
+        3-month: dn25p4ghrem3sn243lyb
+        6-month: dn2dhr4kosajyu44vuwo
       bms-ram4-1024:
         1-month: dn2rugtcpr57w7ugcnbc
         12-month: dn2r4hq24jjsevutxx4e
@@ -1223,10 +1207,20 @@ default:
         1-month: dn2v3gzlsxjntfyxairs
         12-month: dn2azcrrab7x55oinh3i
         6-month: dn2aptpgc5bllfb23vdn
+      bms-ram4-16:
+        1-month: dn23h2is6g3cbqeptfvz
+        12-month: dn2c7sqmplx7xdxmaqdh
+        3-month: dn2kfl2eqfpzcf2w3wmt
+        6-month: dn2lt74sflg4e3poxhzr
       bms-ram4-256:
         1-month: dn2dv5wenvfrto45hfm4
         12-month: dn2wyg3gxlkfceytswtv
         6-month: dn24kvv2icxqkwzc6yys
+      bms-ram4-32:
+        1-month: dn2mgfustyk26cx5rnrk
+        12-month: dn2cte6dlvabkmfwxryi
+        3-month: dn2qm5zh6wthji2febzy
+        6-month: dn26pe7pi3th4wrcboym
       bms-ram4-384:
         1-month: dn2g6x6yk4y7m4e4pxk2
         12-month: dn2iqe3mhypusw6pjnzr
@@ -1235,6 +1229,11 @@ default:
         1-month: dn2bdc7npppzfjv5ij2f
         12-month: dn2x3ayqvf3kehc2ek4z
         6-month: dn2rhpijz2x2j63flcbq
+      bms-ram4-64:
+        1-month: dn2fumiz6cxhwgmz76cy
+        12-month: dn2cxcdjpeocox42tkmk
+        3-month: dn2sbp4q2d4kch7jro77
+        6-month: dn2dg23ibbqvgkcyo2t5
       bms-ram4-768:
         1-month: dn2dgc2wgb66hjtrorcb
         12-month: dn2llsw6zdiwrnbxpjsi
@@ -1262,419 +1261,467 @@ default:
     data:
       data-100tb:
         1sec: dn26njqhlhymcdct3bvv
-    public_network:
-      subnet_24: dn2qbtbqcfbyvwddjc3a
-      subnet_25: dn27vm5ukg42b3irvhnt
-      subnet_26: dn2fi6d5ptstw4xesiba
-      subnet_27: dn22xqyfpe4uk5dgb4oz
-      subnet_28: dn2h4qx5euwa5aq4by5q
-      subnet_29: dn2tkuvap6istmk4dz5a
-      subnet_31: dn2gf7ncn54qfzez6xhp
+    public-network:
+      subnet-24: dn2qbtbqcfbyvwddjc3a
+      subnet-25: dn27vm5ukg42b3irvhnt
+      subnet-26: dn2fi6d5ptstw4xesiba
+      subnet-27: dn22xqyfpe4uk5dgb4oz
+      subnet-28: dn2h4qx5euwa5aq4by5q
+      subnet-29: dn2tkuvap6istmk4dz5a
+      subnet-31: dn2gf7ncn54qfzez6xhp
     server:
-      ba_i103_s_10g:
-        1_day: dn2d1eocobn8amlmll3r
-        1_month: dn2p7pofnj0beukb0erb
-        12_month: dn20q66guu76is04nktv
-        3_month: dn2mcqi74h70gor1pm4n
-        6_month: dn2d06jhdbolrd6osgc2
-      ba_i106_sh_10g:
-        1_day: dn247633ncch74qta3t0
-        1_month: dn209gne5ncks8amg0sr
-        12_month: dn2kke6qjoetsu276fph
-        3_month: dn2fje1gmt1vuqoehi11
-        6_month: dn2sic92geij6849f92h
-      ba_i111_8s_10g:
-        1_day: dn2fqof7dkuu0t19vg2n
-        1_month: dn2rccvd57q4cm23anot
-        12_month: dn2av9k1sknc85mfbpk6
-        3_month: dn2g53dcfhivbid4ejgu
-        6_month: dn2st70gmnb1ug7m8d5b
-      ba_i200_h:
-        1_day: dn2g773c1s243adit5gr
-        1_month: dn2s7fs0s1chg0ehqd9v
-        12_month: dn229ek85qs9grfkj329
-        3_month: dn20vplumf3dl0je987u
-        6_month: dn2aqpduj7201haq3s0m
-      ba_i201_h:
-        1_day: dn29efir9q16m69e8b00
-        1_month: dn29mgh44iurq1s0tsfr
-        12_month: dn2mg1hl72ifqaj7hnc1
-        3_month: dn2ir5imkb2qd0ja1h3t
-        6_month: dn2ku348i9v7212fi9cp
-      ba_i202_s:
-        1_day: dn248idn3c3nuapmaers
-        1_month: dn2bbj5lq0scisug3sqf
-        12_month: dn2gk5s3m7u2lutv2jl1
-        3_month: dn250saptim5g80d1qd5
-        6_month: dn2i332ocdm1c9vt0e4v
-      ba_i203_s_10g:
-        1_day: dn22q9tst809lhe7jm6o
-        1_month: dn2q5k7qjr9a1c1br0s3
-        12_month: dn2mipar2rv7ftl47dcs
-        3_month: dn28ug6e636vfnc3a8vv
-        6_month: dn2nallja21ktps5jd73
-      ba_i204_sh:
-        1_day: dn2qcaa2fn9qojrtlaen
-        1_month: dn2k4uj24mr40qum106j
-        12_month: dn2p250tre1qr771s9d4
-        3_month: dn2bcf1jmctd8qcm6j3p
-        6_month: dn2on5bj7r5ll50f4itf
-      ba_i205_sh:
-        1_day: dn2ulsf25hluloina0kh
-        1_month: dn27d76a4mhn5cgaaade
-        12_month: dn2fd2997d0lk67hhd63
-        3_month: dn27ooj9ap9j3ccakgq7
-        6_month: dn216ev8t9vrrk1dt2iv
-      ba_i206_sh_10g:
-        1_day: dn2ch1jpaf0s9st4f570
-        1_month: dn2a7jakic5i8momu5ld
-        12_month: dn2poffc962r6jak7vmt
-        3_month: dn2qeercv8ro3lrgnats
-        6_month: dn25umjcegp3blc78jd6
-      ba_i207_h:
-        1_day: dn2078jofd76jr4q9e4p
-        1_month: dn2h4afe6o5c9letkdhc
-        12_month: dn2h6le2bmau2nqlds31
-        3_month: dn2lfsekea7dpb9vmk6v
-        6_month: dn2tjamfiogm09opqgbc
-      ba_i208_s_10g:
-        1_day: dn2gevnt83tr2gp6hkcb
-        1_month: dn20rqkq339lm12jdf1i
-        12_month: dn24tlo2ho04hev1pbff
-        3_month: dn2vtgg9f7ua65f0dtb3
-        6_month: dn20pjhfri33ds0keiuj
-      ba_i209_ss_1_10g:
-        1_day: dn2yby6dsq4bt5jcuuun
-        1_month: dn2lncsqs6acqa2laqq4
-        12_month: dn2yqrddp3zyw3no5aty
-        3_month: dn2qmfirxcmthwlqocxk
-        6_month: dn2ynwho4s5ee7od5jdo
-      ba_i211_8s_10g:
-        1_day: dn23os41prg8rcrk1e2q
-        1_month: dn2h8c7qqre739ol0sii
-        12_month: dn21fsqmbhvseaof5pf6
-        3_month: dn2pstl57mu8t3c1qm4q
-        6_month: dn2jc74moe4laf8m6m7j
-      ba_i218_s:
-        1_day: dn2yspxmcbxndak267qp
-        1_month: dn2eyi7ztdxbxmd4dgj5
-        12_month: dn2zlvn2xg4xmjtzizsd
-        3_month: dn2vj6swslxr2owotaqt
-        6_month: dn2szgigswzw6nv7adb3
-      ba_i311_s:
-        1_day: dn2pmeuzaf5x5jog4dxl
-        1_month: dn2rx7dxbtooxf6ckpkc
-        12_month: dn2tvhgbuvohlnad2k6x
-        3_month: dn2srbkn5ce5cooadlam
-        6_month: dn2jezaritxjqnxhtgln
-      ba_i407_s_10g:
-        1_day: dn2ouvd21k0ibt7asnui
-        1_month: dn23f47oub924jn942p9
-        12_month: dn2qn4bebcnt668lpfnr
-        3_month: dn2oacigdm7h1aq7hg5n
-        6_month: dn2ltpbugu8svm24auo7
-      ba_i501_h_25g:
-        1_day: dn2csfysf5feqp2mb4pm
-        1_month: dn2rguwssadodwqe4nur
-        12_month: dn2w5ud3lad457b3pvrz
-        3_month: dn2hxcjsmu5rveyuxeuk
-        6_month: dn2cm5czmuchlstnwxrh
-      ba_i506_nh_25g:
-        1_day: dn2k3mcygm5lrhav7mgd
-        1_month: dn2unaewdvtq6w6z5h6n
-        12_month: dn2x45chipeeabquucfb
-        3_month: dn2ld7dt234bvfh5s24q
-        6_month: dn2icrgshvkj5v7twlka
-      ba_i507_nh_2x25g:
-        1_day: dn2kfjsf7pmblupclrwv
-        1_month: dn2gwcmonbral4lstku2
-        12_month: dn2hpol7haiv62bfnezm
-        3_month: dn246222g4vgyfep52tu
-        6_month: dn2eiai7nzpv2jhifqle
-      ba_i511_nh_25g:
-        1_day: dn2siwxpw2uequksuh2p
-        1_month: dn2b2bjvep3amsxwaq2x
-        12_month: dn2ryxjsrbbmkhr7zp5b
-        3_month: dn2vhal66x64cw4m4hji
-        6_month: dn2phs4ddgmweohkdfij
-      ba_i512_nh_2x25g:
-        1_day: dn2ylkpt7bfhvqnubswz
-        1_month: dn2ejql2dltywx5oeoz3
-        12_month: dn2v24od7g7xbleg2kjn
-        3_month: dn2dp5s4he4poka7clnc
-        6_month: dn2fvi7h6viwsujbcxv3
       ba-a612-n-25g:
-        1_day: dn2hdfgsbn7yuax22bqa
-        1_month: dn2rn6ae5uv7qgsb7b4e
-        12_month: dn22u5zxzz6crvpcqlcf
-        3_month: dn2zsjqdumxx7sa5ot42
-        6_month: dn2gpij2jxb3lez5xwno
+        1-day: dn2hdfgsbn7yuax22bqa
+        1-month: dn2rn6ae5uv7qgsb7b4e
+        12-month: dn22u5zxzz6crvpcqlcf
+        3-month: dn2zsjqdumxx7sa5ot42
+        6-month: dn2gpij2jxb3lez5xwno
       ba-a702-6n-4h-2x25g:
-        1_day: dn2on7cf5yl2eksf63kz
-        1_month: dn25vpyw2jrteinlopqg
-        12_month: dn2365bmgepnjvlx4a2e
-        3_month: dn2av5viocqdhzppgxb3
-        6_month: dn2msbrtv7xf6mobmlzt
+        1-day: dn2on7cf5yl2eksf63kz
+        1-month: dn25vpyw2jrteinlopqg
+        12-month: dn2365bmgepnjvlx4a2e
+        3-month: dn2av5viocqdhzppgxb3
+        6-month: dn2msbrtv7xf6mobmlzt
       ba-a704-4n-2x25g:
-        1_day: dn2gydegnu7og3b6jtdc
-        1_month: dn2fju2w7rjtt4holbsj
-        12_month: dn2o37ubk4t3iaow63jt
-        3_month: dn2wch2v5lriafthzrjf
-        6_month: dn2s3j7tgubgjk7l5azt
-      ba-i217-s-1-10g:
-        1_day: dn2r5rks2csdg6435bp4
-        1_month: dn25qijyv3bobflplxne
-        12_month: dn22un44apyqndj2ei5l
-        3_month: dn2dj4l3apo6jbjco3l7
-        6_month: dn2loxxtnmlb45n3jmix
+        1-day: dn2gydegnu7og3b6jtdc
+        1-month: dn2fju2w7rjtt4holbsj
+        12-month: dn2o37ubk4t3iaow63jt
+        3-month: dn2wch2v5lriafthzrjf
+        6-month: dn2s3j7tgubgjk7l5azt
+      ba-i103-s-10g:
+        1-day: dn2d1eocobn8amlmll3r
+        1-month: dn2p7pofnj0beukb0erb
+        12-month: dn20q66guu76is04nktv
+        3-month: dn2mcqi74h70gor1pm4n
+        6-month: dn2d06jhdbolrd6osgc2
+      ba-i106-sh-10g:
+        1-day: dn247633ncch74qta3t0
+        1-month: dn209gne5ncks8amg0sr
+        12-month: dn2kke6qjoetsu276fph
+        3-month: dn2fje1gmt1vuqoehi11
+        6-month: dn2sic92geij6849f92h
+      ba-i111-8s-10g:
+        1-day: dn2fqof7dkuu0t19vg2n
+        1-month: dn2rccvd57q4cm23anot
+        12-month: dn2av9k1sknc85mfbpk6
+        3-month: dn2g53dcfhivbid4ejgu
+        6-month: dn2st70gmnb1ug7m8d5b
+      ba-i200-h:
+        1-day: dn2g773c1s243adit5gr
+        1-month: dn2s7fs0s1chg0ehqd9v
+        12-month: dn229ek85qs9grfkj329
+        3-month: dn20vplumf3dl0je987u
+        6-month: dn2aqpduj7201haq3s0m
+      ba-i201-h:
+        1-day: dn29efir9q16m69e8b00
+        1-month: dn29mgh44iurq1s0tsfr
+        12-month: dn2mg1hl72ifqaj7hnc1
+        3-month: dn2ir5imkb2qd0ja1h3t
+        6-month: dn2ku348i9v7212fi9cp
+      ba-i202-s:
+        1-day: dn248idn3c3nuapmaers
+        1-month: dn2bbj5lq0scisug3sqf
+        12-month: dn2gk5s3m7u2lutv2jl1
+        3-month: dn250saptim5g80d1qd5
+        6-month: dn2i332ocdm1c9vt0e4v
+      ba-i203-s-10g:
+        1-day: dn22q9tst809lhe7jm6o
+        1-month: dn2q5k7qjr9a1c1br0s3
+        12-month: dn2mipar2rv7ftl47dcs
+        3-month: dn28ug6e636vfnc3a8vv
+        6-month: dn2nallja21ktps5jd73
+      ba-i204-sh:
+        1-day: dn2qcaa2fn9qojrtlaen
+        1-month: dn2k4uj24mr40qum106j
+        12-month: dn2p250tre1qr771s9d4
+        3-month: dn2bcf1jmctd8qcm6j3p
+        6-month: dn2on5bj7r5ll50f4itf
+      ba-i205-sh:
+        1-day: dn2ulsf25hluloina0kh
+        1-month: dn27d76a4mhn5cgaaade
+        12-month: dn2fd2997d0lk67hhd63
+        3-month: dn27ooj9ap9j3ccakgq7
+        6-month: dn216ev8t9vrrk1dt2iv
+      ba-i206-sh-10g:
+        1-day: dn2ch1jpaf0s9st4f570
+        1-month: dn2a7jakic5i8momu5ld
+        12-month: dn2poffc962r6jak7vmt
+        3-month: dn2qeercv8ro3lrgnats
+        6-month: dn25umjcegp3blc78jd6
+      ba-i207-h:
+        1-day: dn2078jofd76jr4q9e4p
+        1-month: dn2h4afe6o5c9letkdhc
+        12-month: dn2h6le2bmau2nqlds31
+        3-month: dn2lfsekea7dpb9vmk6v
+        6-month: dn2tjamfiogm09opqgbc
+      ba-i208-s-10g:
+        1-day: dn2gevnt83tr2gp6hkcb
+        1-month: dn20rqkq339lm12jdf1i
+        12-month: dn24tlo2ho04hev1pbff
+        3-month: dn2vtgg9f7ua65f0dtb3
+        6-month: dn20pjhfri33ds0keiuj
+      ba-i209-ss-1_10g:
+        1-day: dn2yby6dsq4bt5jcuuun
+        1-month: dn2lncsqs6acqa2laqq4
+        12-month: dn2yqrddp3zyw3no5aty
+        3-month: dn2qmfirxcmthwlqocxk
+        6-month: dn2ynwho4s5ee7od5jdo
+      ba-i211-8s-10g:
+        1-day: dn23os41prg8rcrk1e2q
+        1-month: dn2h8c7qqre739ol0sii
+        12-month: dn21fsqmbhvseaof5pf6
+        3-month: dn2pstl57mu8t3c1qm4q
+        6-month: dn2jc74moe4laf8m6m7j
+      ba-i217-s-1_10g:
+        1-day: dn2r5rks2csdg6435bp4
+        1-month: dn25qijyv3bobflplxne
+        12-month: dn22un44apyqndj2ei5l
+        3-month: dn2dj4l3apo6jbjco3l7
+        6-month: dn2loxxtnmlb45n3jmix
+      ba-i218-s:
+        1-day: dn2yspxmcbxndak267qp
+        1-month: dn2eyi7ztdxbxmd4dgj5
+        12-month: dn2zlvn2xg4xmjtzizsd
+        3-month: dn2vj6swslxr2owotaqt
+        6-month: dn2szgigswzw6nv7adb3
+      ba-i303-s-1_10g:
+        1-day: dn2op6gc722a7ht2dwm6
+        1-month: dn2ajlgrnczfudt4aprz
+        12-month: dn2chxdp3rd7c4gfpwjk
+        3-month: dn2ntl3c24tmuhho6ktk
+        6-month: dn2n676hywonfptdfkir
+      ba-i304-s-1_10g:
+        1-day: dn2vlawp67roiqemccp3
+        1-month: dn23ai3sr76sboszzyws
+        12-month: dn2emmb4nzfuwyt5wafi
+        3-month: dn2424aigb3pjjkcpmba
+        6-month: dn2ruw6xaaz66a3fzrgl
+      ba-i305-s-1_10g:
+        1-day: dn2mctoyavr7fktkf7pr
+        1-month: dn2ttf6ziizkmf22b3so
+        12-month: dn2zmzemgsseo5dgljmh
+        3-month: dn2kvvyzsww5npxnebsp
+        6-month: dn237vghgolroo4ydv5u
+      ba-i306-s-1_10g:
+        1-day: dn2rcuvvvqlghrdjsm7t
+        1-month: dn2b77ei6xmricmhcyhx
+        12-month: dn2m776icdbu4zkuzo23
+        3-month: dn2neb7iyhdiopskp4jn
+        6-month: dn2oxyrcqxomzqlol7k5
+      ba-i307-s-1_10g:
+        1-day: dn2ljmpg33wqyy4xsqin
+        1-month: dn2hb7lhlpcuqriyjhjc
+        12-month: dn2kldddix4p3cb2qkyh
+        3-month: dn2tz7xil7nu57opghuv
+        6-month: dn2sf5hvjhbrmsu3loib
+      ba-i308-s-1_10g:
+        1-day: dn26kjb5pjcolif45eo4
+        1-month: dn2zu5wiiyly2ezqphc6
+        12-month: dn2gysmx6ghcdpf46nfr
+        3-month: dn2bmjfxttyb2ivjlvsc
+        6-month: dn2hjjuk5yu5slloyfv2
+      ba-i309-s-1_10g:
+        1-day: dn2rihme6not4ee3koyf
+        1-month: dn2mwf54vxlyxix5o7px
+        12-month: dn2qfqm2mmwejw2eanhc
+        3-month: dn2su6ac7s73fmelvvxo
+        6-month: dn2eyici4i3uovpegvyu
+      ba-i310-s-1_10g:
+        1-day: dn2istwibkqtj2le6odt
+        1-month: dn2dzkbl7qswpeafquct
+        12-month: dn2rvboahnbdmwvtcctu
+        3-month: dn2brg67bhvnjrfbk4a4
+        6-month: dn2jlgymkgmvherpay4n
+      ba-i311-s:
+        1-day: dn2pmeuzaf5x5jog4dxl
+        1-month: dn2rx7dxbtooxf6ckpkc
+        12-month: dn2tvhgbuvohlnad2k6x
+        3-month: dn2srbkn5ce5cooadlam
+        6-month: dn2jezaritxjqnxhtgln
+      ba-i407-s-10g:
+        1-day: dn2ouvd21k0ibt7asnui
+        1-month: dn23f47oub924jn942p9
+        12-month: dn2qn4bebcnt668lpfnr
+        3-month: dn2oacigdm7h1aq7hg5n
+        6-month: dn2ltpbugu8svm24auo7
+      ba-i501-h-25g:
+        1-day: dn2csfysf5feqp2mb4pm
+        1-month: dn2rguwssadodwqe4nur
+        12-month: dn2w5ud3lad457b3pvrz
+        3-month: dn2hxcjsmu5rveyuxeuk
+        6-month: dn2cm5czmuchlstnwxrh
+      ba-i506-nh-25g:
+        1-day: dn2k3mcygm5lrhav7mgd
+        1-month: dn2unaewdvtq6w6z5h6n
+        12-month: dn2x45chipeeabquucfb
+        3-month: dn2ld7dt234bvfh5s24q
+        6-month: dn2icrgshvkj5v7twlka
+      ba-i507-nh-2x25g:
+        1-day: dn2kfjsf7pmblupclrwv
+        1-month: dn2gwcmonbral4lstku2
+        12-month: dn2hpol7haiv62bfnezm
+        3-month: dn246222g4vgyfep52tu
+        6-month: dn2eiai7nzpv2jhifqle
+      ba-i511-nh-25g:
+        1-day: dn2siwxpw2uequksuh2p
+        1-month: dn2b2bjvep3amsxwaq2x
+        12-month: dn2ryxjsrbbmkhr7zp5b
+        3-month: dn2vhal66x64cw4m4hji
+        6-month: dn2phs4ddgmweohkdfij
+      ba-i512-nh-2x25g:
+        1-day: dn2ylkpt7bfhvqnubswz
+        1-month: dn2ejql2dltywx5oeoz3
+        12-month: dn2v24od7g7xbleg2kjn
+        3-month: dn2dp5s4he4poka7clnc
+        6-month: dn2fvi7h6viwsujbcxv3
       ba-i523-nh-2x25g:
-        1_day: dn23mesissp7dp5jufbd
-        1_month: dn2su66lkggfhlfilzsh
-        12_month: dn27exfj4jsyf2coyomd
-        3_month: dn2ad4tcwajsemoj7dto
-        6_month: dn25xzcf7d4uoy7pllkv
-      bf25_i201_h:
-        1_day: dn2b2g5qopu74rjflyan
-        1_month: dn2gzvgszwupi2ksy4yz
-        12_month: dn2475ofo3x5kvfmhy6a
-        3_month: dn2ty2kygkjscmkj6mbb
-        6_month: dn2j65mpdqb6wej5c5xi
-      bf25_i202_s:
-        1_day: dn2aus4mxp7yuknydhpg
-        1_month: dn27zieq5yc5p2l4qs75
-        12_month: dn2j6htm2lyoz456lj62
-        3_month: dn2kdlvs55vyryxmd2pc
-        6_month: dn2kqcaiurudgqhxbjup
-      bf25_i204_s:
-        1_day: dn225qqwdy2tlp5fwlpi
-        1_month: dn2n2pqs5xxm2ehhxtwx
-        12_month: dn2hzvar7dlq6cdxx6oc
-        3_month: dn2qkhn3ui2ncbjhwclj
-        6_month: dn2366igvzrb7fkgaxgn
-      bf25_i205_s:
-        1_day: dn2zkldyv4ona3effti4
-        1_month: dn2rqmzd3hrtk4sjltcj
-        12_month: dn25hwpkrssemaq7vhw5
-        3_month: dn24i3flk7h7us7ereho
-        6_month: dn2zadeby6pmzuwge6cf
-      bf261_i203:
-        1_day: dn26a35wnvxwa5sgmu7t
-        1_month: dn2byn2wdoaxyjww5gdc
-        12_month: dn2hdvjj3vzgxfqb3ufr
-        3_month: dn2rhz4o25an5dfbsuh3
-        6_month: dn2tqk4xny5nne2zudct
-      bf261_i206:
-        1_day: dn26jtblnavigreh6b66
-        1_month: dn2fvnfjytafpwgch77a
-        12_month: dn2ljuma6jkt2ljhmml2
-        3_month: dn2i3aosxrrlbr6o7fit
-        6_month: dn27gbr3i2s354nf6pjc
-      bf261_i208:
-        1_day: dn2ccunv5arpgsgpyhzh
-        1_month: dn2tlnntuwqj3ajlu36f
-        12_month: dn26woblcyic2w2jkxls
-        3_month: dn2r5og6a3rktscvyt3u
-        6_month: dn2wd4haaztuyp23ddvf
-      bf261_i209:
-        1_day: dn2o5zr2wju3h4igd7pr
-        1_month: dn2wpntyyyjp74snjwto
-        12_month: dn22225727nosasxpx7x
-        3_month: dn2mdisqxt7ovcghhqxf
-        6_month: dn2w4l2apfrkoziy3q5y
-      bf261_i215:
-        1_day: dn2f7gymv2zkuqdkw5zd
-        1_month: dn2buics75hq2s2kpgqp
-        12_month: dn2stcjgbglx5sltdmt5
-        3_month: dn2cqmk6cjzipg3q4yrp
-        6_month: dn2hgvcfcpmhnbnt47gq
-      bf261_i216:
-        1_day: dn2azxgn2mxg54yg5nez
-        1_month: dn2cz5wqhjypentqpoiw
-        12_month: dn2tvmid7ri7e6mzrdwj
-        3_month: dn2bkjhmcb7m5dwkb775
-        6_month: dn2hibmi2r6x7sclto7b
-      bf261_i302:
-        1_day: dn2enmbd76owfw7smwra
-        1_month: dn2lskpe3xu5d7jadhj7
-        12_month: dn2y2e3cozywf6367wsw
-        3_month: dn2s7lb3kkq4ev3bgjlp
-        6_month: dn24qijoyjjcduohp7f6
-      bf261_i502:
-        1_day: dn26bqijeboutklaqbzn
-        1_month: dn2uuzaajwzdmsh4kluk
-        12_month: dn2ajehb5v5zgudjtf7n
-        3_month: dn2cym764mbfzb5ocdyi
-        6_month: dn2ddsgk7wsbw7d2zuol
-      bms_1027r_body:
-        1_month: dn2paaexhgf2bviickkp
-        12_month: dn2oqzoduucamz4ny6ir
-        6_month: dn2bhhmb5x7nnrdhair7
-      bms_cpu_ie5_2650v2:
-        1_month: dn2v7dn7jxq3h4tchgff
-        12_month: dn25yqzqiq7qp7hz4v5r
-        6_month: dn2ivjxagp5bkcqeyh23
-      bms_cpu_ie5_2660:
-        1_month: dn2hgetevoigfobrvogv
-        12_month: dn2q7iyoipkk4h6obmye
-        6_month: dn2kwjai2jd2upnvid7o
-      bms_cpu_ie5_2667v2:
-        1_month: dn2qtcb7z6l6ydpdioff
-        12_month: dn2epyedr37qffbjlmeu
-        6_month: dn25rpnmyjhrt3o2k7tn
-      bms_disk_s0:
+        1-day: dn23mesissp7dp5jufbd
+        1-month: dn2su66lkggfhlfilzsh
+        12-month: dn27exfj4jsyf2coyomd
+        3-month: dn2ad4tcwajsemoj7dto
+        6-month: dn25xzcf7d4uoy7pllkv
+      bf25-i201-h:
+        1-day: dn2b2g5qopu74rjflyan
+        1-month: dn2gzvgszwupi2ksy4yz
+        12-month: dn2475ofo3x5kvfmhy6a
+        3-month: dn2ty2kygkjscmkj6mbb
+        6-month: dn2j65mpdqb6wej5c5xi
+      bf25-i202-s:
+        1-day: dn2aus4mxp7yuknydhpg
+        1-month: dn27zieq5yc5p2l4qs75
+        12-month: dn2j6htm2lyoz456lj62
+        3-month: dn2kdlvs55vyryxmd2pc
+        6-month: dn2kqcaiurudgqhxbjup
+      bf25-i204-s:
+        1-day: dn225qqwdy2tlp5fwlpi
+        1-month: dn2n2pqs5xxm2ehhxtwx
+        12-month: dn2hzvar7dlq6cdxx6oc
+        3-month: dn2qkhn3ui2ncbjhwclj
+        6-month: dn2366igvzrb7fkgaxgn
+      bf25-i205-s:
+        1-day: dn2zkldyv4ona3effti4
+        1-month: dn2rqmzd3hrtk4sjltcj
+        12-month: dn25hwpkrssemaq7vhw5
+        3-month: dn24i3flk7h7us7ereho
+        6-month: dn2zadeby6pmzuwge6cf
+      bf261-i203:
+        1-day: dn26a35wnvxwa5sgmu7t
+        1-month: dn2byn2wdoaxyjww5gdc
+        12-month: dn2hdvjj3vzgxfqb3ufr
+        3-month: dn2rhz4o25an5dfbsuh3
+        6-month: dn2tqk4xny5nne2zudct
+      bf261-i206:
+        1-day: dn26jtblnavigreh6b66
+        1-month: dn2fvnfjytafpwgch77a
+        12-month: dn2ljuma6jkt2ljhmml2
+        3-month: dn2i3aosxrrlbr6o7fit
+        6-month: dn27gbr3i2s354nf6pjc
+      bf261-i208:
+        1-day: dn2ccunv5arpgsgpyhzh
+        1-month: dn2tlnntuwqj3ajlu36f
+        12-month: dn26woblcyic2w2jkxls
+        3-month: dn2r5og6a3rktscvyt3u
+        6-month: dn2wd4haaztuyp23ddvf
+      bf261-i209:
+        1-day: dn2o5zr2wju3h4igd7pr
+        1-month: dn2wpntyyyjp74snjwto
+        12-month: dn22225727nosasxpx7x
+        3-month: dn2mdisqxt7ovcghhqxf
+        6-month: dn2w4l2apfrkoziy3q5y
+      bf261-i215:
+        1-day: dn2f7gymv2zkuqdkw5zd
+        1-month: dn2buics75hq2s2kpgqp
+        12-month: dn2stcjgbglx5sltdmt5
+        3-month: dn2cqmk6cjzipg3q4yrp
+        6-month: dn2hgvcfcpmhnbnt47gq
+      bf261-i216:
+        1-day: dn2azxgn2mxg54yg5nez
+        1-month: dn2cz5wqhjypentqpoiw
+        12-month: dn2tvmid7ri7e6mzrdwj
+        3-month: dn2bkjhmcb7m5dwkb775
+        6-month: dn2hibmi2r6x7sclto7b
+      bf261-i302:
+        1-day: dn2enmbd76owfw7smwra
+        1-month: dn2lskpe3xu5d7jadhj7
+        12-month: dn2y2e3cozywf6367wsw
+        3-month: dn2s7lb3kkq4ev3bgjlp
+        6-month: dn24qijoyjjcduohp7f6
+      bf261-i502:
+        1-day: dn26bqijeboutklaqbzn
+        1-month: dn2uuzaajwzdmsh4kluk
+        12-month: dn2ajehb5v5zgudjtf7n
+        3-month: dn2cym764mbfzb5ocdyi
+        6-month: dn2ddsgk7wsbw7d2zuol
+      bms-1027r-body:
+        1-month: dn2paaexhgf2bviickkp
+        12-month: dn2oqzoduucamz4ny6ir
+        6-month: dn2bhhmb5x7nnrdhair7
+      bms-cpu-ie5-2650v2:
+        1-month: dn2v7dn7jxq3h4tchgff
+        12-month: dn25yqzqiq7qp7hz4v5r
+        6-month: dn2ivjxagp5bkcqeyh23
+      bms-cpu-ie5-2660:
+        1-month: dn2hgetevoigfobrvogv
+        12-month: dn2q7iyoipkk4h6obmye
+        6-month: dn2kwjai2jd2upnvid7o
+      bms-cpu-ie5-2667v2:
+        1-month: dn2qtcb7z6l6ydpdioff
+        12-month: dn2epyedr37qffbjlmeu
+        6-month: dn25rpnmyjhrt3o2k7tn
+      bms-disk-s0:
         9t:
-          1_month: dn275ufhbf5ux5he5enr
-          12_month: dn2zxsclnwljubw7wlul
-          6_month: dn2a2ajurq65jgmkoosw
-      bms_disk_s1:
+          1-month: dn275ufhbf5ux5he5enr
+          12-month: dn2zxsclnwljubw7wlul
+          6-month: dn2a2ajurq65jgmkoosw
+      bms-disk-s1:
         9t:
-          1_month: dn2timdwkypwxsfl3l4e
-          12_month: dn2uysyoofbphvg3ubws
-          6_month: dn2mvup6umlyjgnakica
-      bms_disk_s3:
+          1-month: dn2timdwkypwxsfl3l4e
+          12-month: dn2uysyoofbphvg3ubws
+          6-month: dn2mvup6umlyjgnakica
+      bms-disk-s3:
         8t:
-          1_month: dn2nx7nypgc5nvnmyecx
-          12_month: dn2sayrysfduqvmcqkxs
-          6_month: dn23lsh3xtc5cgmnawjk
-      bms_disk_s7:
+          1-month: dn2nx7nypgc5nvnmyecx
+          12-month: dn2sayrysfduqvmcqkxs
+          6-month: dn23lsh3xtc5cgmnawjk
+      bms-disk-s7:
         6t:
-          1_month: dn2iayw7fvwou5uyznp4
-          12_month: dn2bx37k4lluau6kdl6s
-          6_month: dn2wsahke3cpmy5cvv22
-      bms_net_1_10g:
-        1_month: dn2s6amxbjgvsm2r5j55
-        12_month: dn23r7vlp6ntotrexv3n
-        6_month: dn2d7su6ir2rgf2ghird
-      bms_net_2p10g:
-        1_month: dn2sg2gxxpuzwcuswmqq
-        12_month: dn2ryumxa7vh6247dki7
-        6_month: dn2cvyx2kvtgwmncj77a
-      bms_net_2p1g:
-        1_month: dn2w6cnum7kjv42kxmnp
-        12_month: dn2iynyzlnu5lz44i2w5
-        6_month: dn2rgcu46gwquelzyge6
-      bms_net_2x2p10g:
-        1_month: dn26cypvum4o7othokpj
-        12_month: dn22akrrpikbs5y3vwgl
-        6_month: dn2zrlohcdk7mq6w5ebw
-      bms_publicannounce_pi_prefix_any:
-        1_month: dn2waf73ew5izjrkgflw
-      bms_ram3_128:
-        1_month: dn2dspoxf6trcs7xcb3j
-        12_month: dn2aljp6sqk57xc2qebu
-        6_month: dn2mr6vdtoi22hz4nqba
-      bms_ram3_256:
-        1_month: dn2xjjxbpghreoyy2hda
-        12_month: dn2bzamy6wdtzxtefsy4
-        6_month: dn2ahzx6t7b3y5i464cz
-      bms_ram3_32:
-        1_month: dn2wvnr7h3cmwte6yuho
-        12_month: dn2bq5lyymhwp4kipzdi
-        6_month: dn2s5d5d3qhfgacqque5
-      bms_ram3_64:
-        1_month: dn2qf7kdxxn2onpen6di
-        12_month: dn2vln7iq4gfwaa3m3v6
-        6_month: dn225456trqnu374dy6m
+          1-month: dn2iayw7fvwou5uyznp4
+          12-month: dn2bx37k4lluau6kdl6s
+          6-month: dn2wsahke3cpmy5cvv22
+      bms-net-1_10g:
+        1-month: dn2s6amxbjgvsm2r5j55
+        12-month: dn23r7vlp6ntotrexv3n
+        6-month: dn2d7su6ir2rgf2ghird
+      bms-net-2p10g:
+        1-month: dn2sg2gxxpuzwcuswmqq
+        12-month: dn2ryumxa7vh6247dki7
+        6-month: dn2cvyx2kvtgwmncj77a
+      bms-net-2p1g:
+        1-month: dn2w6cnum7kjv42kxmnp
+        12-month: dn2iynyzlnu5lz44i2w5
+        6-month: dn2rgcu46gwquelzyge6
       bms-net-2p25g-mclag:
-        1_month: dn2zhqrrfxokfmmjcbjl
-        12_month: dn2wtcrigbuiy56in5lj
-        6_month: dn2nxqkn3jbcpgraihji
-      ha_i302_s_10g:
-        1_day: dn2c2vkpanbck1rpp6l8
-        1_month: dn26an39ra4lmdlcoea8
-        12_month: dn25polktkalpfmkqgg6
-        3_month: dn2m1o9e8kre8hphp2q7
-        6_month: dn201l4ki383a9per2i7
+        1-month: dn2zhqrrfxokfmmjcbjl
+        12-month: dn2wtcrigbuiy56in5lj
+        6-month: dn2nxqkn3jbcpgraihji
+      bms-net-2x2p10g:
+        1-month: dn26cypvum4o7othokpj
+        12-month: dn22akrrpikbs5y3vwgl
+        6-month: dn2zrlohcdk7mq6w5ebw
+      bms-publicannounce-pi-prefix-any:
+        1-month: dn2waf73ew5izjrkgflw
+      bms-ram3-128:
+        1-month: dn2dspoxf6trcs7xcb3j
+        12-month: dn2aljp6sqk57xc2qebu
+        6-month: dn2mr6vdtoi22hz4nqba
+      bms-ram3-256:
+        1-month: dn2xjjxbpghreoyy2hda
+        12-month: dn2bzamy6wdtzxtefsy4
+        6-month: dn2ahzx6t7b3y5i464cz
+      bms-ram3-32:
+        1-month: dn2wvnr7h3cmwte6yuho
+        12-month: dn2bq5lyymhwp4kipzdi
+        6-month: dn2s5d5d3qhfgacqque5
+      bms-ram3-64:
+        1-month: dn2qf7kdxxn2onpen6di
+        12-month: dn2vln7iq4gfwaa3m3v6
+        6-month: dn225456trqnu374dy6m
       ha-a701-6n-4h-2x25g:
-        1_day: dn2kwtyc4rsjl45zge33
-        1_month: dn26gmom2kyebwew76rc
-        12_month: dn2ys2apjyjorhxscme3
-        3_month: dn2n6ry7zr6ytyqhx5o7
-        6_month: dn2bgq4z6yp5noo7rccd
+        1-day: dn2kwtyc4rsjl45zge33
+        1-month: dn26gmom2kyebwew76rc
+        12-month: dn2ys2apjyjorhxscme3
+        3-month: dn2n6ry7zr6ytyqhx5o7
+        6-month: dn2bgq4z6yp5noo7rccd
       ha-a703-4n-2x25g:
-        1_day: dn2t4jidixssq4rhiwjv
-        1_month: dn2esv2kzzwhpofamv6v
-        12_month: dn2ptk4iz3h7wtsu7ovx
-        3_month: dn2rbapzjljtggqzovla
-        6_month: dn2m6gruyasudyi72unw
+        1-day: dn2t4jidixssq4rhiwjv
+        1-month: dn2esv2kzzwhpofamv6v
+        12-month: dn2ptk4iz3h7wtsu7ovx
+        3-month: dn2rbapzjljtggqzovla
+        6-month: dn2m6gruyasudyi72unw
+      ha-i302-s-10g:
+        1-day: dn2c2vkpanbck1rpp6l8
+        1-month: dn26an39ra4lmdlcoea8
+        12-month: dn25polktkalpfmkqgg6
+        3-month: dn2m1o9e8kre8hphp2q7
+        6-month: dn201l4ki383a9per2i7
       ha-i502-n-25g-gxl4-p1:
-        1_day: dn2reufj2egdb4txhmcw
-        1_month: dn2dpms5iltwitsem46m
-        12_month: dn2onr36xgn5jpeau7nr
-        3_month: dn2l332n5sb3eez56xso
-        6_month: dn2bfze2ziqavalvg7qd
+        1-day: dn2reufj2egdb4txhmcw
+        1-month: dn2dpms5iltwitsem46m
+        12-month: dn2onr36xgn5jpeau7nr
+        3-month: dn2l332n5sb3eez56xso
+        6-month: dn2bfze2ziqavalvg7qd
       ha-i502-n-25g-gxl4:
-        1_day: dn246uedlfoxttyttloq
-        1_month: dn2aksaq2jnah5n3p2ow
-        12_month: dn2k2zqaoqzwhfdwxuwd
-        3_month: dn2nkrdoxtldsqcw6sxy
-        6_month: dn2ep4zl2llvx2j63glh
-      la_i109_s_1_10g:
-        1_day: dn2zgcjjjuzfd5oed7vl
-        1_month: dn2edz7oes4zlxahffho
-        12_month: dn2zgj65klqob6zmmc4q
-        3_month: dn24gzpgs6nag43ub65g
-        6_month: dn2h5m7ryj7mswsoclgf
-      la_i110_s_1_10g:
-        1_day: dn2en7sxanjpwvrrpiof
-        1_month: dn2jwzbvnw6hghewhy4z
-        12_month: dn27kmrcjjbe6lrdsgcl
-        3_month: dn2v2vb5tlsukuzzn4hx
-        6_month: dn2milwf2eoxiskqwh3d
-      la_i113_s:
-        1_day: dn2ayfkvcbcy7ykjr3h5
-        1_month: dn247i2gjig7uj63xdzv
-        12_month: dn24yko6koontg32wjtm
-        3_month: dn2fk5rqjzelrsqlh6zw
-        6_month: dn2plhocvyi3hfzx7uv5
-      la_i114_s:
-        1_day: dn2c3fvr5id64qmsvelk
-        1_month: dn22gcl3uajdmvxh3ilp
-        12_month: dn2hy7escq66mrhbqz62
-        3_month: dn2rpej2eep226m4lnin
-        6_month: dn2jupfua327m4scynoi
+        1-day: dn246uedlfoxttyttloq
+        1-month: dn2aksaq2jnah5n3p2ow
+        12-month: dn2k2zqaoqzwhfdwxuwd
+        3-month: dn2nkrdoxtldsqcw6sxy
+        6-month: dn2ep4zl2llvx2j63glh
       la-i100-h:
-        1_day: dn2t33wjf2qexcjgwqfm
-        1_month: dn2a7ztltvaxx4jix3j4
-        12_month: dn2zzamxus5wjc5agckw
-        3_month: dn2ykoup6uk7wyuzjkxr
-        6_month: dn2abhoqihnkaw4t6d6d
+        1-day: dn2t33wjf2qexcjgwqfm
+        1-month: dn2a7ztltvaxx4jix3j4
+        12-month: dn2zzamxus5wjc5agckw
+        3-month: dn2ykoup6uk7wyuzjkxr
+        6-month: dn2abhoqihnkaw4t6d6d
       la-i101-h:
-        1_day: dn2gbbtarqnd4mjedmwg
-        1_month: dn24fsf2ghlibwvea2to
-        12_month: dn2kkiff4ugazm3y3zkx
-        3_month: dn2szbvg7l5scxvtzhfj
-        6_month: dn24opipvdoq3ppsvel5
+        1-day: dn2gbbtarqnd4mjedmwg
+        1-month: dn24fsf2ghlibwvea2to
+        12-month: dn2kkiff4ugazm3y3zkx
+        3-month: dn2szbvg7l5scxvtzhfj
+        6-month: dn24opipvdoq3ppsvel5
       la-i102-s:
-        1_day: dn2yedxhx7bbwj2ckpvg
-        1_month: dn236l4bgtgbsqvugfjq
-        12_month: dn2vrmyws4jdzugjzmjc
-        3_month: dn2ahicct5qbgthfjwfe
-        6_month: dn222cz4rrr2irahaybl
+        1-day: dn2yedxhx7bbwj2ckpvg
+        1-month: dn236l4bgtgbsqvugfjq
+        12-month: dn2vrmyws4jdzugjzmjc
+        3-month: dn2ahicct5qbgthfjwfe
+        6-month: dn222cz4rrr2irahaybl
       la-i104-sh:
-        1_day: dn2hzy3p3ofhixrevblu
-        1_month: dn2rhxkefdopx36lmabp
-        12_month: dn2tpv3gb72l3csdtruc
-        3_month: dn2heprd6ns5ywiz4d2c
-        6_month: dn2fbnlbq7y4tpaa6hpe
+        1-day: dn2hzy3p3ofhixrevblu
+        1-month: dn2rhxkefdopx36lmabp
+        12-month: dn2tpv3gb72l3csdtruc
+        3-month: dn2heprd6ns5ywiz4d2c
+        6-month: dn2fbnlbq7y4tpaa6hpe
       la-i105-sh:
-        1_day: dn2hewv6wwjn7hheudoc
-        1_month: dn24hmyrngrtfsnp26nq
-        12_month: dn2gw4ab4atyreye4xrd
-        3_month: dn22cc76b5ptltxkkhmv
-        6_month: dn2oh3librm7x763qqgk
-      la-i107-s-1-10g:
-        1_day: dn2mvtdvofk4cpsfj37n
-        1_month: dn2wg7fk3h5hac3wxnw6
-        12_month: dn2ql3ll3wwzilxfptf6
-        3_month: dn22qacvosdvpihqi36r
-        6_month: dn2lbddwbtt3y5m4ph4e
-      la-i108-s-1-10g:
-        1_day: dn27dway3ctq7ckrdytq
-        1_month: dn2pe5mj3k35wl2rzzmi
-        12_month: dn2o5qnxdn7jxgcatyif
-        3_month: dn2mhzsdg7gtb4d4fckw
-        6_month: dn2mj2rnkhctk4lzcz4c
+        1-day: dn2hewv6wwjn7hheudoc
+        1-month: dn24hmyrngrtfsnp26nq
+        12-month: dn2gw4ab4atyreye4xrd
+        3-month: dn22cc76b5ptltxkkhmv
+        6-month: dn2oh3librm7x763qqgk
+      la-i107-s-1_10g:
+        1-day: dn2mvtdvofk4cpsfj37n
+        1-month: dn2wg7fk3h5hac3wxnw6
+        12-month: dn2ql3ll3wwzilxfptf6
+        3-month: dn22qacvosdvpihqi36r
+        6-month: dn2lbddwbtt3y5m4ph4e
+      la-i108-s-1_10g:
+        1-day: dn27dway3ctq7ckrdytq
+        1-month: dn2pe5mj3k35wl2rzzmi
+        12-month: dn2o5qnxdn7jxgcatyif
+        3-month: dn2mhzsdg7gtb4d4fckw
+        6-month: dn2mj2rnkhctk4lzcz4c
+      la-i109-s-1_10g:
+        1-day: dn2zgcjjjuzfd5oed7vl
+        1-month: dn2edz7oes4zlxahffho
+        12-month: dn2zgj65klqob6zmmc4q
+        3-month: dn24gzpgs6nag43ub65g
+        6-month: dn2h5m7ryj7mswsoclgf
+      la-i110-s-1_10g:
+        1-day: dn2en7sxanjpwvrrpiof
+        1-month: dn2jwzbvnw6hghewhy4z
+        12-month: dn27kmrcjjbe6lrdsgcl
+        3-month: dn2v2vb5tlsukuzzn4hx
+        6-month: dn2milwf2eoxiskqwh3d
+      la-i113-s:
+        1-day: dn2ayfkvcbcy7ykjr3h5
+        1-month: dn247i2gjig7uj63xdzv
+        12-month: dn24yko6koontg32wjtm
+        3-month: dn2fk5rqjzelrsqlh6zw
+        6-month: dn2plhocvyi3hfzx7uv5
+      la-i114-s:
+        1-day: dn2c3fvr5id64qmsvelk
+        1-month: dn22gcl3uajdmvxh3ilp
+        12-month: dn2hy7escq66mrhbqz62
+        3-month: dn2rpej2eep226m4lnin
+        6-month: dn2jupfua327m4scynoi
   pc|compute:
     hostgroup:
       cpu:
@@ -2219,8 +2266,6 @@ default:
           50|number: 299.91666665
           50|string: "299,91666665\_₸"
   sku|KZT|security_deck:
-    cspm:
-      resources|string: "2\_950\_₸"
     dspm:
       scanned:
         files:
@@ -2229,9 +2274,6 @@ default:
         text:
           v1|number: 2342.4
           v1|string: "2\_342,4\_₸"
-    kspm:
-      nodes|pricingRate:
-        2|string: "40\_665\_₸"
   sku|KZT|serverless:
     containers:
       compute:
@@ -2753,11 +2795,6 @@ default:
           50|number: 59.98333333
           50|string: "59,98333333\_₽"
   sku|RUB|security_deck:
-    access_transparency:
-      subscription:
-        v1|string: "71\_167\_₽"
-    cspm:
-      resources|string: "590\_₽"
     dspm:
       scanned:
         files:
@@ -2766,9 +2803,6 @@ default:
         text:
           v1|number: 468.48
           v1|string: "468,48\_₽"
-    kspm:
-      nodes|pricingRate:
-        2|string: "8\_133\_₽"
   sku|RUB|serverless:
     containers:
       compute:
@@ -2954,527 +2988,6 @@ default:
         v3|number: 1.38
       ram:
         v3|number: 0.369
-  sku|USD|ai:
-    datasphere:
-      computing:
-        v1|number: 0.0000106557
-        v1|string: "0,0000106557\_$"
-      datasets:
-        v1|number: 0.0000106557
-      deployment|number: 0.0000106557
-      disk:
-        v1|number: 0.0000106557
-      jobs|number: 0.0000106557
-      models:
-        v1|number: 0.0000106557
-  sku|USD|airflow:
-    cluster:
-      generic:
-        ram:
-          v1|number: 0.0079377036
-          v1|string: "0,0079377036\_$"
-        vcpu:
-          v1|number: 0.0236065536
-          v1|string: "0,0236065536\_$"
-  sku|USD|alb:
-    balancer:
-      active|number: 0.0215573736
-      active|string: "0,0215573736\_$"
-  sku|USD|api-gateway:
-    requests:
-      v1|pricingRate:
-        '0':
-          1|number: 1.166393256
-          1|string: "1,166393256\_$"
-  sku|USD|audit-trails:
-    events:
-      data_plane:
-        v1|number: 0.3239343744
-        v1|string: "0,3239343744\_$"
-  sku|USD|backup:
-    protected_vms:
-      v2|month|number: 2.301638976
-      v2|month|string: "2,301638976\_$"
-    used_space:
-      v1|month|number: 0.040721305
-      v1|month|string: "0,040721305\_$"
-  sku|USD|cloud_desktop:
-    hdd:
-      v1|month|number: 0.0359999942
-      v1|month|string: "0,0359999942\_$"
-    ram:
-      v1|number: 0.0035827863
-      v1|string: "0,0035827863\_$"
-    ssd:
-      v1|month|number: 0.1316065363
-      v1|month|string: "0,1316065363\_$"
-    vcpu:
-      c50:
-        v1|number: 0.0068852448
-        v1|string: "0,0068852448\_$"
-  sku|USD|cns:
-    notification_events:
-      mts_marketing_event|number: 0.0445081896
-      mts_marketing_event|string: "0,0445081896\_$"
-      push_event:
-        v2|pricingRate:
-          1|number: 0.824999868
-          1|string: "0,824999868\_$"
-      vimpelcom_marketing_1|number: 0.0645901536
-      vimpelcom_marketing_1|string: "0,0645901536\_$"
-      vimpelcom_marketing_from_5|number: 0.0654098256
-      vimpelcom_marketing_from_5|string: "0,0654098256\_$"
-    notifications_packet_events:
-      vimpelcom_marketing_3_to_4|number: 0.1604098104
-      vimpelcom_marketing_3_to_4|string: "0,1604098104\_$"
-    notifications:
-      sender_name_registration_event|number: 83.3332653552
-      sender_name_registration_event|string: "83,3332653552\_$"
-  sku|USD|compute:
-    filesystem:
-      hdd:
-        v1|number: 0.000045082
-        v1|string: "0,000045082\_$"
-      ssd:
-        v1|number: 0.0001877049
-        v1|string: "0,0001877049\_$"
-    hostgroup:
-      cpu:
-        c100:
-          v3|number: 0.011475408
-          v3|string: "0,011475408\_$"
-      localssd:
-        v1|number: 0.000109836
-        v1|string: "0,000109836\_$"
-      ram:
-        v3|number: 0.0030327864
-        v3|string: "0,0030327864\_$"
-    snapshot|number: 0.0000418033
-    snapshot|string: "0,0000418033\_$"
-    vm:
-      cpu:
-        c100:
-          v2|number: 0.0115573752
-          v3|number: 0.0101639328
-          v3|string: "0,0101639328\_$"
-        c20:
-          v3|number: 0.0042622944
-          v3|string: "0,0042622944\_$"
-      ram:
-        v2|number: 0.0030131143
-        v3|number: 0.0027049176
-        v3|string: "0,0027049176\_$"
-  sku|USD|datalens:
-    users:
-      v1|string: "8,1147528\_$"
-  sku|USD|datasphere:
-    docker|number: 0.0000106557
-    filestores|number: 0.0000106557
-  sku|USD|datatransfer:
-    compute:
-      cpu:
-        v1|number: 0.0123770472
-        v1|string: "0,0123770472\_$"
-      ram:
-        v1|number: 0.0033073765
-        v1|string: "0,0033073765\_$"
-    rows:
-      v1|pricingRate:
-        100|number: 0.0254917992
-        100|string: "0,0254917992\_$"
-  sku|USD|dns:
-    requests:
-      public:
-        authoritative:
-          v1|number: 0.3109835568
-          v1|string: "0,3109835568\_$"
-        recursive:
-          v1|pricingRate:
-            1|number: 0.3109835568
-            1|string: "0,3109835568\_$"
-  sku|USD|gitlab:
-    backup|month|number: 0.0186491773
-    backup|month|string: "0,0186491773\_$"
-    instance:
-      disk|month|number: 0.1262950618
-      disk|month|string: "0,1262950618\_$"
-      free:
-        cpu|number: 0.0163114728
-        cpu|string: "0,0163114728\_$"
-        ram|number: 0.0043737698
-        ram|string: "0,0043737698\_$"
-  sku|USD|identity-hub:
-    users:
-      101-500|number: 4.08196656
-      501-1000|number: 3.66393384
-  sku|USD|iot:
-    mqtt|pricingRate:
-      100000|number: 0.0000010656
-      1000000|number: 9.836e-7
-  sku|USD|kms:
-    api:
-      asymmetric:
-        heavy:
-          v1|number: 0.1295901432
-          v1|string: "0,1295901432\_$"
-        v1|number: 0.0518032704
-        v1|string: "0,0518032704\_$"
-      v1:
-        encryptdecrypt|number: 0.0259016352
-        encryptdecrypt|string: "0,0259016352\_$"
-    storage:
-      asymmetric:
-        v1|number: 0.0259016352
-        v1|string: "0,0259016352\_$"
-      v1:
-        software|number: 0.0000359836
-        software|string: "0,0000359836\_$"
-  sku|USD|load_testing:
-    storage:
-      test_results:
-        v1|number: 0
-        v1|pricingRate:
-          2160000|number: 0.0004499999
-    test_execution:
-      v1|number: 0
-      v1|pricingRate:
-        180000|number: 0.0044999993
-  sku|USD|lockbox:
-    api:
-      v1:
-        get|number: 0.0310655688
-        get|string: "0,0310655688\_$"
-    storage:
-      v1:
-        active_secrets|number: 0.0002245901
-        active_secrets|string: "0,0002245901\_$"
-  sku|USD|mdb:
-    cluster:
-      clickhouse:
-        v3:
-          cpu:
-            c100|number: 0.0162295056
-            c100|string: "0,0162295056\_$"
-          ram|number: 0.0044262288
-          ram|string: "0,0044262288\_$"
-      greenplum:
-        v2:
-          cpu:
-            c100:
-              dedicated|number: 0.0113114736
-              dedicated|string: "0,0113114736\_$"
-          ram:
-            dedicated|number: 0.0029286881
-            dedicated|string: "0,0029286881\_$"
-        v3:
-          cpu:
-            c100|number: 0.0202458984
-            c100|string: "0,0202458984\_$"
-          ram|number: 0.0053860647
-          ram|string: "0,0053860647\_$"
-      kafka:
-        v3:
-          cpu:
-            c100|number: 0.0142622928
-            c100|string: "0,0142622928\_$"
-          ram|number: 0.0037704912
-          ram|string: "0,0037704912\_$"
-      local-nvme:
-        greenplum|month|number: 0.1168524403
-        greenplum|month|string: "0,1168524403\_$"
-      mongodb:
-        v3:
-          cpu:
-            c100|number: 0.0150819648
-            c100|string: "0,0150819648\_$"
-          ram|number: 0.0085049167
-          ram|string: "0,0085049167\_$"
-      mysql:
-        v3:
-          cpu:
-            c100|number: 0.0158196696
-            c100|string: "0,0158196696\_$"
-          ram|number: 0.0043442616
-          ram|string: "0,0043442616\_$"
-      network-hdd:
-        ch|month|number: 0.0306885197
-        ch|month|string: "0,0306885197\_$"
-        greenplum|month|number: 0.0306885197
-        greenplum|month|string: "0,0306885197\_$"
-        kafka|month|number: 0.0306885197
-        kafka|month|string: "0,0306885197\_$"
-        mysql|month|number: 0.0306885197
-        mysql|month|string: "0,0306885197\_$"
-        pg|month|number: 0.0306885197
-        pg|month|string: "0,0306885197\_$"
-      network-nvme:
-        ch|month|number: 0.1286557171
-        ch|month|string: "0,1286557171\_$"
-        kafka|month|number: 0.1286557171
-        kafka|month|string: "0,1286557171\_$"
-        redis|month|number: 0.1286557171
-        redis|month|string: "0,1286557171\_$"
-      opensearch:
-        v3:
-          cpu:
-            c100|number: 0.0158196696
-            c100|string: "0,0158196696\_$"
-          ram|number: 0.006614753
-          ram|string: "0,006614753\_$"
-      pg:
-        v3:
-          cpu:
-            c100|number: 0.0154032762
-            c100|string: "0,0154032762\_$"
-          ram|number: 0.0041573764
-          ram|string: "0,0041573764\_$"
-      redis:
-        v3:
-          cpu:
-            c100|number: 0.0142622928
-            c100|string: "0,0142622928\_$"
-          ram|number: 0.0037704912
-          ram|string: "0,0037704912\_$"
-    dataproc:
-      v2:
-        cpu:
-          c100|number: 0.0011336064
-        ram|number: 0.0002827868
-    zk:
-      clickhouse:
-        v3:
-          cpu:
-            c50|number: 0.006614753
-            c50|string: "0,006614753\_$"
-          ram|number: 0.0026459012
-          ram|string: "0,0026459012\_$"
-      kafka:
-        v3:
-          cpu:
-            c50|number: 0.006614753
-            c50|string: "0,006614753\_$"
-          ram|number: 0.0026459012
-          ram|string: "0,0026459012\_$"
-  sku|USD|monitoring:
-    point:
-      prometheus:
-        export|number: 0.0629999899
-        export|string: "0,0629999899\_$"
-      write|number: 0.0026229504
-      write|string: "0,0026229504\_$"
-  sku|USD|network:
-    public_fips:
-      deallocated|number: 0.0027899996
-      deallocated|string: "0,0027899996\_$"
-    public_fips|number: 0.0021599997
-    public_fips|string: "0,0021599997\_$"
-  sku|USD|postbox:
-    email:
-      count:
-        v1|pricingRate:
-          10|number: 0.574999908
-          10|string: "0,574999908\_$"
-          2|number: 0.6583332279
-          2|string: "0,6583332279\_$"
-          50|number: 0.491666588
-          50|string: "0,491666588\_$"
-  sku|USD|security_deck:
-    access_transparency:
-      subscription:
-        v1|number: 583.33597224
-        v1|string: "583,33597224\_$"
-    cspm:
-      resources|string: "4,8360648\_$"
-    dspm:
-      scanned:
-        files:
-          v1|number: 1.2499998
-          v1|string: "1,2499998\_$"
-        text:
-          v1|number: 3.8399993856
-          v1|string: "3,8399993856\_$"
-    kspm:
-      nodes|pricingRate:
-        2|string: "66,66392376\_$"
-  sku|USD|serverless:
-    containers:
-      compute:
-        cpu|pricingRate:
-          5|number: 0.0466393368
-          5|string: "0,0466393368\_$"
-        memory|pricingRate:
-          10|number: 0.0310655688
-          10|string: "0,0310655688\_$"
-      invocations|pricingRate:
-        1|number: 0.1554917784
-        1|string: "0,1554917784\_$"
-    functions:
-      compute:
-        v1|pricingRate:
-          10|number: 0.0531147456
-          10|string: "0,0531147456\_$"
-      invocations:
-        v1|pricingRate:
-          1|number: 0.1554917784
-          1|string: "0,1554917784\_$"
-  sku|USD|smart_captcha:
-    check:
-      requests:
-        v1|pricingRate:
-          10|number: 0.899999856
-          10|string: "0,899999856\_$"
-          100|number: 0.6299998992
-          100|string: "0,6299998992\_$"
-  sku|USD|spark:
-    cluster:
-      generic:
-        ram:
-          v2|number: 0.0033983601
-          v2|string: "0,0033983601\_$"
-        vcpu:
-          v2|number: 0.0128688504
-          v2|string: "0,0128688504\_$"
-  sku|USD|storage:
-    api:
-      get:
-        cold|number: 0.009426228
-        ice|number: 0.018852456
-        standard|pricingRate:
-          10|number: 0.0037704912
-          10|string: "0,0037704912\_$"
-      network:
-        inet:
-          egress|pricingRate:
-            100|number: 0.0137699978
-            100|string: "0,0137699978\_$"
-      put:
-        cold|number: 0.0113934408
-        ice|number: 0.0228688488
-        standard|pricingRate:
-          10|number: 0.004665573
-    bucket:
-      used_space:
-        cold|month|number: 0.0103868836
-        ice|month|number: 0.0051934418
-        ice|month|string: "0,0051934418\_$"
-        ice|number: 0.0000072131
-        ice|string: "0,0000072131\_$"
-        standard|pricingRate:
-          720|month|number: 0.0194754067
-          720|month|string: "0,0194754067\_$"
-          720|number: 0.0000270492
-          720|string: "0,0000270492\_$"
-  sku|USD|support:
-    organization:
-      business:
-        fixed_consumption:
-          v1|number: 40.9836
-          v1|string: "40,9836\_$"
-  sku|USD|sws:
-    antiddos:
-      traffic|number: 0.0090827854
-      traffic|string: "0,0090827854\_$"
-    proxy-server:
-      v1|number: 0.0199999968
-      v1|string: "0,0199999968\_$"
-    requests:
-      v1|number: 0
-      v1|pricingRate:
-        '0':
-          01|number: 224.999964
-          01|string: "224,999964\_$"
-        1|number: 31.49999496
-        1|string: "31,49999496\_$"
-        10|number: 1.799999712
-        10|string: "1,799999712\_$"
-        100|number: 1.2599997984
-        100|string: "1,2599997984\_$"
-        1000|number: 0.449999928
-    waf:
-      requests:
-        v1|pricingRate:
-          '0':
-            01|number: 224.999964
-          1|number: 31.49999496
-          10|number: 1.799999712
-          100|number: 1.2599997984
-          1000|number: 0.449999928
-  sku|USD|trino:
-    cluster:
-      generic:
-        ram:
-          v1|number: 0.0045409829
-          v1|string: "0,0045409829\_$"
-        vcpu:
-          v1|number: 0.0169672104
-          v1|string: "0,0169672104\_$"
-  sku|USD|video:
-    cdn:
-      traffic:
-        egress|number: 0.0086393429
-        egress|string: "0,0086393429\_$"
-    transcoding:
-      live:
-        v1|number: 0.021311472
-        v1|string: "0,021311472\_$"
-      vod:
-        v1|number: 0.0089999986
-        v1|string: "0,0089999986\_$"
-    used_space:
-      live:
-        v1|number: 0.0000251557
-        v1|string: "0,0000251557\_$"
-  sku|USD|ydb:
-    v1:
-      serverless:
-        requests|pricingRate:
-          1|number: 0.2019671808
-          1|string: "0,2019671808\_$"
-  sku|USD|yds:
-    events:
-      puts|pricingRate:
-        2|number: 0.0113934408
-        2|string: "0,0113934408\_$"
-    reserved_resources:
-      128k:
-        12h|number: 0.0012959014
-        12h|string: "0,0012959014\_$"
-  sku|USD|yt:
-    compute-nodes:
-      cpu:
-        v3|number: 0.0113114736
-      ram:
-        v3|number: 0.0030245897
-    master-nodes:
-      cpu:
-        v3|number: 0.0113114736
-      ram:
-        v3|number: 0.0030245897
-    proxy-nodes:
-      cpu:
-        v3|number: 0.0113114736
-      ram:
-        v3|number: 0.0030245897
-    storage-nodes:
-      cpu:
-        v3|number: 0.0113114736
-      ram:
-        v3|number: 0.0030245897
-    storage:
-      hdd:
-        v1|month|number: 0.0312786835
-      ssd-nonreplicated:
-        v1|month|number: 0.0950163782
-    system-nodes:
-      cpu:
-        v3|number: 0.0113114736
-      ram:
-        v3|number: 0.0030245897
-    tablet-nodes:
-      cpu:
-        v3|number: 0.0113114736
-      ram:
-        v3|number: 0.0030245897
   ui-key:
     data-catalog:
       console:
@@ -3890,9 +3403,7 @@ default:
       cloud-center:
         action_more: Ещё
       cloud:
-        button_delete: Удалить
         button_save: Сохранить
-        label_delete-now: Удалить сейчас
       fileinput:
         button_attach-file: Прикрепить файл
       forms:
@@ -3904,7 +3415,6 @@ default:
       marketplace:
         label_product-ids: Идентификаторы продукта
         label_subscriptions: Варианты тарификации
-        product-pricing-type_byol: BYOL
         product-pricing-type_free: Free
         product-pricing-type_license: Subscription
         product-pricing-type_payg: PAYG
@@ -4924,7 +4434,6 @@ default:
         label_alerts: Алерты
         label_comp: Соответствие требованиям
         label_dspm: Контроль данных
-        label_kspm: Контроль Kubernetes{trademark}
         label_settings: Параметры Security Deck
         onboarding:
           label_select-default-folder: Выберите каталог по умолчанию
@@ -4976,7 +4485,6 @@ default:
           ExceptionDrawer:
             header_action_delete: Удалить
             header_action_edit: Редактировать
-            header_caption: Исключение
             resources_field_id: Идентификатор
           ExceptionOverview:
             header_caption_cspm_9dTJt: Контроль конфигурации
@@ -6743,7 +6251,6 @@ default:
         label_access_2bch9: Права доступа
         label_create-resource_4KN3M: Создать ресурс
         label_notifications_uWDue: Уведомления
-        label_permissions_gAtoT: Разрешения
         label_quotas_gAtoT: Квоты
         TogglCloudTreeButton:
           tooltip__pin_panel: Закрепить дерево каталогов
@@ -7230,7 +6737,6 @@ default:
             label_serverless-containers: Serverless Containers
             label_serverless-functions: Cloud Functions
             label_serverless-integrations: Serverless Integrations
-            label_smartcaptcha: SmartCaptcha
             label_smartcaptcha_ru: Yandex SmartCaptcha
             label_smartwebsecurity: Smart Web Security
             label_storage: Object Storage
@@ -7295,10 +6801,6 @@ default:
         label_create-wli-federation: Создать федерацию
         label_federations: Федерации сервисных аккаунтов
         label_service-accounts: Сервисные аккаунты
-        ssa:
-          action_disable-access: Отключить  доступ
-          action_enable-access: Включить доступ
-          label_filter-by-service-placeholder: Фильтр по сервису
       interconnect:
         bgp-asn_3dSL7: BGP ASN
         bgp-key_cn2dU: BGP Key
@@ -7428,7 +6930,6 @@ default:
         MaintenanceSection:
           maintenance-window-field-with-none-option_tx5Wn: Частота обновлений / Отключение
         namespaces:
-          button_create: Создать
           popup-add_field_name: Имя
         network:
           label_ingress: Ingress
@@ -8133,6 +7634,10 @@ default:
           label_task-status-planned: Запланировано
           title_maintenance: Обслуживание
           title_task-details: Подробнее о задании
+        resources:
+          DiskAutoscalingFieldGroup:
+            field_autoscaling_fsAon: Увеличивать размер
+            field_disk-size-limit_bK9Ng: Максимальный размер хранилища
         shard-groups:
           button_add-group: Создать группу шардов
       metadata-hub:
@@ -8734,7 +8239,6 @@ default:
           title_exclusion-rule-condition-section: Условия на трафик
           title_exclusion-rule-rules-section: Область применения
           title_exclusion-rules: Правила-исключения
-          value_exclude-all-no: Выбранные правила
           value_exclude-all-yes: Все правила
       smartcaptcha:
         button_captcha-settings-create: Создать капчу

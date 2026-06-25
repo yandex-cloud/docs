@@ -256,7 +256,7 @@ description: Из статьи вы узнаете, как задать наст
 * [Данные в источнике не подходят для шардирования](#cannot-get-delimiters)
 * [Прерывание трансфера с ошибкой cursor.Decode returned error](#invalid-length)
 
-См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
+Смотрите полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
 {% include [string-size](../../../../_includes/data-transfer/troubles/mongodb/string-size.md) %}
 

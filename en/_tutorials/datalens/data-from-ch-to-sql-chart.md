@@ -5,9 +5,9 @@
 {% include [datalens-folder-navigation-note](../../_includes/datalens/datalens-folder-navigation-note.md) %}
 
 
-In this tutorial, you will create charts using SQL queries. SQL queries enable you to configure data for visualization in a more flexible way than the standard dataset method does. For example, you can add parameters from dashboards to a SQL query.
+In this tutorial, you will create charts using SQL queries. SQL queries provide more options for configuring data for visualization than the standard dataset method. For example, you can add parameters from dashboards to an SQL query.
 
-We recommend using a [QL chart](../../datalens/concepts/chart/ql-charts.md) if creating a regular [chart](../../datalens/concepts/chart/dataset-based-charts.md) using a dataset does not suit you or if you want to experiment with the data.
+We recommend using a [QL chart](../../datalens/concepts/chart/ql-charts.md) if creating a regular [chart](../../datalens/concepts/chart/dataset-based-charts.md) using a dataset does not suit your needs or if you want to experiment with the data.
 
 A direct connection to a demo database will be used as your data source. 
 
@@ -38,7 +38,7 @@ SQL queries only work with databases. File, GoogleSheets, Yandex Metrica, and ot
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
 1. In the top-right corner, click **Create** → **Create workbook**.
-1. Enter a name for the [workbook](../../datalens/workbooks-collections/index.md): `Tutorials`.
+1. Enter `Tutorials` for the [workbook](../../datalens/workbooks-collections/index.md) name.
 1. Click **Create**.
 
 
@@ -128,7 +128,7 @@ Create a QL chart based on the `Sample ClickHouse` connection:
 1. Save the chart:
 
    1. In the top-right corner, click **Save**.
-   1. In the window that opens, enter `New clients` for chart name and click **Save**.
+   1. In the window that opens, enter `New clients` for the chart name and click **Save**.
 
 You can add the chart to the dashboard. You can also add selectors to the dashboard to manage the values of the `status` and `interval` QL chart parameters.
 
@@ -144,7 +144,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 ## Add the QL chart to the dashboard {#add-sql-chart-to-dashboard}
 
-1. In the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it to the required area.
+1. In the panel at the bottom of the page, drag ![image](../../_assets/console-icons/chart-column.svg) **Chart** where you need.
 
    ![add-chart](../../_assets/datalens/sql-chart/add-chart.png)
 
@@ -162,17 +162,17 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 Add [selectors](../../datalens/dashboard/selector.md) to filter charts by date and client statuses:
 
-1. In the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/sliders.svg) **Selector** and drag it to the required area.
+1. In the panel at the bottom of the page, drag ![image](../../_assets/console-icons/sliders.svg) **Selector** where you need.
 
    ![image](../../_assets/datalens/sql-chart/add-selector.png)
 
 1. Add a selector for client status:
 
    1. In the **Source** list, select `Manual input`.
-   1. In **Field or parameter**, enter `status`. Certain selector values will be passed into this SQL query variable.
-   1. Choose `List` as your selector type.   
+   1. In **Field or parameter**, enter `status`. This SQL query variable will get the selected values from the selector.
+   1. Select `List` as your selector type.   
    1. Enable **Multiple choice**.
-   1. Next to the **Possible values** parameter, click **Add**. In the resulting window, add the following values:
+   1. Next to the **Possible values** parameter, click **Add**. In the window that opens, add the following values:
 
       * Gold
       * Silver
@@ -191,7 +191,7 @@ Add [selectors](../../datalens/dashboard/selector.md) to filter charts by date a
 
       ![image](../../_assets/datalens/sql-chart/add-selector-parameters.png)
 
-1. Add the calendar selector to filter by date range:
+1. Add the calendar selector to filter by date interval:
 
    1. In the **Source** list, select `Manual input`.
    1. In **Field or parameter**, enter `interval`. The start and end values of the interval from the selector will be provided to the `not_var{{interval_from}}` and `not_var{{interval_to}}` variables of the SQL query.
@@ -202,7 +202,7 @@ Add [selectors](../../datalens/dashboard/selector.md) to filter charts by date a
 
       ![image](../../_assets/datalens/sql-chart/add-selector-data-parameters.png)
 
-1. Position the selectors on the dashboard however you like.
+1. Position the selectors on the dashboard however you prefer.
 1. Save the dashboard:
 
    1. In the top-right corner of the dashboard, click **Save**.
@@ -212,11 +212,11 @@ Your dashboard is ready for use.
 
    ![image](../../_assets/datalens/sql-chart/add-selector-on-dashboard.png)
 
-1. Your dashboard is ready for use. Now you can filter the chart by status using a selector.
+1. Your dashboard is ready for use. Now you can filter the chart by status using the selector.
    
    ![image](../../_assets/datalens/sql-chart/selector-2-values.png)
 
-   You can also filter the chart by a date range using the second selector.
+   You can also filter the chart by date interval using the second selector.
 
    ![image](../../_assets/datalens/sql-chart/selector-data-2-values.png)
 

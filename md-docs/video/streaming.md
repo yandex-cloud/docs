@@ -43,6 +43,17 @@
 
 {% endlist %}
 
+{% note info %}
+
+Создание нового платежного аккаунта доступно только пользователям с учетной записью [Яндекс ID](https://yandex.ru/support/id/index.html) или [Яндекс 360](https://360.yandex.ru/). [Федеративные](../iam/concepts/users/accounts.md#saml-federation) учетные записи для этого не подходят.
+
+Для привязки платежного аккаунта у пользователя должны быть [роли](security/index.md#service-roles):
+
+* на платежный аккаунт — `billing.accounts.editor` или выше;
+* на организацию с Cloud Video — [`video.admin`](security/index.md#video-admin) или роли, включающие ее полномочия, например `organization-manager.organizations.owner`.
+
+{% endnote %}
+
 Если у вас возник технический вопрос по работе сервиса, обратитесь в [службу поддержки](https://center.yandex.cloud/support) Yandex Cloud.
 
 ## Создайте канал {#create-channel}

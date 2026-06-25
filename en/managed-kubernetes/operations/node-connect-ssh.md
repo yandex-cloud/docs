@@ -30,7 +30,7 @@ For more information, see [Connecting to a VM over SSH](../../compute/operations
 
 ## Create SSH key pairs {#creating-ssh-keys}
 
-Prepare the keys to use with your {{ managed-k8s-name }} cluster node. Proceed as follows:
+Prepare the keys to use with your {{ managed-k8s-name }} cluster node. Follow these steps:
 
 {% list tabs group=operating_system %}
 
@@ -125,7 +125,7 @@ Here is an example:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select {{ managed-k8s-name }}.
   1. In the left-hand panel, select **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
   1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
@@ -187,7 +187,7 @@ Here is an example:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -238,7 +238,7 @@ The credentials for connecting over SSH will be completely overwritten. You will
   {% endnote %}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select {{ managed-k8s-name }}.
   1. In the left-hand panel, select **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
   1. On the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab, select the node group in which you want to update the credentials.
@@ -292,7 +292,7 @@ The credentials for connecting over SSH will be completely overwritten. You will
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -3925,7 +3925,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
   * `--levels` — для поиска записей с указанными уровнями логирования;
   * `--filter` — для фильтрации записей.
 
-  Подробнее о возможных значениях новых параметров см. в разделе [{#T}](../logging/concepts/filter.md).
+  Подробнее о возможных значениях новых параметров смотрите в разделе [{#T}](../logging/concepts/filter.md).
 
 
 ##### Сервисы управляемых баз данных {#managed-db}
@@ -4065,7 +4065,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 **{{ mrd-full-name }}**
 
-* В группу команд `yc managed-redis cluster` для `create`, `restore`, `update` добавлены флаги `--client-output-buffer-limit-normal` и `--client-output-buffer-limit-pubsub` (см. описание в redis.conf). 
+* В группу команд `yc managed-redis cluster` для `create`, `restore`, `update` добавлены флаги `--client-output-buffer-limit-normal` и `--client-output-buffer-limit-pubsub` (смотрите описание в redis.conf). 
 
 **{{ mgp-name }}**
 
@@ -4206,7 +4206,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
   * `--levels` для поиска записей с указанными уровнями логирования;
   * `--filter` для фильтрации записей.
 
-  Подробнее о возможных значениях новых параметров см. в разделе [{#T}](../logging/concepts/filter.md).
+  Подробнее о возможных значениях новых параметров смотрите в разделе [{#T}](../logging/concepts/filter.md).
 
 
 ##### Сервисы управляемых баз данных {#managed-db}
@@ -4757,7 +4757,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команды `yc managed-redis cluster create\update`.
 
-  Добавлены параметры `--slowlog-log-slower-than`, `--slowlog-max-len`, `--databases` и `--notify-keyspace-events` (см. описание в redis.conf).
+  Добавлены параметры `--slowlog-log-slower-than`, `--slowlog-max-len`, `--databases` и `--notify-keyspace-events` (смотрите описание в redis.conf).
 
 ### Версия 0.76.0 (19.05.21) {#version0.76.0}
 

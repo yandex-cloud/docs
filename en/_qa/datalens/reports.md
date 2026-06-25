@@ -12,11 +12,11 @@ description: This page covers FAQ about reports.
 
 ### Is there a report demo version? {#demo-report}
 
-To view an example of the report, deploy [DataLens Demo Dashboard](https://datalens.ru/gallery/wcyljs3cf5mwi) from the Gallery:
+To view a report example, deploy the [DataLens Demo Dashboard](https://datalens.ru/gallery/wcyljs3cf5mwi) from Gallery:
 
 1. Click **Use** → **Deploy**. By default, the workbook will be created in the root of [workbooks and collections](../../datalens/workbooks-collections/index.md). You can also select an existing collection or create a new one at this step.
 1. Click **Deploy**. The workbook name must be unique, so edit the name if you need to.
-1. Click **Create**. You will see the report example in your new workbook.
+1. Click **Create**. You will see the report example in the created workbook.
 
 
 ### Can I view reports in full-screen mode and switch between pages? {#report-preview}
@@ -25,7 +25,7 @@ Yes. You can view a report in [full-screen mode](../../datalens/reports/report-o
 
 ### Can I configure auto-refresh in presentation mode? {#report-preview-autoupdate}
 
-No, but you can use browser extensions to set up auto-refresh for the browser page.
+No, but you can use browser add-ons to set up auto-refresh for the browser page.
 
 ### Is there a way to keep a revision history for reports? {#report-versioning}
 
@@ -42,9 +42,9 @@ You can use these hotkeys to move a selected [widget](../../datalens/reports/rep
 
 Reports do not support selection and auto-alignment of multiple widgets. For easier widget alignment, enable the **Show grid** option in [report settings](../../datalens/reports/report-operations.md#report-settings).
 
-### Can I use filtering of charts by other charts in presentation mode? {#chart-chart-filtration}
+### Can I use cross-chart filtering in presentation mode? {#chart-chart-filtration}
 
-Reports do not support filtering charts by other charts.
+Reports do not support cross-chart filtering.
 
 ### Are reports available on mobile devices? {#mobile-report}
 
@@ -62,7 +62,7 @@ You cannot grant [public access](../../datalens/concepts/datalens-public.md) to 
 
 ### Can I set custom header sizes in reports? {#title-size}
 
-You can select the header text size from preset options, such as `XS`, `S`, `M`, `L`, and `XL`, or click ![icon](../../_assets/console-icons/pencil-to-line.svg) and specify text size in pixels.
+You can select the header text size from the preset options, such as `XS`, `S`, `M`, `L`, and `XL`, or click ![icon](../../_assets/console-icons/pencil-to-line.svg) and specify the text size in pixels.
 
 ### Is there an option to refresh all charts on a page? {#page-refresh}
 

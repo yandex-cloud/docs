@@ -84,7 +84,7 @@ description: Следуя данной инструкции, вы сможете
 
   Воспользуйтесь методом S3 API [upload](../../s3/api-ref/object/upload.md), например, с помощью утилиты `curl`.
 
-  Используйте `curl` версии [8.3.0](https://curl.se/changes.html) и выше. Подробнее см. [Пример использования AWS S3 API](../../api-ref/authentication.md#s3-api-example).
+  Используйте `curl` версии [8.3.0](https://curl.se/changes.html) и выше. Подробнее смотрите [Пример использования AWS S3 API](../../api-ref/authentication.md#s3-api-example).
 
   ```bash
   AWS_KEY_ID="<идентификатор_статического_ключа>"
@@ -228,7 +228,7 @@ description: Следуя данной инструкции, вы сможете
 
   Воспользуйтесь методом S3 API [getObjectMeta](../../s3/api-ref/object/getobjectmeta.md), например, с помощью утилиты `curl`.
 
-  Используйте `curl` версии [8.3.0](https://curl.se/changes.html) и выше. Подробнее см. [Пример использования AWS S3 API](../../api-ref/authentication.md#s3-api-example).
+  Используйте `curl` версии [8.3.0](https://curl.se/changes.html) и выше. Подробнее смотрите [Пример использования AWS S3 API](../../api-ref/authentication.md#s3-api-example).
 
   ```bash
   AWS_KEY_ID="<идентификатор_статического_ключа>"
@@ -372,7 +372,7 @@ description: Следуя данной инструкции, вы сможете
 
   Воспользуйтесь методом S3 API [copy](../../s3/api-ref/object/copy.md), например, с помощью утилиты `curl`.
 
-  Используйте `curl` версии [8.3.0](https://curl.se/changes.html) и выше. Подробнее см. [Пример использования AWS S3 API](../../api-ref/authentication.md#s3-api-example).
+  Используйте `curl` версии [8.3.0](https://curl.se/changes.html) и выше. Подробнее смотрите [Пример использования AWS S3 API](../../api-ref/authentication.md#s3-api-example).
 
   ```bash
   AWS_KEY_ID="<идентификатор_статического_ключа>"

@@ -36,7 +36,7 @@
 * хранение старых версий строк (rollback segment);
 * упаковка типов.
 
-Чтобы узнать фактический объем таблиц в базе, обратитесь к системной таблице `INNODB_SYS_TABLESPACES`. Подробнее см. в статье [Finding MySQL Table Size on Disk](https://www.percona.com/blog/2016/01/26/finding_mysql_table_size_on_disk).
+Чтобы узнать фактический объем таблиц в базе, обратитесь к системной таблице `INNODB_SYS_TABLESPACES`. Подробнее в статье [Finding MySQL Table Size on Disk](https://www.percona.com/blog/2016/01/26/finding_mysql_table_size_on_disk).
 
 #### Что делать при возникновении любой ошибки приложения? {#application-error}
 

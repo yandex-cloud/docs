@@ -12,7 +12,7 @@ Parameterization will enable you to:
 * Substitute a table in queries.
 * Provide a parameter to the dataset's SQL as part of a query.
 
-We will use a Moscow retail chain's demo sales {{ CH }} database as our data source.
+As our data source, we will use a {{ CH }} demo database with a Moscow retail chain's sales data.
 
 To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin) and follow the steps below:
 
@@ -33,7 +33,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
 1. In the top-right corner, click **Create** → **Create workbook**.
-1. Enter a name for the [workbook](../../datalens/workbooks-collections/index.md): `Dataset parametrisation`.
+1. Enter `Dataset parametrisation` for the [workbook](../../datalens/workbooks-collections/index.md) name.
 1. Click **Create**.
 
 
@@ -74,7 +74,7 @@ Create a [dataset](../../datalens/dataset/index.md) based on the `Sample ClickHo
 
       ![image](../../_assets/datalens/dataset-parametrization/dataset-parameter-validation-error.png)
 
-1. Adjust the dataset validation settings to allow the `MS_SalesFacts` value in the parameter. Proceed as follows:
+1. Adjust the dataset validation settings to allow the `MS_SalesFacts` value in the parameter. Follow these steps:
    
    1. Click **Add** and specify **Name**, **Type**, and **Default value** as in the previous step.
    1. Enable **Allow use in source settings** and select `Regular expression` for the value validation.
@@ -93,7 +93,7 @@ Create a [dataset](../../datalens/dataset/index.md) based on the `Sample ClickHo
 
    1. Go to the **Sources** tab.
    1. In the table list, click ![icon](../../_assets/console-icons/ellipsis.svg) next to **MS_SalesFacts** and select **Change settings**.
-   1. To the right of the **Table name** field set to `MS_SalesFacts`, click ![icon](../../_assets/console-icons/plus.svg) and select the `table_name` parameter. The selected parameter will now define the table name.
+   1. Next to the **Table name** field set to `MS_SalesFacts`, click ![icon](../../_assets/console-icons/plus.svg) and select the `table_name` parameter. The selected parameter will now define the table name.
    
       ![image](../../_assets/datalens/dataset-parametrization/dataset-change-table-settings.png)
 
@@ -106,7 +106,7 @@ Create a [dataset](../../datalens/dataset/index.md) based on the `Sample ClickHo
 1. Create a [calculated field](../../datalens/concepts/calculations/index.md):
 
    1. On the left side of the screen above the list of dataset fields, click ![icon](../../_assets/console-icons/plus.svg) and select **Field**.
-   1. Enter the name: `Year`.
+   1. Enter `Year` for the name.
    1. Enter the formula: `YEAR([OrderDatetime])`.
    1. Click **Create**.
 
@@ -125,7 +125,7 @@ Create a [dataset](../../datalens/dataset/index.md) based on the `Sample ClickHo
 1. Save the chart:
 
    1. In the top-right corner, click **Save**.
-   1. In the window that opens, enter `Table with parametrisation` for chart name and click **Save**.
+   1. In the window that opens, enter `Table with parametrisation` for the chart name and click **Save**.
 
    ![image](../../_assets/datalens/dataset-parametrization/save-chart.png)
 
@@ -145,7 +145,7 @@ Create a [dataset](../../datalens/dataset/index.md) based on the `Sample ClickHo
 Create another dataset based on the `Sample ClickHouse` connection:
 
 1. Navigate to the `Sample ClickHouse` connection and click **Create dataset** in the top-right corner.
-1. Add an SQL query to the source:
+1. Add an SQL query against the source:
 
    1. At the bottom left under the table list, click ![icon](../../_assets/console-icons/plus.svg) → **Add**.
    1. Open the **SQL** tab and enter the following query text in the **Subquery** field:
@@ -191,7 +191,7 @@ Create another dataset based on the `Sample ClickHouse` connection:
       WHERE
       ```
 
-   1. Under the query input field, click ![icon](../../_assets/console-icons/plus.svg) **Insert parameter** and select `custom_where`. The selected parameter will now define the SQL query condition.
+   1. Under the query input field, click ![icon](../../_assets/console-icons/plus.svg) **Insert parameter** and select `custom_where`. The selected parameter will now define the SQL query condition:
 
       ```sql
       SELECT * FROM samples.MS_SalesFacts
@@ -229,4 +229,4 @@ Create another dataset based on the `Sample ClickHouse` connection:
 1. Save the chart:
 
    1. In the top-right corner, click **Save**.
-   1. In the window that opens, enter `Chart with parametrisation sql` for chart name and click **Save**.
+   1. In the window that opens, enter `Chart with parametrisation sql` for the chart name and click **Save**.

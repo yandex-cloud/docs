@@ -54,7 +54,7 @@
      {% endnote %}
   
   1. В блоке **Вычислительные ресурсы**:
-     * Выберите [платформу](../../../compute/concepts/vm-platforms.md).
+     * Выберите [платформу](../../../compute/concepts/vm-platforms.md).     
      * Укажите необходимое количество [GPU](../../../compute/concepts/gpus.md), vCPU и [гарантированную долю vCPU](../../../compute/concepts/performance-levels.md), а также объем RAM.
      * (Опционально) Укажите, что ВМ должна быть [прерываемой](../../../compute/concepts/preemptible-vm.md).
   

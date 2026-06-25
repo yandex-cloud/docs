@@ -115,7 +115,7 @@
          <имя_БД>
    ```
 
-    О том, как получить FQDN хоста, см. [инструкцию](operations/connect/index.md#get-fqdn).
+    Как получить FQDN хоста, описано в [инструкции](operations/connect/index.md#get-fqdn).
 
 
 ## Что дальше {#whats-next}

@@ -38,7 +38,7 @@
 * Быстрая фильтрация и поиск по вложенной структуре.
 * Интеграция с ACL и поддержка прав на уровне команд JSON.
 
-Примеры команд, доступных в кластере с установленным модулем Valkey-JSON: `JSON.SET`, `JSON.GET`, `JSON.ARRINSERT`, `JSON.ARRLEN`. См. [полный список доступных команд](https://valkey.io/commands/#json).
+Примеры команд, доступных в кластере с установленным модулем Valkey-JSON: `JSON.SET`, `JSON.GET`, `JSON.ARRINSERT`, `JSON.ARRLEN`. [Полный список доступных команд](https://valkey.io/commands/#json).
 
 Подробнее о применении модуля читайте в [официальной документации](https://valkey.io/topics/valkey-json/).
 

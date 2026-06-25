@@ -1,9 +1,9 @@
 # Example of using the Activities tab in Editor
 
 
-[Editor](../../datalens/charts/editor/index.md) is a JavaScript-based data and selector visualization tool. With Editor, you can upload data from one or more sources, manage chart parameters, and configure visualizations. You can use datasets and connections as data sources.
+[Editor](../../datalens/charts/editor/index.md) is a JavaScript-based data and selector visualization tool. With Editor, you can upload data from one or multiple sources, manage chart parameters, and configure visualizations. You can use datasets and connections as data sources.
 
-This tutorial demonstrates how the Activities tab works: you will build a table that expands to display detailed information when a row is clicked.
+This tutorial demonstrates how the **Activities** tab works: you will build a table that expands to display detailed information upon clicking a row.
 
 As your data source, you will use a connection via API Connector to retrieve weather information from a demo database.
 
@@ -76,14 +76,14 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
    module.exports = {
     "weather": {
 
-        // Indicate which connection to go to for data
+        // Indicating which connection to use for getting data
         // Use the name given to the connection on the Meta tab
         apiConnectionId: Editor.getId("weatherConnection"),
 
         // Request method
         method: "GET",
 
-        // Specify the path to the API method/page in the source
+        // Specifying the path to the API method/page in the source
         path: "?latitude=55.75&longitude=37.61&daily=temperature_2m_max,temperature_2m_min"
     }
    };
@@ -113,7 +113,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. On the **Prepare** tab, create a table:
 
    ```javascript
-   // Get the downloaded data
+   // Getting the downloaded data
    const data = Editor.getLoadedData();
    const {daily, daily_units} = data.weather.data.body;
    const {time, temperature_2m_max, temperature_2m_min} = daily;
@@ -122,7 +122,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
        'background-color': 'var(--g-color-base-neutral-light)',
    };
 
-   // Form the table header and describe the column types
+   // Creating the table header and describing the column types
    const head = [
         {
             id: 'id-date',
@@ -145,13 +145,13 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
         },
         {
             id: 'id-t-max',
-            name: 'Maximum'
+            name: 'Maximum',
             type: 'text',
              css: headCommonStyles,
         },
     ];
 
-    // Populate the table
+    // Populating the table
     const rows = [];
 
     for (var i = 0; i < time.length; i++) {

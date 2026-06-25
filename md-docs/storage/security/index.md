@@ -28,7 +28,7 @@
 
 На отдельный бакет роль можно назначить в [консоли управления](https://console.yandex.cloud), а также через [Yandex Cloud API](../api-ref/Bucket/setAccessBindings.md) или [Terraform](../../terraform/resources/storage_bucket_iam_binding.md).
 
-О том, как управлять доступом к бакетам и объектам в них, см. раздел [Список управления доступом (ACL)](../concepts/acl.md).
+О том, как управлять доступом к бакетам и объектам в них, смотрите раздел [Список управления доступом (ACL)](../concepts/acl.md).
 
 ## Какие роли действуют в сервисе {#roles-list}
 

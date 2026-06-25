@@ -47,9 +47,9 @@ keywords:
 Да, данные должны сохраниться. Однако учтите, что перезагружать ВМ во время записи на системный [диск](../../compute/concepts/disk.md) не рекомендуется: это может привести к повреждению файловой системы.
 
 Для изменения параметров ВМ рекомендуем следующую последовательность действий:
-1. Создайте [снимок](../../compute/concepts/snapshot.md) диска: см. инструкцию [{#T}](../../compute/operations/disk-control/create-snapshot.md).
-1. Штатно выключите ВМ: см. [{#T}](../../compute/operations/vm-control/vm-stop-and-start.md).
-1. Измените параметры ВМ: см. [{#T}](../../compute/operations/vm-control/vm-update-resources.md).
+1. Создайте [снимок](../../compute/concepts/snapshot.md) диска: смотрите инструкцию [{#T}](../../compute/operations/disk-control/create-snapshot.md).
+1. Штатно выключите ВМ: смотрите [{#T}](../../compute/operations/vm-control/vm-stop-and-start.md).
+1. Измените параметры ВМ: смотрите [{#T}](../../compute/operations/vm-control/vm-update-resources.md).
 1. Дождитесь завершения операции (раздел **{{ ui-key.yacloud.compute.operations_kRLeR }}** в сервисе {{ compute-name }}).
 1. Включите ВМ.
 1. Убедитесь, что новые параметры применены.
@@ -65,9 +65,9 @@ keywords:
 [FQDN](../../vpc/concepts/address.md#fqdn) выдается ВМ в момент ее создания, и возможность его изменения отсутствует.
 
 Если требуется сменить FQDN, нужно удалить ВМ и создать новую. Для сохранения консистентности данных:
-1. Остановите ВМ: см. инструкцию [{#T}](../../compute/operations/vm-control/vm-stop-and-start.md#stop).
-1. Создайте снимок диска: см. [{#T}](../../compute/operations/disk-control/create-snapshot.md).
-1. Создайте новую ВМ, выбрав снимок в качестве источника загрузочного диска: см. [{#T}](../../compute/operations/vm-create/create-from-snapshots.md). Укажите во время создания нужный вам FQDN.
+1. Остановите ВМ: смотрите инструкцию [{#T}](../../compute/operations/vm-control/vm-stop-and-start.md#stop).
+1. Создайте снимок диска: смотрите [{#T}](../../compute/operations/disk-control/create-snapshot.md).
+1. Создайте новую ВМ, выбрав снимок в качестве источника загрузочного диска: смотрите [{#T}](../../compute/operations/vm-create/create-from-snapshots.md). Укажите во время создания нужный вам FQDN.
 
 #### Может ли измениться UUID ВМ? {#change-uuid}
 

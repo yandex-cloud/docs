@@ -90,7 +90,7 @@ description: Из статьи вы узнаете, как задать наст
 * [Прерывание трансфера с ошибкой](#overloaded)
 * [Редиректы {{ sf-short-name }}](#redirects)
 
-См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
+Смотрите полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
 {% include [overloaded](../../../../_includes/data-transfer/troubles/overloaded.md) %}
 

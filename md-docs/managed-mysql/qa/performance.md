@@ -32,7 +32,7 @@
    * Рекомендуется увеличить класс хостов:
       * При стабильно высоком значении `Steal` графика **CPU usage**.
       * При стабильно низком значении `Free` графика **Memory usage**.
-   * При высоком значении `iowait` графика **CPU usage** возможно превышение лимитов IOPS дискового хранилища. Рекомендуется увеличить значение как минимум до следующего порога [блока размещения](../../compute/concepts/limits.md#compute-limits-disks) или использовать более быстрые диски. Подробнее о лимитах и производительности дисков см. в [документации Yandex Compute Cloud](../../compute/concepts/disk.md).
+   * При высоком значении `iowait` графика **CPU usage** возможно превышение лимитов IOPS дискового хранилища. Рекомендуется увеличить значение как минимум до следующего порога [блока размещения](../../compute/concepts/limits.md#compute-limits-disks) или использовать более быстрые диски. Подробнее о лимитах и производительности дисков смотрите в [документации Yandex Compute Cloud](../../compute/concepts/disk.md).
 
 #### Почему отстает реплика? {#replica-lagging}
 
@@ -75,7 +75,7 @@
    SELECT * FROM sys.statement_analysis LIMIT 10;
    ```
 
-Обратите внимание на запросы с высокими значениями `rows_examined`, `rows_sorted` или флагом `full_scan` — с большой вероятностью именно они потребляют ресурсы CPU. Подробнее см. в [документации MySQL®](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html).
+Обратите внимание на запросы с высокими значениями `rows_examined`, `rows_sorted` или флагом `full_scan` — с большой вероятностью именно они потребляют ресурсы CPU. Подробнее в [документации MySQL®](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html).
 
 #### Как выяснить причину утилизации ресурса IO? {#high-io}
 
@@ -174,7 +174,7 @@
    SELECT * FROM sys.innodb_lock_waits
    ```
 
-Подробнее см. в [документации MySQL®](https://dev.mysql.com/doc/refman/8.0/en/sys-schema-table-lock-waits.html).
+Подробнее в [документации MySQL®](https://dev.mysql.com/doc/refman/8.0/en/sys-schema-table-lock-waits.html).
 
 #### Как оптимизировать проблемные запросы? {#query-optimization}
 

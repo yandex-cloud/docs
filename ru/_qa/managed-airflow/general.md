@@ -8,7 +8,7 @@ user subnet overlaps with service network range {{ airflow-service-address }}, s
 
 Ошибка означает, что при создании кластера вы выбрали подсеть, диапазон IP-адресов которой пересекается с диапазоном адресов `{{ airflow-service-address }}` служебной подсети. В ней {{ yandex-cloud }} управляет компонентами кластера {{ maf-name }}.
 
-Чтобы исправить ошибку, выберите другую подсеть, диапазон IP-адресов которой не пересекается с диапазоном служебной подсети. Подробнее о требованиях к подсетям кластера см. в разделе [Сеть](../../managed-airflow/concepts/network.md#subnet-requirements).
+Чтобы исправить ошибку, выберите другую подсеть, диапазон IP-адресов которой не пересекается с диапазоном служебной подсети. Подробнее о требованиях к подсетям кластера смотрите в разделе [Сеть](../../managed-airflow/concepts/network.md#subnet-requirements).
 
 ### Как исправить ошибку отсутствия прав при подключении сервисного аккаунта к кластеру? {#attach-service-account}
 
@@ -30,7 +30,7 @@ ModuleNotFoundError: No module named 'airflow.providers.postgres.operators'
 
 **Решение**:
 
-Если вы работаете с более новой версией провайдера, вместо PostgresOperator используйте SQLExecuteQueryOperator. Подробнее см. в [официальной документации](https://airflow.apache.org/docs/apache-airflow-providers-postgres/6.0.0/operators/postgres_operator_howto_guide.html).
+Если вы работаете с более новой версией провайдера, вместо PostgresOperator используйте SQLExecuteQueryOperator. Подробнее в [официальной документации](https://airflow.apache.org/docs/apache-airflow-providers-postgres/6.0.0/operators/postgres_operator_howto_guide.html).
 
 ### Как исправить ошибку `AirflowException: Unknown hook type "postgres"`? {#airflow-provider-postgres-operators-2}
 

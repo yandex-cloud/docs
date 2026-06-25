@@ -30,7 +30,7 @@ Managed Service for MySQL® поддерживает MySQL® 5.7 и MySQL® 8.
 
 #### Какие ограничения накладываются на кластеры БД MySQL®? {#instance-limitations}
 
-Подробнее об ограничениях Managed Service for MySQL® см. раздел [Квоты и лимиты](../concepts/limits.md). В разделе [Классы хостов](../concepts/instance-types.md) приведены характеристики кластеров, которые можно создать с помощью Managed Service for MySQL®.
+Подробнее об ограничениях Managed Service for MySQL® смотрите раздел [Квоты и лимиты](../concepts/limits.md). В разделе [Классы хостов](../concepts/instance-types.md) приведены характеристики кластеров, которые можно создать с помощью Managed Service for MySQL®.
 
 #### Почему кластер работает медленно, хотя вычислительные ресурсы использованы не до предела? {#throttling}
 

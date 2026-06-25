@@ -4,6 +4,7 @@
 
 * [Изменить класс хостов](#change-resource-preset).
 * [Изменить тип диска и увеличить размер хранилища](#change-disk-size).
+* [Настроить автоматическое увеличение размера хранилища](#disk-size-autoscale).
 * [Настроить серверы](#change-mongod-config) Yandex StoreDoc согласно документации MongoDB.
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
 * [Переместить кластер](#move-cluster) в другой каталог.
@@ -201,7 +202,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
       {% note warning %}
       
@@ -216,10 +217,10 @@
           --header "Content-Type: application/json" \
           --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>' \
           --data '{
-                    "updateMask": "configSpec.mongodb.<тип_хоста_Yandex_StoreDoc>.resources.resourcePresetId",
+                    "updateMask": "configSpec.mongodb.<тип_хоста>.resources.resourcePresetId",
                     "configSpec": {
                       "mongodb": {
-                        "<тип_хоста_Yandex_StoreDoc>": {
+                        "<тип_хоста>": {
                           "resources": {
                             "resourcePresetId": "<класс_хостов>"
                           }    
@@ -235,7 +236,7 @@
 
           В данном случае передается только один параметр.
 
-      * `configSpec.mongodb.<тип_хоста_Yandex_StoreDoc>.resources.resourcePresetId` — новый [класс хостов](../concepts/instance-types.md).
+      * `configSpec.mongodb.<тип_хоста>.resources.resourcePresetId` — новый [класс хостов](../concepts/instance-types.md).
 
         Тип хоста Yandex StoreDoc зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`. Если кластер нешардированный, укажите `mongod`.
 
@@ -258,7 +259,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       {% note warning %}
       
@@ -292,12 +293,12 @@
                 "cluster_id": "<идентификатор_кластера>",
                 "update_mask": {
                   "paths": [
-                    "config_spec.mongodb.<тип_хоста_Yandex_StoreDoc>.resources.resource_preset_id"
+                    "config_spec.mongodb.<тип_хоста>.resources.resource_preset_id"
                   ]
                 },
                 "config_spec": {
                   "mongodb": {
-                    "<тип_хоста_Yandex_StoreDoc>": {
+                    "<тип_хоста>": {
                       "resources": {
                         "resource_preset_id": "<класс_хостов>"
                       }    
@@ -315,7 +316,7 @@
 
           В данном случае передается только один параметр.
 
-      * `config_spec.mongodb.<тип_хоста_Yandex_StoreDoc>.resources.resource_preset_id` — новый класс хостов.
+      * `config_spec.mongodb.<тип_хоста>.resources.resource_preset_id` — новый класс хостов.
       
         Тип хоста Yandex StoreDoc зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`. Если кластер нешардированный, укажите `mongod`.
 
@@ -491,7 +492,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
       {% note warning %}
       
@@ -506,10 +507,10 @@
           --header "Content-Type: application/json" \
           --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>' \
           --data '{
-                    "updateMask": "configSpec.mongodb.<тип_хоста_Yandex_StoreDoc>.resources.diskTypeId,configSpec.mongodb.<тип_хоста_Yandex_StoreDoc>.resources.diskSize",
+                    "updateMask": "configSpec.mongodb.<тип_хоста>.resources.diskTypeId,configSpec.mongodb.<тип_хоста>.resources.diskSize",
                     "configSpec": {
                       "mongodb": { 
-                        "<тип_хоста_Yandex_StoreDoc>": {
+                        "<тип_хоста>": {
                           "resources": {
                             "diskTypeId": "<тип_диска>",
                             "diskSize": "<размер_хранилища_в_байтах>"
@@ -524,7 +525,7 @@
 
       * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
       
-      * `configSpec.mongodb.<тип_хоста_Yandex_StoreDoc>.resources` — параметры хранилища:
+      * `configSpec.mongodb.<тип_хоста>.resources` — параметры хранилища:
 
           * `diskTypeId` — [тип диска](../concepts/storage.md).
           * `diskSize` — новый размер хранилища в байтах.
@@ -550,7 +551,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       {% note warning %}
       
@@ -584,13 +585,13 @@
                 "cluster_id": "<идентификатор_кластера>",
                 "update_mask": {
                   "paths": [
-                    "config_spec.mongodb.<тип_хоста_Yandex_StoreDoc>.resources.disk_type_id",
-                    "config_spec.mongodb.<тип_хоста_Yandex_StoreDoc>.resources.disk_size"
+                    "config_spec.mongodb.<тип_хоста>.resources.disk_type_id",
+                    "config_spec.mongodb.<тип_хоста>.resources.disk_size"
                   ]
                 },
                 "config_spec": {
                   "mongodb": {
-                    "<тип_хоста_Yandex_StoreDoc>": {
+                    "<тип_хоста>": {
                       "resources": {
                         "disk_type_id": "<тип_диска>",
                         "disk_size": "<размер_хранилища_в_байтах>"
@@ -607,12 +608,378 @@
 
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
-      * `config_spec.mongodb.<тип_хоста_Yandex_StoreDoc>.resources.disk_size` — параметры хранилища:
+      * `config_spec.mongodb.<тип_хоста>.resources.disk_size` — параметры хранилища:
 
           * `disk_type_id` — [тип диска](../concepts/storage.md).
           * `disk_size` — новый размер хранилища в байтах.
 
         Тип хоста Yandex StoreDoc зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`. Если кластер нешардированный, укажите `mongod`.
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+## Настроить автоматическое увеличение размера хранилища {#disk-size-autoscale}
+
+Проверьте, что в облаке достаточно квот для увеличения хранилища. Откройте страницу [Квоты](https://console.yandex.cloud/cloud?section=quotas) для облака и убедитесь, что в секции **Managed Databases** в строке **Объём HDD-хранилищ** или **Объём SSD-хранилищ** есть квота на объем хранилищ.
+
+Подробнее о хранилище и автоматическом увеличении в [соответствующем разделе](../concepts/storage.md#auto-rescale).
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  Чтобы настроить автоматическое увеличение размера хранилища:
+
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+  1. В зависимости от выбранного [типа шардирования](../concepts/sharding.md#shard-management), перейдите к блоку ресурсов кластера, которые нужно изменить: **Ресурсы**, **Ресурсы Mongod**, **Ресурсы Mongoinfra**, **Ресурсы Mongocfg** или **Ресурсы Mongos**.
+  1. (Опционально) В блоке **Автоматическое увеличение размера хранилища** укажите желаемые настройки:
+
+      * В поле **Увеличивать размер** задайте условия автоматического увеличения хранилища:
+
+          * процент заполнения хранилища, при котором оно будет увеличено в следующее [окно обслуживания](../concepts/maintenance.md#maintenance-window).
+          * процент заполнения хранилища, при котором оно будет увеличено немедленно.
+
+          Если заданы оба условия, то процент в первом условии должен быть ниже, чем процент во втором.
+
+          Подробнее об условиях для увеличения хранилища в [соответствующем разделе](../concepts/storage.md#auto-rescale).
+
+      * В поле **Максимальный размер хранилища** укажите максимальный размер хранилища, который может быть установлен при автоматическом увеличении размера хранилища.
+
+      {% note info %}
+
+      Если вы задали условие для увеличения хранилища в окно обслуживания, в блоке **Дополнительные настройки** задайте время технического обслуживания.
+
+      {% endnote %}
+
+  1. Нажмите кнопку **Сохранить изменения**.
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  Чтобы настроить автоматическое увеличение размера хранилища:
+
+  1. Посмотрите описание команды CLI для изменения кластера:
+
+      ```bash
+      yc managed-mongodb cluster update --help
+      ```
+
+  1. Выполните команду, указав параметры автоматического увеличения хранилища:
+
+      ```bash
+      yc managed-mongodb cluster create \
+         ...
+         --disk-size-autoscaling <тип_хоста>-planned-usage-threshold=<процент_для_планового_увеличения>,`
+                                `<тип_хоста>-emergency-usage-threshold=<процент_для_незамедлительного_увеличения>,`
+                                `<тип_хоста>-disk-size-limit=<максимальный_размер_хранилища_в_гигабайтах> \
+         ...
+      ```
+
+      Где:
+
+      * `<тип_хоста>` — [тип хоста](../concepts/host-roles.md), хранилище которого вы хотите настроить. Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`.
+
+      * `<тип_хоста>-planned-usage-threshold` — процент заполнения хранилища, при котором хранилище будет увеличено в следующее [окно обслуживания](../concepts/maintenance.md#maintenance-window).
+
+        Значение задается в процентах от `0` до `100`. По умолчанию — `0` (автоматическое расширение отключено).
+
+        Если вы задали этот параметр, задайте настройки времени технического обслуживания.
+
+      * `<тип_хоста>-emergency-usage-threshold` — процент заполнения хранилища, при котором хранилище будет увеличено немедленно.
+
+        Значение задается в процентах от `0` до `100`. По умолчанию — `0` (автоматическое расширение отключено).
+
+        {% note info %}
+
+        Если заданы оба параметра, процент для планового увеличения должен быть меньше, чем процент для незамедлительного увеличения.
+
+        {% endnote %}
+
+      * `<тип_хоста>-disk-size-limit` — максимальный размер хранилища в гигабайтах после увеличения.
+
+
+- Terraform {#tf}
+
+  Чтобы настроить автоматическое увеличение размера хранилища:
+
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+
+      Инструкция по созданию такого файла приведена в разделе [Создание кластера](cluster-create.md).
+
+  1. Добавьте или измените в описании кластера Yandex StoreDoc блок с настройками для нужного типа хостов:
+
+     Тип хоста | Название блока
+     --- | ---
+     `MONGOD` | `disk_size_autoscaling_mongod`
+     `MONGOINFRA` | `disk_size_autoscaling_mongoinfra`
+     `MONGOS` | `disk_size_autoscaling_mongos`
+     `MONGOCFG` | `disk_size_autoscaling_mongocfg`
+
+     Вы можете указать один или несколько блоков.
+
+      Пример:
+
+      ```hcl
+      resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
+        ...
+        disk_size_autoscaling_mongod {
+          planned_usage_threshold   = "<процент_для_планового_увеличения>"
+          emergency_usage_threshold = "<процент_для_незамедлительного_увеличения>"
+          disk_size_limit           = "<максимальный_размер_хранилища_в_гигабайтах>"
+        }
+      }
+      ```
+
+      Где:
+
+      * `planned_usage_threshold` (опционально) — процент заполнения хранилища, при котором хранилище будет увеличено в следующее [окно обслуживания](../concepts/maintenance.md#maintenance-window).
+
+        Значение задается в процентах от `0` до `100`. По умолчанию — `0` (автоматическое расширение отключено).
+
+        Если вы задали этот параметр, [задайте](#change-additional-settings) расписание технического обслуживания.
+
+      * `emergency_usage_threshold` (опционально) — процент заполнения хранилища, при котором хранилище будет увеличено немедленно.
+
+        Значение задается в процентах от `0` до `100`. По умолчанию — `0` (автоматическое расширение отключено).
+
+        {% note info %}
+
+        Если заданы оба параметра, процент для планового увеличения должен быть меньше, чем процент для незамедлительного увеличения.
+
+        {% endnote %}
+
+      * `disk_size_limit` — максимальный размер хранилища в гигабайтах после увеличения.
+
+    1. Проверьте корректность настроек.
+
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. Выполните команду:
+        
+           ```bash
+           terraform validate
+           ```
+        
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+
+    1. Подтвердите изменение ресурсов.
+
+        1. Выполните команду для просмотра планируемых изменений:
+        
+           ```bash
+           terraform plan
+           ```
+        
+           Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
+        
+        1. Если вас устраивают планируемые изменения, внесите их:
+           1. Выполните команду:
+        
+              ```bash
+              terraform apply
+              ```
+        
+           1. Подтвердите изменение ресурсов.
+           1. Дождитесь завершения операции.
+
+    Подробнее читайте в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_cluster.md).
+
+    {% note warning "Ограничения по времени" %}
+    
+    Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex StoreDoc:
+    
+    * создание, в т. ч. путем восстановления из резервной копии, — 30 минут;
+    * изменение — 60 минут.
+    
+    Операции, длящиеся дольше указанного времени, прерываются.
+    
+    {% cut "Как изменить эти ограничения?" %}
+    
+    Добавьте к описанию кластера блок `timeouts`, например:
+    
+    ```hcl
+    resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
+      ...
+      timeouts {
+        create = "1h30m" # Полтора часа
+        update = "2h"    # 2 часа
+      }
+    }
+    ```
+    
+    {% endcut %}
+    
+    {% endnote %}
+
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+      {% note warning %}
+      
+      Метод API переопределит все параметры изменяемого объекта, которые не были явно переданы в запросе, на значения по умолчанию. Чтобы избежать этого, перечислите настройки, которые вы хотите изменить, в параметре `updateMask` (одной строкой через запятую).
+      
+      {% endnote %}
+
+      ```bash
+      curl \
+          --request PATCH \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>' \
+          --data '{
+                    "updateMask": "configSpec.mongodb.<тип_хоста>.diskSizeAutoscaling",
+                    "configSpec": {
+                      "mongodb": { 
+                        "<тип_хоста>": {
+                          "diskSizeAutoscaling": {
+                            "plannedUsageThreshold": "<процент_для_планового_увеличения>",
+                            "emergencyUsageThreshold": "<процент_для_незамедлительного_увеличения>",
+                            "diskSizeLimit": "<максимальный_размер_хранилища_в_гигабайтах>"
+                          }  
+                        }
+                      }
+                    }
+                  }'
+      ```             
+
+      Где:
+
+      * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+      * `<тип_хоста>` — [тип хоста](../concepts/host-roles.md), хранилище которого вы хотите настроить. Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`.
+      
+      * `configSpec.mongodb.<тип_хоста>.diskSizeAutoscaling` — параметры автоматического увеличения размера хранилища:
+
+        * `plannedUsageThreshold` — процент заполнения хранилища, при котором хранилище будет увеличено в следующее [окно обслуживания](../concepts/maintenance.md#maintenance-window).
+
+          Значение задается в процентах от `0` до `100`. По умолчанию — `0` (автоматическое расширение отключено).
+
+          Если вы задали этот параметр, [задайте](#change-additional-settings) расписание технического обслуживания.
+
+        * `emergencyUsageThreshold` — процент заполнения хранилища, при котором хранилище будет увеличено немедленно.
+
+          Значение задается в процентах от `0` до `100`. По умолчанию — `0` (автоматическое расширение отключено).
+
+          {% note info %}
+
+          Если заданы оба параметра, процент для планового увеличения должен быть меньше, чем процент для незамедлительного увеличения.
+
+          {% endnote %}
+
+        * `diskSizeLimit` — максимальный размер хранилища в гигабайтах после увеличения.
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+
+  1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+     
+     ```bash
+     cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+     ```
+     
+     Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+      {% note warning %}
+      
+      Метод API переопределит все параметры изменяемого объекта, которые не были явно переданы в запросе, на значения по умолчанию. Чтобы избежать этого, перечислите настройки, которые вы хотите изменить, в параметре `update_mask` (в виде массива строк `paths[]`).
+      
+      {% cut "Формат перечисления настроек" %}
+      
+      ```yaml
+      "update_mask": {
+          "paths": [
+              "<настройка_1>",
+              "<настройка_2>",
+              ...
+              "<настройка_N>"
+          ]
+      }
+      ```
+      
+      {% endcut %}
+      
+      {% endnote %}
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "update_mask": {
+                  "paths": [
+                    "config_spec.mongodb.<тип_хоста>.disk_size_autoscaling"
+                  ]
+                },
+                "config_spec": {
+                  "mongodb": {
+                    "<тип_хоста>": {
+                      "disk_size_autoscaling": {
+                        "planned_usage_threshold": "<процент_для_планового_увеличения>",
+                        "emergency_usage_threshold": "<процент_для_незамедлительного_увеличения>",
+                        "disk_size_limit": "<максимальный_размер_хранилища_в_гигабайтах>"
+                      }
+                    }
+                  }
+                }
+              }' \
+          mdb.api.cloud.yandex.net:443 \
+          yandex.cloud.mdb.mongodb.v1.ClusterService.Update
+      ```
+
+      Где:
+
+      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+      * `<тип_хоста>` — [тип хоста](../concepts/host-roles.md), хранилище которого вы хотите настроить. Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`.
+
+      * `config_spec.mongodb.<тип_хоста>.disk_size_autoscaling` — параметры автоматического увеличения размера хранилища:
+
+        * `planned_usage_threshold` — процент заполнения хранилища, при котором хранилище будет увеличено в следующее [окно обслуживания](../concepts/maintenance.md#maintenance-window).
+
+          Значение задается в процентах от `0` до `100`. По умолчанию — `0` (автоматическое расширение отключено).
+
+          Если вы задали этот параметр, [задайте](#change-additional-settings) расписание технического обслуживания.
+
+        * `emergency_usage_threshold` — процент заполнения хранилища, при котором хранилище будет увеличено немедленно.
+
+          Значение задается в процентах от `0` до `100`. По умолчанию — `0` (автоматическое расширение отключено).
+
+          {% note info %}
+
+          Если заданы оба параметра, процент для планового увеличения должен быть меньше, чем процент для незамедлительного увеличения.
+
+          {% endnote %}
+
+        * `disk_size_limit` — максимальный размер хранилища в гигабайтах после увеличения.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -669,7 +1036,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
       {% note warning %}
       
@@ -684,10 +1051,10 @@
           --header "Content-Type: application/json" \
           --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>' \
           --data '{
-                    "updateMask": "configSpec.mongodb.<тип_хоста_Yandex_StoreDoc>.config.<настройка_1>,configSpec.mongodb.<тип_хоста_Yandex_StoreDoc>.config.<настройка_2>,...,configSpec.mongodb.<тип_хоста_Yandex_StoreDoc>.config.<настройка_N>",
+                    "updateMask": "configSpec.mongodb.<тип_хоста>.config.<настройка_1>,configSpec.mongodb.<тип_хоста>.config.<настройка_2>,...,configSpec.mongodb.<тип_хоста>.config.<настройка_N>",
                     "configSpec": {
                       "mongodb": {    
-                        "<тип_хоста_Yandex_StoreDoc>": {
+                        "<тип_хоста>": {
                           "config": {
                             "<настройка_1>": "<значение_1>",
                             "<настройка_2>": "<значение_2>",
@@ -704,7 +1071,7 @@
 
       * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
-      * `configSpec.mongodb.<тип_хоста_Yandex_StoreDoc>.config` — набор настроек Yandex StoreDoc. Укажите каждую настройку на отдельной строке через запятую. Все поддерживаемые настройки описаны [в справочнике API](../api-ref/Cluster/update.md) и в разделе [Настройки Yandex StoreDoc](../concepts/settings-list.md).
+      * `configSpec.mongodb.<тип_хоста>.config` — набор настроек Yandex StoreDoc. Укажите каждую настройку на отдельной строке через запятую. Все поддерживаемые настройки описаны [в справочнике API](../api-ref/Cluster/update.md) и в разделе [Настройки Yandex StoreDoc](../concepts/settings-list.md).
 
         Тип хоста Yandex StoreDoc зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`. Если кластер нешардированный, укажите `mongod`.
 
@@ -727,7 +1094,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       {% note warning %}
       
@@ -761,15 +1128,15 @@
                 "cluster_id": "<идентификатор_кластера>",
                 "update_mask": {
                   "paths": [
-                    "config_spec.mongodb.<тип_хоста_Yandex_StoreDoc>.config.<настройка_1>",
-                    "config_spec.mongodb.<тип_хоста_Yandex_StoreDoc>.config.<настройка_2>",
+                    "config_spec.mongodb.<тип_хоста>.config.<настройка_1>",
+                    "config_spec.mongodb.<тип_хоста>.config.<настройка_2>",
                     ...
-                    "config_spec.mongodb.<тип_хоста_Yandex_StoreDoc>.config.<настройка_N>"
+                    "config_spec.mongodb.<тип_хоста>.config.<настройка_N>"
                   ]
                 },
                 "config_spec": {
                   "mongodb": {    
-                    "<тип_хоста_Yandex_StoreDoc>": {
+                    "<тип_хоста>": {
                       "config": {
                         "<настройка_1>": "<значение_1>",
                         "<настройка_2>": "<значение_2>",
@@ -788,7 +1155,7 @@
 
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
-      * `config_spec.mongodb.<тип_хоста_Yandex_StoreDoc>.config` — набор настроек Yandex StoreDoc. Укажите каждую настройку на отдельной строке через запятую. Все поддерживаемые настройки описаны [в справочнике API](../api-ref/grpc/Cluster/update.md) и в разделе [Настройки Yandex StoreDoc](../concepts/settings-list.md).
+      * `config_spec.mongodb.<тип_хоста>.config` — набор настроек Yandex StoreDoc. Укажите каждую настройку на отдельной строке через запятую. Все поддерживаемые настройки описаны [в справочнике API](../api-ref/grpc/Cluster/update.md) и в разделе [Настройки Yandex StoreDoc](../concepts/settings-list.md).
 
         Тип хоста Yandex StoreDoc зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`. Если кластер нешардированный, укажите `mongod`.
 
@@ -1094,7 +1461,7 @@
 
         Включенная защита кластера от удаления не помешает удалить пользователя или базу данных, а также подключиться вручную и удалить содержимое базы данных.
         
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
@@ -1215,7 +1582,7 @@
 
         Включенная защита кластера от удаления не помешает удалить пользователя или базу данных, а также подключиться вручную и удалить содержимое базы данных.
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -1355,7 +1722,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.Move](../api-ref/Cluster/move.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.Move](../api-ref/Cluster/move.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
@@ -1389,7 +1756,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.Move](../api-ref/grpc/Cluster/move.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.Move](../api-ref/grpc/Cluster/move.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -1533,7 +1900,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
       {% note warning %}
       
@@ -1585,7 +1952,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       {% note warning %}
       

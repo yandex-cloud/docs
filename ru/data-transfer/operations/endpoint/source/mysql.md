@@ -307,7 +307,7 @@ description: Из статьи вы узнаете, как задать наст
 * [Ошибка удаления таблицы при политике очистки Drop](#drop-table-error)
 * [Сдвиг времени в типе данных DATETIME при трансфере в {{ CH }}](#timeshift)
 
-См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
+Смотрите полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
 {% include [binlog-size](../../../../_includes/data-transfer/troubles/mysql/binlog-size.md) %}
 

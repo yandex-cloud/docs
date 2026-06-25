@@ -208,7 +208,7 @@ description: Из статьи вы узнаете, как задать наст
           
             {% note warning %}
 
-            Использование настройки **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}** не гарантирует удаление слота репликации при превышении указанного в настройке значения в тех случаях, когда нарушена работа трансфера или доступность от трансфера до кластера-источника. См. рекомендации в разделе [Подготовка базы данных источника](#wal-setup-recommendation).  
+            Использование настройки **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}** не гарантирует удаление слота репликации при превышении указанного в настройке значения в тех случаях, когда нарушена работа трансфера или доступность от трансфера до кластера-источника. Смотрите рекомендации в разделе [Подготовка базы данных источника](#wal-setup-recommendation).  
 
             {% endnote %}
 
@@ -406,7 +406,7 @@ description: Из статьи вы узнаете, как задать наст
 * [Ошибка удаления таблицы при политике очистки Drop](#drop-table-error)
 * [Ошибка при переносе таблиц с генерируемыми столбцами](#generated-columns)
 
-См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
+Смотрите полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
 {% include [master-trans-stop](../../../../_includes/data-transfer/troubles/postgresql/master-trans-stop.md) %}
 

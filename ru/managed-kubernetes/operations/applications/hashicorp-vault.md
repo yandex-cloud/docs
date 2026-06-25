@@ -67,7 +67,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% note warning %}
 
-При установке продукта HashiCorp Vault с поддержкой {{ kms-name }} с помощью {{ marketplace-name }} будет задействован механизм доставки секретов [Agent injector](https://developer.hashicorp.com/vault/docs/platform/k8s/injector). Чтобы задействовать альтернативный механизм [Vault CSI provider](https://developer.hashicorp.com/vault/docs/platform/k8s/csi), установите продукт [с помощью Helm-чарта](#helm-install). Подробнее об отличиях этих механизмов см. [в документации Hashicorp](https://developer.hashicorp.com/vault/docs/platform/k8s/injector-csi).
+При установке продукта HashiCorp Vault с поддержкой {{ kms-name }} с помощью {{ marketplace-name }} будет задействован механизм доставки секретов [Agent injector](https://developer.hashicorp.com/vault/docs/platform/k8s/injector). Чтобы задействовать альтернативный механизм [Vault CSI provider](https://developer.hashicorp.com/vault/docs/platform/k8s/csi), установите продукт [с помощью Helm-чарта](#helm-install). Подробнее об отличиях этих механизмов смотрите в [документации Hashicorp](https://developer.hashicorp.com/vault/docs/platform/k8s/injector-csi).
 
 {% endnote %}
 
@@ -118,7 +118,7 @@ description: Следуя данной инструкции, вы сможете
    --set "csi.enabled=true"
    ```
 
-   Подробнее об отличиях этих механизмов см. [в документации Hashicorp](https://developer.hashicorp.com/vault/docs/platform/k8s/injector-csi).
+   Подробнее об отличиях этих механизмов смотрите в [документации Hashicorp](https://developer.hashicorp.com/vault/docs/platform/k8s/injector-csi).
 
 ## Инициализация хранилища {#vault-init}
 

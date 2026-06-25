@@ -32,7 +32,7 @@ description: '{{ objstorage-name }} позволяет хранить объек
 
 {% include [storage-class-cold-desc](../../_includes/storage/storage-class-cold-desc.md) %}
 
-Подробнее см. [примеры сравнения стоимости в разделе Правила тарификации](../pricing.md#comparison-examples).
+Подробнее смотрите [примеры сравнения стоимости в разделе Правила тарификации](../pricing.md#comparison-examples).
 
 Вы можете выбрать класс хранилища для каждого объекта отдельно при загрузке.
 

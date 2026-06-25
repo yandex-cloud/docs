@@ -38,11 +38,6 @@ description: Следуя данной инструкции, вы сможете
    
    {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
-   
-   ![image](../../../_assets/datalens/operations/connection/connection-ydb.png)
-
-
-
 1. (опционально) Проверьте работоспособность подключения. Для этого нажмите кнопку **Проверить подключение**.
 1. Нажмите кнопку **Создать подключение**.
 

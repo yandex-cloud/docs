@@ -3,4 +3,4 @@
 To display a column chart grouped by multiple columns:
 
 1. Drag the **Measure Names** dimension to the **Colors** section.
-1. Drag the **Measure Names** dimension to the **X** section. The sequence of dimensions affects the grouping order.
+1. Drag the **Measure Names** dimension to the **X** section. The order of dimensions will affect the grouping order.

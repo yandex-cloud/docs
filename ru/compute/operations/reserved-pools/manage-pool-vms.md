@@ -61,7 +61,7 @@ description: Из статьи вы узнаете, как создавать в
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-lock.svg) **{{ ui-key.yacloud.compute.reserved-instance-pool.reserved-instance-pools_m8sWW }}**.
   1. В строке с нужным пулом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.compute.reserved-instance-pool.ReservedInstancePoolActions.button_create-virtual-machine_pjCmE }}**.
-  1. Настройте параметры создаваемой ВМ. Подробнее см. [{#T}](../../operations/index.md#vm-create).
+  1. Настройте параметры создаваемой ВМ. Подробнее на странице [{#T}](../../operations/index.md#vm-create).
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
   
   ВМ появится в списке. При создании ВМ назначаются [IP-адрес](../../../vpc/concepts/address.md) и [имя хоста](../../../vpc/concepts/address.md#fqdn) (FQDN).

@@ -30,26 +30,19 @@ where измерение in (значение_1, значение_2 ... знач
 
 Например, чтобы настроить доступ пользователя `user-login` ко всем строкам со значением `first-company` в поле `Company name`, [задайте конфигурацию](#how-to-manage-rls):
 
-
-
 ```yaml
 'first-company': user-login@yandex.ru
 ```
 
 {% include [datalens-domain-federation-note](../../_includes/datalens/datalens-domain-federation-note.md) %}
 
-
 Чтобы настроить доступ для нескольких пользователей, перечислите через запятую их аккаунты в конфигурации доступа:
-
-
 
 ```yaml
 'first-company': user-login-1@yandex.ru, user-login-2@yandex.ru, user-login-3@yandex.ru
 ```
 
-
 ### Доступ для групп пользователей {#group-rls}
-
 
 Разграничение для групп пользователей определяется конфигурацией доступа, которая выглядит следующим образом:
 
@@ -66,27 +59,19 @@ where измерение in (значение_1, значение_2 ... знач
 'first-company': @group:group-name
 ```
 
-
-
 Чтобы настроить доступ для нескольких групп пользователей, перечислите их через запятую в конфигурации доступа:
-
 
 ```yaml
 'first-company': @group:group-name-1, @group:group-name-2, @group:group-name-3
 ```
 
-
-
 Можно одновременно настроить доступ для пользователей и групп:
-
 
 ```yaml
 'first-company': user-login-1@yandex.ru, user-login-2@yandex.ru, @group:group-name-1, @group:group-name-2
 ```
 
 {% include [datalens-domain-federation-note](../../_includes/datalens/datalens-domain-federation-note.md) %}
-
-
 
 ### Подстановки и кавычки в конфигурации RLS {#special-}
 
@@ -100,11 +85,9 @@ where измерение in (значение_1, значение_2 ... знач
 
   Например, чтобы настроить доступ ко всем строкам с любым значением в поле `Company name`, задайте конфигурацию:
 
-
   ```yaml
   *: user-login-1@yandex.ru, @group:group-name-1
   ```
-
 
 * Значение `значение_1` доступно всем пользователям и группам
 
@@ -126,19 +109,15 @@ where измерение in (значение_1, значение_2 ... знач
 
 Например, чтобы установить кавычки для названия компании `first-company "Example"` поля `Company name`, задайте конфигурацию:
 
-
 ```yaml
 'first-company ''Example''': user-login-1@yandex.ru, @group:group-name-1
 ```
 
-
 Также можно использовать символ `"`:
-
 
 ```yaml
 'first-company "Example"': user-login-1@yandex.ru, @group:group-name-1
 ```
-
 
 
 ## Настройка RLS на уровне источника данных {#datasource-rls}

@@ -235,7 +235,7 @@ description: Из статьи вы узнаете, как задать наст
 * [Ошибка удаления таблицы при политике очистки Drop](#drop-table-error)
 * [Ошибка при переносе таблиц с генерируемыми столбцами](#generated-columns)
 
-См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
+Смотрите полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
 {% include [master-trans-stop](../../../../_includes/data-transfer/troubles/postgresql/master-trans-stop.md) %}
 

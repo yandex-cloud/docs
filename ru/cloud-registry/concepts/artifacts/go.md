@@ -13,7 +13,7 @@ _Go-артефакт_ — это [ZIP-архив](https://go.dev/ref/mod#zip-fil
 
 Подробнее о Go-модулях читайте в [официальной документации](https://go.dev/ref/mod).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Поддерживаемые типы артефактов](./index.md#artifacts)
 * [{#T}](../../operations/go/pull.md)

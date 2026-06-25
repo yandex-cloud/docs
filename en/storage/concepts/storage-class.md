@@ -39,7 +39,7 @@ The performance of `ICE` storages may slightly differ from that of the `STANDARD
 
 {% note info %}
 
-The minimum billable storage duration of an object in ice storage is 12 months. If you delete an object that was stored for less than 12 months, you will be charged the remaining [storage cost](../pricing.md#prices) after deletion.
+The minimum billable storage duration of an object in ice storage is 12 months. If you delete an object that had been in storage for less than 12 months, the balance of the [storage charge](../pricing.md#prices) will be debited after the deletion.
 
 {% endnote %}
 
@@ -66,7 +66,7 @@ To change the storage class, you can:
     
     {% note info %}
 
-    If you move an object or reupload it with the same key, the original object will be deleted. If you delete an object that was stored for less than 12 months, you will be charged the remaining [storage cost](../pricing.md#prices) after deletion. If you copy an object without deletion, these charges do not apply.
+    If you move an object or reupload it with the same key, the original object will be deleted. After you delete an object that had been stored in `ICE` for less than 12 months, the balance of the [storage charge](../pricing.md#prices) will be debited after the deletion. If you copy an object without deletion, these charges do not apply.
 
     {% endnote %}
 

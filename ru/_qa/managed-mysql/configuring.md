@@ -2,7 +2,7 @@
 
 Часовой пояс задается в виде смещения от UTC. Например, для Москвы: `'+03:00'`. Названия часовых поясов не поддерживаются.
 
-Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html#time-zone-variables).
+Подробнее в [документации {{ MY }}](https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html#time-zone-variables).
 
 #### Как установить режим SQL (sql_mode)? {#sql-mode}
 

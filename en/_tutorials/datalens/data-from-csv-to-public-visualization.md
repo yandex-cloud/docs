@@ -11,16 +11,16 @@ Before publishing, make sure your charts and dashboards contain no personal data
 
 {% endnote %}
 
-In this tutorial, we will use {{ datalens-short-name }} to visualize and publish Moscow population metrics on the map of Moscow districts.
+In this tutorial, we will use {{ datalens-short-name }} to visualize and publish the population metrics on the map of Moscow districts.
 
-We will use the `Moscow Population 2018.csv` file as the data source on Moscow population and area in 2018. [Download](https://storage.yandexcloud.net/doc-files/Moscow%20Population%202018.csv) it before you proceed with this guide. Source: [List of Moscow districts and settlements](https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%D0%BE%D0%B2_%D0%B8_%D0%BF%D0%BE%D1%81%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B9_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D1%8B).
+We will use the `Moscow Population 2018.csv` file as the data source on the Moscow population and area in 2018. [Download](https://storage.yandexcloud.net/doc-files/Moscow%20Population%202018.csv) it before you proceed with this guide. Source: [List of Moscow districts and settlements](https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%D0%BE%D0%B2_%D0%B8_%D0%BF%D0%BE%D1%81%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B9_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D1%8B).
 
 To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin) and follow the steps below:
 
 1. [Create a workbook](#create-workbook).
 1. [Create a connection](#create-connection).
 1. [Create a dataset](#create-dataset).
-1. [Create a chart with a map of Moscow districts](#create-map-chart).
+1. [Create a chart with the map of Moscow districts](#create-map-chart).
 1. [Publish the chart](#publish-chart).
 
 
@@ -34,7 +34,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
 1. In the top-right corner, click **Create** → **Create workbook**.
-1. Enter a name for the [workbook](../../datalens/workbooks-collections/index.md): `Tutorials`.
+1. Enter `Tutorials` for the [workbook](../../datalens/workbooks-collections/index.md) name.
 1. Click **Create**.
 
 ## Create a connection {#create-connection}
@@ -52,9 +52,9 @@ Create a [connection](../../datalens/concepts/connection/index.md) to the source
 
    ![image](../../_assets/datalens/solution-05/01-save-file-connection.png)
 
-1. Enter `Moscow Population 2018` for connection name and click **Create**.
+1. Enter `Moscow Population 2018` for the connection name and click **Create**.
 
-This will create the file connection. The data will be shown in the same form as in the file. To use it, you need to create a dataset.
+This will create a connection to the file. The data will be shown in the same format as in the file. To use it, you need to create a dataset.
 
 ## Create a dataset {#create-dataset}
 
@@ -72,7 +72,7 @@ Create a [dataset](../../datalens/dataset/index.md) based on the `Moscow Populat
    1. In the top-right corner, click **Save**.
    1. Enter `Moscow Population dataset` for the dataset name and click **Create**.
 
-## Create a chart with a map of Moscow districts {#create-map-chart}
+## Create a chart with the map of Moscow districts {#create-map-chart}
 
 Create a [heat map](../../datalens/visualization-ref/choropleth-map-chart.md) [chart](../../datalens/concepts/chart/index.md) to visualize the distribution of population across Moscow districts:
 
@@ -85,7 +85,7 @@ Create a [heat map](../../datalens/visualization-ref/choropleth-map-chart.md) [c
 
    ![image](../../_assets/datalens/solution-05/06-choose-map-geo.png)
 
-1. Add polygons of districts to the map. To do this, drag the `Coordinates` field from **Dimensions** to **Polygons (Geoplygons)**.
+1. Add polygons of districts to the map. To do this, drag the `Coordinates` field from **Dimensions** to **Polygons (Geopolygons)**.
 1. Change the district colors based on the population. Drag the `Population** field from **Measures` to the **Colors** section.
 
    ![image](../../_assets/datalens/solution-05/07-chart-section.png)
@@ -111,9 +111,9 @@ Create a [heat map](../../datalens/visualization-ref/choropleth-map-chart.md) [c
 
    ![image](../../_assets/datalens/solution-05/10-public.png)
 
-You can share this link with your colleagues, partners, and friends. To open the chart link, no authorization and authentication are required.
+You can share this link with your colleagues, partners, and friends. To open the chart link, no authorization and authentication is required.
 
-**Also try**:
+**Try these options as well:**
 
 * Building a column chart by district and population.
 

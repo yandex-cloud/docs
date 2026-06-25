@@ -10,7 +10,7 @@ user subnet overlaps with service network range 10.248.0.0/13, see documentation
 
 Ошибка означает, что при создании кластера вы выбрали подсеть, диапазон IP-адресов которой пересекается с диапазоном адресов `10.248.0.0/13` служебной подсети. В ней Yandex Cloud управляет компонентами кластера Managed Service for Apache Airflow™.
 
-Чтобы исправить ошибку, выберите другую подсеть, диапазон IP-адресов которой не пересекается с диапазоном служебной подсети. Подробнее о требованиях к подсетям кластера см. в разделе [Сеть](../concepts/network.md#subnet-requirements).
+Чтобы исправить ошибку, выберите другую подсеть, диапазон IP-адресов которой не пересекается с диапазоном служебной подсети. Подробнее о требованиях к подсетям кластера смотрите в разделе [Сеть](../concepts/network.md#subnet-requirements).
 
 ### Как исправить ошибку отсутствия прав при подключении сервисного аккаунта к кластеру? {#attach-service-account}
 
@@ -43,7 +43,7 @@ ModuleNotFoundError: No module named 'airflow.providers.postgres.operators'
 
 **Решение**:
 
-Если вы работаете с более новой версией провайдера, вместо PostgresOperator используйте SQLExecuteQueryOperator. Подробнее см. в [официальной документации](https://airflow.apache.org/docs/apache-airflow-providers-postgres/6.0.0/operators/postgres_operator_howto_guide.html).
+Если вы работаете с более новой версией провайдера, вместо PostgresOperator используйте SQLExecuteQueryOperator. Подробнее в [официальной документации](https://airflow.apache.org/docs/apache-airflow-providers-postgres/6.0.0/operators/postgres_operator_howto_guide.html).
 
 ### Как исправить ошибку `AirflowException: Unknown hook type "postgres"`? {#airflow-provider-postgres-operators-2}
 

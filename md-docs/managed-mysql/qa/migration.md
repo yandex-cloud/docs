@@ -39,4 +39,4 @@ Got fatal error 1236 from source when reading data from binary log:
    START SLAVE;
    ```
 
-При смене мастера в кластере-источнике репликация будет перенастроена на новый хост-мастер. Подробнее о настройке см. в [документации MySQL®](https://dev.mysql.com/doc/refman/8.0/en/change-master-to.html).
+При смене мастера в кластере-источнике репликация будет перенастроена на новый хост-мастер. Подробнее о настройке смотрите в [документации MySQL®](https://dev.mysql.com/doc/refman/8.0/en/change-master-to.html).

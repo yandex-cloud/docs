@@ -1,14 +1,6 @@
 1. If you do not have a {{ managed-k8s-name }} cluster yet:
     1. [Create a cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
 
-        {% note tip %}
-
-        To use the `yc-metadata-server` DaemonSet controller on nodes for automatic exchange of {{ k8s }} service account tokens for an IAM token, create a cluster in the `RAPID` [release channel](../../managed-kubernetes/concepts/release-channels-and-updates.md).
-
-        Other release channels support [manual exchange](../../managed-kubernetes/tutorials/wlif-managed-k8s-integration.md#manual-token-exchange) of {{ k8s }} service account tokens for an IAM token.
-
-        {% endnote %}
-
     1. [Create](../../managed-kubernetes/operations/node-group/node-group-create.md) a node group.
     1. [Set up](../../managed-kubernetes/operations/connect/security-groups.md) security groups for the cluster and node group.
 1. To use the {{ yandex-cloud }} API, your cluster nodes must have internet access. Make sure your cluster nodes have public IP addresses assigned to them or the subnet they reside in has a configured [NAT gateway](../../vpc/concepts/gateways.md#nat-gateway) or [NAT instance](../../tutorials/routing/nat-instance/index.md). Also make sure the security group rules allow unrestricted outgoing traffic for your cluster nodes.
@@ -105,7 +97,7 @@
 
           {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      1. Confirm updating the resources.
+      1. Confirm resource changes.
 
           {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

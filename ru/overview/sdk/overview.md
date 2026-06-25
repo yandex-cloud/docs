@@ -14,7 +14,7 @@ SDK поддерживают работу с большинством серви
 * [Java](https://github.com/yandex-cloud/java-sdk)
 * [.NET](https://github.com/yandex-cloud/dotnet-sdk)
 
-Подробнее об интеграции SDK в свой проект см. на странице [{#T}](./quickstart.md).
+Подробнее об интеграции SDK в свой проект смотрите на странице [{#T}](./quickstart.md).
 
 ## Сервисные SDK {#service-sdks}
 
@@ -34,7 +34,7 @@ SDK поддерживают работу с большинством серви
 
 ## Работа с {{ yandex-cloud }} SDK в {{ sf-full-name }} {#serverless}
 
-Вы можете использовать {{ yandex-cloud }} SDK в коде [функций](../../functions/concepts/function.md) {{ sf-name }}. Подробнее см. в инструкциях для конкретного языка программирования или фреймворка:
+Вы можете использовать {{ yandex-cloud }} SDK в коде [функций](../../functions/concepts/function.md) {{ sf-name }}. Подробнее в инструкциях для конкретного языка программирования или фреймворка:
 * [Node.js](../../functions/lang/nodejs/sdk.md)
 * [Python](../../functions/lang/python/sdk.md)
 * [Go](../../functions/lang/golang/sdk.md)

@@ -37,7 +37,7 @@ Data Catalog поддерживает получение метаданных и
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит плата за вычислительные ресурсы, объем хранилища и резервных копий кластера Yandex Managed Service for PostgreSQL (см. [тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
+В стоимость поддержки инфраструктуры входит плата за вычислительные ресурсы, объем хранилища и резервных копий кластера Yandex Managed Service for PostgreSQL ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
 
 ## Перед началом работы {#before-you-begin}
 

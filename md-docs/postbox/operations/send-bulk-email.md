@@ -121,7 +121,7 @@
 
    Порядок элементов в `BulkEmailEntryResults` соответствует порядку элементов в `BulkEmailEntries`. Если отдельное письмо не принято, в соответствующем элементе результата вернется статус ошибки и описание в поле `Error`.
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Метод SendBulkEmail](../aws-compatible-api/api-ref/send-bulk-email.md)
 * [Шаблонизация письма](send-templated-email.md)

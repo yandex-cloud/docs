@@ -14,7 +14,7 @@
 
 Чтобы интегрировать группу ВМ с L7-балансировщиком [{{ alb-full-name }}](../../../application-load-balancer/), назначьте сервисному аккаунту роль [alb.editor](../../../application-load-balancer/security/index.md#alb-editor).
 
-Подробнее см. на странице [{#T}](balancers.md).
+Подробнее на странице [{#T}](balancers.md).
 
 {% note info %}
 

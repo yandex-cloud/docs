@@ -7,11 +7,11 @@
 
 In this tutorial, you will learn how to build conversion funnels, run cohort analysis, calculate the Retention rate for the user base in {{ ml-platform-full-name }}, and visualize the data in {{ datalens-full-name }}.
 
-Yandex Metrica data is used as the data source.
+We will use Yandex Metrica data as the source.
 
 1. [Connect {{ CH }} and {{ ml-platform-short-name }}](#ch-datasphere-connection):
-    1. [Enable {{ CH }}](#ch-connection).
-    1. [Enable {{ ml-platform-short-name }}](#datasphere-connection).
+    1. [Connect {{ CH }}](#ch-connection).
+    1. [Connect {{ ml-platform-short-name }}](#datasphere-connection).
     1. [Clone the repository to {{ ml-platform-short-name }}](#clone-repo-to-datasphere).
 1. [Retrieve and upload data to {{ CH }}](#get-download-data-in-ch):
     1. [Yandex Metrica. Create an app and get an access token](#create-metrica-app-token).
@@ -24,7 +24,7 @@ Yandex Metrica data is used as the data source.
     1. [Create a connection to {{ CH }} in {{ datalens-short-name }}](#creation-datalens-connection-to-ch).
     1. [Create a dataset based on the connection](#creating-dataset-based-on-connection).
     1. [Create an area chart](#creating-area-chart).
-    1. [Create a pivot table](#creating-pivot-table).
+    1. [Create a pivot table chart](#creating-pivot-table).
 1. [Create and configure a dashboard in {{ datalens-short-name }}](#creating-configuring-dashboard):
     1. [Create a dashboard](#creating-dashboard).
     1. [Set up the dashboard](#configuring-dashboard).
@@ -51,7 +51,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note tip %}
 
-To make sure {{ datalens-full-name }} and {{ ml-platform-full-name }} can run within the {{ yandex-cloud }} network, create their instances in the same organization.
+To use {{ datalens-full-name }} and {{ ml-platform-full-name }} within the {{ yandex-cloud }} network, create their instances in the same organization.
 
 {% endnote %}
 
@@ -65,14 +65,14 @@ The cost of the infrastructure deployment includes:
 
 ## 1. Connect {{ CH }} and {{ ml-platform-short-name }} {#ch-datasphere-connection}
 
-### 1.1. Enable {{ CH }} {#ch-connection}
+### 1.1. Connect {{ CH }} {#ch-connection}
 
-1. In the [management console]({{ link-console-main }}), select a folder to create a {{ CH }} cluster in.
+1. In the [management console]({{ link-console-main }}), select the folder to create a {{ CH }} cluster in.
 1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. In the window that opens, click **{{ ui-key.yacloud.clickhouse.button_create-cluster }}**.
 1. Configure your {{ CH }} cluster:
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify a name for the cluster.
-   1. Under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**, select `Intel Cascade Lake` for platform, `burstable` for type, and `b2.medium` for host class.
+   1. Under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**, select `Intel Cascade Lake` for the platform, `burstable` for the type, and `b2.medium` for the host class.
    
       {% note warning %}
    
@@ -82,7 +82,7 @@ The cost of the infrastructure deployment includes:
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, keep the `10 {{ ui-key.yacloud.mdb.forms.label_max-size-units }}` value.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![pencil](../../_assets/console-icons/pencil.svg). Enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option and click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, disable user management via SQL, enter username, password, and database name, e.g., `metrica_data`.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, disable user management via SQL, enter the username, password, and database name, e.g., `metrica_data`.
  
    1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, enable these options:
         * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**
@@ -90,7 +90,7 @@ The cost of the infrastructure deployment includes:
         * **{{ ui-key.yacloud.mdb.forms.additional-field-metrika }}**
    1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
-### 1.2. Enable {{ ml-platform-short-name }} {#datasphere-connection}
+### 1.2. Connect {{ ml-platform-short-name }} {#datasphere-connection}
 
 1. Open the {{ ml-platform-name }} [home page]({{ link-datasphere-main }}).
 1. In the left-hand panel, select ![image](../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
@@ -111,11 +111,11 @@ This is the {{ jlab }}Lab development environment, and you are going to use it t
 1. In the window that opens, specify the repository **URI**, `https://github.com/zhdanchik/yandex_metrika_cloud_case.git`, and click **CLONE**.
 1. Click **OK**.
 
-## 2. Retrieve and upload data to {{ CH }} {#get-download-data-in-ch}
+## 2. Get and upload data to {{ CH }} {#get-download-data-in-ch}
 
-If you do not yet have a Yandex Metrica tag or it has not accumulated enough data, or if you want to be sure that you get a result by completing all steps in the tutorial, go to step [2.3](#uploading-data-counter-from-disk) (skip steps [2.1](#create-metrica-app-token) and [2.2](#uploading-data-logs-api)).
+If you do not have a Yandex Metrica tag or it has not accumulated enough data, or if you want to make sure that you will get a result by completing all the tutorial steps, go to step [2.3](#uploading-data-counter-from-disk) (skip steps [2.1](#create-metrica-app-token) and [2.2](#uploading-data-logs-api)).
 
-If you have a Yandex Metrica tag and can access it, go to step [2.1](#create-metrica-app-token) and [2.2](#uploading-data-logs-api) (skip step [2.3](#uploading-data-counter-from-disk)). We recommend walking through these steps if you are an experienced user because the logic of calculating funnels and cohorts depends on the data itself, and you may need to tweak the scripts. 
+If you have a Yandex Metrica tag and can access it, go to step [2.1](#create-metrica-app-token) and [2.2](#uploading-data-logs-api) (skip step [2.3](#uploading-data-counter-from-disk)). We recommend these steps for experienced users as the logic of calculating funnels and cohorts depends on the data itself, and you might need to edit scripts. 
 
 ### 2.1. Yandex Metrica. Create an app and get an access token {#create-metrica-app-token}
 
@@ -126,7 +126,7 @@ If you have a Yandex Metrica tag and can access it, go to step [2.1](#create-met
      1. Go to **Platforms** → **Web services**. In the **Redirect URI** field, paste `https://oauth.yandex.com/verification_code`.
      1. Under **Data access**, enter `metrika` and select **Get statistics, read data from your own and trusted counters (metrika:read)**.
      1. Click **Create app**.
-     1. In the window that opens, a description of the application will appear. Save the ClientID of your app.
+     1. In the window that opens, you will see a description of your application. Save the ClientID of your app.
 
 1. Go to `https://oauth.yandex.ru/authorize?response_type=token&client_id=<app_ID>`. Paste your app's ClientID as `<app_ID>`.
 1. Click **Log in as**.
@@ -147,7 +147,7 @@ If you have a Yandex Metrica tag and can access it, go to step [2.1](#create-met
 
    {% endnote %}
 
-1. Complete all steps (cells with code) in the **1a. get_data_via_logs_api.ipynb** notebook.
+1. Complete all steps (run the cells with code) in the **1a. get_data_via_logs_api.ipynb** notebook.
 
 If you could not get data for the demo tag from the Logs API, you can [download it via Yandex Disk](#uploading-data-counter-from-disk). 
 
@@ -160,24 +160,24 @@ Skip this section if you are using your own tag data.
 {% endnote %}
 
 1. Open the **yandex_metrika_cloud_case** folder → **1b. get_data_via_yadisk.ipynb** notebook.
-1. Complete all steps (cells with code) in the **1b. get_data_via_yadisk.ipynb** notebook.
+1. Complete all steps (run the cells with code) in the **1b. get_data_via_yadisk.ipynb** notebook.
 
 ### 2.4. {{ CH }}. Get the cluster address {#getting-ch-cluster-host}
 
-1. In the [management console]({{ link-console-main }}), go to the {{ CH }} cluster you already created. Wait until the cluster status changes to `Alive`. Then open the cluster by clicking it.
+1. In the [management console]({{ link-console-main }}), go to the {{ CH }} cluster you created. Wait until the cluster status changes to `Alive`. Then open the cluster by clicking it.
 1. Select ![hosts](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** from the list on the left.
 1. On the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_overview }}** tab, copy the host name. 
 
 ### 2.5. {{ ml-platform-short-name }}. Upload the data to {{ CH }} {#uploading-data-counter-to-ch}
 
-1. Open the **yandex_metrika_cloud_case** → notebook **2. upload_data_to_{{ CH }}.ipynb** folder:
+1. Open the **yandex_metrika_cloud_case** folder → **2. upload_data_to_{{ CH }}.ipynb** notebook:
     1. Paste the copied host name into the `CH_HOST_NAME` variable.
     1. In the `CH_USER` variable, insert the username you specified when [creating your {{ CH }} cluster](#ch-connection).
     1. In the `CH_DB_NAME` variable, insert the database name you specified when [creating your {{ CH }} cluster](#ch-connection).
 
 1. In the root directory, create a new text file named `.chpass.txt`.
 1. In the `.chpass.txt` file, insert the user password you specified when [creating your {{ CH }} cluster](#ch-connection). Save and close the file.
-1. Complete all the steps (the cells with the code) in the notebook.
+1. Complete all the steps, i.e., run the cells with code, in the notebook.
 
 ## 3. Connect {{ datalens-short-name }} and create charts {#datalens-connection-chart-creation}
 
@@ -189,22 +189,22 @@ Skip this section if you are using your own tag data.
 
 ### 3.2. Create a connection to {{ CH }} in {{ datalens-short-name }} {#creation-datalens-connection-to-ch}
 
-1. Fill in the connection settings:
+1. Set up your connection:
 
-   1. Select a cluster from the **Cluster** drop-down list or create a new one. If the cluster is missing in the list, click **Specify manually**, then specify the [{{ CH }} cluster](#ch-connection) name.
-   1. Select a [{{ CH }} host](#ch-connection) from the **Host name** drop-down list.
+   1. Select the cluster from the **Cluster** drop-down list or create a new one. If the cluster is missing in the list, click **Specify manually**, then specify the [{{ CH }} cluster](#ch-connection) name.
+   1. Select the [{{ CH }} host](#ch-connection) from the **Host name** drop-down list.
    1. Select the [username](#ch-connection).
    1. Enter the [password](#ch-connection) and click **Check connection**.
 
-1. When the connection check succeeds, click **Create connection**. In the window that opens, enter the connection name and click **Create**.
+1. After a successful check, click **Create connection**. In the window that opens, enter the connection name and click **Create**.
 
 ### 3.3. Create a dataset based on the connection {#creating-dataset-based-on-connection}
 
 1. In the top-right corner, click **Create dataset**.
-1. Select the `metrica_data.hits` table as the source. To do this, drag the table from the list on the left to the editing area.
+1. Select the `metrica_data.hits` table as the source by dragging the table from the list on the left to the editing area.
 1. Open the **Fields** tab.
 1. In the top-right corner, click ![plus](../../_assets/console-icons/plus.svg) **Add field**.
-1. To calculate the number of hits, create a calculated field: name it `Hits`, enter `1` in the workspace and click **Create**. 
+1. To calculate the number of hits, create a calculated field: name it `Hits`, enter `1` in the workspace, and click **Create**. 
 1. For the `Hits` field, select the **Amount** value in the **Aggregation** column.
 1. Rename the `Browser` field to `Browser`.
 1. In the top-right corner, click **Save**.
@@ -236,10 +236,10 @@ Skip this section if you are using your own tag data.
 ### 4.1. Create a dashboard {#creating-dashboard}
 
 1. Select ![dashboards](../../_assets/console-icons/layout-cells-large.svg) **Dashboards** in the left-hand panel and click **Create dashboard**.
-1. Add the first chart to the dashboard. To do this, in the top right corner, click **Add** ![save-button](../../_assets/console-icons/chevron-down.svg) → **Chart**:
-    1. From the **Chart** drop-down list, select the `ch_metrica_data_hits_area` chart.
+1. Add your first chart to the dashboard. To do this, in the top-right corner, click **Add** ![save-button](../../_assets/console-icons/chevron-down.svg) → **Chart**:
+    1. From the **Chart** drop-down list, select `ch_metrica_data_hits_area`.
     1. In the **Name** field, enter **Hits by browser** as the chart name and click **Add**.
-1. Similarly, add the `ch_metrica_data_hits_table` chart named **Hits by browser for period**.
+1. Similarly, add the `ch_metrica_data_hits_table` chart named **Hits by browser over period**.
 1. Move the charts and resize them on the dashboard:
     1. Drag the table chart to the right of the diagram chart.
     1. To change the vertical dimensions of the charts, drag them by the bottom-right corner.
@@ -248,13 +248,13 @@ Skip this section if you are using your own tag data.
     1. In the top-right corner, click **Save**.
     1. Enter `ch_metrica_data` for the dashboard name and click **Create**.
 
-### 4.2. Set up a dashboard {#configuring-dashboard}
+### 4.2. Set up the dashboard {#configuring-dashboard}
 
 1. Add filtering to select a specific browser. To do this, in the top-right corner, click **Add** ![save-button](../../_assets/console-icons/chevron-down.svg) → **Chart**.
-1. You can add the selector to a field from any dataset. From the **Dataset** list, select the `ch_metrica_data_hits` dataset you created.
+1. You can link the selector to a field from any dataset. From the **Dataset** list, select the `ch_metrica_data_hits` dataset you created.
 1. In the **Field** list, select `Browser`. 
 1. Enable **Multiple choice**.
-1. In the **Default value** field, select browsers:
+1. In the **Default value** field, select these browsers:
     * `android_browser`
     * `chrome`
     * `chromemobile`
@@ -265,7 +265,7 @@ Skip this section if you are using your own tag data.
     * `samsung_internet`
     * `yandex_browser`
     * `yandexsearch`
-1. In the **Name** field, enter a name for the selector and enable the option.
+1. In the **Name** field, enter a name for the selector and enable this option.
 1. Click **Add**. 
 1. Drag the selector to the top of the dashboard and stretch it horizontally.
 1. In the top-right corner, click **Save**. 
@@ -275,7 +275,7 @@ Skip this section if you are using your own tag data.
 ### 5.1. {{ ml-platform-short-name }}. Build funnels {#calculating-funnels-datasphere}
 
 1. Open the {{ ml-platform-name }} [home page]({{ link-datasphere-main }}).
-1. Open the **3. funnels.ipynb** notebook. Specify the host, the user, and the DB name.
+1. Open the **3. funnels.ipynb** notebook. Specify the host, username, and database name.
 1. Run the cells and evaluate the analysis results. 
 In {{ CH }}, the `metrica_data.funnels_by_bro` table will be created with funnels counted by browser. 
 
@@ -287,7 +287,7 @@ Create a new dataset based on the new table and the connection to {{ CH }}:
 1. In the left-hand panel, click ![image](../../_assets/console-icons/circles-intersection.svg) **Datasets**.
 1. Click **Create dataset**.
 1. Go to **Connections** and click ![image](../../_assets/console-icons/plus.svg) **Add**.
-1. From the list of connections, select the connection name that you created in Step [3.2](#creation-datalens-connection-to-ch).
+1. From the list of connections, select the connection name that you created in step [3.2](#creation-datalens-connection-to-ch).
 1. Drag the new `metrica_data.funnels_by_bro` table to the editing area.
 1. Open the **Fields** tab:
    1. Rename the `step X` fields to `Step X`, where X is the step number.
@@ -299,42 +299,42 @@ Create a new dataset based on the new table and the connection to {{ CH }}:
 Create a chart based on the `ch_metrica_data_funnels_by_bro` dataset:
 
 1. Click **Create chart**.
-1. Select the **Pivot table** chart type.
+1. Select **Pivot table** as the chart type.
 1. Drag the fields to the chart sections:
     * `Browser`, to the **Rows** section.
-    * `Step X`, to the **Measures** section, where X is the step sequence number.
+    * `Step X`, to the **Measures** section, where X is the step number.
     * `Step 1`, to the **Sorting** section.
 1. Click **Save**.
 1. Specify the `ch_metrica_data_funnels_by_bro_table` chart name and click **Save**.
 
-### 5.4. {{ datalens-short-name }}. Funnels by browser. Add a chart to your dashboard {#add-browser-funnels-chart-on-dashboard}
+### 5.4. {{ datalens-short-name }}. Funnels by browser. Add the chart to your dashboard {#add-browser-funnels-chart-on-dashboard}
 
-1. Go to the created dashboard (from the [dashboards]({{ link-datalens-main }}/dashboards) page).
+1. Go to your dashboard (from the [dashboards]({{ link-datalens-main }}/dashboards) page).
 1. Add a new chart. In the top-right corner, click **Edit**:
     1. Click **Add** ![save-button](../../_assets/console-icons/chevron-down.svg) → **Chart**.
-    1. From the **Chart** drop-down list, select the `ch_metrica_data_funnels_by_bro_table` chart.
+    1. From the **Chart** drop-down list, select `ch_metrica_data_funnels_by_bro_table`.
     1. In the **Name** field, enter `Funnels by browser` as the chart name and click **Add**.
 1. Place the new chart to the right of the existing two. Stretch the chart so that it matches the others vertically and reaches the right border of the page. 
 1. Click **Save**.
 
-### 5.5. {{ datalens-short-name }}. Funnels by browser. Set up a dashboard {#setting-browser-funnels-chart-on-dashboard}
+### 5.5. {{ datalens-short-name }}. Funnels by browser. Set up the dashboard {#setting-browser-funnels-chart-on-dashboard}
 
 Configure relationships so that the selector affects the new chart from another dataset: 
 
 1. Click **Edit** → **Links**.
 1. In the window that opens, select the `Browser` selector from the list.
-1. On the page with the other dashboard elements, scroll down to the `Funnels by browser` chart, and click on the list with the link.
-1. Select the link type: **Outgoing link**.
+1. On the page with the other dashboard elements, scroll down to the `Funnels by browser` chart, and click the list with the link.
+1. Select **Outgoing link** as the link type.
 1. From each list, select the fields for the `Browser` link. Click **Add**.
 1. Click **Save**.
 1. In the top-left corner, click ![image](../../_assets/console-icons/ellipsis.svg) → **Rename**.
-1. Enter `Supermarket.ru — funnel and cohort analysis` as the name. Click **Done**.
+1. Enter `Supermarket.ru: funnel and cohort analysis` as the name. Click **Done**.
 
 ## 6. Perform cohort analysis {#cohorts}
 
 ### 6.1. {{ ml-platform-short-name }}. Perform cohort analysis {#cohort-analysis}
 
-1. Open the **4. cohorts.ipynb** notebook. Specify the host, the user, and the DB name.
+1. Open the **4. cohorts.ipynb** notebook. Specify the host, username, and database name.
 1. Run the cells and evaluate the analysis results. 
  
 In {{ CH }}, the `metrica_data.retention_users` table will be created with all the data needed to render visualization in {{ datalens-short-name }}. 
@@ -348,7 +348,7 @@ Create a new dataset based on the new table and the connection to {{ CH }}:
 1. Click **Create dataset**.
 1. In the **Connections** section, click ![image](../../_assets/console-icons/plus.svg) **Add**.
 1. From the list, select the [connection](#creation-datalens-connection-to-ch) you created.
-1. Drag the new `metrica_data.retention_users` table into the workspace to connect to it.
+1. Drag the new `metrica_data.retention_users` table to the workspace to connect to it.
 1. Open the **Fields** tab and create a new calculated field named `week_num` equal to `([date]-[min_date])/7`.
    This field will indicate the number of weeks from the user's first visit.
 1. Click **Create**.
@@ -377,7 +377,7 @@ Filter out incomplete weeks of June 29, 2020 and September 28, 2020:
     1. Set the **Show delimiter** measure to `Hide`.
     1. Click **Apply**.
 1. To color the table, add the `Visits` field to the **Colors** section and click ![gear](../../_assets/console-icons/gear.svg). In the window that opens, configure the colors:
-    1. Select **Gradient type**: `3 point`.
+    1. Select **Gradient type**: `3-point`.
     1. Select **Color**: `Orange-Violet-Blue`.
     1. Enable **Set threshold values** and specify `100`, `1000`, and `5000`.
     1. Click **Apply**.
@@ -407,7 +407,7 @@ Create a chart with retention based on the `ch_metrica_data_users_visits_cohorts
 
 1. In the left-hand panel, click ![dashboards](../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and open the dashboard.
 1. Click **Edit** → **Tabs**.
-1. Rename the existing tab `Overview + Funnels`.
+1. Rename the existing tab to `Overview + Funnels`.
 1. Add a new tab and name it `Cohorts`. Click **Save**.
 1. Go to the new `Cohort` tab:
     1. Add the `ch_metrica_data_users_visits_cohorts_abs` chart to the dashboard.
@@ -438,7 +438,7 @@ Create another chart based on the `ch_metrica_data_users_visits_cohorts_rel` cha
 1. In the top-right corner, click ![image](../../_assets/console-icons/chevron-down.svg) → **Save as copy**.
 1. Enter `ch_metrica_data_users_revenue_cohorts_rel` as the chart name and click **Save**.
 1. Change the `Visits from the first week` field:
-    1. Rename the field `Revenue from the first week`.
+    1. Rename the field to `Revenue from the first week`.
     1. Change the formula to `SUM([Revenue])/RMAX(SUM([Revenue]) among [week_num])`.
     1. Change the color thresholds for the new field to `0.01`, `0.2`, and `0.3`.
 1. Save the chart.

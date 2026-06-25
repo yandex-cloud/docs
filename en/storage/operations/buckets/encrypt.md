@@ -27,8 +27,8 @@ In {{ objstorage-short-name }}, you can encrypt objects in a bucket using [{{ km
 - Management console {#console}
 
   To add a {{ kms-short-name }} key:
-  1. In the [management console]({{ link-console-main }}), select any folder.
-  1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to configure encryption for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
@@ -47,7 +47,7 @@ In {{ objstorage-short-name }}, you can encrypt objects in a bucket using [{{ km
   Before you start, [get an IAM token](../../../iam/operations/iam-token/create-for-sa.md#via-cli) for your service account and save it to a file.
 
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
      ```hcl
      provider "yandex" {
@@ -122,8 +122,8 @@ In {{ objstorage-short-name }}, you can encrypt objects in a bucket using [{{ km
 - Management console {#console}
 
   To remove encryption, delete the {{ kms-short-name }} key:
-  1. In the [management console]({{ link-console-main }}), select any folder.
-  1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to remove encryption for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.

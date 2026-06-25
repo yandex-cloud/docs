@@ -114,8 +114,11 @@ description: Следуя данной инструкции, вы сможете
 
      {% cut "Получатели рассылки" %}
 
-     ![maillist-recipients](../../../_assets/datalens/dashboard/maillist-recipients.png =687x436)
-   
+     
+     ![maillist-recipients](../../../_assets/datalens/dashboard/maillist-recipients-yc.png =687x436)
+
+
+
      {% endcut %}
 
    * На вкладке **История** вы можете просмотреть историю рассылки с указанием даты, времени и статуса выполнения. Доступно после сохранения рассылки.

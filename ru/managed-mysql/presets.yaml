@@ -1,24 +1,20 @@
 default:
-  mysql-vars-uri: https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html
+  balancer:
+    fqdn-ref: ../../managed-mysql/operations/connect/fqdn.md
+    port:
+      master: 3306
+      non-delayed-replicas: 3307
+      replicas: YYYY
+    proxy:
+      name: HAProxy
+      ref: https://www.haproxy.org/
   versions:
-    tf:
-      latest: '8.0'
-      str: 5.7 или 8.0
     cli:
       latest: '8.0'
       str: 5.7 или 8.0
     console:
       latest: '8.0'
       str: 5.7 и 8.0
-  balancer:
-    port:
-      master: 3306
-      replicas: YYYY
-      non-delayed-replicas: 3307
-      cascade-replicas: XXXX
-    proxy:
-      name: HAProxy
-      ref: https://www.haproxy.org/
-    cascade-replicas-ref: ../../managed-mysql/concepts/replication.md#manual-source
-    fqdn-ref: ../../managed-mysql/operations/connect/fqdn.md
-    schema: ../../_assets/mdb/mmy-db-proxy-schema.svg
+    tf:
+      latest: '8.0'
+      str: 5.7 или 8.0

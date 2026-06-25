@@ -400,7 +400,7 @@ Managed Service for PostgreSQL поддерживает PostgreSQL 14, 15, 16, 1
 
 #### Какие ограничения накладываются на кластеры БД PostgreSQL? {#instance-limitations}
 
-Подробнее об ограничениях Managed Service for PostgreSQL см. раздел [Квоты и лимиты в Managed Service for PostgreSQL](../concepts/limits.md). В разделе [Классы хостов PostgreSQL](../concepts/instance-types.md) приведены характеристики кластеров, которые можно создать с помощью Managed Service for PostgreSQL.
+Подробнее об ограничениях Managed Service for PostgreSQL смотрите раздел [Квоты и лимиты в Managed Service for PostgreSQL](../concepts/limits.md). В разделе [Классы хостов PostgreSQL](../concepts/instance-types.md) приведены характеристики кластеров, которые можно создать с помощью Managed Service for PostgreSQL.
 
 #### Какие расширения для PostgreSQL поддерживаются в Managed Service for PostgreSQL? {#pg-extension}
 
