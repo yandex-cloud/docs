@@ -3,6 +3,12 @@
 
 Вы можете создавать [группы узлов](../index.md#node-group) [кластера Managed Service for Kubernetes](../index.md#kubernetes-cluster) с [графическими ускорителями](../../../compute/concepts/gpus.md) ([GPU](../../../glossary/gpu.md)). Узел создается из [образа](../../../compute/concepts/image.md) [виртуальной машины](../../../compute/concepts/vm.md), совместимой с GPU, — на ней установлены драйверы NVIDIA и [библиотеки CUDA](https://developer.nvidia.com/gpu-accelerated-libraries) для GPU-ускорения.
 
+{% note info %}
+     
+Механизм управления ресурсами [cgroup v2](https://www.kernel.org/doc/html/latest/admin-guide/cgroup-v2.html) не поддерживается для узлов на [платформе](../../../compute/concepts/vm-platforms.md#gpu-platforms) Gen2 (`gpu-standard-v3i`).
+
+{% endnote %}
+
 ## Требования {#requirements}
 
 * В облаке должна быть ненулевая квота GPU.

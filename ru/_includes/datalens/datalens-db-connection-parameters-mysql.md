@@ -5,4 +5,4 @@
 * **Пароль**. Укажите пароль для пользователя.
 * **Время жизни кеша в секундах**. Укажите время жизни кеша или оставьте значение по умолчанию. Рекомендованное значение — 300 секунд (5 минут).
 
-{% include [datalens-db-sql-level](./datalens-db-connection-sql-level.md) %}
+{% include [datalens-db-sql-level](./datalens-db-connection-sql-level-3.md) %}

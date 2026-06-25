@@ -43,7 +43,7 @@
 SHOW PROCESSLIST;
 ```
 
-Подробное описание результата см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/5.7/en/show-processlist.html).
+Подробное описание результата смотрите в [документации {{ MY }}](https://dev.mysql.com/doc/refman/5.7/en/show-processlist.html).
 
 #### Какая еще диагностика доступна? {#trouble-info}
 

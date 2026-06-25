@@ -14,7 +14,7 @@ Instance Groups используют [авторизованные ключи](.
 
 Чтобы интегрировать группу ВМ с L7-балансировщиком [Yandex Application Load Balancer](../../../application-load-balancer/index.md), назначьте сервисному аккаунту роль [alb.editor](../../../application-load-balancer/security/index.md#alb-editor).
 
-Подробнее см. на странице [Интеграция группы ВМ с Network Load Balancer или Application Load Balancer](balancers.md).
+Подробнее на странице [Интеграция группы ВМ с Network Load Balancer или Application Load Balancer](balancers.md).
 
 {% note info %}
 

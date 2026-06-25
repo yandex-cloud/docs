@@ -18,7 +18,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. In the bucket row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
 
       Alternatively, you can click the bucket name, then, on the page that opens, click ![image](../../../_assets/console-icons/ellipsis.svg) at the top right and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
@@ -289,7 +289,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
   **yandex_storage_bucket_grant** {#tf-storage-bucket-grant}
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
      ```hcl
      resource "yandex_storage_bucket_grant" "my_bucket_grant" {
@@ -364,7 +364,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
   **yandex_storage_bucket (obsolete)** {#tf-yandex_storage_bucket}
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
      ```hcl
      resource "yandex_storage_bucket" "test" {

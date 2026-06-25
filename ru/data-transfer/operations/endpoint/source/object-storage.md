@@ -95,7 +95,7 @@ description: Следуя данной инструкции, вы сможете
 - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.jsonl.title }}
   
      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Jsonl.newlines_in_values.title }}** — разрешить использовать символы новой строки в значениях JSON. Использование этого параметра может повлиять на производительность. Оставьте пустым, чтобы по умолчанию было установлено значение `FALSE`.
-     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Jsonl.unexpected_field_behavior.title }}** — метод обработки полей JSON за пределами `explicit_schema` (если указано). См. [документацию PyArrow](https://arrow.apache.org/docs/python/generated/pyarrow.json.ParseOptions.html).
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Jsonl.unexpected_field_behavior.title }}** — метод обработки полей JSON за пределами `explicit_schema` (если указано). Смотрите [документацию PyArrow](https://arrow.apache.org/docs/python/generated/pyarrow.json.ParseOptions.html).
      * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Jsonl.block_size.title }}** — размер фрагмента в байтах для одновременной обработки в памяти каждого файла. Если объем данных большой, и не удается обнаружить схему, увеличение этого значения должно решить проблему. Слишком большое значение может привести к ошибкам OOM.
 
 - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.proto.title }}
@@ -166,6 +166,6 @@ description: Следуя данной инструкции, вы сможете
 
 ## Решение проблем, возникающих при переносе данных {#troubleshooting}
 
-См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
+Смотрите полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
 {% include [update-not-supported](../../../../_includes/data-transfer/troubles/object-storage/update-not-supported.md) %}

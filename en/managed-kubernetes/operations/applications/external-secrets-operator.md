@@ -35,7 +35,7 @@ The External Secrets Operator with {{ lockbox-name }} support enables you to con
 ## Installing the External Secrets Operator through {{ marketplace-full-name }} {#marketplace-install}
 
 1. In the [management console]({{ link-console-main }}), select a folder.
-1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [External Secrets Operator with {{ lockbox-name }} support](/marketplace/products/yc/external-secrets) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
@@ -75,4 +75,4 @@ The External Secrets Operator with {{ lockbox-name }} support enables you to con
 ## See also {#see-also}
 
 * [External Secrets Operator description](https://external-secrets.io/v0.8.1/provider/yandex-lockbox/)
-* [{{ lockbox-name }} documentation](../../../lockbox/)
+* [{{ lockbox-name }} guides](../../../lockbox/)

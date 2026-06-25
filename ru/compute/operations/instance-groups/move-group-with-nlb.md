@@ -14,9 +14,9 @@ description: Из статьи вы узнаете, как можно перен
 
 1. В зависимости от [типа балансировщика](../../../network-load-balancer/concepts/nlb-types.md), выполните следующие действия:
    * **Внешний балансировщик** (`EXTERNAL`):
-     1. Дождитесь пока ресурсы целевой группы в новой зоне доступности пройдут [проверку состояния](../../../network-load-balancer/concepts/health-check.md) и перейдут в статус `HEALTHY`. См. [{#T}](../../../network-load-balancer/operations/check-resource-health.md).
+     1. Дождитесь пока ресурсы целевой группы в новой зоне доступности пройдут [проверку состояния](../../../network-load-balancer/concepts/health-check.md) и перейдут в статус `HEALTHY`. Смотрите [{#T}](../../../network-load-balancer/operations/check-resource-health.md).
 
-        После этого новая зона доступности будет включена в маршрутизацию трафика через балансировщик. Этот процесс может занимать до 2 минут. См. [Сходимость маршрутизации в зоне доступности](../../../network-load-balancer/concepts/specifics.md#nlb-zone-converge).
+        После этого новая зона доступности будет включена в маршрутизацию трафика через балансировщик. Этот процесс может занимать до 2 минут. Смотрите [Сходимость маршрутизации в зоне доступности](../../../network-load-balancer/concepts/specifics.md#nlb-zone-converge).
      1. Удалите ВМ группы из старой зоны доступности:
 
         {% include [ig-delete-in-zone.md](../../../_includes/compute/ig-delete-in-zone.md) %}

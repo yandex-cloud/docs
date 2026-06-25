@@ -19,7 +19,7 @@ description:
     новых мажорных версий ядра сервиса.
   - >-
     Подробнее о Greenplum<sup>®</sup>, Apache Cloudberry<sup>™</sup> и {{
-    mgp-full-name }} см. в разделе <a
+    mgp-full-name }} смотрите в разделе <a
     href="/docs/managed-greenplum/concepts/overview">Обзор</a>.
   - >-
     Инфраструктура {{ yandex-cloud }} <a

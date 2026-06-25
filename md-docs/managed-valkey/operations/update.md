@@ -14,7 +14,7 @@
 * [Изменить тип диска и увеличить размер хранилища](#change-disk-size).
 
 
-* [Настроить автоматическое увеличение размера хранилища](#disk-size-aut0scale).
+* [Настроить автоматическое увеличение размера хранилища](#disk-size-autoscale).
 
 * [Настроить серверы](#change-valkey-config) Valkey™ согласно [документации Valkey™](https://valkey.io/docs). Список поддерживаемых настроек приведен в разделе [Настройки Valkey™](../concepts/settings-list.md) и [в справочнике API](../api-ref/Cluster/update.md).
 

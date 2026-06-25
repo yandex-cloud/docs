@@ -17,7 +17,7 @@ description: Из статьи вы узнаете, какие есть топи
 - Сжатие сообщений.
 - Очистку лога [в соответствии с политикой](../operations/cluster-topics.md#create-topic) при устаревании сообщений в разделах или достижении заданного размера лога.
 
-Подробнее о топиках см. [в документации {{ KF }}](https://kafka.apache.org/42/getting-started/introduction/#main-concepts-and-terminology).
+Подробнее о топиках смотрите в [документации {{ KF }}](https://kafka.apache.org/42/getting-started/introduction/#main-concepts-and-terminology).
 
 ### Служебные топики {#service-topics}
 
@@ -36,7 +36,7 @@ description: Из статьи вы узнаете, какие есть топи
 - Распределять нагрузку по хранению сообщений и обработке запросов между несколькими [брокерами {{ KF }}](brokers.md).
 - Обеспечивать отказоустойчивость: раздел может реплицироваться на указанное число брокеров.
 
-Подробнее о разделах см. [в документации {{ KF }}](https://kafka.apache.org/42/getting-started/introduction/#main-concepts-and-terminology).
+Подробнее о разделах смотрите в [документации {{ KF }}](https://kafka.apache.org/42/getting-started/introduction/#main-concepts-and-terminology).
 
 ## Управление топиками и разделами {#management}
 

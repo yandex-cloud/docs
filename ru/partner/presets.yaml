@@ -1,6 +1,3 @@
 default:
-  region: ru
   lang: ru
-  audience: external
-  product: yandex-cloud
   link-console-billing: https://center.yandex.cloud/billing/accounts

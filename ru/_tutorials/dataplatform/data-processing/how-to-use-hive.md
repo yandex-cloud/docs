@@ -6,6 +6,19 @@
 
 {% include [get-logs-info](../../../_includes/data-processing/note-info-get-logs.md) %}
 
+
+## Перед началом работы {#before-you-begin}
+
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластеры {{ dataproc-name }}: использование вычислительных ресурсов с наценкой за сервис {{ dataproc-name }}, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы {{ dataproc-name }}](../../../data-proc/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
+* Бакеты {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
+
+
 ## Работа с заданиями в CLI {{ yandex-cloud }} {#run-hive-job-cli}
 
 {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -19,7 +32,7 @@ SQL-запрос для Hive можно передать двумя способ
 
 Результат выполнения запроса сохраняется в привязанный к кластеру бакет {{ objstorage-full-name }} вместе с сервисным выводом.
 
-### Перед началом работы {#before-you-begin-yc-cli}
+### Подготовьте инфраструктуру {#infra-yc-cli}
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
 
@@ -279,7 +292,7 @@ SQL-запрос для Hive можно передать двумя способ
 
 ## Работа с заданиями в Hive CLI {#hive-shell}
 
-### Перед началом работы {#before-you-begin-hive-shell}
+### Подготовьте инфраструктуру {#infra-hive-shell}
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
 
@@ -373,3 +386,11 @@ SQL-запрос для Hive можно передать двумя способ
     ```
 
     {% endcut %}
+
+
+## Удалите созданные ресурсы {#clear-out}
+
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+
+1. [Удалите кластеры {{ dataproc-name }}](../../../data-proc/operations/cluster-delete.md).
+1. [Удалите бакеты {{ objstorage-name }}](../../../storage/operations/buckets/delete.md). Перед удалением бакетов [удалите из них все объекты](../../../storage/operations/objects/delete.md).

@@ -52,7 +52,7 @@ sudo -u hdfs hdfs balancer
 
 #### Где можно посмотреть логи кластера Yandex Data Processing? {#cluster-logs}
 
-Логи кластера доступны в его лог-группе. Чтобы следить за событиями кластера и его отдельных хостов, при [создании](../operations/cluster-create.md) или [изменении](../operations/cluster-update.md) кластера укажите в его настройках нужную [лог-группу](../../logging/concepts/log-group.md). Если для кластера не выбрана лог-группа, то для отправки и хранения логов будет использована лог-группа по умолчанию в каталоге кластера. Подробнее см. в разделе [Работа с логами](../operations/logging.md).
+Логи кластера доступны в его лог-группе. Чтобы следить за событиями кластера и его отдельных хостов, при [создании](../operations/cluster-create.md) или [изменении](../operations/cluster-update.md) кластера укажите в его настройках нужную [лог-группу](../../logging/concepts/log-group.md). Если для кластера не выбрана лог-группа, то для отправки и хранения логов будет использована лог-группа по умолчанию в каталоге кластера. Подробнее в разделе [Работа с логами](../operations/logging.md).
 
 #### Я могу получить логи моей работы в сервисах? {#logs}
 
@@ -74,7 +74,7 @@ sudo -u hdfs hdfs balancer
 
 #### При запуске скрипта инициализации я получаю ошибку `^M: bad interpreter`, как это исправить? {#syntax-error}
 
-Так как среда выполнения скрипта — Linux (Ubuntu), то скрипты, подготовленные в Windows, могут выполниться с ошибкой `^M: bad interpreter` из-за использования символа переноса строки `CR/LF` (в Linux – `LF`). Для исправления ошибки сохраните файл скрипта в формате Linux. Подробнее см. в разделе [Ошибки синтаксиса](../concepts/init-action.md#syntax-errors).
+Так как среда выполнения скрипта — Linux (Ubuntu), то скрипты, подготовленные в Windows, могут выполниться с ошибкой `^M: bad interpreter` из-за использования символа переноса строки `CR/LF` (в Linux – `LF`). Для исправления ошибки сохраните файл скрипта в формате Linux. Подробнее в разделе [Ошибки синтаксиса](../concepts/init-action.md#syntax-errors).
 
 #### При запуске задания PySpark возникает ошибка, связанная с `com/amazonaws/auth/AWSCredentialsProvider`, как это исправить? {#sharedPrefixes-property}
 
@@ -122,7 +122,7 @@ py4j.protocol.Py4JJavaError: An error occurred while calling o264.parquet.
 * Удалите лишние ресурсы, которые занимают IP-адреса в подсети.
 * Создайте подсеть с CIDR, подходящим под конфигурацию вашего кластера. Затем создайте кластер Yandex Data Processing в новой подсети.
 
-Подробнее о размерах подсетей см. в документации [Yandex Virtual Private Cloud](../../vpc/concepts/network.md#subnet).
+Подробнее о размерах подсетей смотрите в документации [Yandex Virtual Private Cloud](../../vpc/concepts/network.md#subnet).
 
 #### Почему кластер в статусе `Unknown`? {#unknown}
 
@@ -151,7 +151,7 @@ py4j.protocol.Py4JJavaError: An error occurred while calling o264.parquet.
 
    В параметрах `--since` и `--until` укажите границы периода. Формат времени: `YYYY-MM-DDThh:mm:ssZ`. Пример: `2020-08-10T12:00:00Z`. Время указывается в часовом поясе UTC.
 
-   Подробнее см. в разделе [Работа с логами](../operations/logging.md).
+   Подробнее в разделе [Работа с логами](../operations/logging.md).
 
 #### Какая минимальная вычислительная мощность нужна для работы подкластера с хостом-мастером? {#master-computing-power}
 
@@ -162,7 +162,7 @@ py4j.protocol.Py4JJavaError: An error occurred while calling o264.parquet.
 
 Подробнее о режимах размещения драйвера и потреблении вычислительной мощности в разделе [Распределение ресурсов](../concepts/spark-sql.md#resource-management).
 
-В Yandex Cloud вычислительная мощность определяется классом хостов. Их соотношение см. в разделе [Классы хостов](../concepts/instance-types.md).
+В Yandex Cloud вычислительная мощность определяется классом хостов. Их соотношение смотрите в разделе [Классы хостов](../concepts/instance-types.md).
 
 #### Как обновить версию образа в Yandex Data Processing? {#upgrade}
 

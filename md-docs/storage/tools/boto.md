@@ -222,6 +222,6 @@
 
 - Yandex Cloud Functions {#functions}
 
-  См. пример в [руководстве по конвертации видео](../tutorials/video-converting-queue/index.md).
+  Смотрите пример в [руководстве по конвертации видео](../tutorials/video-converting-queue/index.md).
 
 {% endlist %}

@@ -8,9 +8,21 @@
 
 Ниже рассматривается пример, по которому будет рассчитана статистика по воздушному трафику США за 2018 год по данным с сайта [transtats.bts.gov](https://transtats.bts.gov/). Набор данных представлен в формате [Parquet](https://parquet.apache.org/) и находится в публичном бакете {{ objstorage-full-name }} с именем `yc-mdb-examples`.
 
+
 ## Перед началом работы {#before-you-begin}
 
-Подготовьте инфраструктуру:
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ dataproc-name }}: использование вычислительных ресурсов с наценкой за сервис {{ dataproc-name }}, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы {{ dataproc-name }}](../../../data-proc/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+* Бакет {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
+
+
+## Подготовьте инфраструктуру {#infra}
 
 {% list tabs group=resources %}
 
@@ -650,6 +662,7 @@ s3cmd put ~/spark-app/target/scala-<версия_Scala>/spark-app-assembly-0.1.0
 
     1. [Удалите кластер {{ dataproc-name }}](../../../data-proc/operations/cluster-delete.md).
     1. Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../../vpc/operations/address-delete.md).
+    1. [Удалите бакет](../../../storage/operations/buckets/delete.md). Перед удалением бакета [удалите из него все объекты](../../../storage/operations/objects/delete.md).
     1. [Удалите подсеть](../../../vpc/operations/subnet-delete.md).
     1. [Удалите таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
     1. [Удалите NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md).

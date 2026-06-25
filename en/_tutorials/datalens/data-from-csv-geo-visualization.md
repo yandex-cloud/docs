@@ -5,12 +5,12 @@
 {% include [datalens-folder-navigation-note](../../_includes/datalens/datalens-folder-navigation-note.md) %}
 
 
-This guide analyzes public data on road accidents in Russia. In addition to identifying the facts of accident statistics in Russia, during the analysis you will learn how to:
+This tutorial analyzes public data on road accidents in Russia. In addition to exploring the accident statistics in Russia, you will learn how to:
 
 
 
-* Work with the {{ datalens-short-name }} key entities: [Connections](../../datalens/concepts/connection/index.md), [Datasets](../../datalens/dataset/index.md), [Charts](../../datalens/concepts/chart/index.md), and [Dashboards](../../datalens/concepts/dashboard.md).
-* Merge multiple sources at single dataset level.
+* Work with the {{ datalens-short-name }} key entities: [connections](../../datalens/concepts/connection/index.md), [datasets](../../datalens/dataset/index.md), [charts](../../datalens/concepts/chart/index.md), and [dashboards](../../datalens/concepts/dashboard.md).
+* Merge multiple sources at the single dataset level.
 * Use the `Date and time` data type and edit chart-level groupings.
 * Work with geodata: geopoints and geopolygons.
 * Create public dashboards that will be available to everyone from any device without authentication.
@@ -45,13 +45,13 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
 1. In the top-right corner, click **Create** → **Create workbook**.
-1. Enter a name for the [workbook](../../datalens/workbooks-collections/index.md): `Tutorials`.
+1. Enter `Tutorials` for the [workbook](../../datalens/workbooks-collections/index.md) name.
 1. Click **Create**.
 
 
 ## Create a connection to files {#create-connection}
 
-Create a [connection](../../datalens/concepts/connection/index.md) to source data files:
+Create a [connection](../../datalens/concepts/connection/index.md) to the source data files:
 
 
 1. In the top-right corner of the workbook, click **Create** → ![image](../../_assets/console-icons/thunderbolt.svg) **Connection**.
@@ -64,10 +64,10 @@ Create a [connection](../../datalens/concepts/connection/index.md) to source dat
 
    ![image](../../_assets/datalens/solution-07/01-file-connection.png)
 
-1. Connect a chart with region geolayers. Click **Upload files**.
+1. Add a table with region geolayers. Click **Upload files**.
 1. Select `Regions.csv`. Wait for the data to load.
 1. Select the uploaded `Regions.csv` file from the list on the left.
-1. For the **Column header** parameter, set the `Yes` value.
+1. Set the **Column header** parameter to `Yes`.
 1. Click **Create connection**.
 
    ![image](../../_assets/datalens/solution-07/01-2-save-file-connection.png)
@@ -80,7 +80,7 @@ Create a dataset based on the `dtp_data` connection:
 
 1. In the top-right corner of the connection page, click **Create dataset**.
 1. Drag the `dtp201804-1.csv` table to the workspace.
-1. Drag the `Regions.csv` table to the workspace. An error message will appear as the tables' data have not been merged yet.
+1. Drag the `Regions.csv` table to the workspace. Since the tables’ data has not yet been merged, an error message will appear.
 1. Click the link icon between the tables.
 
    ![image](../../_assets/datalens/solution-07/30-add-table-dataset.png)
@@ -91,7 +91,7 @@ Create a dataset based on the `dtp_data` connection:
 
    ![image](../../_assets/datalens/solution-07/31-join-tables.png)
 
-   Make sure that the data in the preview section is presented correctly.
+   Make sure the data in the preview is displayed correctly.
 
    ![image](../../_assets/datalens/solution-07/32-preview.png)
 
@@ -99,7 +99,7 @@ Create a dataset based on the `dtp_data` connection:
 1. Rename the fields as follows:
 
    * `reg_code` to `Region code`
-   * `reg_name` to ` Region name`
+   * `reg_name` to `Region name`
    * `road_code` to `Road code`
    * `road_name` to `Road name`
    * `road_type` to `Road type`
@@ -111,7 +111,7 @@ Create a dataset based on the `dtp_data` connection:
 
    ![image](../../_assets/datalens/solution-07/02-rename-attributes.png)
 
-1. Accident date and time appear in the following fields:
+1. The accident date and time appear in the following fields:
 
    * `crash_date`: Numeric date in `20190218` format.
    * `crash_time`: Time in `19:34` text format.
@@ -128,7 +128,7 @@ Create a dataset based on the `dtp_data` connection:
 
       {% note tip %}
 
-      * To avoid errors, select fields for the formula from the list on the left instead of entering them manually.
+      * To avoid errors, select fields for the formula from the list on the left rather than entering them manually.
       * To display information about functions, click **Reference** at the top right.
 
       {% endnote %}
@@ -137,7 +137,7 @@ Create a dataset based on the `dtp_data` connection:
 
    ![image](../../_assets/datalens/solution-07/04-field-formula.png)
 
-   The preview section now correctly displays the accident date and time as a `Date and time` type value with `T` for separator. The new field is at the top of the table. Click ![image](../../_assets/console-icons/function.svg) to edit the field formula.
+   The preview section now correctly displays the accident date and time as a `Date and time` type value with `T` as a separator. The new field is at the top of the table. Click ![image](../../_assets/console-icons/function.svg) to edit the field formula.
 
    ![image](../../_assets/datalens/solution-07/04-field-formula-view.png)
 
@@ -163,7 +163,7 @@ Create a dataset based on the `dtp_data` connection:
       {% note info %}
 
       
-      The example is based on ready-to-use data in coordinate format. 
+      The example is based on ready-to-use data as coordinates. 
 
 
       {% endnote %}
@@ -190,7 +190,7 @@ Create a dataset based on the `dtp_data` connection:
 
 To visualize accident distribution density by region, create a [heat map](../../datalens/visualization-ref/heat-map-chart.md):
 
-1. On the dataset page, click **Create chart** in the top-right corner.
+1. Click **Create chart** in the top-right corner of the dataset page.
 1. Select the **Map** visualization type.
 
    ![image](../../_assets/datalens/solution-07/07-choose-map.png)
@@ -211,13 +211,13 @@ To visualize accident distribution density by region, create a [heat map](../../
 
 To analyze the number of accidents by region, create a [bar chart](../../datalens/visualization-ref/bar-chart.md).
 
-1. Create a copy of the chart you created in the previous step:
+1. Copy the chart you created in the previous step:
 
    1. In the top-right corner, click ![save-button](../../_assets/console-icons/chevron-down.svg) → **Save as copy**.
 
       ![save-chart-as-copy](../../_assets/datalens/solution-07/10-save-chart-as-copy.png)
 
-   1. In the window that opens, enter `Number of accidents by region` as the name for the new chart and click **Save**.
+   1. In the window that opens, enter `Number of accidents by region` as the new chart name and click **Save**.
 
 1. For the visualization type, select **Line chart**.
 
@@ -244,9 +244,9 @@ To analyze the accident death rate by region, create another bar chart:
 1. Create a copy of the `Number of accidents by region` chart.
 
    1. In the top-right corner, click ![save-button](../../_assets/console-icons/chevron-down.svg) → **Save as copy**.
-   1. In the window that opens, enter `Death rate by region` as the name for the new chart and click **Save**.
+   1. In the window that opens, enter `Death rate by region` as the new chart name and click **Save**.
 
-1. Replace the number of accidents measure with the accident death rate measure on axis X. To do this, drag the `Accident death rate` field from **Dimensions** to the **X** section and hold it over the `Number of accidents` field until the latter turns red.
+1. Replace the number of accidents measure with the accident death rate measure on the X axis. To do this, drag the `Accident death rate` field from **Dimensions** to the **X** section and hold it over the `Number of accidents` field until the latter turns red.
 1. Change from sorting by the number of accidents to sorting by descending accident death rate. To do this, drag the `Accident death rate` field from **Dimensions** to the **Sorting** section and hold it over the `Number of accidents` field until the latter turns red.
 
    ![image](../../_assets/datalens/solution-07/13-bar-chart-2.png)
@@ -264,14 +264,14 @@ Let's see how the number of accidents and related deaths are distributed by week
    1. Copy the chart you created in the previous step:
 
       1. In the top-right corner, click ![save-button](../../_assets/console-icons/chevron-down.svg) → **Save as copy**.
-      1. In the window that opens, enter the `Number of accidents and death rate by week` as the name for the new chart and click **Save**.
+      1. In the window that opens, enter the `Number of accidents and death rate by week` as the new chart name and click **Save**.
 
-   1. For the visualization type, choose **Line chart**.
+   1. Select **Line chart** as the visualization type.
 
       ![image](../../_assets/datalens/solution-07/14-choose-line-chart.png)
 
-   1. Delete fields in all sections of the chart. To do this, click ![save-button](../../_assets/console-icons/xmark.svg) (the icon appears when you hover over the field) next to a field in a section.
-   1. Add accident date and time to your chart. To do this, drag the `Date and time` field from **Dimensions** to the **X** section.
+   1. Delete the fields in all sections of the chart. To do this, click ![save-button](../../_assets/console-icons/xmark.svg) (the icon appears when you hover over the field) next to a field in a section.
+   1. Add the accident date and time to your chart. To do this, drag the `Date and time` field from **Dimensions** to the **X** section.
    1. Group dates by week:
 
       1. Click the calendar icon next to the `Date and time` field in the **X** section.
@@ -312,7 +312,7 @@ Let's see how the number of accidents and related deaths are distributed by week
    1. Copy the chart you created in the previous step:
 
       1. In the top-right corner, click ![save-button](../../_assets/console-icons/chevron-down.svg) → **Save as copy**.
-      1. In the window that opens, enter `Number of accidents and death rate by time of day` as the name for the new chart and click **Save**.
+      1. In the window that opens, enter `Number of accidents and death rate by time of day` as the new chart name and click **Save**.
 
    1. Change grouping by date and time by specifying: **Date portion** ⟶ **Hour**.
 
@@ -329,7 +329,7 @@ Let's see how the number of accidents and related deaths are distributed by week
 1. Copy the chart you created in the previous step:
 
    1. In the top-right corner, click ![save-button](../../_assets/console-icons/chevron-down.svg) → **Save as copy**.
-   1. In the window that opens, enter the `Regions map` as the name for the new chart and click **Save**.
+   1. In the window that opens, enter the `Regions map` as the new chart name and click **Save**.
 
 1. Select the **Map** visualization type.
 1. Select **Polygons (Geopolygons)** as the layer type.
@@ -366,7 +366,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 
 
-1. In the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it to the required area.
+1. In the panel at the bottom of the page, drag ![image](../../_assets/console-icons/chart-column.svg) **Chart** where you need.
 
    ![add-chart](../../_assets/datalens/solution-07/21-add-chart.png)
 
@@ -403,11 +403,11 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 1. Add a widget for data filtering:
 
-   1. In the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/sliders.svg) **Selector** and drag it to the required area.
+   1. In the panel at the bottom of the page, drag ![image](../../_assets/console-icons/sliders.svg) **Selector** where you need.
 
       ![add-selector](../../_assets/datalens/solution-07/25-add-selector.png)
 
-   1. Choose the `Accidents` dataset.
+   1. Select the `Accidents` dataset.
    1. Select the `Region name` field.
 
       ![image](../../_assets/datalens/solution-07/26-selector-region.png)
@@ -425,7 +425,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
    1. Click **Save**.
 
-1. Position the widget on the dashboard where you think fit.
+1. Position the widget on the dashboard however you prefer.
 
    ![image](../../_assets/datalens/solution-07/27-dashboard-2.png)
 
@@ -447,7 +447,7 @@ On the dashboard, you can:
 ## Add a map with color fill by region to the dashboard {#add-geopolygon-chart}
 
 1. Click **Edit** at the top right.
-1. In the top-right corner of the `Accident heat map chart`, click ![image](../../_assets/console-icons/gear.svg).
+1. In the top-right corner of the `Accident heat map` chart, click ![image](../../_assets/console-icons/gear.svg).
 1. In the left part of the window, click **Add**.
 1. In the new tab, click **Select**.
 1. Select the `Regions map` chart.
@@ -468,7 +468,7 @@ To configure public access to the dashboard:
 
 1. At the top of the screen, click ![image](../../_assets/console-icons/ellipsis.svg) → ![icon](../../_assets/console-icons/globe.svg) **Public access**.
 1. In the window that opens, enable the link sharing option next to the dashboard name.
-1. Click **Continue** to confirm publication of the dashboard and the data connected to it.
+1. Click **Continue** to confirm publication of the dashboard and its linked data.
 1. Click **Copy link** to copy the dashboard's unique URL.
 
    ![image](../../_assets/datalens/solution-07/38-dash-share.png)
@@ -478,11 +478,11 @@ To configure public access to the dashboard:
 
    ![image](../../_assets/datalens/solution-07/39-public.png)
 
-   You can share this link with your colleagues, partners, and friends. When opening the dashboard link, no authorization and authentication are required.
+   You can share this link with your colleagues, partners, and friends. When opening the dashboard link, no authorization and authentication is required.
 
    {% note info %}
 
-   You can enable or disable public access separately for each chart and dataset associated with the dashboard.
+   You can enable or disable public access separately for each chart and dataset linked with the dashboard.
 
    {% cut "Configuring public access for objects" %}
 

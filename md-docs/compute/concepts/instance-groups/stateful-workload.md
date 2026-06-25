@@ -33,5 +33,5 @@
 
 Чтобы без ограничений выполнять операции с виртуальными машинами группы, на которых запущены приложения со Stateful-нагрузкой, сохраняйте состояние приложений в независимых от группы ВМ ресурсах облака:
 * Управляемые базы данных.
-* [Файловые хранилища](../filesystem.md), подробнее см. на странице [Создать группу виртуальных машин с подключением к файловому хранилищу](../../operations/instance-groups/create-with-filesystem.md).
-* [Бакеты](../../../storage/concepts/bucket.md) Yandex Object Storage, подробнее см. на странице [Создать группу виртуальных машин с подключением к Yandex Object Storage](../../operations/instance-groups/create-with-bucket.md).
+* [Файловые хранилища](../filesystem.md), подробнее на странице [Создать группу виртуальных машин с подключением к файловому хранилищу](../../operations/instance-groups/create-with-filesystem.md).
+* [Бакеты](../../../storage/concepts/bucket.md) Yandex Object Storage, подробнее на странице [Создать группу виртуальных машин с подключением к Yandex Object Storage](../../operations/instance-groups/create-with-bucket.md).

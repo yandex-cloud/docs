@@ -3,7 +3,7 @@ title: Installing {{ GLR }}
 description: Follow this guide to install {{ GLR }}.
 ---
 
-# Installing {{ GLR }}
+# Installation {{ GLR }}
 
 
 [{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application that runs {{ GL }} CI/CD jobs using instructions in a special file named `.gitlab-ci.yml`. It helps run automated builds in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster).
@@ -27,12 +27,12 @@ description: Follow this guide to install {{ GLR }}.
      1. On the left-hand side of the window that opens, click **Settings** and select **CI/CD**.
      1. Under **Runners**, click **Expand**.
      1. Click **New project runner** and create a new {{ GLR }}.
-     1. Save the value of the `Runner authentication token` parameter.
+     1. Save the `Runner authentication token` value.
 
 ## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
 1. In the [management console]({{ link-console-main }}), select a folder.
-1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [{{ GLR }}](/marketplace/products/yc/gitlab-runner) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
@@ -85,7 +85,7 @@ description: Follow this guide to install {{ GLR }}.
 
 ## See also {#see-also}
 
-* [{{ mgl-name }} documentation](../../../managed-gitlab/)
-* [{{ GL }} documentation](https://docs.gitlab.com/)
-* [Documentation for {{ GL }} CI/CD](https://docs.gitlab.com/ee/ci/)
+* [{{ mgl-name }} guides](../../../managed-gitlab/)
+* [{{ GL }} guides](https://docs.gitlab.com/)
+* [Guides for {{ GL }} CI/CD](https://docs.gitlab.com/ee/ci/)
 * [Reference guide on .gitlab-ci.yml](https://docs.gitlab.com/ee/ci/yaml/index.html)

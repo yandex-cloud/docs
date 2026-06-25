@@ -20,7 +20,7 @@ By default, [bucket](../../concepts/bucket.md) [access](../../concepts/bucket.md
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), open a folder.
-  1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket to configure public access for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
@@ -118,16 +118,16 @@ By default, [bucket](../../concepts/bucket.md) [access](../../concepts/bucket.md
 
      For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#bucket-anonymous-access-flags).
 
-  1. Validate your configuration files.
+  1. Make sure the configuration files are correct.
 
      1. In the terminal, navigate to the directory where you created your configuration file.
-     1. Run a check using the following command:
+     1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-     If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 
@@ -137,13 +137,13 @@ By default, [bucket](../../concepts/bucket.md) [access](../../concepts/bucket.md
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` and press **Enter**.
+     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
         This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
-  To open public access to bucket operations, use  the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call.
+  To open public access to bucket operations, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -160,7 +160,7 @@ You will not be able to open public access if a restrictive [access policy](../.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket to disable public access for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
@@ -253,16 +253,16 @@ You will not be able to open public access if a restrictive [access policy](../.
 
      For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#bucket-anonymous-access-flags).
 
-  1. Validate your configuration files.
+  1. Make sure the configuration files are correct.
 
      1. In the terminal, navigate to the directory where you created your configuration file.
-     1. Run a check using the following command:
+     1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-     If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 
@@ -272,7 +272,7 @@ You will not be able to open public access if a restrictive [access policy](../.
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` and press **Enter**.
+     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
         This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 

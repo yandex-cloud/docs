@@ -281,7 +281,7 @@
 
 {% endlist %}
 
-Подробнее о создании группы узлов Managed Service for Kubernetes и передаваемых параметрах см. на странице [Создание группы узлов](node-group/node-group-create.md).
+Подробнее о создании группы узлов Managed Service for Kubernetes и передаваемых параметрах смотрите на странице [Создание группы узлов](node-group/node-group-create.md).
 
 ## Обновите ключи группы узлов {#node-add-metadata}
 

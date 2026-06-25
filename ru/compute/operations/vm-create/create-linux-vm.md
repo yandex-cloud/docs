@@ -79,7 +79,7 @@ description: Следуя данной инструкции, вы сможете
          {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
 
      * `--create-boot-disk` — настройки загрузочного диска ВМ:
-         * `auto-delete` — настройка автоудаления загрузочного диска вместе с ВМ. См. [{#T}](../../concepts/disk.md#autodelete-disks).
+         * `auto-delete` — настройка автоудаления загрузочного диска вместе с ВМ. Смотрите [{#T}](../../concepts/disk.md#autodelete-disks).
          * `image-family` — [семейство образов](../../concepts/image.md#family), например, `centos-7`. Эта опция позволит установить последнюю версию ОС из указанного семейства.
          * `kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания зашифрованного загрузочного диска. Необязательный параметр.
 
@@ -167,7 +167,7 @@ description: Следуя данной инструкции, вы сможете
        * `zone` — зона доступности, в которой будет находиться ВМ.
        * `resources` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
        * `boot_disk` — настройки загрузочного диска. Укажите идентификатор диска.
-       * `auto_delete` — настройка автоудаления загрузочного диска вместе с ВМ. См. [{#T}](../../concepts/disk.md#autodelete-disks).
+       * `auto_delete` — настройка автоудаления загрузочного диска вместе с ВМ. Смотрите [{#T}](../../concepts/disk.md#autodelete-disks).
        * `network_interface` — настройки [сетевого интерфейса](../../concepts/network.md) ВМ. Укажите идентификатор выбранной [подсети](../../../vpc/concepts/network.md#subnet). Чтобы автоматически назначить ВМ [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses), укажите `nat = true`.
 
            {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
@@ -290,7 +290,7 @@ description: Следуя данной инструкции, вы сможете
      * `resourcesSpec` — ресурсы, доступные ВМ. Значения должны соответствовать выбранной платформе.
      * `metadata` — в метаданных необходимо передать открытый ключ для SSH-доступа на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
      * `bootDiskSpec` — настройки загрузочного диска. Укажите идентификатор выбранного образа и размер диска.
-     * `autoDelete` — настройка автоудаления загрузочного диска вместе с ВМ. См. [{#T}](../../concepts/disk.md#autodelete-disks).
+     * `autoDelete` — настройка автоудаления загрузочного диска вместе с ВМ. Смотрите [{#T}](../../concepts/disk.md#autodelete-disks).
 
        {% include [id-info](../../../_includes/compute/id-info.md) %}
 

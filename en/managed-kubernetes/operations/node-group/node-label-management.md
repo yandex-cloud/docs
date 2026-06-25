@@ -25,7 +25,7 @@ You can add {{ k8s }} labels to all {{ managed-k8s-name }} nodes in a [node grou
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you created the {{ managed-k8s-name }} cluster.
-     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Select the {{ managed-k8s-name }} cluster to create a node group for.
      1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
      1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
@@ -48,10 +48,10 @@ You can add {{ k8s }} labels to all {{ managed-k8s-name }} nodes in a [node grou
      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
         * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select the IP address assignment method:
           * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`: Assign random [IP addresses](../../../vpc/concepts/address.md) from the {{ yandex-cloud }} address pool.
-          * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}` not to assign public IP addresses.
+          * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}`: Do not assign public IP addresses.
         * Specify how {{ managed-k8s-name }} nodes should be placed across the [availability zones](../../../overview/concepts/geo-scope.md) and [networks](../../../vpc/concepts/network.md#network).
      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, specify the credentials to access the {{ managed-k8s-name }} node:
-        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
+        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username.
         * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../operations/node-connect-ssh.md#creating-ssh-keys) file.
      1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_maintenance }}**:
         * In the **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** field, select your preferred [maintenance](../../concepts/release-channels-and-updates.md#updates) window:
@@ -137,7 +137,7 @@ You can add {{ k8s }} labels to all {{ managed-k8s-name }} nodes in a [node grou
 
      1. Open the current configuration file describing the {{ managed-k8s-name }} node group.
 
-        For more on how to create this file, see [{#T}](node-group-create.md).
+        For more on how to create such a file, see [{#T}](node-group-create.md).
      1. Add the `node_labels` property to the {{ managed-k8s-name }} node group description:
 
         ```hcl
@@ -156,7 +156,7 @@ You can add {{ k8s }} labels to all {{ managed-k8s-name }} nodes in a [node grou
 
         {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-     1. Confirm updating the resources.
+     1. Confirm resource changes.
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -177,7 +177,7 @@ You can add {{ k8s }} labels to all {{ managed-k8s-name }} nodes in a [node grou
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you created the {{ managed-k8s-name }} cluster.
-     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Select the {{ managed-k8s-name }} cluster where you created the node group.
      1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
      1. Open the page of one of the {{ managed-k8s-name }} nodes and navigate to the **{{ ui-key.yacloud.k8s.node.overview.label_labels }}** tab. The tab lists the system and user {{ k8s }} node labels.
@@ -264,7 +264,7 @@ Adding {{ k8s }} labels does not result in recreation of a node group.
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create this file, see [{#T}](node-group-create.md).
+     For more on how to create such a file, see [{#T}](node-group-create.md).
 
   1. In the node group description, add the `node_labels` section:
 
@@ -285,7 +285,7 @@ Adding {{ k8s }} labels does not result in recreation of a node group.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -337,7 +337,7 @@ Removing {{ k8s }} labels does not result in recreation of a node group.
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create this file, see [{#T}](node-group-create.md).
+     For more on how to create such a file, see [{#T}](node-group-create.md).
 
   1. In the node group description, remove the {{ k8s }} labels you no longer need from `node_labels`.
 
@@ -345,7 +345,7 @@ Removing {{ k8s }} labels does not result in recreation of a node group.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 

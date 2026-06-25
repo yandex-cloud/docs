@@ -40,7 +40,7 @@ _Обработчик запросов_ — это метод, который и
 
 В качестве среды исполнения асинхронных функций поддерживается только библиотека `asyncio`. 
 
-Начиная с Python 3.14, `asyncio.get_event_loop()` не создает [event loop](https://docs.python.org/3/library/asyncio-eventloop.html) автоматически, а вызывает ошибку `RuntimeError`. Используйте `asyncio.get_running_loop()` для управления асинхронными обработчиками. См. [пример](#async-python314-example).
+Начиная с Python 3.14, `asyncio.get_event_loop()` не создает [event loop](https://docs.python.org/3/library/asyncio-eventloop.html) автоматически, а вызывает ошибку `RuntimeError`. Используйте `asyncio.get_running_loop()` для управления асинхронными обработчиками. Смотрите [пример](#async-python314-example).
 
 {% endnote %}
 

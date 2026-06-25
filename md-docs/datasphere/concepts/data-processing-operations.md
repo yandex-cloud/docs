@@ -1,6 +1,6 @@
 # Вычисления на кластерах Apache Spark™
 
-Для работы с кластерами Yandex Data Processing требуется предварительная настройка проекта, см. подробнее в [концепции](data-processing.md#settings).
+Для работы с кластерами Yandex Data Processing требуется предварительная настройка проекта, подробнее смотрите в [концепции](data-processing.md#settings).
 
 Все кластеры Yandex Data Processing вне зависимости от варианта развертывания тарифицируются по [правилам сервиса Yandex Data Processing](../../data-proc/pricing.md). Все кластеры, доступные в проекте, можно посмотреть в разделе **Ресурсы проекта** ⟶ ![image](../../_assets/data-processing/data-processing.svg) **Yandex Data&nbsp;Processing** на странице проекта.
 

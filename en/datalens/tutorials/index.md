@@ -1,11 +1,11 @@
 ---
 title: '{{ datalens-full-name }} use cases'
-description: This section describes use cases for {{ datalens-full-name }}. Visualizing data from a CSV file, creating and publishing a chart with a map of Moscow from a CSV file, analyzing a retail chain's sales performance based on a {{ CH }} DB, analyzing public data on road accidents in Russia
+description: This section describes use cases for {{ datalens-full-name }}. Visualizing data from a CSV file, creating and publishing a chart with a map of Moscow from a CSV file, analyzing a retail chain's sales performance based on a {{ CH }} database, analyzing public data on road accidents in Russia.
 ---
 
 # {{ datalens-name }} tutorials
 
-Below is a description of guidelines for working with {{ datalens-full-name }}:
+Here is a list of the {{ datalens-full-name }} tutorials:
 
 
 * Getting started with {{ datalens-short-name }}
@@ -23,12 +23,12 @@ Below is a description of guidelines for working with {{ datalens-full-name }}:
 
 * Service analytics
 
-  * [Yandex Metrica: direct connection](data-from-metrica-visualization.md)
-  * [Yandex Metrica: data export, post-processing, and visualization](data-from-metrica-yc-visualization.md)
-  * [AppMetrica: direct connection](data-from-appmetrica-visualization.md)
-  * [AppMetrica: data export, post-processing, and visualization](data-from-appmetrica-yc-visualization.md)
-  * [Bitrix24: direct connection](data-from-bitrix24-visualization.md)
-  * [{{ tracker-full-name }}: data export and visualization](data-from-tracker.md)
+  * [Yandex Metrica: Direct connection](data-from-metrica-visualization.md)
+  * [Yandex Metrica: Data export, post-processing, and visualization](data-from-metrica-yc-visualization.md)
+  * [AppMetrica: Direct connection](data-from-appmetrica-visualization.md)
+  * [AppMetrica: Data export, post-processing, and visualization](data-from-appmetrica-yc-visualization.md)
+  * [Bitrix24: Direct connection](data-from-bitrix24-visualization.md)
+  * [{{ tracker-full-name }}: Data export and visualization](data-from-tracker.md)
   * [Analyzing {{ objstorage-name }} logs](storage-logs-analysis.md)
   * [Yandex Music podcasts: Statistics](data-from-podcasts.md)
   * [Visualizing {{ yq-full-name }} data](data-from-yandex-query-visualization.md)
@@ -38,12 +38,12 @@ Below is a description of guidelines for working with {{ datalens-full-name }}:
   * [{#T}](forms-and-datalens-integration/index.md)
   * [{#T}](bigquery-to-clickhouse.md)
 
-* Functional
+* Tutorials for features
 
   * [Using parameters in calculated fields](data-from-ch-with-parameters.md)
   * [Source parameterization](data-from-ch-dataset-parametrization.md)
   * [Examples of creating QL charts](data-from-ch-to-sql-chart.md)
-  * [Examples of charts created in Editor](create-chart-editor.md)
+  * [Examples of creating charts in Editor](create-chart-editor.md)
 
 
 

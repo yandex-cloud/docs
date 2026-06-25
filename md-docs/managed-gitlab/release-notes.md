@@ -13,7 +13,7 @@
 ## II квартал 2025 {#q2-2025}
 
 * Добавлена поддержка управления инстансами GitLab с помощью [CLI](cli-ref/index.md), [Terraform](tf-ref.md) и [API](api-ref/authentication.md).
-* Реализована возможность выбора [группы безопасности](../vpc/concepts/security-groups.md) при [создании](operations/instance/instance-create.md) и [изменении](operations/instance/instance-update.md) инстанса GitLab. Подробнее см. [Настройка групп безопасности](operations/configure-security-group.md).
+* Реализована возможность выбора [группы безопасности](../vpc/concepts/security-groups.md) при [создании](operations/instance/instance-create.md) и [изменении](operations/instance/instance-update.md) инстанса GitLab. Подробнее на странице [Настройка групп безопасности](operations/configure-security-group.md).
 * Поддержана функциональность [получения информации об операциях в сервисе](operations/instance/instance-list.md) с помощью CLI и API.
 
 ## I квартал 2025 {#q1-2025}

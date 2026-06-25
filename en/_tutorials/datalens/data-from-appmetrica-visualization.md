@@ -1,4 +1,4 @@
-# AppMetrica: direct connection
+# AppMetrica: Direct connection
 
 
 You can visualize and explore AppMetrica data in {{ datalens-full-name }} using the following methods:
@@ -6,15 +6,15 @@ You can visualize and explore AppMetrica data in {{ datalens-full-name }} using 
 * Direct access.
    {{ datalens-name }} connects directly to AppMetrica. This method is the easiest and fastest but supports a [limited](../../datalens/function-ref/availability.md) set of functions.
 * Real-time export of data from AppMetrica to {{ mch-name }}.
-   Raw data is available and its pre-aggregation and post-processing at the DB level are supported. To implement this option, [set up data export](https://appmetrica.yandex.ru/docs/common/cloud/about.html?lang=en) and [create a connection](../../datalens/operations/connection/create-clickhouse.md) from {{ datalens-name }} to the {{ CH }} database.
+   Raw data is available and you can use pre-aggregation and post-processing at the database level. To implement this option, [set up data export](https://appmetrica.yandex.ru/docs/common/cloud/about.html?lang=en) and [create a connection](../../datalens/operations/connection/create-clickhouse.md) from {{ datalens-name }} to the {{ CH }} database.
 
-In this scenario, direct access is used. An application added to [AppMetrica](https://appmetrica.yandex.com) will be used as the data source. You can view a list of applications available to you under [Applications](https://appmetrica.yandex.com/application/list).
+In this tutorial, we use direct access. An application added to [AppMetrica](https://appmetrica.yandex.com) will be used as the data source. You can view a list of applications available to you under [Applications](https://appmetrica.yandex.com/application/list).
 
-If you do not have any apps available, then before performing this scenario, [add an app](https://appmetrica.yandex.ru/docs/quick-start/concepts/quick-start.html) or use the standard **AppMetrica Dashboard**.
+If you do not have any apps available, then before implementing this tutorial, [add an app](https://appmetrica.yandex.ru/docs/quick-start/concepts/quick-start.html) or use the standard **AppMetrica Dashboard**.
 
 To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin) and follow the steps below:
 
-1. [Create a connection and standard dashboard](#create-dashboard).
+1. [Create a connection and a standard dashboard](#create-dashboard).
 1. [Edit the standard dashboard](#edit-dashboard).
 
 
@@ -41,9 +41,9 @@ This step is available to users who have an app in AppMetrica. If you do not hav
 
    ![image](../../_assets/datalens/solution-06/get-token.png)
 
-   If this is your first connection to an AppMetrica app, grant the necessary permissions to the service.
+   If this is your first connection to an AppMetrica app, grant the required permissions to the service.
 
-1. Select an app from the drop-down list.
+1. Select the app from the drop-down list.
 
    ![image](../../_assets/datalens/solution-06/select-an-app.png)
 
@@ -57,7 +57,7 @@ This step is available to users who have an app in AppMetrica. If you do not hav
 
 1. In the top-right corner, click **Create**.
 
-   When the connection is created, a folder containing a dashboard and a set of datasets and charts opens.
+   Once the connection is created, a folder containing a dashboard and a set of datasets and charts will open.
 
    {% include [datalens-appmetrica-note](../../_includes/datalens/datalens-appmetrica-note.md) %}
 
@@ -69,7 +69,7 @@ If you do not have an app in AppMetrica and you skipped the previous step, use t
 
 {% endnote %}
 
-You can change the standard [dashboard](../../datalens/concepts/dashboard.md) however you want. For example, you can delete a chart, change its size, or change the visualization type.
+You can edit the standard [dashboard](../../datalens/concepts/dashboard.md) however you want. For example, you can delete a chart, resize it, or change the visualization type.
 
 1. Open the dashboard.
 
@@ -81,7 +81,7 @@ You can change the standard [dashboard](../../datalens/concepts/dashboard.md) ho
 
    ![image](../../_assets/datalens/solution-06/06-specify-widgets.png)
 
-1. To change the size of the **Installation dynamics** widget, drag it by the bottom-right corner.
+1. To resize the **Installation dynamics** widget, drag it by the bottom-right corner.
 
 1. Click **Save** in the top-right corner to save the dashboard.
 

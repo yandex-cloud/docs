@@ -245,7 +245,7 @@ To use {{ CSI }} with a dynamic `PersistentVolume`:
 
 1. Make sure the file is in the bucket:
    1. In the [management console]({{ link-console-main }}), select a folder.
-   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Click the `pvc-<dynamic_bucket_name>` bucket. If you specified a bucket name when configuring your storage class, open the bucket and the `pvc-<dynamic_bucket_name>` folder located inside.
 
 ### Static PersistentVolume {#create-static-pvc}
@@ -393,5 +393,5 @@ To use {{ CSI }} with a static `PersistentVolume`:
 
 1. Make sure the file is in the bucket:
    1. In the [management console]({{ link-console-main }}), select a folder.
-   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Click `<static_bucket_name>`. If you specified the path to the folder located inside the bucket in the static `PersistentVolume` description, you need to open that folder first.

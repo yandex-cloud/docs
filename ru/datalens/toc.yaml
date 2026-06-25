@@ -894,7 +894,7 @@ items:
                 href: operations/dashboard/add-title.md
               - name: Добавление селектора JS на дашборд
                 href: charts/editor/add-js-selector.md
-              - name: Добавление Нейроаналитика на дашборд
+              - name: Добавление виджета с инсайтом на дашборд
                 href: operations/dashboard/add-ai.md
               - name: Копирование виджетов на дашборде
                 href: operations/dashboard/copying-widgets.md

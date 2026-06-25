@@ -41,7 +41,7 @@
 || Не рекомендованные | `\`, `{`, `}`, `^`, ``` ` ```, `%`, `[`, `]`, `"`, `<`, `>`, `~`, ```|```, `#` и символы расширенной таблицы [ASCII-символов](https://{{ lang }}.wikipedia.org/wiki/ASCII) с кодами `128`-`255` | Для этих символов необходима существенная специальная обработка, которая может отличаться в зависимости от используемого программного обеспечения. ||
 |#
 
-Подробнее о ключах в AWS S3 API см. на странице [Naming Amazon S3 objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html).
+Подробнее о ключах в AWS S3 API смотрите на странице [Naming Amazon S3 objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html).
 
 ### Папка {#folder}
 

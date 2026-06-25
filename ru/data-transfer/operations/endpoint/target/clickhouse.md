@@ -319,7 +319,7 @@ description: Из статьи вы узнаете, как задать наст
 * [Нехватка ресурсов или растущая задержка передачи данных](#pod-restarted)
 * [Превышение количества блоков данных](#partition-blocks)
 
-См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
+Смотрите полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
 {% include [no-new-tables](../../../../_includes/data-transfer/troubles/clickhouse/no-new-tables.md) %}
 

@@ -4,7 +4,7 @@
 
 #### Что делать, если я получаю ошибку вида "disk size must be at least ... according to topics partitions number and replication factor, but size is ..."? {#disk-size}
 
-Ошибка вызвана тем, что сегменты логов ваших топиков занимают больше места, чем есть в хранилище брокеров. Подробнее о расчете необходимого места см. в разделе [{#T}](../../managed-kafka/concepts/storage.md#minimal-storage-size).
+Ошибка вызвана тем, что сегменты логов ваших топиков занимают больше места, чем есть в хранилище брокеров. Подробнее о расчете необходимого места смотрите в разделе [{#T}](../../managed-kafka/concepts/storage.md#minimal-storage-size).
 
 Для решения проблемы можно [увеличить размер дискового хранилища](../../managed-kafka/operations/cluster-update.md#change-disk-size) или уменьшить размер сегмента для [топиков](../../managed-kafka/operations/cluster-topics.md#update-topic) или [всего кластера](../../managed-kafka/operations/cluster-update.md#change-kafka-settings).
 
@@ -70,9 +70,9 @@ The revocation function was unable to check revocation for the certificate
 
 Да, можно, но с ограничениями.
 
-Подробнее о том, какие виды API доступны в кластере и какие для них есть ограничения, см. в разделе [{#T}](../../managed-kafka/concepts/available-apis.md).
+Подробнее о том, какие виды API доступны в кластере и какие для них есть ограничения, смотрите в разделе [{#T}](../../managed-kafka/concepts/available-apis.md).
 
-Пример использования скриптов см. в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
+Пример использования скриптов смотрите в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
 
 #### Что делать, если возникает ошибка kafkacat: command not found? {#kafkacat-not-found}
 
@@ -125,7 +125,7 @@ SASL authentication error: Authentication failed during authentication due to in
    * Если значение `kafka_log_Log_LogStartOffset` больше `kafka_group_topic_partition_offset` на всем периоде наблюдения, выбранная группа потребителей успевает вычитывать все новые сообщения из указанного сегмента топика.
    * Если есть моменты времени, когда значение `kafka_group_topic_partition_offset` становится меньше `kafka_log_Log_LogStartOffset`, это указывает на потерю сообщений.
 
-Подробнее см. в разделе [{#T}](../../managed-kafka/tutorials/retention-policy.md).
+Подробнее в разделе [{#T}](../../managed-kafka/tutorials/retention-policy.md).
 
 #### Какой размер блока используется на дисках кластера? {#block-size}
 

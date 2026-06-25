@@ -93,7 +93,7 @@ _Бакет_ — это выделенная часть хранилища {{ ob
 
 {% include [intro-access-via-vpc](../../_includes/storage/intro-access-via-vpc.md) %}
 
-Подробнее о настройке доступа см. на странице [{#T}](../operations/buckets/access-via-vpc.md).
+Подробнее о настройке доступа смотрите на странице [{#T}](../operations/buckets/access-via-vpc.md).
 
 
 ## Публичный доступ к бакетам {#bucket-access}

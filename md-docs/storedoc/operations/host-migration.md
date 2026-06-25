@@ -217,7 +217,7 @@
 
    FQDN указан в выводе команды, в столбце `NAME`.
 
-   О том, как получить FQDN хоста в [Консоли управления](https://console.yandex.cloud), см. [инструкцию](connect/index.md#get-fqdn).
+   Как получить FQDN хоста в [Консоли управления](https://console.yandex.cloud), описано в [инструкции](connect/index.md#get-fqdn).
 
 1. Удалите хосты в первоначальной зоне доступности:
 

@@ -1,6 +1,6 @@
 ---
 title: Visualizing {{ tracker-full-name }} data
-description: To visualize data from {{ tracker-short-name }}, set up regular export of data to external storage and visualize the required metrics and data using the {{ datalens-short-name }} tools.
+description: To visualize data from {{ tracker-short-name }}, set up a regular export to an external storage. Then, use {{ datalens-short-name }} to analyze the required metrics.
 ---
 
 {% include [visualisation-in-datalens](../../_tutorials/datalens/data-from-tracker.md) %}

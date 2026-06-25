@@ -1,7 +1,7 @@
 # Visualizing {{ monitoring-full-name }} data
 
 
-This scenario will be useful if you have already deployed and started one of the {{ yandex-cloud }} services.
+This tutorial will be useful if you have already deployed and started one of the {{ yandex-cloud }} services.
 
 You will create a chart using the [{{ monitoring-full-name }} query language](../../monitoring/concepts/querying.md) and add it to the dashboard.
 
@@ -53,7 +53,7 @@ To create a {{ monitoring-name }} connection:
 
 1. Go to the [connections page]({{ link-datalens-main }}/connections).
 1. Click **Create connection**.
-1. Select a **{{ monitoring-name }}** connection.
+1. Select the **{{ monitoring-name }}** connection.
 1. Configure the connection as follows:
 
    * **Cloud and folder**: Select the folder with your service account.
@@ -128,7 +128,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) for the charts.
 
 ## Add selectors to the dashboard {#add-selectors-to-dashboard}
 
-Add a [selector](../../datalens/dashboard/selector.md) so that you can select the time range for the displayed data.
+Add a [selector](../../datalens/dashboard/selector.md) so that you can select the time interval for the displayed data:
 
 1. At the top of the page, click **Add**.
 1. Choose **Selector**.
@@ -136,7 +136,7 @@ Add a [selector](../../datalens/dashboard/selector.md) so that you can select th
    ![image](../../_assets/datalens/monitoring-visualization/add-selector.png)
 
 1. Select **Manual input** as the source type.
-1. Under **Field or parameter name**, enter `interval`. This query variable will get the selected values from the selector.
+1. In **Field or parameter name**, enter `interval`. This query variable will get the selected values from the selector.
 1. Select **Calendar** as the selector type.
 1. Enable **Range**.
 

@@ -38,6 +38,7 @@
    * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — выберите созданные ранее группы безопасности.
    * **{{ ui-key.yacloud.k8s.node-groups.create.field_node-taints }}** — укажите [taint-политику](../../managed-kubernetes/concepts/index.md#taints-tolerations) `nvidia.com/gpu=true:NoSchedule`.
 
+   {% include [cgroups-v2-platform](../../_includes/managed-kubernetes/cgroups-v2-platform.md) %}
 
 1. {% include [Настройка kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 

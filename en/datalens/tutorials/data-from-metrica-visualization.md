@@ -1,5 +1,5 @@
 ---
-title: 'Yandex Metrica: direct connection'
+title: 'Yandex Metrica: Direct connection'
 description: In this tutorial, you will learn how to use {{ datalens-short-name }} to visualize and analyze data supplied by {{ metrika }}.
 canonical: '{{ link-docs }}/tutorials/datalens/data-from-metrica-visualization'
 ---

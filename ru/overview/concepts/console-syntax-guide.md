@@ -130,5 +130,5 @@ description: Сервисы {{ yandex-cloud }} предоставляют раз
 ### Проверьте имена системных переменных и вспомогательный синтаксис {#replace-analogs}
 
 1. Проверьте имена переменных среды. Например, вместо переменной среды Linux `USER` в Windows используется переменная `USERNAME`. 
-1. Если код содержит операторы сравнения, ветвления или циклы, измените синтаксис в соответствии с требованиями вашей командной оболочки. Подробнее о разнице вспомогательного синтаксиса оболочек Bash и PowerShell см. [Bash vs PowerShell Cheat Sheet](https://blog.ironmansoftware.com/daily-powershell/bash-powershell-cheatsheet).
+1. Если код содержит операторы сравнения, ветвления или циклы, измените синтаксис в соответствии с требованиями вашей командной оболочки. Подробнее о разнице вспомогательного синтаксиса оболочек Bash и PowerShell смотрите [Bash vs PowerShell Cheat Sheet](https://blog.ironmansoftware.com/daily-powershell/bash-powershell-cheatsheet).
 

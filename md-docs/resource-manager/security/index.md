@@ -105,7 +105,7 @@ resource-manager.clouds.member --> resource-manager.clouds.owner
 
 Роль `resource-manager.clouds.owner` позволяет совершать любые действия в [облаке](../concepts/resources-hierarchy.md#cloud) и дочерних [ресурсах](../concepts/resources-hierarchy.md).
 
-Роль также позволяет управлять привязкой облака к [платежному аккаунту](../../billing/concepts/billing-account.md), для этого у пользователя должны быть права на этот платежный аккаунт. Подробнее об управлении доступом к платежному аккаунту см. в [документации Yandex Cloud Billing](../../billing/security/index.md#billing-account).
+Роль также позволяет управлять привязкой облака к [платежному аккаунту](../../billing/concepts/billing-account.md), для этого у пользователя должны быть права на этот платежный аккаунт. Подробнее об управлении доступом к платежному аккаунту смотрите в [документации Yandex Cloud Billing](../../billing/security/index.md#billing-account).
 
 По умолчанию пользователи с этой ролью получают [уведомления](../concepts/notify.md) о событиях в облаке и его каталогах.
 

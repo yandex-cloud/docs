@@ -8,7 +8,7 @@ _Go-артефакт_ — это [ZIP-архив](https://go.dev/ref/mod#zip-fil
 
 Подробнее о Go-модулях читайте в [официальной документации](https://go.dev/ref/mod).
 
-#### См. также {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Поддерживаемые типы артефактов](index.md#artifacts)
 * [Скачать Go-модуль из реестра Cloud Registry](../../operations/go/pull.md)

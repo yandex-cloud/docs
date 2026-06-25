@@ -53,7 +53,7 @@ The {{ GL }} agent does not run CI/CD pipelines. To do this, install [{{ GL }} R
 ## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
 1. In the [management console]({{ link-console-main }}), select a folder.
-1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [{{ GLA }}](/marketplace/products/yc/gitlab-agent) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
@@ -103,5 +103,5 @@ The {{ GL }} agent does not run CI/CD pipelines. To do this, install [{{ GL }} R
 
 ## See also {#see-also}
 
-* [{{ GL }} agent documentation](https://docs.gitlab.com/ee/user/clusters/agent/).
-* [{{ mgl-name }} documentation](../../../managed-gitlab/).
+* [{{ GL }} agent guides](https://docs.gitlab.com/ee/user/clusters/agent/)
+* [{{ mgl-name }} guides](../../../managed-gitlab/)

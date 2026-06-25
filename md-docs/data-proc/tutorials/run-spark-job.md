@@ -8,9 +8,27 @@
 
 Ниже рассматривается пример, по которому будет рассчитана статистика по воздушному трафику США за 2018 год по данным с сайта [transtats.bts.gov](https://transtats.bts.gov/). Набор данных представлен в формате [Parquet](https://parquet.apache.org/) и находится в публичном бакете Yandex Object Storage с именем `yc-mdb-examples`.
 
+
 ## Перед началом работы {#before-you-begin}
 
-Подготовьте инфраструктуру:
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер Yandex Data Processing: использование вычислительных ресурсов с наценкой за сервис Yandex Data Processing, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы Yandex Data Processing](../pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Бакет Yandex Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
+
+
+## Подготовьте инфраструктуру {#infra}
 
 {% list tabs group=resources %}
 
@@ -676,6 +694,7 @@ s3cmd put ~/spark-app/target/scala-<версия_Scala>/spark-app-assembly-0.1.0
 
     1. [Удалите кластер Yandex Data Processing](../operations/cluster-delete.md).
     1. Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
+    1. [Удалите бакет](../../storage/operations/buckets/delete.md). Перед удалением бакета [удалите из него все объекты](../../storage/operations/objects/delete.md).
     1. [Удалите подсеть](../../vpc/operations/subnet-delete.md).
     1. [Удалите таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
     1. [Удалите NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).

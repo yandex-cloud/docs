@@ -14,7 +14,7 @@ IP-адреса, FQDN и другую информацию можно узнат
 
 {% include [add-network-interface-hotplug-preview-note](../../_includes/compute/add-network-interface-hotplug-preview-note.md) %}
 
-Если добавленные сетевые интерфейсы неактивны или у вас пропала возможность [подключаться](../operations/vm-connect/ssh.md) к ВМ, см. раздел [Решение проблем](../qa/troubleshooting.md).
+Если добавленные сетевые интерфейсы неактивны или у вас пропала возможность [подключаться](../operations/vm-connect/ssh.md) к ВМ, смотрите раздел [Решение проблем](../qa/troubleshooting.md).
 
 ### Рекомендации {#best-practices}
 

@@ -51,7 +51,7 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
 
   To update a {{ managed-k8s-name }} node group:
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the cluster name.
   1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
   1. Select the node group you need.
@@ -122,7 +122,7 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
   To update a {{ managed-k8s-name }} node group:
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create this file, see [{#T}](node-group-create.md).
+     For more on how to create such a file, see [{#T}](node-group-create.md).
   1. Edit the {{ managed-k8s-name }} node group description properties.
 
      * To change the scaling settings, edit the `scale_policy` section as follows:
@@ -158,7 +158,7 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
 
        {% include [node-name](../../../_includes/managed-kubernetes/tf-node-name.md) %}
 
-  1. Validate your configuration files.
+  1. Make sure the configuration files are correct.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -236,7 +236,7 @@ Using a [deployment policy](../../concepts/node-group/deploy-policy.md), you can
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-      For more on how to create this file, see [{#T}](./node-group-create.md).
+      For more on how to create such a file, see [{#T}](./node-group-create.md).
 
   1. Specify the settings under `deploy_policy`. If there is no such section, add it first.
 
@@ -256,7 +256,7 @@ Using a [deployment policy](../../concepts/node-group/deploy-policy.md), you can
 
       {% include [deploy-policy-parameters-tf](../../../_includes/managed-kubernetes/deploy-policy/parameters-tf.md) %}
 
-  1. Validate your configuration files.
+  1. Make sure the configuration files are correct.
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -293,7 +293,7 @@ Using a [deployment policy](../../concepts/node-group/deploy-policy.md), you can
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the cluster name.
   1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
   1. Select the node group you need.
@@ -331,7 +331,7 @@ Using a [deployment policy](../../concepts/node-group/deploy-policy.md), you can
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create this file, see [{#T}](node-group-create.md).
+     For more on how to create such a file, see [{#T}](node-group-create.md).
 
   1. Add `instance_template.network_interface.nat` set to `true` to the node group description:
 
@@ -389,7 +389,7 @@ Adding [taints](../../concepts/index.md#taints-tolerations) results in removing 
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create this file, see [{#T}](node-group-create.md).
+     For more on how to create such a file, see [{#T}](node-group-create.md).
 
   1. Add the `node_taints` section to the node group description:
 
@@ -412,7 +412,7 @@ Adding [taints](../../concepts/index.md#taints-tolerations) results in removing 
 
      You can place multiple taints by specifying them separated by commas.
 
-  1. Validate your configuration files.
+  1. Make sure the configuration files are correct.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -442,11 +442,11 @@ Removing [taints](../../concepts/index.md#taints-tolerations) results in removin
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create this file, see [{#T}](node-group-create.md).
+     For more on how to create such a file, see [{#T}](node-group-create.md).
 
   1. In the node group description, remove the taints you no longer need under `node_taints`.
 
-  1. Validate your configuration files.
+  1. Make sure the configuration files are correct.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -474,7 +474,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Click the cluster name.
     1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
     1. Select the node group you need.
@@ -506,7 +506,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create this file, see [{#T}](node-group-create.md).
+     For more on how to create such a file, see [{#T}](node-group-create.md).
   1. Add the `labels` property to the {{ managed-k8s-name }} node group description:
 
      ```hcl
@@ -543,7 +543,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
   To update a cloud label, you will have to remove and recreate it:
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Click the cluster name.
     1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
     1. Select the node group you need.
@@ -575,7 +575,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create this file, see [{#T}](node-group-create.md).
+     For more on how to create such a file, see [{#T}](node-group-create.md).
   1. Edit the `labels` property in the {{ managed-k8s-name }} node group description:
 
      ```hcl
@@ -611,7 +611,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Click the cluster name.
     1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
     1. Select the node group you need.
@@ -642,7 +642,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
      For more on how to create this file, see [{#T}](node-group-create.md).
   1. In the {{ managed-k8s-name }} node group description, remove the cloud labels you no longer need under `labels`.
-  1. Validate your configuration files.
+  1. Make sure the configuration files are correct.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -665,7 +665,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Click the cluster name.
     1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
     1. Select the node group you need.
@@ -733,7 +733,7 @@ After you update the metadata, the node group status will temporarily change to 
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Click the cluster name.
     1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
     1. Select the node group you need.
@@ -837,7 +837,7 @@ After you update the metadata, the node group status will temporarily change to 
 
         {% endnote %}
 
-    1. Validate your configuration files.
+    1. Make sure the configuration files are correct.
 
         {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 

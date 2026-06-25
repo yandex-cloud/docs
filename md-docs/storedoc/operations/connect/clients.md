@@ -1,6 +1,6 @@
 # Подключение к кластеру Yandex StoreDoc из приложений
 
-К кластеру Yandex StoreDoc можно подключиться с помощью [инструментов командной строки](#command-line-tools), из [графических IDE](#connection-ide) и [Docker-контейнера](#connection-docker). О подключении из кода вашего приложения см. [Примеры кода](code-examples.md).
+К кластеру Yandex StoreDoc можно подключиться с помощью [инструментов командной строки](#command-line-tools), из [графических IDE](#connection-ide) и [Docker-контейнера](#connection-docker). О подключении из кода вашего приложения смотрите [Примеры кода](code-examples.md).
 
 В примерах ниже предполагается, что [SSL-сертификат](index.md#get-ssl-cert) `root.crt` расположен в директории:
 

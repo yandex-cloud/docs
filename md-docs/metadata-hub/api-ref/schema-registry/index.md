@@ -48,7 +48,7 @@
 | `/schemas/types`             | GET    | List supported schema types                   |
 
 
-См. следующие документы для подробной информации о работе с Confluent-совместимом API:
+Смотрите следующие документы для подробной информации о работе с Confluent-совместимом API:
 
 * [Справочник API Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/develop/api.html#schemaregistry-api)
 * [Примеры использования API Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/develop/using.html#schemaregistry-using)

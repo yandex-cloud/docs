@@ -47,11 +47,6 @@ Starting with {{ k8s }} version `1.30`, for a group of nodes with GPUs to work c
 
 * GPU Operator version `24.9.2`.
 
-  {% note info %}
-
-  GPU Operator versions above `24.9.2` were not tested in {{ yandex-cloud }}.
-
-  {% endnote %}
 
 * NVIDIA driver `550.144.03` or higher.
 
@@ -132,11 +127,6 @@ If you get compilation errors when installing drivers:
     ```bash
     helm list -n gpu-operator
     ```
-    {% note info %}
-
-    GPU Operator versions above `24.9.2` were not tested in {{ yandex-cloud }}.
-
-    {% endnote %}
 
 1. Use precompiled drivers:
 

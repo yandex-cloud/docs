@@ -1,4 +1,4 @@
-# Yandex Metrica: direct connection
+# Yandex Metrica: Direct connection
 
 
 
@@ -18,7 +18,7 @@ If there are no available tags in the list, use the Yandex Metrica [demo dashboa
 To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin) and follow the steps below:
 
 1. [Create a workbook](#create-workbook).
-1. [Create a connection and standard dashboard](#create-connection).
+1. [Create a connection and a standard dashboard](#create-connection).
 1. [Edit the standard dashboard](#edit-dashboard).
 1. [Edit the chart](#edit-chart).
 
@@ -33,7 +33,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
 1. In the top-right corner, click **Create** → **Create workbook**.
-1. Enter a name for the [workbook](../../datalens/workbooks-collections/index.md): `Metrica Live Demo`.
+1. Enter `Metrica Live Demo` for the [workbook](../../datalens/workbooks-collections/index.md) name.
 1. Click **Create**.
 
 ## Create a connection and a standard dashboard {#create-connection}
@@ -48,19 +48,19 @@ This step describes actions for users with permissions for any Yandex Metrics ta
 1. Under **Files and services**, select the **{{ metrika }}** connection.
 1. Click **Get token**.
 
-   If this is your first connection to a Yandex Metrica tag, grant the necessary permissions to the service.
+   If this is your first connection to a Yandex Metrica tag, grant the required permissions to the service.
 
 1. Select the tag from the drop-down list.
 
-   Maximum number of Yandex Metrica tags: 1,000.
+   The maximum number of Yandex Metrica tags is 1,000.
 
 1. Select the [accuracy](https://yandex.com/dev/metrika/doc/api2/api_v1/sampling-docpage/) level from the drop-down list.
-1. Enable **Automatically create a dashboard, charts, and a dataset on the connection**.
+1. Enable **Automatically create dashboard, charts, and dataset on top of connection**.
 1. Click **Create connection**.
 
    ![image](../../_assets/datalens/solution-03/03-create-metrica-coonection.png)
 
-   1. Enter the connection name:`Demo Connection to Metrica Live`.
+   1. Enter the connection name: `Demo Connection to Metrica Live`.
    1. Click **Create**.
 
    When the connection is created, a workbook or folder containing the datasets, charts, and dashboard will open.
@@ -96,7 +96,7 @@ You can customize the standard [dashboard](../../datalens/concepts/dashboard.md)
 
 You can edit any chart on the dashboard. For example, change the visualization type for the `Sessions by device type and OS` chart from the **Technologies** section.
 
-1. In the top right corner of the `Session by device type and OS` chart, click ![image](../../_assets/console-icons/ellipsis.svg).
+1. In the top-right corner of the `Session by device type and OS` chart, click ![image](../../_assets/console-icons/ellipsis.svg).
 1. Select **Edit**.
 
    ![image](../../_assets/datalens/solution-03/14-edit-chart.png)
@@ -107,6 +107,6 @@ You can edit any chart on the dashboard. For example, change the visualization t
 
 1. In the top-right corner, click **Save**.
 1. Close the chart editing page and go back to the dashboard window.
-1. Update the dashboard and make sure that the chart changed in the **Technologies** section.
+1. Update the dashboard and make sure the chart changed in the **Technologies** section.
 
    ![image](../../_assets/datalens/solution-03/17-refresh-dashboard.png)

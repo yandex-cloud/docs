@@ -22,7 +22,7 @@ No. Once a seat is purchased, the full monthly fee will be charged, even if this
 
 ## Managing seats {#manage-seats}
 
-### Where do I configure my seats? {#seats-settings}
+### Where do I configure seats? {#seats-settings}
 
 Administrators have access to a seat management tool in the [service settings](../../datalens/settings/seats.md). They can:
 * View the number of seats in the instance, including available (unassigned) ones.
@@ -44,17 +44,17 @@ Your administrators can manually reassign seats as needed.
 
 Only users who log in directly to {{ datalens-name }} need seats. If you have any [embedded private charts](../../datalens/security/private-embedded-objects.md) in external resources, e.g., in your customers' accounts, you do not need to purchase seats for these customers since they never log in to {{ datalens-name }}.
 
-The system counts the number of queries to data sources from private embedded charts, i.e., those in the wizard and Editor as well as QL charts, that are executed when rendering these objects. Only successfully completed requests for retrieving data to render charts are counted. If multiple requests are required to render a single chart, this is counted as one request. For embedded private dashboards, queries from the added charts are summed up.
+The system counts the number of queries against data sources from embedded private charts, i.e., those in the wizard and Editor as well as QL charts, that are executed when rendering these objects. Only successfully completed queries for retrieving data to render charts are counted. If multiple queries are required to render a single chart, this is counted as one query. For embedded private dashboards, queries from the added charts are summed up.
 
-The total number of queries from all private charts in an instance per month must not exceed the established limit.
+The total number of queries from all private charts in an instance per month must not exceed this limit:
 
 > 2,000 queries x Number of seats
 
-If you exceed this limit, you will need to purchase additional seats. When the limit on the number of queries from private embedded charts is exceeded and [automatic seat purchase](../../datalens/settings/seats.md#purchase-automatically) is enabled, there is no automatic repurchase of new seats.
+If you exceed this limit, you will need to purchase additional seats. When the limit on the number of queries from embedded private charts is exceeded and [automatic seat purchase](../../datalens/settings/seats.md#purchase-automatically) is enabled, there is no automatic repurchase of new seats.
 
 ### How can I track the number of queries from embedded private objects? {#statistics}
 
-To estimate the number of queries from embedded private objects, use the [Usage Analytics](../../datalens/operations/connection/create-usage-tracking.md) connection, which provides detailed usage statistics. For the number of queries from private embedded objects, see the `Top Users (Requests)` table, `_ANONYMOUS_USER_OF_EMBEDDED_DATALENS_` row.
+To estimate the number of queries from embedded private objects, use the [Usage Analytics](../../datalens/operations/connection/create-usage-tracking.md) connection, which provides detailed usage statistics. For the number of queries from embedded private objects, see the `Top Users (Requests)` table, `_ANONYMOUS_USER_OF_EMBEDDED_DATALENS_` row.
 
 ### What if I need more queries from embedded private objects? {#more-queries}
 
@@ -66,6 +66,6 @@ No. In this case, you must purchase more seats to stay within the limit on the n
 
 ### I have a public dashboard/chart embedded in my website; do the queries it generates also count? {#public-embeds}
 
-[Public links](../../datalens/concepts/datalens-public.md) to dashboards or charts accessible without authentication do not count as queries to embedded private objects.
+[Public links](../../datalens/concepts/datalens-public.md) to dashboards or charts accessible without authentication do not count as queries against embedded private objects.
 
 For the number of queries from public objects, see the [Usage Analytics](../../datalens/operations/connection/create-usage-tracking.md) connection with usage statistics. You can find this number in the `Top Users (Requests)` table, the `_ANONYMOUS_USER_OF_PUBLIC_DATALENS_` row.

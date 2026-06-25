@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  См. раздел [{#T}](../../../compute/operations/disk-create/empty.md).
+  Смотрите раздел [{#T}](../../../compute/operations/disk-create/empty.md).
 
 - CLI {#cli}
 

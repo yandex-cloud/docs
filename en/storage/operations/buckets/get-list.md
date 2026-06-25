@@ -10,7 +10,7 @@ description: Follow this guide to get a list of buckets in {{ objstorage-name }}
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   
   The page that opens will display the complete list of [buckets](../../concepts/bucket.md).
 

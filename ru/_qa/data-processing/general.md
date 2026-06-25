@@ -14,7 +14,7 @@ sudo -u hdfs hdfs balancer
 
 #### Где можно посмотреть логи кластера {{ dataproc-name }}? {#cluster-logs}
 
-Логи кластера доступны в его лог-группе. Чтобы следить за событиями кластера и его отдельных хостов, при [создании](../../data-proc/operations/cluster-create.md) или [изменении](../../data-proc/operations/cluster-update.md) кластера укажите в его настройках нужную [лог-группу](../../logging/concepts/log-group.md). Если для кластера не выбрана лог-группа, то для отправки и хранения логов будет использована лог-группа по умолчанию в каталоге кластера. Подробнее см. в разделе [{#T}](../../data-proc/operations/logging.md).
+Логи кластера доступны в его лог-группе. Чтобы следить за событиями кластера и его отдельных хостов, при [создании](../../data-proc/operations/cluster-create.md) или [изменении](../../data-proc/operations/cluster-update.md) кластера укажите в его настройках нужную [лог-группу](../../logging/concepts/log-group.md). Если для кластера не выбрана лог-группа, то для отправки и хранения логов будет использована лог-группа по умолчанию в каталоге кластера. Подробнее в разделе [{#T}](../../data-proc/operations/logging.md).
 
 {% include [logs](../logs.md) %}
 
@@ -26,7 +26,7 @@ sudo -u hdfs hdfs balancer
 
 #### При запуске скрипта инициализации я получаю ошибку `^M: bad interpreter`, как это исправить? {#syntax-error}
 
-Так как среда выполнения скрипта — Linux (Ubuntu), то скрипты, подготовленные в Windows, могут выполниться с ошибкой `^M: bad interpreter` из-за использования символа переноса строки `CR/LF` (в Linux – `LF`). Для исправления ошибки сохраните файл скрипта в формате Linux. Подробнее см. в разделе [{#T}](../../data-proc/concepts/init-action.md#syntax-errors).
+Так как среда выполнения скрипта — Linux (Ubuntu), то скрипты, подготовленные в Windows, могут выполниться с ошибкой `^M: bad interpreter` из-за использования символа переноса строки `CR/LF` (в Linux – `LF`). Для исправления ошибки сохраните файл скрипта в формате Linux. Подробнее в разделе [{#T}](../../data-proc/concepts/init-action.md#syntax-errors).
 
 #### При запуске задания PySpark возникает ошибка, связанная с `com/amazonaws/auth/AWSCredentialsProvider`, как это исправить? {#sharedPrefixes-property}
 
@@ -74,7 +74,7 @@ py4j.protocol.Py4JJavaError: An error occurred while calling o264.parquet.
 * Удалите лишние ресурсы, которые занимают IP-адреса в подсети.
 * Создайте подсеть с CIDR, подходящим под конфигурацию вашего кластера. Затем создайте кластер {{ dataproc-name }} в новой подсети.
 
-Подробнее о размерах подсетей см. в документации [{{ vpc-full-name }}](../../vpc/concepts/network.md#subnet).
+Подробнее о размерах подсетей смотрите в документации [{{ vpc-full-name }}](../../vpc/concepts/network.md#subnet).
 
 #### Почему кластер в статусе `Unknown`? {#unknown}
 
@@ -103,7 +103,7 @@ py4j.protocol.Py4JJavaError: An error occurred while calling o264.parquet.
 
    В параметрах `--since` и `--until` укажите границы периода. Формат времени: `YYYY-MM-DDThh:mm:ssZ`. Пример: `2020-08-10T12:00:00Z`. Время указывается в часовом поясе UTC.
 
-   Подробнее см. в разделе [{#T}](../../data-proc/operations/logging.md).
+   Подробнее в разделе [{#T}](../../data-proc/operations/logging.md).
 
 #### Какая минимальная вычислительная мощность нужна для работы подкластера с хостом-мастером? {#master-computing-power}
 
@@ -111,7 +111,7 @@ py4j.protocol.Py4JJavaError: An error occurred while calling o264.parquet.
 
 {% include [subcluster-computing-nodes](../../_includes/data-processing/subcluster-computing-nodes.md) %}
 
-В {{ yandex-cloud }} вычислительная мощность определяется классом хостов. Их соотношение см. в разделе [Классы хостов](../../data-proc/concepts/instance-types.md).
+В {{ yandex-cloud }} вычислительная мощность определяется классом хостов. Их соотношение смотрите в разделе [Классы хостов](../../data-proc/concepts/instance-types.md).
 
 #### Как обновить версию образа в {{ dataproc-name }}? {#upgrade}
 

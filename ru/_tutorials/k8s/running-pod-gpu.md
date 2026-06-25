@@ -36,6 +36,8 @@
    * **{{ ui-key.yacloud.component.compute.resources.field_gpus }}** — укажите нужное количество GPU.
    * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — выберите созданные ранее группы безопасности.
 
+   {% include [cgroups-v2-platform](../../_includes/managed-kubernetes/cgroups-v2-platform.md) %}
+
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Создайте под с GPU {#create-pod-gpu}

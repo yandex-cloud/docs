@@ -218,7 +218,7 @@ Managed Service for MySQL® доступен всем зарегистриров
 - Сеть, к которой будет подключен ваш кластер.
 - Количество хостов для кластера и зона доступности для каждого хоста вы можете выбрать зону доступности.
 
-Подробные инструкции см. в разделе [Начало работы](../quickstart.md).
+Подробные инструкции смотрите в разделе [Начало работы](../quickstart.md).
 
 #### Сколько хостов БД может содержать кластер? {#how-many-hosts}
 
@@ -239,7 +239,7 @@ Managed Service for MySQL® доступен всем зарегистриров
 
 Максимальное количество хостов в кластере ограничено установленными лимитами.
 
-Подробнее см. в разделе [Квоты и лимиты](../concepts/limits.md).
+Подробнее в разделе [Квоты и лимиты](../concepts/limits.md).
 
 #### Как получить доступ к запущенному хосту базы данных? {#db-access}
 
@@ -261,7 +261,7 @@ Managed Service for MySQL® доступен всем зарегистриров
 - изменение класса хостов и объема хранилища;
 - другие сервисные работы Managed Service for MySQL®.
 
-Подробнее см. в разделе [Техническое обслуживание](../concepts/maintenance.md).
+Подробнее в разделе [Техническое обслуживание](../concepts/maintenance.md).
 
 #### Какую версию MySQL® использует Managed Service for MySQL®? {#dbms-version}
 
@@ -372,7 +372,7 @@ Managed Service for MySQL® поддерживает MySQL® 5.7 и MySQL® 8.
 
 #### Какие ограничения накладываются на кластеры БД MySQL®? {#instance-limitations}
 
-Подробнее об ограничениях Managed Service for MySQL® см. раздел [Квоты и лимиты](../concepts/limits.md). В разделе [Классы хостов](../concepts/instance-types.md) приведены характеристики кластеров, которые можно создать с помощью Managed Service for MySQL®.
+Подробнее об ограничениях Managed Service for MySQL® смотрите раздел [Квоты и лимиты](../concepts/limits.md). В разделе [Классы хостов](../concepts/instance-types.md) приведены характеристики кластеров, которые можно создать с помощью Managed Service for MySQL®.
 
 #### Почему кластер работает медленно, хотя вычислительные ресурсы использованы не до предела? {#throttling}
 
@@ -506,7 +506,7 @@ The revocation function was unable to check revocation for the certificate
 * хранение старых версий строк (rollback segment);
 * упаковка типов.
 
-Чтобы узнать фактический объем таблиц в базе, обратитесь к системной таблице `INNODB_SYS_TABLESPACES`. Подробнее см. в статье [Finding MySQL Table Size on Disk](https://www.percona.com/blog/2016/01/26/finding_mysql_table_size_on_disk).
+Чтобы узнать фактический объем таблиц в базе, обратитесь к системной таблице `INNODB_SYS_TABLESPACES`. Подробнее в статье [Finding MySQL Table Size on Disk](https://www.percona.com/blog/2016/01/26/finding_mysql_table_size_on_disk).
 
 #### Что делать при возникновении любой ошибки приложения? {#application-error}
 
@@ -540,7 +540,7 @@ The revocation function was unable to check revocation for the certificate
    * Рекомендуется увеличить класс хостов:
       * При стабильно высоком значении `Steal` графика **CPU usage**.
       * При стабильно низком значении `Free` графика **Memory usage**.
-   * При высоком значении `iowait` графика **CPU usage** возможно превышение лимитов IOPS дискового хранилища. Рекомендуется увеличить значение как минимум до следующего порога [блока размещения](../../compute/concepts/limits.md#compute-limits-disks) или использовать более быстрые диски. Подробнее о лимитах и производительности дисков см. в [документации Yandex Compute Cloud](../../compute/concepts/disk.md).
+   * При высоком значении `iowait` графика **CPU usage** возможно превышение лимитов IOPS дискового хранилища. Рекомендуется увеличить значение как минимум до следующего порога [блока размещения](../../compute/concepts/limits.md#compute-limits-disks) или использовать более быстрые диски. Подробнее о лимитах и производительности дисков смотрите в [документации Yandex Compute Cloud](../../compute/concepts/disk.md).
 
 #### Почему отстает реплика? {#replica-lagging}
 
@@ -583,7 +583,7 @@ The revocation function was unable to check revocation for the certificate
    SELECT * FROM sys.statement_analysis LIMIT 10;
    ```
 
-Обратите внимание на запросы с высокими значениями `rows_examined`, `rows_sorted` или флагом `full_scan` — с большой вероятностью именно они потребляют ресурсы CPU. Подробнее см. в [документации MySQL®](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html).
+Обратите внимание на запросы с высокими значениями `rows_examined`, `rows_sorted` или флагом `full_scan` — с большой вероятностью именно они потребляют ресурсы CPU. Подробнее в [документации MySQL®](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html).
 
 #### Как выяснить причину утилизации ресурса IO? {#high-io}
 
@@ -682,7 +682,7 @@ The revocation function was unable to check revocation for the certificate
    SELECT * FROM sys.innodb_lock_waits
    ```
 
-Подробнее см. в [документации MySQL®](https://dev.mysql.com/doc/refman/8.0/en/sys-schema-table-lock-waits.html).
+Подробнее в [документации MySQL®](https://dev.mysql.com/doc/refman/8.0/en/sys-schema-table-lock-waits.html).
 
 #### Как оптимизировать проблемные запросы? {#query-optimization}
 
@@ -696,7 +696,7 @@ The revocation function was unable to check revocation for the certificate
 
 #### Можно ли управлять кластером с помощью команд SQL? {#sql-control}
 
-Существуют ограничения на управление кластером с помощью команд SQL. Подробнее см. в разделе [Ограничения для команд SQL](../concepts/sql-limits.md).
+Существуют ограничения на управление кластером с помощью команд SQL. Подробнее в разделе [Ограничения для команд SQL](../concepts/sql-limits.md).
 
 #### Как уменьшить размер диска? {#reduce-size}
 
@@ -819,7 +819,7 @@ cluster has no backups. If you want to stop the cluster, make a backup
 SHOW PROCESSLIST;
 ```
 
-Подробное описание результата см. в [документации MySQL®](https://dev.mysql.com/doc/refman/5.7/en/show-processlist.html).
+Подробное описание результата смотрите в [документации MySQL®](https://dev.mysql.com/doc/refman/5.7/en/show-processlist.html).
 
 #### Какая еще диагностика доступна? {#trouble-info}
 
@@ -893,7 +893,7 @@ Got fatal error 1236 from source when reading data from binary log:
    START SLAVE;
    ```
 
-При смене мастера в кластере-источнике репликация будет перенастроена на новый хост-мастер. Подробнее о настройке см. в [документации MySQL®](https://dev.mysql.com/doc/refman/8.0/en/change-master-to.html).
+При смене мастера в кластере-источнике репликация будет перенастроена на новый хост-мастер. Подробнее о настройке смотрите в [документации MySQL®](https://dev.mysql.com/doc/refman/8.0/en/change-master-to.html).
 
 ## Настройки параметров MySQL® {#configuring}
 
@@ -901,7 +901,7 @@ Got fatal error 1236 from source when reading data from binary log:
 
 Часовой пояс задается в виде смещения от UTC. Например, для Москвы: `'+03:00'`. Названия часовых поясов не поддерживаются.
 
-Подробнее см. в [документации MySQL®](https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html#time-zone-variables).
+Подробнее в [документации MySQL®](https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html#time-zone-variables).
 
 #### Как установить режим SQL (sql_mode)? {#sql-mode}
 

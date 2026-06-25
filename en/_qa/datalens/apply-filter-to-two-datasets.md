@@ -2,4 +2,4 @@
 
 Link the selector and the chart (from another dataset).
 
-Links between selectors and charts are set up using the **Links** button in the edit dashboard section.
+Links between selectors and charts are set up using the **Links** button in the dashboard editing section.

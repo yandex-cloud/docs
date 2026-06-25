@@ -4,13 +4,17 @@
 В этом руководстве описано создание кластера {{ dataproc-name }} с настройкой подсетей и NAT-шлюза.
 
 
-## Необходимые платные ресурсы {#paid-resources}
+## Перед началом работы {#before-you-begin}
 
-В стоимость поддержки описываемого решения входят:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-* Плата за кластер {{ dataproc-name }}: использование вычислительных ресурсов ВМ и сетевых дисков {{ compute-name }}, а также сервиса {{ cloud-logging-name }} для работы с логами ([тарифы {{ dataproc-name }}](../../data-proc/pricing.md)).
-* Плата за NAT-шлюз ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
-* Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними ([тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ dataproc-name }}: использование вычислительных ресурсов с наценкой за сервис {{ dataproc-name }}, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы {{ dataproc-name }}](../../data-proc/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Бакет {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../storage/pricing.md)).
 
 
 ## Создайте ресурсы {#deploy-infrastructure}
@@ -138,6 +142,7 @@
 
     1. [Удалите кластер {{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
     1. Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
+    1. [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md). Перед удалением бакета [удалите из него все объекты](../../storage/operations/objects/delete.md).
     1. [Удалите подсеть](../../vpc/operations/subnet-delete.md).
     1. [Удалите таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
     1. [Удалите NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).
