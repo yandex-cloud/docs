@@ -22,6 +22,12 @@ keywords:
 
 {% include [boot-disk-recover](../../_includes/compute/boot-disk-recover.md) %}
 
+{% note warning %}
+
+Резервное копирование больших дисков создает интенсивную нагрузку на дисковую подсистему ВМ, что может приводить к сетевым проблемам, например задержке или потере пакетов. Подробнее в разделе [{#T}](storage-read-write.md#disk-load-network-impact).
+
+{% endnote %}
+
 
 ## Сравнение с резервным копированием в {{ backup-name }} {#backup-comparison}
 

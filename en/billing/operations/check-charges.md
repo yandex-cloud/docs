@@ -4,15 +4,35 @@ description: Follow this guide to view service usage details.
 ---
 # Viewing service usage details
 
-You can view charts and tables with information about {{ yandex-cloud }} service usage. Follow these steps:
+You can view usage details for {{ yandex-cloud }} services as charts and tables in {{ billing-name }}, or check 30-day consumption in the management console.
+
+{% note info %}
+
+{% include [view-required-roles](../_includes/view-required-roles.md) %}
+
+{% include [console-access-note](../_includes/console-access-roles.md) %}
+
+{% endnote %}
+
+To view usage details:
 
 {% list tabs group=instructions %}
 
 - {{ billing-interface }} {#billing}
-  
+
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select the account you want the details for.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/square-chart-column.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
+  1. Select the detail depth.
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), navigate to the folder you want to check consumption for.
+  1. In the top-right corner, click ![credit-card](../../_assets/console-icons/credit-card.svg).
+  1. The widget that opens will display consumption over the last 30 days for both the cloud and the selected folder.
+
+      {% include [hide-private-data](../_includes/billing-widget-hide-private-data.md) %}
+  1. To view usage details as charts and tables in {{ billing-name }}, click **{{ ui-key.yacloud_billing_account.billing-widget.details }}**.
   1. Select the detail depth.
 
 {% endlist %}
@@ -45,7 +65,7 @@ By default, usage details show the cost of consumed resources. Details in consum
 
   {% endnote %}
 
-- Сloud folders {#folders}
+- Cloud folders {#folders}
 
   You can view usage details for one or more folders. The selected folders have a mark next to their name. By default, all the folders of the selected cloud are marked. To only view usage details for some of them, in the **{{ ui-key.yacloud_billing.billing.account.detail.value_folders }}** list, deselect the folders you need no information about. To get details for selected folders by specific product or label, click **{{ ui-key.yacloud_billing.billing.account.detail.filter_label_all-filters }}** and specify the products and labels to include in the report.
 
@@ -142,7 +162,6 @@ Name | Description
 {{ ui-key.yacloud_billing.billing.account.detail.column_cost }} | Cost of consumed resources before discount.
 {{ ui-key.yacloud_billing.billing.account.detail.column_credit }} | Discount amount in the contract currency (excluding VAT or other taxes and fees). The discount for a committed volume of services is applied and displayed as soon as you start consuming the resources.
 {{ ui-key.yacloud_billing.billing.account.detail.column_expense }} | Total cost of consumed resources after discount.
-
 
 
 ## Displaying the committed volume of services {#cvos}

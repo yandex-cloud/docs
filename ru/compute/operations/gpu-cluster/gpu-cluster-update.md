@@ -12,6 +12,15 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится кластер GPU.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
+  1. В строке с нужным кластером GPU нажмите ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. В открывшемся окне измените имя, описание или [метки](../../../resource-manager/concepts/labels.md) кластера GPU.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -72,4 +81,16 @@ description: Следуя данной инструкции, вы сможете
   yc compute gpu-cluster get <имя_кластера_GPU>
   ```
 
+- API {#api}
+
+  Чтобы изменить кластер GPU, воспользуйтесь методом REST API [update](../../api-ref/GpuCluster/update.md) для ресурса [GpuCluster](../../api-ref/GpuCluster/index.md) или вызовом gRPC API [GpuClusterService/Update](../../api-ref/grpc/GpuCluster/update.md).
+
 {% endlist %}
+
+#### Полезные ссылки {#see-also}
+
+* [{#T}](gpu-cluster-create.md)
+* [{#T}](gpu-cluster-delete.md)
+* [{#T}](gpu-add-to-cluster.md)
+* [{#T}](../../concepts/gpus.md)
+* [{#T}](../../concepts/vm-platforms.md)

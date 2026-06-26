@@ -566,39 +566,49 @@ ZIP-архив через S3 бакет | 128 МБ
 
 ### Лимиты виртуальных машин на работу с дисками {#compute-limits-vm-disks}
 
+Указанные ниже значения — это ограничения со стороны ВМ. Они масштабируются вместе с количеством vCPU: значение в строке умножается на количество vCPU и задает верхнюю границу суммарной нагрузки на все диски, подключенные к ВМ. Например, для ВМ с 4 vCPU и сетевым SSD-диском суммарный максимальный IOPS не может превышать _4 × 3 500 = 14 000_.
+
+Фактическая производительность отдельного диска ограничена также его [собственными лимитами](#compute-limits-disks). Итоговое значение определяется как минимум из лимита ВМ и лимита диска.
+
+{% note info %}
+
+Лимиты на IOPS и пропускную способность отдельного диска зависят от количества [блоков размещения](../compute/concepts/storage-read-write.md). Подробнее в разделе [Производительность дисков и файловых хранилищ](../compute/concepts/storage-read-write.md#performance).
+
+{% endnote %}
+
 {% list tabs group=disks %}
 
 - Сетевой SSD-диск {#net-ssd}
 
   Вид ограничения | Значение
   --- | ---
-  Максимальный^4^ [IOPS](../compute/concepts/storage-read-write.md) для 1 vCPU | 3 500
-  Максимальная^5^ [пропускная способность](../compute/concepts/storage-read-write.md) для 1 vCPU | 45 МБ/с
+  Максимальный^4^ [IOPS](../compute/concepts/storage-read-write.md) на каждый vCPU ВМ | 3 500
+  Максимальная^5^ [пропускная способность](../compute/concepts/storage-read-write.md) на каждый vCPU ВМ | 45 МБ/с
 
 - Сетевой HDD-диск {#net-hdd}
 
   Вид ограничения | Значение
   --- | ---
-  Максимальный^4^ [IOPS](../compute/concepts/storage-read-write.md) для 1 vCPU | 3 500
-  Максимальная^5^ [пропускная способность](../compute/concepts/storage-read-write.md) для 1 vCPU | 45 МБ/с
+  Максимальный^4^ [IOPS](../compute/concepts/storage-read-write.md) на каждый vCPU ВМ | 3 500
+  Максимальная^5^ [пропускная способность](../compute/concepts/storage-read-write.md) на каждый vCPU ВМ | 45 МБ/с
 
 - Нереплицируемый SSD-диск {#non-replicated-ssd}
 
   Вид ограничения | Значение
   --- | ---
   Суммарное количество нереплицируемых SSD-дисков в одной группе размещения | 8
-  Максимальный^4^ [IOPS](../compute/concepts/storage-read-write.md) для 1 vCPU | 10 000
+  Максимальный^4^ [IOPS](../compute/concepts/storage-read-write.md) на каждый vCPU ВМ | 10 000
   Максимальный^4^ IOPS для одной ВМ | 100 000
-  Максимальная^5^ [пропускная способность](../compute/concepts/storage-read-write.md) для 1 vCPU | 100 МБ/с
+  Максимальная^5^ [пропускная способность](../compute/concepts/storage-read-write.md) на каждый vCPU ВМ | 100 МБ/с
   Максимальная^5^ пропускная способность для одной ВМ | 1 ГБ/с
 
 - Сверхбыстрое сетевое хранилище с тремя репликами (SSD) {#high-perf-ssd}
 
   Вид ограничения | Значение
   --- | ---
-  Максимальный^4^ [IOPS](../compute/concepts/storage-read-write.md) для 1 vCPU | 10 000
+  Максимальный^4^ [IOPS](../compute/concepts/storage-read-write.md) на каждый vCPU ВМ | 10 000
   Максимальный^4^ IOPS для одной ВМ | 100 000
-  Максимальная^5^ [пропускная способность](../compute/concepts/storage-read-write.md) для 1 vCPU | 100 МБ/с
+  Максимальная^5^ [пропускная способность](../compute/concepts/storage-read-write.md) на каждый vCPU ВМ | 100 МБ/с
   Максимальная^5^ пропускная способность для одной ВМ | 1 ГБ/с
 
 {% endlist %}

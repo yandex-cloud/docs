@@ -9,7 +9,6 @@ description: Follow this guide to top up your personal account.
 
 {{ yandex-cloud }} reserves the right to automatically debit your linked card during the current reporting period if your account balance exceeds the established credit limit.
 
- 
 
 The method for topping up your personal account depends on your legal status.
 
@@ -18,6 +17,14 @@ The method for topping up your personal account depends on your legal status.
 A billing cycle runs automatically for [individuals](../payment/billing-cycle-individual.md) as well as [businesses and individual entrepreneurs](../payment/billing-cycle-business.md) if they have a bank card linked to their billing account.
 
 {% endnote %}
+
+You can top up your account in {{ billing-name }} or in the management console widget.
+
+To top up their accounts, users need the following roles:
+
+* `billing.accounts.owner` for the [billing account](../security/index.md#set-role) to top up personal accounts using a credit or debit card.
+* `billing.accounts.editor` or higher for the [billing account](../security/index.md#set-role) to top up personal accounts using a bank account.
+* `resource-manager.clouds.member` or higher for the [cloud](../../resource-manager/operations/cloud/set-access-bindings.md) to top up personal accounts from the management console.
 
 ## Individuals {#individuals}
 
@@ -31,17 +38,17 @@ To top up your personal account:
   1. Select a billing account.
   1. Click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
   1. In the window that opens, enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
-  1. Choose [how top up your balance](../payment/payment-methods-individual.md):
-     * SBP (Faster Payment System):
-        1. Click **Pay via SBP**.
-        1. Scan the QR code using your bank’s mobile app and confirm the payment.
+  1. {% include [individual_payment_methods](../_includes/individual-payment-methods.md) %}
 
-        {% include [payment-sbp-info](../../_includes/billing/payment-sbp-info.md) %}
+- Management console {#console}
 
-     * Credit or debit card associated with your [Yandex ID](../../iam/concepts/users/accounts.md#passport).  
-     * Adding a card:
-        1. Enter your card details.
-        1. Click **Pay**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. In the top-right corner, click ![credit-card](../../_assets/console-icons/credit-card.svg).
+  1. In the widget that opens, click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
+
+      {% include [hide-private-data](../_includes/billing-widget-hide-private-data.md) %}
+  1. In the window that opens, enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
+  1. {% include [individual_payment_methods](../_includes/individual-payment-methods.md) %}
 
 {% endlist %}
 
@@ -54,47 +61,22 @@ Your payment will be processed in real time and completed within 15 minutes.
 
 To top up your personal account:
 
-1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
-1. Select a billing account.
-1. Click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. This button is only available after [switching to paid consumption](activate-commercial.md).
-1. Select a payment method:
+{% list tabs group=instructions %}
 
-  {% list tabs group=payments %}
+- {{ billing-interface }} {#billing}
 
-   - Wire transfer {#transfer}
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+  1. Select a billing account.
+  1. Click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. This button is only available after [switching to paid consumption](activate-commercial.md).
+  1. {% include [business_payment_methods](../_includes/business-payment-methods.md) %}
+  
+- Management console {#console}
 
-     Enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.popup-refill_button_company-action }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. In the top-right corner, click ![credit-card](../../_assets/console-icons/credit-card.svg).
+  1. In the widget that opens, click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. This button is only available after [switching to paid consumption](activate-commercial.md).
 
-     The system will generate a payment invoice. Print the invoice and use it to make a payment in a bank or using a banking client system.
+      {% include [hide-private-data](../_includes/billing-widget-hide-private-data.md) %}
+  1. {% include [business_payment_methods](../_includes/business-payment-methods.md) %}
 
-     Before paying, please make sure the following is correct in your payment order:
-     * Payment amount.
-     * Banking details of Yandex.Cloud LLC (for Russia), Cloud Services Kazakhstan LLP (for Kazakhstan), Iron Hive doo Beograd (Serbia), or Direct Cursus Technology L.L.C. (Dubai) (for non-resients of Russia and Kazakhstan).
-
-       {% include [legal-entity-nonresidents](../../_includes/billing/legal-entity-nonresidents.md) %}
-
-     * Your company or individual entrepreneur TIN.
-     * [Account number](../concepts/personal-account.md#id) in the payment purpose.
-     * [Agreement number](../concepts/contract.md) in the payment purpose.
-
-     [How fast the funds will be credited to your personal account](../payment/payment-methods-business.md#limits) depends on the bank performing the transaction.
-
-     {% include [payment-bill-note](../_includes/payment-bill-note.md) %}
-
-  - Credit or debit card {#card}
-
-    Enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Then enter your card details and click **Pay**.
-
-    {% include [payment-card-types](../../_includes/billing/payment-card-types-business.md) %}
-
-    Your payment will be processed in real time and completed within 15 minutes.
-
-  - SBP (Faster Payment System) {#sbp}
-
-    {% include [payment-sbp-info](../../_includes/billing/payment-sbp-info.md) %}
-
-    Enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Select the SBP top-up method and click **Pay via SBP**.
-    
-    Scan the QR code using your bank’s app and confirm the payment.
-    
-  {% endlist %}
+{% endlist %}

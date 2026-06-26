@@ -58,6 +58,7 @@ description: Следуя данной инструкции, вы сможете
      ```bash
      yc compute instance create \
        --name first-instance \
+       --hostname first-instance \
        --zone {{ region-id }}-a \
        --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
        --create-boot-disk image-folder-id=standard-images,image-family=centos-7,kms-key-id=<идентификатор_ключа>,auto-delete=true \
@@ -71,6 +72,7 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
+     * `--hostname` — имя хоста ВМ. Задает [внутренний FQDN](../../concepts/network.md#hostname), по которому ВМ будет доступна в облачной сети. Необязательный параметр. Если не указать, FQDN формируется из имени ВМ по правилам, описанным в разделе [{#T}](../../concepts/network.md#hostname). Поменять имя хоста и внутренний FQDN после создания ВМ нельзя.
      * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
      * `--network-interface` — настройки [сетевого интерфейса](../../concepts/network.md) ВМ:
          * `subnet-name` — имя выбранной подсети.

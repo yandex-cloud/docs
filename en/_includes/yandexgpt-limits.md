@@ -9,7 +9,7 @@ Number of concurrent dedicated instances | 1
 **Text generation** |
 Number of concurrent generations in synchronous mode | 10
 Number of requests per second, asynchronous mode (request) | 10
-Number of requests per second, asynchronous mode (getting a response) | 50
+Requests per second, asynchronous mode (getting a response) | 50
 Number of requests per hour, asynchronous mode (request) | 5,000
 Number of tokenization requests per second | 50
 **Model working mode: Batch**
@@ -31,11 +31,14 @@ Total size of datasets | 300 GB
 **MCP servers** |
 Number of MCP servers per cloud | 30 
 Number of tools per server | 150
-**Voice agents** (Realtime models) |
-Number of concurrent sessions with the model | 10
-Number of session creation queries per second | 10
 **AI agents** |
 Number of concurrent {{ code-interpreter }} launches | 3
+**Voice agents** |
+Number of concurrent sessions with Realtime models | 10
+Number of session creation queries per second | 10
+**Search indexes** |
+Number of search indexes | 150
+
 
 #### Limits {#yandexgpt-limits}
 

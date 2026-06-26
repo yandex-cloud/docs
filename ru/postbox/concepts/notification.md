@@ -369,7 +369,7 @@
 
 ```json
 {
-    "eventType": "Unsubscribe",
+    "eventType": "Subscription",
     "mail": {
         "timestamp": "2024-04-25T18:08:04.933666+03:00",
         "messageId": "QA_JPkU2fkpIWdkxAOASH",

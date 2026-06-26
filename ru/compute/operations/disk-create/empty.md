@@ -50,6 +50,7 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       yc compute disk create \
         --name first-disk \
+        --zone <зона_доступности> \
         --size 10 \
         --description "my first disk via yc" \
         --kms-key-id <идентификатор_ключа>
@@ -61,6 +62,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
+      * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой создается диск. Если зона доступности не задана в [профиле CLI](../../../cli/concepts/core-properties.md) по умолчанию, параметр является обязательным.
       * `--size` — размер диска.
       * `--description` — описание диска.
       * `--kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания зашифрованного диска. Необязательный параметр.

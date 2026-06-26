@@ -1,0 +1,1 @@
+To access the management console, you need the `resource-manager.clouds.member` [role](../../resource-manager/security/index.md#resource-manager-clouds-member) or higher for the relevant [cloud](../../resource-manager/operations/cloud/set-access-bindings.md).

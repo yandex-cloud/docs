@@ -38,3 +38,7 @@ description: Под техническим обслуживанием в {{ mmy-
     {% include [note-role-master](../../_includes/mdb/mmy/note-role-master.md) %}
 
     Если вы используете для доступа к кластеру [FQDN хоста-мастера](../operations/connect/fqdn.md), такой кластер может стать недоступным. Чтобы обеспечить бесперебойную работу приложения, подключайтесь к кластеру через [особый FQDN](../operations/connect/fqdn.md#special-fqdns), всегда указывающий на текущий хост-мастер.
+
+## Влияние обслуживания на кластер {#impact-on-cluster}
+
+{% include [impact-on-cluster](../../_includes/impact-on-cluster.md) %}

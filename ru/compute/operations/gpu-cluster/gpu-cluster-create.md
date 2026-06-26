@@ -12,11 +12,28 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-В этом разделе приведена инструкция для создания кластера GPU. Кластеры GPU сейчас можно создавать только в [зонах доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-a` и `{{ region-id }}-d`.
+В этом разделе приведена инструкция для создания кластера GPU. Кластеры GPU можно создавать в [зонах доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-d`.
 
 После создания кластера GPU вы сможете [добавлять](gpu-add-to-cluster.md) к нему [виртуальные машины](../../concepts/vm.md) из той же зоны доступности.
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать кластер GPU.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.gpu-cluster.action_create-cluster }}**.
+  1. В открывшемся окне:
+
+      1. В поле **{{ ui-key.yacloud.gpu-cluster.field_name }}** задайте имя кластера GPU.
+
+          {% include [name-format](../../../_includes/name-format.md) %}
+
+      1. (Опционально) В поле **{{ ui-key.yacloud.gpu-cluster.field_description }}** добавьте описание кластера GPU.
+      1. В поле **{{ ui-key.yacloud.gpu-cluster.field_accessibility-zone }}** выберите зону доступности, в которой будет размещен кластер.
+      1. (Опционально) Добавьте [метки](../../../resource-manager/concepts/labels.md) кластеру.
+  1. Нажмите кнопку **{{ ui-key.yacloud.gpu-cluster.action_create-cluster }}**.
 
 - CLI {#cli}
 
@@ -75,4 +92,17 @@ description: Следуя данной инструкции, вы сможете
   yc compute gpu-cluster get <имя_кластера_GPU>
   ```
 
+- API {#api}
+
+  Чтобы создать кластер GPU, воспользуйтесь методом REST API [create](../../api-ref/GpuCluster/create.md) для ресурса [GpuCluster](../../api-ref/GpuCluster/index.md) или вызовом gRPC API [GpuClusterService/Create](../../api-ref/grpc/GpuCluster/create.md).
+
 {% endlist %}
+
+#### Полезные ссылки {#see-also}
+
+* [{#T}](gpu-add-to-cluster.md)
+* [{#T}](gpu-cluster-update.md)
+* [{#T}](gpu-cluster-delete.md)
+* [{#T}](../../concepts/gpus.md)
+* [{#T}](../../concepts/vm-platforms.md)
+

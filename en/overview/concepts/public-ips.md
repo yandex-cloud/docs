@@ -20,7 +20,6 @@ For example, the resources assigned such IP address ranges are:
 * {{ network-load-balancer-name }} and {{ alb-name }} load balancers
 
 
-
 ### {{ baremetal-name }}
 
 {% include [baremetal-ip-ru](../../_includes/public-ip/ru/baremetal.md) %}
@@ -28,7 +27,10 @@ For example, the resources assigned such IP address ranges are:
 
 ### {{ cdn-name }}
 
+
 {% include [cdn-ip-ru](../../_includes/public-ip/ru/cdn.md) %}
+
+
 
 
 ### {{ captcha-name }} {#smartcaptcha-ips}
