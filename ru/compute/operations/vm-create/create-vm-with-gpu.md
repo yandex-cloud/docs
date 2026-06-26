@@ -74,9 +74,9 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [gpu-platforms-api](../../../_includes/compute/gpu-platforms-api.md) %}
 
-     * `--cores` – [количество vCPU](../../concepts/gpus.md).
-     * `--memory` – размер RAM.
-     * `--gpus` – количество GPU.
+     * `--cores` — количество vCPU.
+     * `--memory` — объем RAM.
+     * `--gpus` – количество [GPU](../../concepts/gpus.md).
      * `--preemptible` – если нужно сделать ВМ [прерываемой](../../concepts/preemptible-vm.md).
      * `--network-interface` — настройки [сетевого интерфейса](../../concepts/network.md) ВМ:
          * `subnet-name` — имя выбранной подсети.

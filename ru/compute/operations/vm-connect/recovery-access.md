@@ -73,6 +73,9 @@ description: Следуя данной инструкции, вы сможете
 1. [Остановите](../vm-control/vm-stop-and-start.md) ВМ.
 1. [Сделайте снимок](../disk-control/create-snapshot.md) с загрузочного диска ВМ.
 1. [Создайте](../vm-create/create-from-snapshots.md) вспомогательную ВМ на базе Linux. Для загрузочного диска выберите операционную систему в блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**. Чтобы подключить диск с данными к вспомогательной ВМ, выберите ранее созданный снимок в блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}**.
+
+   {% include [recovery-vm-different-image-warning](../../../_includes/compute/recovery-vm-different-image-warning.md) %}
+
 1. [Подключитесь по SSH](../vm-connect/ssh.md) к вспомогательной ВМ, [смонтируйте диск](../vm-control/vm-attach-disk.md#mount-disk-and-fix-uuid), созданный из снимка.
 1. Замените SSH-ключ, который хранится на этом диске, на работоспособный:
    1. Перейдите в [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хранится публичная часть SSH-ключа на смонтированном разделе, например:
@@ -141,6 +144,9 @@ description: Следуя данной инструкции, вы сможете
 1. [Создайте снимок](../disk-control/create-snapshot.md) диска ВМ, доступ к которой нужно восстановить.
 1. [Создайте диск](../disk-create/empty.md) из снимка. При создании диска в поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` и укажите созданный снимок.
 1. [Подключите диск](../vm-control/vm-attach-disk.md) в качестве дополнительного к вспомогательной ВМ.
+
+   {% include [recovery-vm-different-image-warning](../../../_includes/compute/recovery-vm-different-image-warning.md) %}
+
 1. Измените конфигурационные файлы, влияющие на загрузку ВМ или скопируйте важные данные.
 1. [Отключите диск](../vm-control/vm-detach-disk.md) от вспомогательной ВМ.
 1. Если вы обнаружили и устранили проблему загрузки, создайте новую ВМ. При создании в блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** и выберите исправленный диск в качестве загрузочного.

@@ -100,6 +100,17 @@
          * `Список` — чтобы выбрать публичный IP-адрес из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [Сделать динамический публичный IP-адрес статическим](../../../vpc/operations/set-static-ip.md).
          * `Без адреса` — чтобы не назначать публичный IP-адрес.
      
+             {% note info %}
+     
+             Учитывайте следующие особенности ВМ без публичного IP-адреса:
+             * К такой ВМ нельзя будет подключиться из интернета, например по SSH.
+             * Подключиться к ВМ можно будет с другой ВМ в той же [облачной сети](../../../vpc/concepts/network.md#network) по приватному IP-адресу.
+             * Чтобы предоставить такой ВМ исходящий доступ в интернет, используйте [NAT-шлюз](../../../vpc/concepts/gateways.md#nat-gateway) или [NAT-инстанс](../../../tutorials/routing/nat-instance/index.md).
+     
+             {% endnote %}
+     
+         За использование публичного IP-адреса взимается плата согласно [правилам тарификации Yandex Virtual Private Cloud](../../../vpc/pricing.md).
+     
      * Выберите [подходящие группы безопасности](../../../vpc/concepts/security-groups.md):
      
          * Чтобы подключаться к виртуальной машине по `SSH`, группа безопасности должна разрешать входящий сетевой трафик по протоколам `TCP` и `UDP` на порт `22`.
@@ -276,6 +287,7 @@
      ```bash
      yc compute instance create \
        --name first-instance \
+       --hostname first-instance \
        --zone ru-central1-a \
        --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
        --create-boot-disk image-folder-id=standard-images,image-family=centos-7,kms-key-id=<идентификатор_ключа>,auto-delete=true \
@@ -295,6 +307,7 @@
        
        {% endnote %}
 
+     * `--hostname` — имя хоста ВМ. Задает [внутренний FQDN](../../concepts/network.md#hostname), по которому ВМ будет доступна в облачной сети. Необязательный параметр. Если не указать, FQDN формируется из имени ВМ по правилам, описанным в разделе [Имя хоста и внутренний FQDN](../../concepts/network.md#hostname). Поменять имя хоста и внутренний FQDN после создания ВМ нельзя.
      * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
      * `--network-interface` — настройки [сетевого интерфейса](../../concepts/network.md) ВМ:
          * `subnet-name` — имя выбранной подсети.

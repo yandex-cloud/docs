@@ -72,3 +72,9 @@ Below are examples of how you can use a load balancer for access to applications
 * [{#T}](../../tutorials/web/application-load-balancer-website/index.md)
 * [{#T}](../../tutorials/web/virtual-hosting.md)
 * [Protecting a service with {{ sws-name }}](../../smartwebsecurity/tutorials/sws-basic-protection.md)
+
+{% note tip %}
+
+If you already have a whitelisted [{{ vpc-full-name }}](../../vpc/) IP address, you can connect it to the {{ sws-name }} proxy server. Do it by contacting [support]({{ link-console-support }}).
+
+{% endnote %}

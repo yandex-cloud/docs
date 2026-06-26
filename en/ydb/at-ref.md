@@ -5,9 +5,9 @@ description: This page provides a reference for {{ ydb-name }} events tracked in
 
 # {{ at-full-name }} event reference
 
-{{ at-name }} supports tracking [control plane](../audit-trails/concepts/format.md) (management) and [data plane](../audit-trails/concepts/format-data-plane.md) (data) events for {{ ydb-full-name }}.
+{{ at-name }} for {{ ydb-full-name }} supports tracking [management events (control plane)](../audit-trails/concepts/format.md).
 
-The general format of the `event_type` field value is as follows:
+The general format of the `event_type` value is as follows:
 
 ```text
 {{ at-event-prefix }}.audit.ydb.<event_name>
@@ -16,7 +16,3 @@ The general format of the `event_type` field value is as follows:
 ## Management event reference {#control-plane-events}
 
 {% include [ydb-events](../_includes/audit-trails/events/ydb-events.md) %}
-
-## Data event reference {#data-plane-events}
-
-{% include [ydb-events-dp](../_includes/audit-trails/events/ydb-events-dp.md) %}

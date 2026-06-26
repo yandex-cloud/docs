@@ -324,7 +324,7 @@ Notification example:
 
 ```json
 {
-    "eventType": "Unsubscribe",
+    "eventType": "Subscription",
     "mail": {
         "timestamp": "2024-04-25T18:08:04.933666+03:00",
         "messageId": "QA_JPkU2fkpIWdkxAOASH",
@@ -423,13 +423,13 @@ The notification is written to the {{ yds-full-name }} [data stream](../../data-
 
 Field | Type | Description
 --- | --- | ---
-`notificationType` | String | [Notification type](#types). The possible values are `Bounce`, `Complaint`, `Delivery`, or `Send`.
+`eventType` | String | [Notification type](#types). The possible values are `Bounce`, `Click`, `Complaint`, `Delivery`, `DeliveryDelay`, `Open`, `Rendering Failure`, `Send`, or `Subscription`.
 `mail` | [Mail](#mail-object) object | Object containing general information about the sent email.
-`bounce` | [Bounce](#bounce-object) object | Object containing information that the email has not been delivered. Required if the `notificationType` is `Bounce`; otherwise, not present.
-`delivery` | [Delivery](#delivery-object) object | Object containing information about the email being delivered to an individual recipient. Required if the `notificationType` is `Delivery`; otherwise, not present.
-`complaint` | [Complaint](#complaint-object) object | Object containing information about the recipient's complaint about an email. Required if the `notificationType` is `Complaint`; otherwise, not present.
-`subscription` | [Subscription](#subscription-object) object | Object containing information that the recipient has unsubscribed from the mailing list. Required if the `notificationType` is `Subscription`; otherwise, not present.
-`open` | [Open](#open-object) object | Object containing information that the email has been opened. Required if the `notificationType` is `Open`; otherwise, not present.
+`bounce` | [Bounce](#bounce-object) object | Object containing information that the email has not been delivered. Required if the `eventType` is `Bounce`; otherwise, not present.
+`delivery` | [Delivery](#delivery-object) object | Object containing information about the email being delivered to an individual recipient. Required if the `eventType` is `Delivery`; otherwise, not present.
+`complaint` | [Complaint](#complaint-object) object | Object containing information about the recipient's complaint about an email. Required if the `eventType` is `Complaint`; otherwise, not present.
+`subscription` | [Subscription](#subscription-object) object | Object containing information that the recipient has unsubscribed from the mailing list. Required if the `eventType` is `Subscription`; otherwise, not present.
+`open` | [Open](#open-object) object | Object containing information that the email has been opened. Required if the `eventType` is `Open`; otherwise, not present.
 `eventId` | String | Unique ID of the event.
 
 ### Mail object {#mail-object}

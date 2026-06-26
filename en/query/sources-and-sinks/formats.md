@@ -1,6 +1,6 @@
 # Data formats and compression algorithms
 
-Below are the data formats and compression algorithms supported in {{ yq-full-name }}.
+Below you will find the data formats and compression algorithms supported in {{ yq-full-name }}.
 
 
 ### Supported data formats {#formats}
@@ -11,10 +11,10 @@ Below are the data formats and compression algorithms supported in {{ yq-full-na
 - [`json_each_row`](#json_each_row).
 - [`raw`](#raw).
 - [`json_as_string`](#json_as_string).
-- [`parquet`](#parquet).
+- [`parquet`](#parquet). 
 
 #### Csv_with_names {#csv_with_names}
-This format is based on [CSV](https://ru.wikipedia.org/wiki/CSV) format. Data is comma-separated and stored in columns with the first file line containing column names.
+This format is based on the [CSV](https://ru.wikipedia.org/wiki/CSV) format. The data is arranged in comma-separated columns with the first row containing column names.
 
 Sample data:
 ```text
@@ -23,7 +23,7 @@ Year,Manufacturer,Model,Price
 1999,Chevy,"Venture «Extended Edition»",4900.00
 ```
 
-{% cut "Request example" %}
+{% cut "Query example" %}
 
 ```sql
 SELECT
@@ -54,7 +54,7 @@ Query results:
 
 
 #### Tsv_with_names {#tsv_with_names}
-This format is based on [TSV](https://ru.wikipedia.org/wiki/TSV) format. Data is tab-separated (the `0x9` code) and stored in columns with the first file line containing column names.
+This format is based on the [TSV](https://ru.wikipedia.org/wiki/TSV) format. The data is arranged in tab(`0x9`)-separated columns with the first row containing column names.
 
 Sample data:
 ```text
@@ -63,7 +63,7 @@ Year    Manufacturer    Model   Price
 1999    Chevy   "Venture «Extended Edition»"    4900.00
 ```
 
-{% cut "Request example" %}
+{% cut "Query example" %}
 
 ```sql
 SELECT
@@ -93,9 +93,9 @@ Query results:
 {% endcut %}
 
 #### Json_list {#json_list}
-This format is based on a [JSON representation](https://ru.wikipedia.org/wiki/JSON) of data. In this format, each file should contain an object in a correct JSON representation.
+This format is based on the [JSON](https://ru.wikipedia.org/wiki/JSON) format. With this format, each file must contain a valid JSON object.
 
-Example of correct data (represented as a list of JSON objects):
+Example of valid data presented as a list of JSON objects:
 ```json
 [
     { "Year": 1997, "Manufacturer": "Ford", "Model": "E350", "Price": 3000.0 },
@@ -103,7 +103,7 @@ Example of correct data (represented as a list of JSON objects):
 ]
 ```
 
-Example of INCORRECT data (each line contains a separate object in JSON format, but these objects are not represented as a list):
+Example of invalid data: each line contains a separate JSON object, but these objects are not combined into a list:
 
 ```json
 { "Year": 1997, "Manufacturer": "Ford", "Model": "E350", "Price": 3000.0 }
@@ -111,15 +111,15 @@ Example of INCORRECT data (each line contains a separate object in JSON format, 
 ```
 
 #### Json_each_row {#json_each_row}
-This format is based on a [JSON representation](https://en.wikipedia.org/wiki/JSON) of data. In this format, each file's individual line must contain an object in a valid JSON representation without combining these objects into a JSON list. This format is used when transferring data via streaming systems, such as [Yandex Data Streams](../../data-streams/concepts/index.md).
+This format is based on the [JSON](https://en.wikipedia.org/wiki/JSON) format. With this format, each individual line within each file must contain a valid JSON object, without wrapping them into a list. This format is used for data transmission over streaming systems, such as [Yandex Data Streams](../../data-streams/concepts/index.md).
 
-Example of correct data (each line contains a separate object in JSON format, but these objects are not represented as a list):
+Example of valid data: each line contains a separate JSON object, without wrapping them into a list:
 ```json
 { "Year": 1997, "Manufacturer": "Ford", "Model": "E350", "Price": 3000.0 },
 { "Year": 1999, "Manufacturer": "Chevy", "Model": "Venture «Extended Edition»", "Price": 4900.00 }
 ```
 
-{% cut "Request example" %}
+{% cut "Query example" %}
 
 ```sql
 SELECT
@@ -149,11 +149,11 @@ Query results:
 {% endcut %}
 
 #### Raw {#raw}
-This format allows reading raw data as is. The data read this way can be processed using [YQL]({{ ydb.docs }}/yql/reference/udf/list/string) tools by splitting it into rows and columns.
+This format allows reading file contents in raw form. This data can then be split into rows and columns and processed via [YQL]({{ ydb.docs }}/yql/reference/udf/list/string).
 
-Use this format if the built-in features for parsing source data in {{ yq-full-name }} are insufficient.
+Use this format when {{ yq-full-name }}‘s built-in data parsing capabilities are insufficient.
 
-{% cut "Request example" %}
+{% cut "Query example" %}
 
 ```sql
 SELECT
@@ -180,20 +180,20 @@ Year,Manufacturer,Model,Price
 {% endcut %}
 
 #### Json_as_string {#json_as_string}
-This format is based on a [JSON representation](https://ru.wikipedia.org/wiki/JSON) of data. It does not split an input JSON document into fields. Instead, it represents each file line as a single JSON object (or a single string). This format is convenient if a list of fields is not permanent and may change in different messages.
+This format is based on the [JSON](https://ru.wikipedia.org/wiki/JSON) format. Instead of splitting the input JSON document into fields, this format treats each line of the file either as a single JSON object or a single string. It is convenient when the list of fields is not fixed and may change across different messages.
 
-In this format, each file should contain:
-- Object in a valid JSON representation in each file line.
-- List of objects in a valid JSON representation.
+With this format, each file must contain:
+- Valid JSON object on each individual line of the file.
+- Valid JSON objects wrapped in a list.
 
-Example of correct data (represented as a list of JSON objects):
+Example of valid data presented as a list of JSON objects:
 ```json
 { "Year": 1997, "Manufacturer": "Ford", "Model": "E350", "Price": 3000.0 }
 { "Year": 1999, "Manufacturer": "Chevy", "Model": "Venture «Extended Edition»", "Price": 4900.00 }
 ```
 
 
-{% cut "Request example" %}
+{% cut "Query example" %}
 
 ```sql
 SELECT
@@ -220,10 +220,10 @@ Query results:
 {% endcut %}
 
 #### Parquet {#parquet}
-This format allows you to read the contents of a file in [Apache Parquet](https://parquet.apache.org) format.
+This format allows you to read the contents of [Apache Parquet](https://parquet.apache.org) files.
 
 Data compression algorithms supported in Parquet files:
-- No compression.
+- No compression
 - SNAPPY
 - GZIP
 - LZO
@@ -233,7 +233,7 @@ Data compression algorithms supported in Parquet files:
 - LZ4_RAW
 
 
-{% cut "Request example" %}
+{% cut "Query example" %}
 
 ```sql
 SELECT
@@ -262,7 +262,7 @@ Query results:
 
 {% endcut %}
 
-## Example of reading data
+## Data reading example
 
 Sample query for reading data from {{ objstorage-full-name }}.
 ```sql
@@ -287,14 +287,14 @@ Where:
 |Field|Description|
 |--|---|
 |`connection`| {{ objstorage-full-name }} connection name|
-|`folder/filename.csv`| Path to the file in the {{ objstorage-full-name }} bucket|
+|`folder/filename.csv`| File path within the {{ objstorage-full-name }} bucket|
 |`SCHEMA`| Data schema description in the file|
 
 ## Supported compression algorithms {#compression}
 
 ### Reads
 
-{{ yq-full-name }} supports the following compression algorithms for data reads:
+{{ yq-full-name }} supports the following compression algorithms for reading data:
 
 |Compression format|Name in {{ yq-name }}|
 |--|--|
@@ -305,17 +305,17 @@ Where:
 |[Bzip2](https://ru.wikipedia.org/wiki/Bzip2)|bzip2|
 |[Xz](https://ru.wikipedia.org/wiki/XZ)|xz|
 
-The `parquet` file format supports its own internal compression algorithms. {{ yq-full-name }} enables reading data in `parquet` format using the following compression algorithms:
+While the `parquet` format supports built-in compression algorithms, {{ yq-full-name }} also enables you to write parquet data using these:
 
 |Compression format|Name in {{ yq-name }}|
 |--|--|
-|[Raw](https://ru.wikipedia.org/wiki/Gzip)|raw|
-|[Snappy](https://ru.wikipedia.org/wiki/Gzip)|snappy|
+|[Raw](https://github.com/apache/parquet-format/blob/master/Compression.md)|raw|
+|[Snappy](https://en.wikipedia.org/wiki/Snappy_(compression))|snappy|
 
-### Writing data to {{ objstorage-full-name }} {#write_objstorage}
+### Writing to {{ objstorage-full-name }} {#write_objstorage}
 
 {% include [!](../_includes/supported-objstorage-write-formats.md) %}
 
-### Writing data to {{ yds-full-name }} {#write_yds}
+### Writing to {{ yds-full-name }} {#write_yds}
 
 {% include [!](../_includes/supported-yds-write-formats.md) %}

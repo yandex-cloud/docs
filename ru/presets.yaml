@@ -6414,6 +6414,8 @@ default:
         title_runners: Раннеры
       gpu-cluster:
         action_create-cluster: Создать кластер GPU
+        field_accessibility-zone: Зона доступности
+        field_description: Описание
         field_name: Имя
         label_title: Кластеры GPU
         label_zone: Зона доступности

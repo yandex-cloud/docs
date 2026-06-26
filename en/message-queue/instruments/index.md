@@ -2,9 +2,9 @@
 
 To access the API, use any Amazon SQS compatible tools, such as AWS CLI, Boto3, or other [supported by SDK](https://aws.amazon.com/tools/#sdk).
 
+## Other SDKs {#sdk}
 
-## Other SDK {#sdk}
-* [Client library for 1C:Enterprise 8](https://github.com/leemuar/yandexmq-sdk-1c)
+* [YandexMQ client for 1C:Enterprise 8](https://github.com/leemuar/yandexmq-sdk-1c). Supported by third-party developers.
 
 ## Getting started {#preparations}
 

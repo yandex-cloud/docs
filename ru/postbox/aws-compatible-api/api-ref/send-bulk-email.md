@@ -42,7 +42,18 @@ POST /v2/email/outbound-bulk-emails HTTP/2
         "Subject": "<шаблон_темы>",
         "Text": "<шаблон_текста>"
       },
-      "TemplateData": "<данные_для_подстановки_в_шаблон>"
+      "TemplateData": "<данные_для_подстановки_в_шаблон>",
+      "Attachments": [
+        {
+          "FileName": "<имя_файла>",
+          "RawContent": "<содержимое_в_Base64>",
+          "ContentType": "<MIME-тип>",
+          "ContentDescription": "<описание_вложения>",
+          "ContentDisposition": "<способ_отображения>",
+          "ContentId": "<идентификатор_вложения>",
+          "ContentTransferEncoding": "base64"
+        }
+      ]
     }
   },
   "BulkEmailEntries": [
@@ -125,6 +136,11 @@ POST /v2/email/outbound-bulk-emails HTTP/2
 || `TemplateData` | **Тип**: string.
 
 Данные по умолчанию, которые используются для заполнения шаблона. JSON-объект, сериализованный в строку. ||
+|| `Attachments` | **Тип**: array.
+
+Список вложений. Указывается только в общем содержимом `DefaultContent.Template` и применяется ко всем письмам в запросе. Переопределить или добавить вложения для отдельного элемента `BulkEmailEntries` нельзя. Каждое вложение описывается объектом со следующими полями:
+
+{% include [attachments-fields](../../../_includes/postbox/attachments-fields.md) %} ||
 || `BulkEmailEntries` | **Тип**: array.
 
 Список писем для отправки. В запросе должен быть хотя бы один элемент. ||

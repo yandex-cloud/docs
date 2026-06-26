@@ -49,8 +49,8 @@
       * `dataproc.agent`;
       * `dataproc.user`.
 
-   1. [Создайте бакет](../../storage/operations/buckets/create.md) `dataproc-bucket`.
-   1. [Предоставьте сервисному аккаунту](../../storage/operations/buckets/edit-acl.md) `dataproc-sa` разрешение `FULL_CONTROL` на бакет `dataproc-bucket`.
+   1. [Создайте бакет](../../storage/operations/buckets/create.md) с уникальным именем в рамках сервиса Object Storage.
+   1. [Предоставьте сервисному аккаунту](../../storage/operations/buckets/edit-acl.md) `dataproc-sa` разрешение `FULL_CONTROL` на созданный бакет.
    1. [Создайте кластер Yandex Data Processing](../../data-proc/operations/cluster-create.md#create) с параметрами:
 
       * **Имя кластера** — `dataproc-cluster`.
@@ -66,7 +66,7 @@
 
       * **Сервисный аккаунт** — `dataproc-sa`.
       * **Зона доступности** — `ru-central1-b`.
-      * **Имя бакета** — `dataproc-bucket`.
+      * **Имя бакета** — имя созданного бакета.
       * **Сеть** — `dataproc-network`.
       * **Группы безопасности** — `dataproc-security-group`.
       * **Подкластеры** — мастер, один подкластер `Data` и один подкластер `Compute`.
@@ -222,7 +222,7 @@
          .selectExpr("CAST(value AS STRING)") \
          .where(col("value").isNotNull())
 
-      df.write.format("text").save("s3a://dataproc-bucket/kafka-read-batch-output")
+      df.write.format("text").save("s3a://<имя_созданного_бакета>/kafka-read-batch-output")
 
    if __name__ == "__main__":
       main()
@@ -267,7 +267,7 @@
 
       df = spark.sql("select value from received_messages")
 
-      df.write.format("text").save("s3a://dataproc-bucket/kafka-read-stream-output")
+      df.write.format("text").save("s3a://<имя_созданного_бакета>/kafka-read-stream-output")
 
    if __name__ == "__main__":
       main()
@@ -277,9 +277,9 @@
 
 1. [Получите FQDN хоста Apache Kafka®](../operations/connect/index.md#get-fqdn) и укажите FQDN в каждом скрипте.
 1. [Загрузите в корень бакета](../../storage/operations/objects/upload.md) подготовленные скрипты.
-1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create) для записи сообщения в топик Apache Kafka®. В поле **Main python файл** укажите путь до скрипта `s3a://dataproc-bucket/kafka-write.py`.
+1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create) для записи сообщения в топик Apache Kafka®. В поле **Main python файл** укажите путь до скрипта `s3a://<имя_созданного_бакета>/kafka-write.py`.
 1. Дождитесь, когда [статус задания](../../data-proc/operations/jobs-pyspark.md#get-info) изменится на `Done`.
-1. Убедитесь, что данные в топик были успешно записаны. Для этого создайте новое задание PySpark для чтения из топика и для пакетной обработки данных. В поле **Main python файл** укажите путь до скрипта `s3a://dataproc-bucket/kafka-read-batch.py`.
+1. Убедитесь, что данные в топик были успешно записаны. Для этого создайте новое задание PySpark для чтения из топика и для пакетной обработки данных. В поле **Main python файл** укажите путь до скрипта `s3a://<имя_созданного_бакета>/kafka-read-batch.py`.
 1. Дождитесь, когда статус нового задания изменится на `Done`.
 1. [Скачайте из бакета](../../storage/operations/objects/download.md) файл с прочитанными данными:
 
@@ -294,7 +294,7 @@
 
    Файл хранится в новой папке `kafka-read-batch-output` в бакете.
 
-1. Прочитайте сообщения из топика при потоковой обработке. Для этого создайте еще одно задание PySpark. В поле **Main python файл** укажите путь до скрипта `s3a://dataproc-bucket/kafka-read-stream.py`.
+1. Прочитайте сообщения из топика при потоковой обработке. Для этого создайте еще одно задание PySpark. В поле **Main python файл** укажите путь до скрипта `s3a://<имя_созданного_бакета>/kafka-read-stream.py`.
 1. Дождитесь, когда статус нового задания изменится на `Done`.
 1. Скачайте из бакета файлы с прочитанными данными:
 

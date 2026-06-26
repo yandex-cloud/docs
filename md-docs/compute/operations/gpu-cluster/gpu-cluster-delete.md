@@ -5,6 +5,14 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится кластер GPU.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/cpus.svg) **Кластеры GPU**.
+  1. В строке с нужным кластером GPU нажмите ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
+  1. Подтвердите удаление.
+
 - CLI {#cli}
 
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
@@ -93,4 +101,16 @@
     yc compute gpu-cluster list
     ```
 
+- API {#api}
+
+  Чтобы удалить кластер GPU, воспользуйтесь методом REST API [delete](../../api-ref/GpuCluster/delete.md) для ресурса [GpuCluster](../../api-ref/GpuCluster/index.md) или вызовом gRPC API [GpuClusterService/Delete](../../api-ref/grpc/GpuCluster/delete.md).
+
 {% endlist %}
+
+#### Полезные ссылки {#see-also}
+
+* [Создать кластер GPU](gpu-cluster-create.md)
+* [Изменить кластер GPU](gpu-cluster-update.md)
+* [Добавить виртуальную машину в кластер GPU](gpu-add-to-cluster.md)
+* [Графические ускорители GPU](../../concepts/gpus.md)
+* [Платформы](../../concepts/vm-platforms.md)

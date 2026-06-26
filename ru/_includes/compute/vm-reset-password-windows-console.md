@@ -3,6 +3,8 @@
 1. Выберите нужную ВМ.
 1. Справа вверху нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.compute.instances.button_action-password-reset }}**.
 
+    ![image](../../_assets/compute/win-reset-password.png)
+
     {% note info %}
 
     Если в открывшемся окне вы видите сообщение о том, что на ВМ не работает агент для сброса паролей, проверьте, что он установлен, и посмотрите логи его работы. Подробнее в разделе [{#T}](../../compute/operations/vm-guest-agent/check.md).

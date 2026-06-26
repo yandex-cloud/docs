@@ -7,7 +7,7 @@ keywords:
   - графические ускорители
 ---
 
-# Графические ускорители GPU
+# Вопросы и ответы про графические ускорители GPU в {{ compute-name }}
 
 {% include [minitoc](minitoc/gpu.md) %}
 

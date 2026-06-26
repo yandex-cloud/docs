@@ -92,4 +92,6 @@ items:
             href: platform-comparison/vmware/network-subsystem.md
           - name: Management, monitoring, and billing tools
             href: platform-comparison/vmware/management-tools.md
+  - name: Tools for working with documentation
+    href: mcp-doc-server.md
 path: en/overview/toc.yaml
