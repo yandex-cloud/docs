@@ -50,7 +50,7 @@ For example, virtually all enterprise-level database management systems require 
 
 The number of vCPUs for a VM is a multiple of two, and each pair of vCPUs is mapped into two SMT threads within one physical core, which prevents Spectre/Meltdown attacks from another customer's VM.
 
-For more information, see the relevant [documentation](../../../compute/concepts/performance-levels.md). ||
+For more information, see [this guide](../../../compute/concepts/performance-levels.md). ||
 |#
 
 ### Memory overcommitment {#oversubscription-by-memory}

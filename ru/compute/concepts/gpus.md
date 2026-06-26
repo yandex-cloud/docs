@@ -138,9 +138,17 @@ GPU в виртуальных машинах предоставляется це
 
 Максимальный возможный размер кластера на платформе Gen2 — 20 ВМ с конфигурацией 8 GPU, 80 ГБ VRAM, 180 vCPU, 1440 ГБ RAM. Фактический максимальный размер кластера ограничен технической доступностью ресурсов.
 
-## Смотрите также {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [{#T}](../operations/vm-create/create-vm-with-gpu.md).
-* Узнайте, как [добавить GPU к существующей ВМ](../operations/vm-control/vm-update-resources.md#add-gpu).
-* Узнайте, как [изменить количество GPU](../operations/vm-control/vm-update-resources.md#update-gpu).
-* [Вопросы про GPU](../../compute/qa/gpu.md).
+* [{#T}](../operations/vm-create/create-vm-with-gpu.md)
+* [{#T}](../operations/vm-control/vm-update-resources.md#add-gpu)
+* [{#T}](../operations/vm-control/vm-update-resources.md#update-gpu)
+* [{#T}](../operations/gpu-cluster/gpu-cluster-create.md)
+* [{#T}](../operations/gpu-cluster/gpu-add-to-cluster.md)
+* [{#T}](../operations/gpu-cluster/gpu-cluster-test-physical-state.md)
+* [{#T}](../operations/gpu-cluster/gpu-cluster-mpirun-parallel.md)
+* [{#T}](../operations/gpu-cluster/test-infiniband-bandwidth.md)
+* [{#T}](../operations/gpu-driver-update.md)
+* [{#T}](../tutorials/gpu-cluster-deepseek.md)
+* [{#T}](../tutorials/vllm-gemma-gpu.md)
+* [{#T}](../../compute/qa/gpu.md)

@@ -45,7 +45,7 @@ Create a resource folder to host your metadata catalog.
 - Management console {#console}
 
    1. Navigate to `data-folder`.
-   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Name the [service account](../../iam/concepts/users/service-accounts.md), e.g., `sa-for-mcp-server`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
@@ -66,7 +66,7 @@ Create a resource folder to host your metadata catalog.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [resource folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a metadata catalog.
-    1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
     1. Click **{{ ui-key.yacloud.data-catalog.label_create-catalog }}**.
     1. In the **{{ ui-key.yacloud.common.name }}** field, enter the catalog name: `test-sales`.
@@ -142,7 +142,7 @@ Create a resource folder to host your metadata catalog.
 - Management console {#console}
 
   1. Navigate to `data-folder`.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ai-studio }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ai-studio }}**.
   1. In the left-hand panel, select ![logo-mcp](../../_assets/console-icons/logo-mcp.svg) **MCP servers** and click **Create MCP server**. In the window that opens:
 
       1. Under **Add method**, select ![plug-connection](../../_assets/console-icons/plug-connection.svg) **Connect**.

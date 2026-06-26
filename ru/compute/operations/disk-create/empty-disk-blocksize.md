@@ -29,16 +29,24 @@ description: Следуя данной инструкции, вы сможете
         ```bash
         yc compute disk create \
           --name big-disk \
+          --zone <зона_доступности> \
           --block-size 8K \
           --size 40G \
           --description "my 8k blocksize disk via yc"
         ```
 
+       Где:
+       * `--name` — имя диска. Требования к имени диска:
+
+         {% include [name-format](../../../_includes/name-format.md) %}
+
+       * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой создается диск. Если зона доступности не задана в [профиле CLI](../../../cli/concepts/core-properties.md) по умолчанию, параметр является обязательным.
+       * `--block-size` — размером блока диска.
+       * `--size` — размер диска.
+       * `--description` — описание диска.
+
        Команда создаст диск размером 40 ГБ и размером блока 8 КБ, с именем `big-disk` и описанием `my 8k blocksize disk via yc`.
 
-       Требования к имени диска:
-
-       {% include [name-format](../../../_includes/name-format.md) %}
 
     1. Получите список дисков в каталоге по умолчанию:
 

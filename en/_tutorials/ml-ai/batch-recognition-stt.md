@@ -36,7 +36,7 @@ To set up automatic recognition of audio files using {{ speechkit-short-name }}:
 ## Create a cloud function {#create-function}
 
 1. In the [management console]({{ link-console-main }}), go to the folder the service account was created in.
-1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** service.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}** and specify `asr-batch-function` as the function name.
 1. Click **{{ ui-key.yacloud.common.create }}**.
 1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**, select the `Python` `3.8` runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
@@ -69,7 +69,7 @@ To set up automatic recognition of audio files using {{ speechkit-short-name }}:
 ## Create a trigger {#create-trigger}
 
 1. In the [management console]({{ link-console-main }}), navigate to the folder the function was created in.
-1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** service.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Select **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 1. Specify the trigger settings:
@@ -87,7 +87,7 @@ The trigger you created will fire once a minute and invoke the [cloud function](
 ## Test the function {#check-function}
 
 1. In the [management console]({{ link-console-main }}), navigate to the folder the function was created in.
-1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** and open `asr-batch-bucket`.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** and open `asr-batch-bucket`.
 1. [Upload](../../storage/operations/objects/upload.md#simple) audio files of any [supported format]({{ link-docs-ai }}speechkit/formats) to the `input` folder.
 1. Wait a few minutes and make sure the bucket now contains the `log` and `out` folders.
 1. Check the recognition status in the `log` folder. The status of each audio file sent for recognition is saved to an auxiliary file named `<audio_file_name>.json`, e.g., `audio.mp3.json`. The `"done": "false"` parameter in the file indicates that the recognition process is not completed.

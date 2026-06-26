@@ -10,6 +10,14 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится кластер GPU.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
+  1. В строке с нужным кластером GPU нажмите ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. Подтвердите удаление.
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -69,4 +77,17 @@ description: Следуя данной инструкции, вы сможете
     yc compute gpu-cluster list
     ```
 
+- API {#api}
+
+  Чтобы удалить кластер GPU, воспользуйтесь методом REST API [delete](../../api-ref/GpuCluster/delete.md) для ресурса [GpuCluster](../../api-ref/GpuCluster/index.md) или вызовом gRPC API [GpuClusterService/Delete](../../api-ref/grpc/GpuCluster/delete.md).
+
 {% endlist %}
+
+#### Полезные ссылки {#see-also}
+
+* [{#T}](gpu-cluster-create.md)
+* [{#T}](gpu-cluster-update.md)
+* [{#T}](gpu-add-to-cluster.md)
+* [{#T}](../../concepts/gpus.md)
+* [{#T}](../../concepts/vm-platforms.md)
+

@@ -2633,6 +2633,10 @@ default:
         label_credit-volumeIncentiveCredit: Volume incentive credit
         value_empty_clouds_folders: All clouds and folders
         value_empty_service_instances: All workspaces
+      billing-widget:
+        activate_promocode: Activate promo code
+        details: Details
+        grant: Grants
       cloud-billing-account:
         label_card-add: Add card
       create-account:
@@ -3904,6 +3908,9 @@ default:
             scope_filter_header_7CrSm: Configuration controls
           ControlsExceptionTable:
             field_author: Author
+            field_objects_5dGQy: Objects
+            field_reason: Reason for exclusion
+            field_resources: Resources
             field_rules: Rules
             field_status: Status
           ControlsPage:
@@ -3914,7 +3921,6 @@ default:
           ExceptionDrawer:
             header_action_delete: Delete
             header_action_edit: Edit
-            header_caption: Exception
             resources_field_id: ID
           ExceptionOverview:
             header_caption_cspm_9dTJt: Configuration control
@@ -4062,6 +4068,9 @@ default:
           TriggeredRunsControl:
             action_check-environment_k3mP9: Check environment for compliance with control rules
             action_download-check-report_q7nR2: Download check report
+          workload-labels-checkbox_Wl4Cb: Pod labels
+          workload-names-checkbox_Wn4Cb: Workload names
+          workload-types-checkbox_Wt4Cb: Workload types
           WorkspaceEditPageLayout:
             tabGeneralParams_xc2v2: Main parameters
             tabResources_vJuSN: Resources

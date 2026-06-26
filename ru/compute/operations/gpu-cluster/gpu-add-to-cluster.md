@@ -6,34 +6,75 @@ description: Следуя данной инструкции, вы сможете
 # Добавить виртуальную машину в кластер GPU
 
 
-В [кластерах GPU](../../concepts/gpus.md#gpu-clusters) можно создавать только [ВМ](../../concepts/vm.md) на [платформе](../../concepts/vm-platforms.md) [{{ a100-epyc }}](../../concepts/vm-platforms.md#gpu-platforms) c 8 GPU. Вам понадобится подготовить [образ](../../concepts/image.md) [диска](../../concepts/disk.md) с драйверами [по инструкции](../image-create/custom-image.md) и использовать его при создании ВМ.
+В [кластерах GPU](../../concepts/gpus.md#gpu-clusters) можно создавать [ВМ](../../concepts/vm.md) с 8 GPU на одной из следующих [платформ](../../concepts/vm-platforms.md#gpu-platforms):
+* {{ a100-epyc }} (`gpu-standard-v3`);
+* Gen2 (`gpu-standard-v3i`);
+* GPU PLATFORM V4 (`gpu-standard-v4`).
+
+ВМ должна быть развернута из [специального образа](../../concepts/gpus.md#os) с драйверами NVIDIA.
 
 
 {% note info %}
 
-Кластеры GPU сейчас доступны только в [зонах доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-a` и `{{ region-id }}-d`. Добавить ВМ в кластер GPU можно только из той же зоны доступности.
+Кластер GPU можно разместить в одной из [зон доступности](../../../overview/concepts/geo-scope.md): `{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-d`. Зона доступности, в которой создается ВМ, должна совпадать с зоной доступности кластера.
 
 {% endnote %}
 
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать ВМ.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите [образ с предустановленными драйверами NVIDIA](../../concepts/gpus.md#os).
+  1. В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой находится кластер GPU.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** и укажите:
+
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — одну из [платформ](../../concepts/vm-platforms.md#gpu-platforms): `{{ a100-epyc }}`, `GPU PLATFORM V4` или `Gen2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_gpus }}** — `8`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_gpu-cluster }}** — ранее [созданный](gpu-cluster-create.md) кластер GPU.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+
 - CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  В терминале выполните команду:
 
   ```bash
   export YC_GPU_CLUSTER=$(yc compute gpu-cluster list --format=json | jq -r .[].id)
   export YC_ZONE="{{ region-id }}-a"
   export SUBNET_NAME="my-subnet-name"
   export SUBNET_ID=$(yc vpc subnet get --name=$SUBNET_NAME --format=json | jq -r .id)
-  yc compute instance create --name node-gpu-test \
+  yc compute instance create \
+    --name node-gpu-test \
     --create-boot-disk size=64G,image-id=<идентификатор_образа_с_драйверами>,type=network-ssd \
     --ssh-key=$HOME/.ssh/id_rsa.pub \
-    --gpus 8 --cores 224 --memory=952G \
+    --gpus 8 \
+    --cores 224 \
+    --memory=952G \
     --zone $YC_ZONE \
     --network-interface subnet-id=$SUBNET_ID,nat-ip-version=ipv4 \
     --platform gpu-standard-v3 \
     --gpu-cluster-id=$YC_GPU_CLUSTER
   ```
+
+  Где:
+  * `--name` — имя ВМ.
+  * `--create-boot-disk` — параметры [диска](../../concepts/disk.md) ВМ.
+  * `--ssh-key` — путь к файлу с [открытым SSH-ключом](../../operations/vm-connect/ssh.md#creating-ssh-keys).
+  * `--gpus` — количество [GPU](../../concepts/gpus.md).
+  * `--cores` — количество vCPU.
+  * `--memory` — объем RAM.
+  * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md).
+  * `--network-interface` — настройки [сетевого интерфейса](../../concepts/network.md) ВМ.
+  * `--platform` — идентификатор [платформы](../../concepts/vm-platforms.md).
+  * `--gpu-cluster-id` — идентификатор [кластера GPU](../../concepts/gpus.md#gpu-clusters).
 
 - {{ TF }} {#tf}
 
@@ -108,7 +149,7 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке `metadata` укажите имя пользователя и путь к открытому [SSH-ключу](../../../glossary/ssh-keygen.md). Подробнее в разделе [{#T}](../../../compute/concepts/vm-metadata.md).
   1. Создайте ресурсы:
 
-    {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
   После этого в указанном кластере GPU будет создана ВМ. Проверить появление ВМ и ее настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/):
 
@@ -116,4 +157,16 @@ description: Следуя данной инструкции, вы сможете
   yc compute instance get <имя_ВМ>
   ```
 
+- API {#api}
+
+  Чтобы создать ВМ в кластере GPU, воспользуйтесь методом REST API [create](../../api-ref/Instance/create.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Create](../../api-ref/grpc/Instance/create.md). В теле запроса в поле `gpuClusterId` укажите идентификатор кластера GPU.
+
 {% endlist %}
+
+#### Полезные ссылки {#see-also}
+
+* [{#T}](gpu-cluster-create.md)
+* [{#T}](gpu-cluster-update.md)
+* [{#T}](gpu-cluster-delete.md)
+* [{#T}](../../concepts/gpus.md)
+* [{#T}](../../concepts/vm-platforms.md)

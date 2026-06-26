@@ -33,7 +33,7 @@
       - name: <имя_пользователя>
         sudo: ALL=(ALL) NOPASSWD:ALL
         shell: /bin/bash
-        ssh-authorized-keys:
+        ssh_authorized_keys:
           - "<публичный_SSH-ключ_пользователя>"
     packages:
       - jq
@@ -50,7 +50,7 @@
         {% endnote %}
 
     * `name` — имя локального пользователя, который будет создан на ВМ. Например: `admin`.
-    * `ssh-authorized-keys` — публичный SSH-ключ создаваемого пользователя ВМ.
+    * `ssh_authorized_keys` — публичный SSH-ключ создаваемого пользователя ВМ.
 
 1. Создайте виртуальную машину:
 

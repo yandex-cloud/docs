@@ -7,11 +7,30 @@
 
 {% endnote %}
 
-В этом разделе приведена инструкция для создания кластера GPU. Кластеры GPU сейчас можно создавать только в [зонах доступности](../../../overview/concepts/geo-scope.md) `ru-central1-a` и `ru-central1-d`.
+В этом разделе приведена инструкция для создания кластера GPU. Кластеры GPU можно создавать в [зонах доступности](../../../overview/concepts/geo-scope.md) `ru-central1-a`, `ru-central1-b` и `ru-central1-d`.
 
 После создания кластера GPU вы сможете [добавлять](gpu-add-to-cluster.md) к нему [виртуальные машины](../../concepts/vm.md) из той же зоны доступности.
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать кластер GPU.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/cpus.svg) **Кластеры GPU**.
+  1. Нажмите кнопку **Создать кластер GPU**.
+  1. В открывшемся окне:
+
+      1. В поле **Имя** задайте имя кластера GPU.
+
+          * длина — от 3 до 63 символов;
+          * может содержать строчные буквы латинского алфавита, цифры и дефисы;
+          * первый символ — буква, последний — не дефис.
+
+      1. (Опционально) В поле **Описание** добавьте описание кластера GPU.
+      1. В поле **Зона доступности** выберите зону доступности, в которой будет размещен кластер.
+      1. (Опционально) Добавьте [метки](../../../resource-manager/concepts/labels.md) кластеру.
+  1. Нажмите кнопку **Создать кластер GPU**.
 
 - CLI {#cli}
 
@@ -99,4 +118,16 @@
   yc compute gpu-cluster get <имя_кластера_GPU>
   ```
 
+- API {#api}
+
+  Чтобы создать кластер GPU, воспользуйтесь методом REST API [create](../../api-ref/GpuCluster/create.md) для ресурса [GpuCluster](../../api-ref/GpuCluster/index.md) или вызовом gRPC API [GpuClusterService/Create](../../api-ref/grpc/GpuCluster/create.md).
+
 {% endlist %}
+
+#### Полезные ссылки {#see-also}
+
+* [Добавить виртуальную машину в кластер GPU](gpu-add-to-cluster.md)
+* [Изменить кластер GPU](gpu-cluster-update.md)
+* [Удалить кластер GPU](gpu-cluster-delete.md)
+* [Графические ускорители GPU](../../concepts/gpus.md)
+* [Платформы](../../concepts/vm-platforms.md)

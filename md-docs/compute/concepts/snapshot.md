@@ -67,3 +67,4 @@ _Снимок диска_ в Yandex Cloud — это копия файловой
 
 * [Инструкции для снимков дисков и расписаний](../operations/index.md#snapshots)
 * [Восстановить диск с помощью снимка](../operations/disk-create/from-snapshot.md)
+* [Диски, снимки, образы](../qa/disks.md)

@@ -41,8 +41,8 @@
       * `dataproc.agent`;
       * `dataproc.user`.
 
-   1. [Создайте бакет](../../../storage/operations/buckets/create.md) `dataproc-bucket`.
-   1. [Предоставьте сервисному аккаунту](../../../storage/operations/buckets/edit-acl.md) `dataproc-sa` разрешение `FULL_CONTROL` на бакет `dataproc-bucket`.
+   1. [Создайте бакет](../../../storage/operations/buckets/create.md) с уникальным именем в рамках сервиса {{ objstorage-name }}.
+   1. [Предоставьте сервисному аккаунту](../../../storage/operations/buckets/edit-acl.md) `dataproc-sa` разрешение `FULL_CONTROL` на созданный бакет.
    1. [Создайте кластер {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md#create) с параметрами:
 
       * **{{ ui-key.yacloud.mdb.forms.base_field_name }}** — `dataproc-cluster`.
@@ -58,7 +58,7 @@
 
       * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `dataproc-sa`.
       * **{{ ui-key.yacloud.mdb.forms.config_field_zone }}** — `{{ region-id }}-b`.
-      * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** — `dataproc-bucket`.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** — имя созданного бакета.
       * **{{ ui-key.yacloud.mdb.forms.config_field_network }}** — `dataproc-network`.
       * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `dataproc-security-group`.
       * **{{ ui-key.yacloud.mdb.forms.section_subclusters }}** — мастер, один подкластер `Data` и один подкластер `Compute`.
@@ -198,7 +198,7 @@
          .selectExpr("CAST(value AS STRING)") \
          .where(col("value").isNotNull())
 
-      df.write.format("text").save("s3a://dataproc-bucket/kafka-read-batch-output")
+      df.write.format("text").save("s3a://<имя_созданного_бакета>/kafka-read-batch-output")
 
    if __name__ == "__main__":
       main()
@@ -243,7 +243,7 @@
 
       df = spark.sql("select value from received_messages")
 
-      df.write.format("text").save("s3a://dataproc-bucket/kafka-read-stream-output")
+      df.write.format("text").save("s3a://<имя_созданного_бакета>/kafka-read-stream-output")
 
    if __name__ == "__main__":
       main()
@@ -253,9 +253,9 @@
 
 1. [Получите FQDN хоста {{ KF }}](../../../managed-kafka/operations/connect/index.md#get-fqdn) и укажите FQDN в каждом скрипте.
 1. [Загрузите в корень бакета](../../../storage/operations/objects/upload.md) подготовленные скрипты.
-1. [Создайте задание PySpark](../../../data-proc/operations/jobs-pyspark.md#create) для записи сообщения в топик {{ KF }}. В поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** укажите путь до скрипта `s3a://dataproc-bucket/kafka-write.py`.
+1. [Создайте задание PySpark](../../../data-proc/operations/jobs-pyspark.md#create) для записи сообщения в топик {{ KF }}. В поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** укажите путь до скрипта `s3a://<имя_созданного_бакета>/kafka-write.py`.
 1. Дождитесь, когда [статус задания](../../../data-proc/operations/jobs-pyspark.md#get-info) изменится на `Done`.
-1. Убедитесь, что данные в топик были успешно записаны. Для этого создайте новое задание PySpark для чтения из топика и для пакетной обработки данных. В поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** укажите путь до скрипта `s3a://dataproc-bucket/kafka-read-batch.py`.
+1. Убедитесь, что данные в топик были успешно записаны. Для этого создайте новое задание PySpark для чтения из топика и для пакетной обработки данных. В поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** укажите путь до скрипта `s3a://<имя_созданного_бакета>/kafka-read-batch.py`.
 1. Дождитесь, когда статус нового задания изменится на `Done`.
 1. [Скачайте из бакета](../../../storage/operations/objects/download.md) файл с прочитанными данными:
 
@@ -270,7 +270,7 @@
 
    Файл хранится в новой папке `kafka-read-batch-output` в бакете.
 
-1. Прочитайте сообщения из топика при потоковой обработке. Для этого создайте еще одно задание PySpark. В поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** укажите путь до скрипта `s3a://dataproc-bucket/kafka-read-stream.py`.
+1. Прочитайте сообщения из топика при потоковой обработке. Для этого создайте еще одно задание PySpark. В поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** укажите путь до скрипта `s3a://<имя_созданного_бакета>/kafka-read-stream.py`.
 1. Дождитесь, когда статус нового задания изменится на `Done`.
 1. Скачайте из бакета файлы с прочитанными данными:
 

@@ -32,22 +32,22 @@ DNS-записи A-типа создаются в [сервисной зоне i
 
 В настоящее время можно создать сервисное подключение для следующих облачных сервисов:
 
-| **Название сервиса** | **Тип сервиса** | **Способ создания** | **PE-запись** | **Primary-запись** |
-| --- | --- | --- | --- | --- |
-| [Object Storage](../../storage/index.md) | yandex.cloud.storage | [Консоль управления, CLI, Terraform](../operations/private-endpoint-create.md) | `storage.pe.yandexcloud.net` | `storage.yandexcloud.net` |
-| [Cloud Registry](../../cloud-registry/index.md) | yandex.cloud.registry | [CLI, Terraform](../operations/private-endpoint-create.md) | `registry.pe.yandexcloud.net` | `registry.yandexcloud.net` |
-| [AI Studio](../../ai-studio/concepts/) | yandex.cloud.ai-studio | [CLI, Terraform](../operations/private-endpoint-create.md) | `ai.pe.api.cloud.yandex.net` | `ai.api.cloud.yandex.net` |
-| [AI Studio MCP Gateway](https://aistudio.yandex.ru/docs/ai-studio/mcp-gateway/api-ref/) |yandex.cloud.mcp-gateway | [CLI, Terraform](../operations/private-endpoint-create.md) | `*.mcpgw.serverless.pe.yandexcloud.net` | `*.mcpgw.serverless.yandexcloud.net` |
-| [Managed Service for Trino](../../managed-trino/index.md) | yandex.cloud.managed-trino | [CLI, Terraform](../operations/private-endpoint-create.md) | `trino.pe.yandexcloud.net`, `*.trino.pe.yandexcloud.net` | - |
-| [Serverless Containers](../../serverless-containers/index.md) | yandex.cloud.serverless-containers | [CLI, Terraform](../operations/private-endpoint-create.md) | `*.containers.pe.yandexcloud.net` | `*.containers.yandexcloud.net` |
-| [Cloud Functions](../../functions/index.md) | yandex.cloud.serverless-functions | [CLI, Terraform](../operations/private-endpoint-create.md) | `functions.pe.yandexcloud.net` | `functions.yandexcloud.net` |
-| Public API Gateway | yandex.cloud.api | [CLI, Terraform](../operations/private-endpoint-create.md) | `-` | `*.api.cloud.yandex.net` |
+| **Название сервиса** | **Тип сервиса** | **Политика доступа** | **Способ создания** | **PE-запись** | **Primary-запись** |
+| --- | --- | --- | --- | --- | --- |
+| [Object Storage](../../storage/index.md) | yandex.cloud.storage | [Есть](#s3-policy) | [Консоль управления, CLI, Terraform](../operations/private-endpoint-create.md) | `storage.pe.yandexcloud.net` | `storage.yandexcloud.net` |
+| [Cloud Registry](../../cloud-registry/index.md) | yandex.cloud.registry | Нет | [CLI, Terraform](../operations/private-endpoint-create.md) | `registry.pe.yandexcloud.net` | `registry.yandexcloud.net` |
+| [AI Studio](../../ai-studio/concepts/) | yandex.cloud.ai-studio | Нет | [CLI, Terraform](../operations/private-endpoint-create.md) | `ai.pe.api.cloud.yandex.net` | `ai.api.cloud.yandex.net` |
+| [AI Studio MCP Gateway](https://aistudio.yandex.ru/docs/ai-studio/mcp-gateway/api-ref/) | yandex.cloud.mcp-gateway | Нет | [CLI, Terraform](../operations/private-endpoint-create.md) | `*.mcpgw.serverless.pe.yandexcloud.net` | `*.mcpgw.serverless.yandexcloud.net` |
+| [Managed Service for Trino](../../managed-trino/index.md) | yandex.cloud.managed-trino | Нет | [CLI, Terraform](../operations/private-endpoint-create.md) | `trino.pe.yandexcloud.net`, `*.trino.pe.yandexcloud.net` | - |
+| [Serverless Containers](../../serverless-containers/index.md) | yandex.cloud.serverless-containers | Нет | [CLI, Terraform](../operations/private-endpoint-create.md) | `*.containers.pe.yandexcloud.net` | `*.containers.yandexcloud.net` |
+| [Cloud Functions](../../functions/index.md) | yandex.cloud.serverless-functions | Нет | [CLI, Terraform](../operations/private-endpoint-create.md) | `functions.pe.yandexcloud.net` | `functions.yandexcloud.net` |
+| Public API Gateway | yandex.cloud.api | Нет | [CLI, Terraform](../operations/private-endpoint-create.md) | `-` | `*.api.cloud.yandex.net` |
 
 ## Особенности использования разных видов сервисных подключений {#pe-notes2}
 
 ### Object Storage {#pe-s3}
 
-#### Политики доступа
+#### Политики доступа {#s3-policy}
 
 Чтобы разрешить доступ к Object Storage только из VPC через сервисное подключение, необходимо применить следующую политику доступа для бакета:
 
