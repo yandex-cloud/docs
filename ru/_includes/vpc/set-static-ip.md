@@ -13,6 +13,9 @@
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужный адрес.
    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+
+      Если в списке нет нужного адреса и отображается сообщение о том, что публичных IP-адресов пока нет, этот адрес нельзя сделать статическим из списка адресов. В этом случае сначала [зарезервируйте статический публичный IP-адрес](../../vpc/operations/get-static-ip.md) или используйте CLI.
+      
    1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного адреса и выберите **{{ ui-key.yacloud.vpc.addresses.button_action-static }}**.
    1. В открывшемся окне нажмите **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_static }}**.
 
