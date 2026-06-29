@@ -70,7 +70,7 @@ Event name | Description
 `saml.ReactivateApplication` | Activating a SAML app
 `saml.ReactivateFederatedUserAccounts` | Activating a federated user
 `saml.SetApplicationAccessBindings` | Assigning access permissions for a SAML app
-`saml.SuspendApplication` | Suspending a SAML app
+`saml.SuspendApplication` | Deactivating a SAML app
 `saml.SuspendFederatedUserAccounts` | Deactivating a federated user
 `saml.UpdateApplication` | Updating a SAML app
 `saml.UpdateApplicationAccessBindings` | Updating access permissions for a SAML app

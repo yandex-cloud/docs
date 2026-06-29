@@ -22,7 +22,7 @@ The trigger must be in the same cloud as the broker whose topic it reads message
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 

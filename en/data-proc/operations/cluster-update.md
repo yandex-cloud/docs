@@ -69,7 +69,7 @@ You can also migrate a {{ dataproc-name }} cluster to a different availability z
 
             Select the default log group or another existing log group. If the log group you need is missing from the list, [create it](../../logging/operations/create-group.md).
 
-            To enable the cluster to send logs, [assign](../../iam/operations/roles/grant.md) the `logging.writer` role to the cluster’s service account. For more details, see [this {{ cloud-logging-full-name }} guide](../../logging/security/index.md).
+            To enable the cluster to send logs, [assign](../../iam/operations/roles/grant.md) the `logging.writer` role to the cluster’s service account. For more information, see [this {{ cloud-logging-full-name }} guide](../../logging/security/index.md).
 
     1. In the advanced cluster settings, set **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** as needed.
 
@@ -146,7 +146,7 @@ You can also migrate a {{ dataproc-name }} cluster to a different availability z
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
 
     1. To enable cluster deletion protection and access to the [web interfaces](../concepts/interfaces.md) of the {{ dataproc-name }} components, update the values of the appropriate fields in the {{ dataproc-name }} cluster description:
 
@@ -183,7 +183,7 @@ You can also migrate a {{ dataproc-name }} cluster to a different availability z
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

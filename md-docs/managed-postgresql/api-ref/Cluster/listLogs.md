@@ -33,7 +33,8 @@ If no columns are specified, entire log records are returned. ||
 Type of the service to request logs about.
 
 - `POSTGRESQL`: Logs of PostgreSQL activity.
-- `POOLER`: Logs of connection pooler activity. ||
+- `POOLER`: Logs of connection pooler activity.
+- `REPACK`: Logs of Managed Repack service activity. ||
 || fromTime | **string** (date-time)
 
 Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.

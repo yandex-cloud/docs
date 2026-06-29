@@ -1,3 +1,55 @@
+## 0.213.0 (June 29, 2026)
+##### FEATURES:
+* mdb_clickhouse: SSD cache dictionaries support
+##### WARNING:
+* loadtesting: `yandex_loadtesting_agent` resource and data source have been removed because the Yandex Cloud Load Testing service is shut down
+
+## 0.212.0 (June 25, 2026)
+##### FEATURES:
+* mysql: add yandex_mdb_mysql_user_v2 resource and datasource
+* datatransfer: add collapse_inherit_table to pg_source `yandex_datatransfer_endpoint` and skip_utc_conversion to `yandex_datatransfer_transfer`
+##### BUG FIXES:
+* postgresql: yandex_mdb_postgresql_cluster_v2 now keeps a cluster in state on failed create/restore, so it stays managed by terraform instead of being orphan
+
+## 0.211.0 (June 22, 2026)
+##### FEATURES:
+* yandex_storage_bucket: support INTELLIGENT_TIERING storage class
+* kubernetes: ForceNew is set to false for yandex_kubernetes_node_group.node_taints (updates on node group taints do not recreate node groups)
+##### ENHANCEMENTS:
+* opensearch: update docs
+
+## 0.210.0 (June 18, 2026)
+##### FEATURES:
+* trino: add `user_s3` option to `exchange_manager` in trino_cluster resource
+##### BUG FIXES:
+* postgresql: fix `yandex_mdb_postgresql_cluster` resetting host `priority` to 0 when it is not set in config
+* postgresql: fix `yandex_mdb_postgresql_cluster_v2` resetting host `priority` to 0 when it is not set in config
+##### ENHANCEMENTS:
+* vpc: added `service_name` and `dns_records` parameters in `yandex_vpc_private_endpoint` resource and data source.
+
+## 0.209.0 (June 15, 2026)
+##### FEATURES:
+* redis: add databases parameter to yandex_mdb_redis_user resource
+* opensearch: add server flags compliance_enabled,log_request_body,log_search_queries,log_data_modifications,log_index_metadata_access,log_monitoring_checks,log_index_maintenance,log_backup_operations
+
+## 0.208.0 (June 8, 2026)
+##### FEATURES:
+* mdb_clickhouse: add host recreation option
+
+## 0.207.0 (June 4, 2026)
+##### FEATURES:
+* mdb_clickhouse: support external dictionaries management
+* mdb_postgresql: add `connection_manager` configuration block to the `yandex_mdb_postgresql_cluster` resource and datasource (SDKv2)
+* mdb_postgresql: add `connection_manager` configuration block to the `yandex_mdb_postgresql_cluster_v2` resource (Plugin Framework)
+* mdb_postgresql: add `user_connection_manager` block to the `yandex_mdb_postgresql_user` resource and datasource; the existing `connection_manager` attribute is now deprecated
+* alb: added `client_certificates_verification` field to the `resource_yandex_alb_load_balancer` resource
+* alb: added `client_certificate_forward` field to the `resource_yandex_alb_virtual_host` resource
+* postgresql: possibility to create cluster with replication_source via yandex_mdb_postgresql_cluster
+* postgresql: possibility to create cluster with replication_source via yandex_mdb_postgresql_cluster_v2
+* mysql: possibility to create cluster with replication_source via yandex_mdb_mysql_cluster_v2
+##### BUG FIXES:
+* mdb_clickhouse: fix cloud_storage.move_factor causing inconsistent state on create when unset
+
 ## 0.206.0 (May 28, 2026)
 ##### FEATURES:
 * opensearch: add `disk_size_gb` for `resources`

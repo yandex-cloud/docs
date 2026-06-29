@@ -1,20 +1,26 @@
 ---
 title: Access management in {{ sf-name }}
-description: Access management in {{ sf-name }}, a service for running applications without creating and maintaining VM instances. This section describes the resources for which you can assign a role and the roles existing in the service.
+description: Access management in {{ sf-name }}, a service for running applications without creating and maintaining VMs. This section describes the resources for which you can assign a role and the roles existing in the service.
 ---
 
 # Access management in {{ sf-name }}
 
 In this section, you will learn about:
 
-* [What resources you can assign a role for](#resources).
-* [What roles this service has](#roles-list).
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, a user should have the `functions.admin` role or one of the following roles for that resource:
+To assign a role for a resource, you need the `functions.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
+
+{% note info %}
+
+The ability to call and manage functions from specific [cloud networks](../../vpc/concepts/network.md#network) or IP addresses, or associate functions with specific cloud networks may be restricted by [access policies](../../iam/concepts/access-control/access-policies.md) at the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), or [organization](../../organization/concepts/organization.md) level. 
+
+{% endnote %}
 
 ## Resources you can assign a role for {#resources}
 
@@ -24,7 +30,7 @@ To assign a role for a [function](../concepts/function.md), use the {{ yandex-cl
 
 ## Roles this service has {#roles-list}
 
-The list below shows all roles used for access control in {{ sf-name }}.
+The list below shows all the roles used for access control in {{ sf-name }}.
 
 {% include [functions](../../_mermaid/roles/functions.md) %}
 

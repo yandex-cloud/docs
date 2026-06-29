@@ -52,7 +52,7 @@ The infrastructure support cost for this tutorial includes:
 - Windows {#windows}
 
   1. [Install WSL](https://docs.microsoft.com/en-us/windows/wsl/install) to run a Linux environment.
-  1. Run the Linux subsystem (by default, Ubuntu).
+  1. Run the Linux subsystem (Ubuntu by default).
   1. Next, configure the environment as described in this tutorial for Linux.
 
 - Linux {#linux}
@@ -428,7 +428,7 @@ Create a database named `game-data` to store the game data and a database named 
 
 ### Create a table {#ydb-table-create}
 
-1. Navigate to the `files` directory in the `yc-serverless-game` folder.
+1. Navigate to the `files` directory located in `yc-serverless-game`.
 
 1. Create a table using the `db-example.sql` file:
 
@@ -579,7 +579,7 @@ Create a database named `game-data` to store the game data and a database named 
     echo $APP_ENV
     ```
 
-1. Build and deploy the project. In the `yc-serverless-game` root folder, run the following commands one by one:
+1. Build and deploy the project. In the `yc-serverless-game` root directory, run the following commands one by one:
 
     ```bash
     nvm use
@@ -616,9 +616,9 @@ Your working folder will contain the following resources once your project is de
   * `apigw-s3-viewer` with the `storage.viewer` role
   * `apigw-fn-caller` with the `serverless.functions.invoker` role
 
-* {{ objstorage-name }} bucket with the name you specified in `serverless.yaml`
+* {{ objstorage-name }} bucket with the name you specified in `serverless.yaml`.
 
-* {{ message-queue-name }} named `capturing-queue`
+* {{ message-queue-name }} named `capturing-queue`.
 
 ## Create access keys for the service accounts {#create-extra-sa-keys}
 
@@ -690,7 +690,7 @@ During project deployment, the system created these service accounts:
 1. Inject new values into the secret named `game-secrets`:
 
     1. In the [management console]({{ link-console-main }}), select your working folder.
-    1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
     1. Select `capturing-queue`.
     1. Copy the value from the **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** field and save it to the `YMQ_CAPTURE_QUEUE_URL` variable:
 
@@ -720,7 +720,7 @@ During project deployment, the system created these service accounts:
        {'key': 'yds_writer_key_secret', 'text_value': '$YDS_WRITER_KEY_SECRET'}]"
        ```
 
-1. Navigate to the `yc-serverless-game` root folder and deploy your project again:
+1. Navigate to the `yc-serverless-game` root directory and deploy your project again:
 
     ```bash
     npm run deploy
@@ -728,7 +728,7 @@ During project deployment, the system created these service accounts:
 
 ## Create an {{ api-gw-name }} {#apigw-create}
 
-The following service accounts were created when deploying the project:
+During project deployment, the system created these service accounts:
 * `apigw-s3-viewer` with the `storage.viewer` role to read objects from the {{ objstorage-name }} bucket.
 * `apigw-fn-caller` with the `{{ roles-functions-invoker }}` role to invoke {{ sf-name }}.
 
@@ -744,7 +744,7 @@ The following service accounts were created when deploying the project:
     >> ~/.bashrc && . ~/.bashrc
     ```
 
-1. Modify the API gateway specification. Navigate to the `files` directory in the `yc-serverless-game` folder and run the following command:
+1. Modify the API gateway specification. Navigate to the `files` directory within `yc-serverless-game` and run the following command:
 
     ```bash
     cp apigw-example.yml apigw.yml
@@ -801,7 +801,7 @@ The following service accounts were created when deploying the project:
 
 1. Copy your API gateway's service domain. You can find it in the `domain` field of the previous command output.
 
-1. In Telegram, find [BotFather](https://t.me/BotFather) and type the `/setdomain` command.
+1. In Telegram, find [BotFather](https://t.me/BotFather) and send the `/setdomain` command.
 1. Select your bot from the list and send it your API gateway's service domain. Add `https://` before the domain name. For example, if your API gateway's service domain is `{{ api-host-apigw }}`, the URL will be `https://{{ api-host-apigw }}`.
 
 ## Test your application {#test-app}
@@ -818,6 +818,6 @@ To stop paying for the resources you created:
 1. [Delete](../../lockbox/operations/secret-delete.md) the {{ lockbox-name }} secret.
 1. [Delete](../../storage/operations/objects/delete.md) all objects from the {{ objstorage-name }} bucket.
 1. [Delete](../../storage/operations/buckets/delete.md) the empty {{ objstorage-name }} bucket.
-1. [Delete](../../api-gateway/operations/api-gw-delete.md) {{ api-gw-name }}.
+1. [Delete](../../api-gateway/operations/api-gw-delete.md) the {{ api-gw-name }} API gateway.
 1. [Delete](../../functions/operations/function/function-delete.md) the {{ sf-name }} functions.
 1. [Delete](../../message-queue/operations/message-queue-delete-queue.md) {{ message-queue-name }}.

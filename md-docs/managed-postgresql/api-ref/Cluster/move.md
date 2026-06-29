@@ -2072,7 +2072,8 @@ The maximum string length in characters is 50. ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -2237,7 +2238,8 @@ The maximum string length in characters is 50. ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -2402,7 +2404,8 @@ The maximum string length in characters is 50. ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         }
       },
       "postgresqlConfig_14_1c": {
@@ -2570,7 +2573,8 @@ The maximum string length in characters is 50. ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -2736,7 +2740,8 @@ The maximum string length in characters is 50. ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -2902,7 +2907,8 @@ The maximum string length in characters is 50. ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         }
       },
       "postgresqlConfig_15": {
@@ -3070,7 +3076,9 @@ The maximum string length in characters is 50. ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -3236,7 +3244,9 @@ The maximum string length in characters is 50. ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -3402,7 +3412,9 @@ The maximum string length in characters is 50. ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         }
       },
       "postgresqlConfig_15_1c": {
@@ -3572,7 +3584,9 @@ The maximum string length in characters is 50. ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -3740,7 +3754,9 @@ The maximum string length in characters is 50. ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -3908,7 +3924,9 @@ The maximum string length in characters is 50. ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         }
       },
       "postgresqlConfig_16": {
@@ -4076,7 +4094,9 @@ The maximum string length in characters is 50. ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -4242,7 +4262,9 @@ The maximum string length in characters is 50. ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -4408,7 +4430,9 @@ The maximum string length in characters is 50. ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         }
       },
       "postgresqlConfig_16_1c": {
@@ -4578,7 +4602,9 @@ The maximum string length in characters is 50. ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -4746,7 +4772,9 @@ The maximum string length in characters is 50. ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -4914,7 +4942,9 @@ The maximum string length in characters is 50. ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         }
       },
       "postgresqlConfig_17": {
@@ -5085,7 +5115,8 @@ The maximum string length in characters is 50. ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -5254,7 +5285,8 @@ The maximum string length in characters is 50. ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -5423,7 +5455,8 @@ The maximum string length in characters is 50. ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         }
       },
       "postgresqlConfig_17_1c": {
@@ -5596,7 +5629,8 @@ The maximum string length in characters is 50. ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -5767,7 +5801,8 @@ The maximum string length in characters is 50. ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -5938,7 +5973,8 @@ The maximum string length in characters is 50. ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         }
       },
       "postgresqlConfig_18": {
@@ -6109,7 +6145,9 @@ The maximum string length in characters is 50. ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "vacuumTruncate": "boolean"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -6278,7 +6316,9 @@ The maximum string length in characters is 50. ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "vacuumTruncate": "boolean"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -6447,7 +6487,9 @@ The maximum string length in characters is 50. ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "vacuumTruncate": "boolean"
         }
       },
       "postgresqlConfig_18_1c": {
@@ -6620,7 +6662,9 @@ The maximum string length in characters is 50. ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "vacuumTruncate": "boolean"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -6791,7 +6835,9 @@ The maximum string length in characters is 50. ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "vacuumTruncate": "boolean"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -6962,7 +7008,9 @@ The maximum string length in characters is 50. ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "vacuumTruncate": "boolean"
         }
       },
       // end of the list of possible fields
@@ -7005,6 +7053,9 @@ The maximum string length in characters is 50. ||
         "enabled": "boolean",
         "connectionsFolderId": "string",
         "secretsFolderId": "string"
+      },
+      "managedRepack": {
+        "enabled": "boolean"
       }
     },
     "networkId": "string",
@@ -7383,6 +7434,9 @@ Full version ||
 || connectionManager | **[ClusterConnectionManager](#yandex.cloud.mdb.v1.ClusterConnectionManager)**
 
 Cluster-wide Connection Manager integration configuration ||
+|| managedRepack | **[ManagedRepack](#yandex.cloud.mdb.postgresql.v1.ManagedRepack)**
+
+Configuration of managed pg_repack. ||
 |#
 
 ## PostgresqlConfigSet11 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet11}
@@ -9530,6 +9584,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
 |#
 
 ## PostgresqlConfigSet14_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet14_1C}
@@ -9991,6 +10050,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
 |#
 
 ## PostgresqlConfigSet15 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15}
@@ -10457,6 +10521,14 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| pgHintPlanHintsAnywhere | **boolean**
+
+If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
 |#
 
 ## PostgresqlConfigSet15_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15_1C}
@@ -10925,6 +10997,14 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| pgHintPlanHintsAnywhere | **boolean**
+
+If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
 |#
 
 ## PostgresqlConfigSet16 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16}
@@ -11396,6 +11476,14 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| pgHintPlanHintsAnywhere | **boolean**
+
+If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
 |#
 
 ## PostgresqlConfigSet16_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16_1C}
@@ -11869,6 +11957,14 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| pgHintPlanHintsAnywhere | **boolean**
+
+If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
 |#
 
 ## PostgresqlConfigSet17 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17}
@@ -12349,6 +12445,11 @@ Acceptable values are 20 to 100, inclusive. ||
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
 |#
 
 ## PostgresqlConfigSet17_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17_1C}
@@ -12831,6 +12932,11 @@ Acceptable values are 20 to 100, inclusive. ||
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
 |#
 
 ## PostgresqlConfigSet18 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18}
@@ -13311,6 +13417,14 @@ Acceptable values are 20 to 100, inclusive. ||
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| vacuumTruncate | **boolean**
+
+Enables or disables vacuum to try to truncate off any empty pages at the end of the table. Default is true. ||
 |#
 
 ## PostgresqlConfigSet18_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18_1C}
@@ -13793,6 +13907,14 @@ Acceptable values are 20 to 100, inclusive. ||
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| vacuumTruncate | **boolean**
+
+Enables or disables vacuum to try to truncate off any empty pages at the end of the table. Default is true. ||
 |#
 
 ## ConnectionPoolerConfig {#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig}
@@ -13937,6 +14059,17 @@ Optional. Defaults to the cluster's folder if not specified. ||
 A Connection Manager setting for connections created by MDB integration.
 ID of the folder where connection secrets are created.
 Optional. Defaults to the cluster's folder if not specified. ||
+|#
+
+## ManagedRepack {#yandex.cloud.mdb.postgresql.v1.ManagedRepack}
+
+Cluster-wide configuration of managed pg_repack.
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enables/disables managed pg_repack for the cluster. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow}

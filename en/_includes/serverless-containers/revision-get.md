@@ -2,10 +2,10 @@
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder with your container.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
-    1. Select the container to get revision information for.
-    1. Under **{{ ui-key.yacloud.serverless-containers.section-revisions }}**, you can find the list of container revisions and their details.
+    1. In the [management console]({{ link-console-main }}), select the folder with your container.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. Select the container whose revision information you want to get.
+    1. Under **{{ ui-key.yacloud.serverless-containers.section-revisions }}**, you can find a list of container revisions and their details.
 
 - CLI {#cli}
 

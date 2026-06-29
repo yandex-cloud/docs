@@ -64,7 +64,7 @@ Using a [directed acyclic graph (DAG)](../concepts/index.md#about-the-service), 
 
 The secret will store the data to connect to the database in the {{ mpg-name }} cluster.
 
-For more information on how to get the FQDN of a {{ PG }} cluster host, see [{#T}](../../managed-postgresql/operations/connect/fqdn.md).
+For more information on how to learn the FQDN of a {{ PG }} cluster host, see [{#T}](../../managed-postgresql/operations/connect/fqdn.md).
 
 ## Prepare the DAG file and run the graph {#dag}
 

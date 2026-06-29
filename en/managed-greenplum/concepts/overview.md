@@ -19,7 +19,7 @@ The following databases are supported:
 
     {{ CB }} will serve as the basis for future major versions of {{ mgp-name }}.
 
-Learn more about the differences between {{ CB }} and {{ GP }} in [this {{ CB }} guide](https://cloudberry.apache.org/docs/cbdb-vs-gp-features).
+Learn more about the differences between {{ CB }} and {{ GP }} in [this section](./cloudberry-vs-greenplum/breaking-changes.md).
 
 {{ mgp-name }} handles most of the cluster maintenance operations, including:
 

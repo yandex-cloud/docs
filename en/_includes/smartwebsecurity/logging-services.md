@@ -22,6 +22,8 @@ Log analysis enables you to configure and monitor {{ sws-name }} performance:
 * View the number of blocked and allowed requests, evaluate and adjust rule performance.
 * View detailed request information and identify false positives.
 
+In some cases, traffic may be blocked during attacks. When this happens, the logs will include the `sws_service_rule` [service rule](../../smartwebsecurity/concepts/rules.md#service-rule) label.
+
 ## Working with logs {#configure-logging}
 
 To get started with {{ sws-name }} logs:

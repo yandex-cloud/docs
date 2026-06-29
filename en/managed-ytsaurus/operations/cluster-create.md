@@ -191,7 +191,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
                 * `http.count`: Number of HTTP proxies.
                 * `rpc.count`: Number of RPC proxies.
 
-        For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-ytsaurus }}).
+        For detailed information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-ytsaurus }}).
 
     1. Make sure the settings are correct.
 
@@ -201,7 +201,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        This will create all the resources you need in the specified folder. You can check the new resources and their settings in the [management console]({{ link-console-main }}).
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - REST API {#api}
 
@@ -341,7 +341,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -722,7 +722,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
             * `odin.checks_ttl`: Frequency of checks by Odin, an internal monitoring tool. Provide with units of measurement: `h` (hours), `m` (minutes), `s` (seconds). Here is an example: `336h0m0s` (2 weeks).
 
-        For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-ytsaurus }}).
+        For detailed information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-ytsaurus }}).
 
     1. Make sure the settings are correct.
 
@@ -732,7 +732,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        This will create all the resources you need in the specified folder. You can check the new resources and their settings in the [management console]({{ link-console-main }}).
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - REST API {#api}
 
@@ -877,7 +877,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
                 * `http.count`: Number of HTTP proxies.
                 * `rpc.count`: Number of RPC proxies.
 
-            * `odin.checksTtl`: Frequency of checks by Odin, an internal monitoring tool. Specify it in seconds (`s`), e.g., `1209600s` (2 weeks).
+            * `odin.checksTtl`: Frequency of checks by Odin, an internal monitoring tool. Specify it in seconds (`s`), For example: `1209600s` (2 weeks).
 
     1. Call the [Cluster.Create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -893,7 +893,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

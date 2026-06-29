@@ -9,7 +9,7 @@ To set up CDC using {{ data-transfer-name }}:
 
 1. [Prepare the {{ ydb-name }} source database](#prepare-source-ydb).
 1. [Create a target stream in {{ yds-name }}](#create-target-yds).
-1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -91,7 +91,7 @@ Set up your infrastructure:
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder containing your database.
-        1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Select the database from the list and go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
         1. Click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**.
 
@@ -175,7 +175,7 @@ Set up your infrastructure:
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: Set to `1` to create the transfer.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate

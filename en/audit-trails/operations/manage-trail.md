@@ -17,7 +17,7 @@ You can update the [destination object](../concepts/trail.md#target), event [typ
   To update a trail:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the trail.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. In the row with the trail you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the trail settings. For a list of trail settings you can edit, see [{#T}](../concepts/trail.md#trail-settings).
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -111,7 +111,7 @@ You can update the [destination object](../concepts/trail.md#target), event [typ
 
       {% include [trail-create-tf-descs_part2](../../_includes/audit-trails/trail-create-tf-descs-part2.md) %}
 
-      For more information about the `yandex_audit_trails_trail` resource parameters in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/audit_trails_trail).
+      For more information about the `yandex_audit_trails_trail` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/audit_trails_trail).
 
   1. Create the resources:
 
@@ -140,7 +140,7 @@ You can update the [destination object](../concepts/trail.md#target), event [typ
   To delete a trail:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the trail.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. In the row with the trail you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, confirm the deletion.
 
@@ -171,7 +171,7 @@ You can update the [destination object](../concepts/trail.md#target), event [typ
      terraform validate
      ```
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```bash
      Success! The configuration is valid.
@@ -182,8 +182,8 @@ You can update the [destination object](../concepts/trail.md#target), event [typ
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-  1. Apply the changes:
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
      ```bash
      terraform apply

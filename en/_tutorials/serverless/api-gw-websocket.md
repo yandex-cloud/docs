@@ -24,7 +24,7 @@ The cost of the resources includes the fee for the number of API gateway request
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
     1. In the **{{ ui-key.yacloud.common.name }}** field, enter `websocket`.
     1. Optionally, in the **{{ ui-key.yacloud.common.description }}** field, provide a description.
@@ -138,4 +138,4 @@ Open a new terminal window and test the connection using the connection ID you g
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources created, delete the [API gateway](../../api-gateway/operations/api-gw-delete.md).
+To stop paying for the resources you created, delete the [API gateway](../../api-gateway/operations/api-gw-delete.md).

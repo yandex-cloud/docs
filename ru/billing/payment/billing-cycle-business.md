@@ -84,7 +84,7 @@ description: Из статьи вы узнаете про особенности
 	
    1. В противном случае использование сервисов {{ yandex-cloud }} может быть полностью заблокировано. Все ваши данные, включая [платежный аккаунт](../concepts/billing-account.md), могут быть удалены без возможности восстановления.
 
-{% include [blocked-note](../_includes/blocked-note.md) %}
+   {% include [blocked-note](../_includes/blocked-note.md) %}
 
 #### Полезные ссылки {#see-also}
 

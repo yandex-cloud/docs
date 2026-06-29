@@ -11,7 +11,7 @@ description: Follow this guide to delete an API gateway.
 
   To delete an [API gateway](../concepts/index.md):
   1. In the [management console]({{ link-console-main }}), go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to delete an API gateway.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. In the API gateway row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
@@ -93,7 +93,7 @@ description: Follow this guide to delete an API gateway.
      terraform validate
      ```
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```text
      Success! The configuration is valid.
@@ -105,8 +105,8 @@ description: Follow this guide to delete an API gateway.
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-  1. Apply the changes:
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
      ```bash
      terraform apply

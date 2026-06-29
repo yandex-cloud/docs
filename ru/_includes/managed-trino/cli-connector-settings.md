@@ -6,6 +6,9 @@
   {% include [metastore version](metastore-version-catalog-create.md) %}
 
 * `--filesystem-native-s3` — хранилище [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
+
+  {% include [objstorage-sa-roles](objstorage-sa-roles.md) %}
+
 * `--filesystem-external-s3-aws-access-key` — идентификатор AWS-совместимого статического ключа доступа.
 * `--filesystem-external-s3-aws-secret-key` — секретный ключ AWS-совместимого статического ключа доступа.
 * `--filesystem-external-s3-aws-endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.

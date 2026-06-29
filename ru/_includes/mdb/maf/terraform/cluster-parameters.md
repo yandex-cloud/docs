@@ -4,6 +4,8 @@
 resource "yandex_airflow_cluster" "<имя_кластера>" {
   name        = "<имя_кластера>"
   description = "<описание_кластера>"
+  airflow_version = "<версия_{{ AF }}"
+  python_version = "<версия_Python>"
 
   labels = { <список_меток> }
 
@@ -85,6 +87,8 @@ resource "yandex_vpc_subnet" "<имя_подсети>" {
 
 * `name` — имя кластера.
 * `description` — описание кластера.
+* `airflow_version` — [версия {{ AF }}](../../../../managed-airflow/concepts/versions.md).
+* `python_version` — версия Python.
 * `labels` — список меток. Метки задаются в формате `<ключ> = "<значение>"`.
 * `admin_password` — пароль пользователя-администратора. Пароль должен иметь длину не менее 8 символов и содержать как минимум:
 

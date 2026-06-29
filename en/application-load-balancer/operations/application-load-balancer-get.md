@@ -9,7 +9,7 @@ title: How to get information about an L7 load balancer in {{ alb-full-name }}
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder containing your [L7 load balancer](../concepts/application-load-balancer.md).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Select your L7 load balancer.
   1. You will see your load blancer details on the **{{ ui-key.yacloud.common.overview }}** page.
 
@@ -77,13 +77,13 @@ title: How to get information about an L7 load balancer in {{ alb-full-name }}
       * `output "allocation_policy"`: Output variable with L7 load balancer placement policy information:
          * `value`: Return value.
 
-     You can replace `allocation_policy` with another variable to get the information you need. For more information about the `yandex_alb_load_balancer` data source variables, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/alb_load_balancer).
+     You can replace `allocation_policy` with another variable to get the information you need. For more information about the `yandex_alb_load_balancer` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/alb_load_balancer).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+      {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

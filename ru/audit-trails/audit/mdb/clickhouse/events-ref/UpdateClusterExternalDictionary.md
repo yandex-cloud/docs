@@ -145,7 +145,11 @@ editable: false
         "maxThreadsForUpdates": "string",
         "initialArraySize": "string",
         "maxArraySize": "string",
-        "accessToKeyFromAttributes": "boolean"
+        "accessToKeyFromAttributes": "boolean",
+        "blockSize": "string",
+        "fileSize": "string",
+        "readBufferSize": "string",
+        "writeBufferSize": "string"
       },
       // Includes only one of the fields `fixedLifetime`, `lifetimeRange`
       "fixedLifetime": "string",
@@ -483,7 +487,9 @@ The number of elements must be greater than 0. ||
 - `COMPLEX_KEY_RANGE_HASHED`
 - `DIRECT`
 - `COMPLEX_KEY_DIRECT`
-- `IP_TRIE` ||
+- `IP_TRIE`
+- `SSD_CACHE`
+- `COMPLEX_KEY_SSD_CACHE` ||
 || sizeInCells | **string** (int64) ||
 || allowReadExpiredKeys | **boolean** ||
 || maxUpdateQueueSize | **string** (int64) ||
@@ -493,6 +499,10 @@ The number of elements must be greater than 0. ||
 || initialArraySize | **string** (int64) ||
 || maxArraySize | **string** (int64) ||
 || accessToKeyFromAttributes | **boolean** ||
+|| blockSize | **string** (int64) ||
+|| fileSize | **string** (int64) ||
+|| readBufferSize | **string** (int64) ||
+|| writeBufferSize | **string** (int64) ||
 |#
 
 ## Range {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Range}

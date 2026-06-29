@@ -6,7 +6,6 @@ editable: false
 
 # {{ alb-full-name }} pricing policy
 
-
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
@@ -20,6 +19,12 @@ editable: false
 When using the {{ alb-name }} service, you pay for the actual use of computing resources of every active load balancer.
 
 The amount of used resources is determined by the number of [resource units](concepts/application-load-balancer.md#lcu-scaling), i.e., internal VMs provisioned for the load balancer in each availability zone.
+
+{% note info %}
+
+To activate the option to modify resource unit size, contact your account manager. It may take up to 14 days to process your request, and it may be denied. The option will activate after confirmation.
+
+{% endnote %}
 
 {% include [lcu-thresholds](../_includes/application-load-balancer/lcu-thresholds.md) %}
 

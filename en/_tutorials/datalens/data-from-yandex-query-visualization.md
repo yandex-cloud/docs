@@ -38,7 +38,7 @@ To create a {{ datalens-short-name }} connection to {{ yq-full-name }}, you will
 
    ![select-catalog](../../_assets/datalens/yandex-query-visualization/select-catalog.png)
 
-1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 
    ![select-yq](../../_assets/datalens/yandex-query-visualization/select-yq.png)
 

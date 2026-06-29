@@ -1,10 +1,5 @@
 # Как начать работать с Yandex Cloud Notification Service с помощью AWS CLI
 
-{% note info %}
-
-Сервис находится на [стадии Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
 
 Чтобы начать работу с AWS CLI:
 1. [Подготовьте облако к работе](#before-you-begin).

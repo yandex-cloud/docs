@@ -492,11 +492,11 @@ At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transit
     - `days` (Number). Specifies the number of days noncurrent object versions expire.
   - `noncurrent_version_transition` [Block]. Specifies when noncurrent object versions transitions.
     - `days` (Number). Specifies the number of days noncurrent object versions transition.
-    - `storage_class` (**Required**)(String). Specifies the storage class to which you want the noncurrent object versions to transition. Supported values: [`STANDARD_IA`, `COLD`, `ICE`].
+    - `storage_class` (**Required**)(String). Specifies the storage class to which you want the noncurrent object versions to transition. Supported values: [`STANDARD_IA`, `COLD`, `ICE`, `INTELLIGENT_TIERING`].
   - `transition` [Block]. Specifies a period in the object's transitions.
     - `date` (String). Specifies the date after which you want the corresponding action to take effect.
     - `days` (Number). Specifies the number of days after object creation when the specific rule action takes effect.
-    - `storage_class` (**Required**)(String). Specifies the storage class to which you want the object to transition. Supported values: [`STANDARD_IA`, `COLD`, `ICE`].
+    - `storage_class` (**Required**)(String). Specifies the storage class to which you want the object to transition. Supported values: [`STANDARD_IA`, `COLD`, `ICE`, `INTELLIGENT_TIERING`].
 - `logging` [Block]. A settings of [bucket logging](../../storage/concepts/server-logs.md).
   - `target_bucket` (**Required**)(String). The name of the bucket that will receive the log objects.
   - `target_prefix` (String). To specify a key prefix for log objects.

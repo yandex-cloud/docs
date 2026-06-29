@@ -27,7 +27,7 @@ output "permission" {
 - `auth_method` (String). Authentication method for the user. Possible values are `AUTH_METHOD_PASSWORD`, `AUTH_METHOD_IAM`. Default is `AUTH_METHOD_PASSWORD`.
 - `cluster_id` (**Required**)(String). The ID of the PostgreSQL cluster.
 - `conn_limit` (Number). The maximum number of connections per user. (Default 50).
-- `connection_manager` (*Read-Only*) (Map Of String). Connection Manager connection configuration. Filled in by the server automatically.
+- `connection_manager` (*Read-Only*) (Map Of String). Connection Manager connection configuration. Populated from `user_connection_manager`.
 - `deletion_protection` (String). The `true` value means that resource is protected from accidental deletion.
 - `grants` (List Of String). List of the user's grants.
 - `id` (String). 
@@ -81,6 +81,10 @@ output "permission" {
   - `pgaudit` - Settings of the PostgreSQL Audit Extension (pgaudit). [Full description](https://yandex.cloud/ru/docs/managed-postgresql/api-ref/grpc/Cluster/create#yandex.cloud.mdb.postgresql.v1.PGAuditSettings). String (json with with escaped quotes). Example `"{\"log\": [\"READ\", \"WRITE\"]}"`
 
 
+- `user_connection_manager` [Block]. Connection Manager settings for the user.
+  - `connection_folder_id` (String). ID of the folder where the connection is created. Defaults to the cluster's folder if not specified. Cannot be changed after user creation.
+  - `connection_id` (*Read-Only*) (String). ID of the connection manager connection for this user. Computed by the server.
+  - `secret_folder_id` (String). ID of the folder where the secret is created. Defaults to the cluster's folder if not specified. Cannot be changed after user creation.
 - `user_password_encryption` (String). Password-based authentication method for user.
 Possible values are `USER_PASSWORD_ENCRYPTION_MD5` or `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256`.
 The default is password_encryption setting for cluster.

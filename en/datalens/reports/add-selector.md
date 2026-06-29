@@ -79,10 +79,10 @@ To add a [selector](../dashboard/selector.md) to a report:
 
    {% list tabs %}
 
-   - Based on dataset
+   - Based on a dataset
 
      * **Dataset**: Dataset with data for the selector. You can choose a dataset from the list of objects or provide a link. This is a required field.
-     * **Field**: Dataset field with selector values. It can be either a dimension or a measure (for more information, see [{#T}](../dataset/data-model.md#field)). This is a required field.
+     * **Field**: Dataset field with selector values. It can be either a dimension or a measure. For more information, see [{#T}](../dataset/data-model.md#field). This is a required field.
      * **Selector type**: Drop-down list, input field, calendar, or checkbox.
 
        {% note info %}
@@ -93,19 +93,19 @@ To add a [selector](../dashboard/selector.md) to a report:
 
        {% endnote %}
 
-     * **Operation**: Comparison operation by which the selector filters the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type. Do not specify an operation if the selector filters the QL chart.
-     * **Multiple choice**: Allows choosing several values in the selector. Only available for the **List** selector type.
-     * **Range**: Allows setting a time interval in the selector. Only available for the **Calendar** selector type.
-     * **Required field**: Sets the selector value as a required parameter. When enabled, `*` is added to the end of the selector name. Not available for the **Checkbox** selector type.
+     * **Operation**: Comparison operation for the selector to filter the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type. Do not specify an operation if the selector filters the QL chart.
+     * **Multiple choice**: Allows choosing several values in the selector. It is only available for the **List** selector type.
+     * **Range**: Allows setting a time interval in the selector. It is only available for the **Calendar** selector type.
+     * **Required field**: Sets the selector value as a required parameter. When enabled, `*` is appended to the selector name. It is not available for the **Checkbox** selector type.
      * **Default value**: Applied initially when you open the report. This is a required field if the **Required field** option is enabled.
 
-     * **Header**: Used to pick a selector when establishing a link with other widgets. By default, when you add a selector, the header text is substituted from the field title in the [dataset](../dataset/index.md). This is a required field.
+     * **Header**: To choose the selector for linking with other widgets. By default, when you add a selector, the header text is substituted from the field title in the [dataset](../dataset/index.md). This is a required field.
        
        Select the header location below: `Left` (default), `Top`, or `Hidden` to hide it from the report selector settings window. It is not available for the **Checkbox** selector type.
 
-     * **Inner title**: Allows specifying text inside a selector. For example, you can use it to display an operation inside a selector. Not available for the **Checkbox** selector type.
+     * **Inner title**: Allows specifying text inside a selector. For example, you can use it to display an operation inside a selector. It is not available for the **Checkbox** selector type.
      * **Coloring**: Allows you to highlight important selectors. It is not available for the **Checkbox** selector type.
-     * **Tooltip**: This option allows adding a text comment to the selector. By default, with this option enabled, the tooltip text is taken from the field description in the dataset. You can edit the tooltip text using the visual editor or [Markdown](../dashboard/markdown.md). When you change the dataset field description, the text is not automatically updated.
+     * **Tooltip**: This option allows adding a text comment to a selector. By default, with this option enabled, the tooltip text is taken from the field description in the dataset. You can edit the tooltip text using the visual editor or [Markdown](../dashboard/markdown.md). Changing the field description in the dataset will not automatically update the text.
 
        When the option is enabled, you will see the ![image](../../_assets/console-icons/circle-question.svg) icon next to the selector in the report selector settings window. Hover over the icon to bring up the tooltip.
 
@@ -125,27 +125,27 @@ To add a [selector](../dashboard/selector.md) to a report:
 
        {% endnote %}
 
-     * **Operation**: Comparison operation by which the selector filters the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type. Do not specify an operation if the selector filters the QL chart.
-     * **Required field**: Sets the selector value as a required parameter. When enabled, `*` is added to the end of the selector name. Not available for the **Checkbox** selector type.
-     * **Multiple choice**: Allows choosing several values in the selector. Only available for the **List** selector type.
-     * **Possible values**: List of values to select. Only available for the **List** selector type.
-     * **Range**: Allows setting a time interval in the selector. Only available for the **Calendar** selector type.
-     * **Time**: Allows specifying time. Only available for the **Calendar** selector type.
+     * **Operation**: Comparison operation for the selector to filter the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type. Do not specify an operation if the selector filters the QL chart.
+     * **Required field**: Sets the selector value as a required parameter. When enabled, `*` is appended to the selector name. It is not available for the **Checkbox** selector type.
+     * **Multiple choice**: Allows choosing several values in the selector. It is only available for the **List** selector type.
+     * **Possible values**: List of values to select. It is only available for the **List** selector type.
+     * **Range**: Allows setting a time interval in the selector. It is only available for the **Calendar** selector type.
+     * **Time**: Allows specifying time. It is only available for the **Calendar** selector type.
      * **Default value**: Applied initially when you open the report. This field must be set for the **List** type; otherwise, no value will be available in the selector. This is a required field if the **Required field** option is enabled.
 
-     * **Header**: Used to pick a selector when establishing a link with other widgets. This is a required field.
+     * **Header**: To choose the selector for linking with other widgets. This is a required field.
        
        Select the header location below: `Left` (default), `Top`, or `Hidden` to hide it from the report selector settings window. It is not available for the **Checkbox** selector type.
 
-     * **Inner title**: Allows specifying text inside a selector. For example, you can use it to display an operation inside a selector. Not available for the **Checkbox** selector type.
+     * **Inner title**: Allows specifying text inside a selector. For example, you can use it to display an operation inside a selector. It is not available for the **Checkbox** selector type.
      * **Coloring**: Allows you to highlight important selectors. It is not available for the **Checkbox** selector type.
-     * **Tooltip**: This option allows adding a text comment to the selector. By default, with this option enabled, the tooltip text is taken from the field description in the [dataset](../dataset/index.md). You can change the tooltip text. When you change the dataset field description, the text is not automatically updated.
+     * **Tooltip**: This option allows adding a text comment to a selector. By default, with this option enabled, the tooltip text is taken from the field description in the [dataset](../dataset/index.md). You can edit the tooltip text. Changing the field description in the dataset will not automatically update the text.
 
        When the option is enabled, you will see the ![image](../../_assets/console-icons/circle-question.svg) icon next to the selector in the report selector settings window. Hover over the icon to bring up the tooltip.
 
    {% endlist %}
 
-   In [QL charts](../concepts/chart/ql-charts.md), you can control [selector parameters](../operations/chart/create-sql-chart.md#selector-parameters) from the **Parameters** tab in the chart editing area and use the **Query** tab to specify a variable in the query itself in `not_var{{ variable }}` format.
+   In [QL charts](../concepts/chart/ql-charts.md), you can manage [selector parameters](../operations/chart/create-sql-chart.md#selector-parameters) from the **Parameters** tab in the chart editing area and use the **Query** tab to specify a variable in the query in `not_var{{ variable }}` format.
 
 1. Optionally, add another selector to the widget. To do this, on the left side under **Selectors**, click ![image](../../_assets/console-icons/plus.svg) **Add selector** and repeat the actions from the previous step. You can also duplicate the new selector or copy it to the clipboard. To do this, under **Selectors**, click ![image](../../_assets/console-icons/ellipsis.svg) next to the selector and select:
 
@@ -204,22 +204,22 @@ To add a [JS selector](../charts/editor/widgets/controls.md) to a report:
 
 1. Under **Selector settings** choose the source and specify the selector parameters:
 
-   * **Header**: Used to pick a selector when establishing a link with other widgets. By default, when you add a selector, the header text is substituted from the object name. This is a required field.
-   * **Source**: Sets the selector created in Editor. Choose a selector:
+   * **Header**: To choose the selector for linking with other widgets. By default, when you add a selector, the header text is substituted from the object name. This is a required field.
+   * **Source**: Sets the selector created in Editor. Choose the selector:
 
      {% list tabs %}
 
      - From the list of objects
 
-       Click **Select** and choose a selector from the list of objects. If you have already done so, you can proceed to edit the selector. To do this, click **Open** to the right of the selector.
+       Click **Select** and choose the selector from the list of objects. If you have already chosen the selector, you can proceed to edit it by clicking **Open** next to the selector.
 
-     - Via a link
+     - Using a link
 
-       Click **Specify link**. Paste the selector URL into the input field and click **OK** below.
+       Click **Specify link**. Enter the selector URL into the input field and click **OK** below.
 
      {% endlist %}
 
-   * **Parameters**: Sets a list of selector parameters and their default values. For the widget to work correctly, specify here the selector parameters listed on the [Params](../charts/editor/tabs.md#params) tab.
+   * **Parameters**: Sets a list of selector parameters and their default values. For the widget to work correctly, specify the selector parameters listed on the [Params](../charts/editor/tabs.md#params) tab.
 
    ![image](../../_assets/datalens/report/report-js-selector.png)
 
@@ -240,7 +240,7 @@ To add a [JS selector](../charts/editor/widgets/controls.md) to a report:
 1. Return to filter mode. To do this, click ![icon](../../_assets/console-icons/check.svg).
 1. In the top-right corner of the report, click **Save**.
 
-## Limitations {#restrictions}
+## Limits {#restrictions}
 
 * You can only add selectors to a separate report area.
 * Selectors filter data across all report pages.

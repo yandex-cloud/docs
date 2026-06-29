@@ -1,6 +1,6 @@
 
 1. In the [management console]({{ link-console-main }}), select the folder you want to create a notification channel in.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
 1. Click **{{ ui-key.yacloud.cns.action_create-channel }}**.
 1. Select a sending platform in the **{{ ui-key.yacloud.cns.type_mobile }}** tab:
 

@@ -21,7 +21,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-     1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Enter the name: `group-coi`.
      1. To assign the service account the `editor` role for the current folder, click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `editor`.
@@ -65,7 +65,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you want to create your network.
-     1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. Enter the network name: `yc-auto-network`.
      1. Select the additional option: **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -213,7 +213,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
-     1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. Navigate to **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
      1. Click `group-coi-containers`.
 

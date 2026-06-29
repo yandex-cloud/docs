@@ -204,6 +204,7 @@ _Attachment_ — это механизм, при котором инфрастр
           ignore_changes = all
         }
       }
+      ```
 
     {% endlist %}
 

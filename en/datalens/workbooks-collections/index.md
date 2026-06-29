@@ -22,7 +22,7 @@ Workbooks and collections are a new way to store objects in {{ datalens-short-na
 
 Workbooks make it much easier to work with objects:
 
-* They allow you to consistently [set up permissions](./workbooks-operations.md#wb-coll-grant) for linked objects: connections, datasets, charts, and dashboards.
+* They allow you to consistently [set up permissions](./workbooks-operations.md#wb-coll-grant) to linked objects: connections, datasets, charts, and dashboards.
 * With them, you can set up permissions for [user groups](../../organization/operations/create-group.md).
 * You can copy workbooks maintaining the integrity of internal links and making their copies independent of the original.
 
@@ -34,7 +34,7 @@ Workbooks make it much easier to work with objects:
 
 * You can group workbooks into collections.
 
-Object storage in workbooks and in folders of the old object model does not overlap:
+Objects in workbooks and in folders of the legacy object model are independent:
 
 * A workbook cannot be placed inside a folder.
 * An object from a workbook cannot be added to a dashboard placed inside a folder.
@@ -52,7 +52,7 @@ To transfer any object from a folder to a workbook, perform [migration](./migrat
 
 ## Viewing linked objects {#related-objects}
 
-You can look up where the object is used or which objects are used by it. To do this, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/code-trunk.svg) **Linked objects** on the workbook page or object editing window. For example, this can give you a clue as to the sources used to build a dashboard or the charts based on a certain dataset.
+You can look up where the object is used or which objects are used by it. Do it by clicking ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/code-trunk.svg) **Linked objects** on the workbook page or object editing window. For example, this can give you a clue as to the sources used to build a dashboard or the charts based on a certain dataset.
 
 {% cut "Linked object window" %}
 

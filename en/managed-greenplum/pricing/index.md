@@ -6,7 +6,6 @@ editable: false
 
 # {{ mgp-name }} pricing policy
 
-
 In this section, you can find the {{ mgp-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
 
 

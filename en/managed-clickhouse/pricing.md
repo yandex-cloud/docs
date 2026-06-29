@@ -7,7 +7,6 @@ editable: false
 
 # {{ mch-short-name }} pricing policy
 
-
 In this section, you can find the {{ mch-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
 
 {% note tip %}

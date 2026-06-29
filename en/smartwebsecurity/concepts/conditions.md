@@ -1,17 +1,18 @@
 ---
-title: Conditions in {{ sws-full-name }}
-description: You can set up conditions for your security rules. For more information, read this article.
+title: Conditions
+description: Conditions available for use in {{ sws-name }} rules to filter HTTP requests based on IP addresses, headers, URIs, cookies, and bot-related signals.
 ---
 
 # Conditions
 
 {% include [lists-preview](../../_includes/smartwebsecurity/lists-preview.md) %}
 
-You can set the following rule [conditions](rules.md):
+Conditions define which HTTP requests the {{ sws-name }} [rule](rules.md) applies to. The following table lists matching options and value formats for each condition. If multiple values are supported, a logical operator is used.
 
 #|
-|| **Type** | **Match options** | **Values** | **Example** | **Logical operator** ||
-|| `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}` |
+|| **Match type and options** {width=50%} | **Value and example** ||
+|| `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`
+
 * Matches or falls within the range
 * Mismatches or lies outside the range
 * IP belongs to the region
@@ -20,163 +21,162 @@ You can set the following rule [conditions](rules.md):
 * IP does not belong to the list
 * IP belongs to the ASN
 * IP does not belong to the ASN
+* IP belongs to the ASN list
+* IP does not belong to the ASN list
 |
-* IP address
-* [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
-* Address range
-* Two-letter country code as per [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-* Name of the preset or custom address list
-* [ASN](https://wikipedia.org/wiki/Autonomous_system_(Internet)) value as an integer without the `as` prefix
-|
-* `1.2.33.44`
-* `2001:0db8:85a3:0000:0000:8a2e:0370:7334`
-* `10::1234:1abc:1/64`
-* `1.2.0.0-1.2.1.1`
-* `ru`
-* `kz`
-* `12345`
-| _or_ ||
-|| `{{ ui-key.yacloud.component.condition-column.condition_name-header }}` |
-* Matches
-* Mismatches
-* Starts with
-* Does not start with
-* Matches regular expression
-* Does not match regular expression
-|
-`key: value` format, where `key` is an HTTP header,
-and `value` is a specific header value, value prefix, 
-or [regular expression](https://en.wikipedia.org/wiki/Regular_expression) of the
-[PIRE](https://github.com/yandex/pire)
-|
-`User-Agent: curl/7.55.1`
-| _and_ ||
-|| `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}` |
-* Matches
-* Mismatches
-* Starts with
-* Does not start with
-* Matches regular expression
-* Does not match regular expression
-| 
-Request path, initial part of the request path, or regular
-expression of the PIRE library
-|
-`/`
-| _N/A_ ||
-|| `Query Match` |
-* Matches
-* Mismatches
-* Starts with
-* Does not start with
-* Matches regular expression
-* Does not match regular expression
-|
-`key: value` format, where `key` is a request parameter, 
-value is a specific parameter value,
-value prefix, or regular expression of the
-PIRE
-|  
-* `a: 1`
-* `A: 2`
-| _and_ ||
-|| `{{ ui-key.yacloud.component.condition-column.condition_name-authority }}` |
-* Matches
-* Mismatches
-* Starts with
-* Does not start with
-* Matches regular expression
-* Does not match regular expression
-|
-Values of the `Host` header for HTTP/1.1 or 
-the `authority` pseudoheader for HTTP/2 used to
-select a virtual host, value prefix, or 
-regular expression of the PIRE library
-|
-`example.com`
-| _or_ ||
-|| `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}` |
-* Matches
-* Mismatches
-* Starts with
-* Does not start with
-* Matches regular expression
-* Does not match regular expression
-|
-[HTTP request method](https://en.wikipedia.org/wiki/HTTP#Request_methods) in uppercase.
-You may use a random value, value prefix,
-or regular expression of the PIRE library
-|
-* `GET`
-* `POST`
-* `DELETE`
-| _or_ ||
+* IP address: `1.2.33.44`
+* [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing): `2001:0db8:85a3:0000:0000:8a2e:0370:7334`
+* [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing): `10::1234:1abc:1/64`
+* Address range: `1.2.0.0-1.2.1.1`
+* Two-letter country code as per [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2): `ru`, `kz`
+* [ASN](https://wikipedia.org/wiki/Autonomous_system_(Internet)) value as an integer without the `as` prefix: `12345` ||
+|| `{{ ui-key.yacloud.component.condition-column.condition_name-header }}`
 
-|| `{{ ui-key.yacloud.component.condition-column.condition_name-cookie }}` |
 * Matches
 * Mismatches
 * Starts with
 * Does not start with
 * Matches regular expression
 * Does not match regular expression
+* Belongs to the list
+* Does not belong to the list
+* Belongs to the list of regular expressions
+* Does not belong to the list of regular expressions
 |
-`key: value` format, where `key` is a cookie header,
-and `value` is a specific cookie value, value prefix, 
-or regular expression of the PIRE library
+Format: `key: value`, where _key_ is an HTTP header and  _value_ is a specific header value, value prefix, or [PIRE](https://github.com/yandex/pire) library [regular expression](https://en.wikipedia.org/wiki/Regular_expression), e.g., `User-Agent: curl/7.55.1`
+
+Logical operator: _and_ ||
+|| `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}`
+
+* Matches
+* Mismatches
+* Starts with
+* Does not start with
+* Matches regular expression
+* Does not match regular expression
+* Belongs to the list
+* Does not belong to the list
+* Belongs to the list of regular expressions
+* Does not belong to the list of regular expressions
 |
-`csrftoken=u32t4o3tb`
-| _and_ ||
+Request path, initial part of the request path, or PIRE library regular expression: `/` ||
+|| `Query Match`
+
+* Matches
+* Mismatches
+* Starts with
+* Does not start with
+* Matches regular expression
+* Does not match regular expression
+* Belongs to the list
+* Does not belong to the list
+* Belongs to the list of regular expressions
+* Does not belong to the list of regular expressions
+| Format: `key: value`, where _key_ is a request parameter and  _value_ is a specific value for the parameter, value prefix, or PIRE library regular expression, e.g., `a: 1` or `A: 2`
+
+Logical operator: _and_ ||
+|| `{{ ui-key.yacloud.component.condition-column.condition_name-authority }}`
+
+* Matches
+* Mismatches
+* Starts with
+* Does not start with
+* Matches regular expression
+* Does not match regular expression
+* Belongs to the list
+* Does not belong to the list
+* Belongs to the list of regular expressions
+* Does not belong to the list of regular expressions
+|
+Values of the `Host` header for HTTP/1.1 or the `authority` pseudo-header for HTTP/2 used to select a virtual host, value prefix, or PIRE library regular expression, e.g., `example.com` ||
+|| `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}`
+
+* Matches
+* Mismatches
+* Starts with
+* Does not start with
+* Matches regular expression
+* Does not match regular expression
+* Belongs to the list
+* Does not belong to the list
+* Belongs to the list of regular expressions
+* Does not belong to the list of regular expressions
+| [HTTP request method](https://en.wikipedia.org/wiki/HTTP#Request_methods) in the upper case; you can use an arbitrary value, value prefix, or PIRE library regular expression, e.g., `GET`, `POST`, or `DELETE`. ||
+
+|| `{{ ui-key.yacloud.component.condition-column.condition_name-cookie }}`
+
+* Matches
+* Mismatches
+* Starts with
+* Does not start with
+* Matches regular expression
+* Does not match regular expression
+* Belongs to the list
+* Does not belong to the list
+* Belongs to the list of regular expressions
+* Does not belong to the list of regular expressions
+|
+Format: `key: value`, where _key_ is a Cookie header and _value_ is a specific Cookie value, value prefix, or PIRE library regular expression, e.g., `csrftoken=u32t4o3tb`
+
+Logical operator: _and_ ||
 
 
-|| `Bot name` |
+|| `Bot name`
+
 * Belongs to the list
 * Does not belong to the list
 |
-List of names of legitimate bots owned by various companies and services
-|
-* `YandexBot`
-* `SEMrushBot`
-| _or_ ||
-|| `Bot category` |
+List of names of legitimate bots owned by various companies and services: `YandexBot`, `SEMrushBot` ||
+|| `Bot category`
+
 * Belongs to the list
 * Does not belong to the list
-| List of bots of a certain category
 |
-* `AccessibilityBot`
-* `SearchEngineCrawlerBot`
-| _or_ ||
-|| `Verified bot` |
+List of bots of a certain category: `AccessibilityBot`, `SearchEngineCrawlerBot` ||
+|| `Verified bot`
+
 * Yes
 * No
-| Whether this bot is verified and approved
-| | ||
-|| `Bot score` | |
-When analyzing traffic, the system assigns the client a score from `0` to `100`. You can filter traffic by specifying a score value or a range of values using the following operators: `>=`, `<=`, `=`, and `!=`.
-Score ranges: `up to 20`: human; `20–40`: likely human; `40–60`: undetermined; `60–80`: likely bot; `over 80`: bot.
-|
-* `=10`
-* `>=20`
-* `<=40`
-| _and_ ||
-|| `FingerPrint` |
+| Whether this bot is verified and approved: `Yes`, `No` ||
+|| `Bot score` |
+Score value or range from `0` to `100` with the `>=`, `<=`, `=`, or `!=` operators.
+
+Score ranges: 
+* `up to 20`: Human
+* `20–40`: Likely human
+* `40–60`: Undetermined
+* `60–80`: Likely bot
+* `over 80`: Bot
+
+Logical operator: _and_ ||
+|| `FingerPrint`
+
 * Matches
 * Mismatches
 * Starts with
 * Does not start with
 * Matches regular expression
 * Does not match regular expression
-|
-SSL/TLS connection's [JA3](https://github.com/salesforce/ja3) or [JA4](https://github.com/FoxIO-LLC/ja4) [fingerprint](botes.md#fingerprint). Generated based on TLS version, cipher sets, extensions, signature algorithms, and other parameters
-|
-* `6734f37431670b3ab4292b8f60f29984` (JA3 fingerprint TrickBot)
-* `4d7a28d6f2263ed61de88ca66eb011e3` (JA3 fingerprint Emotet)
-* `t13d3812h2_8a4b5c6d_7e8f9a0b` (JA4)
-| _or_ ||
+* Belongs to the list
+* Does not belong to the list
+* Belongs to the list of regular expressions
+* Does not belong to the list of regular expressions
+| SSL/TLS connection's [JA3](https://github.com/salesforce/ja3) or [JA4](https://github.com/FoxIO-LLC/ja4) [fingerprint](botes.md#fingerprint). It is generated based on TLS version, cipher sets, extensions, signature algorithms, and other parameters.
+* `6734f37431670b3ab4292b8f60f29984` (TrickBot JA3 fingerprint)
+* `4d7a28d6f2263ed61de88ca66eb011e3` (Emotet JA3 fingerprint)
+* `t13d3812h2_8a4b5c6d_7e8f9a0b` (JA4) ||
 |#
 
 ## Regular expression format {#regular-expressions}
 
-You can use regular expressions in such conditions as `{{ ui-key.yacloud.component.condition-column.condition_name-header }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}`, `Query Match`, `{{ ui-key.yacloud.component.condition-column.condition_name-authority }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-cookie }}`. These conditions support the match types _Matches regular expression_ and _Does not match regular expression_.
+You can use regular expressions in conditions that support the following match types:
+
+* Matches regular expression
+* Does not match regular expression
+* Matches the list of regular expressions
+* Does not match the list of regular expressions
+
+These conditions include: `{{ ui-key.yacloud.component.condition-column.condition_name-header }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}`, `Query Match`, `{{ ui-key.yacloud.component.condition-column.condition_name-authority }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-cookie }}`.
 
 ### Regular expression operators {#regular-expressions-operators}
 

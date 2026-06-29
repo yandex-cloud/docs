@@ -105,7 +105,7 @@
 1. На странице воркбука вверху нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![key](../../_assets/console-icons/key.svg) **Ключи для встраивания**.
 1. Напротив ключа нажмите ![key](../../_assets/console-icons/trash-bin.svg) и подтвердите удаление ключа.
 
-Подробнее о встраивании непубличных объектов читайте в разделе [Встраивание непубличных объектов](../security/private-embedded-objects.md).
+Подробнее о встраивании непубличных объектов читайте в разделе [Встраивание через JWT](../security/private-embedded-objects.md).
 
 
 

@@ -56,6 +56,7 @@
             * [Managed Service for MySQL®](../operations/connect/index.md#configure-security-groups).
 
 
+    
     - Terraform {#tf}
 
         1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -74,7 +75,7 @@
             * топик Apache Kafka® с именем `sensors`;
             * пользователь Apache Kafka® `mkf-user` с правами доступа `ACCESS_ROLE_PRODUCER`, `ACCESS_ROLE_CONSUMER` к топику `sensors`;
             * кластер-приемник Managed Service for MySQL® с базой данных `db1` и пользователем `mmy-user`;
-            * эндпоинт для приемника;
+            * эндпоинты для источника и приемника;
             * трансфер.
 
         1. Укажите в файле `data-transfer-mkf-mmy.tf` переменные:
@@ -83,7 +84,7 @@
             * `source_user_password` — пароль пользователя `mkf-user` в кластере-источнике;
             * `target_mysql_version` — версия MySQL® в кластере-приемнике;
             * `target_user_password` — пароль пользователя `mmy-user` в кластере-приемнике;
-            * `transfer_enabled` — значение `0`, чтобы не создавать эндпоинт-приемник и трансфер до [создания эндпоинта источника вручную](#prepare-transfer).
+            * `transfer_enabled` — значение `0`.
 
         1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
@@ -114,6 +115,7 @@
                1. Дождитесь завершения операции.
 
             В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+
 
     {% endlist %}
 
@@ -181,137 +183,134 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [источника `Apache Kafka®`](../../data-transfer/operations/endpoint/source/kafka.md):
+{% list tabs group=instructions %}
 
-    **Параметры эндпоинта**:
+- Вручную {#manual}
 
-    * **Настройки подключения**:
+    1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [источника Apache Kafka®](../../data-transfer/operations/endpoint/source/kafka.md):
 
-        * **Тип подключения** — `Кластер Managed Service for Apache Kafka`.
+        **Параметры эндпоинта**:
 
-            * **Кластер Managed Service for Apache Kafka** — выберите кластер-источник из списка.
+        * **Настройки подключения**:
 
-            * **Аутентификация** — **SASL**.
+            * **Тип подключения** — `Кластер Managed Service for Apache Kafka`.
 
-                * **Имя пользователя** — `mkf-user`.
-                * **Пароль** — укажите пароль пользователя.
+                * **Кластер Managed Service for Apache Kafka** — выберите кластер-источник из списка.
 
-        * **Полное имя топика** — `sensors`.
+                * **Аутентификация** — **SASL**.
 
-    * **Расширенные настройки** → **Правила конвертации**:
+                    * **Имя пользователя** — `mkf-user`.
+                    * **Пароль** — укажите пароль пользователя.
 
-        * **Правила конвертации** — `json`.
-            * **Схема данных** — `JSON-спецификация`.
+            * **Полное имя топика** — `sensors`.
 
-                Вставьте схему данных в формате JSON:
+        * **Расширенные настройки** → **Правила конвертации**:
 
-                {% cut "json" %}
+            * **Правила конвертации** — `json`.
+                * **Схема данных** — `JSON-спецификация`.
 
-                ```json
-                [
-                    {
-                        "name": "device_id",
-                        "type": "utf8",
-                        "key": true
-                    },
-                    {
-                        "name": "datetime",
-                        "type": "utf8"
-                    },
-                    {
-                        "name": "latitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "longitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "altitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "speed",
-                        "type": "double"
-                    },
-                    {
-                        "name": "battery_voltage",
-                        "type": "double"
-                    },
-                    {
-                        "name": "cabin_temperature",
-                        "type": "uint16"
-                    },
-                    {
-                        "name": "fuel_level",
-                        "type": "uint16"
-                    }
-                ]
-                ```
+                    Вставьте схему данных в формате JSON:
 
-                {% endcut %}
+                    {% cut "json" %}
 
-1. Создайте эндпоинт-приемник и трансфер:
+                    ```json
+                    [
+                        {
+                            "name": "device_id",
+                            "type": "utf8",
+                            "key": true
+                        },
+                        {
+                            "name": "datetime",
+                            "type": "utf8"
+                        },
+                        {
+                            "name": "latitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "longitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "altitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "speed",
+                            "type": "double"
+                        },
+                        {
+                            "name": "battery_voltage",
+                            "type": "double"
+                        },
+                        {
+                            "name": "cabin_temperature",
+                            "type": "uint16"
+                        },
+                        {
+                            "name": "fuel_level",
+                            "type": "uint16"
+                        }
+                    ]
+                    ```
 
-    {% list tabs group=instructions %}
+                    {% endcut %}
 
-    - Вручную {#manual}
+    1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [приемника MySQL®](../../data-transfer/operations/endpoint/target/mysql.md):
 
-        1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [приемника `MySQL®`](../../data-transfer/operations/endpoint/target/mysql.md):
+        * **Параметры эндпоинта** → **Настройки подключения**:
 
-            * **Параметры эндпоинта** → **Настройки подключения**:
+            * **Тип подключения** — `Кластер Managed Service for MySQL`.
 
-                * **Тип подключения** — `Кластер Managed Service for MySQL`.
+                * **Кластер Managed Service for MySQL** — выберите кластер-приемник из списка.
 
-                    * **Кластер Managed Service for MySQL** — выберите кластер-приемник из списка.
+            * **База данных** — `db1`.
 
-                * **База данных** — `db1`.
+            * **Пользователь** — `mmy-user`.
 
-                * **Пользователь** — `mmy-user`.
+            * **Пароль** — укажите пароль пользователя.
 
-                * **Пароль** — укажите пароль пользователя.
+    1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_Репликация_**, использующий созданные эндпоинты.
+    1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **Реплицируется**.
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_Репликация_**, использующий созданные эндпоинты.
-        1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **Реплицируется**.
 
-    - Terraform {#tf}
+- Terraform {#tf}
 
-        1. Укажите в файле `data-transfer-mkf-mmy.tf` переменные:
+    1. Укажите в файле `data-transfer-mkf-mmy.tf` значение `1` для переменной `transfer_enabled`, чтобы создать эндпоинты и трансфер.
 
-            * `source_endpoint_id` — значение идентификатора эндпоинта для источника;
-            * `transfer_enabled` – значение `1` для создания эндпоинта-приемника и трансфера.
+    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
-        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+        ```bash
+        terraform validate
+        ```
 
-            ```bash
-            terraform validate
-            ```
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
-            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+    1. Создайте необходимую инфраструктуру:
 
-        1. Создайте необходимую инфраструктуру:
+        1. Выполните команду для просмотра планируемых изменений:
+        
+           ```bash
+           terraform plan
+           ```
+        
+           Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
+        
+        1. Если вас устраивают планируемые изменения, внесите их:
+           1. Выполните команду:
+        
+              ```bash
+              terraform apply
+              ```
+        
+           1. Подтвердите изменение ресурсов.
+           1. Дождитесь завершения операции.
 
-            1. Выполните команду для просмотра планируемых изменений:
-            
-               ```bash
-               terraform plan
-               ```
-            
-               Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
-            
-            1. Если вас устраивают планируемые изменения, внесите их:
-               1. Выполните команду:
-            
-                  ```bash
-                  terraform apply
-                  ```
-            
-               1. Подтвердите изменение ресурсов.
-               1. Дождитесь завершения операции.
+    1. Трансфер активируется автоматически. Дождитесь его перехода в статус **Реплицируется**.
 
-        1. Трансфер активируется автоматически. Дождитесь его перехода в статус **Реплицируется**.
 
-    {% endlist %}
+{% endlist %}
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
@@ -353,37 +352,37 @@
 
 Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
-1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
-1. Остальные ресурсы удалите в зависимости от способа их создания:
+{% list tabs group=instructions %}
 
-   {% list tabs group=instructions %}
+- Вручную {#manual}
 
-   - Вручную {#manual}
+    1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
+    1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
+    1. [Удалите кластер Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-delete.md).
+    1. [Удалите кластер Managed Service for MySQL®](../operations/cluster-delete.md).
 
-       1. [Удалите кластер Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-delete.md).
-       1. [Удалите кластер Managed Service for MySQL®](../operations/cluster-delete.md).
 
-   - Terraform {#tf}
+- Terraform {#tf}
 
-       1. В терминале перейдите в директорию с планом инфраструктуры.
-       
-           {% note warning %}
-       
-           Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
-       
-           {% endnote %}
-       
-       1. Удалите ресурсы:
-       
-           1. Выполните команду:
-       
-               ```bash
-               terraform destroy
-               ```
-       
-           1. Подтвердите удаление ресурсов и дождитесь завершения операции.
-       
-           Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+    1. В терминале перейдите в директорию с планом инфраструктуры.
+    
+        {% note warning %}
+    
+        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+    
+        {% endnote %}
+    
+    1. Удалите ресурсы:
+    
+        1. Выполните команду:
+    
+            ```bash
+            terraform destroy
+            ```
+    
+        1. Подтвердите удаление ресурсов и дождитесь завершения операции.
+    
+        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
-   {% endlist %}
+
+{% endlist %}

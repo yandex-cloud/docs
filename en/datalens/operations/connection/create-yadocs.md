@@ -57,7 +57,7 @@ To create a connection to Yandex Documents:
 1. Click **Create connection**.
 
 
-1. Select the [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
 
 
 1. Enter a name for the connection and click **Create**.
@@ -68,7 +68,7 @@ You can add, rename, and delete files in the connection.
 
 {% include [datalens-file-connection-export-settings](../../../_includes/datalens/operations/datalens-file-connection-export-settings.md) %}
 
-## Limitations {#restrictions}
+## Limits {#restrictions}
 
 Consider the following limitations when creating a connection to Yandex Documents:
 

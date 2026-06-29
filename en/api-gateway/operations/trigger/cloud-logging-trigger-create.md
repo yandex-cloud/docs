@@ -6,7 +6,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
 {% include [trigger-before-you-begin](../../../_includes/api-gateway/trigger-before-you-begin.md) %}
 
-* Log group for which a trigger will fire when entries are added to it. If you do not have a log group, [create one](../../../logging/operations/create-group.md).
+* Log group whose new entries will set off the trigger. If you do not have a log group, [create one](../../../logging/operations/create-group.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -18,7 +18,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
 
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -71,7 +71,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
     Where:
 
     * `--name`: Trigger name.
-    * `--log-group-name`: Name of the log group that will invoke a container when entries are added to it.
+    * `--log-group-name`: Name of the log group whose new log entries will invoke the container.
 
     {% include [batch-settings-messages](../../../_includes/api-gateway/batch-settings-messages.md) %}
 

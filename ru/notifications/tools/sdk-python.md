@@ -5,7 +5,6 @@ description: Следуя данной инструкции, вы научите
 
 # Как начать работать с AWS SDK для Python (boto3) в {{ cns-full-name }}
 
-{% include [preview-stage](../../_includes/notifications/preview-stage.md) %}
 
 [boto3](https://github.com/boto/boto3) — это комплект средств разработки (SDK) для языка программирования Python 3.x. SDK предназначен для работы с сервисами, совместимыми с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
 

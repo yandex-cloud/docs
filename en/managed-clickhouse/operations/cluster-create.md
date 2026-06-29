@@ -64,7 +64,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
-      * Select the size of your data and backup disk. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
+      * Select the size of your data and backup disk. For details on how backups consume storage space, see [Backups](../concepts/backup.md).
 
       * Optionally, configure [automatic increase of storage size](../concepts/storage.md#autoscaling) for {{ CH }}:
 
@@ -191,13 +191,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
   To create a {{ mch-name }} cluster with the built-in {{ CK }} coordination service:
 
   
-  1. Verify that your folder has subnets for cluster host placement:
+  1. Check whether the folder has any subnets for cluster hosts:
 
       ```bash
       yc vpc subnet list
       ```
 
-     If your folder contains no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+     If there are no subnets in the folder, [create the right ones](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
   1. View the description of the CLI command for creating a cluster:
@@ -855,7 +855,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 * `name`: Shard name.
                 * `weight`: Shard weight.
-                * `configSpec.clickhouse`: Shard host configuration, i.e., host class, storage settings, and DBMS settings. If you skip the shard host configuration, it will be inherited from the cluster configuration.
+                * `configSpec.clickhouse`: Shard host configuration, i.e., including host class, storage settings, and DBMS settings. If you skip the shard host configuration, it will be inherited from the cluster configuration.
 
             * `deletionProtection`: Cluster deletion protection, `true` or `false`. The default value is `false`.
 
@@ -1158,7 +1158,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
-      * Select the size of your data and backup disk. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
+      * Select the size of your data and backup disk. For details on how backups consume storage space, see [Backups](../concepts/backup.md).
 
       * Optionally, configure [automatic increase of storage size](../concepts/storage.md#autoscaling) for {{ CH }}:
 
@@ -1282,13 +1282,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
   To create a {{ mch-name }} cluster with the {{ ZK }} coordination service:
 
   
-  1. Verify that your folder has subnets for cluster host placement:
+  1. Check whether the folder has any subnets for cluster hosts:
 
       ```bash
       yc vpc subnet list
       ```
 
-     If your folder contains no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+     If there are no subnets in the folder, [create the right ones](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
   1. View the description of the CLI command for creating a cluster:
@@ -1966,7 +1966,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 * `name`: Shard name.
                 * `weight`: Shard weight.
-                * `configSpec.clickhouse`: Shard host configuration, i.e., host class, storage settings, and DBMS settings. If you skip the shard host configuration, it will be inherited from the cluster configuration.
+                * `configSpec.clickhouse`: Shard host configuration, i.e., including host class, storage settings, and DBMS settings. If you skip the shard host configuration, it will be inherited from the cluster configuration.
 
             * `deletionProtection`: Cluster deletion protection, `true` or `false`. The default value is `false`.
 
@@ -2391,7 +2391,7 @@ To create a {{ CH }} cluster copy:
   * Cloud ID: `{{ tf-cloud-id }}`.
   * Folder ID: `{{ tf-folder-id }}`.
   * New cloud network: `cluster-net`.
-  * New [default security group](connect/index.md#configuring-security-groups): `cluster-sg` (in the `cluster-net` network). It must allow connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
+  * New [default security group](connect/index.md#configuring-security-groups) named `cluster-sg` in the `cluster-net` network. The group must allow connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
   * One shard, `shard1`.
   * One `{{ host-class }}` host in `shard1`. The host resides in the new subnet, `cluster-subnet-{{ region-id }}-a`.
 
@@ -2492,7 +2492,7 @@ To create a {{ CH }} cluster copy:
       * In `shard2`, subnet `cluster-subnet-{{ region-id }}-b` (range `172.16.2.0/24`, availability zone `{{ region-id }}-b`).
       * In `shard3`, subnet `cluster-subnet-{{ region-id }}-d` (range `172.16.3.0/24`, availability zone `{{ region-id }}-d`).
 
-  * New [default security group](connect/index.md#configuring-security-groups): `cluster-sg` (in the `cluster-net` network). It must allow connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
+  * New [default security group](connect/index.md#configuring-security-groups) named `cluster-sg` in the `cluster-net` network. The group must allow connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
   * Network SSD storage (`{{ disk-type-example }}`) for each of the {{ CH }} hosts: 20 GB.
   * Database name: `db1`.
   * User: `user1`, password: `user1user1`.
@@ -2601,7 +2601,7 @@ To create a {{ CH }} cluster copy:
 
     These subnets will belong to the `cluster-net` network.
 
-  * New [default security group](connect/index.md#configuring-security-groups): `cluster-sg` (in the `cluster-net` network). It must allow connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
+  * New [default security group](connect/index.md#configuring-security-groups) named `cluster-sg` in the `cluster-net` network. The group must allow connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
   * Network SSD storage (`{{ disk-type-example }}`) for each of the {{ CH }} cluster hosts: 32 GB.
   * Network SSD storage (`{{ disk-type-example }}`) for each of the {{ ZK }} cluster hosts: 10 GB.
   * Database name: `db1`.

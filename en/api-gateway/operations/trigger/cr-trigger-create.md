@@ -6,7 +6,7 @@ Create a [trigger for {{ container-registry-name }}](../../concepts/trigger/cr-t
 
 {% include [trigger-before-you-begin](../../../_includes/api-gateway/trigger-before-you-begin.md) %}
 
-* [Registry](../../../container-registry/concepts/registry.md) whose [Docker image](../../../container-registry/concepts/docker-image.md) events will fire the trigger. If you do not have a registry, [create one](../../../container-registry/operations/registry/registry-create.md).
+* [Registry](../../../container-registry/concepts/registry.md) whose [Docker image](../../../container-registry/concepts/docker-image.md) events will set off the trigger. If you do not have a registry, [create one](../../../container-registry/operations/registry/registry-create.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -18,7 +18,7 @@ Create a [trigger for {{ container-registry-name }}](../../concepts/trigger/cr-t
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
 
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -33,7 +33,7 @@ Create a [trigger for {{ container-registry-name }}](../../concepts/trigger/cr-t
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_container-registry }}**:
 
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_container-registry }}** field, select the registry where you want to create a trigger for image events.
-        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select the [events](../../concepts/trigger/cr-trigger.md#event) that will fire the trigger.
+        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select the [events](../../concepts/trigger/cr-trigger.md#event) to set off the trigger.
         * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_image-name }}** field, enter the image name for [filtering](../../concepts/trigger/cr-trigger.md#filter). To find out the Docker image name, [get a list of Docker images in the registry](../../../container-registry/operations/docker-image/docker-image-list.md).
         * Optionaly, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_tag }}** field, enter the image tag for filtering.
 
@@ -72,7 +72,7 @@ Create a [trigger for {{ container-registry-name }}](../../concepts/trigger/cr-t
 
     * `--name`: Trigger name.
     * `--registry-id`: [Registry ID](../../../container-registry/operations/registry/registry-list.md).
-    * `--events`: [Events](../../concepts/trigger/cr-trigger.md#event) for which the trigger fires.
+    * `--events`: [Events](../../concepts/trigger/cr-trigger.md#event) to set off the trigger.
 
     {% include [batch-settings-events](../../../_includes/api-gateway/batch-settings-events.md) %}
 

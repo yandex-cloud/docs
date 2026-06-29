@@ -7,7 +7,7 @@ Change the Docker container settings on the VM you created from a [{{ coi }}](..
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you created the VM.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Click the row with the VM you want to update.
   1. In the top panel, click **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**
   1. Modify the **{{ ui-key.yacloud.compute.instances.create.section_coi }}** section as required.
@@ -43,8 +43,8 @@ Change the Docker container settings on the VM you created from a [{{ coi }}](..
 
      Creation method | Update the VM using<br>`--container-image` | Update the VM using<br>`--docker-compose-file`
      --- | --- | ---
-     Using the `--container-*` parameters | The system deletes the old Docker container and creates a new one. | The system deletes the old Docker container  and creates new containers as per the docker-compose.yaml file.
-     Using the docker-compose.yaml file specification | The system deletes the old Docker containers as per `docker-compose.yaml` and creates a new container described using the `--container-*` parameters.| The system only creates either new Docker containers, i.e., those added to docker-compose.yaml, or modified containers. The system deletes the Docker containers missing from the new docker-compose.yaml file.
+     Using the `--container-*` parameters | The system deletes the old Docker container and creates a new one. | The system deletes the old Docker container  and creates new containers as per the `docker-compose.yaml` file.
+     Using the `docker-compose.yaml` file specification | The system deletes the old Docker containers as per `docker-compose.yaml` and creates a new container described using the `--container-*` parameters.| The system only creates either new Docker containers, i.e., those added to `docker-compose.yaml`, or modified containers. The system deletes the Docker containers missing from the new `docker-compose.yaml` file.
     
      * Update the VM by setting new parameters:
 
@@ -82,7 +82,7 @@ Change the Docker container settings on the VM you created from a [{{ coi }}](..
      * Update the VM by setting the specifications of multiple Docker containers:
 
        ```bash
-       yc compute instance update-container epdbf646ge5q******** --docker-compose-file=<path_to_file>
+       yc compute instance update-container epdbf646ge5q******** --docker-compose-file=<file_path>
        ```
 
        Where `--docker-compose-file` is the path to the Docker container spec file.

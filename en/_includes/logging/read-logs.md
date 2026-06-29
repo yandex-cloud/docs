@@ -5,7 +5,7 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with the log group.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Click the row with the log group whose records you want to view.
   1. The page that opens will show the log group entries.
 
@@ -22,7 +22,7 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
   * `--since`: Time N and later (you can skip the `--since` parameter and specify the time directly).
   * `--until`: Time N and earlier.
 
-  If you only specify a single parameter, you will see info for one hour before or after time N, depending on the parameter.
+  If you only specify a single flag, you will see info for one hour before or after time N, depending on the flag.
 
   You can use one of these time formats:
 

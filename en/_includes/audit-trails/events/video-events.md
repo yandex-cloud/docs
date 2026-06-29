@@ -25,6 +25,7 @@ Event name | Description
 `DeleteSubtitle` | Deleting subtitles
 `DeleteThumbnail` | Deleting a thumbnail
 `DeleteVideo` | Deleting a video
+`DownloadEpisode` | Downloading an episode
 `EpisodePerformAction` | Performing actions with an episode
 `SetChannelAccessBindings` | Assigning access permissions for a channel
 `StreamLinePerformAction` | Performing actions with a stream line

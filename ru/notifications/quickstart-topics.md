@@ -5,7 +5,6 @@ description: В {{ cns-name }} вы можете отправлять уведо
 
 # Как начать работать с топиками в {{ cns-full-name }}
 
-{% include [preview-stage](../_includes/notifications/preview-stage.md) %}
 
 {% include [ask-for-turning-on](../_includes/notifications/ask-for-turning-on.md) %}
 

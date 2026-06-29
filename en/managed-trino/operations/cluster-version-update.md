@@ -67,9 +67,9 @@ Make sure the upgrade will not disrupt your applications:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
         
     1. Edit the `version` parameter in the cluster's description:
       
@@ -162,7 +162,7 @@ Make sure the upgrade will not disrupt your applications:
             
             You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 

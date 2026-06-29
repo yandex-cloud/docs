@@ -1,10 +1,10 @@
-# Метрики Monium Logs
+# Метрики Yandex Cloud Logging
 
-В этом разделе описаны метрики сервиса [Monium Logs](../../logging/index.md), поставляемые в Monium Metrics.
+В этом разделе описаны метрики сервиса [Cloud Logging](../../logging/index.md), поставляемые в Monium Metrics.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса Monium Logs:
+Общие метки для всех метрик сервиса Cloud Logging:
 
 Метка | Значение
 ----|----

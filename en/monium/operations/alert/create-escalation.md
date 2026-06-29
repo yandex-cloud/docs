@@ -5,8 +5,6 @@ description: In this article, you will learn how to create and configure an esca
 
 # Creating an escalation policy
 
-{% include [escalations-preview](../../../_includes/monitoring/escalations-preview.md) %}
-
 
 
 {% include [escalations-definition](../../../_includes/monitoring/escalation-definition.md) %}
@@ -55,6 +53,8 @@ Make sure you have added [recipients](../../concepts/alerting/notification-chann
       * **Method**: [Notification method](../../concepts/alerting/notification-channel.md#channel-parameters):
        
           {% include [escalation-channels](../../../_includes/monitoring/escalation-channels.md) %}
+
+          The cost of calls and SMS is calculated based on the [pricing policy](../../pricing.md).
 
       * **Delay after step**: Delay before moving on to the next step if the notification is successfully delivered but escalation is not stopped. You can set the delay in seconds or minutes, e.g., `30s`, `10m`, or `3m30s`.
       

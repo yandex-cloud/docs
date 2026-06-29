@@ -15,7 +15,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* {{ mkf-name }} cluster fee, which covers the use of computing resources allocated to hosts (including {{ kraft-short-name }} hosts) and disk space (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mkf-name }} cluster fee: use of computing resources allocated to hosts (including {{ kraft-short-name }} hosts) and disk space (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
 * Fee for public IP addresses assigned to cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -28,7 +28,7 @@ Upgrade your {{ KF }} cluster with {{ ZK }} to version `3.9` step by step, witho
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select a folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select `3.6`.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -63,11 +63,11 @@ Upgrade your {{ KF }} cluster with {{ ZK }} to version `3.9` step by step, witho
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -162,7 +162,7 @@ To migrate a {{ mkf-name }} cluster with {{ ZK }} hosts to the {{ kraft-short-na
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select a folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Click the cluster name.
     1. At the top of the screen, click **Migrate**.
     1. Select the [platform](../../compute/concepts/vm-platforms.md), host type, and host class for the {{ kraft-short-name }} controllers.
@@ -191,7 +191,7 @@ To migrate a {{ mkf-name }} cluster with {{ ZK }} hosts to the {{ kraft-short-na
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
     1. Delete the `config.zookeeper` section for the {{ mkf-name }} cluster.
     1. Add the `config.kraft` section with the {{ kraft-short-name }} controller resource description:
 

@@ -11,6 +11,9 @@ Event name | Description
 `BookmarkTagsCreate` | Creating tags for favorites
 `BookmarkTagsDelete` | Deleting tags for favorites
 `BookmarkUpdate` | Updating tags for a page in favorites
+`ChangeOrganizationDomain` | Changing organization domain
+`ChangeOrganizationMetrika` | Changing organization [Yandex Metrica counter](https://yandex.ru/support/wiki/en/add-metrika)
+`ChangeOrganizationSettings` | Changing organization settings
 `ClusterMove` | Moving a page cluster
 `CommentCreate` | Creating a comment
 `CommentDelete` | Deleting a comment

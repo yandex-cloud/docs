@@ -11,3 +11,4 @@ description: Соглашение об уровне обслуживания SLA
 Вы можете ознакомиться с SLA по ссылкам:
 * [Соглашение об уровне обслуживания {{ yandex-cloud }}]({{ link-sla }})
 * [Уровни обслуживания для сервисов {{ yandex-cloud }}](https://yandex.ru/legal/cloud_sla_levels/?lang=ru)
+* [Соглашение об уровне обслуживания {{ cns-full-name }}](https://yandex.ru/legal/cloud_terms_cns/ru/)

@@ -44,6 +44,7 @@ keywords:
 
         1. Введите имя кластера. Имя должно быть уникальным в рамках каталога.
         1. (Опционально) Введите описание кластера.
+        1. Выберите [версию {{ AF }} и Python](../concepts/versions.md).
         1. (Опционально) Создайте [метки](../../resource-manager/concepts/labels.md):
             1. Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
             1. Введите метку в формате `ключ: значение`.
@@ -97,16 +98,12 @@ keywords:
 
       * (опционально) службы Triggerer.
 
-  1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.forms.section_dependencies }}** укажите названия pip- и deb-пакетов, чтобы установить в кластер дополнительные библиотеки и приложения для запуска DAG-файлов.
-
-      Чтобы указать более одного пакета, нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+  1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.forms.section_dependencies }}** укажите названия pip- и deb-пакетов через пробел, чтобы установить в кластер дополнительные библиотеки и приложения для запуска DAG-файлов.
 
       При необходимости задайте ограничения на версии устанавливаемых пакетов, например:
 
       ```text
-      pandas==2.0.2
-      scikit-learn>=1.0.0
-      clickhouse-driver~=0.2.0
+      pandas==2.0.2 scikit-learn>=1.0.0 clickhouse-driver~=0.2.0
       ```
 
       Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
@@ -175,6 +172,8 @@ keywords:
            --name <имя_кластера> \
            --description <описание_кластера> \
            --labels <список_меток> \
+           --airflow-version <версия_Apache_Airflow™> \
+           --python-version <версия_Python> \
            --admin-password <пароль_администратора> \
            --service-account-id <идентификатор_сервисного_аккаунта> \
            --subnet-ids <идентификаторы_подсетей> \
@@ -268,7 +267,8 @@ keywords:
           "description": "<описание_кластера>",
           "labels": { <список_меток> },
           "config": {
-            "versionId": "<версия_{{ AF }}>",
+            "airflowVersion": "<версия_{{ AF }}>",
+            "pythonVersion": "<версия_Python>",
             "airflow": {
               "config": { <список_свойств> }
             },
@@ -351,7 +351,8 @@ keywords:
         * `labels` — список меток. Метки задаются в формате `"<ключ>": "<значение>"`.
         * `config` — конфигурация кластера:
 
-            * `versionId` — версия {{ AF }}.
+            * `airflowVersion` — [версия {{ AF }}](../concepts/versions.md).
+            * `pythonVersion` — версия Python.
             * `airflow.config` — [дополнительные свойства {{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Задаются в формате `"<раздел_конфигурации>.<ключ>": "<значение>"`, например:
 
                 ```json
@@ -482,7 +483,8 @@ keywords:
           "description": "<описание_кластера>",
           "labels": { <список_меток> },
           "config": {
-            "version_id": "<версия_{{ AF }}>",
+            "version_airflow": "<версия_{{ AF }}>",
+            "python_version": "<версия_Python>",
             "airflow": {
               "config": { <список_свойств> }
             },
@@ -565,7 +567,8 @@ keywords:
         * `labels` — список меток. Метки задаются в формате `"<ключ>": "<значение>"`.
         * `config` — конфигурация кластера:
 
-            * `version_id` — версия {{ AF }}.
+            * `version_airflow` — [версия {{ AF }}](../concepts/versions.md).
+            * `python_version` — версия Python.
             * `airflow.config` — [дополнительные свойства {{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Задаются в формате `"<раздел_конфигурации>.<ключ>": "<значение>"`, например:
 
                 ```json
@@ -696,6 +699,7 @@ keywords:
 
     * Имя — `myaf`.
     * Версия {{ AF }} — `3.0`.
+    * Версия Python — `3.12`.
     * Пароль администратора — `Password*1`.
     * Сервисный аккаунт с идентификатором `aje8r2rp7fkl********`.
     * Подсети с идентификаторами:
@@ -716,6 +720,7 @@ keywords:
     {{ yc-mdb-af }} cluster create \
       --name myaf \
       --airflow-version 3.0 \
+      --python-version 3.12 \
       --admin-password Password*1 \
       --service-account-id aje8r2rp7fkl******** \
       --subnet-ids e9bhbia2scnk********,e2lfqbm5nt9r********,fl8beqmjckv8******** \
@@ -734,6 +739,7 @@ keywords:
     * Каталог с идентификатором `b1g4unjqq856********`.
     * Имя — `myaf`.
     * Версия {{ AF }} — `3.0`.
+    * Версия Python — `3.12`.
     * Пароль администратора — `Password*1`.
     * Новый сервисный аккаунт `af-sa` со следующими ролями:
       
@@ -765,6 +771,7 @@ keywords:
     resource "yandex_airflow_cluster" "myaf" {
       name               = "myaf"
       airflow_version    = "3.0"
+      python_version     = "3.12"
       admin_password     = "Password*1"
       service_account_id = yandex_iam_service_account.af-sa.id
       subnet_ids         = [yandex_vpc_subnet.af-subnet-a.id,yandex_vpc_subnet.af-subnet-b.id,yandex_vpc_subnet.af-subnet-d.id]

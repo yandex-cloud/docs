@@ -29,7 +29,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the relevant folder.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the [service account](../../iam/concepts/users/service-accounts.md): `forms-integration-sa`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the following roles: 
@@ -50,7 +50,7 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will store 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the relevant folder.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** the bucket.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
@@ -64,7 +64,7 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will store 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the relevant folder.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Open the bucket you [created](#create-s3-bucket).
   1. Navigate to **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
@@ -84,7 +84,7 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will store 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the relevant folder.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Select the `forms-integration` service account.
   1. Navigate to **{{ ui-key.yacloud.common.overview }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.  
@@ -100,7 +100,7 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will store 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the relevant folder.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. **{{ ui-key.yacloud.common.name }}** the secret: `static-key`.
   1. Under **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-data-section }}**:
@@ -125,7 +125,7 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will store 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the relevant folder.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Create a function:
       1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}** in the top-right corner.
       1. **{{ ui-key.yacloud.common.name }}** the function: `forms-function`.  

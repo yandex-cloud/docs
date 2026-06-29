@@ -7,3 +7,4 @@
 Вы можете ознакомиться с SLA по ссылкам:
 * [Соглашение об уровне обслуживания Yandex Cloud](https://yandex.ru/legal/cloud_sla/)
 * [Уровни обслуживания для сервисов Yandex Cloud](https://yandex.ru/legal/cloud_sla_levels/?lang=ru)
+* [Соглашение об уровне обслуживания Yandex Cloud Notification Service](https://yandex.ru/legal/cloud_terms_cns/ru/)

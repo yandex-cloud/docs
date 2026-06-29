@@ -111,7 +111,7 @@ The number of hosts in {{ dataproc-name }} clusters is limited by [quotas]({{ li
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
   1. In the {{ dataproc-name }} cluster description, add a `subcluster_spec` section containing the settings for the new subcluster:
 
      ```hcl
@@ -141,11 +141,11 @@ The number of hosts in {{ dataproc-name }} clusters is limited by [quotas]({{ li
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/dataproc_cluster).
+  For more detailed information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/dataproc_cluster).
 
 {% endlist %}
 
@@ -188,7 +188,7 @@ You cannot delete data storage subclusters.
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
   1. Delete the `subcluster_spec` section of the relevant subcluster from the {{ dataproc-name }} cluster description.
   1. Make sure the settings are correct.
 
@@ -198,6 +198,6 @@ You cannot delete data storage subclusters.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/dataproc_cluster).
+  For more detailed information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/dataproc_cluster).
 
 {% endlist %}

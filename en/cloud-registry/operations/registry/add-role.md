@@ -55,7 +55,7 @@ description: Follow this tutorial to assign roles for a registry.
     ```bash
     yc cloud-registry registry add-access-binding <registry_name_or_ID> \
       --role <role> \
-      --allUsers
+      --subject system:allUsers
     ```
 
     Where `<role>` is the [role](../../security/index.md#service-roles) you want to assign.

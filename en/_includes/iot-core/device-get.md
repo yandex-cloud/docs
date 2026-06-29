@@ -3,7 +3,7 @@
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the device is located.
-   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the registry where the device is located.
    1. Navigate to the **{{ ui-key.yacloud.iot.label_devices }}** tab.
    1. Select the device.
@@ -60,12 +60,12 @@
      * `output "device_params"`: Output variable containing information about the registry the device belongs to:
        * `value`: Return value.
 
-     You can replace `registry_id` with any other parameter to get the information you need. For more information about the `yandex_iot_core_device` data source properties, see [this {{ TF }} provider article]({{ tf-provider-datasources-link }}/iot_core_device).
+     You can replace `registry_id` with another variable to get the information you need. For more information about the `yandex_iot_core_device` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/iot_core_device).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+     {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
      ```bash
      terraform output

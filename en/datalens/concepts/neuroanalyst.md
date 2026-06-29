@@ -16,16 +16,17 @@ description: In this article, you will learn about {{ datalens-full-name }} Neur
 
 ## Data security and processing {#security}
 
-* Neuroanalyst is based on the cloud service called [{{ ai-studio-full-name }}]({{ link-docs-ai }}).
+
+* Neuroanalyst is powered by the cloud service called [{{ ai-studio-full-name }}]({{ link-docs-ai }}).
+
+
+
 * Your data and queries stay within the {{ yandex-cloud }} infrastructure.
 * Your data and queries are not logged, nor used for model tuning.
-* The admin can [disable generation of insights for your users](#prohibit) at the dashboard level.
+* The admin can [disable generation of insights for your users](#prohibit) at the dashboard or report level.
 
-{% note info %}
+See also [Neuroanalyst limits](./limits.md#datalens-ai-limits).
 
-The number of AI queries is limited to 600 queries per user per month. We may consider increasing the limits if needed.
-
-{% endnote %}
 
 
 ## Ban on Neuroanalyst {#prohibit}
@@ -37,9 +38,12 @@ The number of AI queries is limited to 600 queries per user per month. We may co
 
 - {{ datalens-short-name }} instance
 
+
   1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
   1. Select the **Security** tab.
   1. Disable **Neuroanalyst** (on by default). As soon as you do it, the AI assistants will disappear from the {{ datalens-name }} interface for the instance users.
+
+
 
 
 - Dashboard
@@ -51,6 +55,8 @@ The number of AI queries is limited to 600 queries per user per month. We may co
   {% include [datalens-report-neuroanalyst-off](../../_includes/datalens/operations/datalens-report-neuroanalyst-off.md) %}
 
 {% endlist %}
+
+
 
 ## Setting up a custom prompt {#user-promt}
 
@@ -69,3 +75,4 @@ In {{ datalens-short-name }}, you can set up a custom prompt for AI. To do this,
 1. Enter a prompt in the text field and click **Save**.
 
 With each request to the AI, the custom prompt will be added to the {{ datalens-short-name }} system prompt.
+

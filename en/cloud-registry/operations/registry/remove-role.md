@@ -61,7 +61,7 @@ description: Follow this guide to revoke roles for a registry.
        ```bash
        yc cloud-registry registry remove-access-binding <registry_name_or_ID> \
          --role <role> \
-         --allUsers
+         --subject system:allUsers
        ```
 
        Where `<role>` is the [role](../../security/index.md#service-roles) you want to revoke.

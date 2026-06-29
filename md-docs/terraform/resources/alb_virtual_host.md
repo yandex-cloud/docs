@@ -73,6 +73,10 @@ Exactly one type of routes `http_route` or `grpc_route` should be specified.
 
   - `disable_security_profile` (Bool). Disables security profile for the route
   - `name` (String). Name of the route.
+  - `client_certificate_forward` [Block]. Client certificate forwarding settings.
+    - `http_header` (String). HTTP header name to forward client certificate information.
+    - `issuer_header_name` (String). Header name for the certificate issuer information.
+    - `subject_header_name` (String). Header name for the certificate subject information.
   - `grpc_route` [Block]. gRPC route resource.
 
 {% note warning %}

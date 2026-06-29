@@ -1,10 +1,5 @@
 # Как начать работать с push-уведомлениями в Yandex Cloud Notification Service
 
-{% note info %}
-
-Сервис находится на [стадии Preview](../overview/concepts/launch-stages.md).
-
-{% endnote %}
 
 Чтобы включить Cloud Notification Service, запросите доступ к сервису у вашего аккаунт-менеджера или в [технической поддержке](https://center.yandex.cloud/support).
 

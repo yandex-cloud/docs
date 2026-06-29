@@ -38,13 +38,11 @@ To get started:
 
    {% endnote %}
 
-1. Install `kafkacat`, an open-source tool for producing and consuming data:
+1. Install `kafkactl`, a command line interface for {{ KF }}:
 
-   ```bash
-   sudo apt-get install kafkacat
-   ```
+   {% include [kafkactl-install](../_includes/mdb/mkf/kafkactl_install.md) %}
 
-   Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../managed-kafka/operations/connect/clients.md#bash-zsh).
+   Check that you can [connect to the {{ mkf-name }} source cluster over SSL](../managed-kafka/operations/connect/clients.md#kafkactl) with `kafkactl`.
 
 
 ## Create a cluster {#cluster-create}
@@ -63,7 +61,7 @@ Then create a topic in the cluster.
 A [topic](concepts/topics.md) is used to group message streams by category. [Producers](concepts/producers-consumers.md) write messages to a topic, and [consumers](concepts/producers-consumers.md) read messages from it.
 
 To create a topic:
-1. In the management console, select the folder with the cluster.
+1. In the management console, select the folder containing the cluster.
 1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 1. Click the cluster name and select the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
 1. Click **{{ ui-key.yacloud.kafka.button_create-topic }}**.
@@ -78,7 +76,7 @@ User settings enable you to manage [producer and consumer](concepts/producers-co
 Learn more about the permissions you get with each role [here](concepts/account-roles.md).
 
 To create a user:
-1. In the management console, select the folder with the cluster.
+1. In the management console, select the folder containing the cluster.
 1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
 1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
@@ -103,21 +101,27 @@ To connect to your cluster:
 
    {% include [install-certificate](../_includes/mdb/mkf/install-certificate.md) %}
 
-1. To send a message to a topic, run this command:
+1. Create a folder named `~/.config/kafkactl` and place the `config.yml` configuration file with your {{ KF }} cluster connection parameters in that folder:
 
-   {% include [default-get-string](../_includes/mdb/mkf/default-send-string.md) %}
+   {% include [kafkactl-folder](../_includes/mdb/mkf/kafkactl_folder.md) %}
 
-   In the command, specify the broker FQDN, topic name, username and password of the {{ KF }} user you created earlier.
+   {% include [kafkactl-config-ssl](../_includes/mdb/mkf/kafkactl-config-ssl.md) %}
+
+   In the configuration file, specify the broker FQDN as well as the login and password of the {{ KF }} user you created earlier.
 
    {% include [fqdn](../_includes/mdb/mkf/fqdn-host.md) %}
+
+1. To send a message to a topic, run this command:
+
+   ```bash
+   echo "test message" | kafkactl produce <topic_name>
+   ```
 
 1. To get messages from a topic, run the following command:
 
-   {% include [default-get-string](../_includes/mdb/mkf/default-get-string.md) %}
-
-   In the command, specify the broker FQDN, topic name, username and password of the {{ KF }} user you created earlier.
-
-   {% include [fqdn](../_includes/mdb/mkf/fqdn-host.md) %}
+   ```bash
+   kafkactl consume <topic_name>
+   ```
 
 For a detailed description of the {{ mkf-name }} cluster connection process, see [Connecting to topics in a cluster](operations/connect/clients.md).
 

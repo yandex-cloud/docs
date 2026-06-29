@@ -1,2 +1,2 @@
-* Make sure you have enough memory allocated to the executor.
-* Configure the garbage collector manually. To learn how to do this, see the [Apache Spark documentation](https://spark.apache.org/docs/latest/tuning.html#garbage-collection-tuning).
+* Make sure the executor has enough memory allocated.
+* Configure the garbage collector manually. Check out [this Apache Spark guide](https://spark.apache.org/docs/latest/tuning.html#garbage-collection-tuning).

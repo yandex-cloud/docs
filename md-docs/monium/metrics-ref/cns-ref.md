@@ -1,11 +1,5 @@
 # Метрики Yandex Cloud Notification Service
 
-{% note info %}
-
-Сервис находится на [стадии Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 В этом разделе описаны метрики сервиса [Cloud Notification Service](../../notifications/index.md), поставляемые в Monium Metrics.
 
 Имя метрики пишется в метку `name`.

@@ -11,6 +11,54 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Click the name of your cluster and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
+  1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}** in the top-right corner of the page.
+  
+  
+  1. Choose the authorization method:
+      
+      * **Password**: Authorization by username and password. For this authorization method:
+        
+        1. Enter the username.
+
+        
+        1. Set a user password in one of the following ways:
+ 
+            * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Enter a password manually. It must be from 8 to 128 characters long.
+            * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Generate a password using [{{ connection-manager-full-name }}](../../metadata-hub/concepts/connection-manager.md) and store it in a [{{ lockbox-full-name }} secret](../../lockbox/concepts/secret.md).
+
+              To view the password, navigate to the cluster page, select the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-full-name }} secret containing the password.
+
+              You need the [lockbox.payloadViewer](../../lockbox/security/index.md#lockbox-payloadViewer) role to view passwords.
+        
+
+      * **IAM**: Authorization via [{{ yandex-cloud }} accounts](../../iam/concepts/users/accounts.md).
+        
+        For this authorization method, select the right account in the **User** field.
+
+
+  1. Select the **{{ ui-key.yacloud.mdb.cluster.users.field_enable-user }}** option to enable the user to connect to the cluster and execute commands.
+  1. Under `Permissions`, specify user permissions:
+
+      * `Patterns`: Permissions for key patterns.
+      * `Pub Sub Channels`: Permissions for Pub/Sub channels.
+      * `Categories`: Permissions for command categories.
+      * `Commands`: Permissions for commands.
+      * `Sanitize Payload`: Permission for data cleanup. The possible values are:
+        
+        * `sanitize-payload`: Data cleanup is enabled. This is the default value.
+        * `skip-sanitize-payload`: Data cleanup is disabled.
+        
+      {% include [user-permissions-note](../../_includes/mdb/mvk/user-permissions-note.md) %}
+
+      For more information about access control lists, see [this {{ VLK }} ACL guide](https://valkey.io/topics/acl).
+  
+  1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
+
 - CLI {#cli}
   
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -82,7 +130,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
       To learn how to create this file, see [Creating a cluster](cluster-create.md).
   
@@ -139,7 +187,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
 
         For more information about access control lists, see [this {{ VLK }} ACL guide](https://valkey.io/topics/acl).
   
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -160,7 +208,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

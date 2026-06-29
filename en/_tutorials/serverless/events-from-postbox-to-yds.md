@@ -31,7 +31,7 @@ The infrastructure support cost includes:
 
 * Fee for {{ ydb-short-name }} operations and data storage (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
 * Fee for {{ yds-short-name }} data storage (see [{{ yds-full-name }} pricing](../../data-streams/pricing.md)).
-* Fee for the number of function calls, computing resources allocated to run the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Fee for function invocation count, computing resources allocated for the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 * Fee for using {{ postbox-full-name }} (see [{{ postbox-name }} pricing](../../postbox/pricing.md)).
 * Fee for the {{ datalens-short-name }} plan (see [{{ datalens-full-name }} pricing](../../datalens/pricing.md)).
 
@@ -40,7 +40,7 @@ The infrastructure support cost includes:
 
 Create these two [service accounts](../../iam/concepts/users/service-accounts.md):
 
-* `yds-functions` to call the function in [{{ sf-name }}](../../functions/concepts/function.md) and write data to the {{ ydb-short-name }} [database](../../ydb/concepts/resources.md#database).
+* `yds-functions` to invoke the function from [{{ sf-name }}](../../functions/concepts/function.md) and write data to the {{ ydb-short-name }} [database](../../ydb/concepts/resources.md#database).
 * `postbox-user` to send emails via {{ postbox-name }}.
 
 {% include [create-service-accounts](../_tutorials_includes/events-from-postbox-to-yds/create-service-accounts.md) %}
@@ -62,7 +62,7 @@ You can use any DBMS suitable for analytical tasks as an event storage. In this 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** and click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** and click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. In the **{{ ui-key.yacloud.ydb.forms.label_field_name }}** field, specify `postbox-events-ydb`.
   1. In the **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** field, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type_pB7Wx }}`.
   1. Do not edit the other database settings. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
@@ -134,7 +134,7 @@ You can use any DBMS suitable for analytical tasks as an event storage. In this 
 {% include [create-pb-resources-address](../_tutorials_includes/events-from-postbox-to-yds/create-pb-resources-address.md) %}
 
 
-### Pass a domain ownership check {#domain}
+### Verify your domain ownership {#domain}
 
 {% include [check-domain](../../_includes/postbox/check-domain.md) %}
 
@@ -150,7 +150,7 @@ Create a [function](../../functions/concepts/function.md) to send data from the 
 
 - Archive
 
-  [Download](https://github.com/yandex-cloud-examples/yc-postbox-events/raw/main/build/postbox-events.zip) the `postbox-events.zip` archive to your computer. The archive contains the `index.py` and `requirements.txt` files with the function code.
+  [Download](https://github.com/yandex-cloud-examples/yc-postbox-events/raw/main/build/postbox-events.zip) the `postbox-events.zip` archive to your computer. This archive contains the `index.py` and `requirements.txt` files with the function code.
 
 - Repository
 
@@ -176,7 +176,7 @@ Create a [function](../../functions/concepts/function.md) to send data from the 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Select the database for which you need to get the endpoint and path.
 
       * The database endpoint is specified under **{{ ui-key.yacloud.ydb.overview.section_connection }}** in the first part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`):
@@ -199,7 +199,7 @@ To create a function, you will need the function code and database connection cr
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Create a function:
 
       1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
@@ -240,12 +240,12 @@ To create a function, you will need the function code and database connection cr
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}** and click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** field, enter the trigger name: `postbox-events-trigger`.
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_data-streams }}`.
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
-  1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}**, select the `postbox-events-stream` data stream and the `yds-functions` service account.
+  1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}**, select `postbox-events-stream` and the `yds-functions` service account.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select the `postbox-events-function` function and the `yds-functions` service account.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -269,12 +269,12 @@ To create a function, you will need the function code and database connection cr
       * Check the database:
 
           1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-          1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+          1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
           1. Select the `postbox-events-ydb` database.
           1. Go to the ![image](../../_assets/console-icons/folder.svg) **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
           1. Select the `postbox_events` table.
 
-              The table should show new records. Some columns may have the `NULL` value: this depends on the [type of notification](../../postbox/concepts/notification.md#types) received from {{ postbox-name }}.
+              The table should show new entries. Some columns may have the `NULL` value: this depends on the [type of notification](../../postbox/concepts/notification.md#types) received from {{ postbox-name }}.
 
     {% endlist %}
 
@@ -318,10 +318,10 @@ To monitor the emails you send, set up a [connection](../../datalens/concepts/co
   1. Click **Start in cloud**.
   1. In the left-hand panel, select ![circles-intersection](../../_assets/console-icons/circles-intersection.svg) **Datasets** and click **Create dataset**.
   1. In the window that opens, select the workbook with your new connection and click **Create**.
-  1. Under **Connections**, click ![plus](../../_assets/console-icons/plus.svg) **Add** and select the `postbox-events-connection` connection you created earlier.
+  1. Under **Connections**, click ![plus](../../_assets/console-icons/plus.svg) **Add** and select `postbox-events-connection` you created earlier.
   1. Under **Tables**, select the `postbox-events` table and drag it to the right.
   1. Click **Save**.
-  1. In the window that opens, enter `postbox-events-dataset` and click **Create**.
+  1. In the window that opens, specify `postbox-events-dataset` as the dataset name and click **Create**.
 
 {% endlist %}
 

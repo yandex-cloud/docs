@@ -6,7 +6,6 @@ editable: false
 
 # {{ mrd-name }} pricing policy
 
-
 In this section, you can find the {{ mrd-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
 
 {% note tip %}

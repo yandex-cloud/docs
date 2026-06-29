@@ -27,6 +27,7 @@ In multi-cluster mode, access to Delta Lake tables from different clusters and {
 
 For more information about Delta Lake, see the [Delta Lake documentation](https://docs.delta.io/latest/index.html).
 
+
 ## Delta Lake and {{ dataproc-name }} version compatibility {#compatibility}
 
 Delta Lake and {{ dataproc-name }} versions are only compatible if the Delta Lake version is compatible with the {{ SPRK }} version used in the cluster. The table below lists compatible versions and links to library files that you will need to set up Delta Lake in your cluster.

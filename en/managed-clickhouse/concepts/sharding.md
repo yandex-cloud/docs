@@ -63,7 +63,7 @@ To learn more about using distributed tables, see [this {{ CH }} guide]({{ ch.do
     * In clusters with a multi-host shard, {{ CK }} or {{ ZK }} replication is already enabled, which means you can immediately add hosts to the shard.
     * In clusters with single-host shards, you should first [turn on the {{ CK }} or {{ ZK }} coordination service](../operations/update.md#enable-coordination) and only then proceed to add hosts to the shard.
 
-    For more information about replication, {{ CK }}, and {{ ZK }}, see [this guide](replication.md).
+    Learn more about replication, {{ ZK }}, and {{ CK }} in [Replication](replication.md).
 
 - Shard IDs in {{ yandex-cloud }} are different from their IDs in {{ CH }}:
 

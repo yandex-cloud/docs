@@ -1,8 +1,8 @@
-# Setting up Delta Lake in single-cluster mode
+# Configuring Delta Lake in single-cluster mode
 
 {{ dataproc-name }} 2.0 or higher supports using Delta Lake in single-cluster mode.
 
-For more information about Delta Lake, see the [Delta Lake in {{ dataproc-name }}](../../concepts/deltalake.md) section of the [Delta Lake documentation](https://docs.delta.io/latest/index.html).
+For more information about Delta Lake, see [Delta Lake in {{ dataproc-name }}](../../concepts/deltalake.md) and [this Delta Lake guide](https://docs.delta.io/latest/index.html).
 
 
 {% include [deltalake-disclaimer](../../../_includes/data-processing/deltalake-disclaimer.md) %}
@@ -10,7 +10,7 @@ For more information about Delta Lake, see the [Delta Lake in {{ dataproc-name }
 
 {% note warning %}
 
-If different Spark jobs in single-cluster mode are concurrently updating table data, this may cause data loss.
+When multiple Spark jobs in single-cluster mode update a table concurrently, data may be lost.
 
 Set up the Spark jobs to avoid concurrent data modifications or use [multi-cluster mode](./multi-cluster-mode.md). For more information, see [this Delta Lake article](https://docs.delta.io/latest/delta-storage.html#single-cluster-setup-default).
 
@@ -28,12 +28,12 @@ Set up the Spark jobs to avoid concurrent data modifications or use [multi-clust
 
 ## Set up the component properties to work with Delta Lake {#settings}
 
-1. Set the following [properties](../../concepts/settings-list.md) at the cluster or individual job level:
+1. Set the following [properties](../../concepts/settings-list.md) at the cluster or job level:
 
     * Set `spark.sql.extensions` to `io.delta.sql.DeltaSparkSessionExtension`.
     * Set `spark.sql.catalog.spark_catalog` to `org.apache.spark.sql.delta.catalog.DeltaCatalog`.
 
-1. Add the Delta Lake libraries to the dependencies of your cluster or individual job (the required library versions [depend on the {{ dataproc-name }} version](../../concepts/deltalake.md#compatibility)):
+1. Add the Delta Lake libraries to the cluster or job dependencies (the required library versions [depend on the {{ dataproc-name }} version](../../concepts/deltalake.md#compatibility)):
 
     {% list tabs %}
 
@@ -97,7 +97,7 @@ This use case was tested on a {{ dataproc-name }} cluster of version 2.0 with a
 
 1. [Use SSH to connect](../connect-ssh.md) to the {{ dataproc-name }} cluster's master host.
 
-1. Run a Spark session in the cluster by providing the required parameters:
+1. Start a Spark session in the cluster by providing the required parameters:
 
     ```bash
     spark-sql \
@@ -120,7 +120,7 @@ This use case was tested on a {{ dataproc-name }} cluster of version 2.0 with a
     INSERT INTO tab1 VALUES (1,'One'), (2,'Two'), (3,'Three');
     ```
 
-1. Replace the `b` column values by adding to them the `a` column values converted to a string:
+1. Update the `b` column by concatenating it with the `a` column values converted to a string:
 
     ```sql
     UPDATE tab1 SET b=b || ' ** ' || CAST(a AS VARCHAR(10));

@@ -6,7 +6,6 @@ description: С помощью {{ cns-name }} вы можете отправля
 
 # Как начать работать с push-уведомлениями в браузере {{ cns-full-name }}
 
-{% include [preview-stage](../_includes/notifications/preview-stage.md) %}
 
 {% include [ask-for-turning-on](../_includes/notifications/ask-for-turning-on.md) %}
 

@@ -1,29 +1,29 @@
 For a container to get access to a [secret](../../lockbox/concepts/secret.md), edit its settings to specify a [service account](../../iam/concepts/users/service-accounts.md) with the following roles assigned:
-* `lockbox.payloadViewer` for the secret ([how to assign access permissions for a secret](../../lockbox/operations/secret-access.md)).
-* `kms.keys.encrypterDecrypter` for the encryption key if the secret was created using a {{ kms-full-name }} key ([how to assign access permissions for an encryption key](../../kms/operations/key-access.md)).
+* `lockbox.payloadViewer` for the secret (learn how to assign access permissions for a secret [here](../../lockbox/operations/secret-access.md)).
+* `kms.keys.encrypterDecrypter` for the encryption key if the secret was created using a {{ kms-full-name }} key (learn how to assign access permissions for an encryption key [here](../../kms/operations/key-access.md)).
 
-A {{ lockbox-short-name }} secret transmitted to a container is cached in {{ serverless-containers-name }}. As soon as the service account can no longer access the secret, the container may store it for up to 5 minutes.
+A {{ lockbox-short-name }} secret provided to a container is cached in {{ serverless-containers-name }}. After the service account loses access to the secret, the container may retain it for up to five minutes.
 
-Transmitting {{ lockbox-name }} secrets creates a new container revision. You cannot transmit secrets to an existing revision.
+Providing {{ lockbox-name }} secrets creates a new container revision. You cannot provide secrets to an existing revision.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder with your container.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
-    1. Select a container you want to transmit a secret to.
+    1. In the [management console]({{ link-console-main }}), select the folder with your container.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. Select a container you want to provide a secret to.
     1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
-    1. In the window that opens, under **{{ ui-key.yacloud.serverless-containers.section_image }}**, in the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** field, specify:
+    1. In the window that opens, under **{{ ui-key.yacloud.serverless-containers.section_image }}**, specify the following in the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** field:
         * Name of the environment variable to store the secret.
         * Secret ID.
         * Secret version ID.
-        * Key of one of the key-value pairs in the secret version.
+        * Key of a key-value pair in the secret version.
     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
 
-        You can transmit multiple secrets to a container. To do this, click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
+        You can provide multiple secrets to a container. To do this, click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
 
-    1. Click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**. A new container revision with the specified secrets will be created.
+    1. Click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**. This will create a new container revision with the specified secrets.
     
 - CLI {#cli}
 
@@ -31,11 +31,11 @@ Transmitting {{ lockbox-name }} secrets creates a new container revision. You ca
 
     {% include [default-catalogue](../default-catalogue.md) %}
 
-    To transmit {{ lockbox-name }} secrets to a container, run this command:
+    To provide {{ lockbox-name }} secrets to a container, run this command:
 
     {% note warning %}
 
-    If the secrets were already sent to the previous revision, they will be overwritten.
+    If secrets were already provided to the previous revision, they will be overwritten.
 
     {% endnote %}
 
@@ -60,9 +60,9 @@ Transmitting {{ lockbox-name }} secrets creates a new container revision. You ca
         * `environment-variable`: Name of the environment variable that will store the secret.
         * `id`: Secret ID.
         * `version-id`: Secret version ID.
-        * `key`: Key of one of the key-value pairs in the secret version.
+        * `key`: Key of a key-value pairs in the secret version.
       
-      You can transmit multiple secrets to a container. To do this, specify the `--secret` parameter as many times as needed.
+      You can provide multiple secrets to a container. To do this, specify `--secret` as many times as needed.
 
 - {{ TF }} {#tf}
 
@@ -94,22 +94,22 @@ Transmitting {{ lockbox-name }} secrets creates a new container revision. You ca
         ```
 
         Where:
-          * `secrets`: Section with secret settings. It contains the following parameters:
+          * `secrets`: Section with secret configuration. It contains the following settings:
             * `id`: Secret ID. This is a required setting.
             * `version_id`: Secret version ID. This is a required setting.
-            * `key`: Key of one of the secret version's key-value pairs that will be stored in the environment variable. This is a required setting.
+            * `key`: Key of a secret version’s key-value pair that will be stored in the environment variable. This is a required setting.
             * `environment_variable`: Name of the environment variable that will store the secret. This is a required setting.
         
-        For more information about the `yandex_serverless_container` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/serverless_container).
+        For more information about `yandex_serverless_container` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
  
     1. Apply the changes:
 
         {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-    You can check the function's update settings in the [management console]({{ link-console-main }}).
+    You can check the function update and its settings in the [management console]({{ link-console-main }}).
 
 - API {#api}
 
-  To transmit a {{ lockbox-name }} secret to a container, use the [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/DeployRevision](../../serverless-containers/containers/api-ref/grpc/Container/deployRevision.md) gRPC API call.
+  To provide a {{ lockbox-name }} secret to a container, use the [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) REST API method for the [Container](../../serverless-containers/containers/api-ref/Container/index.md) resource or the [ContainerService/DeployRevision](../../serverless-containers/containers/api-ref/grpc/Container/deployRevision.md) gRPC API call.
 
 {% endlist %}

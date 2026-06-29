@@ -18,7 +18,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost for this solution includes:
 
 * {{ mch-name }} cluster fee: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
-* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -60,7 +60,7 @@ The support cost for this solution includes:
 
     1. In the `clickhouse-hybrid-storage.tf` file, specify the username and password you will use to access the {{ mch-name }} cluster.
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -264,7 +264,7 @@ As the SQL result shows, the user interacts with a single logical table. {{ CH }
 To monitor the amount of space [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) table parts occupy in {{ objstorage-name }}, use the `ch_s3_disk_parts_size` metric in {{ monitoring-full-name }}.
 
 1. Open the [management console]({{ link-console-main }}).
-1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. Navigate to the **Metric Explorer** section.
 1. Run this query:
 

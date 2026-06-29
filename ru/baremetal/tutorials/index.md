@@ -8,6 +8,7 @@ description: Различные сценарии использования {{ b
 * [{#T}](./backup-baremetal.md)
 * [{#T}](./bms-vrf-routing.md)
 * [{#T}](./bms-simple-subnet.md)
+* [{#T}](./bms-public-subnet.md)
 * [{#T}](./bm-vrf-and-vpc-interconnect.md)
 * [{#T}](./usb-over-ip.md)
 * [{#T}](./opnsense-failover-cluster.md)

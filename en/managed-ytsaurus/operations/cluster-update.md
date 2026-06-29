@@ -33,9 +33,9 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
 
     1. Edit the cluster settings by changing the value of the relevant field in the configuration file. You can only edit a single setting per cluster resource update operation.
 

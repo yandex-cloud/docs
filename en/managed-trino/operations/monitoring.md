@@ -1,9 +1,9 @@
 ---
-title: '{{ mtr-name }} cluster state monitoring'
+title: Cluster state monitoring {{ mtr-name }}
 description: In this tutorial, you will learn how to monitor the state of {{ mtr-name }} clusters.
 ---
 
-# Cluster health state monitoring {{ mtr-name }}
+# Cluster state monitoring {{ mtr-name }}
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -89,7 +89,7 @@ To configure [cluster](#monitoring-cluster) state indicator alerts:
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-For a complete list of supported metrics, see [this {{ monitoring-name }} article](../../monitoring/metrics-ref/managed-trino-ref.md).
+For a complete list of supported metrics, see [this {{ monitoring-name }} guide](../../monitoring/metrics-ref/managed-trino-ref.md).
 
 ## Cluster health and status {#cluster-health-and-status}
 

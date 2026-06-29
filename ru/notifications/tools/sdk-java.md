@@ -5,7 +5,6 @@ description: Следуя данной инструкции, вы научите
 
 # Как начать работать с AWS SDK для Java в {{ cns-full-name }}
 
-{% include [preview-stage](../../_includes/notifications/preview-stage.md) %}
 
 Чтобы начать работу с AWS SDK для Java:
 

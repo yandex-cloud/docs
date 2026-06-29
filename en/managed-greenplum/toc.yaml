@@ -107,7 +107,7 @@ items:
             href: operations/cluster-logs.md
           - name: Viewing cluster operations
             href: operations/cluster-operations.md
-          - name: Cluster and host health monitoring
+          - name: Cluster and host state monitoring
             href: operations/monitoring.md
           - name: Transferring cluster logs to {{ cloud-logging-full-name }}
             href: operations/mgp-to-cloud-logging.md
@@ -197,6 +197,8 @@ items:
         href: concepts/vacuum.md
       - name: DBMS settings
         href: concepts/settings-list.md
+      - name: Differences between {{ CB }} and {{ GP }}
+        href: concepts/cloudberry-vs-greenplum/breaking-changes.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

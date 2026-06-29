@@ -94,7 +94,9 @@ You can pin the chat with Neuroanalyst on top or along the side (default) of the
 
 All your queries to Neuroanalyst are private: logs are neither stored nor used for further fine-tuning or research.
 
+
 You can [ban](../operations/dashboard/dashboard-neuroanalyst-off.md) the use of Neuroanalyst on a dashboard.
+
 
 ### Limits {#restrictions-1}
 
@@ -112,13 +114,13 @@ Neuroanalyst 2.0 analyzes the dataset underlying your dashboard and can return 
 
 ### Reference tab {#reference-tab}
 
-Neuroanalyst 2.0 treats charts from the reference tab as verified examples of using the dataset and visualizing data.
+Neuroanalyst 2.0 uses charts from the reference tab as verified examples of using the dataset and visualizing data.
 
-While you can select any dashboard tab, Neuroanalyst's performance will effectively depend on your selection.
+While you can select any dashboard tab, the Neuroanalyst performance will effectively depend on your selection.
 
 When selecting a reference tab, please follow these recommendations:
 
-* On the tab, place [wizard charts](../concepts/chart/dataset-based-charts.md) that describe your dataset in various aspects and answer different questions.
+* On the tab, place [wizard charts](../concepts/chart/dataset-based-charts.md) that describe your dataset from different angles and answer different questions.
 * In the descriptions of your dashboard charts or widgets, provide examples of questions they help answer.
 * Instead of tab selectors, use filters in charts to make your charts answer more specific questions.
 * Employ charts based on a single dataset.
@@ -139,5 +141,5 @@ To enable Neuroanalyst 2.0 on your dashboard:
 
 ### Limits {#restrictions-2}
 
-* It only applies to one dataset, the one underlying your reference tab.
+* It only applies to one dataset, that underlying your reference tab.
 * Neuroanalyst's recommendations include the titles of the first three charts.

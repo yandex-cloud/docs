@@ -70,7 +70,7 @@ There is no charge for using {{ lockbox-name }} secrets created with {{ connecti
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you created the infrastructure.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
   1. Click the connection ID next to the user you need.
     

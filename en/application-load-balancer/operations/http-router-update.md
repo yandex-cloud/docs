@@ -12,7 +12,7 @@ To update HTTP router parameters:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with your HTTP router.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Click your router name.
   1. Click **{{ ui-key.yacloud.common.edit }}**.
@@ -81,7 +81,7 @@ To update HTTP router parameters:
      ...
      ```
 
-     For more information about `yandex_alb_http_router` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/alb_http_router).
+     For more information about `yandex_alb_http_router` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/alb_http_router).
 
   1. To add, update, or delete HTTP router virtual hosts, use the `yandex_alb_virtual_host` resource with your router ID specified in its `http_router_id` field:
 
@@ -102,7 +102,7 @@ To update HTTP router parameters:
      }
      ```
 
-     For more information about `yandex_alb_virtual_host` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/alb_virtual_host).
+     For more information about the `yandex_alb_virtual_host` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/alb_virtual_host).
 
   1. Apply the changes:
 
@@ -145,7 +145,7 @@ To change the route timeout for an HTTP router:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with your HTTP router.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Click your router name.
   1. Click **{{ ui-key.yacloud.common.edit }}**.
@@ -213,7 +213,7 @@ To change the route timeout for an HTTP router:
      }
      ```
 
-     For more information about `yandex_alb_virtual_host` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/alb_virtual_host).
+     For more information about the `yandex_alb_virtual_host` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/alb_virtual_host).
 
   1. Apply the changes:
 

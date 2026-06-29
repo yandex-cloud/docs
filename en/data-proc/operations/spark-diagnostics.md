@@ -1,28 +1,28 @@
 ---
-title: How to perform diagnostics and troubleshooting of Spark application performance issues in {{ dataproc-full-name }}
-description: Follow this guide to perform diagnostics and troubleshooting of Spark application performance issues.
+title: How to diagnose and troubleshoot Spark application performance issues in {{ dataproc-full-name }}
+description: Follow this guide to diagnose and troubleshoot Spark application performance issues.
 ---
 
-# Diagnostics and troubleshooting of Spark application performance issues
+# Diagnosing and troubleshooting Spark application performance issues
 
 If your Spark applications are slow:
 
-* [Check their operation](#diagnostics) to identify the root cause of performance issues.
+* [Check their execution](#diagnostics) to identify the cause of performance issues.
 * Try using one of the [methods for troubleshooting common issues](#troubleshooting).
 
-## Primary diagnostics of Spark application performance {#diagnostics}
+## Initial performance diagnostics of Spark applications {#diagnostics}
 
-If the performance of a Spark application is low, run primary diagnostics:
+If your Spark application underperforms, run the initial diagnostics:
 
-* [Check the application queue](./spark-monitoring.md#queue) to make sure the application's performance is not blocked by other applications.
-* [View the application details](./spark-monitoring.md#info) and check the status of jobs and the time when they actually started and completed on the **Event Timeline** chart.
+* [Check the application queue](./spark-monitoring.md#queue) to make sure your application is not getting blocked by others.
+* [View detailed application info](./spark-monitoring.md#info) and check the jobs' statuses and actual start and end times on the **Event Timeline** chart.
 * [Check the resources allocated to the application](./spark-monitoring.md#resources):
 
-    * Make sure the application has enough executors and the available executors are not idle.
-    * Make sure the use of resources within a single executor is balanced.
+    * Make sure the application has enough executors and all available executors are not idle.
+    * Make sure the resources within each executor are used in a balanced way.
 
-* [Check the SQL query execution plans](./spark-monitoring.md#sql) and the duration of individual tasks.
-* [Check the application logs](./spark-monitoring.md#logs) for warnings about failures.
+* [Check the SQL query plans](./spark-monitoring.md#sql) and the execution time for each operation.
+* [Check the application logs](./spark-monitoring.md#logs) for any warnings about failures.
 
 ## Troubleshooting common performance issues {#troubleshooting}
 
@@ -34,19 +34,19 @@ If you [checked the resources allocated to the application](./spark-monitoring.m
 
 ### Multiple executors are competing for CPU resources {#cpu-wars}
 
-When allocating executors, the YARN scheduler using the default settings does not consider the CPU resources available in a node. This may slow down jobs running resource-intensive computations.
+When allocating executors, the YARN scheduler using the default settings ignores available CPU resources on the node. This may slow down compute-intensive jobs.
 
-To avoid this, enable an alternative algorithm for tracking resource availability during executor allocation by setting the following cluster-level [property](../concepts/settings-list.md):
+To avoid this, enable the alternative resource-aware scheduling algorithm for executors by setting the following cluster-level [property](../concepts/settings-list.md):
 
 ```text
 capacity-scheduler:yarn.scheduler.capacity.resource-calculator=org.apache.hadoop.yarn.util.resource.DominantResourceCalculator
 ```
 
-For more information about the YARN scheduler, see the [Hadoop documentation](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html).
+For more information about the YARN scheduler, see [this Hadoop guide](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html).
 
-### Regular heartbeat errors when running jobs {#heartbeat-errors}
+### Recurring heartbeat errors when running jobs {#heartbeat-errors}
 
-When running Spark jobs, executors send regular _heartbeat_ messages to the driver informing it of executor status and task progress. If the driver does not get any heartbeat messages from an executor during a certain interval, it considers this executor unhealthy and requests the YARN resource manager to forcibly terminate it. In this case, the driver logs will contain a message of the following type:
+When running Spark jobs, executors regularly send _heartbeat_ messages to the driver with info on the executor status and operation progress. If the driver does not get any heartbeat messages from an executor during a certain interval, it considers this executor unhealthy and requests the YARN resource manager to forcibly terminate it. In this case, the driver logs will contain a message of the following type:
 
 ```text
 23/02/23 20:22:09 WARN TaskSetManager: Lost task 28.0 in stage 13.0 (TID 242) 
@@ -55,11 +55,11 @@ When running Spark jobs, executors send regular _heartbeat_ messages to the driv
         Reason: Executor heartbeat timed out after 138218 ms
 ```
 
-Such errors may be caused by cluster networking issues. However, in real terms, heartbeat timeouts most often occur because an executor runs out of memory. Moreover, job logs may fail to register such errors as `java.lang.OutOfMemoryError` due to a logging failure also caused by the memory shortage.
+Such errors may be due to cluster networking issues. In practice, however, heartbeat timeouts most often occur because an executor runs out of memory. Consequently, job logs may fail to register such errors as `java.lang.OutOfMemoryError` because logging itself fails due to the memory shortage.
 
-If you regularly get heartbeat errors when running jobs and there are no signs of network errors, increase the amount of RAM allocated per parallel task. To do this, change your cluster's [component properties](../concepts/settings-list.md):
+If you regularly get heartbeat errors when running jobs and there are no other signs of network errors, increase the amount of RAM allocated per concurrent operation. To do this, change your cluster's [component properties](../concepts/settings-list.md):
 
 * Reduce the number of CPU cores per executor in the `spark.executor.cores` parameter.
-* Increase the amount of RAM reserved per executor in the `spark.executor.memory` parameter.
+* Increase the amount of RAM allocated per executor in the `spark.executor.memory` parameter.
 
-For more information about these parameters, see the [Spark documentation](https://spark.apache.org/docs/latest/configuration.html#available-properties).
+For more information about these parameters, see [this Spark guide](https://spark.apache.org/docs/latest/configuration.html#available-properties).

@@ -1,6 +1,6 @@
 ---
-title: Step-by-step guides on managing {{ dataproc-full-name }} cluster jobs
-description: This section contains step-by-step guides on managing {{ dataproc-name }} cluster jobs.
+title: Step-by-step guides on managing jobs in a {{ dataproc-full-name }} cluster
+description: This section contains step-by-step guides on managing jobs in a {{ dataproc-name }} cluster.
 ---
 
 # Managing jobs

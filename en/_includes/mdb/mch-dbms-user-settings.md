@@ -12,7 +12,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/permissions-for-queries#settings_allow_ddl).
 
-  See also the [Readonly](#setting-readonly) setting.
+  Related to the [Readonly](#setting-readonly) setting.
 
 * **Allow introspection functions**{#setting-allow-introspection-functions} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
@@ -259,7 +259,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#enable_reads_from_query_cache).
 
-  See also [Use query cache](#setting-use-query-cache).
+  Related to the [Use query cache](#setting-use-query-cache) setting.
 
 * **Enable writes to query cache**{#setting-enable-writes-to-query-cache} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -269,7 +269,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#enable_writes_to_query_cache).
 
-  See also [Use query cache](#setting-use-query-cache).
+  Related to the [Use query cache](#setting-use-query-cache) setting.
 
 * **Fallback to stale replicas for distributed queries**{#setting-fallback-to-stale-replicas-for-distributed-queries} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -281,7 +281,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-fallback_to_stale_replicas_for_distributed_queries).
 
-  See also [Max replica delay for distributed queries](#setting-max-replica-delay-for-distributed-queries).
+  Related to the [Max replica delay for distributed queries](#setting-max-replica-delay-for-distributed-queries) setting.
 
 * **Flatten nested**{#setting-flatten-nested} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
@@ -708,7 +708,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/select/group-by#select-group-by-in-external-memory).
 
-  See also [Distributed aggregation memory efficient](#setting-distributed-aggregation-memory-efficient).
+  Related to the [Distributed aggregation memory efficient](#setting-distributed-aggregation-memory-efficient) setting.
 
 * **Max bytes before external sort**{#setting-max-bytes-before-external-sort} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -914,7 +914,7 @@
 
   The minimum value is `1000` (one second). The default value is `300000` (five minutes).
 
-  See also [Fallback to stale replicas for distributed queries](#setting-fallback-to-stale-replicas-for-distributed-queries).
+  Related to the [Fallback to stale replicas for distributed queries](#setting-fallback-to-stale-replicas-for-distributed-queries) setting.
 
 * **Max result bytes**{#setting-max-result-bytes} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -1185,7 +1185,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_max_entries).
 
-  See also [Use query cache](#setting-use-query-cache).
+  Related to the [Use query cache](#setting-use-query-cache) setting.
 
 * **Query cache max size in bytes**{#setting-query-cache-max-size-in-bytes} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -1195,7 +1195,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_max_size_in_bytes).
 
-  See also [Use query cache](#setting-use-query-cache).
+  Related to the [Use query cache](#setting-use-query-cache) setting.
 
 * **Query cache min query duration**{#setting-query-cache-min-query-duration} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -1205,7 +1205,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_min_query_duration).
 
-  See also [Use query cache](#setting-use-query-cache).
+  Related to the [Use query cache](#setting-use-query-cache) setting.
 
 * **Query cache min query runs**{#setting-query-cache-min-query-runs} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -1215,7 +1215,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_min_query_runs).
 
-  See also [Use query cache](#setting-use-query-cache).
+  Related to the [Use query cache](#setting-use-query-cache) setting.
 
 * **Query cache nondeterministic function handling**{#setting-query-cache-nondeterministic-function-handling} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -1231,7 +1231,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_nondeterministic_function_handling).
 
-  See also [Use query cache](#setting-use-query-cache).
+  Related to the [Use query cache](#setting-use-query-cache) setting.
 
 * **Query cache share between users**{#setting-query-cache-share-between-users} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -1241,7 +1241,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_share_between_users).
 
-  See also [Use query cache](#setting-use-query-cache).
+  Related to the [Use query cache](#setting-use-query-cache) setting.
 
 * **Query cache tag**{#setting-query-cache-tag} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -1249,7 +1249,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_tag).
 
-  See also [Use query cache](#setting-use-query-cache).
+  Related to the [Use query cache](#setting-use-query-cache) setting.
 
 * **Query cache ttl**{#setting-query-cache-ttl} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -1259,7 +1259,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#query_cache_ttl).
 
-  See also [Use query cache](#setting-use-query-cache).
+  Related to the [Use query cache](#setting-use-query-cache) setting.
 
 * **Quota mode**{#setting-quota-mode} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -1289,7 +1289,7 @@
 
   This setting does not apply to DDL queries. To enable or disable DDL queries, use the [Allow DDL](#setting-allow-ddl) setting. 
 
-  See also the [example of creating a user with read-only access permissions](../../managed-clickhouse/operations/cluster-users.md#example-create-readonly-user).
+  See the [example of creating a user with read-only access permissions](../../managed-clickhouse/operations/cluster-users.md#example-create-readonly-user).
 
 * **Receive timeout**{#setting-receive-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -1441,7 +1441,9 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#use_query_cache).
 
-  See also [Enable reads from query cache](#setting-enable-reads-from-query-cache) and [Enable writes to query cache](#setting-enable-writes-to-query-cache).
+  Related to these settings:
+  * [Enable reads from query cache](#setting-enable-reads-from-query-cache).
+  * [Enable writes to query cache](#setting-enable-writes-to-query-cache).
 
 * **Use uncompressed cache**{#setting-use-uncompressed-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -1451,7 +1453,9 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/settings/settings#setting-use_uncompressed_cache).
 
-  See also [Merge tree max bytes to use cache](#setting-merge-tree-max-bytes-to-use-cache) and [Merge tree max rows to use cache](#setting-merge-tree-max-rows-to-use-cache).
+  Related to these settings:
+  * [Merge tree max bytes to use cache](#setting-merge-tree-max-bytes-to-use-cache).
+  * [Merge tree max rows to use cache](#setting-merge-tree-max-rows-to-use-cache).
 
 * **Wait for async insert**{#setting-wait-for-async-insert} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 

@@ -5,6 +5,7 @@ Event name | Description
 `CreateIamToken` | Creating an IAM token
 `credential.ApplicationLoginEvent` | User logon to the application
 `credential.CreateRefreshTokenForSubject` | Creating a [refresh token](../../../iam/concepts/authorization/refresh-token.md) for a user
+`credential.CreateYcSsprToken` | Generating a token for self-service password reset
 `credential.RevokeRefreshTokenForSubject` | Revoking a refresh token from a user
 `credential.RevokeSsoSession` | Terminating a SSO session
 `mfa.VerifyUserCredential` | Confirming user credentials when verifying additional [MFA factors](../../../organization/concepts/mfa.md)

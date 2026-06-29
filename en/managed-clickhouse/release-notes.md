@@ -28,11 +28,11 @@ Meet {{ CK }}! It will help you coordinate and distribute queries among hosts in
 
 * Added the ability to [create and restore](./operations/cluster-backups.md) clusters with encrypted local disks from a backup. The encryption uses a custom KMS key.
 * Maximum local disk size per host is increased to 36 TB. Disks of this size are available for Intel Ice Lake (`standard-v3`) configurations with 16 or more cores. To create extra large clusters, you may need to contact [support]({{ link-console-support }}) to reserve the required resources.
-* Added optional [performance diagnostics](./operations/performance-diagnostics.md) in {{ TF }} 0.202.0 and CLI 1.8.0. {{ tag-tf }} {{ tag-cli }}
-* Added the ability to [restore a cluster](./operations/cluster-backups.md) using {{ TF }}. {{ tag-tf }}
-* Added support for the `SET DEFINER` privilege. For clusters with user management via SQL, the `admin` user gets the `SET DEFINER` privilege for all users. For clusters managed via API, each user gets the `SET DEFINER` only for themselves.
-* Maximum username length is increased to 64 characters.
-* Added the ability to use custom CAs (Certificate Authority).
+* Added an ability to enable [performance diagnostics](./operations/performance-diagnostics.md) in {{ TF }} version 0.202.0 and in CLI version 1.8.0. {{ tag-tf }} {{ tag-cli }}
+* Added an ability to [restore a cluster](./operations/cluster-backups.md) using {{ TF }}. {{ tag-tf }}
+* Added support for the `SET DEFINER` privilege. For clusters with user management via SQL, the `admin` user is granted the `SET DEFINER` privilege for all users. For clusters with management via API, each user is granted the `SET DEFINER` only for themselves.
+* The maximum username length has been increased to 64 characters.
+* Added an ability to use custom CAs (Certificate Authority).
 * New {{ CH }} versions are out: [26.3 LTS](https://clickhouse.com/blog/clickhouse-release-26-03) and [26.4](https://clickhouse.com/blog/clickhouse-release-26-04).
 
 ## April 2026 {#apr-2026}
@@ -71,7 +71,7 @@ Meet {{ CK }}! It will help you coordinate and distribute queries among hosts in
 
 ## November 2025 {#nov-2025}
 
-* {{ CK }} is now available to all {{ mch-name }} users and used by default in new clusters. In addition, now you can create separate hosts with {{ CK }} in your cluster. To learn more about {{ CK }}, see [Replication](concepts/replication.md#ck).
+* {{ CK }} is now available to all {{ mch-name }} users and used by default in new clusters. In addition, now you can create separate hosts with {{ CK }} in your cluster. Learn more about {{ CK }} in [Replication](concepts/replication.md#ck).
 * Added the `managed-clickhouse.restorer` role for restoring clusters from backups. To learn more, see [Access management](security.md#managed-clickhouse-restorer).
 * Removed **Kafka topics**, the DBMS setting that allowed configuring topic-level authentication parameters for [{{ KF }} integration]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka).
 * New {{ CH }} versions are out: [25.8](https://clickhouse.com/blog/clickhouse-release-25-08), [25.9](https://clickhouse.com/blog/clickhouse-release-25-09), and [25.10](https://clickhouse.com/blog/clickhouse-release-25-10).
@@ -191,7 +191,7 @@ The new {{ CH }} version is out: [23.3]({{ ch.docs }}{{ lang }}/whats-new/change
 ## Q2 2022 {#q2-2022}
 
 * The new {{ CH }} version is out: 22.5 (see the [changelog]({{ ch.docs }}{{ lang }}/whats-new/changelog/2022#-clickhouse-release-225-2022-05-19)).
-* Added support for `SYSTEM UNFREEZE`. This query completely clears your cloud storage of the cluster backup, including table data that may take up storage space after deletion. For more information, check [GitHub](https://github.com/ClickHouse/ClickHouse/pull/36424).
+* Added support for `SYSTEM UNFREEZE`. This query completely clears your cloud storage of the cluster backup, including table data that may take up storage space after deletion. See more on [GitHub](https://github.com/ClickHouse/ClickHouse/pull/36424).
 * Reduced the time to restore a cluster from a backup.
 * Fixed the bug that led to deletion of pre-configured topic access passwords when editing the {{ KF }} topic connection list.
 * You can now grant permissions to system tables (`_system`) to users.

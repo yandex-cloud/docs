@@ -13,7 +13,7 @@
 
     1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
 
-    1. В блоке **Базовые параметры** измените имя и описание кластера, удалите или добавьте новые метки.
+    1. В блоке **Базовые параметры** измените имя и описание кластера, удалите или добавьте новые метки, выберите версию Apache Airflow™ и Python.
 
     1. В блоке **Настройки доступа** выберите сервисный аккаунт или [создайте новый](../../iam/operations/sa/create.md#create-sa) с ролью `managed-airflow.integrationProvider`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее в разделе [Имперсонация](../concepts/impersonation.md).
 
@@ -102,6 +102,8 @@
            --new-name <новое_имя_кластера> \
            --description <описание_кластера> \
            --labels <список_меток> \
+           --airflow-version <версия_Apache Airflow™> \
+           --python-version <версия_Python> \
            --service-account-id <идентификатор_сервисного_аккаунта> \
            --security-group-ids <идентификаторы_групп_безопасности> \
            --webserver count=<количество_экземпляров>,`
@@ -137,6 +139,8 @@
         
         * `--name` — имя кластера.
         * `--description` — описание кластера.
+        * `--airflow-version` — [версия Apache Airflow™](../concepts/versions.md).
+        * `--python-version` — версия Python.
         * `--labels` — список меток. Метки задаются в формате `<ключ>=<значение>`.
         * `--admin-password` — пароль пользователя-администратора. Пароль должен иметь длину не менее 8 символов и содержать как минимум:
         
@@ -261,6 +265,8 @@
         resource "yandex_airflow_cluster" "<имя_кластера>" {
           name        = "<имя_кластера>"
           description = "<описание_кластера>"
+          airflow_version = "<версия_Apache Airflow™"
+          python_version = "<версия_Python>"
         
           labels = { <список_меток> }
         
@@ -342,6 +348,8 @@
         
         * `name` — имя кластера.
         * `description` — описание кластера.
+        * `airflow_version` — [версия Apache Airflow™](../concepts/versions.md).
+        * `python_version` — версия Python.
         * `labels` — список меток. Метки задаются в формате `<ключ> = "<значение>"`.
         * `admin_password` — пароль пользователя-администратора. Пароль должен иметь длину не менее 8 символов и содержать как минимум:
         
@@ -493,6 +501,8 @@
           "description": "<описание_кластера>",
           "labels": { <список_меток> },
           "configSpec": {
+            "airflowVersion": "<версия_Apache Airflow™>",
+            "pythonVersion": "<версия_Python>",
             "airflow": {
               "config": { <список_свойств> }
             },
@@ -580,6 +590,8 @@
         * `labels` — список меток. Метки задаются в формате `"<ключ>": "<значение>"`.
         * `config` — конфигурация кластера:
 
+            * `airflowVersion` — версия Apache Airflow™.
+            * `pythonVersion` — версия Python.
             * `airflow.config` — [дополнительные свойства Apache Airflow™](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Задаются в формате `"<раздел_конфигурации>.<ключ>": "<значение>"`, например:
 
                 ```json
@@ -732,6 +744,8 @@
           "description": "<описание_кластера>",
           "labels": { <список_меток> },
           "config_spec": {
+            "airflow_version": "<версия_Apache Airflow™>",
+            "python_version": "<версия_Python>",
             "airflow": {
               "config": { <список_свойств> }
             },
@@ -835,6 +849,8 @@
         * `labels` — список меток. Метки задаются в формате `"<ключ>": "<значение>"`.
         * `config_spec` — конфигурация кластера:
 
+            * `airflow_version` — версия Apache Airflow™.
+            * `python_version` — версия Python.
             * `airflow.config` — [дополнительные свойства Apache Airflow™](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Задаются в формате `"<раздел_конфигурации>.<ключ>": "<значение>"`, например:
 
                 ```json

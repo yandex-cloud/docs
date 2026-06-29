@@ -24,7 +24,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
   1. Click the cluster name.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
   1. Click **{{ ui-key.yacloud.trino.catalogs.create_action }}**.
-  1. In the **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** field, enter a name for the {{ TR }} catalog.
+  1. In the **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** field, enter the catalog name, {{ TR }}.
   1. In the **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}** field, select the [connector](../concepts/index.md#connector) type.
   1. Configure [{{ TR }} catalog settings](#catalog-settings).
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -59,7 +59,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
 
     1. Add the `yandex_trino_catalog` resource:
 
@@ -187,7 +187,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
         {% include [client-parameters-ch](../../_includes/managed-trino/client-parameters-ch.md) %}
 
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/clickhouse.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/clickhouse.html).
 
 - CLI {#cli}
 
@@ -217,7 +217,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
         {% include [client-parameters-ch](../../_includes/managed-trino/client-parameters-ch.md) %}
 
-    * `additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/clickhouse.html).
+    * `additional-properties`: Additional settings in `key=value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/clickhouse.html).
 
 - {{ TF }} {#tf}
 
@@ -257,7 +257,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
             {% include [client-parameters-ch](../../_includes/managed-trino/client-parameters-ch.md) %}
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/clickhouse.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/clickhouse.html).
 
 - REST API {#api}
 
@@ -308,7 +308,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
             {% include [client-parameters-ch](../../_includes/managed-trino/client-parameters-ch.md) %}
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/clickhouse.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/clickhouse.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -365,7 +365,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
             {% include [client-parameters-ch](../../_includes/managed-trino/client-parameters-ch.md) %}
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/clickhouse.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/clickhouse.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -380,7 +380,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
     * **URL**: URL for connecting to the {{ CH }} DB, in `jdbc:clickhouse://<host_address>:<port>/<DB_name>` format.
     * **Username**: Username for connecting to the {{ CH }} DB.
     * **Password**: User password for connection to the {{ CH }} DB.
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/clickhouse.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/clickhouse.html).
 
 - CLI {#cli}
 
@@ -401,7 +401,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
     * `--on-premise-connection-url`: URL for connecting to the {{ CH }} DB, in the following format: `jdbc:clickhouse://<host_address>:<port>/<DB_name>`.
     * `--on-premise-user-name`: Username for connection to the {{ CH }} DB.
     * `--on-premise-password`: User password for connection to the {{ CH }} DB.
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/clickhouse.html).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/clickhouse.html).
 
 - {{ TF }} {#tf}
 
@@ -431,7 +431,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
         * `user_name`: Username for connection to the {{ CH }} DB.
         * `password`: User password for connection to the {{ CH }} DB.
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/clickhouse.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/clickhouse.html).
 
 - REST API {#api}
 
@@ -472,7 +472,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
         * `userName`: Username for connection to the {{ CH }} DB.
         * `password`: User password for connection to the {{ CH }} DB.
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/clickhouse.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/clickhouse.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -519,7 +519,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
         * `user_name`: Username for connection to the {{ CH }} DB.
         * `password`: User password for connection to the {{ CH }} DB.
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/clickhouse.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/clickhouse.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -533,7 +533,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
 
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/delta-lake.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/delta-lake.html).
 
 - CLI {#cli}
 
@@ -555,7 +555,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [cli-connector-settings](../../_includes/managed-trino/cli-connector-settings.md) %}
 
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/delta-lake.html).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/delta-lake.html).
 
 - {{ TF }} {#tf}
 
@@ -582,7 +582,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [connector-settings-terraform](../../_includes/managed-trino/terraform/connector-settings.md) %}
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/delta-lake.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/delta-lake.html).
 
 - REST API {#api}
 
@@ -620,7 +620,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [connector-settings-rest-api](../../_includes/managed-trino/api/connector-settings-rest.md) %}
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/delta-lake.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/delta-lake.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -664,7 +664,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
     {% include [connector-settings-grpc-api](../../_includes/managed-trino/api/connector-settings-grpc.md) %}
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/delta-lake.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/delta-lake.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -692,7 +692,7 @@ Data transmitted between the {{ mtr-name }} and {{ mgp-name }} clusters over the
 
 {% endnote %}
 
-To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connector.md).
+For more information on the connectors, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connector.md).
 
 #### {{ connection-manager-name }} {#gp-clouberry-connection-manager}
 
@@ -1039,7 +1039,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
     {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
 
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/hive.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/hive.html).
 
 - CLI {#cli}
 
@@ -1061,7 +1061,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
     {% include [cli-connector-settings](../../_includes/managed-trino/cli-connector-settings.md) %}
 
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/hive.html).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/hive.html).
 
 - {{ TF }} {#tf}
 
@@ -1088,7 +1088,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
     {% include [connector-settings-terraform](../../_includes/managed-trino/terraform/connector-settings.md) %}
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/hive.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/hive.html).
 
 - REST API {#api}
 
@@ -1126,7 +1126,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
     {% include [connector-settings-rest-api](../../_includes/managed-trino/api/connector-settings-rest.md) %}
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/hive.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/hive.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1170,7 +1170,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
     {% include [connector-settings-grpc-api](../../_includes/managed-trino/api/connector-settings-grpc.md) %}
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/hive.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/hive.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1184,7 +1184,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
     {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
 
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/hudi.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/hudi.html).
 
 - CLI {#cli}
 
@@ -1206,7 +1206,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
     {% include [cli-connector-settings](../../_includes/managed-trino/cli-connector-settings.md) %}
 
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/hudi.html).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/hudi.html).
 
 - {{ TF }} {#tf}
 
@@ -1233,7 +1233,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
     {% include [connector-settings-terraform](../../_includes/managed-trino/terraform/connector-settings.md) %}
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/hive.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/hive.html).
 
 - REST API {#api}
 
@@ -1271,7 +1271,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
     {% include [connector-settings-rest-api](../../_includes/managed-trino/api/connector-settings-rest.md) %}
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/hudi.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/hudi.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1315,7 +1315,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
     {% include [connector-settings-grpc-api](../../_includes/managed-trino/api/connector-settings-grpc.md) %}
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/hudi.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/hudi.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1329,7 +1329,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
     {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
 
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/iceberg.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/iceberg.html).
 
 - CLI {#cli}
 
@@ -1351,7 +1351,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
     {% include [cli-connector-settings](../../_includes/managed-trino/cli-connector-settings.md) %}
 
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/iceberg.html).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/iceberg.html).
 
 - {{ TF }} {#tf}
 
@@ -1378,7 +1378,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
     {% include [connector-settings-terraform](../../_includes/managed-trino/terraform/connector-settings.md) %}
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/iceberg.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/iceberg.html).
 
 - REST API {#api}
 
@@ -1416,7 +1416,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
     {% include [connector-settings-rest-api](../../_includes/managed-trino/api/connector-settings-rest.md) %}
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/iceberg.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/iceberg.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1460,7 +1460,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
     {% include [connector-settings-grpc-api](../../_includes/managed-trino/api/connector-settings-grpc.md) %}
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/iceberg.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/iceberg.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1476,7 +1476,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
     * **URL**: URL for connecting to the Oracle DB, in `jdbc:oracle:thin:@<host_address>:<port>:<SID>` format, where `SID` is the Oracle system ID.
     * **Username**: Username for connecting to the Oracle DB.
     * **Password**: User password for connection to the Oracle DB.
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/oracle.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/oracle.html).
 
 - CLI {#cli}
 
@@ -1497,7 +1497,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
     * `--on-premise-connection-url`: URL for connecting to the Oracle DB, in `jdbc:oracle:thin:@<host_address>:<port>:<SID>`, where `SID` is the Oracle system ID.
     * `--on-premise-user-name`: Username for connection to the Oracle DB.
     * `--on-premise-password`: User password for connection to the Oracle DB.
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/oracle.html).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/oracle.html).
 
 - {{ TF }} {#tf}
 
@@ -1527,7 +1527,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
         * `user_name`: Username for connection to the Oracle DB.
         * `password`: User password for connection to the Oracle DB.
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/oracle.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/oracle.html).
 
 - REST API {#api}
 
@@ -1568,7 +1568,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
         * `userName`: Username for connection to the Oracle DB.
         * `password`: User password for connection to the Oracle DB.
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/oracle.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/oracle.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1615,7 +1615,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
         * `user_name`: Username for connection to the Oracle DB.
         * `password`: User password for connection to the Oracle DB.
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/oracle.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/oracle.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1639,7 +1639,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
         1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
     * **Database**: DB name in the {{ PG }} cluster.
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/postgresql.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/postgresql.html).
 
 - CLI {#cli}
 
@@ -1669,7 +1669,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
         {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
 
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/postgresql.html).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/postgresql.html).
 
 - {{ TF }} {#tf}
 
@@ -1709,7 +1709,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
             {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/postgresql.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/postgresql.html).
 
 - REST API {#api}
 
@@ -1760,7 +1760,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
             {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/postgresql.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/postgresql.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1817,7 +1817,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
             {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/postgresql.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/postgresql.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1832,7 +1832,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
     * **URL**: URL for connecting to the {{ PG }} DB, in `jdbc:postgresql://<host_address>:<port>/<DB_name>` format.
     * **Username**: Username for connecting to the {{ PG }} DB.
     * **Password**: User password for connection to the {{ PG }} DB.
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/postgresql.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/postgresql.html).
 
 - CLI {#cli}
 
@@ -1853,7 +1853,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
     * `--on-premise-connection-url`: URL for connecting to the {{ PG }} DB, in `jdbc:postgresql://<host_address>:<port>/<DB_name>` format.
     * `--on-premise-user-name`: Username for connection to the {{ PG }} DB.
     * `--on-premise-password`: User password for connection to the {{ PG }} DB.
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/postgresql.html).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/postgresql.html).
 
 - {{ TF }} {#tf}
 
@@ -1883,7 +1883,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
         * `user_name`: Username for connection to the {{ PG }} DB.
         * `password`: User password for connection to the {{ PG }} DB.
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/postgresql.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/postgresql.html).
 
 - REST API {#api}
 
@@ -1924,7 +1924,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
         * `userName`: Username for connection to the {{ PG }} DB.
         * `password`: User password for connection to the {{ PG }} DB.
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/postgresql.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/postgresql.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1971,7 +1971,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
         * `user_name`: Username for connection to the {{ PG }} DB.
         * `password`: User password for connection to the {{ PG }} DB.
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/postgresql.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/postgresql.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1998,7 +1998,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
         {% include [client-parameters-mysql](../../_includes/managed-trino/client-parameters-mysql.md) %}
 
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/mysql.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/mysql.html).
 
 - CLI {#cli}
 
@@ -2026,7 +2026,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
        {% include [client-parameters-mysql](../../_includes/managed-trino/client-parameters-mysql.md) %}
 
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/mysql.html).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/mysql.html).
 
 - {{ TF }} {#tf}
 
@@ -2064,7 +2064,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
            {% include [client-parameters-mysql](../../_includes/managed-trino/client-parameters-mysql.md) %}
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/mysql.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/mysql.html).
 
 - REST API {#api}
 
@@ -2113,7 +2113,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
            {% include [client-parameters-mysql](../../_includes/managed-trino/client-parameters-mysql.md) %}
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/mysql.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/mysql.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -2168,7 +2168,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 
            {% include [client-parameters-mysql](../../_includes/managed-trino/client-parameters-mysql.md) %}
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/mysql.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/mysql.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -2183,7 +2183,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
     * **URL**: URL for connecting to the {{ MY }} server, in `jdbc:mysql://<host_address>:<port>/` format. You do not need to specify a database name, {{ TR }} will automatically detect all available databases.
     * **Username**: Username for connection to the {{ MY }} server.
     * **Password**: User password for connection to the {{ MY }} server.
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/mysql.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/mysql.html).
 
 - CLI {#cli}
 
@@ -2204,7 +2204,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
     * `--on-premise-connection-url`: URL for connecting to the {{ MY }} server, in `jdbc:mysql://<host_address>:<port>/` format. You do not need to specify a database name, {{ TR }} will automatically detect all available databases.
     * `--on-premise-user-name`: Username for connection to the {{ MY }} server.
     * `--on-premise-password`: User password for connection to the {{ MY }} server.
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/mysql.html).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/mysql.html).
 
 - {{ TF }} {#tf}
 
@@ -2234,7 +2234,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
         * `user_name`: Username for connection to the {{ MY }} server.
         * `password`: User password for connection to the {{ MY }} server.
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/mysql.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/mysql.html).
 
 - REST API {#api}
 
@@ -2275,7 +2275,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
         * `userName`: Username for connection to the {{ MY }} server.
         * `password`: User password for connection to the {{ MY }} server.
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/mysql.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/mysql.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -2322,7 +2322,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
         * `user_name`: Username for connection to the {{ MY }} server.
         * `password`: User password for connection to the {{ MY }} server.
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/mysql.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/mysql.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -2338,7 +2338,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
     * **URL**: URL for connecting to the Microsoft SQL Server DB, in `jdbc:sqlserver://<host_address>:<port>;databaseName=<DB_name>` format.
     * **Username**: Username for connecting to the Microsoft SQL Server DB.
     * **Password**: User password for connection to the Microsoft SQL Server DB.
-    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/sqlserver.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/sqlserver.html).
 
 - CLI {#cli}
 
@@ -2359,7 +2359,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
     * `--on-premise-connection-url`: URL for connecting to the Microsoft SQL Server DB, in `jdbc:sqlserver://<host_address>:<port>;databaseName=<DB_name>` format.
     * `--on-premise-user-name`: Username for connecting to the Microsoft SQL Server DB.
     * `--on-premise-password`: User password for connection to the Microsoft SQL Server DB.
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/sqlserver.html).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/sqlserver.html).
 
 - {{ TF }} {#tf}
 
@@ -2389,7 +2389,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
         * `user_name`: Username for connecting to the Microsoft SQL Server DB.
         * `password`: User password for connection to the Microsoft SQL Server DB.
 
-    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/sqlserver.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/sqlserver.html).
 
 - REST API {#api}
 
@@ -2430,7 +2430,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
         * `userName`: Username for connecting to the Microsoft SQL Server DB.
         * `password`: User password for connection to the Microsoft SQL Server DB.
 
-    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/sqlserver.html).
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/sqlserver.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -2477,7 +2477,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
         * `user_name`: Username for connecting to the Microsoft SQL Server DB.
         * `password`: User password for connection to the Microsoft SQL Server DB.
 
-    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/sqlserver.html).
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/sqlserver.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -2491,7 +2491,7 @@ The TPC-DS connector has no required settings. Optionally, you can configure adv
 
 - Management console {#console}
 
-    You can specify additional settings in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/tpcds.html).
+    You can specify additional settings in `key: value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/tpcds.html).
 
 - CLI {#cli}
 
@@ -2506,7 +2506,7 @@ The TPC-DS connector has no required settings. Optionally, you can configure adv
     Where:
 
     * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters).
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/tpcds.html).  
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/tpcds.html).  
 
 - {{ TF }} {#tf}
 
@@ -2523,7 +2523,7 @@ The TPC-DS connector has no required settings. Optionally, you can configure adv
     }
     ```
 
-    Where `additional_properties` is a list of advanced settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/tpcds.html).
+    Where `additional_properties` is a list of advanced settings in `"key" = "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/tpcds.html).
 
 - REST API {#api}
 
@@ -2549,7 +2549,7 @@ The TPC-DS connector has no required settings. Optionally, you can configure adv
                 }'
     ```
 
-    Where `additionalProperties` is a list of advanced settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/tpcds.html).
+    Where `additionalProperties` is a list of advanced settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/tpcds.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -2581,7 +2581,7 @@ The TPC-DS connector has no required settings. Optionally, you can configure adv
         yandex.cloud.trino.v1.CatalogService.Create
     ```
 
-    Where `additional_properties` is a list of advanced settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/tpcds.html).
+    Where `additional_properties` is a list of advanced settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/tpcds.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -2595,7 +2595,7 @@ The TPC-H connector has no required settings. Optionally, you can configure adva
 
 - Management console {#console}
 
-    You can specify additional settings in `key: value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/tpch.html).
+    You can specify additional settings in `key: value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/tpch.html).
 
 - CLI {#cli}
 
@@ -2610,7 +2610,7 @@ The TPC-H connector has no required settings. Optionally, you can configure adva
     Where:
 
     * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters).
-    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/tpch.html).      
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/tpch.html).      
 
 - {{ TF }} {#tf}
 
@@ -2627,7 +2627,7 @@ The TPC-H connector has no required settings. Optionally, you can configure adva
     }
     ```
 
-    Where `additional_properties` is a list of advanced settings in `"key" = "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/tpch.html).
+    Where `additional_properties` is a list of advanced settings in `"key" = "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/tpch.html).
 
 - REST API {#api}
 
@@ -2653,7 +2653,7 @@ The TPC-H connector has no required settings. Optionally, you can configure adva
                 }'
     ```
 
-    Where `additionalProperties` is a list of advanced settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/tpch.html).
+    Where `additionalProperties` is a list of advanced settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/tpch.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -2685,7 +2685,7 @@ The TPC-H connector has no required settings. Optionally, you can configure adva
         yandex.cloud.trino.v1.CatalogService.Create
     ```
 
-    Where `additional_properties` is a list of advanced settings in `"key": "value"` format. For a list of available settings, see the [official guides]({{ tr.docs }}/connector/tpch.html).
+    Where `additional_properties` is a list of advanced settings in `"key": "value"` format. For a list of available settings, see [this official guide]({{ tr.docs }}/connector/tpch.html).
 
     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 

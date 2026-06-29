@@ -10,10 +10,10 @@ description: Follow this guide to add an API gateway label.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder containing the API gateway.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. In the API gateway row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-  1. Enter the key and the value, and press **Enter**.
+  1. Enter the key and value, and press **Enter**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}

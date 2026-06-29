@@ -38,7 +38,7 @@ The cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** and **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
@@ -197,7 +197,7 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Configure your {{ CH }} cluster:
 
@@ -236,13 +236,13 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   
   To create a cluster:
 
-  1. Verify that your folder has subnets for cluster hosts:
+  1. Check whether the folder has any subnets for cluster hosts:
 
      ```bash
      yc vpc subnet list
      ```
 
-     If your folder has no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+     If there are no subnets in the folder, [create the right ones](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
   1. Specify the cluster properties in the creation command:
 

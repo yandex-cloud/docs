@@ -1,10 +1,5 @@
 # Как начать работать с AWS SDK для С++ в Yandex Cloud Notification Service
 
-{% note info %}
-
-Сервис находится на [стадии Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
 
 Чтобы начать работу с AWS SDK для С++:
 

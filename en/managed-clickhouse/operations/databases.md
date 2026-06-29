@@ -27,7 +27,7 @@ In a cluster with enabled database management via SQL:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}** tab.
 
@@ -107,13 +107,13 @@ In a cluster with enabled database management via SQL:
 
 {% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
 
-To learn more about limits, see [Quotas and limits](../concepts/limits.md).
+For more about limits, see [Quotas and limits](../concepts/limits.md).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name.
   1. Select the **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}** tab.
@@ -166,9 +166,9 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
 
     1. Add the `yandex_mdb_clickhouse_database` resource:
 
@@ -317,7 +317,7 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the relevant database row and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
@@ -340,9 +340,9 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
 
     1. Remove the `yandex_mdb_clickhouse_database` resource with the name of the database you want to delete.
 

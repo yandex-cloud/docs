@@ -5,7 +5,7 @@ To create an SMS template:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create the template.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. In the left-hand panel, select ![route](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.cns.label_channels }}** and select a channel with an [individual sender](../../notifications/concepts/sms.md#individual-sender) you want to create a template in.
   1. In the left-hand menu, select ![square-chart-bar](../../_assets/console-icons/square-chart-bar.svg) **{{ ui-key.yacloud.cns.local.label_templates_26VqM }}** and click **{{ ui-key.yacloud.cns.SMSChannel.Templates.action_create-sms-template_e6hBJ }}**. In the window that opens:
 
@@ -26,4 +26,4 @@ To create an SMS template:
 
 {% endlist %}
 
-Once created, the SMS template will switch to the `Registering` [status](../../notifications/concepts/sms.md#template-status) and will be sent for registration on the telecom provider side. A [support]({{ link-console-support }}) ticket will be created at the same time. Registering a template takes two to four weeks. Once all telecom providers complete template registration, the template will switch to the `Active` status and be available for use.
+Once created, the SMS template will switch to the `Registering` [status](../../notifications/concepts/sms.md#template-status) and will be sent for registration on the telecom provider side. At the same time, a [support]({{ link-console-support }}) ticket will be created. Registering a template takes two to four weeks. Once all telecom providers complete template registration, the template will switch to the `Active` status and be available for use.

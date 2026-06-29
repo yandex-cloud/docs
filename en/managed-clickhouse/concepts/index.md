@@ -8,7 +8,7 @@ description: The main entity {{ mch-name }} operates is a database cluster. Each
 
 The main entity {{ mch-name }} operates is a database _cluster_.
 
-Each cluster consists of one or multiple _database hosts_, which are virtual machines with {{ CH }} DBMS servers deployed. Cluster hosts may reside in different availability zones and even different availability regions. You can learn more about the {{ yandex-cloud }} availability zones in [Platform overview](../../overview/concepts/geo-scope.md).
+Each cluster consists of one or multiple _database hosts_, which are virtual machines with {{ CH }} DBMS servers deployed. Cluster hosts may reside in different availability zones and even different availability regions. You can learn more about the {{ yandex-cloud }} availability zones in the [Platform overview](../../overview/concepts/geo-scope.md).
 
 A cluster of several {{ CH }} hosts is natively [highly available](high-availability.md) because {{ CH }} hosts can step in for one another as the cluster’s primary [replica](replication.md). To manage replication and query distribution across {{ CH }} hosts, you can use a coordination service, {{ CK }} or {{ ZK }}. Depending on the selected tool, the cluster will consist of:
 
@@ -56,7 +56,7 @@ When creating a cluster, specify:
 You should also specify the host class when creating a [shard](sharding.md).
 
 
-You can access a cluster created in a folder from any VM in the same cloud network. For more information about networking, see [this {{ vpc-name }} guide](../../vpc/).
+You can access a cluster created in a folder from any VM in the same cloud network. For more information on how the network works, see [this {{ vpc-name }} guide](../../vpc/).
 
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}

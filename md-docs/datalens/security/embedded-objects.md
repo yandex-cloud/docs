@@ -73,4 +73,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Встраивание непубличных объектов](private-embedded-objects.md).
+* [Встраивание через JWT](private-embedded-objects.md).

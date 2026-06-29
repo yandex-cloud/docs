@@ -5,7 +5,7 @@ To create a [secret](../../lockbox/concepts/secret.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your secret.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret.
   1. Optionally, to break down resources into logical groups, add a [label](../../resource-manager/concepts/labels.md).
@@ -104,7 +104,7 @@ To create a [secret](../../lockbox/concepts/secret.md):
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, specify the properties of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      resource "yandex_lockbox_secret" "my_secret" {

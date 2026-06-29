@@ -44,7 +44,7 @@ description: This page covers FAQ about charts.
 
 ### Why do I get null output when creating a multi-dataset chart? {#null-in-multidataset-chart}
 
-Possible causes:
+The possible causes might include the following:
 
 * The `null` value is saved in the database table.
 * When joining tables, you get the `null` values if one of the tables is lacking the entries that match the other table's entries according to the joining condition.

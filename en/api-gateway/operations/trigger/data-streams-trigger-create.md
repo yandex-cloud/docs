@@ -17,7 +17,7 @@ Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigge
 
 {% include [trigger-before-you-begin](../../../_includes/api-gateway/trigger-before-you-begin.md) %}
 
-* Stream for which the trigger will fire as soon as it receives data. If you do not have a stream, [create one](../../../data-streams/quickstart/create-stream.md).
+* Stream that will set off the trigger when data is sent to it. If you do not have a stream, [create one](../../../data-streams/quickstart/create-stream.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -29,7 +29,7 @@ Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigge
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
 
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -78,9 +78,9 @@ Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigge
     Where:
 
     * `--name`: Trigger name.
-    * `--database`: Location of the {{ ydb-short-name }} DB the {{ yds-name }} stream is linked to.
+    * `--database`: Location of the {{ ydb-short-name }} database associated with the stream in {{ yds-name }}.
 
-      To find out where the DB is located, run the `yc ydb database list` command. The DB location is specified in the `ENDPOINT` column, in the `database` parameter, e.g., `/{{ region-id }}/b1gia87mbah2********/etn7hehf6gh3********`.
+      To find out where the database is located, run the `yc ydb database list` command. The database location is specified in the `ENDPOINT` column, in the `database` property, e.g., `/{{ region-id }}/b1gia87mbah2********/etn7hehf6gh3********`.
 
     * `--stream`: Stream name.
 
@@ -88,7 +88,7 @@ Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigge
 
     * `--batch-cutoff`: Maximum wait time. This is an optional setting. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages within the `batch-cutoff` period and sends them to WebSocket connections. The total amount of data transmitted to connections may exceed `batch-size` if the data is transmitted as a single message. In all other cases, the amount of data does not exceed `batch-size`.
 
-    * `--stream-service-account-id`: ID of the service account with write and read permissions to the stream.
+    * `--stream-service-account-id`: ID of the service account with write and read permissions for the stream.
 
     {% include [trigger-cli-param](../../../_includes/api-gateway/trigger-cli-param.md) %}
 

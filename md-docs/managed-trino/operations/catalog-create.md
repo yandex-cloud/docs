@@ -885,25 +885,27 @@ Connection Manager позволяет создавать подключения 
 
     * **URI** — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore:
-          1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-          1. Перейдите в сервис **Yandex MetaData Hub**.
-          1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+      Чтобы узнать IP-адрес кластера Apache Hive™ Metastore:
+        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+        1. Перейдите в сервис **Yandex MetaData Hub**.
+        1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
-        {% note warning %}
-        
-        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-        
-        {% endnote %}
+      {% note warning %}
+      
+      Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
+      
+      {% endnote %}
     
-      * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [Yandex Object Storage](../../storage/quickstart/overview.md) и внешнее хранилище.
+    * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [Yandex Object Storage](../../storage/quickstart/overview.md) и внешнее хранилище.
+    
+        Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисным аккаунтам кластеров Managed Service for Trino и Apache Hive™ Metastore.
     
         Для внешнего хранилища необходимо указать:
     
-          * **Идентификатор ключа доступа** — идентификатор AWS-совместимого статического ключа доступа.
-          * **Секретный ключ** — секретный ключ AWS-совместимого статического ключа доступа.
-          * **Эндпоинт** — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
-          * **Регион** — регион файлового хранилища, например `ru-central1`.
+        * **Идентификатор ключа доступа** — идентификатор AWS-совместимого статического ключа доступа.
+        * **Секретный ключ** — секретный ключ AWS-совместимого статического ключа доступа.
+        * **Эндпоинт** — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+        * **Регион** — регион файлового хранилища, например `ru-central1`.
 
     * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/delta-lake.html).
 
@@ -937,6 +939,9 @@ Connection Manager позволяет создавать подключения 
       {% endnote %}
     
     * `--filesystem-native-s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
+    
+      Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисным аккаунтам кластеров Managed Service for Trino и Apache Hive™ Metastore.
+    
     * `--filesystem-external-s3-aws-access-key` — идентификатор AWS-совместимого статического ключа доступа.
     * `--filesystem-external-s3-aws-secret-key` — секретный ключ AWS-совместимого статического ключа доступа.
     * `--filesystem-external-s3-aws-endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
@@ -976,6 +981,9 @@ Connection Manager позволяет создавать подключения 
     * `file_system` — тип файлового хранилища. Доступные варианты:
     
         * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
+    
+            Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисным аккаунтам кластеров Managed Service for Trino и Apache Hive™ Metastore.
+    
         * `external_s3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
@@ -1032,6 +1040,9 @@ Connection Manager позволяет создавать подключения 
     * `filesystem` — тип файлового хранилища. Доступные варианты:
     
         * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
+    
+            Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисным аккаунтам кластеров Managed Service for Trino и Apache Hive™ Metastore.
+    
         * `externalS3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `awsAccessKey` — идентификатор AWS-совместимого статического ключа доступа.
@@ -1094,6 +1105,9 @@ Connection Manager позволяет создавать подключения 
     * `filesystem` — тип файлового хранилища. Доступные варианты:
     
         * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
+    
+            Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисным аккаунтам кластеров Managed Service for Trino и Apache Hive™ Metastore.
+    
         * `external_s3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
@@ -1650,25 +1664,27 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
 
     * **URI** — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore:
-          1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-          1. Перейдите в сервис **Yandex MetaData Hub**.
-          1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+      Чтобы узнать IP-адрес кластера Apache Hive™ Metastore:
+        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+        1. Перейдите в сервис **Yandex MetaData Hub**.
+        1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
-        {% note warning %}
-        
-        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-        
-        {% endnote %}
+      {% note warning %}
+      
+      Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
+      
+      {% endnote %}
     
-      * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [Yandex Object Storage](../../storage/quickstart/overview.md) и внешнее хранилище.
+    * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [Yandex Object Storage](../../storage/quickstart/overview.md) и внешнее хранилище.
+    
+        Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисным аккаунтам кластеров Managed Service for Trino и Apache Hive™ Metastore.
     
         Для внешнего хранилища необходимо указать:
     
-          * **Идентификатор ключа доступа** — идентификатор AWS-совместимого статического ключа доступа.
-          * **Секретный ключ** — секретный ключ AWS-совместимого статического ключа доступа.
-          * **Эндпоинт** — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
-          * **Регион** — регион файлового хранилища, например `ru-central1`.
+        * **Идентификатор ключа доступа** — идентификатор AWS-совместимого статического ключа доступа.
+        * **Секретный ключ** — секретный ключ AWS-совместимого статического ключа доступа.
+        * **Эндпоинт** — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+        * **Регион** — регион файлового хранилища, например `ru-central1`.
 
     * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/hive.html).
 
@@ -1702,6 +1718,9 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
       {% endnote %}
     
     * `--filesystem-native-s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
+    
+      Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисным аккаунтам кластеров Managed Service for Trino и Apache Hive™ Metastore.
+    
     * `--filesystem-external-s3-aws-access-key` — идентификатор AWS-совместимого статического ключа доступа.
     * `--filesystem-external-s3-aws-secret-key` — секретный ключ AWS-совместимого статического ключа доступа.
     * `--filesystem-external-s3-aws-endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
@@ -1741,6 +1760,9 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `file_system` — тип файлового хранилища. Доступные варианты:
     
         * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
+    
+            Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисным аккаунтам кластеров Managed Service for Trino и Apache Hive™ Metastore.
+    
         * `external_s3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
@@ -1797,6 +1819,9 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `filesystem` — тип файлового хранилища. Доступные варианты:
     
         * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
+    
+            Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисным аккаунтам кластеров Managed Service for Trino и Apache Hive™ Metastore.
+    
         * `externalS3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `awsAccessKey` — идентификатор AWS-совместимого статического ключа доступа.
@@ -1859,6 +1884,9 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `filesystem` — тип файлового хранилища. Доступные варианты:
     
         * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
+    
+            Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисным аккаунтам кластеров Managed Service for Trino и Apache Hive™ Metastore.
+    
         * `external_s3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
@@ -1890,25 +1918,27 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
 
     * **URI** — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore:
-          1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-          1. Перейдите в сервис **Yandex MetaData Hub**.
-          1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+      Чтобы узнать IP-адрес кластера Apache Hive™ Metastore:
+        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+        1. Перейдите в сервис **Yandex MetaData Hub**.
+        1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
-        {% note warning %}
-        
-        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-        
-        {% endnote %}
+      {% note warning %}
+      
+      Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
+      
+      {% endnote %}
     
-      * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [Yandex Object Storage](../../storage/quickstart/overview.md) и внешнее хранилище.
+    * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [Yandex Object Storage](../../storage/quickstart/overview.md) и внешнее хранилище.
+    
+        Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисным аккаунтам кластеров Managed Service for Trino и Apache Hive™ Metastore.
     
         Для внешнего хранилища необходимо указать:
     
-          * **Идентификатор ключа доступа** — идентификатор AWS-совместимого статического ключа доступа.
-          * **Секретный ключ** — секретный ключ AWS-совместимого статического ключа доступа.
-          * **Эндпоинт** — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
-          * **Регион** — регион файлового хранилища, например `ru-central1`.
+        * **Идентификатор ключа доступа** — идентификатор AWS-совместимого статического ключа доступа.
+        * **Секретный ключ** — секретный ключ AWS-совместимого статического ключа доступа.
+        * **Эндпоинт** — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+        * **Регион** — регион файлового хранилища, например `ru-central1`.
 
     * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/hudi.html).
 
@@ -1942,6 +1972,9 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
       {% endnote %}
     
     * `--filesystem-native-s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
+    
+      Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисным аккаунтам кластеров Managed Service for Trino и Apache Hive™ Metastore.
+    
     * `--filesystem-external-s3-aws-access-key` — идентификатор AWS-совместимого статического ключа доступа.
     * `--filesystem-external-s3-aws-secret-key` — секретный ключ AWS-совместимого статического ключа доступа.
     * `--filesystem-external-s3-aws-endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
@@ -1981,6 +2014,9 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `file_system` — тип файлового хранилища. Доступные варианты:
     
         * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
+    
+            Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисным аккаунтам кластеров Managed Service for Trino и Apache Hive™ Metastore.
+    
         * `external_s3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
@@ -2037,6 +2073,9 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `filesystem` — тип файлового хранилища. Доступные варианты:
     
         * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
+    
+            Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисным аккаунтам кластеров Managed Service for Trino и Apache Hive™ Metastore.
+    
         * `externalS3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `awsAccessKey` — идентификатор AWS-совместимого статического ключа доступа.
@@ -2099,6 +2138,9 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `filesystem` — тип файлового хранилища. Доступные варианты:
     
         * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
+    
+            Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисным аккаунтам кластеров Managed Service for Trino и Apache Hive™ Metastore.
+    
         * `external_s3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
@@ -2130,25 +2172,27 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
 
     * **URI** — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore:
-          1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-          1. Перейдите в сервис **Yandex MetaData Hub**.
-          1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+      Чтобы узнать IP-адрес кластера Apache Hive™ Metastore:
+        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+        1. Перейдите в сервис **Yandex MetaData Hub**.
+        1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
-        {% note warning %}
-        
-        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-        
-        {% endnote %}
+      {% note warning %}
+      
+      Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
+      
+      {% endnote %}
     
-      * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [Yandex Object Storage](../../storage/quickstart/overview.md) и внешнее хранилище.
+    * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [Yandex Object Storage](../../storage/quickstart/overview.md) и внешнее хранилище.
+    
+        Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисным аккаунтам кластеров Managed Service for Trino и Apache Hive™ Metastore.
     
         Для внешнего хранилища необходимо указать:
     
-          * **Идентификатор ключа доступа** — идентификатор AWS-совместимого статического ключа доступа.
-          * **Секретный ключ** — секретный ключ AWS-совместимого статического ключа доступа.
-          * **Эндпоинт** — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
-          * **Регион** — регион файлового хранилища, например `ru-central1`.
+        * **Идентификатор ключа доступа** — идентификатор AWS-совместимого статического ключа доступа.
+        * **Секретный ключ** — секретный ключ AWS-совместимого статического ключа доступа.
+        * **Эндпоинт** — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+        * **Регион** — регион файлового хранилища, например `ru-central1`.
 
     * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/iceberg.html).
 
@@ -2182,6 +2226,9 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
       {% endnote %}
     
     * `--filesystem-native-s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
+    
+      Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисным аккаунтам кластеров Managed Service for Trino и Apache Hive™ Metastore.
+    
     * `--filesystem-external-s3-aws-access-key` — идентификатор AWS-совместимого статического ключа доступа.
     * `--filesystem-external-s3-aws-secret-key` — секретный ключ AWS-совместимого статического ключа доступа.
     * `--filesystem-external-s3-aws-endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
@@ -2221,6 +2268,9 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `file_system` — тип файлового хранилища. Доступные варианты:
     
         * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
+    
+            Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисным аккаунтам кластеров Managed Service for Trino и Apache Hive™ Metastore.
+    
         * `external_s3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
@@ -2277,6 +2327,9 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `filesystem` — тип файлового хранилища. Доступные варианты:
     
         * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
+    
+            Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисным аккаунтам кластеров Managed Service for Trino и Apache Hive™ Metastore.
+    
         * `externalS3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `awsAccessKey` — идентификатор AWS-совместимого статического ключа доступа.
@@ -2339,6 +2392,9 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `filesystem` — тип файлового хранилища. Доступные варианты:
     
         * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
+    
+            Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисным аккаунтам кластеров Managed Service for Trino и Apache Hive™ Metastore.
+    
         * `external_s3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.

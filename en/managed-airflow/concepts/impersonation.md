@@ -16,7 +16,7 @@ Impersonation enables an {{ AF }} cluster to support integration with other {{ y
 
 {{ cloud-logging-name }} is a service that stores and reads logs for {{ yandex-cloud }} services. If a {{ maf-name }} cluster has logging enabled, its logs are saved to a selected {{ cloud-logging-name }} log group.
 
-For more information about logging configuration, see [Transferring cluster logs](../operations/af-logging.md).
+For more on setting up logging, see [Transferring cluster logs](../operations/af-logging.md).
 
 ### {{ monitoring-name }} {#monitoring-integration}
 
@@ -26,7 +26,7 @@ For more information about logging configuration, see [Transferring cluster logs
 
 {{ lockbox-name }} is a service for centralized storage of secrets. In {{ lockbox-name }}, you can store data to use in DAG files, such as configuration data, variables and {{ AF }} connection parameters. You can see the example of such data in [Automating {{ dataproc-name }} operations](../tutorials/data-processing-automation.md#dag).
 
-By default, {{ AF }} stores sensitive data in a metadata storage. In this case, you have to manage secrets for every {{ AF }} cluster manually via the UI or API. To automate management of secrets, store them in {{ lockbox-name }}. For more information, see the [{{ AF }} documentation](https://airflow.apache.org/docs/apache-airflow/stable/security/secrets/secrets-backend/index.html).
+By default, {{ AF }} stores sensitive data in a metadata storage. In which case you have to manage each {{ AF }} cluster's secrets manually via the UI or API. To automate management of secrets, store them in {{ lockbox-name }}. For more information, see [this {{ AF }} guide](https://airflow.apache.org/docs/apache-airflow/stable/security/secrets/secrets-backend/index.html).
 
 To use {{ lockbox-name }} features in an {{ AF }} cluster, [create a secret](../../lockbox/operations/secret-create.md) with the required data and [provide the permission to access it](../../lockbox/operations/secret-access.md) to the service account attached to the cluster. After that, you will be able to use data from the secret in the cluster's DAG files.
 

@@ -29,7 +29,8 @@ Columns from logs table to get in the response. ||
 || serviceType | **enum** (ServiceType)
 
 - `POSTGRESQL`: Logs of PostgreSQL activity.
-- `POOLER`: Logs of connection pooler activity. ||
+- `POOLER`: Logs of connection pooler activity.
+- `REPACK`: Logs of Managed Repack service activity. ||
 || fromTime | **string** (date-time)
 
 Start timestamp for the logs request.

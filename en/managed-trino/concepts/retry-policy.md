@@ -24,6 +24,6 @@ To enable fault-tolerant execution, select the **Retry object type** parameter u
 
    {% endnote %}
 
-* **Query**: Retries the [entire query](index.md#query-execution) which caused worker failure.
+* **Query**: Retries all [stages of the query](index.md#query-execution) where worker failure occurred.
 
-For more information about fault-tolerant query execution, see the [official documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html).
+For more information about fault-tolerant query execution, see the [official guides](https://trino.io/docs/current/admin/fault-tolerant-execution.html).

@@ -1,6 +1,6 @@
-# Viewing {{ at-full-name }} resource operations
+# Viewing operations on {{ at-full-name }} resources
 
-The system logs all actions with {{ at-name }} resources as a list of operations. Each operation gets its own unique ID.
+The system logs all actions with {{ at-name }} resources as a list of operations. Each operation gets an ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -9,7 +9,7 @@ The system logs all actions with {{ at-name }} resources as a list of operations
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), open the folder where the trail resides.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.audit-trails.label_trails }}**.
   1. Select the trail you need.
   1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected trail.
@@ -39,7 +39,7 @@ The system logs all actions with {{ at-name }} resources as a list of operations
   +----------------------+---------------------+----------------------+---------------------+--------+------------------+
   ```
 
-  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using `--format`:
+  By default, information about operations is output as text. To get more details, use `--format` to specify the `yaml` or `json` output format:
 
   ```bash
   yc audit-trails trail list-operations <trail_name_or_ID> --format yaml
@@ -76,7 +76,7 @@ The system logs all actions with {{ at-name }} resources as a list of operations
 
 ## Getting operation details {#get-operations-info}
 
-1. [Get a list of operations](#get-operations) for the resource.
+1. [Get the list of operations](#get-operations) for the resource.
 1. Copy the operation ID.
 1. Get the operation details:
 

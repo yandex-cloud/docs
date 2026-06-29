@@ -1,5 +1,11 @@
 # Начало работы с Cloud Logging
 
+{% note warning %}
+
+Сервис Cloud Logging будет закрыт 1 марта 2027 года и заменен платформой [Monium](../monium/index.md).
+
+{% endnote %}
+
 В этой инструкции вы добавите записи в [лог-группу](concepts/log-group.md), а после посмотрите их.
 
 ## Перед началом работы {#before-you-begin}

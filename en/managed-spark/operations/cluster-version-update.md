@@ -67,9 +67,9 @@ Make sure the upgrade will not disrupt your applications:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ SPRK }} configuration file describing your infrastructure.
+    1. Open the current {{ SPRK }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
         
     1. Edit the `spark_version` parameter in the cluster's description:
       

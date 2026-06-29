@@ -1,6 +1,6 @@
 
 
-[GitHub](https://github.com/) allows storing function code from [{{ sf-full-name }}](../../functions/) and deploying new [function](../../functions/concepts/function.md) versions if there are updates in the repository.
+[GitHub](https://github.com/) allows storing [{{ sf-full-name }}](../../functions/) code and deploying new [function](../../functions/concepts/function.md) versions if there are updates in the repository.
 
 In this tutorial, you will set up CI/CD between {{ sf-name }} and GitHub using a [{{ iam-full-name }}](../../iam/) workload identity federation and deploy functions from {{ sf-name }} by running GitHub Actions [workflows](https://docs.github.com/{{ lang }}/actions/concepts/workflows-and-actions/workflows).
 
@@ -24,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support cost for this tutorial includes:
 
-* Fee for the number of function calls, computing resources allocated to run a function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Fee for the number of function calls, computing resources allocated for the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 * Fee for function logging and log storage in a [log group](../../logging/concepts/log-group.md) (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
 
 
@@ -35,7 +35,7 @@ The infrastructure support cost for this tutorial includes:
 You will need the GitHub repository and user names later.
 
 
-## Set up your infrastructure in {{ yandex-cloud }} {#prepare-infrastructure}
+## Set up your {{ yandex-cloud }} infrastructure {#prepare-infrastructure}
 
 ### Create a service account {#create-sa}
 
@@ -46,7 +46,7 @@ GitHub will use a [service account](../../iam/concepts/users/service-accounts.md
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create your infrastructure.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the service account: `ci-cd-github-sa`.
   1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `{{ roles-functions-admin }}`.
@@ -111,7 +111,7 @@ You need a [workload identity federation](../../iam/concepts/workload-identity.m
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![cpus](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.label_federations }}**.
   1. Click **{{ ui-key.yacloud.iam.label_create-wli-federation }}**.
   1. In the **{{ ui-key.yacloud.iam.federations.field_issuer }}** field, enter the OIDC provider's URL: `https://token.actions.githubusercontent.com`.
@@ -168,14 +168,14 @@ You need a [workload identity federation](../../iam/concepts/workload-identity.m
 
 ### Create federated credentials for the service account {#create-credential}
 
-With [federated credentials](../../iam/concepts/workload-identity.md#federated-credentials), you will set up a link between a workload identity federation, your service account, and GitHub.
+With [federated credentials](../../iam/concepts/workload-identity.md#federated-credentials), you will set up a binding between a workload identity federation, your service account, and GitHub.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Select the `ci-cd-github-sa` service account.
   1. In the top panel, click ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.action_connect-federation }}**.
   1. In the **{{ ui-key.yacloud.iam.connected-federation.field_federation }}** field, select `ci-cd-github-federation`.
@@ -231,7 +231,7 @@ With [federated credentials](../../iam/concepts/workload-identity.md#federated-c
 
   To create federated credentials, use the [create](../../iam/workload/workload-identity/api-ref/FederatedCredential/create.md) REST API method for the [FederatedCredential](../../iam/workload/workload-identity/api-ref/FederatedCredential/index.md) resource or the [FederatedCredentialService/Create](../../iam/workload/workload-identity/api-ref/grpc/FederatedCredential/create.md) gRPC API call.
 
-  In the request, set the `externalSubjectId`/`external_subject_id` parameter as follows:
+  In the request, set `externalSubjectId`/`external_subject_id` as follows:
 
   * For the test environment: `repo:<GitHub_user_name>/<repository_name>:environment:preprod`.
 
@@ -259,7 +259,7 @@ With [federated credentials](../../iam/concepts/workload-identity.md#federated-c
   In the repository, you will see:
 
   * `.github/workflows` folder with workflow files: `cd.yml`, `ci.yml`, and `ct.yml`.
-  * `index.js` function code with dependencies described in `package.json` and `package-lock.json`.
+  * Function code (`index.js`) and dependency files (`package.json` and `package-lock.json`).
 
 - Manually
 
@@ -510,7 +510,7 @@ With [federated credentials](../../iam/concepts/workload-identity.md#federated-c
 
 ## Test the workflows {#check}
 
-Run the [CI](#run-ci), [CT](#run-ct), and [CD](#run-cd) workflows one after the other and check their results.
+Run the [CI](#run-ci), [CT](#run-ct), and [CD](#run-cd) workflows one by one and check their results.
 
 
 ### Run the CI workflow {#run-ci}
@@ -525,7 +525,7 @@ Run the [CI](#run-ci), [CT](#run-ct), and [CD](#run-cd) workflows one after the 
       git checkout main
       ```
 
-  1. Pull changes from a remote repository:
+  1. Pull changes from the remote repository:
 
       ```bash
       git pull
@@ -537,7 +537,7 @@ Run the [CI](#run-ci), [CT](#run-ct), and [CD](#run-cd) workflows one after the 
       git checkout -b feature/smoke-test
       ```
 
-  1. Copy the function files to the root folder in your repository’s local copy:
+  1. Copy the function files to the root directory of your local repository clone:
 
       * `index.js`
       * `package.json`
@@ -565,8 +565,8 @@ Run the [CI](#run-ci), [CT](#run-ct), and [CD](#run-cd) workflows one after the 
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Select `from-github-ci`.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Select the `from-github-ci` function.
   1. Navigate to the ![image](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. {% include [testing-function](../_tutorials_includes/ci-cd-github-functions/testing-function.md) %}
 
@@ -594,8 +594,8 @@ Run the [CI](#run-ci), [CT](#run-ct), and [CD](#run-cd) workflows one after the 
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Select `from-github-ct`.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Select the `from-github-ct` function.
   1. Navigate to the ![image](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. {% include [testing-function](../_tutorials_includes/ci-cd-github-functions/testing-function.md) %}
 
@@ -623,8 +623,8 @@ Run the [CI](#run-ci), [CT](#run-ct), and [CD](#run-cd) workflows one after the 
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Select `from-github-cd`.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Select the `from-github-cd` function.
   1. Navigate to the ![image](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. {% include [testing-function](../_tutorials_includes/ci-cd-github-functions/testing-function.md) %}
 

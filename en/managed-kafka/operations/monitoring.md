@@ -13,7 +13,7 @@ description: In this guide, you will learn how to monitor the state of an {{ KF 
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
-## Cluster health state monitoring {#monitoring-cluster}
+## Cluster state monitoring {#monitoring-cluster}
 
 To view detailed information on the health state of a {{ mkf-name }} cluster:
 
@@ -47,7 +47,7 @@ To view detailed information on the health state of a {{ mkf-name }} cluster:
 
 {% endlist %}
 
-## Monitoring the state of hosts {#monitoring-hosts}
+## Host state monitoring {#monitoring-hosts}
 
 To view detailed information on the state of individual {{ mkf-name }} hosts:
 

@@ -22,81 +22,59 @@ You can [view](#get-client-stat) detailed information on how the customers are u
 
     {% list tabs group=details %}
 
-    - For clouds {#clouds}
 
-      You can view usage details for one or more clouds. By default, the details cover all the linked clouds.
-
-      1. In the **Clouds** list, select a cloud.
-      1. Set up data filtering:
-         * **Grouping**: By days, weeks, or months.
-         * **Products**: By specific products.
-         * **Labels**: By specific labels.
-         * **Subaccounts**: By specific subaccounts.
-
-      {% note info %}
-
-      If a cloud was previously linked to another billing account, consider the period when viewing usage details: details are available to the current billing account for the time starting when the new account was linked. For usage prior to the link, details are available to the previous account.
-
-      {% endnote %}
-
-    - For folders {#folders}
+    - Cloud folders {#folders}
 
       You can view usage details for one or more folders. By default, the details cover all the selected cloud's folders.
 
-      1. In the **Clouds** list, select a cloud.
-      1. In the **Folders** list, select a folder.
+      1. In the **All clouds and folders** list, select a cloud or folder.
       1. Set up data filtering:
          * **Grouping**: By days, weeks, or months.
          * **Products**: By specific products.
          * **Labels**: By specific labels.
          * **Subaccounts**: By specific subaccounts.
 
-    - For services {#services}
+    - Services {#services}
 
       You can view usage details for one or more services in different clouds. You can also view usage details for one or more services in different folders of the selected cloud. By default, the details cover all services across all clouds and folders.
 
-      1. In the **Clouds** list, select a cloud.
-      1. In the **Folders** list, select a folder. 
-      1. In the **Services** list, select a service.
+      1. In the **All services** list, select a service.
       1. Set up data filtering:
          * **Grouping**: By days, weeks, or months.
+         * **Clouds and folders**: By specific clouds and folders.
          * **Labels**: By specific labels.
          * **Subaccounts**: By specific subaccounts.
 
-    - For products {#products}
+    - Products {#products}
 
       You can view usage details for one or more products in different clouds. You can also view usage details for one or more products in different folders of the selected cloud. By default, the details cover all products across all clouds.
 
-      1. In the **Clouds** list, select a cloud.
-      1. In the **Folders** list, select a folder.
-      1. In the **Products** list, select a product.
+      1. In the **All products** list, select a product.
       1. Set up data filtering:
          * **Grouping**: By days, weeks, or months.
+         * **Clouds and folders**: By specific clouds and folders.
          * **Labels**: By specific labels.
          * **Subaccounts**: By specific subaccounts.
 
-    - By labels {#labels}
+    - Labels {#labels}
 
       You can view usage details by [service resource labels](../../resource-manager/concepts/labels.md). You can [add a label](../../resource-manager/operations/manage-labels.md) to any resource. If there are details available for the selected label, the info will be displayed in the chart, and the table below it will list all the values corresponding to the selected label.
 
-      1. In the **Clouds** list, select a cloud.
-      1. In the **Folders** list, select a folder.
-      1. In the **Label key** list, select a label.
+      1. In the **All labels** list, select a label.
       1. Set up data filtering:
          * **Grouping**: By days, weeks, or months.
+         * **Clouds and folders**: By specific clouds and folders.
          * **Products**: By specific products.
-         * **Labels**: By specific labels.
          * **Subaccounts**: By specific subaccounts.
 
     - By subaccounts {#subacc}
 
       You can view usage details for one or more subaccounts in different clouds. By default, the details cover all subaccounts across all clouds and folders.
 
-      1. In the **Clouds** list, select a cloud.
-      1. In the **Folders** list, select a folder. 
-      1. In the **Subaccounts** list, select a subaccount.
+      1. In the **All subaccounts** list, select a subaccount.
       1. Set up data filtering:
          * **Grouping**: By days, weeks, or months.
+         * **Clouds and folders**: By specific clouds and folders.
          * **Products**: By specific products.
          * **Labels**: By specific labels.
 
@@ -123,7 +101,7 @@ The columns below the chart represent:
 
 {% include [currency](../../billing/_includes/currency.md) %}
 
-Hover over a chart lines to bring up the tooltip. Each cloud, service, and product has its own color. See a description of measures below.
+Hover over a chart line to bring up the tooltip. Each cloud, service, and product has its own color. See a description of measures below.
 
 Chart | Measures
 :-----: | -----

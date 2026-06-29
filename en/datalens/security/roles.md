@@ -43,7 +43,7 @@ To grant a user access to {{ datalens-short-name }}, [assign](../../organization
 
 {% endlist %}
 
-## Roles to work with the API {#api-roles}
+## Roles to work with API {#api-roles}
 
 #### datalens.metaReader {#datalens-metaReader}
 

@@ -19,7 +19,7 @@
     1. In the [management console]({{ link-console-main }}), select the folder containing the address and your domain zone.
 
         If you do not have a [public DNS zone](../../dns/concepts/dns-zone.md#public-zones) yet, [create](../../dns/operations/zone-create-public.md) one:
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
     1. Select your domain zone.
     1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
     1. In the **{{ ui-key.yacloud.common.name }}** field, specify the name portion generated when creating the address, omitting the domain in `<selector>._domainkey` format, e.g., `postbox._domainkey`.
@@ -31,7 +31,7 @@
         {% endnote %}
 
     1. In the **{{ ui-key.yacloud.common.type }}** field, select `TXT`.
-    1. Paste the contents of the **{{ ui-key.yacloud.postbox.label_dns-record-value }}** field under **{{ ui-key.yacloud.postbox.section_dkim }}** into the **{{ ui-key.yacloud.dns.label_records }}** field. Note that the record value must be enclosed in quotes, for example:
+    1. Paste the contents of the **{{ ui-key.yacloud.postbox.label_dns-record-value }}** field under **{{ ui-key.yacloud.postbox.section_dkim }}** into the **{{ ui-key.yacloud.dns.label_records }}** field. Note that the record value must be enclosed in quotes, such as follows:
 
         ```text
         "v=DKIM1;h=sha256;k=rsa;p=M1B...aCA8"
@@ -45,7 +45,7 @@
 
     1. In the **{{ ui-key.yacloud.dns.label_form-ttl }}** field, specify the record lifetime.
     1. Click **{{ ui-key.yacloud.common.create }}**.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. Select the address you created.
     1. Wait for {{ postbox-name }} to verify the DKIM signature settings. If the record is correct, the verification status on the address page will change to `Success`.
 

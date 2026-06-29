@@ -7,7 +7,7 @@ description: Follow this guide to migrate objects to workbooks.
 
 {% note info %}
 
-* If you do not see ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks** in the panel on the left, [enable workbooks and collections](../../datalens/workbooks-collections/index.md#enable-workbooks) in your organization.
+* If you do not see ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks** in the left-hand panel, [enable workbooks and collections](../../datalens/workbooks-collections/index.md#enable-workbooks) in your organization.
 * To migrate objects, a user must have the `{{ roles-datalens-admin }}` role.
 * To transfer your workbook between installations or [organizations](../concepts/organizations.md), use the [export and import](./export-and-import.md) tool.
 
@@ -42,7 +42,7 @@ When this migration type is selected, the object is transferred to the [workbook
 * Object IDs remain the same.
 * Links to objects do not change and lead to the workbook.
 
-During migration, {{ datalens-short-name }} finds linked objects recursively across all links. Therefore, you can start your migration from any object. For example, from a dashboard. {{ datalens-short-name }} will find all linked charts, datasets, and connections. Then it will search for the links of the objects it found. Finally, it will prompt you to put all the objects it found into a single workbook.
+During migration, {{ datalens-short-name }} finds linked objects recursively across all links. Therefore, you can start migration from any object, e.g., from a dashboard. {{ datalens-short-name }} will find all linked charts, datasets, and connections. Then it will search for the links of the objects it found. Finally, {{ datalens-short-name }} will prompt you to put all the objects it found into a single workbook.
 
 {% note warning %}
 

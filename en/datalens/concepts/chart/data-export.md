@@ -11,7 +11,7 @@ In {{ datalens-short-name }}, you can export data from charts:
 
   * Available for all chart types other than maps.
 
-    * In tables with pagination enabled, exports only the current page data.
+    * With pagination on, only table data from the current page will be exported.
     * For graphs, exports the already aggregated data the chart is built based on.
 
   * The following formats are available:
@@ -65,7 +65,7 @@ Before initiating a background data export, make sure that:
 * Export is not [disabled](#data-export-disable) at the {{ datalens-short-name }} instance level or  connection or dataset level.
 * The user has the `{{ permission-execute }}` permission for both the connection and dataset used to create the chart with the data you want to export.
 
-### Limitations {#restrictions}
+### Limits {#restrictions}
 
 The following limitations apply to the background export:
 
@@ -171,7 +171,7 @@ By default, users can export data from charts. You can disable this option at th
      ![image](../../../_assets/datalens/settings/data-export-disable.png)
   
   
-  After you ban export:
+  After you prohibit export:
   
   * In the chart interface, the export option will be removed from the ![icon](../../../_assets/console-icons/ellipsis.svg) menu, and users will be unable to export chart data.
   * However, they will still be able to copy data from the charts and take screenshots.
@@ -188,7 +188,7 @@ By default, users can export data from charts. You can disable this option at th
 
      For connections to [Files](../../operations/connection/create-file.md), [Yandex Documents](../../operations/connection/create-yadocs.md), or [Google Sheets](../../operations/connection/create-google-sheets.md), click ![icon](../../../_assets/console-icons/gear.svg) at the top right and uncheck **Allow data export**.
 
-  After you ban export:
+  After you prohibit export:
   
   * Charts based on this connection will no longer display the export option in their ![icon](../../../_assets/console-icons/ellipsis.svg) menu, and users will be unable to export data from those charts.
   * However, users can still manually copy data from charts or take screenshots.
@@ -202,7 +202,7 @@ By default, users can export data from charts. You can disable this option at th
 
      ![image](../../../_assets/datalens/chart/dataset-export-disable.png)
   
-  After you ban export:
+  After you prohibit export:
   
   * Charts based on this dataset will no longer display the export option in their ![icon](../../../_assets/console-icons/ellipsis.svg) menu, and users will be unable to export data from those charts.
   * However, they will still be able to copy data from the charts and take screenshots.

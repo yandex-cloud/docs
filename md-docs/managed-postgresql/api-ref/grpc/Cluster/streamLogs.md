@@ -35,7 +35,8 @@ Columns from logs table to get in the response. ||
 || service_type | enum **ServiceType**
 
 - `POSTGRESQL`: Logs of PostgreSQL activity.
-- `POOLER`: Logs of connection pooler activity. ||
+- `POOLER`: Logs of connection pooler activity.
+- `REPACK`: Logs of Managed Repack service activity. ||
 || from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Start timestamp for the logs request. ||

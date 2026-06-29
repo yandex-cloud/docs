@@ -70,6 +70,9 @@ Creates a PostgreSQL cluster in the specified folder.
       "enabled": "google.protobuf.BoolValue",
       "connections_folder_id": "string",
       "secrets_folder_id": "string"
+    },
+    "managed_repack": {
+      "enabled": "google.protobuf.BoolValue"
     }
   },
   "database_specs": [
@@ -396,6 +399,9 @@ Disk size autoscaling ||
 || connection_manager | **[ClusterConnectionManager](#yandex.cloud.mdb.v1.ClusterConnectionManager)**
 
 Cluster-wide Connection Manager integration configuration ||
+|| managed_repack | **[ManagedRepack](#yandex.cloud.mdb.postgresql.v1.ManagedRepack)**
+
+Configuration of managed pg_repack. ||
 |#
 
 ## ConnectionPoolerConfig {#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig}
@@ -516,6 +522,17 @@ Optional. Defaults to the cluster's folder if not specified. ||
 A Connection Manager setting for connections created by MDB integration.
 ID of the folder where connection secrets are created.
 Optional. Defaults to the cluster's folder if not specified. ||
+|#
+
+## ManagedRepack {#yandex.cloud.mdb.postgresql.v1.ManagedRepack}
+
+Cluster-wide configuration of managed pg_repack.
+
+#|
+||Field | Description ||
+|| enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables/disables managed pg_repack for the cluster. ||
 |#
 
 ## DatabaseSpec {#yandex.cloud.mdb.postgresql.v1.DatabaseSpec}
@@ -1148,6 +1165,9 @@ Defaults to "*". ||
         "enabled": "google.protobuf.BoolValue",
         "connections_folder_id": "string",
         "secrets_folder_id": "string"
+      },
+      "managed_repack": {
+        "enabled": "google.protobuf.BoolValue"
       }
     },
     "network_id": "string",
@@ -1511,6 +1531,9 @@ Full version ||
 || connection_manager | **[ClusterConnectionManager](#yandex.cloud.mdb.v1.ClusterConnectionManager2)**
 
 Cluster-wide Connection Manager integration configuration ||
+|| managed_repack | **[ManagedRepack](#yandex.cloud.mdb.postgresql.v1.ManagedRepack2)**
+
+Configuration of managed pg_repack. ||
 |#
 
 ## ConnectionPoolerConfig {#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig2}
@@ -1631,6 +1654,17 @@ Optional. Defaults to the cluster's folder if not specified. ||
 A Connection Manager setting for connections created by MDB integration.
 ID of the folder where connection secrets are created.
 Optional. Defaults to the cluster's folder if not specified. ||
+|#
+
+## ManagedRepack {#yandex.cloud.mdb.postgresql.v1.ManagedRepack2}
+
+Cluster-wide configuration of managed pg_repack.
+
+#|
+||Field | Description ||
+|| enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables/disables managed pg_repack for the cluster. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow2}

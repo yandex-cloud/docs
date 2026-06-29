@@ -12,7 +12,7 @@ keywords:
 
 
 
-In this section, you can find the {{ mspqr-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
+This section describes the {{ mspqr-name }} pricing [policy](#rules) and [current prices](#prices) for its resources.
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
@@ -36,22 +36,22 @@ The {{ mspqr-name }} usage cost includes:
 
 The host operation cost is charged per hour based on the host class. For detailed class specifications, see [Host classes](concepts/instance-types.md).
 
-The minimum billing unit is one minute, e.g., 1.5 minutes of host operation cost the same as two minutes. You will not be charged for the time when the host is unavailable for basic operations.
+The minimum billing unit is one minute, e.g., 1.5 minutes of host usage is billed as 2 minutes. You are not billed for downtime periods when the host cannot perform its primary functions.
 
 ### Disk space usage {#rules-storage}
 
-You pay for the following:
+You are billed for the following:
 
 * Storage allocated for database clusters.
 
-    * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
+    * You can order local SSD storage (`local-ssd`) only for clusters with three or more hosts:
 
         * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
         * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
 
-    * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
+    * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
 
-* Space occupied by DB backups beyond the storage size specified for the cluster.
+* Database backup storage exceeding the cluster’s allocated space.
 
     {% note info %}
 
@@ -59,23 +59,23 @@ You pay for the following:
 
     {% endnote %}
 
-    * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
+    * Backups are stored free of charge as long as the combined size of the database and all backups is smaller than the selected storage size.
 
-    * When performing automatic backups, {{ mspqr-name }} does not create a new backup but saves the database changes introduced since the previous one. This means the storage space used by automatic backups increases only in proportion to the size of updates.
+    * When performing automatic backups, {{ mspqr-name }} does not create a new backup but saves the database changes introduced since the previous one. As a result, the storage used by automatic backups grows only in proportion to the amount of changes.
 
     * Adding hosts increases the cluster's total storage size and, consequently, the free amount of backups.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes costs the same as for 2 minutes.
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 
 ## Discount for committed volume of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mpg-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at your current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
+{{ mspqr-name }} provides two types of CVoS: for vCPUs and for RAM on the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at your current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
-A CVoS discount is only available for certain resource types. For unsupported resource types, the relevant CVoS columns under [Prices](#prices) are blank. Currently, you cannot order storage or web traffic this way.
+A CVoS discount is only available for certain resource types. For unsupported resource types, the relevant CVoS columns under [Prices](#prices) are blank. Storage size and internet traffic cannot currently be reserved via CVoS.
 
 {% endnote %}
 
@@ -103,14 +103,6 @@ Pricing for backup storage has the following specifics:
 * {% include [backup-wal](../_includes/mdb/mpg/backup-wal.md) %}
 
 
-
-{% note info %}
-
-The prices indicated are valid from June 16, 2026.
-
-{% endnote %}
-
-{% include [usd-prices](../_pricing/managed-spqr/usd.md) %}
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
